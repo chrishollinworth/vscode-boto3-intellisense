@@ -36,8 +36,10 @@ __all__ = (
     "RecommendationTriggerTypeType",
     "RecommendationTypeType",
     "RelevanceLevelType",
+    "RelevanceType",
     "SearchContentPaginatorName",
     "SearchSessionsPaginatorName",
+    "TargetTypeType",
 )
 
 AssistantStatusType = Literal[
@@ -79,5 +81,7 @@ RecommendationSourceTypeType = Literal["ISSUE_DETECTION", "OTHER", "RULE_EVALUAT
 RecommendationTriggerTypeType = Literal["QUERY"]
 RecommendationTypeType = Literal["KNOWLEDGE_CONTENT"]
 RelevanceLevelType = Literal["HIGH", "LOW", "MEDIUM"]
+RelevanceType = Literal["HELPFUL", "NOT_HELPFUL"]
 SearchContentPaginatorName = Literal["search_content"]
 SearchSessionsPaginatorName = Literal["search_sessions"]
+TargetTypeType = Literal["RECOMMENDATION", "RESULT"]

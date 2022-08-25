@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "DomainType",
+    "ImportModeType",
     "IngestionModeType",
     "ListBatchInferenceJobsPaginatorName",
     "ListBatchSegmentJobsPaginatorName",
@@ -41,6 +42,7 @@ __all__ = (
 )
 
 DomainType = Literal["ECOMMERCE", "VIDEO_ON_DEMAND"]
+ImportModeType = Literal["FULL", "INCREMENTAL"]
 IngestionModeType = Literal["ALL", "BULK", "PUT"]
 ListBatchInferenceJobsPaginatorName = Literal["list_batch_inference_jobs"]
 ListBatchSegmentJobsPaginatorName = Literal["list_batch_segment_jobs"]

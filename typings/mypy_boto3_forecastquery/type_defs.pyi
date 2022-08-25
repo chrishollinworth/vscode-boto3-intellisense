@@ -24,6 +24,8 @@ __all__ = (
     "ForecastTypeDef",
     "QueryForecastRequestRequestTypeDef",
     "QueryForecastResponseTypeDef",
+    "QueryWhatIfForecastRequestRequestTypeDef",
+    "QueryWhatIfForecastResponseTypeDef",
     "ResponseMetadataTypeDef",
 )
 
@@ -68,6 +70,37 @@ class QueryForecastRequestRequestTypeDef(
 
 QueryForecastResponseTypeDef = TypedDict(
     "QueryForecastResponseTypeDef",
+    {
+        "Forecast": "ForecastTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredQueryWhatIfForecastRequestRequestTypeDef = TypedDict(
+    "_RequiredQueryWhatIfForecastRequestRequestTypeDef",
+    {
+        "WhatIfForecastArn": str,
+        "Filters": Dict[str, str],
+    },
+)
+_OptionalQueryWhatIfForecastRequestRequestTypeDef = TypedDict(
+    "_OptionalQueryWhatIfForecastRequestRequestTypeDef",
+    {
+        "StartDate": str,
+        "EndDate": str,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class QueryWhatIfForecastRequestRequestTypeDef(
+    _RequiredQueryWhatIfForecastRequestRequestTypeDef,
+    _OptionalQueryWhatIfForecastRequestRequestTypeDef,
+):
+    pass
+
+QueryWhatIfForecastResponseTypeDef = TypedDict(
+    "QueryWhatIfForecastResponseTypeDef",
     {
         "Forecast": "ForecastTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",

@@ -241,6 +241,8 @@ __all__ = (
     "TagTypeDef",
     "TestConnectionMessageRequestTypeDef",
     "TestConnectionResponseTypeDef",
+    "UpdateSubscriptionsToEventBridgeMessageRequestTypeDef",
+    "UpdateSubscriptionsToEventBridgeResponseTypeDef",
     "VpcSecurityGroupMembershipTypeDef",
     "WaiterConfigTypeDef",
 )
@@ -1384,6 +1386,7 @@ _OptionalElasticsearchSettingsTypeDef = TypedDict(
     {
         "FullLoadErrorPercentage": int,
         "ErrorRetryDuration": int,
+        "UseNewMappingType": bool,
     },
     total=False,
 )
@@ -1669,6 +1672,7 @@ MicrosoftSQLServerSettingsTypeDef = TypedDict(
         "UseThirdPartyBackupDevice": bool,
         "SecretsManagerAccessRoleArn": str,
         "SecretsManagerSecretId": str,
+        "TrimSpaceInChar": bool,
     },
     total=False,
 )
@@ -1986,6 +1990,7 @@ OracleSettingsTypeDef = TypedDict(
         "SecretsManagerSecretId": str,
         "SecretsManagerOracleAsmAccessRoleArn": str,
         "SecretsManagerOracleAsmSecretId": str,
+        "TrimSpaceInChar": bool,
     },
     total=False,
 )
@@ -2050,6 +2055,7 @@ PostgreSQLSettingsTypeDef = TypedDict(
         "PluginName": PluginNameValueType,
         "SecretsManagerAccessRoleArn": str,
         "SecretsManagerSecretId": str,
+        "TrimSpaceInChar": bool,
     },
     total=False,
 )
@@ -2437,6 +2443,8 @@ S3SettingsTypeDef = TypedDict(
         "MaxFileSize": int,
         "Rfc4180": bool,
         "DatePartitionTimezone": str,
+        "AddTrailingPaddingCharacter": bool,
+        "ExpectedBucketOwner": str,
     },
     total=False,
 )
@@ -2667,6 +2675,22 @@ TestConnectionResponseTypeDef = TypedDict(
     "TestConnectionResponseTypeDef",
     {
         "Connection": "ConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateSubscriptionsToEventBridgeMessageRequestTypeDef = TypedDict(
+    "UpdateSubscriptionsToEventBridgeMessageRequestTypeDef",
+    {
+        "ForceMove": bool,
+    },
+    total=False,
+)
+
+UpdateSubscriptionsToEventBridgeResponseTypeDef = TypedDict(
+    "UpdateSubscriptionsToEventBridgeResponseTypeDef",
+    {
+        "Result": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

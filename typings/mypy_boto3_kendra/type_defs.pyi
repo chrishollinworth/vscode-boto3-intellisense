@@ -6,9 +6,9 @@ Type annotations for kendra service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_kendra.type_defs import AccessControlListConfigurationTypeDef
+    from mypy_boto3_kendra.type_defs import AccessControlConfigurationSummaryTypeDef
 
-    data: AccessControlListConfigurationTypeDef = {...}
+    data: AccessControlConfigurationSummaryTypeDef = {...}
     ```
 """
 import sys
@@ -18,8 +18,10 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    AlfrescoEntityType,
     ConditionOperatorType,
     ConfluenceAttachmentFieldNameType,
+    ConfluenceAuthenticationTypeType,
     ConfluenceBlogFieldNameType,
     ConfluencePageFieldNameType,
     ConfluenceSpaceFieldNameType,
@@ -60,6 +62,7 @@ from .literals import (
     ScoreConfidenceType,
     ServiceNowAuthenticationTypeType,
     ServiceNowBuildVersionTypeType,
+    SharePointOnlineAuthenticationTypeType,
     SharePointVersionType,
     SlackEntityType,
     SortOrderType,
@@ -80,10 +83,12 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccessControlConfigurationSummaryTypeDef",
     "AccessControlListConfigurationTypeDef",
     "AclConfigurationTypeDef",
     "AdditionalResultAttributeTypeDef",
     "AdditionalResultAttributeValueTypeDef",
+    "AlfrescoConfigurationTypeDef",
     "AssociateEntitiesToExperienceRequestRequestTypeDef",
     "AssociateEntitiesToExperienceResponseTypeDef",
     "AssociatePersonasToEntitiesRequestRequestTypeDef",
@@ -117,6 +122,8 @@ __all__ = (
     "ConnectionConfigurationTypeDef",
     "ContentSourceConfigurationTypeDef",
     "CorrectionTypeDef",
+    "CreateAccessControlConfigurationRequestRequestTypeDef",
+    "CreateAccessControlConfigurationResponseTypeDef",
     "CreateDataSourceRequestRequestTypeDef",
     "CreateDataSourceResponseTypeDef",
     "CreateExperienceRequestRequestTypeDef",
@@ -139,6 +146,7 @@ __all__ = (
     "DataSourceToIndexFieldMappingTypeDef",
     "DataSourceVpcConfigurationTypeDef",
     "DatabaseConfigurationTypeDef",
+    "DeleteAccessControlConfigurationRequestRequestTypeDef",
     "DeleteDataSourceRequestRequestTypeDef",
     "DeleteExperienceRequestRequestTypeDef",
     "DeleteFaqRequestRequestTypeDef",
@@ -146,6 +154,8 @@ __all__ = (
     "DeletePrincipalMappingRequestRequestTypeDef",
     "DeleteQuerySuggestionsBlockListRequestRequestTypeDef",
     "DeleteThesaurusRequestRequestTypeDef",
+    "DescribeAccessControlConfigurationRequestRequestTypeDef",
+    "DescribeAccessControlConfigurationResponseTypeDef",
     "DescribeDataSourceRequestRequestTypeDef",
     "DescribeDataSourceResponseTypeDef",
     "DescribeExperienceRequestRequestTypeDef",
@@ -208,6 +218,8 @@ __all__ = (
     "JiraConfigurationTypeDef",
     "JsonTokenTypeConfigurationTypeDef",
     "JwtTokenTypeConfigurationTypeDef",
+    "ListAccessControlConfigurationsRequestRequestTypeDef",
+    "ListAccessControlConfigurationsResponseTypeDef",
     "ListDataSourceSyncJobsRequestRequestTypeDef",
     "ListDataSourceSyncJobsResponseTypeDef",
     "ListDataSourcesRequestRequestTypeDef",
@@ -282,11 +294,13 @@ __all__ = (
     "SuggestionValueTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TemplateConfigurationTypeDef",
     "TextDocumentStatisticsTypeDef",
     "TextWithHighlightsTypeDef",
     "ThesaurusSummaryTypeDef",
     "TimeRangeTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAccessControlConfigurationRequestRequestTypeDef",
     "UpdateDataSourceRequestRequestTypeDef",
     "UpdateExperienceRequestRequestTypeDef",
     "UpdateIndexRequestRequestTypeDef",
@@ -301,6 +315,13 @@ __all__ = (
     "WarningTypeDef",
     "WebCrawlerConfigurationTypeDef",
     "WorkDocsConfigurationTypeDef",
+)
+
+AccessControlConfigurationSummaryTypeDef = TypedDict(
+    "AccessControlConfigurationSummaryTypeDef",
+    {
+        "Id": str,
+    },
 )
 
 AccessControlListConfigurationTypeDef = TypedDict(
@@ -334,6 +355,36 @@ AdditionalResultAttributeValueTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredAlfrescoConfigurationTypeDef = TypedDict(
+    "_RequiredAlfrescoConfigurationTypeDef",
+    {
+        "SiteUrl": str,
+        "SiteId": str,
+        "SecretArn": str,
+        "SslCertificateS3Path": "S3PathTypeDef",
+    },
+)
+_OptionalAlfrescoConfigurationTypeDef = TypedDict(
+    "_OptionalAlfrescoConfigurationTypeDef",
+    {
+        "CrawlSystemFolders": bool,
+        "CrawlComments": bool,
+        "EntityFilter": List[AlfrescoEntityType],
+        "DocumentLibraryFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "BlogFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "WikiFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "InclusionPatterns": List[str],
+        "ExclusionPatterns": List[str],
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class AlfrescoConfigurationTypeDef(
+    _RequiredAlfrescoConfigurationTypeDef, _OptionalAlfrescoConfigurationTypeDef
+):
+    pass
 
 AssociateEntitiesToExperienceRequestRequestTypeDef = TypedDict(
     "AssociateEntitiesToExperienceRequestRequestTypeDef",
@@ -636,6 +687,8 @@ _OptionalConfluenceConfigurationTypeDef = TypedDict(
         "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
         "InclusionPatterns": List[str],
         "ExclusionPatterns": List[str],
+        "ProxyConfiguration": "ProxyConfigurationTypeDef",
+        "AuthenticationType": ConfluenceAuthenticationTypeType,
     },
     total=False,
 )
@@ -717,6 +770,38 @@ CorrectionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCreateAccessControlConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAccessControlConfigurationRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "Name": str,
+    },
+)
+_OptionalCreateAccessControlConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAccessControlConfigurationRequestRequestTypeDef",
+    {
+        "Description": str,
+        "AccessControlList": List["PrincipalTypeDef"],
+        "HierarchicalAccessControlList": List["HierarchicalPrincipalTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateAccessControlConfigurationRequestRequestTypeDef(
+    _RequiredCreateAccessControlConfigurationRequestRequestTypeDef,
+    _OptionalCreateAccessControlConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateAccessControlConfigurationResponseTypeDef = TypedDict(
+    "CreateAccessControlConfigurationResponseTypeDef",
+    {
+        "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateDataSourceRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDataSourceRequestRequestTypeDef",
     {
@@ -729,6 +814,7 @@ _OptionalCreateDataSourceRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDataSourceRequestRequestTypeDef",
     {
         "Configuration": "DataSourceConfigurationTypeDef",
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
         "Description": str,
         "Schedule": str,
         "RoleArn": str,
@@ -948,6 +1034,8 @@ DataSourceConfigurationTypeDef = TypedDict(
         "QuipConfiguration": "QuipConfigurationTypeDef",
         "JiraConfiguration": "JiraConfigurationTypeDef",
         "GitHubConfiguration": "GitHubConfigurationTypeDef",
+        "AlfrescoConfiguration": "AlfrescoConfigurationTypeDef",
+        "TemplateConfiguration": "TemplateConfigurationTypeDef",
     },
     total=False,
 )
@@ -1071,6 +1159,14 @@ class DatabaseConfigurationTypeDef(
 ):
     pass
 
+DeleteAccessControlConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteAccessControlConfigurationRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "Id": str,
+    },
+)
+
 DeleteDataSourceRequestRequestTypeDef = TypedDict(
     "DeleteDataSourceRequestRequestTypeDef",
     {
@@ -1140,6 +1236,26 @@ DeleteThesaurusRequestRequestTypeDef = TypedDict(
     },
 )
 
+DescribeAccessControlConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeAccessControlConfigurationRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "Id": str,
+    },
+)
+
+DescribeAccessControlConfigurationResponseTypeDef = TypedDict(
+    "DescribeAccessControlConfigurationResponseTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "ErrorMessage": str,
+        "AccessControlList": List["PrincipalTypeDef"],
+        "HierarchicalAccessControlList": List["HierarchicalPrincipalTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeDataSourceRequestRequestTypeDef = TypedDict(
     "DescribeDataSourceRequestRequestTypeDef",
     {
@@ -1156,6 +1272,7 @@ DescribeDataSourceResponseTypeDef = TypedDict(
         "Name": str,
         "Type": DataSourceTypeType,
         "Configuration": "DataSourceConfigurationTypeDef",
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
         "Description": str,
@@ -1517,6 +1634,7 @@ _OptionalDocumentTypeDef = TypedDict(
         "AccessControlList": List["PrincipalTypeDef"],
         "HierarchicalAccessControlList": List["HierarchicalPrincipalTypeDef"],
         "ContentType": ContentTypeType,
+        "AccessControlConfigurationId": str,
     },
     total=False,
 )
@@ -2005,6 +2123,36 @@ class JwtTokenTypeConfigurationTypeDef(
     _RequiredJwtTokenTypeConfigurationTypeDef, _OptionalJwtTokenTypeConfigurationTypeDef
 ):
     pass
+
+_RequiredListAccessControlConfigurationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAccessControlConfigurationsRequestRequestTypeDef",
+    {
+        "IndexId": str,
+    },
+)
+_OptionalListAccessControlConfigurationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAccessControlConfigurationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListAccessControlConfigurationsRequestRequestTypeDef(
+    _RequiredListAccessControlConfigurationsRequestRequestTypeDef,
+    _OptionalListAccessControlConfigurationsRequestRequestTypeDef,
+):
+    pass
+
+ListAccessControlConfigurationsResponseTypeDef = TypedDict(
+    "ListAccessControlConfigurationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "AccessControlConfigurations": List["AccessControlConfigurationSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredListDataSourceSyncJobsRequestRequestTypeDef = TypedDict(
     "_RequiredListDataSourceSyncJobsRequestRequestTypeDef",
@@ -2906,6 +3054,8 @@ _OptionalSharePointConfigurationTypeDef = TypedDict(
         "DocumentTitleFieldName": str,
         "DisableLocalGroups": bool,
         "SslCertificateS3Path": "S3PathTypeDef",
+        "AuthenticationType": SharePointOnlineAuthenticationTypeType,
+        "ProxyConfiguration": "ProxyConfigurationTypeDef",
     },
     total=False,
 )
@@ -3092,6 +3242,14 @@ TagTypeDef = TypedDict(
     },
 )
 
+TemplateConfigurationTypeDef = TypedDict(
+    "TemplateConfigurationTypeDef",
+    {
+        "Template": Dict[str, Any],
+    },
+    total=False,
+)
+
 TextDocumentStatisticsTypeDef = TypedDict(
     "TextDocumentStatisticsTypeDef",
     {
@@ -3138,6 +3296,30 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateAccessControlConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAccessControlConfigurationRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "Id": str,
+    },
+)
+_OptionalUpdateAccessControlConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAccessControlConfigurationRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "AccessControlList": List["PrincipalTypeDef"],
+        "HierarchicalAccessControlList": List["HierarchicalPrincipalTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateAccessControlConfigurationRequestRequestTypeDef(
+    _RequiredUpdateAccessControlConfigurationRequestRequestTypeDef,
+    _OptionalUpdateAccessControlConfigurationRequestRequestTypeDef,
+):
+    pass
+
 _RequiredUpdateDataSourceRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateDataSourceRequestRequestTypeDef",
     {
@@ -3150,6 +3332,7 @@ _OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
     {
         "Name": str,
         "Configuration": "DataSourceConfigurationTypeDef",
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
         "Description": str,
         "Schedule": str,
         "RoleArn": str,

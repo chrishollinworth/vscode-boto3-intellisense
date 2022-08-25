@@ -54,7 +54,7 @@ class Exceptions:
 
 class AutoScalingPlansClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html)
     """
 
@@ -69,8 +69,15 @@ class AutoScalingPlansClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#can_paginate)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#close)
         """
     def create_scaling_plan(
         self,
@@ -82,7 +89,7 @@ class AutoScalingPlansClient(BaseClient):
         """
         Creates a scaling plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.create_scaling_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.create_scaling_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#create_scaling_plan)
         """
     def delete_scaling_plan(
@@ -91,7 +98,7 @@ class AutoScalingPlansClient(BaseClient):
         """
         Deletes the specified scaling plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.delete_scaling_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.delete_scaling_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#delete_scaling_plan)
         """
     def describe_scaling_plan_resources(
@@ -105,7 +112,7 @@ class AutoScalingPlansClient(BaseClient):
         """
         Describes the scalable resources in the specified scaling plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.describe_scaling_plan_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.describe_scaling_plan_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#describe_scaling_plan_resources)
         """
     def describe_scaling_plans(
@@ -120,7 +127,7 @@ class AutoScalingPlansClient(BaseClient):
         """
         Describes one or more of your scaling plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.describe_scaling_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.describe_scaling_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#describe_scaling_plans)
         """
     def generate_presigned_url(
@@ -133,7 +140,7 @@ class AutoScalingPlansClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#generate_presigned_url)
         """
     def get_scaling_plan_resource_forecast_data(
@@ -151,7 +158,7 @@ class AutoScalingPlansClient(BaseClient):
         """
         Retrieves the forecast data for a scalable resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.get_scaling_plan_resource_forecast_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.get_scaling_plan_resource_forecast_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#get_scaling_plan_resource_forecast_data)
         """
     def update_scaling_plan(
@@ -165,7 +172,7 @@ class AutoScalingPlansClient(BaseClient):
         """
         Updates the specified scaling plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.update_scaling_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.update_scaling_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/client.html#update_scaling_plan)
         """
     @overload
@@ -173,7 +180,7 @@ class AutoScalingPlansClient(BaseClient):
         self, operation_name: Literal["describe_scaling_plan_resources"]
     ) -> DescribeScalingPlanResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/paginators.html#describescalingplanresourcespaginator)
         """
     @overload
@@ -181,6 +188,6 @@ class AutoScalingPlansClient(BaseClient):
         self, operation_name: Literal["describe_scaling_plans"]
     ) -> DescribeScalingPlansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/paginators.html#describescalingplanspaginator)
         """

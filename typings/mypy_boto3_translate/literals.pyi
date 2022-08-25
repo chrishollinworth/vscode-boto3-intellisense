@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "DirectionalityType",
+    "DisplayLanguageCodeType",
     "EncryptionKeyTypeType",
     "FormalityType",
     "JobStatusType",
@@ -32,6 +33,7 @@ __all__ = (
 )
 
 DirectionalityType = Literal["MULTI", "UNI"]
+DisplayLanguageCodeType = Literal["de", "en", "es", "fr", "it", "ja", "ko", "pt", "zh", "zh-TW"]
 EncryptionKeyTypeType = Literal["KMS"]
 FormalityType = Literal["FORMAL", "INFORMAL"]
 JobStatusType = Literal[

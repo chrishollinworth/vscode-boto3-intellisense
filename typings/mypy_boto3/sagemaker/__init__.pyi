@@ -29,6 +29,7 @@ Usage::
         ListDeviceFleetsPaginator,
         ListDevicesPaginator,
         ListDomainsPaginator,
+        ListEdgeDeploymentPlansPaginator,
         ListEdgePackagingJobsPaginator,
         ListEndpointConfigsPaginator,
         ListEndpointsPaginator,
@@ -59,6 +60,7 @@ Usage::
         ListPipelineParametersForExecutionPaginator,
         ListPipelinesPaginator,
         ListProcessingJobsPaginator,
+        ListStageDevicesPaginator,
         ListStudioLifecycleConfigsPaginator,
         ListSubscribedWorkteamsPaginator,
         ListTagsPaginator,
@@ -114,6 +116,7 @@ Usage::
     list_device_fleets_paginator: ListDeviceFleetsPaginator = client.get_paginator("list_device_fleets")
     list_devices_paginator: ListDevicesPaginator = client.get_paginator("list_devices")
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
+    list_edge_deployment_plans_paginator: ListEdgeDeploymentPlansPaginator = client.get_paginator("list_edge_deployment_plans")
     list_edge_packaging_jobs_paginator: ListEdgePackagingJobsPaginator = client.get_paginator("list_edge_packaging_jobs")
     list_endpoint_configs_paginator: ListEndpointConfigsPaginator = client.get_paginator("list_endpoint_configs")
     list_endpoints_paginator: ListEndpointsPaginator = client.get_paginator("list_endpoints")
@@ -144,6 +147,7 @@ Usage::
     list_pipeline_parameters_for_execution_paginator: ListPipelineParametersForExecutionPaginator = client.get_paginator("list_pipeline_parameters_for_execution")
     list_pipelines_paginator: ListPipelinesPaginator = client.get_paginator("list_pipelines")
     list_processing_jobs_paginator: ListProcessingJobsPaginator = client.get_paginator("list_processing_jobs")
+    list_stage_devices_paginator: ListStageDevicesPaginator = client.get_paginator("list_stage_devices")
     list_studio_lifecycle_configs_paginator: ListStudioLifecycleConfigsPaginator = client.get_paginator("list_studio_lifecycle_configs")
     list_subscribed_workteams_paginator: ListSubscribedWorkteamsPaginator = client.get_paginator("list_subscribed_workteams")
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
@@ -175,6 +179,7 @@ from .paginator import (
     ListDeviceFleetsPaginator,
     ListDevicesPaginator,
     ListDomainsPaginator,
+    ListEdgeDeploymentPlansPaginator,
     ListEdgePackagingJobsPaginator,
     ListEndpointConfigsPaginator,
     ListEndpointsPaginator,
@@ -205,6 +210,7 @@ from .paginator import (
     ListPipelineParametersForExecutionPaginator,
     ListPipelinesPaginator,
     ListProcessingJobsPaginator,
+    ListStageDevicesPaginator,
     ListStudioLifecycleConfigsPaginator,
     ListSubscribedWorkteamsPaginator,
     ListTagsPaginator,
@@ -260,6 +266,7 @@ __all__ = (
     "ListDeviceFleetsPaginator",
     "ListDevicesPaginator",
     "ListDomainsPaginator",
+    "ListEdgeDeploymentPlansPaginator",
     "ListEdgePackagingJobsPaginator",
     "ListEndpointConfigsPaginator",
     "ListEndpointsPaginator",
@@ -290,6 +297,7 @@ __all__ = (
     "ListPipelineParametersForExecutionPaginator",
     "ListPipelinesPaginator",
     "ListProcessingJobsPaginator",
+    "ListStageDevicesPaginator",
     "ListStudioLifecycleConfigsPaginator",
     "ListSubscribedWorkteamsPaginator",
     "ListTagsPaginator",

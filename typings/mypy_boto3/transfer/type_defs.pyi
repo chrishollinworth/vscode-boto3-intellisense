@@ -6,40 +6,61 @@ Type annotations for transfer service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_transfer.type_defs import CopyStepDetailsTypeDef
+    from mypy_boto3_transfer.type_defs import As2ConnectorConfigTypeDef
 
-    data: CopyStepDetailsTypeDef = {...}
+    data: As2ConnectorConfigTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 from .literals import (
+    AgreementStatusTypeType,
+    CertificateStatusTypeType,
+    CertificateTypeType,
+    CertificateUsageTypeType,
+    CompressionEnumType,
     CustomStepStatusType,
     DomainType,
+    EncryptionAlgType,
     EndpointTypeType,
     ExecutionErrorTypeType,
     ExecutionStatusType,
     HomeDirectoryTypeType,
     IdentityProviderTypeType,
+    MdnResponseType,
+    MdnSigningAlgType,
     OverwriteExistingType,
+    ProfileTypeType,
     ProtocolType,
     SetStatOptionType,
+    SigningAlgType,
     StateType,
     TlsSessionResumptionModeType,
     WorkflowStepTypeType,
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "As2ConnectorConfigTypeDef",
     "CopyStepDetailsTypeDef",
     "CreateAccessRequestRequestTypeDef",
     "CreateAccessResponseTypeDef",
+    "CreateAgreementRequestRequestTypeDef",
+    "CreateAgreementResponseTypeDef",
+    "CreateConnectorRequestRequestTypeDef",
+    "CreateConnectorResponseTypeDef",
+    "CreateProfileRequestRequestTypeDef",
+    "CreateProfileResponseTypeDef",
     "CreateServerRequestRequestTypeDef",
     "CreateServerResponseTypeDef",
     "CreateUserRequestRequestTypeDef",
@@ -48,6 +69,10 @@ __all__ = (
     "CreateWorkflowResponseTypeDef",
     "CustomStepDetailsTypeDef",
     "DeleteAccessRequestRequestTypeDef",
+    "DeleteAgreementRequestRequestTypeDef",
+    "DeleteCertificateRequestRequestTypeDef",
+    "DeleteConnectorRequestRequestTypeDef",
+    "DeleteProfileRequestRequestTypeDef",
     "DeleteServerRequestRequestTypeDef",
     "DeleteSshPublicKeyRequestRequestTypeDef",
     "DeleteStepDetailsTypeDef",
@@ -55,8 +80,16 @@ __all__ = (
     "DeleteWorkflowRequestRequestTypeDef",
     "DescribeAccessRequestRequestTypeDef",
     "DescribeAccessResponseTypeDef",
+    "DescribeAgreementRequestRequestTypeDef",
+    "DescribeAgreementResponseTypeDef",
+    "DescribeCertificateRequestRequestTypeDef",
+    "DescribeCertificateResponseTypeDef",
+    "DescribeConnectorRequestRequestTypeDef",
+    "DescribeConnectorResponseTypeDef",
     "DescribeExecutionRequestRequestTypeDef",
     "DescribeExecutionResponseTypeDef",
+    "DescribeProfileRequestRequestTypeDef",
+    "DescribeProfileResponseTypeDef",
     "DescribeSecurityPolicyRequestRequestTypeDef",
     "DescribeSecurityPolicyResponseTypeDef",
     "DescribeServerRequestRequestTypeDef",
@@ -66,7 +99,11 @@ __all__ = (
     "DescribeWorkflowRequestRequestTypeDef",
     "DescribeWorkflowResponseTypeDef",
     "DescribedAccessTypeDef",
+    "DescribedAgreementTypeDef",
+    "DescribedCertificateTypeDef",
+    "DescribedConnectorTypeDef",
     "DescribedExecutionTypeDef",
+    "DescribedProfileTypeDef",
     "DescribedSecurityPolicyTypeDef",
     "DescribedServerTypeDef",
     "DescribedUserTypeDef",
@@ -79,13 +116,23 @@ __all__ = (
     "FileLocationTypeDef",
     "HomeDirectoryMapEntryTypeDef",
     "IdentityProviderDetailsTypeDef",
+    "ImportCertificateRequestRequestTypeDef",
+    "ImportCertificateResponseTypeDef",
     "ImportSshPublicKeyRequestRequestTypeDef",
     "ImportSshPublicKeyResponseTypeDef",
     "InputFileLocationTypeDef",
     "ListAccessesRequestRequestTypeDef",
     "ListAccessesResponseTypeDef",
+    "ListAgreementsRequestRequestTypeDef",
+    "ListAgreementsResponseTypeDef",
+    "ListCertificatesRequestRequestTypeDef",
+    "ListCertificatesResponseTypeDef",
+    "ListConnectorsRequestRequestTypeDef",
+    "ListConnectorsResponseTypeDef",
     "ListExecutionsRequestRequestTypeDef",
     "ListExecutionsResponseTypeDef",
+    "ListProfilesRequestRequestTypeDef",
+    "ListProfilesResponseTypeDef",
     "ListSecurityPoliciesRequestRequestTypeDef",
     "ListSecurityPoliciesResponseTypeDef",
     "ListServersRequestRequestTypeDef",
@@ -97,7 +144,11 @@ __all__ = (
     "ListWorkflowsRequestRequestTypeDef",
     "ListWorkflowsResponseTypeDef",
     "ListedAccessTypeDef",
+    "ListedAgreementTypeDef",
+    "ListedCertificateTypeDef",
+    "ListedConnectorTypeDef",
     "ListedExecutionTypeDef",
+    "ListedProfileTypeDef",
     "ListedServerTypeDef",
     "ListedUserTypeDef",
     "ListedWorkflowTypeDef",
@@ -112,6 +163,8 @@ __all__ = (
     "SendWorkflowStepStateRequestRequestTypeDef",
     "ServiceMetadataTypeDef",
     "SshPublicKeyTypeDef",
+    "StartFileTransferRequestRequestTypeDef",
+    "StartFileTransferResponseTypeDef",
     "StartServerRequestRequestTypeDef",
     "StopServerRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -122,6 +175,14 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateAccessRequestRequestTypeDef",
     "UpdateAccessResponseTypeDef",
+    "UpdateAgreementRequestRequestTypeDef",
+    "UpdateAgreementResponseTypeDef",
+    "UpdateCertificateRequestRequestTypeDef",
+    "UpdateCertificateResponseTypeDef",
+    "UpdateConnectorRequestRequestTypeDef",
+    "UpdateConnectorResponseTypeDef",
+    "UpdateProfileRequestRequestTypeDef",
+    "UpdateProfileResponseTypeDef",
     "UpdateServerRequestRequestTypeDef",
     "UpdateServerResponseTypeDef",
     "UpdateUserRequestRequestTypeDef",
@@ -131,6 +192,21 @@ __all__ = (
     "WorkflowDetailTypeDef",
     "WorkflowDetailsTypeDef",
     "WorkflowStepTypeDef",
+)
+
+As2ConnectorConfigTypeDef = TypedDict(
+    "As2ConnectorConfigTypeDef",
+    {
+        "LocalProfileId": str,
+        "PartnerProfileId": str,
+        "MessageSubject": str,
+        "Compression": CompressionEnumType,
+        "EncryptionAlgorithm": EncryptionAlgType,
+        "SigningAlgorithm": SigningAlgType,
+        "MdnSigningAlgorithm": MdnSigningAlgType,
+        "MdnResponse": MdnResponseType,
+    },
+    total=False,
 )
 
 CopyStepDetailsTypeDef = TypedDict(
@@ -174,6 +250,98 @@ CreateAccessResponseTypeDef = TypedDict(
     {
         "ServerId": str,
         "ExternalId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAgreementRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAgreementRequestRequestTypeDef",
+    {
+        "ServerId": str,
+        "LocalProfileId": str,
+        "PartnerProfileId": str,
+        "BaseDirectory": str,
+        "AccessRole": str,
+    },
+)
+_OptionalCreateAgreementRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAgreementRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Status": AgreementStatusTypeType,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAgreementRequestRequestTypeDef(
+    _RequiredCreateAgreementRequestRequestTypeDef, _OptionalCreateAgreementRequestRequestTypeDef
+):
+    pass
+
+CreateAgreementResponseTypeDef = TypedDict(
+    "CreateAgreementResponseTypeDef",
+    {
+        "AgreementId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateConnectorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateConnectorRequestRequestTypeDef",
+    {
+        "Url": str,
+        "As2Config": "As2ConnectorConfigTypeDef",
+        "AccessRole": str,
+    },
+)
+_OptionalCreateConnectorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateConnectorRequestRequestTypeDef",
+    {
+        "LoggingRole": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateConnectorRequestRequestTypeDef(
+    _RequiredCreateConnectorRequestRequestTypeDef, _OptionalCreateConnectorRequestRequestTypeDef
+):
+    pass
+
+CreateConnectorResponseTypeDef = TypedDict(
+    "CreateConnectorResponseTypeDef",
+    {
+        "ConnectorId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateProfileRequestRequestTypeDef",
+    {
+        "As2Id": str,
+        "ProfileType": ProfileTypeType,
+    },
+)
+_OptionalCreateProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateProfileRequestRequestTypeDef",
+    {
+        "CertificateIds": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateProfileRequestRequestTypeDef(
+    _RequiredCreateProfileRequestRequestTypeDef, _OptionalCreateProfileRequestRequestTypeDef
+):
+    pass
+
+CreateProfileResponseTypeDef = TypedDict(
+    "CreateProfileResponseTypeDef",
+    {
+        "ProfileId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -292,6 +460,35 @@ DeleteAccessRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteAgreementRequestRequestTypeDef = TypedDict(
+    "DeleteAgreementRequestRequestTypeDef",
+    {
+        "AgreementId": str,
+        "ServerId": str,
+    },
+)
+
+DeleteCertificateRequestRequestTypeDef = TypedDict(
+    "DeleteCertificateRequestRequestTypeDef",
+    {
+        "CertificateId": str,
+    },
+)
+
+DeleteConnectorRequestRequestTypeDef = TypedDict(
+    "DeleteConnectorRequestRequestTypeDef",
+    {
+        "ConnectorId": str,
+    },
+)
+
+DeleteProfileRequestRequestTypeDef = TypedDict(
+    "DeleteProfileRequestRequestTypeDef",
+    {
+        "ProfileId": str,
+    },
+)
+
 DeleteServerRequestRequestTypeDef = TypedDict(
     "DeleteServerRequestRequestTypeDef",
     {
@@ -349,6 +546,52 @@ DescribeAccessResponseTypeDef = TypedDict(
     },
 )
 
+DescribeAgreementRequestRequestTypeDef = TypedDict(
+    "DescribeAgreementRequestRequestTypeDef",
+    {
+        "AgreementId": str,
+        "ServerId": str,
+    },
+)
+
+DescribeAgreementResponseTypeDef = TypedDict(
+    "DescribeAgreementResponseTypeDef",
+    {
+        "Agreement": "DescribedAgreementTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeCertificateRequestRequestTypeDef = TypedDict(
+    "DescribeCertificateRequestRequestTypeDef",
+    {
+        "CertificateId": str,
+    },
+)
+
+DescribeCertificateResponseTypeDef = TypedDict(
+    "DescribeCertificateResponseTypeDef",
+    {
+        "Certificate": "DescribedCertificateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConnectorRequestRequestTypeDef = TypedDict(
+    "DescribeConnectorRequestRequestTypeDef",
+    {
+        "ConnectorId": str,
+    },
+)
+
+DescribeConnectorResponseTypeDef = TypedDict(
+    "DescribeConnectorResponseTypeDef",
+    {
+        "Connector": "DescribedConnectorTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeExecutionRequestRequestTypeDef = TypedDict(
     "DescribeExecutionRequestRequestTypeDef",
     {
@@ -362,6 +605,21 @@ DescribeExecutionResponseTypeDef = TypedDict(
     {
         "WorkflowId": str,
         "Execution": "DescribedExecutionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeProfileRequestRequestTypeDef = TypedDict(
+    "DescribeProfileRequestRequestTypeDef",
+    {
+        "ProfileId": str,
+    },
+)
+
+DescribeProfileResponseTypeDef = TypedDict(
+    "DescribeProfileResponseTypeDef",
+    {
+        "Profile": "DescribedProfileTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -442,6 +700,88 @@ DescribedAccessTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDescribedAgreementTypeDef = TypedDict(
+    "_RequiredDescribedAgreementTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalDescribedAgreementTypeDef = TypedDict(
+    "_OptionalDescribedAgreementTypeDef",
+    {
+        "AgreementId": str,
+        "Description": str,
+        "Status": AgreementStatusTypeType,
+        "ServerId": str,
+        "LocalProfileId": str,
+        "PartnerProfileId": str,
+        "BaseDirectory": str,
+        "AccessRole": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class DescribedAgreementTypeDef(
+    _RequiredDescribedAgreementTypeDef, _OptionalDescribedAgreementTypeDef
+):
+    pass
+
+_RequiredDescribedCertificateTypeDef = TypedDict(
+    "_RequiredDescribedCertificateTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalDescribedCertificateTypeDef = TypedDict(
+    "_OptionalDescribedCertificateTypeDef",
+    {
+        "CertificateId": str,
+        "Usage": CertificateUsageTypeType,
+        "Status": CertificateStatusTypeType,
+        "Certificate": str,
+        "CertificateChain": str,
+        "ActiveDate": datetime,
+        "InactiveDate": datetime,
+        "Serial": str,
+        "NotBeforeDate": datetime,
+        "NotAfterDate": datetime,
+        "Type": CertificateTypeType,
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class DescribedCertificateTypeDef(
+    _RequiredDescribedCertificateTypeDef, _OptionalDescribedCertificateTypeDef
+):
+    pass
+
+_RequiredDescribedConnectorTypeDef = TypedDict(
+    "_RequiredDescribedConnectorTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalDescribedConnectorTypeDef = TypedDict(
+    "_OptionalDescribedConnectorTypeDef",
+    {
+        "ConnectorId": str,
+        "Url": str,
+        "As2Config": "As2ConnectorConfigTypeDef",
+        "AccessRole": str,
+        "LoggingRole": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class DescribedConnectorTypeDef(
+    _RequiredDescribedConnectorTypeDef, _OptionalDescribedConnectorTypeDef
+):
+    pass
+
 DescribedExecutionTypeDef = TypedDict(
     "DescribedExecutionTypeDef",
     {
@@ -456,6 +796,27 @@ DescribedExecutionTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDescribedProfileTypeDef = TypedDict(
+    "_RequiredDescribedProfileTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalDescribedProfileTypeDef = TypedDict(
+    "_OptionalDescribedProfileTypeDef",
+    {
+        "ProfileId": str,
+        "ProfileType": ProfileTypeType,
+        "As2Id": str,
+        "CertificateIds": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class DescribedProfileTypeDef(_RequiredDescribedProfileTypeDef, _OptionalDescribedProfileTypeDef):
+    pass
 
 _RequiredDescribedSecurityPolicyTypeDef = TypedDict(
     "_RequiredDescribedSecurityPolicyTypeDef",
@@ -638,6 +999,39 @@ IdentityProviderDetailsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredImportCertificateRequestRequestTypeDef = TypedDict(
+    "_RequiredImportCertificateRequestRequestTypeDef",
+    {
+        "Usage": CertificateUsageTypeType,
+        "Certificate": str,
+    },
+)
+_OptionalImportCertificateRequestRequestTypeDef = TypedDict(
+    "_OptionalImportCertificateRequestRequestTypeDef",
+    {
+        "CertificateChain": str,
+        "PrivateKey": str,
+        "ActiveDate": Union[datetime, str],
+        "InactiveDate": Union[datetime, str],
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class ImportCertificateRequestRequestTypeDef(
+    _RequiredImportCertificateRequestRequestTypeDef, _OptionalImportCertificateRequestRequestTypeDef
+):
+    pass
+
+ImportCertificateResponseTypeDef = TypedDict(
+    "ImportCertificateResponseTypeDef",
+    {
+        "CertificateId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ImportSshPublicKeyRequestRequestTypeDef = TypedDict(
     "ImportSshPublicKeyRequestRequestTypeDef",
     {
@@ -696,6 +1090,71 @@ ListAccessesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListAgreementsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAgreementsRequestRequestTypeDef",
+    {
+        "ServerId": str,
+    },
+)
+_OptionalListAgreementsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAgreementsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAgreementsRequestRequestTypeDef(
+    _RequiredListAgreementsRequestRequestTypeDef, _OptionalListAgreementsRequestRequestTypeDef
+):
+    pass
+
+ListAgreementsResponseTypeDef = TypedDict(
+    "ListAgreementsResponseTypeDef",
+    {
+        "NextToken": str,
+        "Agreements": List["ListedAgreementTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListCertificatesRequestRequestTypeDef = TypedDict(
+    "ListCertificatesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListCertificatesResponseTypeDef = TypedDict(
+    "ListCertificatesResponseTypeDef",
+    {
+        "NextToken": str,
+        "Certificates": List["ListedCertificateTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListConnectorsRequestRequestTypeDef = TypedDict(
+    "ListConnectorsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListConnectorsResponseTypeDef = TypedDict(
+    "ListConnectorsResponseTypeDef",
+    {
+        "NextToken": str,
+        "Connectors": List["ListedConnectorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListExecutionsRequestRequestTypeDef = TypedDict(
     "_RequiredListExecutionsRequestRequestTypeDef",
     {
@@ -722,6 +1181,25 @@ ListExecutionsResponseTypeDef = TypedDict(
         "NextToken": str,
         "WorkflowId": str,
         "Executions": List["ListedExecutionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListProfilesRequestRequestTypeDef = TypedDict(
+    "ListProfilesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "ProfileType": ProfileTypeType,
+    },
+    total=False,
+)
+
+ListProfilesResponseTypeDef = TypedDict(
+    "ListProfilesResponseTypeDef",
+    {
+        "NextToken": str,
+        "Profiles": List["ListedProfileTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -852,6 +1330,45 @@ ListedAccessTypeDef = TypedDict(
     total=False,
 )
 
+ListedAgreementTypeDef = TypedDict(
+    "ListedAgreementTypeDef",
+    {
+        "Arn": str,
+        "AgreementId": str,
+        "Description": str,
+        "Status": AgreementStatusTypeType,
+        "ServerId": str,
+        "LocalProfileId": str,
+        "PartnerProfileId": str,
+    },
+    total=False,
+)
+
+ListedCertificateTypeDef = TypedDict(
+    "ListedCertificateTypeDef",
+    {
+        "Arn": str,
+        "CertificateId": str,
+        "Usage": CertificateUsageTypeType,
+        "Status": CertificateStatusTypeType,
+        "ActiveDate": datetime,
+        "InactiveDate": datetime,
+        "Type": CertificateTypeType,
+        "Description": str,
+    },
+    total=False,
+)
+
+ListedConnectorTypeDef = TypedDict(
+    "ListedConnectorTypeDef",
+    {
+        "Arn": str,
+        "ConnectorId": str,
+        "Url": str,
+    },
+    total=False,
+)
+
 ListedExecutionTypeDef = TypedDict(
     "ListedExecutionTypeDef",
     {
@@ -859,6 +1376,17 @@ ListedExecutionTypeDef = TypedDict(
         "InitialFileLocation": "FileLocationTypeDef",
         "ServiceMetadata": "ServiceMetadataTypeDef",
         "Status": ExecutionStatusType,
+    },
+    total=False,
+)
+
+ListedProfileTypeDef = TypedDict(
+    "ListedProfileTypeDef",
+    {
+        "Arn": str,
+        "ProfileId": str,
+        "As2Id": str,
+        "ProfileType": ProfileTypeType,
     },
     total=False,
 )
@@ -960,6 +1488,7 @@ ProtocolDetailsTypeDef = TypedDict(
         "PassiveIp": str,
         "TlsSessionResumptionMode": TlsSessionResumptionModeType,
         "SetStatOption": SetStatOptionType,
+        "As2Transports": List[Literal["HTTP"]],
     },
     total=False,
 )
@@ -1026,6 +1555,22 @@ SshPublicKeyTypeDef = TypedDict(
         "DateImported": datetime,
         "SshPublicKeyBody": str,
         "SshPublicKeyId": str,
+    },
+)
+
+StartFileTransferRequestRequestTypeDef = TypedDict(
+    "StartFileTransferRequestRequestTypeDef",
+    {
+        "ConnectorId": str,
+        "SendFilePaths": List[str],
+    },
+)
+
+StartFileTransferResponseTypeDef = TypedDict(
+    "StartFileTransferResponseTypeDef",
+    {
+        "TransferId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1141,6 +1686,125 @@ UpdateAccessResponseTypeDef = TypedDict(
     {
         "ServerId": str,
         "ExternalId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateAgreementRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAgreementRequestRequestTypeDef",
+    {
+        "AgreementId": str,
+        "ServerId": str,
+    },
+)
+_OptionalUpdateAgreementRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAgreementRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Status": AgreementStatusTypeType,
+        "LocalProfileId": str,
+        "PartnerProfileId": str,
+        "BaseDirectory": str,
+        "AccessRole": str,
+    },
+    total=False,
+)
+
+class UpdateAgreementRequestRequestTypeDef(
+    _RequiredUpdateAgreementRequestRequestTypeDef, _OptionalUpdateAgreementRequestRequestTypeDef
+):
+    pass
+
+UpdateAgreementResponseTypeDef = TypedDict(
+    "UpdateAgreementResponseTypeDef",
+    {
+        "AgreementId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateCertificateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateCertificateRequestRequestTypeDef",
+    {
+        "CertificateId": str,
+    },
+)
+_OptionalUpdateCertificateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateCertificateRequestRequestTypeDef",
+    {
+        "ActiveDate": Union[datetime, str],
+        "InactiveDate": Union[datetime, str],
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateCertificateRequestRequestTypeDef(
+    _RequiredUpdateCertificateRequestRequestTypeDef, _OptionalUpdateCertificateRequestRequestTypeDef
+):
+    pass
+
+UpdateCertificateResponseTypeDef = TypedDict(
+    "UpdateCertificateResponseTypeDef",
+    {
+        "CertificateId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateConnectorRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateConnectorRequestRequestTypeDef",
+    {
+        "ConnectorId": str,
+    },
+)
+_OptionalUpdateConnectorRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateConnectorRequestRequestTypeDef",
+    {
+        "Url": str,
+        "As2Config": "As2ConnectorConfigTypeDef",
+        "AccessRole": str,
+        "LoggingRole": str,
+    },
+    total=False,
+)
+
+class UpdateConnectorRequestRequestTypeDef(
+    _RequiredUpdateConnectorRequestRequestTypeDef, _OptionalUpdateConnectorRequestRequestTypeDef
+):
+    pass
+
+UpdateConnectorResponseTypeDef = TypedDict(
+    "UpdateConnectorResponseTypeDef",
+    {
+        "ConnectorId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateProfileRequestRequestTypeDef",
+    {
+        "ProfileId": str,
+    },
+)
+_OptionalUpdateProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateProfileRequestRequestTypeDef",
+    {
+        "CertificateIds": List[str],
+    },
+    total=False,
+)
+
+class UpdateProfileRequestRequestTypeDef(
+    _RequiredUpdateProfileRequestRequestTypeDef, _OptionalUpdateProfileRequestRequestTypeDef
+):
+    pass
+
+UpdateProfileResponseTypeDef = TypedDict(
+    "UpdateProfileResponseTypeDef",
+    {
+        "ProfileId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

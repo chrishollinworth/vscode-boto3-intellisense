@@ -26,6 +26,7 @@ from .literals import (
     BotRecommendationStatusType,
     BotStatusType,
     CustomVocabularyStatusType,
+    DialogActionTypeType,
     EffectType,
     ExportFilterOperatorType,
     ExportStatusType,
@@ -36,10 +37,12 @@ from .literals import (
     IntentFilterOperatorType,
     IntentSortAttributeType,
     MergeStrategyType,
+    MessageSelectionStrategyType,
     ObfuscationSettingTypeType,
     SearchOrderType,
     SlotConstraintType,
     SlotFilterOperatorType,
+    SlotShapeType,
     SlotSortAttributeType,
     SlotTypeCategoryType,
     SlotTypeFilterNameType,
@@ -98,6 +101,9 @@ __all__ = (
     "ButtonTypeDef",
     "CloudWatchLogGroupLogDestinationTypeDef",
     "CodeHookSpecificationTypeDef",
+    "ConditionTypeDef",
+    "ConditionalBranchTypeDef",
+    "ConditionalSpecificationTypeDef",
     "ConversationLogSettingsTypeDef",
     "CreateBotAliasRequestRequestTypeDef",
     "CreateBotAliasResponseTypeDef",
@@ -125,6 +131,7 @@ __all__ = (
     "CustomVocabularyImportSpecificationTypeDef",
     "DataPrivacyTypeDef",
     "DateRangeFilterTypeDef",
+    "DefaultConditionalBranchTypeDef",
     "DeleteBotAliasRequestRequestTypeDef",
     "DeleteBotAliasResponseTypeDef",
     "DeleteBotLocaleRequestRequestTypeDef",
@@ -171,7 +178,11 @@ __all__ = (
     "DescribeSlotResponseTypeDef",
     "DescribeSlotTypeRequestRequestTypeDef",
     "DescribeSlotTypeResponseTypeDef",
+    "DialogActionTypeDef",
+    "DialogCodeHookInvocationSettingTypeDef",
     "DialogCodeHookSettingsTypeDef",
+    "DialogStateTypeDef",
+    "ElicitationCodeHookInvocationSettingTypeDef",
     "EncryptionSettingTypeDef",
     "ExportFilterTypeDef",
     "ExportResourceSpecificationTypeDef",
@@ -189,10 +200,12 @@ __all__ = (
     "ImportResourceSpecificationTypeDef",
     "ImportSortByTypeDef",
     "ImportSummaryTypeDef",
+    "InitialResponseSettingTypeDef",
     "InputContextTypeDef",
     "IntentClosingSettingTypeDef",
     "IntentConfirmationSettingTypeDef",
     "IntentFilterTypeDef",
+    "IntentOverrideTypeDef",
     "IntentSortByTypeDef",
     "IntentStatisticsTypeDef",
     "IntentSummaryTypeDef",
@@ -236,6 +249,7 @@ __all__ = (
     "OutputContextTypeDef",
     "PathFormatTypeDef",
     "PlainTextMessageTypeDef",
+    "PostDialogCodeHookInvocationSpecificationTypeDef",
     "PostFulfillmentStatusSpecificationTypeDef",
     "PrincipalTypeDef",
     "PromptSpecificationTypeDef",
@@ -251,6 +265,7 @@ __all__ = (
     "SearchAssociatedTranscriptsRequestRequestTypeDef",
     "SearchAssociatedTranscriptsResponseTypeDef",
     "SentimentAnalysisSettingsTypeDef",
+    "SlotCaptureSettingTypeDef",
     "SlotDefaultValueSpecificationTypeDef",
     "SlotDefaultValueTypeDef",
     "SlotFilterTypeDef",
@@ -263,13 +278,17 @@ __all__ = (
     "SlotTypeSummaryTypeDef",
     "SlotTypeValueTypeDef",
     "SlotValueElicitationSettingTypeDef",
+    "SlotValueOverrideTypeDef",
     "SlotValueRegexFilterTypeDef",
     "SlotValueSelectionSettingTypeDef",
+    "SlotValueTypeDef",
     "StartBotRecommendationRequestRequestTypeDef",
     "StartBotRecommendationResponseTypeDef",
     "StartImportRequestRequestTypeDef",
     "StartImportResponseTypeDef",
     "StillWaitingResponseSpecificationTypeDef",
+    "StopBotRecommendationRequestRequestTypeDef",
+    "StopBotRecommendationResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TextLogDestinationTypeDef",
     "TextLogSettingTypeDef",
@@ -687,6 +706,43 @@ CodeHookSpecificationTypeDef = TypedDict(
     },
 )
 
+ConditionTypeDef = TypedDict(
+    "ConditionTypeDef",
+    {
+        "expressionString": str,
+    },
+)
+
+_RequiredConditionalBranchTypeDef = TypedDict(
+    "_RequiredConditionalBranchTypeDef",
+    {
+        "name": str,
+        "condition": "ConditionTypeDef",
+        "nextStep": "DialogStateTypeDef",
+    },
+)
+_OptionalConditionalBranchTypeDef = TypedDict(
+    "_OptionalConditionalBranchTypeDef",
+    {
+        "response": "ResponseSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class ConditionalBranchTypeDef(
+    _RequiredConditionalBranchTypeDef, _OptionalConditionalBranchTypeDef
+):
+    pass
+
+ConditionalSpecificationTypeDef = TypedDict(
+    "ConditionalSpecificationTypeDef",
+    {
+        "active": bool,
+        "conditionalBranches": List["ConditionalBranchTypeDef"],
+        "defaultBranch": "DefaultConditionalBranchTypeDef",
+    },
+)
+
 ConversationLogSettingsTypeDef = TypedDict(
     "ConversationLogSettingsTypeDef",
     {
@@ -906,6 +962,7 @@ _OptionalCreateIntentRequestRequestTypeDef = TypedDict(
         "inputContexts": List["InputContextTypeDef"],
         "outputContexts": List["OutputContextTypeDef"],
         "kendraConfiguration": "KendraConfigurationTypeDef",
+        "initialResponseSetting": "InitialResponseSettingTypeDef",
     },
     total=False,
 )
@@ -934,6 +991,7 @@ CreateIntentResponseTypeDef = TypedDict(
         "botVersion": str,
         "localeId": str,
         "creationDateTime": datetime,
+        "initialResponseSetting": "InitialResponseSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1126,6 +1184,15 @@ DateRangeFilterTypeDef = TypedDict(
         "startDateTime": datetime,
         "endDateTime": datetime,
     },
+)
+
+DefaultConditionalBranchTypeDef = TypedDict(
+    "DefaultConditionalBranchTypeDef",
+    {
+        "nextStep": "DialogStateTypeDef",
+        "response": "ResponseSpecificationTypeDef",
+    },
+    total=False,
 )
 
 _RequiredDeleteBotAliasRequestRequestTypeDef = TypedDict(
@@ -1643,6 +1710,7 @@ DescribeIntentResponseTypeDef = TypedDict(
         "localeId": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "initialResponseSetting": "InitialResponseSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1724,12 +1792,81 @@ DescribeSlotTypeResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDialogActionTypeDef = TypedDict(
+    "_RequiredDialogActionTypeDef",
+    {
+        "type": DialogActionTypeType,
+    },
+)
+_OptionalDialogActionTypeDef = TypedDict(
+    "_OptionalDialogActionTypeDef",
+    {
+        "slotToElicit": str,
+        "suppressNextMessage": bool,
+    },
+    total=False,
+)
+
+class DialogActionTypeDef(_RequiredDialogActionTypeDef, _OptionalDialogActionTypeDef):
+    pass
+
+_RequiredDialogCodeHookInvocationSettingTypeDef = TypedDict(
+    "_RequiredDialogCodeHookInvocationSettingTypeDef",
+    {
+        "enableCodeHookInvocation": bool,
+        "active": bool,
+        "postCodeHookSpecification": "PostDialogCodeHookInvocationSpecificationTypeDef",
+    },
+)
+_OptionalDialogCodeHookInvocationSettingTypeDef = TypedDict(
+    "_OptionalDialogCodeHookInvocationSettingTypeDef",
+    {
+        "invocationLabel": str,
+    },
+    total=False,
+)
+
+class DialogCodeHookInvocationSettingTypeDef(
+    _RequiredDialogCodeHookInvocationSettingTypeDef, _OptionalDialogCodeHookInvocationSettingTypeDef
+):
+    pass
+
 DialogCodeHookSettingsTypeDef = TypedDict(
     "DialogCodeHookSettingsTypeDef",
     {
         "enabled": bool,
     },
 )
+
+DialogStateTypeDef = TypedDict(
+    "DialogStateTypeDef",
+    {
+        "dialogAction": "DialogActionTypeDef",
+        "intent": "IntentOverrideTypeDef",
+        "sessionAttributes": Dict[str, str],
+    },
+    total=False,
+)
+
+_RequiredElicitationCodeHookInvocationSettingTypeDef = TypedDict(
+    "_RequiredElicitationCodeHookInvocationSettingTypeDef",
+    {
+        "enableCodeHookInvocation": bool,
+    },
+)
+_OptionalElicitationCodeHookInvocationSettingTypeDef = TypedDict(
+    "_OptionalElicitationCodeHookInvocationSettingTypeDef",
+    {
+        "invocationLabel": str,
+    },
+    total=False,
+)
+
+class ElicitationCodeHookInvocationSettingTypeDef(
+    _RequiredElicitationCodeHookInvocationSettingTypeDef,
+    _OptionalElicitationCodeHookInvocationSettingTypeDef,
+):
+    pass
 
 EncryptionSettingTypeDef = TypedDict(
     "EncryptionSettingTypeDef",
@@ -1800,6 +1937,7 @@ _OptionalFulfillmentCodeHookSettingsTypeDef = TypedDict(
     {
         "postFulfillmentStatusSpecification": "PostFulfillmentStatusSpecificationTypeDef",
         "fulfillmentUpdatesSpecification": "FulfillmentUpdatesSpecificationTypeDef",
+        "active": bool,
     },
     total=False,
 )
@@ -1963,6 +2101,17 @@ ImportSummaryTypeDef = TypedDict(
     total=False,
 )
 
+InitialResponseSettingTypeDef = TypedDict(
+    "InitialResponseSettingTypeDef",
+    {
+        "initialResponse": "ResponseSpecificationTypeDef",
+        "nextStep": "DialogStateTypeDef",
+        "conditional": "ConditionalSpecificationTypeDef",
+        "codeHook": "DialogCodeHookInvocationSettingTypeDef",
+    },
+    total=False,
+)
+
 InputContextTypeDef = TypedDict(
     "InputContextTypeDef",
     {
@@ -1970,36 +2119,38 @@ InputContextTypeDef = TypedDict(
     },
 )
 
-_RequiredIntentClosingSettingTypeDef = TypedDict(
-    "_RequiredIntentClosingSettingTypeDef",
+IntentClosingSettingTypeDef = TypedDict(
+    "IntentClosingSettingTypeDef",
     {
         "closingResponse": "ResponseSpecificationTypeDef",
-    },
-)
-_OptionalIntentClosingSettingTypeDef = TypedDict(
-    "_OptionalIntentClosingSettingTypeDef",
-    {
         "active": bool,
+        "nextStep": "DialogStateTypeDef",
+        "conditional": "ConditionalSpecificationTypeDef",
     },
     total=False,
 )
-
-class IntentClosingSettingTypeDef(
-    _RequiredIntentClosingSettingTypeDef, _OptionalIntentClosingSettingTypeDef
-):
-    pass
 
 _RequiredIntentConfirmationSettingTypeDef = TypedDict(
     "_RequiredIntentConfirmationSettingTypeDef",
     {
         "promptSpecification": "PromptSpecificationTypeDef",
-        "declinationResponse": "ResponseSpecificationTypeDef",
     },
 )
 _OptionalIntentConfirmationSettingTypeDef = TypedDict(
     "_OptionalIntentConfirmationSettingTypeDef",
     {
+        "declinationResponse": "ResponseSpecificationTypeDef",
         "active": bool,
+        "confirmationResponse": "ResponseSpecificationTypeDef",
+        "confirmationNextStep": "DialogStateTypeDef",
+        "confirmationConditional": "ConditionalSpecificationTypeDef",
+        "declinationNextStep": "DialogStateTypeDef",
+        "declinationConditional": "ConditionalSpecificationTypeDef",
+        "failureResponse": "ResponseSpecificationTypeDef",
+        "failureNextStep": "DialogStateTypeDef",
+        "failureConditional": "ConditionalSpecificationTypeDef",
+        "codeHook": "DialogCodeHookInvocationSettingTypeDef",
+        "elicitationCodeHook": "ElicitationCodeHookInvocationSettingTypeDef",
     },
     total=False,
 )
@@ -2016,6 +2167,15 @@ IntentFilterTypeDef = TypedDict(
         "values": List[str],
         "operator": IntentFilterOperatorType,
     },
+)
+
+IntentOverrideTypeDef = TypedDict(
+    "IntentOverrideTypeDef",
+    {
+        "name": str,
+        "slots": Dict[str, "SlotValueOverrideTypeDef"],
+    },
+    total=False,
 )
 
 IntentSortByTypeDef = TypedDict(
@@ -2623,12 +2783,34 @@ PlainTextMessageTypeDef = TypedDict(
     },
 )
 
+PostDialogCodeHookInvocationSpecificationTypeDef = TypedDict(
+    "PostDialogCodeHookInvocationSpecificationTypeDef",
+    {
+        "successResponse": "ResponseSpecificationTypeDef",
+        "successNextStep": "DialogStateTypeDef",
+        "successConditional": "ConditionalSpecificationTypeDef",
+        "failureResponse": "ResponseSpecificationTypeDef",
+        "failureNextStep": "DialogStateTypeDef",
+        "failureConditional": "ConditionalSpecificationTypeDef",
+        "timeoutResponse": "ResponseSpecificationTypeDef",
+        "timeoutNextStep": "DialogStateTypeDef",
+        "timeoutConditional": "ConditionalSpecificationTypeDef",
+    },
+    total=False,
+)
+
 PostFulfillmentStatusSpecificationTypeDef = TypedDict(
     "PostFulfillmentStatusSpecificationTypeDef",
     {
         "successResponse": "ResponseSpecificationTypeDef",
         "failureResponse": "ResponseSpecificationTypeDef",
         "timeoutResponse": "ResponseSpecificationTypeDef",
+        "successNextStep": "DialogStateTypeDef",
+        "successConditional": "ConditionalSpecificationTypeDef",
+        "failureNextStep": "DialogStateTypeDef",
+        "failureConditional": "ConditionalSpecificationTypeDef",
+        "timeoutNextStep": "DialogStateTypeDef",
+        "timeoutConditional": "ConditionalSpecificationTypeDef",
     },
     total=False,
 )
@@ -2653,6 +2835,7 @@ _OptionalPromptSpecificationTypeDef = TypedDict(
     "_OptionalPromptSpecificationTypeDef",
     {
         "allowInterrupt": bool,
+        "messageSelectionStrategy": MessageSelectionStrategyType,
     },
     total=False,
 )
@@ -2820,6 +3003,21 @@ SentimentAnalysisSettingsTypeDef = TypedDict(
     },
 )
 
+SlotCaptureSettingTypeDef = TypedDict(
+    "SlotCaptureSettingTypeDef",
+    {
+        "captureResponse": "ResponseSpecificationTypeDef",
+        "captureNextStep": "DialogStateTypeDef",
+        "captureConditional": "ConditionalSpecificationTypeDef",
+        "failureResponse": "ResponseSpecificationTypeDef",
+        "failureNextStep": "DialogStateTypeDef",
+        "failureConditional": "ConditionalSpecificationTypeDef",
+        "codeHook": "DialogCodeHookInvocationSettingTypeDef",
+        "elicitationCodeHook": "ElicitationCodeHookInvocationSettingTypeDef",
+    },
+    total=False,
+)
+
 SlotDefaultValueSpecificationTypeDef = TypedDict(
     "SlotDefaultValueSpecificationTypeDef",
     {
@@ -2933,6 +3131,7 @@ _OptionalSlotValueElicitationSettingTypeDef = TypedDict(
         "promptSpecification": "PromptSpecificationTypeDef",
         "sampleUtterances": List["SampleUtteranceTypeDef"],
         "waitAndContinueSpecification": "WaitAndContinueSpecificationTypeDef",
+        "slotCaptureSetting": "SlotCaptureSettingTypeDef",
     },
     total=False,
 )
@@ -2941,6 +3140,16 @@ class SlotValueElicitationSettingTypeDef(
     _RequiredSlotValueElicitationSettingTypeDef, _OptionalSlotValueElicitationSettingTypeDef
 ):
     pass
+
+SlotValueOverrideTypeDef = TypedDict(
+    "SlotValueOverrideTypeDef",
+    {
+        "shape": SlotShapeType,
+        "value": "SlotValueTypeDef",
+        "values": List[Dict[str, Any]],
+    },
+    total=False,
+)
 
 SlotValueRegexFilterTypeDef = TypedDict(
     "SlotValueRegexFilterTypeDef",
@@ -2968,6 +3177,14 @@ class SlotValueSelectionSettingTypeDef(
     _RequiredSlotValueSelectionSettingTypeDef, _OptionalSlotValueSelectionSettingTypeDef
 ):
     pass
+
+SlotValueTypeDef = TypedDict(
+    "SlotValueTypeDef",
+    {
+        "interpretedValue": str,
+    },
+    total=False,
+)
 
 _RequiredStartBotRecommendationRequestRequestTypeDef = TypedDict(
     "_RequiredStartBotRecommendationRequestRequestTypeDef",
@@ -3061,6 +3278,28 @@ class StillWaitingResponseSpecificationTypeDef(
     _OptionalStillWaitingResponseSpecificationTypeDef,
 ):
     pass
+
+StopBotRecommendationRequestRequestTypeDef = TypedDict(
+    "StopBotRecommendationRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationId": str,
+    },
+)
+
+StopBotRecommendationResponseTypeDef = TypedDict(
+    "StopBotRecommendationResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationStatus": BotRecommendationStatusType,
+        "botRecommendationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
@@ -3316,6 +3555,7 @@ _OptionalUpdateIntentRequestRequestTypeDef = TypedDict(
         "inputContexts": List["InputContextTypeDef"],
         "outputContexts": List["OutputContextTypeDef"],
         "kendraConfiguration": "KendraConfigurationTypeDef",
+        "initialResponseSetting": "InitialResponseSettingTypeDef",
     },
     total=False,
 )
@@ -3346,6 +3586,7 @@ UpdateIntentResponseTypeDef = TypedDict(
         "localeId": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "initialResponseSetting": "InitialResponseSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

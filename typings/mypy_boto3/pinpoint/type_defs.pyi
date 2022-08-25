@@ -24,6 +24,7 @@ from .literals import (
     ButtonActionType,
     CampaignStatusType,
     ChannelTypeType,
+    DayOfWeekType,
     DeliveryStatusType,
     DimensionTypeType,
     DurationType,
@@ -92,6 +93,8 @@ __all__ = (
     "CampaignsResponseTypeDef",
     "ChannelResponseTypeDef",
     "ChannelsResponseTypeDef",
+    "ClosedDaysRuleTypeDef",
+    "ClosedDaysTypeDef",
     "ConditionTypeDef",
     "ConditionalSplitActivityTypeDef",
     "ContactCenterActivityTypeDef",
@@ -352,6 +355,8 @@ __all__ = (
     "MultiConditionalSplitActivityTypeDef",
     "NumberValidateRequestTypeDef",
     "NumberValidateResponseTypeDef",
+    "OpenHoursRuleTypeDef",
+    "OpenHoursTypeDef",
     "OverrideButtonConfigurationTypeDef",
     "PhoneNumberValidateRequestRequestTypeDef",
     "PhoneNumberValidateResponseTypeDef",
@@ -1243,6 +1248,28 @@ ChannelsResponseTypeDef = TypedDict(
     {
         "Channels": Dict[str, "ChannelResponseTypeDef"],
     },
+)
+
+ClosedDaysRuleTypeDef = TypedDict(
+    "ClosedDaysRuleTypeDef",
+    {
+        "Name": str,
+        "StartDateTime": str,
+        "EndDateTime": str,
+    },
+    total=False,
+)
+
+ClosedDaysTypeDef = TypedDict(
+    "ClosedDaysTypeDef",
+    {
+        "EMAIL": List["ClosedDaysRuleTypeDef"],
+        "SMS": List["ClosedDaysRuleTypeDef"],
+        "PUSH": List["ClosedDaysRuleTypeDef"],
+        "VOICE": List["ClosedDaysRuleTypeDef"],
+        "CUSTOM": List["ClosedDaysRuleTypeDef"],
+    },
+    total=False,
 )
 
 ConditionTypeDef = TypedDict(
@@ -3957,6 +3984,9 @@ _OptionalJourneyResponseTypeDef = TypedDict(
         "WaitForQuietTime": bool,
         "RefreshOnSegmentUpdate": bool,
         "JourneyChannelSettings": "JourneyChannelSettingsTypeDef",
+        "SendingSchedule": bool,
+        "OpenHours": "OpenHoursTypeDef",
+        "ClosedDays": "ClosedDaysTypeDef",
     },
     total=False,
 )
@@ -4280,6 +4310,27 @@ NumberValidateResponseTypeDef = TypedDict(
         "PhoneTypeCode": int,
         "Timezone": str,
         "ZipCode": str,
+    },
+    total=False,
+)
+
+OpenHoursRuleTypeDef = TypedDict(
+    "OpenHoursRuleTypeDef",
+    {
+        "StartTime": str,
+        "EndTime": str,
+    },
+    total=False,
+)
+
+OpenHoursTypeDef = TypedDict(
+    "OpenHoursTypeDef",
+    {
+        "EMAIL": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
+        "SMS": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
+        "PUSH": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
+        "VOICE": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
+        "CUSTOM": Dict[DayOfWeekType, List["OpenHoursRuleTypeDef"]],
     },
     total=False,
 )
@@ -5897,6 +5948,9 @@ _OptionalWriteJourneyRequestTypeDef = TypedDict(
         "WaitForQuietTime": bool,
         "RefreshOnSegmentUpdate": bool,
         "JourneyChannelSettings": "JourneyChannelSettingsTypeDef",
+        "SendingSchedule": bool,
+        "OpenHours": "OpenHoursTypeDef",
+        "ClosedDays": "ClosedDaysTypeDef",
     },
     total=False,
 )

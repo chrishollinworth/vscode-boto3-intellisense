@@ -20,6 +20,7 @@ from .literals import (
     AttachmentTypeType,
     ChangeActionType,
     ChangeSetStateType,
+    ChangeStatusType,
     ChangeTypeType,
     ConnectionStateType,
     ConnectionStatusType,
@@ -33,6 +34,7 @@ from .literals import (
     GlobalNetworkStateType,
     LinkAssociationStateType,
     LinkStateType,
+    PeeringStateType,
     RouteAnalysisCompletionReasonCodeType,
     RouteAnalysisCompletionResultCodeType,
     RouteAnalysisStatusType,
@@ -78,6 +80,8 @@ __all__ = (
     "ConnectPeerTypeDef",
     "ConnectionHealthTypeDef",
     "ConnectionTypeDef",
+    "CoreNetworkChangeEventTypeDef",
+    "CoreNetworkChangeEventValuesTypeDef",
     "CoreNetworkChangeTypeDef",
     "CoreNetworkChangeValuesTypeDef",
     "CoreNetworkEdgeTypeDef",
@@ -106,6 +110,10 @@ __all__ = (
     "CreateSiteResponseTypeDef",
     "CreateSiteToSiteVpnAttachmentRequestRequestTypeDef",
     "CreateSiteToSiteVpnAttachmentResponseTypeDef",
+    "CreateTransitGatewayPeeringRequestRequestTypeDef",
+    "CreateTransitGatewayPeeringResponseTypeDef",
+    "CreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
+    "CreateTransitGatewayRouteTableAttachmentResponseTypeDef",
     "CreateVpcAttachmentRequestRequestTypeDef",
     "CreateVpcAttachmentResponseTypeDef",
     "CustomerGatewayAssociationTypeDef",
@@ -125,6 +133,8 @@ __all__ = (
     "DeleteGlobalNetworkResponseTypeDef",
     "DeleteLinkRequestRequestTypeDef",
     "DeleteLinkResponseTypeDef",
+    "DeletePeeringRequestRequestTypeDef",
+    "DeletePeeringResponseTypeDef",
     "DeleteResourcePolicyRequestRequestTypeDef",
     "DeleteSiteRequestRequestTypeDef",
     "DeleteSiteResponseTypeDef",
@@ -150,6 +160,8 @@ __all__ = (
     "GetConnectPeerResponseTypeDef",
     "GetConnectionsRequestRequestTypeDef",
     "GetConnectionsResponseTypeDef",
+    "GetCoreNetworkChangeEventsRequestRequestTypeDef",
+    "GetCoreNetworkChangeEventsResponseTypeDef",
     "GetCoreNetworkChangeSetRequestRequestTypeDef",
     "GetCoreNetworkChangeSetResponseTypeDef",
     "GetCoreNetworkPolicyRequestRequestTypeDef",
@@ -184,8 +196,12 @@ __all__ = (
     "GetSitesResponseTypeDef",
     "GetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef",
     "GetTransitGatewayConnectPeerAssociationsResponseTypeDef",
+    "GetTransitGatewayPeeringRequestRequestTypeDef",
+    "GetTransitGatewayPeeringResponseTypeDef",
     "GetTransitGatewayRegistrationsRequestRequestTypeDef",
     "GetTransitGatewayRegistrationsResponseTypeDef",
+    "GetTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
+    "GetTransitGatewayRouteTableAttachmentResponseTypeDef",
     "GetVpcAttachmentRequestRequestTypeDef",
     "GetVpcAttachmentResponseTypeDef",
     "GlobalNetworkTypeDef",
@@ -201,6 +217,8 @@ __all__ = (
     "ListCoreNetworksResponseTypeDef",
     "ListOrganizationServiceAccessStatusRequestRequestTypeDef",
     "ListOrganizationServiceAccessStatusResponseTypeDef",
+    "ListPeeringsRequestRequestTypeDef",
+    "ListPeeringsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LocationTypeDef",
@@ -213,6 +231,7 @@ __all__ = (
     "OrganizationStatusTypeDef",
     "PaginatorConfigTypeDef",
     "PathComponentTypeDef",
+    "PeeringTypeDef",
     "ProposedSegmentChangeTypeDef",
     "PutCoreNetworkPolicyRequestRequestTypeDef",
     "PutCoreNetworkPolicyResponseTypeDef",
@@ -240,8 +259,10 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TransitGatewayConnectPeerAssociationTypeDef",
+    "TransitGatewayPeeringTypeDef",
     "TransitGatewayRegistrationStateReasonTypeDef",
     "TransitGatewayRegistrationTypeDef",
+    "TransitGatewayRouteTableAttachmentTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateConnectionRequestRequestTypeDef",
     "UpdateConnectionResponseTypeDef",
@@ -551,6 +572,30 @@ ConnectionTypeDef = TypedDict(
     total=False,
 )
 
+CoreNetworkChangeEventTypeDef = TypedDict(
+    "CoreNetworkChangeEventTypeDef",
+    {
+        "Type": ChangeTypeType,
+        "Action": ChangeActionType,
+        "IdentifierPath": str,
+        "EventTime": datetime,
+        "Status": ChangeStatusType,
+        "Values": "CoreNetworkChangeEventValuesTypeDef",
+    },
+    total=False,
+)
+
+CoreNetworkChangeEventValuesTypeDef = TypedDict(
+    "CoreNetworkChangeEventValuesTypeDef",
+    {
+        "EdgeLocation": str,
+        "SegmentName": str,
+        "AttachmentId": str,
+        "Cidr": str,
+    },
+    total=False,
+)
+
 CoreNetworkChangeTypeDef = TypedDict(
     "CoreNetworkChangeTypeDef",
     {
@@ -559,6 +604,7 @@ CoreNetworkChangeTypeDef = TypedDict(
         "Identifier": str,
         "PreviousValues": "CoreNetworkChangeValuesTypeDef",
         "NewValues": "CoreNetworkChangeValuesTypeDef",
+        "IdentifierPath": str,
     },
     total=False,
 )
@@ -954,6 +1000,66 @@ CreateSiteToSiteVpnAttachmentResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateTransitGatewayPeeringRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayPeeringRequestRequestTypeDef",
+    {
+        "CoreNetworkId": str,
+        "TransitGatewayArn": str,
+    },
+)
+_OptionalCreateTransitGatewayPeeringRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayPeeringRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayPeeringRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayPeeringRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayPeeringRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayPeeringResponseTypeDef = TypedDict(
+    "CreateTransitGatewayPeeringResponseTypeDef",
+    {
+        "TransitGatewayPeering": "TransitGatewayPeeringTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
+    {
+        "PeeringId": str,
+        "TransitGatewayRouteTableArn": str,
+    },
+)
+_OptionalCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayRouteTableAttachmentResponseTypeDef = TypedDict(
+    "CreateTransitGatewayRouteTableAttachmentResponseTypeDef",
+    {
+        "TransitGatewayRouteTableAttachment": "TransitGatewayRouteTableAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateVpcAttachmentRequestRequestTypeDef = TypedDict(
     "_RequiredCreateVpcAttachmentRequestRequestTypeDef",
     {
@@ -1118,6 +1224,21 @@ DeleteLinkResponseTypeDef = TypedDict(
     "DeleteLinkResponseTypeDef",
     {
         "Link": "LinkTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeletePeeringRequestRequestTypeDef = TypedDict(
+    "DeletePeeringRequestRequestTypeDef",
+    {
+        "PeeringId": str,
+    },
+)
+
+DeletePeeringResponseTypeDef = TypedDict(
+    "DeletePeeringResponseTypeDef",
+    {
+        "Peering": "PeeringTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1361,6 +1482,37 @@ GetConnectionsResponseTypeDef = TypedDict(
     "GetConnectionsResponseTypeDef",
     {
         "Connections": List["ConnectionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCoreNetworkChangeEventsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCoreNetworkChangeEventsRequestRequestTypeDef",
+    {
+        "CoreNetworkId": str,
+        "PolicyVersionId": int,
+    },
+)
+_OptionalGetCoreNetworkChangeEventsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCoreNetworkChangeEventsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetCoreNetworkChangeEventsRequestRequestTypeDef(
+    _RequiredGetCoreNetworkChangeEventsRequestRequestTypeDef,
+    _OptionalGetCoreNetworkChangeEventsRequestRequestTypeDef,
+):
+    pass
+
+GetCoreNetworkChangeEventsResponseTypeDef = TypedDict(
+    "GetCoreNetworkChangeEventsResponseTypeDef",
+    {
+        "CoreNetworkChangeEvents": List["CoreNetworkChangeEventTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1855,6 +2007,21 @@ GetTransitGatewayConnectPeerAssociationsResponseTypeDef = TypedDict(
     },
 )
 
+GetTransitGatewayPeeringRequestRequestTypeDef = TypedDict(
+    "GetTransitGatewayPeeringRequestRequestTypeDef",
+    {
+        "PeeringId": str,
+    },
+)
+
+GetTransitGatewayPeeringResponseTypeDef = TypedDict(
+    "GetTransitGatewayPeeringResponseTypeDef",
+    {
+        "TransitGatewayPeering": "TransitGatewayPeeringTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetTransitGatewayRegistrationsRequestRequestTypeDef = TypedDict(
     "_RequiredGetTransitGatewayRegistrationsRequestRequestTypeDef",
     {
@@ -1882,6 +2049,21 @@ GetTransitGatewayRegistrationsResponseTypeDef = TypedDict(
     {
         "TransitGatewayRegistrations": List["TransitGatewayRegistrationTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTransitGatewayRouteTableAttachmentRequestRequestTypeDef = TypedDict(
+    "GetTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
+    {
+        "AttachmentId": str,
+    },
+)
+
+GetTransitGatewayRouteTableAttachmentResponseTypeDef = TypedDict(
+    "GetTransitGatewayRouteTableAttachmentResponseTypeDef",
+    {
+        "TransitGatewayRouteTableAttachment": "TransitGatewayRouteTableAttachmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2051,6 +2233,28 @@ ListOrganizationServiceAccessStatusResponseTypeDef = TypedDict(
     },
 )
 
+ListPeeringsRequestRequestTypeDef = TypedDict(
+    "ListPeeringsRequestRequestTypeDef",
+    {
+        "CoreNetworkId": str,
+        "PeeringType": Literal["TRANSIT_GATEWAY"],
+        "EdgeLocation": str,
+        "State": PeeringStateType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListPeeringsResponseTypeDef = TypedDict(
+    "ListPeeringsResponseTypeDef",
+    {
+        "Peerings": List["PeeringTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -2184,6 +2388,23 @@ PathComponentTypeDef = TypedDict(
         "Sequence": int,
         "Resource": "NetworkResourceSummaryTypeDef",
         "DestinationCidrBlock": str,
+    },
+    total=False,
+)
+
+PeeringTypeDef = TypedDict(
+    "PeeringTypeDef",
+    {
+        "CoreNetworkId": str,
+        "CoreNetworkArn": str,
+        "PeeringId": str,
+        "OwnerAccountId": str,
+        "PeeringType": Literal["TRANSIT_GATEWAY"],
+        "State": PeeringStateType,
+        "EdgeLocation": str,
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+        "CreatedAt": datetime,
     },
     total=False,
 )
@@ -2468,6 +2689,16 @@ TransitGatewayConnectPeerAssociationTypeDef = TypedDict(
     total=False,
 )
 
+TransitGatewayPeeringTypeDef = TypedDict(
+    "TransitGatewayPeeringTypeDef",
+    {
+        "Peering": "PeeringTypeDef",
+        "TransitGatewayArn": str,
+        "TransitGatewayPeeringAttachmentId": str,
+    },
+    total=False,
+)
+
 TransitGatewayRegistrationStateReasonTypeDef = TypedDict(
     "TransitGatewayRegistrationStateReasonTypeDef",
     {
@@ -2483,6 +2714,16 @@ TransitGatewayRegistrationTypeDef = TypedDict(
         "GlobalNetworkId": str,
         "TransitGatewayArn": str,
         "State": "TransitGatewayRegistrationStateReasonTypeDef",
+    },
+    total=False,
+)
+
+TransitGatewayRouteTableAttachmentTypeDef = TypedDict(
+    "TransitGatewayRouteTableAttachmentTypeDef",
+    {
+        "Attachment": "AttachmentTypeDef",
+        "PeeringId": str,
+        "TransitGatewayRouteTableArn": str,
     },
     total=False,
 )

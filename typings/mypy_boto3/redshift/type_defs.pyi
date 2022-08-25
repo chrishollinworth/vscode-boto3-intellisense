@@ -491,13 +491,14 @@ class AuthorizeEndpointAccessMessageRequestTypeDef(
 _RequiredAuthorizeSnapshotAccessMessageRequestTypeDef = TypedDict(
     "_RequiredAuthorizeSnapshotAccessMessageRequestTypeDef",
     {
-        "SnapshotIdentifier": str,
         "AccountWithRestoreAccess": str,
     },
 )
 _OptionalAuthorizeSnapshotAccessMessageRequestTypeDef = TypedDict(
     "_OptionalAuthorizeSnapshotAccessMessageRequestTypeDef",
     {
+        "SnapshotIdentifier": str,
+        "SnapshotArn": str,
         "SnapshotClusterIdentifier": str,
     },
     total=False,
@@ -1646,6 +1647,7 @@ DescribeClusterSnapshotsMessageRequestTypeDef = TypedDict(
     {
         "ClusterIdentifier": str,
         "SnapshotIdentifier": str,
+        "SnapshotArn": str,
         "SnapshotType": str,
         "StartTime": Union[datetime, str],
         "EndTime": Union[datetime, str],
@@ -1894,6 +1896,7 @@ _OptionalDescribeNodeConfigurationOptionsMessageRequestTypeDef = TypedDict(
     {
         "ClusterIdentifier": str,
         "SnapshotIdentifier": str,
+        "SnapshotArn": str,
         "OwnerAccount": str,
         "Filters": List["NodeConfigurationOptionsFilterTypeDef"],
         "Marker": str,
@@ -3381,12 +3384,13 @@ _RequiredRestoreFromClusterSnapshotMessageRequestTypeDef = TypedDict(
     "_RequiredRestoreFromClusterSnapshotMessageRequestTypeDef",
     {
         "ClusterIdentifier": str,
-        "SnapshotIdentifier": str,
     },
 )
 _OptionalRestoreFromClusterSnapshotMessageRequestTypeDef = TypedDict(
     "_OptionalRestoreFromClusterSnapshotMessageRequestTypeDef",
     {
+        "SnapshotIdentifier": str,
+        "SnapshotArn": str,
         "SnapshotClusterIdentifier": str,
         "Port": int,
         "AvailabilityZone": str,
@@ -3559,13 +3563,14 @@ RevokeEndpointAccessMessageRequestTypeDef = TypedDict(
 _RequiredRevokeSnapshotAccessMessageRequestTypeDef = TypedDict(
     "_RequiredRevokeSnapshotAccessMessageRequestTypeDef",
     {
-        "SnapshotIdentifier": str,
         "AccountWithRestoreAccess": str,
     },
 )
 _OptionalRevokeSnapshotAccessMessageRequestTypeDef = TypedDict(
     "_OptionalRevokeSnapshotAccessMessageRequestTypeDef",
     {
+        "SnapshotIdentifier": str,
+        "SnapshotArn": str,
         "SnapshotClusterIdentifier": str,
     },
     total=False,

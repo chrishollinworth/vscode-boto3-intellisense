@@ -19,8 +19,10 @@ from botocore.client import BaseClient, ClientMeta
 
 from .literals import (
     AssignmentStatusType,
+    AuthenticationMethodOptionType,
     DataSetImportModeType,
     DataSourceTypeType,
+    EditionType,
     EmbeddingIdentityTypeType,
     IdentityTypeType,
     IngestionTypeType,
@@ -53,6 +55,7 @@ from .type_defs import (
     ColumnGroupTypeDef,
     ColumnLevelPermissionRuleTypeDef,
     CreateAccountCustomizationResponseTypeDef,
+    CreateAccountSubscriptionResponseTypeDef,
     CreateAnalysisResponseTypeDef,
     CreateDashboardResponseTypeDef,
     CreateDataSetResponseTypeDef,
@@ -93,6 +96,7 @@ from .type_defs import (
     DeleteUserResponseTypeDef,
     DescribeAccountCustomizationResponseTypeDef,
     DescribeAccountSettingsResponseTypeDef,
+    DescribeAccountSubscriptionResponseTypeDef,
     DescribeAnalysisPermissionsResponseTypeDef,
     DescribeAnalysisResponseTypeDef,
     DescribeDashboardPermissionsResponseTypeDef,
@@ -230,7 +234,7 @@ class Exceptions:
 
 class QuickSightClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html)
     """
 
@@ -245,7 +249,7 @@ class QuickSightClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#can_paginate)
         """
     def cancel_ingestion(
@@ -254,8 +258,15 @@ class QuickSightClient(BaseClient):
         """
         Cancels an ongoing ingestion of data into SPICE.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.cancel_ingestion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.cancel_ingestion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#cancel_ingestion)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#close)
         """
     def create_account_customization(
         self,
@@ -266,10 +277,36 @@ class QuickSightClient(BaseClient):
         Tags: List["TagTypeDef"] = None
     ) -> CreateAccountCustomizationResponseTypeDef:
         """
-        Creates Amazon QuickSight customizations the current Amazon Web Services Region.
+        Creates Amazon QuickSight customizations for the current Amazon Web Services
+        Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_account_customization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_account_customization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_account_customization)
+        """
+    def create_account_subscription(
+        self,
+        *,
+        Edition: EditionType,
+        AuthenticationMethod: AuthenticationMethodOptionType,
+        AwsAccountId: str,
+        AccountName: str,
+        NotificationEmail: str,
+        ActiveDirectoryName: str = None,
+        Realm: str = None,
+        DirectoryId: str = None,
+        AdminGroup: List[str] = None,
+        AuthorGroup: List[str] = None,
+        ReaderGroup: List[str] = None,
+        FirstName: str = None,
+        LastName: str = None,
+        EmailAddress: str = None,
+        ContactNumber: str = None
+    ) -> CreateAccountSubscriptionResponseTypeDef:
+        """
+        Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_account_subscription)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_account_subscription)
         """
     def create_analysis(
         self,
@@ -286,7 +323,7 @@ class QuickSightClient(BaseClient):
         """
         Creates an analysis in Amazon QuickSight.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_analysis)
         """
     def create_dashboard(
@@ -306,7 +343,7 @@ class QuickSightClient(BaseClient):
         """
         Creates a dashboard from a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_dashboard)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_dashboard)
         """
     def create_data_set(
@@ -330,7 +367,7 @@ class QuickSightClient(BaseClient):
         """
         Creates a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_data_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_data_set)
         """
     def create_data_source(
@@ -350,7 +387,7 @@ class QuickSightClient(BaseClient):
         """
         Creates a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_data_source)
         """
     def create_folder(
@@ -367,7 +404,7 @@ class QuickSightClient(BaseClient):
         """
         Creates an empty shared folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_folder)
         """
     def create_folder_membership(
@@ -376,16 +413,16 @@ class QuickSightClient(BaseClient):
         """
         Adds an asset, such as a dashboard, analysis, or dataset into a folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_folder_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_folder_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_folder_membership)
         """
     def create_group(
         self, *, GroupName: str, AwsAccountId: str, Namespace: str, Description: str = None
     ) -> CreateGroupResponseTypeDef:
         """
-        Creates an Amazon QuickSight group.
+        Use the `CreateGroup` operation to create a group in Amazon QuickSight.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_group)
         """
     def create_group_membership(
@@ -394,7 +431,7 @@ class QuickSightClient(BaseClient):
         """
         Adds an Amazon QuickSight user to an Amazon QuickSight group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_group_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_group_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_group_membership)
         """
     def create_iam_policy_assignment(
@@ -411,7 +448,7 @@ class QuickSightClient(BaseClient):
         Creates an assignment with one specified IAM policy, identified by its Amazon
         Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_iam_policy_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_iam_policy_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_iam_policy_assignment)
         """
     def create_ingestion(
@@ -425,7 +462,7 @@ class QuickSightClient(BaseClient):
         """
         Creates and starts a new SPICE ingestion for a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_ingestion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_ingestion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_ingestion)
         """
     def create_namespace(
@@ -440,7 +477,7 @@ class QuickSightClient(BaseClient):
         (Enterprise edition only) Creates a new namespace for you to use with Amazon
         QuickSight.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_namespace)
         """
     def create_template(
@@ -457,7 +494,7 @@ class QuickSightClient(BaseClient):
         """
         Creates a template from an existing Amazon QuickSight analysis or template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_template)
         """
     def create_template_alias(
@@ -466,7 +503,7 @@ class QuickSightClient(BaseClient):
         """
         Creates a template alias for a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_template_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_template_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_template_alias)
         """
     def create_theme(
@@ -484,7 +521,7 @@ class QuickSightClient(BaseClient):
         """
         Creates a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_theme)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_theme)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_theme)
         """
     def create_theme_alias(
@@ -493,7 +530,7 @@ class QuickSightClient(BaseClient):
         """
         Creates a theme alias for a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.create_theme_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.create_theme_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#create_theme_alias)
         """
     def delete_account_customization(
@@ -503,7 +540,7 @@ class QuickSightClient(BaseClient):
         Deletes all Amazon QuickSight customizations in this Amazon Web Services Region
         for the specified Amazon Web Services account and Amazon QuickSight namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_account_customization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_account_customization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_account_customization)
         """
     def delete_analysis(
@@ -517,7 +554,7 @@ class QuickSightClient(BaseClient):
         """
         Deletes an analysis from Amazon QuickSight.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_analysis)
         """
     def delete_dashboard(
@@ -526,14 +563,14 @@ class QuickSightClient(BaseClient):
         """
         Deletes a dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_dashboard)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_dashboard)
         """
     def delete_data_set(self, *, AwsAccountId: str, DataSetId: str) -> DeleteDataSetResponseTypeDef:
         """
         Deletes a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_data_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_data_set)
         """
     def delete_data_source(
@@ -542,14 +579,14 @@ class QuickSightClient(BaseClient):
         """
         Deletes the data source permanently.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_data_source)
         """
     def delete_folder(self, *, AwsAccountId: str, FolderId: str) -> DeleteFolderResponseTypeDef:
         """
         Deletes an empty folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_folder)
         """
     def delete_folder_membership(
@@ -558,7 +595,7 @@ class QuickSightClient(BaseClient):
         """
         Removes an asset, such as a dashboard, analysis, or dataset, from a folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_folder_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_folder_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_folder_membership)
         """
     def delete_group(
@@ -567,7 +604,7 @@ class QuickSightClient(BaseClient):
         """
         Removes a user group from Amazon QuickSight.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_group)
         """
     def delete_group_membership(
@@ -576,7 +613,7 @@ class QuickSightClient(BaseClient):
         """
         Removes a user from a group so that the user is no longer a member of the group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_group_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_group_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_group_membership)
         """
     def delete_iam_policy_assignment(
@@ -585,7 +622,7 @@ class QuickSightClient(BaseClient):
         """
         Deletes an existing IAM policy assignment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_iam_policy_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_iam_policy_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_iam_policy_assignment)
         """
     def delete_namespace(
@@ -595,7 +632,7 @@ class QuickSightClient(BaseClient):
         Deletes a namespace and the users and groups that are associated with the
         namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_namespace)
         """
     def delete_template(
@@ -604,7 +641,7 @@ class QuickSightClient(BaseClient):
         """
         Deletes a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_template)
         """
     def delete_template_alias(
@@ -613,7 +650,7 @@ class QuickSightClient(BaseClient):
         """
         Deletes the item that the specified template alias points to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_template_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_template_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_template_alias)
         """
     def delete_theme(
@@ -622,7 +659,7 @@ class QuickSightClient(BaseClient):
         """
         Deletes a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_theme)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_theme)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_theme)
         """
     def delete_theme_alias(
@@ -631,7 +668,7 @@ class QuickSightClient(BaseClient):
         """
         Deletes the version of the theme that the specified theme alias points to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_theme_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_theme_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_theme_alias)
         """
     def delete_user(
@@ -641,7 +678,7 @@ class QuickSightClient(BaseClient):
         Deletes the Amazon QuickSight user that is associated with the identity of the
         Identity and Access Management (IAM) user or role that's making the call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_user)
         """
     def delete_user_by_principal_id(
@@ -650,7 +687,7 @@ class QuickSightClient(BaseClient):
         """
         Deletes a user identified by its principal ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.delete_user_by_principal_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.delete_user_by_principal_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#delete_user_by_principal_id)
         """
     def describe_account_customization(
@@ -660,7 +697,7 @@ class QuickSightClient(BaseClient):
         Describes the customizations associated with the provided Amazon Web Services
         account and Amazon Amazon QuickSight namespace in an Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_account_customization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_account_customization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_account_customization)
         """
     def describe_account_settings(
@@ -670,8 +707,18 @@ class QuickSightClient(BaseClient):
         Describes the settings that were used when your Amazon QuickSight subscription
         was first created in this Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_account_settings)
+        """
+    def describe_account_subscription(
+        self, *, AwsAccountId: str
+    ) -> DescribeAccountSubscriptionResponseTypeDef:
+        """
+        Use the DescribeAccountSubscription operation to receive a description of a
+        Amazon QuickSight account's subscription.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_account_subscription)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_account_subscription)
         """
     def describe_analysis(
         self, *, AwsAccountId: str, AnalysisId: str
@@ -679,7 +726,7 @@ class QuickSightClient(BaseClient):
         """
         Provides a summary of the metadata for an analysis.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_analysis)
         """
     def describe_analysis_permissions(
@@ -688,7 +735,7 @@ class QuickSightClient(BaseClient):
         """
         Provides the read and write permissions for an analysis.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_analysis_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_analysis_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_analysis_permissions)
         """
     def describe_dashboard(
@@ -702,7 +749,7 @@ class QuickSightClient(BaseClient):
         """
         Provides a summary for a dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_dashboard)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_dashboard)
         """
     def describe_dashboard_permissions(
@@ -711,7 +758,7 @@ class QuickSightClient(BaseClient):
         """
         Describes read and write permissions for a dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_dashboard_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_dashboard_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_dashboard_permissions)
         """
     def describe_data_set(
@@ -720,7 +767,7 @@ class QuickSightClient(BaseClient):
         """
         Describes a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_data_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_data_set)
         """
     def describe_data_set_permissions(
@@ -729,7 +776,7 @@ class QuickSightClient(BaseClient):
         """
         Describes the permissions on a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_data_set_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_data_set_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_data_set_permissions)
         """
     def describe_data_source(
@@ -738,7 +785,7 @@ class QuickSightClient(BaseClient):
         """
         Describes a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_data_source)
         """
     def describe_data_source_permissions(
@@ -747,14 +794,14 @@ class QuickSightClient(BaseClient):
         """
         Describes the resource permissions for a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_data_source_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_data_source_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_data_source_permissions)
         """
     def describe_folder(self, *, AwsAccountId: str, FolderId: str) -> DescribeFolderResponseTypeDef:
         """
         Describes a folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_folder)
         """
     def describe_folder_permissions(
@@ -763,7 +810,7 @@ class QuickSightClient(BaseClient):
         """
         Describes permissions for a folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_folder_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_folder_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_folder_permissions)
         """
     def describe_folder_resolved_permissions(
@@ -772,7 +819,7 @@ class QuickSightClient(BaseClient):
         """
         Describes the folder resolved permissions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_folder_resolved_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_folder_resolved_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_folder_resolved_permissions)
         """
     def describe_group(
@@ -781,7 +828,7 @@ class QuickSightClient(BaseClient):
         """
         Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_group)
         """
     def describe_group_membership(
@@ -791,7 +838,7 @@ class QuickSightClient(BaseClient):
         Use the `DescribeGroupMembership` operation to determine if a user is a member
         of the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_group_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_group_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_group_membership)
         """
     def describe_iam_policy_assignment(
@@ -801,7 +848,7 @@ class QuickSightClient(BaseClient):
         Describes an existing IAM policy assignment, as specified by the assignment
         name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_iam_policy_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_iam_policy_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_iam_policy_assignment)
         """
     def describe_ingestion(
@@ -810,14 +857,14 @@ class QuickSightClient(BaseClient):
         """
         Describes a SPICE ingestion.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_ingestion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_ingestion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_ingestion)
         """
     def describe_ip_restriction(self, *, AwsAccountId: str) -> DescribeIpRestrictionResponseTypeDef:
         """
         Provides a summary and status of IP rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_ip_restriction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_ip_restriction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_ip_restriction)
         """
     def describe_namespace(
@@ -826,7 +873,7 @@ class QuickSightClient(BaseClient):
         """
         Describes the current namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_namespace)
         """
     def describe_template(
@@ -840,7 +887,7 @@ class QuickSightClient(BaseClient):
         """
         Describes a template's metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_template)
         """
     def describe_template_alias(
@@ -849,7 +896,7 @@ class QuickSightClient(BaseClient):
         """
         Describes the template alias for a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_template_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_template_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_template_alias)
         """
     def describe_template_permissions(
@@ -858,7 +905,7 @@ class QuickSightClient(BaseClient):
         """
         Describes read and write permissions on a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_template_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_template_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_template_permissions)
         """
     def describe_theme(
@@ -867,7 +914,7 @@ class QuickSightClient(BaseClient):
         """
         Describes a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_theme)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_theme)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_theme)
         """
     def describe_theme_alias(
@@ -876,7 +923,7 @@ class QuickSightClient(BaseClient):
         """
         Describes the alias for a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_theme_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_theme_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_theme_alias)
         """
     def describe_theme_permissions(
@@ -885,7 +932,7 @@ class QuickSightClient(BaseClient):
         """
         Describes the read and write permissions for a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_theme_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_theme_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_theme_permissions)
         """
     def describe_user(
@@ -894,7 +941,7 @@ class QuickSightClient(BaseClient):
         """
         Returns information about a user, given the user name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.describe_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.describe_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#describe_user)
         """
     def generate_embed_url_for_anonymous_user(
@@ -905,13 +952,14 @@ class QuickSightClient(BaseClient):
         AuthorizedResourceArns: List[str],
         ExperienceConfiguration: "AnonymousUserEmbeddingExperienceConfigurationTypeDef",
         SessionLifetimeInMinutes: int = None,
-        SessionTags: List["SessionTagTypeDef"] = None
+        SessionTags: List["SessionTagTypeDef"] = None,
+        AllowedDomains: List[str] = None
     ) -> GenerateEmbedUrlForAnonymousUserResponseTypeDef:
         """
         Generates an embed URL that you can use to embed an Amazon QuickSight dashboard
         in your website, without having to register any reader users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.generate_embed_url_for_anonymous_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.generate_embed_url_for_anonymous_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#generate_embed_url_for_anonymous_user)
         """
     def generate_embed_url_for_registered_user(
@@ -920,13 +968,14 @@ class QuickSightClient(BaseClient):
         AwsAccountId: str,
         UserArn: str,
         ExperienceConfiguration: "RegisteredUserEmbeddingExperienceConfigurationTypeDef",
-        SessionLifetimeInMinutes: int = None
+        SessionLifetimeInMinutes: int = None,
+        AllowedDomains: List[str] = None
     ) -> GenerateEmbedUrlForRegisteredUserResponseTypeDef:
         """
         Generates an embed URL that you can use to embed an Amazon QuickSight experience
         in your website.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.generate_embed_url_for_registered_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.generate_embed_url_for_registered_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#generate_embed_url_for_registered_user)
         """
     def generate_presigned_url(
@@ -939,7 +988,7 @@ class QuickSightClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#generate_presigned_url)
         """
     def get_dashboard_embed_url(
@@ -957,10 +1006,11 @@ class QuickSightClient(BaseClient):
         AdditionalDashboardIds: List[str] = None
     ) -> GetDashboardEmbedUrlResponseTypeDef:
         """
-        Generates a session URL and authorization code that you can use to embed an
-        Amazon Amazon QuickSight read-only dashboard in your web server code.
+        Generates a temporary session URL and authorization code(bearer token) that you
+        can use to embed an Amazon QuickSight read-only dashboard in your website or
+        application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.get_dashboard_embed_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.get_dashboard_embed_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#get_dashboard_embed_url)
         """
     def get_session_embed_url(
@@ -975,7 +1025,7 @@ class QuickSightClient(BaseClient):
         Generates a session URL and authorization code that you can use to embed the
         Amazon Amazon QuickSight console in your web server code.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.get_session_embed_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.get_session_embed_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#get_session_embed_url)
         """
     def list_analyses(
@@ -985,7 +1035,7 @@ class QuickSightClient(BaseClient):
         Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_analyses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_analyses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_analyses)
         """
     def list_dashboard_versions(
@@ -994,7 +1044,7 @@ class QuickSightClient(BaseClient):
         """
         Lists all the versions of the dashboards in the Amazon QuickSight subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_dashboard_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_dashboard_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_dashboard_versions)
         """
     def list_dashboards(
@@ -1003,7 +1053,7 @@ class QuickSightClient(BaseClient):
         """
         Lists dashboards in an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_dashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_dashboards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_dashboards)
         """
     def list_data_sets(
@@ -1013,7 +1063,7 @@ class QuickSightClient(BaseClient):
         Lists all of the datasets belonging to the current Amazon Web Services account
         in an Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_data_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_data_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_data_sets)
         """
     def list_data_sources(
@@ -1023,7 +1073,7 @@ class QuickSightClient(BaseClient):
         Lists data sources in current Amazon Web Services Region that belong to this
         Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_data_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_data_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_data_sources)
         """
     def list_folder_members(
@@ -1032,7 +1082,7 @@ class QuickSightClient(BaseClient):
         """
         List all assets (`DASHBOARD` , `ANALYSIS` , and `DATASET` ) in a folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_folder_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_folder_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_folder_members)
         """
     def list_folders(
@@ -1041,7 +1091,7 @@ class QuickSightClient(BaseClient):
         """
         Lists all folders in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_folders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_folders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_folders)
         """
     def list_group_memberships(
@@ -1056,7 +1106,7 @@ class QuickSightClient(BaseClient):
         """
         Lists member users in a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_group_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_group_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_group_memberships)
         """
     def list_groups(
@@ -1065,7 +1115,7 @@ class QuickSightClient(BaseClient):
         """
         Lists all user groups in Amazon QuickSight.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_groups)
         """
     def list_iam_policy_assignments(
@@ -1080,7 +1130,7 @@ class QuickSightClient(BaseClient):
         """
         Lists IAM policy assignments in the current Amazon QuickSight account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_iam_policy_assignments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_iam_policy_assignments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_iam_policy_assignments)
         """
     def list_iam_policy_assignments_for_user(
@@ -1097,7 +1147,7 @@ class QuickSightClient(BaseClient):
         for the IAM policies assigned to the specified user and group or groups that the
         user belongs to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_iam_policy_assignments_for_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_iam_policy_assignments_for_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_iam_policy_assignments_for_user)
         """
     def list_ingestions(
@@ -1106,7 +1156,7 @@ class QuickSightClient(BaseClient):
         """
         Lists the history of SPICE ingestions for a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_ingestions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_ingestions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_ingestions)
         """
     def list_namespaces(
@@ -1115,14 +1165,14 @@ class QuickSightClient(BaseClient):
         """
         Lists the namespaces for the specified Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_namespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_namespaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_namespaces)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags assigned to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_tags_for_resource)
         """
     def list_template_aliases(
@@ -1131,7 +1181,7 @@ class QuickSightClient(BaseClient):
         """
         Lists all the aliases of a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_template_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_template_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_template_aliases)
         """
     def list_template_versions(
@@ -1141,7 +1191,7 @@ class QuickSightClient(BaseClient):
         Lists all the versions of the templates in the current Amazon QuickSight
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_template_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_template_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_template_versions)
         """
     def list_templates(
@@ -1150,7 +1200,7 @@ class QuickSightClient(BaseClient):
         """
         Lists all the templates in the current Amazon QuickSight account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_templates)
         """
     def list_theme_aliases(
@@ -1159,7 +1209,7 @@ class QuickSightClient(BaseClient):
         """
         Lists all the aliases of a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_theme_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_theme_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_theme_aliases)
         """
     def list_theme_versions(
@@ -1168,7 +1218,7 @@ class QuickSightClient(BaseClient):
         """
         Lists all the versions of the themes in the current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_theme_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_theme_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_theme_versions)
         """
     def list_themes(
@@ -1182,7 +1232,7 @@ class QuickSightClient(BaseClient):
         """
         Lists all the themes in the current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_themes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_themes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_themes)
         """
     def list_user_groups(
@@ -1198,7 +1248,7 @@ class QuickSightClient(BaseClient):
         Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member
         of.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_user_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_user_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_user_groups)
         """
     def list_users(
@@ -1207,7 +1257,7 @@ class QuickSightClient(BaseClient):
         """
         Returns a list of all of the Amazon QuickSight users belonging to this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.list_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#list_users)
         """
     def register_user(
@@ -1229,7 +1279,7 @@ class QuickSightClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.register_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.register_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#register_user)
         """
     def restore_analysis(
@@ -1238,7 +1288,7 @@ class QuickSightClient(BaseClient):
         """
         Restores an analysis.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.restore_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.restore_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#restore_analysis)
         """
     def search_analyses(
@@ -1252,7 +1302,7 @@ class QuickSightClient(BaseClient):
         """
         Searches for analyses that belong to the user specified in the filter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.search_analyses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.search_analyses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#search_analyses)
         """
     def search_dashboards(
@@ -1266,7 +1316,7 @@ class QuickSightClient(BaseClient):
         """
         Searches for dashboards that belong to a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.search_dashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.search_dashboards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#search_dashboards)
         """
     def search_folders(
@@ -1280,7 +1330,7 @@ class QuickSightClient(BaseClient):
         """
         Searches the subfolders in a folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.search_folders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.search_folders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#search_folders)
         """
     def search_groups(
@@ -1296,7 +1346,7 @@ class QuickSightClient(BaseClient):
         Use the `SearchGroups` operation to search groups in a specified Amazon
         QuickSight namespace using the supplied filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.search_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.search_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#search_groups)
         """
     def tag_resource(
@@ -1306,7 +1356,7 @@ class QuickSightClient(BaseClient):
         Assigns one or more tags (key-value pairs) to the specified Amazon QuickSight
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#tag_resource)
         """
     def untag_resource(
@@ -1315,7 +1365,7 @@ class QuickSightClient(BaseClient):
         """
         Removes a tag or tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#untag_resource)
         """
     def update_account_customization(
@@ -1326,9 +1376,10 @@ class QuickSightClient(BaseClient):
         Namespace: str = None
     ) -> UpdateAccountCustomizationResponseTypeDef:
         """
-        Updates Amazon QuickSight customizations the current Amazon Web Services Region.
+        Updates Amazon QuickSight customizations for the current Amazon Web Services
+        Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_account_customization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_account_customization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_account_customization)
         """
     def update_account_settings(
@@ -1337,7 +1388,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the Amazon QuickSight settings in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_account_settings)
         """
     def update_analysis(
@@ -1356,7 +1407,7 @@ class QuickSightClient(BaseClient):
         **Request Syntax** response = client.update_analysis( AwsAccountId='string',
         AnalysisId='string', Name='string',...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_analysis)
         """
     def update_analysis_permissions(
@@ -1370,7 +1421,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the read and write permissions for an analysis.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_analysis_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_analysis_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_analysis_permissions)
         """
     def update_dashboard(
@@ -1388,7 +1439,7 @@ class QuickSightClient(BaseClient):
         """
         Updates a dashboard in an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_dashboard)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_dashboard)
         """
     def update_dashboard_permissions(
@@ -1404,7 +1455,7 @@ class QuickSightClient(BaseClient):
         """
         Updates read and write permissions on a dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_dashboard_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_dashboard_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_dashboard_permissions)
         """
     def update_dashboard_published_version(
@@ -1413,7 +1464,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the published version of a dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_dashboard_published_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_dashboard_published_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_dashboard_published_version)
         """
     def update_data_set(
@@ -1435,7 +1486,7 @@ class QuickSightClient(BaseClient):
         """
         Updates a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_data_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_data_set)
         """
     def update_data_set_permissions(
@@ -1449,7 +1500,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the permissions on a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_data_set_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_data_set_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_data_set_permissions)
         """
     def update_data_source(
@@ -1466,7 +1517,7 @@ class QuickSightClient(BaseClient):
         """
         Updates a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_data_source)
         """
     def update_data_source_permissions(
@@ -1480,7 +1531,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the permissions to a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_data_source_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_data_source_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_data_source_permissions)
         """
     def update_folder(
@@ -1489,7 +1540,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the name of a folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_folder)
         """
     def update_folder_permissions(
@@ -1503,7 +1554,7 @@ class QuickSightClient(BaseClient):
         """
         Updates permissions of a folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_folder_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_folder_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_folder_permissions)
         """
     def update_group(
@@ -1512,7 +1563,7 @@ class QuickSightClient(BaseClient):
         """
         Changes a group description.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_group)
         """
     def update_iam_policy_assignment(
@@ -1528,7 +1579,7 @@ class QuickSightClient(BaseClient):
         """
         Updates an existing IAM policy assignment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_iam_policy_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_iam_policy_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_iam_policy_assignment)
         """
     def update_ip_restriction(
@@ -1541,17 +1592,17 @@ class QuickSightClient(BaseClient):
         """
         Updates the content and status of IP rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_ip_restriction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_ip_restriction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_ip_restriction)
         """
     def update_public_sharing_settings(
         self, *, AwsAccountId: str, PublicSharingEnabled: bool = None
     ) -> UpdatePublicSharingSettingsResponseTypeDef:
         """
-        Use the UpdatePublicSharingSettings operation to enable or disable the public
-        sharing settings of an Amazon QuickSight dashboard.
+        Use the `UpdatePublicSharingSettings` operation to turn on or turn off the
+        public sharing settings of an Amazon QuickSight dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_public_sharing_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_public_sharing_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_public_sharing_settings)
         """
     def update_template(
@@ -1567,7 +1618,7 @@ class QuickSightClient(BaseClient):
         Updates a template from an existing Amazon QuickSight analysis or another
         template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_template)
         """
     def update_template_alias(
@@ -1576,7 +1627,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the template alias of a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_template_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_template_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_template_alias)
         """
     def update_template_permissions(
@@ -1590,7 +1641,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the resource permissions for a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_template_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_template_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_template_permissions)
         """
     def update_theme(
@@ -1606,7 +1657,7 @@ class QuickSightClient(BaseClient):
         """
         Updates a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_theme)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_theme)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_theme)
         """
     def update_theme_alias(
@@ -1615,7 +1666,7 @@ class QuickSightClient(BaseClient):
         """
         Updates an alias of a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_theme_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_theme_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_theme_alias)
         """
     def update_theme_permissions(
@@ -1629,7 +1680,7 @@ class QuickSightClient(BaseClient):
         """
         Updates the resource permissions for a theme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_theme_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_theme_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_theme_permissions)
         """
     def update_user(
@@ -1649,13 +1700,13 @@ class QuickSightClient(BaseClient):
         """
         Updates an Amazon QuickSight user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Client.update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Client.update_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/client.html#update_user)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_analyses"]) -> ListAnalysesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listanalysespaginator)
         """
     @overload
@@ -1663,19 +1714,19 @@ class QuickSightClient(BaseClient):
         self, operation_name: Literal["list_dashboard_versions"]
     ) -> ListDashboardVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_dashboards"]) -> ListDashboardsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_data_sets"]) -> ListDataSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasetspaginator)
         """
     @overload
@@ -1683,19 +1734,19 @@ class QuickSightClient(BaseClient):
         self, operation_name: Literal["list_data_sources"]
     ) -> ListDataSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasourcespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_ingestions"]) -> ListIngestionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listingestionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_namespaces"]) -> ListNamespacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listnamespacespaginator)
         """
     @overload
@@ -1703,7 +1754,7 @@ class QuickSightClient(BaseClient):
         self, operation_name: Literal["list_template_aliases"]
     ) -> ListTemplateAliasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatealiasespaginator)
         """
     @overload
@@ -1711,13 +1762,13 @@ class QuickSightClient(BaseClient):
         self, operation_name: Literal["list_template_versions"]
     ) -> ListTemplateVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplateversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_templates"]) -> ListTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatespaginator)
         """
     @overload
@@ -1725,19 +1776,19 @@ class QuickSightClient(BaseClient):
         self, operation_name: Literal["list_theme_versions"]
     ) -> ListThemeVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemeversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_themes"]) -> ListThemesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.ListThemes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.ListThemes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["search_analyses"]) -> SearchAnalysesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchanalysespaginator)
         """
     @overload
@@ -1745,6 +1796,6 @@ class QuickSightClient(BaseClient):
         self, operation_name: Literal["search_dashboards"]
     ) -> SearchDashboardsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdashboardspaginator)
         """

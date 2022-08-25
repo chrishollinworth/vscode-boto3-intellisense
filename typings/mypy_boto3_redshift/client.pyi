@@ -318,7 +318,7 @@ class Exceptions:
 
 class RedshiftClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html)
     """
 
@@ -336,7 +336,7 @@ class RedshiftClient(BaseClient):
         Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
         configuration (term, payment type, or number of nodes) and no additional costs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.accept_reserved_node_exchange)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.accept_reserved_node_exchange)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#accept_reserved_node_exchange)
         """
     def add_partner(
@@ -345,7 +345,7 @@ class RedshiftClient(BaseClient):
         """
         Adds a partner integration to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.add_partner)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.add_partner)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#add_partner)
         """
     def associate_data_share_consumer(
@@ -360,7 +360,7 @@ class RedshiftClient(BaseClient):
         From a datashare consumer account, associates a datashare with the account
         (AssociateEntireAccount) or the specified namespace (ConsumerArn).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.associate_data_share_consumer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.associate_data_share_consumer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#associate_data_share_consumer)
         """
     def authorize_cluster_security_group_ingress(
@@ -374,7 +374,7 @@ class RedshiftClient(BaseClient):
         """
         Adds an inbound (ingress) rule to an Amazon Redshift security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.authorize_cluster_security_group_ingress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.authorize_cluster_security_group_ingress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#authorize_cluster_security_group_ingress)
         """
     def authorize_data_share(
@@ -384,7 +384,7 @@ class RedshiftClient(BaseClient):
         From a data producer account, authorizes the sharing of a datashare with one or
         more consumer accounts or managing entities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.authorize_data_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.authorize_data_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#authorize_data_share)
         """
     def authorize_endpoint_access(
@@ -393,21 +393,22 @@ class RedshiftClient(BaseClient):
         """
         Grants access to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.authorize_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.authorize_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#authorize_endpoint_access)
         """
     def authorize_snapshot_access(
         self,
         *,
-        SnapshotIdentifier: str,
         AccountWithRestoreAccess: str,
+        SnapshotIdentifier: str = None,
+        SnapshotArn: str = None,
         SnapshotClusterIdentifier: str = None
     ) -> AuthorizeSnapshotAccessResultTypeDef:
         """
         Authorizes the specified Amazon Web Services account to restore the specified
         snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.authorize_snapshot_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.authorize_snapshot_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#authorize_snapshot_access)
         """
     def batch_delete_cluster_snapshots(
@@ -416,7 +417,7 @@ class RedshiftClient(BaseClient):
         """
         Deletes a set of cluster snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.batch_delete_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.batch_delete_cluster_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#batch_delete_cluster_snapshots)
         """
     def batch_modify_cluster_snapshots(
@@ -429,22 +430,29 @@ class RedshiftClient(BaseClient):
         """
         Modifies the settings for a set of cluster snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.batch_modify_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.batch_modify_cluster_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#batch_modify_cluster_snapshots)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#can_paginate)
         """
     def cancel_resize(self, *, ClusterIdentifier: str) -> ResizeProgressMessageTypeDef:
         """
         Cancels a resize operation for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.cancel_resize)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.cancel_resize)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#cancel_resize)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#close)
         """
     def copy_cluster_snapshot(
         self,
@@ -458,7 +466,7 @@ class RedshiftClient(BaseClient):
         Copies the specified automated cluster snapshot to a new manual cluster
         snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.copy_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.copy_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#copy_cluster_snapshot)
         """
     def create_authentication_profile(
@@ -467,7 +475,7 @@ class RedshiftClient(BaseClient):
         """
         Creates an authentication profile with the specified parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_authentication_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_authentication_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_authentication_profile)
         """
     def create_cluster(
@@ -511,7 +519,7 @@ class RedshiftClient(BaseClient):
         """
         Creates a new cluster with the specified parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster)
         """
     def create_cluster_parameter_group(
@@ -525,7 +533,7 @@ class RedshiftClient(BaseClient):
         """
         Creates an Amazon Redshift parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster_parameter_group)
         """
     def create_cluster_security_group(
@@ -534,7 +542,7 @@ class RedshiftClient(BaseClient):
         """
         Creates a new Amazon Redshift security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_cluster_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_cluster_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster_security_group)
         """
     def create_cluster_snapshot(
@@ -548,7 +556,7 @@ class RedshiftClient(BaseClient):
         """
         Creates a manual snapshot of the specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster_snapshot)
         """
     def create_cluster_subnet_group(
@@ -562,7 +570,7 @@ class RedshiftClient(BaseClient):
         """
         Creates a new Amazon Redshift subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_cluster_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_cluster_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster_subnet_group)
         """
     def create_endpoint_access(
@@ -577,7 +585,7 @@ class RedshiftClient(BaseClient):
         """
         Creates a Redshift-managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_endpoint_access)
         """
     def create_event_subscription(
@@ -595,7 +603,7 @@ class RedshiftClient(BaseClient):
         """
         Creates an Amazon Redshift event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_event_subscription)
         """
     def create_hsm_client_certificate(
@@ -606,7 +614,7 @@ class RedshiftClient(BaseClient):
         connect to the client's HSM in order to store and retrieve the keys used to
         encrypt the cluster databases.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_hsm_client_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_hsm_client_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_hsm_client_certificate)
         """
     def create_hsm_configuration(
@@ -625,7 +633,7 @@ class RedshiftClient(BaseClient):
         Redshift cluster to store and use database encryption keys in a Hardware
         Security Module (HSM).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_hsm_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_hsm_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_hsm_configuration)
         """
     def create_scheduled_action(
@@ -643,7 +651,7 @@ class RedshiftClient(BaseClient):
         """
         Creates a scheduled action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_scheduled_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_scheduled_action)
         """
     def create_snapshot_copy_grant(
@@ -654,7 +662,7 @@ class RedshiftClient(BaseClient):
         symmetric key from Key Management Service (KMS) to encrypt copied snapshots in a
         destination region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_snapshot_copy_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_snapshot_copy_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_snapshot_copy_grant)
         """
     def create_snapshot_schedule(
@@ -671,14 +679,14 @@ class RedshiftClient(BaseClient):
         Create a snapshot schedule that can be associated to a cluster and which
         overrides the default system backup schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_snapshot_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_snapshot_schedule)
         """
     def create_tags(self, *, ResourceName: str, Tags: List["TagTypeDef"]) -> None:
         """
         Adds tags to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_tags)
         """
     def create_usage_limit(
@@ -695,7 +703,7 @@ class RedshiftClient(BaseClient):
         """
         Creates a usage limit for a specified Amazon Redshift feature on a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.create_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.create_usage_limit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_usage_limit)
         """
     def deauthorize_data_share(
@@ -705,7 +713,7 @@ class RedshiftClient(BaseClient):
         From a datashare producer account, removes authorization from the specified
         datashare.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.deauthorize_data_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.deauthorize_data_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#deauthorize_data_share)
         """
     def delete_authentication_profile(
@@ -714,7 +722,7 @@ class RedshiftClient(BaseClient):
         """
         Deletes an authentication profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_authentication_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_authentication_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_authentication_profile)
         """
     def delete_cluster(
@@ -729,21 +737,21 @@ class RedshiftClient(BaseClient):
         Deletes a previously provisioned cluster without its final snapshot being
         created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster)
         """
     def delete_cluster_parameter_group(self, *, ParameterGroupName: str) -> None:
         """
         Deletes a specified Amazon Redshift parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster_parameter_group)
         """
     def delete_cluster_security_group(self, *, ClusterSecurityGroupName: str) -> None:
         """
         Deletes an Amazon Redshift security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_cluster_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_cluster_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster_security_group)
         """
     def delete_cluster_snapshot(
@@ -752,42 +760,42 @@ class RedshiftClient(BaseClient):
         """
         Deletes the specified manual snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster_snapshot)
         """
     def delete_cluster_subnet_group(self, *, ClusterSubnetGroupName: str) -> None:
         """
         Deletes the specified cluster subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_cluster_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_cluster_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster_subnet_group)
         """
     def delete_endpoint_access(self, *, EndpointName: str) -> EndpointAccessResponseMetadataTypeDef:
         """
         Deletes a Redshift-managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_endpoint_access)
         """
     def delete_event_subscription(self, *, SubscriptionName: str) -> None:
         """
         Deletes an Amazon Redshift event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_event_subscription)
         """
     def delete_hsm_client_certificate(self, *, HsmClientCertificateIdentifier: str) -> None:
         """
         Deletes the specified HSM client certificate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_hsm_client_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_hsm_client_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_hsm_client_certificate)
         """
     def delete_hsm_configuration(self, *, HsmConfigurationIdentifier: str) -> None:
         """
         Deletes the specified Amazon Redshift HSM configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_hsm_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_hsm_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_hsm_configuration)
         """
     def delete_partner(
@@ -796,42 +804,42 @@ class RedshiftClient(BaseClient):
         """
         Deletes a partner integration from a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_partner)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_partner)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_partner)
         """
     def delete_scheduled_action(self, *, ScheduledActionName: str) -> None:
         """
         Deletes a scheduled action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_scheduled_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_scheduled_action)
         """
     def delete_snapshot_copy_grant(self, *, SnapshotCopyGrantName: str) -> None:
         """
         Deletes the specified snapshot copy grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_snapshot_copy_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_snapshot_copy_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_snapshot_copy_grant)
         """
     def delete_snapshot_schedule(self, *, ScheduleIdentifier: str) -> None:
         """
         Deletes a snapshot schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_snapshot_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_snapshot_schedule)
         """
     def delete_tags(self, *, ResourceName: str, TagKeys: List[str]) -> None:
         """
         Deletes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_tags)
         """
     def delete_usage_limit(self, *, UsageLimitId: str) -> None:
         """
         Deletes a usage limit from a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.delete_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.delete_usage_limit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_usage_limit)
         """
     def describe_account_attributes(
@@ -843,7 +851,7 @@ class RedshiftClient(BaseClient):
         ibeAccountAttributes>`_ **Request Syntax** response =
         client.describe_account_attributes( AttributeNames=[ 'string', ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_account_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_account_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_account_attributes)
         """
     def describe_authentication_profiles(
@@ -852,7 +860,7 @@ class RedshiftClient(BaseClient):
         """
         Describes an authentication profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_authentication_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_authentication_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_authentication_profiles)
         """
     def describe_cluster_db_revisions(
@@ -861,7 +869,7 @@ class RedshiftClient(BaseClient):
         """
         Returns an array of `ClusterDbRevision` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_cluster_db_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_cluster_db_revisions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_db_revisions)
         """
     def describe_cluster_parameter_groups(
@@ -877,7 +885,7 @@ class RedshiftClient(BaseClient):
         Returns a list of Amazon Redshift parameter groups, including parameter groups
         you created and the default parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_cluster_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_cluster_parameter_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_parameter_groups)
         """
     def describe_cluster_parameters(
@@ -892,7 +900,7 @@ class RedshiftClient(BaseClient):
         Returns a detailed list of parameters contained within the specified Amazon
         Redshift parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_cluster_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_cluster_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_parameters)
         """
     def describe_cluster_security_groups(
@@ -907,7 +915,7 @@ class RedshiftClient(BaseClient):
         """
         Returns information about Amazon Redshift security groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_cluster_security_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_cluster_security_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_security_groups)
         """
     def describe_cluster_snapshots(
@@ -915,6 +923,7 @@ class RedshiftClient(BaseClient):
         *,
         ClusterIdentifier: str = None,
         SnapshotIdentifier: str = None,
+        SnapshotArn: str = None,
         SnapshotType: str = None,
         StartTime: Union[datetime, str] = None,
         EndTime: Union[datetime, str] = None,
@@ -930,7 +939,7 @@ class RedshiftClient(BaseClient):
         Returns one or more snapshot objects, which contain metadata about your cluster
         snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_cluster_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_snapshots)
         """
     def describe_cluster_subnet_groups(
@@ -946,7 +955,7 @@ class RedshiftClient(BaseClient):
         Returns one or more cluster subnet group objects, which contain metadata about
         your cluster subnet groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_cluster_subnet_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_cluster_subnet_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_subnet_groups)
         """
     def describe_cluster_tracks(
@@ -955,7 +964,7 @@ class RedshiftClient(BaseClient):
         """
         Returns a list of all the available maintenance tracks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_cluster_tracks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_cluster_tracks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_tracks)
         """
     def describe_cluster_versions(
@@ -969,7 +978,7 @@ class RedshiftClient(BaseClient):
         """
         Returns descriptions of the available Amazon Redshift cluster versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_cluster_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_cluster_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_versions)
         """
     def describe_clusters(
@@ -986,7 +995,7 @@ class RedshiftClient(BaseClient):
         cluster database properties, maintenance and backup properties, and security and
         access properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_clusters)
         """
     def describe_data_shares(
@@ -996,7 +1005,7 @@ class RedshiftClient(BaseClient):
         Shows the status of any inbound or outbound datashares available in the
         specified account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_data_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_data_shares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_data_shares)
         """
     def describe_data_shares_for_consumer(
@@ -1011,7 +1020,7 @@ class RedshiftClient(BaseClient):
         Returns a list of datashares where the account identifier being called is a
         consumer account identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_data_shares_for_consumer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_data_shares_for_consumer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_data_shares_for_consumer)
         """
     def describe_data_shares_for_producer(
@@ -1026,7 +1035,7 @@ class RedshiftClient(BaseClient):
         Returns a list of datashares when the account identifier being called is a
         producer account identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_data_shares_for_producer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_data_shares_for_producer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_data_shares_for_producer)
         """
     def describe_default_cluster_parameters(
@@ -1035,7 +1044,7 @@ class RedshiftClient(BaseClient):
         """
         Returns a list of parameter settings for the specified parameter group family.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_default_cluster_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_default_cluster_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_default_cluster_parameters)
         """
     def describe_endpoint_access(
@@ -1051,7 +1060,7 @@ class RedshiftClient(BaseClient):
         """
         Describes a Redshift-managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_endpoint_access)
         """
     def describe_endpoint_authorization(
@@ -1066,7 +1075,7 @@ class RedshiftClient(BaseClient):
         """
         Describes an endpoint authorization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_endpoint_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_endpoint_authorization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_endpoint_authorization)
         """
     def describe_event_categories(self, *, SourceType: str = None) -> EventCategoriesMessageTypeDef:
@@ -1074,7 +1083,7 @@ class RedshiftClient(BaseClient):
         Displays a list of event categories for all event source types, or for a
         specified source type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_event_categories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_event_categories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_event_categories)
         """
     def describe_event_subscriptions(
@@ -1090,7 +1099,7 @@ class RedshiftClient(BaseClient):
         Lists descriptions of all the Amazon Redshift event notification subscriptions
         for a customer account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_event_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_event_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_event_subscriptions)
         """
     def describe_events(
@@ -1108,7 +1117,7 @@ class RedshiftClient(BaseClient):
         Returns events related to clusters, security groups, snapshots, and parameter
         groups for the past 14 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_events)
         """
     def describe_hsm_client_certificates(
@@ -1123,7 +1132,7 @@ class RedshiftClient(BaseClient):
         """
         Returns information about the specified HSM client certificate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_hsm_client_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_hsm_client_certificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_hsm_client_certificates)
         """
     def describe_hsm_configurations(
@@ -1138,7 +1147,7 @@ class RedshiftClient(BaseClient):
         """
         Returns information about the specified Amazon Redshift HSM configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_hsm_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_hsm_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_hsm_configurations)
         """
     def describe_logging_status(self, *, ClusterIdentifier: str) -> LoggingStatusTypeDef:
@@ -1146,7 +1155,7 @@ class RedshiftClient(BaseClient):
         Describes whether information, such as queries and connection attempts, is being
         logged for the specified Amazon Redshift cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_logging_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_logging_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_logging_status)
         """
     def describe_node_configuration_options(
@@ -1155,6 +1164,7 @@ class RedshiftClient(BaseClient):
         ActionType: ActionTypeType,
         ClusterIdentifier: str = None,
         SnapshotIdentifier: str = None,
+        SnapshotArn: str = None,
         OwnerAccount: str = None,
         Filters: List["NodeConfigurationOptionsFilterTypeDef"] = None,
         Marker: str = None,
@@ -1164,7 +1174,7 @@ class RedshiftClient(BaseClient):
         Returns properties of possible node configurations such as node type, number of
         nodes, and disk usage for the specified action type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_node_configuration_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_node_configuration_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_node_configuration_options)
         """
     def describe_orderable_cluster_options(
@@ -1178,7 +1188,7 @@ class RedshiftClient(BaseClient):
         """
         Returns a list of orderable cluster options.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_orderable_cluster_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_orderable_cluster_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_orderable_cluster_options)
         """
     def describe_partners(
@@ -1192,7 +1202,7 @@ class RedshiftClient(BaseClient):
         """
         Returns information about the partner integrations defined for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_partners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_partners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_partners)
         """
     def describe_reserved_node_exchange_status(
@@ -1207,7 +1217,7 @@ class RedshiftClient(BaseClient):
         Returns exchange status details and associated metadata for a reserved-node
         exchange.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_reserved_node_exchange_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_reserved_node_exchange_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_reserved_node_exchange_status)
         """
     def describe_reserved_node_offerings(
@@ -1218,7 +1228,7 @@ class RedshiftClient(BaseClient):
         their descriptions including the node type, the fixed and recurring costs of
         reserving the node and duration the node will be reserved for you.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_reserved_node_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_reserved_node_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_reserved_node_offerings)
         """
     def describe_reserved_nodes(
@@ -1227,14 +1237,14 @@ class RedshiftClient(BaseClient):
         """
         Returns the descriptions of the reserved nodes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_reserved_nodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_reserved_nodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_reserved_nodes)
         """
     def describe_resize(self, *, ClusterIdentifier: str) -> ResizeProgressMessageTypeDef:
         """
         Returns information about the last resize operation for the specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_resize)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_resize)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_resize)
         """
     def describe_scheduled_actions(
@@ -1252,7 +1262,7 @@ class RedshiftClient(BaseClient):
         """
         Describes properties of scheduled actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_scheduled_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_scheduled_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_scheduled_actions)
         """
     def describe_snapshot_copy_grants(
@@ -1268,7 +1278,7 @@ class RedshiftClient(BaseClient):
         Returns a list of snapshot copy grants owned by the Amazon Web Services account
         in the destination region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_snapshot_copy_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_snapshot_copy_grants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_snapshot_copy_grants)
         """
     def describe_snapshot_schedules(
@@ -1284,14 +1294,14 @@ class RedshiftClient(BaseClient):
         """
         Returns a list of snapshot schedules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_snapshot_schedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_snapshot_schedules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_snapshot_schedules)
         """
     def describe_storage(self) -> CustomerStorageMessageTypeDef:
         """
         Returns account level backups storage size and provisional storage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_storage)
         """
     def describe_table_restore_status(
@@ -1306,7 +1316,7 @@ class RedshiftClient(BaseClient):
         Lists the status of one or more table restore requests made using the
         RestoreTableFromClusterSnapshot API action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_table_restore_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_table_restore_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_table_restore_status)
         """
     def describe_tags(
@@ -1322,7 +1332,7 @@ class RedshiftClient(BaseClient):
         """
         Returns a list of tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_tags)
         """
     def describe_usage_limits(
@@ -1339,7 +1349,7 @@ class RedshiftClient(BaseClient):
         """
         Shows usage limits on a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.describe_usage_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.describe_usage_limits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_usage_limits)
         """
     def disable_logging(self, *, ClusterIdentifier: str) -> LoggingStatusTypeDef:
@@ -1347,7 +1357,7 @@ class RedshiftClient(BaseClient):
         Stops logging information, such as queries and connection attempts, for the
         specified Amazon Redshift cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.disable_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.disable_logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#disable_logging)
         """
     def disable_snapshot_copy(self, *, ClusterIdentifier: str) -> DisableSnapshotCopyResultTypeDef:
@@ -1355,7 +1365,7 @@ class RedshiftClient(BaseClient):
         Disables the automatic copying of snapshots from one region to another region
         for a specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.disable_snapshot_copy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.disable_snapshot_copy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#disable_snapshot_copy)
         """
     def disassociate_data_share_consumer(
@@ -1370,7 +1380,7 @@ class RedshiftClient(BaseClient):
         From a datashare consumer account, remove association for the specified
         datashare.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.disassociate_data_share_consumer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.disassociate_data_share_consumer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#disassociate_data_share_consumer)
         """
     def enable_logging(
@@ -1386,7 +1396,7 @@ class RedshiftClient(BaseClient):
         Starts logging information, such as queries and connection attempts, for the
         specified Amazon Redshift cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.enable_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.enable_logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#enable_logging)
         """
     def enable_snapshot_copy(
@@ -1402,7 +1412,7 @@ class RedshiftClient(BaseClient):
         Enables the automatic copy of snapshots from one region to another region for a
         specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.enable_snapshot_copy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.enable_snapshot_copy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#enable_snapshot_copy)
         """
     def generate_presigned_url(
@@ -1415,7 +1425,7 @@ class RedshiftClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#generate_presigned_url)
         """
     def get_cluster_credentials(
@@ -1432,7 +1442,7 @@ class RedshiftClient(BaseClient):
         Returns a database user name and temporary password with temporary authorization
         to log on to an Amazon Redshift database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.get_cluster_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.get_cluster_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_cluster_credentials)
         """
     def get_cluster_credentials_with_iam(
@@ -1442,7 +1452,7 @@ class RedshiftClient(BaseClient):
         Returns a database user name and temporary password with temporary authorization
         to log in to an Amazon Redshift database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.get_cluster_credentials_with_iam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.get_cluster_credentials_with_iam)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_cluster_credentials_with_iam)
         """
     def get_reserved_node_exchange_configuration_options(
@@ -1457,7 +1467,7 @@ class RedshiftClient(BaseClient):
         """
         Gets the configuration options for the reserved-node exchange.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.get_reserved_node_exchange_configuration_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.get_reserved_node_exchange_configuration_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_reserved_node_exchange_configuration_options)
         """
     def get_reserved_node_exchange_offerings(
@@ -1467,7 +1477,7 @@ class RedshiftClient(BaseClient):
         Returns an array of DC2 ReservedNodeOfferings that matches the payment type,
         term, and usage price of the given DC1 reserved node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.get_reserved_node_exchange_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.get_reserved_node_exchange_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_reserved_node_exchange_offerings)
         """
     def modify_aqua_configuration(
@@ -1476,7 +1486,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies whether a cluster can use AQUA (Advanced Query Accelerator).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_aqua_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_aqua_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_aqua_configuration)
         """
     def modify_authentication_profile(
@@ -1485,7 +1495,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies an authentication profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_authentication_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_authentication_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_authentication_profile)
         """
     def modify_cluster(
@@ -1520,7 +1530,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies the settings for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster)
         """
     def modify_cluster_db_revision(
@@ -1529,7 +1539,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies the database revision of a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_cluster_db_revision)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_cluster_db_revision)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_db_revision)
         """
     def modify_cluster_iam_roles(
@@ -1544,7 +1554,7 @@ class RedshiftClient(BaseClient):
         Modifies the list of Identity and Access Management (IAM) roles that can be used
         by the cluster to access other Amazon Web Services services.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_cluster_iam_roles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_cluster_iam_roles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_iam_roles)
         """
     def modify_cluster_maintenance(
@@ -1560,7 +1570,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies the maintenance settings of a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_cluster_maintenance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_cluster_maintenance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_maintenance)
         """
     def modify_cluster_parameter_group(
@@ -1569,7 +1579,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies the parameters of a parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_parameter_group)
         """
     def modify_cluster_snapshot(
@@ -1582,7 +1592,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies the settings for a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_snapshot)
         """
     def modify_cluster_snapshot_schedule(
@@ -1595,7 +1605,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies a snapshot schedule for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_snapshot_schedule)
         """
     def modify_cluster_subnet_group(
@@ -1604,7 +1614,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies a cluster subnet group to include the specified list of VPC subnets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_cluster_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_cluster_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_subnet_group)
         """
     def modify_endpoint_access(
@@ -1613,7 +1623,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies a Redshift-managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_endpoint_access)
         """
     def modify_event_subscription(
@@ -1630,7 +1640,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies an existing Amazon Redshift event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_event_subscription)
         """
     def modify_scheduled_action(
@@ -1648,7 +1658,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies a scheduled action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_scheduled_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_scheduled_action)
         """
     def modify_snapshot_copy_retention_period(
@@ -1659,7 +1669,7 @@ class RedshiftClient(BaseClient):
         Services Region after they are copied from the source Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_snapshot_copy_retention_period)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_snapshot_copy_retention_period)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_snapshot_copy_retention_period)
         """
     def modify_snapshot_schedule(
@@ -1668,7 +1678,7 @@ class RedshiftClient(BaseClient):
         """
         Modifies a snapshot schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_snapshot_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_snapshot_schedule)
         """
     def modify_usage_limit(
@@ -1681,14 +1691,14 @@ class RedshiftClient(BaseClient):
         """
         Modifies a usage limit in a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.modify_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.modify_usage_limit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_usage_limit)
         """
     def pause_cluster(self, *, ClusterIdentifier: str) -> PauseClusterResultTypeDef:
         """
         Pauses a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.pause_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.pause_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#pause_cluster)
         """
     def purchase_reserved_node_offering(
@@ -1697,21 +1707,21 @@ class RedshiftClient(BaseClient):
         """
         Allows you to purchase reserved nodes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.purchase_reserved_node_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.purchase_reserved_node_offering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#purchase_reserved_node_offering)
         """
     def reboot_cluster(self, *, ClusterIdentifier: str) -> RebootClusterResultTypeDef:
         """
         Reboots a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.reboot_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.reboot_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#reboot_cluster)
         """
     def reject_data_share(self, *, DataShareArn: str) -> DataShareResponseMetadataTypeDef:
         """
         From a datashare consumer account, rejects the specified datashare.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.reject_data_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.reject_data_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#reject_data_share)
         """
     def reset_cluster_parameter_group(
@@ -1725,7 +1735,7 @@ class RedshiftClient(BaseClient):
         Sets one or more parameters of the specified parameter group to their default
         values and sets the source values of the parameters to "engine-default".
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.reset_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.reset_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#reset_cluster_parameter_group)
         """
     def resize_cluster(
@@ -1742,14 +1752,15 @@ class RedshiftClient(BaseClient):
         """
         Changes the size of the cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.resize_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.resize_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#resize_cluster)
         """
     def restore_from_cluster_snapshot(
         self,
         *,
         ClusterIdentifier: str,
-        SnapshotIdentifier: str,
+        SnapshotIdentifier: str = None,
+        SnapshotArn: str = None,
         SnapshotClusterIdentifier: str = None,
         Port: int = None,
         AvailabilityZone: str = None,
@@ -1784,7 +1795,7 @@ class RedshiftClient(BaseClient):
         """
         Creates a new cluster from a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.restore_from_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.restore_from_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#restore_from_cluster_snapshot)
         """
     def restore_table_from_cluster_snapshot(
@@ -1803,14 +1814,14 @@ class RedshiftClient(BaseClient):
         """
         Creates a new table from a table in an Amazon Redshift cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.restore_table_from_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.restore_table_from_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#restore_table_from_cluster_snapshot)
         """
     def resume_cluster(self, *, ClusterIdentifier: str) -> ResumeClusterResultTypeDef:
         """
         Resumes a paused cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.resume_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.resume_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#resume_cluster)
         """
     def revoke_cluster_security_group_ingress(
@@ -1825,7 +1836,7 @@ class RedshiftClient(BaseClient):
         Revokes an ingress rule in an Amazon Redshift security group for a previously
         authorized IP range or Amazon EC2 security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.revoke_cluster_security_group_ingress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.revoke_cluster_security_group_ingress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#revoke_cluster_security_group_ingress)
         """
     def revoke_endpoint_access(
@@ -1839,28 +1850,29 @@ class RedshiftClient(BaseClient):
         """
         Revokes access to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.revoke_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.revoke_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#revoke_endpoint_access)
         """
     def revoke_snapshot_access(
         self,
         *,
-        SnapshotIdentifier: str,
         AccountWithRestoreAccess: str,
+        SnapshotIdentifier: str = None,
+        SnapshotArn: str = None,
         SnapshotClusterIdentifier: str = None
     ) -> RevokeSnapshotAccessResultTypeDef:
         """
         Removes the ability of the specified Amazon Web Services account to restore the
         specified snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.revoke_snapshot_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.revoke_snapshot_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#revoke_snapshot_access)
         """
     def rotate_encryption_key(self, *, ClusterIdentifier: str) -> RotateEncryptionKeyResultTypeDef:
         """
         Rotates the encryption keys for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.rotate_encryption_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.rotate_encryption_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#rotate_encryption_key)
         """
     def update_partner_status(
@@ -1876,7 +1888,7 @@ class RedshiftClient(BaseClient):
         """
         Updates the status of a partner integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Client.update_partner_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Client.update_partner_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#update_partner_status)
         """
     @overload
@@ -1884,7 +1896,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_cluster_db_revisions"]
     ) -> DescribeClusterDbRevisionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterdbrevisionspaginator)
         """
     @overload
@@ -1892,7 +1904,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_cluster_parameter_groups"]
     ) -> DescribeClusterParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterparametergroupspaginator)
         """
     @overload
@@ -1900,7 +1912,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_cluster_parameters"]
     ) -> DescribeClusterParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterparameterspaginator)
         """
     @overload
@@ -1908,7 +1920,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_cluster_security_groups"]
     ) -> DescribeClusterSecurityGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclustersecuritygroupspaginator)
         """
     @overload
@@ -1916,7 +1928,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_cluster_snapshots"]
     ) -> DescribeClusterSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclustersnapshotspaginator)
         """
     @overload
@@ -1924,7 +1936,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_cluster_subnet_groups"]
     ) -> DescribeClusterSubnetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclustersubnetgroupspaginator)
         """
     @overload
@@ -1932,7 +1944,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_cluster_tracks"]
     ) -> DescribeClusterTracksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclustertrackspaginator)
         """
     @overload
@@ -1940,7 +1952,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_cluster_versions"]
     ) -> DescribeClusterVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterversionspaginator)
         """
     @overload
@@ -1948,7 +1960,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_clusters"]
     ) -> DescribeClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterspaginator)
         """
     @overload
@@ -1956,7 +1968,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_data_shares"]
     ) -> DescribeDataSharesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeDataShares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeDataShares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describedatasharespaginator)
         """
     @overload
@@ -1964,7 +1976,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_data_shares_for_consumer"]
     ) -> DescribeDataSharesForConsumerPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeDataSharesForConsumer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeDataSharesForConsumer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describedatasharesforconsumerpaginator)
         """
     @overload
@@ -1972,7 +1984,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_data_shares_for_producer"]
     ) -> DescribeDataSharesForProducerPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeDataSharesForProducer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeDataSharesForProducer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describedatasharesforproducerpaginator)
         """
     @overload
@@ -1980,7 +1992,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_default_cluster_parameters"]
     ) -> DescribeDefaultClusterParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describedefaultclusterparameterspaginator)
         """
     @overload
@@ -1988,7 +2000,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_endpoint_access"]
     ) -> DescribeEndpointAccessPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeEndpointAccess)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeEndpointAccess)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeendpointaccesspaginator)
         """
     @overload
@@ -1996,7 +2008,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_endpoint_authorization"]
     ) -> DescribeEndpointAuthorizationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeEndpointAuthorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeEndpointAuthorization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeendpointauthorizationpaginator)
         """
     @overload
@@ -2004,13 +2016,13 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_event_subscriptions"]
     ) -> DescribeEventSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeeventsubscriptionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeeventspaginator)
         """
     @overload
@@ -2018,7 +2030,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_hsm_client_certificates"]
     ) -> DescribeHsmClientCertificatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describehsmclientcertificatespaginator)
         """
     @overload
@@ -2026,7 +2038,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_hsm_configurations"]
     ) -> DescribeHsmConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describehsmconfigurationspaginator)
         """
     @overload
@@ -2034,7 +2046,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_node_configuration_options"]
     ) -> DescribeNodeConfigurationOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describenodeconfigurationoptionspaginator)
         """
     @overload
@@ -2042,7 +2054,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_orderable_cluster_options"]
     ) -> DescribeOrderableClusterOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeorderableclusteroptionspaginator)
         """
     @overload
@@ -2050,7 +2062,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_reserved_node_exchange_status"]
     ) -> DescribeReservedNodeExchangeStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeExchangeStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeExchangeStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describereservednodeexchangestatuspaginator)
         """
     @overload
@@ -2058,7 +2070,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_reserved_node_offerings"]
     ) -> DescribeReservedNodeOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describereservednodeofferingspaginator)
         """
     @overload
@@ -2066,7 +2078,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_reserved_nodes"]
     ) -> DescribeReservedNodesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describereservednodespaginator)
         """
     @overload
@@ -2074,7 +2086,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_scheduled_actions"]
     ) -> DescribeScheduledActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describescheduledactionspaginator)
         """
     @overload
@@ -2082,7 +2094,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_snapshot_copy_grants"]
     ) -> DescribeSnapshotCopyGrantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describesnapshotcopygrantspaginator)
         """
     @overload
@@ -2090,7 +2102,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_snapshot_schedules"]
     ) -> DescribeSnapshotSchedulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describesnapshotschedulespaginator)
         """
     @overload
@@ -2098,13 +2110,13 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_table_restore_status"]
     ) -> DescribeTableRestoreStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describetablerestorestatuspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_tags"]) -> DescribeTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeTags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describetagspaginator)
         """
     @overload
@@ -2112,7 +2124,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["describe_usage_limits"]
     ) -> DescribeUsageLimitsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeusagelimitspaginator)
         """
     @overload
@@ -2120,7 +2132,7 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["get_reserved_node_exchange_configuration_options"]
     ) -> GetReservedNodeExchangeConfigurationOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeConfigurationOptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeConfigurationOptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#getreservednodeexchangeconfigurationoptionspaginator)
         """
     @overload
@@ -2128,30 +2140,30 @@ class RedshiftClient(BaseClient):
         self, operation_name: Literal["get_reserved_node_exchange_offerings"]
     ) -> GetReservedNodeExchangeOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#getreservednodeexchangeofferingspaginator)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_available"]) -> ClusterAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusteravailablewaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_deleted"]) -> ClusterDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterdeletedwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_restored"]) -> ClusterRestoredWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterrestoredwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["snapshot_available"]) -> SnapshotAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#snapshotavailablewaiter)
         """

@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AnalysisErrorTypeType,
     AssignmentStatusType,
+    AuthenticationMethodOptionType,
     ColumnDataTypeType,
     ColumnTagNameType,
     DashboardBehaviorType,
@@ -62,6 +63,7 @@ else:
 
 __all__ = (
     "AccountCustomizationTypeDef",
+    "AccountInfoTypeDef",
     "AccountSettingsTypeDef",
     "ActiveIAMPolicyAssignmentTypeDef",
     "AdHocFilteringOptionTypeDef",
@@ -93,6 +95,8 @@ __all__ = (
     "ColumnTagTypeDef",
     "CreateAccountCustomizationRequestRequestTypeDef",
     "CreateAccountCustomizationResponseTypeDef",
+    "CreateAccountSubscriptionRequestRequestTypeDef",
+    "CreateAccountSubscriptionResponseTypeDef",
     "CreateAnalysisRequestRequestTypeDef",
     "CreateAnalysisResponseTypeDef",
     "CreateColumnsOperationTypeDef",
@@ -186,6 +190,8 @@ __all__ = (
     "DescribeAccountCustomizationResponseTypeDef",
     "DescribeAccountSettingsRequestRequestTypeDef",
     "DescribeAccountSettingsResponseTypeDef",
+    "DescribeAccountSubscriptionRequestRequestTypeDef",
+    "DescribeAccountSubscriptionResponseTypeDef",
     "DescribeAnalysisPermissionsRequestRequestTypeDef",
     "DescribeAnalysisPermissionsResponseTypeDef",
     "DescribeAnalysisRequestRequestTypeDef",
@@ -360,6 +366,7 @@ __all__ = (
     "SheetControlsOptionTypeDef",
     "SheetStyleTypeDef",
     "SheetTypeDef",
+    "SignupResponseTypeDef",
     "SnowflakeParametersTypeDef",
     "SparkParametersTypeDef",
     "SqlServerParametersTypeDef",
@@ -452,6 +459,18 @@ AccountCustomizationTypeDef = TypedDict(
     {
         "DefaultTheme": str,
         "DefaultEmailCustomizationTemplate": str,
+    },
+    total=False,
+)
+
+AccountInfoTypeDef = TypedDict(
+    "AccountInfoTypeDef",
+    {
+        "AccountName": str,
+        "Edition": EditionType,
+        "NotificationEmail": str,
+        "AuthenticationType": str,
+        "AccountSubscriptionStatus": str,
     },
     total=False,
 )
@@ -761,6 +780,49 @@ CreateAccountCustomizationResponseTypeDef = TypedDict(
         "AccountCustomization": "AccountCustomizationTypeDef",
         "RequestId": str,
         "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAccountSubscriptionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAccountSubscriptionRequestRequestTypeDef",
+    {
+        "Edition": EditionType,
+        "AuthenticationMethod": AuthenticationMethodOptionType,
+        "AwsAccountId": str,
+        "AccountName": str,
+        "NotificationEmail": str,
+    },
+)
+_OptionalCreateAccountSubscriptionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAccountSubscriptionRequestRequestTypeDef",
+    {
+        "ActiveDirectoryName": str,
+        "Realm": str,
+        "DirectoryId": str,
+        "AdminGroup": List[str],
+        "AuthorGroup": List[str],
+        "ReaderGroup": List[str],
+        "FirstName": str,
+        "LastName": str,
+        "EmailAddress": str,
+        "ContactNumber": str,
+    },
+    total=False,
+)
+
+class CreateAccountSubscriptionRequestRequestTypeDef(
+    _RequiredCreateAccountSubscriptionRequestRequestTypeDef,
+    _OptionalCreateAccountSubscriptionRequestRequestTypeDef,
+):
+    pass
+
+CreateAccountSubscriptionResponseTypeDef = TypedDict(
+    "CreateAccountSubscriptionResponseTypeDef",
+    {
+        "SignupResponse": "SignupResponseTypeDef",
+        "Status": int,
+        "RequestId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2008,6 +2070,23 @@ DescribeAccountSettingsResponseTypeDef = TypedDict(
     },
 )
 
+DescribeAccountSubscriptionRequestRequestTypeDef = TypedDict(
+    "DescribeAccountSubscriptionRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+    },
+)
+
+DescribeAccountSubscriptionResponseTypeDef = TypedDict(
+    "DescribeAccountSubscriptionResponseTypeDef",
+    {
+        "AccountInfo": "AccountInfoTypeDef",
+        "Status": int,
+        "RequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeAnalysisPermissionsRequestRequestTypeDef = TypedDict(
     "DescribeAnalysisPermissionsRequestRequestTypeDef",
     {
@@ -2606,6 +2685,7 @@ _OptionalGenerateEmbedUrlForAnonymousUserRequestRequestTypeDef = TypedDict(
     {
         "SessionLifetimeInMinutes": int,
         "SessionTags": List["SessionTagTypeDef"],
+        "AllowedDomains": List[str],
     },
     total=False,
 )
@@ -2638,6 +2718,7 @@ _OptionalGenerateEmbedUrlForRegisteredUserRequestRequestTypeDef = TypedDict(
     "_OptionalGenerateEmbedUrlForRegisteredUserRequestRequestTypeDef",
     {
         "SessionLifetimeInMinutes": int,
+        "AllowedDomains": List[str],
     },
     total=False,
 )
@@ -4182,6 +4263,17 @@ SheetTypeDef = TypedDict(
     {
         "SheetId": str,
         "Name": str,
+    },
+    total=False,
+)
+
+SignupResponseTypeDef = TypedDict(
+    "SignupResponseTypeDef",
+    {
+        "IAMUser": bool,
+        "userLoginName": str,
+        "accountName": str,
+        "directoryType": str,
     },
     total=False,
 )

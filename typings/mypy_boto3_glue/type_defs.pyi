@@ -28,6 +28,7 @@ from .literals import (
     CompressionTypeType,
     ConnectionPropertyKeyType,
     ConnectionTypeType,
+    CrawlerHistoryStateType,
     CrawlerLineageSettingsType,
     CrawlerStateType,
     CrawlStateType,
@@ -35,9 +36,12 @@ from .literals import (
     DataFormatType,
     DeleteBehaviorType,
     EnableHybridValuesType,
+    ExecutionClassType,
     ExistConditionType,
+    FieldNameType,
     FilterLogicalOperatorType,
     FilterOperationType,
+    FilterOperatorType,
     FilterValueTypeType,
     GlueRecordTypeType,
     JDBCDataTypeType,
@@ -174,10 +178,12 @@ __all__ = (
     "ConnectionTypeDef",
     "ConnectionsListTypeDef",
     "CrawlTypeDef",
+    "CrawlerHistoryTypeDef",
     "CrawlerMetricsTypeDef",
     "CrawlerNodeDetailsTypeDef",
     "CrawlerTargetsTypeDef",
     "CrawlerTypeDef",
+    "CrawlsFilterTypeDef",
     "CreateBlueprintRequestRequestTypeDef",
     "CreateBlueprintResponseTypeDef",
     "CreateClassifierRequestRequestTypeDef",
@@ -446,6 +452,8 @@ __all__ = (
     "ListBlueprintsResponseTypeDef",
     "ListCrawlersRequestRequestTypeDef",
     "ListCrawlersResponseTypeDef",
+    "ListCrawlsRequestRequestTypeDef",
+    "ListCrawlsResponseTypeDef",
     "ListCustomEntityTypesRequestRequestTypeDef",
     "ListCustomEntityTypesResponseTypeDef",
     "ListDevEndpointsRequestRequestTypeDef",
@@ -1695,6 +1703,23 @@ CrawlTypeDef = TypedDict(
     total=False,
 )
 
+CrawlerHistoryTypeDef = TypedDict(
+    "CrawlerHistoryTypeDef",
+    {
+        "CrawlId": str,
+        "State": CrawlerHistoryStateType,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "Summary": str,
+        "ErrorMessage": str,
+        "LogGroup": str,
+        "LogStream": str,
+        "MessagePrefix": str,
+        "DPUHour": float,
+    },
+    total=False,
+)
+
 CrawlerMetricsTypeDef = TypedDict(
     "CrawlerMetricsTypeDef",
     {
@@ -1754,6 +1779,16 @@ CrawlerTypeDef = TypedDict(
         "Configuration": str,
         "CrawlerSecurityConfiguration": str,
         "LakeFormationConfiguration": "LakeFormationConfigurationTypeDef",
+    },
+    total=False,
+)
+
+CrawlsFilterTypeDef = TypedDict(
+    "CrawlsFilterTypeDef",
+    {
+        "FieldName": FieldNameType,
+        "FilterOperator": FilterOperatorType,
+        "FieldValue": str,
     },
     total=False,
 )
@@ -1913,6 +1948,7 @@ _OptionalCreateDatabaseRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDatabaseRequestRequestTypeDef",
     {
         "CatalogId": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -2029,6 +2065,7 @@ _OptionalCreateJobRequestRequestTypeDef = TypedDict(
         "NumberOfWorkers": int,
         "WorkerType": WorkerTypeType,
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
+        "ExecutionClass": ExecutionClassType,
     },
     total=False,
 )
@@ -5153,6 +5190,7 @@ JobRunTypeDef = TypedDict(
         "NotificationProperty": "NotificationPropertyTypeDef",
         "GlueVersion": str,
         "DPUSeconds": float,
+        "ExecutionClass": ExecutionClassType,
     },
     total=False,
 )
@@ -5181,6 +5219,7 @@ JobTypeDef = TypedDict(
         "NotificationProperty": "NotificationPropertyTypeDef",
         "GlueVersion": str,
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
+        "ExecutionClass": ExecutionClassType,
     },
     total=False,
 )
@@ -5206,6 +5245,7 @@ JobUpdateTypeDef = TypedDict(
         "NotificationProperty": "NotificationPropertyTypeDef",
         "GlueVersion": str,
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
+        "ExecutionClass": ExecutionClassType,
     },
     total=False,
 )
@@ -5386,6 +5426,36 @@ ListCrawlersResponseTypeDef = TypedDict(
     "ListCrawlersResponseTypeDef",
     {
         "CrawlerNames": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCrawlsRequestRequestTypeDef = TypedDict(
+    "_RequiredListCrawlsRequestRequestTypeDef",
+    {
+        "CrawlerName": str,
+    },
+)
+_OptionalListCrawlsRequestRequestTypeDef = TypedDict(
+    "_OptionalListCrawlsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "Filters": List["CrawlsFilterTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListCrawlsRequestRequestTypeDef(
+    _RequiredListCrawlsRequestRequestTypeDef, _OptionalListCrawlsRequestRequestTypeDef
+):
+    pass
+
+ListCrawlsResponseTypeDef = TypedDict(
+    "ListCrawlsResponseTypeDef",
+    {
+        "Crawls": List["CrawlerHistoryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -7039,6 +7109,7 @@ _OptionalStartJobRunRequestRequestTypeDef = TypedDict(
         "NotificationProperty": "NotificationPropertyTypeDef",
         "WorkerType": WorkerTypeType,
         "NumberOfWorkers": int,
+        "ExecutionClass": ExecutionClassType,
     },
     total=False,
 )
@@ -8118,6 +8189,8 @@ WorkflowRunStatisticsTypeDef = TypedDict(
         "StoppedActions": int,
         "SucceededActions": int,
         "RunningActions": int,
+        "ErroredActions": int,
+        "WaitingActions": int,
     },
     total=False,
 )

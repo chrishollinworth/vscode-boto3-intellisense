@@ -68,6 +68,8 @@ __all__ = (
     "CreateLocationEfsResponseTypeDef",
     "CreateLocationFsxLustreRequestRequestTypeDef",
     "CreateLocationFsxLustreResponseTypeDef",
+    "CreateLocationFsxOntapRequestRequestTypeDef",
+    "CreateLocationFsxOntapResponseTypeDef",
     "CreateLocationFsxOpenZfsRequestRequestTypeDef",
     "CreateLocationFsxOpenZfsResponseTypeDef",
     "CreateLocationFsxWindowsRequestRequestTypeDef",
@@ -93,6 +95,8 @@ __all__ = (
     "DescribeLocationEfsResponseTypeDef",
     "DescribeLocationFsxLustreRequestRequestTypeDef",
     "DescribeLocationFsxLustreResponseTypeDef",
+    "DescribeLocationFsxOntapRequestRequestTypeDef",
+    "DescribeLocationFsxOntapResponseTypeDef",
     "DescribeLocationFsxOpenZfsRequestRequestTypeDef",
     "DescribeLocationFsxOpenZfsResponseTypeDef",
     "DescribeLocationFsxWindowsRequestRequestTypeDef",
@@ -114,6 +118,7 @@ __all__ = (
     "Ec2ConfigTypeDef",
     "FilterRuleTypeDef",
     "FsxProtocolNfsTypeDef",
+    "FsxProtocolSmbTypeDef",
     "FsxProtocolTypeDef",
     "HdfsNameNodeTypeDef",
     "ListAgentsRequestRequestTypeDef",
@@ -260,6 +265,37 @@ class CreateLocationFsxLustreRequestRequestTypeDef(
 
 CreateLocationFsxLustreResponseTypeDef = TypedDict(
     "CreateLocationFsxLustreResponseTypeDef",
+    {
+        "LocationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocationFsxOntapRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLocationFsxOntapRequestRequestTypeDef",
+    {
+        "Protocol": "FsxProtocolTypeDef",
+        "SecurityGroupArns": List[str],
+        "StorageVirtualMachineArn": str,
+    },
+)
+_OptionalCreateLocationFsxOntapRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLocationFsxOntapRequestRequestTypeDef",
+    {
+        "Subdirectory": str,
+        "Tags": List["TagListEntryTypeDef"],
+    },
+    total=False,
+)
+
+class CreateLocationFsxOntapRequestRequestTypeDef(
+    _RequiredCreateLocationFsxOntapRequestRequestTypeDef,
+    _OptionalCreateLocationFsxOntapRequestRequestTypeDef,
+):
+    pass
+
+CreateLocationFsxOntapResponseTypeDef = TypedDict(
+    "CreateLocationFsxOntapResponseTypeDef",
     {
         "LocationArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -613,6 +649,27 @@ DescribeLocationFsxLustreResponseTypeDef = TypedDict(
     },
 )
 
+DescribeLocationFsxOntapRequestRequestTypeDef = TypedDict(
+    "DescribeLocationFsxOntapRequestRequestTypeDef",
+    {
+        "LocationArn": str,
+    },
+)
+
+DescribeLocationFsxOntapResponseTypeDef = TypedDict(
+    "DescribeLocationFsxOntapResponseTypeDef",
+    {
+        "CreationTime": datetime,
+        "LocationArn": str,
+        "LocationUri": str,
+        "Protocol": "FsxProtocolTypeDef",
+        "SecurityGroupArns": List[str],
+        "StorageVirtualMachineArn": str,
+        "FsxFilesystemArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeLocationFsxOpenZfsRequestRequestTypeDef = TypedDict(
     "DescribeLocationFsxOpenZfsRequestRequestTypeDef",
     {
@@ -840,10 +897,30 @@ FsxProtocolNfsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredFsxProtocolSmbTypeDef = TypedDict(
+    "_RequiredFsxProtocolSmbTypeDef",
+    {
+        "Password": str,
+        "User": str,
+    },
+)
+_OptionalFsxProtocolSmbTypeDef = TypedDict(
+    "_OptionalFsxProtocolSmbTypeDef",
+    {
+        "Domain": str,
+        "MountOptions": "SmbMountOptionsTypeDef",
+    },
+    total=False,
+)
+
+class FsxProtocolSmbTypeDef(_RequiredFsxProtocolSmbTypeDef, _OptionalFsxProtocolSmbTypeDef):
+    pass
+
 FsxProtocolTypeDef = TypedDict(
     "FsxProtocolTypeDef",
     {
         "NFS": "FsxProtocolNfsTypeDef",
+        "SMB": "FsxProtocolSmbTypeDef",
     },
     total=False,
 )

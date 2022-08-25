@@ -31,6 +31,7 @@ from .literals import (
     MessageActionType,
     PermissionType,
     PlatformTypeType,
+    PreferredProtocolType,
     SessionConnectionStateType,
     SessionStateType,
     StackAttributeType,
@@ -177,6 +178,7 @@ __all__ = (
     "StopImageBuilderRequestRequestTypeDef",
     "StopImageBuilderResultTypeDef",
     "StorageConnectorTypeDef",
+    "StreamingExperienceSettingsTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateApplicationRequestRequestTypeDef",
@@ -676,6 +678,7 @@ _OptionalCreateStackRequestRequestTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "AccessEndpoints": List["AccessEndpointTypeDef"],
         "EmbedHostDomains": List[str],
+        "StreamingExperienceSettings": "StreamingExperienceSettingsTypeDef",
     },
     total=False,
 )
@@ -1699,6 +1702,7 @@ _OptionalStackTypeDef = TypedDict(
         "ApplicationSettings": "ApplicationSettingsResponseTypeDef",
         "AccessEndpoints": List["AccessEndpointTypeDef"],
         "EmbedHostDomains": List[str],
+        "StreamingExperienceSettings": "StreamingExperienceSettingsTypeDef",
     },
     total=False,
 )
@@ -1779,6 +1783,14 @@ _OptionalStorageConnectorTypeDef = TypedDict(
 
 class StorageConnectorTypeDef(_RequiredStorageConnectorTypeDef, _OptionalStorageConnectorTypeDef):
     pass
+
+StreamingExperienceSettingsTypeDef = TypedDict(
+    "StreamingExperienceSettingsTypeDef",
+    {
+        "PreferredProtocol": PreferredProtocolType,
+    },
+    total=False,
+)
 
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
@@ -1954,6 +1966,7 @@ _OptionalUpdateStackRequestRequestTypeDef = TypedDict(
         "ApplicationSettings": "ApplicationSettingsTypeDef",
         "AccessEndpoints": List["AccessEndpointTypeDef"],
         "EmbedHostDomains": List[str],
+        "StreamingExperienceSettings": "StreamingExperienceSettingsTypeDef",
     },
     total=False,
 )

@@ -68,6 +68,7 @@ _OptionalBatchExecuteStatementInputRequestTypeDef = TypedDict(
         "SecretArn": str,
         "StatementName": str,
         "WithEvent": bool,
+        "WorkgroupName": str,
     },
     total=False,
 )
@@ -87,6 +88,7 @@ BatchExecuteStatementOutputTypeDef = TypedDict(
         "DbUser": str,
         "Id": str,
         "SecretArn": str,
+        "WorkgroupName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -154,6 +156,7 @@ DescribeStatementResponseTypeDef = TypedDict(
         "Status": StatusStringType,
         "SubStatements": List["SubStatementDataTypeDef"],
         "UpdatedAt": datetime,
+        "WorkgroupName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -175,6 +178,7 @@ _OptionalDescribeTableRequestRequestTypeDef = TypedDict(
         "Schema": str,
         "SecretArn": str,
         "Table": str,
+        "WorkgroupName": str,
     },
     total=False,
 )
@@ -210,6 +214,7 @@ _OptionalExecuteStatementInputRequestTypeDef = TypedDict(
         "SecretArn": str,
         "StatementName": str,
         "WithEvent": bool,
+        "WorkgroupName": str,
     },
     total=False,
 )
@@ -228,6 +233,7 @@ ExecuteStatementOutputTypeDef = TypedDict(
         "DbUser": str,
         "Id": str,
         "SecretArn": str,
+        "WorkgroupName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -290,6 +296,7 @@ _OptionalListDatabasesRequestRequestTypeDef = TypedDict(
         "MaxResults": int,
         "NextToken": str,
         "SecretArn": str,
+        "WorkgroupName": str,
     },
     total=False,
 )
@@ -324,6 +331,7 @@ _OptionalListSchemasRequestRequestTypeDef = TypedDict(
         "NextToken": str,
         "SchemaPattern": str,
         "SecretArn": str,
+        "WorkgroupName": str,
     },
     total=False,
 )
@@ -380,6 +388,7 @@ _OptionalListTablesRequestRequestTypeDef = TypedDict(
         "SchemaPattern": str,
         "SecretArn": str,
         "TablePattern": str,
+        "WorkgroupName": str,
     },
     total=False,
 )

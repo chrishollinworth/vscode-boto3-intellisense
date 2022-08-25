@@ -30,36 +30,36 @@ __all__ = ("FlowActiveWaiter", "FlowDeletedWaiter", "FlowStandbyWaiter")
 
 class FlowActiveWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowActive)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowActive)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowactivewaiter)
     """
 
     def wait(self, *, FlowArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowActive.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowActive.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowactivewaiter)
         """
 
 class FlowDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowdeletedwaiter)
     """
 
     def wait(self, *, FlowArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowdeletedwaiter)
         """
 
 class FlowStandbyWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowStandby)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowStandby)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowstandbywaiter)
     """
 
     def wait(self, *, FlowArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowStandby.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowStandby.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowstandbywaiter)
         """

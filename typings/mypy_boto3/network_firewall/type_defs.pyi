@@ -53,6 +53,8 @@ __all__ = (
     "AssociateSubnetsRequestRequestTypeDef",
     "AssociateSubnetsResponseTypeDef",
     "AttachmentTypeDef",
+    "CIDRSummaryTypeDef",
+    "CapacityUsageSummaryTypeDef",
     "CreateFirewallPolicyRequestRequestTypeDef",
     "CreateFirewallPolicyResponseTypeDef",
     "CreateFirewallRequestRequestTypeDef",
@@ -90,6 +92,8 @@ __all__ = (
     "FirewallStatusTypeDef",
     "FirewallTypeDef",
     "HeaderTypeDef",
+    "IPSetMetadataTypeDef",
+    "IPSetReferenceTypeDef",
     "IPSetTypeDef",
     "ListFirewallPoliciesRequestRequestTypeDef",
     "ListFirewallPoliciesResponseTypeDef",
@@ -108,6 +112,7 @@ __all__ = (
     "PortSetTypeDef",
     "PublishMetricActionTypeDef",
     "PutResourcePolicyRequestRequestTypeDef",
+    "ReferenceSetsTypeDef",
     "ResponseMetadataTypeDef",
     "RuleDefinitionTypeDef",
     "RuleGroupMetadataTypeDef",
@@ -236,6 +241,24 @@ AttachmentTypeDef = TypedDict(
         "SubnetId": str,
         "EndpointId": str,
         "Status": AttachmentStatusType,
+    },
+    total=False,
+)
+
+CIDRSummaryTypeDef = TypedDict(
+    "CIDRSummaryTypeDef",
+    {
+        "AvailableCIDRCount": int,
+        "UtilizedCIDRCount": int,
+        "IPSetReferences": Dict[str, "IPSetMetadataTypeDef"],
+    },
+    total=False,
+)
+
+CapacityUsageSummaryTypeDef = TypedDict(
+    "CapacityUsageSummaryTypeDef",
+    {
+        "CIDRs": "CIDRSummaryTypeDef",
     },
     total=False,
 )
@@ -666,6 +689,7 @@ _OptionalFirewallStatusTypeDef = TypedDict(
     "_OptionalFirewallStatusTypeDef",
     {
         "SyncStates": Dict[str, "SyncStateTypeDef"],
+        "CapacityUsageSummary": "CapacityUsageSummaryTypeDef",
     },
     total=False,
 )
@@ -710,6 +734,22 @@ HeaderTypeDef = TypedDict(
         "Destination": str,
         "DestinationPort": str,
     },
+)
+
+IPSetMetadataTypeDef = TypedDict(
+    "IPSetMetadataTypeDef",
+    {
+        "ResolvedCIDRCount": int,
+    },
+    total=False,
+)
+
+IPSetReferenceTypeDef = TypedDict(
+    "IPSetReferenceTypeDef",
+    {
+        "ReferenceArn": str,
+    },
+    total=False,
 )
 
 IPSetTypeDef = TypedDict(
@@ -886,6 +926,14 @@ PutResourcePolicyRequestRequestTypeDef = TypedDict(
     },
 )
 
+ReferenceSetsTypeDef = TypedDict(
+    "ReferenceSetsTypeDef",
+    {
+        "IPSetReferences": Dict[str, "IPSetReferenceTypeDef"],
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -955,6 +1003,7 @@ _OptionalRuleGroupTypeDef = TypedDict(
     "_OptionalRuleGroupTypeDef",
     {
         "RuleVariables": "RuleVariablesTypeDef",
+        "ReferenceSets": "ReferenceSetsTypeDef",
         "StatefulRuleOptions": "StatefulRuleOptionsTypeDef",
     },
     total=False,

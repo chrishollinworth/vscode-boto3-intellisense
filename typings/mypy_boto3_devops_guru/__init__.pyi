@@ -13,8 +13,10 @@ Usage::
         GetCostEstimationPaginator,
         GetResourceCollectionPaginator,
         ListAnomaliesForInsightPaginator,
+        ListAnomalousLogGroupsPaginator,
         ListEventsPaginator,
         ListInsightsPaginator,
+        ListMonitoredResourcesPaginator,
         ListNotificationChannelsPaginator,
         ListOrganizationInsightsPaginator,
         ListRecommendationsPaginator,
@@ -32,8 +34,10 @@ Usage::
     get_cost_estimation_paginator: GetCostEstimationPaginator = client.get_paginator("get_cost_estimation")
     get_resource_collection_paginator: GetResourceCollectionPaginator = client.get_paginator("get_resource_collection")
     list_anomalies_for_insight_paginator: ListAnomaliesForInsightPaginator = client.get_paginator("list_anomalies_for_insight")
+    list_anomalous_log_groups_paginator: ListAnomalousLogGroupsPaginator = client.get_paginator("list_anomalous_log_groups")
     list_events_paginator: ListEventsPaginator = client.get_paginator("list_events")
     list_insights_paginator: ListInsightsPaginator = client.get_paginator("list_insights")
+    list_monitored_resources_paginator: ListMonitoredResourcesPaginator = client.get_paginator("list_monitored_resources")
     list_notification_channels_paginator: ListNotificationChannelsPaginator = client.get_paginator("list_notification_channels")
     list_organization_insights_paginator: ListOrganizationInsightsPaginator = client.get_paginator("list_organization_insights")
     list_recommendations_paginator: ListRecommendationsPaginator = client.get_paginator("list_recommendations")
@@ -48,8 +52,10 @@ from .paginator import (
     GetCostEstimationPaginator,
     GetResourceCollectionPaginator,
     ListAnomaliesForInsightPaginator,
+    ListAnomalousLogGroupsPaginator,
     ListEventsPaginator,
     ListInsightsPaginator,
+    ListMonitoredResourcesPaginator,
     ListNotificationChannelsPaginator,
     ListOrganizationInsightsPaginator,
     ListRecommendationsPaginator,
@@ -67,8 +73,10 @@ __all__ = (
     "GetCostEstimationPaginator",
     "GetResourceCollectionPaginator",
     "ListAnomaliesForInsightPaginator",
+    "ListAnomalousLogGroupsPaginator",
     "ListEventsPaginator",
     "ListInsightsPaginator",
+    "ListMonitoredResourcesPaginator",
     "ListNotificationChannelsPaginator",
     "ListOrganizationInsightsPaginator",
     "ListRecommendationsPaginator",

@@ -53,7 +53,9 @@ ModelEndpointStatusType = Literal["ASSOCIATED", "DISSOCIATED"]
 ModelInputDataFormatType = Literal["APPLICATION_JSON", "TEXT_CSV"]
 ModelOutputDataFormatType = Literal["APPLICATION_JSONLINES", "TEXT_CSV"]
 ModelSourceType = Literal["SAGEMAKER"]
-ModelTypeEnumType = Literal["ONLINE_FRAUD_INSIGHTS", "TRANSACTION_FRAUD_INSIGHTS"]
+ModelTypeEnumType = Literal[
+    "ACCOUNT_TAKEOVER_INSIGHTS", "ONLINE_FRAUD_INSIGHTS", "TRANSACTION_FRAUD_INSIGHTS"
+]
 ModelVersionStatusType = Literal["ACTIVE", "INACTIVE", "TRAINING_CANCELLED"]
 RuleExecutionModeType = Literal["ALL_MATCHED", "FIRST_MATCHED"]
 TrainingDataSourceEnumType = Literal["EXTERNAL_EVENTS", "INGESTED_EVENTS"]

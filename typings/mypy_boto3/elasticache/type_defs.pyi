@@ -2204,6 +2204,7 @@ ReplicationGroupTypeDef = TypedDict(
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationTypeDef"],
         "ReplicationGroupCreateTime": datetime,
         "DataTiering": DataTieringStatusType,
+        "AutoMinorVersionUpgrade": bool,
     },
     total=False,
 )

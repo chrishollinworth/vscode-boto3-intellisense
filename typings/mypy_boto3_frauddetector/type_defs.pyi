@@ -6,9 +6,9 @@ Type annotations for frauddetector service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_frauddetector.type_defs import BatchCreateVariableErrorTypeDef
+    from mypy_boto3_frauddetector.type_defs import ATIMetricDataPointTypeDef
 
-    data: BatchCreateVariableErrorTypeDef = {...}
+    data: ATIMetricDataPointTypeDef = {...}
     ```
 """
 import sys
@@ -42,6 +42,12 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ATIMetricDataPointTypeDef",
+    "ATIModelPerformanceTypeDef",
+    "ATITrainingMetricsValueTypeDef",
+    "AggregatedLogOddsMetricTypeDef",
+    "AggregatedVariablesImpactExplanationTypeDef",
+    "AggregatedVariablesImportanceMetricsTypeDef",
     "BatchCreateVariableErrorTypeDef",
     "BatchCreateVariableRequestRequestTypeDef",
     "BatchCreateVariableResultTypeDef",
@@ -156,6 +162,9 @@ __all__ = (
     "ModelVersionDetailTypeDef",
     "ModelVersionEvaluationTypeDef",
     "ModelVersionTypeDef",
+    "OFIMetricDataPointTypeDef",
+    "OFIModelPerformanceTypeDef",
+    "OFITrainingMetricsValueTypeDef",
     "OutcomeTypeDef",
     "PredictionExplanationsTypeDef",
     "PredictionTimeRangeTypeDef",
@@ -171,11 +180,16 @@ __all__ = (
     "RuleResultTypeDef",
     "RuleTypeDef",
     "SendEventRequestRequestTypeDef",
+    "TFIMetricDataPointTypeDef",
+    "TFIModelPerformanceTypeDef",
+    "TFITrainingMetricsValueTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TrainingDataSchemaTypeDef",
     "TrainingMetricsTypeDef",
+    "TrainingMetricsV2TypeDef",
     "TrainingResultTypeDef",
+    "TrainingResultV2TypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDetectorVersionMetadataRequestRequestTypeDef",
     "UpdateDetectorVersionRequestRequestTypeDef",
@@ -193,6 +207,60 @@ __all__ = (
     "VariableImpactExplanationTypeDef",
     "VariableImportanceMetricsTypeDef",
     "VariableTypeDef",
+)
+
+ATIMetricDataPointTypeDef = TypedDict(
+    "ATIMetricDataPointTypeDef",
+    {
+        "cr": float,
+        "adr": float,
+        "threshold": float,
+        "atodr": float,
+    },
+    total=False,
+)
+
+ATIModelPerformanceTypeDef = TypedDict(
+    "ATIModelPerformanceTypeDef",
+    {
+        "asi": float,
+    },
+    total=False,
+)
+
+ATITrainingMetricsValueTypeDef = TypedDict(
+    "ATITrainingMetricsValueTypeDef",
+    {
+        "metricDataPoints": List["ATIMetricDataPointTypeDef"],
+        "modelPerformance": "ATIModelPerformanceTypeDef",
+    },
+    total=False,
+)
+
+AggregatedLogOddsMetricTypeDef = TypedDict(
+    "AggregatedLogOddsMetricTypeDef",
+    {
+        "variableNames": List[str],
+        "aggregatedVariablesImportance": float,
+    },
+)
+
+AggregatedVariablesImpactExplanationTypeDef = TypedDict(
+    "AggregatedVariablesImpactExplanationTypeDef",
+    {
+        "eventVariableNames": List[str],
+        "relativeImpact": str,
+        "logOddsImpact": float,
+    },
+    total=False,
+)
+
+AggregatedVariablesImportanceMetricsTypeDef = TypedDict(
+    "AggregatedVariablesImportanceMetricsTypeDef",
+    {
+        "logOddsMetrics": List["AggregatedLogOddsMetricTypeDef"],
+    },
+    total=False,
 )
 
 BatchCreateVariableErrorTypeDef = TypedDict(
@@ -1329,22 +1397,14 @@ KMSKeyTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredLabelSchemaTypeDef = TypedDict(
-    "_RequiredLabelSchemaTypeDef",
+LabelSchemaTypeDef = TypedDict(
+    "LabelSchemaTypeDef",
     {
         "labelMapper": Dict[str, List[str]],
-    },
-)
-_OptionalLabelSchemaTypeDef = TypedDict(
-    "_OptionalLabelSchemaTypeDef",
-    {
         "unlabeledEventsTreatment": UnlabeledEventsTreatmentType,
     },
     total=False,
 )
-
-class LabelSchemaTypeDef(_RequiredLabelSchemaTypeDef, _OptionalLabelSchemaTypeDef):
-    pass
 
 LabelTypeDef = TypedDict(
     "LabelTypeDef",
@@ -1520,6 +1580,7 @@ ModelVersionDetailTypeDef = TypedDict(
         "lastUpdatedTime": str,
         "createdTime": str,
         "arn": str,
+        "trainingResultV2": "TrainingResultV2TypeDef",
     },
     total=False,
 )
@@ -1553,6 +1614,34 @@ _OptionalModelVersionTypeDef = TypedDict(
 class ModelVersionTypeDef(_RequiredModelVersionTypeDef, _OptionalModelVersionTypeDef):
     pass
 
+OFIMetricDataPointTypeDef = TypedDict(
+    "OFIMetricDataPointTypeDef",
+    {
+        "fpr": float,
+        "precision": float,
+        "tpr": float,
+        "threshold": float,
+    },
+    total=False,
+)
+
+OFIModelPerformanceTypeDef = TypedDict(
+    "OFIModelPerformanceTypeDef",
+    {
+        "auc": float,
+    },
+    total=False,
+)
+
+OFITrainingMetricsValueTypeDef = TypedDict(
+    "OFITrainingMetricsValueTypeDef",
+    {
+        "metricDataPoints": List["OFIMetricDataPointTypeDef"],
+        "modelPerformance": "OFIModelPerformanceTypeDef",
+    },
+    total=False,
+)
+
 OutcomeTypeDef = TypedDict(
     "OutcomeTypeDef",
     {
@@ -1569,6 +1658,9 @@ PredictionExplanationsTypeDef = TypedDict(
     "PredictionExplanationsTypeDef",
     {
         "variableImpactExplanations": List["VariableImpactExplanationTypeDef"],
+        "aggregatedVariablesImpactExplanations": List[
+            "AggregatedVariablesImpactExplanationTypeDef"
+        ],
     },
     total=False,
 )
@@ -1787,6 +1879,34 @@ class SendEventRequestRequestTypeDef(
 ):
     pass
 
+TFIMetricDataPointTypeDef = TypedDict(
+    "TFIMetricDataPointTypeDef",
+    {
+        "fpr": float,
+        "precision": float,
+        "tpr": float,
+        "threshold": float,
+    },
+    total=False,
+)
+
+TFIModelPerformanceTypeDef = TypedDict(
+    "TFIModelPerformanceTypeDef",
+    {
+        "auc": float,
+    },
+    total=False,
+)
+
+TFITrainingMetricsValueTypeDef = TypedDict(
+    "TFITrainingMetricsValueTypeDef",
+    {
+        "metricDataPoints": List["TFIMetricDataPointTypeDef"],
+        "modelPerformance": "TFIModelPerformanceTypeDef",
+    },
+    total=False,
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -1803,13 +1923,24 @@ TagTypeDef = TypedDict(
     },
 )
 
-TrainingDataSchemaTypeDef = TypedDict(
-    "TrainingDataSchemaTypeDef",
+_RequiredTrainingDataSchemaTypeDef = TypedDict(
+    "_RequiredTrainingDataSchemaTypeDef",
     {
         "modelVariables": List[str],
-        "labelSchema": "LabelSchemaTypeDef",
     },
 )
+_OptionalTrainingDataSchemaTypeDef = TypedDict(
+    "_OptionalTrainingDataSchemaTypeDef",
+    {
+        "labelSchema": "LabelSchemaTypeDef",
+    },
+    total=False,
+)
+
+class TrainingDataSchemaTypeDef(
+    _RequiredTrainingDataSchemaTypeDef, _OptionalTrainingDataSchemaTypeDef
+):
+    pass
 
 TrainingMetricsTypeDef = TypedDict(
     "TrainingMetricsTypeDef",
@@ -1820,12 +1951,33 @@ TrainingMetricsTypeDef = TypedDict(
     total=False,
 )
 
+TrainingMetricsV2TypeDef = TypedDict(
+    "TrainingMetricsV2TypeDef",
+    {
+        "ofi": "OFITrainingMetricsValueTypeDef",
+        "tfi": "TFITrainingMetricsValueTypeDef",
+        "ati": "ATITrainingMetricsValueTypeDef",
+    },
+    total=False,
+)
+
 TrainingResultTypeDef = TypedDict(
     "TrainingResultTypeDef",
     {
         "dataValidationMetrics": "DataValidationMetricsTypeDef",
         "trainingMetrics": "TrainingMetricsTypeDef",
         "variableImportanceMetrics": "VariableImportanceMetricsTypeDef",
+    },
+    total=False,
+)
+
+TrainingResultV2TypeDef = TypedDict(
+    "TrainingResultV2TypeDef",
+    {
+        "dataValidationMetrics": "DataValidationMetricsTypeDef",
+        "trainingMetricsV2": "TrainingMetricsV2TypeDef",
+        "variableImportanceMetrics": "VariableImportanceMetricsTypeDef",
+        "aggregatedVariablesImportanceMetrics": "AggregatedVariablesImportanceMetricsTypeDef",
     },
     total=False,
 )

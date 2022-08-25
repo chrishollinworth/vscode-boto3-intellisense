@@ -6,9 +6,9 @@ Type annotations for codeartifact service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_codeartifact.literals import DomainStatusType
+    from mypy_boto3_codeartifact.literals import AllowPublishType
 
-    data: DomainStatusType = "Active"
+    data: AllowPublishType = "ALLOW"
     ```
 """
 import sys
@@ -19,6 +19,8 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AllowPublishType",
+    "AllowUpstreamType",
     "DomainStatusType",
     "ExternalConnectionStatusType",
     "HashAlgorithmType",
@@ -30,10 +32,13 @@ __all__ = (
     "ListRepositoriesPaginatorName",
     "PackageFormatType",
     "PackageVersionErrorCodeType",
+    "PackageVersionOriginTypeType",
     "PackageVersionSortTypeType",
     "PackageVersionStatusType",
 )
 
+AllowPublishType = Literal["ALLOW", "BLOCK"]
+AllowUpstreamType = Literal["ALLOW", "BLOCK"]
 DomainStatusType = Literal["Active", "Deleted"]
 ExternalConnectionStatusType = Literal["Available"]
 HashAlgorithmType = Literal["MD5", "SHA-1", "SHA-256", "SHA-512"]
@@ -52,6 +57,7 @@ PackageVersionErrorCodeType = Literal[
     "NOT_FOUND",
     "SKIPPED",
 ]
+PackageVersionOriginTypeType = Literal["EXTERNAL", "INTERNAL", "UNKNOWN"]
 PackageVersionSortTypeType = Literal["PUBLISHED_TIME"]
 PackageVersionStatusType = Literal[
     "Archived", "Deleted", "Disposed", "Published", "Unfinished", "Unlisted"

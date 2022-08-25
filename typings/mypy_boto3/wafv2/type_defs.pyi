@@ -39,6 +39,7 @@ from .literals import (
     ResourceTypeType,
     ResponseContentTypeType,
     ScopeType,
+    SensitivityLevelType,
     TextTransformationTypeType,
 )
 
@@ -1912,13 +1913,25 @@ SizeConstraintStatementTypeDef = TypedDict(
     },
 )
 
-SqliMatchStatementTypeDef = TypedDict(
-    "SqliMatchStatementTypeDef",
+_RequiredSqliMatchStatementTypeDef = TypedDict(
+    "_RequiredSqliMatchStatementTypeDef",
     {
         "FieldToMatch": "FieldToMatchTypeDef",
         "TextTransformations": List["TextTransformationTypeDef"],
     },
 )
+_OptionalSqliMatchStatementTypeDef = TypedDict(
+    "_OptionalSqliMatchStatementTypeDef",
+    {
+        "SensitivityLevel": SensitivityLevelType,
+    },
+    total=False,
+)
+
+class SqliMatchStatementTypeDef(
+    _RequiredSqliMatchStatementTypeDef, _OptionalSqliMatchStatementTypeDef
+):
+    pass
 
 StatementTypeDef = TypedDict(
     "StatementTypeDef",

@@ -27,6 +27,7 @@ __all__ = (
     "AnomalyDetectorStatusType",
     "CSVFileCompressionType",
     "ConfidenceType",
+    "DataQualityMetricTypeType",
     "FrequencyType",
     "JsonFileCompressionType",
     "RelationshipTypeType",
@@ -57,6 +58,18 @@ AnomalyDetectorStatusType = Literal[
 ]
 CSVFileCompressionType = Literal["GZIP", "NONE"]
 ConfidenceType = Literal["HIGH", "LOW", "NONE"]
+DataQualityMetricTypeType = Literal[
+    "BACKTEST_INFERENCE_DATA_END_TIME_STAMP",
+    "BACKTEST_INFERENCE_DATA_START_TIME_STAMP",
+    "BACKTEST_TRAINING_DATA_END_TIME_STAMP",
+    "BACKTEST_TRAINING_DATA_START_TIME_STAMP",
+    "COLUMN_COMPLETENESS",
+    "DIMENSION_UNIQUENESS",
+    "INVALID_ROWS_COMPLIANCE",
+    "ROWS_PARTIAL_COMPLIANCE",
+    "ROWS_PROCESSED",
+    "TIME_SERIES_COUNT",
+]
 FrequencyType = Literal["P1D", "PT10M", "PT1H", "PT5M"]
 JsonFileCompressionType = Literal["GZIP", "NONE"]
 RelationshipTypeType = Literal["CAUSE_OF_INPUT_ANOMALY_GROUP", "EFFECT_OF_INPUT_ANOMALY_GROUP"]

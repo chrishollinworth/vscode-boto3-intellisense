@@ -24,6 +24,7 @@ from .literals import (
     AnomalyDetectorStatusType,
     ConfidenceType,
     CSVFileCompressionType,
+    DataQualityMetricTypeType,
     FrequencyType,
     JsonFileCompressionType,
     RelationshipTypeType,
@@ -38,10 +39,12 @@ else:
 __all__ = (
     "ActionTypeDef",
     "ActivateAnomalyDetectorRequestRequestTypeDef",
+    "AlertFiltersTypeDef",
     "AlertSummaryTypeDef",
     "AlertTypeDef",
     "AnomalyDetectorConfigSummaryTypeDef",
     "AnomalyDetectorConfigTypeDef",
+    "AnomalyDetectorDataQualityMetricTypeDef",
     "AnomalyDetectorSummaryTypeDef",
     "AnomalyGroupStatisticsTypeDef",
     "AnomalyGroupSummaryTypeDef",
@@ -64,6 +67,7 @@ __all__ = (
     "CreateMetricSetRequestRequestTypeDef",
     "CreateMetricSetResponseTypeDef",
     "CsvFormatDescriptorTypeDef",
+    "DataQualityMetricTypeDef",
     "DeactivateAnomalyDetectorRequestRequestTypeDef",
     "DeleteAlertRequestRequestTypeDef",
     "DeleteAnomalyDetectorRequestRequestTypeDef",
@@ -85,12 +89,15 @@ __all__ = (
     "DetectedMetricSourceTypeDef",
     "DetectedS3SourceConfigTypeDef",
     "DimensionContributionTypeDef",
+    "DimensionFilterTypeDef",
     "DimensionNameValueTypeDef",
     "DimensionValueContributionTypeDef",
     "ExecutionStatusTypeDef",
     "FileFormatDescriptorTypeDef",
     "GetAnomalyGroupRequestRequestTypeDef",
     "GetAnomalyGroupResponseTypeDef",
+    "GetDataQualityMetricsRequestRequestTypeDef",
+    "GetDataQualityMetricsResponseTypeDef",
     "GetFeedbackRequestRequestTypeDef",
     "GetFeedbackResponseTypeDef",
     "GetSampleDataRequestRequestTypeDef",
@@ -114,6 +121,7 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MetricLevelImpactTypeDef",
+    "MetricSetDataQualityMetricTypeDef",
     "MetricSetSummaryTypeDef",
     "MetricSourceTypeDef",
     "MetricTypeDef",
@@ -129,6 +137,8 @@ __all__ = (
     "TimeSeriesTypeDef",
     "TimestampColumnTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAlertRequestRequestTypeDef",
+    "UpdateAlertResponseTypeDef",
     "UpdateAnomalyDetectorRequestRequestTypeDef",
     "UpdateAnomalyDetectorResponseTypeDef",
     "UpdateMetricSetRequestRequestTypeDef",
@@ -150,6 +160,15 @@ ActivateAnomalyDetectorRequestRequestTypeDef = TypedDict(
     {
         "AnomalyDetectorArn": str,
     },
+)
+
+AlertFiltersTypeDef = TypedDict(
+    "AlertFiltersTypeDef",
+    {
+        "MetricList": List[str],
+        "DimensionFilterList": List["DimensionFilterTypeDef"],
+    },
+    total=False,
 )
 
 AlertSummaryTypeDef = TypedDict(
@@ -181,6 +200,7 @@ AlertTypeDef = TypedDict(
         "AlertStatus": AlertStatusType,
         "LastModificationTime": datetime,
         "CreationTime": datetime,
+        "AlertFilters": "AlertFiltersTypeDef",
     },
     total=False,
 )
@@ -197,6 +217,15 @@ AnomalyDetectorConfigTypeDef = TypedDict(
     "AnomalyDetectorConfigTypeDef",
     {
         "AnomalyDetectorFrequency": FrequencyType,
+    },
+    total=False,
+)
+
+AnomalyDetectorDataQualityMetricTypeDef = TypedDict(
+    "AnomalyDetectorDataQualityMetricTypeDef",
+    {
+        "StartTimestamp": datetime,
+        "MetricSetDataQualityMetricList": List["MetricSetDataQualityMetricTypeDef"],
     },
     total=False,
 )
@@ -366,7 +395,6 @@ _RequiredCreateAlertRequestRequestTypeDef = TypedDict(
     "_RequiredCreateAlertRequestRequestTypeDef",
     {
         "AlertName": str,
-        "AlertSensitivityThreshold": int,
         "AnomalyDetectorArn": str,
         "Action": "ActionTypeDef",
     },
@@ -374,8 +402,10 @@ _RequiredCreateAlertRequestRequestTypeDef = TypedDict(
 _OptionalCreateAlertRequestRequestTypeDef = TypedDict(
     "_OptionalCreateAlertRequestRequestTypeDef",
     {
+        "AlertSensitivityThreshold": int,
         "AlertDescription": str,
         "Tags": Dict[str, str],
+        "AlertFilters": "AlertFiltersTypeDef",
     },
     total=False,
 )
@@ -469,6 +499,17 @@ CsvFormatDescriptorTypeDef = TypedDict(
         "Delimiter": str,
         "HeaderList": List[str],
         "QuoteSymbol": str,
+    },
+    total=False,
+)
+
+DataQualityMetricTypeDef = TypedDict(
+    "DataQualityMetricTypeDef",
+    {
+        "MetricType": DataQualityMetricTypeType,
+        "MetricDescription": str,
+        "RelatedColumnName": str,
+        "MetricValue": float,
     },
     total=False,
 )
@@ -683,6 +724,15 @@ DimensionContributionTypeDef = TypedDict(
     total=False,
 )
 
+DimensionFilterTypeDef = TypedDict(
+    "DimensionFilterTypeDef",
+    {
+        "DimensionName": str,
+        "DimensionValueList": List[str],
+    },
+    total=False,
+)
+
 DimensionNameValueTypeDef = TypedDict(
     "DimensionNameValueTypeDef",
     {
@@ -731,6 +781,34 @@ GetAnomalyGroupResponseTypeDef = TypedDict(
     "GetAnomalyGroupResponseTypeDef",
     {
         "AnomalyGroup": "AnomalyGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetDataQualityMetricsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetDataQualityMetricsRequestRequestTypeDef",
+    {
+        "AnomalyDetectorArn": str,
+    },
+)
+_OptionalGetDataQualityMetricsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetDataQualityMetricsRequestRequestTypeDef",
+    {
+        "MetricSetArn": str,
+    },
+    total=False,
+)
+
+class GetDataQualityMetricsRequestRequestTypeDef(
+    _RequiredGetDataQualityMetricsRequestRequestTypeDef,
+    _OptionalGetDataQualityMetricsRequestRequestTypeDef,
+):
+    pass
+
+GetDataQualityMetricsResponseTypeDef = TypedDict(
+    "GetDataQualityMetricsResponseTypeDef",
+    {
+        "AnomalyDetectorDataQualityMetricList": List["AnomalyDetectorDataQualityMetricTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -999,6 +1077,15 @@ MetricLevelImpactTypeDef = TypedDict(
     total=False,
 )
 
+MetricSetDataQualityMetricTypeDef = TypedDict(
+    "MetricSetDataQualityMetricTypeDef",
+    {
+        "MetricSetArn": str,
+        "DataQualityMetricList": List["DataQualityMetricTypeDef"],
+    },
+    total=False,
+)
+
 MetricSetSummaryTypeDef = TypedDict(
     "MetricSetSummaryTypeDef",
     {
@@ -1183,6 +1270,36 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceArn": str,
         "TagKeys": List[str],
+    },
+)
+
+_RequiredUpdateAlertRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAlertRequestRequestTypeDef",
+    {
+        "AlertArn": str,
+    },
+)
+_OptionalUpdateAlertRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAlertRequestRequestTypeDef",
+    {
+        "AlertDescription": str,
+        "AlertSensitivityThreshold": int,
+        "Action": "ActionTypeDef",
+        "AlertFilters": "AlertFiltersTypeDef",
+    },
+    total=False,
+)
+
+class UpdateAlertRequestRequestTypeDef(
+    _RequiredUpdateAlertRequestRequestTypeDef, _OptionalUpdateAlertRequestRequestTypeDef
+):
+    pass
+
+UpdateAlertResponseTypeDef = TypedDict(
+    "UpdateAlertResponseTypeDef",
+    {
+        "AlertArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

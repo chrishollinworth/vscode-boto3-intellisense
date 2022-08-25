@@ -279,13 +279,25 @@ AddInstanceGroupsOutputTypeDef = TypedDict(
     },
 )
 
-AddJobFlowStepsInputRequestTypeDef = TypedDict(
-    "AddJobFlowStepsInputRequestTypeDef",
+_RequiredAddJobFlowStepsInputRequestTypeDef = TypedDict(
+    "_RequiredAddJobFlowStepsInputRequestTypeDef",
     {
         "JobFlowId": str,
         "Steps": List["StepConfigTypeDef"],
     },
 )
+_OptionalAddJobFlowStepsInputRequestTypeDef = TypedDict(
+    "_OptionalAddJobFlowStepsInputRequestTypeDef",
+    {
+        "ExecutionRoleArn": str,
+    },
+    total=False,
+)
+
+class AddJobFlowStepsInputRequestTypeDef(
+    _RequiredAddJobFlowStepsInputRequestTypeDef, _OptionalAddJobFlowStepsInputRequestTypeDef
+):
+    pass
 
 AddJobFlowStepsOutputTypeDef = TypedDict(
     "AddJobFlowStepsOutputTypeDef",
@@ -2404,6 +2416,7 @@ StepTypeDef = TypedDict(
         "Config": "HadoopStepConfigTypeDef",
         "ActionOnFailure": ActionOnFailureType,
         "Status": "StepStatusTypeDef",
+        "ExecutionRoleArn": str,
     },
     total=False,
 )
@@ -2534,6 +2547,7 @@ _OptionalVolumeSpecificationTypeDef = TypedDict(
     "_OptionalVolumeSpecificationTypeDef",
     {
         "Iops": int,
+        "Throughput": int,
     },
     total=False,
 )

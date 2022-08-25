@@ -151,7 +151,7 @@ class Exceptions:
 
 class OrganizationsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html)
     """
 
@@ -167,7 +167,7 @@ class OrganizationsClient(BaseClient):
         Sends a response to the originator of a handshake agreeing to the action
         proposed by the handshake request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.accept_handshake)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.accept_handshake)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#accept_handshake)
         """
     def attach_policy(self, *, PolicyId: str, TargetId: str) -> None:
@@ -175,28 +175,35 @@ class OrganizationsClient(BaseClient):
         Attaches a policy to a root, an organizational unit (OU), or an individual
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.attach_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.attach_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#attach_policy)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#can_paginate)
         """
     def cancel_handshake(self, *, HandshakeId: str) -> CancelHandshakeResponseTypeDef:
         """
         Cancels a handshake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.cancel_handshake)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.cancel_handshake)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#cancel_handshake)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#close)
         """
     def close_account(self, *, AccountId: str) -> None:
         """
         Closes an Amazon Web Services member account within an organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.close_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.close_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#close_account)
         """
     def create_account(
@@ -212,7 +219,7 @@ class OrganizationsClient(BaseClient):
         Creates an Amazon Web Services account that is automatically a member of the
         organization whose credentials made the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.create_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.create_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#create_account)
         """
     def create_gov_cloud_account(
@@ -228,7 +235,7 @@ class OrganizationsClient(BaseClient):
         This action is available if all of the following are true * You're authorized to
         create accounts in the Amazon Web Services GovCloud (US) Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.create_gov_cloud_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.create_gov_cloud_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#create_gov_cloud_account)
         """
     def create_organization(
@@ -237,7 +244,7 @@ class OrganizationsClient(BaseClient):
         """
         Creates an Amazon Web Services organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.create_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.create_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#create_organization)
         """
     def create_organizational_unit(
@@ -246,7 +253,7 @@ class OrganizationsClient(BaseClient):
         """
         Creates an organizational unit (OU) within a root or parent OU.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.create_organizational_unit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.create_organizational_unit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#create_organizational_unit)
         """
     def create_policy(
@@ -262,35 +269,35 @@ class OrganizationsClient(BaseClient):
         Creates a policy of a specified type that you can attach to a root, an
         organizational unit (OU), or an individual Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.create_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.create_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#create_policy)
         """
     def decline_handshake(self, *, HandshakeId: str) -> DeclineHandshakeResponseTypeDef:
         """
         Declines a handshake request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.decline_handshake)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.decline_handshake)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#decline_handshake)
         """
     def delete_organization(self) -> None:
         """
         Deletes the organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.delete_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.delete_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#delete_organization)
         """
     def delete_organizational_unit(self, *, OrganizationalUnitId: str) -> None:
         """
         Deletes an organizational unit (OU) from a root or another OU.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.delete_organizational_unit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.delete_organizational_unit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#delete_organizational_unit)
         """
     def delete_policy(self, *, PolicyId: str) -> None:
         """
         Deletes the specified policy from your organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.delete_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.delete_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#delete_policy)
         """
     def deregister_delegated_administrator(self, *, AccountId: str, ServicePrincipal: str) -> None:
@@ -298,14 +305,14 @@ class OrganizationsClient(BaseClient):
         Removes the specified member Amazon Web Services account as a delegated
         administrator for the specified Amazon Web Services service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.deregister_delegated_administrator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.deregister_delegated_administrator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#deregister_delegated_administrator)
         """
     def describe_account(self, *, AccountId: str) -> DescribeAccountResponseTypeDef:
         """
         Retrieves Organizations-related information about the specified account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.describe_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.describe_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#describe_account)
         """
     def describe_create_account_status(
@@ -314,7 +321,7 @@ class OrganizationsClient(BaseClient):
         """
         Retrieves the current status of an asynchronous request to create an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.describe_create_account_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.describe_create_account_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#describe_create_account_status)
         """
     def describe_effective_policy(
@@ -324,21 +331,21 @@ class OrganizationsClient(BaseClient):
         Returns the contents of the effective policy for specified policy type and
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.describe_effective_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.describe_effective_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#describe_effective_policy)
         """
     def describe_handshake(self, *, HandshakeId: str) -> DescribeHandshakeResponseTypeDef:
         """
         Retrieves information about a previously requested handshake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.describe_handshake)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.describe_handshake)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#describe_handshake)
         """
     def describe_organization(self) -> DescribeOrganizationResponseTypeDef:
         """
         Retrieves information about the organization that the user's account belongs to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.describe_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.describe_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#describe_organization)
         """
     def describe_organizational_unit(
@@ -347,21 +354,21 @@ class OrganizationsClient(BaseClient):
         """
         Retrieves information about an organizational unit (OU).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.describe_organizational_unit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.describe_organizational_unit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#describe_organizational_unit)
         """
     def describe_policy(self, *, PolicyId: str) -> DescribePolicyResponseTypeDef:
         """
         Retrieves information about a policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.describe_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.describe_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#describe_policy)
         """
     def detach_policy(self, *, PolicyId: str, TargetId: str) -> None:
         """
         Detaches a policy from a target root, organizational unit (OU), or account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.detach_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.detach_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#detach_policy)
         """
     def disable_aws_service_access(self, *, ServicePrincipal: str) -> None:
@@ -369,7 +376,7 @@ class OrganizationsClient(BaseClient):
         Disables the integration of an Amazon Web Services service (the service that is
         specified by `ServicePrincipal` ) with Organizations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.disable_aws_service_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.disable_aws_service_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#disable_aws_service_access)
         """
     def disable_policy_type(
@@ -378,14 +385,14 @@ class OrganizationsClient(BaseClient):
         """
         Disables an organizational policy type in a root.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.disable_policy_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.disable_policy_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#disable_policy_type)
         """
     def enable_all_features(self) -> EnableAllFeaturesResponseTypeDef:
         """
         Enables all features in an organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.enable_all_features)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.enable_all_features)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#enable_all_features)
         """
     def enable_aws_service_access(self, *, ServicePrincipal: str) -> None:
@@ -393,7 +400,7 @@ class OrganizationsClient(BaseClient):
         Enables the integration of an Amazon Web Services service (the service that is
         specified by `ServicePrincipal` ) with Organizations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.enable_aws_service_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.enable_aws_service_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#enable_aws_service_access)
         """
     def enable_policy_type(
@@ -402,7 +409,7 @@ class OrganizationsClient(BaseClient):
         """
         Enables a policy type in a root.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.enable_policy_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.enable_policy_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#enable_policy_type)
         """
     def generate_presigned_url(
@@ -415,7 +422,7 @@ class OrganizationsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#generate_presigned_url)
         """
     def invite_account_to_organization(
@@ -425,14 +432,14 @@ class OrganizationsClient(BaseClient):
         Sends an invitation to another account to join your organization as a member
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.invite_account_to_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.invite_account_to_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#invite_account_to_organization)
         """
     def leave_organization(self) -> None:
         """
         Removes a member account from its parent organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.leave_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.leave_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#leave_organization)
         """
     def list_accounts(
@@ -441,7 +448,7 @@ class OrganizationsClient(BaseClient):
         """
         Lists all the accounts in the organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_accounts)
         """
     def list_accounts_for_parent(
@@ -451,7 +458,7 @@ class OrganizationsClient(BaseClient):
         Lists the accounts in an organization that are contained by the specified target
         root or organizational unit (OU).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_accounts_for_parent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_accounts_for_parent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_accounts_for_parent)
         """
     def list_aws_service_access_for_organization(
@@ -461,7 +468,7 @@ class OrganizationsClient(BaseClient):
         Returns a list of the Amazon Web Services services that you enabled to integrate
         with your organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_aws_service_access_for_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_aws_service_access_for_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_aws_service_access_for_organization)
         """
     def list_children(
@@ -476,7 +483,7 @@ class OrganizationsClient(BaseClient):
         Lists all of the organizational units (OUs) or accounts that are contained in
         the specified parent OU or root.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_children)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_children)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_children)
         """
     def list_create_account_status(
@@ -490,7 +497,7 @@ class OrganizationsClient(BaseClient):
         Lists the account creation requests that match the specified status that is
         currently being tracked for the organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_create_account_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_create_account_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_create_account_status)
         """
     def list_delegated_administrators(
@@ -500,7 +507,7 @@ class OrganizationsClient(BaseClient):
         Lists the Amazon Web Services accounts that are designated as delegated
         administrators in this organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_delegated_administrators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_delegated_administrators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_delegated_administrators)
         """
     def list_delegated_services_for_account(
@@ -510,7 +517,7 @@ class OrganizationsClient(BaseClient):
         List the Amazon Web Services services for which the specified account is a
         delegated administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_delegated_services_for_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_delegated_services_for_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_delegated_services_for_account)
         """
     def list_handshakes_for_account(
@@ -524,7 +531,7 @@ class OrganizationsClient(BaseClient):
         Lists the current handshakes that are associated with the account of the
         requesting user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_handshakes_for_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_handshakes_for_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_handshakes_for_account)
         """
     def list_handshakes_for_organization(
@@ -538,7 +545,7 @@ class OrganizationsClient(BaseClient):
         Lists the handshakes that are associated with the organization that the
         requesting user is part of.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_handshakes_for_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_handshakes_for_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_handshakes_for_organization)
         """
     def list_organizational_units_for_parent(
@@ -547,7 +554,7 @@ class OrganizationsClient(BaseClient):
         """
         Lists the organizational units (OUs) in a parent organizational unit or root.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_organizational_units_for_parent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_organizational_units_for_parent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_organizational_units_for_parent)
         """
     def list_parents(
@@ -557,7 +564,7 @@ class OrganizationsClient(BaseClient):
         Lists the root or organizational units (OUs) that serve as the immediate parent
         of the specified child OU or account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_parents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_parents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_parents)
         """
     def list_policies(
@@ -566,7 +573,7 @@ class OrganizationsClient(BaseClient):
         """
         Retrieves the list of all policies in an organization of a specified type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_policies)
         """
     def list_policies_for_target(
@@ -581,7 +588,7 @@ class OrganizationsClient(BaseClient):
         Lists the policies that are directly attached to the specified target root,
         organizational unit (OU), or account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_policies_for_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_policies_for_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_policies_for_target)
         """
     def list_roots(
@@ -590,7 +597,7 @@ class OrganizationsClient(BaseClient):
         """
         Lists the roots that are defined in the current organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_roots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_roots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_roots)
         """
     def list_tags_for_resource(
@@ -599,7 +606,7 @@ class OrganizationsClient(BaseClient):
         """
         Lists tags that are attached to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_tags_for_resource)
         """
     def list_targets_for_policy(
@@ -609,7 +616,7 @@ class OrganizationsClient(BaseClient):
         Lists all the roots, organizational units (OUs), and accounts that the specified
         policy is attached to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.list_targets_for_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.list_targets_for_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#list_targets_for_policy)
         """
     def move_account(
@@ -619,7 +626,7 @@ class OrganizationsClient(BaseClient):
         Moves an account from its current source parent root or organizational unit (OU)
         to the specified destination parent root or OU.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.move_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.move_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#move_account)
         """
     def register_delegated_administrator(self, *, AccountId: str, ServicePrincipal: str) -> None:
@@ -627,28 +634,28 @@ class OrganizationsClient(BaseClient):
         Enables the specified member account to administer the Organizations features of
         the specified Amazon Web Services service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.register_delegated_administrator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.register_delegated_administrator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#register_delegated_administrator)
         """
     def remove_account_from_organization(self, *, AccountId: str) -> None:
         """
         Removes the specified account from the organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.remove_account_from_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.remove_account_from_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#remove_account_from_organization)
         """
     def tag_resource(self, *, ResourceId: str, Tags: List["TagTypeDef"]) -> None:
         """
         Adds one or more tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceId: str, TagKeys: List[str]) -> None:
         """
         Removes any tags with the specified keys from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#untag_resource)
         """
     def update_organizational_unit(
@@ -657,7 +664,7 @@ class OrganizationsClient(BaseClient):
         """
         Renames the specified organizational unit (OU).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.update_organizational_unit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.update_organizational_unit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#update_organizational_unit)
         """
     def update_policy(
@@ -666,7 +673,7 @@ class OrganizationsClient(BaseClient):
         """
         Updates an existing policy with a new name, description, or content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Client.update_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Client.update_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/client.html#update_policy)
         """
     @overload
@@ -674,13 +681,13 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_aws_service_access_for_organization"]
     ) -> ListAWSServiceAccessForOrganizationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListAWSServiceAccessForOrganization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListAWSServiceAccessForOrganization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listawsserviceaccessfororganizationpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_accounts"]) -> ListAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListAccounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listaccountspaginator)
         """
     @overload
@@ -688,13 +695,13 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_accounts_for_parent"]
     ) -> ListAccountsForParentPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListAccountsForParent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListAccountsForParent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listaccountsforparentpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_children"]) -> ListChildrenPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListChildren)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListChildren)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listchildrenpaginator)
         """
     @overload
@@ -702,7 +709,7 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_create_account_status"]
     ) -> ListCreateAccountStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListCreateAccountStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListCreateAccountStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listcreateaccountstatuspaginator)
         """
     @overload
@@ -710,7 +717,7 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_delegated_administrators"]
     ) -> ListDelegatedAdministratorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListDelegatedAdministrators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListDelegatedAdministrators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listdelegatedadministratorspaginator)
         """
     @overload
@@ -718,7 +725,7 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_delegated_services_for_account"]
     ) -> ListDelegatedServicesForAccountPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListDelegatedServicesForAccount)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListDelegatedServicesForAccount)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listdelegatedservicesforaccountpaginator)
         """
     @overload
@@ -726,7 +733,7 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_handshakes_for_account"]
     ) -> ListHandshakesForAccountPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForAccount)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForAccount)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listhandshakesforaccountpaginator)
         """
     @overload
@@ -734,7 +741,7 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_handshakes_for_organization"]
     ) -> ListHandshakesForOrganizationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForOrganization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForOrganization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listhandshakesfororganizationpaginator)
         """
     @overload
@@ -742,19 +749,19 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_organizational_units_for_parent"]
     ) -> ListOrganizationalUnitsForParentPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListOrganizationalUnitsForParent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListOrganizationalUnitsForParent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listorganizationalunitsforparentpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_parents"]) -> ListParentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListParents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListParents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listparentspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_policies"]) -> ListPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listpoliciespaginator)
         """
     @overload
@@ -762,13 +769,13 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_policies_for_target"]
     ) -> ListPoliciesForTargetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListPoliciesForTarget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListPoliciesForTarget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listpoliciesfortargetpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_roots"]) -> ListRootsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListRoots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListRoots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listrootspaginator)
         """
     @overload
@@ -776,7 +783,7 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listtagsforresourcepaginator)
         """
     @overload
@@ -784,6 +791,6 @@ class OrganizationsClient(BaseClient):
         self, operation_name: Literal["list_targets_for_policy"]
     ) -> ListTargetsForPolicyPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/organizations.html#Organizations.Paginator.ListTargetsForPolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/organizations.html#Organizations.Paginator.ListTargetsForPolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_organizations/paginators.html#listtargetsforpolicypaginator)
         """

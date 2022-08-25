@@ -25,6 +25,7 @@ __all__ = (
     "GetRecommendationsRequestRequestTypeDef",
     "GetRecommendationsResponseTypeDef",
     "PredictedItemTypeDef",
+    "PromotionTypeDef",
     "ResponseMetadataTypeDef",
 )
 
@@ -72,6 +73,7 @@ GetRecommendationsRequestRequestTypeDef = TypedDict(
         "filterArn": str,
         "filterValues": Dict[str, str],
         "recommenderArn": str,
+        "promotions": List["PromotionTypeDef"],
     },
     total=False,
 )
@@ -90,6 +92,18 @@ PredictedItemTypeDef = TypedDict(
     {
         "itemId": str,
         "score": float,
+        "promotionName": str,
+    },
+    total=False,
+)
+
+PromotionTypeDef = TypedDict(
+    "PromotionTypeDef",
+    {
+        "name": str,
+        "percentPromotedItems": int,
+        "filterArn": str,
+        "filterValues": Dict[str, str],
     },
     total=False,
 )

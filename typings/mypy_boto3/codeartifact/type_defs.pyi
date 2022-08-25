@@ -18,10 +18,13 @@ from typing import Any, Dict, List
 from botocore.response import StreamingBody
 
 from .literals import (
+    AllowPublishType,
+    AllowUpstreamType,
     DomainStatusType,
     HashAlgorithmType,
     PackageFormatType,
     PackageVersionErrorCodeType,
+    PackageVersionOriginTypeType,
     PackageVersionStatusType,
 )
 
@@ -56,6 +59,8 @@ __all__ = (
     "DeleteRepositoryResultTypeDef",
     "DescribeDomainRequestRequestTypeDef",
     "DescribeDomainResultTypeDef",
+    "DescribePackageRequestRequestTypeDef",
+    "DescribePackageResultTypeDef",
     "DescribePackageVersionRequestRequestTypeDef",
     "DescribePackageVersionResultTypeDef",
     "DescribeRepositoryRequestRequestTypeDef",
@@ -65,6 +70,7 @@ __all__ = (
     "DisposePackageVersionsRequestRequestTypeDef",
     "DisposePackageVersionsResultTypeDef",
     "DomainDescriptionTypeDef",
+    "DomainEntryPointTypeDef",
     "DomainSummaryTypeDef",
     "GetAuthorizationTokenRequestRequestTypeDef",
     "GetAuthorizationTokenResultTypeDef",
@@ -96,13 +102,19 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
     "PackageDependencyTypeDef",
+    "PackageDescriptionTypeDef",
+    "PackageOriginConfigurationTypeDef",
+    "PackageOriginRestrictionsTypeDef",
     "PackageSummaryTypeDef",
     "PackageVersionDescriptionTypeDef",
     "PackageVersionErrorTypeDef",
+    "PackageVersionOriginTypeDef",
     "PackageVersionSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "PutDomainPermissionsPolicyRequestRequestTypeDef",
     "PutDomainPermissionsPolicyResultTypeDef",
+    "PutPackageOriginConfigurationRequestRequestTypeDef",
+    "PutPackageOriginConfigurationResultTypeDef",
     "PutRepositoryPermissionsPolicyRequestRequestTypeDef",
     "PutRepositoryPermissionsPolicyResultTypeDef",
     "RepositoryDescriptionTypeDef",
@@ -443,6 +455,37 @@ DescribeDomainResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribePackageRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribePackageRequestRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+    },
+)
+_OptionalDescribePackageRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribePackageRequestRequestTypeDef",
+    {
+        "domainOwner": str,
+        "namespace": str,
+    },
+    total=False,
+)
+
+class DescribePackageRequestRequestTypeDef(
+    _RequiredDescribePackageRequestRequestTypeDef, _OptionalDescribePackageRequestRequestTypeDef
+):
+    pass
+
+DescribePackageResultTypeDef = TypedDict(
+    "DescribePackageResultTypeDef",
+    {
+        "package": "PackageDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDescribePackageVersionRequestRequestTypeDef = TypedDict(
     "_RequiredDescribePackageVersionRequestRequestTypeDef",
     {
@@ -583,6 +626,15 @@ DomainDescriptionTypeDef = TypedDict(
         "repositoryCount": int,
         "assetSizeBytes": int,
         "s3BucketArn": str,
+    },
+    total=False,
+)
+
+DomainEntryPointTypeDef = TypedDict(
+    "DomainEntryPointTypeDef",
+    {
+        "repositoryName": str,
+        "externalConnectionName": str,
     },
     total=False,
 )
@@ -919,6 +971,7 @@ _OptionalListPackageVersionsRequestRequestTypeDef = TypedDict(
         "sortBy": Literal["PUBLISHED_TIME"],
         "maxResults": int,
         "nextToken": str,
+        "originType": PackageVersionOriginTypeType,
     },
     total=False,
 )
@@ -958,6 +1011,8 @@ _OptionalListPackagesRequestRequestTypeDef = TypedDict(
         "packagePrefix": str,
         "maxResults": int,
         "nextToken": str,
+        "publish": AllowPublishType,
+        "upstream": AllowUpstreamType,
     },
     total=False,
 )
@@ -1054,12 +1109,40 @@ PackageDependencyTypeDef = TypedDict(
     total=False,
 )
 
+PackageDescriptionTypeDef = TypedDict(
+    "PackageDescriptionTypeDef",
+    {
+        "format": PackageFormatType,
+        "namespace": str,
+        "name": str,
+        "originConfiguration": "PackageOriginConfigurationTypeDef",
+    },
+    total=False,
+)
+
+PackageOriginConfigurationTypeDef = TypedDict(
+    "PackageOriginConfigurationTypeDef",
+    {
+        "restrictions": "PackageOriginRestrictionsTypeDef",
+    },
+    total=False,
+)
+
+PackageOriginRestrictionsTypeDef = TypedDict(
+    "PackageOriginRestrictionsTypeDef",
+    {
+        "publish": AllowPublishType,
+        "upstream": AllowUpstreamType,
+    },
+)
+
 PackageSummaryTypeDef = TypedDict(
     "PackageSummaryTypeDef",
     {
         "format": PackageFormatType,
         "namespace": str,
         "package": str,
+        "originConfiguration": "PackageOriginConfigurationTypeDef",
     },
     total=False,
 )
@@ -1079,6 +1162,7 @@ PackageVersionDescriptionTypeDef = TypedDict(
         "licenses": List["LicenseInfoTypeDef"],
         "revision": str,
         "status": PackageVersionStatusType,
+        "origin": "PackageVersionOriginTypeDef",
     },
     total=False,
 )
@@ -1088,6 +1172,15 @@ PackageVersionErrorTypeDef = TypedDict(
     {
         "errorCode": PackageVersionErrorCodeType,
         "errorMessage": str,
+    },
+    total=False,
+)
+
+PackageVersionOriginTypeDef = TypedDict(
+    "PackageVersionOriginTypeDef",
+    {
+        "domainEntryPoint": "DomainEntryPointTypeDef",
+        "originType": PackageVersionOriginTypeType,
     },
     total=False,
 )
@@ -1103,6 +1196,7 @@ _OptionalPackageVersionSummaryTypeDef = TypedDict(
     "_OptionalPackageVersionSummaryTypeDef",
     {
         "revision": str,
+        "origin": "PackageVersionOriginTypeDef",
     },
     total=False,
 )
@@ -1148,6 +1242,39 @@ PutDomainPermissionsPolicyResultTypeDef = TypedDict(
     "PutDomainPermissionsPolicyResultTypeDef",
     {
         "policy": "ResourcePolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPutPackageOriginConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutPackageOriginConfigurationRequestRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+        "restrictions": "PackageOriginRestrictionsTypeDef",
+    },
+)
+_OptionalPutPackageOriginConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutPackageOriginConfigurationRequestRequestTypeDef",
+    {
+        "domainOwner": str,
+        "namespace": str,
+    },
+    total=False,
+)
+
+class PutPackageOriginConfigurationRequestRequestTypeDef(
+    _RequiredPutPackageOriginConfigurationRequestRequestTypeDef,
+    _OptionalPutPackageOriginConfigurationRequestRequestTypeDef,
+):
+    pass
+
+PutPackageOriginConfigurationResultTypeDef = TypedDict(
+    "PutPackageOriginConfigurationResultTypeDef",
+    {
+        "originConfiguration": "PackageOriginConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

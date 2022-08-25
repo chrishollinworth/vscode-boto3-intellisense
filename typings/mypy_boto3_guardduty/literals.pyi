@@ -20,10 +20,13 @@ else:
 
 __all__ = (
     "AdminStatusType",
+    "CriterionKeyType",
     "DataSourceStatusType",
     "DataSourceType",
+    "DescribeMalwareScansPaginatorName",
     "DestinationTypeType",
     "DetectorStatusType",
+    "EbsSnapshotPreservationType",
     "FeedbackType",
     "FilterActionType",
     "FindingPublishingFrequencyType",
@@ -40,16 +43,31 @@ __all__ = (
     "ListThreatIntelSetsPaginatorName",
     "OrderByType",
     "PublishingStatusType",
+    "ScanCriterionKeyType",
+    "ScanResultType",
+    "ScanStatusType",
     "ThreatIntelSetFormatType",
     "ThreatIntelSetStatusType",
     "UsageStatisticTypeType",
 )
 
 AdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
+CriterionKeyType = Literal[
+    "ACCOUNT_ID",
+    "EC2_INSTANCE_ARN",
+    "GUARDDUTY_FINDING_ID",
+    "SCAN_ID",
+    "SCAN_START_TIME",
+    "SCAN_STATUS",
+]
 DataSourceStatusType = Literal["DISABLED", "ENABLED"]
-DataSourceType = Literal["CLOUD_TRAIL", "DNS_LOGS", "FLOW_LOGS", "KUBERNETES_AUDIT_LOGS", "S3_LOGS"]
+DataSourceType = Literal[
+    "CLOUD_TRAIL", "DNS_LOGS", "EC2_MALWARE_SCAN", "FLOW_LOGS", "KUBERNETES_AUDIT_LOGS", "S3_LOGS"
+]
+DescribeMalwareScansPaginatorName = Literal["describe_malware_scans"]
 DestinationTypeType = Literal["S3"]
 DetectorStatusType = Literal["DISABLED", "ENABLED"]
+EbsSnapshotPreservationType = Literal["NO_RETENTION", "RETENTION_WITH_FINDING"]
 FeedbackType = Literal["NOT_USEFUL", "USEFUL"]
 FilterActionType = Literal["ARCHIVE", "NOOP"]
 FindingPublishingFrequencyType = Literal["FIFTEEN_MINUTES", "ONE_HOUR", "SIX_HOURS"]
@@ -70,6 +88,9 @@ OrderByType = Literal["ASC", "DESC"]
 PublishingStatusType = Literal[
     "PENDING_VERIFICATION", "PUBLISHING", "STOPPED", "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY"
 ]
+ScanCriterionKeyType = Literal["EC2_INSTANCE_TAG"]
+ScanResultType = Literal["CLEAN", "INFECTED"]
+ScanStatusType = Literal["COMPLETED", "FAILED", "RUNNING"]
 ThreatIntelSetFormatType = Literal[
     "ALIEN_VAULT", "FIRE_EYE", "OTX_CSV", "PROOF_POINT", "STIX", "TXT"
 ]

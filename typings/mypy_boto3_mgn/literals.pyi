@@ -27,6 +27,7 @@ __all__ = (
     "DataReplicationStateType",
     "DescribeJobLogItemsPaginatorName",
     "DescribeJobsPaginatorName",
+    "DescribeLaunchConfigurationTemplatesPaginatorName",
     "DescribeReplicationConfigurationTemplatesPaginatorName",
     "DescribeSourceServersPaginatorName",
     "DescribeVcenterClientsPaginatorName",
@@ -38,11 +39,15 @@ __all__ = (
     "LaunchDispositionType",
     "LaunchStatusType",
     "LifeCycleStateType",
+    "PostLaunchActionExecutionStatusType",
+    "PostLaunchActionsDeploymentTypeType",
     "ReplicationConfigurationDataPlaneRoutingType",
     "ReplicationConfigurationDefaultLargeStagingDiskTypeType",
     "ReplicationConfigurationEbsEncryptionType",
     "ReplicationConfigurationReplicatedDiskStagingDiskTypeType",
     "ReplicationTypeType",
+    "SsmDocumentTypeType",
+    "SsmParameterStoreParameterTypeType",
     "TargetInstanceTypeRightSizingMethodType",
 )
 
@@ -100,6 +105,9 @@ DataReplicationStateType = Literal[
 ]
 DescribeJobLogItemsPaginatorName = Literal["describe_job_log_items"]
 DescribeJobsPaginatorName = Literal["describe_jobs"]
+DescribeLaunchConfigurationTemplatesPaginatorName = Literal[
+    "describe_launch_configuration_templates"
+]
 DescribeReplicationConfigurationTemplatesPaginatorName = Literal[
     "describe_replication_configuration_templates"
 ]
@@ -140,6 +148,8 @@ LifeCycleStateType = Literal[
     "STOPPED",
     "TESTING",
 ]
+PostLaunchActionExecutionStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
+PostLaunchActionsDeploymentTypeType = Literal["CUTOVER_ONLY", "TEST_AND_CUTOVER"]
 ReplicationConfigurationDataPlaneRoutingType = Literal["PRIVATE_IP", "PUBLIC_IP"]
 ReplicationConfigurationDefaultLargeStagingDiskTypeType = Literal["GP2", "GP3", "ST1"]
 ReplicationConfigurationEbsEncryptionType = Literal["CUSTOM", "DEFAULT"]
@@ -147,4 +157,6 @@ ReplicationConfigurationReplicatedDiskStagingDiskTypeType = Literal[
     "AUTO", "GP2", "GP3", "IO1", "IO2", "SC1", "ST1", "STANDARD"
 ]
 ReplicationTypeType = Literal["AGENT_BASED", "SNAPSHOT_SHIPPING"]
+SsmDocumentTypeType = Literal["AUTOMATION", "COMMAND"]
+SsmParameterStoreParameterTypeType = Literal["STRING"]
 TargetInstanceTypeRightSizingMethodType = Literal["BASIC", "NONE"]

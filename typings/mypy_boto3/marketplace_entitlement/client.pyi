@@ -43,7 +43,7 @@ class Exceptions:
 
 class MarketplaceEntitlementServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html)
     """
 
@@ -58,8 +58,15 @@ class MarketplaceEntitlementServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html#can_paginate)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html#close)
         """
     def generate_presigned_url(
         self,
@@ -71,7 +78,7 @@ class MarketplaceEntitlementServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html#generate_presigned_url)
         """
     def get_entitlements(
@@ -85,13 +92,13 @@ class MarketplaceEntitlementServiceClient(BaseClient):
         """
         GetEntitlements retrieves entitlement values for a given product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.get_entitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.get_entitlements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html#get_entitlements)
         """
     def get_paginator(
         self, operation_name: Literal["get_entitlements"]
     ) -> GetEntitlementsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/paginators.html#getentitlementspaginator)
         """

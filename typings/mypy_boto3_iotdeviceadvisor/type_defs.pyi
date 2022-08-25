@@ -15,7 +15,13 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import StatusType, SuiteRunStatusType
+from .literals import (
+    ProtocolType,
+    StatusType,
+    SuiteRunStatusType,
+    TestCaseScenarioStatusType,
+    TestCaseScenarioTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -52,6 +58,7 @@ __all__ = (
     "SuiteRunInformationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TestCaseRunTypeDef",
+    "TestCaseScenarioTypeDef",
     "TestResultTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateSuiteDefinitionRequestRequestTypeDef",
@@ -307,8 +314,10 @@ SuiteDefinitionConfigurationTypeDef = TypedDict(
         "suiteDefinitionName": str,
         "devices": List["DeviceUnderTestTypeDef"],
         "intendedForQualification": bool,
+        "isLongDurationTest": bool,
         "rootGroup": str,
         "devicePermissionRoleArn": str,
+        "protocol": ProtocolType,
     },
     total=False,
 )
@@ -320,6 +329,8 @@ SuiteDefinitionInformationTypeDef = TypedDict(
         "suiteDefinitionName": str,
         "defaultDevices": List["DeviceUnderTestTypeDef"],
         "intendedForQualification": bool,
+        "isLongDurationTest": bool,
+        "protocol": ProtocolType,
         "createdAt": datetime,
     },
     total=False,
@@ -372,6 +383,19 @@ TestCaseRunTypeDef = TypedDict(
         "logUrl": str,
         "warnings": str,
         "failure": str,
+        "testScenarios": List["TestCaseScenarioTypeDef"],
+    },
+    total=False,
+)
+
+TestCaseScenarioTypeDef = TypedDict(
+    "TestCaseScenarioTypeDef",
+    {
+        "testCaseScenarioId": str,
+        "testCaseScenarioType": TestCaseScenarioTypeType,
+        "status": TestCaseScenarioStatusType,
+        "failure": str,
+        "systemMessage": str,
     },
     total=False,
 )

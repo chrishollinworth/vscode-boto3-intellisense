@@ -1070,6 +1070,7 @@ EBSOptionsTypeDef = TypedDict(
         "VolumeType": VolumeTypeType,
         "VolumeSize": int,
         "Iops": int,
+        "Throughput": int,
     },
     total=False,
 )

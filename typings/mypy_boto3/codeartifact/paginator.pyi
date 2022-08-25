@@ -33,7 +33,13 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from .literals import PackageFormatType, PackageVersionStatusType
+from .literals import (
+    AllowPublishType,
+    AllowUpstreamType,
+    PackageFormatType,
+    PackageVersionOriginTypeType,
+    PackageVersionStatusType,
+)
 from .type_defs import (
     ListDomainsResultTypeDef,
     ListPackagesResultTypeDef,
@@ -60,7 +66,7 @@ __all__ = (
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listdomainspaginator)
     """
 
@@ -68,13 +74,13 @@ class ListDomainsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listdomainspaginator)
         """
 
 class ListPackageVersionAssetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackageversionassetspaginator)
     """
 
@@ -91,13 +97,13 @@ class ListPackageVersionAssetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPackageVersionAssetsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackageversionassetspaginator)
         """
 
 class ListPackageVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackageversionspaginator)
     """
 
@@ -112,16 +118,17 @@ class ListPackageVersionsPaginator(Boto3Paginator):
         namespace: str = None,
         status: PackageVersionStatusType = None,
         sortBy: Literal["PUBLISHED_TIME"] = None,
+        originType: PackageVersionOriginTypeType = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPackageVersionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackageversionspaginator)
         """
 
 class ListPackagesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackagespaginator)
     """
 
@@ -134,16 +141,18 @@ class ListPackagesPaginator(Boto3Paginator):
         format: PackageFormatType = None,
         namespace: str = None,
         packagePrefix: str = None,
+        publish: AllowPublishType = None,
+        upstream: AllowUpstreamType = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPackagesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackagespaginator)
         """
 
 class ListRepositoriesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listrepositoriespaginator)
     """
 
@@ -151,13 +160,13 @@ class ListRepositoriesPaginator(Boto3Paginator):
         self, *, repositoryPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRepositoriesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listrepositoriespaginator)
         """
 
 class ListRepositoriesInDomainPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listrepositoriesindomainpaginator)
     """
 
@@ -171,6 +180,6 @@ class ListRepositoriesInDomainPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRepositoriesInDomainResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listrepositoriesindomainpaginator)
         """

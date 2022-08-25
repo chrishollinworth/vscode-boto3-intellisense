@@ -83,6 +83,9 @@ __all__ = (
     "DomainNameConfigTypeDef",
     "DynamodbDataSourceConfigTypeDef",
     "ElasticsearchDataSourceConfigTypeDef",
+    "ErrorDetailTypeDef",
+    "EvaluateMappingTemplateRequestRequestTypeDef",
+    "EvaluateMappingTemplateResponseTypeDef",
     "FlushApiCacheRequestRequestTypeDef",
     "FunctionConfigurationTypeDef",
     "GetApiAssociationRequestRequestTypeDef",
@@ -252,14 +255,22 @@ AwsIamConfigTypeDef = TypedDict(
     total=False,
 )
 
-CachingConfigTypeDef = TypedDict(
-    "CachingConfigTypeDef",
+_RequiredCachingConfigTypeDef = TypedDict(
+    "_RequiredCachingConfigTypeDef",
     {
         "ttl": int,
+    },
+)
+_OptionalCachingConfigTypeDef = TypedDict(
+    "_OptionalCachingConfigTypeDef",
+    {
         "cachingKeys": List[str],
     },
     total=False,
 )
+
+class CachingConfigTypeDef(_RequiredCachingConfigTypeDef, _OptionalCachingConfigTypeDef):
+    pass
 
 _RequiredCognitoUserPoolConfigTypeDef = TypedDict(
     "_RequiredCognitoUserPoolConfigTypeDef",
@@ -661,6 +672,31 @@ ElasticsearchDataSourceConfigTypeDef = TypedDict(
     {
         "endpoint": str,
         "awsRegion": str,
+    },
+)
+
+ErrorDetailTypeDef = TypedDict(
+    "ErrorDetailTypeDef",
+    {
+        "message": str,
+    },
+    total=False,
+)
+
+EvaluateMappingTemplateRequestRequestTypeDef = TypedDict(
+    "EvaluateMappingTemplateRequestRequestTypeDef",
+    {
+        "template": str,
+        "context": str,
+    },
+)
+
+EvaluateMappingTemplateResponseTypeDef = TypedDict(
+    "EvaluateMappingTemplateResponseTypeDef",
+    {
+        "evaluationResult": str,
+        "error": "ErrorDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

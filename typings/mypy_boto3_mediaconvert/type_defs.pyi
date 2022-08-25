@@ -40,6 +40,7 @@ from .literals import (
     AudioChannelTagType,
     AudioCodecType,
     AudioDefaultSelectionType,
+    AudioDurationCorrectionType,
     AudioLanguageCodeControlType,
     AudioNormalizationAlgorithmControlType,
     AudioNormalizationAlgorithmType,
@@ -778,6 +779,7 @@ AudioSelectorGroupTypeDef = TypedDict(
 AudioSelectorTypeDef = TypedDict(
     "AudioSelectorTypeDef",
     {
+        "AudioDurationCorrection": AudioDurationCorrectionType,
         "CustomLanguageCode": str,
         "DefaultSelection": AudioDefaultSelectionType,
         "ExternalAudioFileInput": str,

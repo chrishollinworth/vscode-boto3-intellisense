@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AccountFilterTypeType,
     AccountGateStatusType,
     CallAsType,
     CapabilityType,
@@ -766,6 +767,7 @@ DeploymentTargetsTypeDef = TypedDict(
         "Accounts": List[str],
         "AccountsUrl": str,
         "OrganizationalUnitIds": List[str],
+        "AccountFilterType": AccountFilterTypeType,
     },
     total=False,
 )

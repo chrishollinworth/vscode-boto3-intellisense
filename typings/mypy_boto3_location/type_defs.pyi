@@ -63,6 +63,7 @@ __all__ = (
     "CalculateRouteResponseTypeDef",
     "CalculateRouteSummaryTypeDef",
     "CalculateRouteTruckModeOptionsTypeDef",
+    "CircleTypeDef",
     "CreateGeofenceCollectionRequestRequestTypeDef",
     "CreateGeofenceCollectionResponseTypeDef",
     "CreateMapRequestRequestTypeDef",
@@ -472,6 +473,14 @@ CalculateRouteTruckModeOptionsTypeDef = TypedDict(
     total=False,
 )
 
+CircleTypeDef = TypedDict(
+    "CircleTypeDef",
+    {
+        "Center": List[float],
+        "Radius": float,
+    },
+)
+
 _RequiredCreateGeofenceCollectionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateGeofenceCollectionRequestRequestTypeDef",
     {
@@ -850,6 +859,7 @@ DisassociateTrackerConsumerRequestRequestTypeDef = TypedDict(
 GeofenceGeometryTypeDef = TypedDict(
     "GeofenceGeometryTypeDef",
     {
+        "Circle": "CircleTypeDef",
         "Polygon": List[List[List[float]]],
     },
     total=False,

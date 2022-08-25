@@ -24,6 +24,7 @@ __all__ = (
     "ListAccountAssignmentDeletionStatusPaginatorName",
     "ListAccountAssignmentsPaginatorName",
     "ListAccountsForProvisionedPermissionSetPaginatorName",
+    "ListCustomerManagedPolicyReferencesInPermissionSetPaginatorName",
     "ListInstancesPaginatorName",
     "ListManagedPoliciesInPermissionSetPaginatorName",
     "ListPermissionSetProvisioningStatusPaginatorName",
@@ -49,6 +50,9 @@ ListAccountAssignmentDeletionStatusPaginatorName = Literal[
 ListAccountAssignmentsPaginatorName = Literal["list_account_assignments"]
 ListAccountsForProvisionedPermissionSetPaginatorName = Literal[
     "list_accounts_for_provisioned_permission_set"
+]
+ListCustomerManagedPolicyReferencesInPermissionSetPaginatorName = Literal[
+    "list_customer_managed_policy_references_in_permission_set"
 ]
 ListInstancesPaginatorName = Literal["list_instances"]
 ListManagedPoliciesInPermissionSetPaginatorName = Literal["list_managed_policies_in_permission_set"]

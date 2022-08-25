@@ -23,10 +23,14 @@ else:
 
 __all__ = (
     "AlternateContactTypeDef",
+    "ContactInformationTypeDef",
     "DeleteAlternateContactRequestRequestTypeDef",
     "GetAlternateContactRequestRequestTypeDef",
     "GetAlternateContactResponseTypeDef",
+    "GetContactInformationRequestRequestTypeDef",
+    "GetContactInformationResponseTypeDef",
     "PutAlternateContactRequestRequestTypeDef",
+    "PutContactInformationRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
 )
 
@@ -41,6 +45,35 @@ AlternateContactTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredContactInformationTypeDef = TypedDict(
+    "_RequiredContactInformationTypeDef",
+    {
+        "AddressLine1": str,
+        "City": str,
+        "CountryCode": str,
+        "FullName": str,
+        "PhoneNumber": str,
+        "PostalCode": str,
+    },
+)
+_OptionalContactInformationTypeDef = TypedDict(
+    "_OptionalContactInformationTypeDef",
+    {
+        "AddressLine2": str,
+        "AddressLine3": str,
+        "CompanyName": str,
+        "DistrictOrCounty": str,
+        "StateOrRegion": str,
+        "WebsiteUrl": str,
+    },
+    total=False,
+)
+
+class ContactInformationTypeDef(
+    _RequiredContactInformationTypeDef, _OptionalContactInformationTypeDef
+):
+    pass
 
 _RequiredDeleteAlternateContactRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteAlternateContactRequestRequestTypeDef",
@@ -90,6 +123,22 @@ GetAlternateContactResponseTypeDef = TypedDict(
     },
 )
 
+GetContactInformationRequestRequestTypeDef = TypedDict(
+    "GetContactInformationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+GetContactInformationResponseTypeDef = TypedDict(
+    "GetContactInformationResponseTypeDef",
+    {
+        "ContactInformation": "ContactInformationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredPutAlternateContactRequestRequestTypeDef = TypedDict(
     "_RequiredPutAlternateContactRequestRequestTypeDef",
     {
@@ -111,6 +160,26 @@ _OptionalPutAlternateContactRequestRequestTypeDef = TypedDict(
 class PutAlternateContactRequestRequestTypeDef(
     _RequiredPutAlternateContactRequestRequestTypeDef,
     _OptionalPutAlternateContactRequestRequestTypeDef,
+):
+    pass
+
+_RequiredPutContactInformationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutContactInformationRequestRequestTypeDef",
+    {
+        "ContactInformation": "ContactInformationTypeDef",
+    },
+)
+_OptionalPutContactInformationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutContactInformationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+class PutContactInformationRequestRequestTypeDef(
+    _RequiredPutContactInformationRequestRequestTypeDef,
+    _OptionalPutContactInformationRequestRequestTypeDef,
 ):
     pass
 

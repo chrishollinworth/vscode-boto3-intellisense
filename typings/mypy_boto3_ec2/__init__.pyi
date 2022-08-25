@@ -96,6 +96,8 @@ Usage::
         DescribeTransitGatewayConnectsPaginator,
         DescribeTransitGatewayMulticastDomainsPaginator,
         DescribeTransitGatewayPeeringAttachmentsPaginator,
+        DescribeTransitGatewayPolicyTablesPaginator,
+        DescribeTransitGatewayRouteTableAnnouncementsPaginator,
         DescribeTransitGatewayRouteTablesPaginator,
         DescribeTransitGatewayVpcAttachmentsPaginator,
         DescribeTransitGatewaysPaginator,
@@ -128,6 +130,7 @@ Usage::
         GetSpotPlacementScoresPaginator,
         GetTransitGatewayAttachmentPropagationsPaginator,
         GetTransitGatewayMulticastDomainAssociationsPaginator,
+        GetTransitGatewayPolicyTableAssociationsPaginator,
         GetTransitGatewayPrefixListReferencesPaginator,
         GetTransitGatewayRouteTableAssociationsPaginator,
         GetTransitGatewayRouteTablePropagationsPaginator,
@@ -293,6 +296,8 @@ Usage::
     describe_transit_gateway_connects_paginator: DescribeTransitGatewayConnectsPaginator = client.get_paginator("describe_transit_gateway_connects")
     describe_transit_gateway_multicast_domains_paginator: DescribeTransitGatewayMulticastDomainsPaginator = client.get_paginator("describe_transit_gateway_multicast_domains")
     describe_transit_gateway_peering_attachments_paginator: DescribeTransitGatewayPeeringAttachmentsPaginator = client.get_paginator("describe_transit_gateway_peering_attachments")
+    describe_transit_gateway_policy_tables_paginator: DescribeTransitGatewayPolicyTablesPaginator = client.get_paginator("describe_transit_gateway_policy_tables")
+    describe_transit_gateway_route_table_announcements_paginator: DescribeTransitGatewayRouteTableAnnouncementsPaginator = client.get_paginator("describe_transit_gateway_route_table_announcements")
     describe_transit_gateway_route_tables_paginator: DescribeTransitGatewayRouteTablesPaginator = client.get_paginator("describe_transit_gateway_route_tables")
     describe_transit_gateway_vpc_attachments_paginator: DescribeTransitGatewayVpcAttachmentsPaginator = client.get_paginator("describe_transit_gateway_vpc_attachments")
     describe_transit_gateways_paginator: DescribeTransitGatewaysPaginator = client.get_paginator("describe_transit_gateways")
@@ -321,6 +326,7 @@ Usage::
     get_spot_placement_scores_paginator: GetSpotPlacementScoresPaginator = client.get_paginator("get_spot_placement_scores")
     get_transit_gateway_attachment_propagations_paginator: GetTransitGatewayAttachmentPropagationsPaginator = client.get_paginator("get_transit_gateway_attachment_propagations")
     get_transit_gateway_multicast_domain_associations_paginator: GetTransitGatewayMulticastDomainAssociationsPaginator = client.get_paginator("get_transit_gateway_multicast_domain_associations")
+    get_transit_gateway_policy_table_associations_paginator: GetTransitGatewayPolicyTableAssociationsPaginator = client.get_paginator("get_transit_gateway_policy_table_associations")
     get_transit_gateway_prefix_list_references_paginator: GetTransitGatewayPrefixListReferencesPaginator = client.get_paginator("get_transit_gateway_prefix_list_references")
     get_transit_gateway_route_table_associations_paginator: GetTransitGatewayRouteTableAssociationsPaginator = client.get_paginator("get_transit_gateway_route_table_associations")
     get_transit_gateway_route_table_propagations_paginator: GetTransitGatewayRouteTablePropagationsPaginator = client.get_paginator("get_transit_gateway_route_table_propagations")
@@ -417,6 +423,8 @@ from .paginator import (
     DescribeTransitGatewayConnectsPaginator,
     DescribeTransitGatewayMulticastDomainsPaginator,
     DescribeTransitGatewayPeeringAttachmentsPaginator,
+    DescribeTransitGatewayPolicyTablesPaginator,
+    DescribeTransitGatewayRouteTableAnnouncementsPaginator,
     DescribeTransitGatewayRouteTablesPaginator,
     DescribeTransitGatewaysPaginator,
     DescribeTransitGatewayVpcAttachmentsPaginator,
@@ -445,6 +453,7 @@ from .paginator import (
     GetSpotPlacementScoresPaginator,
     GetTransitGatewayAttachmentPropagationsPaginator,
     GetTransitGatewayMulticastDomainAssociationsPaginator,
+    GetTransitGatewayPolicyTableAssociationsPaginator,
     GetTransitGatewayPrefixListReferencesPaginator,
     GetTransitGatewayRouteTableAssociationsPaginator,
     GetTransitGatewayRouteTablePropagationsPaginator,
@@ -587,6 +596,8 @@ __all__ = (
     "DescribeTransitGatewayConnectsPaginator",
     "DescribeTransitGatewayMulticastDomainsPaginator",
     "DescribeTransitGatewayPeeringAttachmentsPaginator",
+    "DescribeTransitGatewayPolicyTablesPaginator",
+    "DescribeTransitGatewayRouteTableAnnouncementsPaginator",
     "DescribeTransitGatewayRouteTablesPaginator",
     "DescribeTransitGatewayVpcAttachmentsPaginator",
     "DescribeTransitGatewaysPaginator",
@@ -619,6 +630,7 @@ __all__ = (
     "GetSpotPlacementScoresPaginator",
     "GetTransitGatewayAttachmentPropagationsPaginator",
     "GetTransitGatewayMulticastDomainAssociationsPaginator",
+    "GetTransitGatewayPolicyTableAssociationsPaginator",
     "GetTransitGatewayPrefixListReferencesPaginator",
     "GetTransitGatewayRouteTableAssociationsPaginator",
     "GetTransitGatewayRouteTablePropagationsPaginator",

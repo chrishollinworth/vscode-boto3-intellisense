@@ -35,6 +35,7 @@ __all__ = (
     "BatchGetAssetPropertyValueHistoryErrorCodeType",
     "BatchPutAssetPropertyValueErrorCodeType",
     "CapabilitySyncStatusType",
+    "ColumnNameType",
     "ComputeLocationType",
     "ConfigurationStateType",
     "DetailedErrorCodeType",
@@ -47,12 +48,15 @@ __all__ = (
     "GetInterpolatedAssetPropertyValuesPaginatorName",
     "IdentityTypeType",
     "ImageFileTypeType",
+    "JobStatusType",
     "ListAccessPoliciesPaginatorName",
     "ListAssetModelsPaginatorName",
     "ListAssetRelationshipsPaginatorName",
     "ListAssetsFilterType",
     "ListAssetsPaginatorName",
     "ListAssociatedAssetsPaginatorName",
+    "ListBulkImportJobsFilterType",
+    "ListBulkImportJobsPaginatorName",
     "ListDashboardsPaginatorName",
     "ListGatewaysPaginatorName",
     "ListPortalsPaginatorName",
@@ -108,6 +112,16 @@ BatchPutAssetPropertyValueErrorCodeType = Literal[
     "TimestampOutOfRangeException",
 ]
 CapabilitySyncStatusType = Literal["IN_SYNC", "OUT_OF_SYNC", "SYNC_FAILED", "UNKNOWN"]
+ColumnNameType = Literal[
+    "ALIAS",
+    "ASSET_ID",
+    "DATA_TYPE",
+    "PROPERTY_ID",
+    "QUALITY",
+    "TIMESTAMP_NANO_OFFSET",
+    "TIMESTAMP_SECONDS",
+    "VALUE",
+]
 ComputeLocationType = Literal["CLOUD", "EDGE"]
 ConfigurationStateType = Literal["ACTIVE", "UPDATE_FAILED", "UPDATE_IN_PROGRESS"]
 DetailedErrorCodeType = Literal[
@@ -122,12 +136,19 @@ GetAssetPropertyValueHistoryPaginatorName = Literal["get_asset_property_value_hi
 GetInterpolatedAssetPropertyValuesPaginatorName = Literal["get_interpolated_asset_property_values"]
 IdentityTypeType = Literal["GROUP", "IAM", "USER"]
 ImageFileTypeType = Literal["PNG"]
+JobStatusType = Literal[
+    "CANCELLED", "COMPLETED", "COMPLETED_WITH_FAILURES", "FAILED", "PENDING", "RUNNING"
+]
 ListAccessPoliciesPaginatorName = Literal["list_access_policies"]
 ListAssetModelsPaginatorName = Literal["list_asset_models"]
 ListAssetRelationshipsPaginatorName = Literal["list_asset_relationships"]
 ListAssetsFilterType = Literal["ALL", "TOP_LEVEL"]
 ListAssetsPaginatorName = Literal["list_assets"]
 ListAssociatedAssetsPaginatorName = Literal["list_associated_assets"]
+ListBulkImportJobsFilterType = Literal[
+    "ALL", "CANCELLED", "COMPLETED", "COMPLETED_WITH_FAILURES", "FAILED", "PENDING", "RUNNING"
+]
+ListBulkImportJobsPaginatorName = Literal["list_bulk_import_jobs"]
 ListDashboardsPaginatorName = Literal["list_dashboards"]
 ListGatewaysPaginatorName = Literal["list_gateways"]
 ListPortalsPaginatorName = Literal["list_portals"]

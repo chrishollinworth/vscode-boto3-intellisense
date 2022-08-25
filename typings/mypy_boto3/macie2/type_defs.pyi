@@ -18,6 +18,7 @@ from typing import Any, Dict, List
 from .literals import (
     AdminStatusType,
     AllowsUnencryptedObjectUploadsType,
+    AvailabilityCodeType,
     DataIdentifierSeverityType,
     DayOfWeekType,
     EffectivePermissionType,
@@ -41,6 +42,8 @@ from .literals import (
     ManagedDataIdentifierSelectorType,
     OrderByType,
     RelationshipStatusType,
+    RevealRequestStatusType,
+    RevealStatusType,
     ScopeFilterKeyType,
     SearchResourcesComparatorType,
     SearchResourcesSimpleCriterionKeyType,
@@ -52,6 +55,7 @@ from .literals import (
     StorageClassType,
     TimeRangeType,
     TypeType,
+    UnavailabilityReasonCodeType,
     UsageStatisticsFilterComparatorType,
     UsageStatisticsFilterKeyType,
     UsageStatisticsSortKeyType,
@@ -129,6 +133,7 @@ __all__ = (
     "DescribeClassificationJobRequestRequestTypeDef",
     "DescribeClassificationJobResponseTypeDef",
     "DescribeOrganizationConfigurationResponseTypeDef",
+    "DetectedDataDetailsTypeDef",
     "DisableOrganizationAdminAccountRequestRequestTypeDef",
     "DisassociateMemberRequestRequestTypeDef",
     "DomainDetailsTypeDef",
@@ -159,6 +164,11 @@ __all__ = (
     "GetMasterAccountResponseTypeDef",
     "GetMemberRequestRequestTypeDef",
     "GetMemberResponseTypeDef",
+    "GetRevealConfigurationResponseTypeDef",
+    "GetSensitiveDataOccurrencesAvailabilityRequestRequestTypeDef",
+    "GetSensitiveDataOccurrencesAvailabilityResponseTypeDef",
+    "GetSensitiveDataOccurrencesRequestRequestTypeDef",
+    "GetSensitiveDataOccurrencesResponseTypeDef",
     "GetUsageStatisticsRequestRequestTypeDef",
     "GetUsageStatisticsResponseTypeDef",
     "GetUsageTotalsRequestRequestTypeDef",
@@ -218,6 +228,7 @@ __all__ = (
     "ReplicationDetailsTypeDef",
     "ResourcesAffectedTypeDef",
     "ResponseMetadataTypeDef",
+    "RevealConfigurationTypeDef",
     "S3BucketCriteriaForJobTypeDef",
     "S3BucketDefinitionForJobTypeDef",
     "S3BucketOwnerTypeDef",
@@ -263,6 +274,8 @@ __all__ = (
     "UpdateMacieSessionRequestRequestTypeDef",
     "UpdateMemberSessionRequestRequestTypeDef",
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
+    "UpdateRevealConfigurationRequestRequestTypeDef",
+    "UpdateRevealConfigurationResponseTypeDef",
     "UsageByAccountTypeDef",
     "UsageRecordTypeDef",
     "UsageStatisticsFilterTypeDef",
@@ -271,6 +284,7 @@ __all__ = (
     "UserIdentityRootTypeDef",
     "UserIdentityTypeDef",
     "UserPausedDetailsTypeDef",
+    "WaiterConfigTypeDef",
     "WeeklyScheduleTypeDef",
 )
 
@@ -963,6 +977,13 @@ DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+DetectedDataDetailsTypeDef = TypedDict(
+    "DetectedDataDetailsTypeDef",
+    {
+        "value": str,
+    },
+)
+
 DisableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
     "DisableOrganizationAdminAccountRequestRequestTypeDef",
     {
@@ -1304,6 +1325,47 @@ GetMemberResponseTypeDef = TypedDict(
         "relationshipStatus": RelationshipStatusType,
         "tags": Dict[str, str],
         "updatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRevealConfigurationResponseTypeDef = TypedDict(
+    "GetRevealConfigurationResponseTypeDef",
+    {
+        "configuration": "RevealConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetSensitiveDataOccurrencesAvailabilityRequestRequestTypeDef = TypedDict(
+    "GetSensitiveDataOccurrencesAvailabilityRequestRequestTypeDef",
+    {
+        "findingId": str,
+    },
+)
+
+GetSensitiveDataOccurrencesAvailabilityResponseTypeDef = TypedDict(
+    "GetSensitiveDataOccurrencesAvailabilityResponseTypeDef",
+    {
+        "code": AvailabilityCodeType,
+        "reasons": List[UnavailabilityReasonCodeType],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetSensitiveDataOccurrencesRequestRequestTypeDef = TypedDict(
+    "GetSensitiveDataOccurrencesRequestRequestTypeDef",
+    {
+        "findingId": str,
+    },
+)
+
+GetSensitiveDataOccurrencesResponseTypeDef = TypedDict(
+    "GetSensitiveDataOccurrencesResponseTypeDef",
+    {
+        "error": str,
+        "sensitiveDataOccurrences": Dict[str, List["DetectedDataDetailsTypeDef"]],
+        "status": RevealRequestStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1886,6 +1948,25 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+_RequiredRevealConfigurationTypeDef = TypedDict(
+    "_RequiredRevealConfigurationTypeDef",
+    {
+        "status": RevealStatusType,
+    },
+)
+_OptionalRevealConfigurationTypeDef = TypedDict(
+    "_OptionalRevealConfigurationTypeDef",
+    {
+        "kmsKeyId": str,
+    },
+    total=False,
+)
+
+class RevealConfigurationTypeDef(
+    _RequiredRevealConfigurationTypeDef, _OptionalRevealConfigurationTypeDef
+):
+    pass
+
 S3BucketCriteriaForJobTypeDef = TypedDict(
     "S3BucketCriteriaForJobTypeDef",
     {
@@ -2349,6 +2430,21 @@ UpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateRevealConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateRevealConfigurationRequestRequestTypeDef",
+    {
+        "configuration": "RevealConfigurationTypeDef",
+    },
+)
+
+UpdateRevealConfigurationResponseTypeDef = TypedDict(
+    "UpdateRevealConfigurationResponseTypeDef",
+    {
+        "configuration": "RevealConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UsageByAccountTypeDef = TypedDict(
     "UsageByAccountTypeDef",
     {
@@ -2429,6 +2525,15 @@ UserPausedDetailsTypeDef = TypedDict(
         "jobExpiresAt": datetime,
         "jobImminentExpirationHealthEventArn": str,
         "jobPausedAt": datetime,
+    },
+    total=False,
+)
+
+WaiterConfigTypeDef = TypedDict(
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
     },
     total=False,
 )

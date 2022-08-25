@@ -23,6 +23,7 @@ __all__ = (
     "AttachmentTypeType",
     "ChangeActionType",
     "ChangeSetStateType",
+    "ChangeStatusType",
     "ChangeTypeType",
     "ConnectPeerAssociationStateType",
     "ConnectPeerStateType",
@@ -36,6 +37,7 @@ __all__ = (
     "DeviceStateType",
     "GetConnectPeerAssociationsPaginatorName",
     "GetConnectionsPaginatorName",
+    "GetCoreNetworkChangeEventsPaginatorName",
     "GetCoreNetworkChangeSetPaginatorName",
     "GetCustomerGatewayAssociationsPaginatorName",
     "GetDevicesPaginatorName",
@@ -55,6 +57,9 @@ __all__ = (
     "ListConnectPeersPaginatorName",
     "ListCoreNetworkPolicyVersionsPaginatorName",
     "ListCoreNetworksPaginatorName",
+    "ListPeeringsPaginatorName",
+    "PeeringStateType",
+    "PeeringTypeType",
     "RouteAnalysisCompletionReasonCodeType",
     "RouteAnalysisCompletionResultCodeType",
     "RouteAnalysisStatusType",
@@ -78,7 +83,7 @@ AttachmentStateType = Literal[
     "REJECTED",
     "UPDATING",
 ]
-AttachmentTypeType = Literal["CONNECT", "SITE_TO_SITE_VPN", "VPC"]
+AttachmentTypeType = Literal["CONNECT", "SITE_TO_SITE_VPN", "TRANSIT_GATEWAY_ROUTE_TABLE", "VPC"]
 ChangeActionType = Literal["ADD", "MODIFY", "REMOVE"]
 ChangeSetStateType = Literal[
     "EXECUTING",
@@ -88,12 +93,17 @@ ChangeSetStateType = Literal[
     "PENDING_GENERATION",
     "READY_TO_EXECUTE",
 ]
+ChangeStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS", "NOT_STARTED"]
 ChangeTypeType = Literal[
     "ATTACHMENT_MAPPING",
+    "ATTACHMENT_POLICIES_CONFIGURATION",
     "ATTACHMENT_ROUTE_PROPAGATION",
     "ATTACHMENT_ROUTE_STATIC",
+    "CORE_NETWORK_CONFIGURATION",
     "CORE_NETWORK_EDGE",
     "CORE_NETWORK_SEGMENT",
+    "SEGMENTS_CONFIGURATION",
+    "SEGMENT_ACTIONS_CONFIGURATION",
 ]
 ConnectPeerAssociationStateType = Literal["AVAILABLE", "DELETED", "DELETING", "PENDING"]
 ConnectPeerStateType = Literal["AVAILABLE", "CREATING", "DELETING", "FAILED"]
@@ -107,6 +117,7 @@ DescribeGlobalNetworksPaginatorName = Literal["describe_global_networks"]
 DeviceStateType = Literal["AVAILABLE", "DELETING", "PENDING", "UPDATING"]
 GetConnectPeerAssociationsPaginatorName = Literal["get_connect_peer_associations"]
 GetConnectionsPaginatorName = Literal["get_connections"]
+GetCoreNetworkChangeEventsPaginatorName = Literal["get_core_network_change_events"]
 GetCoreNetworkChangeSetPaginatorName = Literal["get_core_network_change_set"]
 GetCustomerGatewayAssociationsPaginatorName = Literal["get_customer_gateway_associations"]
 GetDevicesPaginatorName = Literal["get_devices"]
@@ -128,6 +139,9 @@ ListAttachmentsPaginatorName = Literal["list_attachments"]
 ListConnectPeersPaginatorName = Literal["list_connect_peers"]
 ListCoreNetworkPolicyVersionsPaginatorName = Literal["list_core_network_policy_versions"]
 ListCoreNetworksPaginatorName = Literal["list_core_networks"]
+ListPeeringsPaginatorName = Literal["list_peerings"]
+PeeringStateType = Literal["AVAILABLE", "CREATING", "DELETING", "FAILED"]
+PeeringTypeType = Literal["TRANSIT_GATEWAY"]
 RouteAnalysisCompletionReasonCodeType = Literal[
     "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND",
     "CYCLIC_PATH_DETECTED",

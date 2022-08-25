@@ -30,7 +30,7 @@ __all__ = ("ListBundlesPaginator", "ListProjectsPaginator")
 
 class ListBundlesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mobile.html#Mobile.Paginator.ListBundles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mobile.html#Mobile.Paginator.ListBundles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mobile/paginators.html#listbundlespaginator)
     """
 
@@ -38,13 +38,13 @@ class ListBundlesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBundlesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mobile.html#Mobile.Paginator.ListBundles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mobile.html#Mobile.Paginator.ListBundles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mobile/paginators.html#listbundlespaginator)
         """
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mobile.html#Mobile.Paginator.ListProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mobile.html#Mobile.Paginator.ListProjects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mobile/paginators.html#listprojectspaginator)
     """
 
@@ -52,6 +52,6 @@ class ListProjectsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mobile.html#Mobile.Paginator.ListProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/mobile.html#Mobile.Paginator.ListProjects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mobile/paginators.html#listprojectspaginator)
         """

@@ -6,9 +6,9 @@ Type annotations for wellarchitected service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_wellarchitected.type_defs import AnswerSummaryTypeDef
+    from mypy_boto3_wellarchitected.type_defs import AdditionalResourcesTypeDef
 
-    data: AnswerSummaryTypeDef = {...}
+    data: AdditionalResourcesTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AdditionalResourceTypeType,
     AnswerReasonType,
     ChoiceReasonType,
     ChoiceStatusType,
@@ -25,6 +26,7 @@ from .literals import (
     LensStatusTypeType,
     LensTypeType,
     NotificationTypeType,
+    OrganizationSharingStatusType,
     PermissionTypeType,
     RiskType,
     ShareInvitationActionType,
@@ -40,6 +42,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AdditionalResourcesTypeDef",
     "AnswerSummaryTypeDef",
     "AnswerTypeDef",
     "AssociateLensesInputRequestTypeDef",
@@ -125,6 +128,7 @@ __all__ = (
     "UntagResourceInputRequestTypeDef",
     "UpdateAnswerInputRequestTypeDef",
     "UpdateAnswerOutputTypeDef",
+    "UpdateGlobalSettingsInputRequestTypeDef",
     "UpdateLensReviewInputRequestTypeDef",
     "UpdateLensReviewOutputTypeDef",
     "UpdateShareInvitationInputRequestTypeDef",
@@ -139,6 +143,15 @@ __all__ = (
     "WorkloadShareTypeDef",
     "WorkloadSummaryTypeDef",
     "WorkloadTypeDef",
+)
+
+AdditionalResourcesTypeDef = TypedDict(
+    "AdditionalResourcesTypeDef",
+    {
+        "Type": AdditionalResourceTypeType,
+        "Content": List["ChoiceContentTypeDef"],
+    },
+    total=False,
 )
 
 AnswerSummaryTypeDef = TypedDict(
@@ -234,6 +247,7 @@ ChoiceTypeDef = TypedDict(
         "Description": str,
         "HelpfulResource": "ChoiceContentTypeDef",
         "ImprovementPlan": "ChoiceContentTypeDef",
+        "AdditionalResources": List["AdditionalResourcesTypeDef"],
     },
     total=False,
 )
@@ -327,7 +341,6 @@ _RequiredCreateWorkloadInputRequestTypeDef = TypedDict(
         "WorkloadName": str,
         "Description": str,
         "Environment": WorkloadEnvironmentType,
-        "ReviewOwner": str,
         "Lenses": List[str],
         "ClientRequestToken": str,
     },
@@ -340,6 +353,7 @@ _OptionalCreateWorkloadInputRequestTypeDef = TypedDict(
         "NonAwsRegions": List[str],
         "PillarPriorities": List[str],
         "ArchitecturalDesign": str,
+        "ReviewOwner": str,
         "IndustryType": str,
         "Industry": str,
         "Notes": str,
@@ -727,6 +741,7 @@ LensShareSummaryTypeDef = TypedDict(
         "ShareId": str,
         "SharedWith": str,
         "Status": ShareStatusType,
+        "StatusMessage": str,
     },
     total=False,
 )
@@ -757,6 +772,7 @@ LensTypeDef = TypedDict(
         "Description": str,
         "Owner": str,
         "ShareInvitationId": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -891,6 +907,7 @@ _OptionalListLensSharesInputRequestTypeDef = TypedDict(
         "SharedWithPrefix": str,
         "NextToken": str,
         "MaxResults": int,
+        "Status": ShareStatusType,
     },
     total=False,
 )
@@ -1027,6 +1044,7 @@ _OptionalListWorkloadSharesInputRequestTypeDef = TypedDict(
         "SharedWithPrefix": str,
         "NextToken": str,
         "MaxResults": int,
+        "Status": ShareStatusType,
     },
     total=False,
 )
@@ -1219,6 +1237,14 @@ UpdateAnswerOutputTypeDef = TypedDict(
     },
 )
 
+UpdateGlobalSettingsInputRequestTypeDef = TypedDict(
+    "UpdateGlobalSettingsInputRequestTypeDef",
+    {
+        "OrganizationSharingStatus": OrganizationSharingStatusType,
+    },
+    total=False,
+)
+
 _RequiredUpdateLensReviewInputRequestTypeDef = TypedDict(
     "_RequiredUpdateLensReviewInputRequestTypeDef",
     {
@@ -1359,6 +1385,7 @@ WorkloadShareSummaryTypeDef = TypedDict(
         "SharedWith": str,
         "PermissionType": PermissionTypeType,
         "Status": ShareStatusType,
+        "StatusMessage": str,
     },
     total=False,
 )

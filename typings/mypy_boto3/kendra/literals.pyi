@@ -20,8 +20,10 @@ else:
 
 __all__ = (
     "AdditionalResultAttributeValueTypeType",
+    "AlfrescoEntityType",
     "ConditionOperatorType",
     "ConfluenceAttachmentFieldNameType",
+    "ConfluenceAuthenticationTypeType",
     "ConfluenceBlogFieldNameType",
     "ConfluencePageFieldNameType",
     "ConfluenceSpaceFieldNameType",
@@ -64,6 +66,7 @@ __all__ = (
     "ScoreConfidenceType",
     "ServiceNowAuthenticationTypeType",
     "ServiceNowBuildVersionTypeType",
+    "SharePointOnlineAuthenticationTypeType",
     "SharePointVersionType",
     "SlackEntityType",
     "SortOrderType",
@@ -76,6 +79,7 @@ __all__ = (
 )
 
 AdditionalResultAttributeValueTypeType = Literal["TEXT_WITH_HIGHLIGHTS_VALUE"]
+AlfrescoEntityType = Literal["blog", "documentLibrary", "wiki"]
 ConditionOperatorType = Literal[
     "BeginsWith",
     "Contains",
@@ -102,6 +106,7 @@ ConfluenceAttachmentFieldNameType = Literal[
     "URL",
     "VERSION",
 ]
+ConfluenceAuthenticationTypeType = Literal["HTTP_BASIC", "PAT"]
 ConfluenceBlogFieldNameType = Literal[
     "AUTHOR",
     "DISPLAY_URL",
@@ -135,6 +140,7 @@ DataSourceSyncJobStatusType = Literal[
     "ABORTED", "FAILED", "INCOMPLETE", "STOPPING", "SUCCEEDED", "SYNCING", "SYNCING_INDEXING"
 ]
 DataSourceTypeType = Literal[
+    "ALFRESCO",
     "BOX",
     "CONFLUENCE",
     "CUSTOM",
@@ -150,6 +156,7 @@ DataSourceTypeType = Literal[
     "SERVICENOW",
     "SHAREPOINT",
     "SLACK",
+    "TEMPLATE",
     "WEBCRAWLER",
     "WORKDOCS",
 ]
@@ -222,6 +229,7 @@ SalesforceStandardObjectNameType = Literal[
 ScoreConfidenceType = Literal["HIGH", "LOW", "MEDIUM", "NOT_AVAILABLE", "VERY_HIGH"]
 ServiceNowAuthenticationTypeType = Literal["HTTP_BASIC", "OAUTH2"]
 ServiceNowBuildVersionTypeType = Literal["LONDON", "OTHERS"]
+SharePointOnlineAuthenticationTypeType = Literal["HTTP_BASIC", "OAUTH2"]
 SharePointVersionType = Literal["SHAREPOINT_2013", "SHAREPOINT_2016", "SHAREPOINT_ONLINE"]
 SlackEntityType = Literal["DIRECT_MESSAGE", "GROUP_MESSAGE", "PRIVATE_CHANNEL", "PUBLIC_CHANNEL"]
 SortOrderType = Literal["ASC", "DESC"]

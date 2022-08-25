@@ -211,4 +211,4 @@ TLSSecurityPolicyType = Literal["Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-
 TimeUnitType = Literal["HOURS"]
 UpgradeStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED", "SUCCEEDED_WITH_ISSUES"]
 UpgradeStepType = Literal["PRE_UPGRADE_CHECK", "SNAPSHOT", "UPGRADE"]
-VolumeTypeType = Literal["gp2", "io1", "standard"]
+VolumeTypeType = Literal["gp2", "gp3", "io1", "standard"]

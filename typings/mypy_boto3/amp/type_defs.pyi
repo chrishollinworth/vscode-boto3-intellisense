@@ -19,6 +19,7 @@ from botocore.response import StreamingBody
 
 from .literals import (
     AlertManagerDefinitionStatusCodeType,
+    LoggingConfigurationStatusCodeType,
     RuleGroupsNamespaceStatusCodeType,
     WorkspaceStatusCodeType,
 )
@@ -33,15 +34,20 @@ __all__ = (
     "AlertManagerDefinitionStatusTypeDef",
     "CreateAlertManagerDefinitionRequestRequestTypeDef",
     "CreateAlertManagerDefinitionResponseTypeDef",
+    "CreateLoggingConfigurationRequestRequestTypeDef",
+    "CreateLoggingConfigurationResponseTypeDef",
     "CreateRuleGroupsNamespaceRequestRequestTypeDef",
     "CreateRuleGroupsNamespaceResponseTypeDef",
     "CreateWorkspaceRequestRequestTypeDef",
     "CreateWorkspaceResponseTypeDef",
     "DeleteAlertManagerDefinitionRequestRequestTypeDef",
+    "DeleteLoggingConfigurationRequestRequestTypeDef",
     "DeleteRuleGroupsNamespaceRequestRequestTypeDef",
     "DeleteWorkspaceRequestRequestTypeDef",
     "DescribeAlertManagerDefinitionRequestRequestTypeDef",
     "DescribeAlertManagerDefinitionResponseTypeDef",
+    "DescribeLoggingConfigurationRequestRequestTypeDef",
+    "DescribeLoggingConfigurationResponseTypeDef",
     "DescribeRuleGroupsNamespaceRequestRequestTypeDef",
     "DescribeRuleGroupsNamespaceResponseTypeDef",
     "DescribeWorkspaceRequestRequestTypeDef",
@@ -52,6 +58,8 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListWorkspacesRequestRequestTypeDef",
     "ListWorkspacesResponseTypeDef",
+    "LoggingConfigurationMetadataTypeDef",
+    "LoggingConfigurationStatusTypeDef",
     "PaginatorConfigTypeDef",
     "PutAlertManagerDefinitionRequestRequestTypeDef",
     "PutAlertManagerDefinitionResponseTypeDef",
@@ -63,6 +71,8 @@ __all__ = (
     "RuleGroupsNamespaceSummaryTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateLoggingConfigurationRequestRequestTypeDef",
+    "UpdateLoggingConfigurationResponseTypeDef",
     "UpdateWorkspaceAliasRequestRequestTypeDef",
     "WaiterConfigTypeDef",
     "WorkspaceDescriptionTypeDef",
@@ -124,6 +134,35 @@ CreateAlertManagerDefinitionResponseTypeDef = TypedDict(
     "CreateAlertManagerDefinitionResponseTypeDef",
     {
         "status": "AlertManagerDefinitionStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLoggingConfigurationRequestRequestTypeDef",
+    {
+        "logGroupArn": str,
+        "workspaceId": str,
+    },
+)
+_OptionalCreateLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLoggingConfigurationRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class CreateLoggingConfigurationRequestRequestTypeDef(
+    _RequiredCreateLoggingConfigurationRequestRequestTypeDef,
+    _OptionalCreateLoggingConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateLoggingConfigurationResponseTypeDef = TypedDict(
+    "CreateLoggingConfigurationResponseTypeDef",
+    {
+        "status": "LoggingConfigurationStatusTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -203,6 +242,26 @@ class DeleteAlertManagerDefinitionRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDeleteLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteLoggingConfigurationRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+    },
+)
+_OptionalDeleteLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteLoggingConfigurationRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeleteLoggingConfigurationRequestRequestTypeDef(
+    _RequiredDeleteLoggingConfigurationRequestRequestTypeDef,
+    _OptionalDeleteLoggingConfigurationRequestRequestTypeDef,
+):
+    pass
+
 _RequiredDeleteRuleGroupsNamespaceRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteRuleGroupsNamespaceRequestRequestTypeDef",
     {
@@ -254,6 +313,21 @@ DescribeAlertManagerDefinitionResponseTypeDef = TypedDict(
     "DescribeAlertManagerDefinitionResponseTypeDef",
     {
         "alertManagerDefinition": "AlertManagerDefinitionDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeLoggingConfigurationRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+    },
+)
+
+DescribeLoggingConfigurationResponseTypeDef = TypedDict(
+    "DescribeLoggingConfigurationResponseTypeDef",
+    {
+        "loggingConfiguration": "LoggingConfigurationMetadataTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -353,6 +427,36 @@ ListWorkspacesResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+LoggingConfigurationMetadataTypeDef = TypedDict(
+    "LoggingConfigurationMetadataTypeDef",
+    {
+        "createdAt": datetime,
+        "logGroupArn": str,
+        "modifiedAt": datetime,
+        "status": "LoggingConfigurationStatusTypeDef",
+        "workspace": str,
+    },
+)
+
+_RequiredLoggingConfigurationStatusTypeDef = TypedDict(
+    "_RequiredLoggingConfigurationStatusTypeDef",
+    {
+        "statusCode": LoggingConfigurationStatusCodeType,
+    },
+)
+_OptionalLoggingConfigurationStatusTypeDef = TypedDict(
+    "_OptionalLoggingConfigurationStatusTypeDef",
+    {
+        "statusReason": str,
+    },
+    total=False,
+)
+
+class LoggingConfigurationStatusTypeDef(
+    _RequiredLoggingConfigurationStatusTypeDef, _OptionalLoggingConfigurationStatusTypeDef
+):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
@@ -516,6 +620,35 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "resourceArn": str,
         "tagKeys": List[str],
+    },
+)
+
+_RequiredUpdateLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateLoggingConfigurationRequestRequestTypeDef",
+    {
+        "logGroupArn": str,
+        "workspaceId": str,
+    },
+)
+_OptionalUpdateLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateLoggingConfigurationRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class UpdateLoggingConfigurationRequestRequestTypeDef(
+    _RequiredUpdateLoggingConfigurationRequestRequestTypeDef,
+    _OptionalUpdateLoggingConfigurationRequestRequestTypeDef,
+):
+    pass
+
+UpdateLoggingConfigurationResponseTypeDef = TypedDict(
+    "UpdateLoggingConfigurationResponseTypeDef",
+    {
+        "status": "LoggingConfigurationStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

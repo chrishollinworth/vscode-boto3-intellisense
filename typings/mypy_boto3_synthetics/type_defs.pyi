@@ -33,6 +33,7 @@ else:
 __all__ = (
     "ArtifactConfigInputTypeDef",
     "ArtifactConfigOutputTypeDef",
+    "AssociateResourceRequestRequestTypeDef",
     "BaseScreenshotTypeDef",
     "CanaryCodeInputTypeDef",
     "CanaryCodeOutputTypeDef",
@@ -49,17 +50,31 @@ __all__ = (
     "CanaryTypeDef",
     "CreateCanaryRequestRequestTypeDef",
     "CreateCanaryResponseTypeDef",
+    "CreateGroupRequestRequestTypeDef",
+    "CreateGroupResponseTypeDef",
     "DeleteCanaryRequestRequestTypeDef",
+    "DeleteGroupRequestRequestTypeDef",
     "DescribeCanariesLastRunRequestRequestTypeDef",
     "DescribeCanariesLastRunResponseTypeDef",
     "DescribeCanariesRequestRequestTypeDef",
     "DescribeCanariesResponseTypeDef",
     "DescribeRuntimeVersionsRequestRequestTypeDef",
     "DescribeRuntimeVersionsResponseTypeDef",
+    "DisassociateResourceRequestRequestTypeDef",
     "GetCanaryRequestRequestTypeDef",
     "GetCanaryResponseTypeDef",
     "GetCanaryRunsRequestRequestTypeDef",
     "GetCanaryRunsResponseTypeDef",
+    "GetGroupRequestRequestTypeDef",
+    "GetGroupResponseTypeDef",
+    "GroupSummaryTypeDef",
+    "GroupTypeDef",
+    "ListAssociatedGroupsRequestRequestTypeDef",
+    "ListAssociatedGroupsResponseTypeDef",
+    "ListGroupResourcesRequestRequestTypeDef",
+    "ListGroupResourcesResponseTypeDef",
+    "ListGroupsRequestRequestTypeDef",
+    "ListGroupsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
@@ -90,6 +105,14 @@ ArtifactConfigOutputTypeDef = TypedDict(
         "S3Encryption": "S3EncryptionConfigTypeDef",
     },
     total=False,
+)
+
+AssociateResourceRequestRequestTypeDef = TypedDict(
+    "AssociateResourceRequestRequestTypeDef",
+    {
+        "GroupIdentifier": str,
+        "ResourceArn": str,
+    },
 )
 
 _RequiredBaseScreenshotTypeDef = TypedDict(
@@ -309,6 +332,33 @@ CreateCanaryResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateGroupRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateGroupRequestRequestTypeDef(
+    _RequiredCreateGroupRequestRequestTypeDef, _OptionalCreateGroupRequestRequestTypeDef
+):
+    pass
+
+CreateGroupResponseTypeDef = TypedDict(
+    "CreateGroupResponseTypeDef",
+    {
+        "Group": "GroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteCanaryRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteCanaryRequestRequestTypeDef",
     {
@@ -327,6 +377,13 @@ class DeleteCanaryRequestRequestTypeDef(
     _RequiredDeleteCanaryRequestRequestTypeDef, _OptionalDeleteCanaryRequestRequestTypeDef
 ):
     pass
+
+DeleteGroupRequestRequestTypeDef = TypedDict(
+    "DeleteGroupRequestRequestTypeDef",
+    {
+        "GroupIdentifier": str,
+    },
+)
 
 DescribeCanariesLastRunRequestRequestTypeDef = TypedDict(
     "DescribeCanariesLastRunRequestRequestTypeDef",
@@ -384,6 +441,14 @@ DescribeRuntimeVersionsResponseTypeDef = TypedDict(
     },
 )
 
+DisassociateResourceRequestRequestTypeDef = TypedDict(
+    "DisassociateResourceRequestRequestTypeDef",
+    {
+        "GroupIdentifier": str,
+        "ResourceArn": str,
+    },
+)
+
 GetCanaryRequestRequestTypeDef = TypedDict(
     "GetCanaryRequestRequestTypeDef",
     {
@@ -423,6 +488,122 @@ GetCanaryRunsResponseTypeDef = TypedDict(
     "GetCanaryRunsResponseTypeDef",
     {
         "CanaryRuns": List["CanaryRunTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetGroupRequestRequestTypeDef = TypedDict(
+    "GetGroupRequestRequestTypeDef",
+    {
+        "GroupIdentifier": str,
+    },
+)
+
+GetGroupResponseTypeDef = TypedDict(
+    "GetGroupResponseTypeDef",
+    {
+        "Group": "GroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GroupSummaryTypeDef = TypedDict(
+    "GroupSummaryTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "Arn": str,
+    },
+    total=False,
+)
+
+GroupTypeDef = TypedDict(
+    "GroupTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "Arn": str,
+        "Tags": Dict[str, str],
+        "CreatedTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
+_RequiredListAssociatedGroupsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAssociatedGroupsRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalListAssociatedGroupsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAssociatedGroupsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListAssociatedGroupsRequestRequestTypeDef(
+    _RequiredListAssociatedGroupsRequestRequestTypeDef,
+    _OptionalListAssociatedGroupsRequestRequestTypeDef,
+):
+    pass
+
+ListAssociatedGroupsResponseTypeDef = TypedDict(
+    "ListAssociatedGroupsResponseTypeDef",
+    {
+        "Groups": List["GroupSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListGroupResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListGroupResourcesRequestRequestTypeDef",
+    {
+        "GroupIdentifier": str,
+    },
+)
+_OptionalListGroupResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListGroupResourcesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListGroupResourcesRequestRequestTypeDef(
+    _RequiredListGroupResourcesRequestRequestTypeDef,
+    _OptionalListGroupResourcesRequestRequestTypeDef,
+):
+    pass
+
+ListGroupResourcesResponseTypeDef = TypedDict(
+    "ListGroupResourcesResponseTypeDef",
+    {
+        "Resources": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListGroupsRequestRequestTypeDef = TypedDict(
+    "ListGroupsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListGroupsResponseTypeDef = TypedDict(
+    "ListGroupsResponseTypeDef",
+    {
+        "Groups": List["GroupSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

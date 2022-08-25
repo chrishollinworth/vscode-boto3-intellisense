@@ -40,6 +40,7 @@ __all__ = (
     "ResourceTypeType",
     "ResponseContentTypeType",
     "ScopeType",
+    "SensitivityLevelType",
     "TextTransformationTypeType",
 )
 
@@ -314,9 +315,12 @@ PositionalConstraintType = Literal[
     "CONTAINS", "CONTAINS_WORD", "ENDS_WITH", "EXACTLY", "STARTS_WITH"
 ]
 RateBasedStatementAggregateKeyTypeType = Literal["FORWARDED_IP", "IP"]
-ResourceTypeType = Literal["API_GATEWAY", "APPLICATION_LOAD_BALANCER", "APPSYNC"]
+ResourceTypeType = Literal[
+    "API_GATEWAY", "APPLICATION_LOAD_BALANCER", "APPSYNC", "COGNITO_USER_POOL"
+]
 ResponseContentTypeType = Literal["APPLICATION_JSON", "TEXT_HTML", "TEXT_PLAIN"]
 ScopeType = Literal["CLOUDFRONT", "REGIONAL"]
+SensitivityLevelType = Literal["HIGH", "LOW"]
 TextTransformationTypeType = Literal[
     "BASE64_DECODE",
     "BASE64_DECODE_EXT",

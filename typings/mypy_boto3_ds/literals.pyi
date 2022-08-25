@@ -28,6 +28,7 @@ __all__ = (
     "DescribeSharedDirectoriesPaginatorName",
     "DescribeSnapshotsPaginatorName",
     "DescribeTrustsPaginatorName",
+    "DirectoryConfigurationStatusType",
     "DirectoryEditionType",
     "DirectorySizeType",
     "DirectoryStageType",
@@ -67,12 +68,13 @@ CertificateStateType = Literal[
 ]
 CertificateTypeType = Literal["ClientCertAuth", "ClientLDAPS"]
 ClientAuthenticationStatusType = Literal["Disabled", "Enabled"]
-ClientAuthenticationTypeType = Literal["SmartCard"]
+ClientAuthenticationTypeType = Literal["SmartCard", "SmartCardOrPassword"]
 DescribeDirectoriesPaginatorName = Literal["describe_directories"]
 DescribeDomainControllersPaginatorName = Literal["describe_domain_controllers"]
 DescribeSharedDirectoriesPaginatorName = Literal["describe_shared_directories"]
 DescribeSnapshotsPaginatorName = Literal["describe_snapshots"]
 DescribeTrustsPaginatorName = Literal["describe_trusts"]
+DirectoryConfigurationStatusType = Literal["Default", "Failed", "Requested", "Updated", "Updating"]
 DirectoryEditionType = Literal["Enterprise", "Standard"]
 DirectorySizeType = Literal["Large", "Small"]
 DirectoryStageType = Literal[

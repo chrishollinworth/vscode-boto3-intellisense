@@ -29,6 +29,9 @@ from .literals import (
     IdentifierTypeType,
     LogLevelType,
     MessageTypeType,
+    PositionConfigurationFecType,
+    PositionConfigurationStatusType,
+    PositionResourceTypeType,
     SigningAlgType,
     SupportedRfRegionType,
     WirelessDeviceEventType,
@@ -53,6 +56,7 @@ else:
 __all__ = (
     "AbpV1_0_xTypeDef",
     "AbpV1_1TypeDef",
+    "AccuracyTypeDef",
     "AssociateAwsAccountWithPartnerAccountRequestRequestTypeDef",
     "AssociateAwsAccountWithPartnerAccountResponseTypeDef",
     "AssociateMulticastGroupWithFuotaTaskRequestRequestTypeDef",
@@ -129,6 +133,10 @@ __all__ = (
     "GetNetworkAnalyzerConfigurationResponseTypeDef",
     "GetPartnerAccountRequestRequestTypeDef",
     "GetPartnerAccountResponseTypeDef",
+    "GetPositionConfigurationRequestRequestTypeDef",
+    "GetPositionConfigurationResponseTypeDef",
+    "GetPositionRequestRequestTypeDef",
+    "GetPositionResponseTypeDef",
     "GetResourceEventConfigurationRequestRequestTypeDef",
     "GetResourceEventConfigurationResponseTypeDef",
     "GetResourceLogLevelRequestRequestTypeDef",
@@ -171,6 +179,8 @@ __all__ = (
     "ListNetworkAnalyzerConfigurationsResponseTypeDef",
     "ListPartnerAccountsRequestRequestTypeDef",
     "ListPartnerAccountsResponseTypeDef",
+    "ListPositionConfigurationsRequestRequestTypeDef",
+    "ListPositionConfigurationsResponseTypeDef",
     "ListQueuedMessagesRequestRequestTypeDef",
     "ListQueuedMessagesResponseTypeDef",
     "ListServiceProfilesRequestRequestTypeDef",
@@ -208,17 +218,26 @@ __all__ = (
     "LoRaWANUpdateDeviceTypeDef",
     "LoRaWANUpdateGatewayTaskCreateTypeDef",
     "LoRaWANUpdateGatewayTaskEntryTypeDef",
+    "MessageDeliveryStatusEventConfigurationTypeDef",
+    "MessageDeliveryStatusResourceTypeEventConfigurationTypeDef",
     "MulticastGroupByFuotaTaskTypeDef",
     "MulticastGroupTypeDef",
     "MulticastWirelessMetadataTypeDef",
     "NetworkAnalyzerConfigurationsTypeDef",
     "OtaaV1_0_xTypeDef",
     "OtaaV1_1TypeDef",
+    "PositionConfigurationItemTypeDef",
+    "PositionSolverConfigurationsTypeDef",
+    "PositionSolverDetailsTypeDef",
+    "PositioningTypeDef",
     "ProximityEventConfigurationTypeDef",
     "ProximityResourceTypeEventConfigurationTypeDef",
+    "PutPositionConfigurationRequestRequestTypeDef",
     "PutResourceLogLevelRequestRequestTypeDef",
     "ResetResourceLogLevelRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "SemtechGnssConfigurationTypeDef",
+    "SemtechGnssDetailTypeDef",
     "SendDataToMulticastGroupRequestRequestTypeDef",
     "SendDataToMulticastGroupResponseTypeDef",
     "SendDataToWirelessDeviceRequestRequestTypeDef",
@@ -249,11 +268,13 @@ __all__ = (
     "UpdateAbpV1_1TypeDef",
     "UpdateDestinationRequestRequestTypeDef",
     "UpdateEventConfigurationByResourceTypesRequestRequestTypeDef",
+    "UpdateFPortsTypeDef",
     "UpdateFuotaTaskRequestRequestTypeDef",
     "UpdateLogLevelsByResourceTypesRequestRequestTypeDef",
     "UpdateMulticastGroupRequestRequestTypeDef",
     "UpdateNetworkAnalyzerConfigurationRequestRequestTypeDef",
     "UpdatePartnerAccountRequestRequestTypeDef",
+    "UpdatePositionRequestRequestTypeDef",
     "UpdateResourceEventConfigurationRequestRequestTypeDef",
     "UpdateWirelessDeviceRequestRequestTypeDef",
     "UpdateWirelessGatewayRequestRequestTypeDef",
@@ -284,6 +305,15 @@ AbpV1_1TypeDef = TypedDict(
         "DevAddr": str,
         "SessionKeys": "SessionKeysAbpV1_1TypeDef",
         "FCntStart": int,
+    },
+    total=False,
+)
+
+AccuracyTypeDef = TypedDict(
+    "AccuracyTypeDef",
+    {
+        "HorizontalAccuracy": float,
+        "VerticalAccuracy": float,
     },
     total=False,
 )
@@ -906,6 +936,7 @@ EventNotificationItemConfigurationsTypeDef = TypedDict(
         "Proximity": "ProximityEventConfigurationTypeDef",
         "Join": "JoinEventConfigurationTypeDef",
         "ConnectionStatus": "ConnectionStatusEventConfigurationTypeDef",
+        "MessageDeliveryStatus": "MessageDeliveryStatusEventConfigurationTypeDef",
     },
     total=False,
 )
@@ -916,6 +947,7 @@ FPortsTypeDef = TypedDict(
         "Fuota": int,
         "Multicast": int,
         "ClockSync": int,
+        "Positioning": "PositioningTypeDef",
     },
     total=False,
 )
@@ -975,6 +1007,7 @@ GetEventConfigurationByResourceTypesResponseTypeDef = TypedDict(
         "Proximity": "ProximityResourceTypeEventConfigurationTypeDef",
         "Join": "JoinResourceTypeEventConfigurationTypeDef",
         "ConnectionStatus": "ConnectionStatusResourceTypeEventConfigurationTypeDef",
+        "MessageDeliveryStatus": "MessageDeliveryStatusResourceTypeEventConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1085,6 +1118,44 @@ GetPartnerAccountResponseTypeDef = TypedDict(
     },
 )
 
+GetPositionConfigurationRequestRequestTypeDef = TypedDict(
+    "GetPositionConfigurationRequestRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ResourceType": PositionResourceTypeType,
+    },
+)
+
+GetPositionConfigurationResponseTypeDef = TypedDict(
+    "GetPositionConfigurationResponseTypeDef",
+    {
+        "Solvers": "PositionSolverDetailsTypeDef",
+        "Destination": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetPositionRequestRequestTypeDef = TypedDict(
+    "GetPositionRequestRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ResourceType": PositionResourceTypeType,
+    },
+)
+
+GetPositionResponseTypeDef = TypedDict(
+    "GetPositionResponseTypeDef",
+    {
+        "Position": List[float],
+        "Accuracy": "AccuracyTypeDef",
+        "SolverType": Literal["GNSS"],
+        "SolverProvider": Literal["Semtech"],
+        "SolverVersion": str,
+        "Timestamp": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetResourceEventConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredGetResourceEventConfigurationRequestRequestTypeDef",
     {
@@ -1113,6 +1184,7 @@ GetResourceEventConfigurationResponseTypeDef = TypedDict(
         "Proximity": "ProximityEventConfigurationTypeDef",
         "Join": "JoinEventConfigurationTypeDef",
         "ConnectionStatus": "ConnectionStatusEventConfigurationTypeDef",
+        "MessageDeliveryStatus": "MessageDeliveryStatusEventConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1504,6 +1576,25 @@ ListPartnerAccountsResponseTypeDef = TypedDict(
     },
 )
 
+ListPositionConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListPositionConfigurationsRequestRequestTypeDef",
+    {
+        "ResourceType": PositionResourceTypeType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListPositionConfigurationsResponseTypeDef = TypedDict(
+    "ListPositionConfigurationsResponseTypeDef",
+    {
+        "PositionConfigurationList": List["PositionConfigurationItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListQueuedMessagesRequestRequestTypeDef = TypedDict(
     "_RequiredListQueuedMessagesRequestRequestTypeDef",
     {
@@ -1857,6 +1948,8 @@ LoRaWANServiceProfileTypeDef = TypedDict(
     "LoRaWANServiceProfileTypeDef",
     {
         "AddGwMetadata": bool,
+        "DrMin": int,
+        "DrMax": int,
     },
     total=False,
 )
@@ -1876,6 +1969,7 @@ LoRaWANUpdateDeviceTypeDef = TypedDict(
         "ServiceProfileId": str,
         "AbpV1_1": "UpdateAbpV1_1TypeDef",
         "AbpV1_0_x": "UpdateAbpV1_0_xTypeDef",
+        "FPorts": "UpdateFPortsTypeDef",
     },
     total=False,
 )
@@ -1896,6 +1990,23 @@ LoRaWANUpdateGatewayTaskEntryTypeDef = TypedDict(
     {
         "CurrentVersion": "LoRaWANGatewayVersionTypeDef",
         "UpdateVersion": "LoRaWANGatewayVersionTypeDef",
+    },
+    total=False,
+)
+
+MessageDeliveryStatusEventConfigurationTypeDef = TypedDict(
+    "MessageDeliveryStatusEventConfigurationTypeDef",
+    {
+        "Sidewalk": "SidewalkEventNotificationConfigurationsTypeDef",
+        "WirelessDeviceIdEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
+MessageDeliveryStatusResourceTypeEventConfigurationTypeDef = TypedDict(
+    "MessageDeliveryStatusResourceTypeEventConfigurationTypeDef",
+    {
+        "Sidewalk": "SidewalkResourceTypeEventConfigurationTypeDef",
     },
     total=False,
 )
@@ -1955,6 +2066,43 @@ OtaaV1_1TypeDef = TypedDict(
     total=False,
 )
 
+PositionConfigurationItemTypeDef = TypedDict(
+    "PositionConfigurationItemTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ResourceType": PositionResourceTypeType,
+        "Solvers": "PositionSolverDetailsTypeDef",
+        "Destination": str,
+    },
+    total=False,
+)
+
+PositionSolverConfigurationsTypeDef = TypedDict(
+    "PositionSolverConfigurationsTypeDef",
+    {
+        "SemtechGnss": "SemtechGnssConfigurationTypeDef",
+    },
+    total=False,
+)
+
+PositionSolverDetailsTypeDef = TypedDict(
+    "PositionSolverDetailsTypeDef",
+    {
+        "SemtechGnss": "SemtechGnssDetailTypeDef",
+    },
+    total=False,
+)
+
+PositioningTypeDef = TypedDict(
+    "PositioningTypeDef",
+    {
+        "ClockSync": int,
+        "Stream": int,
+        "Gnss": int,
+    },
+    total=False,
+)
+
 ProximityEventConfigurationTypeDef = TypedDict(
     "ProximityEventConfigurationTypeDef",
     {
@@ -1971,6 +2119,28 @@ ProximityResourceTypeEventConfigurationTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredPutPositionConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutPositionConfigurationRequestRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ResourceType": PositionResourceTypeType,
+    },
+)
+_OptionalPutPositionConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutPositionConfigurationRequestRequestTypeDef",
+    {
+        "Solvers": "PositionSolverConfigurationsTypeDef",
+        "Destination": str,
+    },
+    total=False,
+)
+
+class PutPositionConfigurationRequestRequestTypeDef(
+    _RequiredPutPositionConfigurationRequestRequestTypeDef,
+    _OptionalPutPositionConfigurationRequestRequestTypeDef,
+):
+    pass
 
 PutResourceLogLevelRequestRequestTypeDef = TypedDict(
     "PutResourceLogLevelRequestRequestTypeDef",
@@ -1998,6 +2168,25 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+SemtechGnssConfigurationTypeDef = TypedDict(
+    "SemtechGnssConfigurationTypeDef",
+    {
+        "Status": PositionConfigurationStatusType,
+        "Fec": PositionConfigurationFecType,
+    },
+)
+
+SemtechGnssDetailTypeDef = TypedDict(
+    "SemtechGnssDetailTypeDef",
+    {
+        "Provider": Literal["Semtech"],
+        "Type": Literal["GNSS"],
+        "Status": PositionConfigurationStatusType,
+        "Fec": PositionConfigurationFecType,
+    },
+    total=False,
 )
 
 SendDataToMulticastGroupRequestRequestTypeDef = TypedDict(
@@ -2150,6 +2339,7 @@ SidewalkSendDataToDeviceTypeDef = TypedDict(
     {
         "Seq": int,
         "MessageType": MessageTypeType,
+        "AckModeRetryDurationSecs": int,
     },
     total=False,
 )
@@ -2324,6 +2514,15 @@ UpdateEventConfigurationByResourceTypesRequestRequestTypeDef = TypedDict(
         "Proximity": "ProximityResourceTypeEventConfigurationTypeDef",
         "Join": "JoinResourceTypeEventConfigurationTypeDef",
         "ConnectionStatus": "ConnectionStatusResourceTypeEventConfigurationTypeDef",
+        "MessageDeliveryStatus": "MessageDeliveryStatusResourceTypeEventConfigurationTypeDef",
+    },
+    total=False,
+)
+
+UpdateFPortsTypeDef = TypedDict(
+    "UpdateFPortsTypeDef",
+    {
+        "Positioning": "PositioningTypeDef",
     },
     total=False,
 )
@@ -2417,6 +2616,15 @@ UpdatePartnerAccountRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdatePositionRequestRequestTypeDef = TypedDict(
+    "UpdatePositionRequestRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ResourceType": PositionResourceTypeType,
+        "Position": List[float],
+    },
+)
+
 _RequiredUpdateResourceEventConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateResourceEventConfigurationRequestRequestTypeDef",
     {
@@ -2432,6 +2640,7 @@ _OptionalUpdateResourceEventConfigurationRequestRequestTypeDef = TypedDict(
         "Proximity": "ProximityEventConfigurationTypeDef",
         "Join": "JoinEventConfigurationTypeDef",
         "ConnectionStatus": "ConnectionStatusEventConfigurationTypeDef",
+        "MessageDeliveryStatus": "MessageDeliveryStatusEventConfigurationTypeDef",
     },
     total=False,
 )

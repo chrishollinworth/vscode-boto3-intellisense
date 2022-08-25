@@ -15,7 +15,13 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import DomainType, IngestionModeType, ObjectiveSensitivityType, TrainingModeType
+from .literals import (
+    DomainType,
+    ImportModeType,
+    IngestionModeType,
+    ObjectiveSensitivityType,
+    TrainingModeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -601,6 +607,7 @@ _OptionalCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDatasetImportJobRequestRequestTypeDef",
     {
         "tags": List["TagTypeDef"],
+        "importMode": ImportModeType,
     },
     total=False,
 )
@@ -912,6 +919,7 @@ DatasetImportJobSummaryTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "failureReason": str,
+        "importMode": ImportModeType,
     },
     total=False,
 )
@@ -928,6 +936,7 @@ DatasetImportJobTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "failureReason": str,
+        "importMode": ImportModeType,
     },
     total=False,
 )

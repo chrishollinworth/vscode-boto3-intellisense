@@ -33,6 +33,7 @@ __all__ = (
     "AssociateAttributeGroupResponseTypeDef",
     "AssociateResourceRequestRequestTypeDef",
     "AssociateResourceResponseTypeDef",
+    "AttributeGroupDetailsTypeDef",
     "AttributeGroupSummaryTypeDef",
     "AttributeGroupTypeDef",
     "CreateApplicationRequestRequestTypeDef",
@@ -60,6 +61,8 @@ __all__ = (
     "ListAssociatedAttributeGroupsResponseTypeDef",
     "ListAssociatedResourcesRequestRequestTypeDef",
     "ListAssociatedResourcesResponseTypeDef",
+    "ListAttributeGroupsForApplicationRequestRequestTypeDef",
+    "ListAttributeGroupsForApplicationResponseTypeDef",
     "ListAttributeGroupsRequestRequestTypeDef",
     "ListAttributeGroupsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -140,6 +143,16 @@ AssociateResourceResponseTypeDef = TypedDict(
         "resourceArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+AttributeGroupDetailsTypeDef = TypedDict(
+    "AttributeGroupDetailsTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "name": str,
+    },
+    total=False,
 )
 
 AttributeGroupSummaryTypeDef = TypedDict(
@@ -437,6 +450,36 @@ ListAssociatedResourcesResponseTypeDef = TypedDict(
     "ListAssociatedResourcesResponseTypeDef",
     {
         "resources": List["ResourceInfoTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAttributeGroupsForApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredListAttributeGroupsForApplicationRequestRequestTypeDef",
+    {
+        "application": str,
+    },
+)
+_OptionalListAttributeGroupsForApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalListAttributeGroupsForApplicationRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListAttributeGroupsForApplicationRequestRequestTypeDef(
+    _RequiredListAttributeGroupsForApplicationRequestRequestTypeDef,
+    _OptionalListAttributeGroupsForApplicationRequestRequestTypeDef,
+):
+    pass
+
+ListAttributeGroupsForApplicationResponseTypeDef = TypedDict(
+    "ListAttributeGroupsForApplicationResponseTypeDef",
+    {
+        "attributeGroupsDetails": List["AttributeGroupDetailsTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

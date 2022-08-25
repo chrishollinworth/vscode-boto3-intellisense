@@ -32,6 +32,7 @@ __all__ = (
     "Ac3LfeFilterType",
     "Ac3MetadataControlType",
     "AcceptHeaderType",
+    "AccessibilityTypeType",
     "AfdSignalingType",
     "AudioDescriptionAudioTypeControlType",
     "AudioDescriptionLanguageCodeControlType",
@@ -250,6 +251,8 @@ __all__ = (
     "OfferingTypeType",
     "PipelineIdType",
     "PreferredChannelPipelineType",
+    "RebootInputDeviceForceType",
+    "ReservationAutomaticRenewalType",
     "ReservationCodecType",
     "ReservationMaximumBitrateType",
     "ReservationMaximumFramerateType",
@@ -322,6 +325,9 @@ Ac3DrcProfileType = Literal["FILM_STANDARD", "NONE"]
 Ac3LfeFilterType = Literal["DISABLED", "ENABLED"]
 Ac3MetadataControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AcceptHeaderType = Literal["image/jpeg"]
+AccessibilityTypeType = Literal[
+    "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES", "IMPLEMENTS_ACCESSIBILITY_FEATURES"
+]
 AfdSignalingType = Literal["AUTO", "FIXED", "NONE"]
 AudioDescriptionAudioTypeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AudioDescriptionLanguageCodeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
@@ -370,7 +376,7 @@ ChannelStoppedWaiterName = Literal["channel_stopped"]
 ContentTypeType = Literal["image/jpeg"]
 DescribeSchedulePaginatorName = Literal["describe_schedule"]
 DeviceSettingsSyncStateType = Literal["SYNCED", "SYNCING"]
-DeviceUpdateStatusType = Literal["NOT_UP_TO_DATE", "UP_TO_DATE"]
+DeviceUpdateStatusType = Literal["NOT_UP_TO_DATE", "UPDATING", "UP_TO_DATE"]
 DvbSdtOutputSdtType = Literal["SDT_FOLLOW", "SDT_FOLLOW_IF_PRESENT", "SDT_MANUAL", "SDT_NONE"]
 DvbSubDestinationAlignmentType = Literal["CENTERED", "LEFT", "SMART"]
 DvbSubDestinationBackgroundColorType = Literal["BLACK", "NONE", "WHITE"]
@@ -639,6 +645,8 @@ OfferingDurationUnitsType = Literal["MONTHS"]
 OfferingTypeType = Literal["NO_UPFRONT"]
 PipelineIdType = Literal["PIPELINE_0", "PIPELINE_1"]
 PreferredChannelPipelineType = Literal["CURRENTLY_ACTIVE", "PIPELINE_0", "PIPELINE_1"]
+RebootInputDeviceForceType = Literal["NO", "YES"]
+ReservationAutomaticRenewalType = Literal["DISABLED", "ENABLED", "UNAVAILABLE"]
 ReservationCodecType = Literal["AUDIO", "AVC", "HEVC", "LINK", "MPEG2"]
 ReservationMaximumBitrateType = Literal["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"]
 ReservationMaximumFramerateType = Literal["MAX_30_FPS", "MAX_60_FPS"]

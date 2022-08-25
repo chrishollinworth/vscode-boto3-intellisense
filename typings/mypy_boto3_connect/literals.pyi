@@ -81,6 +81,7 @@ __all__ = (
     "ReferenceStatusType",
     "ReferenceTypeType",
     "SearchAvailablePhoneNumbersPaginatorName",
+    "SearchSecurityProfilesPaginatorName",
     "SearchUsersPaginatorName",
     "SearchVocabulariesPaginatorName",
     "SourceTypeType",
@@ -184,6 +185,7 @@ InstanceAttributeTypeType = Literal[
     "CONTACTFLOW_LOGS",
     "CONTACT_LENS",
     "EARLY_MEDIA",
+    "HIGH_VOLUME_OUTBOUND",
     "INBOUND_CALLS",
     "MULTI_PARTY_CONFERENCE",
     "OUTBOUND_CALLS",
@@ -480,6 +482,7 @@ QuickConnectTypeType = Literal["PHONE_NUMBER", "QUEUE", "USER"]
 ReferenceStatusType = Literal["APPROVED", "REJECTED"]
 ReferenceTypeType = Literal["ATTACHMENT", "DATE", "EMAIL", "NUMBER", "STRING", "URL"]
 SearchAvailablePhoneNumbersPaginatorName = Literal["search_available_phone_numbers"]
+SearchSecurityProfilesPaginatorName = Literal["search_security_profiles"]
 SearchUsersPaginatorName = Literal["search_users"]
 SearchVocabulariesPaginatorName = Literal["search_vocabularies"]
 SourceTypeType = Literal["SALESFORCE", "ZENDESK"]

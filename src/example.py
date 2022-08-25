@@ -125,3 +125,4 @@ response = ec2_client.create_fleet(
   )
 
 ec2_service = boto3.resource("ec2")
+

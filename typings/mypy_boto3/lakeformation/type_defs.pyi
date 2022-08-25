@@ -41,6 +41,8 @@ __all__ = (
     "AddLFTagsToResourceRequestRequestTypeDef",
     "AddLFTagsToResourceResponseTypeDef",
     "AddObjectInputTypeDef",
+    "AssumeDecoratedRoleWithSAMLRequestRequestTypeDef",
+    "AssumeDecoratedRoleWithSAMLResponseTypeDef",
     "AuditContextTypeDef",
     "BatchGrantPermissionsRequestRequestTypeDef",
     "BatchGrantPermissionsResponseTypeDef",
@@ -203,6 +205,39 @@ _OptionalAddObjectInputTypeDef = TypedDict(
 
 class AddObjectInputTypeDef(_RequiredAddObjectInputTypeDef, _OptionalAddObjectInputTypeDef):
     pass
+
+_RequiredAssumeDecoratedRoleWithSAMLRequestRequestTypeDef = TypedDict(
+    "_RequiredAssumeDecoratedRoleWithSAMLRequestRequestTypeDef",
+    {
+        "SAMLAssertion": str,
+        "RoleArn": str,
+        "PrincipalArn": str,
+    },
+)
+_OptionalAssumeDecoratedRoleWithSAMLRequestRequestTypeDef = TypedDict(
+    "_OptionalAssumeDecoratedRoleWithSAMLRequestRequestTypeDef",
+    {
+        "DurationSeconds": int,
+    },
+    total=False,
+)
+
+class AssumeDecoratedRoleWithSAMLRequestRequestTypeDef(
+    _RequiredAssumeDecoratedRoleWithSAMLRequestRequestTypeDef,
+    _OptionalAssumeDecoratedRoleWithSAMLRequestRequestTypeDef,
+):
+    pass
+
+AssumeDecoratedRoleWithSAMLResponseTypeDef = TypedDict(
+    "AssumeDecoratedRoleWithSAMLResponseTypeDef",
+    {
+        "AccessKeyId": str,
+        "SecretAccessKey": str,
+        "SessionToken": str,
+        "Expiration": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 AuditContextTypeDef = TypedDict(
     "AuditContextTypeDef",

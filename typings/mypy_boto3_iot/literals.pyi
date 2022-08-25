@@ -134,6 +134,7 @@ __all__ = (
     "ServiceTypeType",
     "StatusType",
     "TargetSelectionType",
+    "TemplateTypeType",
     "ThingConnectivityIndexingModeType",
     "ThingGroupIndexingModeType",
     "ThingIndexingModeType",
@@ -354,6 +355,7 @@ ServerCertificateStatusType = Literal["INVALID", "VALID"]
 ServiceTypeType = Literal["CREDENTIAL_PROVIDER", "DATA", "JOBS"]
 StatusType = Literal["Cancelled", "Cancelling", "Completed", "Failed", "InProgress"]
 TargetSelectionType = Literal["CONTINUOUS", "SNAPSHOT"]
+TemplateTypeType = Literal["FLEET_PROVISIONING", "JITP"]
 ThingConnectivityIndexingModeType = Literal["OFF", "STATUS"]
 ThingGroupIndexingModeType = Literal["OFF", "ON"]
 ThingIndexingModeType = Literal["OFF", "REGISTRY", "REGISTRY_AND_SHADOW"]

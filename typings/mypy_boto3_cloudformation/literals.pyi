@@ -6,9 +6,9 @@ Type annotations for cloudformation service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_cloudformation.literals import AccountGateStatusType
+    from mypy_boto3_cloudformation.literals import AccountFilterTypeType
 
-    data: AccountGateStatusType = "FAILED"
+    data: AccountFilterTypeType = "DIFFERENCE"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AccountFilterTypeType",
     "AccountGateStatusType",
     "CallAsType",
     "CapabilityType",
@@ -94,6 +95,7 @@ __all__ = (
     "VisibilityType",
 )
 
+AccountFilterTypeType = Literal["DIFFERENCE", "INTERSECTION", "NONE", "UNION"]
 AccountGateStatusType = Literal["FAILED", "SKIPPED", "SUCCEEDED"]
 CallAsType = Literal["DELEGATED_ADMIN", "SELF"]
 CapabilityType = Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]

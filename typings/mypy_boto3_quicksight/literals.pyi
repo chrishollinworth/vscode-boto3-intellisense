@@ -22,6 +22,7 @@ __all__ = (
     "AnalysisErrorTypeType",
     "AnalysisFilterAttributeType",
     "AssignmentStatusType",
+    "AuthenticationMethodOptionType",
     "ColumnDataTypeType",
     "ColumnTagNameType",
     "DashboardBehaviorType",
@@ -92,6 +93,7 @@ AnalysisErrorTypeType = Literal[
 ]
 AnalysisFilterAttributeType = Literal["QUICKSIGHT_USER"]
 AssignmentStatusType = Literal["DISABLED", "DRAFT", "ENABLED"]
+AuthenticationMethodOptionType = Literal["ACTIVE_DIRECTORY", "IAM_AND_QUICKSIGHT", "IAM_ONLY"]
 ColumnDataTypeType = Literal["DATETIME", "DECIMAL", "INTEGER", "STRING"]
 ColumnTagNameType = Literal["COLUMN_DESCRIPTION", "COLUMN_GEOGRAPHIC_ROLE"]
 DashboardBehaviorType = Literal["DISABLED", "ENABLED"]
@@ -147,7 +149,7 @@ DataSourceTypeType = Literal[
     "TIMESTREAM",
     "TWITTER",
 ]
-EditionType = Literal["ENTERPRISE", "STANDARD"]
+EditionType = Literal["ENTERPRISE", "ENTERPRISE_AND_Q", "STANDARD"]
 EmbeddingIdentityTypeType = Literal["ANONYMOUS", "IAM", "QUICKSIGHT"]
 FileFormatType = Literal["CLF", "CSV", "ELF", "JSON", "TSV", "XLSX"]
 FilterOperatorType = Literal["StringEquals"]

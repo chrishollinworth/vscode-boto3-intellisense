@@ -28,6 +28,7 @@ from .literals import (
     BatchGetAssetPropertyValueHistoryErrorCodeType,
     BatchPutAssetPropertyValueErrorCodeType,
     CapabilitySyncStatusType,
+    ColumnNameType,
     ComputeLocationType,
     ConfigurationStateType,
     DetailedErrorCodeType,
@@ -36,7 +37,9 @@ from .literals import (
     ErrorCodeType,
     ForwardingConfigStateType,
     IdentityTypeType,
+    JobStatusType,
     ListAssetsFilterType,
+    ListBulkImportJobsFilterType,
     ListTimeSeriesTypeType,
     LoggingLevelType,
     MonitorErrorCodeType,
@@ -124,6 +127,8 @@ __all__ = (
     "CreateAssetModelResponseTypeDef",
     "CreateAssetRequestRequestTypeDef",
     "CreateAssetResponseTypeDef",
+    "CreateBulkImportJobRequestRequestTypeDef",
+    "CreateBulkImportJobResponseTypeDef",
     "CreateDashboardRequestRequestTypeDef",
     "CreateDashboardResponseTypeDef",
     "CreateGatewayRequestRequestTypeDef",
@@ -132,6 +137,7 @@ __all__ = (
     "CreatePortalResponseTypeDef",
     "CreateProjectRequestRequestTypeDef",
     "CreateProjectResponseTypeDef",
+    "CsvTypeDef",
     "CustomerManagedS3StorageTypeDef",
     "DashboardSummaryTypeDef",
     "DeleteAccessPolicyRequestRequestTypeDef",
@@ -153,6 +159,8 @@ __all__ = (
     "DescribeAssetPropertyResponseTypeDef",
     "DescribeAssetRequestRequestTypeDef",
     "DescribeAssetResponseTypeDef",
+    "DescribeBulkImportJobRequestRequestTypeDef",
+    "DescribeBulkImportJobResponseTypeDef",
     "DescribeDashboardRequestRequestTypeDef",
     "DescribeDashboardResponseTypeDef",
     "DescribeDefaultEncryptionConfigurationResponseTypeDef",
@@ -172,7 +180,10 @@ __all__ = (
     "DisassociateAssetsRequestRequestTypeDef",
     "DisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef",
     "ErrorDetailsTypeDef",
+    "ErrorReportLocationTypeDef",
     "ExpressionVariableTypeDef",
+    "FileFormatTypeDef",
+    "FileTypeDef",
     "ForwardingConfigTypeDef",
     "GatewayCapabilitySummaryTypeDef",
     "GatewayPlatformTypeDef",
@@ -195,6 +206,8 @@ __all__ = (
     "ImageLocationTypeDef",
     "ImageTypeDef",
     "InterpolatedAssetPropertyValueTypeDef",
+    "JobConfigurationTypeDef",
+    "JobSummaryTypeDef",
     "ListAccessPoliciesRequestRequestTypeDef",
     "ListAccessPoliciesResponseTypeDef",
     "ListAssetModelsRequestRequestTypeDef",
@@ -205,6 +218,8 @@ __all__ = (
     "ListAssetsResponseTypeDef",
     "ListAssociatedAssetsRequestRequestTypeDef",
     "ListAssociatedAssetsResponseTypeDef",
+    "ListBulkImportJobsRequestRequestTypeDef",
+    "ListBulkImportJobsResponseTypeDef",
     "ListDashboardsRequestRequestTypeDef",
     "ListDashboardsResponseTypeDef",
     "ListGatewaysRequestRequestTypeDef",
@@ -1267,6 +1282,27 @@ CreateAssetResponseTypeDef = TypedDict(
     },
 )
 
+CreateBulkImportJobRequestRequestTypeDef = TypedDict(
+    "CreateBulkImportJobRequestRequestTypeDef",
+    {
+        "jobName": str,
+        "jobRoleArn": str,
+        "files": List["FileTypeDef"],
+        "errorReportLocation": "ErrorReportLocationTypeDef",
+        "jobConfiguration": "JobConfigurationTypeDef",
+    },
+)
+
+CreateBulkImportJobResponseTypeDef = TypedDict(
+    "CreateBulkImportJobResponseTypeDef",
+    {
+        "jobId": str,
+        "jobName": str,
+        "jobStatus": JobStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateDashboardRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDashboardRequestRequestTypeDef",
     {
@@ -1396,6 +1432,14 @@ CreateProjectResponseTypeDef = TypedDict(
         "projectArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CsvTypeDef = TypedDict(
+    "CsvTypeDef",
+    {
+        "columnNames": List[ColumnNameType],
+    },
+    total=False,
 )
 
 CustomerManagedS3StorageTypeDef = TypedDict(
@@ -1673,6 +1717,29 @@ DescribeAssetResponseTypeDef = TypedDict(
     },
 )
 
+DescribeBulkImportJobRequestRequestTypeDef = TypedDict(
+    "DescribeBulkImportJobRequestRequestTypeDef",
+    {
+        "jobId": str,
+    },
+)
+
+DescribeBulkImportJobResponseTypeDef = TypedDict(
+    "DescribeBulkImportJobResponseTypeDef",
+    {
+        "jobId": str,
+        "jobName": str,
+        "jobStatus": JobStatusType,
+        "jobRoleArn": str,
+        "files": List["FileTypeDef"],
+        "errorReportLocation": "ErrorReportLocationTypeDef",
+        "jobConfiguration": "JobConfigurationTypeDef",
+        "jobCreationDate": datetime,
+        "jobLastUpdateDate": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeDashboardRequestRequestTypeDef = TypedDict(
     "DescribeDashboardRequestRequestTypeDef",
     {
@@ -1911,6 +1978,14 @@ _OptionalErrorDetailsTypeDef = TypedDict(
 class ErrorDetailsTypeDef(_RequiredErrorDetailsTypeDef, _OptionalErrorDetailsTypeDef):
     pass
 
+ErrorReportLocationTypeDef = TypedDict(
+    "ErrorReportLocationTypeDef",
+    {
+        "bucket": str,
+        "prefix": str,
+    },
+)
+
 ExpressionVariableTypeDef = TypedDict(
     "ExpressionVariableTypeDef",
     {
@@ -1918,6 +1993,32 @@ ExpressionVariableTypeDef = TypedDict(
         "value": "VariableValueTypeDef",
     },
 )
+
+FileFormatTypeDef = TypedDict(
+    "FileFormatTypeDef",
+    {
+        "csv": "CsvTypeDef",
+    },
+    total=False,
+)
+
+_RequiredFileTypeDef = TypedDict(
+    "_RequiredFileTypeDef",
+    {
+        "bucket": str,
+        "key": str,
+    },
+)
+_OptionalFileTypeDef = TypedDict(
+    "_OptionalFileTypeDef",
+    {
+        "versionId": str,
+    },
+    total=False,
+)
+
+class FileTypeDef(_RequiredFileTypeDef, _OptionalFileTypeDef):
+    pass
 
 ForwardingConfigTypeDef = TypedDict(
     "ForwardingConfigTypeDef",
@@ -2164,6 +2265,22 @@ InterpolatedAssetPropertyValueTypeDef = TypedDict(
     },
 )
 
+JobConfigurationTypeDef = TypedDict(
+    "JobConfigurationTypeDef",
+    {
+        "fileFormat": "FileFormatTypeDef",
+    },
+)
+
+JobSummaryTypeDef = TypedDict(
+    "JobSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "status": JobStatusType,
+    },
+)
+
 ListAccessPoliciesRequestRequestTypeDef = TypedDict(
     "ListAccessPoliciesRequestRequestTypeDef",
     {
@@ -2283,6 +2400,25 @@ ListAssociatedAssetsResponseTypeDef = TypedDict(
     "ListAssociatedAssetsResponseTypeDef",
     {
         "assetSummaries": List["AssociatedAssetsSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListBulkImportJobsRequestRequestTypeDef = TypedDict(
+    "ListBulkImportJobsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+        "filter": ListBulkImportJobsFilterType,
+    },
+    total=False,
+)
+
+ListBulkImportJobsResponseTypeDef = TypedDict(
+    "ListBulkImportJobsResponseTypeDef",
+    {
+        "jobSummaries": List["JobSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

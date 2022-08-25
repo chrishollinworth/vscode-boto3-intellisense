@@ -54,6 +54,7 @@ __all__ = (
     "ThreatIntelIndicatorCategoryType",
     "ThreatIntelIndicatorTypeType",
     "VerificationStateType",
+    "VulnerabilityFixAvailableType",
     "WorkflowStateType",
     "WorkflowStatusType",
 )
@@ -127,5 +128,6 @@ ThreatIntelIndicatorTypeType = Literal[
     "URL",
 ]
 VerificationStateType = Literal["BENIGN_POSITIVE", "FALSE_POSITIVE", "TRUE_POSITIVE", "UNKNOWN"]
+VulnerabilityFixAvailableType = Literal["NO", "PARTIAL", "YES"]
 WorkflowStateType = Literal["ASSIGNED", "DEFERRED", "IN_PROGRESS", "NEW", "RESOLVED"]
 WorkflowStatusType = Literal["NEW", "NOTIFIED", "RESOLVED", "SUPPRESSED"]

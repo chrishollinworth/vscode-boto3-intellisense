@@ -38,6 +38,7 @@ __all__ = (
     "AccountAssignmentOperationStatusMetadataTypeDef",
     "AccountAssignmentOperationStatusTypeDef",
     "AccountAssignmentTypeDef",
+    "AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef",
     "AttachManagedPolicyToPermissionSetRequestRequestTypeDef",
     "AttachedManagedPolicyTypeDef",
     "CreateAccountAssignmentRequestRequestTypeDef",
@@ -45,11 +46,13 @@ __all__ = (
     "CreateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
     "CreatePermissionSetRequestRequestTypeDef",
     "CreatePermissionSetResponseTypeDef",
+    "CustomerManagedPolicyReferenceTypeDef",
     "DeleteAccountAssignmentRequestRequestTypeDef",
     "DeleteAccountAssignmentResponseTypeDef",
     "DeleteInlinePolicyFromPermissionSetRequestRequestTypeDef",
     "DeleteInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
     "DeletePermissionSetRequestRequestTypeDef",
+    "DeletePermissionsBoundaryFromPermissionSetRequestRequestTypeDef",
     "DescribeAccountAssignmentCreationStatusRequestRequestTypeDef",
     "DescribeAccountAssignmentCreationStatusResponseTypeDef",
     "DescribeAccountAssignmentDeletionStatusRequestRequestTypeDef",
@@ -60,9 +63,12 @@ __all__ = (
     "DescribePermissionSetProvisioningStatusResponseTypeDef",
     "DescribePermissionSetRequestRequestTypeDef",
     "DescribePermissionSetResponseTypeDef",
+    "DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef",
     "DetachManagedPolicyFromPermissionSetRequestRequestTypeDef",
     "GetInlinePolicyForPermissionSetRequestRequestTypeDef",
     "GetInlinePolicyForPermissionSetResponseTypeDef",
+    "GetPermissionsBoundaryForPermissionSetRequestRequestTypeDef",
+    "GetPermissionsBoundaryForPermissionSetResponseTypeDef",
     "InstanceAccessControlAttributeConfigurationTypeDef",
     "InstanceMetadataTypeDef",
     "ListAccountAssignmentCreationStatusRequestRequestTypeDef",
@@ -73,6 +79,8 @@ __all__ = (
     "ListAccountAssignmentsResponseTypeDef",
     "ListAccountsForProvisionedPermissionSetRequestRequestTypeDef",
     "ListAccountsForProvisionedPermissionSetResponseTypeDef",
+    "ListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef",
+    "ListCustomerManagedPolicyReferencesInPermissionSetResponseTypeDef",
     "ListInstancesRequestRequestTypeDef",
     "ListInstancesResponseTypeDef",
     "ListManagedPoliciesInPermissionSetRequestRequestTypeDef",
@@ -90,9 +98,11 @@ __all__ = (
     "PermissionSetProvisioningStatusMetadataTypeDef",
     "PermissionSetProvisioningStatusTypeDef",
     "PermissionSetTypeDef",
+    "PermissionsBoundaryTypeDef",
     "ProvisionPermissionSetRequestRequestTypeDef",
     "ProvisionPermissionSetResponseTypeDef",
     "PutInlinePolicyToPermissionSetRequestRequestTypeDef",
+    "PutPermissionsBoundaryToPermissionSetRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
@@ -151,6 +161,15 @@ AccountAssignmentTypeDef = TypedDict(
         "PrincipalId": str,
     },
     total=False,
+)
+
+AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef = TypedDict(
+    "AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "PermissionSetArn": str,
+        "CustomerManagedPolicyReference": "CustomerManagedPolicyReferenceTypeDef",
+    },
 )
 
 AttachManagedPolicyToPermissionSetRequestRequestTypeDef = TypedDict(
@@ -231,6 +250,25 @@ CreatePermissionSetResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCustomerManagedPolicyReferenceTypeDef = TypedDict(
+    "_RequiredCustomerManagedPolicyReferenceTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCustomerManagedPolicyReferenceTypeDef = TypedDict(
+    "_OptionalCustomerManagedPolicyReferenceTypeDef",
+    {
+        "Path": str,
+    },
+    total=False,
+)
+
+class CustomerManagedPolicyReferenceTypeDef(
+    _RequiredCustomerManagedPolicyReferenceTypeDef, _OptionalCustomerManagedPolicyReferenceTypeDef
+):
+    pass
+
 DeleteAccountAssignmentRequestRequestTypeDef = TypedDict(
     "DeleteAccountAssignmentRequestRequestTypeDef",
     {
@@ -268,6 +306,14 @@ DeleteInstanceAccessControlAttributeConfigurationRequestRequestTypeDef = TypedDi
 
 DeletePermissionSetRequestRequestTypeDef = TypedDict(
     "DeletePermissionSetRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "PermissionSetArn": str,
+    },
+)
+
+DeletePermissionsBoundaryFromPermissionSetRequestRequestTypeDef = TypedDict(
+    "DeletePermissionsBoundaryFromPermissionSetRequestRequestTypeDef",
     {
         "InstanceArn": str,
         "PermissionSetArn": str,
@@ -355,6 +401,15 @@ DescribePermissionSetResponseTypeDef = TypedDict(
     },
 )
 
+DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef = TypedDict(
+    "DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "PermissionSetArn": str,
+        "CustomerManagedPolicyReference": "CustomerManagedPolicyReferenceTypeDef",
+    },
+)
+
 DetachManagedPolicyFromPermissionSetRequestRequestTypeDef = TypedDict(
     "DetachManagedPolicyFromPermissionSetRequestRequestTypeDef",
     {
@@ -376,6 +431,22 @@ GetInlinePolicyForPermissionSetResponseTypeDef = TypedDict(
     "GetInlinePolicyForPermissionSetResponseTypeDef",
     {
         "InlinePolicy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetPermissionsBoundaryForPermissionSetRequestRequestTypeDef = TypedDict(
+    "GetPermissionsBoundaryForPermissionSetRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "PermissionSetArn": str,
+    },
+)
+
+GetPermissionsBoundaryForPermissionSetResponseTypeDef = TypedDict(
+    "GetPermissionsBoundaryForPermissionSetResponseTypeDef",
+    {
+        "PermissionsBoundary": "PermissionsBoundaryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -517,6 +588,37 @@ ListAccountsForProvisionedPermissionSetResponseTypeDef = TypedDict(
     "ListAccountsForProvisionedPermissionSetResponseTypeDef",
     {
         "AccountIds": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef = TypedDict(
+    "_RequiredListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "PermissionSetArn": str,
+    },
+)
+_OptionalListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef = TypedDict(
+    "_OptionalListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef(
+    _RequiredListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef,
+    _OptionalListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef,
+):
+    pass
+
+ListCustomerManagedPolicyReferencesInPermissionSetResponseTypeDef = TypedDict(
+    "ListCustomerManagedPolicyReferencesInPermissionSetResponseTypeDef",
+    {
+        "CustomerManagedPolicyReferences": List["CustomerManagedPolicyReferenceTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -748,6 +850,15 @@ PermissionSetTypeDef = TypedDict(
     total=False,
 )
 
+PermissionsBoundaryTypeDef = TypedDict(
+    "PermissionsBoundaryTypeDef",
+    {
+        "CustomerManagedPolicyReference": "CustomerManagedPolicyReferenceTypeDef",
+        "ManagedPolicyArn": str,
+    },
+    total=False,
+)
+
 _RequiredProvisionPermissionSetRequestRequestTypeDef = TypedDict(
     "_RequiredProvisionPermissionSetRequestRequestTypeDef",
     {
@@ -787,6 +898,15 @@ PutInlinePolicyToPermissionSetRequestRequestTypeDef = TypedDict(
     },
 )
 
+PutPermissionsBoundaryToPermissionSetRequestRequestTypeDef = TypedDict(
+    "PutPermissionsBoundaryToPermissionSetRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "PermissionSetArn": str,
+        "PermissionsBoundary": "PermissionsBoundaryTypeDef",
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -813,7 +933,6 @@ TagTypeDef = TypedDict(
         "Key": str,
         "Value": str,
     },
-    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(

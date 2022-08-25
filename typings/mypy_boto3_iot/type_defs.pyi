@@ -70,6 +70,7 @@ from .literals import (
     ServiceTypeType,
     StatusType,
     TargetSelectionType,
+    TemplateTypeType,
     ThingConnectivityIndexingModeType,
     ThingGroupIndexingModeType,
     ThingIndexingModeType,
@@ -369,6 +370,7 @@ __all__ = (
     "HttpUrlDestinationPropertiesTypeDef",
     "HttpUrlDestinationSummaryTypeDef",
     "ImplicitDenyTypeDef",
+    "IndexingFilterTypeDef",
     "IotAnalyticsActionTypeDef",
     "IotEventsActionTypeDef",
     "IotSiteWiseActionTypeDef",
@@ -1289,6 +1291,7 @@ CACertificateDescriptionTypeDef = TypedDict(
         "customerVersion": int,
         "generationId": str,
         "validity": "CertificateValidityTypeDef",
+        "certificateMode": CertificateModeType,
     },
     total=False,
 )
@@ -2067,6 +2070,7 @@ _OptionalCreateProvisioningTemplateRequestRequestTypeDef = TypedDict(
         "enabled": bool,
         "preProvisioningHook": "ProvisioningHookTypeDef",
         "tags": List["TagTypeDef"],
+        "type": TemplateTypeType,
     },
     total=False,
 )
@@ -3215,6 +3219,7 @@ DescribeProvisioningTemplateResponseTypeDef = TypedDict(
         "enabled": bool,
         "provisioningRoleArn": str,
         "preProvisioningHook": "ProvisioningHookTypeDef",
+        "type": TemplateTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4048,6 +4053,14 @@ ImplicitDenyTypeDef = TypedDict(
     total=False,
 )
 
+IndexingFilterTypeDef = TypedDict(
+    "IndexingFilterTypeDef",
+    {
+        "namedShadowNames": List[str],
+    },
+    total=False,
+)
+
 IotAnalyticsActionTypeDef = TypedDict(
     "IotAnalyticsActionTypeDef",
     {
@@ -4527,6 +4540,7 @@ ListCACertificatesRequestRequestTypeDef = TypedDict(
         "pageSize": int,
         "marker": str,
         "ascendingOrder": bool,
+        "templateName": str,
     },
     total=False,
 )
@@ -5973,6 +5987,7 @@ ProvisioningTemplateSummaryTypeDef = TypedDict(
         "creationDate": datetime,
         "lastModifiedDate": datetime,
         "enabled": bool,
+        "type": TemplateTypeType,
     },
     total=False,
 )
@@ -6057,16 +6072,17 @@ _RequiredRegisterCACertificateRequestRequestTypeDef = TypedDict(
     "_RequiredRegisterCACertificateRequestRequestTypeDef",
     {
         "caCertificate": str,
-        "verificationCertificate": str,
     },
 )
 _OptionalRegisterCACertificateRequestRequestTypeDef = TypedDict(
     "_OptionalRegisterCACertificateRequestRequestTypeDef",
     {
+        "verificationCertificate": str,
         "setAsActive": bool,
         "allowAutoRegistration": bool,
         "registrationConfig": "RegistrationConfigTypeDef",
         "tags": List["TagTypeDef"],
+        "certificateMode": CertificateModeType,
     },
     total=False,
 )
@@ -6179,6 +6195,7 @@ RegistrationConfigTypeDef = TypedDict(
     {
         "templateBody": str,
         "roleArn": str,
+        "templateName": str,
     },
     total=False,
 )
@@ -6960,6 +6977,7 @@ _OptionalThingIndexingConfigurationTypeDef = TypedDict(
         "namedShadowIndexingMode": NamedShadowIndexingModeType,
         "managedFields": List["FieldTypeDef"],
         "customFields": List["FieldTypeDef"],
+        "filter": "IndexingFilterTypeDef",
     },
     total=False,
 )

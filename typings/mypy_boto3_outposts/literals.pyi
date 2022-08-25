@@ -35,6 +35,7 @@ __all__ = (
     "PowerDrawKvaType",
     "PowerFeedDropType",
     "PowerPhaseType",
+    "ShipmentCarrierType",
     "SupportedHardwareTypeType",
     "SupportedStorageEnumType",
     "UplinkCountType",
@@ -86,6 +87,7 @@ PowerConnectorType = Literal["AH530P7W", "AH532P6W", "IEC309", "L6_30P"]
 PowerDrawKvaType = Literal["POWER_10_KVA", "POWER_15_KVA", "POWER_5_KVA"]
 PowerFeedDropType = Literal["ABOVE_RACK", "BELOW_RACK"]
 PowerPhaseType = Literal["SINGLE_PHASE", "THREE_PHASE"]
+ShipmentCarrierType = Literal["DBS", "DHL", "FEDEX", "UPS"]
 SupportedHardwareTypeType = Literal["RACK", "SERVER"]
 SupportedStorageEnumType = Literal["EBS", "S3"]
 UplinkCountType = Literal[

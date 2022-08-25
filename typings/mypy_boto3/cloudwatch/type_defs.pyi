@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    ActionsSuppressedByType,
     AlarmTypeType,
     AnomalyDetectorStateValueType,
     AnomalyDetectorTypeType,
@@ -91,12 +92,17 @@ __all__ = (
     "LabelOptionsTypeDef",
     "ListDashboardsInputRequestTypeDef",
     "ListDashboardsOutputTypeDef",
+    "ListManagedInsightRulesInputRequestTypeDef",
+    "ListManagedInsightRulesOutputTypeDef",
     "ListMetricStreamsInputRequestTypeDef",
     "ListMetricStreamsOutputTypeDef",
     "ListMetricsInputRequestTypeDef",
     "ListMetricsOutputTypeDef",
     "ListTagsForResourceInputRequestTypeDef",
     "ListTagsForResourceOutputTypeDef",
+    "ManagedRuleDescriptionTypeDef",
+    "ManagedRuleStateTypeDef",
+    "ManagedRuleTypeDef",
     "MessageDataTypeDef",
     "MetricAlarmTypeDef",
     "MetricDataQueryTypeDef",
@@ -116,6 +122,8 @@ __all__ = (
     "PutDashboardInputRequestTypeDef",
     "PutDashboardOutputTypeDef",
     "PutInsightRuleInputRequestTypeDef",
+    "PutManagedInsightRulesInputRequestTypeDef",
+    "PutManagedInsightRulesOutputTypeDef",
     "PutMetricAlarmInputMetricTypeDef",
     "PutMetricAlarmInputRequestTypeDef",
     "PutMetricDataInputRequestTypeDef",
@@ -190,6 +198,12 @@ CompositeAlarmTypeDef = TypedDict(
         "StateReasonData": str,
         "StateUpdatedTimestamp": datetime,
         "StateValue": StateValueType,
+        "StateTransitionedTimestamp": datetime,
+        "ActionsSuppressedBy": ActionsSuppressedByType,
+        "ActionsSuppressedReason": str,
+        "ActionsSuppressor": str,
+        "ActionsSuppressorWaitPeriod": int,
+        "ActionsSuppressorExtensionPeriod": int,
     },
     total=False,
 )
@@ -727,8 +741,8 @@ class InsightRuleMetricDatapointTypeDef(
 ):
     pass
 
-InsightRuleTypeDef = TypedDict(
-    "InsightRuleTypeDef",
+_RequiredInsightRuleTypeDef = TypedDict(
+    "_RequiredInsightRuleTypeDef",
     {
         "Name": str,
         "State": str,
@@ -736,6 +750,16 @@ InsightRuleTypeDef = TypedDict(
         "Definition": str,
     },
 )
+_OptionalInsightRuleTypeDef = TypedDict(
+    "_OptionalInsightRuleTypeDef",
+    {
+        "ManagedRule": bool,
+    },
+    total=False,
+)
+
+class InsightRuleTypeDef(_RequiredInsightRuleTypeDef, _OptionalInsightRuleTypeDef):
+    pass
 
 LabelOptionsTypeDef = TypedDict(
     "LabelOptionsTypeDef",
@@ -758,6 +782,36 @@ ListDashboardsOutputTypeDef = TypedDict(
     "ListDashboardsOutputTypeDef",
     {
         "DashboardEntries": List["DashboardEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListManagedInsightRulesInputRequestTypeDef = TypedDict(
+    "_RequiredListManagedInsightRulesInputRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+_OptionalListManagedInsightRulesInputRequestTypeDef = TypedDict(
+    "_OptionalListManagedInsightRulesInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListManagedInsightRulesInputRequestTypeDef(
+    _RequiredListManagedInsightRulesInputRequestTypeDef,
+    _OptionalListManagedInsightRulesInputRequestTypeDef,
+):
+    pass
+
+ListManagedInsightRulesOutputTypeDef = TypedDict(
+    "ListManagedInsightRulesOutputTypeDef",
+    {
+        "ManagedRules": List["ManagedRuleDescriptionTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -816,6 +870,42 @@ ListTagsForResourceOutputTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+ManagedRuleDescriptionTypeDef = TypedDict(
+    "ManagedRuleDescriptionTypeDef",
+    {
+        "TemplateName": str,
+        "ResourceARN": str,
+        "RuleState": "ManagedRuleStateTypeDef",
+    },
+    total=False,
+)
+
+ManagedRuleStateTypeDef = TypedDict(
+    "ManagedRuleStateTypeDef",
+    {
+        "RuleName": str,
+        "State": str,
+    },
+)
+
+_RequiredManagedRuleTypeDef = TypedDict(
+    "_RequiredManagedRuleTypeDef",
+    {
+        "TemplateName": str,
+        "ResourceARN": str,
+    },
+)
+_OptionalManagedRuleTypeDef = TypedDict(
+    "_OptionalManagedRuleTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class ManagedRuleTypeDef(_RequiredManagedRuleTypeDef, _OptionalManagedRuleTypeDef):
+    pass
 
 MessageDataTypeDef = TypedDict(
     "MessageDataTypeDef",
@@ -1045,6 +1135,9 @@ _OptionalPutCompositeAlarmInputRequestTypeDef = TypedDict(
         "InsufficientDataActions": List[str],
         "OKActions": List[str],
         "Tags": List["TagTypeDef"],
+        "ActionsSuppressor": str,
+        "ActionsSuppressorWaitPeriod": int,
+        "ActionsSuppressorExtensionPeriod": int,
     },
     total=False,
 )
@@ -1090,6 +1183,21 @@ class PutInsightRuleInputRequestTypeDef(
     _RequiredPutInsightRuleInputRequestTypeDef, _OptionalPutInsightRuleInputRequestTypeDef
 ):
     pass
+
+PutManagedInsightRulesInputRequestTypeDef = TypedDict(
+    "PutManagedInsightRulesInputRequestTypeDef",
+    {
+        "ManagedRules": List["ManagedRuleTypeDef"],
+    },
+)
+
+PutManagedInsightRulesOutputTypeDef = TypedDict(
+    "PutManagedInsightRulesOutputTypeDef",
+    {
+        "Failures": List["PartialFailureTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredPutMetricAlarmInputMetricTypeDef = TypedDict(
     "_RequiredPutMetricAlarmInputMetricTypeDef",

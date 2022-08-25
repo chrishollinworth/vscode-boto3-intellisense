@@ -42,6 +42,7 @@ from mypy_boto3_autoscaling.client import AutoScalingClient
 from mypy_boto3_autoscaling_plans.client import AutoScalingPlansClient
 from mypy_boto3_backup.client import BackupClient
 from mypy_boto3_backup_gateway.client import BackupGatewayClient
+from mypy_boto3_backupstorage.client import BackupStorageClient
 from mypy_boto3_batch.client import BatchClient
 from mypy_boto3_billingconductor.client import BillingConductorClient
 from mypy_boto3_braket.client import BraketClient
@@ -84,6 +85,7 @@ from mypy_boto3_compute_optimizer.client import ComputeOptimizerClient
 from mypy_boto3_config.client import ConfigServiceClient
 from mypy_boto3_connect.client import ConnectClient
 from mypy_boto3_connect_contact_lens.client import ConnectContactLensClient
+from mypy_boto3_connectcampaigns.client import ConnectCampaignServiceClient
 from mypy_boto3_connectparticipant.client import ConnectParticipantClient
 from mypy_boto3_cur.client import CostandUsageReportServiceClient
 from mypy_boto3_customer_profiles.client import CustomerProfilesClient
@@ -192,6 +194,9 @@ from mypy_boto3_lex_runtime.client import LexRuntimeServiceClient
 from mypy_boto3_lexv2_models.client import LexModelsV2Client
 from mypy_boto3_lexv2_runtime.client import LexRuntimeV2Client
 from mypy_boto3_license_manager.client import LicenseManagerClient
+from mypy_boto3_license_manager_user_subscriptions.client import (
+    LicenseManagerUserSubscriptionsClient,
+)
 from mypy_boto3_lightsail.client import LightsailClient
 from mypy_boto3_location.client import LocationServiceClient
 from mypy_boto3_logs.client import CloudWatchLogsClient
@@ -246,6 +251,7 @@ from mypy_boto3_pinpoint_sms_voice.client import PinpointSMSVoiceClient
 from mypy_boto3_pinpoint_sms_voice_v2.client import PinpointSMSVoiceV2Client
 from mypy_boto3_polly.client import PollyClient
 from mypy_boto3_pricing.client import PricingClient
+from mypy_boto3_privatenetworks.client import Private5GClient
 from mypy_boto3_proton.client import ProtonClient
 from mypy_boto3_qldb.client import QLDBClient
 from mypy_boto3_qldb_session.client import QLDBSessionClient
@@ -262,6 +268,7 @@ from mypy_boto3_resiliencehub.client import ResilienceHubClient
 from mypy_boto3_resource_groups.client import ResourceGroupsClient
 from mypy_boto3_resourcegroupstaggingapi.client import ResourceGroupsTaggingAPIClient
 from mypy_boto3_robomaker.client import RoboMakerClient
+from mypy_boto3_rolesanywhere.client import IAMRolesAnywhereClient
 from mypy_boto3_route53.client import Route53Client
 from mypy_boto3_route53_recovery_cluster.client import Route53RecoveryClusterClient
 from mypy_boto3_route53_recovery_control_config.client import Route53RecoveryControlConfigClient
@@ -309,6 +316,7 @@ from mypy_boto3_stepfunctions.client import SFNClient
 from mypy_boto3_storagegateway.client import StorageGatewayClient
 from mypy_boto3_sts.client import STSClient
 from mypy_boto3_support.client import SupportClient
+from mypy_boto3_support_app.client import SupportAppClient
 from mypy_boto3_swf.client import SWFClient
 from mypy_boto3_synthetics.client import SyntheticsClient
 from mypy_boto3_textract.client import TextractClient
@@ -776,6 +784,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> BackupGatewayClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["backupstorage"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> BackupStorageClient: ...
     @overload
     def client(
         self,
@@ -1336,6 +1358,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> ConnectContactLensClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["connectcampaigns"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> ConnectCampaignServiceClient: ...
     @overload
     def client(
         self,
@@ -2795,6 +2831,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["license-manager-user-subscriptions"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> LicenseManagerUserSubscriptionsClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["lightsail"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -3537,6 +3587,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["privatenetworks"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> Private5GClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["proton"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -3758,6 +3822,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> RoboMakerClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["rolesanywhere"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> IAMRolesAnywhereClient: ...
     @overload
     def client(
         self,
@@ -4388,6 +4466,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> SupportClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["support-app"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> SupportAppClient: ...
     @overload
     def client(
         self,

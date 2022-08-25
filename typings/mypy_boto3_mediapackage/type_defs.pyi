@@ -21,6 +21,8 @@ from .literals import (
     ManifestLayoutType,
     OriginationType,
     PlaylistTypeType,
+    PresetSpeke20AudioType,
+    PresetSpeke20VideoType,
     ProfileType,
     SegmentTemplateFormatType,
     StatusType,
@@ -337,6 +339,7 @@ DashPackageTypeDef = TypedDict(
         "AdTriggers": List[__AdTriggersElementType],
         "AdsOnDeliveryRestrictions": AdsOnDeliveryRestrictionsType,
         "Encryption": "DashEncryptionTypeDef",
+        "IncludeIframeOnlyStream": bool,
         "ManifestLayout": ManifestLayoutType,
         "ManifestWindowSeconds": int,
         "MinBufferTimeSeconds": int,
@@ -452,8 +455,8 @@ EgressAccessLogsTypeDef = TypedDict(
 EncryptionContractConfigurationTypeDef = TypedDict(
     "EncryptionContractConfigurationTypeDef",
     {
-        "PresetSpeke20Audio": Literal["PRESET-AUDIO-1"],
-        "PresetSpeke20Video": Literal["PRESET-VIDEO-1"],
+        "PresetSpeke20Audio": PresetSpeke20AudioType,
+        "PresetSpeke20Video": PresetSpeke20VideoType,
     },
 )
 

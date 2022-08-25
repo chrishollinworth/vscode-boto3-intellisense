@@ -104,7 +104,7 @@ class Exceptions:
 
 class S3ControlClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html)
     """
 
@@ -119,8 +119,15 @@ class S3ControlClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#can_paginate)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#close)
         """
     def create_access_point(
         self,
@@ -134,7 +141,7 @@ class S3ControlClient(BaseClient):
         """
         Creates an access point and associates it with the specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.create_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.create_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#create_access_point)
         """
     def create_access_point_for_object_lambda(
@@ -143,7 +150,7 @@ class S3ControlClient(BaseClient):
         """
         Creates an Object Lambda Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.create_access_point_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.create_access_point_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#create_access_point_for_object_lambda)
         """
     def create_bucket(
@@ -163,7 +170,7 @@ class S3ControlClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.create_bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.create_bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#create_bucket)
         """
     def create_job(
@@ -185,7 +192,7 @@ class S3ControlClient(BaseClient):
         You can use S3 Batch Operations to perform large-scale batch actions on Amazon
         S3 objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.create_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.create_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#create_job)
         """
     def create_multi_region_access_point(
@@ -199,70 +206,70 @@ class S3ControlClient(BaseClient):
         Creates a Multi-Region Access Point and associates it with the specified
         buckets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.create_multi_region_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.create_multi_region_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#create_multi_region_access_point)
         """
     def delete_access_point(self, *, AccountId: str, Name: str) -> None:
         """
         Deletes the specified access point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_access_point)
         """
     def delete_access_point_for_object_lambda(self, *, AccountId: str, Name: str) -> None:
         """
         Deletes the specified Object Lambda Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_access_point_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_access_point_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_access_point_for_object_lambda)
         """
     def delete_access_point_policy(self, *, AccountId: str, Name: str) -> None:
         """
         Deletes the access point policy for the specified access point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_access_point_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_access_point_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_access_point_policy)
         """
     def delete_access_point_policy_for_object_lambda(self, *, AccountId: str, Name: str) -> None:
         """
         Removes the resource policy for an Object Lambda Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_access_point_policy_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_access_point_policy_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_access_point_policy_for_object_lambda)
         """
     def delete_bucket(self, *, AccountId: str, Bucket: str) -> None:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_bucket)
         """
     def delete_bucket_lifecycle_configuration(self, *, AccountId: str, Bucket: str) -> None:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_bucket_lifecycle_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_bucket_lifecycle_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_bucket_lifecycle_configuration)
         """
     def delete_bucket_policy(self, *, AccountId: str, Bucket: str) -> None:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_bucket_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_bucket_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_bucket_policy)
         """
     def delete_bucket_tagging(self, *, AccountId: str, Bucket: str) -> None:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_bucket_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_bucket_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_bucket_tagging)
         """
     def delete_job_tagging(self, *, AccountId: str, JobId: str) -> Dict[str, Any]:
         """
         Removes the entire tag set from the specified S3 Batch Operations job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_job_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_job_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_job_tagging)
         """
     def delete_multi_region_access_point(
@@ -275,7 +282,7 @@ class S3ControlClient(BaseClient):
         """
         Deletes a Multi-Region Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_multi_region_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_multi_region_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_multi_region_access_point)
         """
     def delete_public_access_block(self, *, AccountId: str) -> None:
@@ -283,14 +290,14 @@ class S3ControlClient(BaseClient):
         Removes the `PublicAccessBlock` configuration for an Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_public_access_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_public_access_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_public_access_block)
         """
     def delete_storage_lens_configuration(self, *, ConfigId: str, AccountId: str) -> None:
         """
         Deletes the Amazon S3 Storage Lens configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_storage_lens_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_storage_lens_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_storage_lens_configuration)
         """
     def delete_storage_lens_configuration_tagging(
@@ -299,14 +306,14 @@ class S3ControlClient(BaseClient):
         """
         Deletes the Amazon S3 Storage Lens configuration tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.delete_storage_lens_configuration_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.delete_storage_lens_configuration_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#delete_storage_lens_configuration_tagging)
         """
     def describe_job(self, *, AccountId: str, JobId: str) -> DescribeJobResultTypeDef:
         """
         Retrieves the configuration parameters and status for a Batch Operations job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.describe_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.describe_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#describe_job)
         """
     def describe_multi_region_access_point_operation(
@@ -316,7 +323,7 @@ class S3ControlClient(BaseClient):
         Retrieves the status of an asynchronous request to manage a Multi-Region Access
         Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.describe_multi_region_access_point_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.describe_multi_region_access_point_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#describe_multi_region_access_point_operation)
         """
     def generate_presigned_url(
@@ -329,14 +336,14 @@ class S3ControlClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#generate_presigned_url)
         """
     def get_access_point(self, *, AccountId: str, Name: str) -> GetAccessPointResultTypeDef:
         """
         Returns configuration information about the specified access point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_access_point)
         """
     def get_access_point_configuration_for_object_lambda(
@@ -345,7 +352,7 @@ class S3ControlClient(BaseClient):
         """
         Returns configuration for an Object Lambda Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_access_point_configuration_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_access_point_configuration_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_access_point_configuration_for_object_lambda)
         """
     def get_access_point_for_object_lambda(
@@ -357,7 +364,7 @@ class S3ControlClient(BaseClient):
         `CreateAccessPointForObjectLambda <https://docs.aws.amazon.com/AmazonS3/latest/A
         PI/API_control_CreateAccessPointForObjectLambda.htm...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_access_point_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_access_point_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_access_point_for_object_lambda)
         """
     def get_access_point_policy(
@@ -366,7 +373,7 @@ class S3ControlClient(BaseClient):
         """
         Returns the access point policy associated with the specified access point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_access_point_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_access_point_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_access_point_policy)
         """
     def get_access_point_policy_for_object_lambda(
@@ -375,7 +382,7 @@ class S3ControlClient(BaseClient):
         """
         Returns the resource policy for an Object Lambda Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_access_point_policy_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_access_point_policy_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_access_point_policy_for_object_lambda)
         """
     def get_access_point_policy_status(
@@ -385,7 +392,7 @@ class S3ControlClient(BaseClient):
         Indicates whether the specified access point currently has a policy that allows
         public access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_access_point_policy_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_access_point_policy_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_access_point_policy_status)
         """
     def get_access_point_policy_status_for_object_lambda(
@@ -395,14 +402,14 @@ class S3ControlClient(BaseClient):
         Returns the status of the resource policy associated with an Object Lambda
         Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_access_point_policy_status_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_access_point_policy_status_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_access_point_policy_status_for_object_lambda)
         """
     def get_bucket(self, *, AccountId: str, Bucket: str) -> GetBucketResultTypeDef:
         """
         Gets an Amazon S3 on Outposts bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_bucket)
         """
     def get_bucket_lifecycle_configuration(
@@ -411,28 +418,28 @@ class S3ControlClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_bucket_lifecycle_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_bucket_lifecycle_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_bucket_lifecycle_configuration)
         """
     def get_bucket_policy(self, *, AccountId: str, Bucket: str) -> GetBucketPolicyResultTypeDef:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_bucket_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_bucket_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_bucket_policy)
         """
     def get_bucket_tagging(self, *, AccountId: str, Bucket: str) -> GetBucketTaggingResultTypeDef:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_bucket_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_bucket_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_bucket_tagging)
         """
     def get_job_tagging(self, *, AccountId: str, JobId: str) -> GetJobTaggingResultTypeDef:
         """
         Returns the tags on an S3 Batch Operations job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_job_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_job_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_job_tagging)
         """
     def get_multi_region_access_point(
@@ -441,7 +448,7 @@ class S3ControlClient(BaseClient):
         """
         Returns configuration information about the specified Multi-Region Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_multi_region_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_multi_region_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_multi_region_access_point)
         """
     def get_multi_region_access_point_policy(
@@ -450,7 +457,7 @@ class S3ControlClient(BaseClient):
         """
         Returns the access control policy of the specified Multi-Region Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_multi_region_access_point_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_multi_region_access_point_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_multi_region_access_point_policy)
         """
     def get_multi_region_access_point_policy_status(
@@ -460,7 +467,7 @@ class S3ControlClient(BaseClient):
         Indicates whether the specified Multi-Region Access Point has an access control
         policy that allows public access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_multi_region_access_point_policy_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_multi_region_access_point_policy_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_multi_region_access_point_policy_status)
         """
     def get_public_access_block(self, *, AccountId: str) -> GetPublicAccessBlockOutputTypeDef:
@@ -468,7 +475,7 @@ class S3ControlClient(BaseClient):
         Retrieves the `PublicAccessBlock` configuration for an Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_public_access_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_public_access_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_public_access_block)
         """
     def get_storage_lens_configuration(
@@ -477,7 +484,7 @@ class S3ControlClient(BaseClient):
         """
         Gets the Amazon S3 Storage Lens configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_storage_lens_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_storage_lens_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_storage_lens_configuration)
         """
     def get_storage_lens_configuration_tagging(
@@ -486,7 +493,7 @@ class S3ControlClient(BaseClient):
         """
         Gets the tags of Amazon S3 Storage Lens configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.get_storage_lens_configuration_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.get_storage_lens_configuration_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#get_storage_lens_configuration_tagging)
         """
     def list_access_points(
@@ -496,7 +503,7 @@ class S3ControlClient(BaseClient):
         Returns a list of the access points currently associated with the specified
         bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.list_access_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.list_access_points)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#list_access_points)
         """
     def list_access_points_for_object_lambda(
@@ -506,7 +513,7 @@ class S3ControlClient(BaseClient):
         Returns some or all (up to 1,000) access points associated with the Object
         Lambda Access Point per call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.list_access_points_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.list_access_points_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#list_access_points_for_object_lambda)
         """
     def list_jobs(
@@ -521,7 +528,7 @@ class S3ControlClient(BaseClient):
         Lists current S3 Batch Operations jobs and jobs that have ended within the last
         30 days for the Amazon Web Services account making the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.list_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.list_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#list_jobs)
         """
     def list_multi_region_access_points(
@@ -531,7 +538,7 @@ class S3ControlClient(BaseClient):
         Returns a list of the Multi-Region Access Points currently associated with the
         specified Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.list_multi_region_access_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.list_multi_region_access_points)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#list_multi_region_access_points)
         """
     def list_regional_buckets(
@@ -546,7 +553,7 @@ class S3ControlClient(BaseClient):
         Returns a list of all Outposts buckets in an Outpost that are owned by the
         authenticated sender of the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.list_regional_buckets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.list_regional_buckets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#list_regional_buckets)
         """
     def list_storage_lens_configurations(
@@ -555,7 +562,7 @@ class S3ControlClient(BaseClient):
         """
         Gets a list of Amazon S3 Storage Lens configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.list_storage_lens_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.list_storage_lens_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#list_storage_lens_configurations)
         """
     def put_access_point_configuration_for_object_lambda(
@@ -564,14 +571,14 @@ class S3ControlClient(BaseClient):
         """
         Replaces configuration for an Object Lambda Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_access_point_configuration_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_access_point_configuration_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_access_point_configuration_for_object_lambda)
         """
     def put_access_point_policy(self, *, AccountId: str, Name: str, Policy: str) -> None:
         """
         Associates an access policy with the specified access point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_access_point_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_access_point_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_access_point_policy)
         """
     def put_access_point_policy_for_object_lambda(
@@ -580,7 +587,7 @@ class S3ControlClient(BaseClient):
         """
         Creates or replaces resource policy for an Object Lambda Access Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_access_point_policy_for_object_lambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_access_point_policy_for_object_lambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_access_point_policy_for_object_lambda)
         """
     def put_bucket_lifecycle_configuration(
@@ -593,7 +600,7 @@ class S3ControlClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_bucket_lifecycle_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_bucket_lifecycle_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_bucket_lifecycle_configuration)
         """
     def put_bucket_policy(
@@ -607,14 +614,14 @@ class S3ControlClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_bucket_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_bucket_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_bucket_policy)
         """
     def put_bucket_tagging(self, *, AccountId: str, Bucket: str, Tagging: "TaggingTypeDef") -> None:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_bucket_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_bucket_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_bucket_tagging)
         """
     def put_job_tagging(
@@ -623,7 +630,7 @@ class S3ControlClient(BaseClient):
         """
         Sets the supplied tag-set on an S3 Batch Operations job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_job_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_job_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_job_tagging)
         """
     def put_multi_region_access_point_policy(
@@ -637,7 +644,7 @@ class S3ControlClient(BaseClient):
         Associates an access control policy with the specified Multi-Region Access
         Point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_multi_region_access_point_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_multi_region_access_point_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_multi_region_access_point_policy)
         """
     def put_public_access_block(
@@ -650,7 +657,7 @@ class S3ControlClient(BaseClient):
         Creates or modifies the `PublicAccessBlock` configuration for an Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_public_access_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_public_access_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_public_access_block)
         """
     def put_storage_lens_configuration(
@@ -664,7 +671,7 @@ class S3ControlClient(BaseClient):
         """
         Puts an Amazon S3 Storage Lens configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_storage_lens_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_storage_lens_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_storage_lens_configuration)
         """
     def put_storage_lens_configuration_tagging(
@@ -673,7 +680,7 @@ class S3ControlClient(BaseClient):
         """
         Put or replace tags on an existing Amazon S3 Storage Lens configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.put_storage_lens_configuration_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.put_storage_lens_configuration_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#put_storage_lens_configuration_tagging)
         """
     def update_job_priority(
@@ -682,7 +689,7 @@ class S3ControlClient(BaseClient):
         """
         Updates an existing S3 Batch Operations job's priority.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.update_job_priority)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.update_job_priority)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#update_job_priority)
         """
     def update_job_status(
@@ -696,13 +703,13 @@ class S3ControlClient(BaseClient):
         """
         Updates the status for the specified job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Client.update_job_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Client.update_job_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/client.html#update_job_status)
         """
     def get_paginator(
         self, operation_name: Literal["list_access_points_for_object_lambda"]
     ) -> ListAccessPointsForObjectLambdaPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/s3control.html#S3Control.Paginator.ListAccessPointsForObjectLambda)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/s3control.html#S3Control.Paginator.ListAccessPointsForObjectLambda)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/paginators.html#listaccesspointsforobjectlambdapaginator)
         """

@@ -106,10 +106,15 @@ GetAttributeValuesResponseTypeDef = TypedDict(
     },
 )
 
-GetProductsRequestRequestTypeDef = TypedDict(
-    "GetProductsRequestRequestTypeDef",
+_RequiredGetProductsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetProductsRequestRequestTypeDef",
     {
         "ServiceCode": str,
+    },
+)
+_OptionalGetProductsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetProductsRequestRequestTypeDef",
+    {
         "Filters": List["FilterTypeDef"],
         "FormatVersion": str,
         "NextToken": str,
@@ -117,6 +122,11 @@ GetProductsRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
+
+class GetProductsRequestRequestTypeDef(
+    _RequiredGetProductsRequestRequestTypeDef, _OptionalGetProductsRequestRequestTypeDef
+):
+    pass
 
 GetProductsResponseTypeDef = TypedDict(
     "GetProductsResponseTypeDef",
@@ -149,11 +159,19 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
-ServiceTypeDef = TypedDict(
-    "ServiceTypeDef",
+_RequiredServiceTypeDef = TypedDict(
+    "_RequiredServiceTypeDef",
     {
         "ServiceCode": str,
+    },
+)
+_OptionalServiceTypeDef = TypedDict(
+    "_OptionalServiceTypeDef",
+    {
         "AttributeNames": List[str],
     },
     total=False,
 )
+
+class ServiceTypeDef(_RequiredServiceTypeDef, _OptionalServiceTypeDef):
+    pass

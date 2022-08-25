@@ -6,9 +6,9 @@ Type annotations for appconfig service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_appconfig.type_defs import ApplicationResponseMetadataTypeDef
+    from mypy_boto3_appconfig.type_defs import ActionInvocationTypeDef
 
-    data: ApplicationResponseMetadataTypeDef = {...}
+    data: ActionInvocationTypeDef = {...}
     ```
 """
 import sys
@@ -18,6 +18,7 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    ActionPointType,
     DeploymentEventTypeType,
     DeploymentStateType,
     EnvironmentStateType,
@@ -33,9 +34,12 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ActionInvocationTypeDef",
+    "ActionTypeDef",
     "ApplicationResponseMetadataTypeDef",
     "ApplicationTypeDef",
     "ApplicationsTypeDef",
+    "AppliedExtensionTypeDef",
     "ConfigurationProfileSummaryTypeDef",
     "ConfigurationProfileTypeDef",
     "ConfigurationProfilesTypeDef",
@@ -44,11 +48,15 @@ __all__ = (
     "CreateConfigurationProfileRequestRequestTypeDef",
     "CreateDeploymentStrategyRequestRequestTypeDef",
     "CreateEnvironmentRequestRequestTypeDef",
+    "CreateExtensionAssociationRequestRequestTypeDef",
+    "CreateExtensionRequestRequestTypeDef",
     "CreateHostedConfigurationVersionRequestRequestTypeDef",
     "DeleteApplicationRequestRequestTypeDef",
     "DeleteConfigurationProfileRequestRequestTypeDef",
     "DeleteDeploymentStrategyRequestRequestTypeDef",
     "DeleteEnvironmentRequestRequestTypeDef",
+    "DeleteExtensionAssociationRequestRequestTypeDef",
+    "DeleteExtensionRequestRequestTypeDef",
     "DeleteHostedConfigurationVersionRequestRequestTypeDef",
     "DeploymentEventTypeDef",
     "DeploymentStrategiesTypeDef",
@@ -60,12 +68,20 @@ __all__ = (
     "EnvironmentResponseMetadataTypeDef",
     "EnvironmentTypeDef",
     "EnvironmentsTypeDef",
+    "ExtensionAssociationSummaryTypeDef",
+    "ExtensionAssociationTypeDef",
+    "ExtensionAssociationsTypeDef",
+    "ExtensionSummaryTypeDef",
+    "ExtensionTypeDef",
+    "ExtensionsTypeDef",
     "GetApplicationRequestRequestTypeDef",
     "GetConfigurationProfileRequestRequestTypeDef",
     "GetConfigurationRequestRequestTypeDef",
     "GetDeploymentRequestRequestTypeDef",
     "GetDeploymentStrategyRequestRequestTypeDef",
     "GetEnvironmentRequestRequestTypeDef",
+    "GetExtensionAssociationRequestRequestTypeDef",
+    "GetExtensionRequestRequestTypeDef",
     "GetHostedConfigurationVersionRequestRequestTypeDef",
     "HostedConfigurationVersionSummaryTypeDef",
     "HostedConfigurationVersionTypeDef",
@@ -75,9 +91,12 @@ __all__ = (
     "ListDeploymentStrategiesRequestRequestTypeDef",
     "ListDeploymentsRequestRequestTypeDef",
     "ListEnvironmentsRequestRequestTypeDef",
+    "ListExtensionAssociationsRequestRequestTypeDef",
+    "ListExtensionsRequestRequestTypeDef",
     "ListHostedConfigurationVersionsRequestRequestTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "MonitorTypeDef",
+    "ParameterTypeDef",
     "ResourceTagsTypeDef",
     "ResponseMetadataTypeDef",
     "StartDeploymentRequestRequestTypeDef",
@@ -88,8 +107,35 @@ __all__ = (
     "UpdateConfigurationProfileRequestRequestTypeDef",
     "UpdateDeploymentStrategyRequestRequestTypeDef",
     "UpdateEnvironmentRequestRequestTypeDef",
+    "UpdateExtensionAssociationRequestRequestTypeDef",
+    "UpdateExtensionRequestRequestTypeDef",
     "ValidateConfigurationRequestRequestTypeDef",
     "ValidatorTypeDef",
+)
+
+ActionInvocationTypeDef = TypedDict(
+    "ActionInvocationTypeDef",
+    {
+        "ExtensionIdentifier": str,
+        "ActionName": str,
+        "Uri": str,
+        "RoleArn": str,
+        "ErrorMessage": str,
+        "ErrorCode": str,
+        "InvocationId": str,
+    },
+    total=False,
+)
+
+ActionTypeDef = TypedDict(
+    "ActionTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "Uri": str,
+        "RoleArn": str,
+    },
+    total=False,
 )
 
 ApplicationResponseMetadataTypeDef = TypedDict(
@@ -119,6 +165,17 @@ ApplicationsTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+AppliedExtensionTypeDef = TypedDict(
+    "AppliedExtensionTypeDef",
+    {
+        "ExtensionId": str,
+        "ExtensionAssociationId": str,
+        "VersionNumber": int,
+        "Parameters": Dict[str, str],
+    },
+    total=False,
 )
 
 ConfigurationProfileSummaryTypeDef = TypedDict(
@@ -220,7 +277,6 @@ _RequiredCreateDeploymentStrategyRequestRequestTypeDef = TypedDict(
         "Name": str,
         "DeploymentDurationInMinutes": int,
         "GrowthFactor": float,
-        "ReplicateTo": ReplicateToType,
     },
 )
 _OptionalCreateDeploymentStrategyRequestRequestTypeDef = TypedDict(
@@ -229,6 +285,7 @@ _OptionalCreateDeploymentStrategyRequestRequestTypeDef = TypedDict(
         "Description": str,
         "FinalBakeTimeInMinutes": int,
         "GrowthType": GrowthTypeType,
+        "ReplicateTo": ReplicateToType,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -259,6 +316,52 @@ _OptionalCreateEnvironmentRequestRequestTypeDef = TypedDict(
 
 class CreateEnvironmentRequestRequestTypeDef(
     _RequiredCreateEnvironmentRequestRequestTypeDef, _OptionalCreateEnvironmentRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateExtensionAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateExtensionAssociationRequestRequestTypeDef",
+    {
+        "ExtensionIdentifier": str,
+        "ResourceIdentifier": str,
+    },
+)
+_OptionalCreateExtensionAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateExtensionAssociationRequestRequestTypeDef",
+    {
+        "ExtensionVersionNumber": int,
+        "Parameters": Dict[str, str],
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateExtensionAssociationRequestRequestTypeDef(
+    _RequiredCreateExtensionAssociationRequestRequestTypeDef,
+    _OptionalCreateExtensionAssociationRequestRequestTypeDef,
+):
+    pass
+
+_RequiredCreateExtensionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateExtensionRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Actions": Dict[ActionPointType, List["ActionTypeDef"]],
+    },
+)
+_OptionalCreateExtensionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateExtensionRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Parameters": Dict[str, "ParameterTypeDef"],
+        "Tags": Dict[str, str],
+        "LatestVersionNumber": int,
+    },
+    total=False,
+)
+
+class CreateExtensionRequestRequestTypeDef(
+    _RequiredCreateExtensionRequestRequestTypeDef, _OptionalCreateExtensionRequestRequestTypeDef
 ):
     pass
 
@@ -316,6 +419,32 @@ DeleteEnvironmentRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteExtensionAssociationRequestRequestTypeDef = TypedDict(
+    "DeleteExtensionAssociationRequestRequestTypeDef",
+    {
+        "ExtensionAssociationId": str,
+    },
+)
+
+_RequiredDeleteExtensionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteExtensionRequestRequestTypeDef",
+    {
+        "ExtensionIdentifier": str,
+    },
+)
+_OptionalDeleteExtensionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteExtensionRequestRequestTypeDef",
+    {
+        "VersionNumber": int,
+    },
+    total=False,
+)
+
+class DeleteExtensionRequestRequestTypeDef(
+    _RequiredDeleteExtensionRequestRequestTypeDef, _OptionalDeleteExtensionRequestRequestTypeDef
+):
+    pass
+
 DeleteHostedConfigurationVersionRequestRequestTypeDef = TypedDict(
     "DeleteHostedConfigurationVersionRequestRequestTypeDef",
     {
@@ -331,6 +460,7 @@ DeploymentEventTypeDef = TypedDict(
         "EventType": DeploymentEventTypeType,
         "TriggeredBy": TriggeredByType,
         "Description": str,
+        "ActionInvocations": List["ActionInvocationTypeDef"],
         "OccurredAt": datetime,
     },
     total=False,
@@ -414,6 +544,7 @@ DeploymentTypeDef = TypedDict(
         "PercentageComplete": float,
         "StartedAt": datetime,
         "CompletedAt": datetime,
+        "AppliedExtensions": List["AppliedExtensionTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -457,6 +588,73 @@ EnvironmentsTypeDef = TypedDict(
     "EnvironmentsTypeDef",
     {
         "Items": List["EnvironmentTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ExtensionAssociationSummaryTypeDef = TypedDict(
+    "ExtensionAssociationSummaryTypeDef",
+    {
+        "Id": str,
+        "ExtensionArn": str,
+        "ResourceArn": str,
+    },
+    total=False,
+)
+
+ExtensionAssociationTypeDef = TypedDict(
+    "ExtensionAssociationTypeDef",
+    {
+        "Id": str,
+        "ExtensionArn": str,
+        "ResourceArn": str,
+        "Arn": str,
+        "Parameters": Dict[str, str],
+        "ExtensionVersionNumber": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ExtensionAssociationsTypeDef = TypedDict(
+    "ExtensionAssociationsTypeDef",
+    {
+        "Items": List["ExtensionAssociationSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ExtensionSummaryTypeDef = TypedDict(
+    "ExtensionSummaryTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "VersionNumber": int,
+        "Arn": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+ExtensionTypeDef = TypedDict(
+    "ExtensionTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "VersionNumber": int,
+        "Arn": str,
+        "Description": str,
+        "Actions": Dict[ActionPointType, List["ActionTypeDef"]],
+        "Parameters": Dict[str, "ParameterTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ExtensionsTypeDef = TypedDict(
+    "ExtensionsTypeDef",
+    {
+        "Items": List["ExtensionSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -522,6 +720,32 @@ GetEnvironmentRequestRequestTypeDef = TypedDict(
         "EnvironmentId": str,
     },
 )
+
+GetExtensionAssociationRequestRequestTypeDef = TypedDict(
+    "GetExtensionAssociationRequestRequestTypeDef",
+    {
+        "ExtensionAssociationId": str,
+    },
+)
+
+_RequiredGetExtensionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetExtensionRequestRequestTypeDef",
+    {
+        "ExtensionIdentifier": str,
+    },
+)
+_OptionalGetExtensionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetExtensionRequestRequestTypeDef",
+    {
+        "VersionNumber": int,
+    },
+    total=False,
+)
+
+class GetExtensionRequestRequestTypeDef(
+    _RequiredGetExtensionRequestRequestTypeDef, _OptionalGetExtensionRequestRequestTypeDef
+):
+    pass
 
 GetHostedConfigurationVersionRequestRequestTypeDef = TypedDict(
     "GetHostedConfigurationVersionRequestRequestTypeDef",
@@ -647,6 +871,28 @@ class ListEnvironmentsRequestRequestTypeDef(
 ):
     pass
 
+ListExtensionAssociationsRequestRequestTypeDef = TypedDict(
+    "ListExtensionAssociationsRequestRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ExtensionIdentifier": str,
+        "ExtensionVersionNumber": int,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListExtensionsRequestRequestTypeDef = TypedDict(
+    "ListExtensionsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "Name": str,
+    },
+    total=False,
+)
+
 _RequiredListHostedConfigurationVersionsRequestRequestTypeDef = TypedDict(
     "_RequiredListHostedConfigurationVersionsRequestRequestTypeDef",
     {
@@ -692,6 +938,15 @@ _OptionalMonitorTypeDef = TypedDict(
 
 class MonitorTypeDef(_RequiredMonitorTypeDef, _OptionalMonitorTypeDef):
     pass
+
+ParameterTypeDef = TypedDict(
+    "ParameterTypeDef",
+    {
+        "Description": str,
+        "Required": bool,
+    },
+    total=False,
+)
 
 ResourceTagsTypeDef = TypedDict(
     "ResourceTagsTypeDef",
@@ -848,6 +1103,48 @@ _OptionalUpdateEnvironmentRequestRequestTypeDef = TypedDict(
 
 class UpdateEnvironmentRequestRequestTypeDef(
     _RequiredUpdateEnvironmentRequestRequestTypeDef, _OptionalUpdateEnvironmentRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateExtensionAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateExtensionAssociationRequestRequestTypeDef",
+    {
+        "ExtensionAssociationId": str,
+    },
+)
+_OptionalUpdateExtensionAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateExtensionAssociationRequestRequestTypeDef",
+    {
+        "Parameters": Dict[str, str],
+    },
+    total=False,
+)
+
+class UpdateExtensionAssociationRequestRequestTypeDef(
+    _RequiredUpdateExtensionAssociationRequestRequestTypeDef,
+    _OptionalUpdateExtensionAssociationRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateExtensionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateExtensionRequestRequestTypeDef",
+    {
+        "ExtensionIdentifier": str,
+    },
+)
+_OptionalUpdateExtensionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateExtensionRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Actions": Dict[ActionPointType, List["ActionTypeDef"]],
+        "Parameters": Dict[str, "ParameterTypeDef"],
+        "VersionNumber": int,
+    },
+    total=False,
+)
+
+class UpdateExtensionRequestRequestTypeDef(
+    _RequiredUpdateExtensionRequestRequestTypeDef, _OptionalUpdateExtensionRequestRequestTypeDef
 ):
     pass
 

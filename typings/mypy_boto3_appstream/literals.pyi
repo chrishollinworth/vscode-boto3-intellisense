@@ -47,6 +47,7 @@ __all__ = (
     "MessageActionType",
     "PermissionType",
     "PlatformTypeType",
+    "PreferredProtocolType",
     "SessionConnectionStateType",
     "SessionStateType",
     "StackAttributeType",
@@ -149,6 +150,7 @@ ListAssociatedStacksPaginatorName = Literal["list_associated_stacks"]
 MessageActionType = Literal["RESEND", "SUPPRESS"]
 PermissionType = Literal["DISABLED", "ENABLED"]
 PlatformTypeType = Literal["AMAZON_LINUX2", "WINDOWS", "WINDOWS_SERVER_2016", "WINDOWS_SERVER_2019"]
+PreferredProtocolType = Literal["TCP", "UDP"]
 SessionConnectionStateType = Literal["CONNECTED", "NOT_CONNECTED"]
 SessionStateType = Literal["ACTIVE", "EXPIRED", "PENDING"]
 StackAttributeType = Literal[
@@ -161,6 +163,7 @@ StackAttributeType = Literal[
     "STORAGE_CONNECTOR_GOOGLE_DRIVE",
     "STORAGE_CONNECTOR_HOMEFOLDERS",
     "STORAGE_CONNECTOR_ONE_DRIVE",
+    "STREAMING_EXPERIENCE_SETTINGS",
     "THEME_NAME",
     "USER_SETTINGS",
 ]

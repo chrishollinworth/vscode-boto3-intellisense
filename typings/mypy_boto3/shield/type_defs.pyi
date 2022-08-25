@@ -69,6 +69,8 @@ __all__ = (
     "EmergencyContactTypeDef",
     "EnableApplicationLayerAutomaticResponseRequestRequestTypeDef",
     "GetSubscriptionStateResponseTypeDef",
+    "InclusionProtectionFiltersTypeDef",
+    "InclusionProtectionGroupFiltersTypeDef",
     "LimitTypeDef",
     "ListAttacksRequestRequestTypeDef",
     "ListAttacksResponseTypeDef",
@@ -436,6 +438,27 @@ GetSubscriptionStateResponseTypeDef = TypedDict(
     },
 )
 
+InclusionProtectionFiltersTypeDef = TypedDict(
+    "InclusionProtectionFiltersTypeDef",
+    {
+        "ResourceArns": List[str],
+        "ProtectionNames": List[str],
+        "ResourceTypes": List[ProtectedResourceTypeType],
+    },
+    total=False,
+)
+
+InclusionProtectionGroupFiltersTypeDef = TypedDict(
+    "InclusionProtectionGroupFiltersTypeDef",
+    {
+        "ProtectionGroupIds": List[str],
+        "Patterns": List[ProtectionGroupPatternType],
+        "ResourceTypes": List[ProtectedResourceTypeType],
+        "Aggregations": List[ProtectionGroupAggregationType],
+    },
+    total=False,
+)
+
 LimitTypeDef = TypedDict(
     "LimitTypeDef",
     {
@@ -471,6 +494,7 @@ ListProtectionGroupsRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "InclusionFilters": "InclusionProtectionGroupFiltersTypeDef",
     },
     total=False,
 )
@@ -489,6 +513,7 @@ ListProtectionsRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "InclusionFilters": "InclusionProtectionFiltersTypeDef",
     },
     total=False,
 )

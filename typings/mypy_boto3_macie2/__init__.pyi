@@ -8,6 +8,7 @@ Usage::
     from mypy_boto3_macie2 import (
         Client,
         DescribeBucketsPaginator,
+        FindingRevealedWaiter,
         GetUsageStatisticsPaginator,
         ListClassificationJobsPaginator,
         ListCustomDataIdentifiersPaginator,
@@ -24,6 +25,8 @@ Usage::
 
     client: Macie2Client = boto3.client("macie2")
     session_client: Macie2Client = session.client("macie2")
+
+    finding_revealed_waiter: FindingRevealedWaiter = client.get_waiter("finding_revealed")
 
     describe_buckets_paginator: DescribeBucketsPaginator = client.get_paginator("describe_buckets")
     get_usage_statistics_paginator: GetUsageStatisticsPaginator = client.get_paginator("get_usage_statistics")
@@ -50,12 +53,14 @@ from .paginator import (
     ListOrganizationAdminAccountsPaginator,
     SearchResourcesPaginator,
 )
+from .waiter import FindingRevealedWaiter
 
 Client = Macie2Client
 
 __all__ = (
     "Client",
     "DescribeBucketsPaginator",
+    "FindingRevealedWaiter",
     "GetUsageStatisticsPaginator",
     "ListClassificationJobsPaginator",
     "ListCustomDataIdentifiersPaginator",

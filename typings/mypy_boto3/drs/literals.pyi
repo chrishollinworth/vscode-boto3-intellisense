@@ -191,7 +191,7 @@ RecoveryInstanceDataReplicationStateType = Literal[
 ]
 RecoverySnapshotsOrderType = Literal["ASC", "DESC"]
 ReplicationConfigurationDataPlaneRoutingType = Literal["PRIVATE_IP", "PUBLIC_IP"]
-ReplicationConfigurationDefaultLargeStagingDiskTypeType = Literal["GP2", "GP3", "ST1"]
+ReplicationConfigurationDefaultLargeStagingDiskTypeType = Literal["AUTO", "GP2", "GP3", "ST1"]
 ReplicationConfigurationEbsEncryptionType = Literal["CUSTOM", "DEFAULT"]
 ReplicationConfigurationReplicatedDiskStagingDiskTypeType = Literal[
     "AUTO", "GP2", "GP3", "IO1", "SC1", "ST1", "STANDARD"

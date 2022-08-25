@@ -72,6 +72,8 @@ __all__ = (
     "ConnectedHomeSettingsForUpdateTypeDef",
     "ConnectedHomeSettingsTypeDef",
     "ContentModerationDetectionTypeDef",
+    "CopyProjectVersionRequestRequestTypeDef",
+    "CopyProjectVersionResponseTypeDef",
     "CoversBodyPartTypeDef",
     "CreateCollectionRequestRequestTypeDef",
     "CreateCollectionResponseTypeDef",
@@ -96,6 +98,7 @@ __all__ = (
     "DeleteDatasetRequestRequestTypeDef",
     "DeleteFacesRequestRequestTypeDef",
     "DeleteFacesResponseTypeDef",
+    "DeleteProjectPolicyRequestRequestTypeDef",
     "DeleteProjectRequestRequestTypeDef",
     "DeleteProjectResponseTypeDef",
     "DeleteProjectVersionRequestRequestTypeDef",
@@ -182,6 +185,8 @@ __all__ = (
     "ListDatasetLabelsResponseTypeDef",
     "ListFacesRequestRequestTypeDef",
     "ListFacesResponseTypeDef",
+    "ListProjectPoliciesRequestRequestTypeDef",
+    "ListProjectPoliciesResponseTypeDef",
     "ListStreamProcessorsRequestRequestTypeDef",
     "ListStreamProcessorsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -199,11 +204,14 @@ __all__ = (
     "PointTypeDef",
     "PoseTypeDef",
     "ProjectDescriptionTypeDef",
+    "ProjectPolicyTypeDef",
     "ProjectVersionDescriptionTypeDef",
     "ProtectiveEquipmentBodyPartTypeDef",
     "ProtectiveEquipmentPersonTypeDef",
     "ProtectiveEquipmentSummarizationAttributesTypeDef",
     "ProtectiveEquipmentSummaryTypeDef",
+    "PutProjectPolicyRequestRequestTypeDef",
+    "PutProjectPolicyResponseTypeDef",
     "RecognizeCelebritiesRequestRequestTypeDef",
     "RecognizeCelebritiesResponseTypeDef",
     "RegionOfInterestTypeDef",
@@ -467,6 +475,39 @@ ContentModerationDetectionTypeDef = TypedDict(
         "ModerationLabel": "ModerationLabelTypeDef",
     },
     total=False,
+)
+
+_RequiredCopyProjectVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredCopyProjectVersionRequestRequestTypeDef",
+    {
+        "SourceProjectArn": str,
+        "SourceProjectVersionArn": str,
+        "DestinationProjectArn": str,
+        "VersionName": str,
+        "OutputConfig": "OutputConfigTypeDef",
+    },
+)
+_OptionalCopyProjectVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalCopyProjectVersionRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "KmsKeyId": str,
+    },
+    total=False,
+)
+
+class CopyProjectVersionRequestRequestTypeDef(
+    _RequiredCopyProjectVersionRequestRequestTypeDef,
+    _OptionalCopyProjectVersionRequestRequestTypeDef,
+):
+    pass
+
+CopyProjectVersionResponseTypeDef = TypedDict(
+    "CopyProjectVersionResponseTypeDef",
+    {
+        "ProjectVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CoversBodyPartTypeDef = TypedDict(
@@ -737,6 +778,27 @@ DeleteFacesResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredDeleteProjectPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteProjectPolicyRequestRequestTypeDef",
+    {
+        "ProjectArn": str,
+        "PolicyName": str,
+    },
+)
+_OptionalDeleteProjectPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteProjectPolicyRequestRequestTypeDef",
+    {
+        "PolicyRevisionId": str,
+    },
+    total=False,
+)
+
+class DeleteProjectPolicyRequestRequestTypeDef(
+    _RequiredDeleteProjectPolicyRequestRequestTypeDef,
+    _OptionalDeleteProjectPolicyRequestRequestTypeDef,
+):
+    pass
 
 DeleteProjectRequestRequestTypeDef = TypedDict(
     "DeleteProjectRequestRequestTypeDef",
@@ -1798,6 +1860,36 @@ ListFacesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListProjectPoliciesRequestRequestTypeDef = TypedDict(
+    "_RequiredListProjectPoliciesRequestRequestTypeDef",
+    {
+        "ProjectArn": str,
+    },
+)
+_OptionalListProjectPoliciesRequestRequestTypeDef = TypedDict(
+    "_OptionalListProjectPoliciesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListProjectPoliciesRequestRequestTypeDef(
+    _RequiredListProjectPoliciesRequestRequestTypeDef,
+    _OptionalListProjectPoliciesRequestRequestTypeDef,
+):
+    pass
+
+ListProjectPoliciesResponseTypeDef = TypedDict(
+    "ListProjectPoliciesResponseTypeDef",
+    {
+        "ProjectPolicies": List["ProjectPolicyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListStreamProcessorsRequestRequestTypeDef = TypedDict(
     "ListStreamProcessorsRequestRequestTypeDef",
     {
@@ -1953,6 +2045,19 @@ ProjectDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+ProjectPolicyTypeDef = TypedDict(
+    "ProjectPolicyTypeDef",
+    {
+        "ProjectArn": str,
+        "PolicyName": str,
+        "PolicyRevisionId": str,
+        "PolicyDocument": str,
+        "CreationTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
 ProjectVersionDescriptionTypeDef = TypedDict(
     "ProjectVersionDescriptionTypeDef",
     {
@@ -1969,6 +2074,8 @@ ProjectVersionDescriptionTypeDef = TypedDict(
         "EvaluationResult": "EvaluationResultTypeDef",
         "ManifestSummary": "GroundTruthManifestTypeDef",
         "KmsKeyId": str,
+        "MaxInferenceUnits": int,
+        "SourceProjectVersionArn": str,
     },
     total=False,
 )
@@ -2010,6 +2117,35 @@ ProtectiveEquipmentSummaryTypeDef = TypedDict(
         "PersonsIndeterminate": List[int],
     },
     total=False,
+)
+
+_RequiredPutProjectPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredPutProjectPolicyRequestRequestTypeDef",
+    {
+        "ProjectArn": str,
+        "PolicyName": str,
+        "PolicyDocument": str,
+    },
+)
+_OptionalPutProjectPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalPutProjectPolicyRequestRequestTypeDef",
+    {
+        "PolicyRevisionId": str,
+    },
+    total=False,
+)
+
+class PutProjectPolicyRequestRequestTypeDef(
+    _RequiredPutProjectPolicyRequestRequestTypeDef, _OptionalPutProjectPolicyRequestRequestTypeDef
+):
+    pass
+
+PutProjectPolicyResponseTypeDef = TypedDict(
+    "PutProjectPolicyResponseTypeDef",
+    {
+        "PolicyRevisionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 RecognizeCelebritiesRequestRequestTypeDef = TypedDict(
@@ -2363,13 +2499,26 @@ StartPersonTrackingResponseTypeDef = TypedDict(
     },
 )
 
-StartProjectVersionRequestRequestTypeDef = TypedDict(
-    "StartProjectVersionRequestRequestTypeDef",
+_RequiredStartProjectVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredStartProjectVersionRequestRequestTypeDef",
     {
         "ProjectVersionArn": str,
         "MinInferenceUnits": int,
     },
 )
+_OptionalStartProjectVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalStartProjectVersionRequestRequestTypeDef",
+    {
+        "MaxInferenceUnits": int,
+    },
+    total=False,
+)
+
+class StartProjectVersionRequestRequestTypeDef(
+    _RequiredStartProjectVersionRequestRequestTypeDef,
+    _OptionalStartProjectVersionRequestRequestTypeDef,
+):
+    pass
 
 StartProjectVersionResponseTypeDef = TypedDict(
     "StartProjectVersionResponseTypeDef",

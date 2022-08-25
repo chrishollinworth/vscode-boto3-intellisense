@@ -182,15 +182,27 @@ CreateAliasRequestRequestTypeDef = TypedDict(
     },
 )
 
-CreateCustomKeyStoreRequestRequestTypeDef = TypedDict(
-    "CreateCustomKeyStoreRequestRequestTypeDef",
+_RequiredCreateCustomKeyStoreRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCustomKeyStoreRequestRequestTypeDef",
     {
         "CustomKeyStoreName": str,
+    },
+)
+_OptionalCreateCustomKeyStoreRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCustomKeyStoreRequestRequestTypeDef",
+    {
         "CloudHsmClusterId": str,
         "TrustAnchorCertificate": str,
         "KeyStorePassword": str,
     },
+    total=False,
 )
+
+class CreateCustomKeyStoreRequestRequestTypeDef(
+    _RequiredCreateCustomKeyStoreRequestRequestTypeDef,
+    _OptionalCreateCustomKeyStoreRequestRequestTypeDef,
+):
+    pass
 
 CreateCustomKeyStoreResponseTypeDef = TypedDict(
     "CreateCustomKeyStoreResponseTypeDef",

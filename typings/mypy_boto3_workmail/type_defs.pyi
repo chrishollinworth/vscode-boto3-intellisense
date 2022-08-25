@@ -17,6 +17,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     AccessControlRuleEffectType,
+    AvailabilityProviderTypeType,
     DnsRecordVerificationStatusType,
     EntityStateType,
     FolderNameType,
@@ -38,9 +39,11 @@ __all__ = (
     "AccessControlRuleTypeDef",
     "AssociateDelegateToResourceRequestRequestTypeDef",
     "AssociateMemberToGroupRequestRequestTypeDef",
+    "AvailabilityConfigurationTypeDef",
     "BookingOptionsTypeDef",
     "CancelMailboxExportJobRequestRequestTypeDef",
     "CreateAliasRequestRequestTypeDef",
+    "CreateAvailabilityConfigurationRequestRequestTypeDef",
     "CreateGroupRequestRequestTypeDef",
     "CreateGroupResponseTypeDef",
     "CreateMobileDeviceAccessRuleRequestRequestTypeDef",
@@ -54,6 +57,7 @@ __all__ = (
     "DelegateTypeDef",
     "DeleteAccessControlRuleRequestRequestTypeDef",
     "DeleteAliasRequestRequestTypeDef",
+    "DeleteAvailabilityConfigurationRequestRequestTypeDef",
     "DeleteEmailMonitoringConfigurationRequestRequestTypeDef",
     "DeleteGroupRequestRequestTypeDef",
     "DeleteMailboxPermissionsRequestRequestTypeDef",
@@ -84,6 +88,7 @@ __all__ = (
     "DisassociateMemberFromGroupRequestRequestTypeDef",
     "DnsRecordTypeDef",
     "DomainTypeDef",
+    "EwsAvailabilityProviderTypeDef",
     "FolderConfigurationTypeDef",
     "GetAccessControlEffectRequestRequestTypeDef",
     "GetAccessControlEffectResponseTypeDef",
@@ -98,10 +103,13 @@ __all__ = (
     "GetMobileDeviceAccessOverrideRequestRequestTypeDef",
     "GetMobileDeviceAccessOverrideResponseTypeDef",
     "GroupTypeDef",
+    "LambdaAvailabilityProviderTypeDef",
     "ListAccessControlRulesRequestRequestTypeDef",
     "ListAccessControlRulesResponseTypeDef",
     "ListAliasesRequestRequestTypeDef",
     "ListAliasesResponseTypeDef",
+    "ListAvailabilityConfigurationsRequestRequestTypeDef",
+    "ListAvailabilityConfigurationsResponseTypeDef",
     "ListGroupMembersRequestRequestTypeDef",
     "ListGroupMembersResponseTypeDef",
     "ListGroupsRequestRequestTypeDef",
@@ -141,6 +149,7 @@ __all__ = (
     "PutMailboxPermissionsRequestRequestTypeDef",
     "PutMobileDeviceAccessOverrideRequestRequestTypeDef",
     "PutRetentionPolicyRequestRequestTypeDef",
+    "RedactedEwsAvailabilityProviderTypeDef",
     "RegisterMailDomainRequestRequestTypeDef",
     "RegisterToWorkMailRequestRequestTypeDef",
     "ResetPasswordRequestRequestTypeDef",
@@ -150,7 +159,10 @@ __all__ = (
     "StartMailboxExportJobResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TestAvailabilityConfigurationRequestRequestTypeDef",
+    "TestAvailabilityConfigurationResponseTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAvailabilityConfigurationRequestRequestTypeDef",
     "UpdateDefaultMailDomainRequestRequestTypeDef",
     "UpdateMailboxQuotaRequestRequestTypeDef",
     "UpdateMobileDeviceAccessRuleRequestRequestTypeDef",
@@ -195,6 +207,19 @@ AssociateMemberToGroupRequestRequestTypeDef = TypedDict(
     },
 )
 
+AvailabilityConfigurationTypeDef = TypedDict(
+    "AvailabilityConfigurationTypeDef",
+    {
+        "DomainName": str,
+        "ProviderType": AvailabilityProviderTypeType,
+        "EwsProvider": "RedactedEwsAvailabilityProviderTypeDef",
+        "LambdaProvider": "LambdaAvailabilityProviderTypeDef",
+        "DateCreated": datetime,
+        "DateModified": datetime,
+    },
+    total=False,
+)
+
 BookingOptionsTypeDef = TypedDict(
     "BookingOptionsTypeDef",
     {
@@ -222,6 +247,29 @@ CreateAliasRequestRequestTypeDef = TypedDict(
         "Alias": str,
     },
 )
+
+_RequiredCreateAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAvailabilityConfigurationRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "DomainName": str,
+    },
+)
+_OptionalCreateAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAvailabilityConfigurationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "EwsProvider": "EwsAvailabilityProviderTypeDef",
+        "LambdaProvider": "LambdaAvailabilityProviderTypeDef",
+    },
+    total=False,
+)
+
+class CreateAvailabilityConfigurationRequestRequestTypeDef(
+    _RequiredCreateAvailabilityConfigurationRequestRequestTypeDef,
+    _OptionalCreateAvailabilityConfigurationRequestRequestTypeDef,
+):
+    pass
 
 CreateGroupRequestRequestTypeDef = TypedDict(
     "CreateGroupRequestRequestTypeDef",
@@ -367,6 +415,14 @@ DeleteAliasRequestRequestTypeDef = TypedDict(
         "OrganizationId": str,
         "EntityId": str,
         "Alias": str,
+    },
+)
+
+DeleteAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteAvailabilityConfigurationRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "DomainName": str,
     },
 )
 
@@ -666,6 +722,15 @@ DomainTypeDef = TypedDict(
     total=False,
 )
 
+EwsAvailabilityProviderTypeDef = TypedDict(
+    "EwsAvailabilityProviderTypeDef",
+    {
+        "EwsEndpoint": str,
+        "EwsUsername": str,
+        "EwsPassword": str,
+    },
+)
+
 _RequiredFolderConfigurationTypeDef = TypedDict(
     "_RequiredFolderConfigurationTypeDef",
     {
@@ -827,6 +892,13 @@ GroupTypeDef = TypedDict(
     total=False,
 )
 
+LambdaAvailabilityProviderTypeDef = TypedDict(
+    "LambdaAvailabilityProviderTypeDef",
+    {
+        "LambdaArn": str,
+    },
+)
+
 ListAccessControlRulesRequestRequestTypeDef = TypedDict(
     "ListAccessControlRulesRequestRequestTypeDef",
     {
@@ -867,6 +939,36 @@ ListAliasesResponseTypeDef = TypedDict(
     "ListAliasesResponseTypeDef",
     {
         "Aliases": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAvailabilityConfigurationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAvailabilityConfigurationsRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+    },
+)
+_OptionalListAvailabilityConfigurationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAvailabilityConfigurationsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAvailabilityConfigurationsRequestRequestTypeDef(
+    _RequiredListAvailabilityConfigurationsRequestRequestTypeDef,
+    _OptionalListAvailabilityConfigurationsRequestRequestTypeDef,
+):
+    pass
+
+ListAvailabilityConfigurationsResponseTypeDef = TypedDict(
+    "ListAvailabilityConfigurationsResponseTypeDef",
+    {
+        "AvailabilityConfigurations": List["AvailabilityConfigurationTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1403,6 +1505,15 @@ class PutRetentionPolicyRequestRequestTypeDef(
 ):
     pass
 
+RedactedEwsAvailabilityProviderTypeDef = TypedDict(
+    "RedactedEwsAvailabilityProviderTypeDef",
+    {
+        "EwsEndpoint": str,
+        "EwsUsername": str,
+    },
+    total=False,
+)
+
 _RequiredRegisterMailDomainRequestRequestTypeDef = TypedDict(
     "_RequiredRegisterMailDomainRequestRequestTypeDef",
     {
@@ -1517,6 +1628,37 @@ TagTypeDef = TypedDict(
     },
 )
 
+_RequiredTestAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredTestAvailabilityConfigurationRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+    },
+)
+_OptionalTestAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalTestAvailabilityConfigurationRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "EwsProvider": "EwsAvailabilityProviderTypeDef",
+        "LambdaProvider": "LambdaAvailabilityProviderTypeDef",
+    },
+    total=False,
+)
+
+class TestAvailabilityConfigurationRequestRequestTypeDef(
+    _RequiredTestAvailabilityConfigurationRequestRequestTypeDef,
+    _OptionalTestAvailabilityConfigurationRequestRequestTypeDef,
+):
+    pass
+
+TestAvailabilityConfigurationResponseTypeDef = TypedDict(
+    "TestAvailabilityConfigurationResponseTypeDef",
+    {
+        "TestPassed": bool,
+        "FailureReason": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -1524,6 +1666,28 @@ UntagResourceRequestRequestTypeDef = TypedDict(
         "TagKeys": List[str],
     },
 )
+
+_RequiredUpdateAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAvailabilityConfigurationRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "DomainName": str,
+    },
+)
+_OptionalUpdateAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAvailabilityConfigurationRequestRequestTypeDef",
+    {
+        "EwsProvider": "EwsAvailabilityProviderTypeDef",
+        "LambdaProvider": "LambdaAvailabilityProviderTypeDef",
+    },
+    total=False,
+)
+
+class UpdateAvailabilityConfigurationRequestRequestTypeDef(
+    _RequiredUpdateAvailabilityConfigurationRequestRequestTypeDef,
+    _OptionalUpdateAvailabilityConfigurationRequestRequestTypeDef,
+):
+    pass
 
 UpdateDefaultMailDomainRequestRequestTypeDef = TypedDict(
     "UpdateDefaultMailDomainRequestRequestTypeDef",

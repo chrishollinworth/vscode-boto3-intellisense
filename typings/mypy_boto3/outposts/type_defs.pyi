@@ -30,6 +30,7 @@ from .literals import (
     PowerDrawKvaType,
     PowerFeedDropType,
     PowerPhaseType,
+    ShipmentCarrierType,
     SupportedHardwareTypeType,
     SupportedStorageEnumType,
     UplinkCountType,
@@ -48,9 +49,11 @@ else:
 __all__ = (
     "AddressTypeDef",
     "AssetInfoTypeDef",
+    "AssetLocationTypeDef",
     "CancelOrderInputRequestTypeDef",
     "CatalogItemTypeDef",
     "ComputeAttributesTypeDef",
+    "ConnectionDetailsTypeDef",
     "CreateOrderInputRequestTypeDef",
     "CreateOrderOutputTypeDef",
     "CreateOutpostInputRequestTypeDef",
@@ -62,6 +65,8 @@ __all__ = (
     "EC2CapacityTypeDef",
     "GetCatalogItemInputRequestTypeDef",
     "GetCatalogItemOutputTypeDef",
+    "GetConnectionRequestRequestTypeDef",
+    "GetConnectionResponseTypeDef",
     "GetOrderInputRequestTypeDef",
     "GetOrderOutputTypeDef",
     "GetOutpostInputRequestTypeDef",
@@ -73,6 +78,7 @@ __all__ = (
     "GetSiteInputRequestTypeDef",
     "GetSiteOutputTypeDef",
     "InstanceTypeItemTypeDef",
+    "LineItemAssetInformationTypeDef",
     "LineItemRequestTypeDef",
     "LineItemTypeDef",
     "ListAssetsInputRequestTypeDef",
@@ -92,7 +98,10 @@ __all__ = (
     "OutpostTypeDef",
     "RackPhysicalPropertiesTypeDef",
     "ResponseMetadataTypeDef",
+    "ShipmentInformationTypeDef",
     "SiteTypeDef",
+    "StartConnectionRequestRequestTypeDef",
+    "StartConnectionResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateOutpostInputRequestTypeDef",
@@ -138,6 +147,15 @@ AssetInfoTypeDef = TypedDict(
         "RackId": str,
         "AssetType": Literal["COMPUTE"],
         "ComputeAttributes": "ComputeAttributesTypeDef",
+        "AssetLocation": "AssetLocationTypeDef",
+    },
+    total=False,
+)
+
+AssetLocationTypeDef = TypedDict(
+    "AssetLocationTypeDef",
+    {
+        "RackElevation": float,
     },
     total=False,
 )
@@ -167,6 +185,19 @@ ComputeAttributesTypeDef = TypedDict(
     "ComputeAttributesTypeDef",
     {
         "HostId": str,
+    },
+    total=False,
+)
+
+ConnectionDetailsTypeDef = TypedDict(
+    "ConnectionDetailsTypeDef",
+    {
+        "ClientPublicKey": str,
+        "ServerPublicKey": str,
+        "ServerEndpoint": str,
+        "ClientTunnelAddress": str,
+        "ServerTunnelAddress": str,
+        "AllowedIps": List[str],
     },
     total=False,
 )
@@ -303,6 +334,22 @@ GetCatalogItemOutputTypeDef = TypedDict(
     },
 )
 
+GetConnectionRequestRequestTypeDef = TypedDict(
+    "GetConnectionRequestRequestTypeDef",
+    {
+        "ConnectionId": str,
+    },
+)
+
+GetConnectionResponseTypeDef = TypedDict(
+    "GetConnectionResponseTypeDef",
+    {
+        "ConnectionId": str,
+        "ConnectionDetails": "ConnectionDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetOrderInputRequestTypeDef = TypedDict(
     "GetOrderInputRequestTypeDef",
     {
@@ -406,6 +453,15 @@ InstanceTypeItemTypeDef = TypedDict(
     total=False,
 )
 
+LineItemAssetInformationTypeDef = TypedDict(
+    "LineItemAssetInformationTypeDef",
+    {
+        "AssetId": str,
+        "MacAddressList": List[str],
+    },
+    total=False,
+)
+
 LineItemRequestTypeDef = TypedDict(
     "LineItemRequestTypeDef",
     {
@@ -422,6 +478,8 @@ LineItemTypeDef = TypedDict(
         "LineItemId": str,
         "Quantity": int,
         "Status": LineItemStatusType,
+        "ShipmentInformation": "ShipmentInformationTypeDef",
+        "AssetInformationList": List["LineItemAssetInformationTypeDef"],
     },
     total=False,
 )
@@ -627,6 +685,15 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+ShipmentInformationTypeDef = TypedDict(
+    "ShipmentInformationTypeDef",
+    {
+        "ShipmentTrackingNumber": str,
+        "ShipmentCarrier": ShipmentCarrierType,
+    },
+    total=False,
+)
+
 SiteTypeDef = TypedDict(
     "SiteTypeDef",
     {
@@ -643,6 +710,25 @@ SiteTypeDef = TypedDict(
         "RackPhysicalProperties": "RackPhysicalPropertiesTypeDef",
     },
     total=False,
+)
+
+StartConnectionRequestRequestTypeDef = TypedDict(
+    "StartConnectionRequestRequestTypeDef",
+    {
+        "DeviceSerialNumber": str,
+        "AssetId": str,
+        "ClientPublicKey": str,
+        "NetworkInterfaceDeviceIndex": int,
+    },
+)
+
+StartConnectionResponseTypeDef = TypedDict(
+    "StartConnectionResponseTypeDef",
+    {
+        "ConnectionId": str,
+        "UnderlayIpAddress": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 TagResourceRequestRequestTypeDef = TypedDict(

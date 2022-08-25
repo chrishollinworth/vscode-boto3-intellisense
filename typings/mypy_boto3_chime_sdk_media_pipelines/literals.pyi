@@ -6,9 +6,9 @@ Type annotations for chime-sdk-media-pipelines service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_chime_sdk_media_pipelines.literals import ArtifactsStateType
+    from mypy_boto3_chime_sdk_media_pipelines.literals import ArtifactsConcatenationStateType
 
-    data: ArtifactsStateType = "Disabled"
+    data: ArtifactsConcatenationStateType = "Disabled"
     ```
 """
 import sys
@@ -19,19 +19,43 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ArtifactsConcatenationStateType",
     "ArtifactsStateType",
+    "AudioArtifactsConcatenationStateType",
+    "AudioChannelsOptionType",
     "AudioMuxTypeType",
+    "ConcatenationSinkTypeType",
+    "ConcatenationSourceTypeType",
     "ContentMuxTypeType",
+    "ContentShareLayoutOptionType",
+    "LayoutOptionType",
+    "LiveConnectorMuxTypeType",
+    "LiveConnectorSinkTypeType",
+    "LiveConnectorSourceTypeType",
     "MediaPipelineSinkTypeType",
     "MediaPipelineSourceTypeType",
     "MediaPipelineStatusType",
+    "PresenterPositionType",
+    "ResolutionOptionType",
     "VideoMuxTypeType",
 )
 
+ArtifactsConcatenationStateType = Literal["Disabled", "Enabled"]
 ArtifactsStateType = Literal["Disabled", "Enabled"]
-AudioMuxTypeType = Literal["AudioOnly", "AudioWithActiveSpeakerVideo"]
+AudioArtifactsConcatenationStateType = Literal["Enabled"]
+AudioChannelsOptionType = Literal["Mono", "Stereo"]
+AudioMuxTypeType = Literal["AudioOnly", "AudioWithActiveSpeakerVideo", "AudioWithCompositedVideo"]
+ConcatenationSinkTypeType = Literal["S3Bucket"]
+ConcatenationSourceTypeType = Literal["MediaCapturePipeline"]
 ContentMuxTypeType = Literal["ContentOnly"]
+ContentShareLayoutOptionType = Literal["Horizontal", "PresenterOnly", "Vertical"]
+LayoutOptionType = Literal["GridView"]
+LiveConnectorMuxTypeType = Literal["AudioWithActiveSpeakerVideo", "AudioWithCompositedVideo"]
+LiveConnectorSinkTypeType = Literal["RTMP"]
+LiveConnectorSourceTypeType = Literal["ChimeSdkMeeting"]
 MediaPipelineSinkTypeType = Literal["S3Bucket"]
 MediaPipelineSourceTypeType = Literal["ChimeSdkMeeting"]
 MediaPipelineStatusType = Literal["Failed", "InProgress", "Initializing", "Stopped", "Stopping"]
+PresenterPositionType = Literal["BottomLeft", "BottomRight", "TopLeft", "TopRight"]
+ResolutionOptionType = Literal["FHD", "HD"]
 VideoMuxTypeType = Literal["VideoOnly"]

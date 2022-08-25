@@ -20,11 +20,15 @@ else:
 
 __all__ = (
     "ActivityStreamModeType",
+    "ActivityStreamPolicyStatusType",
     "ActivityStreamStatusType",
     "ApplyMethodType",
+    "AuditPolicyStateType",
     "AuthSchemeType",
     "AutomationModeType",
     "CustomEngineVersionStatusType",
+    "DBClusterAvailableWaiterName",
+    "DBClusterDeletedWaiterName",
     "DBClusterSnapshotAvailableWaiterName",
     "DBClusterSnapshotDeletedWaiterName",
     "DBInstanceAvailableWaiterName",
@@ -82,11 +86,15 @@ __all__ = (
 )
 
 ActivityStreamModeType = Literal["async", "sync"]
+ActivityStreamPolicyStatusType = Literal["locked", "locking-policy", "unlocked", "unlocking-policy"]
 ActivityStreamStatusType = Literal["started", "starting", "stopped", "stopping"]
 ApplyMethodType = Literal["immediate", "pending-reboot"]
+AuditPolicyStateType = Literal["locked", "unlocked"]
 AuthSchemeType = Literal["SECRETS"]
 AutomationModeType = Literal["all-paused", "full"]
 CustomEngineVersionStatusType = Literal["available", "inactive", "inactive-except-restore"]
+DBClusterAvailableWaiterName = Literal["db_cluster_available"]
+DBClusterDeletedWaiterName = Literal["db_cluster_deleted"]
 DBClusterSnapshotAvailableWaiterName = Literal["db_cluster_snapshot_available"]
 DBClusterSnapshotDeletedWaiterName = Literal["db_cluster_snapshot_deleted"]
 DBInstanceAvailableWaiterName = Literal["db_instance_available"]

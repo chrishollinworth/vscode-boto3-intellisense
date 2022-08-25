@@ -10,6 +10,7 @@ Usage::
         DescribeGlobalNetworksPaginator,
         GetConnectPeerAssociationsPaginator,
         GetConnectionsPaginator,
+        GetCoreNetworkChangeEventsPaginator,
         GetCoreNetworkChangeSetPaginator,
         GetCustomerGatewayAssociationsPaginator,
         GetDevicesPaginator,
@@ -26,6 +27,7 @@ Usage::
         ListConnectPeersPaginator,
         ListCoreNetworkPolicyVersionsPaginator,
         ListCoreNetworksPaginator,
+        ListPeeringsPaginator,
         NetworkManagerClient,
     )
 
@@ -37,6 +39,7 @@ Usage::
     describe_global_networks_paginator: DescribeGlobalNetworksPaginator = client.get_paginator("describe_global_networks")
     get_connect_peer_associations_paginator: GetConnectPeerAssociationsPaginator = client.get_paginator("get_connect_peer_associations")
     get_connections_paginator: GetConnectionsPaginator = client.get_paginator("get_connections")
+    get_core_network_change_events_paginator: GetCoreNetworkChangeEventsPaginator = client.get_paginator("get_core_network_change_events")
     get_core_network_change_set_paginator: GetCoreNetworkChangeSetPaginator = client.get_paginator("get_core_network_change_set")
     get_customer_gateway_associations_paginator: GetCustomerGatewayAssociationsPaginator = client.get_paginator("get_customer_gateway_associations")
     get_devices_paginator: GetDevicesPaginator = client.get_paginator("get_devices")
@@ -53,6 +56,7 @@ Usage::
     list_connect_peers_paginator: ListConnectPeersPaginator = client.get_paginator("list_connect_peers")
     list_core_network_policy_versions_paginator: ListCoreNetworkPolicyVersionsPaginator = client.get_paginator("list_core_network_policy_versions")
     list_core_networks_paginator: ListCoreNetworksPaginator = client.get_paginator("list_core_networks")
+    list_peerings_paginator: ListPeeringsPaginator = client.get_paginator("list_peerings")
     ```
 """
 from .client import NetworkManagerClient
@@ -60,6 +64,7 @@ from .paginator import (
     DescribeGlobalNetworksPaginator,
     GetConnectionsPaginator,
     GetConnectPeerAssociationsPaginator,
+    GetCoreNetworkChangeEventsPaginator,
     GetCoreNetworkChangeSetPaginator,
     GetCustomerGatewayAssociationsPaginator,
     GetDevicesPaginator,
@@ -76,6 +81,7 @@ from .paginator import (
     ListConnectPeersPaginator,
     ListCoreNetworkPolicyVersionsPaginator,
     ListCoreNetworksPaginator,
+    ListPeeringsPaginator,
 )
 
 Client = NetworkManagerClient
@@ -85,6 +91,7 @@ __all__ = (
     "DescribeGlobalNetworksPaginator",
     "GetConnectPeerAssociationsPaginator",
     "GetConnectionsPaginator",
+    "GetCoreNetworkChangeEventsPaginator",
     "GetCoreNetworkChangeSetPaginator",
     "GetCustomerGatewayAssociationsPaginator",
     "GetDevicesPaginator",
@@ -101,5 +108,6 @@ __all__ = (
     "ListConnectPeersPaginator",
     "ListCoreNetworkPolicyVersionsPaginator",
     "ListCoreNetworksPaginator",
+    "ListPeeringsPaginator",
     "NetworkManagerClient",
 )

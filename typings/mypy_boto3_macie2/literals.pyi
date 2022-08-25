@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AdminStatusType",
     "AllowsUnencryptedObjectUploadsType",
+    "AvailabilityCodeType",
     "BucketMetadataErrorCodeType",
     "CurrencyType",
     "DataIdentifierSeverityType",
@@ -32,6 +33,7 @@ __all__ = (
     "FindingActionTypeType",
     "FindingCategoryType",
     "FindingPublishingFrequencyType",
+    "FindingRevealedWaiterName",
     "FindingStatisticsSortAttributeNameType",
     "FindingTypeType",
     "FindingsFilterActionType",
@@ -57,6 +59,8 @@ __all__ = (
     "OrderByType",
     "OriginTypeType",
     "RelationshipStatusType",
+    "RevealRequestStatusType",
+    "RevealStatusType",
     "ScopeFilterKeyType",
     "SearchResourcesComparatorType",
     "SearchResourcesPaginatorName",
@@ -70,6 +74,7 @@ __all__ = (
     "TagTargetType",
     "TimeRangeType",
     "TypeType",
+    "UnavailabilityReasonCodeType",
     "UnitType",
     "UsageStatisticsFilterComparatorType",
     "UsageStatisticsFilterKeyType",
@@ -80,6 +85,7 @@ __all__ = (
 
 AdminStatusType = Literal["DISABLING_IN_PROGRESS", "ENABLED"]
 AllowsUnencryptedObjectUploadsType = Literal["FALSE", "TRUE", "UNKNOWN"]
+AvailabilityCodeType = Literal["AVAILABLE", "UNAVAILABLE"]
 BucketMetadataErrorCodeType = Literal["ACCESS_DENIED"]
 CurrencyType = Literal["USD"]
 DataIdentifierSeverityType = Literal["HIGH", "LOW", "MEDIUM"]
@@ -93,6 +99,7 @@ ErrorCodeType = Literal["ClientError", "InternalError"]
 FindingActionTypeType = Literal["AWS_API_CALL"]
 FindingCategoryType = Literal["CLASSIFICATION", "POLICY"]
 FindingPublishingFrequencyType = Literal["FIFTEEN_MINUTES", "ONE_HOUR", "SIX_HOURS"]
+FindingRevealedWaiterName = Literal["finding_revealed"]
 FindingStatisticsSortAttributeNameType = Literal["count", "groupKey"]
 FindingTypeType = Literal[
     "Policy:IAMUser/S3BlockPublicAccessDisabled",
@@ -142,6 +149,8 @@ RelationshipStatusType = Literal[
     "Removed",
     "Resigned",
 ]
+RevealRequestStatusType = Literal["ERROR", "PROCESSING", "SUCCESS"]
+RevealStatusType = Literal["DISABLED", "ENABLED"]
 ScopeFilterKeyType = Literal[
     "OBJECT_EXTENSION", "OBJECT_KEY", "OBJECT_LAST_MODIFIED_DATE", "OBJECT_SIZE"
 ]
@@ -173,6 +182,13 @@ StorageClassType = Literal[
 TagTargetType = Literal["S3_OBJECT"]
 TimeRangeType = Literal["MONTH_TO_DATE", "PAST_30_DAYS"]
 TypeType = Literal["AES256", "NONE", "aws:kms"]
+UnavailabilityReasonCodeType = Literal[
+    "INVALID_CLASSIFICATION_RESULT",
+    "OBJECT_EXCEEDS_SIZE_QUOTA",
+    "OBJECT_UNAVAILABLE",
+    "UNSUPPORTED_FINDING_TYPE",
+    "UNSUPPORTED_OBJECT_TYPE",
+]
 UnitType = Literal["TERABYTES"]
 UsageStatisticsFilterComparatorType = Literal["CONTAINS", "EQ", "GT", "GTE", "LT", "LTE", "NE"]
 UsageStatisticsFilterKeyType = Literal["accountId", "freeTrialStartDate", "serviceLimit", "total"]

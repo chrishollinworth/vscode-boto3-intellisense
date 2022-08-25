@@ -282,6 +282,7 @@ _OptionalAutoMergingTypeDef = TypedDict(
     {
         "Consolidation": "ConsolidationTypeDef",
         "ConflictResolution": "ConflictResolutionTypeDef",
+        "MinAllowedConfidenceScoreForMerging": float,
     },
     total=False,
 )
@@ -636,14 +637,27 @@ _OptionalFlowDefinitionTypeDef = TypedDict(
 class FlowDefinitionTypeDef(_RequiredFlowDefinitionTypeDef, _OptionalFlowDefinitionTypeDef):
     pass
 
-GetAutoMergingPreviewRequestRequestTypeDef = TypedDict(
-    "GetAutoMergingPreviewRequestRequestTypeDef",
+_RequiredGetAutoMergingPreviewRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAutoMergingPreviewRequestRequestTypeDef",
     {
         "DomainName": str,
         "Consolidation": "ConsolidationTypeDef",
         "ConflictResolution": "ConflictResolutionTypeDef",
     },
 )
+_OptionalGetAutoMergingPreviewRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAutoMergingPreviewRequestRequestTypeDef",
+    {
+        "MinAllowedConfidenceScoreForMerging": float,
+    },
+    total=False,
+)
+
+class GetAutoMergingPreviewRequestRequestTypeDef(
+    _RequiredGetAutoMergingPreviewRequestRequestTypeDef,
+    _OptionalGetAutoMergingPreviewRequestRequestTypeDef,
+):
+    pass
 
 GetAutoMergingPreviewResponseTypeDef = TypedDict(
     "GetAutoMergingPreviewResponseTypeDef",

@@ -43,6 +43,7 @@ __all__ = (
     "AudioChannelTagType",
     "AudioCodecType",
     "AudioDefaultSelectionType",
+    "AudioDurationCorrectionType",
     "AudioLanguageCodeControlType",
     "AudioNormalizationAlgorithmControlType",
     "AudioNormalizationAlgorithmType",
@@ -461,6 +462,7 @@ AudioCodecType = Literal[
     "AAC", "AC3", "AIFF", "EAC3", "EAC3_ATMOS", "MP2", "MP3", "OPUS", "PASSTHROUGH", "VORBIS", "WAV"
 ]
 AudioDefaultSelectionType = Literal["DEFAULT", "NOT_DEFAULT"]
+AudioDurationCorrectionType = Literal["AUTO", "DISABLED", "FRAME", "TRACK"]
 AudioLanguageCodeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AudioNormalizationAlgorithmControlType = Literal["CORRECT_AUDIO", "MEASURE_ONLY"]
 AudioNormalizationAlgorithmType = Literal[

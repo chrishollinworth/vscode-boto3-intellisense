@@ -16,7 +16,13 @@ from typing import Any, Dict, List, Type
 
 from botocore.client import BaseClient, ClientMeta
 
-from .type_defs import EdgeMetricTypeDef, GetDeviceRegistrationResultTypeDef, ModelTypeDef
+from .type_defs import (
+    DeploymentResultTypeDef,
+    EdgeMetricTypeDef,
+    GetDeploymentsResultTypeDef,
+    GetDeviceRegistrationResultTypeDef,
+    ModelTypeDef,
+)
 
 __all__ = ("SagemakerEdgeManagerClient",)
 
@@ -33,7 +39,7 @@ class Exceptions:
 
 class SagemakerEdgeManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html)
     """
 
@@ -48,8 +54,15 @@ class SagemakerEdgeManagerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#can_paginate)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#close)
         """
     def generate_presigned_url(
         self,
@@ -61,8 +74,17 @@ class SagemakerEdgeManagerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#generate_presigned_url)
+        """
+    def get_deployments(
+        self, *, DeviceName: str, DeviceFleetName: str
+    ) -> GetDeploymentsResultTypeDef:
+        """
+        Use to get the active deployments from a device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.get_deployments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#get_deployments)
         """
     def get_device_registration(
         self, *, DeviceName: str, DeviceFleetName: str
@@ -70,7 +92,7 @@ class SagemakerEdgeManagerClient(BaseClient):
         """
         Use to check if a device is registered with SageMaker Edge Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.get_device_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.get_device_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#get_device_registration)
         """
     def send_heartbeat(
@@ -80,11 +102,12 @@ class SagemakerEdgeManagerClient(BaseClient):
         DeviceName: str,
         DeviceFleetName: str,
         AgentMetrics: List["EdgeMetricTypeDef"] = None,
-        Models: List["ModelTypeDef"] = None
+        Models: List["ModelTypeDef"] = None,
+        DeploymentResult: "DeploymentResultTypeDef" = None
     ) -> None:
         """
         Use to get the current status of devices registered on SageMaker Edge Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.send_heartbeat)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.send_heartbeat)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#send_heartbeat)
         """

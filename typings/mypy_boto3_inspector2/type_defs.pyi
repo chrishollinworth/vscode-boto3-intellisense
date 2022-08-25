@@ -27,6 +27,8 @@ from .literals import (
     DelegatedAdminStatusType,
     Ec2InstanceSortByType,
     Ec2PlatformType,
+    EcrRescanDurationStatusType,
+    EcrRescanDurationType,
     EcrScanFrequencyType,
     ErrorCodeType,
     ExternalReportStatusType,
@@ -121,8 +123,11 @@ __all__ = (
     "Ec2InstanceAggregationResponseTypeDef",
     "Ec2InstanceAggregationTypeDef",
     "Ec2MetadataTypeDef",
+    "EcrConfigurationStateTypeDef",
+    "EcrConfigurationTypeDef",
     "EcrContainerImageMetadataTypeDef",
     "EcrRepositoryMetadataTypeDef",
+    "EcrRescanDurationStateTypeDef",
     "EnableDelegatedAdminAccountRequestRequestTypeDef",
     "EnableDelegatedAdminAccountResponseTypeDef",
     "EnableRequestRequestTypeDef",
@@ -136,6 +141,7 @@ __all__ = (
     "FreeTrialAccountInfoTypeDef",
     "FreeTrialInfoErrorTypeDef",
     "FreeTrialInfoTypeDef",
+    "GetConfigurationResponseTypeDef",
     "GetDelegatedAdminAccountResponseTypeDef",
     "GetFindingsReportStatusRequestRequestTypeDef",
     "GetFindingsReportStatusResponseTypeDef",
@@ -197,6 +203,7 @@ __all__ = (
     "TitleAggregationResponseTypeDef",
     "TitleAggregationTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateConfigurationRequestRequestTypeDef",
     "UpdateFilterRequestRequestTypeDef",
     "UpdateFilterResponseTypeDef",
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
@@ -545,6 +552,7 @@ _OptionalCreateFilterRequestRequestTypeDef = TypedDict(
     "_OptionalCreateFilterRequestRequestTypeDef",
     {
         "description": str,
+        "reason": str,
         "tags": Dict[str, str],
     },
     total=False,
@@ -795,6 +803,21 @@ Ec2MetadataTypeDef = TypedDict(
     total=False,
 )
 
+EcrConfigurationStateTypeDef = TypedDict(
+    "EcrConfigurationStateTypeDef",
+    {
+        "rescanDurationState": "EcrRescanDurationStateTypeDef",
+    },
+    total=False,
+)
+
+EcrConfigurationTypeDef = TypedDict(
+    "EcrConfigurationTypeDef",
+    {
+        "rescanDuration": EcrRescanDurationType,
+    },
+)
+
 EcrContainerImageMetadataTypeDef = TypedDict(
     "EcrContainerImageMetadataTypeDef",
     {
@@ -808,6 +831,16 @@ EcrRepositoryMetadataTypeDef = TypedDict(
     {
         "name": str,
         "scanFrequency": EcrScanFrequencyType,
+    },
+    total=False,
+)
+
+EcrRescanDurationStateTypeDef = TypedDict(
+    "EcrRescanDurationStateTypeDef",
+    {
+        "rescanDuration": EcrRescanDurationType,
+        "status": EcrRescanDurationStatusType,
+        "updatedAt": datetime,
     },
     total=False,
 )
@@ -1027,6 +1060,14 @@ FreeTrialInfoTypeDef = TypedDict(
         "start": datetime,
         "status": FreeTrialStatusType,
         "type": FreeTrialTypeType,
+    },
+)
+
+GetConfigurationResponseTypeDef = TypedDict(
+    "GetConfigurationResponseTypeDef",
+    {
+        "ecrConfiguration": "EcrConfigurationStateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1694,6 +1735,13 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateConfigurationRequestRequestTypeDef",
+    {
+        "ecrConfiguration": "EcrConfigurationTypeDef",
+    },
+)
+
 _RequiredUpdateFilterRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFilterRequestRequestTypeDef",
     {
@@ -1707,6 +1755,7 @@ _OptionalUpdateFilterRequestRequestTypeDef = TypedDict(
         "description": str,
         "filterCriteria": "FilterCriteriaTypeDef",
         "name": str,
+        "reason": str,
     },
     total=False,
 )

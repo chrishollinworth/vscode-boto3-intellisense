@@ -27,6 +27,7 @@ from .literals import (
     LaunchStatusType,
     LaunchStopDesiredStateType,
     ProjectStatusType,
+    SegmentReferenceResourceTypeType,
     VariationValueTypeType,
 )
 
@@ -52,10 +53,13 @@ __all__ = (
     "CreateLaunchResponseTypeDef",
     "CreateProjectRequestRequestTypeDef",
     "CreateProjectResponseTypeDef",
+    "CreateSegmentRequestRequestTypeDef",
+    "CreateSegmentResponseTypeDef",
     "DeleteExperimentRequestRequestTypeDef",
     "DeleteFeatureRequestRequestTypeDef",
     "DeleteLaunchRequestRequestTypeDef",
     "DeleteProjectRequestRequestTypeDef",
+    "DeleteSegmentRequestRequestTypeDef",
     "EvaluateFeatureRequestRequestTypeDef",
     "EvaluateFeatureResponseTypeDef",
     "EvaluationRequestTypeDef",
@@ -79,6 +83,8 @@ __all__ = (
     "GetLaunchResponseTypeDef",
     "GetProjectRequestRequestTypeDef",
     "GetProjectResponseTypeDef",
+    "GetSegmentRequestRequestTypeDef",
+    "GetSegmentResponseTypeDef",
     "LaunchExecutionTypeDef",
     "LaunchGroupConfigTypeDef",
     "LaunchGroupTypeDef",
@@ -91,6 +97,10 @@ __all__ = (
     "ListLaunchesResponseTypeDef",
     "ListProjectsRequestRequestTypeDef",
     "ListProjectsResponseTypeDef",
+    "ListSegmentReferencesRequestRequestTypeDef",
+    "ListSegmentReferencesResponseTypeDef",
+    "ListSegmentsRequestRequestTypeDef",
+    "ListSegmentsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MetricDefinitionConfigTypeDef",
@@ -109,6 +119,7 @@ __all__ = (
     "PutProjectEventsRequestRequestTypeDef",
     "PutProjectEventsResponseTypeDef",
     "PutProjectEventsResultEntryTypeDef",
+    "RefResourceTypeDef",
     "ResponseMetadataTypeDef",
     "S3DestinationConfigTypeDef",
     "S3DestinationTypeDef",
@@ -116,6 +127,8 @@ __all__ = (
     "ScheduledSplitTypeDef",
     "ScheduledSplitsLaunchConfigTypeDef",
     "ScheduledSplitsLaunchDefinitionTypeDef",
+    "SegmentOverrideTypeDef",
+    "SegmentTypeDef",
     "StartExperimentRequestRequestTypeDef",
     "StartExperimentResponseTypeDef",
     "StartLaunchRequestRequestTypeDef",
@@ -125,6 +138,8 @@ __all__ = (
     "StopLaunchRequestRequestTypeDef",
     "StopLaunchResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TestSegmentPatternRequestRequestTypeDef",
+    "TestSegmentPatternResponseTypeDef",
     "TreatmentConfigTypeDef",
     "TreatmentTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -191,6 +206,7 @@ _OptionalCreateExperimentRequestRequestTypeDef = TypedDict(
         "onlineAbConfig": "OnlineAbConfigTypeDef",
         "randomizationSalt": str,
         "samplingRate": int,
+        "segment": str,
         "tags": Dict[str, str],
     },
     total=False,
@@ -304,6 +320,35 @@ CreateProjectResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateSegmentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSegmentRequestRequestTypeDef",
+    {
+        "name": str,
+        "pattern": str,
+    },
+)
+_OptionalCreateSegmentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSegmentRequestRequestTypeDef",
+    {
+        "description": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateSegmentRequestRequestTypeDef(
+    _RequiredCreateSegmentRequestRequestTypeDef, _OptionalCreateSegmentRequestRequestTypeDef
+):
+    pass
+
+CreateSegmentResponseTypeDef = TypedDict(
+    "CreateSegmentResponseTypeDef",
+    {
+        "segment": "SegmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteExperimentRequestRequestTypeDef = TypedDict(
     "DeleteExperimentRequestRequestTypeDef",
     {
@@ -332,6 +377,13 @@ DeleteProjectRequestRequestTypeDef = TypedDict(
     "DeleteProjectRequestRequestTypeDef",
     {
         "project": str,
+    },
+)
+
+DeleteSegmentRequestRequestTypeDef = TypedDict(
+    "DeleteSegmentRequestRequestTypeDef",
+    {
+        "segment": str,
     },
 )
 
@@ -496,6 +548,7 @@ _OptionalExperimentTypeDef = TypedDict(
         "randomizationSalt": str,
         "samplingRate": int,
         "schedule": "ExperimentScheduleTypeDef",
+        "segment": str,
         "statusReason": str,
         "tags": Dict[str, str],
         "treatments": List["TreatmentTypeDef"],
@@ -658,6 +711,21 @@ GetProjectResponseTypeDef = TypedDict(
     "GetProjectResponseTypeDef",
     {
         "project": "ProjectTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetSegmentRequestRequestTypeDef = TypedDict(
+    "GetSegmentRequestRequestTypeDef",
+    {
+        "segment": str,
+    },
+)
+
+GetSegmentResponseTypeDef = TypedDict(
+    "GetSegmentResponseTypeDef",
+    {
+        "segment": "SegmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -843,6 +911,55 @@ ListProjectsResponseTypeDef = TypedDict(
     {
         "nextToken": str,
         "projects": List["ProjectSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListSegmentReferencesRequestRequestTypeDef = TypedDict(
+    "_RequiredListSegmentReferencesRequestRequestTypeDef",
+    {
+        "segment": str,
+        "type": SegmentReferenceResourceTypeType,
+    },
+)
+_OptionalListSegmentReferencesRequestRequestTypeDef = TypedDict(
+    "_OptionalListSegmentReferencesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListSegmentReferencesRequestRequestTypeDef(
+    _RequiredListSegmentReferencesRequestRequestTypeDef,
+    _OptionalListSegmentReferencesRequestRequestTypeDef,
+):
+    pass
+
+ListSegmentReferencesResponseTypeDef = TypedDict(
+    "ListSegmentReferencesResponseTypeDef",
+    {
+        "nextToken": str,
+        "referencedBy": List["RefResourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListSegmentsRequestRequestTypeDef = TypedDict(
+    "ListSegmentsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListSegmentsResponseTypeDef = TypedDict(
+    "ListSegmentsResponseTypeDef",
+    {
+        "nextToken": str,
+        "segments": List["SegmentTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1072,6 +1189,28 @@ PutProjectEventsResultEntryTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredRefResourceTypeDef = TypedDict(
+    "_RequiredRefResourceTypeDef",
+    {
+        "name": str,
+        "type": str,
+    },
+)
+_OptionalRefResourceTypeDef = TypedDict(
+    "_OptionalRefResourceTypeDef",
+    {
+        "arn": str,
+        "endTime": str,
+        "lastUpdatedOn": str,
+        "startTime": str,
+        "status": str,
+    },
+    total=False,
+)
+
+class RefResourceTypeDef(_RequiredRefResourceTypeDef, _OptionalRefResourceTypeDef):
+    pass
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1101,13 +1240,25 @@ S3DestinationTypeDef = TypedDict(
     total=False,
 )
 
-ScheduledSplitConfigTypeDef = TypedDict(
-    "ScheduledSplitConfigTypeDef",
+_RequiredScheduledSplitConfigTypeDef = TypedDict(
+    "_RequiredScheduledSplitConfigTypeDef",
     {
         "groupWeights": Dict[str, int],
         "startTime": Union[datetime, str],
     },
 )
+_OptionalScheduledSplitConfigTypeDef = TypedDict(
+    "_OptionalScheduledSplitConfigTypeDef",
+    {
+        "segmentOverrides": List["SegmentOverrideTypeDef"],
+    },
+    total=False,
+)
+
+class ScheduledSplitConfigTypeDef(
+    _RequiredScheduledSplitConfigTypeDef, _OptionalScheduledSplitConfigTypeDef
+):
+    pass
 
 _RequiredScheduledSplitTypeDef = TypedDict(
     "_RequiredScheduledSplitTypeDef",
@@ -1119,6 +1270,7 @@ _OptionalScheduledSplitTypeDef = TypedDict(
     "_OptionalScheduledSplitTypeDef",
     {
         "groupWeights": Dict[str, int],
+        "segmentOverrides": List["SegmentOverrideTypeDef"],
     },
     total=False,
 )
@@ -1140,6 +1292,39 @@ ScheduledSplitsLaunchDefinitionTypeDef = TypedDict(
     },
     total=False,
 )
+
+SegmentOverrideTypeDef = TypedDict(
+    "SegmentOverrideTypeDef",
+    {
+        "evaluationOrder": int,
+        "segment": str,
+        "weights": Dict[str, int],
+    },
+)
+
+_RequiredSegmentTypeDef = TypedDict(
+    "_RequiredSegmentTypeDef",
+    {
+        "arn": str,
+        "createdTime": datetime,
+        "lastUpdatedTime": datetime,
+        "name": str,
+        "pattern": str,
+    },
+)
+_OptionalSegmentTypeDef = TypedDict(
+    "_OptionalSegmentTypeDef",
+    {
+        "description": str,
+        "experimentCount": int,
+        "launchCount": int,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class SegmentTypeDef(_RequiredSegmentTypeDef, _OptionalSegmentTypeDef):
+    pass
 
 StartExperimentRequestRequestTypeDef = TypedDict(
     "StartExperimentRequestRequestTypeDef",
@@ -1240,6 +1425,22 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+TestSegmentPatternRequestRequestTypeDef = TypedDict(
+    "TestSegmentPatternRequestRequestTypeDef",
+    {
+        "pattern": str,
+        "payload": str,
+    },
+)
+
+TestSegmentPatternResponseTypeDef = TypedDict(
+    "TestSegmentPatternResponseTypeDef",
+    {
+        "match": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredTreatmentConfigTypeDef = TypedDict(
     "_RequiredTreatmentConfigTypeDef",
     {
@@ -1299,7 +1500,9 @@ _OptionalUpdateExperimentRequestRequestTypeDef = TypedDict(
         "metricGoals": List["MetricGoalConfigTypeDef"],
         "onlineAbConfig": "OnlineAbConfigTypeDef",
         "randomizationSalt": str,
+        "removeSegment": bool,
         "samplingRate": int,
+        "segment": str,
         "treatments": List["TreatmentConfigTypeDef"],
     },
     total=False,

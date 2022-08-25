@@ -38,15 +38,20 @@ __all__ = (
     "InsightStatusType",
     "InsightTypeType",
     "ListAnomaliesForInsightPaginatorName",
+    "ListAnomalousLogGroupsPaginatorName",
     "ListEventsPaginatorName",
     "ListInsightsPaginatorName",
+    "ListMonitoredResourcesPaginatorName",
     "ListNotificationChannelsPaginatorName",
     "ListOrganizationInsightsPaginatorName",
     "ListRecommendationsPaginatorName",
     "LocaleType",
+    "LogAnomalyTypeType",
     "OptInStatusType",
     "OrganizationResourceCollectionTypeType",
     "ResourceCollectionTypeType",
+    "ResourcePermissionType",
+    "ResourceTypeFilterType",
     "SearchInsightsPaginatorName",
     "SearchOrganizationInsightsPaginatorName",
     "ServiceNameType",
@@ -84,8 +89,10 @@ InsightSeverityType = Literal["HIGH", "LOW", "MEDIUM"]
 InsightStatusType = Literal["CLOSED", "ONGOING"]
 InsightTypeType = Literal["PROACTIVE", "REACTIVE"]
 ListAnomaliesForInsightPaginatorName = Literal["list_anomalies_for_insight"]
+ListAnomalousLogGroupsPaginatorName = Literal["list_anomalous_log_groups"]
 ListEventsPaginatorName = Literal["list_events"]
 ListInsightsPaginatorName = Literal["list_insights"]
+ListMonitoredResourcesPaginatorName = Literal["list_monitored_resources"]
 ListNotificationChannelsPaginatorName = Literal["list_notification_channels"]
 ListOrganizationInsightsPaginatorName = Literal["list_organization_insights"]
 ListRecommendationsPaginatorName = Literal["list_recommendations"]
@@ -102,11 +109,23 @@ LocaleType = Literal[
     "ZH_CN",
     "ZH_TW",
 ]
+LogAnomalyTypeType = Literal[
+    "BLOCK_FORMAT",
+    "FORMAT",
+    "HTTP_CODE",
+    "KEYWORD",
+    "KEYWORD_TOKEN",
+    "NEW_FIELD_NAME",
+    "NUMERICAL_NAN",
+    "NUMERICAL_POINT",
+]
 OptInStatusType = Literal["DISABLED", "ENABLED"]
 OrganizationResourceCollectionTypeType = Literal[
     "AWS_ACCOUNT", "AWS_CLOUD_FORMATION", "AWS_SERVICE", "AWS_TAGS"
 ]
 ResourceCollectionTypeType = Literal["AWS_CLOUD_FORMATION", "AWS_SERVICE", "AWS_TAGS"]
+ResourcePermissionType = Literal["FULL_PERMISSION", "MISSING_PERMISSION"]
+ResourceTypeFilterType = Literal["LOG_GROUPS"]
 SearchInsightsPaginatorName = Literal["search_insights"]
 SearchOrganizationInsightsPaginatorName = Literal["search_organization_insights"]
 ServiceNameType = Literal[

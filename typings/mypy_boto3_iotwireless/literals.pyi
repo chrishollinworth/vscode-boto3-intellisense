@@ -34,6 +34,11 @@ __all__ = (
     "LogLevelType",
     "MessageTypeType",
     "PartnerTypeType",
+    "PositionConfigurationFecType",
+    "PositionConfigurationStatusType",
+    "PositionResourceTypeType",
+    "PositionSolverProviderType",
+    "PositionSolverTypeType",
     "SigningAlgType",
     "SupportedRfRegionType",
     "WirelessDeviceEventType",
@@ -86,6 +91,11 @@ MessageTypeType = Literal[
     "CUSTOM_COMMAND_ID_SET",
 ]
 PartnerTypeType = Literal["Sidewalk"]
+PositionConfigurationFecType = Literal["NONE", "ROSE"]
+PositionConfigurationStatusType = Literal["Disabled", "Enabled"]
+PositionResourceTypeType = Literal["WirelessDevice", "WirelessGateway"]
+PositionSolverProviderType = Literal["Semtech"]
+PositionSolverTypeType = Literal["GNSS"]
 SigningAlgType = Literal["Ed25519", "P256r1"]
 SupportedRfRegionType = Literal["AS923-1", "AU915", "EU868", "US915"]
 WirelessDeviceEventType = Literal["Downlink_Data", "Join", "Registration", "Rejoin", "Uplink_Data"]

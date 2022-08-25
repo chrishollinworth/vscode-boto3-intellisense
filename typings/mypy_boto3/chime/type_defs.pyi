@@ -72,6 +72,7 @@ else:
 __all__ = (
     "AccountSettingsTypeDef",
     "AccountTypeDef",
+    "AddressTypeDef",
     "AlexaForBusinessMetadataTypeDef",
     "AppInstanceAdminSummaryTypeDef",
     "AppInstanceAdminTypeDef",
@@ -111,6 +112,7 @@ __all__ = (
     "BatchUpdateUserResponseTypeDef",
     "BotTypeDef",
     "BusinessCallingSettingsTypeDef",
+    "CandidateAddressTypeDef",
     "ChannelBanSummaryTypeDef",
     "ChannelBanTypeDef",
     "ChannelMembershipForAppInstanceUserSummaryTypeDef",
@@ -493,6 +495,8 @@ __all__ = (
     "UserErrorTypeDef",
     "UserSettingsTypeDef",
     "UserTypeDef",
+    "ValidateE911AddressRequestRequestTypeDef",
+    "ValidateE911AddressResponseTypeDef",
     "VideoArtifactsConfigurationTypeDef",
     "VoiceConnectorGroupTypeDef",
     "VoiceConnectorItemTypeDef",
@@ -532,6 +536,23 @@ _OptionalAccountTypeDef = TypedDict(
 
 class AccountTypeDef(_RequiredAccountTypeDef, _OptionalAccountTypeDef):
     pass
+
+AddressTypeDef = TypedDict(
+    "AddressTypeDef",
+    {
+        "streetName": str,
+        "streetSuffix": str,
+        "postDirectional": str,
+        "preDirectional": str,
+        "streetNumber": str,
+        "city": str,
+        "state": str,
+        "postalCode": str,
+        "postalCodePlus4": str,
+        "country": str,
+    },
+    total=False,
+)
 
 AlexaForBusinessMetadataTypeDef = TypedDict(
     "AlexaForBusinessMetadataTypeDef",
@@ -914,6 +935,20 @@ BusinessCallingSettingsTypeDef = TypedDict(
     "BusinessCallingSettingsTypeDef",
     {
         "CdrBucket": str,
+    },
+    total=False,
+)
+
+CandidateAddressTypeDef = TypedDict(
+    "CandidateAddressTypeDef",
+    {
+        "streetInfo": str,
+        "streetNumber": str,
+        "city": str,
+        "state": str,
+        "postalCode": str,
+        "postalCodePlus4": str,
+        "country": str,
     },
     total=False,
 )
@@ -5180,6 +5215,30 @@ _OptionalUserTypeDef = TypedDict(
 
 class UserTypeDef(_RequiredUserTypeDef, _OptionalUserTypeDef):
     pass
+
+ValidateE911AddressRequestRequestTypeDef = TypedDict(
+    "ValidateE911AddressRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "StreetNumber": str,
+        "StreetInfo": str,
+        "City": str,
+        "State": str,
+        "Country": str,
+        "PostalCode": str,
+    },
+)
+
+ValidateE911AddressResponseTypeDef = TypedDict(
+    "ValidateE911AddressResponseTypeDef",
+    {
+        "ValidationResult": int,
+        "AddressExternalId": str,
+        "Address": "AddressTypeDef",
+        "CandidateAddressList": List["CandidateAddressTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredVideoArtifactsConfigurationTypeDef = TypedDict(
     "_RequiredVideoArtifactsConfigurationTypeDef",

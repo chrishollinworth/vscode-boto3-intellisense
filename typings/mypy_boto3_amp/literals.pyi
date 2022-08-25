@@ -22,6 +22,7 @@ __all__ = (
     "AlertManagerDefinitionStatusCodeType",
     "ListRuleGroupsNamespacesPaginatorName",
     "ListWorkspacesPaginatorName",
+    "LoggingConfigurationStatusCodeType",
     "RuleGroupsNamespaceStatusCodeType",
     "WorkspaceActiveWaiterName",
     "WorkspaceDeletedWaiterName",
@@ -33,6 +34,9 @@ AlertManagerDefinitionStatusCodeType = Literal[
 ]
 ListRuleGroupsNamespacesPaginatorName = Literal["list_rule_groups_namespaces"]
 ListWorkspacesPaginatorName = Literal["list_workspaces"]
+LoggingConfigurationStatusCodeType = Literal[
+    "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
+]
 RuleGroupsNamespaceStatusCodeType = Literal[
     "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
 ]

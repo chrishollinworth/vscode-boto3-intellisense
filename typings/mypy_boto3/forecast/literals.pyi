@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AttributeTypeType",
     "AutoMLOverrideStrategyType",
+    "ConditionType",
     "DatasetTypeType",
     "DayOfWeekType",
     "DomainType",
@@ -38,7 +39,11 @@ __all__ = (
     "ListMonitorsPaginatorName",
     "ListPredictorBacktestExportJobsPaginatorName",
     "ListPredictorsPaginatorName",
+    "ListWhatIfAnalysesPaginatorName",
+    "ListWhatIfForecastExportsPaginatorName",
+    "ListWhatIfForecastsPaginatorName",
     "MonthType",
+    "OperationType",
     "OptimizationMetricType",
     "ScalingTypeType",
     "StateType",
@@ -48,6 +53,7 @@ __all__ = (
 
 AttributeTypeType = Literal["float", "geolocation", "integer", "string", "timestamp"]
 AutoMLOverrideStrategyType = Literal["AccuracyOptimized", "LatencyOptimized"]
+ConditionType = Literal["EQUALS", "GREATER_THAN", "LESS_THAN", "NOT_EQUALS"]
 DatasetTypeType = Literal["ITEM_METADATA", "RELATED_TIME_SERIES", "TARGET_TIME_SERIES"]
 DayOfWeekType = Literal[
     "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
@@ -69,6 +75,9 @@ ListMonitorEvaluationsPaginatorName = Literal["list_monitor_evaluations"]
 ListMonitorsPaginatorName = Literal["list_monitors"]
 ListPredictorBacktestExportJobsPaginatorName = Literal["list_predictor_backtest_export_jobs"]
 ListPredictorsPaginatorName = Literal["list_predictors"]
+ListWhatIfAnalysesPaginatorName = Literal["list_what_if_analyses"]
+ListWhatIfForecastExportsPaginatorName = Literal["list_what_if_forecast_exports"]
+ListWhatIfForecastsPaginatorName = Literal["list_what_if_forecasts"]
 MonthType = Literal[
     "APRIL",
     "AUGUST",
@@ -83,6 +92,7 @@ MonthType = Literal[
     "OCTOBER",
     "SEPTEMBER",
 ]
+OperationType = Literal["ADD", "DIVIDE", "MULTIPLY", "SUBTRACT"]
 OptimizationMetricType = Literal["AverageWeightedQuantileLoss", "MAPE", "MASE", "RMSE", "WAPE"]
 ScalingTypeType = Literal["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"]
 StateType = Literal["Active", "Deleted"]

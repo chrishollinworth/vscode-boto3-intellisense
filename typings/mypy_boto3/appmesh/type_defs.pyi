@@ -139,6 +139,7 @@ __all__ = (
     "HttpRouteMatchTypeDef",
     "HttpRouteTypeDef",
     "HttpTimeoutTypeDef",
+    "JsonFormatRefTypeDef",
     "ListGatewayRoutesInputRequestTypeDef",
     "ListGatewayRoutesOutputTypeDef",
     "ListMeshesInputRequestTypeDef",
@@ -164,6 +165,7 @@ __all__ = (
     "ListenerTlsValidationContextTrustTypeDef",
     "ListenerTlsValidationContextTypeDef",
     "ListenerTypeDef",
+    "LoggingFormatTypeDef",
     "LoggingTypeDef",
     "MatchRangeTypeDef",
     "MeshDataTypeDef",
@@ -187,6 +189,7 @@ __all__ = (
     "TagRefTypeDef",
     "TagResourceInputRequestTypeDef",
     "TcpRouteActionTypeDef",
+    "TcpRouteMatchTypeDef",
     "TcpRouteTypeDef",
     "TcpTimeoutTypeDef",
     "TlsValidationContextAcmTrustTypeDef",
@@ -996,12 +999,22 @@ EgressFilterTypeDef = TypedDict(
     },
 )
 
-FileAccessLogTypeDef = TypedDict(
-    "FileAccessLogTypeDef",
+_RequiredFileAccessLogTypeDef = TypedDict(
+    "_RequiredFileAccessLogTypeDef",
     {
         "path": str,
     },
 )
+_OptionalFileAccessLogTypeDef = TypedDict(
+    "_OptionalFileAccessLogTypeDef",
+    {
+        "format": "LoggingFormatTypeDef",
+    },
+    total=False,
+)
+
+class FileAccessLogTypeDef(_RequiredFileAccessLogTypeDef, _OptionalFileAccessLogTypeDef):
+    pass
 
 GatewayRouteDataTypeDef = TypedDict(
     "GatewayRouteDataTypeDef",
@@ -1065,12 +1078,24 @@ GatewayRouteStatusTypeDef = TypedDict(
     },
 )
 
-GatewayRouteTargetTypeDef = TypedDict(
-    "GatewayRouteTargetTypeDef",
+_RequiredGatewayRouteTargetTypeDef = TypedDict(
+    "_RequiredGatewayRouteTargetTypeDef",
     {
         "virtualService": "GatewayRouteVirtualServiceTypeDef",
     },
 )
+_OptionalGatewayRouteTargetTypeDef = TypedDict(
+    "_OptionalGatewayRouteTargetTypeDef",
+    {
+        "port": int,
+    },
+    total=False,
+)
+
+class GatewayRouteTargetTypeDef(
+    _RequiredGatewayRouteTargetTypeDef, _OptionalGatewayRouteTargetTypeDef
+):
+    pass
 
 GatewayRouteVirtualServiceTypeDef = TypedDict(
     "GatewayRouteVirtualServiceTypeDef",
@@ -1103,6 +1128,7 @@ GrpcGatewayRouteMatchTypeDef = TypedDict(
     {
         "hostname": "GatewayRouteHostnameMatchTypeDef",
         "metadata": List["GrpcGatewayRouteMetadataTypeDef"],
+        "port": int,
         "serviceName": str,
     },
     total=False,
@@ -1188,6 +1214,7 @@ GrpcRouteMatchTypeDef = TypedDict(
     {
         "metadata": List["GrpcRouteMetadataTypeDef"],
         "methodName": str,
+        "port": int,
         "serviceName": str,
     },
     total=False,
@@ -1335,6 +1362,7 @@ HttpGatewayRouteMatchTypeDef = TypedDict(
         "hostname": "GatewayRouteHostnameMatchTypeDef",
         "method": HttpMethodType,
         "path": "HttpPathMatchTypeDef",
+        "port": int,
         "prefix": str,
         "queryParameters": List["HttpQueryParameterTypeDef"],
     },
@@ -1454,6 +1482,7 @@ HttpRouteMatchTypeDef = TypedDict(
         "headers": List["HttpRouteHeaderTypeDef"],
         "method": HttpMethodType,
         "path": "HttpPathMatchTypeDef",
+        "port": int,
         "prefix": str,
         "queryParameters": List["HttpQueryParameterTypeDef"],
         "scheme": HttpSchemeType,
@@ -1487,6 +1516,14 @@ HttpTimeoutTypeDef = TypedDict(
         "perRequest": "DurationTypeDef",
     },
     total=False,
+)
+
+JsonFormatRefTypeDef = TypedDict(
+    "JsonFormatRefTypeDef",
+    {
+        "key": str,
+        "value": str,
+    },
 )
 
 _RequiredListGatewayRoutesInputRequestTypeDef = TypedDict(
@@ -1828,6 +1865,15 @@ _OptionalListenerTypeDef = TypedDict(
 class ListenerTypeDef(_RequiredListenerTypeDef, _OptionalListenerTypeDef):
     pass
 
+LoggingFormatTypeDef = TypedDict(
+    "LoggingFormatTypeDef",
+    {
+        "json": List["JsonFormatRefTypeDef"],
+        "text": str,
+    },
+    total=False,
+)
+
 LoggingTypeDef = TypedDict(
     "LoggingTypeDef",
     {
@@ -2044,6 +2090,14 @@ TcpRouteActionTypeDef = TypedDict(
     },
 )
 
+TcpRouteMatchTypeDef = TypedDict(
+    "TcpRouteMatchTypeDef",
+    {
+        "port": int,
+    },
+    total=False,
+)
+
 _RequiredTcpRouteTypeDef = TypedDict(
     "_RequiredTcpRouteTypeDef",
     {
@@ -2053,6 +2107,7 @@ _RequiredTcpRouteTypeDef = TypedDict(
 _OptionalTcpRouteTypeDef = TypedDict(
     "_OptionalTcpRouteTypeDef",
     {
+        "match": "TcpRouteMatchTypeDef",
         "timeout": "TcpTimeoutTypeDef",
     },
     total=False,
@@ -2414,12 +2469,24 @@ VirtualGatewayDataTypeDef = TypedDict(
     },
 )
 
-VirtualGatewayFileAccessLogTypeDef = TypedDict(
-    "VirtualGatewayFileAccessLogTypeDef",
+_RequiredVirtualGatewayFileAccessLogTypeDef = TypedDict(
+    "_RequiredVirtualGatewayFileAccessLogTypeDef",
     {
         "path": str,
     },
 )
+_OptionalVirtualGatewayFileAccessLogTypeDef = TypedDict(
+    "_OptionalVirtualGatewayFileAccessLogTypeDef",
+    {
+        "format": "LoggingFormatTypeDef",
+    },
+    total=False,
+)
+
+class VirtualGatewayFileAccessLogTypeDef(
+    _RequiredVirtualGatewayFileAccessLogTypeDef, _OptionalVirtualGatewayFileAccessLogTypeDef
+):
+    pass
 
 VirtualGatewayGrpcConnectionPoolTypeDef = TypedDict(
     "VirtualGatewayGrpcConnectionPoolTypeDef",
@@ -2913,10 +2980,20 @@ VirtualServiceStatusTypeDef = TypedDict(
     },
 )
 
-WeightedTargetTypeDef = TypedDict(
-    "WeightedTargetTypeDef",
+_RequiredWeightedTargetTypeDef = TypedDict(
+    "_RequiredWeightedTargetTypeDef",
     {
         "virtualNode": str,
         "weight": int,
     },
 )
+_OptionalWeightedTargetTypeDef = TypedDict(
+    "_OptionalWeightedTargetTypeDef",
+    {
+        "port": int,
+    },
+    total=False,
+)
+
+class WeightedTargetTypeDef(_RequiredWeightedTargetTypeDef, _OptionalWeightedTargetTypeDef):
+    pass

@@ -347,6 +347,7 @@ ParametersTypeDef = TypedDict(
     {
         "ExcludeBootVolume": bool,
         "NoReboot": bool,
+        "ExcludeDataVolumeTags": List["TagTypeDef"],
     },
     total=False,
 )

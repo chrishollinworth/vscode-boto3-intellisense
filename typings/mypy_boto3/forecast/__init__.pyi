@@ -19,6 +19,9 @@ Usage::
         ListMonitorsPaginator,
         ListPredictorBacktestExportJobsPaginator,
         ListPredictorsPaginator,
+        ListWhatIfAnalysesPaginator,
+        ListWhatIfForecastExportsPaginator,
+        ListWhatIfForecastsPaginator,
     )
 
     session = boto3.Session()
@@ -37,6 +40,9 @@ Usage::
     list_monitors_paginator: ListMonitorsPaginator = client.get_paginator("list_monitors")
     list_predictor_backtest_export_jobs_paginator: ListPredictorBacktestExportJobsPaginator = client.get_paginator("list_predictor_backtest_export_jobs")
     list_predictors_paginator: ListPredictorsPaginator = client.get_paginator("list_predictors")
+    list_what_if_analyses_paginator: ListWhatIfAnalysesPaginator = client.get_paginator("list_what_if_analyses")
+    list_what_if_forecast_exports_paginator: ListWhatIfForecastExportsPaginator = client.get_paginator("list_what_if_forecast_exports")
+    list_what_if_forecasts_paginator: ListWhatIfForecastsPaginator = client.get_paginator("list_what_if_forecasts")
     ```
 """
 from .client import ForecastServiceClient
@@ -52,6 +58,9 @@ from .paginator import (
     ListMonitorsPaginator,
     ListPredictorBacktestExportJobsPaginator,
     ListPredictorsPaginator,
+    ListWhatIfAnalysesPaginator,
+    ListWhatIfForecastExportsPaginator,
+    ListWhatIfForecastsPaginator,
 )
 
 Client = ForecastServiceClient
@@ -70,4 +79,7 @@ __all__ = (
     "ListMonitorsPaginator",
     "ListPredictorBacktestExportJobsPaginator",
     "ListPredictorsPaginator",
+    "ListWhatIfAnalysesPaginator",
+    "ListWhatIfForecastExportsPaginator",
+    "ListWhatIfForecastsPaginator",
 )

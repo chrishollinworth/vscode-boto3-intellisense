@@ -27,6 +27,7 @@ autoscaling
 autoscaling_plans
 backup
 backup_gateway
+backupstorage
 batch
 billingconductor
 braket
@@ -67,6 +68,7 @@ compute_optimizer
 config
 connect
 connect_contact_lens
+connectcampaigns
 connectparticipant
 cur
 customer_profiles
@@ -171,6 +173,7 @@ lex_runtime
 lexv2_models
 lexv2_runtime
 license_manager
+license_manager_user_subscriptions
 lightsail
 location
 logs
@@ -224,6 +227,7 @@ pinpoint_sms_voice
 pinpoint_sms_voice_v2
 polly
 pricing
+privatenetworks
 proton
 qldb
 qldb_session
@@ -240,6 +244,7 @@ resiliencehub
 resource_groups
 resourcegroupstaggingapi
 robomaker
+rolesanywhere
 route53
 route53_recovery_cluster
 route53_recovery_control_config
@@ -285,6 +290,7 @@ stepfunctions
 storagegateway
 sts
 support
+support_app
 swf
 synthetics
 textract

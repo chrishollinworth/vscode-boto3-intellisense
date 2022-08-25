@@ -6,9 +6,9 @@ Type annotations for cloudwatch service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_cloudwatch.literals import AlarmExistsWaiterName
+    from mypy_boto3_cloudwatch.literals import ActionsSuppressedByType
 
-    data: AlarmExistsWaiterName = "alarm_exists"
+    data: ActionsSuppressedByType = "Alarm"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ActionsSuppressedByType",
     "AlarmExistsWaiterName",
     "AlarmTypeType",
     "AnomalyDetectorStateValueType",
@@ -27,6 +28,7 @@ __all__ = (
     "CompositeAlarmExistsWaiterName",
     "DescribeAlarmHistoryPaginatorName",
     "DescribeAlarmsPaginatorName",
+    "DescribeAnomalyDetectorsPaginatorName",
     "GetMetricDataPaginatorName",
     "HistoryItemTypeType",
     "ListDashboardsPaginatorName",
@@ -40,6 +42,7 @@ __all__ = (
     "StatusCodeType",
 )
 
+ActionsSuppressedByType = Literal["Alarm", "ExtensionPeriod", "WaitPeriod"]
 AlarmExistsWaiterName = Literal["alarm_exists"]
 AlarmTypeType = Literal["CompositeAlarm", "MetricAlarm"]
 AnomalyDetectorStateValueType = Literal["PENDING_TRAINING", "TRAINED", "TRAINED_INSUFFICIENT_DATA"]
@@ -56,6 +59,7 @@ ComparisonOperatorType = Literal[
 CompositeAlarmExistsWaiterName = Literal["composite_alarm_exists"]
 DescribeAlarmHistoryPaginatorName = Literal["describe_alarm_history"]
 DescribeAlarmsPaginatorName = Literal["describe_alarms"]
+DescribeAnomalyDetectorsPaginatorName = Literal["describe_anomaly_detectors"]
 GetMetricDataPaginatorName = Literal["get_metric_data"]
 HistoryItemTypeType = Literal["Action", "ConfigurationUpdate", "StateUpdate"]
 ListDashboardsPaginatorName = Literal["list_dashboards"]

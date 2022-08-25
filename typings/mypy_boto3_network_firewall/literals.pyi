@@ -45,7 +45,7 @@ __all__ = (
 )
 
 AttachmentStatusType = Literal["CREATING", "DELETING", "READY", "SCALING"]
-ConfigurationSyncStateType = Literal["IN_SYNC", "PENDING"]
+ConfigurationSyncStateType = Literal["CAPACITY_CONSTRAINED", "IN_SYNC", "PENDING"]
 EncryptionTypeType = Literal["AWS_OWNED_KMS_KEY", "CUSTOMER_KMS"]
 FirewallStatusValueType = Literal["DELETING", "PROVISIONING", "READY"]
 GeneratedRulesTypeType = Literal["ALLOWLIST", "DENYLIST"]
@@ -56,7 +56,7 @@ ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LogDestinationTypeType = Literal["CloudWatchLogs", "KinesisDataFirehose", "S3"]
 LogTypeType = Literal["ALERT", "FLOW"]
 OverrideActionType = Literal["DROP_TO_ALERT"]
-PerObjectSyncStatusType = Literal["IN_SYNC", "PENDING"]
+PerObjectSyncStatusType = Literal["CAPACITY_CONSTRAINED", "IN_SYNC", "PENDING"]
 ResourceManagedStatusType = Literal["ACCOUNT", "MANAGED"]
 ResourceManagedTypeType = Literal["AWS_MANAGED_DOMAIN_LISTS", "AWS_MANAGED_THREAT_SIGNATURES"]
 ResourceStatusType = Literal["ACTIVE", "DELETING"]

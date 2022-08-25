@@ -17,8 +17,10 @@ from typing import Any, Dict, List, Union
 
 from .literals import (
     ActivityStreamModeType,
+    ActivityStreamPolicyStatusType,
     ActivityStreamStatusType,
     ApplyMethodType,
+    AuditPolicyStateType,
     AutomationModeType,
     CustomEngineVersionStatusType,
     DBProxyEndpointStatusType,
@@ -259,6 +261,8 @@ __all__ = (
     "IPRangeTypeDef",
     "ListTagsForResourceMessageRequestTypeDef",
     "MinimumEngineVersionPerAllowedValueTypeDef",
+    "ModifyActivityStreamRequestRequestTypeDef",
+    "ModifyActivityStreamResponseTypeDef",
     "ModifyCertificatesMessageRequestTypeDef",
     "ModifyCertificatesResultTypeDef",
     "ModifyCurrentDBClusterCapacityMessageRequestTypeDef",
@@ -378,6 +382,8 @@ __all__ = (
     "StopDBInstanceMessageRequestTypeDef",
     "StopDBInstanceResultTypeDef",
     "SubnetTypeDef",
+    "SwitchoverReadReplicaMessageRequestTypeDef",
+    "SwitchoverReadReplicaResultTypeDef",
     "TagListMessageTypeDef",
     "TagTypeDef",
     "TargetHealthTypeDef",
@@ -917,6 +923,7 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "PerformanceInsightsKMSKeyId": str,
         "PerformanceInsightsRetentionPeriod": int,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
+        "NetworkType": str,
         "SourceRegion": str,
     },
     total=False,
@@ -1693,6 +1700,7 @@ DBClusterTypeDef = TypedDict(
         "PerformanceInsightsKMSKeyId": str,
         "PerformanceInsightsRetentionPeriod": int,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationInfoTypeDef",
+        "NetworkType": str,
     },
     total=False,
 )
@@ -1935,6 +1943,7 @@ DBInstanceTypeDef = TypedDict(
         "CustomIamInstanceProfile": str,
         "BackupTarget": str,
         "NetworkType": str,
+        "ActivityStreamPolicyStatus": ActivityStreamPolicyStatusType,
     },
     total=False,
 )
@@ -2147,6 +2156,7 @@ DBSnapshotTypeDef = TypedDict(
         "DbiResourceId": str,
         "TagList": List["TagTypeDef"],
         "OriginalSnapshotCreateTime": datetime,
+        "SnapshotDatabaseTime": datetime,
         "SnapshotTarget": str,
     },
     total=False,
@@ -3401,6 +3411,28 @@ MinimumEngineVersionPerAllowedValueTypeDef = TypedDict(
     total=False,
 )
 
+ModifyActivityStreamRequestRequestTypeDef = TypedDict(
+    "ModifyActivityStreamRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "AuditPolicyState": AuditPolicyStateType,
+    },
+    total=False,
+)
+
+ModifyActivityStreamResponseTypeDef = TypedDict(
+    "ModifyActivityStreamResponseTypeDef",
+    {
+        "KmsKeyId": str,
+        "KinesisStreamName": str,
+        "Status": ActivityStreamStatusType,
+        "Mode": ActivityStreamModeType,
+        "EngineNativeAuditFieldsIncluded": bool,
+        "PolicyStatus": ActivityStreamPolicyStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ModifyCertificatesMessageRequestTypeDef = TypedDict(
     "ModifyCertificatesMessageRequestTypeDef",
     {
@@ -3527,6 +3559,7 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "PerformanceInsightsKMSKeyId": str,
         "PerformanceInsightsRetentionPeriod": int,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
+        "NetworkType": str,
     },
     total=False,
 )
@@ -4609,6 +4642,7 @@ _OptionalRestoreDBClusterFromS3MessageRequestTypeDef = TypedDict(
         "Domain": str,
         "DomainIAMRoleName": str,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
+        "NetworkType": str,
     },
     total=False,
 )
@@ -4662,6 +4696,7 @@ _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
         "Iops": int,
         "PubliclyAccessible": bool,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
+        "NetworkType": str,
     },
     total=False,
 )
@@ -4714,6 +4749,7 @@ _OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
         "PubliclyAccessible": bool,
         "Iops": int,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
+        "NetworkType": str,
     },
     total=False,
 )
@@ -5245,6 +5281,21 @@ SubnetTypeDef = TypedDict(
         "SubnetStatus": str,
     },
     total=False,
+)
+
+SwitchoverReadReplicaMessageRequestTypeDef = TypedDict(
+    "SwitchoverReadReplicaMessageRequestTypeDef",
+    {
+        "DBInstanceIdentifier": str,
+    },
+)
+
+SwitchoverReadReplicaResultTypeDef = TypedDict(
+    "SwitchoverReadReplicaResultTypeDef",
+    {
+        "DBInstance": "DBInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 TagListMessageTypeDef = TypedDict(

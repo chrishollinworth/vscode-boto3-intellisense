@@ -20,10 +20,12 @@ else:
 
 __all__ = (
     "AccessControlRuleEffectType",
+    "AvailabilityProviderTypeType",
     "DnsRecordVerificationStatusType",
     "EntityStateType",
     "FolderNameType",
     "ListAliasesPaginatorName",
+    "ListAvailabilityConfigurationsPaginatorName",
     "ListGroupMembersPaginatorName",
     "ListGroupsPaginatorName",
     "ListMailboxPermissionsPaginatorName",
@@ -41,10 +43,12 @@ __all__ = (
 )
 
 AccessControlRuleEffectType = Literal["ALLOW", "DENY"]
+AvailabilityProviderTypeType = Literal["EWS", "LAMBDA"]
 DnsRecordVerificationStatusType = Literal["FAILED", "PENDING", "VERIFIED"]
 EntityStateType = Literal["DELETED", "DISABLED", "ENABLED"]
 FolderNameType = Literal["DELETED_ITEMS", "DRAFTS", "INBOX", "JUNK_EMAIL", "SENT_ITEMS"]
 ListAliasesPaginatorName = Literal["list_aliases"]
+ListAvailabilityConfigurationsPaginatorName = Literal["list_availability_configurations"]
 ListGroupMembersPaginatorName = Literal["list_group_members"]
 ListGroupsPaginatorName = Literal["list_groups"]
 ListMailboxPermissionsPaginatorName = Literal["list_mailbox_permissions"]

@@ -30,6 +30,7 @@ from .literals import (
     Ac3DrcProfileType,
     Ac3LfeFilterType,
     Ac3MetadataControlType,
+    AccessibilityTypeType,
     AfdSignalingType,
     AudioDescriptionAudioTypeControlType,
     AudioDescriptionLanguageCodeControlType,
@@ -221,6 +222,8 @@ from .literals import (
     NielsenWatermarksDistributionTypesType,
     PipelineIdType,
     PreferredChannelPipelineType,
+    RebootInputDeviceForceType,
+    ReservationAutomaticRenewalType,
     ReservationCodecType,
     ReservationMaximumBitrateType,
     ReservationMaximumFramerateType,
@@ -517,8 +520,10 @@ __all__ = (
     "PipelinePauseStateSettingsTypeDef",
     "PurchaseOfferingRequestRequestTypeDef",
     "PurchaseOfferingResponseTypeDef",
+    "RebootInputDeviceRequestRequestTypeDef",
     "RejectInputDeviceTransferRequestRequestTypeDef",
     "RemixSettingsTypeDef",
+    "RenewalSettingsTypeDef",
     "ReservationResourceSpecificationTypeDef",
     "ReservationTypeDef",
     "ResponseMetadataTypeDef",
@@ -541,6 +546,7 @@ __all__ = (
     "StandardHlsSettingsTypeDef",
     "StartChannelRequestRequestTypeDef",
     "StartChannelResponseTypeDef",
+    "StartInputDeviceMaintenanceWindowRequestRequestTypeDef",
     "StartMultiplexRequestRequestTypeDef",
     "StartMultiplexResponseTypeDef",
     "StartTimecodeTypeDef",
@@ -1108,6 +1114,7 @@ _RequiredCaptionDescriptionTypeDef = TypedDict(
 _OptionalCaptionDescriptionTypeDef = TypedDict(
     "_OptionalCaptionDescriptionTypeDef",
     {
+        "Accessibility": AccessibilityTypeType,
         "DestinationSettings": "CaptionDestinationSettingsTypeDef",
         "LanguageCode": str,
         "LanguageDescription": str,
@@ -1543,6 +1550,7 @@ DeleteReservationResponseTypeDef = TypedDict(
         "OfferingId": str,
         "OfferingType": Literal["NO_UPFRONT"],
         "Region": str,
+        "RenewalSettings": "RenewalSettingsTypeDef",
         "ReservationId": str,
         "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
         "Start": str,
@@ -1787,6 +1795,7 @@ DescribeReservationResponseTypeDef = TypedDict(
         "OfferingId": str,
         "OfferingType": Literal["NO_UPFRONT"],
         "Region": str,
+        "RenewalSettings": "RenewalSettingsTypeDef",
         "ReservationId": str,
         "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
         "Start": str,
@@ -3659,6 +3668,7 @@ _OptionalPurchaseOfferingRequestRequestTypeDef = TypedDict(
     "_OptionalPurchaseOfferingRequestRequestTypeDef",
     {
         "Name": str,
+        "RenewalSettings": "RenewalSettingsTypeDef",
         "RequestId": str,
         "Start": str,
         "Tags": Dict[str, str],
@@ -3678,6 +3688,25 @@ PurchaseOfferingResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredRebootInputDeviceRequestRequestTypeDef = TypedDict(
+    "_RequiredRebootInputDeviceRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
+    },
+)
+_OptionalRebootInputDeviceRequestRequestTypeDef = TypedDict(
+    "_OptionalRebootInputDeviceRequestRequestTypeDef",
+    {
+        "Force": RebootInputDeviceForceType,
+    },
+    total=False,
+)
+
+class RebootInputDeviceRequestRequestTypeDef(
+    _RequiredRebootInputDeviceRequestRequestTypeDef, _OptionalRebootInputDeviceRequestRequestTypeDef
+):
+    pass
 
 RejectInputDeviceTransferRequestRequestTypeDef = TypedDict(
     "RejectInputDeviceTransferRequestRequestTypeDef",
@@ -3703,6 +3732,15 @@ _OptionalRemixSettingsTypeDef = TypedDict(
 
 class RemixSettingsTypeDef(_RequiredRemixSettingsTypeDef, _OptionalRemixSettingsTypeDef):
     pass
+
+RenewalSettingsTypeDef = TypedDict(
+    "RenewalSettingsTypeDef",
+    {
+        "AutomaticRenewal": ReservationAutomaticRenewalType,
+        "RenewalCount": int,
+    },
+    total=False,
+)
 
 ReservationResourceSpecificationTypeDef = TypedDict(
     "ReservationResourceSpecificationTypeDef",
@@ -3734,6 +3772,7 @@ ReservationTypeDef = TypedDict(
         "OfferingId": str,
         "OfferingType": Literal["NO_UPFRONT"],
         "Region": str,
+        "RenewalSettings": "RenewalSettingsTypeDef",
         "ReservationId": str,
         "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
         "Start": str,
@@ -4000,6 +4039,13 @@ StartChannelResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "Vpc": "VpcOutputSettingsDescriptionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartInputDeviceMaintenanceWindowRequestRequestTypeDef = TypedDict(
+    "StartInputDeviceMaintenanceWindowRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
     },
 )
 
@@ -4504,6 +4550,7 @@ _OptionalUpdateReservationRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateReservationRequestRequestTypeDef",
     {
         "Name": str,
+        "RenewalSettings": "RenewalSettingsTypeDef",
     },
     total=False,
 )

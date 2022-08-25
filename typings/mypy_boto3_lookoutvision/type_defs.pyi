@@ -6,9 +6,9 @@ Type annotations for lookoutvision service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lookoutvision.type_defs import CreateDatasetRequestRequestTypeDef
+    from mypy_boto3_lookoutvision.type_defs import AnomalyTypeDef
 
-    data: CreateDatasetRequestRequestTypeDef = {...}
+    data: AnomalyTypeDef = {...}
     ```
 """
 import sys
@@ -35,6 +35,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AnomalyTypeDef",
     "CreateDatasetRequestRequestTypeDef",
     "CreateDatasetResponseTypeDef",
     "CreateModelRequestRequestTypeDef",
@@ -86,6 +87,7 @@ __all__ = (
     "OutputConfigTypeDef",
     "OutputS3ObjectTypeDef",
     "PaginatorConfigTypeDef",
+    "PixelAnomalyTypeDef",
     "ProjectDescriptionTypeDef",
     "ProjectMetadataTypeDef",
     "ResponseMetadataTypeDef",
@@ -102,6 +104,15 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateDatasetEntriesRequestRequestTypeDef",
     "UpdateDatasetEntriesResponseTypeDef",
+)
+
+AnomalyTypeDef = TypedDict(
+    "AnomalyTypeDef",
+    {
+        "Name": str,
+        "PixelAnomaly": "PixelAnomalyTypeDef",
+    },
+    total=False,
 )
 
 _RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
@@ -405,6 +416,8 @@ DetectAnomalyResultTypeDef = TypedDict(
         "Source": "ImageSourceTypeDef",
         "IsAnomalous": bool,
         "Confidence": float,
+        "Anomalies": List["AnomalyTypeDef"],
+        "AnomalyMask": bytes,
     },
     total=False,
 )
@@ -613,6 +626,8 @@ ModelDescriptionTypeDef = TypedDict(
         "EvaluationResult": "OutputS3ObjectTypeDef",
         "EvaluationEndTimestamp": datetime,
         "KmsKeyId": str,
+        "MinInferenceUnits": int,
+        "MaxInferenceUnits": int,
     },
     total=False,
 )
@@ -715,6 +730,15 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PixelAnomalyTypeDef = TypedDict(
+    "PixelAnomalyTypeDef",
+    {
+        "TotalPercentageArea": float,
+        "Color": str,
+    },
+    total=False,
+)
+
 ProjectDescriptionTypeDef = TypedDict(
     "ProjectDescriptionTypeDef",
     {
@@ -808,6 +832,7 @@ _OptionalStartModelRequestRequestTypeDef = TypedDict(
     "_OptionalStartModelRequestRequestTypeDef",
     {
         "ClientToken": str,
+        "MaxInferenceUnits": int,
     },
     total=False,
 )
@@ -869,14 +894,23 @@ TagTypeDef = TypedDict(
     },
 )
 
-TargetPlatformTypeDef = TypedDict(
-    "TargetPlatformTypeDef",
+_RequiredTargetPlatformTypeDef = TypedDict(
+    "_RequiredTargetPlatformTypeDef",
     {
         "Os": Literal["LINUX"],
         "Arch": TargetPlatformArchType,
-        "Accelerator": Literal["NVIDIA"],
     },
 )
+_OptionalTargetPlatformTypeDef = TypedDict(
+    "_OptionalTargetPlatformTypeDef",
+    {
+        "Accelerator": Literal["NVIDIA"],
+    },
+    total=False,
+)
+
+class TargetPlatformTypeDef(_RequiredTargetPlatformTypeDef, _OptionalTargetPlatformTypeDef):
+    pass
 
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",

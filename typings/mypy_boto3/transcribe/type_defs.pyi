@@ -1256,26 +1256,14 @@ UpdateCallAnalyticsCategoryResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredUpdateMedicalVocabularyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMedicalVocabularyRequestRequestTypeDef",
+UpdateMedicalVocabularyRequestRequestTypeDef = TypedDict(
+    "UpdateMedicalVocabularyRequestRequestTypeDef",
     {
         "VocabularyName": str,
         "LanguageCode": LanguageCodeType,
-    },
-)
-_OptionalUpdateMedicalVocabularyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMedicalVocabularyRequestRequestTypeDef",
-    {
         "VocabularyFileUri": str,
     },
-    total=False,
 )
-
-class UpdateMedicalVocabularyRequestRequestTypeDef(
-    _RequiredUpdateMedicalVocabularyRequestRequestTypeDef,
-    _OptionalUpdateMedicalVocabularyRequestRequestTypeDef,
-):
-    pass
 
 UpdateMedicalVocabularyResponseTypeDef = TypedDict(
     "UpdateMedicalVocabularyResponseTypeDef",

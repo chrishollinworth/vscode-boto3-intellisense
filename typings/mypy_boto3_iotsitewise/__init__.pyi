@@ -20,6 +20,7 @@ Usage::
         ListAssetRelationshipsPaginator,
         ListAssetsPaginator,
         ListAssociatedAssetsPaginator,
+        ListBulkImportJobsPaginator,
         ListDashboardsPaginator,
         ListGatewaysPaginator,
         ListPortalsPaginator,
@@ -50,6 +51,7 @@ Usage::
     list_asset_relationships_paginator: ListAssetRelationshipsPaginator = client.get_paginator("list_asset_relationships")
     list_assets_paginator: ListAssetsPaginator = client.get_paginator("list_assets")
     list_associated_assets_paginator: ListAssociatedAssetsPaginator = client.get_paginator("list_associated_assets")
+    list_bulk_import_jobs_paginator: ListBulkImportJobsPaginator = client.get_paginator("list_bulk_import_jobs")
     list_dashboards_paginator: ListDashboardsPaginator = client.get_paginator("list_dashboards")
     list_gateways_paginator: ListGatewaysPaginator = client.get_paginator("list_gateways")
     list_portals_paginator: ListPortalsPaginator = client.get_paginator("list_portals")
@@ -68,6 +70,7 @@ from .paginator import (
     ListAssetRelationshipsPaginator,
     ListAssetsPaginator,
     ListAssociatedAssetsPaginator,
+    ListBulkImportJobsPaginator,
     ListDashboardsPaginator,
     ListGatewaysPaginator,
     ListPortalsPaginator,
@@ -101,6 +104,7 @@ __all__ = (
     "ListAssetRelationshipsPaginator",
     "ListAssetsPaginator",
     "ListAssociatedAssetsPaginator",
+    "ListBulkImportJobsPaginator",
     "ListDashboardsPaginator",
     "ListGatewaysPaginator",
     "ListPortalsPaginator",

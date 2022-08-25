@@ -6,9 +6,9 @@ Type annotations for appconfig service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_appconfig.literals import DeploymentEventTypeType
+    from mypy_boto3_appconfig.literals import ActionPointType
 
-    data: DeploymentEventTypeType = "BAKE_TIME_STARTED"
+    data: ActionPointType = "ON_DEPLOYMENT_BAKING"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ActionPointType",
     "DeploymentEventTypeType",
     "DeploymentStateType",
     "EnvironmentStateType",
@@ -28,6 +29,15 @@ __all__ = (
     "ValidatorTypeType",
 )
 
+ActionPointType = Literal[
+    "ON_DEPLOYMENT_BAKING",
+    "ON_DEPLOYMENT_COMPLETE",
+    "ON_DEPLOYMENT_ROLLED_BACK",
+    "ON_DEPLOYMENT_START",
+    "ON_DEPLOYMENT_STEP",
+    "PRE_CREATE_HOSTED_CONFIGURATION_VERSION",
+    "PRE_START_DEPLOYMENT",
+]
 DeploymentEventTypeType = Literal[
     "BAKE_TIME_STARTED",
     "DEPLOYMENT_COMPLETED",

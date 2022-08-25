@@ -38,6 +38,7 @@ from .literals import (
     ThreatIntelIndicatorCategoryType,
     ThreatIntelIndicatorTypeType,
     VerificationStateType,
+    VulnerabilityFixAvailableType,
     WorkflowStateType,
     WorkflowStatusType,
 )
@@ -88,6 +89,18 @@ __all__ = (
     "AwsAutoScalingLaunchConfigurationDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef",
+    "AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef",
+    "AwsBackupBackupPlanBackupPlanDetailsTypeDef",
+    "AwsBackupBackupPlanDetailsTypeDef",
+    "AwsBackupBackupPlanLifecycleDetailsTypeDef",
+    "AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef",
+    "AwsBackupBackupPlanRuleDetailsTypeDef",
+    "AwsBackupBackupVaultDetailsTypeDef",
+    "AwsBackupBackupVaultNotificationsDetailsTypeDef",
+    "AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef",
+    "AwsBackupRecoveryPointCreatedByDetailsTypeDef",
+    "AwsBackupRecoveryPointDetailsTypeDef",
+    "AwsBackupRecoveryPointLifecycleDetailsTypeDef",
     "AwsCertificateManagerCertificateDetailsTypeDef",
     "AwsCertificateManagerCertificateDomainValidationOptionTypeDef",
     "AwsCertificateManagerCertificateExtendedKeyUsageTypeDef",
@@ -95,20 +108,27 @@ __all__ = (
     "AwsCertificateManagerCertificateOptionsTypeDef",
     "AwsCertificateManagerCertificateRenewalSummaryTypeDef",
     "AwsCertificateManagerCertificateResourceRecordTypeDef",
+    "AwsCloudFormationStackDetailsTypeDef",
+    "AwsCloudFormationStackDriftInformationDetailsTypeDef",
+    "AwsCloudFormationStackOutputsDetailsTypeDef",
     "AwsCloudFrontDistributionCacheBehaviorTypeDef",
     "AwsCloudFrontDistributionCacheBehaviorsTypeDef",
     "AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef",
     "AwsCloudFrontDistributionDetailsTypeDef",
     "AwsCloudFrontDistributionLoggingTypeDef",
+    "AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef",
     "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef",
     "AwsCloudFrontDistributionOriginGroupFailoverTypeDef",
     "AwsCloudFrontDistributionOriginGroupTypeDef",
     "AwsCloudFrontDistributionOriginGroupsTypeDef",
     "AwsCloudFrontDistributionOriginItemTypeDef",
     "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
+    "AwsCloudFrontDistributionOriginSslProtocolsTypeDef",
     "AwsCloudFrontDistributionOriginsTypeDef",
     "AwsCloudFrontDistributionViewerCertificateTypeDef",
     "AwsCloudTrailTrailDetailsTypeDef",
+    "AwsCloudWatchAlarmDetailsTypeDef",
+    "AwsCloudWatchAlarmDimensionsDetailsTypeDef",
     "AwsCodeBuildProjectArtifactsDetailsTypeDef",
     "AwsCodeBuildProjectDetailsTypeDef",
     "AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef",
@@ -136,6 +156,7 @@ __all__ = (
     "AwsDynamoDbTableStreamSpecificationTypeDef",
     "AwsEc2EipDetailsTypeDef",
     "AwsEc2InstanceDetailsTypeDef",
+    "AwsEc2InstanceMetadataOptionsTypeDef",
     "AwsEc2InstanceNetworkInterfacesDetailsTypeDef",
     "AwsEc2NetworkAclAssociationTypeDef",
     "AwsEc2NetworkAclDetailsTypeDef",
@@ -152,11 +173,15 @@ __all__ = (
     "AwsEc2SecurityGroupPrefixListIdTypeDef",
     "AwsEc2SecurityGroupUserIdGroupPairTypeDef",
     "AwsEc2SubnetDetailsTypeDef",
+    "AwsEc2TransitGatewayDetailsTypeDef",
     "AwsEc2VolumeAttachmentTypeDef",
     "AwsEc2VolumeDetailsTypeDef",
     "AwsEc2VpcDetailsTypeDef",
     "AwsEc2VpcEndpointServiceDetailsTypeDef",
     "AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef",
+    "AwsEc2VpcPeeringConnectionDetailsTypeDef",
+    "AwsEc2VpcPeeringConnectionStatusDetailsTypeDef",
+    "AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef",
     "AwsEc2VpnConnectionDetailsTypeDef",
     "AwsEc2VpnConnectionOptionsDetailsTypeDef",
     "AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef",
@@ -172,6 +197,7 @@ __all__ = (
     "AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef",
     "AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef",
     "AwsEcsClusterDetailsTypeDef",
+    "AwsEcsContainerDetailsTypeDef",
     "AwsEcsServiceCapacityProviderStrategyDetailsTypeDef",
     "AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef",
     "AwsEcsServiceDeploymentConfigurationDetailsTypeDef",
@@ -214,6 +240,13 @@ __all__ = (
     "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef",
     "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef",
     "AwsEcsTaskDefinitionVolumesHostDetailsTypeDef",
+    "AwsEcsTaskDetailsTypeDef",
+    "AwsEcsTaskVolumeDetailsTypeDef",
+    "AwsEcsTaskVolumeHostDetailsTypeDef",
+    "AwsEfsAccessPointDetailsTypeDef",
+    "AwsEfsAccessPointPosixUserDetailsTypeDef",
+    "AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef",
+    "AwsEfsAccessPointRootDirectoryDetailsTypeDef",
     "AwsEksClusterDetailsTypeDef",
     "AwsEksClusterLoggingClusterLoggingDetailsTypeDef",
     "AwsEksClusterLoggingDetailsTypeDef",
@@ -266,6 +299,8 @@ __all__ = (
     "AwsIamRolePolicyTypeDef",
     "AwsIamUserDetailsTypeDef",
     "AwsIamUserPolicyTypeDef",
+    "AwsKinesisStreamDetailsTypeDef",
+    "AwsKinesisStreamStreamEncryptionDetailsTypeDef",
     "AwsKmsKeyDetailsTypeDef",
     "AwsLambdaFunctionCodeTypeDef",
     "AwsLambdaFunctionDeadLetterConfigTypeDef",
@@ -276,10 +311,12 @@ __all__ = (
     "AwsLambdaFunctionTracingConfigTypeDef",
     "AwsLambdaFunctionVpcConfigTypeDef",
     "AwsLambdaLayerVersionDetailsTypeDef",
+    "AwsMountPointTypeDef",
     "AwsNetworkFirewallFirewallDetailsTypeDef",
     "AwsNetworkFirewallFirewallPolicyDetailsTypeDef",
     "AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef",
     "AwsNetworkFirewallRuleGroupDetailsTypeDef",
+    "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef",
     "AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef",
     "AwsOpenSearchServiceDomainDetailsTypeDef",
@@ -287,6 +324,7 @@ __all__ = (
     "AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
     "AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef",
+    "AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef",
@@ -373,6 +411,20 @@ __all__ = (
     "AwsWafRateBasedRuleMatchPredicateTypeDef",
     "AwsWafRegionalRateBasedRuleDetailsTypeDef",
     "AwsWafRegionalRateBasedRuleMatchPredicateTypeDef",
+    "AwsWafRegionalRuleDetailsTypeDef",
+    "AwsWafRegionalRuleGroupDetailsTypeDef",
+    "AwsWafRegionalRuleGroupRulesActionDetailsTypeDef",
+    "AwsWafRegionalRuleGroupRulesDetailsTypeDef",
+    "AwsWafRegionalRulePredicateListDetailsTypeDef",
+    "AwsWafRegionalWebAclDetailsTypeDef",
+    "AwsWafRegionalWebAclRulesListActionDetailsTypeDef",
+    "AwsWafRegionalWebAclRulesListDetailsTypeDef",
+    "AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef",
+    "AwsWafRuleDetailsTypeDef",
+    "AwsWafRuleGroupDetailsTypeDef",
+    "AwsWafRuleGroupRulesActionDetailsTypeDef",
+    "AwsWafRuleGroupRulesDetailsTypeDef",
+    "AwsWafRulePredicateListDetailsTypeDef",
     "AwsWafWebAclDetailsTypeDef",
     "AwsWafWebAclRuleTypeDef",
     "AwsXrayEncryptionConfigDetailsTypeDef",
@@ -438,6 +490,7 @@ __all__ = (
     "EnableImportFindingsForProductResponseTypeDef",
     "EnableOrganizationAdminAccountRequestRequestTypeDef",
     "EnableSecurityHubRequestRequestTypeDef",
+    "FilePathsTypeDef",
     "FindingAggregatorTypeDef",
     "FindingProviderFieldsTypeDef",
     "FindingProviderSeverityTypeDef",
@@ -553,6 +606,7 @@ __all__ = (
     "StringFilterTypeDef",
     "TagResourceRequestRequestTypeDef",
     "ThreatIntelIndicatorTypeDef",
+    "ThreatTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateActionTargetRequestRequestTypeDef",
     "UpdateFindingAggregatorRequestRequestTypeDef",
@@ -562,6 +616,10 @@ __all__ = (
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
     "UpdateSecurityHubConfigurationRequestRequestTypeDef",
     "UpdateStandardsControlRequestRequestTypeDef",
+    "VolumeMountTypeDef",
+    "VpcInfoCidrBlockSetDetailsTypeDef",
+    "VpcInfoIpv6CidrBlockSetDetailsTypeDef",
+    "VpcInfoPeeringOptionsDetailsTypeDef",
     "VulnerabilityTypeDef",
     "VulnerabilityVendorTypeDef",
     "WafActionTypeDef",
@@ -1006,6 +1064,146 @@ AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef = TypedDict(
     total=False,
 )
 
+AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef = TypedDict(
+    "AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef",
+    {
+        "BackupOptions": Dict[str, str],
+        "ResourceType": str,
+    },
+    total=False,
+)
+
+AwsBackupBackupPlanBackupPlanDetailsTypeDef = TypedDict(
+    "AwsBackupBackupPlanBackupPlanDetailsTypeDef",
+    {
+        "BackupPlanName": str,
+        "AdvancedBackupSettings": List["AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef"],
+        "BackupPlanRule": List["AwsBackupBackupPlanRuleDetailsTypeDef"],
+    },
+    total=False,
+)
+
+AwsBackupBackupPlanDetailsTypeDef = TypedDict(
+    "AwsBackupBackupPlanDetailsTypeDef",
+    {
+        "BackupPlan": "AwsBackupBackupPlanBackupPlanDetailsTypeDef",
+        "BackupPlanArn": str,
+        "BackupPlanId": str,
+        "VersionId": str,
+    },
+    total=False,
+)
+
+AwsBackupBackupPlanLifecycleDetailsTypeDef = TypedDict(
+    "AwsBackupBackupPlanLifecycleDetailsTypeDef",
+    {
+        "DeleteAfterDays": int,
+        "MoveToColdStorageAfterDays": int,
+    },
+    total=False,
+)
+
+AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef = TypedDict(
+    "AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef",
+    {
+        "DestinationBackupVaultArn": str,
+        "Lifecycle": "AwsBackupBackupPlanLifecycleDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsBackupBackupPlanRuleDetailsTypeDef = TypedDict(
+    "AwsBackupBackupPlanRuleDetailsTypeDef",
+    {
+        "TargetBackupVault": str,
+        "StartWindowMinutes": int,
+        "ScheduleExpression": str,
+        "RuleName": str,
+        "RuleId": str,
+        "EnableContinuousBackup": bool,
+        "CompletionWindowMinutes": int,
+        "CopyActions": List["AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef"],
+        "Lifecycle": "AwsBackupBackupPlanLifecycleDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsBackupBackupVaultDetailsTypeDef = TypedDict(
+    "AwsBackupBackupVaultDetailsTypeDef",
+    {
+        "BackupVaultArn": str,
+        "BackupVaultName": str,
+        "EncryptionKeyArn": str,
+        "Notifications": "AwsBackupBackupVaultNotificationsDetailsTypeDef",
+        "AccessPolicy": str,
+    },
+    total=False,
+)
+
+AwsBackupBackupVaultNotificationsDetailsTypeDef = TypedDict(
+    "AwsBackupBackupVaultNotificationsDetailsTypeDef",
+    {
+        "BackupVaultEvents": List[str],
+        "SnsTopicArn": str,
+    },
+    total=False,
+)
+
+AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef = TypedDict(
+    "AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef",
+    {
+        "DeleteAt": str,
+        "MoveToColdStorageAt": str,
+    },
+    total=False,
+)
+
+AwsBackupRecoveryPointCreatedByDetailsTypeDef = TypedDict(
+    "AwsBackupRecoveryPointCreatedByDetailsTypeDef",
+    {
+        "BackupPlanArn": str,
+        "BackupPlanId": str,
+        "BackupPlanVersion": str,
+        "BackupRuleId": str,
+    },
+    total=False,
+)
+
+AwsBackupRecoveryPointDetailsTypeDef = TypedDict(
+    "AwsBackupRecoveryPointDetailsTypeDef",
+    {
+        "BackupSizeInBytes": int,
+        "BackupVaultArn": str,
+        "BackupVaultName": str,
+        "CalculatedLifecycle": "AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef",
+        "CompletionDate": str,
+        "CreatedBy": "AwsBackupRecoveryPointCreatedByDetailsTypeDef",
+        "CreationDate": str,
+        "EncryptionKeyArn": str,
+        "IamRoleArn": str,
+        "IsEncrypted": bool,
+        "LastRestoreTime": str,
+        "Lifecycle": "AwsBackupRecoveryPointLifecycleDetailsTypeDef",
+        "RecoveryPointArn": str,
+        "ResourceArn": str,
+        "ResourceType": str,
+        "SourceBackupVaultArn": str,
+        "Status": str,
+        "StatusMessage": str,
+        "StorageClass": str,
+    },
+    total=False,
+)
+
+AwsBackupRecoveryPointLifecycleDetailsTypeDef = TypedDict(
+    "AwsBackupRecoveryPointLifecycleDetailsTypeDef",
+    {
+        "DeleteAfterDays": int,
+        "MoveToColdStorageAfterDays": int,
+    },
+    total=False,
+)
+
 AwsCertificateManagerCertificateDetailsTypeDef = TypedDict(
     "AwsCertificateManagerCertificateDetailsTypeDef",
     {
@@ -1099,6 +1297,46 @@ AwsCertificateManagerCertificateResourceRecordTypeDef = TypedDict(
     total=False,
 )
 
+AwsCloudFormationStackDetailsTypeDef = TypedDict(
+    "AwsCloudFormationStackDetailsTypeDef",
+    {
+        "Capabilities": List[str],
+        "CreationTime": str,
+        "Description": str,
+        "DisableRollback": bool,
+        "DriftInformation": "AwsCloudFormationStackDriftInformationDetailsTypeDef",
+        "EnableTerminationProtection": bool,
+        "LastUpdatedTime": str,
+        "NotificationArns": List[str],
+        "Outputs": List["AwsCloudFormationStackOutputsDetailsTypeDef"],
+        "RoleArn": str,
+        "StackId": str,
+        "StackName": str,
+        "StackStatus": str,
+        "StackStatusReason": str,
+        "TimeoutInMinutes": int,
+    },
+    total=False,
+)
+
+AwsCloudFormationStackDriftInformationDetailsTypeDef = TypedDict(
+    "AwsCloudFormationStackDriftInformationDetailsTypeDef",
+    {
+        "StackDriftStatus": str,
+    },
+    total=False,
+)
+
+AwsCloudFormationStackOutputsDetailsTypeDef = TypedDict(
+    "AwsCloudFormationStackOutputsDetailsTypeDef",
+    {
+        "Description": str,
+        "OutputKey": str,
+        "OutputValue": str,
+    },
+    total=False,
+)
+
 AwsCloudFrontDistributionCacheBehaviorTypeDef = TypedDict(
     "AwsCloudFrontDistributionCacheBehaviorTypeDef",
     {
@@ -1153,6 +1391,19 @@ AwsCloudFrontDistributionLoggingTypeDef = TypedDict(
     total=False,
 )
 
+AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef = TypedDict(
+    "AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef",
+    {
+        "HttpPort": int,
+        "HttpsPort": int,
+        "OriginKeepaliveTimeout": int,
+        "OriginProtocolPolicy": str,
+        "OriginReadTimeout": int,
+        "OriginSslProtocols": "AwsCloudFrontDistributionOriginSslProtocolsTypeDef",
+    },
+    total=False,
+)
+
 AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef = TypedDict(
     "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef",
     {
@@ -1193,6 +1444,7 @@ AwsCloudFrontDistributionOriginItemTypeDef = TypedDict(
         "Id": str,
         "OriginPath": str,
         "S3OriginConfig": "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
+        "CustomOriginConfig": "AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef",
     },
     total=False,
 )
@@ -1201,6 +1453,15 @@ AwsCloudFrontDistributionOriginS3OriginConfigTypeDef = TypedDict(
     "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
     {
         "OriginAccessIdentity": str,
+    },
+    total=False,
+)
+
+AwsCloudFrontDistributionOriginSslProtocolsTypeDef = TypedDict(
+    "AwsCloudFrontDistributionOriginSslProtocolsTypeDef",
+    {
+        "Items": List[str],
+        "Quantity": int,
     },
     total=False,
 )
@@ -1245,6 +1506,44 @@ AwsCloudTrailTrailDetailsTypeDef = TypedDict(
         "SnsTopicArn": str,
         "SnsTopicName": str,
         "TrailArn": str,
+    },
+    total=False,
+)
+
+AwsCloudWatchAlarmDetailsTypeDef = TypedDict(
+    "AwsCloudWatchAlarmDetailsTypeDef",
+    {
+        "ActionsEnabled": bool,
+        "AlarmActions": List[str],
+        "AlarmArn": str,
+        "AlarmConfigurationUpdatedTimestamp": str,
+        "AlarmDescription": str,
+        "AlarmName": str,
+        "ComparisonOperator": str,
+        "DatapointsToAlarm": int,
+        "Dimensions": List["AwsCloudWatchAlarmDimensionsDetailsTypeDef"],
+        "EvaluateLowSampleCountPercentile": str,
+        "EvaluationPeriods": int,
+        "ExtendedStatistic": str,
+        "InsufficientDataActions": List[str],
+        "MetricName": str,
+        "Namespace": str,
+        "OkActions": List[str],
+        "Period": int,
+        "Statistic": str,
+        "Threshold": float,
+        "ThresholdMetricId": str,
+        "TreatMissingData": str,
+        "Unit": str,
+    },
+    total=False,
+)
+
+AwsCloudWatchAlarmDimensionsDetailsTypeDef = TypedDict(
+    "AwsCloudWatchAlarmDimensionsDetailsTypeDef",
+    {
+        "Name": str,
+        "Value": str,
     },
     total=False,
 )
@@ -1570,6 +1869,20 @@ AwsEc2InstanceDetailsTypeDef = TypedDict(
         "SubnetId": str,
         "LaunchedAt": str,
         "NetworkInterfaces": List["AwsEc2InstanceNetworkInterfacesDetailsTypeDef"],
+        "VirtualizationType": str,
+        "MetadataOptions": "AwsEc2InstanceMetadataOptionsTypeDef",
+    },
+    total=False,
+)
+
+AwsEc2InstanceMetadataOptionsTypeDef = TypedDict(
+    "AwsEc2InstanceMetadataOptionsTypeDef",
+    {
+        "HttpEndpoint": str,
+        "HttpProtocolIpv6": str,
+        "HttpPutResponseHopLimit": int,
+        "HttpTokens": str,
+        "InstanceMetadataTags": str,
     },
     total=False,
 )
@@ -1759,6 +2072,25 @@ AwsEc2SubnetDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsEc2TransitGatewayDetailsTypeDef = TypedDict(
+    "AwsEc2TransitGatewayDetailsTypeDef",
+    {
+        "Id": str,
+        "Description": str,
+        "DefaultRouteTablePropagation": str,
+        "AutoAcceptSharedAttachments": str,
+        "DefaultRouteTableAssociation": str,
+        "TransitGatewayCidrBlocks": List[str],
+        "AssociationDefaultRouteTableId": str,
+        "PropagationDefaultRouteTableId": str,
+        "VpnEcmpSupport": str,
+        "DnsSupport": str,
+        "MulticastSupport": str,
+        "AmazonSideAsn": int,
+    },
+    total=False,
+)
+
 AwsEc2VolumeAttachmentTypeDef = TypedDict(
     "AwsEc2VolumeAttachmentTypeDef",
     {
@@ -1774,12 +2106,16 @@ AwsEc2VolumeDetailsTypeDef = TypedDict(
     "AwsEc2VolumeDetailsTypeDef",
     {
         "CreateTime": str,
+        "DeviceName": str,
         "Encrypted": bool,
         "Size": int,
         "SnapshotId": str,
         "Status": str,
         "KmsKeyId": str,
         "Attachments": List["AwsEc2VolumeAttachmentTypeDef"],
+        "VolumeId": str,
+        "VolumeType": str,
+        "VolumeScanStatus": str,
     },
     total=False,
 )
@@ -1817,6 +2153,41 @@ AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef = TypedDict(
     "AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef",
     {
         "ServiceType": str,
+    },
+    total=False,
+)
+
+AwsEc2VpcPeeringConnectionDetailsTypeDef = TypedDict(
+    "AwsEc2VpcPeeringConnectionDetailsTypeDef",
+    {
+        "AccepterVpcInfo": "AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef",
+        "ExpirationTime": str,
+        "RequesterVpcInfo": "AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef",
+        "Status": "AwsEc2VpcPeeringConnectionStatusDetailsTypeDef",
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
+)
+
+AwsEc2VpcPeeringConnectionStatusDetailsTypeDef = TypedDict(
+    "AwsEc2VpcPeeringConnectionStatusDetailsTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef = TypedDict(
+    "AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef",
+    {
+        "CidrBlock": str,
+        "CidrBlockSet": List["VpcInfoCidrBlockSetDetailsTypeDef"],
+        "Ipv6CidrBlockSet": List["VpcInfoIpv6CidrBlockSetDetailsTypeDef"],
+        "OwnerId": str,
+        "PeeringOptions": "VpcInfoPeeringOptionsDetailsTypeDef",
+        "Region": str,
+        "VpcId": str,
     },
     total=False,
 )
@@ -1988,12 +2359,29 @@ AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef = TypedDict(
 AwsEcsClusterDetailsTypeDef = TypedDict(
     "AwsEcsClusterDetailsTypeDef",
     {
+        "ClusterArn": str,
+        "ActiveServicesCount": int,
         "CapacityProviders": List[str],
         "ClusterSettings": List["AwsEcsClusterClusterSettingsDetailsTypeDef"],
         "Configuration": "AwsEcsClusterConfigurationDetailsTypeDef",
         "DefaultCapacityProviderStrategy": List[
             "AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef"
         ],
+        "ClusterName": str,
+        "RegisteredContainerInstancesCount": int,
+        "RunningTasksCount": int,
+        "Status": str,
+    },
+    total=False,
+)
+
+AwsEcsContainerDetailsTypeDef = TypedDict(
+    "AwsEcsContainerDetailsTypeDef",
+    {
+        "Name": str,
+        "Image": str,
+        "MountPoints": List["AwsMountPointTypeDef"],
+        "Privileged": bool,
     },
     total=False,
 )
@@ -2479,6 +2867,81 @@ AwsEcsTaskDefinitionVolumesHostDetailsTypeDef = TypedDict(
     "AwsEcsTaskDefinitionVolumesHostDetailsTypeDef",
     {
         "SourcePath": str,
+    },
+    total=False,
+)
+
+AwsEcsTaskDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDetailsTypeDef",
+    {
+        "ClusterArn": str,
+        "TaskDefinitionArn": str,
+        "Version": str,
+        "CreatedAt": str,
+        "StartedAt": str,
+        "StartedBy": str,
+        "Group": str,
+        "Volumes": List["AwsEcsTaskVolumeDetailsTypeDef"],
+        "Containers": List["AwsEcsContainerDetailsTypeDef"],
+    },
+    total=False,
+)
+
+AwsEcsTaskVolumeDetailsTypeDef = TypedDict(
+    "AwsEcsTaskVolumeDetailsTypeDef",
+    {
+        "Name": str,
+        "Host": "AwsEcsTaskVolumeHostDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsEcsTaskVolumeHostDetailsTypeDef = TypedDict(
+    "AwsEcsTaskVolumeHostDetailsTypeDef",
+    {
+        "SourcePath": str,
+    },
+    total=False,
+)
+
+AwsEfsAccessPointDetailsTypeDef = TypedDict(
+    "AwsEfsAccessPointDetailsTypeDef",
+    {
+        "AccessPointId": str,
+        "Arn": str,
+        "ClientToken": str,
+        "FileSystemId": str,
+        "PosixUser": "AwsEfsAccessPointPosixUserDetailsTypeDef",
+        "RootDirectory": "AwsEfsAccessPointRootDirectoryDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsEfsAccessPointPosixUserDetailsTypeDef = TypedDict(
+    "AwsEfsAccessPointPosixUserDetailsTypeDef",
+    {
+        "Gid": str,
+        "SecondaryGids": List[str],
+        "Uid": str,
+    },
+    total=False,
+)
+
+AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef = TypedDict(
+    "AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef",
+    {
+        "OwnerGid": str,
+        "OwnerUid": str,
+        "Permissions": str,
+    },
+    total=False,
+)
+
+AwsEfsAccessPointRootDirectoryDetailsTypeDef = TypedDict(
+    "AwsEfsAccessPointRootDirectoryDetailsTypeDef",
+    {
+        "CreationInfo": "AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef",
+        "Path": str,
     },
     total=False,
 )
@@ -3072,6 +3535,27 @@ AwsIamUserPolicyTypeDef = TypedDict(
     total=False,
 )
 
+AwsKinesisStreamDetailsTypeDef = TypedDict(
+    "AwsKinesisStreamDetailsTypeDef",
+    {
+        "Name": str,
+        "Arn": str,
+        "StreamEncryption": "AwsKinesisStreamStreamEncryptionDetailsTypeDef",
+        "ShardCount": int,
+        "RetentionPeriodHours": int,
+    },
+    total=False,
+)
+
+AwsKinesisStreamStreamEncryptionDetailsTypeDef = TypedDict(
+    "AwsKinesisStreamStreamEncryptionDetailsTypeDef",
+    {
+        "EncryptionType": str,
+        "KeyId": str,
+    },
+    total=False,
+)
+
 AwsKmsKeyDetailsTypeDef = TypedDict(
     "AwsKmsKeyDetailsTypeDef",
     {
@@ -3186,6 +3670,15 @@ AwsLambdaLayerVersionDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsMountPointTypeDef = TypedDict(
+    "AwsMountPointTypeDef",
+    {
+        "SourceVolume": str,
+        "ContainerPath": str,
+    },
+    total=False,
+)
+
 AwsNetworkFirewallFirewallDetailsTypeDef = TypedDict(
     "AwsNetworkFirewallFirewallDetailsTypeDef",
     {
@@ -3237,6 +3730,16 @@ AwsNetworkFirewallRuleGroupDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef = TypedDict(
+    "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef",
+    {
+        "Enabled": bool,
+        "InternalUserDatabaseEnabled": bool,
+        "MasterUserOptions": "AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef",
+    },
+    total=False,
+)
+
 AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef = TypedDict(
     "AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef",
     {
@@ -3279,6 +3782,7 @@ AwsOpenSearchServiceDomainDetailsTypeDef = TypedDict(
         "VpcOptions": "AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef",
         "LogPublishingOptions": "AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef",
         "DomainEndpoints": Dict[str, str],
+        "AdvancedSecurityOptions": "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef",
     },
     total=False,
 )
@@ -3319,6 +3823,16 @@ AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef = TypedDict(
         "IndexSlowLogs": "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
         "SearchSlowLogs": "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
         "AuditLogs": "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
+    },
+    total=False,
+)
+
+AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef = TypedDict(
+    "AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef",
+    {
+        "MasterUserArn": str,
+        "MasterUserName": str,
+        "MasterUserPassword": str,
     },
     total=False,
 )
@@ -4408,6 +4922,7 @@ _OptionalAwsSecurityFindingTypeDef = TypedDict(
         "Network": "NetworkTypeDef",
         "NetworkPath": List["NetworkPathComponentTypeDef"],
         "Process": "ProcessDetailsTypeDef",
+        "Threats": List["ThreatTypeDef"],
         "ThreatIntelIndicators": List["ThreatIntelIndicatorTypeDef"],
         "Compliance": "ComplianceTypeDef",
         "VerificationState": VerificationStateType,
@@ -4437,6 +4952,13 @@ AwsSnsTopicDetailsTypeDef = TypedDict(
         "Subscription": List["AwsSnsTopicSubscriptionTypeDef"],
         "TopicName": str,
         "Owner": str,
+        "SqsSuccessFeedbackRoleArn": str,
+        "SqsFailureFeedbackRoleArn": str,
+        "ApplicationSuccessFeedbackRoleArn": str,
+        "FirehoseSuccessFeedbackRoleArn": str,
+        "FirehoseFailureFeedbackRoleArn": str,
+        "HttpSuccessFeedbackRoleArn": str,
+        "HttpFailureFeedbackRoleArn": str,
     },
     total=False,
 )
@@ -4540,6 +5062,148 @@ AwsWafRegionalRateBasedRuleDetailsTypeDef = TypedDict(
 
 AwsWafRegionalRateBasedRuleMatchPredicateTypeDef = TypedDict(
     "AwsWafRegionalRateBasedRuleMatchPredicateTypeDef",
+    {
+        "DataId": str,
+        "Negated": bool,
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRegionalRuleDetailsTypeDef = TypedDict(
+    "AwsWafRegionalRuleDetailsTypeDef",
+    {
+        "MetricName": str,
+        "Name": str,
+        "PredicateList": List["AwsWafRegionalRulePredicateListDetailsTypeDef"],
+        "RuleId": str,
+    },
+    total=False,
+)
+
+AwsWafRegionalRuleGroupDetailsTypeDef = TypedDict(
+    "AwsWafRegionalRuleGroupDetailsTypeDef",
+    {
+        "MetricName": str,
+        "Name": str,
+        "RuleGroupId": str,
+        "Rules": List["AwsWafRegionalRuleGroupRulesDetailsTypeDef"],
+    },
+    total=False,
+)
+
+AwsWafRegionalRuleGroupRulesActionDetailsTypeDef = TypedDict(
+    "AwsWafRegionalRuleGroupRulesActionDetailsTypeDef",
+    {
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRegionalRuleGroupRulesDetailsTypeDef = TypedDict(
+    "AwsWafRegionalRuleGroupRulesDetailsTypeDef",
+    {
+        "Action": "AwsWafRegionalRuleGroupRulesActionDetailsTypeDef",
+        "Priority": int,
+        "RuleId": str,
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRegionalRulePredicateListDetailsTypeDef = TypedDict(
+    "AwsWafRegionalRulePredicateListDetailsTypeDef",
+    {
+        "DataId": str,
+        "Negated": bool,
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRegionalWebAclDetailsTypeDef = TypedDict(
+    "AwsWafRegionalWebAclDetailsTypeDef",
+    {
+        "DefaultAction": str,
+        "MetricName": str,
+        "Name": str,
+        "RulesList": List["AwsWafRegionalWebAclRulesListDetailsTypeDef"],
+        "WebAclId": str,
+    },
+    total=False,
+)
+
+AwsWafRegionalWebAclRulesListActionDetailsTypeDef = TypedDict(
+    "AwsWafRegionalWebAclRulesListActionDetailsTypeDef",
+    {
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRegionalWebAclRulesListDetailsTypeDef = TypedDict(
+    "AwsWafRegionalWebAclRulesListDetailsTypeDef",
+    {
+        "Action": "AwsWafRegionalWebAclRulesListActionDetailsTypeDef",
+        "OverrideAction": "AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef",
+        "Priority": int,
+        "RuleId": str,
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef = TypedDict(
+    "AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef",
+    {
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRuleDetailsTypeDef = TypedDict(
+    "AwsWafRuleDetailsTypeDef",
+    {
+        "MetricName": str,
+        "Name": str,
+        "PredicateList": List["AwsWafRulePredicateListDetailsTypeDef"],
+        "RuleId": str,
+    },
+    total=False,
+)
+
+AwsWafRuleGroupDetailsTypeDef = TypedDict(
+    "AwsWafRuleGroupDetailsTypeDef",
+    {
+        "MetricName": str,
+        "Name": str,
+        "RuleGroupId": str,
+        "Rules": List["AwsWafRuleGroupRulesDetailsTypeDef"],
+    },
+    total=False,
+)
+
+AwsWafRuleGroupRulesActionDetailsTypeDef = TypedDict(
+    "AwsWafRuleGroupRulesActionDetailsTypeDef",
+    {
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRuleGroupRulesDetailsTypeDef = TypedDict(
+    "AwsWafRuleGroupRulesDetailsTypeDef",
+    {
+        "Action": "AwsWafRuleGroupRulesActionDetailsTypeDef",
+        "Priority": int,
+        "RuleId": str,
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsWafRulePredicateListDetailsTypeDef = TypedDict(
+    "AwsWafRulePredicateListDetailsTypeDef",
     {
         "DataId": str,
         "Negated": bool,
@@ -4747,10 +5411,13 @@ ComplianceTypeDef = TypedDict(
 ContainerDetailsTypeDef = TypedDict(
     "ContainerDetailsTypeDef",
     {
+        "ContainerRuntime": str,
         "Name": str,
         "ImageId": str,
         "ImageName": str,
         "LaunchedAt": str,
+        "VolumeMounts": List["VolumeMountTypeDef"],
+        "Privileged": bool,
     },
     total=False,
 )
@@ -5158,6 +5825,17 @@ EnableSecurityHubRequestRequestTypeDef = TypedDict(
     {
         "Tags": Dict[str, str],
         "EnableDefaultStandards": bool,
+    },
+    total=False,
+)
+
+FilePathsTypeDef = TypedDict(
+    "FilePathsTypeDef",
+    {
+        "FilePath": str,
+        "FileName": str,
+        "ResourceId": str,
+        "Hash": str,
     },
     total=False,
 )
@@ -5951,6 +6629,7 @@ ResourceDetailsTypeDef = TypedDict(
         "AwsRdsDbClusterSnapshot": "AwsRdsDbClusterSnapshotDetailsTypeDef",
         "AwsRdsDbCluster": "AwsRdsDbClusterDetailsTypeDef",
         "AwsEcsCluster": "AwsEcsClusterDetailsTypeDef",
+        "AwsEcsContainer": "AwsEcsContainerDetailsTypeDef",
         "AwsEcsTaskDefinition": "AwsEcsTaskDefinitionDetailsTypeDef",
         "Container": "ContainerDetailsTypeDef",
         "Other": Dict[str, str],
@@ -5970,6 +6649,21 @@ ResourceDetailsTypeDef = TypedDict(
         "AwsNetworkFirewallFirewall": "AwsNetworkFirewallFirewallDetailsTypeDef",
         "AwsNetworkFirewallRuleGroup": "AwsNetworkFirewallRuleGroupDetailsTypeDef",
         "AwsRdsDbSecurityGroup": "AwsRdsDbSecurityGroupDetailsTypeDef",
+        "AwsKinesisStream": "AwsKinesisStreamDetailsTypeDef",
+        "AwsEc2TransitGateway": "AwsEc2TransitGatewayDetailsTypeDef",
+        "AwsEfsAccessPoint": "AwsEfsAccessPointDetailsTypeDef",
+        "AwsCloudFormationStack": "AwsCloudFormationStackDetailsTypeDef",
+        "AwsCloudWatchAlarm": "AwsCloudWatchAlarmDetailsTypeDef",
+        "AwsEc2VpcPeeringConnection": "AwsEc2VpcPeeringConnectionDetailsTypeDef",
+        "AwsWafRegionalRuleGroup": "AwsWafRegionalRuleGroupDetailsTypeDef",
+        "AwsWafRegionalRule": "AwsWafRegionalRuleDetailsTypeDef",
+        "AwsWafRegionalWebAcl": "AwsWafRegionalWebAclDetailsTypeDef",
+        "AwsWafRule": "AwsWafRuleDetailsTypeDef",
+        "AwsWafRuleGroup": "AwsWafRuleGroupDetailsTypeDef",
+        "AwsEcsTask": "AwsEcsTaskDetailsTypeDef",
+        "AwsBackupBackupVault": "AwsBackupBackupVaultDetailsTypeDef",
+        "AwsBackupBackupPlan": "AwsBackupBackupPlanDetailsTypeDef",
+        "AwsBackupRecoveryPoint": "AwsBackupRecoveryPointDetailsTypeDef",
     },
     total=False,
 )
@@ -6249,6 +6943,8 @@ SoftwarePackageTypeDef = TypedDict(
         "Architecture": str,
         "PackageManager": str,
         "FilePath": str,
+        "FixedInVersion": str,
+        "Remediation": str,
     },
     total=False,
 )
@@ -6409,6 +7105,17 @@ ThreatIntelIndicatorTypeDef = TypedDict(
     total=False,
 )
 
+ThreatTypeDef = TypedDict(
+    "ThreatTypeDef",
+    {
+        "Name": str,
+        "Severity": str,
+        "ItemCount": int,
+        "FilePaths": List["FilePathsTypeDef"],
+    },
+    total=False,
+)
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -6560,6 +7267,41 @@ class UpdateStandardsControlRequestRequestTypeDef(
 ):
     pass
 
+VolumeMountTypeDef = TypedDict(
+    "VolumeMountTypeDef",
+    {
+        "Name": str,
+        "MountPath": str,
+    },
+    total=False,
+)
+
+VpcInfoCidrBlockSetDetailsTypeDef = TypedDict(
+    "VpcInfoCidrBlockSetDetailsTypeDef",
+    {
+        "CidrBlock": str,
+    },
+    total=False,
+)
+
+VpcInfoIpv6CidrBlockSetDetailsTypeDef = TypedDict(
+    "VpcInfoIpv6CidrBlockSetDetailsTypeDef",
+    {
+        "Ipv6CidrBlock": str,
+    },
+    total=False,
+)
+
+VpcInfoPeeringOptionsDetailsTypeDef = TypedDict(
+    "VpcInfoPeeringOptionsDetailsTypeDef",
+    {
+        "AllowDnsResolutionFromRemoteVpc": bool,
+        "AllowEgressFromLocalClassicLinkToRemoteVpc": bool,
+        "AllowEgressFromLocalVpcToRemoteClassicLink": bool,
+    },
+    total=False,
+)
+
 _RequiredVulnerabilityTypeDef = TypedDict(
     "_RequiredVulnerabilityTypeDef",
     {
@@ -6574,6 +7316,7 @@ _OptionalVulnerabilityTypeDef = TypedDict(
         "RelatedVulnerabilities": List[str],
         "Vendor": "VulnerabilityVendorTypeDef",
         "ReferenceUrls": List[str],
+        "FixAvailable": VulnerabilityFixAvailableType,
     },
     total=False,
 )

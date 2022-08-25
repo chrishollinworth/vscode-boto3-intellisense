@@ -24,13 +24,11 @@ from .literals import (
     CustomRoutingProtocolType,
     HealthCheckProtocolType,
     HealthStateType,
+    IpAddressFamilyType,
+    IpAddressTypeType,
     ProtocolType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -38,6 +36,7 @@ else:
 
 __all__ = (
     "AcceleratorAttributesTypeDef",
+    "AcceleratorEventTypeDef",
     "AcceleratorTypeDef",
     "AddCustomRoutingEndpointsRequestRequestTypeDef",
     "AddCustomRoutingEndpointsResponseTypeDef",
@@ -158,18 +157,29 @@ AcceleratorAttributesTypeDef = TypedDict(
     total=False,
 )
 
+AcceleratorEventTypeDef = TypedDict(
+    "AcceleratorEventTypeDef",
+    {
+        "Message": str,
+        "Timestamp": datetime,
+    },
+    total=False,
+)
+
 AcceleratorTypeDef = TypedDict(
     "AcceleratorTypeDef",
     {
         "AcceleratorArn": str,
         "Name": str,
-        "IpAddressType": Literal["IPV4"],
+        "IpAddressType": IpAddressTypeType,
         "Enabled": bool,
         "IpSets": List["IpSetTypeDef"],
         "DnsName": str,
         "Status": AcceleratorStatusType,
         "CreatedTime": datetime,
         "LastModifiedTime": datetime,
+        "DualStackDnsName": str,
+        "Events": List["AcceleratorEventTypeDef"],
     },
     total=False,
 )
@@ -266,7 +276,7 @@ _RequiredCreateAcceleratorRequestRequestTypeDef = TypedDict(
 _OptionalCreateAcceleratorRequestRequestTypeDef = TypedDict(
     "_OptionalCreateAcceleratorRequestRequestTypeDef",
     {
-        "IpAddressType": Literal["IPV4"],
+        "IpAddressType": IpAddressTypeType,
         "IpAddresses": List[str],
         "Enabled": bool,
         "Tags": List["TagTypeDef"],
@@ -297,7 +307,7 @@ _RequiredCreateCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
 _OptionalCreateCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
     "_OptionalCreateCustomRoutingAcceleratorRequestRequestTypeDef",
     {
-        "IpAddressType": Literal["IPV4"],
+        "IpAddressType": IpAddressTypeType,
         "IpAddresses": List[str],
         "Enabled": bool,
         "Tags": List["TagTypeDef"],
@@ -436,7 +446,7 @@ CustomRoutingAcceleratorTypeDef = TypedDict(
     {
         "AcceleratorArn": str,
         "Name": str,
-        "IpAddressType": Literal["IPV4"],
+        "IpAddressType": IpAddressTypeType,
         "Enabled": bool,
         "IpSets": List["IpSetTypeDef"],
         "DnsName": str,
@@ -711,7 +721,7 @@ DestinationPortMappingTypeDef = TypedDict(
         "EndpointId": str,
         "EndpointGroupRegion": str,
         "DestinationSocketAddress": "SocketAddressTypeDef",
-        "IpAddressType": Literal["IPV4"],
+        "IpAddressType": IpAddressTypeType,
         "DestinationTrafficState": CustomRoutingDestinationTrafficStateType,
     },
     total=False,
@@ -761,6 +771,7 @@ IpSetTypeDef = TypedDict(
     {
         "IpFamily": str,
         "IpAddresses": List[str],
+        "IpAddressFamily": IpAddressFamilyType,
     },
     total=False,
 )
@@ -1175,7 +1186,7 @@ _OptionalUpdateAcceleratorRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateAcceleratorRequestRequestTypeDef",
     {
         "Name": str,
-        "IpAddressType": Literal["IPV4"],
+        "IpAddressType": IpAddressTypeType,
         "Enabled": bool,
     },
     total=False,
@@ -1234,7 +1245,7 @@ _OptionalUpdateCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateCustomRoutingAcceleratorRequestRequestTypeDef",
     {
         "Name": str,
-        "IpAddressType": Literal["IPV4"],
+        "IpAddressType": IpAddressTypeType,
         "Enabled": bool,
     },
     total=False,

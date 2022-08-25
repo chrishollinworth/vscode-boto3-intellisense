@@ -12,6 +12,8 @@ Usage::
         ListFeaturesPaginator,
         ListLaunchesPaginator,
         ListProjectsPaginator,
+        ListSegmentReferencesPaginator,
+        ListSegmentsPaginator,
     )
 
     session = boto3.Session()
@@ -23,6 +25,8 @@ Usage::
     list_features_paginator: ListFeaturesPaginator = client.get_paginator("list_features")
     list_launches_paginator: ListLaunchesPaginator = client.get_paginator("list_launches")
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
+    list_segment_references_paginator: ListSegmentReferencesPaginator = client.get_paginator("list_segment_references")
+    list_segments_paginator: ListSegmentsPaginator = client.get_paginator("list_segments")
     ```
 """
 from .client import CloudWatchEvidentlyClient
@@ -31,6 +35,8 @@ from .paginator import (
     ListFeaturesPaginator,
     ListLaunchesPaginator,
     ListProjectsPaginator,
+    ListSegmentReferencesPaginator,
+    ListSegmentsPaginator,
 )
 
 Client = CloudWatchEvidentlyClient
@@ -42,4 +48,6 @@ __all__ = (
     "ListFeaturesPaginator",
     "ListLaunchesPaginator",
     "ListProjectsPaginator",
+    "ListSegmentReferencesPaginator",
+    "ListSegmentsPaginator",
 )

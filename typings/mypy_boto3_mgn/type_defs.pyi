@@ -29,14 +29,21 @@ from .literals import (
     LaunchDispositionType,
     LaunchStatusType,
     LifeCycleStateType,
+    PostLaunchActionExecutionStatusType,
+    PostLaunchActionsDeploymentTypeType,
     ReplicationConfigurationDataPlaneRoutingType,
     ReplicationConfigurationDefaultLargeStagingDiskTypeType,
     ReplicationConfigurationEbsEncryptionType,
     ReplicationConfigurationReplicatedDiskStagingDiskTypeType,
     ReplicationTypeType,
+    SsmDocumentTypeType,
     TargetInstanceTypeRightSizingMethodType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -46,6 +53,7 @@ __all__ = (
     "CPUTypeDef",
     "ChangeServerLifeCycleStateRequestRequestTypeDef",
     "ChangeServerLifeCycleStateSourceServerLifecycleTypeDef",
+    "CreateLaunchConfigurationTemplateRequestRequestTypeDef",
     "CreateReplicationConfigurationTemplateRequestRequestTypeDef",
     "DataReplicationErrorTypeDef",
     "DataReplicationInfoReplicatedDiskTypeDef",
@@ -53,6 +61,7 @@ __all__ = (
     "DataReplicationInitiationStepTypeDef",
     "DataReplicationInitiationTypeDef",
     "DeleteJobRequestRequestTypeDef",
+    "DeleteLaunchConfigurationTemplateRequestRequestTypeDef",
     "DeleteReplicationConfigurationTemplateRequestRequestTypeDef",
     "DeleteSourceServerRequestRequestTypeDef",
     "DeleteVcenterClientRequestRequestTypeDef",
@@ -61,6 +70,8 @@ __all__ = (
     "DescribeJobsRequestFiltersTypeDef",
     "DescribeJobsRequestRequestTypeDef",
     "DescribeJobsResponseTypeDef",
+    "DescribeLaunchConfigurationTemplatesRequestRequestTypeDef",
+    "DescribeLaunchConfigurationTemplatesResponseTypeDef",
     "DescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
     "DescribeReplicationConfigurationTemplatesResponseTypeDef",
     "DescribeSourceServersRequestFiltersTypeDef",
@@ -76,7 +87,10 @@ __all__ = (
     "IdentificationHintsTypeDef",
     "JobLogEventDataTypeDef",
     "JobLogTypeDef",
+    "JobPostLaunchActionsLaunchStatusTypeDef",
     "JobTypeDef",
+    "LaunchConfigurationTemplateResponseMetadataTypeDef",
+    "LaunchConfigurationTemplateTypeDef",
     "LaunchConfigurationTypeDef",
     "LaunchedInstanceTypeDef",
     "LicensingTypeDef",
@@ -96,6 +110,8 @@ __all__ = (
     "OSTypeDef",
     "PaginatorConfigTypeDef",
     "ParticipatingServerTypeDef",
+    "PostLaunchActionsStatusTypeDef",
+    "PostLaunchActionsTypeDef",
     "ReplicationConfigurationReplicatedDiskTypeDef",
     "ReplicationConfigurationTemplateResponseMetadataTypeDef",
     "ReplicationConfigurationTemplateTypeDef",
@@ -105,6 +121,8 @@ __all__ = (
     "SourcePropertiesTypeDef",
     "SourceServerResponseMetadataTypeDef",
     "SourceServerTypeDef",
+    "SsmDocumentTypeDef",
+    "SsmParameterStoreParameterTypeDef",
     "StartCutoverRequestRequestTypeDef",
     "StartCutoverResponseTypeDef",
     "StartReplicationRequestRequestTypeDef",
@@ -115,6 +133,7 @@ __all__ = (
     "TerminateTargetInstancesResponseTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateLaunchConfigurationRequestRequestTypeDef",
+    "UpdateLaunchConfigurationTemplateRequestRequestTypeDef",
     "UpdateReplicationConfigurationRequestRequestTypeDef",
     "UpdateReplicationConfigurationTemplateRequestRequestTypeDef",
     "UpdateSourceServerReplicationTypeRequestRequestTypeDef",
@@ -143,6 +162,15 @@ ChangeServerLifeCycleStateSourceServerLifecycleTypeDef = TypedDict(
     {
         "state": ChangeServerLifeCycleStateSourceServerLifecycleStateType,
     },
+)
+
+CreateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
+    "CreateLaunchConfigurationTemplateRequestRequestTypeDef",
+    {
+        "postLaunchActions": "PostLaunchActionsTypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
 )
 
 _RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
@@ -237,6 +265,13 @@ DeleteJobRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteLaunchConfigurationTemplateRequestRequestTypeDef",
+    {
+        "launchConfigurationTemplateID": str,
+    },
+)
+
 DeleteReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
     "DeleteReplicationConfigurationTemplateRequestRequestTypeDef",
     {
@@ -312,6 +347,25 @@ DescribeJobsResponseTypeDef = TypedDict(
     "DescribeJobsResponseTypeDef",
     {
         "items": List["JobTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLaunchConfigurationTemplatesRequestRequestTypeDef = TypedDict(
+    "DescribeLaunchConfigurationTemplatesRequestRequestTypeDef",
+    {
+        "launchConfigurationTemplateIDs": List[str],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+DescribeLaunchConfigurationTemplatesResponseTypeDef = TypedDict(
+    "DescribeLaunchConfigurationTemplatesResponseTypeDef",
+    {
+        "items": List["LaunchConfigurationTemplateTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -454,6 +508,18 @@ JobLogTypeDef = TypedDict(
     total=False,
 )
 
+JobPostLaunchActionsLaunchStatusTypeDef = TypedDict(
+    "JobPostLaunchActionsLaunchStatusTypeDef",
+    {
+        "executionID": str,
+        "executionStatus": PostLaunchActionExecutionStatusType,
+        "failureReason": str,
+        "ssmDocument": "SsmDocumentTypeDef",
+        "ssmDocumentType": SsmDocumentTypeType,
+    },
+    total=False,
+)
+
 _RequiredJobTypeDef = TypedDict(
     "_RequiredJobTypeDef",
     {
@@ -478,6 +544,38 @@ _OptionalJobTypeDef = TypedDict(
 class JobTypeDef(_RequiredJobTypeDef, _OptionalJobTypeDef):
     pass
 
+LaunchConfigurationTemplateResponseMetadataTypeDef = TypedDict(
+    "LaunchConfigurationTemplateResponseMetadataTypeDef",
+    {
+        "arn": str,
+        "launchConfigurationTemplateID": str,
+        "postLaunchActions": "PostLaunchActionsTypeDef",
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredLaunchConfigurationTemplateTypeDef = TypedDict(
+    "_RequiredLaunchConfigurationTemplateTypeDef",
+    {
+        "launchConfigurationTemplateID": str,
+    },
+)
+_OptionalLaunchConfigurationTemplateTypeDef = TypedDict(
+    "_OptionalLaunchConfigurationTemplateTypeDef",
+    {
+        "arn": str,
+        "postLaunchActions": "PostLaunchActionsTypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class LaunchConfigurationTemplateTypeDef(
+    _RequiredLaunchConfigurationTemplateTypeDef, _OptionalLaunchConfigurationTemplateTypeDef
+):
+    pass
+
 LaunchConfigurationTypeDef = TypedDict(
     "LaunchConfigurationTypeDef",
     {
@@ -488,6 +586,7 @@ LaunchConfigurationTypeDef = TypedDict(
         "launchDisposition": LaunchDispositionType,
         "licensing": "LicensingTypeDef",
         "name": str,
+        "postLaunchActions": "PostLaunchActionsTypeDef",
         "sourceServerID": str,
         "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -646,11 +745,44 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
-ParticipatingServerTypeDef = TypedDict(
-    "ParticipatingServerTypeDef",
+_RequiredParticipatingServerTypeDef = TypedDict(
+    "_RequiredParticipatingServerTypeDef",
+    {
+        "sourceServerID": str,
+    },
+)
+_OptionalParticipatingServerTypeDef = TypedDict(
+    "_OptionalParticipatingServerTypeDef",
     {
         "launchStatus": LaunchStatusType,
-        "sourceServerID": str,
+        "launchedEc2InstanceID": str,
+        "postLaunchActionsStatus": "PostLaunchActionsStatusTypeDef",
+    },
+    total=False,
+)
+
+class ParticipatingServerTypeDef(
+    _RequiredParticipatingServerTypeDef, _OptionalParticipatingServerTypeDef
+):
+    pass
+
+PostLaunchActionsStatusTypeDef = TypedDict(
+    "PostLaunchActionsStatusTypeDef",
+    {
+        "postLaunchActionsLaunchStatusList": List["JobPostLaunchActionsLaunchStatusTypeDef"],
+        "ssmAgentDiscoveryDatetime": str,
+    },
+    total=False,
+)
+
+PostLaunchActionsTypeDef = TypedDict(
+    "PostLaunchActionsTypeDef",
+    {
+        "cloudWatchLogGroupName": str,
+        "deployment": PostLaunchActionsDeploymentTypeType,
+        "s3LogBucket": str,
+        "s3OutputKeyPrefix": str,
+        "ssmDocuments": List["SsmDocumentTypeDef"],
     },
     total=False,
 )
@@ -811,6 +943,34 @@ SourceServerTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSsmDocumentTypeDef = TypedDict(
+    "_RequiredSsmDocumentTypeDef",
+    {
+        "actionName": str,
+        "ssmDocumentName": str,
+    },
+)
+_OptionalSsmDocumentTypeDef = TypedDict(
+    "_OptionalSsmDocumentTypeDef",
+    {
+        "mustSucceedForCutover": bool,
+        "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
+        "timeoutSeconds": int,
+    },
+    total=False,
+)
+
+class SsmDocumentTypeDef(_RequiredSsmDocumentTypeDef, _OptionalSsmDocumentTypeDef):
+    pass
+
+SsmParameterStoreParameterTypeDef = TypedDict(
+    "SsmParameterStoreParameterTypeDef",
+    {
+        "parameterName": str,
+        "parameterType": Literal["STRING"],
+    },
+)
+
 _RequiredStartCutoverRequestRequestTypeDef = TypedDict(
     "_RequiredStartCutoverRequestRequestTypeDef",
     {
@@ -931,6 +1091,7 @@ _OptionalUpdateLaunchConfigurationRequestRequestTypeDef = TypedDict(
         "launchDisposition": LaunchDispositionType,
         "licensing": "LicensingTypeDef",
         "name": str,
+        "postLaunchActions": "PostLaunchActionsTypeDef",
         "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
     },
     total=False,
@@ -939,6 +1100,26 @@ _OptionalUpdateLaunchConfigurationRequestRequestTypeDef = TypedDict(
 class UpdateLaunchConfigurationRequestRequestTypeDef(
     _RequiredUpdateLaunchConfigurationRequestRequestTypeDef,
     _OptionalUpdateLaunchConfigurationRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef",
+    {
+        "launchConfigurationTemplateID": str,
+    },
+)
+_OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef",
+    {
+        "postLaunchActions": "PostLaunchActionsTypeDef",
+    },
+    total=False,
+)
+
+class UpdateLaunchConfigurationTemplateRequestRequestTypeDef(
+    _RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef,
+    _OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef,
 ):
     pass
 

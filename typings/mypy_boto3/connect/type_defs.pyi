@@ -334,13 +334,18 @@ __all__ = (
     "S3ConfigTypeDef",
     "SearchAvailablePhoneNumbersRequestRequestTypeDef",
     "SearchAvailablePhoneNumbersResponseTypeDef",
+    "SearchSecurityProfilesRequestRequestTypeDef",
+    "SearchSecurityProfilesResponseTypeDef",
     "SearchUsersRequestRequestTypeDef",
     "SearchUsersResponseTypeDef",
     "SearchVocabulariesRequestRequestTypeDef",
     "SearchVocabulariesResponseTypeDef",
     "SecurityKeyTypeDef",
+    "SecurityProfileSearchCriteriaTypeDef",
+    "SecurityProfileSearchSummaryTypeDef",
     "SecurityProfileSummaryTypeDef",
     "SecurityProfileTypeDef",
+    "SecurityProfilesSearchFilterTypeDef",
     "StartChatContactRequestRequestTypeDef",
     "StartChatContactResponseTypeDef",
     "StartContactRecordingRequestRequestTypeDef",
@@ -3593,6 +3598,39 @@ SearchAvailablePhoneNumbersResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredSearchSecurityProfilesRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchSecurityProfilesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalSearchSecurityProfilesRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchSecurityProfilesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "SearchCriteria": "SecurityProfileSearchCriteriaTypeDef",
+        "SearchFilter": "SecurityProfilesSearchFilterTypeDef",
+    },
+    total=False,
+)
+
+class SearchSecurityProfilesRequestRequestTypeDef(
+    _RequiredSearchSecurityProfilesRequestRequestTypeDef,
+    _OptionalSearchSecurityProfilesRequestRequestTypeDef,
+):
+    pass
+
+SearchSecurityProfilesResponseTypeDef = TypedDict(
+    "SearchSecurityProfilesResponseTypeDef",
+    {
+        "SecurityProfiles": List["SecurityProfileSearchSummaryTypeDef"],
+        "NextToken": str,
+        "ApproximateTotalCount": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 SearchUsersRequestRequestTypeDef = TypedDict(
     "SearchUsersRequestRequestTypeDef",
     {
@@ -3658,6 +3696,29 @@ SecurityKeyTypeDef = TypedDict(
     total=False,
 )
 
+SecurityProfileSearchCriteriaTypeDef = TypedDict(
+    "SecurityProfileSearchCriteriaTypeDef",
+    {
+        "OrConditions": List[Dict[str, Any]],
+        "AndConditions": List[Dict[str, Any]],
+        "StringCondition": "StringConditionTypeDef",
+    },
+    total=False,
+)
+
+SecurityProfileSearchSummaryTypeDef = TypedDict(
+    "SecurityProfileSearchSummaryTypeDef",
+    {
+        "Id": str,
+        "OrganizationResourceId": str,
+        "Arn": str,
+        "SecurityProfileName": str,
+        "Description": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
 SecurityProfileSummaryTypeDef = TypedDict(
     "SecurityProfileSummaryTypeDef",
     {
@@ -3677,6 +3738,14 @@ SecurityProfileTypeDef = TypedDict(
         "SecurityProfileName": str,
         "Description": str,
         "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+SecurityProfilesSearchFilterTypeDef = TypedDict(
+    "SecurityProfilesSearchFilterTypeDef",
+    {
+        "TagFilter": "ControlPlaneTagFilterTypeDef",
     },
     total=False,
 )

@@ -15,7 +15,13 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import InvitationTypeType, MemberDisabledReasonType, MemberStatusType
+from .literals import (
+    DatasourcePackageIngestStateType,
+    DatasourcePackageType,
+    InvitationTypeType,
+    MemberDisabledReasonType,
+    MemberStatusType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -26,10 +32,16 @@ __all__ = (
     "AcceptInvitationRequestRequestTypeDef",
     "AccountTypeDef",
     "AdministratorTypeDef",
+    "BatchGetGraphMemberDatasourcesRequestRequestTypeDef",
+    "BatchGetGraphMemberDatasourcesResponseTypeDef",
+    "BatchGetMembershipDatasourcesRequestRequestTypeDef",
+    "BatchGetMembershipDatasourcesResponseTypeDef",
     "CreateGraphRequestRequestTypeDef",
     "CreateGraphResponseTypeDef",
     "CreateMembersRequestRequestTypeDef",
     "CreateMembersResponseTypeDef",
+    "DatasourcePackageIngestDetailTypeDef",
+    "DatasourcePackageUsageInfoTypeDef",
     "DeleteGraphRequestRequestTypeDef",
     "DeleteMembersRequestRequestTypeDef",
     "DeleteMembersResponseTypeDef",
@@ -40,6 +52,8 @@ __all__ = (
     "GetMembersRequestRequestTypeDef",
     "GetMembersResponseTypeDef",
     "GraphTypeDef",
+    "ListDatasourcePackagesRequestRequestTypeDef",
+    "ListDatasourcePackagesResponseTypeDef",
     "ListGraphsRequestRequestTypeDef",
     "ListGraphsResponseTypeDef",
     "ListInvitationsRequestRequestTypeDef",
@@ -51,12 +65,16 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MemberDetailTypeDef",
+    "MembershipDatasourcesTypeDef",
     "RejectInvitationRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
     "StartMonitoringMemberRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TimestampForCollectionTypeDef",
     "UnprocessedAccountTypeDef",
+    "UnprocessedGraphTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateDatasourcePackagesRequestRequestTypeDef",
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
 )
 
@@ -83,6 +101,39 @@ AdministratorTypeDef = TypedDict(
         "DelegationTime": datetime,
     },
     total=False,
+)
+
+BatchGetGraphMemberDatasourcesRequestRequestTypeDef = TypedDict(
+    "BatchGetGraphMemberDatasourcesRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+        "AccountIds": List[str],
+    },
+)
+
+BatchGetGraphMemberDatasourcesResponseTypeDef = TypedDict(
+    "BatchGetGraphMemberDatasourcesResponseTypeDef",
+    {
+        "MemberDatasources": List["MembershipDatasourcesTypeDef"],
+        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetMembershipDatasourcesRequestRequestTypeDef = TypedDict(
+    "BatchGetMembershipDatasourcesRequestRequestTypeDef",
+    {
+        "GraphArns": List[str],
+    },
+)
+
+BatchGetMembershipDatasourcesResponseTypeDef = TypedDict(
+    "BatchGetMembershipDatasourcesResponseTypeDef",
+    {
+        "MembershipDatasources": List["MembershipDatasourcesTypeDef"],
+        "UnprocessedGraphs": List["UnprocessedGraphTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CreateGraphRequestRequestTypeDef = TypedDict(
@@ -129,6 +180,26 @@ CreateMembersResponseTypeDef = TypedDict(
         "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DatasourcePackageIngestDetailTypeDef = TypedDict(
+    "DatasourcePackageIngestDetailTypeDef",
+    {
+        "DatasourcePackageIngestState": DatasourcePackageIngestStateType,
+        "LastIngestStateChange": Dict[
+            DatasourcePackageIngestStateType, "TimestampForCollectionTypeDef"
+        ],
+    },
+    total=False,
+)
+
+DatasourcePackageUsageInfoTypeDef = TypedDict(
+    "DatasourcePackageUsageInfoTypeDef",
+    {
+        "VolumeUsageInBytes": int,
+        "VolumeUsageUpdateTime": datetime,
+    },
+    total=False,
 )
 
 DeleteGraphRequestRequestTypeDef = TypedDict(
@@ -208,6 +279,36 @@ GraphTypeDef = TypedDict(
         "CreatedTime": datetime,
     },
     total=False,
+)
+
+_RequiredListDatasourcePackagesRequestRequestTypeDef = TypedDict(
+    "_RequiredListDatasourcePackagesRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+    },
+)
+_OptionalListDatasourcePackagesRequestRequestTypeDef = TypedDict(
+    "_OptionalListDatasourcePackagesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListDatasourcePackagesRequestRequestTypeDef(
+    _RequiredListDatasourcePackagesRequestRequestTypeDef,
+    _OptionalListDatasourcePackagesRequestRequestTypeDef,
+):
+    pass
+
+ListDatasourcePackagesResponseTypeDef = TypedDict(
+    "ListDatasourcePackagesResponseTypeDef",
+    {
+        "DatasourcePackages": Dict[DatasourcePackageType, "DatasourcePackageIngestDetailTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListGraphsRequestRequestTypeDef = TypedDict(
@@ -325,6 +426,25 @@ MemberDetailTypeDef = TypedDict(
         "PercentOfGraphUtilization": float,
         "PercentOfGraphUtilizationUpdatedTime": datetime,
         "InvitationType": InvitationTypeType,
+        "VolumeUsageByDatasourcePackage": Dict[
+            DatasourcePackageType, "DatasourcePackageUsageInfoTypeDef"
+        ],
+        "DatasourcePackageIngestStates": Dict[
+            DatasourcePackageType, DatasourcePackageIngestStateType
+        ],
+    },
+    total=False,
+)
+
+MembershipDatasourcesTypeDef = TypedDict(
+    "MembershipDatasourcesTypeDef",
+    {
+        "AccountId": str,
+        "GraphArn": str,
+        "DatasourcePackageIngestHistory": Dict[
+            DatasourcePackageType,
+            Dict[DatasourcePackageIngestStateType, "TimestampForCollectionTypeDef"],
+        ],
     },
     total=False,
 )
@@ -363,10 +483,27 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+TimestampForCollectionTypeDef = TypedDict(
+    "TimestampForCollectionTypeDef",
+    {
+        "Timestamp": datetime,
+    },
+    total=False,
+)
+
 UnprocessedAccountTypeDef = TypedDict(
     "UnprocessedAccountTypeDef",
     {
         "AccountId": str,
+        "Reason": str,
+    },
+    total=False,
+)
+
+UnprocessedGraphTypeDef = TypedDict(
+    "UnprocessedGraphTypeDef",
+    {
+        "GraphArn": str,
         "Reason": str,
     },
     total=False,
@@ -377,6 +514,14 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceArn": str,
         "TagKeys": List[str],
+    },
+)
+
+UpdateDatasourcePackagesRequestRequestTypeDef = TypedDict(
+    "UpdateDatasourcePackagesRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+        "DatasourcePackages": List[DatasourcePackageType],
     },
 )
 

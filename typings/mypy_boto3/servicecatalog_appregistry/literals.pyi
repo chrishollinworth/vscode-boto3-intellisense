@@ -22,6 +22,7 @@ __all__ = (
     "ListApplicationsPaginatorName",
     "ListAssociatedAttributeGroupsPaginatorName",
     "ListAssociatedResourcesPaginatorName",
+    "ListAttributeGroupsForApplicationPaginatorName",
     "ListAttributeGroupsPaginatorName",
     "ResourceGroupStateType",
     "ResourceTypeType",
@@ -31,6 +32,7 @@ __all__ = (
 ListApplicationsPaginatorName = Literal["list_applications"]
 ListAssociatedAttributeGroupsPaginatorName = Literal["list_associated_attribute_groups"]
 ListAssociatedResourcesPaginatorName = Literal["list_associated_resources"]
+ListAttributeGroupsForApplicationPaginatorName = Literal["list_attribute_groups_for_application"]
 ListAttributeGroupsPaginatorName = Literal["list_attribute_groups"]
 ResourceGroupStateType = Literal[
     "CREATE_COMPLETE", "CREATE_FAILED", "CREATING", "UPDATE_COMPLETE", "UPDATE_FAILED", "UPDATING"

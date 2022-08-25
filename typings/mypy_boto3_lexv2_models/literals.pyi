@@ -46,6 +46,7 @@ __all__ = (
     "BuiltInIntentSortAttributeType",
     "BuiltInSlotTypeSortAttributeType",
     "CustomVocabularyStatusType",
+    "DialogActionTypeType",
     "EffectType",
     "ExportFilterNameType",
     "ExportFilterOperatorType",
@@ -61,11 +62,13 @@ __all__ = (
     "IntentFilterOperatorType",
     "IntentSortAttributeType",
     "MergeStrategyType",
+    "MessageSelectionStrategyType",
     "ObfuscationSettingTypeType",
     "SearchOrderType",
     "SlotConstraintType",
     "SlotFilterNameType",
     "SlotFilterOperatorType",
+    "SlotShapeType",
     "SlotSortAttributeType",
     "SlotTypeCategoryType",
     "SlotTypeFilterNameType",
@@ -108,7 +111,15 @@ BotLocaleStatusType = Literal[
     "ReadyExpressTesting",
 ]
 BotRecommendationStatusType = Literal[
-    "Available", "Deleted", "Deleting", "Downloading", "Failed", "Processing", "Updating"
+    "Available",
+    "Deleted",
+    "Deleting",
+    "Downloading",
+    "Failed",
+    "Processing",
+    "Stopped",
+    "Stopping",
+    "Updating",
 ]
 BotSortAttributeType = Literal["BotName"]
 BotStatusType = Literal[
@@ -119,6 +130,17 @@ BotVersionSortAttributeType = Literal["BotVersion"]
 BuiltInIntentSortAttributeType = Literal["IntentSignature"]
 BuiltInSlotTypeSortAttributeType = Literal["SlotTypeSignature"]
 CustomVocabularyStatusType = Literal["Creating", "Deleting", "Exporting", "Importing", "Ready"]
+DialogActionTypeType = Literal[
+    "CloseIntent",
+    "ConfirmIntent",
+    "ElicitIntent",
+    "ElicitSlot",
+    "EndConversation",
+    "EvaluateConditional",
+    "FulfillIntent",
+    "InvokeDialogCodeHook",
+    "StartIntent",
+]
 EffectType = Literal["Allow", "Deny"]
 ExportFilterNameType = Literal["ExportResourceType"]
 ExportFilterOperatorType = Literal["CO", "EQ"]
@@ -134,11 +156,13 @@ IntentFilterNameType = Literal["IntentName"]
 IntentFilterOperatorType = Literal["CO", "EQ"]
 IntentSortAttributeType = Literal["IntentName", "LastUpdatedDateTime"]
 MergeStrategyType = Literal["Append", "FailOnConflict", "Overwrite"]
+MessageSelectionStrategyType = Literal["Ordered", "Random"]
 ObfuscationSettingTypeType = Literal["DefaultObfuscation", "None"]
 SearchOrderType = Literal["Ascending", "Descending"]
 SlotConstraintType = Literal["Optional", "Required"]
 SlotFilterNameType = Literal["SlotName"]
 SlotFilterOperatorType = Literal["CO", "EQ"]
+SlotShapeType = Literal["List", "Scalar"]
 SlotSortAttributeType = Literal["LastUpdatedDateTime", "SlotName"]
 SlotTypeCategoryType = Literal["Custom", "Extended", "ExternalGrammar"]
 SlotTypeFilterNameType = Literal["ExternalSourceType", "SlotTypeName"]

@@ -6,9 +6,9 @@ Type annotations for forecast service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_forecast.type_defs import AdditionalDatasetTypeDef
+    from mypy_boto3_forecast.type_defs import ActionTypeDef
 
-    data: AdditionalDatasetTypeDef = {...}
+    data: ActionTypeDef = {...}
     ```
 """
 import sys
@@ -18,12 +18,14 @@ from typing import Any, Dict, List
 from .literals import (
     AttributeTypeType,
     AutoMLOverrideStrategyType,
+    ConditionType,
     DatasetTypeType,
     DayOfWeekType,
     DomainType,
     EvaluationTypeType,
     FilterConditionStringType,
     MonthType,
+    OperationType,
     OptimizationMetricType,
     ScalingTypeType,
     StateType,
@@ -41,6 +43,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ActionTypeDef",
     "AdditionalDatasetTypeDef",
     "AttributeConfigTypeDef",
     "BaselineMetricTypeDef",
@@ -69,6 +72,12 @@ __all__ = (
     "CreatePredictorBacktestExportJobResponseTypeDef",
     "CreatePredictorRequestRequestTypeDef",
     "CreatePredictorResponseTypeDef",
+    "CreateWhatIfAnalysisRequestRequestTypeDef",
+    "CreateWhatIfAnalysisResponseTypeDef",
+    "CreateWhatIfForecastExportRequestRequestTypeDef",
+    "CreateWhatIfForecastExportResponseTypeDef",
+    "CreateWhatIfForecastRequestRequestTypeDef",
+    "CreateWhatIfForecastResponseTypeDef",
     "DataConfigTypeDef",
     "DataDestinationTypeDef",
     "DataSourceTypeDef",
@@ -86,6 +95,9 @@ __all__ = (
     "DeletePredictorBacktestExportJobRequestRequestTypeDef",
     "DeletePredictorRequestRequestTypeDef",
     "DeleteResourceTreeRequestRequestTypeDef",
+    "DeleteWhatIfAnalysisRequestRequestTypeDef",
+    "DeleteWhatIfForecastExportRequestRequestTypeDef",
+    "DeleteWhatIfForecastRequestRequestTypeDef",
     "DescribeAutoPredictorRequestRequestTypeDef",
     "DescribeAutoPredictorResponseTypeDef",
     "DescribeDatasetGroupRequestRequestTypeDef",
@@ -108,6 +120,12 @@ __all__ = (
     "DescribePredictorBacktestExportJobResponseTypeDef",
     "DescribePredictorRequestRequestTypeDef",
     "DescribePredictorResponseTypeDef",
+    "DescribeWhatIfAnalysisRequestRequestTypeDef",
+    "DescribeWhatIfAnalysisResponseTypeDef",
+    "DescribeWhatIfForecastExportRequestRequestTypeDef",
+    "DescribeWhatIfForecastExportResponseTypeDef",
+    "DescribeWhatIfForecastRequestRequestTypeDef",
+    "DescribeWhatIfForecastResponseTypeDef",
     "EncryptionConfigTypeDef",
     "ErrorMetricTypeDef",
     "EvaluationParametersTypeDef",
@@ -151,6 +169,12 @@ __all__ = (
     "ListPredictorsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListWhatIfAnalysesRequestRequestTypeDef",
+    "ListWhatIfAnalysesResponseTypeDef",
+    "ListWhatIfForecastExportsRequestRequestTypeDef",
+    "ListWhatIfForecastExportsResponseTypeDef",
+    "ListWhatIfForecastsRequestRequestTypeDef",
+    "ListWhatIfForecastsResponseTypeDef",
     "MetricResultTypeDef",
     "MetricsTypeDef",
     "MonitorConfigTypeDef",
@@ -179,12 +203,27 @@ __all__ = (
     "TagTypeDef",
     "TestWindowSummaryTypeDef",
     "TimeAlignmentBoundaryTypeDef",
+    "TimeSeriesConditionTypeDef",
     "TimeSeriesIdentifiersTypeDef",
+    "TimeSeriesReplacementsDataSourceTypeDef",
     "TimeSeriesSelectorTypeDef",
+    "TimeSeriesTransformationTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDatasetGroupRequestRequestTypeDef",
     "WeightedQuantileLossTypeDef",
+    "WhatIfAnalysisSummaryTypeDef",
+    "WhatIfForecastExportSummaryTypeDef",
+    "WhatIfForecastSummaryTypeDef",
     "WindowSummaryTypeDef",
+)
+
+ActionTypeDef = TypedDict(
+    "ActionTypeDef",
+    {
+        "AttributeName": str,
+        "Operation": OperationType,
+        "Value": float,
+    },
 )
 
 _RequiredAdditionalDatasetTypeDef = TypedDict(
@@ -622,6 +661,98 @@ CreatePredictorResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateWhatIfAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWhatIfAnalysisRequestRequestTypeDef",
+    {
+        "WhatIfAnalysisName": str,
+        "ForecastArn": str,
+    },
+)
+_OptionalCreateWhatIfAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWhatIfAnalysisRequestRequestTypeDef",
+    {
+        "TimeSeriesSelector": "TimeSeriesSelectorTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateWhatIfAnalysisRequestRequestTypeDef(
+    _RequiredCreateWhatIfAnalysisRequestRequestTypeDef,
+    _OptionalCreateWhatIfAnalysisRequestRequestTypeDef,
+):
+    pass
+
+CreateWhatIfAnalysisResponseTypeDef = TypedDict(
+    "CreateWhatIfAnalysisResponseTypeDef",
+    {
+        "WhatIfAnalysisArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateWhatIfForecastExportRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWhatIfForecastExportRequestRequestTypeDef",
+    {
+        "WhatIfForecastExportName": str,
+        "WhatIfForecastArns": List[str],
+        "Destination": "DataDestinationTypeDef",
+    },
+)
+_OptionalCreateWhatIfForecastExportRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWhatIfForecastExportRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "Format": str,
+    },
+    total=False,
+)
+
+class CreateWhatIfForecastExportRequestRequestTypeDef(
+    _RequiredCreateWhatIfForecastExportRequestRequestTypeDef,
+    _OptionalCreateWhatIfForecastExportRequestRequestTypeDef,
+):
+    pass
+
+CreateWhatIfForecastExportResponseTypeDef = TypedDict(
+    "CreateWhatIfForecastExportResponseTypeDef",
+    {
+        "WhatIfForecastExportArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateWhatIfForecastRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWhatIfForecastRequestRequestTypeDef",
+    {
+        "WhatIfForecastName": str,
+        "WhatIfAnalysisArn": str,
+    },
+)
+_OptionalCreateWhatIfForecastRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWhatIfForecastRequestRequestTypeDef",
+    {
+        "TimeSeriesTransformations": List["TimeSeriesTransformationTypeDef"],
+        "TimeSeriesReplacementsDataSource": "TimeSeriesReplacementsDataSourceTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateWhatIfForecastRequestRequestTypeDef(
+    _RequiredCreateWhatIfForecastRequestRequestTypeDef,
+    _OptionalCreateWhatIfForecastRequestRequestTypeDef,
+):
+    pass
+
+CreateWhatIfForecastResponseTypeDef = TypedDict(
+    "CreateWhatIfForecastResponseTypeDef",
+    {
+        "WhatIfForecastArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDataConfigTypeDef = TypedDict(
     "_RequiredDataConfigTypeDef",
     {
@@ -766,6 +897,27 @@ DeleteResourceTreeRequestRequestTypeDef = TypedDict(
     "DeleteResourceTreeRequestRequestTypeDef",
     {
         "ResourceArn": str,
+    },
+)
+
+DeleteWhatIfAnalysisRequestRequestTypeDef = TypedDict(
+    "DeleteWhatIfAnalysisRequestRequestTypeDef",
+    {
+        "WhatIfAnalysisArn": str,
+    },
+)
+
+DeleteWhatIfForecastExportRequestRequestTypeDef = TypedDict(
+    "DeleteWhatIfForecastExportRequestRequestTypeDef",
+    {
+        "WhatIfForecastExportArn": str,
+    },
+)
+
+DeleteWhatIfForecastRequestRequestTypeDef = TypedDict(
+    "DeleteWhatIfForecastRequestRequestTypeDef",
+    {
+        "WhatIfForecastArn": str,
     },
 )
 
@@ -1058,6 +1210,78 @@ DescribePredictorResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModificationTime": datetime,
         "OptimizationMetric": OptimizationMetricType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeWhatIfAnalysisRequestRequestTypeDef = TypedDict(
+    "DescribeWhatIfAnalysisRequestRequestTypeDef",
+    {
+        "WhatIfAnalysisArn": str,
+    },
+)
+
+DescribeWhatIfAnalysisResponseTypeDef = TypedDict(
+    "DescribeWhatIfAnalysisResponseTypeDef",
+    {
+        "WhatIfAnalysisName": str,
+        "WhatIfAnalysisArn": str,
+        "ForecastArn": str,
+        "EstimatedTimeRemainingInMinutes": int,
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "TimeSeriesSelector": "TimeSeriesSelectorTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeWhatIfForecastExportRequestRequestTypeDef = TypedDict(
+    "DescribeWhatIfForecastExportRequestRequestTypeDef",
+    {
+        "WhatIfForecastExportArn": str,
+    },
+)
+
+DescribeWhatIfForecastExportResponseTypeDef = TypedDict(
+    "DescribeWhatIfForecastExportResponseTypeDef",
+    {
+        "WhatIfForecastExportArn": str,
+        "WhatIfForecastExportName": str,
+        "WhatIfForecastArns": List[str],
+        "Destination": "DataDestinationTypeDef",
+        "Message": str,
+        "Status": str,
+        "CreationTime": datetime,
+        "EstimatedTimeRemainingInMinutes": int,
+        "LastModificationTime": datetime,
+        "Format": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeWhatIfForecastRequestRequestTypeDef = TypedDict(
+    "DescribeWhatIfForecastRequestRequestTypeDef",
+    {
+        "WhatIfForecastArn": str,
+    },
+)
+
+DescribeWhatIfForecastResponseTypeDef = TypedDict(
+    "DescribeWhatIfForecastResponseTypeDef",
+    {
+        "WhatIfForecastName": str,
+        "WhatIfForecastArn": str,
+        "WhatIfAnalysisArn": str,
+        "EstimatedTimeRemainingInMinutes": int,
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "TimeSeriesTransformations": List["TimeSeriesTransformationTypeDef"],
+        "TimeSeriesReplacementsDataSource": "TimeSeriesReplacementsDataSourceTypeDef",
+        "ForecastTypes": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1539,6 +1763,63 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListWhatIfAnalysesRequestRequestTypeDef = TypedDict(
+    "ListWhatIfAnalysesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListWhatIfAnalysesResponseTypeDef = TypedDict(
+    "ListWhatIfAnalysesResponseTypeDef",
+    {
+        "WhatIfAnalyses": List["WhatIfAnalysisSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListWhatIfForecastExportsRequestRequestTypeDef = TypedDict(
+    "ListWhatIfForecastExportsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListWhatIfForecastExportsResponseTypeDef = TypedDict(
+    "ListWhatIfForecastExportsResponseTypeDef",
+    {
+        "WhatIfForecastExports": List["WhatIfForecastExportSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListWhatIfForecastsRequestRequestTypeDef = TypedDict(
+    "ListWhatIfForecastsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListWhatIfForecastsResponseTypeDef = TypedDict(
+    "ListWhatIfForecastsResponseTypeDef",
+    {
+        "WhatIfForecasts": List["WhatIfForecastSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 MetricResultTypeDef = TypedDict(
     "MetricResultTypeDef",
     {
@@ -1834,6 +2115,15 @@ TimeAlignmentBoundaryTypeDef = TypedDict(
     total=False,
 )
 
+TimeSeriesConditionTypeDef = TypedDict(
+    "TimeSeriesConditionTypeDef",
+    {
+        "AttributeName": str,
+        "AttributeValue": str,
+        "Condition": ConditionType,
+    },
+)
+
 TimeSeriesIdentifiersTypeDef = TypedDict(
     "TimeSeriesIdentifiersTypeDef",
     {
@@ -1844,10 +2134,41 @@ TimeSeriesIdentifiersTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredTimeSeriesReplacementsDataSourceTypeDef = TypedDict(
+    "_RequiredTimeSeriesReplacementsDataSourceTypeDef",
+    {
+        "S3Config": "S3ConfigTypeDef",
+        "Schema": "SchemaTypeDef",
+    },
+)
+_OptionalTimeSeriesReplacementsDataSourceTypeDef = TypedDict(
+    "_OptionalTimeSeriesReplacementsDataSourceTypeDef",
+    {
+        "Format": str,
+        "TimestampFormat": str,
+    },
+    total=False,
+)
+
+class TimeSeriesReplacementsDataSourceTypeDef(
+    _RequiredTimeSeriesReplacementsDataSourceTypeDef,
+    _OptionalTimeSeriesReplacementsDataSourceTypeDef,
+):
+    pass
+
 TimeSeriesSelectorTypeDef = TypedDict(
     "TimeSeriesSelectorTypeDef",
     {
         "TimeSeriesIdentifiers": "TimeSeriesIdentifiersTypeDef",
+    },
+    total=False,
+)
+
+TimeSeriesTransformationTypeDef = TypedDict(
+    "TimeSeriesTransformationTypeDef",
+    {
+        "Action": "ActionTypeDef",
+        "TimeSeriesConditions": List["TimeSeriesConditionTypeDef"],
     },
     total=False,
 )
@@ -1873,6 +2194,49 @@ WeightedQuantileLossTypeDef = TypedDict(
     {
         "Quantile": float,
         "LossValue": float,
+    },
+    total=False,
+)
+
+WhatIfAnalysisSummaryTypeDef = TypedDict(
+    "WhatIfAnalysisSummaryTypeDef",
+    {
+        "WhatIfAnalysisArn": str,
+        "WhatIfAnalysisName": str,
+        "ForecastArn": str,
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+    },
+    total=False,
+)
+
+WhatIfForecastExportSummaryTypeDef = TypedDict(
+    "WhatIfForecastExportSummaryTypeDef",
+    {
+        "WhatIfForecastExportArn": str,
+        "WhatIfForecastArns": List[str],
+        "WhatIfForecastExportName": str,
+        "Destination": "DataDestinationTypeDef",
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+    },
+    total=False,
+)
+
+WhatIfForecastSummaryTypeDef = TypedDict(
+    "WhatIfForecastSummaryTypeDef",
+    {
+        "WhatIfForecastArn": str,
+        "WhatIfForecastName": str,
+        "WhatIfAnalysisArn": str,
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
     },
     total=False,
 )

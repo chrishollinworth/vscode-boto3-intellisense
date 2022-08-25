@@ -6,9 +6,9 @@ Type annotations for detective service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_detective.literals import InvitationTypeType
+    from mypy_boto3_detective.literals import DatasourcePackageIngestStateType
 
-    data: InvitationTypeType = "INVITATION"
+    data: DatasourcePackageIngestStateType = "DISABLED"
     ```
 """
 import sys
@@ -18,8 +18,16 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("InvitationTypeType", "MemberDisabledReasonType", "MemberStatusType")
+__all__ = (
+    "DatasourcePackageIngestStateType",
+    "DatasourcePackageType",
+    "InvitationTypeType",
+    "MemberDisabledReasonType",
+    "MemberStatusType",
+)
 
+DatasourcePackageIngestStateType = Literal["DISABLED", "STARTED", "STOPPED"]
+DatasourcePackageType = Literal["DETECTIVE_CORE", "EKS_AUDIT"]
 InvitationTypeType = Literal["INVITATION", "ORGANIZATION"]
 MemberDisabledReasonType = Literal["VOLUME_TOO_HIGH", "VOLUME_UNKNOWN"]
 MemberStatusType = Literal[

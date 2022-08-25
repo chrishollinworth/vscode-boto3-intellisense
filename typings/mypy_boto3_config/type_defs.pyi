@@ -41,6 +41,7 @@ from .literals import (
     RemediationExecutionStepStateType,
     ResourceCountGroupKeyType,
     ResourceTypeType,
+    SortOrderType,
 )
 
 if sys.version_info >= (3, 8):
@@ -89,6 +90,8 @@ __all__ = (
     "ConfigurationRecorderStatusTypeDef",
     "ConfigurationRecorderTypeDef",
     "ConformancePackComplianceFiltersTypeDef",
+    "ConformancePackComplianceScoreTypeDef",
+    "ConformancePackComplianceScoresFiltersTypeDef",
     "ConformancePackComplianceSummaryTypeDef",
     "ConformancePackDetailTypeDef",
     "ConformancePackEvaluationFiltersTypeDef",
@@ -215,6 +218,8 @@ __all__ = (
     "GroupedResourceCountTypeDef",
     "ListAggregateDiscoveredResourcesRequestRequestTypeDef",
     "ListAggregateDiscoveredResourcesResponseTypeDef",
+    "ListConformancePackComplianceScoresRequestRequestTypeDef",
+    "ListConformancePackComplianceScoresResponseTypeDef",
     "ListDiscoveredResourcesRequestRequestTypeDef",
     "ListDiscoveredResourcesResponseTypeDef",
     "ListStoredQueriesRequestRequestTypeDef",
@@ -740,6 +745,23 @@ ConformancePackComplianceFiltersTypeDef = TypedDict(
         "ComplianceType": ConformancePackComplianceTypeType,
     },
     total=False,
+)
+
+ConformancePackComplianceScoreTypeDef = TypedDict(
+    "ConformancePackComplianceScoreTypeDef",
+    {
+        "Score": str,
+        "ConformancePackName": str,
+        "LastUpdatedTime": datetime,
+    },
+    total=False,
+)
+
+ConformancePackComplianceScoresFiltersTypeDef = TypedDict(
+    "ConformancePackComplianceScoresFiltersTypeDef",
+    {
+        "ConformancePackNames": List[str],
+    },
 )
 
 ConformancePackComplianceSummaryTypeDef = TypedDict(
@@ -2189,6 +2211,27 @@ ListAggregateDiscoveredResourcesResponseTypeDef = TypedDict(
     {
         "ResourceIdentifiers": List["AggregateResourceIdentifierTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListConformancePackComplianceScoresRequestRequestTypeDef = TypedDict(
+    "ListConformancePackComplianceScoresRequestRequestTypeDef",
+    {
+        "Filters": "ConformancePackComplianceScoresFiltersTypeDef",
+        "SortOrder": SortOrderType,
+        "SortBy": Literal["SCORE"],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListConformancePackComplianceScoresResponseTypeDef = TypedDict(
+    "ListConformancePackComplianceScoresResponseTypeDef",
+    {
+        "NextToken": str,
+        "ConformancePackComplianceScores": List["ConformancePackComplianceScoreTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

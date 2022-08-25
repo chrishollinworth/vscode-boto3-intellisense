@@ -19,6 +19,7 @@ from botocore.response import StreamingBody
 
 from .literals import (
     DirectionalityType,
+    DisplayLanguageCodeType,
     FormalityType,
     JobStatusType,
     ParallelDataFormatType,
@@ -53,6 +54,9 @@ __all__ = (
     "ImportTerminologyResponseTypeDef",
     "InputDataConfigTypeDef",
     "JobDetailsTypeDef",
+    "LanguageTypeDef",
+    "ListLanguagesRequestRequestTypeDef",
+    "ListLanguagesResponseTypeDef",
     "ListParallelDataRequestRequestTypeDef",
     "ListParallelDataResponseTypeDef",
     "ListTerminologiesRequestRequestTypeDef",
@@ -263,6 +267,34 @@ JobDetailsTypeDef = TypedDict(
         "InputDocumentsCount": int,
     },
     total=False,
+)
+
+LanguageTypeDef = TypedDict(
+    "LanguageTypeDef",
+    {
+        "LanguageName": str,
+        "LanguageCode": str,
+    },
+)
+
+ListLanguagesRequestRequestTypeDef = TypedDict(
+    "ListLanguagesRequestRequestTypeDef",
+    {
+        "DisplayLanguageCode": DisplayLanguageCodeType,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListLanguagesResponseTypeDef = TypedDict(
+    "ListLanguagesResponseTypeDef",
+    {
+        "Languages": List["LanguageTypeDef"],
+        "DisplayLanguageCode": DisplayLanguageCodeType,
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListParallelDataRequestRequestTypeDef = TypedDict(

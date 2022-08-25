@@ -13,6 +13,7 @@ Usage::
         ListDatasetEntriesPaginator,
         ListDatasetLabelsPaginator,
         ListFacesPaginator,
+        ListProjectPoliciesPaginator,
         ListStreamProcessorsPaginator,
         ProjectVersionRunningWaiter,
         ProjectVersionTrainingCompletedWaiter,
@@ -33,6 +34,7 @@ Usage::
     list_dataset_entries_paginator: ListDatasetEntriesPaginator = client.get_paginator("list_dataset_entries")
     list_dataset_labels_paginator: ListDatasetLabelsPaginator = client.get_paginator("list_dataset_labels")
     list_faces_paginator: ListFacesPaginator = client.get_paginator("list_faces")
+    list_project_policies_paginator: ListProjectPoliciesPaginator = client.get_paginator("list_project_policies")
     list_stream_processors_paginator: ListStreamProcessorsPaginator = client.get_paginator("list_stream_processors")
     ```
 """
@@ -44,6 +46,7 @@ from .paginator import (
     ListDatasetEntriesPaginator,
     ListDatasetLabelsPaginator,
     ListFacesPaginator,
+    ListProjectPoliciesPaginator,
     ListStreamProcessorsPaginator,
 )
 from .waiter import ProjectVersionRunningWaiter, ProjectVersionTrainingCompletedWaiter
@@ -58,6 +61,7 @@ __all__ = (
     "ListDatasetEntriesPaginator",
     "ListDatasetLabelsPaginator",
     "ListFacesPaginator",
+    "ListProjectPoliciesPaginator",
     "ListStreamProcessorsPaginator",
     "ProjectVersionRunningWaiter",
     "ProjectVersionTrainingCompletedWaiter",

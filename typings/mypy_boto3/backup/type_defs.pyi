@@ -1832,12 +1832,12 @@ _RequiredStartRestoreJobInputRequestTypeDef = TypedDict(
     {
         "RecoveryPointArn": str,
         "Metadata": Dict[str, str],
-        "IamRoleArn": str,
     },
 )
 _OptionalStartRestoreJobInputRequestTypeDef = TypedDict(
     "_OptionalStartRestoreJobInputRequestTypeDef",
     {
+        "IamRoleArn": str,
         "IdempotencyToken": str,
         "ResourceType": str,
     },

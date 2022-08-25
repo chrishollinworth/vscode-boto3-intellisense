@@ -12,6 +12,7 @@ Usage::
     from mypy_boto3_cloudwatch.paginator import (
         DescribeAlarmHistoryPaginator,
         DescribeAlarmsPaginator,
+        DescribeAnomalyDetectorsPaginator,
         GetMetricDataPaginator,
         ListDashboardsPaginator,
         ListMetricsPaginator,
@@ -21,6 +22,7 @@ Usage::
 
     describe_alarm_history_paginator: DescribeAlarmHistoryPaginator = client.get_paginator("describe_alarm_history")
     describe_alarms_paginator: DescribeAlarmsPaginator = client.get_paginator("describe_alarms")
+    describe_anomaly_detectors_paginator: DescribeAnomalyDetectorsPaginator = client.get_paginator("describe_anomaly_detectors")
     get_metric_data_paginator: GetMetricDataPaginator = client.get_paginator("get_metric_data")
     list_dashboards_paginator: ListDashboardsPaginator = client.get_paginator("list_dashboards")
     list_metrics_paginator: ListMetricsPaginator = client.get_paginator("list_metrics")
@@ -32,11 +34,19 @@ from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from .literals import AlarmTypeType, HistoryItemTypeType, ScanByType, StateValueType
+from .literals import (
+    AlarmTypeType,
+    AnomalyDetectorTypeType,
+    HistoryItemTypeType,
+    ScanByType,
+    StateValueType,
+)
 from .type_defs import (
     DescribeAlarmHistoryOutputTypeDef,
     DescribeAlarmsOutputTypeDef,
+    DescribeAnomalyDetectorsOutputTypeDef,
     DimensionFilterTypeDef,
+    DimensionTypeDef,
     GetMetricDataOutputTypeDef,
     LabelOptionsTypeDef,
     ListDashboardsOutputTypeDef,
@@ -53,6 +63,7 @@ else:
 __all__ = (
     "DescribeAlarmHistoryPaginator",
     "DescribeAlarmsPaginator",
+    "DescribeAnomalyDetectorsPaginator",
     "GetMetricDataPaginator",
     "ListDashboardsPaginator",
     "ListMetricsPaginator",
@@ -60,7 +71,7 @@ __all__ = (
 
 class DescribeAlarmHistoryPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describealarmhistorypaginator)
     """
 
@@ -76,13 +87,13 @@ class DescribeAlarmHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAlarmHistoryOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describealarmhistorypaginator)
         """
 
 class DescribeAlarmsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describealarmspaginator)
     """
 
@@ -99,13 +110,33 @@ class DescribeAlarmsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAlarmsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describealarmspaginator)
+        """
+
+class DescribeAnomalyDetectorsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAnomalyDetectors)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describeanomalydetectorspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Namespace: str = None,
+        MetricName: str = None,
+        Dimensions: List["DimensionTypeDef"] = None,
+        AnomalyDetectorTypes: List[AnomalyDetectorTypeType] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[DescribeAnomalyDetectorsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAnomalyDetectors.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describeanomalydetectorspaginator)
         """
 
 class GetMetricDataPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#getmetricdatapaginator)
     """
 
@@ -120,13 +151,13 @@ class GetMetricDataPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetMetricDataOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#getmetricdatapaginator)
         """
 
 class ListDashboardsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#listdashboardspaginator)
     """
 
@@ -134,13 +165,13 @@ class ListDashboardsPaginator(Boto3Paginator):
         self, *, DashboardNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDashboardsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#listdashboardspaginator)
         """
 
 class ListMetricsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#listmetricspaginator)
     """
 
@@ -154,6 +185,6 @@ class ListMetricsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMetricsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#listmetricspaginator)
         """

@@ -32,15 +32,19 @@ __all__ = (
     "ConnectionPropertyKeyType",
     "ConnectionTypeType",
     "CrawlStateType",
+    "CrawlerHistoryStateType",
     "CrawlerLineageSettingsType",
     "CrawlerStateType",
     "CsvHeaderOptionType",
     "DataFormatType",
     "DeleteBehaviorType",
     "EnableHybridValuesType",
+    "ExecutionClassType",
     "ExistConditionType",
+    "FieldNameType",
     "FilterLogicalOperatorType",
     "FilterOperationType",
+    "FilterOperatorType",
     "FilterValueTypeType",
     "GetClassifiersPaginatorName",
     "GetConnectionsPaginatorName",
@@ -181,16 +185,20 @@ ConnectionPropertyKeyType = Literal[
     "USERNAME",
 ]
 ConnectionTypeType = Literal["CUSTOM", "JDBC", "KAFKA", "MARKETPLACE", "MONGODB", "NETWORK", "SFTP"]
-CrawlStateType = Literal["CANCELLED", "CANCELLING", "FAILED", "RUNNING", "SUCCEEDED"]
+CrawlStateType = Literal["CANCELLED", "CANCELLING", "ERROR", "FAILED", "RUNNING", "SUCCEEDED"]
+CrawlerHistoryStateType = Literal["COMPLETED", "FAILED", "RUNNING", "STOPPED"]
 CrawlerLineageSettingsType = Literal["DISABLE", "ENABLE"]
 CrawlerStateType = Literal["READY", "RUNNING", "STOPPING"]
 CsvHeaderOptionType = Literal["ABSENT", "PRESENT", "UNKNOWN"]
 DataFormatType = Literal["AVRO", "JSON", "PROTOBUF"]
 DeleteBehaviorType = Literal["DELETE_FROM_DATABASE", "DEPRECATE_IN_DATABASE", "LOG"]
 EnableHybridValuesType = Literal["FALSE", "TRUE"]
+ExecutionClassType = Literal["FLEX", "STANDARD"]
 ExistConditionType = Literal["MUST_EXIST", "NONE", "NOT_EXIST"]
+FieldNameType = Literal["CRAWL_ID", "DPU_HOUR", "END_TIME", "START_TIME", "STATE"]
 FilterLogicalOperatorType = Literal["AND", "OR"]
 FilterOperationType = Literal["EQ", "GT", "GTE", "ISNULL", "LT", "LTE", "REGEX"]
+FilterOperatorType = Literal["EQ", "GE", "GT", "LE", "LT", "NE"]
 FilterValueTypeType = Literal["COLUMNEXTRACTED", "CONSTANT"]
 GetClassifiersPaginatorName = Literal["get_classifiers"]
 GetConnectionsPaginatorName = Literal["get_connections"]
@@ -254,7 +262,15 @@ JDBCDataTypeType = Literal[
 ]
 JobBookmarksEncryptionModeType = Literal["CSE-KMS", "DISABLED"]
 JobRunStateType = Literal[
-    "FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING", "SUCCEEDED", "TIMEOUT"
+    "ERROR",
+    "FAILED",
+    "RUNNING",
+    "STARTING",
+    "STOPPED",
+    "STOPPING",
+    "SUCCEEDED",
+    "TIMEOUT",
+    "WAITING",
 ]
 JoinTypeType = Literal["equijoin", "left", "leftanti", "leftsemi", "outer", "right"]
 LanguageType = Literal["PYTHON", "SCALA"]
@@ -325,5 +341,5 @@ TriggerTypeType = Literal["CONDITIONAL", "EVENT", "ON_DEMAND", "SCHEDULED"]
 UnionTypeType = Literal["ALL", "DISTINCT"]
 UpdateBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
 UpdateCatalogBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
-WorkerTypeType = Literal["G.1X", "G.2X", "Standard"]
+WorkerTypeType = Literal["G.025X", "G.1X", "G.2X", "Standard"]
 WorkflowRunStatusType = Literal["COMPLETED", "ERROR", "RUNNING", "STOPPED", "STOPPING"]

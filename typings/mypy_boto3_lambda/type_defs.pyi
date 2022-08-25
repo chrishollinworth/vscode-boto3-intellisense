@@ -55,6 +55,7 @@ __all__ = (
     "AliasConfigurationTypeDef",
     "AliasRoutingConfigurationTypeDef",
     "AllowedPublishersTypeDef",
+    "AmazonManagedKafkaEventSourceConfigTypeDef",
     "CodeSigningConfigTypeDef",
     "CodeSigningPoliciesTypeDef",
     "ConcurrencyResponseMetadataTypeDef",
@@ -172,6 +173,7 @@ __all__ = (
     "RemovePermissionRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
     "SelfManagedEventSourceTypeDef",
+    "SelfManagedKafkaEventSourceConfigTypeDef",
     "SourceAccessConfigurationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TracingConfigResponseTypeDef",
@@ -323,6 +325,14 @@ AllowedPublishersTypeDef = TypedDict(
     },
 )
 
+AmazonManagedKafkaEventSourceConfigTypeDef = TypedDict(
+    "AmazonManagedKafkaEventSourceConfigTypeDef",
+    {
+        "ConsumerGroupId": str,
+    },
+    total=False,
+)
+
 _RequiredCodeSigningConfigTypeDef = TypedDict(
     "_RequiredCodeSigningConfigTypeDef",
     {
@@ -461,6 +471,8 @@ _OptionalCreateEventSourceMappingRequestRequestTypeDef = TypedDict(
         "SourceAccessConfigurations": List["SourceAccessConfigurationTypeDef"],
         "SelfManagedEventSource": "SelfManagedEventSourceTypeDef",
         "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
+        "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
+        "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
     },
     total=False,
 )
@@ -731,6 +743,8 @@ EventSourceMappingConfigurationResponseMetadataTypeDef = TypedDict(
         "MaximumRetryAttempts": int,
         "TumblingWindowInSeconds": int,
         "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
+        "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
+        "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -761,6 +775,8 @@ EventSourceMappingConfigurationTypeDef = TypedDict(
         "MaximumRetryAttempts": int,
         "TumblingWindowInSeconds": int,
         "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
+        "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
+        "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
     },
     total=False,
 )
@@ -1879,6 +1895,14 @@ SelfManagedEventSourceTypeDef = TypedDict(
     "SelfManagedEventSourceTypeDef",
     {
         "Endpoints": Dict[Literal["KAFKA_BOOTSTRAP_SERVERS"], List[str]],
+    },
+    total=False,
+)
+
+SelfManagedKafkaEventSourceConfigTypeDef = TypedDict(
+    "SelfManagedKafkaEventSourceConfigTypeDef",
+    {
+        "ConsumerGroupId": str,
     },
     total=False,
 )

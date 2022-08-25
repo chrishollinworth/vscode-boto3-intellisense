@@ -27,6 +27,7 @@ __all__ = (
     "CustomRoutingProtocolType",
     "HealthCheckProtocolType",
     "HealthStateType",
+    "IpAddressFamilyType",
     "IpAddressTypeType",
     "ListAcceleratorsPaginatorName",
     "ListByoipCidrsPaginatorName",
@@ -59,7 +60,8 @@ CustomRoutingDestinationTrafficStateType = Literal["ALLOW", "DENY"]
 CustomRoutingProtocolType = Literal["TCP", "UDP"]
 HealthCheckProtocolType = Literal["HTTP", "HTTPS", "TCP"]
 HealthStateType = Literal["HEALTHY", "INITIAL", "UNHEALTHY"]
-IpAddressTypeType = Literal["IPV4"]
+IpAddressFamilyType = Literal["IPv4", "IPv6"]
+IpAddressTypeType = Literal["DUAL_STACK", "IPV4"]
 ListAcceleratorsPaginatorName = Literal["list_accelerators"]
 ListByoipCidrsPaginatorName = Literal["list_byoip_cidrs"]
 ListCustomRoutingAcceleratorsPaginatorName = Literal["list_custom_routing_accelerators"]

@@ -27,12 +27,14 @@ from .literals import (
     ConnectionStateType,
     DedicatedTenancyModificationStateEnumType,
     DedicatedTenancySupportResultEnumType,
+    DeletableSamlPropertyType,
     ImageTypeType,
     ModificationResourceEnumType,
     ModificationStateEnumType,
     OperatingSystemTypeType,
     ReconnectEnumType,
     RunningModeType,
+    SamlStatusEnumType,
     TargetWorkspaceStateType,
     TenancyType,
     WorkspaceDirectoryStateType,
@@ -78,6 +80,8 @@ __all__ = (
     "CreateUpdatedWorkspaceImageResultTypeDef",
     "CreateWorkspaceBundleRequestRequestTypeDef",
     "CreateWorkspaceBundleResultTypeDef",
+    "CreateWorkspaceImageRequestRequestTypeDef",
+    "CreateWorkspaceImageResultTypeDef",
     "CreateWorkspacesRequestRequestTypeDef",
     "CreateWorkspacesResultTypeDef",
     "DefaultClientBrandingAttributesTypeDef",
@@ -141,6 +145,7 @@ __all__ = (
     "ModificationStateTypeDef",
     "ModifyAccountRequestRequestTypeDef",
     "ModifyClientPropertiesRequestRequestTypeDef",
+    "ModifySamlPropertiesRequestRequestTypeDef",
     "ModifySelfservicePermissionsRequestRequestTypeDef",
     "ModifyWorkspaceAccessPropertiesRequestRequestTypeDef",
     "ModifyWorkspaceCreationPropertiesRequestRequestTypeDef",
@@ -159,6 +164,7 @@ __all__ = (
     "RestoreWorkspaceRequestRequestTypeDef",
     "RevokeIpRulesRequestRequestTypeDef",
     "RootStorageTypeDef",
+    "SamlPropertiesTypeDef",
     "SelfservicePermissionsTypeDef",
     "SnapshotTypeDef",
     "StartRequestTypeDef",
@@ -474,6 +480,43 @@ CreateWorkspaceBundleResultTypeDef = TypedDict(
     "CreateWorkspaceBundleResultTypeDef",
     {
         "WorkspaceBundle": "WorkspaceBundleTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateWorkspaceImageRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWorkspaceImageRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "WorkspaceId": str,
+    },
+)
+_OptionalCreateWorkspaceImageRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWorkspaceImageRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateWorkspaceImageRequestRequestTypeDef(
+    _RequiredCreateWorkspaceImageRequestRequestTypeDef,
+    _OptionalCreateWorkspaceImageRequestRequestTypeDef,
+):
+    pass
+
+CreateWorkspaceImageResultTypeDef = TypedDict(
+    "CreateWorkspaceImageResultTypeDef",
+    {
+        "ImageId": str,
+        "Name": str,
+        "Description": str,
+        "OperatingSystem": "OperatingSystemTypeDef",
+        "State": WorkspaceImageStateType,
+        "RequiredTenancy": WorkspaceImageRequiredTenancyType,
+        "Created": datetime,
+        "OwnerAccountId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1135,6 +1178,27 @@ ModifyClientPropertiesRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredModifySamlPropertiesRequestRequestTypeDef = TypedDict(
+    "_RequiredModifySamlPropertiesRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+    },
+)
+_OptionalModifySamlPropertiesRequestRequestTypeDef = TypedDict(
+    "_OptionalModifySamlPropertiesRequestRequestTypeDef",
+    {
+        "SamlProperties": "SamlPropertiesTypeDef",
+        "PropertiesToDelete": List[DeletableSamlPropertyType],
+    },
+    total=False,
+)
+
+class ModifySamlPropertiesRequestRequestTypeDef(
+    _RequiredModifySamlPropertiesRequestRequestTypeDef,
+    _OptionalModifySamlPropertiesRequestRequestTypeDef,
+):
+    pass
+
 ModifySelfservicePermissionsRequestRequestTypeDef = TypedDict(
     "ModifySelfservicePermissionsRequestRequestTypeDef",
     {
@@ -1291,6 +1355,16 @@ RootStorageTypeDef = TypedDict(
     "RootStorageTypeDef",
     {
         "Capacity": str,
+    },
+    total=False,
+)
+
+SamlPropertiesTypeDef = TypedDict(
+    "SamlPropertiesTypeDef",
+    {
+        "Status": SamlStatusEnumType,
+        "UserAccessUrl": str,
+        "RelayStateParameterName": str,
     },
     total=False,
 )
@@ -1548,6 +1622,7 @@ WorkspaceDirectoryTypeDef = TypedDict(
         "WorkspaceAccessProperties": "WorkspaceAccessPropertiesTypeDef",
         "Tenancy": TenancyType,
         "SelfservicePermissions": "SelfservicePermissionsTypeDef",
+        "SamlProperties": "SamlPropertiesTypeDef",
     },
     total=False,
 )

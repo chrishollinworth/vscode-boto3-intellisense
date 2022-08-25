@@ -33,6 +33,7 @@ __all__ = (
     "MarketplaceSubscriptionOnboardingStatusType",
     "PolicyComplianceStatusTypeType",
     "RemediationActionTypeType",
+    "RuleOrderType",
     "SecurityServiceTypeType",
     "TargetTypeType",
     "ThirdPartyFirewallAssociationStatusType",
@@ -56,6 +57,7 @@ ListThirdPartyFirewallFirewallPoliciesPaginatorName = Literal[
 MarketplaceSubscriptionOnboardingStatusType = Literal["COMPLETE", "NOT_COMPLETE", "NO_SUBSCRIPTION"]
 PolicyComplianceStatusTypeType = Literal["COMPLIANT", "NON_COMPLIANT"]
 RemediationActionTypeType = Literal["MODIFY", "REMOVE"]
+RuleOrderType = Literal["DEFAULT_ACTION_ORDER", "STRICT_ORDER"]
 SecurityServiceTypeType = Literal[
     "DNS_FIREWALL",
     "NETWORK_FIREWALL",

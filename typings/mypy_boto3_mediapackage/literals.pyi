@@ -48,8 +48,21 @@ ListOriginEndpointsPaginatorName = Literal["list_origin_endpoints"]
 ManifestLayoutType = Literal["COMPACT", "FULL"]
 OriginationType = Literal["ALLOW", "DENY"]
 PlaylistTypeType = Literal["EVENT", "NONE", "VOD"]
-PresetSpeke20AudioType = Literal["PRESET-AUDIO-1"]
-PresetSpeke20VideoType = Literal["PRESET-VIDEO-1"]
+PresetSpeke20AudioType = Literal[
+    "PRESET-AUDIO-1", "PRESET-AUDIO-2", "PRESET-AUDIO-3", "SHARED", "UNENCRYPTED"
+]
+PresetSpeke20VideoType = Literal[
+    "PRESET-VIDEO-1",
+    "PRESET-VIDEO-2",
+    "PRESET-VIDEO-3",
+    "PRESET-VIDEO-4",
+    "PRESET-VIDEO-5",
+    "PRESET-VIDEO-6",
+    "PRESET-VIDEO-7",
+    "PRESET-VIDEO-8",
+    "SHARED",
+    "UNENCRYPTED",
+]
 ProfileType = Literal["DVB_DASH_2014", "HBBTV_1_5", "HYBRIDCAST", "NONE"]
 SegmentTemplateFormatType = Literal[
     "NUMBER_WITH_DURATION", "NUMBER_WITH_TIMELINE", "TIME_WITH_TIMELINE"

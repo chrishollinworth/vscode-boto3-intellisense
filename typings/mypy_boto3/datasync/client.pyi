@@ -35,6 +35,7 @@ from .type_defs import (
     CreateAgentResponseTypeDef,
     CreateLocationEfsResponseTypeDef,
     CreateLocationFsxLustreResponseTypeDef,
+    CreateLocationFsxOntapResponseTypeDef,
     CreateLocationFsxOpenZfsResponseTypeDef,
     CreateLocationFsxWindowsResponseTypeDef,
     CreateLocationHdfsResponseTypeDef,
@@ -46,6 +47,7 @@ from .type_defs import (
     DescribeAgentResponseTypeDef,
     DescribeLocationEfsResponseTypeDef,
     DescribeLocationFsxLustreResponseTypeDef,
+    DescribeLocationFsxOntapResponseTypeDef,
     DescribeLocationFsxOpenZfsResponseTypeDef,
     DescribeLocationFsxWindowsResponseTypeDef,
     DescribeLocationHdfsResponseTypeDef,
@@ -98,7 +100,7 @@ class Exceptions:
 
 class DataSyncClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html)
     """
 
@@ -113,15 +115,22 @@ class DataSyncClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#can_paginate)
         """
     def cancel_task_execution(self, *, TaskExecutionArn: str) -> Dict[str, Any]:
         """
         Cancels execution of a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.cancel_task_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.cancel_task_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#cancel_task_execution)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#close)
         """
     def create_agent(
         self,
@@ -136,7 +145,7 @@ class DataSyncClient(BaseClient):
         """
         Activates an DataSync agent that you have deployed on your host.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_agent)
         """
     def create_location_efs(
@@ -154,7 +163,7 @@ class DataSyncClient(BaseClient):
         Creates an endpoint for an Amazon EFS file system that DataSync can access for a
         transfer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_efs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_efs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_efs)
         """
     def create_location_fsx_lustre(
@@ -168,8 +177,24 @@ class DataSyncClient(BaseClient):
         """
         Creates an endpoint for an Amazon FSx for Lustre file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_fsx_lustre)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_fsx_lustre)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_fsx_lustre)
+        """
+    def create_location_fsx_ontap(
+        self,
+        *,
+        Protocol: "FsxProtocolTypeDef",
+        SecurityGroupArns: List[str],
+        StorageVirtualMachineArn: str,
+        Subdirectory: str = None,
+        Tags: List["TagListEntryTypeDef"] = None
+    ) -> CreateLocationFsxOntapResponseTypeDef:
+        """
+        Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
+        can access for a transfer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_fsx_ontap)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_fsx_ontap)
         """
     def create_location_fsx_open_zfs(
         self,
@@ -183,7 +208,7 @@ class DataSyncClient(BaseClient):
         """
         Creates an endpoint for an Amazon FSx for OpenZFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_fsx_open_zfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_fsx_open_zfs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_fsx_open_zfs)
         """
     def create_location_fsx_windows(
@@ -200,7 +225,7 @@ class DataSyncClient(BaseClient):
         """
         Creates an endpoint for an Amazon FSx for Windows File Server file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_fsx_windows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_fsx_windows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_fsx_windows)
         """
     def create_location_hdfs(
@@ -223,7 +248,7 @@ class DataSyncClient(BaseClient):
         """
         Creates an endpoint for a Hadoop Distributed File System (HDFS).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_hdfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_hdfs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_hdfs)
         """
     def create_location_nfs(
@@ -239,7 +264,7 @@ class DataSyncClient(BaseClient):
         Defines a file system on a Network File System (NFS) server that can be read
         from or written to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_nfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_nfs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_nfs)
         """
     def create_location_object_storage(
@@ -256,9 +281,10 @@ class DataSyncClient(BaseClient):
         Tags: List["TagListEntryTypeDef"] = None
     ) -> CreateLocationObjectStorageResponseTypeDef:
         """
-        Creates an endpoint for a self-managed object storage bucket.
+        Creates an endpoint for an object storage system that DataSync can access for a
+        transfer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_object_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_object_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_object_storage)
         """
     def create_location_s3(
@@ -274,7 +300,7 @@ class DataSyncClient(BaseClient):
         """
         Creates an endpoint for an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_s3)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_s3)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_s3)
         """
     def create_location_smb(
@@ -293,7 +319,7 @@ class DataSyncClient(BaseClient):
         Defines a file system on a Server Message Block (SMB) server that can be read
         from or written to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_location_smb)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_location_smb)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_smb)
         """
     def create_task(
@@ -310,30 +336,30 @@ class DataSyncClient(BaseClient):
         Includes: List["FilterRuleTypeDef"] = None
     ) -> CreateTaskResponseTypeDef:
         """
-        Creates a task.
+        Configures a task, which defines where and how DataSync transfers your data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.create_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.create_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_task)
         """
     def delete_agent(self, *, AgentArn: str) -> Dict[str, Any]:
         """
         Deletes an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.delete_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.delete_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#delete_agent)
         """
     def delete_location(self, *, LocationArn: str) -> Dict[str, Any]:
         """
         Deletes the configuration of a location used by DataSync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.delete_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.delete_location)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#delete_location)
         """
     def delete_task(self, *, TaskArn: str) -> Dict[str, Any]:
         """
         Deletes a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.delete_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.delete_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#delete_task)
         """
     def describe_agent(self, *, AgentArn: str) -> DescribeAgentResponseTypeDef:
@@ -341,14 +367,14 @@ class DataSyncClient(BaseClient):
         Returns metadata such as the name, the network interfaces, and the status (that
         is, whether the agent is running or not) for an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_agent)
         """
     def describe_location_efs(self, *, LocationArn: str) -> DescribeLocationEfsResponseTypeDef:
         """
         Returns metadata about your DataSync location for an Amazon EFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_efs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_efs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_efs)
         """
     def describe_location_fsx_lustre(
@@ -358,8 +384,18 @@ class DataSyncClient(BaseClient):
         Returns metadata about an Amazon FSx for Lustre location, such as information
         about its path.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_fsx_lustre)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_fsx_lustre)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_fsx_lustre)
+        """
+    def describe_location_fsx_ontap(
+        self, *, LocationArn: str
+    ) -> DescribeLocationFsxOntapResponseTypeDef:
+        """
+        Provides details about how an DataSync location for an Amazon FSx for NetApp
+        ONTAP file system is configured.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_fsx_ontap)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_fsx_ontap)
         """
     def describe_location_fsx_open_zfs(
         self, *, LocationArn: str
@@ -368,7 +404,7 @@ class DataSyncClient(BaseClient):
         Returns metadata about an Amazon FSx for OpenZFS location, such as information
         about its path.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_fsx_open_zfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_fsx_open_zfs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_fsx_open_zfs)
         """
     def describe_location_fsx_windows(
@@ -378,7 +414,7 @@ class DataSyncClient(BaseClient):
         Returns metadata about an Amazon FSx for Windows File Server location, such as
         information about its path.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_fsx_windows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_fsx_windows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_fsx_windows)
         """
     def describe_location_hdfs(self, *, LocationArn: str) -> DescribeLocationHdfsResponseTypeDef:
@@ -386,44 +422,44 @@ class DataSyncClient(BaseClient):
         Returns metadata, such as the authentication information about the Hadoop
         Distributed File System (HDFS) location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_hdfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_hdfs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_hdfs)
         """
     def describe_location_nfs(self, *, LocationArn: str) -> DescribeLocationNfsResponseTypeDef:
         """
         Returns metadata, such as the path information, about an NFS location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_nfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_nfs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_nfs)
         """
     def describe_location_object_storage(
         self, *, LocationArn: str
     ) -> DescribeLocationObjectStorageResponseTypeDef:
         """
-        Returns metadata about a self-managed object storage server location.
+        Returns metadata about your DataSync location for an object storage system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_object_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_object_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_object_storage)
         """
     def describe_location_s3(self, *, LocationArn: str) -> DescribeLocationS3ResponseTypeDef:
         """
         Returns metadata, such as bucket name, about an Amazon S3 bucket location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_s3)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_s3)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_s3)
         """
     def describe_location_smb(self, *, LocationArn: str) -> DescribeLocationSmbResponseTypeDef:
         """
         Returns metadata, such as the path and user information about an SMB location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_location_smb)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_location_smb)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_smb)
         """
     def describe_task(self, *, TaskArn: str) -> DescribeTaskResponseTypeDef:
         """
         Returns metadata about a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_task)
         """
     def describe_task_execution(
@@ -432,7 +468,7 @@ class DataSyncClient(BaseClient):
         """
         Returns detailed metadata about a task that is being executed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.describe_task_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.describe_task_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_task_execution)
         """
     def generate_presigned_url(
@@ -445,7 +481,7 @@ class DataSyncClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#generate_presigned_url)
         """
     def list_agents(
@@ -455,7 +491,7 @@ class DataSyncClient(BaseClient):
         Returns a list of agents owned by an Amazon Web Services account in the Amazon
         Web Services Region specified in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.list_agents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.list_agents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_agents)
         """
     def list_locations(
@@ -468,7 +504,7 @@ class DataSyncClient(BaseClient):
         """
         Returns a list of source and destination locations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.list_locations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.list_locations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_locations)
         """
     def list_tags_for_resource(
@@ -477,7 +513,7 @@ class DataSyncClient(BaseClient):
         """
         Returns all the tags associated with a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_tags_for_resource)
         """
     def list_task_executions(
@@ -486,7 +522,7 @@ class DataSyncClient(BaseClient):
         """
         Returns a list of executed tasks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.list_task_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.list_task_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_task_executions)
         """
     def list_tasks(
@@ -497,9 +533,9 @@ class DataSyncClient(BaseClient):
         Filters: List["TaskFilterTypeDef"] = None
     ) -> ListTasksResponseTypeDef:
         """
-        Returns a list of all the tasks.
+        Returns a list of the DataSync tasks you created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.list_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.list_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_tasks)
         """
     def start_task_execution(
@@ -513,7 +549,7 @@ class DataSyncClient(BaseClient):
         """
         Starts a specific invocation of a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.start_task_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.start_task_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#start_task_execution)
         """
     def tag_resource(
@@ -522,21 +558,21 @@ class DataSyncClient(BaseClient):
         """
         Applies a key-value pair to an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, Keys: List[str]) -> Dict[str, Any]:
         """
         Removes a tag from an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#untag_resource)
         """
     def update_agent(self, *, AgentArn: str, Name: str = None) -> Dict[str, Any]:
         """
         Updates the name of an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.update_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.update_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_agent)
         """
     def update_location_hdfs(
@@ -560,7 +596,7 @@ class DataSyncClient(BaseClient):
         Updates some parameters of a previously created location for a Hadoop
         Distributed File System cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.update_location_hdfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.update_location_hdfs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_hdfs)
         """
     def update_location_nfs(
@@ -575,7 +611,7 @@ class DataSyncClient(BaseClient):
         Updates some of the parameters of a previously created location for Network File
         System (NFS) access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.update_location_nfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.update_location_nfs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_nfs)
         """
     def update_location_object_storage(
@@ -593,7 +629,7 @@ class DataSyncClient(BaseClient):
         Updates some of the parameters of a previously created location for self-managed
         object storage server access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.update_location_object_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.update_location_object_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_object_storage)
         """
     def update_location_smb(
@@ -611,7 +647,7 @@ class DataSyncClient(BaseClient):
         Updates some of the parameters of a previously created location for Server
         Message Block (SMB) file system access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.update_location_smb)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.update_location_smb)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_smb)
         """
     def update_task(
@@ -628,7 +664,7 @@ class DataSyncClient(BaseClient):
         """
         Updates the metadata associated with a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.update_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.update_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_task)
         """
     def update_task_execution(
@@ -637,19 +673,19 @@ class DataSyncClient(BaseClient):
         """
         Updates execution of a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Client.update_task_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Client.update_task_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_task_execution)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_agents"]) -> ListAgentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Paginator.ListAgents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Paginator.ListAgents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listagentspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_locations"]) -> ListLocationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Paginator.ListLocations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Paginator.ListLocations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listlocationspaginator)
         """
     @overload
@@ -657,7 +693,7 @@ class DataSyncClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listtagsforresourcepaginator)
         """
     @overload
@@ -665,12 +701,12 @@ class DataSyncClient(BaseClient):
         self, operation_name: Literal["list_task_executions"]
     ) -> ListTaskExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listtaskexecutionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_tasks"]) -> ListTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datasync.html#DataSync.Paginator.ListTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/datasync.html#DataSync.Paginator.ListTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listtaskspaginator)
         """

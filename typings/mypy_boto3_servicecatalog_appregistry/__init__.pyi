@@ -11,6 +11,7 @@ Usage::
         ListApplicationsPaginator,
         ListAssociatedAttributeGroupsPaginator,
         ListAssociatedResourcesPaginator,
+        ListAttributeGroupsForApplicationPaginator,
         ListAttributeGroupsPaginator,
     )
 
@@ -23,6 +24,7 @@ Usage::
     list_associated_attribute_groups_paginator: ListAssociatedAttributeGroupsPaginator = client.get_paginator("list_associated_attribute_groups")
     list_associated_resources_paginator: ListAssociatedResourcesPaginator = client.get_paginator("list_associated_resources")
     list_attribute_groups_paginator: ListAttributeGroupsPaginator = client.get_paginator("list_attribute_groups")
+    list_attribute_groups_for_application_paginator: ListAttributeGroupsForApplicationPaginator = client.get_paginator("list_attribute_groups_for_application")
     ```
 """
 from .client import AppRegistryClient
@@ -30,6 +32,7 @@ from .paginator import (
     ListApplicationsPaginator,
     ListAssociatedAttributeGroupsPaginator,
     ListAssociatedResourcesPaginator,
+    ListAttributeGroupsForApplicationPaginator,
     ListAttributeGroupsPaginator,
 )
 
@@ -41,5 +44,6 @@ __all__ = (
     "ListApplicationsPaginator",
     "ListAssociatedAttributeGroupsPaginator",
     "ListAssociatedResourcesPaginator",
+    "ListAttributeGroupsForApplicationPaginator",
     "ListAttributeGroupsPaginator",
 )

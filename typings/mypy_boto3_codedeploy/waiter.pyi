@@ -26,12 +26,12 @@ __all__ = ("DeploymentSuccessfulWaiter",)
 
 class DeploymentSuccessfulWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters.html#deploymentsuccessfulwaiter)
     """
 
     def wait(self, *, deploymentId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters.html#deploymentsuccessfulwaiter)
         """

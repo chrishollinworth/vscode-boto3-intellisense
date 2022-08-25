@@ -50,6 +50,7 @@ __all__ = (
     "CreateApplicationResponseTypeDef",
     "CreateTagsRequestRequestTypeDef",
     "CustomerAgentInfoTypeDef",
+    "CustomerAgentlessCollectorInfoTypeDef",
     "CustomerConnectorInfoTypeDef",
     "CustomerMeCollectorInfoTypeDef",
     "DeleteApplicationsRequestRequestTypeDef",
@@ -241,6 +242,19 @@ CustomerAgentInfoTypeDef = TypedDict(
         "unhealthyAgents": int,
         "totalAgents": int,
         "unknownAgents": int,
+    },
+)
+
+CustomerAgentlessCollectorInfoTypeDef = TypedDict(
+    "CustomerAgentlessCollectorInfoTypeDef",
+    {
+        "activeAgentlessCollectors": int,
+        "healthyAgentlessCollectors": int,
+        "denyListedAgentlessCollectors": int,
+        "shutdownAgentlessCollectors": int,
+        "unhealthyAgentlessCollectors": int,
+        "totalAgentlessCollectors": int,
+        "unknownAgentlessCollectors": int,
     },
 )
 
@@ -494,6 +508,7 @@ GetDiscoverySummaryResponseTypeDef = TypedDict(
         "agentSummary": "CustomerAgentInfoTypeDef",
         "connectorSummary": "CustomerConnectorInfoTypeDef",
         "meCollectorSummary": "CustomerMeCollectorInfoTypeDef",
+        "agentlessCollectorSummary": "CustomerAgentlessCollectorInfoTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

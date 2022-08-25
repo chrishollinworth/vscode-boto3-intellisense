@@ -63,6 +63,8 @@ __all__ = (
     "DataDistributionTypeType",
     "DetailedAlgorithmStatusType",
     "DetailedModelPackageStatusType",
+    "DeviceDeploymentStatusType",
+    "DeviceSubsetTypeType",
     "DirectInternetAccessType",
     "DirectionType",
     "DomainStatusType",
@@ -75,6 +77,7 @@ __all__ = (
     "EndpointSortKeyType",
     "EndpointStatusType",
     "ExecutionStatusType",
+    "FailureHandlingPolicyType",
     "FeatureGroupSortByType",
     "FeatureGroupSortOrderType",
     "FeatureGroupStatusType",
@@ -85,6 +88,7 @@ __all__ = (
     "FrameworkType",
     "HumanTaskUiStatusType",
     "HyperParameterScalingTypeType",
+    "HyperParameterTuningAllocationStrategyType",
     "HyperParameterTuningJobObjectiveTypeType",
     "HyperParameterTuningJobSortByOptionsType",
     "HyperParameterTuningJobStatusType",
@@ -106,6 +110,7 @@ __all__ = (
     "InstanceTypeType",
     "JoinSourceType",
     "LabelingJobStatusType",
+    "LastUpdateStatusValueType",
     "LineageTypeType",
     "ListActionsPaginatorName",
     "ListAlgorithmsPaginatorName",
@@ -124,6 +129,8 @@ __all__ = (
     "ListDeviceFleetsSortByType",
     "ListDevicesPaginatorName",
     "ListDomainsPaginatorName",
+    "ListEdgeDeploymentPlansPaginatorName",
+    "ListEdgeDeploymentPlansSortByType",
     "ListEdgePackagingJobsPaginatorName",
     "ListEdgePackagingJobsSortByType",
     "ListEndpointConfigsPaginatorName",
@@ -157,6 +164,7 @@ __all__ = (
     "ListPipelineParametersForExecutionPaginatorName",
     "ListPipelinesPaginatorName",
     "ListProcessingJobsPaginatorName",
+    "ListStageDevicesPaginatorName",
     "ListStudioLifecycleConfigsPaginatorName",
     "ListSubscribedWorkteamsPaginatorName",
     "ListTagsPaginatorName",
@@ -249,6 +257,7 @@ __all__ = (
     "SortTrialComponentsByType",
     "SortTrialsByType",
     "SplitTypeType",
+    "StageStatusType",
     "StepStatusType",
     "StudioLifecycleConfigAppTypeType",
     "StudioLifecycleConfigSortKeyType",
@@ -272,6 +281,7 @@ __all__ = (
     "UserProfileStatusType",
     "VariantPropertyTypeType",
     "VariantStatusType",
+    "WorkforceStatusType",
 )
 
 ActionStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping", "Unknown"]
@@ -417,6 +427,10 @@ ContentClassifierType = Literal["FreeOfAdultContent", "FreeOfPersonallyIdentifia
 DataDistributionTypeType = Literal["FullyReplicated", "ShardedByS3Key"]
 DetailedAlgorithmStatusType = Literal["Completed", "Failed", "InProgress", "NotStarted"]
 DetailedModelPackageStatusType = Literal["Completed", "Failed", "InProgress", "NotStarted"]
+DeviceDeploymentStatusType = Literal[
+    "DEPLOYED", "FAILED", "INPROGRESS", "READYTODEPLOY", "STOPPED", "STOPPING"
+]
+DeviceSubsetTypeType = Literal["NAMECONTAINS", "PERCENTAGE", "SELECTION"]
 DirectInternetAccessType = Literal["Disabled", "Enabled"]
 DirectionType = Literal["Ascendants", "Both", "Descendants"]
 DomainStatusType = Literal[
@@ -444,6 +458,7 @@ EndpointStatusType = Literal[
 ExecutionStatusType = Literal[
     "Completed", "CompletedWithViolations", "Failed", "InProgress", "Pending", "Stopped", "Stopping"
 ]
+FailureHandlingPolicyType = Literal["DO_NOTHING", "ROLLBACK_ON_FAILURE"]
 FeatureGroupSortByType = Literal["CreationTime", "FeatureGroupStatus", "Name", "OfflineStoreStatus"]
 FeatureGroupSortOrderType = Literal["Ascending", "Descending"]
 FeatureGroupStatusType = Literal["CreateFailed", "Created", "Creating", "DeleteFailed", "Deleting"]
@@ -456,6 +471,7 @@ FrameworkType = Literal[
 ]
 HumanTaskUiStatusType = Literal["Active", "Deleting"]
 HyperParameterScalingTypeType = Literal["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"]
+HyperParameterTuningAllocationStrategyType = Literal["Prioritized"]
 HyperParameterTuningJobObjectiveTypeType = Literal["Maximize", "Minimize"]
 HyperParameterTuningJobSortByOptionsType = Literal["CreationTime", "Name", "Status"]
 HyperParameterTuningJobStatusType = Literal[
@@ -555,6 +571,7 @@ JoinSourceType = Literal["Input", "None"]
 LabelingJobStatusType = Literal[
     "Completed", "Failed", "InProgress", "Initializing", "Stopped", "Stopping"
 ]
+LastUpdateStatusValueType = Literal["Failed", "InProgress", "Successful"]
 LineageTypeType = Literal["Action", "Artifact", "Context", "TrialComponent"]
 ListActionsPaginatorName = Literal["list_actions"]
 ListAlgorithmsPaginatorName = Literal["list_algorithms"]
@@ -573,6 +590,10 @@ ListDeviceFleetsPaginatorName = Literal["list_device_fleets"]
 ListDeviceFleetsSortByType = Literal["CREATION_TIME", "LAST_MODIFIED_TIME", "NAME"]
 ListDevicesPaginatorName = Literal["list_devices"]
 ListDomainsPaginatorName = Literal["list_domains"]
+ListEdgeDeploymentPlansPaginatorName = Literal["list_edge_deployment_plans"]
+ListEdgeDeploymentPlansSortByType = Literal[
+    "CREATION_TIME", "DEVICE_FLEET_NAME", "LAST_MODIFIED_TIME", "NAME"
+]
 ListEdgePackagingJobsPaginatorName = Literal["list_edge_packaging_jobs"]
 ListEdgePackagingJobsSortByType = Literal[
     "CREATION_TIME", "LAST_MODIFIED_TIME", "MODEL_NAME", "NAME", "STATUS"
@@ -612,6 +633,7 @@ ListPipelineExecutionsPaginatorName = Literal["list_pipeline_executions"]
 ListPipelineParametersForExecutionPaginatorName = Literal["list_pipeline_parameters_for_execution"]
 ListPipelinesPaginatorName = Literal["list_pipelines"]
 ListProcessingJobsPaginatorName = Literal["list_processing_jobs"]
+ListStageDevicesPaginatorName = Literal["list_stage_devices"]
 ListStudioLifecycleConfigsPaginatorName = Literal["list_studio_lifecycle_configs"]
 ListSubscribedWorkteamsPaginatorName = Literal["list_subscribed_workteams"]
 ListTagsPaginatorName = Literal["list_tags"]
@@ -763,12 +785,29 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.c5d.9xlarge",
     "ml.c5d.large",
     "ml.c5d.xlarge",
+    "ml.c6i.12xlarge",
+    "ml.c6i.16xlarge",
+    "ml.c6i.24xlarge",
+    "ml.c6i.2xlarge",
+    "ml.c6i.32xlarge",
+    "ml.c6i.4xlarge",
+    "ml.c6i.8xlarge",
+    "ml.c6i.large",
+    "ml.c6i.xlarge",
     "ml.g4dn.12xlarge",
     "ml.g4dn.16xlarge",
     "ml.g4dn.2xlarge",
     "ml.g4dn.4xlarge",
     "ml.g4dn.8xlarge",
     "ml.g4dn.xlarge",
+    "ml.g5.12xlarge",
+    "ml.g5.16xlarge",
+    "ml.g5.24xlarge",
+    "ml.g5.2xlarge",
+    "ml.g5.48xlarge",
+    "ml.g5.4xlarge",
+    "ml.g5.8xlarge",
+    "ml.g5.xlarge",
     "ml.inf1.24xlarge",
     "ml.inf1.2xlarge",
     "ml.inf1.6xlarge",
@@ -796,6 +835,7 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.p3.16xlarge",
     "ml.p3.2xlarge",
     "ml.p3.8xlarge",
+    "ml.p4d.24xlarge",
     "ml.r5.12xlarge",
     "ml.r5.24xlarge",
     "ml.r5.2xlarge",
@@ -844,6 +884,7 @@ ResourceTypeType = Literal[
     "ExperimentTrial",
     "ExperimentTrialComponent",
     "FeatureGroup",
+    "FeatureMetadata",
     "ModelPackage",
     "ModelPackageGroup",
     "Pipeline",
@@ -895,6 +936,16 @@ SortPipelinesByType = Literal["CreationTime", "Name"]
 SortTrialComponentsByType = Literal["CreationTime", "Name"]
 SortTrialsByType = Literal["CreationTime", "Name"]
 SplitTypeType = Literal["Line", "None", "RecordIO", "TFRecord"]
+StageStatusType = Literal[
+    "CREATING",
+    "DEPLOYED",
+    "FAILED",
+    "INPROGRESS",
+    "READYTODEPLOY",
+    "STARTING",
+    "STOPPED",
+    "STOPPING",
+]
 StepStatusType = Literal["Executing", "Failed", "Starting", "Stopped", "Stopping", "Succeeded"]
 StudioLifecycleConfigAppTypeType = Literal["JupyterServer", "KernelGateway"]
 StudioLifecycleConfigSortKeyType = Literal["CreationTime", "LastModifiedTime", "Name"]
@@ -1038,3 +1089,4 @@ UserProfileStatusType = Literal[
 ]
 VariantPropertyTypeType = Literal["DataCaptureConfig", "DesiredInstanceCount", "DesiredWeight"]
 VariantStatusType = Literal["ActivatingTraffic", "Baking", "Creating", "Deleting", "Updating"]
+WorkforceStatusType = Literal["Active", "Deleting", "Failed", "Initializing", "Updating"]

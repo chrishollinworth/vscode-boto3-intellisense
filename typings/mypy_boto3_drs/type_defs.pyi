@@ -913,6 +913,7 @@ ReplicationConfigurationReplicatedDiskTypeDef = TypedDict(
         "deviceName": str,
         "iops": int,
         "isBootDisk": bool,
+        "optimizedStagingDiskType": ReplicationConfigurationReplicatedDiskStagingDiskTypeType,
         "stagingDiskType": ReplicationConfigurationReplicatedDiskStagingDiskTypeType,
         "throughput": int,
     },

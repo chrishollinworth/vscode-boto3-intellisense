@@ -31,13 +31,19 @@ from .literals import (
     InsightStatusType,
     InsightTypeType,
     LocaleType,
+    LogAnomalyTypeType,
     OptInStatusType,
     OrganizationResourceCollectionTypeType,
     ResourceCollectionTypeType,
+    ResourcePermissionType,
     ServiceNameType,
     UpdateResourceCollectionActionType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -49,6 +55,7 @@ __all__ = (
     "AddNotificationChannelRequestRequestTypeDef",
     "AddNotificationChannelResponseTypeDef",
     "AmazonCodeGuruProfilerIntegrationTypeDef",
+    "AnomalousLogGroupTypeDef",
     "AnomalyReportedTimeRangeTypeDef",
     "AnomalyResourceTypeDef",
     "AnomalySourceDetailsTypeDef",
@@ -97,6 +104,8 @@ __all__ = (
     "InsightTimeRangeTypeDef",
     "ListAnomaliesForInsightRequestRequestTypeDef",
     "ListAnomaliesForInsightResponseTypeDef",
+    "ListAnomalousLogGroupsRequestRequestTypeDef",
+    "ListAnomalousLogGroupsResponseTypeDef",
     "ListEventsFiltersTypeDef",
     "ListEventsRequestRequestTypeDef",
     "ListEventsResponseTypeDef",
@@ -106,12 +115,20 @@ __all__ = (
     "ListInsightsRequestRequestTypeDef",
     "ListInsightsResponseTypeDef",
     "ListInsightsStatusFilterTypeDef",
+    "ListMonitoredResourcesFiltersTypeDef",
+    "ListMonitoredResourcesRequestRequestTypeDef",
+    "ListMonitoredResourcesResponseTypeDef",
     "ListNotificationChannelsRequestRequestTypeDef",
     "ListNotificationChannelsResponseTypeDef",
     "ListOrganizationInsightsRequestRequestTypeDef",
     "ListOrganizationInsightsResponseTypeDef",
     "ListRecommendationsRequestRequestTypeDef",
     "ListRecommendationsResponseTypeDef",
+    "LogAnomalyClassTypeDef",
+    "LogAnomalyShowcaseTypeDef",
+    "LogsAnomalyDetectionIntegrationConfigTypeDef",
+    "LogsAnomalyDetectionIntegrationTypeDef",
+    "MonitoredResourceIdentifierTypeDef",
     "NotificationChannelConfigTypeDef",
     "NotificationChannelTypeDef",
     "OpsCenterIntegrationConfigTypeDef",
@@ -213,6 +230,18 @@ AmazonCodeGuruProfilerIntegrationTypeDef = TypedDict(
     "AmazonCodeGuruProfilerIntegrationTypeDef",
     {
         "Status": EventSourceOptInStatusType,
+    },
+    total=False,
+)
+
+AnomalousLogGroupTypeDef = TypedDict(
+    "AnomalousLogGroupTypeDef",
+    {
+        "LogGroupName": str,
+        "ImpactStartTime": datetime,
+        "ImpactEndTime": datetime,
+        "NumberOfLogLinesScanned": int,
+        "LogAnomalyShowcases": List["LogAnomalyShowcaseTypeDef"],
     },
     total=False,
 )
@@ -786,6 +815,37 @@ ListAnomaliesForInsightResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListAnomalousLogGroupsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAnomalousLogGroupsRequestRequestTypeDef",
+    {
+        "InsightId": str,
+    },
+)
+_OptionalListAnomalousLogGroupsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAnomalousLogGroupsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAnomalousLogGroupsRequestRequestTypeDef(
+    _RequiredListAnomalousLogGroupsRequestRequestTypeDef,
+    _OptionalListAnomalousLogGroupsRequestRequestTypeDef,
+):
+    pass
+
+ListAnomalousLogGroupsResponseTypeDef = TypedDict(
+    "ListAnomalousLogGroupsResponseTypeDef",
+    {
+        "InsightId": str,
+        "AnomalousLogGroups": List["AnomalousLogGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListEventsFiltersTypeDef = TypedDict(
     "ListEventsFiltersTypeDef",
     {
@@ -892,6 +952,44 @@ ListInsightsStatusFilterTypeDef = TypedDict(
     total=False,
 )
 
+ListMonitoredResourcesFiltersTypeDef = TypedDict(
+    "ListMonitoredResourcesFiltersTypeDef",
+    {
+        "ResourcePermission": ResourcePermissionType,
+        "ResourceTypeFilters": List[Literal["LOG_GROUPS"]],
+    },
+)
+
+_RequiredListMonitoredResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListMonitoredResourcesRequestRequestTypeDef",
+    {
+        "Filters": "ListMonitoredResourcesFiltersTypeDef",
+    },
+)
+_OptionalListMonitoredResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListMonitoredResourcesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListMonitoredResourcesRequestRequestTypeDef(
+    _RequiredListMonitoredResourcesRequestRequestTypeDef,
+    _OptionalListMonitoredResourcesRequestRequestTypeDef,
+):
+    pass
+
+ListMonitoredResourcesResponseTypeDef = TypedDict(
+    "ListMonitoredResourcesResponseTypeDef",
+    {
+        "MonitoredResourceIdentifiers": List["MonitoredResourceIdentifierTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListNotificationChannelsRequestRequestTypeDef = TypedDict(
     "ListNotificationChannelsRequestRequestTypeDef",
     {
@@ -971,6 +1069,54 @@ ListRecommendationsResponseTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+LogAnomalyClassTypeDef = TypedDict(
+    "LogAnomalyClassTypeDef",
+    {
+        "LogStreamName": str,
+        "LogAnomalyType": LogAnomalyTypeType,
+        "LogAnomalyToken": str,
+        "LogEventId": str,
+        "Explanation": str,
+        "NumberOfLogLinesOccurrences": int,
+        "LogEventTimestamp": datetime,
+    },
+    total=False,
+)
+
+LogAnomalyShowcaseTypeDef = TypedDict(
+    "LogAnomalyShowcaseTypeDef",
+    {
+        "LogAnomalyClasses": List["LogAnomalyClassTypeDef"],
+    },
+    total=False,
+)
+
+LogsAnomalyDetectionIntegrationConfigTypeDef = TypedDict(
+    "LogsAnomalyDetectionIntegrationConfigTypeDef",
+    {
+        "OptInStatus": OptInStatusType,
+    },
+    total=False,
+)
+
+LogsAnomalyDetectionIntegrationTypeDef = TypedDict(
+    "LogsAnomalyDetectionIntegrationTypeDef",
+    {
+        "OptInStatus": OptInStatusType,
+    },
+    total=False,
+)
+
+MonitoredResourceIdentifierTypeDef = TypedDict(
+    "MonitoredResourceIdentifierTypeDef",
+    {
+        "MonitoredResourceName": str,
+        "Type": str,
+        "ResourcePermission": ResourcePermissionType,
+    },
+    total=False,
 )
 
 NotificationChannelConfigTypeDef = TypedDict(
@@ -1515,6 +1661,7 @@ ServiceIntegrationConfigTypeDef = TypedDict(
     "ServiceIntegrationConfigTypeDef",
     {
         "OpsCenter": "OpsCenterIntegrationTypeDef",
+        "LogsAnomalyDetection": "LogsAnomalyDetectionIntegrationTypeDef",
     },
     total=False,
 )
@@ -1648,6 +1795,7 @@ UpdateServiceIntegrationConfigTypeDef = TypedDict(
     "UpdateServiceIntegrationConfigTypeDef",
     {
         "OpsCenter": "OpsCenterIntegrationConfigTypeDef",
+        "LogsAnomalyDetection": "LogsAnomalyDetectionIntegrationConfigTypeDef",
     },
     total=False,
 )

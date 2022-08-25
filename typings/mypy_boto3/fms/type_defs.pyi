@@ -24,6 +24,7 @@ from .literals import (
     MarketplaceSubscriptionOnboardingStatusType,
     PolicyComplianceStatusTypeType,
     RemediationActionTypeType,
+    RuleOrderType,
     SecurityServiceTypeType,
     TargetTypeType,
     ThirdPartyFirewallAssociationStatusType,
@@ -141,6 +142,7 @@ __all__ = (
     "SecurityGroupRemediationActionTypeDef",
     "SecurityGroupRuleDescriptionTypeDef",
     "SecurityServicePolicyDataTypeDef",
+    "StatefulEngineOptionsTypeDef",
     "StatefulRuleGroupTypeDef",
     "StatelessRuleGroupTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -1004,6 +1006,8 @@ NetworkFirewallPolicyDescriptionTypeDef = TypedDict(
         "StatelessFragmentDefaultActions": List[str],
         "StatelessCustomActions": List[str],
         "StatefulRuleGroups": List["StatefulRuleGroupTypeDef"],
+        "StatefulDefaultActions": List[str],
+        "StatefulEngineOptions": "StatefulEngineOptionsTypeDef",
     },
     total=False,
 )
@@ -1459,11 +1463,20 @@ class SecurityServicePolicyDataTypeDef(
 ):
     pass
 
+StatefulEngineOptionsTypeDef = TypedDict(
+    "StatefulEngineOptionsTypeDef",
+    {
+        "RuleOrder": RuleOrderType,
+    },
+    total=False,
+)
+
 StatefulRuleGroupTypeDef = TypedDict(
     "StatefulRuleGroupTypeDef",
     {
         "RuleGroupName": str,
         "ResourceId": str,
+        "Priority": int,
     },
     total=False,
 )

@@ -58,6 +58,7 @@ __all__ = (
     "DescribeModelRequestRequestTypeDef",
     "DescribeModelResponseTypeDef",
     "DuplicateTimestampsTypeDef",
+    "InferenceEventSummaryTypeDef",
     "InferenceExecutionSummaryTypeDef",
     "InferenceInputConfigurationTypeDef",
     "InferenceInputNameConfigurationTypeDef",
@@ -77,6 +78,8 @@ __all__ = (
     "ListDataIngestionJobsResponseTypeDef",
     "ListDatasetsRequestRequestTypeDef",
     "ListDatasetsResponseTypeDef",
+    "ListInferenceEventsRequestRequestTypeDef",
+    "ListInferenceEventsResponseTypeDef",
     "ListInferenceExecutionsRequestRequestTypeDef",
     "ListInferenceExecutionsResponseTypeDef",
     "ListInferenceSchedulersRequestRequestTypeDef",
@@ -440,6 +443,19 @@ DuplicateTimestampsTypeDef = TypedDict(
     },
 )
 
+InferenceEventSummaryTypeDef = TypedDict(
+    "InferenceEventSummaryTypeDef",
+    {
+        "InferenceSchedulerArn": str,
+        "InferenceSchedulerName": str,
+        "EventStartTime": datetime,
+        "EventEndTime": datetime,
+        "Diagnostics": str,
+        "EventDurationInSeconds": int,
+    },
+    total=False,
+)
+
 InferenceExecutionSummaryTypeDef = TypedDict(
     "InferenceExecutionSummaryTypeDef",
     {
@@ -693,6 +709,38 @@ ListDatasetsResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "DatasetSummaries": List["DatasetSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListInferenceEventsRequestRequestTypeDef = TypedDict(
+    "_RequiredListInferenceEventsRequestRequestTypeDef",
+    {
+        "InferenceSchedulerName": str,
+        "IntervalStartTime": Union[datetime, str],
+        "IntervalEndTime": Union[datetime, str],
+    },
+)
+_OptionalListInferenceEventsRequestRequestTypeDef = TypedDict(
+    "_OptionalListInferenceEventsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListInferenceEventsRequestRequestTypeDef(
+    _RequiredListInferenceEventsRequestRequestTypeDef,
+    _OptionalListInferenceEventsRequestRequestTypeDef,
+):
+    pass
+
+ListInferenceEventsResponseTypeDef = TypedDict(
+    "ListInferenceEventsResponseTypeDef",
+    {
+        "NextToken": str,
+        "InferenceEventSummaries": List["InferenceEventSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

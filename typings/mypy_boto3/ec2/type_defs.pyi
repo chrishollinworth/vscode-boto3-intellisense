@@ -80,6 +80,7 @@ from .literals import (
     DnsRecordIpTypeType,
     DnsSupportValueType,
     DomainTypeType,
+    DynamicRoutingValueType,
     EbsEncryptionSupportType,
     EbsNvmeSupportType,
     EbsOptimizedSupportType,
@@ -213,6 +214,7 @@ from .literals import (
     SpotInstanceInterruptionBehaviorType,
     SpotInstanceStateType,
     SpotInstanceTypeType,
+    SpreadLevelType,
     StateType,
     StaticSourcesSupportValueType,
     StatusType,
@@ -238,9 +240,12 @@ from .literals import (
     TransitGatewayConnectPeerStateType,
     TransitGatewayMulitcastDomainAssociationStateType,
     TransitGatewayMulticastDomainStateType,
+    TransitGatewayPolicyTableStateType,
     TransitGatewayPrefixListReferenceStateType,
     TransitGatewayPropagationStateType,
     TransitGatewayRouteStateType,
+    TransitGatewayRouteTableAnnouncementDirectionType,
+    TransitGatewayRouteTableAnnouncementStateType,
     TransitGatewayRouteTableStateType,
     TransitGatewayRouteTypeType,
     TransitGatewayStateType,
@@ -353,6 +358,8 @@ __all__ = (
     "AssociateSubnetCidrBlockResultTypeDef",
     "AssociateTransitGatewayMulticastDomainRequestRequestTypeDef",
     "AssociateTransitGatewayMulticastDomainResultTypeDef",
+    "AssociateTransitGatewayPolicyTableRequestRequestTypeDef",
+    "AssociateTransitGatewayPolicyTableResultTypeDef",
     "AssociateTransitGatewayRouteTableRequestRequestTypeDef",
     "AssociateTransitGatewayRouteTableResultTypeDef",
     "AssociateTrunkInterfaceRequestRequestTypeDef",
@@ -457,6 +464,8 @@ __all__ = (
     "ClientVpnEndpointTypeDef",
     "ClientVpnRouteStatusTypeDef",
     "ClientVpnRouteTypeDef",
+    "CloudWatchLogOptionsSpecificationTypeDef",
+    "CloudWatchLogOptionsTypeDef",
     "CoipAddressUsageTypeDef",
     "CoipPoolTypeDef",
     "ConfirmProductInstanceRequestRequestTypeDef",
@@ -616,14 +625,19 @@ __all__ = (
     "CreateTransitGatewayMulticastDomainRequestOptionsTypeDef",
     "CreateTransitGatewayMulticastDomainRequestRequestTypeDef",
     "CreateTransitGatewayMulticastDomainResultTypeDef",
+    "CreateTransitGatewayPeeringAttachmentRequestOptionsTypeDef",
     "CreateTransitGatewayPeeringAttachmentRequestRequestTypeDef",
     "CreateTransitGatewayPeeringAttachmentResultTypeDef",
+    "CreateTransitGatewayPolicyTableRequestRequestTypeDef",
+    "CreateTransitGatewayPolicyTableResultTypeDef",
     "CreateTransitGatewayPrefixListReferenceRequestRequestTypeDef",
     "CreateTransitGatewayPrefixListReferenceResultTypeDef",
     "CreateTransitGatewayRequestRequestTypeDef",
     "CreateTransitGatewayResultTypeDef",
     "CreateTransitGatewayRouteRequestRequestTypeDef",
     "CreateTransitGatewayRouteResultTypeDef",
+    "CreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef",
+    "CreateTransitGatewayRouteTableAnnouncementResultTypeDef",
     "CreateTransitGatewayRouteTableRequestRequestTypeDef",
     "CreateTransitGatewayRouteTableResultTypeDef",
     "CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef",
@@ -755,12 +769,16 @@ __all__ = (
     "DeleteTransitGatewayMulticastDomainResultTypeDef",
     "DeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef",
     "DeleteTransitGatewayPeeringAttachmentResultTypeDef",
+    "DeleteTransitGatewayPolicyTableRequestRequestTypeDef",
+    "DeleteTransitGatewayPolicyTableResultTypeDef",
     "DeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef",
     "DeleteTransitGatewayPrefixListReferenceResultTypeDef",
     "DeleteTransitGatewayRequestRequestTypeDef",
     "DeleteTransitGatewayResultTypeDef",
     "DeleteTransitGatewayRouteRequestRequestTypeDef",
     "DeleteTransitGatewayRouteResultTypeDef",
+    "DeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef",
+    "DeleteTransitGatewayRouteTableAnnouncementResultTypeDef",
     "DeleteTransitGatewayRouteTableRequestRequestTypeDef",
     "DeleteTransitGatewayRouteTableResultTypeDef",
     "DeleteTransitGatewayVpcAttachmentRequestRequestTypeDef",
@@ -1026,6 +1044,10 @@ __all__ = (
     "DescribeTransitGatewayMulticastDomainsResultTypeDef",
     "DescribeTransitGatewayPeeringAttachmentsRequestRequestTypeDef",
     "DescribeTransitGatewayPeeringAttachmentsResultTypeDef",
+    "DescribeTransitGatewayPolicyTablesRequestRequestTypeDef",
+    "DescribeTransitGatewayPolicyTablesResultTypeDef",
+    "DescribeTransitGatewayRouteTableAnnouncementsRequestRequestTypeDef",
+    "DescribeTransitGatewayRouteTableAnnouncementsResultTypeDef",
     "DescribeTransitGatewayRouteTablesRequestRequestTypeDef",
     "DescribeTransitGatewayRouteTablesResultTypeDef",
     "DescribeTransitGatewayVpcAttachmentsRequestRequestTypeDef",
@@ -1132,6 +1154,8 @@ __all__ = (
     "DisassociateSubnetCidrBlockResultTypeDef",
     "DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef",
     "DisassociateTransitGatewayMulticastDomainResultTypeDef",
+    "DisassociateTransitGatewayPolicyTableRequestRequestTypeDef",
+    "DisassociateTransitGatewayPolicyTableResultTypeDef",
     "DisassociateTransitGatewayRouteTableRequestRequestTypeDef",
     "DisassociateTransitGatewayRouteTableResultTypeDef",
     "DisassociateTrunkInterfaceRequestRequestTypeDef",
@@ -1295,6 +1319,10 @@ __all__ = (
     "GetTransitGatewayAttachmentPropagationsResultTypeDef",
     "GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
     "GetTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    "GetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef",
+    "GetTransitGatewayPolicyTableAssociationsResultTypeDef",
+    "GetTransitGatewayPolicyTableEntriesRequestRequestTypeDef",
+    "GetTransitGatewayPolicyTableEntriesResultTypeDef",
     "GetTransitGatewayPrefixListReferencesRequestRequestTypeDef",
     "GetTransitGatewayPrefixListReferencesResultTypeDef",
     "GetTransitGatewayRouteTableAssociationsRequestRequestTypeDef",
@@ -1977,12 +2005,19 @@ __all__ = (
     "TransitGatewayMulticastRegisteredGroupMembersTypeDef",
     "TransitGatewayMulticastRegisteredGroupSourcesTypeDef",
     "TransitGatewayOptionsTypeDef",
+    "TransitGatewayPeeringAttachmentOptionsTypeDef",
     "TransitGatewayPeeringAttachmentTypeDef",
+    "TransitGatewayPolicyRuleMetaDataTypeDef",
+    "TransitGatewayPolicyRuleTypeDef",
+    "TransitGatewayPolicyTableAssociationTypeDef",
+    "TransitGatewayPolicyTableEntryTypeDef",
+    "TransitGatewayPolicyTableTypeDef",
     "TransitGatewayPrefixListAttachmentTypeDef",
     "TransitGatewayPrefixListReferenceTypeDef",
     "TransitGatewayPropagationTypeDef",
     "TransitGatewayRequestOptionsTypeDef",
     "TransitGatewayRouteAttachmentTypeDef",
+    "TransitGatewayRouteTableAnnouncementTypeDef",
     "TransitGatewayRouteTableAssociationTypeDef",
     "TransitGatewayRouteTablePropagationTypeDef",
     "TransitGatewayRouteTableRouteTypeDef",
@@ -2048,6 +2083,8 @@ __all__ = (
     "VpnConnectionTypeDef",
     "VpnGatewayTypeDef",
     "VpnStaticRouteTypeDef",
+    "VpnTunnelLogOptionsSpecificationTypeDef",
+    "VpnTunnelLogOptionsTypeDef",
     "VpnTunnelOptionsSpecificationTypeDef",
     "WaiterConfigTypeDef",
     "WithdrawByoipCidrRequestRequestTypeDef",
@@ -2997,6 +3034,35 @@ AssociateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
     "AssociateTransitGatewayMulticastDomainResultTypeDef",
     {
         "Associations": "TransitGatewayMulticastDomainAssociationsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateTransitGatewayPolicyTableRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateTransitGatewayPolicyTableRequestRequestTypeDef",
+    {
+        "TransitGatewayPolicyTableId": str,
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalAssociateTransitGatewayPolicyTableRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateTransitGatewayPolicyTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateTransitGatewayPolicyTableRequestRequestTypeDef(
+    _RequiredAssociateTransitGatewayPolicyTableRequestRequestTypeDef,
+    _OptionalAssociateTransitGatewayPolicyTableRequestRequestTypeDef,
+):
+    pass
+
+AssociateTransitGatewayPolicyTableResultTypeDef = TypedDict(
+    "AssociateTransitGatewayPolicyTableResultTypeDef",
+    {
+        "Association": "TransitGatewayPolicyTableAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4357,6 +4423,26 @@ ClientVpnRouteTypeDef = TypedDict(
     total=False,
 )
 
+CloudWatchLogOptionsSpecificationTypeDef = TypedDict(
+    "CloudWatchLogOptionsSpecificationTypeDef",
+    {
+        "LogEnabled": bool,
+        "LogGroupArn": str,
+        "LogOutputFormat": str,
+    },
+    total=False,
+)
+
+CloudWatchLogOptionsTypeDef = TypedDict(
+    "CloudWatchLogOptionsTypeDef",
+    {
+        "LogEnabled": bool,
+        "LogGroupArn": str,
+        "LogOutputFormat": str,
+    },
+    total=False,
+)
+
 CoipAddressUsageTypeDef = TypedDict(
     "CoipAddressUsageTypeDef",
     {
@@ -4812,6 +4898,7 @@ _OptionalCreateCustomerGatewayRequestRequestTypeDef = TypedDict(
         "CertificateArn": str,
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "DeviceName": str,
+        "IpAddress": str,
         "DryRun": bool,
     },
     total=False,
@@ -5025,7 +5112,6 @@ _RequiredCreateFlowLogsRequestRequestTypeDef = TypedDict(
     {
         "ResourceIds": List[str],
         "ResourceType": FlowLogsResourceTypeType,
-        "TrafficType": TrafficTypeType,
     },
 )
 _OptionalCreateFlowLogsRequestRequestTypeDef = TypedDict(
@@ -5035,6 +5121,7 @@ _OptionalCreateFlowLogsRequestRequestTypeDef = TypedDict(
         "ClientToken": str,
         "DeliverLogsPermissionArn": str,
         "LogGroupName": str,
+        "TrafficType": TrafficTypeType,
         "LogDestinationType": LogDestinationTypeType,
         "LogDestination": str,
         "LogFormat": str,
@@ -5870,6 +5957,7 @@ CreatePlacementGroupRequestRequestTypeDef = TypedDict(
         "Strategy": PlacementStrategyType,
         "PartitionCount": int,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "SpreadLevel": SpreadLevelType,
     },
     total=False,
 )
@@ -5882,6 +5970,7 @@ CreatePlacementGroupRequestServiceResourceTypeDef = TypedDict(
         "Strategy": PlacementStrategyType,
         "PartitionCount": int,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "SpreadLevel": SpreadLevelType,
     },
     total=False,
 )
@@ -6942,6 +7031,14 @@ CreateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
     },
 )
 
+CreateTransitGatewayPeeringAttachmentRequestOptionsTypeDef = TypedDict(
+    "CreateTransitGatewayPeeringAttachmentRequestOptionsTypeDef",
+    {
+        "DynamicRouting": DynamicRoutingValueType,
+    },
+    total=False,
+)
+
 _RequiredCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
     "_RequiredCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef",
     {
@@ -6954,6 +7051,7 @@ _RequiredCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
 _OptionalCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
     "_OptionalCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef",
     {
+        "Options": "CreateTransitGatewayPeeringAttachmentRequestOptionsTypeDef",
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "DryRun": bool,
     },
@@ -6970,6 +7068,35 @@ CreateTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
     "CreateTransitGatewayPeeringAttachmentResultTypeDef",
     {
         "TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTransitGatewayPolicyTableRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayPolicyTableRequestRequestTypeDef",
+    {
+        "TransitGatewayId": str,
+    },
+)
+_OptionalCreateTransitGatewayPolicyTableRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayPolicyTableRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayPolicyTableRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayPolicyTableRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayPolicyTableRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayPolicyTableResultTypeDef = TypedDict(
+    "CreateTransitGatewayPolicyTableResultTypeDef",
+    {
+        "TransitGatewayPolicyTable": "TransitGatewayPolicyTableTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7051,6 +7178,36 @@ CreateTransitGatewayRouteResultTypeDef = TypedDict(
     "CreateTransitGatewayRouteResultTypeDef",
     {
         "Route": "TransitGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "PeeringAttachmentId": str,
+    },
+)
+_OptionalCreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayRouteTableAnnouncementResultTypeDef = TypedDict(
+    "CreateTransitGatewayRouteTableAnnouncementResultTypeDef",
+    {
+        "TransitGatewayRouteTableAnnouncement": "TransitGatewayRouteTableAnnouncementTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -8872,6 +9029,34 @@ DeleteTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDeleteTransitGatewayPolicyTableRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayPolicyTableRequestRequestTypeDef",
+    {
+        "TransitGatewayPolicyTableId": str,
+    },
+)
+_OptionalDeleteTransitGatewayPolicyTableRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayPolicyTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayPolicyTableRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayPolicyTableRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayPolicyTableRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayPolicyTableResultTypeDef = TypedDict(
+    "DeleteTransitGatewayPolicyTableResultTypeDef",
+    {
+        "TransitGatewayPolicyTable": "TransitGatewayPolicyTableTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef",
     {
@@ -8954,6 +9139,34 @@ DeleteTransitGatewayRouteResultTypeDef = TypedDict(
     "DeleteTransitGatewayRouteResultTypeDef",
     {
         "Route": "TransitGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableAnnouncementId": str,
+    },
+)
+_OptionalDeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayRouteTableAnnouncementResultTypeDef = TypedDict(
+    "DeleteTransitGatewayRouteTableAnnouncementResultTypeDef",
+    {
+        "TransitGatewayRouteTableAnnouncement": "TransitGatewayRouteTableAnnouncementTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -12042,6 +12255,50 @@ DescribeTransitGatewayPeeringAttachmentsResultTypeDef = TypedDict(
     },
 )
 
+DescribeTransitGatewayPolicyTablesRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayPolicyTablesRequestRequestTypeDef",
+    {
+        "TransitGatewayPolicyTableIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayPolicyTablesResultTypeDef = TypedDict(
+    "DescribeTransitGatewayPolicyTablesResultTypeDef",
+    {
+        "TransitGatewayPolicyTables": List["TransitGatewayPolicyTableTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewayRouteTableAnnouncementsRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayRouteTableAnnouncementsRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableAnnouncementIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayRouteTableAnnouncementsResultTypeDef = TypedDict(
+    "DescribeTransitGatewayRouteTableAnnouncementsResultTypeDef",
+    {
+        "TransitGatewayRouteTableAnnouncements": List[
+            "TransitGatewayRouteTableAnnouncementTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeTransitGatewayRouteTablesRequestRequestTypeDef = TypedDict(
     "DescribeTransitGatewayRouteTablesRequestRequestTypeDef",
     {
@@ -13056,13 +13313,14 @@ _RequiredDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef = Typed
     "_RequiredDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
     {
         "TransitGatewayRouteTableId": str,
-        "TransitGatewayAttachmentId": str,
     },
 )
 _OptionalDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef = TypedDict(
     "_OptionalDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
     {
+        "TransitGatewayAttachmentId": str,
         "DryRun": bool,
+        "TransitGatewayRouteTableAnnouncementId": str,
     },
     total=False,
 )
@@ -13354,6 +13612,35 @@ DisassociateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
     "DisassociateTransitGatewayMulticastDomainResultTypeDef",
     {
         "Associations": "TransitGatewayMulticastDomainAssociationsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisassociateTransitGatewayPolicyTableRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateTransitGatewayPolicyTableRequestRequestTypeDef",
+    {
+        "TransitGatewayPolicyTableId": str,
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalDisassociateTransitGatewayPolicyTableRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateTransitGatewayPolicyTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateTransitGatewayPolicyTableRequestRequestTypeDef(
+    _RequiredDisassociateTransitGatewayPolicyTableRequestRequestTypeDef,
+    _OptionalDisassociateTransitGatewayPolicyTableRequestRequestTypeDef,
+):
+    pass
+
+DisassociateTransitGatewayPolicyTableResultTypeDef = TypedDict(
+    "DisassociateTransitGatewayPolicyTableResultTypeDef",
+    {
+        "Association": "TransitGatewayPolicyTableAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -13880,13 +14167,14 @@ _RequiredEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef = TypedD
     "_RequiredEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
     {
         "TransitGatewayRouteTableId": str,
-        "TransitGatewayAttachmentId": str,
     },
 )
 _OptionalEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef = TypedDict(
     "_OptionalEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
     {
+        "TransitGatewayAttachmentId": str,
         "DryRun": bool,
+        "TransitGatewayRouteTableAnnouncementId": str,
     },
     total=False,
 )
@@ -15515,6 +15803,69 @@ GetTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredGetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef",
+    {
+        "TransitGatewayPolicyTableId": str,
+    },
+)
+_OptionalGetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef(
+    _RequiredGetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef,
+    _OptionalGetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef,
+):
+    pass
+
+GetTransitGatewayPolicyTableAssociationsResultTypeDef = TypedDict(
+    "GetTransitGatewayPolicyTableAssociationsResultTypeDef",
+    {
+        "Associations": List["TransitGatewayPolicyTableAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTransitGatewayPolicyTableEntriesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTransitGatewayPolicyTableEntriesRequestRequestTypeDef",
+    {
+        "TransitGatewayPolicyTableId": str,
+    },
+)
+_OptionalGetTransitGatewayPolicyTableEntriesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTransitGatewayPolicyTableEntriesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetTransitGatewayPolicyTableEntriesRequestRequestTypeDef(
+    _RequiredGetTransitGatewayPolicyTableEntriesRequestRequestTypeDef,
+    _OptionalGetTransitGatewayPolicyTableEntriesRequestRequestTypeDef,
+):
+    pass
+
+GetTransitGatewayPolicyTableEntriesResultTypeDef = TypedDict(
+    "GetTransitGatewayPolicyTableEntriesResultTypeDef",
+    {
+        "TransitGatewayPolicyTableEntries": List["TransitGatewayPolicyTableEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetTransitGatewayPrefixListReferencesRequestRequestTypeDef = TypedDict(
     "_RequiredGetTransitGatewayPrefixListReferencesRequestRequestTypeDef",
     {
@@ -16742,6 +17093,7 @@ InstanceSpecificationTypeDef = TypedDict(
     {
         "InstanceId": str,
         "ExcludeBootVolume": bool,
+        "ExcludeDataVolumeIds": List[str],
     },
     total=False,
 )
@@ -19261,6 +19613,7 @@ ModifyTransitGatewayOptionsTypeDef = TypedDict(
         "AssociationDefaultRouteTableId": str,
         "DefaultRouteTablePropagation": DefaultRouteTablePropagationValueType,
         "PropagationDefaultRouteTableId": str,
+        "AmazonSideAsn": int,
     },
     total=False,
 )
@@ -19825,6 +20178,7 @@ ModifyVpnTunnelOptionsSpecificationTypeDef = TypedDict(
         "Phase2DHGroupNumbers": List["Phase2DHGroupNumbersRequestListValueTypeDef"],
         "IKEVersions": List["IKEVersionsRequestListValueTypeDef"],
         "StartupAction": str,
+        "LogOptions": "VpnTunnelLogOptionsSpecificationTypeDef",
     },
     total=False,
 )
@@ -20402,6 +20756,7 @@ PeeringTgwInfoTypeDef = TypedDict(
     "PeeringTgwInfoTypeDef",
     {
         "TransitGatewayId": str,
+        "CoreNetworkId": str,
         "OwnerId": str,
         "Region": str,
     },
@@ -20522,6 +20877,7 @@ PlacementGroupTypeDef = TypedDict(
         "GroupId": str,
         "Tags": List["TagTypeDef"],
         "GroupArn": str,
+        "SpreadLevel": SpreadLevelType,
     },
     total=False,
 )
@@ -24787,14 +25143,80 @@ TransitGatewayOptionsTypeDef = TypedDict(
     total=False,
 )
 
+TransitGatewayPeeringAttachmentOptionsTypeDef = TypedDict(
+    "TransitGatewayPeeringAttachmentOptionsTypeDef",
+    {
+        "DynamicRouting": DynamicRoutingValueType,
+    },
+    total=False,
+)
+
 TransitGatewayPeeringAttachmentTypeDef = TypedDict(
     "TransitGatewayPeeringAttachmentTypeDef",
     {
         "TransitGatewayAttachmentId": str,
+        "AccepterTransitGatewayAttachmentId": str,
         "RequesterTgwInfo": "PeeringTgwInfoTypeDef",
         "AccepterTgwInfo": "PeeringTgwInfoTypeDef",
+        "Options": "TransitGatewayPeeringAttachmentOptionsTypeDef",
         "Status": "PeeringAttachmentStatusTypeDef",
         "State": TransitGatewayAttachmentStateType,
+        "CreationTime": datetime,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+TransitGatewayPolicyRuleMetaDataTypeDef = TypedDict(
+    "TransitGatewayPolicyRuleMetaDataTypeDef",
+    {
+        "MetaDataKey": str,
+        "MetaDataValue": str,
+    },
+    total=False,
+)
+
+TransitGatewayPolicyRuleTypeDef = TypedDict(
+    "TransitGatewayPolicyRuleTypeDef",
+    {
+        "SourceCidrBlock": str,
+        "SourcePortRange": str,
+        "DestinationCidrBlock": str,
+        "DestinationPortRange": str,
+        "Protocol": str,
+        "MetaData": "TransitGatewayPolicyRuleMetaDataTypeDef",
+    },
+    total=False,
+)
+
+TransitGatewayPolicyTableAssociationTypeDef = TypedDict(
+    "TransitGatewayPolicyTableAssociationTypeDef",
+    {
+        "TransitGatewayPolicyTableId": str,
+        "TransitGatewayAttachmentId": str,
+        "ResourceId": str,
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
+        "State": TransitGatewayAssociationStateType,
+    },
+    total=False,
+)
+
+TransitGatewayPolicyTableEntryTypeDef = TypedDict(
+    "TransitGatewayPolicyTableEntryTypeDef",
+    {
+        "PolicyRuleNumber": str,
+        "PolicyRule": "TransitGatewayPolicyRuleTypeDef",
+        "TargetRouteTableId": str,
+    },
+    total=False,
+)
+
+TransitGatewayPolicyTableTypeDef = TypedDict(
+    "TransitGatewayPolicyTableTypeDef",
+    {
+        "TransitGatewayPolicyTableId": str,
+        "TransitGatewayId": str,
+        "State": TransitGatewayPolicyTableStateType,
         "CreationTime": datetime,
         "Tags": List["TagTypeDef"],
     },
@@ -24832,6 +25254,7 @@ TransitGatewayPropagationTypeDef = TypedDict(
         "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "TransitGatewayRouteTableId": str,
         "State": TransitGatewayPropagationStateType,
+        "TransitGatewayRouteTableAnnouncementId": str,
     },
     total=False,
 )
@@ -24861,6 +25284,24 @@ TransitGatewayRouteAttachmentTypeDef = TypedDict(
     total=False,
 )
 
+TransitGatewayRouteTableAnnouncementTypeDef = TypedDict(
+    "TransitGatewayRouteTableAnnouncementTypeDef",
+    {
+        "TransitGatewayRouteTableAnnouncementId": str,
+        "TransitGatewayId": str,
+        "CoreNetworkId": str,
+        "PeerTransitGatewayId": str,
+        "PeerCoreNetworkId": str,
+        "PeeringAttachmentId": str,
+        "AnnouncementDirection": TransitGatewayRouteTableAnnouncementDirectionType,
+        "TransitGatewayRouteTableId": str,
+        "State": TransitGatewayRouteTableAnnouncementStateType,
+        "CreationTime": datetime,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 TransitGatewayRouteTableAssociationTypeDef = TypedDict(
     "TransitGatewayRouteTableAssociationTypeDef",
     {
@@ -24879,6 +25320,7 @@ TransitGatewayRouteTablePropagationTypeDef = TypedDict(
         "ResourceId": str,
         "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "State": TransitGatewayPropagationStateType,
+        "TransitGatewayRouteTableAnnouncementId": str,
     },
     total=False,
 )
@@ -24916,6 +25358,7 @@ TransitGatewayRouteTypeDef = TypedDict(
     {
         "DestinationCidrBlock": str,
         "PrefixListId": str,
+        "TransitGatewayRouteTableAnnouncementId": str,
         "TransitGatewayAttachments": List["TransitGatewayRouteAttachmentTypeDef"],
         "Type": TransitGatewayRouteTypeType,
         "State": TransitGatewayRouteStateType,
@@ -25000,6 +25443,7 @@ TunnelOptionTypeDef = TypedDict(
         "Phase2DHGroupNumbers": List["Phase2DHGroupNumbersListValueTypeDef"],
         "IkeVersions": List["IKEVersionsListValueTypeDef"],
         "StartupAction": str,
+        "LogOptions": "VpnTunnelLogOptionsTypeDef",
     },
     total=False,
 )
@@ -25631,6 +26075,8 @@ VpnConnectionOptionsSpecificationTypeDef = TypedDict(
         "RemoteIpv4NetworkCidr": str,
         "LocalIpv6NetworkCidr": str,
         "RemoteIpv6NetworkCidr": str,
+        "OutsideIpAddressType": str,
+        "TransportTransitGatewayAttachmentId": str,
     },
     total=False,
 )
@@ -25644,6 +26090,8 @@ VpnConnectionOptionsTypeDef = TypedDict(
         "RemoteIpv4NetworkCidr": str,
         "LocalIpv6NetworkCidr": str,
         "RemoteIpv6NetworkCidr": str,
+        "OutsideIpAddressType": str,
+        "TransportTransitGatewayAttachmentId": str,
         "TunnelInsideIpVersion": TunnelInsideIpVersionType,
         "TunnelOptions": List["TunnelOptionTypeDef"],
     },
@@ -25696,6 +26144,22 @@ VpnStaticRouteTypeDef = TypedDict(
     total=False,
 )
 
+VpnTunnelLogOptionsSpecificationTypeDef = TypedDict(
+    "VpnTunnelLogOptionsSpecificationTypeDef",
+    {
+        "CloudWatchLogOptions": "CloudWatchLogOptionsSpecificationTypeDef",
+    },
+    total=False,
+)
+
+VpnTunnelLogOptionsTypeDef = TypedDict(
+    "VpnTunnelLogOptionsTypeDef",
+    {
+        "CloudWatchLogOptions": "CloudWatchLogOptionsTypeDef",
+    },
+    total=False,
+)
+
 VpnTunnelOptionsSpecificationTypeDef = TypedDict(
     "VpnTunnelOptionsSpecificationTypeDef",
     {
@@ -25717,6 +26181,7 @@ VpnTunnelOptionsSpecificationTypeDef = TypedDict(
         "Phase2DHGroupNumbers": List["Phase2DHGroupNumbersRequestListValueTypeDef"],
         "IKEVersions": List["IKEVersionsRequestListValueTypeDef"],
         "StartupAction": str,
+        "LogOptions": "VpnTunnelLogOptionsSpecificationTypeDef",
     },
     total=False,
 )

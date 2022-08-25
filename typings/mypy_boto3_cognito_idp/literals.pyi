@@ -106,8 +106,8 @@ DeviceRememberedStatusTypeType = Literal["not_remembered", "remembered"]
 DomainStatusTypeType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 EmailSendingAccountTypeType = Literal["COGNITO_DEFAULT", "DEVELOPER"]
 EventFilterTypeType = Literal["PASSWORD_CHANGE", "SIGN_IN", "SIGN_UP"]
-EventResponseTypeType = Literal["Failure", "Success"]
-EventTypeType = Literal["ForgotPassword", "SignIn", "SignUp"]
+EventResponseTypeType = Literal["Fail", "InProgress", "Pass"]
+EventTypeType = Literal["ForgotPassword", "PasswordChange", "ResendCode", "SignIn", "SignUp"]
 ExplicitAuthFlowsTypeType = Literal[
     "ADMIN_NO_SRP_AUTH",
     "ALLOW_ADMIN_USER_PASSWORD_AUTH",

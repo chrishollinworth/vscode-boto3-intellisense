@@ -518,6 +518,7 @@ _OptionalIncidentTemplateTypeDef = TypedDict(
     "_OptionalIncidentTemplateTypeDef",
     {
         "dedupeString": str,
+        "incidentTags": Dict[str, str],
         "notificationTargets": List["NotificationTargetItemTypeDef"],
         "summary": str,
     },
@@ -1040,6 +1041,7 @@ _OptionalUpdateResponsePlanInputRequestTypeDef = TypedDict(
         "incidentTemplateImpact": int,
         "incidentTemplateNotificationTargets": List["NotificationTargetItemTypeDef"],
         "incidentTemplateSummary": str,
+        "incidentTemplateTags": Dict[str, str],
         "incidentTemplateTitle": str,
     },
     total=False,

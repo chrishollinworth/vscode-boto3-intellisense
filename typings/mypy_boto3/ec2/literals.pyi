@@ -168,6 +168,8 @@ __all__ = (
     "DescribeTransitGatewayConnectsPaginatorName",
     "DescribeTransitGatewayMulticastDomainsPaginatorName",
     "DescribeTransitGatewayPeeringAttachmentsPaginatorName",
+    "DescribeTransitGatewayPolicyTablesPaginatorName",
+    "DescribeTransitGatewayRouteTableAnnouncementsPaginatorName",
     "DescribeTransitGatewayRouteTablesPaginatorName",
     "DescribeTransitGatewayVpcAttachmentsPaginatorName",
     "DescribeTransitGatewaysPaginatorName",
@@ -192,6 +194,7 @@ __all__ = (
     "DnsRecordIpTypeType",
     "DnsSupportValueType",
     "DomainTypeType",
+    "DynamicRoutingValueType",
     "EbsEncryptionSupportType",
     "EbsNvmeSupportType",
     "EbsOptimizedSupportType",
@@ -238,6 +241,7 @@ __all__ = (
     "GetSpotPlacementScoresPaginatorName",
     "GetTransitGatewayAttachmentPropagationsPaginatorName",
     "GetTransitGatewayMulticastDomainAssociationsPaginatorName",
+    "GetTransitGatewayPolicyTableAssociationsPaginatorName",
     "GetTransitGatewayPrefixListReferencesPaginatorName",
     "GetTransitGatewayRouteTableAssociationsPaginatorName",
     "GetTransitGatewayRouteTablePropagationsPaginatorName",
@@ -379,6 +383,7 @@ __all__ = (
     "SpotInstanceRequestFulfilledWaiterName",
     "SpotInstanceStateType",
     "SpotInstanceTypeType",
+    "SpreadLevelType",
     "StateType",
     "StaticSourcesSupportValueType",
     "StatusNameType",
@@ -410,9 +415,12 @@ __all__ = (
     "TransitGatewayConnectPeerStateType",
     "TransitGatewayMulitcastDomainAssociationStateType",
     "TransitGatewayMulticastDomainStateType",
+    "TransitGatewayPolicyTableStateType",
     "TransitGatewayPrefixListReferenceStateType",
     "TransitGatewayPropagationStateType",
     "TransitGatewayRouteStateType",
+    "TransitGatewayRouteTableAnnouncementDirectionType",
+    "TransitGatewayRouteTableAnnouncementStateType",
     "TransitGatewayRouteTableStateType",
     "TransitGatewayRouteTypeType",
     "TransitGatewayStateType",
@@ -698,6 +706,10 @@ DescribeTransitGatewayMulticastDomainsPaginatorName = Literal[
 DescribeTransitGatewayPeeringAttachmentsPaginatorName = Literal[
     "describe_transit_gateway_peering_attachments"
 ]
+DescribeTransitGatewayPolicyTablesPaginatorName = Literal["describe_transit_gateway_policy_tables"]
+DescribeTransitGatewayRouteTableAnnouncementsPaginatorName = Literal[
+    "describe_transit_gateway_route_table_announcements"
+]
 DescribeTransitGatewayRouteTablesPaginatorName = Literal["describe_transit_gateway_route_tables"]
 DescribeTransitGatewayVpcAttachmentsPaginatorName = Literal[
     "describe_transit_gateway_vpc_attachments"
@@ -730,6 +742,7 @@ DnsNameStateType = Literal["failed", "pendingVerification", "verified"]
 DnsRecordIpTypeType = Literal["dualstack", "ipv4", "ipv6", "service-defined"]
 DnsSupportValueType = Literal["disable", "enable"]
 DomainTypeType = Literal["standard", "vpc"]
+DynamicRoutingValueType = Literal["disable", "enable"]
 EbsEncryptionSupportType = Literal["supported", "unsupported"]
 EbsNvmeSupportType = Literal["required", "supported", "unsupported"]
 EbsOptimizedSupportType = Literal["default", "supported", "unsupported"]
@@ -775,7 +788,9 @@ FleetStateCodeType = Literal[
     "submitted",
 ]
 FleetTypeType = Literal["instant", "maintain", "request"]
-FlowLogsResourceTypeType = Literal["NetworkInterface", "Subnet", "VPC"]
+FlowLogsResourceTypeType = Literal[
+    "NetworkInterface", "Subnet", "TransitGateway", "TransitGatewayAttachment", "VPC"
+]
 FpgaImageAttributeNameType = Literal["description", "loadPermission", "name", "productCodes"]
 FpgaImageStateCodeType = Literal["available", "failed", "pending", "unavailable"]
 GatewayAssociationStateType = Literal[
@@ -799,6 +814,9 @@ GetTransitGatewayAttachmentPropagationsPaginatorName = Literal[
 ]
 GetTransitGatewayMulticastDomainAssociationsPaginatorName = Literal[
     "get_transit_gateway_multicast_domain_associations"
+]
+GetTransitGatewayPolicyTableAssociationsPaginatorName = Literal[
+    "get_transit_gateway_policy_table_associations"
 ]
 GetTransitGatewayPrefixListReferencesPaginatorName = Literal[
     "get_transit_gateway_prefix_list_references"
@@ -985,6 +1003,16 @@ InstanceTypeType = Literal[
     "c6i.large",
     "c6i.metal",
     "c6i.xlarge",
+    "c6id.12xlarge",
+    "c6id.16xlarge",
+    "c6id.24xlarge",
+    "c6id.2xlarge",
+    "c6id.32xlarge",
+    "c6id.4xlarge",
+    "c6id.8xlarge",
+    "c6id.large",
+    "c6id.metal",
+    "c6id.xlarge",
     "c7g.12xlarge",
     "c7g.16xlarge",
     "c7g.2xlarge",
@@ -1212,7 +1240,18 @@ InstanceTypeType = Literal[
     "m6i.large",
     "m6i.metal",
     "m6i.xlarge",
+    "m6id.12xlarge",
+    "m6id.16xlarge",
+    "m6id.24xlarge",
+    "m6id.2xlarge",
+    "m6id.32xlarge",
+    "m6id.4xlarge",
+    "m6id.8xlarge",
+    "m6id.large",
+    "m6id.metal",
+    "m6id.xlarge",
     "mac1.metal",
+    "mac2.metal",
     "p2.16xlarge",
     "p2.8xlarge",
     "p2.xlarge",
@@ -1221,6 +1260,7 @@ InstanceTypeType = Literal[
     "p3.8xlarge",
     "p3dn.24xlarge",
     "p4d.24xlarge",
+    "p4de.24xlarge",
     "r3.2xlarge",
     "r3.4xlarge",
     "r3.8xlarge",
@@ -1293,6 +1333,17 @@ InstanceTypeType = Literal[
     "r5n.large",
     "r5n.metal",
     "r5n.xlarge",
+    "r6a.12xlarge",
+    "r6a.16xlarge",
+    "r6a.24xlarge",
+    "r6a.2xlarge",
+    "r6a.32xlarge",
+    "r6a.48xlarge",
+    "r6a.4xlarge",
+    "r6a.8xlarge",
+    "r6a.large",
+    "r6a.metal",
+    "r6a.xlarge",
     "r6g.12xlarge",
     "r6g.16xlarge",
     "r6g.2xlarge",
@@ -1321,6 +1372,16 @@ InstanceTypeType = Literal[
     "r6i.large",
     "r6i.metal",
     "r6i.xlarge",
+    "r6id.12xlarge",
+    "r6id.16xlarge",
+    "r6id.24xlarge",
+    "r6id.2xlarge",
+    "r6id.32xlarge",
+    "r6id.4xlarge",
+    "r6id.8xlarge",
+    "r6id.large",
+    "r6id.metal",
+    "r6id.xlarge",
     "t1.micro",
     "t2.2xlarge",
     "t2.large",
@@ -1599,6 +1660,7 @@ ResetFpgaImageAttributeNameType = Literal["loadPermission"]
 ResetImageAttributeNameType = Literal["launchPermission"]
 ResourceTypeType = Literal[
     "capacity-reservation",
+    "capacity-reservation-fleet",
     "carrier-gateway",
     "client-vpn-endpoint",
     "customer-gateway",
@@ -1651,16 +1713,20 @@ ResourceTypeType = Literal[
     "subnet",
     "subnet-cidr-reservation",
     "traffic-mirror-filter",
+    "traffic-mirror-filter-rule",
     "traffic-mirror-session",
     "traffic-mirror-target",
     "transit-gateway",
     "transit-gateway-attachment",
     "transit-gateway-connect-peer",
     "transit-gateway-multicast-domain",
+    "transit-gateway-policy-table",
     "transit-gateway-route-table",
+    "transit-gateway-route-table-announcement",
     "volume",
     "vpc",
     "vpc-endpoint",
+    "vpc-endpoint-connection-device-type",
     "vpc-endpoint-service",
     "vpc-flow-log",
     "vpc-peering-connection",
@@ -1694,6 +1760,7 @@ SpotInstanceInterruptionBehaviorType = Literal["hibernate", "stop", "terminate"]
 SpotInstanceRequestFulfilledWaiterName = Literal["spot_instance_request_fulfilled"]
 SpotInstanceStateType = Literal["active", "cancelled", "closed", "failed", "open"]
 SpotInstanceTypeType = Literal["one-time", "persistent"]
+SpreadLevelType = Literal["host", "rack"]
 StateType = Literal[
     "Available",
     "Deleted",
@@ -1776,11 +1843,16 @@ TransitGatewayMulitcastDomainAssociationStateType = Literal[
     "rejected",
 ]
 TransitGatewayMulticastDomainStateType = Literal["available", "deleted", "deleting", "pending"]
+TransitGatewayPolicyTableStateType = Literal["available", "deleted", "deleting", "pending"]
 TransitGatewayPrefixListReferenceStateType = Literal[
     "available", "deleting", "modifying", "pending"
 ]
 TransitGatewayPropagationStateType = Literal["disabled", "disabling", "enabled", "enabling"]
 TransitGatewayRouteStateType = Literal["active", "blackhole", "deleted", "deleting", "pending"]
+TransitGatewayRouteTableAnnouncementDirectionType = Literal["incoming", "outgoing"]
+TransitGatewayRouteTableAnnouncementStateType = Literal[
+    "available", "deleted", "deleting", "failed", "failing", "pending"
+]
 TransitGatewayRouteTableStateType = Literal["available", "deleted", "deleting", "pending"]
 TransitGatewayRouteTypeType = Literal["propagated", "static"]
 TransitGatewayStateType = Literal["available", "deleted", "deleting", "modifying", "pending"]

@@ -61,6 +61,8 @@ __all__ = (
     "GetMeetingResponseTypeDef",
     "ListAttendeesRequestRequestTypeDef",
     "ListAttendeesResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MediaPlacementTypeDef",
     "MeetingFeaturesConfigurationTypeDef",
     "MeetingTypeDef",
@@ -68,7 +70,10 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "StartMeetingTranscriptionRequestRequestTypeDef",
     "StopMeetingTranscriptionRequestRequestTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TagTypeDef",
     "TranscriptionConfigurationTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateAttendeeCapabilitiesRequestRequestTypeDef",
     "UpdateAttendeeCapabilitiesResponseTypeDef",
 )
@@ -206,6 +211,8 @@ _OptionalCreateMeetingRequestRequestTypeDef = TypedDict(
         "NotificationsConfiguration": "NotificationsConfigurationTypeDef",
         "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
         "PrimaryMeetingId": str,
+        "TenantIds": List[str],
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -239,6 +246,8 @@ _OptionalCreateMeetingWithAttendeesRequestRequestTypeDef = TypedDict(
         "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
         "NotificationsConfiguration": "NotificationsConfigurationTypeDef",
         "PrimaryMeetingId": str,
+        "TenantIds": List[str],
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -378,6 +387,21 @@ ListAttendeesResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 MediaPlacementTypeDef = TypedDict(
     "MediaPlacementTypeDef",
     {
@@ -411,6 +435,8 @@ MeetingTypeDef = TypedDict(
         "MediaPlacement": "MediaPlacementTypeDef",
         "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
         "PrimaryMeetingId": str,
+        "TenantIds": List[str],
+        "MeetingArn": str,
     },
     total=False,
 )
@@ -451,6 +477,22 @@ StopMeetingTranscriptionRequestRequestTypeDef = TypedDict(
     },
 )
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+)
+
 TranscriptionConfigurationTypeDef = TypedDict(
     "TranscriptionConfigurationTypeDef",
     {
@@ -458,6 +500,14 @@ TranscriptionConfigurationTypeDef = TypedDict(
         "EngineTranscribeMedicalSettings": "EngineTranscribeMedicalSettingsTypeDef",
     },
     total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "TagKeys": List[str],
+    },
 )
 
 UpdateAttendeeCapabilitiesRequestRequestTypeDef = TypedDict(

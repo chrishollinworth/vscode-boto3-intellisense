@@ -59,6 +59,8 @@ from .literals import (
     DataDistributionTypeType,
     DetailedAlgorithmStatusType,
     DetailedModelPackageStatusType,
+    DeviceDeploymentStatusType,
+    DeviceSubsetTypeType,
     DirectInternetAccessType,
     DirectionType,
     DomainStatusType,
@@ -68,6 +70,7 @@ from .literals import (
     EndpointSortKeyType,
     EndpointStatusType,
     ExecutionStatusType,
+    FailureHandlingPolicyType,
     FeatureGroupSortByType,
     FeatureGroupSortOrderType,
     FeatureGroupStatusType,
@@ -94,9 +97,11 @@ from .literals import (
     InstanceTypeType,
     JoinSourceType,
     LabelingJobStatusType,
+    LastUpdateStatusValueType,
     LineageTypeType,
     ListCompilationJobsSortByType,
     ListDeviceFleetsSortByType,
+    ListEdgeDeploymentPlansSortByType,
     ListEdgePackagingJobsSortByType,
     ListInferenceRecommendationsJobsSortByType,
     ListWorkforcesSortByOptionsType,
@@ -173,6 +178,7 @@ from .literals import (
     SortTrialComponentsByType,
     SortTrialsByType,
     SplitTypeType,
+    StageStatusType,
     StepStatusType,
     StudioLifecycleConfigAppTypeType,
     StudioLifecycleConfigSortKeyType,
@@ -193,6 +199,7 @@ from .literals import (
     UserProfileStatusType,
     VariantPropertyTypeType,
     VariantStatusType,
+    WorkforceStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -306,6 +313,9 @@ __all__ = (
     "CreateDeviceFleetRequestRequestTypeDef",
     "CreateDomainRequestRequestTypeDef",
     "CreateDomainResponseTypeDef",
+    "CreateEdgeDeploymentPlanRequestRequestTypeDef",
+    "CreateEdgeDeploymentPlanResponseTypeDef",
+    "CreateEdgeDeploymentStageRequestRequestTypeDef",
     "CreateEdgePackagingJobRequestRequestTypeDef",
     "CreateEndpointConfigInputRequestTypeDef",
     "CreateEndpointConfigOutputTypeDef",
@@ -401,6 +411,8 @@ __all__ = (
     "DeleteDataQualityJobDefinitionRequestRequestTypeDef",
     "DeleteDeviceFleetRequestRequestTypeDef",
     "DeleteDomainRequestRequestTypeDef",
+    "DeleteEdgeDeploymentPlanRequestRequestTypeDef",
+    "DeleteEdgeDeploymentStageRequestRequestTypeDef",
     "DeleteEndpointConfigInputRequestTypeDef",
     "DeleteEndpointInputRequestTypeDef",
     "DeleteExperimentRequestRequestTypeDef",
@@ -435,6 +447,8 @@ __all__ = (
     "DeleteWorkteamResponseTypeDef",
     "DeployedImageTypeDef",
     "DeploymentConfigTypeDef",
+    "DeploymentStageStatusSummaryTypeDef",
+    "DeploymentStageTypeDef",
     "DeregisterDevicesRequestRequestTypeDef",
     "DescribeActionRequestRequestTypeDef",
     "DescribeActionResponseTypeDef",
@@ -462,6 +476,8 @@ __all__ = (
     "DescribeDeviceResponseTypeDef",
     "DescribeDomainRequestRequestTypeDef",
     "DescribeDomainResponseTypeDef",
+    "DescribeEdgeDeploymentPlanRequestRequestTypeDef",
+    "DescribeEdgeDeploymentPlanResponseTypeDef",
     "DescribeEdgePackagingJobRequestRequestTypeDef",
     "DescribeEdgePackagingJobResponseTypeDef",
     "DescribeEndpointConfigInputRequestTypeDef",
@@ -472,6 +488,8 @@ __all__ = (
     "DescribeExperimentResponseTypeDef",
     "DescribeFeatureGroupRequestRequestTypeDef",
     "DescribeFeatureGroupResponseTypeDef",
+    "DescribeFeatureMetadataRequestRequestTypeDef",
+    "DescribeFeatureMetadataResponseTypeDef",
     "DescribeFlowDefinitionRequestRequestTypeDef",
     "DescribeFlowDefinitionResponseTypeDef",
     "DescribeHumanTaskUiRequestRequestTypeDef",
@@ -535,7 +553,9 @@ __all__ = (
     "DescribeWorkteamRequestRequestTypeDef",
     "DescribeWorkteamResponseTypeDef",
     "DesiredWeightAndCapacityTypeDef",
+    "DeviceDeploymentSummaryTypeDef",
     "DeviceFleetSummaryTypeDef",
+    "DeviceSelectionConfigTypeDef",
     "DeviceStatsTypeDef",
     "DeviceSummaryTypeDef",
     "DeviceTypeDef",
@@ -550,6 +570,10 @@ __all__ = (
     "DriftCheckModelDataQualityTypeDef",
     "DriftCheckModelQualityTypeDef",
     "EMRStepMetadataTypeDef",
+    "EdgeDeploymentConfigTypeDef",
+    "EdgeDeploymentModelConfigTypeDef",
+    "EdgeDeploymentPlanSummaryTypeDef",
+    "EdgeDeploymentStatusTypeDef",
     "EdgeModelStatTypeDef",
     "EdgeModelSummaryTypeDef",
     "EdgeModelTypeDef",
@@ -574,6 +598,8 @@ __all__ = (
     "FeatureDefinitionTypeDef",
     "FeatureGroupSummaryTypeDef",
     "FeatureGroupTypeDef",
+    "FeatureMetadataTypeDef",
+    "FeatureParameterTypeDef",
     "FileSourceTypeDef",
     "FileSystemConfigTypeDef",
     "FileSystemDataSourceTypeDef",
@@ -603,10 +629,12 @@ __all__ = (
     "HyperParameterSpecificationTypeDef",
     "HyperParameterTrainingJobDefinitionTypeDef",
     "HyperParameterTrainingJobSummaryTypeDef",
+    "HyperParameterTuningInstanceConfigTypeDef",
     "HyperParameterTuningJobConfigTypeDef",
     "HyperParameterTuningJobObjectiveTypeDef",
     "HyperParameterTuningJobSummaryTypeDef",
     "HyperParameterTuningJobWarmStartConfigTypeDef",
+    "HyperParameterTuningResourceConfigTypeDef",
     "ImageConfigTypeDef",
     "ImageTypeDef",
     "ImageVersionTypeDef",
@@ -615,6 +643,7 @@ __all__ = (
     "InferenceRecommendationsJobTypeDef",
     "InferenceSpecificationTypeDef",
     "InputConfigTypeDef",
+    "InstanceGroupTypeDef",
     "InstanceMetadataServiceConfigurationTypeDef",
     "IntegerParameterRangeSpecificationTypeDef",
     "IntegerParameterRangeTypeDef",
@@ -637,6 +666,7 @@ __all__ = (
     "LabelingJobStoppingConditionsTypeDef",
     "LabelingJobSummaryTypeDef",
     "LambdaStepMetadataTypeDef",
+    "LastUpdateStatusTypeDef",
     "LineageGroupSummaryTypeDef",
     "ListActionsRequestRequestTypeDef",
     "ListActionsResponseTypeDef",
@@ -668,6 +698,8 @@ __all__ = (
     "ListDevicesResponseTypeDef",
     "ListDomainsRequestRequestTypeDef",
     "ListDomainsResponseTypeDef",
+    "ListEdgeDeploymentPlansRequestRequestTypeDef",
+    "ListEdgeDeploymentPlansResponseTypeDef",
     "ListEdgePackagingJobsRequestRequestTypeDef",
     "ListEdgePackagingJobsResponseTypeDef",
     "ListEndpointConfigsInputRequestTypeDef",
@@ -730,6 +762,8 @@ __all__ = (
     "ListProcessingJobsResponseTypeDef",
     "ListProjectsInputRequestTypeDef",
     "ListProjectsOutputTypeDef",
+    "ListStageDevicesRequestRequestTypeDef",
+    "ListStageDevicesResponseTypeDef",
     "ListStudioLifecycleConfigsRequestRequestTypeDef",
     "ListStudioLifecycleConfigsResponseTypeDef",
     "ListSubscribedWorkteamsRequestRequestTypeDef",
@@ -928,12 +962,14 @@ __all__ = (
     "SourceAlgorithmSpecificationTypeDef",
     "SourceAlgorithmTypeDef",
     "SourceIpConfigTypeDef",
+    "StartEdgeDeploymentStageRequestRequestTypeDef",
     "StartMonitoringScheduleRequestRequestTypeDef",
     "StartNotebookInstanceInputRequestTypeDef",
     "StartPipelineExecutionRequestRequestTypeDef",
     "StartPipelineExecutionResponseTypeDef",
     "StopAutoMLJobRequestRequestTypeDef",
     "StopCompilationJobRequestRequestTypeDef",
+    "StopEdgeDeploymentStageRequestRequestTypeDef",
     "StopEdgePackagingJobRequestRequestTypeDef",
     "StopHyperParameterTuningJobRequestRequestTypeDef",
     "StopInferenceRecommendationsJobRequestRequestTypeDef",
@@ -1008,6 +1044,9 @@ __all__ = (
     "UpdateEndpointWeightsAndCapacitiesOutputTypeDef",
     "UpdateExperimentRequestRequestTypeDef",
     "UpdateExperimentResponseTypeDef",
+    "UpdateFeatureGroupRequestRequestTypeDef",
+    "UpdateFeatureGroupResponseTypeDef",
+    "UpdateFeatureMetadataRequestRequestTypeDef",
     "UpdateImageRequestRequestTypeDef",
     "UpdateImageResponseTypeDef",
     "UpdateModelPackageInputRequestTypeDef",
@@ -1042,6 +1081,8 @@ __all__ = (
     "VpcConfigTypeDef",
     "WaiterConfigTypeDef",
     "WorkforceTypeDef",
+    "WorkforceVpcConfigRequestTypeDef",
+    "WorkforceVpcConfigResponseTypeDef",
     "WorkteamTypeDef",
 )
 
@@ -2467,6 +2508,45 @@ CreateDomainResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateEdgeDeploymentPlanRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEdgeDeploymentPlanRequestRequestTypeDef",
+    {
+        "EdgeDeploymentPlanName": str,
+        "ModelConfigs": List["EdgeDeploymentModelConfigTypeDef"],
+        "DeviceFleetName": str,
+    },
+)
+_OptionalCreateEdgeDeploymentPlanRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEdgeDeploymentPlanRequestRequestTypeDef",
+    {
+        "Stages": List["DeploymentStageTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateEdgeDeploymentPlanRequestRequestTypeDef(
+    _RequiredCreateEdgeDeploymentPlanRequestRequestTypeDef,
+    _OptionalCreateEdgeDeploymentPlanRequestRequestTypeDef,
+):
+    pass
+
+CreateEdgeDeploymentPlanResponseTypeDef = TypedDict(
+    "CreateEdgeDeploymentPlanResponseTypeDef",
+    {
+        "EdgeDeploymentPlanArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateEdgeDeploymentStageRequestRequestTypeDef = TypedDict(
+    "CreateEdgeDeploymentStageRequestRequestTypeDef",
+    {
+        "EdgeDeploymentPlanName": str,
+        "Stages": List["DeploymentStageTypeDef"],
+    },
+)
+
 _RequiredCreateEdgePackagingJobRequestRequestTypeDef = TypedDict(
     "_RequiredCreateEdgePackagingJobRequestRequestTypeDef",
     {
@@ -3517,6 +3597,7 @@ _OptionalCreateWorkforceRequestRequestTypeDef = TypedDict(
         "OidcConfig": "OidcConfigTypeDef",
         "SourceIpConfig": "SourceIpConfigTypeDef",
         "Tags": List["TagTypeDef"],
+        "WorkforceVpcConfig": "WorkforceVpcConfigRequestTypeDef",
     },
     total=False,
 )
@@ -3880,6 +3961,21 @@ class DeleteDomainRequestRequestTypeDef(
 ):
     pass
 
+DeleteEdgeDeploymentPlanRequestRequestTypeDef = TypedDict(
+    "DeleteEdgeDeploymentPlanRequestRequestTypeDef",
+    {
+        "EdgeDeploymentPlanName": str,
+    },
+)
+
+DeleteEdgeDeploymentStageRequestRequestTypeDef = TypedDict(
+    "DeleteEdgeDeploymentStageRequestRequestTypeDef",
+    {
+        "EdgeDeploymentPlanName": str,
+        "StageName": str,
+    },
+)
+
 DeleteEndpointConfigInputRequestTypeDef = TypedDict(
     "DeleteEndpointConfigInputRequestTypeDef",
     {
@@ -4138,6 +4234,34 @@ _OptionalDeploymentConfigTypeDef = TypedDict(
 )
 
 class DeploymentConfigTypeDef(_RequiredDeploymentConfigTypeDef, _OptionalDeploymentConfigTypeDef):
+    pass
+
+DeploymentStageStatusSummaryTypeDef = TypedDict(
+    "DeploymentStageStatusSummaryTypeDef",
+    {
+        "StageName": str,
+        "DeviceSelectionConfig": "DeviceSelectionConfigTypeDef",
+        "DeploymentConfig": "EdgeDeploymentConfigTypeDef",
+        "DeploymentStatus": "EdgeDeploymentStatusTypeDef",
+    },
+)
+
+_RequiredDeploymentStageTypeDef = TypedDict(
+    "_RequiredDeploymentStageTypeDef",
+    {
+        "StageName": str,
+        "DeviceSelectionConfig": "DeviceSelectionConfigTypeDef",
+    },
+)
+_OptionalDeploymentStageTypeDef = TypedDict(
+    "_OptionalDeploymentStageTypeDef",
+    {
+        "DeploymentConfig": "EdgeDeploymentConfigTypeDef",
+    },
+    total=False,
+)
+
+class DeploymentStageTypeDef(_RequiredDeploymentStageTypeDef, _OptionalDeploymentStageTypeDef):
     pass
 
 DeregisterDevicesRequestRequestTypeDef = TypedDict(
@@ -4501,6 +4625,45 @@ DescribeDomainResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribeEdgeDeploymentPlanRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeEdgeDeploymentPlanRequestRequestTypeDef",
+    {
+        "EdgeDeploymentPlanName": str,
+    },
+)
+_OptionalDescribeEdgeDeploymentPlanRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeEdgeDeploymentPlanRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeEdgeDeploymentPlanRequestRequestTypeDef(
+    _RequiredDescribeEdgeDeploymentPlanRequestRequestTypeDef,
+    _OptionalDescribeEdgeDeploymentPlanRequestRequestTypeDef,
+):
+    pass
+
+DescribeEdgeDeploymentPlanResponseTypeDef = TypedDict(
+    "DescribeEdgeDeploymentPlanResponseTypeDef",
+    {
+        "EdgeDeploymentPlanArn": str,
+        "EdgeDeploymentPlanName": str,
+        "ModelConfigs": List["EdgeDeploymentModelConfigTypeDef"],
+        "DeviceFleetName": str,
+        "EdgeDeploymentSuccess": int,
+        "EdgeDeploymentPending": int,
+        "EdgeDeploymentFailed": int,
+        "Stages": List["DeploymentStageStatusSummaryTypeDef"],
+        "NextToken": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeEdgePackagingJobRequestRequestTypeDef = TypedDict(
     "DescribeEdgePackagingJobRequestRequestTypeDef",
     {
@@ -4629,14 +4792,40 @@ DescribeFeatureGroupResponseTypeDef = TypedDict(
         "EventTimeFeatureName": str,
         "FeatureDefinitions": List["FeatureDefinitionTypeDef"],
         "CreationTime": datetime,
+        "LastModifiedTime": datetime,
         "OnlineStoreConfig": "OnlineStoreConfigTypeDef",
         "OfflineStoreConfig": "OfflineStoreConfigTypeDef",
         "RoleArn": str,
         "FeatureGroupStatus": FeatureGroupStatusType,
         "OfflineStoreStatus": "OfflineStoreStatusTypeDef",
+        "LastUpdateStatus": "LastUpdateStatusTypeDef",
         "FailureReason": str,
         "Description": str,
         "NextToken": str,
+        "OnlineStoreTotalSizeBytes": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFeatureMetadataRequestRequestTypeDef = TypedDict(
+    "DescribeFeatureMetadataRequestRequestTypeDef",
+    {
+        "FeatureGroupName": str,
+        "FeatureName": str,
+    },
+)
+
+DescribeFeatureMetadataResponseTypeDef = TypedDict(
+    "DescribeFeatureMetadataResponseTypeDef",
+    {
+        "FeatureGroupArn": str,
+        "FeatureGroupName": str,
+        "FeatureName": str,
+        "FeatureType": FeatureTypeType,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "Description": str,
+        "Parameters": List["FeatureParameterTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5475,6 +5664,34 @@ class DesiredWeightAndCapacityTypeDef(
 ):
     pass
 
+_RequiredDeviceDeploymentSummaryTypeDef = TypedDict(
+    "_RequiredDeviceDeploymentSummaryTypeDef",
+    {
+        "EdgeDeploymentPlanArn": str,
+        "EdgeDeploymentPlanName": str,
+        "StageName": str,
+        "DeviceName": str,
+        "DeviceArn": str,
+    },
+)
+_OptionalDeviceDeploymentSummaryTypeDef = TypedDict(
+    "_OptionalDeviceDeploymentSummaryTypeDef",
+    {
+        "DeployedStageName": str,
+        "DeviceFleetName": str,
+        "DeviceDeploymentStatus": DeviceDeploymentStatusType,
+        "DeviceDeploymentStatusMessage": str,
+        "Description": str,
+        "DeploymentStartTime": datetime,
+    },
+    total=False,
+)
+
+class DeviceDeploymentSummaryTypeDef(
+    _RequiredDeviceDeploymentSummaryTypeDef, _OptionalDeviceDeploymentSummaryTypeDef
+):
+    pass
+
 _RequiredDeviceFleetSummaryTypeDef = TypedDict(
     "_RequiredDeviceFleetSummaryTypeDef",
     {
@@ -5493,6 +5710,27 @@ _OptionalDeviceFleetSummaryTypeDef = TypedDict(
 
 class DeviceFleetSummaryTypeDef(
     _RequiredDeviceFleetSummaryTypeDef, _OptionalDeviceFleetSummaryTypeDef
+):
+    pass
+
+_RequiredDeviceSelectionConfigTypeDef = TypedDict(
+    "_RequiredDeviceSelectionConfigTypeDef",
+    {
+        "DeviceSubsetType": DeviceSubsetTypeType,
+    },
+)
+_OptionalDeviceSelectionConfigTypeDef = TypedDict(
+    "_OptionalDeviceSelectionConfigTypeDef",
+    {
+        "Percentage": int,
+        "DeviceNames": List[str],
+        "DeviceNameContains": str,
+    },
+    total=False,
+)
+
+class DeviceSelectionConfigTypeDef(
+    _RequiredDeviceSelectionConfigTypeDef, _OptionalDeviceSelectionConfigTypeDef
 ):
     pass
 
@@ -5652,6 +5890,69 @@ EMRStepMetadataTypeDef = TypedDict(
     },
     total=False,
 )
+
+EdgeDeploymentConfigTypeDef = TypedDict(
+    "EdgeDeploymentConfigTypeDef",
+    {
+        "FailureHandlingPolicy": FailureHandlingPolicyType,
+    },
+)
+
+EdgeDeploymentModelConfigTypeDef = TypedDict(
+    "EdgeDeploymentModelConfigTypeDef",
+    {
+        "ModelHandle": str,
+        "EdgePackagingJobName": str,
+    },
+)
+
+_RequiredEdgeDeploymentPlanSummaryTypeDef = TypedDict(
+    "_RequiredEdgeDeploymentPlanSummaryTypeDef",
+    {
+        "EdgeDeploymentPlanArn": str,
+        "EdgeDeploymentPlanName": str,
+        "DeviceFleetName": str,
+        "EdgeDeploymentSuccess": int,
+        "EdgeDeploymentPending": int,
+        "EdgeDeploymentFailed": int,
+    },
+)
+_OptionalEdgeDeploymentPlanSummaryTypeDef = TypedDict(
+    "_OptionalEdgeDeploymentPlanSummaryTypeDef",
+    {
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
+class EdgeDeploymentPlanSummaryTypeDef(
+    _RequiredEdgeDeploymentPlanSummaryTypeDef, _OptionalEdgeDeploymentPlanSummaryTypeDef
+):
+    pass
+
+_RequiredEdgeDeploymentStatusTypeDef = TypedDict(
+    "_RequiredEdgeDeploymentStatusTypeDef",
+    {
+        "StageStatus": StageStatusType,
+        "EdgeDeploymentSuccessInStage": int,
+        "EdgeDeploymentPendingInStage": int,
+        "EdgeDeploymentFailedInStage": int,
+    },
+)
+_OptionalEdgeDeploymentStatusTypeDef = TypedDict(
+    "_OptionalEdgeDeploymentStatusTypeDef",
+    {
+        "EdgeDeploymentStatusMessage": str,
+        "EdgeDeploymentStageStartTime": datetime,
+    },
+    total=False,
+)
+
+class EdgeDeploymentStatusTypeDef(
+    _RequiredEdgeDeploymentStatusTypeDef, _OptionalEdgeDeploymentStatusTypeDef
+):
+    pass
 
 EdgeModelStatTypeDef = TypedDict(
     "EdgeModelStatTypeDef",
@@ -5998,14 +6299,40 @@ FeatureGroupTypeDef = TypedDict(
         "EventTimeFeatureName": str,
         "FeatureDefinitions": List["FeatureDefinitionTypeDef"],
         "CreationTime": datetime,
+        "LastModifiedTime": datetime,
         "OnlineStoreConfig": "OnlineStoreConfigTypeDef",
         "OfflineStoreConfig": "OfflineStoreConfigTypeDef",
         "RoleArn": str,
         "FeatureGroupStatus": FeatureGroupStatusType,
         "OfflineStoreStatus": "OfflineStoreStatusTypeDef",
+        "LastUpdateStatus": "LastUpdateStatusTypeDef",
         "FailureReason": str,
         "Description": str,
         "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+FeatureMetadataTypeDef = TypedDict(
+    "FeatureMetadataTypeDef",
+    {
+        "FeatureGroupArn": str,
+        "FeatureGroupName": str,
+        "FeatureName": str,
+        "FeatureType": FeatureTypeType,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "Description": str,
+        "Parameters": List["FeatureParameterTypeDef"],
+    },
+    total=False,
+)
+
+FeatureParameterTypeDef = TypedDict(
+    "FeatureParameterTypeDef",
+    {
+        "Key": str,
+        "Value": str,
     },
     total=False,
 )
@@ -6396,7 +6723,6 @@ _RequiredHyperParameterTrainingJobDefinitionTypeDef = TypedDict(
         "AlgorithmSpecification": "HyperParameterAlgorithmSpecificationTypeDef",
         "RoleArn": str,
         "OutputDataConfig": "OutputDataConfigTypeDef",
-        "ResourceConfig": "ResourceConfigTypeDef",
         "StoppingCondition": "StoppingConditionTypeDef",
     },
 )
@@ -6409,11 +6735,13 @@ _OptionalHyperParameterTrainingJobDefinitionTypeDef = TypedDict(
         "StaticHyperParameters": Dict[str, str],
         "InputDataConfig": List["ChannelTypeDef"],
         "VpcConfig": "VpcConfigTypeDef",
+        "ResourceConfig": "ResourceConfigTypeDef",
         "EnableNetworkIsolation": bool,
         "EnableInterContainerTrafficEncryption": bool,
         "EnableManagedSpotTraining": bool,
         "CheckpointConfig": "CheckpointConfigTypeDef",
         "RetryStrategy": "RetryStrategyTypeDef",
+        "HyperParameterTuningResourceConfig": "HyperParameterTuningResourceConfigTypeDef",
     },
     total=False,
 )
@@ -6453,6 +6781,15 @@ class HyperParameterTrainingJobSummaryTypeDef(
     _OptionalHyperParameterTrainingJobSummaryTypeDef,
 ):
     pass
+
+HyperParameterTuningInstanceConfigTypeDef = TypedDict(
+    "HyperParameterTuningInstanceConfigTypeDef",
+    {
+        "InstanceType": TrainingInstanceTypeType,
+        "InstanceCount": int,
+        "VolumeSizeInGB": int,
+    },
+)
 
 _RequiredHyperParameterTuningJobConfigTypeDef = TypedDict(
     "_RequiredHyperParameterTuningJobConfigTypeDef",
@@ -6518,6 +6855,19 @@ HyperParameterTuningJobWarmStartConfigTypeDef = TypedDict(
         "ParentHyperParameterTuningJobs": List["ParentHyperParameterTuningJobTypeDef"],
         "WarmStartType": HyperParameterTuningJobWarmStartTypeType,
     },
+)
+
+HyperParameterTuningResourceConfigTypeDef = TypedDict(
+    "HyperParameterTuningResourceConfigTypeDef",
+    {
+        "InstanceType": TrainingInstanceTypeType,
+        "InstanceCount": int,
+        "VolumeSizeInGB": int,
+        "VolumeKmsKeyId": str,
+        "AllocationStrategy": Literal["Prioritized"],
+        "InstanceConfigs": List["HyperParameterTuningInstanceConfigTypeDef"],
+    },
+    total=False,
 )
 
 _RequiredImageConfigTypeDef = TypedDict(
@@ -6665,6 +7015,15 @@ _OptionalInputConfigTypeDef = TypedDict(
 
 class InputConfigTypeDef(_RequiredInputConfigTypeDef, _OptionalInputConfigTypeDef):
     pass
+
+InstanceGroupTypeDef = TypedDict(
+    "InstanceGroupTypeDef",
+    {
+        "InstanceType": TrainingInstanceTypeType,
+        "InstanceCount": int,
+        "InstanceGroupName": str,
+    },
+)
 
 InstanceMetadataServiceConfigurationTypeDef = TypedDict(
     "InstanceMetadataServiceConfigurationTypeDef",
@@ -6901,6 +7260,7 @@ LabelingJobResourceConfigTypeDef = TypedDict(
     "LabelingJobResourceConfigTypeDef",
     {
         "VolumeKmsKeyId": str,
+        "VpcConfig": "VpcConfigTypeDef",
     },
     total=False,
 )
@@ -6965,6 +7325,23 @@ LambdaStepMetadataTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredLastUpdateStatusTypeDef = TypedDict(
+    "_RequiredLastUpdateStatusTypeDef",
+    {
+        "Status": LastUpdateStatusValueType,
+    },
+)
+_OptionalLastUpdateStatusTypeDef = TypedDict(
+    "_OptionalLastUpdateStatusTypeDef",
+    {
+        "FailureReason": str,
+    },
+    total=False,
+)
+
+class LastUpdateStatusTypeDef(_RequiredLastUpdateStatusTypeDef, _OptionalLastUpdateStatusTypeDef):
+    pass
 
 LineageGroupSummaryTypeDef = TypedDict(
     "LineageGroupSummaryTypeDef",
@@ -7341,6 +7718,32 @@ ListDomainsResponseTypeDef = TypedDict(
     "ListDomainsResponseTypeDef",
     {
         "Domains": List["DomainDetailsTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListEdgeDeploymentPlansRequestRequestTypeDef = TypedDict(
+    "ListEdgeDeploymentPlansRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "CreationTimeAfter": Union[datetime, str],
+        "CreationTimeBefore": Union[datetime, str],
+        "LastModifiedTimeAfter": Union[datetime, str],
+        "LastModifiedTimeBefore": Union[datetime, str],
+        "NameContains": str,
+        "DeviceFleetNameContains": str,
+        "SortBy": ListEdgeDeploymentPlansSortByType,
+        "SortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+ListEdgeDeploymentPlansResponseTypeDef = TypedDict(
+    "ListEdgeDeploymentPlansResponseTypeDef",
+    {
+        "EdgeDeploymentPlanSummaries": List["EdgeDeploymentPlanSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -8134,6 +8537,37 @@ ListProjectsOutputTypeDef = TypedDict(
     "ListProjectsOutputTypeDef",
     {
         "ProjectSummaryList": List["ProjectSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListStageDevicesRequestRequestTypeDef = TypedDict(
+    "_RequiredListStageDevicesRequestRequestTypeDef",
+    {
+        "EdgeDeploymentPlanName": str,
+        "StageName": str,
+    },
+)
+_OptionalListStageDevicesRequestRequestTypeDef = TypedDict(
+    "_OptionalListStageDevicesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "ExcludeDevicesDeployedInOtherStage": bool,
+    },
+    total=False,
+)
+
+class ListStageDevicesRequestRequestTypeDef(
+    _RequiredListStageDevicesRequestRequestTypeDef, _OptionalListStageDevicesRequestRequestTypeDef
+):
+    pass
+
+ListStageDevicesResponseTypeDef = TypedDict(
+    "ListStageDevicesResponseTypeDef",
+    {
+        "DeviceDeploymentSummaries": List["DeviceDeploymentSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -10155,15 +10589,10 @@ QueryFiltersTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredQueryLineageRequestRequestTypeDef = TypedDict(
-    "_RequiredQueryLineageRequestRequestTypeDef",
+QueryLineageRequestRequestTypeDef = TypedDict(
+    "QueryLineageRequestRequestTypeDef",
     {
         "StartArns": List[str],
-    },
-)
-_OptionalQueryLineageRequestRequestTypeDef = TypedDict(
-    "_OptionalQueryLineageRequestRequestTypeDef",
-    {
         "Direction": DirectionType,
         "IncludeEdges": bool,
         "Filters": "QueryFiltersTypeDef",
@@ -10173,11 +10602,6 @@ _OptionalQueryLineageRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
-
-class QueryLineageRequestRequestTypeDef(
-    _RequiredQueryLineageRequestRequestTypeDef, _OptionalQueryLineageRequestRequestTypeDef
-):
-    pass
 
 QueryLineageResponseTypeDef = TypedDict(
     "QueryLineageResponseTypeDef",
@@ -10435,15 +10859,16 @@ ResolvedAttributesTypeDef = TypedDict(
 _RequiredResourceConfigTypeDef = TypedDict(
     "_RequiredResourceConfigTypeDef",
     {
-        "InstanceType": TrainingInstanceTypeType,
-        "InstanceCount": int,
         "VolumeSizeInGB": int,
     },
 )
 _OptionalResourceConfigTypeDef = TypedDict(
     "_OptionalResourceConfigTypeDef",
     {
+        "InstanceType": TrainingInstanceTypeType,
+        "InstanceCount": int,
         "VolumeKmsKeyId": str,
+        "InstanceGroups": List["InstanceGroupTypeDef"],
     },
     total=False,
 )
@@ -10537,6 +10962,7 @@ _OptionalS3DataSourceTypeDef = TypedDict(
     {
         "S3DataDistributionType": S3DataDistributionType,
         "AttributeNames": List[str],
+        "InstanceGroupNames": List[str],
     },
     total=False,
 )
@@ -10594,6 +11020,7 @@ SearchRecordTypeDef = TypedDict(
         "PipelineExecution": "PipelineExecutionTypeDef",
         "FeatureGroup": "FeatureGroupTypeDef",
         "Project": "ProjectTypeDef",
+        "FeatureMetadata": "FeatureMetadataTypeDef",
     },
     total=False,
 )
@@ -10797,6 +11224,14 @@ SourceIpConfigTypeDef = TypedDict(
     },
 )
 
+StartEdgeDeploymentStageRequestRequestTypeDef = TypedDict(
+    "StartEdgeDeploymentStageRequestRequestTypeDef",
+    {
+        "EdgeDeploymentPlanName": str,
+        "StageName": str,
+    },
+)
+
 StartMonitoringScheduleRequestRequestTypeDef = TypedDict(
     "StartMonitoringScheduleRequestRequestTypeDef",
     {
@@ -10854,6 +11289,14 @@ StopCompilationJobRequestRequestTypeDef = TypedDict(
     "StopCompilationJobRequestRequestTypeDef",
     {
         "CompilationJobName": str,
+    },
+)
+
+StopEdgeDeploymentStageRequestRequestTypeDef = TypedDict(
+    "StopEdgeDeploymentStageRequestRequestTypeDef",
+    {
+        "EdgeDeploymentPlanName": str,
+        "StageName": str,
     },
 )
 
@@ -11878,6 +12321,57 @@ UpdateExperimentResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateFeatureGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFeatureGroupRequestRequestTypeDef",
+    {
+        "FeatureGroupName": str,
+    },
+)
+_OptionalUpdateFeatureGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFeatureGroupRequestRequestTypeDef",
+    {
+        "FeatureAdditions": List["FeatureDefinitionTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateFeatureGroupRequestRequestTypeDef(
+    _RequiredUpdateFeatureGroupRequestRequestTypeDef,
+    _OptionalUpdateFeatureGroupRequestRequestTypeDef,
+):
+    pass
+
+UpdateFeatureGroupResponseTypeDef = TypedDict(
+    "UpdateFeatureGroupResponseTypeDef",
+    {
+        "FeatureGroupArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateFeatureMetadataRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFeatureMetadataRequestRequestTypeDef",
+    {
+        "FeatureGroupName": str,
+        "FeatureName": str,
+    },
+)
+_OptionalUpdateFeatureMetadataRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFeatureMetadataRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ParameterAdditions": List["FeatureParameterTypeDef"],
+        "ParameterRemovals": List[str],
+    },
+    total=False,
+)
+
+class UpdateFeatureMetadataRequestRequestTypeDef(
+    _RequiredUpdateFeatureMetadataRequestRequestTypeDef,
+    _OptionalUpdateFeatureMetadataRequestRequestTypeDef,
+):
+    pass
+
 _RequiredUpdateImageRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateImageRequestRequestTypeDef",
     {
@@ -12232,6 +12726,7 @@ _OptionalUpdateWorkforceRequestRequestTypeDef = TypedDict(
     {
         "SourceIpConfig": "SourceIpConfigTypeDef",
         "OidcConfig": "OidcConfigTypeDef",
+        "WorkforceVpcConfig": "WorkforceVpcConfigRequestTypeDef",
     },
     total=False,
 )
@@ -12365,11 +12860,45 @@ _OptionalWorkforceTypeDef = TypedDict(
         "CognitoConfig": "CognitoConfigTypeDef",
         "OidcConfig": "OidcConfigForResponseTypeDef",
         "CreateDate": datetime,
+        "WorkforceVpcConfig": "WorkforceVpcConfigResponseTypeDef",
+        "Status": WorkforceStatusType,
+        "FailureReason": str,
     },
     total=False,
 )
 
 class WorkforceTypeDef(_RequiredWorkforceTypeDef, _OptionalWorkforceTypeDef):
+    pass
+
+WorkforceVpcConfigRequestTypeDef = TypedDict(
+    "WorkforceVpcConfigRequestTypeDef",
+    {
+        "VpcId": str,
+        "SecurityGroupIds": List[str],
+        "Subnets": List[str],
+    },
+    total=False,
+)
+
+_RequiredWorkforceVpcConfigResponseTypeDef = TypedDict(
+    "_RequiredWorkforceVpcConfigResponseTypeDef",
+    {
+        "VpcId": str,
+        "SecurityGroupIds": List[str],
+        "Subnets": List[str],
+    },
+)
+_OptionalWorkforceVpcConfigResponseTypeDef = TypedDict(
+    "_OptionalWorkforceVpcConfigResponseTypeDef",
+    {
+        "VpcEndpointId": str,
+    },
+    total=False,
+)
+
+class WorkforceVpcConfigResponseTypeDef(
+    _RequiredWorkforceVpcConfigResponseTypeDef, _OptionalWorkforceVpcConfigResponseTypeDef
+):
     pass
 
 _RequiredWorkteamTypeDef = TypedDict(

@@ -25,6 +25,7 @@ __all__ = (
     "ButtonActionType",
     "CampaignStatusType",
     "ChannelTypeType",
+    "DayOfWeekType",
     "DeliveryStatusType",
     "DimensionTypeType",
     "DurationType",
@@ -69,6 +70,9 @@ ChannelTypeType = Literal[
     "PUSH",
     "SMS",
     "VOICE",
+]
+DayOfWeekType = Literal[
+    "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
 ]
 DeliveryStatusType = Literal[
     "DUPLICATE",

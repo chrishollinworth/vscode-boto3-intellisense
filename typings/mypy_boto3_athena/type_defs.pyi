@@ -38,6 +38,8 @@ __all__ = (
     "AthenaErrorTypeDef",
     "BatchGetNamedQueryInputRequestTypeDef",
     "BatchGetNamedQueryOutputTypeDef",
+    "BatchGetPreparedStatementInputRequestTypeDef",
+    "BatchGetPreparedStatementOutputTypeDef",
     "BatchGetQueryExecutionInputRequestTypeDef",
     "BatchGetQueryExecutionOutputTypeDef",
     "ColumnInfoTypeDef",
@@ -69,6 +71,8 @@ __all__ = (
     "GetQueryExecutionOutputTypeDef",
     "GetQueryResultsInputRequestTypeDef",
     "GetQueryResultsOutputTypeDef",
+    "GetQueryRuntimeStatisticsInputRequestTypeDef",
+    "GetQueryRuntimeStatisticsOutputTypeDef",
     "GetTableMetadataInputRequestTypeDef",
     "GetTableMetadataOutputTypeDef",
     "GetWorkGroupInputRequestTypeDef",
@@ -99,6 +103,11 @@ __all__ = (
     "QueryExecutionStatisticsTypeDef",
     "QueryExecutionStatusTypeDef",
     "QueryExecutionTypeDef",
+    "QueryRuntimeStatisticsRowsTypeDef",
+    "QueryRuntimeStatisticsTimelineTypeDef",
+    "QueryRuntimeStatisticsTypeDef",
+    "QueryStagePlanNodeTypeDef",
+    "QueryStageTypeDef",
     "ResponseMetadataTypeDef",
     "ResultConfigurationTypeDef",
     "ResultConfigurationUpdatesTypeDef",
@@ -112,6 +121,7 @@ __all__ = (
     "TagResourceInputRequestTypeDef",
     "TagTypeDef",
     "UnprocessedNamedQueryIdTypeDef",
+    "UnprocessedPreparedStatementNameTypeDef",
     "UnprocessedQueryExecutionIdTypeDef",
     "UntagResourceInputRequestTypeDef",
     "UpdateDataCatalogInputRequestTypeDef",
@@ -154,6 +164,23 @@ BatchGetNamedQueryOutputTypeDef = TypedDict(
     {
         "NamedQueries": List["NamedQueryTypeDef"],
         "UnprocessedNamedQueryIds": List["UnprocessedNamedQueryIdTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetPreparedStatementInputRequestTypeDef = TypedDict(
+    "BatchGetPreparedStatementInputRequestTypeDef",
+    {
+        "PreparedStatementNames": List[str],
+        "WorkGroup": str,
+    },
+)
+
+BatchGetPreparedStatementOutputTypeDef = TypedDict(
+    "BatchGetPreparedStatementOutputTypeDef",
+    {
+        "PreparedStatements": List["PreparedStatementTypeDef"],
+        "UnprocessedPreparedStatementNames": List["UnprocessedPreparedStatementNameTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -543,6 +570,21 @@ GetQueryResultsOutputTypeDef = TypedDict(
     },
 )
 
+GetQueryRuntimeStatisticsInputRequestTypeDef = TypedDict(
+    "GetQueryRuntimeStatisticsInputRequestTypeDef",
+    {
+        "QueryExecutionId": str,
+    },
+)
+
+GetQueryRuntimeStatisticsOutputTypeDef = TypedDict(
+    "GetQueryRuntimeStatisticsOutputTypeDef",
+    {
+        "QueryRuntimeStatistics": "QueryRuntimeStatisticsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetTableMetadataInputRequestTypeDef = TypedDict(
     "GetTableMetadataInputRequestTypeDef",
     {
@@ -885,6 +927,67 @@ QueryExecutionTypeDef = TypedDict(
         "Statistics": "QueryExecutionStatisticsTypeDef",
         "WorkGroup": str,
         "EngineVersion": "EngineVersionTypeDef",
+        "ExecutionParameters": List[str],
+    },
+    total=False,
+)
+
+QueryRuntimeStatisticsRowsTypeDef = TypedDict(
+    "QueryRuntimeStatisticsRowsTypeDef",
+    {
+        "InputRows": int,
+        "InputBytes": int,
+        "OutputBytes": int,
+        "OutputRows": int,
+    },
+    total=False,
+)
+
+QueryRuntimeStatisticsTimelineTypeDef = TypedDict(
+    "QueryRuntimeStatisticsTimelineTypeDef",
+    {
+        "QueryQueueTimeInMillis": int,
+        "QueryPlanningTimeInMillis": int,
+        "EngineExecutionTimeInMillis": int,
+        "ServiceProcessingTimeInMillis": int,
+        "TotalExecutionTimeInMillis": int,
+    },
+    total=False,
+)
+
+QueryRuntimeStatisticsTypeDef = TypedDict(
+    "QueryRuntimeStatisticsTypeDef",
+    {
+        "Timeline": "QueryRuntimeStatisticsTimelineTypeDef",
+        "Rows": "QueryRuntimeStatisticsRowsTypeDef",
+        "OutputStage": "QueryStageTypeDef",
+    },
+    total=False,
+)
+
+QueryStagePlanNodeTypeDef = TypedDict(
+    "QueryStagePlanNodeTypeDef",
+    {
+        "Name": str,
+        "Identifier": str,
+        "Children": List[Dict[str, Any]],
+        "RemoteSources": List[str],
+    },
+    total=False,
+)
+
+QueryStageTypeDef = TypedDict(
+    "QueryStageTypeDef",
+    {
+        "StageId": int,
+        "State": str,
+        "OutputBytes": int,
+        "OutputRows": int,
+        "InputBytes": int,
+        "InputRows": int,
+        "ExecutionTime": int,
+        "QueryStagePlan": "QueryStagePlanNodeTypeDef",
+        "SubStages": List[Dict[str, Any]],
     },
     total=False,
 )
@@ -964,6 +1067,7 @@ _OptionalStartQueryExecutionInputRequestTypeDef = TypedDict(
         "QueryExecutionContext": "QueryExecutionContextTypeDef",
         "ResultConfiguration": "ResultConfigurationTypeDef",
         "WorkGroup": str,
+        "ExecutionParameters": List[str],
     },
     total=False,
 )
@@ -1031,6 +1135,16 @@ UnprocessedNamedQueryIdTypeDef = TypedDict(
     "UnprocessedNamedQueryIdTypeDef",
     {
         "NamedQueryId": str,
+        "ErrorCode": str,
+        "ErrorMessage": str,
+    },
+    total=False,
+)
+
+UnprocessedPreparedStatementNameTypeDef = TypedDict(
+    "UnprocessedPreparedStatementNameTypeDef",
+    {
+        "StatementName": str,
         "ErrorCode": str,
         "ErrorMessage": str,
     },

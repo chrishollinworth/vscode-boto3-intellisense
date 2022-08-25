@@ -74,6 +74,7 @@ TranscribeRegionType = Literal[
     "sa-east-1",
     "us-east-1",
     "us-east-2",
+    "us-gov-west-1",
     "us-west-2",
 ]
 TranscribeVocabularyFilterMethodType = Literal["mask", "remove", "tag"]

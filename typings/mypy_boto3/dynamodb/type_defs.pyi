@@ -34,7 +34,10 @@ from .literals import (
     ExportFormatType,
     ExportStatusType,
     GlobalTableStatusType,
+    ImportStatusType,
     IndexStatusType,
+    InputCompressionTypeType,
+    InputFormatType,
     KeyTypeType,
     PointInTimeRecoveryStatusType,
     ProjectionTypeType,
@@ -100,6 +103,7 @@ __all__ = (
     "CreateTableInputRequestTypeDef",
     "CreateTableInputServiceResourceTypeDef",
     "CreateTableOutputTypeDef",
+    "CsvOptionsTypeDef",
     "DeleteBackupInputRequestTypeDef",
     "DeleteBackupOutputTypeDef",
     "DeleteGlobalSecondaryIndexActionTypeDef",
@@ -125,6 +129,8 @@ __all__ = (
     "DescribeGlobalTableOutputTypeDef",
     "DescribeGlobalTableSettingsInputRequestTypeDef",
     "DescribeGlobalTableSettingsOutputTypeDef",
+    "DescribeImportInputRequestTypeDef",
+    "DescribeImportOutputTypeDef",
     "DescribeKinesisStreamingDestinationInputRequestTypeDef",
     "DescribeKinesisStreamingDestinationOutputTypeDef",
     "DescribeLimitsOutputTypeDef",
@@ -157,6 +163,11 @@ __all__ = (
     "GlobalTableDescriptionTypeDef",
     "GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
     "GlobalTableTypeDef",
+    "ImportSummaryTypeDef",
+    "ImportTableDescriptionTypeDef",
+    "ImportTableInputRequestTypeDef",
+    "ImportTableOutputTypeDef",
+    "InputFormatOptionsTypeDef",
     "ItemCollectionMetricsTypeDef",
     "ItemResponseTypeDef",
     "KeySchemaElementTypeDef",
@@ -172,6 +183,8 @@ __all__ = (
     "ListExportsOutputTypeDef",
     "ListGlobalTablesInputRequestTypeDef",
     "ListGlobalTablesOutputTypeDef",
+    "ListImportsInputRequestTypeDef",
+    "ListImportsOutputTypeDef",
     "ListTablesInputRequestTypeDef",
     "ListTablesOutputTypeDef",
     "ListTagsOfResourceInputRequestTypeDef",
@@ -215,6 +228,7 @@ __all__ = (
     "RestoreTableFromBackupOutputTypeDef",
     "RestoreTableToPointInTimeInputRequestTypeDef",
     "RestoreTableToPointInTimeOutputTypeDef",
+    "S3BucketSourceTypeDef",
     "SSEDescriptionTypeDef",
     "SSESpecificationTypeDef",
     "ScanInputRequestTypeDef",
@@ -227,6 +241,7 @@ __all__ = (
     "TableAutoScalingDescriptionTypeDef",
     "TableBatchWriterRequestTypeDef",
     "TableClassSummaryTypeDef",
+    "TableCreationParametersTypeDef",
     "TableDescriptionTypeDef",
     "TagResourceInputRequestTypeDef",
     "TagTypeDef",
@@ -978,6 +993,15 @@ CreateTableOutputTypeDef = TypedDict(
     },
 )
 
+CsvOptionsTypeDef = TypedDict(
+    "CsvOptionsTypeDef",
+    {
+        "Delimiter": str,
+        "HeaderList": List[str],
+    },
+    total=False,
+)
+
 DeleteBackupInputRequestTypeDef = TypedDict(
     "DeleteBackupInputRequestTypeDef",
     {
@@ -1377,6 +1401,21 @@ DescribeGlobalTableSettingsOutputTypeDef = TypedDict(
     {
         "GlobalTableName": str,
         "ReplicaSettings": List["ReplicaSettingsDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeImportInputRequestTypeDef = TypedDict(
+    "DescribeImportInputRequestTypeDef",
+    {
+        "ImportArn": str,
+    },
+)
+
+DescribeImportOutputTypeDef = TypedDict(
+    "DescribeImportOutputTypeDef",
+    {
+        "ImportTableDescription": "ImportTableDescriptionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1957,6 +1996,86 @@ GlobalTableTypeDef = TypedDict(
     total=False,
 )
 
+ImportSummaryTypeDef = TypedDict(
+    "ImportSummaryTypeDef",
+    {
+        "ImportArn": str,
+        "ImportStatus": ImportStatusType,
+        "TableArn": str,
+        "S3BucketSource": "S3BucketSourceTypeDef",
+        "CloudWatchLogGroupArn": str,
+        "InputFormat": InputFormatType,
+        "StartTime": datetime,
+        "EndTime": datetime,
+    },
+    total=False,
+)
+
+ImportTableDescriptionTypeDef = TypedDict(
+    "ImportTableDescriptionTypeDef",
+    {
+        "ImportArn": str,
+        "ImportStatus": ImportStatusType,
+        "TableArn": str,
+        "TableId": str,
+        "ClientToken": str,
+        "S3BucketSource": "S3BucketSourceTypeDef",
+        "ErrorCount": int,
+        "CloudWatchLogGroupArn": str,
+        "InputFormat": InputFormatType,
+        "InputFormatOptions": "InputFormatOptionsTypeDef",
+        "InputCompressionType": InputCompressionTypeType,
+        "TableCreationParameters": "TableCreationParametersTypeDef",
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "ProcessedSizeBytes": int,
+        "ProcessedItemCount": int,
+        "ImportedItemCount": int,
+        "FailureCode": str,
+        "FailureMessage": str,
+    },
+    total=False,
+)
+
+_RequiredImportTableInputRequestTypeDef = TypedDict(
+    "_RequiredImportTableInputRequestTypeDef",
+    {
+        "S3BucketSource": "S3BucketSourceTypeDef",
+        "InputFormat": InputFormatType,
+        "TableCreationParameters": "TableCreationParametersTypeDef",
+    },
+)
+_OptionalImportTableInputRequestTypeDef = TypedDict(
+    "_OptionalImportTableInputRequestTypeDef",
+    {
+        "ClientToken": str,
+        "InputFormatOptions": "InputFormatOptionsTypeDef",
+        "InputCompressionType": InputCompressionTypeType,
+    },
+    total=False,
+)
+
+class ImportTableInputRequestTypeDef(
+    _RequiredImportTableInputRequestTypeDef, _OptionalImportTableInputRequestTypeDef
+):
+    pass
+
+ImportTableOutputTypeDef = TypedDict(
+    "ImportTableOutputTypeDef",
+    {
+        "ImportTableDescription": "ImportTableDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InputFormatOptionsTypeDef = TypedDict(
+    "InputFormatOptionsTypeDef",
+    {
+        "Csv": "CsvOptionsTypeDef",
+    },
+    total=False,
+)
+
 ItemCollectionMetricsTypeDef = TypedDict(
     "ItemCollectionMetricsTypeDef",
     {
@@ -2163,6 +2282,25 @@ ListGlobalTablesOutputTypeDef = TypedDict(
     {
         "GlobalTables": List["GlobalTableTypeDef"],
         "LastEvaluatedGlobalTableName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListImportsInputRequestTypeDef = TypedDict(
+    "ListImportsInputRequestTypeDef",
+    {
+        "TableArn": str,
+        "PageSize": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListImportsOutputTypeDef = TypedDict(
+    "ListImportsOutputTypeDef",
+    {
+        "ImportSummaryList": List["ImportSummaryTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3080,6 +3218,24 @@ RestoreTableToPointInTimeOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredS3BucketSourceTypeDef = TypedDict(
+    "_RequiredS3BucketSourceTypeDef",
+    {
+        "S3Bucket": str,
+    },
+)
+_OptionalS3BucketSourceTypeDef = TypedDict(
+    "_OptionalS3BucketSourceTypeDef",
+    {
+        "S3BucketOwner": str,
+        "S3KeyPrefix": str,
+    },
+    total=False,
+)
+
+class S3BucketSourceTypeDef(_RequiredS3BucketSourceTypeDef, _OptionalS3BucketSourceTypeDef):
+    pass
+
 SSEDescriptionTypeDef = TypedDict(
     "SSEDescriptionTypeDef",
     {
@@ -3366,6 +3522,30 @@ TableClassSummaryTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredTableCreationParametersTypeDef = TypedDict(
+    "_RequiredTableCreationParametersTypeDef",
+    {
+        "TableName": str,
+        "AttributeDefinitions": List["AttributeDefinitionTypeDef"],
+        "KeySchema": List["KeySchemaElementTypeDef"],
+    },
+)
+_OptionalTableCreationParametersTypeDef = TypedDict(
+    "_OptionalTableCreationParametersTypeDef",
+    {
+        "BillingMode": BillingModeType,
+        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
+        "SSESpecification": "SSESpecificationTypeDef",
+        "GlobalSecondaryIndexes": List["GlobalSecondaryIndexTypeDef"],
+    },
+    total=False,
+)
+
+class TableCreationParametersTypeDef(
+    _RequiredTableCreationParametersTypeDef, _OptionalTableCreationParametersTypeDef
+):
+    pass
 
 TableDescriptionTypeDef = TypedDict(
     "TableDescriptionTypeDef",

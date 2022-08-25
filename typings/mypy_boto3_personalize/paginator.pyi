@@ -92,7 +92,7 @@ __all__ = (
 
 class ListBatchInferenceJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listbatchinferencejobspaginator)
     """
 
@@ -100,13 +100,13 @@ class ListBatchInferenceJobsPaginator(Boto3Paginator):
         self, *, solutionVersionArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBatchInferenceJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listbatchinferencejobspaginator)
         """
 
 class ListBatchSegmentJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListBatchSegmentJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListBatchSegmentJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listbatchsegmentjobspaginator)
     """
 
@@ -114,13 +114,13 @@ class ListBatchSegmentJobsPaginator(Boto3Paginator):
         self, *, solutionVersionArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBatchSegmentJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListBatchSegmentJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListBatchSegmentJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listbatchsegmentjobspaginator)
         """
 
 class ListCampaignsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listcampaignspaginator)
     """
 
@@ -128,13 +128,13 @@ class ListCampaignsPaginator(Boto3Paginator):
         self, *, solutionArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCampaignsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListCampaigns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListCampaigns.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listcampaignspaginator)
         """
 
 class ListDatasetExportJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListDatasetExportJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListDatasetExportJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetexportjobspaginator)
     """
 
@@ -142,13 +142,13 @@ class ListDatasetExportJobsPaginator(Boto3Paginator):
         self, *, datasetArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetExportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListDatasetExportJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListDatasetExportJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetexportjobspaginator)
         """
 
 class ListDatasetGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetgroupspaginator)
     """
 
@@ -156,13 +156,13 @@ class ListDatasetGroupsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetgroupspaginator)
         """
 
 class ListDatasetImportJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetimportjobspaginator)
     """
 
@@ -170,13 +170,13 @@ class ListDatasetImportJobsPaginator(Boto3Paginator):
         self, *, datasetArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetImportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetimportjobspaginator)
         """
 
 class ListDatasetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetspaginator)
     """
 
@@ -184,13 +184,13 @@ class ListDatasetsPaginator(Boto3Paginator):
         self, *, datasetGroupArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListDatasets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListDatasets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetspaginator)
         """
 
 class ListEventTrackersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listeventtrackerspaginator)
     """
 
@@ -198,13 +198,13 @@ class ListEventTrackersPaginator(Boto3Paginator):
         self, *, datasetGroupArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventTrackersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listeventtrackerspaginator)
         """
 
 class ListFiltersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListFilters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListFilters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listfilterspaginator)
     """
 
@@ -212,13 +212,13 @@ class ListFiltersPaginator(Boto3Paginator):
         self, *, datasetGroupArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFiltersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListFilters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListFilters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listfilterspaginator)
         """
 
 class ListRecipesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listrecipespaginator)
     """
 
@@ -230,13 +230,13 @@ class ListRecipesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecipesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListRecipes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListRecipes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listrecipespaginator)
         """
 
 class ListRecommendersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListRecommenders)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListRecommenders)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listrecommenderspaginator)
     """
 
@@ -244,13 +244,13 @@ class ListRecommendersPaginator(Boto3Paginator):
         self, *, datasetGroupArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecommendersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListRecommenders.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListRecommenders.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listrecommenderspaginator)
         """
 
 class ListSchemasPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listschemaspaginator)
     """
 
@@ -258,13 +258,13 @@ class ListSchemasPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSchemasResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListSchemas.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListSchemas.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listschemaspaginator)
         """
 
 class ListSolutionVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listsolutionversionspaginator)
     """
 
@@ -272,13 +272,13 @@ class ListSolutionVersionsPaginator(Boto3Paginator):
         self, *, solutionArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSolutionVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listsolutionversionspaginator)
         """
 
 class ListSolutionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listsolutionspaginator)
     """
 
@@ -286,6 +286,6 @@ class ListSolutionsPaginator(Boto3Paginator):
         self, *, datasetGroupArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSolutionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/personalize.html#Personalize.Paginator.ListSolutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/personalize.html#Personalize.Paginator.ListSolutions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listsolutionspaginator)
         """

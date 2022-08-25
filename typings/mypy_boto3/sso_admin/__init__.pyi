@@ -11,6 +11,7 @@ Usage::
         ListAccountAssignmentDeletionStatusPaginator,
         ListAccountAssignmentsPaginator,
         ListAccountsForProvisionedPermissionSetPaginator,
+        ListCustomerManagedPolicyReferencesInPermissionSetPaginator,
         ListInstancesPaginator,
         ListManagedPoliciesInPermissionSetPaginator,
         ListPermissionSetProvisioningStatusPaginator,
@@ -29,6 +30,7 @@ Usage::
     list_account_assignment_deletion_status_paginator: ListAccountAssignmentDeletionStatusPaginator = client.get_paginator("list_account_assignment_deletion_status")
     list_account_assignments_paginator: ListAccountAssignmentsPaginator = client.get_paginator("list_account_assignments")
     list_accounts_for_provisioned_permission_set_paginator: ListAccountsForProvisionedPermissionSetPaginator = client.get_paginator("list_accounts_for_provisioned_permission_set")
+    list_customer_managed_policy_references_in_permission_set_paginator: ListCustomerManagedPolicyReferencesInPermissionSetPaginator = client.get_paginator("list_customer_managed_policy_references_in_permission_set")
     list_instances_paginator: ListInstancesPaginator = client.get_paginator("list_instances")
     list_managed_policies_in_permission_set_paginator: ListManagedPoliciesInPermissionSetPaginator = client.get_paginator("list_managed_policies_in_permission_set")
     list_permission_set_provisioning_status_paginator: ListPermissionSetProvisioningStatusPaginator = client.get_paginator("list_permission_set_provisioning_status")
@@ -43,6 +45,7 @@ from .paginator import (
     ListAccountAssignmentDeletionStatusPaginator,
     ListAccountAssignmentsPaginator,
     ListAccountsForProvisionedPermissionSetPaginator,
+    ListCustomerManagedPolicyReferencesInPermissionSetPaginator,
     ListInstancesPaginator,
     ListManagedPoliciesInPermissionSetPaginator,
     ListPermissionSetProvisioningStatusPaginator,
@@ -59,6 +62,7 @@ __all__ = (
     "ListAccountAssignmentDeletionStatusPaginator",
     "ListAccountAssignmentsPaginator",
     "ListAccountsForProvisionedPermissionSetPaginator",
+    "ListCustomerManagedPolicyReferencesInPermissionSetPaginator",
     "ListInstancesPaginator",
     "ListManagedPoliciesInPermissionSetPaginator",
     "ListPermissionSetProvisioningStatusPaginator",

@@ -154,7 +154,7 @@ class Exceptions:
 
 class ServiceCatalogClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html)
     """
 
@@ -175,14 +175,14 @@ class ServiceCatalogClient(BaseClient):
         """
         Accepts an offer to share the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.accept_portfolio_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.accept_portfolio_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#accept_portfolio_share)
         """
     def associate_budget_with_resource(self, *, BudgetName: str, ResourceId: str) -> Dict[str, Any]:
         """
         Associates the specified budget with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_budget_with_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_budget_with_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#associate_budget_with_resource)
         """
     def associate_principal_with_portfolio(
@@ -196,7 +196,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Associates the specified principal ARN with the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_principal_with_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_principal_with_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#associate_principal_with_portfolio)
         """
     def associate_product_with_portfolio(
@@ -210,7 +210,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Associates the specified product with the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_product_with_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_product_with_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#associate_product_with_portfolio)
         """
     def associate_service_action_with_provisioning_artifact(
@@ -224,7 +224,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Associates a self-service action with a provisioning artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_service_action_with_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_service_action_with_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#associate_service_action_with_provisioning_artifact)
         """
     def associate_tag_option_with_resource(
@@ -233,7 +233,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Associate the specified TagOption with the specified portfolio or product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_tag_option_with_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.associate_tag_option_with_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#associate_tag_option_with_resource)
         """
     def batch_associate_service_action_with_provisioning_artifact(
@@ -245,7 +245,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Associates multiple self-service actions with provisioning artifacts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.batch_associate_service_action_with_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.batch_associate_service_action_with_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#batch_associate_service_action_with_provisioning_artifact)
         """
     def batch_disassociate_service_action_from_provisioning_artifact(
@@ -258,15 +258,22 @@ class ServiceCatalogClient(BaseClient):
         Disassociates a batch of self-service actions from the specified provisioning
         artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.batch_disassociate_service_action_from_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.batch_disassociate_service_action_from_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#batch_disassociate_service_action_from_provisioning_artifact)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#can_paginate)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#close)
         """
     def copy_product(
         self,
@@ -283,7 +290,7 @@ class ServiceCatalogClient(BaseClient):
         Copies the specified source product to the specified target product or a new
         product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.copy_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.copy_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#copy_product)
         """
     def create_constraint(
@@ -300,7 +307,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Creates a constraint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.create_constraint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.create_constraint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#create_constraint)
         """
     def create_portfolio(
@@ -316,7 +323,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Creates a portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.create_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.create_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#create_portfolio)
         """
     def create_portfolio_share(
@@ -331,7 +338,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Shares the specified portfolio with the specified account or organization node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.create_portfolio_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.create_portfolio_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#create_portfolio_share)
         """
     def create_product(
@@ -353,7 +360,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Creates a product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.create_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.create_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#create_product)
         """
     def create_provisioned_product_plan(
@@ -374,7 +381,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Creates a plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.create_provisioned_product_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.create_provisioned_product_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#create_provisioned_product_plan)
         """
     def create_provisioning_artifact(
@@ -389,7 +396,7 @@ class ServiceCatalogClient(BaseClient):
         Creates a provisioning artifact (also known as a version) for the specified
         product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.create_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.create_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#create_provisioning_artifact)
         """
     def create_service_action(
@@ -405,28 +412,28 @@ class ServiceCatalogClient(BaseClient):
         """
         Creates a self-service action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.create_service_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.create_service_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#create_service_action)
         """
     def create_tag_option(self, *, Key: str, Value: str) -> CreateTagOptionOutputTypeDef:
         """
         Creates a TagOption.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.create_tag_option)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.create_tag_option)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#create_tag_option)
         """
     def delete_constraint(self, *, Id: str, AcceptLanguage: str = None) -> Dict[str, Any]:
         """
         Deletes the specified constraint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_constraint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_constraint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#delete_constraint)
         """
     def delete_portfolio(self, *, Id: str, AcceptLanguage: str = None) -> Dict[str, Any]:
         """
         Deletes the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#delete_portfolio)
         """
     def delete_portfolio_share(
@@ -441,14 +448,14 @@ class ServiceCatalogClient(BaseClient):
         Stops sharing the specified portfolio with the specified account or organization
         node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_portfolio_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_portfolio_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#delete_portfolio_share)
         """
     def delete_product(self, *, Id: str, AcceptLanguage: str = None) -> Dict[str, Any]:
         """
         Deletes the specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#delete_product)
         """
     def delete_provisioned_product_plan(
@@ -457,7 +464,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Deletes the specified plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_provisioned_product_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_provisioned_product_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#delete_provisioned_product_plan)
         """
     def delete_provisioning_artifact(
@@ -467,21 +474,21 @@ class ServiceCatalogClient(BaseClient):
         Deletes the specified provisioning artifact (also known as a version) for the
         specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#delete_provisioning_artifact)
         """
     def delete_service_action(self, *, Id: str, AcceptLanguage: str = None) -> Dict[str, Any]:
         """
         Deletes a self-service action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_service_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_service_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#delete_service_action)
         """
     def delete_tag_option(self, *, Id: str) -> Dict[str, Any]:
         """
         Deletes the specified TagOption.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_tag_option)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.delete_tag_option)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#delete_tag_option)
         """
     def describe_constraint(
@@ -490,7 +497,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the specified constraint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_constraint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_constraint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_constraint)
         """
     def describe_copy_product_status(
@@ -499,7 +506,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets the status of the specified copy product operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_copy_product_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_copy_product_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_copy_product_status)
         """
     def describe_portfolio(
@@ -508,7 +515,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_portfolio)
         """
     def describe_portfolio_share_status(
@@ -517,7 +524,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets the status of the specified portfolio share operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_portfolio_share_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_portfolio_share_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_portfolio_share_status)
         """
     def describe_portfolio_shares(
@@ -532,7 +539,7 @@ class ServiceCatalogClient(BaseClient):
         Returns a summary of each of the portfolio shares that were created for the
         specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_portfolio_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_portfolio_shares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_portfolio_shares)
         """
     def describe_product(
@@ -541,7 +548,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_product)
         """
     def describe_product_as_admin(
@@ -555,7 +562,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_product_as_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_product_as_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_product_as_admin)
         """
     def describe_product_view(
@@ -564,7 +571,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_product_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_product_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_product_view)
         """
     def describe_provisioned_product(
@@ -573,7 +580,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the specified provisioned product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_provisioned_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_provisioned_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_provisioned_product)
         """
     def describe_provisioned_product_plan(
@@ -587,7 +594,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the resource changes for the specified plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_provisioned_product_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_provisioned_product_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_provisioned_product_plan)
         """
     def describe_provisioning_artifact(
@@ -604,7 +611,7 @@ class ServiceCatalogClient(BaseClient):
         Gets information about the specified provisioning artifact (also known as a
         version) for the specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_provisioning_artifact)
         """
     def describe_provisioning_parameters(
@@ -622,7 +629,7 @@ class ServiceCatalogClient(BaseClient):
         Gets information about the configuration required to provision the specified
         product using the specified provisioning artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_provisioning_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_provisioning_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_provisioning_parameters)
         """
     def describe_record(
@@ -631,7 +638,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the specified request operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_record)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_record)
         """
     def describe_service_action(
@@ -640,7 +647,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Describes a self-service action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_service_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_service_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_service_action)
         """
     def describe_service_action_execution_parameters(
@@ -650,21 +657,21 @@ class ServiceCatalogClient(BaseClient):
         Finds the default parameters for a specific self-service action on a specific
         provisioned product and returns a map of the results to the user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_service_action_execution_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_service_action_execution_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_service_action_execution_parameters)
         """
     def describe_tag_option(self, *, Id: str) -> DescribeTagOptionOutputTypeDef:
         """
         Gets information about the specified TagOption.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_tag_option)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.describe_tag_option)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#describe_tag_option)
         """
     def disable_aws_organizations_access(self) -> Dict[str, Any]:
         """
-        Disable portfolio sharing through AWS Organizations feature.
+        Disable portfolio sharing through the Organizations service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.disable_aws_organizations_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.disable_aws_organizations_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#disable_aws_organizations_access)
         """
     def disassociate_budget_from_resource(
@@ -673,7 +680,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Disassociates the specified budget from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_budget_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_budget_from_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#disassociate_budget_from_resource)
         """
     def disassociate_principal_from_portfolio(
@@ -682,7 +689,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Disassociates a previously associated principal ARN from a specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_principal_from_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_principal_from_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#disassociate_principal_from_portfolio)
         """
     def disassociate_product_from_portfolio(
@@ -691,7 +698,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Disassociates the specified product from the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_product_from_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_product_from_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#disassociate_product_from_portfolio)
         """
     def disassociate_service_action_from_provisioning_artifact(
@@ -706,7 +713,7 @@ class ServiceCatalogClient(BaseClient):
         Disassociates the specified self-service action association from the specified
         provisioning artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_service_action_from_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_service_action_from_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#disassociate_service_action_from_provisioning_artifact)
         """
     def disassociate_tag_option_from_resource(
@@ -715,14 +722,14 @@ class ServiceCatalogClient(BaseClient):
         """
         Disassociates the specified TagOption from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_tag_option_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.disassociate_tag_option_from_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#disassociate_tag_option_from_resource)
         """
     def enable_aws_organizations_access(self) -> Dict[str, Any]:
         """
-        Enable portfolio sharing feature through AWS Organizations.
+        Enable portfolio sharing feature through Organizations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.enable_aws_organizations_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.enable_aws_organizations_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#enable_aws_organizations_access)
         """
     def execute_provisioned_product_plan(
@@ -732,7 +739,7 @@ class ServiceCatalogClient(BaseClient):
         Provisions or modifies a product based on the resource changes for the specified
         plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.execute_provisioned_product_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.execute_provisioned_product_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#execute_provisioned_product_plan)
         """
     def execute_provisioned_product_service_action(
@@ -747,7 +754,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Executes a self-service action against a provisioned product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.execute_provisioned_product_service_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.execute_provisioned_product_service_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#execute_provisioned_product_service_action)
         """
     def generate_presigned_url(
@@ -760,14 +767,14 @@ class ServiceCatalogClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#generate_presigned_url)
         """
     def get_aws_organizations_access_status(self) -> GetAWSOrganizationsAccessStatusOutputTypeDef:
         """
-        Get the Access Status for AWS Organization portfolio share feature.
+        Get the Access Status for Organizations portfolio share feature.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.get_aws_organizations_access_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.get_aws_organizations_access_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#get_aws_organizations_access_status)
         """
     def get_provisioned_product_outputs(
@@ -785,7 +792,7 @@ class ServiceCatalogClient(BaseClient):
         along with a list of one or more output keys, and responds with the key/value
         pairs of those outputs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.get_provisioned_product_outputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.get_provisioned_product_outputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#get_provisioned_product_outputs)
         """
     def import_as_provisioned_product(
@@ -799,10 +806,11 @@ class ServiceCatalogClient(BaseClient):
         AcceptLanguage: str = None
     ) -> ImportAsProvisionedProductOutputTypeDef:
         """
-        Requests the import of a resource as a Service Catalog provisioned product that
-        is associated to a Service Catalog product and provisioning artifact.
+        Requests the import of a resource as a Amazon Web Services Service Catalog
+        provisioned product that is associated to a Amazon Web Services Service Catalog
+        product and provisioning artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.import_as_provisioned_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.import_as_provisioned_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#import_as_provisioned_product)
         """
     def list_accepted_portfolio_shares(
@@ -817,7 +825,7 @@ class ServiceCatalogClient(BaseClient):
         Lists all imported portfolios for which account-to-account shares were accepted
         by this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_accepted_portfolio_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_accepted_portfolio_shares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_accepted_portfolio_shares)
         """
     def list_budgets_for_resource(
@@ -831,7 +839,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists all the budgets associated to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_budgets_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_budgets_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_budgets_for_resource)
         """
     def list_constraints_for_portfolio(
@@ -846,7 +854,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists the constraints for the specified portfolio and product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_constraints_for_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_constraints_for_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_constraints_for_portfolio)
         """
     def list_launch_paths(
@@ -860,7 +868,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists the paths to the specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_launch_paths)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_launch_paths)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_launch_paths)
         """
     def list_organization_portfolio_access(
@@ -875,7 +883,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists the organization nodes that have access to the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_organization_portfolio_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_organization_portfolio_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_organization_portfolio_access)
         """
     def list_portfolio_access(
@@ -890,7 +898,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists the account IDs that have access to the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_portfolio_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_portfolio_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_portfolio_access)
         """
     def list_portfolios(
@@ -899,7 +907,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists all portfolios in the catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_portfolios)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_portfolios)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_portfolios)
         """
     def list_portfolios_for_product(
@@ -913,7 +921,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists all portfolios that the specified product is associated with.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_portfolios_for_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_portfolios_for_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_portfolios_for_product)
         """
     def list_principals_for_portfolio(
@@ -927,7 +935,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists all principal ARNs associated with the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_principals_for_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_principals_for_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_principals_for_portfolio)
         """
     def list_provisioned_product_plans(
@@ -943,7 +951,7 @@ class ServiceCatalogClient(BaseClient):
         Lists the plans for the specified provisioned product or all plans to which the
         user has access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_provisioned_product_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_provisioned_product_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_provisioned_product_plans)
         """
     def list_provisioning_artifacts(
@@ -953,7 +961,7 @@ class ServiceCatalogClient(BaseClient):
         Lists all provisioning artifacts (also known as versions) for the specified
         product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_provisioning_artifacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_provisioning_artifacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_provisioning_artifacts)
         """
     def list_provisioning_artifacts_for_service_action(
@@ -968,7 +976,7 @@ class ServiceCatalogClient(BaseClient):
         Lists all provisioning artifacts (also known as versions) for the specified
         self-service action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_provisioning_artifacts_for_service_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_provisioning_artifacts_for_service_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_provisioning_artifacts_for_service_action)
         """
     def list_record_history(
@@ -983,7 +991,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists the specified requests or all performed requests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_record_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_record_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_record_history)
         """
     def list_resources_for_tag_option(
@@ -997,7 +1005,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists the resources associated with the specified TagOption.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_resources_for_tag_option)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_resources_for_tag_option)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_resources_for_tag_option)
         """
     def list_service_actions(
@@ -1006,7 +1014,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists all self-service actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_service_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_service_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_service_actions)
         """
     def list_service_actions_for_provisioning_artifact(
@@ -1022,7 +1030,7 @@ class ServiceCatalogClient(BaseClient):
         Returns a paginated list of self-service actions associated with the specified
         Product ID and Provisioning Artifact ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_service_actions_for_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_service_actions_for_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_service_actions_for_provisioning_artifact)
         """
     def list_stack_instances_for_provisioned_product(
@@ -1037,7 +1045,7 @@ class ServiceCatalogClient(BaseClient):
         Returns summary information about stack instances that are associated with the
         specified `CFN_STACKSET` type provisioned product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_stack_instances_for_provisioned_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_stack_instances_for_provisioned_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_stack_instances_for_provisioned_product)
         """
     def list_tag_options(
@@ -1050,7 +1058,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists the specified TagOptions or all TagOptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.list_tag_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.list_tag_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#list_tag_options)
         """
     def provision_product(
@@ -1073,7 +1081,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Provisions the specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.provision_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.provision_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#provision_product)
         """
     def reject_portfolio_share(
@@ -1086,7 +1094,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Rejects an offer to share the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.reject_portfolio_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.reject_portfolio_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#reject_portfolio_share)
         """
     def scan_provisioned_products(
@@ -1100,7 +1108,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Lists the provisioned products that are available (not terminated).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.scan_provisioned_products)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.scan_provisioned_products)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#scan_provisioned_products)
         """
     def search_products(
@@ -1116,7 +1124,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the products to which the caller has access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.search_products)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.search_products)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#search_products)
         """
     def search_products_as_admin(
@@ -1134,7 +1142,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Gets information about the products for the specified portfolio or all products.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.search_products_as_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.search_products_as_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#search_products_as_admin)
         """
     def search_provisioned_products(
@@ -1152,7 +1160,7 @@ class ServiceCatalogClient(BaseClient):
         Gets information about the provisioned products that meet the specified
         criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.search_provisioned_products)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.search_provisioned_products)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#search_provisioned_products)
         """
     def terminate_provisioned_product(
@@ -1168,7 +1176,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Terminates the specified provisioned product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.terminate_provisioned_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.terminate_provisioned_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#terminate_provisioned_product)
         """
     def update_constraint(
@@ -1182,7 +1190,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Updates the specified constraint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_constraint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_constraint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_constraint)
         """
     def update_portfolio(
@@ -1199,7 +1207,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Updates the specified portfolio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_portfolio)
         """
     def update_portfolio_share(
@@ -1214,7 +1222,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Updates the specified portfolio share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_portfolio_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_portfolio_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_portfolio_share)
         """
     def update_product(
@@ -1235,7 +1243,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Updates the specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_product)
         """
     def update_provisioned_product(
@@ -1258,7 +1266,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Requests updates to the configuration of the specified provisioned product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_provisioned_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_provisioned_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_provisioned_product)
         """
     def update_provisioned_product_properties(
@@ -1272,7 +1280,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Requests updates to the properties of the specified provisioned product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_provisioned_product_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_provisioned_product_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_provisioned_product_properties)
         """
     def update_provisioning_artifact(
@@ -1290,7 +1298,7 @@ class ServiceCatalogClient(BaseClient):
         Updates the specified provisioning artifact (also known as a version) for the
         specified product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_provisioning_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_provisioning_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_provisioning_artifact)
         """
     def update_service_action(
@@ -1305,7 +1313,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Updates a self-service action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_service_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_service_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_service_action)
         """
     def update_tag_option(
@@ -1314,7 +1322,7 @@ class ServiceCatalogClient(BaseClient):
         """
         Updates the specified TagOption.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Client.update_tag_option)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Client.update_tag_option)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/client.html#update_tag_option)
         """
     @overload
@@ -1322,7 +1330,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_accepted_portfolio_shares"]
     ) -> ListAcceptedPortfolioSharesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listacceptedportfoliosharespaginator)
         """
     @overload
@@ -1330,7 +1338,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_constraints_for_portfolio"]
     ) -> ListConstraintsForPortfolioPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listconstraintsforportfoliopaginator)
         """
     @overload
@@ -1338,7 +1346,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_launch_paths"]
     ) -> ListLaunchPathsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listlaunchpathspaginator)
         """
     @overload
@@ -1346,13 +1354,13 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_organization_portfolio_access"]
     ) -> ListOrganizationPortfolioAccessPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listorganizationportfolioaccesspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_portfolios"]) -> ListPortfoliosPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listportfoliospaginator)
         """
     @overload
@@ -1360,7 +1368,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_portfolios_for_product"]
     ) -> ListPortfoliosForProductPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listportfoliosforproductpaginator)
         """
     @overload
@@ -1368,7 +1376,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_principals_for_portfolio"]
     ) -> ListPrincipalsForPortfolioPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprincipalsforportfoliopaginator)
         """
     @overload
@@ -1376,7 +1384,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_provisioned_product_plans"]
     ) -> ListProvisionedProductPlansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprovisionedproductplanspaginator)
         """
     @overload
@@ -1384,7 +1392,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_provisioning_artifacts_for_service_action"]
     ) -> ListProvisioningArtifactsForServiceActionPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprovisioningartifactsforserviceactionpaginator)
         """
     @overload
@@ -1392,7 +1400,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_record_history"]
     ) -> ListRecordHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listrecordhistorypaginator)
         """
     @overload
@@ -1400,7 +1408,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_resources_for_tag_option"]
     ) -> ListResourcesForTagOptionPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listresourcesfortagoptionpaginator)
         """
     @overload
@@ -1408,7 +1416,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_service_actions"]
     ) -> ListServiceActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listserviceactionspaginator)
         """
     @overload
@@ -1416,13 +1424,13 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["list_service_actions_for_provisioning_artifact"]
     ) -> ListServiceActionsForProvisioningArtifactPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listserviceactionsforprovisioningartifactpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_tag_options"]) -> ListTagOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listtagoptionspaginator)
         """
     @overload
@@ -1430,7 +1438,7 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["scan_provisioned_products"]
     ) -> ScanProvisionedProductsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#scanprovisionedproductspaginator)
         """
     @overload
@@ -1438,6 +1446,6 @@ class ServiceCatalogClient(BaseClient):
         self, operation_name: Literal["search_products_as_admin"]
     ) -> SearchProductsAsAdminPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#searchproductsasadminpaginator)
         """

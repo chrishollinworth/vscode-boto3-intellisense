@@ -29,6 +29,7 @@ __all__ = (
     "DedicatedTenancyModificationStateEnumType",
     "DedicatedTenancySupportEnumType",
     "DedicatedTenancySupportResultEnumType",
+    "DeletableSamlPropertyType",
     "DescribeAccountModificationsPaginatorName",
     "DescribeIpGroupsPaginatorName",
     "DescribeWorkspaceBundlesPaginatorName",
@@ -43,6 +44,7 @@ __all__ = (
     "OperatingSystemTypeType",
     "ReconnectEnumType",
     "RunningModeType",
+    "SamlStatusEnumType",
     "TargetWorkspaceStateType",
     "TenancyType",
     "WorkspaceDirectoryStateType",
@@ -86,6 +88,9 @@ ConnectionStateType = Literal["CONNECTED", "DISCONNECTED", "UNKNOWN"]
 DedicatedTenancyModificationStateEnumType = Literal["COMPLETED", "FAILED", "PENDING"]
 DedicatedTenancySupportEnumType = Literal["ENABLED"]
 DedicatedTenancySupportResultEnumType = Literal["DISABLED", "ENABLED"]
+DeletableSamlPropertyType = Literal[
+    "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME", "SAML_PROPERTIES_USER_ACCESS_URL"
+]
 DescribeAccountModificationsPaginatorName = Literal["describe_account_modifications"]
 DescribeIpGroupsPaginatorName = Literal["describe_ip_groups"]
 DescribeWorkspaceBundlesPaginatorName = Literal["describe_workspace_bundles"]
@@ -100,6 +105,7 @@ ModificationStateEnumType = Literal["UPDATE_INITIATED", "UPDATE_IN_PROGRESS"]
 OperatingSystemTypeType = Literal["LINUX", "WINDOWS"]
 ReconnectEnumType = Literal["DISABLED", "ENABLED"]
 RunningModeType = Literal["ALWAYS_ON", "AUTO_STOP"]
+SamlStatusEnumType = Literal["DISABLED", "ENABLED", "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK"]
 TargetWorkspaceStateType = Literal["ADMIN_MAINTENANCE", "AVAILABLE"]
 TenancyType = Literal["DEDICATED", "SHARED"]
 WorkspaceDirectoryStateType = Literal[

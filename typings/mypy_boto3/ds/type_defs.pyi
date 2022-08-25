@@ -19,6 +19,8 @@ from .literals import (
     CertificateStateType,
     CertificateTypeType,
     ClientAuthenticationStatusType,
+    ClientAuthenticationTypeType,
+    DirectoryConfigurationStatusType,
     DirectoryEditionType,
     DirectorySizeType,
     DirectoryStageType,
@@ -106,6 +108,8 @@ __all__ = (
     "DescribeLDAPSSettingsResultTypeDef",
     "DescribeRegionsRequestRequestTypeDef",
     "DescribeRegionsResultTypeDef",
+    "DescribeSettingsRequestRequestTypeDef",
+    "DescribeSettingsResultTypeDef",
     "DescribeSharedDirectoriesRequestRequestTypeDef",
     "DescribeSharedDirectoriesResultTypeDef",
     "DescribeSnapshotsRequestRequestTypeDef",
@@ -162,6 +166,8 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RestoreFromSnapshotRequestRequestTypeDef",
     "SchemaExtensionInfoTypeDef",
+    "SettingEntryTypeDef",
+    "SettingTypeDef",
     "ShareDirectoryRequestRequestTypeDef",
     "ShareDirectoryResultTypeDef",
     "ShareTargetTypeDef",
@@ -178,6 +184,8 @@ __all__ = (
     "UpdateConditionalForwarderRequestRequestTypeDef",
     "UpdateNumberOfDomainControllersRequestRequestTypeDef",
     "UpdateRadiusRequestRequestTypeDef",
+    "UpdateSettingsRequestRequestTypeDef",
+    "UpdateSettingsResultTypeDef",
     "UpdateTrustRequestRequestTypeDef",
     "UpdateTrustResultTypeDef",
     "VerifyTrustRequestRequestTypeDef",
@@ -283,7 +291,7 @@ CertificateTypeDef = TypedDict(
 ClientAuthenticationSettingInfoTypeDef = TypedDict(
     "ClientAuthenticationSettingInfoTypeDef",
     {
-        "Type": Literal["SmartCard"],
+        "Type": ClientAuthenticationTypeType,
         "Status": ClientAuthenticationStatusType,
         "LastUpdatedDateTime": datetime,
     },
@@ -650,7 +658,7 @@ _RequiredDescribeClientAuthenticationSettingsRequestRequestTypeDef = TypedDict(
 _OptionalDescribeClientAuthenticationSettingsRequestRequestTypeDef = TypedDict(
     "_OptionalDescribeClientAuthenticationSettingsRequestRequestTypeDef",
     {
-        "Type": Literal["SmartCard"],
+        "Type": ClientAuthenticationTypeType,
         "NextToken": str,
         "Limit": int,
     },
@@ -827,6 +835,36 @@ DescribeRegionsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribeSettingsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeSettingsRequestRequestTypeDef",
+    {
+        "DirectoryId": str,
+    },
+)
+_OptionalDescribeSettingsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeSettingsRequestRequestTypeDef",
+    {
+        "Status": DirectoryConfigurationStatusType,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeSettingsRequestRequestTypeDef(
+    _RequiredDescribeSettingsRequestRequestTypeDef, _OptionalDescribeSettingsRequestRequestTypeDef
+):
+    pass
+
+DescribeSettingsResultTypeDef = TypedDict(
+    "DescribeSettingsResultTypeDef",
+    {
+        "DirectoryId": str,
+        "SettingEntries": List["SettingEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDescribeSharedDirectoriesRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeSharedDirectoriesRequestRequestTypeDef",
     {
@@ -992,7 +1030,7 @@ DisableClientAuthenticationRequestRequestTypeDef = TypedDict(
     "DisableClientAuthenticationRequestRequestTypeDef",
     {
         "DirectoryId": str,
-        "Type": Literal["SmartCard"],
+        "Type": ClientAuthenticationTypeType,
     },
 )
 
@@ -1052,7 +1090,7 @@ EnableClientAuthenticationRequestRequestTypeDef = TypedDict(
     "EnableClientAuthenticationRequestRequestTypeDef",
     {
         "DirectoryId": str,
-        "Type": Literal["SmartCard"],
+        "Type": ClientAuthenticationTypeType,
     },
 )
 
@@ -1486,6 +1524,31 @@ SchemaExtensionInfoTypeDef = TypedDict(
     total=False,
 )
 
+SettingEntryTypeDef = TypedDict(
+    "SettingEntryTypeDef",
+    {
+        "Type": str,
+        "Name": str,
+        "AllowedValues": str,
+        "AppliedValue": str,
+        "RequestedValue": str,
+        "RequestStatus": DirectoryConfigurationStatusType,
+        "RequestDetailedStatus": Dict[str, DirectoryConfigurationStatusType],
+        "RequestStatusMessage": str,
+        "LastUpdatedDateTime": datetime,
+        "LastRequestedDateTime": datetime,
+    },
+    total=False,
+)
+
+SettingTypeDef = TypedDict(
+    "SettingTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+)
+
 _RequiredShareDirectoryRequestRequestTypeDef = TypedDict(
     "_RequiredShareDirectoryRequestRequestTypeDef",
     {
@@ -1652,6 +1715,22 @@ UpdateRadiusRequestRequestTypeDef = TypedDict(
     {
         "DirectoryId": str,
         "RadiusSettings": "RadiusSettingsTypeDef",
+    },
+)
+
+UpdateSettingsRequestRequestTypeDef = TypedDict(
+    "UpdateSettingsRequestRequestTypeDef",
+    {
+        "DirectoryId": str,
+        "Settings": List["SettingTypeDef"],
+    },
+)
+
+UpdateSettingsResultTypeDef = TypedDict(
+    "UpdateSettingsResultTypeDef",
+    {
+        "DirectoryId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

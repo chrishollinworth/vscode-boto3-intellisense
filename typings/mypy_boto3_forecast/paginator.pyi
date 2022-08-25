@@ -21,6 +21,9 @@ Usage::
         ListMonitorsPaginator,
         ListPredictorBacktestExportJobsPaginator,
         ListPredictorsPaginator,
+        ListWhatIfAnalysesPaginator,
+        ListWhatIfForecastExportsPaginator,
+        ListWhatIfForecastsPaginator,
     )
 
     client: ForecastServiceClient = boto3.client("forecast")
@@ -36,6 +39,9 @@ Usage::
     list_monitors_paginator: ListMonitorsPaginator = client.get_paginator("list_monitors")
     list_predictor_backtest_export_jobs_paginator: ListPredictorBacktestExportJobsPaginator = client.get_paginator("list_predictor_backtest_export_jobs")
     list_predictors_paginator: ListPredictorsPaginator = client.get_paginator("list_predictors")
+    list_what_if_analyses_paginator: ListWhatIfAnalysesPaginator = client.get_paginator("list_what_if_analyses")
+    list_what_if_forecast_exports_paginator: ListWhatIfForecastExportsPaginator = client.get_paginator("list_what_if_forecast_exports")
+    list_what_if_forecasts_paginator: ListWhatIfForecastsPaginator = client.get_paginator("list_what_if_forecasts")
     ```
 """
 from typing import Iterator, List
@@ -55,6 +61,9 @@ from .type_defs import (
     ListMonitorsResponseTypeDef,
     ListPredictorBacktestExportJobsResponseTypeDef,
     ListPredictorsResponseTypeDef,
+    ListWhatIfAnalysesResponseTypeDef,
+    ListWhatIfForecastExportsResponseTypeDef,
+    ListWhatIfForecastsResponseTypeDef,
     PaginatorConfigTypeDef,
 )
 
@@ -70,11 +79,14 @@ __all__ = (
     "ListMonitorsPaginator",
     "ListPredictorBacktestExportJobsPaginator",
     "ListPredictorsPaginator",
+    "ListWhatIfAnalysesPaginator",
+    "ListWhatIfForecastExportsPaginator",
+    "ListWhatIfForecastsPaginator",
 )
 
 class ListDatasetGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetgroupspaginator)
     """
 
@@ -82,13 +94,13 @@ class ListDatasetGroupsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetgroupspaginator)
         """
 
 class ListDatasetImportJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetimportjobspaginator)
     """
 
@@ -99,13 +111,13 @@ class ListDatasetImportJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetImportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetimportjobspaginator)
         """
 
 class ListDatasetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListDatasets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetspaginator)
     """
 
@@ -113,13 +125,13 @@ class ListDatasetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListDatasets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetspaginator)
         """
 
 class ListExplainabilitiesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListExplainabilities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListExplainabilities)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listexplainabilitiespaginator)
     """
 
@@ -130,13 +142,13 @@ class ListExplainabilitiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExplainabilitiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListExplainabilities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListExplainabilities.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listexplainabilitiespaginator)
         """
 
 class ListExplainabilityExportsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListExplainabilityExports)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListExplainabilityExports)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listexplainabilityexportspaginator)
     """
 
@@ -147,13 +159,13 @@ class ListExplainabilityExportsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExplainabilityExportsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListExplainabilityExports.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListExplainabilityExports.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listexplainabilityexportspaginator)
         """
 
 class ListForecastExportJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listforecastexportjobspaginator)
     """
 
@@ -164,13 +176,13 @@ class ListForecastExportJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListForecastExportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listforecastexportjobspaginator)
         """
 
 class ListForecastsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListForecasts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListForecasts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listforecastspaginator)
     """
 
@@ -181,13 +193,13 @@ class ListForecastsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListForecastsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListForecasts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListForecasts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listforecastspaginator)
         """
 
 class ListMonitorEvaluationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListMonitorEvaluations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListMonitorEvaluations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listmonitorevaluationspaginator)
     """
 
@@ -199,13 +211,13 @@ class ListMonitorEvaluationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMonitorEvaluationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListMonitorEvaluations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListMonitorEvaluations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listmonitorevaluationspaginator)
         """
 
 class ListMonitorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListMonitors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListMonitors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listmonitorspaginator)
     """
 
@@ -216,13 +228,13 @@ class ListMonitorsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMonitorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListMonitors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListMonitors.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listmonitorspaginator)
         """
 
 class ListPredictorBacktestExportJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listpredictorbacktestexportjobspaginator)
     """
 
@@ -233,13 +245,13 @@ class ListPredictorBacktestExportJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPredictorBacktestExportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listpredictorbacktestexportjobspaginator)
         """
 
 class ListPredictorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListPredictors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listpredictorspaginator)
     """
 
@@ -250,6 +262,57 @@ class ListPredictorsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPredictorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListPredictors.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listpredictorspaginator)
+        """
+
+class ListWhatIfAnalysesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListWhatIfAnalyses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listwhatifanalysespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListWhatIfAnalysesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListWhatIfAnalyses.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listwhatifanalysespaginator)
+        """
+
+class ListWhatIfForecastExportsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListWhatIfForecastExports)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listwhatifforecastexportspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListWhatIfForecastExportsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListWhatIfForecastExports.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listwhatifforecastexportspaginator)
+        """
+
+class ListWhatIfForecastsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListWhatIfForecasts)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listwhatifforecastspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListWhatIfForecastsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecast.html#ForecastService.Paginator.ListWhatIfForecasts.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listwhatifforecastspaginator)
         """

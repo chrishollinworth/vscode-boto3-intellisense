@@ -6,9 +6,9 @@ Type annotations for iotdeviceadvisor service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_iotdeviceadvisor.literals import StatusType
+    from mypy_boto3_iotdeviceadvisor.literals import ProtocolType
 
-    data: StatusType = "CANCELED"
+    data: ProtocolType = "MqttV3_1_1"
     ```
 """
 import sys
@@ -18,8 +18,15 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("StatusType", "SuiteRunStatusType")
+__all__ = (
+    "ProtocolType",
+    "StatusType",
+    "SuiteRunStatusType",
+    "TestCaseScenarioStatusType",
+    "TestCaseScenarioTypeType",
+)
 
+ProtocolType = Literal["MqttV3_1_1", "MqttV5"]
 StatusType = Literal[
     "CANCELED",
     "ERROR",
@@ -42,3 +49,15 @@ SuiteRunStatusType = Literal[
     "STOPPED",
     "STOPPING",
 ]
+TestCaseScenarioStatusType = Literal[
+    "CANCELED",
+    "ERROR",
+    "FAIL",
+    "PASS",
+    "PASS_WITH_WARNINGS",
+    "PENDING",
+    "RUNNING",
+    "STOPPED",
+    "STOPPING",
+]
+TestCaseScenarioTypeType = Literal["Advanced", "Basic"]

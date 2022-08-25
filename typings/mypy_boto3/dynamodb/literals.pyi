@@ -34,7 +34,10 @@ __all__ = (
     "ExportFormatType",
     "ExportStatusType",
     "GlobalTableStatusType",
+    "ImportStatusType",
     "IndexStatusType",
+    "InputCompressionTypeType",
+    "InputFormatType",
     "KeyTypeType",
     "ListBackupsPaginatorName",
     "ListTablesPaginatorName",
@@ -102,7 +105,10 @@ DestinationStatusType = Literal["ACTIVE", "DISABLED", "DISABLING", "ENABLE_FAILE
 ExportFormatType = Literal["DYNAMODB_JSON", "ION"]
 ExportStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 GlobalTableStatusType = Literal["ACTIVE", "CREATING", "DELETING", "UPDATING"]
+ImportStatusType = Literal["CANCELLED", "CANCELLING", "COMPLETED", "FAILED", "IN_PROGRESS"]
 IndexStatusType = Literal["ACTIVE", "CREATING", "DELETING", "UPDATING"]
+InputCompressionTypeType = Literal["GZIP", "NONE", "ZSTD"]
+InputFormatType = Literal["CSV", "DYNAMODB_JSON", "ION"]
 KeyTypeType = Literal["HASH", "RANGE"]
 ListBackupsPaginatorName = Literal["list_backups"]
 ListTablesPaginatorName = Literal["list_tables"]

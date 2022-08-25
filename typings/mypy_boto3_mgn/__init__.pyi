@@ -9,6 +9,7 @@ Usage::
         Client,
         DescribeJobLogItemsPaginator,
         DescribeJobsPaginator,
+        DescribeLaunchConfigurationTemplatesPaginator,
         DescribeReplicationConfigurationTemplatesPaginator,
         DescribeSourceServersPaginator,
         DescribeVcenterClientsPaginator,
@@ -22,6 +23,7 @@ Usage::
 
     describe_job_log_items_paginator: DescribeJobLogItemsPaginator = client.get_paginator("describe_job_log_items")
     describe_jobs_paginator: DescribeJobsPaginator = client.get_paginator("describe_jobs")
+    describe_launch_configuration_templates_paginator: DescribeLaunchConfigurationTemplatesPaginator = client.get_paginator("describe_launch_configuration_templates")
     describe_replication_configuration_templates_paginator: DescribeReplicationConfigurationTemplatesPaginator = client.get_paginator("describe_replication_configuration_templates")
     describe_source_servers_paginator: DescribeSourceServersPaginator = client.get_paginator("describe_source_servers")
     describe_vcenter_clients_paginator: DescribeVcenterClientsPaginator = client.get_paginator("describe_vcenter_clients")
@@ -31,6 +33,7 @@ from .client import mgnClient
 from .paginator import (
     DescribeJobLogItemsPaginator,
     DescribeJobsPaginator,
+    DescribeLaunchConfigurationTemplatesPaginator,
     DescribeReplicationConfigurationTemplatesPaginator,
     DescribeSourceServersPaginator,
     DescribeVcenterClientsPaginator,
@@ -42,6 +45,7 @@ __all__ = (
     "Client",
     "DescribeJobLogItemsPaginator",
     "DescribeJobsPaginator",
+    "DescribeLaunchConfigurationTemplatesPaginator",
     "DescribeReplicationConfigurationTemplatesPaginator",
     "DescribeSourceServersPaginator",
     "DescribeVcenterClientsPaginator",

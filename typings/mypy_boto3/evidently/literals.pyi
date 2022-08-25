@@ -37,7 +37,10 @@ __all__ = (
     "ListFeaturesPaginatorName",
     "ListLaunchesPaginatorName",
     "ListProjectsPaginatorName",
+    "ListSegmentReferencesPaginatorName",
+    "ListSegmentsPaginatorName",
     "ProjectStatusType",
+    "SegmentReferenceResourceTypeType",
     "VariationValueTypeType",
 )
 
@@ -67,5 +70,8 @@ ListExperimentsPaginatorName = Literal["list_experiments"]
 ListFeaturesPaginatorName = Literal["list_features"]
 ListLaunchesPaginatorName = Literal["list_launches"]
 ListProjectsPaginatorName = Literal["list_projects"]
+ListSegmentReferencesPaginatorName = Literal["list_segment_references"]
+ListSegmentsPaginatorName = Literal["list_segments"]
 ProjectStatusType = Literal["AVAILABLE", "UPDATING"]
+SegmentReferenceResourceTypeType = Literal["EXPERIMENT", "LAUNCH"]
 VariationValueTypeType = Literal["BOOLEAN", "DOUBLE", "LONG", "STRING"]

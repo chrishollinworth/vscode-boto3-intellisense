@@ -42,6 +42,7 @@ from .type_defs import (
     DescribeChannelModeratedByAppInstanceUserResponseTypeDef,
     DescribeChannelModeratorResponseTypeDef,
     DescribeChannelResponseTypeDef,
+    ElasticChannelConfigurationTypeDef,
     GetChannelMembershipPreferencesResponseTypeDef,
     GetChannelMessageResponseTypeDef,
     GetChannelMessageStatusResponseTypeDef,
@@ -55,6 +56,7 @@ from .type_defs import (
     ListChannelsAssociatedWithChannelFlowResponseTypeDef,
     ListChannelsModeratedByAppInstanceUserResponseTypeDef,
     ListChannelsResponseTypeDef,
+    ListSubChannelsResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     MessageAttributeValueTypeDef,
     ProcessorTypeDef,
@@ -94,7 +96,7 @@ class Exceptions:
 
 class ChimeSDKMessagingClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html)
     """
 
@@ -111,7 +113,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Associates a channel flow with a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.associate_channel_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.associate_channel_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#associate_channel_flow)
         """
     def batch_create_channel_membership(
@@ -120,19 +122,20 @@ class ChimeSDKMessagingClient(BaseClient):
         ChannelArn: str,
         MemberArns: List[str],
         ChimeBearer: str,
-        Type: ChannelMembershipTypeType = None
+        Type: ChannelMembershipTypeType = None,
+        SubChannelId: str = None
     ) -> BatchCreateChannelMembershipResponseTypeDef:
         """
         Adds a specified number of users to a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.batch_create_channel_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.batch_create_channel_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#batch_create_channel_membership)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#can_paginate)
         """
     def channel_flow_callback(
@@ -146,8 +149,15 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Calls back Chime SDK Messaging with a processing response message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.channel_flow_callback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.channel_flow_callback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#channel_flow_callback)
+        """
+    def close(self) -> None:
+        """
+        Closes underlying endpoint connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.close)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#close)
         """
     def create_channel(
         self,
@@ -162,12 +172,13 @@ class ChimeSDKMessagingClient(BaseClient):
         Tags: List["TagTypeDef"] = None,
         ChannelId: str = None,
         MemberArns: List[str] = None,
-        ModeratorArns: List[str] = None
+        ModeratorArns: List[str] = None,
+        ElasticChannelConfiguration: "ElasticChannelConfigurationTypeDef" = None
     ) -> CreateChannelResponseTypeDef:
         """
         Creates a channel to which you can add users and send messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#create_channel)
         """
     def create_channel_ban(
@@ -176,7 +187,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Permanently bans a member from a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel_ban)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel_ban)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#create_channel_ban)
         """
     def create_channel_flow(
@@ -191,16 +202,22 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Creates a channel flow, a container for processors.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#create_channel_flow)
         """
     def create_channel_membership(
-        self, *, ChannelArn: str, MemberArn: str, Type: ChannelMembershipTypeType, ChimeBearer: str
+        self,
+        *,
+        ChannelArn: str,
+        MemberArn: str,
+        Type: ChannelMembershipTypeType,
+        ChimeBearer: str,
+        SubChannelId: str = None
     ) -> CreateChannelMembershipResponseTypeDef:
         """
         Adds a user to a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#create_channel_membership)
         """
     def create_channel_moderator(
@@ -209,45 +226,49 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Creates a new `ChannelModerator`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel_moderator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.create_channel_moderator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#create_channel_moderator)
         """
-    def delete_channel(self, *, ChannelArn: str, ChimeBearer: str) -> None:
+    def delete_channel(
+        self, *, ChannelArn: str, ChimeBearer: str, SubChannelId: str = None
+    ) -> None:
         """
         Immediately makes a channel and its memberships inaccessible and marks them for
         deletion.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#delete_channel)
         """
     def delete_channel_ban(self, *, ChannelArn: str, MemberArn: str, ChimeBearer: str) -> None:
         """
         Removes a user from a channel's ban list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_ban)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_ban)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#delete_channel_ban)
         """
     def delete_channel_flow(self, *, ChannelFlowArn: str) -> None:
         """
         Deletes a channel flow, an irreversible process.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#delete_channel_flow)
         """
     def delete_channel_membership(
-        self, *, ChannelArn: str, MemberArn: str, ChimeBearer: str
+        self, *, ChannelArn: str, MemberArn: str, ChimeBearer: str, SubChannelId: str = None
     ) -> None:
         """
         Removes a member from a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#delete_channel_membership)
         """
-    def delete_channel_message(self, *, ChannelArn: str, MessageId: str, ChimeBearer: str) -> None:
+    def delete_channel_message(
+        self, *, ChannelArn: str, MessageId: str, ChimeBearer: str, SubChannelId: str = None
+    ) -> None:
         """
         Deletes a channel message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#delete_channel_message)
         """
     def delete_channel_moderator(
@@ -256,7 +277,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Deletes a channel moderator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_moderator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.delete_channel_moderator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#delete_channel_moderator)
         """
     def describe_channel(
@@ -265,7 +286,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Returns the full details of a channel in an Amazon Chime `AppInstance` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#describe_channel)
         """
     def describe_channel_ban(
@@ -274,23 +295,23 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Returns the full details of a channel ban.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_ban)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_ban)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#describe_channel_ban)
         """
     def describe_channel_flow(self, *, ChannelFlowArn: str) -> DescribeChannelFlowResponseTypeDef:
         """
         Returns the full details of a channel flow in an Amazon Chime `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#describe_channel_flow)
         """
     def describe_channel_membership(
-        self, *, ChannelArn: str, MemberArn: str, ChimeBearer: str
+        self, *, ChannelArn: str, MemberArn: str, ChimeBearer: str, SubChannelId: str = None
     ) -> DescribeChannelMembershipResponseTypeDef:
         """
         Returns the full details of a user's channel membership.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#describe_channel_membership)
         """
     def describe_channel_membership_for_app_instance_user(
@@ -300,7 +321,7 @@ class ChimeSDKMessagingClient(BaseClient):
         Returns the details of a channel based on the membership of the specified
         `AppInstanceUser` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_membership_for_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_membership_for_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#describe_channel_membership_for_app_instance_user)
         """
     def describe_channel_moderated_by_app_instance_user(
@@ -310,7 +331,7 @@ class ChimeSDKMessagingClient(BaseClient):
         Returns the full details of a channel moderated by the specified
         `AppInstanceUser` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_moderated_by_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_moderated_by_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#describe_channel_moderated_by_app_instance_user)
         """
     def describe_channel_moderator(
@@ -319,7 +340,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Returns the full details of a single ChannelModerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_moderator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.describe_channel_moderator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#describe_channel_moderator)
         """
     def disassociate_channel_flow(
@@ -328,7 +349,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Disassociates a channel flow from all its channels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.disassociate_channel_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.disassociate_channel_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#disassociate_channel_flow)
         """
     def generate_presigned_url(
@@ -341,7 +362,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#generate_presigned_url)
         """
     def get_channel_membership_preferences(
@@ -351,32 +372,32 @@ class ChimeSDKMessagingClient(BaseClient):
         Gets the membership preferences of an `AppInstanceUser` for the specified
         channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.get_channel_membership_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.get_channel_membership_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#get_channel_membership_preferences)
         """
     def get_channel_message(
-        self, *, ChannelArn: str, MessageId: str, ChimeBearer: str
+        self, *, ChannelArn: str, MessageId: str, ChimeBearer: str, SubChannelId: str = None
     ) -> GetChannelMessageResponseTypeDef:
         """
         Gets the full details of a channel message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.get_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.get_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#get_channel_message)
         """
     def get_channel_message_status(
-        self, *, ChannelArn: str, MessageId: str, ChimeBearer: str
+        self, *, ChannelArn: str, MessageId: str, ChimeBearer: str, SubChannelId: str = None
     ) -> GetChannelMessageStatusResponseTypeDef:
         """
         Gets message status for a specified `messageId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.get_channel_message_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.get_channel_message_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#get_channel_message_status)
         """
     def get_messaging_session_endpoint(self) -> GetMessagingSessionEndpointResponseTypeDef:
         """
         The details of the endpoint for the messaging session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.get_messaging_session_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.get_messaging_session_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#get_messaging_session_endpoint)
         """
     def list_channel_bans(
@@ -385,7 +406,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Lists all the users banned from a particular channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_bans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_bans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channel_bans)
         """
     def list_channel_flows(
@@ -394,7 +415,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Returns a paginated lists of all the channel flows created under a single Chime.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_flows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channel_flows)
         """
     def list_channel_memberships(
@@ -404,12 +425,13 @@ class ChimeSDKMessagingClient(BaseClient):
         ChimeBearer: str,
         Type: ChannelMembershipTypeType = None,
         MaxResults: int = None,
-        NextToken: str = None
+        NextToken: str = None,
+        SubChannelId: str = None
     ) -> ListChannelMembershipsResponseTypeDef:
         """
         Lists all channel memberships in a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channel_memberships)
         """
     def list_channel_memberships_for_app_instance_user(
@@ -423,7 +445,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Lists all channels that a particular `AppInstanceUser` is a part of.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_memberships_for_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_memberships_for_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channel_memberships_for_app_instance_user)
         """
     def list_channel_messages(
@@ -435,12 +457,13 @@ class ChimeSDKMessagingClient(BaseClient):
         NotBefore: Union[datetime, str] = None,
         NotAfter: Union[datetime, str] = None,
         MaxResults: int = None,
-        NextToken: str = None
+        NextToken: str = None,
+        SubChannelId: str = None
     ) -> ListChannelMessagesResponseTypeDef:
         """
         List all the messages in a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channel_messages)
         """
     def list_channel_moderators(
@@ -449,7 +472,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Lists all the moderators for a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_moderators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channel_moderators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channel_moderators)
         """
     def list_channels(
@@ -464,7 +487,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Lists all Channels created under a single Chime App as a paginated list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channels)
         """
     def list_channels_associated_with_channel_flow(
@@ -473,7 +496,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Lists all channels associated with a specified channel flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channels_associated_with_channel_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channels_associated_with_channel_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channels_associated_with_channel_flow)
         """
     def list_channels_moderated_by_app_instance_user(
@@ -487,14 +510,23 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         A list of the channels moderated by an `AppInstanceUser` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channels_moderated_by_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_channels_moderated_by_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_channels_moderated_by_app_instance_user)
+        """
+    def list_sub_channels(
+        self, *, ChannelArn: str, ChimeBearer: str, MaxResults: int = None, NextToken: str = None
+    ) -> ListSubChannelsResponseTypeDef:
+        """
+        Lists all the SubChannels in an elastic channel when given a channel ID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_sub_channels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_sub_channels)
         """
     def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags applied to an Amazon Chime SDK messaging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#list_tags_for_resource)
         """
     def put_channel_membership_preferences(
@@ -509,16 +541,16 @@ class ChimeSDKMessagingClient(BaseClient):
         Sets the membership preferences of an `AppInstanceUser` for the specified
         channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.put_channel_membership_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.put_channel_membership_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#put_channel_membership_preferences)
         """
     def redact_channel_message(
-        self, *, ChannelArn: str, MessageId: str, ChimeBearer: str
+        self, *, ChannelArn: str, MessageId: str, ChimeBearer: str, SubChannelId: str = None
     ) -> RedactChannelMessageResponseTypeDef:
         """
         Redacts message content, but not metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.redact_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.redact_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#redact_channel_message)
         """
     def search_channels(
@@ -532,7 +564,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Allows an `AppInstanceUser` to search the channels that they belong to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.search_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.search_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#search_channels)
         """
     def send_channel_message(
@@ -546,19 +578,20 @@ class ChimeSDKMessagingClient(BaseClient):
         ChimeBearer: str,
         Metadata: str = None,
         PushNotification: "PushNotificationConfigurationTypeDef" = None,
-        MessageAttributes: Dict[str, "MessageAttributeValueTypeDef"] = None
+        MessageAttributes: Dict[str, "MessageAttributeValueTypeDef"] = None,
+        SubChannelId: str = None
     ) -> SendChannelMessageResponseTypeDef:
         """
         Sends a message to a particular channel that the member is a part of.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.send_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.send_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#send_channel_message)
         """
     def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> None:
         """
         Applies the specified tags to the specified Amazon Chime SDK messaging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> None:
@@ -566,7 +599,7 @@ class ChimeSDKMessagingClient(BaseClient):
         Removes the specified tags from the specified Amazon Chime SDK messaging
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#untag_resource)
         """
     def update_channel(
@@ -581,7 +614,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Update a channel's attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.update_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#update_channel)
         """
     def update_channel_flow(
@@ -590,7 +623,7 @@ class ChimeSDKMessagingClient(BaseClient):
         """
         Updates channel flow attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.update_channel_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.update_channel_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#update_channel_flow)
         """
     def update_channel_message(
@@ -600,20 +633,21 @@ class ChimeSDKMessagingClient(BaseClient):
         MessageId: str,
         ChimeBearer: str,
         Content: str = None,
-        Metadata: str = None
+        Metadata: str = None,
+        SubChannelId: str = None
     ) -> UpdateChannelMessageResponseTypeDef:
         """
         Updates the content of a message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.update_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.update_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#update_channel_message)
         """
     def update_channel_read_marker(
-        self, *, ChannelArn: str, ChimeBearer: str
+        self, *, ChannelArn: str, ChimeBearer: str, SubChannelId: str = None
     ) -> UpdateChannelReadMarkerResponseTypeDef:
         """
         The details of the time when a user last read messages in a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.update_channel_read_marker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/chime-sdk-messaging.html#ChimeSDKMessaging.Client.update_channel_read_marker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/client.html#update_channel_read_marker)
         """

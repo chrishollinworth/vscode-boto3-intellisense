@@ -25,6 +25,7 @@ __all__ = (
     "CustomerMasterKeySpecType",
     "DataKeyPairSpecType",
     "DataKeySpecType",
+    "DescribeCustomKeyStoresPaginatorName",
     "EncryptionAlgorithmSpecType",
     "ExpirationModelTypeType",
     "GrantOperationType",
@@ -36,6 +37,8 @@ __all__ = (
     "ListGrantsPaginatorName",
     "ListKeyPoliciesPaginatorName",
     "ListKeysPaginatorName",
+    "ListResourceTagsPaginatorName",
+    "ListRetirableGrantsPaginatorName",
     "MacAlgorithmSpecType",
     "MessageTypeType",
     "MultiRegionKeyTypeType",
@@ -48,6 +51,7 @@ AlgorithmSpecType = Literal["RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "RSAES_PKC
 ConnectionErrorCodeTypeType = Literal[
     "CLUSTER_NOT_FOUND",
     "INSUFFICIENT_CLOUDHSM_HSMS",
+    "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET",
     "INTERNAL_ERROR",
     "INVALID_CREDENTIALS",
     "NETWORK_ERRORS",
@@ -71,6 +75,7 @@ CustomerMasterKeySpecType = Literal[
     "RSA_2048",
     "RSA_3072",
     "RSA_4096",
+    "SM2",
     "SYMMETRIC_DEFAULT",
 ]
 DataKeyPairSpecType = Literal[
@@ -81,9 +86,13 @@ DataKeyPairSpecType = Literal[
     "RSA_2048",
     "RSA_3072",
     "RSA_4096",
+    "SM2",
 ]
 DataKeySpecType = Literal["AES_128", "AES_256"]
-EncryptionAlgorithmSpecType = Literal["RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SYMMETRIC_DEFAULT"]
+DescribeCustomKeyStoresPaginatorName = Literal["describe_custom_key_stores"]
+EncryptionAlgorithmSpecType = Literal[
+    "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE", "SYMMETRIC_DEFAULT"
+]
 ExpirationModelTypeType = Literal["KEY_MATERIAL_DOES_NOT_EXPIRE", "KEY_MATERIAL_EXPIRES"]
 GrantOperationType = Literal[
     "CreateGrant",
@@ -116,6 +125,7 @@ KeySpecType = Literal[
     "RSA_2048",
     "RSA_3072",
     "RSA_4096",
+    "SM2",
     "SYMMETRIC_DEFAULT",
 ]
 KeyStateType = Literal[
@@ -133,6 +143,8 @@ ListAliasesPaginatorName = Literal["list_aliases"]
 ListGrantsPaginatorName = Literal["list_grants"]
 ListKeyPoliciesPaginatorName = Literal["list_key_policies"]
 ListKeysPaginatorName = Literal["list_keys"]
+ListResourceTagsPaginatorName = Literal["list_resource_tags"]
+ListRetirableGrantsPaginatorName = Literal["list_retirable_grants"]
 MacAlgorithmSpecType = Literal["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
 MessageTypeType = Literal["DIGEST", "RAW"]
 MultiRegionKeyTypeType = Literal["PRIMARY", "REPLICA"]
@@ -147,5 +159,6 @@ SigningAlgorithmSpecType = Literal[
     "RSASSA_PSS_SHA_256",
     "RSASSA_PSS_SHA_384",
     "RSASSA_PSS_SHA_512",
+    "SM2DSA",
 ]
 WrappingKeySpecType = Literal["RSA_2048"]

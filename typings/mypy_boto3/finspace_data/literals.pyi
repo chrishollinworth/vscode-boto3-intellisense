@@ -34,6 +34,7 @@ __all__ = (
     "ListDatasetsPaginatorName",
     "ListPermissionGroupsPaginatorName",
     "ListUsersPaginatorName",
+    "PermissionGroupMembershipStatusType",
     "UserStatusType",
     "UserTypeType",
     "locationTypeType",
@@ -93,6 +94,9 @@ ListDataViewsPaginatorName = Literal["list_data_views"]
 ListDatasetsPaginatorName = Literal["list_datasets"]
 ListPermissionGroupsPaginatorName = Literal["list_permission_groups"]
 ListUsersPaginatorName = Literal["list_users"]
+PermissionGroupMembershipStatusType = Literal[
+    "ADDITION_IN_PROGRESS", "ADDITION_SUCCESS", "REMOVAL_IN_PROGRESS"
+]
 UserStatusType = Literal["CREATING", "DISABLED", "ENABLED"]
 UserTypeType = Literal["APP_USER", "SUPER_USER"]
 locationTypeType = Literal["INGESTION", "SAGEMAKER"]

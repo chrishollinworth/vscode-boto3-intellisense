@@ -6,9 +6,9 @@ Type annotations for wellarchitected service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_wellarchitected.literals import AnswerReasonType
+    from mypy_boto3_wellarchitected.literals import AdditionalResourceTypeType
 
-    data: AnswerReasonType = "ARCHITECTURE_CONSTRAINTS"
+    data: AdditionalResourceTypeType = "HELPFUL_RESOURCE"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AdditionalResourceTypeType",
     "AnswerReasonType",
     "ChoiceReasonType",
     "ChoiceStatusType",
@@ -28,6 +29,7 @@ __all__ = (
     "LensStatusTypeType",
     "LensTypeType",
     "NotificationTypeType",
+    "OrganizationSharingStatusType",
     "PermissionTypeType",
     "RiskType",
     "ShareInvitationActionType",
@@ -37,6 +39,7 @@ __all__ = (
     "WorkloadImprovementStatusType",
 )
 
+AdditionalResourceTypeType = Literal["HELPFUL_RESOURCE", "IMPROVEMENT_PLAN"]
 AnswerReasonType = Literal[
     "ARCHITECTURE_CONSTRAINTS", "BUSINESS_PRIORITIES", "NONE", "OTHER", "OUT_OF_SCOPE"
 ]
@@ -50,11 +53,14 @@ LensStatusType = Literal["CURRENT", "DELETED", "DEPRECATED", "NOT_CURRENT", "UNS
 LensStatusTypeType = Literal["ALL", "DRAFT", "PUBLISHED"]
 LensTypeType = Literal["AWS_OFFICIAL", "CUSTOM_SELF", "CUSTOM_SHARED"]
 NotificationTypeType = Literal["LENS_VERSION_DEPRECATED", "LENS_VERSION_UPGRADED"]
+OrganizationSharingStatusType = Literal["DISABLED", "ENABLED"]
 PermissionTypeType = Literal["CONTRIBUTOR", "READONLY"]
 RiskType = Literal["HIGH", "MEDIUM", "NONE", "NOT_APPLICABLE", "UNANSWERED"]
 ShareInvitationActionType = Literal["ACCEPT", "REJECT"]
 ShareResourceTypeType = Literal["LENS", "WORKLOAD"]
-ShareStatusType = Literal["ACCEPTED", "EXPIRED", "PENDING", "REJECTED", "REVOKED"]
+ShareStatusType = Literal[
+    "ACCEPTED", "ASSOCIATED", "ASSOCIATING", "EXPIRED", "FAILED", "PENDING", "REJECTED", "REVOKED"
+]
 WorkloadEnvironmentType = Literal["PREPRODUCTION", "PRODUCTION"]
 WorkloadImprovementStatusType = Literal[
     "COMPLETE", "IN_PROGRESS", "NOT_APPLICABLE", "NOT_STARTED", "RISK_ACKNOWLEDGED"

@@ -7,6 +7,8 @@ Usage::
     import boto3
     from mypy_boto3_rds import (
         Client,
+        DBClusterAvailableWaiter,
+        DBClusterDeletedWaiter,
         DBClusterSnapshotAvailableWaiter,
         DBClusterSnapshotDeletedWaiter,
         DBInstanceAvailableWaiter,
@@ -56,6 +58,8 @@ Usage::
     client: RDSClient = boto3.client("rds")
     session_client: RDSClient = session.client("rds")
 
+    db_cluster_available_waiter: DBClusterAvailableWaiter = client.get_waiter("db_cluster_available")
+    db_cluster_deleted_waiter: DBClusterDeletedWaiter = client.get_waiter("db_cluster_deleted")
     db_cluster_snapshot_available_waiter: DBClusterSnapshotAvailableWaiter = client.get_waiter("db_cluster_snapshot_available")
     db_cluster_snapshot_deleted_waiter: DBClusterSnapshotDeletedWaiter = client.get_waiter("db_cluster_snapshot_deleted")
     db_instance_available_waiter: DBInstanceAvailableWaiter = client.get_waiter("db_instance_available")
@@ -138,6 +142,8 @@ from .paginator import (
     DownloadDBLogFilePortionPaginator,
 )
 from .waiter import (
+    DBClusterAvailableWaiter,
+    DBClusterDeletedWaiter,
     DBClusterSnapshotAvailableWaiter,
     DBClusterSnapshotDeletedWaiter,
     DBInstanceAvailableWaiter,
@@ -151,6 +157,8 @@ Client = RDSClient
 
 __all__ = (
     "Client",
+    "DBClusterAvailableWaiter",
+    "DBClusterDeletedWaiter",
     "DBClusterSnapshotAvailableWaiter",
     "DBClusterSnapshotDeletedWaiter",
     "DBInstanceAvailableWaiter",

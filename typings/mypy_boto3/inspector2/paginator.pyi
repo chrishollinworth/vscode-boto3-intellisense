@@ -71,7 +71,7 @@ __all__ = (
 
 class ListAccountPermissionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListAccountPermissions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListAccountPermissions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listaccountpermissionspaginator)
     """
 
@@ -79,13 +79,13 @@ class ListAccountPermissionsPaginator(Boto3Paginator):
         self, *, service: ServiceType = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountPermissionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListAccountPermissions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListAccountPermissions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listaccountpermissionspaginator)
         """
 
 class ListCoveragePaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListCoverage)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListCoverage)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragepaginator)
     """
 
@@ -96,13 +96,13 @@ class ListCoveragePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCoverageResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListCoverage.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListCoverage.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragepaginator)
         """
 
 class ListCoverageStatisticsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListCoverageStatistics)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListCoverageStatistics)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragestatisticspaginator)
     """
 
@@ -114,13 +114,13 @@ class ListCoverageStatisticsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCoverageStatisticsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListCoverageStatistics.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListCoverageStatistics.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragestatisticspaginator)
         """
 
 class ListDelegatedAdminAccountsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListDelegatedAdminAccounts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListDelegatedAdminAccounts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listdelegatedadminaccountspaginator)
     """
 
@@ -128,13 +128,13 @@ class ListDelegatedAdminAccountsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDelegatedAdminAccountsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListDelegatedAdminAccounts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListDelegatedAdminAccounts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listdelegatedadminaccountspaginator)
         """
 
 class ListFiltersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListFilters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListFilters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfilterspaginator)
     """
 
@@ -146,13 +146,13 @@ class ListFiltersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFiltersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListFilters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListFilters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfilterspaginator)
         """
 
 class ListFindingAggregationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListFindingAggregations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListFindingAggregations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingaggregationspaginator)
     """
 
@@ -165,13 +165,13 @@ class ListFindingAggregationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFindingAggregationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListFindingAggregations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListFindingAggregations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingaggregationspaginator)
         """
 
 class ListFindingsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListFindings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListFindings)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingspaginator)
     """
 
@@ -183,13 +183,13 @@ class ListFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFindingsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListFindings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListFindings.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingspaginator)
         """
 
 class ListMembersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListMembers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListMembers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listmemberspaginator)
     """
 
@@ -197,13 +197,13 @@ class ListMembersPaginator(Boto3Paginator):
         self, *, onlyAssociated: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMembersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListMembers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListMembers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listmemberspaginator)
         """
 
 class ListUsageTotalsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListUsageTotals)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListUsageTotals)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listusagetotalspaginator)
     """
 
@@ -211,6 +211,6 @@ class ListUsageTotalsPaginator(Boto3Paginator):
         self, *, accountIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUsageTotalsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/inspector2.html#Inspector2.Paginator.ListUsageTotals.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/inspector2.html#Inspector2.Paginator.ListUsageTotals.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listusagetotalspaginator)
         """
