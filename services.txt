@@ -200,7 +200,7 @@ memorydb
 meteringmarketplace
 mgh
 mgn
-migrationhub_refactor_spaces
+migration_hub_refactor_spaces
 migrationhub_config
 migrationhubstrategy
 mobile
