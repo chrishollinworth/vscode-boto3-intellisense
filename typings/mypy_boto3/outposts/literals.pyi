@@ -20,9 +20,11 @@ else:
 
 __all__ = (
     "AddressTypeType",
+    "AssetStateType",
     "AssetTypeType",
     "CatalogItemClassType",
     "CatalogItemStatusType",
+    "ComputeAssetStateType",
     "FiberOpticCableTypeType",
     "LineItemStatusType",
     "MaximumSupportedWeightLbsType",
@@ -43,9 +45,11 @@ __all__ = (
 )
 
 AddressTypeType = Literal["OPERATING_ADDRESS", "SHIPPING_ADDRESS"]
+AssetStateType = Literal["ACTIVE", "RETIRING"]
 AssetTypeType = Literal["COMPUTE"]
 CatalogItemClassType = Literal["RACK", "SERVER"]
 CatalogItemStatusType = Literal["AVAILABLE", "DISCONTINUED"]
+ComputeAssetStateType = Literal["ACTIVE", "ISOLATED", "RETIRING"]
 FiberOpticCableTypeType = Literal["MULTI_MODE", "SINGLE_MODE"]
 LineItemStatusType = Literal[
     "BUILDING", "CANCELLED", "DELIVERED", "ERROR", "INSTALLED", "INSTALLING", "PREPARING", "SHIPPED"
@@ -82,7 +86,7 @@ OrderStatusType = Literal[
 ]
 OrderTypeType = Literal["OUTPOST", "REPLACEMENT"]
 PaymentOptionType = Literal["ALL_UPFRONT", "NO_UPFRONT", "PARTIAL_UPFRONT"]
-PaymentTermType = Literal["THREE_YEARS"]
+PaymentTermType = Literal["ONE_YEAR", "THREE_YEARS"]
 PowerConnectorType = Literal["AH530P7W", "AH532P6W", "IEC309", "L6_30P"]
 PowerDrawKvaType = Literal["POWER_10_KVA", "POWER_15_KVA", "POWER_5_KVA"]
 PowerFeedDropType = Literal["ABOVE_RACK", "BELOW_RACK"]

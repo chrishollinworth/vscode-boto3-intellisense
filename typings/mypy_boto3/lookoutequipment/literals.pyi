@@ -24,6 +24,8 @@ __all__ = (
     "InferenceExecutionStatusType",
     "InferenceSchedulerStatusType",
     "IngestionJobStatusType",
+    "LabelRatingType",
+    "LatestInferenceResultType",
     "ModelStatusType",
     "MonotonicityType",
     "StatisticalIssueStatusType",
@@ -35,6 +37,8 @@ DatasetStatusType = Literal["ACTIVE", "CREATED", "INGESTION_IN_PROGRESS"]
 InferenceExecutionStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
 InferenceSchedulerStatusType = Literal["PENDING", "RUNNING", "STOPPED", "STOPPING"]
 IngestionJobStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
+LabelRatingType = Literal["ANOMALY", "NEUTRAL", "NO_ANOMALY"]
+LatestInferenceResultType = Literal["ANOMALOUS", "NORMAL"]
 ModelStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
 MonotonicityType = Literal["DECREASING", "INCREASING", "STATIC"]
 StatisticalIssueStatusType = Literal["NO_ISSUE_DETECTED", "POTENTIAL_ISSUE_DETECTED"]

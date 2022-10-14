@@ -9,8 +9,10 @@ Usage::
         AmplifyUIBuilderClient,
         Client,
         ExportComponentsPaginator,
+        ExportFormsPaginator,
         ExportThemesPaginator,
         ListComponentsPaginator,
+        ListFormsPaginator,
         ListThemesPaginator,
     )
 
@@ -20,16 +22,20 @@ Usage::
     session_client: AmplifyUIBuilderClient = session.client("amplifyuibuilder")
 
     export_components_paginator: ExportComponentsPaginator = client.get_paginator("export_components")
+    export_forms_paginator: ExportFormsPaginator = client.get_paginator("export_forms")
     export_themes_paginator: ExportThemesPaginator = client.get_paginator("export_themes")
     list_components_paginator: ListComponentsPaginator = client.get_paginator("list_components")
+    list_forms_paginator: ListFormsPaginator = client.get_paginator("list_forms")
     list_themes_paginator: ListThemesPaginator = client.get_paginator("list_themes")
     ```
 """
 from .client import AmplifyUIBuilderClient
 from .paginator import (
     ExportComponentsPaginator,
+    ExportFormsPaginator,
     ExportThemesPaginator,
     ListComponentsPaginator,
+    ListFormsPaginator,
     ListThemesPaginator,
 )
 
@@ -39,7 +45,9 @@ __all__ = (
     "AmplifyUIBuilderClient",
     "Client",
     "ExportComponentsPaginator",
+    "ExportFormsPaginator",
     "ExportThemesPaginator",
     "ListComponentsPaginator",
+    "ListFormsPaginator",
     "ListThemesPaginator",
 )

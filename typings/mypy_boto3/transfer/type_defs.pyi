@@ -72,6 +72,7 @@ __all__ = (
     "DeleteAgreementRequestRequestTypeDef",
     "DeleteCertificateRequestRequestTypeDef",
     "DeleteConnectorRequestRequestTypeDef",
+    "DeleteHostKeyRequestRequestTypeDef",
     "DeleteProfileRequestRequestTypeDef",
     "DeleteServerRequestRequestTypeDef",
     "DeleteSshPublicKeyRequestRequestTypeDef",
@@ -88,6 +89,8 @@ __all__ = (
     "DescribeConnectorResponseTypeDef",
     "DescribeExecutionRequestRequestTypeDef",
     "DescribeExecutionResponseTypeDef",
+    "DescribeHostKeyRequestRequestTypeDef",
+    "DescribeHostKeyResponseTypeDef",
     "DescribeProfileRequestRequestTypeDef",
     "DescribeProfileResponseTypeDef",
     "DescribeSecurityPolicyRequestRequestTypeDef",
@@ -103,6 +106,7 @@ __all__ = (
     "DescribedCertificateTypeDef",
     "DescribedConnectorTypeDef",
     "DescribedExecutionTypeDef",
+    "DescribedHostKeyTypeDef",
     "DescribedProfileTypeDef",
     "DescribedSecurityPolicyTypeDef",
     "DescribedServerTypeDef",
@@ -118,6 +122,8 @@ __all__ = (
     "IdentityProviderDetailsTypeDef",
     "ImportCertificateRequestRequestTypeDef",
     "ImportCertificateResponseTypeDef",
+    "ImportHostKeyRequestRequestTypeDef",
+    "ImportHostKeyResponseTypeDef",
     "ImportSshPublicKeyRequestRequestTypeDef",
     "ImportSshPublicKeyResponseTypeDef",
     "InputFileLocationTypeDef",
@@ -131,6 +137,8 @@ __all__ = (
     "ListConnectorsResponseTypeDef",
     "ListExecutionsRequestRequestTypeDef",
     "ListExecutionsResponseTypeDef",
+    "ListHostKeysRequestRequestTypeDef",
+    "ListHostKeysResponseTypeDef",
     "ListProfilesRequestRequestTypeDef",
     "ListProfilesResponseTypeDef",
     "ListSecurityPoliciesRequestRequestTypeDef",
@@ -148,6 +156,7 @@ __all__ = (
     "ListedCertificateTypeDef",
     "ListedConnectorTypeDef",
     "ListedExecutionTypeDef",
+    "ListedHostKeyTypeDef",
     "ListedProfileTypeDef",
     "ListedServerTypeDef",
     "ListedUserTypeDef",
@@ -181,6 +190,8 @@ __all__ = (
     "UpdateCertificateResponseTypeDef",
     "UpdateConnectorRequestRequestTypeDef",
     "UpdateConnectorResponseTypeDef",
+    "UpdateHostKeyRequestRequestTypeDef",
+    "UpdateHostKeyResponseTypeDef",
     "UpdateProfileRequestRequestTypeDef",
     "UpdateProfileResponseTypeDef",
     "UpdateServerRequestRequestTypeDef",
@@ -482,6 +493,14 @@ DeleteConnectorRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteHostKeyRequestRequestTypeDef = TypedDict(
+    "DeleteHostKeyRequestRequestTypeDef",
+    {
+        "ServerId": str,
+        "HostKeyId": str,
+    },
+)
+
 DeleteProfileRequestRequestTypeDef = TypedDict(
     "DeleteProfileRequestRequestTypeDef",
     {
@@ -605,6 +624,22 @@ DescribeExecutionResponseTypeDef = TypedDict(
     {
         "WorkflowId": str,
         "Execution": "DescribedExecutionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeHostKeyRequestRequestTypeDef = TypedDict(
+    "DescribeHostKeyRequestRequestTypeDef",
+    {
+        "ServerId": str,
+        "HostKeyId": str,
+    },
+)
+
+DescribeHostKeyResponseTypeDef = TypedDict(
+    "DescribeHostKeyResponseTypeDef",
+    {
+        "HostKey": "DescribedHostKeyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -796,6 +831,28 @@ DescribedExecutionTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDescribedHostKeyTypeDef = TypedDict(
+    "_RequiredDescribedHostKeyTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalDescribedHostKeyTypeDef = TypedDict(
+    "_OptionalDescribedHostKeyTypeDef",
+    {
+        "HostKeyId": str,
+        "HostKeyFingerprint": str,
+        "Description": str,
+        "Type": str,
+        "DateImported": datetime,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class DescribedHostKeyTypeDef(_RequiredDescribedHostKeyTypeDef, _OptionalDescribedHostKeyTypeDef):
+    pass
 
 _RequiredDescribedProfileTypeDef = TypedDict(
     "_RequiredDescribedProfileTypeDef",
@@ -1032,6 +1089,36 @@ ImportCertificateResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredImportHostKeyRequestRequestTypeDef = TypedDict(
+    "_RequiredImportHostKeyRequestRequestTypeDef",
+    {
+        "ServerId": str,
+        "HostKeyBody": str,
+    },
+)
+_OptionalImportHostKeyRequestRequestTypeDef = TypedDict(
+    "_OptionalImportHostKeyRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class ImportHostKeyRequestRequestTypeDef(
+    _RequiredImportHostKeyRequestRequestTypeDef, _OptionalImportHostKeyRequestRequestTypeDef
+):
+    pass
+
+ImportHostKeyResponseTypeDef = TypedDict(
+    "ImportHostKeyResponseTypeDef",
+    {
+        "ServerId": str,
+        "HostKeyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ImportSshPublicKeyRequestRequestTypeDef = TypedDict(
     "ImportSshPublicKeyRequestRequestTypeDef",
     {
@@ -1181,6 +1268,36 @@ ListExecutionsResponseTypeDef = TypedDict(
         "NextToken": str,
         "WorkflowId": str,
         "Executions": List["ListedExecutionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListHostKeysRequestRequestTypeDef = TypedDict(
+    "_RequiredListHostKeysRequestRequestTypeDef",
+    {
+        "ServerId": str,
+    },
+)
+_OptionalListHostKeysRequestRequestTypeDef = TypedDict(
+    "_OptionalListHostKeysRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListHostKeysRequestRequestTypeDef(
+    _RequiredListHostKeysRequestRequestTypeDef, _OptionalListHostKeysRequestRequestTypeDef
+):
+    pass
+
+ListHostKeysResponseTypeDef = TypedDict(
+    "ListHostKeysResponseTypeDef",
+    {
+        "NextToken": str,
+        "ServerId": str,
+        "HostKeys": List["ListedHostKeyTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1379,6 +1496,27 @@ ListedExecutionTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredListedHostKeyTypeDef = TypedDict(
+    "_RequiredListedHostKeyTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalListedHostKeyTypeDef = TypedDict(
+    "_OptionalListedHostKeyTypeDef",
+    {
+        "HostKeyId": str,
+        "Fingerprint": str,
+        "Description": str,
+        "Type": str,
+        "DateImported": datetime,
+    },
+    total=False,
+)
+
+class ListedHostKeyTypeDef(_RequiredListedHostKeyTypeDef, _OptionalListedHostKeyTypeDef):
+    pass
 
 ListedProfileTypeDef = TypedDict(
     "ListedProfileTypeDef",
@@ -1778,6 +1916,24 @@ UpdateConnectorResponseTypeDef = TypedDict(
     "UpdateConnectorResponseTypeDef",
     {
         "ConnectorId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateHostKeyRequestRequestTypeDef = TypedDict(
+    "UpdateHostKeyRequestRequestTypeDef",
+    {
+        "ServerId": str,
+        "HostKeyId": str,
+        "Description": str,
+    },
+)
+
+UpdateHostKeyResponseTypeDef = TypedDict(
+    "UpdateHostKeyResponseTypeDef",
+    {
+        "ServerId": str,
+        "HostKeyId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

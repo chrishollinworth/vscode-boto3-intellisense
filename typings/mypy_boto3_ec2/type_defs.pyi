@@ -161,6 +161,7 @@ from .literals import (
     ListingStateType,
     ListingStatusType,
     LocalGatewayRouteStateType,
+    LocalGatewayRouteTableModeType,
     LocalGatewayRouteTypeType,
     LocalStorageType,
     LocalStorageTypeType,
@@ -308,6 +309,7 @@ __all__ = (
     "ActiveInstanceTypeDef",
     "AddIpamOperatingRegionTypeDef",
     "AddPrefixListEntryTypeDef",
+    "AddedPrincipalTypeDef",
     "AdditionalDetailTypeDef",
     "AddressAttributeTypeDef",
     "AddressTypeDef",
@@ -429,6 +431,7 @@ __all__ = (
     "CancelSpotInstanceRequestsRequestRequestTypeDef",
     "CancelSpotInstanceRequestsResultTypeDef",
     "CancelledSpotInstanceRequestTypeDef",
+    "CapacityAllocationTypeDef",
     "CapacityReservationFleetCancellationStateTypeDef",
     "CapacityReservationFleetTypeDef",
     "CapacityReservationGroupTypeDef",
@@ -467,6 +470,7 @@ __all__ = (
     "CloudWatchLogOptionsSpecificationTypeDef",
     "CloudWatchLogOptionsTypeDef",
     "CoipAddressUsageTypeDef",
+    "CoipCidrTypeDef",
     "CoipPoolTypeDef",
     "ConfirmProductInstanceRequestRequestTypeDef",
     "ConfirmProductInstanceResultTypeDef",
@@ -493,6 +497,10 @@ __all__ = (
     "CreateClientVpnEndpointResultTypeDef",
     "CreateClientVpnRouteRequestRequestTypeDef",
     "CreateClientVpnRouteResultTypeDef",
+    "CreateCoipCidrRequestRequestTypeDef",
+    "CreateCoipCidrResultTypeDef",
+    "CreateCoipPoolRequestRequestTypeDef",
+    "CreateCoipPoolResultTypeDef",
     "CreateCustomerGatewayRequestRequestTypeDef",
     "CreateCustomerGatewayResultTypeDef",
     "CreateDefaultSubnetRequestRequestTypeDef",
@@ -536,6 +544,10 @@ __all__ = (
     "CreateLaunchTemplateVersionResultTypeDef",
     "CreateLocalGatewayRouteRequestRequestTypeDef",
     "CreateLocalGatewayRouteResultTypeDef",
+    "CreateLocalGatewayRouteTableRequestRequestTypeDef",
+    "CreateLocalGatewayRouteTableResultTypeDef",
+    "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef",
+    "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef",
     "CreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef",
     "CreateLocalGatewayRouteTableVpcAssociationResultTypeDef",
     "CreateManagedPrefixListRequestRequestTypeDef",
@@ -674,6 +686,10 @@ __all__ = (
     "DeleteClientVpnEndpointResultTypeDef",
     "DeleteClientVpnRouteRequestRequestTypeDef",
     "DeleteClientVpnRouteResultTypeDef",
+    "DeleteCoipCidrRequestRequestTypeDef",
+    "DeleteCoipCidrResultTypeDef",
+    "DeleteCoipPoolRequestRequestTypeDef",
+    "DeleteCoipPoolResultTypeDef",
     "DeleteCustomerGatewayRequestRequestTypeDef",
     "DeleteDhcpOptionsRequestDhcpOptionsTypeDef",
     "DeleteDhcpOptionsRequestRequestTypeDef",
@@ -709,6 +725,10 @@ __all__ = (
     "DeleteLaunchTemplateVersionsResultTypeDef",
     "DeleteLocalGatewayRouteRequestRequestTypeDef",
     "DeleteLocalGatewayRouteResultTypeDef",
+    "DeleteLocalGatewayRouteTableRequestRequestTypeDef",
+    "DeleteLocalGatewayRouteTableResultTypeDef",
+    "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef",
+    "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef",
     "DeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef",
     "DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef",
     "DeleteManagedPrefixListRequestRequestTypeDef",
@@ -1576,6 +1596,8 @@ __all__ = (
     "ModifyIpamScopeResultTypeDef",
     "ModifyLaunchTemplateRequestRequestTypeDef",
     "ModifyLaunchTemplateResultTypeDef",
+    "ModifyLocalGatewayRouteRequestRequestTypeDef",
+    "ModifyLocalGatewayRouteResultTypeDef",
     "ModifyManagedPrefixListRequestRequestTypeDef",
     "ModifyManagedPrefixListResultTypeDef",
     "ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef",
@@ -2371,6 +2393,17 @@ class AddPrefixListEntryTypeDef(
 ):
     pass
 
+AddedPrincipalTypeDef = TypedDict(
+    "AddedPrincipalTypeDef",
+    {
+        "PrincipalType": PrincipalTypeType,
+        "Principal": str,
+        "ServicePermissionId": str,
+        "ServiceId": str,
+    },
+    total=False,
+)
+
 AdditionalDetailTypeDef = TypedDict(
     "AdditionalDetailTypeDef",
     {
@@ -2542,6 +2575,9 @@ AllowedPrincipalTypeDef = TypedDict(
     {
         "PrincipalType": PrincipalTypeType,
         "Principal": str,
+        "ServicePermissionId": str,
+        "Tags": List["TagTypeDef"],
+        "ServiceId": str,
     },
     total=False,
 )
@@ -2623,6 +2659,7 @@ AnalysisRouteTableRouteTypeDef = TypedDict(
         "Origin": str,
         "TransitGatewayId": str,
         "VpcPeeringConnectionId": str,
+        "State": str,
     },
     total=False,
 )
@@ -4035,6 +4072,15 @@ CancelledSpotInstanceRequestTypeDef = TypedDict(
     total=False,
 )
 
+CapacityAllocationTypeDef = TypedDict(
+    "CapacityAllocationTypeDef",
+    {
+        "AllocationType": Literal["used"],
+        "Count": int,
+    },
+    total=False,
+)
+
 CapacityReservationFleetCancellationStateTypeDef = TypedDict(
     "CapacityReservationFleetCancellationStateTypeDef",
     {
@@ -4150,6 +4196,7 @@ CapacityReservationTypeDef = TypedDict(
         "OutpostArn": str,
         "CapacityReservationFleetId": str,
         "PlacementGroupArn": str,
+        "CapacityAllocations": List["CapacityAllocationTypeDef"],
     },
     total=False,
 )
@@ -4450,6 +4497,16 @@ CoipAddressUsageTypeDef = TypedDict(
         "AwsAccountId": str,
         "AwsService": str,
         "CoIp": str,
+    },
+    total=False,
+)
+
+CoipCidrTypeDef = TypedDict(
+    "CoipCidrTypeDef",
+    {
+        "Cidr": str,
+        "CoipPoolId": str,
+        "LocalGatewayRouteTableId": str,
     },
     total=False,
 )
@@ -4884,6 +4941,62 @@ CreateClientVpnRouteResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateCoipCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCoipCidrRequestRequestTypeDef",
+    {
+        "Cidr": str,
+        "CoipPoolId": str,
+    },
+)
+_OptionalCreateCoipCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCoipCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateCoipCidrRequestRequestTypeDef(
+    _RequiredCreateCoipCidrRequestRequestTypeDef, _OptionalCreateCoipCidrRequestRequestTypeDef
+):
+    pass
+
+CreateCoipCidrResultTypeDef = TypedDict(
+    "CreateCoipCidrResultTypeDef",
+    {
+        "CoipCidr": "CoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateCoipPoolRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCoipPoolRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableId": str,
+    },
+)
+_OptionalCreateCoipPoolRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCoipPoolRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateCoipPoolRequestRequestTypeDef(
+    _RequiredCreateCoipPoolRequestRequestTypeDef, _OptionalCreateCoipPoolRequestRequestTypeDef
+):
+    pass
+
+CreateCoipPoolResultTypeDef = TypedDict(
+    "CreateCoipPoolResultTypeDef",
+    {
+        "CoipPool": "CoipPoolTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateCustomerGatewayRequestRequestTypeDef = TypedDict(
     "_RequiredCreateCustomerGatewayRequestRequestTypeDef",
     {
@@ -5120,6 +5233,7 @@ _OptionalCreateFlowLogsRequestRequestTypeDef = TypedDict(
         "DryRun": bool,
         "ClientToken": str,
         "DeliverLogsPermissionArn": str,
+        "DeliverCrossAccountRole": str,
         "LogGroupName": str,
         "TrafficType": TrafficTypeType,
         "LogDestinationType": LogDestinationTypeType,
@@ -5519,13 +5633,14 @@ _RequiredCreateLocalGatewayRouteRequestRequestTypeDef = TypedDict(
     {
         "DestinationCidrBlock": str,
         "LocalGatewayRouteTableId": str,
-        "LocalGatewayVirtualInterfaceGroupId": str,
     },
 )
 _OptionalCreateLocalGatewayRouteRequestRequestTypeDef = TypedDict(
     "_OptionalCreateLocalGatewayRouteRequestRequestTypeDef",
     {
+        "LocalGatewayVirtualInterfaceGroupId": str,
         "DryRun": bool,
+        "NetworkInterfaceId": str,
     },
     total=False,
 )
@@ -5540,6 +5655,66 @@ CreateLocalGatewayRouteResultTypeDef = TypedDict(
     "CreateLocalGatewayRouteResultTypeDef",
     {
         "Route": "LocalGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocalGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLocalGatewayRouteTableRequestRequestTypeDef",
+    {
+        "LocalGatewayId": str,
+    },
+)
+_OptionalCreateLocalGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLocalGatewayRouteTableRequestRequestTypeDef",
+    {
+        "Mode": LocalGatewayRouteTableModeType,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateLocalGatewayRouteTableRequestRequestTypeDef(
+    _RequiredCreateLocalGatewayRouteTableRequestRequestTypeDef,
+    _OptionalCreateLocalGatewayRouteTableRequestRequestTypeDef,
+):
+    pass
+
+CreateLocalGatewayRouteTableResultTypeDef = TypedDict(
+    "CreateLocalGatewayRouteTableResultTypeDef",
+    {
+        "LocalGatewayRouteTable": "LocalGatewayRouteTableTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableId": str,
+        "LocalGatewayVirtualInterfaceGroupId": str,
+    },
+)
+_OptionalCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef(
+    _RequiredCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef,
+    _OptionalCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef,
+):
+    pass
+
+CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef = TypedDict(
+    "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef",
+    {
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociation": "LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7737,6 +7912,61 @@ DeleteClientVpnRouteResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDeleteCoipCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteCoipCidrRequestRequestTypeDef",
+    {
+        "Cidr": str,
+        "CoipPoolId": str,
+    },
+)
+_OptionalDeleteCoipCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteCoipCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteCoipCidrRequestRequestTypeDef(
+    _RequiredDeleteCoipCidrRequestRequestTypeDef, _OptionalDeleteCoipCidrRequestRequestTypeDef
+):
+    pass
+
+DeleteCoipCidrResultTypeDef = TypedDict(
+    "DeleteCoipCidrResultTypeDef",
+    {
+        "CoipCidr": "CoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteCoipPoolRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteCoipPoolRequestRequestTypeDef",
+    {
+        "CoipPoolId": str,
+    },
+)
+_OptionalDeleteCoipPoolRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteCoipPoolRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteCoipPoolRequestRequestTypeDef(
+    _RequiredDeleteCoipPoolRequestRequestTypeDef, _OptionalDeleteCoipPoolRequestRequestTypeDef
+):
+    pass
+
+DeleteCoipPoolResultTypeDef = TypedDict(
+    "DeleteCoipPoolResultTypeDef",
+    {
+        "CoipPool": "CoipPoolTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteCustomerGatewayRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteCustomerGatewayRequestRequestTypeDef",
     {
@@ -8189,6 +8419,62 @@ DeleteLocalGatewayRouteResultTypeDef = TypedDict(
     "DeleteLocalGatewayRouteResultTypeDef",
     {
         "Route": "LocalGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteLocalGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteLocalGatewayRouteTableRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableId": str,
+    },
+)
+_OptionalDeleteLocalGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteLocalGatewayRouteTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteLocalGatewayRouteTableRequestRequestTypeDef(
+    _RequiredDeleteLocalGatewayRouteTableRequestRequestTypeDef,
+    _OptionalDeleteLocalGatewayRouteTableRequestRequestTypeDef,
+):
+    pass
+
+DeleteLocalGatewayRouteTableResultTypeDef = TypedDict(
+    "DeleteLocalGatewayRouteTableResultTypeDef",
+    {
+        "LocalGatewayRouteTable": "LocalGatewayRouteTableTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociationId": str,
+    },
+)
+_OptionalDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef(
+    _RequiredDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef,
+    _OptionalDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef,
+):
+    pass
+
+DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef = TypedDict(
+    "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef",
+    {
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociation": "LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -12554,6 +12840,7 @@ DescribeVpcAttributeResultTypeDef = TypedDict(
         "VpcId": str,
         "EnableDnsHostnames": "AttributeBooleanValueTypeDef",
         "EnableDnsSupport": "AttributeBooleanValueTypeDef",
+        "EnableNetworkAddressUsageMetrics": "AttributeBooleanValueTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -14371,6 +14658,8 @@ ExplanationTypeDef = TypedDict(
         "TransitGatewayRouteTable": "AnalysisComponentTypeDef",
         "TransitGatewayRouteTableRoute": "TransitGatewayRouteTableRouteTypeDef",
         "TransitGatewayAttachment": "AnalysisComponentTypeDef",
+        "ComponentAccount": str,
+        "ComponentRegion": str,
     },
     total=False,
 )
@@ -14750,6 +15039,7 @@ FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
         "Priority": float,
         "Placement": "PlacementTypeDef",
         "InstanceRequirements": "InstanceRequirementsRequestTypeDef",
+        "ImageId": str,
     },
     total=False,
 )
@@ -14765,6 +15055,7 @@ FleetLaunchTemplateOverridesTypeDef = TypedDict(
         "Priority": float,
         "Placement": "PlacementResponseTypeDef",
         "InstanceRequirements": "InstanceRequirementsTypeDef",
+        "ImageId": str,
     },
     total=False,
 )
@@ -14829,6 +15120,7 @@ FlowLogTypeDef = TypedDict(
         "CreationTime": datetime,
         "DeliverLogsErrorMessage": str,
         "DeliverLogsPermissionArn": str,
+        "DeliverCrossAccountRole": str,
         "DeliverLogsStatus": str,
         "FlowLogId": str,
         "FlowLogStatus": str,
@@ -16246,6 +16538,7 @@ ImageAttributeTypeDef = TypedDict(
         "TpmSupport": "AttributeValueTypeDef",
         "UefiData": "AttributeValueTypeDef",
         "LastLaunchedTime": "AttributeValueTypeDef",
+        "ImdsSupport": "AttributeValueTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -16307,6 +16600,7 @@ ImageTypeDef = TypedDict(
         "BootMode": BootModeValuesType,
         "TpmSupport": Literal["v2.0"],
         "DeprecationTime": str,
+        "ImdsSupport": Literal["v2.0"],
     },
     total=False,
 )
@@ -18258,6 +18552,8 @@ LocalGatewayRouteTableTypeDef = TypedDict(
         "OwnerId": str,
         "State": str,
         "Tags": List["TagTypeDef"],
+        "Mode": LocalGatewayRouteTableModeType,
+        "StateReason": "StateReasonTypeDef",
     },
     total=False,
 )
@@ -18302,6 +18598,9 @@ LocalGatewayRouteTypeDef = TypedDict(
         "LocalGatewayRouteTableId": str,
         "LocalGatewayRouteTableArn": str,
         "OwnerId": str,
+        "SubnetId": str,
+        "CoipPoolId": str,
+        "NetworkInterfaceId": str,
     },
     total=False,
 )
@@ -19222,6 +19521,37 @@ ModifyLaunchTemplateResultTypeDef = TypedDict(
     },
 )
 
+_RequiredModifyLocalGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyLocalGatewayRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "LocalGatewayRouteTableId": str,
+    },
+)
+_OptionalModifyLocalGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyLocalGatewayRouteRequestRequestTypeDef",
+    {
+        "LocalGatewayVirtualInterfaceGroupId": str,
+        "NetworkInterfaceId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyLocalGatewayRouteRequestRequestTypeDef(
+    _RequiredModifyLocalGatewayRouteRequestRequestTypeDef,
+    _OptionalModifyLocalGatewayRouteRequestRequestTypeDef,
+):
+    pass
+
+ModifyLocalGatewayRouteResultTypeDef = TypedDict(
+    "ModifyLocalGatewayRouteResultTypeDef",
+    {
+        "Route": "LocalGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredModifyManagedPrefixListRequestRequestTypeDef = TypedDict(
     "_RequiredModifyManagedPrefixListRequestRequestTypeDef",
     {
@@ -19793,6 +20123,7 @@ _OptionalModifyVpcAttributeRequestRequestTypeDef = TypedDict(
     {
         "EnableDnsHostnames": "AttributeBooleanValueTypeDef",
         "EnableDnsSupport": "AttributeBooleanValueTypeDef",
+        "EnableNetworkAddressUsageMetrics": "AttributeBooleanValueTypeDef",
     },
     total=False,
 )
@@ -19808,6 +20139,7 @@ ModifyVpcAttributeRequestVpcTypeDef = TypedDict(
     {
         "EnableDnsHostnames": "AttributeBooleanValueTypeDef",
         "EnableDnsSupport": "AttributeBooleanValueTypeDef",
+        "EnableNetworkAddressUsageMetrics": "AttributeBooleanValueTypeDef",
     },
     total=False,
 )
@@ -19971,6 +20303,7 @@ class ModifyVpcEndpointServicePermissionsRequestRequestTypeDef(
 ModifyVpcEndpointServicePermissionsResultTypeDef = TypedDict(
     "ModifyVpcEndpointServicePermissionsResultTypeDef",
     {
+        "AddedPrincipals": List["AddedPrincipalTypeDef"],
         "ReturnValue": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -20690,6 +21023,8 @@ PathComponentTypeDef = TypedDict(
         "AdditionalDetails": List["AdditionalDetailTypeDef"],
         "TransitGateway": "AnalysisComponentTypeDef",
         "TransitGatewayRouteTableRoute": "TransitGatewayRouteTableRouteTypeDef",
+        "Explanations": List["ExplanationTypeDef"],
+        "ElasticLoadBalancerListener": "AnalysisComponentTypeDef",
     },
     total=False,
 )
@@ -21424,6 +21759,7 @@ _OptionalRegisterImageRequestRequestTypeDef = TypedDict(
         "BootMode": BootModeValuesType,
         "TpmSupport": Literal["v2.0"],
         "UefiData": str,
+        "ImdsSupport": Literal["v2.0"],
     },
     total=False,
 )
@@ -21457,6 +21793,7 @@ _OptionalRegisterImageRequestServiceResourceTypeDef = TypedDict(
         "BootMode": BootModeValuesType,
         "TpmSupport": Literal["v2.0"],
         "UefiData": str,
+        "ImdsSupport": Literal["v2.0"],
     },
     total=False,
 )
@@ -25948,6 +26285,8 @@ VpcEndpointConnectionTypeDef = TypedDict(
         "NetworkLoadBalancerArns": List[str],
         "GatewayLoadBalancerArns": List[str],
         "IpAddressType": IpAddressTypeType,
+        "VpcEndpointConnectionId": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )

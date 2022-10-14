@@ -35,12 +35,12 @@ _RequiredCreateTokenRequestRequestTypeDef = TypedDict(
         "clientId": str,
         "clientSecret": str,
         "grantType": str,
-        "deviceCode": str,
     },
 )
 _OptionalCreateTokenRequestRequestTypeDef = TypedDict(
     "_OptionalCreateTokenRequestRequestTypeDef",
     {
+        "deviceCode": str,
         "code": str,
         "refreshToken": str,
         "scope": List[str],

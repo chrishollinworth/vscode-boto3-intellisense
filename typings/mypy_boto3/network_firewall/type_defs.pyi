@@ -32,6 +32,7 @@ from .literals import (
     StatefulActionType,
     StatefulRuleDirectionType,
     StatefulRuleProtocolType,
+    StreamExceptionPolicyType,
     TargetTypeType,
     TCPFlagType,
 )
@@ -1071,6 +1072,7 @@ StatefulEngineOptionsTypeDef = TypedDict(
     "StatefulEngineOptionsTypeDef",
     {
         "RuleOrder": RuleOrderType,
+        "StreamExceptionPolicy": StreamExceptionPolicyType,
     },
     total=False,
 )

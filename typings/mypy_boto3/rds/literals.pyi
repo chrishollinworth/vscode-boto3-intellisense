@@ -160,9 +160,9 @@ DescribeReservedDBInstancesOfferingsPaginatorName = Literal[
 DescribeReservedDBInstancesPaginatorName = Literal["describe_reserved_db_instances"]
 DescribeSourceRegionsPaginatorName = Literal["describe_source_regions"]
 DownloadDBLogFilePortionPaginatorName = Literal["download_db_log_file_portion"]
-EngineFamilyType = Literal["MYSQL", "POSTGRESQL"]
+EngineFamilyType = Literal["MYSQL", "POSTGRESQL", "SQLSERVER"]
 FailoverStatusType = Literal["cancelling", "failing-over", "pending"]
-IAMAuthModeType = Literal["DISABLED", "REQUIRED"]
+IAMAuthModeType = Literal["DISABLED", "ENABLED", "REQUIRED"]
 ReplicaModeType = Literal["mounted", "open-read-only"]
 SourceTypeType = Literal[
     "custom-engine-version",

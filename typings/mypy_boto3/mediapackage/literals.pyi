@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AdMarkersType",
     "AdsOnDeliveryRestrictionsType",
+    "CmafEncryptionMethodType",
     "EncryptionMethodType",
     "ListChannelsPaginatorName",
     "ListHarvestJobsPaginatorName",
@@ -41,6 +42,7 @@ __all__ = (
 
 AdMarkersType = Literal["DATERANGE", "NONE", "PASSTHROUGH", "SCTE35_ENHANCED"]
 AdsOnDeliveryRestrictionsType = Literal["BOTH", "NONE", "RESTRICTED", "UNRESTRICTED"]
+CmafEncryptionMethodType = Literal["AES_CTR", "SAMPLE_AES"]
 EncryptionMethodType = Literal["AES_128", "SAMPLE_AES"]
 ListChannelsPaginatorName = Literal["list_channels"]
 ListHarvestJobsPaginatorName = Literal["list_harvest_jobs"]

@@ -1207,6 +1207,7 @@ _OptionalCreateUserPoolClientRequestRequestTypeDef = TypedDict(
         "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
         "EnableTokenRevocation": bool,
         "EnablePropagateAdditionalUserContextData": bool,
+        "AuthSessionValidity": int,
     },
     total=False,
 )
@@ -2980,6 +2981,7 @@ _OptionalUpdateUserPoolClientRequestRequestTypeDef = TypedDict(
         "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
         "EnableTokenRevocation": bool,
         "EnablePropagateAdditionalUserContextData": bool,
+        "AuthSessionValidity": int,
     },
     total=False,
 )
@@ -3131,6 +3133,7 @@ UserPoolClientTypeTypeDef = TypedDict(
         "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
         "EnableTokenRevocation": bool,
         "EnablePropagateAdditionalUserContextData": bool,
+        "AuthSessionValidity": int,
     },
     total=False,
 )

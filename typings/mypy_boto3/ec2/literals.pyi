@@ -29,6 +29,7 @@ __all__ = (
     "AffinityType",
     "AllocationStateType",
     "AllocationStrategyType",
+    "AllocationTypeType",
     "AllowsMultipleInstanceTypesType",
     "AnalysisStatusType",
     "ApplianceModeSupportValueType",
@@ -258,6 +259,7 @@ __all__ = (
     "ImageExistsWaiterName",
     "ImageStateType",
     "ImageTypeValuesType",
+    "ImdsSupportValuesType",
     "InstanceAttributeNameType",
     "InstanceAutoRecoveryStateType",
     "InstanceEventWindowStateType",
@@ -313,6 +315,7 @@ __all__ = (
     "ListingStateType",
     "ListingStatusType",
     "LocalGatewayRouteStateType",
+    "LocalGatewayRouteTableModeType",
     "LocalGatewayRouteTypeType",
     "LocalStorageType",
     "LocalStorageTypeType",
@@ -461,7 +464,9 @@ __all__ = (
 )
 
 AcceleratorManufacturerType = Literal["amazon-web-services", "amd", "nvidia", "xilinx"]
-AcceleratorNameType = Literal["a100", "k80", "m60", "radeon-pro-v520", "t4", "v100", "vu9p"]
+AcceleratorNameType = Literal[
+    "a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "v100", "vu9p"
+]
 AcceleratorTypeType = Literal["fpga", "gpu", "inference"]
 AccountAttributeNameType = Literal["default-vpc", "supported-platforms"]
 ActivityStatusType = Literal["error", "fulfilled", "pending_fulfillment", "pending_termination"]
@@ -479,6 +484,7 @@ AllocationStateType = Literal[
 AllocationStrategyType = Literal[
     "capacityOptimized", "capacityOptimizedPrioritized", "diversified", "lowestPrice"
 ]
+AllocationTypeType = Literal["used"]
 AllowsMultipleInstanceTypesType = Literal["off", "on"]
 AnalysisStatusType = Literal["failed", "running", "succeeded"]
 ApplianceModeSupportValueType = Literal["disable", "enable"]
@@ -841,6 +847,7 @@ ImageAttributeNameType = Literal[
     "blockDeviceMapping",
     "bootMode",
     "description",
+    "imdsSupport",
     "kernel",
     "lastLaunchedTime",
     "launchPermission",
@@ -856,6 +863,7 @@ ImageStateType = Literal[
     "available", "deregistered", "error", "failed", "invalid", "pending", "transient"
 ]
 ImageTypeValuesType = Literal["kernel", "machine", "ramdisk"]
+ImdsSupportValuesType = Literal["v2.0"]
 InstanceAttributeNameType = Literal[
     "blockDeviceMapping",
     "disableApiStop",
@@ -1415,6 +1423,7 @@ InstanceTypeType = Literal[
     "u-12tb1.metal",
     "u-18tb1.metal",
     "u-24tb1.metal",
+    "u-3tb1.56xlarge",
     "u-6tb1.112xlarge",
     "u-6tb1.56xlarge",
     "u-6tb1.metal",
@@ -1556,11 +1565,12 @@ ListSnapshotsInRecycleBinPaginatorName = Literal["list_snapshots_in_recycle_bin"
 ListingStateType = Literal["available", "cancelled", "pending", "sold"]
 ListingStatusType = Literal["active", "cancelled", "closed", "pending"]
 LocalGatewayRouteStateType = Literal["active", "blackhole", "deleted", "deleting", "pending"]
+LocalGatewayRouteTableModeType = Literal["coip", "direct-vpc-routing"]
 LocalGatewayRouteTypeType = Literal["propagated", "static"]
 LocalStorageType = Literal["excluded", "included", "required"]
 LocalStorageTypeType = Literal["hdd", "ssd"]
 LocationTypeType = Literal["availability-zone", "availability-zone-id", "region"]
-LogDestinationTypeType = Literal["cloud-watch-logs", "s3"]
+LogDestinationTypeType = Literal["cloud-watch-logs", "kinesis-data-firehose", "s3"]
 MarketTypeType = Literal["spot"]
 MembershipTypeType = Literal["igmp", "static"]
 ModifyAvailabilityZoneOptInStatusType = Literal["not-opted-in", "opted-in"]
@@ -1663,6 +1673,7 @@ ResourceTypeType = Literal[
     "capacity-reservation-fleet",
     "carrier-gateway",
     "client-vpn-endpoint",
+    "coip-pool",
     "customer-gateway",
     "dedicated-host",
     "dhcp-options",
@@ -1726,11 +1737,14 @@ ResourceTypeType = Literal[
     "volume",
     "vpc",
     "vpc-endpoint",
+    "vpc-endpoint-connection",
     "vpc-endpoint-connection-device-type",
     "vpc-endpoint-service",
+    "vpc-endpoint-service-permission",
     "vpc-flow-log",
     "vpc-peering-connection",
     "vpn-connection",
+    "vpn-connection-device-type",
     "vpn-gateway",
 ]
 RootDeviceTypeType = Literal["ebs", "instance-store"]
@@ -1877,7 +1891,9 @@ VolumeStateType = Literal["available", "creating", "deleted", "deleting", "error
 VolumeStatusInfoStatusType = Literal["impaired", "insufficient-data", "ok"]
 VolumeStatusNameType = Literal["io-enabled", "io-performance"]
 VolumeTypeType = Literal["gp2", "gp3", "io1", "io2", "sc1", "st1", "standard"]
-VpcAttributeNameType = Literal["enableDnsHostnames", "enableDnsSupport"]
+VpcAttributeNameType = Literal[
+    "enableDnsHostnames", "enableDnsSupport", "enableNetworkAddressUsageMetrics"
+]
 VpcAvailableWaiterName = Literal["vpc_available"]
 VpcCidrBlockStateCodeType = Literal[
     "associated", "associating", "disassociated", "disassociating", "failed", "failing"

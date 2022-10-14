@@ -738,6 +738,7 @@ GetIntegrationResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ObjectTypeNames": Dict[str, str],
         "WorkflowId": str,
+        "IsUnstructured": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1039,6 +1040,7 @@ _OptionalListIntegrationItemTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ObjectTypeNames": Dict[str, str],
         "WorkflowId": str,
+        "IsUnstructured": bool,
     },
     total=False,
 )
@@ -1427,6 +1429,7 @@ PutIntegrationResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ObjectTypeNames": Dict[str, str],
         "WorkflowId": str,
+        "IsUnstructured": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

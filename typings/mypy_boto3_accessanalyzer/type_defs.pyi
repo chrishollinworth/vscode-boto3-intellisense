@@ -143,25 +143,25 @@ __all__ = (
 _RequiredAccessPreviewFindingTypeDef = TypedDict(
     "_RequiredAccessPreviewFindingTypeDef",
     {
-        "changeType": FindingChangeTypeType,
-        "createdAt": datetime,
         "id": str,
-        "resourceOwnerAccount": str,
         "resourceType": ResourceTypeType,
+        "createdAt": datetime,
+        "changeType": FindingChangeTypeType,
         "status": FindingStatusType,
+        "resourceOwnerAccount": str,
     },
 )
 _OptionalAccessPreviewFindingTypeDef = TypedDict(
     "_OptionalAccessPreviewFindingTypeDef",
     {
-        "action": List[str],
-        "condition": Dict[str, str],
-        "error": str,
         "existingFindingId": str,
         "existingFindingStatus": FindingStatusType,
-        "isPublic": bool,
         "principal": Dict[str, str],
+        "action": List[str],
+        "condition": Dict[str, str],
         "resource": str,
+        "isPublic": bool,
+        "error": str,
         "sources": List["FindingSourceTypeDef"],
     },
     total=False,
@@ -182,9 +182,9 @@ AccessPreviewStatusReasonTypeDef = TypedDict(
 _RequiredAccessPreviewSummaryTypeDef = TypedDict(
     "_RequiredAccessPreviewSummaryTypeDef",
     {
+        "id": str,
         "analyzerArn": str,
         "createdAt": datetime,
-        "id": str,
         "status": AccessPreviewStatusType,
     },
 )
@@ -204,10 +204,10 @@ class AccessPreviewSummaryTypeDef(
 _RequiredAccessPreviewTypeDef = TypedDict(
     "_RequiredAccessPreviewTypeDef",
     {
+        "id": str,
         "analyzerArn": str,
         "configurations": Dict[str, "ConfigurationTypeDef"],
         "createdAt": datetime,
-        "id": str,
         "status": AccessPreviewStatusType,
     },
 )
@@ -243,22 +243,22 @@ AnalyzedResourceSummaryTypeDef = TypedDict(
 _RequiredAnalyzedResourceTypeDef = TypedDict(
     "_RequiredAnalyzedResourceTypeDef",
     {
-        "analyzedAt": datetime,
-        "createdAt": datetime,
-        "isPublic": bool,
         "resourceArn": str,
-        "resourceOwnerAccount": str,
         "resourceType": ResourceTypeType,
+        "createdAt": datetime,
+        "analyzedAt": datetime,
         "updatedAt": datetime,
+        "isPublic": bool,
+        "resourceOwnerAccount": str,
     },
 )
 _OptionalAnalyzedResourceTypeDef = TypedDict(
     "_OptionalAnalyzedResourceTypeDef",
     {
         "actions": List[str],
-        "error": str,
         "sharedVia": List[str],
         "status": FindingStatusType,
+        "error": str,
     },
     total=False,
 )
@@ -270,10 +270,10 @@ _RequiredAnalyzerSummaryTypeDef = TypedDict(
     "_RequiredAnalyzerSummaryTypeDef",
     {
         "arn": str,
-        "createdAt": datetime,
         "name": str,
-        "status": AnalyzerStatusType,
         "type": TypeType,
+        "createdAt": datetime,
+        "status": AnalyzerStatusType,
     },
 )
 _OptionalAnalyzerSummaryTypeDef = TypedDict(
@@ -281,8 +281,8 @@ _OptionalAnalyzerSummaryTypeDef = TypedDict(
     {
         "lastResourceAnalyzed": str,
         "lastResourceAnalyzedAt": datetime,
-        "statusReason": "StatusReasonTypeDef",
         "tags": Dict[str, str],
+        "statusReason": "StatusReasonTypeDef",
     },
     total=False,
 )
@@ -313,9 +313,9 @@ class ApplyArchiveRuleRequestRequestTypeDef(
 ArchiveRuleSummaryTypeDef = TypedDict(
     "ArchiveRuleSummaryTypeDef",
     {
-        "createdAt": datetime,
-        "filter": Dict[str, "CriterionTypeDef"],
         "ruleName": str,
+        "filter": Dict[str, "CriterionTypeDef"],
+        "createdAt": datetime,
         "updatedAt": datetime,
     },
 )
@@ -330,9 +330,9 @@ CancelPolicyGenerationRequestRequestTypeDef = TypedDict(
 _RequiredCloudTrailDetailsTypeDef = TypedDict(
     "_RequiredCloudTrailDetailsTypeDef",
     {
+        "trails": List["TrailTypeDef"],
         "accessRole": str,
         "startTime": Union[datetime, str],
-        "trails": List["TrailTypeDef"],
     },
 )
 _OptionalCloudTrailDetailsTypeDef = TypedDict(
@@ -351,9 +351,9 @@ class CloudTrailDetailsTypeDef(
 CloudTrailPropertiesTypeDef = TypedDict(
     "CloudTrailPropertiesTypeDef",
     {
-        "endTime": datetime,
-        "startTime": datetime,
         "trailProperties": List["TrailPropertiesTypeDef"],
+        "startTime": datetime,
+        "endTime": datetime,
     },
 )
 
@@ -362,8 +362,8 @@ ConfigurationTypeDef = TypedDict(
     {
         "iamRole": "IamRoleConfigurationTypeDef",
         "kmsKey": "KmsKeyConfigurationTypeDef",
-        "s3Bucket": "S3BucketConfigurationTypeDef",
         "secretsManagerSecret": "SecretsManagerSecretConfigurationTypeDef",
+        "s3Bucket": "S3BucketConfigurationTypeDef",
         "sqsQueue": "SqsQueueConfigurationTypeDef",
     },
     total=False,
@@ -409,8 +409,8 @@ _OptionalCreateAnalyzerRequestRequestTypeDef = TypedDict(
     "_OptionalCreateAnalyzerRequestRequestTypeDef",
     {
         "archiveRules": List["InlineArchiveRuleTypeDef"],
-        "clientToken": str,
         "tags": Dict[str, str],
+        "clientToken": str,
     },
     total=False,
 )
@@ -432,8 +432,8 @@ _RequiredCreateArchiveRuleRequestRequestTypeDef = TypedDict(
     "_RequiredCreateArchiveRuleRequestRequestTypeDef",
     {
         "analyzerName": str,
-        "filter": Dict[str, "CriterionTypeDef"],
         "ruleName": str,
+        "filter": Dict[str, "CriterionTypeDef"],
     },
 )
 _OptionalCreateArchiveRuleRequestRequestTypeDef = TypedDict(
@@ -452,10 +452,10 @@ class CreateArchiveRuleRequestRequestTypeDef(
 CriterionTypeDef = TypedDict(
     "CriterionTypeDef",
     {
-        "contains": List[str],
         "eq": List[str],
-        "exists": bool,
         "neq": List[str],
+        "contains": List[str],
+        "exists": bool,
     },
     total=False,
 )
@@ -527,24 +527,24 @@ class FindingSourceTypeDef(_RequiredFindingSourceTypeDef, _OptionalFindingSource
 _RequiredFindingSummaryTypeDef = TypedDict(
     "_RequiredFindingSummaryTypeDef",
     {
-        "analyzedAt": datetime,
+        "id": str,
+        "resourceType": ResourceTypeType,
         "condition": Dict[str, str],
         "createdAt": datetime,
-        "id": str,
-        "resourceOwnerAccount": str,
-        "resourceType": ResourceTypeType,
-        "status": FindingStatusType,
+        "analyzedAt": datetime,
         "updatedAt": datetime,
+        "status": FindingStatusType,
+        "resourceOwnerAccount": str,
     },
 )
 _OptionalFindingSummaryTypeDef = TypedDict(
     "_OptionalFindingSummaryTypeDef",
     {
-        "action": List[str],
-        "error": str,
-        "isPublic": bool,
         "principal": Dict[str, str],
+        "action": List[str],
         "resource": str,
+        "isPublic": bool,
+        "error": str,
         "sources": List["FindingSourceTypeDef"],
     },
     total=False,
@@ -556,24 +556,24 @@ class FindingSummaryTypeDef(_RequiredFindingSummaryTypeDef, _OptionalFindingSumm
 _RequiredFindingTypeDef = TypedDict(
     "_RequiredFindingTypeDef",
     {
-        "analyzedAt": datetime,
+        "id": str,
+        "resourceType": ResourceTypeType,
         "condition": Dict[str, str],
         "createdAt": datetime,
-        "id": str,
-        "resourceOwnerAccount": str,
-        "resourceType": ResourceTypeType,
-        "status": FindingStatusType,
+        "analyzedAt": datetime,
         "updatedAt": datetime,
+        "status": FindingStatusType,
+        "resourceOwnerAccount": str,
     },
 )
 _OptionalFindingTypeDef = TypedDict(
     "_OptionalFindingTypeDef",
     {
-        "action": List[str],
-        "error": str,
-        "isPublic": bool,
         "principal": Dict[str, str],
+        "action": List[str],
         "resource": str,
+        "isPublic": bool,
+        "error": str,
         "sources": List["FindingSourceTypeDef"],
     },
     total=False,
@@ -591,8 +591,8 @@ _RequiredGeneratedPolicyPropertiesTypeDef = TypedDict(
 _OptionalGeneratedPolicyPropertiesTypeDef = TypedDict(
     "_OptionalGeneratedPolicyPropertiesTypeDef",
     {
-        "cloudTrailProperties": "CloudTrailPropertiesTypeDef",
         "isComplete": bool,
+        "cloudTrailProperties": "CloudTrailPropertiesTypeDef",
     },
     total=False,
 )
@@ -731,8 +731,8 @@ class GetGeneratedPolicyRequestRequestTypeDef(
 GetGeneratedPolicyResponseTypeDef = TypedDict(
     "GetGeneratedPolicyResponseTypeDef",
     {
-        "generatedPolicyResult": "GeneratedPolicyResultTypeDef",
         "jobDetails": "JobDetailsTypeDef",
+        "generatedPolicyResult": "GeneratedPolicyResultTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -748,8 +748,8 @@ IamRoleConfigurationTypeDef = TypedDict(
 InlineArchiveRuleTypeDef = TypedDict(
     "InlineArchiveRuleTypeDef",
     {
-        "filter": Dict[str, "CriterionTypeDef"],
         "ruleName": str,
+        "filter": Dict[str, "CriterionTypeDef"],
     },
 )
 
@@ -757,8 +757,8 @@ _RequiredJobDetailsTypeDef = TypedDict(
     "_RequiredJobDetailsTypeDef",
     {
         "jobId": str,
-        "startedOn": datetime,
         "status": JobStatusType,
+        "startedOn": datetime,
     },
 )
 _OptionalJobDetailsTypeDef = TypedDict(
@@ -784,16 +784,16 @@ JobErrorTypeDef = TypedDict(
 _RequiredKmsGrantConfigurationTypeDef = TypedDict(
     "_RequiredKmsGrantConfigurationTypeDef",
     {
+        "operations": List[KmsGrantOperationType],
         "granteePrincipal": str,
         "issuingAccount": str,
-        "operations": List[KmsGrantOperationType],
     },
 )
 _OptionalKmsGrantConfigurationTypeDef = TypedDict(
     "_OptionalKmsGrantConfigurationTypeDef",
     {
-        "constraints": "KmsGrantConstraintsTypeDef",
         "retiringPrincipal": str,
+        "constraints": "KmsGrantConstraintsTypeDef",
     },
     total=False,
 )
@@ -815,8 +815,8 @@ KmsGrantConstraintsTypeDef = TypedDict(
 KmsKeyConfigurationTypeDef = TypedDict(
     "KmsKeyConfigurationTypeDef",
     {
-        "grants": List["KmsGrantConfigurationTypeDef"],
         "keyPolicies": Dict[str, str],
+        "grants": List["KmsGrantConfigurationTypeDef"],
     },
     total=False,
 )
@@ -832,8 +832,8 @@ _OptionalListAccessPreviewFindingsRequestRequestTypeDef = TypedDict(
     "_OptionalListAccessPreviewFindingsRequestRequestTypeDef",
     {
         "filter": Dict[str, "CriterionTypeDef"],
-        "maxResults": int,
         "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -862,8 +862,8 @@ _RequiredListAccessPreviewsRequestRequestTypeDef = TypedDict(
 _OptionalListAccessPreviewsRequestRequestTypeDef = TypedDict(
     "_OptionalListAccessPreviewsRequestRequestTypeDef",
     {
-        "maxResults": int,
         "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -892,9 +892,9 @@ _RequiredListAnalyzedResourcesRequestRequestTypeDef = TypedDict(
 _OptionalListAnalyzedResourcesRequestRequestTypeDef = TypedDict(
     "_OptionalListAnalyzedResourcesRequestRequestTypeDef",
     {
-        "maxResults": int,
-        "nextToken": str,
         "resourceType": ResourceTypeType,
+        "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -917,8 +917,8 @@ ListAnalyzedResourcesResponseTypeDef = TypedDict(
 ListAnalyzersRequestRequestTypeDef = TypedDict(
     "ListAnalyzersRequestRequestTypeDef",
     {
-        "maxResults": int,
         "nextToken": str,
+        "maxResults": int,
         "type": TypeType,
     },
     total=False,
@@ -942,8 +942,8 @@ _RequiredListArchiveRulesRequestRequestTypeDef = TypedDict(
 _OptionalListArchiveRulesRequestRequestTypeDef = TypedDict(
     "_OptionalListArchiveRulesRequestRequestTypeDef",
     {
-        "maxResults": int,
         "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -972,9 +972,9 @@ _OptionalListFindingsRequestRequestTypeDef = TypedDict(
     "_OptionalListFindingsRequestRequestTypeDef",
     {
         "filter": Dict[str, "CriterionTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
         "sort": "SortCriteriaTypeDef",
+        "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -996,9 +996,9 @@ ListFindingsResponseTypeDef = TypedDict(
 ListPolicyGenerationsRequestRequestTypeDef = TypedDict(
     "ListPolicyGenerationsRequestRequestTypeDef",
     {
+        "principalArn": str,
         "maxResults": int,
         "nextToken": str,
-        "principalArn": str,
     },
     total=False,
 )
@@ -1006,8 +1006,8 @@ ListPolicyGenerationsRequestRequestTypeDef = TypedDict(
 ListPolicyGenerationsResponseTypeDef = TypedDict(
     "ListPolicyGenerationsResponseTypeDef",
     {
-        "nextToken": str,
         "policyGenerations": List["PolicyGenerationTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1038,8 +1038,8 @@ LocationTypeDef = TypedDict(
 NetworkOriginConfigurationTypeDef = TypedDict(
     "NetworkOriginConfigurationTypeDef",
     {
-        "internetConfiguration": Dict[str, Any],
         "vpcConfiguration": "VpcConfigurationTypeDef",
+        "internetConfiguration": Dict[str, Any],
     },
     total=False,
 )
@@ -1077,8 +1077,8 @@ _RequiredPolicyGenerationTypeDef = TypedDict(
     {
         "jobId": str,
         "principalArn": str,
-        "startedOn": datetime,
         "status": JobStatusType,
+        "startedOn": datetime,
     },
 )
 _OptionalPolicyGenerationTypeDef = TypedDict(
@@ -1095,8 +1095,8 @@ class PolicyGenerationTypeDef(_RequiredPolicyGenerationTypeDef, _OptionalPolicyG
 PositionTypeDef = TypedDict(
     "PositionTypeDef",
     {
-        "column": int,
         "line": int,
+        "column": int,
         "offset": int,
     },
 )
@@ -1116,8 +1116,8 @@ S3AccessPointConfigurationTypeDef = TypedDict(
     "S3AccessPointConfigurationTypeDef",
     {
         "accessPointPolicy": str,
-        "networkOrigin": "NetworkOriginConfigurationTypeDef",
         "publicAccessBlock": "S3PublicAccessBlockConfigurationTypeDef",
+        "networkOrigin": "NetworkOriginConfigurationTypeDef",
     },
     total=False,
 )
@@ -1125,18 +1125,18 @@ S3AccessPointConfigurationTypeDef = TypedDict(
 S3BucketAclGrantConfigurationTypeDef = TypedDict(
     "S3BucketAclGrantConfigurationTypeDef",
     {
-        "grantee": "AclGranteeTypeDef",
         "permission": AclPermissionType,
+        "grantee": "AclGranteeTypeDef",
     },
 )
 
 S3BucketConfigurationTypeDef = TypedDict(
     "S3BucketConfigurationTypeDef",
     {
-        "accessPoints": Dict[str, "S3AccessPointConfigurationTypeDef"],
-        "bucketAclGrants": List["S3BucketAclGrantConfigurationTypeDef"],
         "bucketPolicy": str,
+        "bucketAclGrants": List["S3BucketAclGrantConfigurationTypeDef"],
         "bucketPublicAccessBlock": "S3PublicAccessBlockConfigurationTypeDef",
+        "accessPoints": Dict[str, "S3AccessPointConfigurationTypeDef"],
     },
     total=False,
 )
@@ -1170,8 +1170,8 @@ SortCriteriaTypeDef = TypedDict(
 SpanTypeDef = TypedDict(
     "SpanTypeDef",
     {
-        "end": "PositionTypeDef",
         "start": "PositionTypeDef",
+        "end": "PositionTypeDef",
     },
 )
 
@@ -1192,8 +1192,8 @@ _RequiredStartPolicyGenerationRequestRequestTypeDef = TypedDict(
 _OptionalStartPolicyGenerationRequestRequestTypeDef = TypedDict(
     "_OptionalStartPolicyGenerationRequestRequestTypeDef",
     {
-        "clientToken": str,
         "cloudTrailDetails": "CloudTrailDetailsTypeDef",
+        "clientToken": str,
     },
     total=False,
 )
@@ -1230,8 +1230,8 @@ StatusReasonTypeDef = TypedDict(
 SubstringTypeDef = TypedDict(
     "SubstringTypeDef",
     {
-        "length": int,
         "start": int,
+        "length": int,
     },
 )
 
@@ -1252,8 +1252,8 @@ _RequiredTrailPropertiesTypeDef = TypedDict(
 _OptionalTrailPropertiesTypeDef = TypedDict(
     "_OptionalTrailPropertiesTypeDef",
     {
-        "allRegions": bool,
         "regions": List[str],
+        "allRegions": bool,
     },
     total=False,
 )
@@ -1270,8 +1270,8 @@ _RequiredTrailTypeDef = TypedDict(
 _OptionalTrailTypeDef = TypedDict(
     "_OptionalTrailTypeDef",
     {
-        "allRegions": bool,
         "regions": List[str],
+        "allRegions": bool,
     },
     total=False,
 )
@@ -1291,8 +1291,8 @@ _RequiredUpdateArchiveRuleRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateArchiveRuleRequestRequestTypeDef",
     {
         "analyzerName": str,
-        "filter": Dict[str, "CriterionTypeDef"],
         "ruleName": str,
+        "filter": Dict[str, "CriterionTypeDef"],
     },
 )
 _OptionalUpdateArchiveRuleRequestRequestTypeDef = TypedDict(
@@ -1318,9 +1318,9 @@ _RequiredUpdateFindingsRequestRequestTypeDef = TypedDict(
 _OptionalUpdateFindingsRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateFindingsRequestRequestTypeDef",
     {
-        "clientToken": str,
         "ids": List[str],
         "resourceArn": str,
+        "clientToken": str,
     },
     total=False,
 )

@@ -83,6 +83,7 @@ __all__ = (
     "DocumentStatusType",
     "DocumentTypeType",
     "ExecutionModeType",
+    "ExternalAlarmStateType",
     "FaultType",
     "GetInventoryPaginatorName",
     "GetInventorySchemaPaginatorName",
@@ -285,7 +286,9 @@ DocumentTypeType = Literal[
     "Automation",
     "Automation.ChangeTemplate",
     "ChangeCalendar",
+    "CloudFormation",
     "Command",
+    "ConformancePackTemplate",
     "DeploymentStrategy",
     "Package",
     "Policy",
@@ -294,6 +297,7 @@ DocumentTypeType = Literal[
     "Session",
 ]
 ExecutionModeType = Literal["Auto", "Interactive"]
+ExternalAlarmStateType = Literal["ALARM", "UNKNOWN"]
 FaultType = Literal["Client", "Server", "Unknown"]
 GetInventoryPaginatorName = Literal["get_inventory"]
 GetInventorySchemaPaginatorName = Literal["get_inventory_schema"]
@@ -469,6 +473,7 @@ PlatformTypeType = Literal["Linux", "MacOS", "Windows"]
 RebootOptionType = Literal["NoReboot", "RebootIfNeeded"]
 ResourceDataSyncS3FormatType = Literal["JsonSerDe"]
 ResourceTypeForTaggingType = Literal[
+    "Association",
     "Automation",
     "Document",
     "MaintenanceWindow",

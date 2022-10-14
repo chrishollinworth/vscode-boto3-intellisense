@@ -2358,6 +2358,7 @@ UntagResourceInputRequestTypeDef = TypedDict(
 UpdateAccountSettingsInputRequestTypeDef = TypedDict(
     "UpdateAccountSettingsInputRequestTypeDef",
     {
+        "deletePipelineProvisioningRepository": bool,
         "pipelineProvisioningRepository": "RepositoryBranchInputTypeDef",
         "pipelineServiceRoleArn": str,
     },

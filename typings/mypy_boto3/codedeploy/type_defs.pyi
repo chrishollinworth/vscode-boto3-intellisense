@@ -539,6 +539,7 @@ _OptionalCreateDeploymentInputRequestTypeDef = TypedDict(
         "autoRollbackConfiguration": "AutoRollbackConfigurationTypeDef",
         "updateOutdatedInstancesOnly": bool,
         "fileExistsBehavior": FileExistsBehaviorType,
+        "overrideAlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -684,6 +685,7 @@ DeploymentInfoTypeDef = TypedDict(
         "computePlatform": ComputePlatformType,
         "externalId": str,
         "relatedDeployments": "RelatedDeploymentsTypeDef",
+        "overrideAlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )

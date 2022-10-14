@@ -41,6 +41,8 @@ __all__ = (
     "GatewayTypeDef",
     "GetGatewayInputRequestTypeDef",
     "GetGatewayOutputTypeDef",
+    "GetVirtualMachineInputRequestTypeDef",
+    "GetVirtualMachineOutputTypeDef",
     "HypervisorTypeDef",
     "ImportHypervisorConfigurationInputRequestTypeDef",
     "ImportHypervisorConfigurationOutputTypeDef",
@@ -52,6 +54,7 @@ __all__ = (
     "ListTagsForResourceOutputTypeDef",
     "ListVirtualMachinesInputRequestTypeDef",
     "ListVirtualMachinesOutputTypeDef",
+    "MaintenanceStartTimeTypeDef",
     "PaginatorConfigTypeDef",
     "PutMaintenanceStartTimeInputRequestTypeDef",
     "PutMaintenanceStartTimeOutputTypeDef",
@@ -68,6 +71,7 @@ __all__ = (
     "UpdateGatewaySoftwareNowOutputTypeDef",
     "UpdateHypervisorInputRequestTypeDef",
     "UpdateHypervisorOutputTypeDef",
+    "VirtualMachineDetailsTypeDef",
     "VirtualMachineTypeDef",
 )
 
@@ -169,6 +173,7 @@ GatewayDetailsTypeDef = TypedDict(
         "GatewayType": Literal["BACKUP_VM"],
         "HypervisorId": str,
         "LastSeenTime": datetime,
+        "MaintenanceStartTime": "MaintenanceStartTimeTypeDef",
         "NextUpdateAvailabilityTime": datetime,
         "VpcEndpoint": str,
     },
@@ -198,6 +203,21 @@ GetGatewayOutputTypeDef = TypedDict(
     "GetGatewayOutputTypeDef",
     {
         "Gateway": "GatewayDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetVirtualMachineInputRequestTypeDef = TypedDict(
+    "GetVirtualMachineInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+GetVirtualMachineOutputTypeDef = TypedDict(
+    "GetVirtualMachineOutputTypeDef",
+    {
+        "VirtualMachine": "VirtualMachineDetailsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -301,6 +321,7 @@ ListTagsForResourceOutputTypeDef = TypedDict(
 ListVirtualMachinesInputRequestTypeDef = TypedDict(
     "ListVirtualMachinesInputRequestTypeDef",
     {
+        "HypervisorArn": str,
         "MaxResults": int,
         "NextToken": str,
     },
@@ -315,6 +336,27 @@ ListVirtualMachinesOutputTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredMaintenanceStartTimeTypeDef = TypedDict(
+    "_RequiredMaintenanceStartTimeTypeDef",
+    {
+        "HourOfDay": int,
+        "MinuteOfHour": int,
+    },
+)
+_OptionalMaintenanceStartTimeTypeDef = TypedDict(
+    "_OptionalMaintenanceStartTimeTypeDef",
+    {
+        "DayOfMonth": int,
+        "DayOfWeek": int,
+    },
+    total=False,
+)
+
+class MaintenanceStartTimeTypeDef(
+    _RequiredMaintenanceStartTimeTypeDef, _OptionalMaintenanceStartTimeTypeDef
+):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
@@ -501,6 +543,19 @@ UpdateHypervisorOutputTypeDef = TypedDict(
         "HypervisorArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+VirtualMachineDetailsTypeDef = TypedDict(
+    "VirtualMachineDetailsTypeDef",
+    {
+        "HostName": str,
+        "HypervisorId": str,
+        "LastBackupDate": datetime,
+        "Name": str,
+        "Path": str,
+        "ResourceArn": str,
+    },
+    total=False,
 )
 
 VirtualMachineTypeDef = TypedDict(

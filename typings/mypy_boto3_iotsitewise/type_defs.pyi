@@ -3082,6 +3082,7 @@ _OptionalUpdateAssetPropertyRequestRequestTypeDef = TypedDict(
         "propertyAlias": str,
         "propertyNotificationState": PropertyNotificationStateType,
         "clientToken": str,
+        "propertyUnit": str,
     },
     total=False,
 )

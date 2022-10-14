@@ -22,6 +22,7 @@ from .literals import (
     ExistingEnrollmentActionType,
     FraudDetectionActionType,
     FraudDetectionDecisionType,
+    FraudDetectionReasonType,
     FraudsterRegistrationJobStatusType,
     ServerSideEncryptionUpdateStatusType,
     SpeakerEnrollmentJobStatusType,
@@ -29,10 +30,6 @@ from .literals import (
     StreamingStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -103,6 +100,7 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateDomainRequestRequestTypeDef",
     "UpdateDomainResponseTypeDef",
+    "VoiceSpoofingRiskTypeDef",
 )
 
 AuthenticationConfigurationTypeDef = TypedDict(
@@ -354,7 +352,7 @@ FraudDetectionResultTypeDef = TypedDict(
         "Configuration": "FraudDetectionConfigurationTypeDef",
         "Decision": FraudDetectionDecisionType,
         "FraudDetectionResultId": str,
-        "Reasons": List[Literal["KNOWN_FRAUDSTER"]],
+        "Reasons": List[FraudDetectionReasonType],
         "RiskDetails": "FraudRiskDetailsTypeDef",
     },
     total=False,
@@ -364,6 +362,7 @@ FraudRiskDetailsTypeDef = TypedDict(
     "FraudRiskDetailsTypeDef",
     {
         "KnownFraudsterRisk": "KnownFraudsterRiskTypeDef",
+        "VoiceSpoofingRisk": "VoiceSpoofingRiskTypeDef",
     },
 )
 
@@ -827,5 +826,12 @@ UpdateDomainResponseTypeDef = TypedDict(
     {
         "Domain": "DomainTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+VoiceSpoofingRiskTypeDef = TypedDict(
+    "VoiceSpoofingRiskTypeDef",
+    {
+        "RiskScore": int,
     },
 )

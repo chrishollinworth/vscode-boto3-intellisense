@@ -41,6 +41,7 @@ __all__ = (
     "AutoMLJobStatusType",
     "AutoMLMetricEnumType",
     "AutoMLMetricExtendedEnumType",
+    "AutoMLModeType",
     "AutoMLS3DataTypeType",
     "AutoMLSortByType",
     "AutoMLSortOrderType",
@@ -53,6 +54,9 @@ __all__ = (
     "CapacitySizeTypeType",
     "CaptureModeType",
     "CaptureStatusType",
+    "ClarifyFeatureTypeType",
+    "ClarifyTextGranularityType",
+    "ClarifyTextLanguageType",
     "CodeRepositorySortByType",
     "CodeRepositorySortOrderType",
     "CompilationJobStatusType",
@@ -76,11 +80,13 @@ __all__ = (
     "EndpointInServiceWaiterName",
     "EndpointSortKeyType",
     "EndpointStatusType",
+    "ExecutionRoleIdentityConfigType",
     "ExecutionStatusType",
     "FailureHandlingPolicyType",
     "FeatureGroupSortByType",
     "FeatureGroupSortOrderType",
     "FeatureGroupStatusType",
+    "FeatureStatusType",
     "FeatureTypeType",
     "FileSystemAccessModeType",
     "FileSystemTypeType",
@@ -281,6 +287,7 @@ __all__ = (
     "UserProfileStatusType",
     "VariantPropertyTypeType",
     "VariantStatusType",
+    "WarmPoolResourceStatusType",
     "WorkforceStatusType",
 )
 
@@ -399,6 +406,7 @@ AutoMLMetricExtendedEnumType = Literal[
     "Recall",
     "RecallMacro",
 ]
+AutoMLModeType = Literal["AUTO", "ENSEMBLING", "HYPERPARAMETER_TUNING"]
 AutoMLS3DataTypeType = Literal["ManifestFile", "S3Prefix"]
 AutoMLSortByType = Literal["CreationTime", "Name", "Status"]
 AutoMLSortOrderType = Literal["Ascending", "Descending"]
@@ -415,6 +423,70 @@ CandidateStepTypeType = Literal[
 CapacitySizeTypeType = Literal["CAPACITY_PERCENT", "INSTANCE_COUNT"]
 CaptureModeType = Literal["Input", "Output"]
 CaptureStatusType = Literal["Started", "Stopped"]
+ClarifyFeatureTypeType = Literal["categorical", "numerical", "text"]
+ClarifyTextGranularityType = Literal["paragraph", "sentence", "token"]
+ClarifyTextLanguageType = Literal[
+    "af",
+    "ar",
+    "bg",
+    "bn",
+    "ca",
+    "cs",
+    "da",
+    "de",
+    "el",
+    "en",
+    "es",
+    "et",
+    "eu",
+    "fa",
+    "fi",
+    "fr",
+    "ga",
+    "gu",
+    "he",
+    "hi",
+    "hr",
+    "hu",
+    "hy",
+    "id",
+    "is",
+    "it",
+    "kn",
+    "ky",
+    "lb",
+    "lij",
+    "lt",
+    "lv",
+    "mk",
+    "ml",
+    "mr",
+    "nb",
+    "ne",
+    "nl",
+    "pl",
+    "pt",
+    "ro",
+    "ru",
+    "sa",
+    "si",
+    "sk",
+    "sl",
+    "sq",
+    "sr",
+    "sv",
+    "ta",
+    "te",
+    "tl",
+    "tn",
+    "tr",
+    "tt",
+    "uk",
+    "ur",
+    "xx",
+    "yo",
+    "zh",
+]
 CodeRepositorySortByType = Literal["CreationTime", "LastModifiedTime", "Name"]
 CodeRepositorySortOrderType = Literal["Ascending", "Descending"]
 CompilationJobStatusType = Literal[
@@ -455,6 +527,7 @@ EndpointStatusType = Literal[
     "SystemUpdating",
     "Updating",
 ]
+ExecutionRoleIdentityConfigType = Literal["DISABLED", "USER_PROFILE_NAME"]
 ExecutionStatusType = Literal[
     "Completed", "CompletedWithViolations", "Failed", "InProgress", "Pending", "Stopped", "Stopping"
 ]
@@ -462,6 +535,7 @@ FailureHandlingPolicyType = Literal["DO_NOTHING", "ROLLBACK_ON_FAILURE"]
 FeatureGroupSortByType = Literal["CreationTime", "FeatureGroupStatus", "Name", "OfflineStoreStatus"]
 FeatureGroupSortOrderType = Literal["Ascending", "Descending"]
 FeatureGroupStatusType = Literal["CreateFailed", "Created", "Creating", "DeleteFailed", "Deleting"]
+FeatureStatusType = Literal["DISABLED", "ENABLED"]
 FeatureTypeType = Literal["Fractional", "Integral", "String"]
 FileSystemAccessModeType = Literal["ro", "rw"]
 FileSystemTypeType = Literal["EFS", "FSxLustre"]
@@ -477,7 +551,7 @@ HyperParameterTuningJobSortByOptionsType = Literal["CreationTime", "Name", "Stat
 HyperParameterTuningJobStatusType = Literal[
     "Completed", "Failed", "InProgress", "Stopped", "Stopping"
 ]
-HyperParameterTuningJobStrategyTypeType = Literal["Bayesian", "Random"]
+HyperParameterTuningJobStrategyTypeType = Literal["Bayesian", "Hyperband", "Random"]
 HyperParameterTuningJobWarmStartTypeType = Literal["IdenticalDataAndAlgorithm", "TransferLearning"]
 ImageCreatedWaiterName = Literal["image_created"]
 ImageDeletedWaiterName = Literal["image_deleted"]
@@ -885,6 +959,7 @@ ResourceTypeType = Literal[
     "ExperimentTrialComponent",
     "FeatureGroup",
     "FeatureMetadata",
+    "HyperParameterTuningJob",
     "ModelPackage",
     "ModelPackageGroup",
     "Pipeline",
@@ -1089,4 +1164,5 @@ UserProfileStatusType = Literal[
 ]
 VariantPropertyTypeType = Literal["DataCaptureConfig", "DesiredInstanceCount", "DesiredWeight"]
 VariantStatusType = Literal["ActivatingTraffic", "Baking", "Creating", "Deleting", "Updating"]
+WarmPoolResourceStatusType = Literal["Available", "InUse", "Reused", "Terminated"]
 WorkforceStatusType = Literal["Active", "Deleting", "Failed", "Initializing", "Updating"]

@@ -15,7 +15,12 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import SortDirectionType
+from .literals import (
+    FormActionTypeType,
+    FormButtonsPositionType,
+    FormDataSourceTypeType,
+    SortDirectionType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -42,34 +47,61 @@ __all__ = (
     "CreateComponentDataTypeDef",
     "CreateComponentRequestRequestTypeDef",
     "CreateComponentResponseTypeDef",
+    "CreateFormDataTypeDef",
+    "CreateFormRequestRequestTypeDef",
+    "CreateFormResponseTypeDef",
     "CreateThemeDataTypeDef",
     "CreateThemeRequestRequestTypeDef",
     "CreateThemeResponseTypeDef",
     "DeleteComponentRequestRequestTypeDef",
+    "DeleteFormRequestRequestTypeDef",
     "DeleteThemeRequestRequestTypeDef",
     "ExchangeCodeForTokenRequestBodyTypeDef",
     "ExchangeCodeForTokenRequestRequestTypeDef",
     "ExchangeCodeForTokenResponseTypeDef",
     "ExportComponentsRequestRequestTypeDef",
     "ExportComponentsResponseTypeDef",
+    "ExportFormsRequestRequestTypeDef",
+    "ExportFormsResponseTypeDef",
     "ExportThemesRequestRequestTypeDef",
     "ExportThemesResponseTypeDef",
+    "FieldConfigTypeDef",
+    "FieldInputConfigTypeDef",
+    "FieldPositionTypeDef",
+    "FieldValidationConfigurationTypeDef",
     "FormBindingElementTypeDef",
+    "FormButtonTypeDef",
+    "FormCTATypeDef",
+    "FormDataTypeConfigTypeDef",
+    "FormInputValuePropertyTypeDef",
+    "FormStyleConfigTypeDef",
+    "FormStyleTypeDef",
+    "FormSummaryTypeDef",
+    "FormTypeDef",
     "GetComponentRequestRequestTypeDef",
     "GetComponentResponseTypeDef",
+    "GetFormRequestRequestTypeDef",
+    "GetFormResponseTypeDef",
+    "GetMetadataRequestRequestTypeDef",
+    "GetMetadataResponseTypeDef",
     "GetThemeRequestRequestTypeDef",
     "GetThemeResponseTypeDef",
     "ListComponentsRequestRequestTypeDef",
     "ListComponentsResponseTypeDef",
+    "ListFormsRequestRequestTypeDef",
+    "ListFormsResponseTypeDef",
     "ListThemesRequestRequestTypeDef",
     "ListThemesResponseTypeDef",
     "MutationActionSetStateParameterTypeDef",
     "PaginatorConfigTypeDef",
     "PredicateTypeDef",
+    "PutMetadataFlagBodyTypeDef",
+    "PutMetadataFlagRequestRequestTypeDef",
     "RefreshTokenRequestBodyTypeDef",
     "RefreshTokenRequestRequestTypeDef",
     "RefreshTokenResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "SectionalElementTypeDef",
     "SortPropertyTypeDef",
     "ThemeSummaryTypeDef",
     "ThemeTypeDef",
@@ -78,9 +110,14 @@ __all__ = (
     "UpdateComponentDataTypeDef",
     "UpdateComponentRequestRequestTypeDef",
     "UpdateComponentResponseTypeDef",
+    "UpdateFormDataTypeDef",
+    "UpdateFormRequestRequestTypeDef",
+    "UpdateFormResponseTypeDef",
     "UpdateThemeDataTypeDef",
     "UpdateThemeRequestRequestTypeDef",
     "UpdateThemeResponseTypeDef",
+    "ValueMappingTypeDef",
+    "ValueMappingsTypeDef",
 )
 
 ActionParametersTypeDef = TypedDict(
@@ -108,6 +145,7 @@ ComponentBindingPropertiesValuePropertiesTypeDef = TypedDict(
         "key": str,
         "model": str,
         "predicates": List["PredicateTypeDef"],
+        "slotName": str,
         "userAttribute": str,
     },
     total=False,
@@ -341,6 +379,59 @@ CreateComponentResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateFormDataTypeDef = TypedDict(
+    "_RequiredCreateFormDataTypeDef",
+    {
+        "dataType": "FormDataTypeConfigTypeDef",
+        "fields": Dict[str, "FieldConfigTypeDef"],
+        "formActionType": FormActionTypeType,
+        "name": str,
+        "schemaVersion": str,
+        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "style": "FormStyleTypeDef",
+    },
+)
+_OptionalCreateFormDataTypeDef = TypedDict(
+    "_OptionalCreateFormDataTypeDef",
+    {
+        "cta": "FormCTATypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateFormDataTypeDef(_RequiredCreateFormDataTypeDef, _OptionalCreateFormDataTypeDef):
+    pass
+
+_RequiredCreateFormRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFormRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+        "formToCreate": "CreateFormDataTypeDef",
+    },
+)
+_OptionalCreateFormRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFormRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class CreateFormRequestRequestTypeDef(
+    _RequiredCreateFormRequestRequestTypeDef, _OptionalCreateFormRequestRequestTypeDef
+):
+    pass
+
+CreateFormResponseTypeDef = TypedDict(
+    "CreateFormResponseTypeDef",
+    {
+        "entity": "FormTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateThemeDataTypeDef = TypedDict(
     "_RequiredCreateThemeDataTypeDef",
     {
@@ -391,6 +482,15 @@ CreateThemeResponseTypeDef = TypedDict(
 
 DeleteComponentRequestRequestTypeDef = TypedDict(
     "DeleteComponentRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+        "id": str,
+    },
+)
+
+DeleteFormRequestRequestTypeDef = TypedDict(
+    "DeleteFormRequestRequestTypeDef",
     {
         "appId": str,
         "environmentName": str,
@@ -462,6 +562,35 @@ ExportComponentsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredExportFormsRequestRequestTypeDef = TypedDict(
+    "_RequiredExportFormsRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+    },
+)
+_OptionalExportFormsRequestRequestTypeDef = TypedDict(
+    "_OptionalExportFormsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ExportFormsRequestRequestTypeDef(
+    _RequiredExportFormsRequestRequestTypeDef, _OptionalExportFormsRequestRequestTypeDef
+):
+    pass
+
+ExportFormsResponseTypeDef = TypedDict(
+    "ExportFormsResponseTypeDef",
+    {
+        "entities": List["FormTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredExportThemesRequestRequestTypeDef = TypedDict(
     "_RequiredExportThemesRequestRequestTypeDef",
     {
@@ -491,6 +620,78 @@ ExportThemesResponseTypeDef = TypedDict(
     },
 )
 
+FieldConfigTypeDef = TypedDict(
+    "FieldConfigTypeDef",
+    {
+        "excluded": bool,
+        "inputType": "FieldInputConfigTypeDef",
+        "label": str,
+        "position": "FieldPositionTypeDef",
+        "validations": List["FieldValidationConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredFieldInputConfigTypeDef = TypedDict(
+    "_RequiredFieldInputConfigTypeDef",
+    {
+        "type": str,
+    },
+)
+_OptionalFieldInputConfigTypeDef = TypedDict(
+    "_OptionalFieldInputConfigTypeDef",
+    {
+        "defaultChecked": bool,
+        "defaultCountryCode": str,
+        "defaultValue": str,
+        "descriptiveText": str,
+        "maxValue": float,
+        "minValue": float,
+        "name": str,
+        "placeholder": str,
+        "readOnly": bool,
+        "required": bool,
+        "step": float,
+        "value": str,
+        "valueMappings": "ValueMappingsTypeDef",
+    },
+    total=False,
+)
+
+class FieldInputConfigTypeDef(_RequiredFieldInputConfigTypeDef, _OptionalFieldInputConfigTypeDef):
+    pass
+
+FieldPositionTypeDef = TypedDict(
+    "FieldPositionTypeDef",
+    {
+        "below": str,
+        "fixed": Literal["first"],
+        "rightOf": str,
+    },
+    total=False,
+)
+
+_RequiredFieldValidationConfigurationTypeDef = TypedDict(
+    "_RequiredFieldValidationConfigurationTypeDef",
+    {
+        "type": str,
+    },
+)
+_OptionalFieldValidationConfigurationTypeDef = TypedDict(
+    "_OptionalFieldValidationConfigurationTypeDef",
+    {
+        "numValues": List[int],
+        "strValues": List[str],
+        "validationMessage": str,
+    },
+    total=False,
+)
+
+class FieldValidationConfigurationTypeDef(
+    _RequiredFieldValidationConfigurationTypeDef, _OptionalFieldValidationConfigurationTypeDef
+):
+    pass
+
 FormBindingElementTypeDef = TypedDict(
     "FormBindingElementTypeDef",
     {
@@ -498,6 +699,101 @@ FormBindingElementTypeDef = TypedDict(
         "property": str,
     },
 )
+
+FormButtonTypeDef = TypedDict(
+    "FormButtonTypeDef",
+    {
+        "children": str,
+        "excluded": bool,
+        "position": "FieldPositionTypeDef",
+    },
+    total=False,
+)
+
+FormCTATypeDef = TypedDict(
+    "FormCTATypeDef",
+    {
+        "cancel": "FormButtonTypeDef",
+        "clear": "FormButtonTypeDef",
+        "position": FormButtonsPositionType,
+        "submit": "FormButtonTypeDef",
+    },
+    total=False,
+)
+
+FormDataTypeConfigTypeDef = TypedDict(
+    "FormDataTypeConfigTypeDef",
+    {
+        "dataSourceType": FormDataSourceTypeType,
+        "dataTypeName": str,
+    },
+)
+
+FormInputValuePropertyTypeDef = TypedDict(
+    "FormInputValuePropertyTypeDef",
+    {
+        "value": str,
+    },
+    total=False,
+)
+
+FormStyleConfigTypeDef = TypedDict(
+    "FormStyleConfigTypeDef",
+    {
+        "tokenReference": str,
+        "value": str,
+    },
+    total=False,
+)
+
+FormStyleTypeDef = TypedDict(
+    "FormStyleTypeDef",
+    {
+        "horizontalGap": "FormStyleConfigTypeDef",
+        "outerPadding": "FormStyleConfigTypeDef",
+        "verticalGap": "FormStyleConfigTypeDef",
+    },
+    total=False,
+)
+
+FormSummaryTypeDef = TypedDict(
+    "FormSummaryTypeDef",
+    {
+        "appId": str,
+        "dataType": "FormDataTypeConfigTypeDef",
+        "environmentName": str,
+        "formActionType": FormActionTypeType,
+        "id": str,
+        "name": str,
+    },
+)
+
+_RequiredFormTypeDef = TypedDict(
+    "_RequiredFormTypeDef",
+    {
+        "appId": str,
+        "dataType": "FormDataTypeConfigTypeDef",
+        "environmentName": str,
+        "fields": Dict[str, "FieldConfigTypeDef"],
+        "formActionType": FormActionTypeType,
+        "id": str,
+        "name": str,
+        "schemaVersion": str,
+        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "style": "FormStyleTypeDef",
+    },
+)
+_OptionalFormTypeDef = TypedDict(
+    "_OptionalFormTypeDef",
+    {
+        "cta": "FormCTATypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class FormTypeDef(_RequiredFormTypeDef, _OptionalFormTypeDef):
+    pass
 
 GetComponentRequestRequestTypeDef = TypedDict(
     "GetComponentRequestRequestTypeDef",
@@ -512,6 +808,39 @@ GetComponentResponseTypeDef = TypedDict(
     "GetComponentResponseTypeDef",
     {
         "component": "ComponentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetFormRequestRequestTypeDef = TypedDict(
+    "GetFormRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+        "id": str,
+    },
+)
+
+GetFormResponseTypeDef = TypedDict(
+    "GetFormResponseTypeDef",
+    {
+        "form": "FormTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMetadataRequestRequestTypeDef = TypedDict(
+    "GetMetadataRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+    },
+)
+
+GetMetadataResponseTypeDef = TypedDict(
+    "GetMetadataResponseTypeDef",
+    {
+        "features": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -558,6 +887,36 @@ ListComponentsResponseTypeDef = TypedDict(
     "ListComponentsResponseTypeDef",
     {
         "entities": List["ComponentSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListFormsRequestRequestTypeDef = TypedDict(
+    "_RequiredListFormsRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+    },
+)
+_OptionalListFormsRequestRequestTypeDef = TypedDict(
+    "_OptionalListFormsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListFormsRequestRequestTypeDef(
+    _RequiredListFormsRequestRequestTypeDef, _OptionalListFormsRequestRequestTypeDef
+):
+    pass
+
+ListFormsResponseTypeDef = TypedDict(
+    "ListFormsResponseTypeDef",
+    {
+        "entities": List["FormSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -624,6 +983,23 @@ PredicateTypeDef = TypedDict(
     total=False,
 )
 
+PutMetadataFlagBodyTypeDef = TypedDict(
+    "PutMetadataFlagBodyTypeDef",
+    {
+        "newValue": str,
+    },
+)
+
+PutMetadataFlagRequestRequestTypeDef = TypedDict(
+    "PutMetadataFlagRequestRequestTypeDef",
+    {
+        "appId": str,
+        "body": "PutMetadataFlagBodyTypeDef",
+        "environmentName": str,
+        "featureName": str,
+    },
+)
+
 RefreshTokenRequestBodyTypeDef = TypedDict(
     "RefreshTokenRequestBodyTypeDef",
     {
@@ -658,6 +1034,26 @@ ResponseMetadataTypeDef = TypedDict(
         "RetryAttempts": int,
     },
 )
+
+_RequiredSectionalElementTypeDef = TypedDict(
+    "_RequiredSectionalElementTypeDef",
+    {
+        "type": str,
+    },
+)
+_OptionalSectionalElementTypeDef = TypedDict(
+    "_OptionalSectionalElementTypeDef",
+    {
+        "level": int,
+        "orientation": str,
+        "position": "FieldPositionTypeDef",
+        "text": str,
+    },
+    total=False,
+)
+
+class SectionalElementTypeDef(_RequiredSectionalElementTypeDef, _OptionalSectionalElementTypeDef):
+    pass
 
 SortPropertyTypeDef = TypedDict(
     "SortPropertyTypeDef",
@@ -768,6 +1164,51 @@ UpdateComponentResponseTypeDef = TypedDict(
     },
 )
 
+UpdateFormDataTypeDef = TypedDict(
+    "UpdateFormDataTypeDef",
+    {
+        "cta": "FormCTATypeDef",
+        "dataType": "FormDataTypeConfigTypeDef",
+        "fields": Dict[str, "FieldConfigTypeDef"],
+        "formActionType": FormActionTypeType,
+        "name": str,
+        "schemaVersion": str,
+        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "style": "FormStyleTypeDef",
+    },
+    total=False,
+)
+
+_RequiredUpdateFormRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFormRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+        "id": str,
+        "updatedForm": "UpdateFormDataTypeDef",
+    },
+)
+_OptionalUpdateFormRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFormRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class UpdateFormRequestRequestTypeDef(
+    _RequiredUpdateFormRequestRequestTypeDef, _OptionalUpdateFormRequestRequestTypeDef
+):
+    pass
+
+UpdateFormResponseTypeDef = TypedDict(
+    "UpdateFormResponseTypeDef",
+    {
+        "entity": "FormTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateThemeDataTypeDef = TypedDict(
     "_RequiredUpdateThemeDataTypeDef",
     {
@@ -814,5 +1255,29 @@ UpdateThemeResponseTypeDef = TypedDict(
     {
         "entity": "ThemeTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredValueMappingTypeDef = TypedDict(
+    "_RequiredValueMappingTypeDef",
+    {
+        "value": "FormInputValuePropertyTypeDef",
+    },
+)
+_OptionalValueMappingTypeDef = TypedDict(
+    "_OptionalValueMappingTypeDef",
+    {
+        "displayValue": "FormInputValuePropertyTypeDef",
+    },
+    total=False,
+)
+
+class ValueMappingTypeDef(_RequiredValueMappingTypeDef, _OptionalValueMappingTypeDef):
+    pass
+
+ValueMappingsTypeDef = TypedDict(
+    "ValueMappingsTypeDef",
+    {
+        "values": List["ValueMappingTypeDef"],
     },
 )

@@ -79,6 +79,7 @@ _OptionalInvokeEndpointInputRequestTypeDef = TypedDict(
         "TargetVariant": str,
         "TargetContainerHostname": str,
         "InferenceId": str,
+        "EnableExplanations": str,
     },
     total=False,
 )

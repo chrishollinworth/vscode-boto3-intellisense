@@ -37,7 +37,7 @@ class Exceptions:
 
 class ForecastQueryServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecastquery.html#ForecastQueryService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/forecastquery.html#ForecastQueryService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html)
     """
 
@@ -52,14 +52,14 @@ class ForecastQueryServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecastquery.html#ForecastQueryService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/forecastquery.html#ForecastQueryService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecastquery.html#ForecastQueryService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/forecastquery.html#ForecastQueryService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html#close)
         """
     def generate_presigned_url(
@@ -72,7 +72,7 @@ class ForecastQueryServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecastquery.html#ForecastQueryService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/forecastquery.html#ForecastQueryService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html#generate_presigned_url)
         """
     def query_forecast(
@@ -87,7 +87,7 @@ class ForecastQueryServiceClient(BaseClient):
         """
         Retrieves a forecast for a single item, filtered by the supplied criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecastquery.html#ForecastQueryService.Client.query_forecast)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/forecastquery.html#ForecastQueryService.Client.query_forecast)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html#query_forecast)
         """
     def query_what_if_forecast(
@@ -102,6 +102,6 @@ class ForecastQueryServiceClient(BaseClient):
         """
         Retrieves a what-if forecast.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/forecastquery.html#ForecastQueryService.Client.query_what_if_forecast)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/forecastquery.html#ForecastQueryService.Client.query_what_if_forecast)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html#query_what_if_forecast)
         """

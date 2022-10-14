@@ -72,6 +72,8 @@ from .literals import (
     SessionStatusType,
     SortDirectionTypeType,
     SortType,
+    SourceControlAuthStrategyType,
+    SourceControlProviderType,
     StartingPositionType,
     StatementStateType,
     TargetFormatType,
@@ -571,6 +573,7 @@ __all__ = (
     "SessionTypeDef",
     "SkewedInfoTypeDef",
     "SortCriterionTypeDef",
+    "SourceControlDetailsTypeDef",
     "SparkConnectorSourceTypeDef",
     "SparkConnectorTargetTypeDef",
     "SparkSQLTypeDef",
@@ -644,6 +647,8 @@ __all__ = (
     "UpdateDatabaseRequestRequestTypeDef",
     "UpdateDevEndpointRequestRequestTypeDef",
     "UpdateGrokClassifierRequestTypeDef",
+    "UpdateJobFromSourceControlRequestRequestTypeDef",
+    "UpdateJobFromSourceControlResponseTypeDef",
     "UpdateJobRequestRequestTypeDef",
     "UpdateJobResponseTypeDef",
     "UpdateJsonClassifierRequestTypeDef",
@@ -654,6 +659,8 @@ __all__ = (
     "UpdateRegistryResponseTypeDef",
     "UpdateSchemaInputRequestTypeDef",
     "UpdateSchemaResponseTypeDef",
+    "UpdateSourceControlFromJobRequestRequestTypeDef",
+    "UpdateSourceControlFromJobResponseTypeDef",
     "UpdateTableRequestRequestTypeDef",
     "UpdateTriggerRequestRequestTypeDef",
     "UpdateTriggerResponseTypeDef",
@@ -1357,6 +1364,8 @@ _OptionalCatalogTargetTypeDef = TypedDict(
     "_OptionalCatalogTargetTypeDef",
     {
         "ConnectionName": str,
+        "EventQueueArn": str,
+        "DlqEventQueueArn": str,
     },
     total=False,
 )
@@ -2066,6 +2075,7 @@ _OptionalCreateJobRequestRequestTypeDef = TypedDict(
         "WorkerType": WorkerTypeType,
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
         "ExecutionClass": ExecutionClassType,
+        "SourceControlDetails": "SourceControlDetailsTypeDef",
     },
     total=False,
 )
@@ -5220,6 +5230,7 @@ JobTypeDef = TypedDict(
         "GlueVersion": str,
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
         "ExecutionClass": ExecutionClassType,
+        "SourceControlDetails": "SourceControlDetailsTypeDef",
     },
     total=False,
 )
@@ -5246,6 +5257,7 @@ JobUpdateTypeDef = TypedDict(
         "GlueVersion": str,
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
         "ExecutionClass": ExecutionClassType,
+        "SourceControlDetails": "SourceControlDetailsTypeDef",
     },
     total=False,
 )
@@ -6900,6 +6912,21 @@ SortCriterionTypeDef = TypedDict(
     total=False,
 )
 
+SourceControlDetailsTypeDef = TypedDict(
+    "SourceControlDetailsTypeDef",
+    {
+        "Provider": SourceControlProviderType,
+        "Repository": str,
+        "Owner": str,
+        "Branch": str,
+        "Folder": str,
+        "LastCommitId": str,
+        "AuthStrategy": SourceControlAuthStrategyType,
+        "AuthToken": str,
+    },
+    total=False,
+)
+
 _RequiredSparkConnectorSourceTypeDef = TypedDict(
     "_RequiredSparkConnectorSourceTypeDef",
     {
@@ -7883,6 +7910,30 @@ class UpdateGrokClassifierRequestTypeDef(
 ):
     pass
 
+UpdateJobFromSourceControlRequestRequestTypeDef = TypedDict(
+    "UpdateJobFromSourceControlRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "Provider": SourceControlProviderType,
+        "RepositoryName": str,
+        "RepositoryOwner": str,
+        "BranchName": str,
+        "Folder": str,
+        "CommitId": str,
+        "AuthStrategy": SourceControlAuthStrategyType,
+        "AuthToken": str,
+    },
+    total=False,
+)
+
+UpdateJobFromSourceControlResponseTypeDef = TypedDict(
+    "UpdateJobFromSourceControlResponseTypeDef",
+    {
+        "JobName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateJobRequestRequestTypeDef = TypedDict(
     "UpdateJobRequestRequestTypeDef",
     {
@@ -8020,6 +8071,30 @@ UpdateSchemaResponseTypeDef = TypedDict(
         "SchemaArn": str,
         "SchemaName": str,
         "RegistryName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateSourceControlFromJobRequestRequestTypeDef = TypedDict(
+    "UpdateSourceControlFromJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "Provider": SourceControlProviderType,
+        "RepositoryName": str,
+        "RepositoryOwner": str,
+        "BranchName": str,
+        "Folder": str,
+        "CommitId": str,
+        "AuthStrategy": SourceControlAuthStrategyType,
+        "AuthToken": str,
+    },
+    total=False,
+)
+
+UpdateSourceControlFromJobResponseTypeDef = TypedDict(
+    "UpdateSourceControlFromJobResponseTypeDef",
+    {
+        "JobName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

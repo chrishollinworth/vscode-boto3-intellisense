@@ -19,10 +19,12 @@ from .literals import (
     ApplicationInstanceHealthStatusType,
     ApplicationInstanceStatusType,
     ConnectionTypeType,
+    DeviceAggregatedStatusType,
     DeviceBrandType,
     DeviceConnectionStatusType,
     DeviceStatusType,
     DeviceTypeType,
+    ListDevicesSortByType,
     NetworkConnectionStatusType,
     NodeCategoryType,
     NodeFromTemplateJobStatusType,
@@ -31,6 +33,7 @@ from .literals import (
     PackageImportJobTypeType,
     PackageVersionStatusType,
     PortTypeType,
+    SortOrderType,
     StatusFilterType,
     UpdateProgressType,
 )
@@ -86,6 +89,7 @@ __all__ = (
     "EthernetStatusTypeDef",
     "JobResourceTagsTypeDef",
     "JobTypeDef",
+    "LatestDeviceJobTypeDef",
     "ListApplicationInstanceDependenciesRequestRequestTypeDef",
     "ListApplicationInstanceDependenciesResponseTypeDef",
     "ListApplicationInstanceNodeInstancesRequestRequestTypeDef",
@@ -458,9 +462,11 @@ DescribeDeviceResponseTypeDef = TypedDict(
         "CurrentNetworkingStatus": "NetworkStatusTypeDef",
         "CurrentSoftware": str,
         "Description": str,
+        "DeviceAggregatedStatus": DeviceAggregatedStatusType,
         "DeviceConnectionStatus": DeviceConnectionStatusType,
         "DeviceId": str,
         "LatestAlternateSoftware": str,
+        "LatestDeviceJob": "LatestDeviceJobTypeDef",
         "LatestSoftware": str,
         "LeaseExpirationTime": datetime,
         "Name": str,
@@ -649,11 +655,17 @@ DeviceTypeDef = TypedDict(
     {
         "Brand": DeviceBrandType,
         "CreatedTime": datetime,
+        "CurrentSoftware": str,
+        "Description": str,
+        "DeviceAggregatedStatus": DeviceAggregatedStatusType,
         "DeviceId": str,
         "LastUpdatedTime": datetime,
+        "LatestDeviceJob": "LatestDeviceJobTypeDef",
         "LeaseExpirationTime": datetime,
         "Name": str,
         "ProvisioningStatus": DeviceStatusType,
+        "Tags": Dict[str, str],
+        "Type": DeviceTypeType,
     },
     total=False,
 )
@@ -698,6 +710,15 @@ JobTypeDef = TypedDict(
     {
         "DeviceId": str,
         "JobId": str,
+    },
+    total=False,
+)
+
+LatestDeviceJobTypeDef = TypedDict(
+    "LatestDeviceJobTypeDef",
+    {
+        "ImageVersion": str,
+        "Status": UpdateProgressType,
     },
     total=False,
 )
@@ -804,8 +825,12 @@ ListDevicesJobsResponseTypeDef = TypedDict(
 ListDevicesRequestRequestTypeDef = TypedDict(
     "ListDevicesRequestRequestTypeDef",
     {
+        "DeviceAggregatedStatusFilter": DeviceAggregatedStatusType,
         "MaxResults": int,
+        "NameFilter": str,
         "NextToken": str,
+        "SortBy": ListDevicesSortByType,
+        "SortOrder": SortOrderType,
     },
     total=False,
 )

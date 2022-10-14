@@ -17,8 +17,10 @@ from typing import Any, Dict, List
 
 from .literals import (
     AddressTypeType,
+    AssetStateType,
     CatalogItemClassType,
     CatalogItemStatusType,
+    ComputeAssetStateType,
     FiberOpticCableTypeType,
     LineItemStatusType,
     MaximumSupportedWeightLbsType,
@@ -26,6 +28,7 @@ from .literals import (
     OrderStatusType,
     OrderTypeType,
     PaymentOptionType,
+    PaymentTermType,
     PowerConnectorType,
     PowerDrawKvaType,
     PowerFeedDropType,
@@ -185,6 +188,7 @@ ComputeAttributesTypeDef = TypedDict(
     "ComputeAttributesTypeDef",
     {
         "HostId": str,
+        "State": ComputeAssetStateType,
     },
     total=False,
 )
@@ -213,7 +217,7 @@ _RequiredCreateOrderInputRequestTypeDef = TypedDict(
 _OptionalCreateOrderInputRequestTypeDef = TypedDict(
     "_OptionalCreateOrderInputRequestTypeDef",
     {
-        "PaymentTerm": Literal["THREE_YEARS"],
+        "PaymentTerm": PaymentTermType,
     },
     total=False,
 )
@@ -496,6 +500,7 @@ _OptionalListAssetsInputRequestTypeDef = TypedDict(
         "HostIdFilter": List[str],
         "MaxResults": int,
         "NextToken": str,
+        "StatusFilter": List[AssetStateType],
     },
     total=False,
 )

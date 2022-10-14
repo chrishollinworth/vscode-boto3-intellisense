@@ -59,6 +59,8 @@ __all__ = (
     "ListLanguagesResponseTypeDef",
     "ListParallelDataRequestRequestTypeDef",
     "ListParallelDataResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ListTerminologiesRequestRequestTypeDef",
     "ListTerminologiesResponseTypeDef",
     "ListTextTranslationJobsRequestRequestTypeDef",
@@ -73,6 +75,8 @@ __all__ = (
     "StartTextTranslationJobResponseTypeDef",
     "StopTextTranslationJobRequestRequestTypeDef",
     "StopTextTranslationJobResponseTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TagTypeDef",
     "TermTypeDef",
     "TerminologyDataLocationTypeDef",
     "TerminologyDataTypeDef",
@@ -82,6 +86,7 @@ __all__ = (
     "TranslateTextRequestRequestTypeDef",
     "TranslateTextResponseTypeDef",
     "TranslationSettingsTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateParallelDataRequestRequestTypeDef",
     "UpdateParallelDataResponseTypeDef",
 )
@@ -108,6 +113,7 @@ _OptionalCreateParallelDataRequestRequestTypeDef = TypedDict(
     {
         "Description": str,
         "EncryptionKey": "EncryptionKeyTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -233,6 +239,7 @@ _OptionalImportTerminologyRequestRequestTypeDef = TypedDict(
     {
         "Description": str,
         "EncryptionKey": "EncryptionKeyTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -311,6 +318,21 @@ ListParallelDataResponseTypeDef = TypedDict(
     {
         "ParallelDataPropertiesList": List["ParallelDataPropertiesTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -483,6 +505,22 @@ StopTextTranslationJobResponseTypeDef = TypedDict(
     },
 )
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+)
+
 TermTypeDef = TypedDict(
     "TermTypeDef",
     {
@@ -613,6 +651,14 @@ TranslationSettingsTypeDef = TypedDict(
         "Profanity": Literal["MASK"],
     },
     total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
 )
 
 _RequiredUpdateParallelDataRequestRequestTypeDef = TypedDict(

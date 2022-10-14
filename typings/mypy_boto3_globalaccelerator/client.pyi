@@ -111,7 +111,7 @@ class Exceptions:
 
 class GlobalAcceleratorClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html)
     """
 
@@ -132,7 +132,7 @@ class GlobalAcceleratorClient(BaseClient):
         Associate a virtual private cloud (VPC) subnet endpoint with your custom routing
         accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.add_custom_routing_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.add_custom_routing_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#add_custom_routing_endpoints)
         """
     def advertise_byoip_cidr(self, *, Cidr: str) -> AdvertiseByoipCidrResponseTypeDef:
@@ -140,7 +140,7 @@ class GlobalAcceleratorClient(BaseClient):
         Advertises an IPv4 address range that is provisioned for use with your Amazon
         Web Services resources through bring your own IP addresses (BYOIP).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.advertise_byoip_cidr)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.advertise_byoip_cidr)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#advertise_byoip_cidr)
         """
     def allow_custom_routing_traffic(
@@ -156,21 +156,21 @@ class GlobalAcceleratorClient(BaseClient):
         Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC
         subnet endpoint that can receive traffic for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.allow_custom_routing_traffic)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.allow_custom_routing_traffic)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#allow_custom_routing_traffic)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#close)
         """
     def create_accelerator(
@@ -186,7 +186,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Create an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_accelerator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_accelerator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#create_accelerator)
         """
     def create_custom_routing_accelerator(
@@ -202,7 +202,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Create a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_custom_routing_accelerator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_custom_routing_accelerator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#create_custom_routing_accelerator)
         """
     def create_custom_routing_endpoint_group(
@@ -217,7 +217,7 @@ class GlobalAcceleratorClient(BaseClient):
         Create an endpoint group for the specified listener for a custom routing
         accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_custom_routing_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_custom_routing_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#create_custom_routing_endpoint_group)
         """
     def create_custom_routing_listener(
@@ -227,7 +227,7 @@ class GlobalAcceleratorClient(BaseClient):
         Create a listener to process inbound connections from clients to a custom
         routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_custom_routing_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_custom_routing_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#create_custom_routing_listener)
         """
     def create_endpoint_group(
@@ -248,7 +248,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Create an endpoint group for the specified listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#create_endpoint_group)
         """
     def create_listener(
@@ -263,49 +263,49 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Create a listener to process inbound connections from clients to an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.create_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#create_listener)
         """
     def delete_accelerator(self, *, AcceleratorArn: str) -> None:
         """
         Delete an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_accelerator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_accelerator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#delete_accelerator)
         """
     def delete_custom_routing_accelerator(self, *, AcceleratorArn: str) -> None:
         """
         Delete a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_custom_routing_accelerator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_custom_routing_accelerator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#delete_custom_routing_accelerator)
         """
     def delete_custom_routing_endpoint_group(self, *, EndpointGroupArn: str) -> None:
         """
         Delete an endpoint group from a listener for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_custom_routing_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_custom_routing_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#delete_custom_routing_endpoint_group)
         """
     def delete_custom_routing_listener(self, *, ListenerArn: str) -> None:
         """
         Delete a listener for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_custom_routing_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_custom_routing_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#delete_custom_routing_listener)
         """
     def delete_endpoint_group(self, *, EndpointGroupArn: str) -> None:
         """
         Delete an endpoint group from a listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#delete_endpoint_group)
         """
     def delete_listener(self, *, ListenerArn: str) -> None:
         """
         Delete a listener from an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.delete_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#delete_listener)
         """
     def deny_custom_routing_traffic(
@@ -321,7 +321,7 @@ class GlobalAcceleratorClient(BaseClient):
         Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC
         subnet endpoint that cannot receive traffic for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.deny_custom_routing_traffic)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.deny_custom_routing_traffic)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#deny_custom_routing_traffic)
         """
     def deprovision_byoip_cidr(self, *, Cidr: str) -> DeprovisionByoipCidrResponseTypeDef:
@@ -330,14 +330,14 @@ class GlobalAcceleratorClient(BaseClient):
         Amazon Web Services resources through bring your own IP addresses (BYOIP) and
         deletes the corresponding address pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.deprovision_byoip_cidr)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.deprovision_byoip_cidr)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#deprovision_byoip_cidr)
         """
     def describe_accelerator(self, *, AcceleratorArn: str) -> DescribeAcceleratorResponseTypeDef:
         """
         Describe an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_accelerator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_accelerator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#describe_accelerator)
         """
     def describe_accelerator_attributes(
@@ -346,7 +346,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Describe the attributes of an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_accelerator_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_accelerator_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#describe_accelerator_attributes)
         """
     def describe_custom_routing_accelerator(
@@ -355,7 +355,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Describe a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_custom_routing_accelerator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_custom_routing_accelerator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#describe_custom_routing_accelerator)
         """
     def describe_custom_routing_accelerator_attributes(
@@ -364,7 +364,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Describe the attributes of a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_custom_routing_accelerator_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_custom_routing_accelerator_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#describe_custom_routing_accelerator_attributes)
         """
     def describe_custom_routing_endpoint_group(
@@ -373,7 +373,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Describe an endpoint group for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_custom_routing_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_custom_routing_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#describe_custom_routing_endpoint_group)
         """
     def describe_custom_routing_listener(
@@ -382,7 +382,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         The description of a listener for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_custom_routing_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_custom_routing_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#describe_custom_routing_listener)
         """
     def describe_endpoint_group(
@@ -391,14 +391,14 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Describe an endpoint group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#describe_endpoint_group)
         """
     def describe_listener(self, *, ListenerArn: str) -> DescribeListenerResponseTypeDef:
         """
         Describe a listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.describe_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#describe_listener)
         """
     def generate_presigned_url(
@@ -411,7 +411,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#generate_presigned_url)
         """
     def list_accelerators(
@@ -420,7 +420,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         List the accelerators for an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_accelerators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_accelerators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_accelerators)
         """
     def list_byoip_cidrs(
@@ -432,7 +432,7 @@ class GlobalAcceleratorClient(BaseClient):
         accelerator/latest/api/ProvisionByoipCidr.html>`__ , including the current state
         and a history of state changes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_byoip_cidrs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_byoip_cidrs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_byoip_cidrs)
         """
     def list_custom_routing_accelerators(
@@ -441,7 +441,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         List the custom routing accelerators for an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_accelerators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_accelerators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_custom_routing_accelerators)
         """
     def list_custom_routing_endpoint_groups(
@@ -451,7 +451,7 @@ class GlobalAcceleratorClient(BaseClient):
         List the endpoint groups that are associated with a listener for a custom
         routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_endpoint_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_endpoint_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_custom_routing_endpoint_groups)
         """
     def list_custom_routing_listeners(
@@ -460,7 +460,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         List the listeners for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_listeners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_listeners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_custom_routing_listeners)
         """
     def list_custom_routing_port_mappings(
@@ -476,7 +476,7 @@ class GlobalAcceleratorClient(BaseClient):
         destination EC2 instance IP addresses and ports in the virtual public cloud
         (VPC) subnet endpoint for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_port_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_port_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_custom_routing_port_mappings)
         """
     def list_custom_routing_port_mappings_by_destination(
@@ -491,7 +491,7 @@ class GlobalAcceleratorClient(BaseClient):
         List the port mappings for a specific EC2 instance (destination) in a VPC subnet
         endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_port_mappings_by_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_custom_routing_port_mappings_by_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_custom_routing_port_mappings_by_destination)
         """
     def list_endpoint_groups(
@@ -500,7 +500,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         List the endpoint groups that are associated with a listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_endpoint_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_endpoint_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_endpoint_groups)
         """
     def list_listeners(
@@ -509,14 +509,14 @@ class GlobalAcceleratorClient(BaseClient):
         """
         List the listeners for an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_listeners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_listeners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_listeners)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         List all tags for an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#list_tags_for_resource)
         """
     def provision_byoip_cidr(
@@ -527,7 +527,7 @@ class GlobalAcceleratorClient(BaseClient):
         through bring your own IP addresses (BYOIP) and creates a corresponding address
         pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.provision_byoip_cidr)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.provision_byoip_cidr)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#provision_byoip_cidr)
         """
     def remove_custom_routing_endpoints(
@@ -536,21 +536,21 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Remove endpoints from a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.remove_custom_routing_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.remove_custom_routing_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#remove_custom_routing_endpoints)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Add tags to an accelerator resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Remove tags from a Global Accelerator resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#untag_resource)
         """
     def update_accelerator(
@@ -564,7 +564,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Update an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_accelerator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_accelerator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#update_accelerator)
         """
     def update_accelerator_attributes(
@@ -578,7 +578,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Update the attributes for an accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_accelerator_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_accelerator_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#update_accelerator_attributes)
         """
     def update_custom_routing_accelerator(
@@ -592,7 +592,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Update a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_custom_routing_accelerator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_custom_routing_accelerator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#update_custom_routing_accelerator)
         """
     def update_custom_routing_accelerator_attributes(
@@ -606,7 +606,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Update the attributes for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_custom_routing_accelerator_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_custom_routing_accelerator_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#update_custom_routing_accelerator_attributes)
         """
     def update_custom_routing_listener(
@@ -615,7 +615,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Update a listener for a custom routing accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_custom_routing_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_custom_routing_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#update_custom_routing_listener)
         """
     def update_endpoint_group(
@@ -634,7 +634,7 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Update an endpoint group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#update_endpoint_group)
         """
     def update_listener(
@@ -648,14 +648,14 @@ class GlobalAcceleratorClient(BaseClient):
         """
         Update a listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.update_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#update_listener)
         """
     def withdraw_byoip_cidr(self, *, Cidr: str) -> WithdrawByoipCidrResponseTypeDef:
         """
         Stops advertising an address range that is provisioned as an address pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Client.withdraw_byoip_cidr)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Client.withdraw_byoip_cidr)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/client.html#withdraw_byoip_cidr)
         """
     @overload
@@ -663,13 +663,13 @@ class GlobalAcceleratorClient(BaseClient):
         self, operation_name: Literal["list_accelerators"]
     ) -> ListAcceleratorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listacceleratorspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_byoip_cidrs"]) -> ListByoipCidrsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListByoipCidrs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListByoipCidrs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listbyoipcidrspaginator)
         """
     @overload
@@ -677,7 +677,7 @@ class GlobalAcceleratorClient(BaseClient):
         self, operation_name: Literal["list_custom_routing_accelerators"]
     ) -> ListCustomRoutingAcceleratorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingAccelerators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingAccelerators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingacceleratorspaginator)
         """
     @overload
@@ -685,7 +685,7 @@ class GlobalAcceleratorClient(BaseClient):
         self, operation_name: Literal["list_custom_routing_listeners"]
     ) -> ListCustomRoutingListenersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingListeners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingListeners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutinglistenerspaginator)
         """
     @overload
@@ -693,7 +693,7 @@ class GlobalAcceleratorClient(BaseClient):
         self, operation_name: Literal["list_custom_routing_port_mappings"]
     ) -> ListCustomRoutingPortMappingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingportmappingspaginator)
         """
     @overload
@@ -701,7 +701,7 @@ class GlobalAcceleratorClient(BaseClient):
         self, operation_name: Literal["list_custom_routing_port_mappings_by_destination"]
     ) -> ListCustomRoutingPortMappingsByDestinationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappingsByDestination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappingsByDestination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingportmappingsbydestinationpaginator)
         """
     @overload
@@ -709,12 +709,12 @@ class GlobalAcceleratorClient(BaseClient):
         self, operation_name: Literal["list_endpoint_groups"]
     ) -> ListEndpointGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listendpointgroupspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_listeners"]) -> ListListenersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listlistenerspaginator)
         """

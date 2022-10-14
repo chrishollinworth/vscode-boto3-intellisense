@@ -22,12 +22,14 @@ __all__ = (
     "ApplicationInstanceHealthStatusType",
     "ApplicationInstanceStatusType",
     "ConnectionTypeType",
+    "DeviceAggregatedStatusType",
     "DeviceBrandType",
     "DeviceConnectionStatusType",
     "DeviceStatusType",
     "DeviceTypeType",
     "JobResourceTypeType",
     "JobTypeType",
+    "ListDevicesSortByType",
     "NetworkConnectionStatusType",
     "NodeCategoryType",
     "NodeFromTemplateJobStatusType",
@@ -36,6 +38,7 @@ __all__ = (
     "PackageImportJobTypeType",
     "PackageVersionStatusType",
     "PortTypeType",
+    "SortOrderType",
     "StatusFilterType",
     "TemplateTypeType",
     "UpdateProgressType",
@@ -56,6 +59,17 @@ ApplicationInstanceStatusType = Literal[
     "REMOVAL_SUCCEEDED",
 ]
 ConnectionTypeType = Literal["DHCP", "STATIC_IP"]
+DeviceAggregatedStatusType = Literal[
+    "AWAITING_PROVISIONING",
+    "DELETING",
+    "ERROR",
+    "FAILED",
+    "LEASE_EXPIRED",
+    "OFFLINE",
+    "ONLINE",
+    "PENDING",
+    "UPDATE_NEEDED",
+]
 DeviceBrandType = Literal["AWS_PANORAMA", "LENOVO"]
 DeviceConnectionStatusType = Literal[
     "AWAITING_CREDENTIALS", "ERROR", "NOT_AVAILABLE", "OFFLINE", "ONLINE"
@@ -66,6 +80,7 @@ DeviceStatusType = Literal[
 DeviceTypeType = Literal["PANORAMA_APPLIANCE", "PANORAMA_APPLIANCE_DEVELOPER_KIT"]
 JobResourceTypeType = Literal["PACKAGE"]
 JobTypeType = Literal["OTA"]
+ListDevicesSortByType = Literal["CREATED_TIME", "DEVICE_AGGREGATED_STATUS", "DEVICE_ID", "NAME"]
 NetworkConnectionStatusType = Literal["CONNECTED", "CONNECTING", "NOT_CONNECTED"]
 NodeCategoryType = Literal["BUSINESS_LOGIC", "MEDIA_SINK", "MEDIA_SOURCE", "ML_MODEL"]
 NodeFromTemplateJobStatusType = Literal["FAILED", "PENDING", "SUCCEEDED"]
@@ -74,6 +89,7 @@ PackageImportJobStatusType = Literal["FAILED", "PENDING", "SUCCEEDED"]
 PackageImportJobTypeType = Literal["MARKETPLACE_NODE_PACKAGE_VERSION", "NODE_PACKAGE_VERSION"]
 PackageVersionStatusType = Literal["DELETING", "FAILED", "REGISTER_COMPLETED", "REGISTER_PENDING"]
 PortTypeType = Literal["BOOLEAN", "FLOAT32", "INT32", "MEDIA", "STRING"]
+SortOrderType = Literal["ASCENDING", "DESCENDING"]
 StatusFilterType = Literal[
     "DEPLOYMENT_ERROR",
     "DEPLOYMENT_FAILED",

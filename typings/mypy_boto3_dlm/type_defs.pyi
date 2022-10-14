@@ -36,6 +36,8 @@ else:
 
 __all__ = (
     "ActionTypeDef",
+    "ArchiveRetainRuleTypeDef",
+    "ArchiveRuleTypeDef",
     "CreateLifecyclePolicyRequestRequestTypeDef",
     "CreateLifecyclePolicyResponseTypeDef",
     "CreateRuleTypeDef",
@@ -61,6 +63,7 @@ __all__ = (
     "PolicyDetailsTypeDef",
     "ResponseMetadataTypeDef",
     "RetainRuleTypeDef",
+    "RetentionArchiveTierTypeDef",
     "ScheduleTypeDef",
     "ShareRuleTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -74,6 +77,20 @@ ActionTypeDef = TypedDict(
     {
         "Name": str,
         "CrossRegionCopy": List["CrossRegionCopyActionTypeDef"],
+    },
+)
+
+ArchiveRetainRuleTypeDef = TypedDict(
+    "ArchiveRetainRuleTypeDef",
+    {
+        "RetentionArchiveTier": "RetentionArchiveTierTypeDef",
+    },
+)
+
+ArchiveRuleTypeDef = TypedDict(
+    "ArchiveRuleTypeDef",
+    {
+        "RetainRule": "ArchiveRetainRuleTypeDef",
     },
 )
 
@@ -388,6 +405,16 @@ RetainRuleTypeDef = TypedDict(
     total=False,
 )
 
+RetentionArchiveTierTypeDef = TypedDict(
+    "RetentionArchiveTierTypeDef",
+    {
+        "Count": int,
+        "Interval": int,
+        "IntervalUnit": RetentionIntervalUnitValuesType,
+    },
+    total=False,
+)
+
 ScheduleTypeDef = TypedDict(
     "ScheduleTypeDef",
     {
@@ -401,6 +428,7 @@ ScheduleTypeDef = TypedDict(
         "CrossRegionCopyRules": List["CrossRegionCopyRuleTypeDef"],
         "ShareRules": List["ShareRuleTypeDef"],
         "DeprecateRule": "DeprecateRuleTypeDef",
+        "ArchiveRule": "ArchiveRuleTypeDef",
     },
     total=False,
 )

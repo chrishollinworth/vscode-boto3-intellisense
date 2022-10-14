@@ -108,6 +108,8 @@ __all__ = (
     "GetMapStyleDescriptorResponseTypeDef",
     "GetMapTileRequestRequestTypeDef",
     "GetMapTileResponseTypeDef",
+    "GetPlaceRequestRequestTypeDef",
+    "GetPlaceResponseTypeDef",
     "LegGeometryTypeDef",
     "LegTypeDef",
     "ListDevicePositionsRequestRequestTypeDef",
@@ -1009,6 +1011,34 @@ GetMapTileResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetPlaceRequestRequestTypeDef = TypedDict(
+    "_RequiredGetPlaceRequestRequestTypeDef",
+    {
+        "IndexName": str,
+        "PlaceId": str,
+    },
+)
+_OptionalGetPlaceRequestRequestTypeDef = TypedDict(
+    "_OptionalGetPlaceRequestRequestTypeDef",
+    {
+        "Language": str,
+    },
+    total=False,
+)
+
+class GetPlaceRequestRequestTypeDef(
+    _RequiredGetPlaceRequestRequestTypeDef, _OptionalGetPlaceRequestRequestTypeDef
+):
+    pass
+
+GetPlaceResponseTypeDef = TypedDict(
+    "GetPlaceResponseTypeDef",
+    {
+        "Place": "PlaceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 LegGeometryTypeDef = TypedDict(
     "LegGeometryTypeDef",
     {
@@ -1428,6 +1458,8 @@ _OptionalPlaceTypeDef = TypedDict(
         "Street": str,
         "SubRegion": str,
         "TimeZone": "TimeZoneTypeDef",
+        "UnitNumber": str,
+        "UnitType": str,
     },
     total=False,
 )
@@ -1501,20 +1533,44 @@ RouteMatrixEntryTypeDef = TypedDict(
     total=False,
 )
 
-SearchForPositionResultTypeDef = TypedDict(
-    "SearchForPositionResultTypeDef",
+_RequiredSearchForPositionResultTypeDef = TypedDict(
+    "_RequiredSearchForPositionResultTypeDef",
     {
         "Distance": float,
         "Place": "PlaceTypeDef",
     },
 )
+_OptionalSearchForPositionResultTypeDef = TypedDict(
+    "_OptionalSearchForPositionResultTypeDef",
+    {
+        "PlaceId": str,
+    },
+    total=False,
+)
 
-SearchForSuggestionsResultTypeDef = TypedDict(
-    "SearchForSuggestionsResultTypeDef",
+class SearchForPositionResultTypeDef(
+    _RequiredSearchForPositionResultTypeDef, _OptionalSearchForPositionResultTypeDef
+):
+    pass
+
+_RequiredSearchForSuggestionsResultTypeDef = TypedDict(
+    "_RequiredSearchForSuggestionsResultTypeDef",
     {
         "Text": str,
     },
 )
+_OptionalSearchForSuggestionsResultTypeDef = TypedDict(
+    "_OptionalSearchForSuggestionsResultTypeDef",
+    {
+        "PlaceId": str,
+    },
+    total=False,
+)
+
+class SearchForSuggestionsResultTypeDef(
+    _RequiredSearchForSuggestionsResultTypeDef, _OptionalSearchForSuggestionsResultTypeDef
+):
+    pass
 
 _RequiredSearchForTextResultTypeDef = TypedDict(
     "_RequiredSearchForTextResultTypeDef",
@@ -1526,6 +1582,7 @@ _OptionalSearchForTextResultTypeDef = TypedDict(
     "_OptionalSearchForTextResultTypeDef",
     {
         "Distance": float,
+        "PlaceId": str,
         "Relevance": float,
     },
     total=False,

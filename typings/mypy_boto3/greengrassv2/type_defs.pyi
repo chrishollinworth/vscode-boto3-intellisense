@@ -28,6 +28,7 @@ from .literals import (
     DeploymentStatusType,
     EffectiveDeploymentExecutionStatusType,
     InstalledComponentLifecycleStateType,
+    InstalledComponentTopologyFilterType,
     IoTJobExecutionFailureTypeType,
     LambdaEventSourceTypeType,
     LambdaFilesystemPermissionType,
@@ -87,6 +88,7 @@ __all__ = (
     "DisassociateClientDeviceFromCoreDeviceEntryTypeDef",
     "DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef",
     "DisassociateServiceRoleFromAccountResponseTypeDef",
+    "EffectiveDeploymentStatusDetailsTypeDef",
     "EffectiveDeploymentTypeDef",
     "GetComponentRequestRequestTypeDef",
     "GetComponentResponseTypeDef",
@@ -553,6 +555,15 @@ DisassociateServiceRoleFromAccountResponseTypeDef = TypedDict(
     },
 )
 
+EffectiveDeploymentStatusDetailsTypeDef = TypedDict(
+    "EffectiveDeploymentStatusDetailsTypeDef",
+    {
+        "errorStack": List[str],
+        "errorTypes": List[str],
+    },
+    total=False,
+)
+
 _RequiredEffectiveDeploymentTypeDef = TypedDict(
     "_RequiredEffectiveDeploymentTypeDef",
     {
@@ -571,6 +582,7 @@ _OptionalEffectiveDeploymentTypeDef = TypedDict(
         "iotJobArn": str,
         "description": str,
         "reason": str,
+        "statusDetails": "EffectiveDeploymentStatusDetailsTypeDef",
     },
     total=False,
 )
@@ -706,6 +718,10 @@ InstalledComponentTypeDef = TypedDict(
         "lifecycleState": InstalledComponentLifecycleStateType,
         "lifecycleStateDetails": str,
         "isRoot": bool,
+        "lastStatusChangeTimestamp": datetime,
+        "lastReportedTimestamp": datetime,
+        "lastInstallationSource": str,
+        "lifecycleStatusCodes": List[str],
     },
     total=False,
 )
@@ -1032,6 +1048,7 @@ _OptionalListInstalledComponentsRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
+        "topologyFilter": InstalledComponentTopologyFilterType,
     },
     total=False,
 )

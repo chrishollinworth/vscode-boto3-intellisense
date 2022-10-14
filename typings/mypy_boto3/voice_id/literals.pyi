@@ -51,7 +51,7 @@ DuplicateRegistrationActionType = Literal["REGISTER_AS_NEW", "SKIP"]
 ExistingEnrollmentActionType = Literal["OVERWRITE", "SKIP"]
 FraudDetectionActionType = Literal["FAIL", "IGNORE"]
 FraudDetectionDecisionType = Literal["HIGH_RISK", "LOW_RISK", "NOT_ENOUGH_SPEECH"]
-FraudDetectionReasonType = Literal["KNOWN_FRAUDSTER"]
+FraudDetectionReasonType = Literal["KNOWN_FRAUDSTER", "VOICE_SPOOFING"]
 FraudsterRegistrationJobStatusType = Literal[
     "COMPLETED", "COMPLETED_WITH_ERRORS", "FAILED", "IN_PROGRESS", "SUBMITTED"
 ]

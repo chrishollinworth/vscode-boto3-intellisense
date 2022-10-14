@@ -54,11 +54,11 @@ __all__ = (
 ArrayValueTypeDef = TypedDict(
     "ArrayValueTypeDef",
     {
-        "arrayValues": List[Dict[str, Any]],
         "booleanValues": List[bool],
-        "doubleValues": List[float],
         "longValues": List[int],
+        "doubleValues": List[float],
         "stringValues": List[str],
+        "arrayValues": List[Dict[str, Any]],
     },
     total=False,
 )
@@ -75,8 +75,8 @@ _OptionalBatchExecuteStatementRequestRequestTypeDef = TypedDict(
     "_OptionalBatchExecuteStatementRequestRequestTypeDef",
     {
         "database": str,
-        "parameterSets": List[List["SqlParameterTypeDef"]],
         "schema": str,
+        "parameterSets": List[List["SqlParameterTypeDef"]],
         "transactionId": str,
     },
     total=False,
@@ -128,20 +128,20 @@ BeginTransactionResponseTypeDef = TypedDict(
 ColumnMetadataTypeDef = TypedDict(
     "ColumnMetadataTypeDef",
     {
-        "arrayBaseColumnType": int,
-        "isAutoIncrement": bool,
-        "isCaseSensitive": bool,
-        "isCurrency": bool,
-        "isSigned": bool,
-        "label": str,
         "name": str,
+        "type": int,
+        "typeName": str,
+        "label": str,
+        "schemaName": str,
+        "tableName": str,
+        "isAutoIncrement": bool,
+        "isSigned": bool,
+        "isCurrency": bool,
+        "isCaseSensitive": bool,
         "nullable": int,
         "precision": int,
         "scale": int,
-        "schemaName": str,
-        "tableName": str,
-        "type": int,
-        "typeName": str,
+        "arrayBaseColumnType": int,
     },
     total=False,
 )
@@ -166,8 +166,8 @@ CommitTransactionResponseTypeDef = TypedDict(
 _RequiredExecuteSqlRequestRequestTypeDef = TypedDict(
     "_RequiredExecuteSqlRequestRequestTypeDef",
     {
-        "awsSecretStoreArn": str,
         "dbClusterOrInstanceArn": str,
+        "awsSecretStoreArn": str,
         "sqlStatements": str,
     },
 )
@@ -204,14 +204,14 @@ _RequiredExecuteStatementRequestRequestTypeDef = TypedDict(
 _OptionalExecuteStatementRequestRequestTypeDef = TypedDict(
     "_OptionalExecuteStatementRequestRequestTypeDef",
     {
-        "continueAfterTimeout": bool,
         "database": str,
-        "formatRecordsAs": RecordsFormatTypeType,
-        "includeResultMetadata": bool,
-        "parameters": List["SqlParameterTypeDef"],
-        "resultSetOptions": "ResultSetOptionsTypeDef",
         "schema": str,
+        "parameters": List["SqlParameterTypeDef"],
         "transactionId": str,
+        "includeResultMetadata": bool,
+        "continueAfterTimeout": bool,
+        "resultSetOptions": "ResultSetOptionsTypeDef",
+        "formatRecordsAs": RecordsFormatTypeType,
     },
     total=False,
 )
@@ -224,11 +224,11 @@ class ExecuteStatementRequestRequestTypeDef(
 ExecuteStatementResponseTypeDef = TypedDict(
     "ExecuteStatementResponseTypeDef",
     {
-        "columnMetadata": List["ColumnMetadataTypeDef"],
-        "formattedRecords": str,
-        "generatedFields": List["FieldTypeDef"],
-        "numberOfRecordsUpdated": int,
         "records": List[List["FieldTypeDef"]],
+        "columnMetadata": List["ColumnMetadataTypeDef"],
+        "numberOfRecordsUpdated": int,
+        "generatedFields": List["FieldTypeDef"],
+        "formattedRecords": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -236,13 +236,13 @@ ExecuteStatementResponseTypeDef = TypedDict(
 FieldTypeDef = TypedDict(
     "FieldTypeDef",
     {
-        "arrayValue": "ArrayValueTypeDef",
-        "blobValue": Union[bytes, IO[bytes], StreamingBody],
-        "booleanValue": bool,
-        "doubleValue": float,
         "isNull": bool,
+        "booleanValue": bool,
         "longValue": int,
+        "doubleValue": float,
         "stringValue": str,
+        "blobValue": Union[bytes, IO[bytes], StreamingBody],
+        "arrayValue": "ArrayValueTypeDef",
     },
     total=False,
 )
@@ -269,8 +269,8 @@ ResponseMetadataTypeDef = TypedDict(
 ResultFrameTypeDef = TypedDict(
     "ResultFrameTypeDef",
     {
-        "records": List["RecordTypeDef"],
         "resultSetMetadata": "ResultSetMetadataTypeDef",
+        "records": List["RecordTypeDef"],
     },
     total=False,
 )
@@ -314,8 +314,8 @@ SqlParameterTypeDef = TypedDict(
     "SqlParameterTypeDef",
     {
         "name": str,
-        "typeHint": TypeHintType,
         "value": "FieldTypeDef",
+        "typeHint": TypeHintType,
     },
     total=False,
 )
@@ -323,8 +323,8 @@ SqlParameterTypeDef = TypedDict(
 SqlStatementResultTypeDef = TypedDict(
     "SqlStatementResultTypeDef",
     {
-        "numberOfRecordsUpdated": int,
         "resultFrame": "ResultFrameTypeDef",
+        "numberOfRecordsUpdated": int,
     },
     total=False,
 )
@@ -348,15 +348,15 @@ UpdateResultTypeDef = TypedDict(
 ValueTypeDef = TypedDict(
     "ValueTypeDef",
     {
-        "arrayValues": List[Dict[str, Any]],
-        "bigIntValue": int,
-        "bitValue": bool,
-        "blobValue": bytes,
-        "doubleValue": float,
-        "intValue": int,
         "isNull": bool,
+        "bitValue": bool,
+        "bigIntValue": int,
+        "intValue": int,
+        "doubleValue": float,
         "realValue": float,
         "stringValue": str,
+        "blobValue": bytes,
+        "arrayValues": List[Dict[str, Any]],
         "structValue": Dict[str, Any],
     },
     total=False,

@@ -86,6 +86,8 @@ LaunchProfileStatusCodeType = Literal[
     "ENCRYPTION_KEY_ACCESS_DENIED",
     "ENCRYPTION_KEY_NOT_FOUND",
     "INTERNAL_ERROR",
+    "INVALID_INSTANCE_TYPES_PROVIDED",
+    "INVALID_SUBNETS_COMBINATION",
     "INVALID_SUBNETS_PROVIDED",
     "LAUNCH_PROFILE_CREATED",
     "LAUNCH_PROFILE_CREATE_IN_PROGRESS",
@@ -154,7 +156,19 @@ StreamingImageStatusCodeType = Literal[
     "STREAMING_IMAGE_UPDATE_IN_PROGRESS",
 ]
 StreamingInstanceTypeType = Literal[
-    "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.xlarge"
+    "g3.4xlarge",
+    "g3s.xlarge",
+    "g4dn.12xlarge",
+    "g4dn.16xlarge",
+    "g4dn.2xlarge",
+    "g4dn.4xlarge",
+    "g4dn.8xlarge",
+    "g4dn.xlarge",
+    "g5.16xlarge",
+    "g5.2xlarge",
+    "g5.4xlarge",
+    "g5.8xlarge",
+    "g5.xlarge",
 ]
 StreamingSessionDeletedWaiterName = Literal["streaming_session_deleted"]
 StreamingSessionReadyWaiterName = Literal["streaming_session_ready"]

@@ -39,6 +39,8 @@ Usage::
         ListUserHierarchyGroupsPaginator,
         ListUsersPaginator,
         SearchAvailablePhoneNumbersPaginator,
+        SearchQueuesPaginator,
+        SearchRoutingProfilesPaginator,
         SearchSecurityProfilesPaginator,
         SearchUsersPaginator,
         SearchVocabulariesPaginator,
@@ -80,6 +82,8 @@ Usage::
     list_user_hierarchy_groups_paginator: ListUserHierarchyGroupsPaginator = client.get_paginator("list_user_hierarchy_groups")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     search_available_phone_numbers_paginator: SearchAvailablePhoneNumbersPaginator = client.get_paginator("search_available_phone_numbers")
+    search_queues_paginator: SearchQueuesPaginator = client.get_paginator("search_queues")
+    search_routing_profiles_paginator: SearchRoutingProfilesPaginator = client.get_paginator("search_routing_profiles")
     search_security_profiles_paginator: SearchSecurityProfilesPaginator = client.get_paginator("search_security_profiles")
     search_users_paginator: SearchUsersPaginator = client.get_paginator("search_users")
     search_vocabularies_paginator: SearchVocabulariesPaginator = client.get_paginator("search_vocabularies")
@@ -118,6 +122,8 @@ from .paginator import (
     ListUserHierarchyGroupsPaginator,
     ListUsersPaginator,
     SearchAvailablePhoneNumbersPaginator,
+    SearchQueuesPaginator,
+    SearchRoutingProfilesPaginator,
     SearchSecurityProfilesPaginator,
     SearchUsersPaginator,
     SearchVocabulariesPaginator,
@@ -159,6 +165,8 @@ __all__ = (
     "ListUserHierarchyGroupsPaginator",
     "ListUsersPaginator",
     "SearchAvailablePhoneNumbersPaginator",
+    "SearchQueuesPaginator",
+    "SearchRoutingProfilesPaginator",
     "SearchSecurityProfilesPaginator",
     "SearchUsersPaginator",
     "SearchVocabulariesPaginator",

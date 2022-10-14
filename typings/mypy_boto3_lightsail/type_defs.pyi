@@ -41,9 +41,13 @@ from .literals import (
     ExportSnapshotRecordSourceTypeType,
     ForwardValuesType,
     HeaderEnumType,
+    HttpEndpointType,
+    HttpProtocolIpv6Type,
+    HttpTokensType,
     InstanceAccessProtocolType,
     InstanceHealthReasonType,
     InstanceHealthStateType,
+    InstanceMetadataStateType,
     InstanceMetricNameType,
     InstancePlatformType,
     InstanceSnapshotStateType,
@@ -388,6 +392,7 @@ __all__ = (
     "InstanceEntryTypeDef",
     "InstanceHardwareTypeDef",
     "InstanceHealthSummaryTypeDef",
+    "InstanceMetadataOptionsTypeDef",
     "InstanceNetworkingTypeDef",
     "InstancePortInfoTypeDef",
     "InstancePortStateTypeDef",
@@ -485,6 +490,8 @@ __all__ = (
     "UpdateDistributionResultTypeDef",
     "UpdateDomainEntryRequestRequestTypeDef",
     "UpdateDomainEntryResultTypeDef",
+    "UpdateInstanceMetadataOptionsRequestRequestTypeDef",
+    "UpdateInstanceMetadataOptionsResultTypeDef",
     "UpdateLoadBalancerAttributeRequestRequestTypeDef",
     "UpdateLoadBalancerAttributeResultTypeDef",
     "UpdateRelationalDatabaseParametersRequestRequestTypeDef",
@@ -3716,6 +3723,18 @@ InstanceHealthSummaryTypeDef = TypedDict(
     total=False,
 )
 
+InstanceMetadataOptionsTypeDef = TypedDict(
+    "InstanceMetadataOptionsTypeDef",
+    {
+        "state": InstanceMetadataStateType,
+        "httpTokens": HttpTokensType,
+        "httpEndpoint": HttpEndpointType,
+        "httpPutResponseHopLimit": int,
+        "httpProtocolIpv6": HttpProtocolIpv6Type,
+    },
+    total=False,
+)
+
 InstanceNetworkingTypeDef = TypedDict(
     "InstanceNetworkingTypeDef",
     {
@@ -3822,6 +3841,7 @@ InstanceTypeDef = TypedDict(
         "state": "InstanceStateTypeDef",
         "username": str,
         "sshKeyName": str,
+        "metadataOptions": "InstanceMetadataOptionsTypeDef",
     },
     total=False,
 )
@@ -4860,6 +4880,37 @@ UpdateDomainEntryResultTypeDef = TypedDict(
     "UpdateDomainEntryResultTypeDef",
     {
         "operations": List["OperationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateInstanceMetadataOptionsRequestRequestTypeDef",
+    {
+        "instanceName": str,
+    },
+)
+_OptionalUpdateInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateInstanceMetadataOptionsRequestRequestTypeDef",
+    {
+        "httpTokens": HttpTokensType,
+        "httpEndpoint": HttpEndpointType,
+        "httpPutResponseHopLimit": int,
+        "httpProtocolIpv6": HttpProtocolIpv6Type,
+    },
+    total=False,
+)
+
+class UpdateInstanceMetadataOptionsRequestRequestTypeDef(
+    _RequiredUpdateInstanceMetadataOptionsRequestRequestTypeDef,
+    _OptionalUpdateInstanceMetadataOptionsRequestRequestTypeDef,
+):
+    pass
+
+UpdateInstanceMetadataOptionsResultTypeDef = TypedDict(
+    "UpdateInstanceMetadataOptionsResultTypeDef",
+    {
+        "operation": "OperationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

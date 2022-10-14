@@ -19,15 +19,19 @@ from .literals import (
     AsyncOperationNameType,
     BucketCannedACLType,
     BucketLocationConstraintType,
+    BucketVersioningStatusType,
     ExpirationStatusType,
     FormatType,
     JobManifestFieldNameType,
     JobManifestFormatType,
     JobReportScopeType,
     JobStatusType,
+    MFADeleteStatusType,
+    MFADeleteType,
     MultiRegionAccessPointStatusType,
     NetworkOriginType,
     ObjectLambdaAllowedFeatureType,
+    ObjectLambdaTransformationConfigurationActionType,
     OperationNameType,
     ReplicationStatusType,
     RequestedJobStatusType,
@@ -122,6 +126,8 @@ __all__ = (
     "GetBucketResultTypeDef",
     "GetBucketTaggingRequestRequestTypeDef",
     "GetBucketTaggingResultTypeDef",
+    "GetBucketVersioningRequestRequestTypeDef",
+    "GetBucketVersioningResultTypeDef",
     "GetJobTaggingRequestRequestTypeDef",
     "GetJobTaggingResultTypeDef",
     "GetMultiRegionAccessPointPolicyRequestRequestTypeDef",
@@ -190,6 +196,7 @@ __all__ = (
     "PutBucketLifecycleConfigurationRequestRequestTypeDef",
     "PutBucketPolicyRequestRequestTypeDef",
     "PutBucketTaggingRequestRequestTypeDef",
+    "PutBucketVersioningRequestRequestTypeDef",
     "PutJobTaggingRequestRequestTypeDef",
     "PutMultiRegionAccessPointPolicyInputTypeDef",
     "PutMultiRegionAccessPointPolicyRequestRequestTypeDef",
@@ -234,6 +241,7 @@ __all__ = (
     "UpdateJobPriorityResultTypeDef",
     "UpdateJobStatusRequestRequestTypeDef",
     "UpdateJobStatusResultTypeDef",
+    "VersioningConfigurationTypeDef",
     "VpcConfigurationTypeDef",
 )
 
@@ -896,6 +904,23 @@ GetBucketTaggingResultTypeDef = TypedDict(
     "GetBucketTaggingResultTypeDef",
     {
         "TagSet": List["S3TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetBucketVersioningRequestRequestTypeDef = TypedDict(
+    "GetBucketVersioningRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Bucket": str,
+    },
+)
+
+GetBucketVersioningResultTypeDef = TypedDict(
+    "GetBucketVersioningResultTypeDef",
+    {
+        "Status": BucketVersioningStatusType,
+        "MFADelete": MFADeleteStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1566,7 +1591,7 @@ ObjectLambdaContentTransformationTypeDef = TypedDict(
 ObjectLambdaTransformationConfigurationTypeDef = TypedDict(
     "ObjectLambdaTransformationConfigurationTypeDef",
     {
-        "Actions": List[Literal["GetObject"]],
+        "Actions": List[ObjectLambdaTransformationConfigurationActionType],
         "ContentTransformation": "ObjectLambdaContentTransformationTypeDef",
     },
 )
@@ -1701,6 +1726,28 @@ PutBucketTaggingRequestRequestTypeDef = TypedDict(
         "Tagging": "TaggingTypeDef",
     },
 )
+
+_RequiredPutBucketVersioningRequestRequestTypeDef = TypedDict(
+    "_RequiredPutBucketVersioningRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Bucket": str,
+        "VersioningConfiguration": "VersioningConfigurationTypeDef",
+    },
+)
+_OptionalPutBucketVersioningRequestRequestTypeDef = TypedDict(
+    "_OptionalPutBucketVersioningRequestRequestTypeDef",
+    {
+        "MFA": str,
+    },
+    total=False,
+)
+
+class PutBucketVersioningRequestRequestTypeDef(
+    _RequiredPutBucketVersioningRequestRequestTypeDef,
+    _OptionalPutBucketVersioningRequestRequestTypeDef,
+):
+    pass
 
 PutJobTaggingRequestRequestTypeDef = TypedDict(
     "PutJobTaggingRequestRequestTypeDef",
@@ -2218,6 +2265,15 @@ UpdateJobStatusResultTypeDef = TypedDict(
         "StatusUpdateReason": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+VersioningConfigurationTypeDef = TypedDict(
+    "VersioningConfigurationTypeDef",
+    {
+        "MFADelete": MFADeleteType,
+        "Status": BucketVersioningStatusType,
+    },
+    total=False,
 )
 
 VpcConfigurationTypeDef = TypedDict(

@@ -108,6 +108,7 @@ TypeType = Literal["ACCOUNT", "ORGANIZATION"]
 ValidatePolicyFindingTypeType = Literal["ERROR", "SECURITY_WARNING", "SUGGESTION", "WARNING"]
 ValidatePolicyPaginatorName = Literal["validate_policy"]
 ValidatePolicyResourceTypeType = Literal[
+    "AWS::IAM::AssumeRolePolicyDocument",
     "AWS::S3::AccessPoint",
     "AWS::S3::Bucket",
     "AWS::S3::MultiRegionAccessPoint",

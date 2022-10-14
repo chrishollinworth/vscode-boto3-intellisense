@@ -20,16 +20,28 @@ else:
 
 __all__ = (
     "ExportComponentsPaginatorName",
+    "ExportFormsPaginatorName",
     "ExportThemesPaginatorName",
+    "FixedPositionType",
+    "FormActionTypeType",
+    "FormButtonsPositionType",
+    "FormDataSourceTypeType",
     "ListComponentsPaginatorName",
+    "ListFormsPaginatorName",
     "ListThemesPaginatorName",
     "SortDirectionType",
     "TokenProvidersType",
 )
 
 ExportComponentsPaginatorName = Literal["export_components"]
+ExportFormsPaginatorName = Literal["export_forms"]
 ExportThemesPaginatorName = Literal["export_themes"]
+FixedPositionType = Literal["first"]
+FormActionTypeType = Literal["create", "update"]
+FormButtonsPositionType = Literal["bottom", "top", "top_and_bottom"]
+FormDataSourceTypeType = Literal["Custom", "DataStore"]
 ListComponentsPaginatorName = Literal["list_components"]
+ListFormsPaginatorName = Literal["list_forms"]
 ListThemesPaginatorName = Literal["list_themes"]
 SortDirectionType = Literal["ASC", "DESC"]
 TokenProvidersType = Literal["figma"]

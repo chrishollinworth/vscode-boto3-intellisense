@@ -53,6 +53,8 @@ __all__ = (
     "DeleteSMSSandboxPhoneNumberInputRequestTypeDef",
     "DeleteTopicInputRequestTypeDef",
     "EndpointTypeDef",
+    "GetDataProtectionPolicyInputRequestTypeDef",
+    "GetDataProtectionPolicyResponseTypeDef",
     "GetEndpointAttributesInputRequestTypeDef",
     "GetEndpointAttributesResponseTypeDef",
     "GetPlatformApplicationAttributesInputRequestTypeDef",
@@ -95,6 +97,7 @@ __all__ = (
     "PublishInputRequestTypeDef",
     "PublishInputTopicTypeDef",
     "PublishResponseTypeDef",
+    "PutDataProtectionPolicyInputRequestTypeDef",
     "RemovePermissionInputRequestTypeDef",
     "RemovePermissionInputTopicTypeDef",
     "ResponseMetadataTypeDef",
@@ -334,6 +337,7 @@ _OptionalCreateTopicInputRequestTypeDef = TypedDict(
     {
         "Attributes": Dict[str, str],
         "Tags": List["TagTypeDef"],
+        "DataProtectionPolicy": str,
     },
     total=False,
 )
@@ -354,6 +358,7 @@ _OptionalCreateTopicInputServiceResourceTypeDef = TypedDict(
     {
         "Attributes": Dict[str, str],
         "Tags": List["TagTypeDef"],
+        "DataProtectionPolicy": str,
     },
     total=False,
 )
@@ -406,6 +411,21 @@ EndpointTypeDef = TypedDict(
         "Attributes": Dict[str, str],
     },
     total=False,
+)
+
+GetDataProtectionPolicyInputRequestTypeDef = TypedDict(
+    "GetDataProtectionPolicyInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+GetDataProtectionPolicyResponseTypeDef = TypedDict(
+    "GetDataProtectionPolicyResponseTypeDef",
+    {
+        "DataProtectionPolicy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetEndpointAttributesInputRequestTypeDef = TypedDict(
@@ -861,6 +881,14 @@ PublishResponseTypeDef = TypedDict(
         "MessageId": str,
         "SequenceNumber": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutDataProtectionPolicyInputRequestTypeDef = TypedDict(
+    "PutDataProtectionPolicyInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "DataProtectionPolicy": str,
     },
 )
 

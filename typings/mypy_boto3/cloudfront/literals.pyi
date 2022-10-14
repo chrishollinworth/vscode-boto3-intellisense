@@ -41,6 +41,9 @@ __all__ = (
     "ListStreamingDistributionsPaginatorName",
     "MethodType",
     "MinimumProtocolVersionType",
+    "OriginAccessControlOriginTypesType",
+    "OriginAccessControlSigningBehaviorsType",
+    "OriginAccessControlSigningProtocolsType",
     "OriginProtocolPolicyType",
     "OriginRequestPolicyCookieBehaviorType",
     "OriginRequestPolicyHeaderBehaviorType",
@@ -83,6 +86,9 @@ MethodType = Literal["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
 MinimumProtocolVersionType = Literal[
     "SSLv3", "TLSv1", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021", "TLSv1_2016"
 ]
+OriginAccessControlOriginTypesType = Literal["s3"]
+OriginAccessControlSigningBehaviorsType = Literal["always", "never", "no-override"]
+OriginAccessControlSigningProtocolsType = Literal["sigv4"]
 OriginProtocolPolicyType = Literal["http-only", "https-only", "match-viewer"]
 OriginRequestPolicyCookieBehaviorType = Literal["all", "none", "whitelist"]
 OriginRequestPolicyHeaderBehaviorType = Literal[

@@ -17,10 +17,12 @@ from typing import Any, Dict, List
 
 from .literals import (
     AccessControlRuleEffectType,
+    AccessEffectType,
     AvailabilityProviderTypeType,
     DnsRecordVerificationStatusType,
     EntityStateType,
     FolderNameType,
+    ImpersonationRoleTypeType,
     MailboxExportJobStateType,
     MemberTypeType,
     MobileDeviceAccessRuleEffectType,
@@ -39,6 +41,8 @@ __all__ = (
     "AccessControlRuleTypeDef",
     "AssociateDelegateToResourceRequestRequestTypeDef",
     "AssociateMemberToGroupRequestRequestTypeDef",
+    "AssumeImpersonationRoleRequestRequestTypeDef",
+    "AssumeImpersonationRoleResponseTypeDef",
     "AvailabilityConfigurationTypeDef",
     "BookingOptionsTypeDef",
     "CancelMailboxExportJobRequestRequestTypeDef",
@@ -46,6 +50,8 @@ __all__ = (
     "CreateAvailabilityConfigurationRequestRequestTypeDef",
     "CreateGroupRequestRequestTypeDef",
     "CreateGroupResponseTypeDef",
+    "CreateImpersonationRoleRequestRequestTypeDef",
+    "CreateImpersonationRoleResponseTypeDef",
     "CreateMobileDeviceAccessRuleRequestRequestTypeDef",
     "CreateMobileDeviceAccessRuleResponseTypeDef",
     "CreateOrganizationRequestRequestTypeDef",
@@ -60,6 +66,7 @@ __all__ = (
     "DeleteAvailabilityConfigurationRequestRequestTypeDef",
     "DeleteEmailMonitoringConfigurationRequestRequestTypeDef",
     "DeleteGroupRequestRequestTypeDef",
+    "DeleteImpersonationRoleRequestRequestTypeDef",
     "DeleteMailboxPermissionsRequestRequestTypeDef",
     "DeleteMobileDeviceAccessOverrideRequestRequestTypeDef",
     "DeleteMobileDeviceAccessRuleRequestRequestTypeDef",
@@ -94,6 +101,10 @@ __all__ = (
     "GetAccessControlEffectResponseTypeDef",
     "GetDefaultRetentionPolicyRequestRequestTypeDef",
     "GetDefaultRetentionPolicyResponseTypeDef",
+    "GetImpersonationRoleEffectRequestRequestTypeDef",
+    "GetImpersonationRoleEffectResponseTypeDef",
+    "GetImpersonationRoleRequestRequestTypeDef",
+    "GetImpersonationRoleResponseTypeDef",
     "GetMailDomainRequestRequestTypeDef",
     "GetMailDomainResponseTypeDef",
     "GetMailboxDetailsRequestRequestTypeDef",
@@ -103,6 +114,9 @@ __all__ = (
     "GetMobileDeviceAccessOverrideRequestRequestTypeDef",
     "GetMobileDeviceAccessOverrideResponseTypeDef",
     "GroupTypeDef",
+    "ImpersonationMatchedRuleTypeDef",
+    "ImpersonationRoleTypeDef",
+    "ImpersonationRuleTypeDef",
     "LambdaAvailabilityProviderTypeDef",
     "ListAccessControlRulesRequestRequestTypeDef",
     "ListAccessControlRulesResponseTypeDef",
@@ -114,6 +128,8 @@ __all__ = (
     "ListGroupMembersResponseTypeDef",
     "ListGroupsRequestRequestTypeDef",
     "ListGroupsResponseTypeDef",
+    "ListImpersonationRolesRequestRequestTypeDef",
+    "ListImpersonationRolesResponseTypeDef",
     "ListMailDomainsRequestRequestTypeDef",
     "ListMailDomainsResponseTypeDef",
     "ListMailboxExportJobsRequestRequestTypeDef",
@@ -164,6 +180,7 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateAvailabilityConfigurationRequestRequestTypeDef",
     "UpdateDefaultMailDomainRequestRequestTypeDef",
+    "UpdateImpersonationRoleRequestRequestTypeDef",
     "UpdateMailboxQuotaRequestRequestTypeDef",
     "UpdateMobileDeviceAccessRuleRequestRequestTypeDef",
     "UpdatePrimaryEmailAddressRequestRequestTypeDef",
@@ -185,6 +202,8 @@ AccessControlRuleTypeDef = TypedDict(
         "NotUserIds": List[str],
         "DateCreated": datetime,
         "DateModified": datetime,
+        "ImpersonationRoleIds": List[str],
+        "NotImpersonationRoleIds": List[str],
     },
     total=False,
 )
@@ -204,6 +223,23 @@ AssociateMemberToGroupRequestRequestTypeDef = TypedDict(
         "OrganizationId": str,
         "GroupId": str,
         "MemberId": str,
+    },
+)
+
+AssumeImpersonationRoleRequestRequestTypeDef = TypedDict(
+    "AssumeImpersonationRoleRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "ImpersonationRoleId": str,
+    },
+)
+
+AssumeImpersonationRoleResponseTypeDef = TypedDict(
+    "AssumeImpersonationRoleResponseTypeDef",
+    {
+        "Token": str,
+        "ExpiresIn": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -283,6 +319,38 @@ CreateGroupResponseTypeDef = TypedDict(
     "CreateGroupResponseTypeDef",
     {
         "GroupId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateImpersonationRoleRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateImpersonationRoleRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "Name": str,
+        "Type": ImpersonationRoleTypeType,
+        "Rules": List["ImpersonationRuleTypeDef"],
+    },
+)
+_OptionalCreateImpersonationRoleRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateImpersonationRoleRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+class CreateImpersonationRoleRequestRequestTypeDef(
+    _RequiredCreateImpersonationRoleRequestRequestTypeDef,
+    _OptionalCreateImpersonationRoleRequestRequestTypeDef,
+):
+    pass
+
+CreateImpersonationRoleResponseTypeDef = TypedDict(
+    "CreateImpersonationRoleResponseTypeDef",
+    {
+        "ImpersonationRoleId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -438,6 +506,14 @@ DeleteGroupRequestRequestTypeDef = TypedDict(
     {
         "OrganizationId": str,
         "GroupId": str,
+    },
+)
+
+DeleteImpersonationRoleRequestRequestTypeDef = TypedDict(
+    "DeleteImpersonationRoleRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "ImpersonationRoleId": str,
     },
 )
 
@@ -751,15 +827,28 @@ class FolderConfigurationTypeDef(
 ):
     pass
 
-GetAccessControlEffectRequestRequestTypeDef = TypedDict(
-    "GetAccessControlEffectRequestRequestTypeDef",
+_RequiredGetAccessControlEffectRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAccessControlEffectRequestRequestTypeDef",
     {
         "OrganizationId": str,
         "IpAddress": str,
         "Action": str,
-        "UserId": str,
     },
 )
+_OptionalGetAccessControlEffectRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAccessControlEffectRequestRequestTypeDef",
+    {
+        "UserId": str,
+        "ImpersonationRoleId": str,
+    },
+    total=False,
+)
+
+class GetAccessControlEffectRequestRequestTypeDef(
+    _RequiredGetAccessControlEffectRequestRequestTypeDef,
+    _OptionalGetAccessControlEffectRequestRequestTypeDef,
+):
+    pass
 
 GetAccessControlEffectResponseTypeDef = TypedDict(
     "GetAccessControlEffectResponseTypeDef",
@@ -784,6 +873,47 @@ GetDefaultRetentionPolicyResponseTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "FolderConfigurations": List["FolderConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetImpersonationRoleEffectRequestRequestTypeDef = TypedDict(
+    "GetImpersonationRoleEffectRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "ImpersonationRoleId": str,
+        "TargetUser": str,
+    },
+)
+
+GetImpersonationRoleEffectResponseTypeDef = TypedDict(
+    "GetImpersonationRoleEffectResponseTypeDef",
+    {
+        "Type": ImpersonationRoleTypeType,
+        "Effect": AccessEffectType,
+        "MatchedRules": List["ImpersonationMatchedRuleTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetImpersonationRoleRequestRequestTypeDef = TypedDict(
+    "GetImpersonationRoleRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "ImpersonationRoleId": str,
+    },
+)
+
+GetImpersonationRoleResponseTypeDef = TypedDict(
+    "GetImpersonationRoleResponseTypeDef",
+    {
+        "ImpersonationRoleId": str,
+        "Name": str,
+        "Type": ImpersonationRoleTypeType,
+        "Description": str,
+        "Rules": List["ImpersonationRuleTypeDef"],
+        "DateCreated": datetime,
+        "DateModified": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -891,6 +1021,50 @@ GroupTypeDef = TypedDict(
     },
     total=False,
 )
+
+ImpersonationMatchedRuleTypeDef = TypedDict(
+    "ImpersonationMatchedRuleTypeDef",
+    {
+        "ImpersonationRuleId": str,
+        "Name": str,
+    },
+    total=False,
+)
+
+ImpersonationRoleTypeDef = TypedDict(
+    "ImpersonationRoleTypeDef",
+    {
+        "ImpersonationRoleId": str,
+        "Name": str,
+        "Type": ImpersonationRoleTypeType,
+        "DateCreated": datetime,
+        "DateModified": datetime,
+    },
+    total=False,
+)
+
+_RequiredImpersonationRuleTypeDef = TypedDict(
+    "_RequiredImpersonationRuleTypeDef",
+    {
+        "ImpersonationRuleId": str,
+        "Effect": AccessEffectType,
+    },
+)
+_OptionalImpersonationRuleTypeDef = TypedDict(
+    "_OptionalImpersonationRuleTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "TargetUsers": List[str],
+        "NotTargetUsers": List[str],
+    },
+    total=False,
+)
+
+class ImpersonationRuleTypeDef(
+    _RequiredImpersonationRuleTypeDef, _OptionalImpersonationRuleTypeDef
+):
+    pass
 
 LambdaAvailabilityProviderTypeDef = TypedDict(
     "LambdaAvailabilityProviderTypeDef",
@@ -1028,6 +1202,36 @@ ListGroupsResponseTypeDef = TypedDict(
     "ListGroupsResponseTypeDef",
     {
         "Groups": List["GroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListImpersonationRolesRequestRequestTypeDef = TypedDict(
+    "_RequiredListImpersonationRolesRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+    },
+)
+_OptionalListImpersonationRolesRequestRequestTypeDef = TypedDict(
+    "_OptionalListImpersonationRolesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListImpersonationRolesRequestRequestTypeDef(
+    _RequiredListImpersonationRolesRequestRequestTypeDef,
+    _OptionalListImpersonationRolesRequestRequestTypeDef,
+):
+    pass
+
+ListImpersonationRolesResponseTypeDef = TypedDict(
+    "ListImpersonationRolesResponseTypeDef",
+    {
+        "Roles": List["ImpersonationRoleTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1422,6 +1626,8 @@ _OptionalPutAccessControlRuleRequestRequestTypeDef = TypedDict(
         "NotActions": List[str],
         "UserIds": List[str],
         "NotUserIds": List[str],
+        "ImpersonationRoleIds": List[str],
+        "NotImpersonationRoleIds": List[str],
     },
     total=False,
 )
@@ -1696,6 +1902,30 @@ UpdateDefaultMailDomainRequestRequestTypeDef = TypedDict(
         "DomainName": str,
     },
 )
+
+_RequiredUpdateImpersonationRoleRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateImpersonationRoleRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "ImpersonationRoleId": str,
+        "Name": str,
+        "Type": ImpersonationRoleTypeType,
+        "Rules": List["ImpersonationRuleTypeDef"],
+    },
+)
+_OptionalUpdateImpersonationRoleRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateImpersonationRoleRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateImpersonationRoleRequestRequestTypeDef(
+    _RequiredUpdateImpersonationRoleRequestRequestTypeDef,
+    _OptionalUpdateImpersonationRoleRequestRequestTypeDef,
+):
+    pass
 
 UpdateMailboxQuotaRequestRequestTypeDef = TypedDict(
     "UpdateMailboxQuotaRequestRequestTypeDef",

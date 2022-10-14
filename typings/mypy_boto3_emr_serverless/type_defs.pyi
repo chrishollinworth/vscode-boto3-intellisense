@@ -36,6 +36,8 @@ __all__ = (
     "DeleteApplicationRequestRequestTypeDef",
     "GetApplicationRequestRequestTypeDef",
     "GetApplicationResponseTypeDef",
+    "GetDashboardForJobRunRequestRequestTypeDef",
+    "GetDashboardForJobRunResponseTypeDef",
     "GetJobRunRequestRequestTypeDef",
     "GetJobRunResponseTypeDef",
     "HiveTypeDef",
@@ -241,6 +243,22 @@ GetApplicationResponseTypeDef = TypedDict(
     "GetApplicationResponseTypeDef",
     {
         "application": "ApplicationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDashboardForJobRunRequestRequestTypeDef = TypedDict(
+    "GetDashboardForJobRunRequestRequestTypeDef",
+    {
+        "applicationId": str,
+        "jobRunId": str,
+    },
+)
+
+GetDashboardForJobRunResponseTypeDef = TypedDict(
+    "GetDashboardForJobRunResponseTypeDef",
+    {
+        "url": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

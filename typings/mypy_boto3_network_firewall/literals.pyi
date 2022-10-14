@@ -40,6 +40,7 @@ __all__ = (
     "StatefulActionType",
     "StatefulRuleDirectionType",
     "StatefulRuleProtocolType",
+    "StreamExceptionPolicyType",
     "TCPFlagType",
     "TargetTypeType",
 )
@@ -85,5 +86,6 @@ StatefulRuleProtocolType = Literal[
     "TLS",
     "UDP",
 ]
+StreamExceptionPolicyType = Literal["CONTINUE", "DROP"]
 TCPFlagType = Literal["ACK", "CWR", "ECE", "FIN", "PSH", "RST", "SYN", "URG"]
 TargetTypeType = Literal["HTTP_HOST", "TLS_SNI"]

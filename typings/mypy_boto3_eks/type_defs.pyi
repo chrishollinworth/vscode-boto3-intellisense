@@ -20,6 +20,7 @@ from .literals import (
     AddonStatusType,
     AMITypesType,
     CapacityTypesType,
+    ClusterIssueCodeType,
     ClusterStatusType,
     ConnectorConfigProviderType,
     ErrorCodeType,
@@ -53,6 +54,8 @@ __all__ = (
     "AssociateIdentityProviderConfigResponseTypeDef",
     "AutoScalingGroupTypeDef",
     "CertificateTypeDef",
+    "ClusterHealthTypeDef",
+    "ClusterIssueTypeDef",
     "ClusterTypeDef",
     "CompatibilityTypeDef",
     "ConnectorConfigRequestTypeDef",
@@ -126,6 +129,8 @@ __all__ = (
     "OIDCTypeDef",
     "OidcIdentityProviderConfigRequestTypeDef",
     "OidcIdentityProviderConfigTypeDef",
+    "OutpostConfigRequestTypeDef",
+    "OutpostConfigResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ProviderTypeDef",
     "RegisterClusterRequestRequestTypeDef",
@@ -285,6 +290,24 @@ CertificateTypeDef = TypedDict(
     total=False,
 )
 
+ClusterHealthTypeDef = TypedDict(
+    "ClusterHealthTypeDef",
+    {
+        "issues": List["ClusterIssueTypeDef"],
+    },
+    total=False,
+)
+
+ClusterIssueTypeDef = TypedDict(
+    "ClusterIssueTypeDef",
+    {
+        "code": ClusterIssueCodeType,
+        "message": str,
+        "resourceIds": List[str],
+    },
+    total=False,
+)
+
 ClusterTypeDef = TypedDict(
     "ClusterTypeDef",
     {
@@ -305,6 +328,9 @@ ClusterTypeDef = TypedDict(
         "tags": Dict[str, str],
         "encryptionConfig": List["EncryptionConfigTypeDef"],
         "connectorConfig": "ConnectorConfigResponseTypeDef",
+        "id": str,
+        "health": "ClusterHealthTypeDef",
+        "outpostConfig": "OutpostConfigResponseTypeDef",
     },
     total=False,
 )
@@ -388,6 +414,7 @@ _OptionalCreateClusterRequestRequestTypeDef = TypedDict(
         "clientRequestToken": str,
         "tags": Dict[str, str],
         "encryptionConfig": List["EncryptionConfigTypeDef"],
+        "outpostConfig": "OutpostConfigRequestTypeDef",
     },
     total=False,
 )
@@ -1152,6 +1179,22 @@ OidcIdentityProviderConfigTypeDef = TypedDict(
         "status": configStatusType,
     },
     total=False,
+)
+
+OutpostConfigRequestTypeDef = TypedDict(
+    "OutpostConfigRequestTypeDef",
+    {
+        "outpostArns": List[str],
+        "controlPlaneInstanceType": str,
+    },
+)
+
+OutpostConfigResponseTypeDef = TypedDict(
+    "OutpostConfigResponseTypeDef",
+    {
+        "outpostArns": List[str],
+        "controlPlaneInstanceType": str,
+    },
 )
 
 PaginatorConfigTypeDef = TypedDict(

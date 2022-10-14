@@ -301,6 +301,7 @@ __all__ = (
     "StoredQueryTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TemplateSSMDocumentDetailsTypeDef",
     "UntagResourceRequestRequestTypeDef",
 )
 
@@ -788,6 +789,7 @@ _OptionalConformancePackDetailTypeDef = TypedDict(
         "ConformancePackInputParameters": List["ConformancePackInputParameterTypeDef"],
         "LastUpdateRequestedTime": datetime,
         "CreatedBy": str,
+        "TemplateSSMDocumentDetails": "TemplateSSMDocumentDetailsTypeDef",
     },
     total=False,
 )
@@ -2701,6 +2703,7 @@ _OptionalPutConformancePackRequestRequestTypeDef = TypedDict(
         "DeliveryS3Bucket": str,
         "DeliveryS3KeyPrefix": str,
         "ConformancePackInputParameters": List["ConformancePackInputParameterTypeDef"],
+        "TemplateSSMDocumentDetails": "TemplateSSMDocumentDetailsTypeDef",
     },
     total=False,
 )
@@ -3358,6 +3361,25 @@ TagTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredTemplateSSMDocumentDetailsTypeDef = TypedDict(
+    "_RequiredTemplateSSMDocumentDetailsTypeDef",
+    {
+        "DocumentName": str,
+    },
+)
+_OptionalTemplateSSMDocumentDetailsTypeDef = TypedDict(
+    "_OptionalTemplateSSMDocumentDetailsTypeDef",
+    {
+        "DocumentVersion": str,
+    },
+    total=False,
+)
+
+class TemplateSSMDocumentDetailsTypeDef(
+    _RequiredTemplateSSMDocumentDetailsTypeDef, _OptionalTemplateSSMDocumentDetailsTypeDef
+):
+    pass
 
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",

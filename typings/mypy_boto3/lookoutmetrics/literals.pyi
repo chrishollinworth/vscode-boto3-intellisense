@@ -28,6 +28,7 @@ __all__ = (
     "CSVFileCompressionType",
     "ConfidenceType",
     "DataQualityMetricTypeType",
+    "FilterOperationType",
     "FrequencyType",
     "JsonFileCompressionType",
     "RelationshipTypeType",
@@ -70,6 +71,7 @@ DataQualityMetricTypeType = Literal[
     "ROWS_PROCESSED",
     "TIME_SERIES_COUNT",
 ]
+FilterOperationType = Literal["EQUALS"]
 FrequencyType = Literal["P1D", "PT10M", "PT1H", "PT5M"]
 JsonFileCompressionType = Literal["GZIP", "NONE"]
 RelationshipTypeType = Literal["CAUSE_OF_INPUT_ANOMALY_GROUP", "EFFECT_OF_INPUT_ANOMALY_GROUP"]

@@ -547,6 +547,7 @@ _RequiredCreateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
 _OptionalCreateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateCostCategoryDefinitionRequestRequestTypeDef",
     {
+        "EffectiveStart": str,
         "DefaultValue": str,
         "SplitChargeRules": List["CostCategorySplitChargeRuleTypeDef"],
         "ResourceTags": List["ResourceTagTypeDef"],
@@ -2145,6 +2146,7 @@ _RequiredUpdateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
 _OptionalUpdateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateCostCategoryDefinitionRequestRequestTypeDef",
     {
+        "EffectiveStart": str,
         "DefaultValue": str,
         "SplitChargeRules": List["CostCategorySplitChargeRuleTypeDef"],
     },

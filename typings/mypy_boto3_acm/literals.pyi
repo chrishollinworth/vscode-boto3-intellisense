@@ -33,6 +33,8 @@ __all__ = (
     "RenewalEligibilityType",
     "RenewalStatusType",
     "RevocationReasonType",
+    "SortByType",
+    "SortOrderType",
     "ValidationMethodType",
 )
 
@@ -114,4 +116,6 @@ RevocationReasonType = Literal[
     "SUPERCEDED",
     "UNSPECIFIED",
 ]
+SortByType = Literal["CREATED_AT"]
+SortOrderType = Literal["ASCENDING", "DESCENDING"]
 ValidationMethodType = Literal["DNS", "EMAIL"]

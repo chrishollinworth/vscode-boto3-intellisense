@@ -41,6 +41,7 @@ __all__ = (
     "FindingStatusType",
     "FindingTypeSortByType",
     "FindingTypeType",
+    "FixAvailableType",
     "FreeTrialInfoErrorCodeType",
     "FreeTrialStatusType",
     "FreeTrialTypeType",
@@ -128,6 +129,7 @@ FilterActionType = Literal["NONE", "SUPPRESS"]
 FindingStatusType = Literal["ACTIVE", "CLOSED", "SUPPRESSED"]
 FindingTypeSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 FindingTypeType = Literal["NETWORK_REACHABILITY", "PACKAGE_VULNERABILITY"]
+FixAvailableType = Literal["NO", "PARTIAL", "YES"]
 FreeTrialInfoErrorCodeType = Literal["ACCESS_DENIED", "INTERNAL_ERROR"]
 FreeTrialStatusType = Literal["ACTIVE", "INACTIVE"]
 FreeTrialTypeType = Literal["EC2", "ECR"]
@@ -200,6 +202,7 @@ ScanStatusReasonType = Literal[
     "EC2_INSTANCE_STOPPED",
     "IMAGE_SIZE_EXCEEDED",
     "INTERNAL_ERROR",
+    "NO_INVENTORY",
     "NO_RESOURCES_FOUND",
     "PENDING_DISABLE",
     "PENDING_INITIAL_SCAN",
@@ -207,6 +210,7 @@ ScanStatusReasonType = Literal[
     "SCAN_ELIGIBILITY_EXPIRED",
     "SCAN_FREQUENCY_MANUAL",
     "SCAN_FREQUENCY_SCAN_ON_PUSH",
+    "STALE_INVENTORY",
     "SUCCESSFUL",
     "UNMANAGED_EC2_INSTANCE",
     "UNSUPPORTED_OS",

@@ -79,7 +79,9 @@ from mypy_boto3_config.client import ConfigServiceClient
 from mypy_boto3_connect.client import ConnectClient
 from mypy_boto3_connect_contact_lens.client import ConnectContactLensClient
 from mypy_boto3_connectcampaigns.client import ConnectCampaignServiceClient
+from mypy_boto3_connectcases.client import ConnectCasesClient
 from mypy_boto3_connectparticipant.client import ConnectParticipantClient
+from mypy_boto3_controltower.client import ControlTowerClient
 from mypy_boto3_cur.client import CostandUsageReportServiceClient
 from mypy_boto3_customer_profiles.client import CustomerProfilesClient
 from mypy_boto3_databrew.client import GlueDataBrewClient
@@ -161,6 +163,7 @@ from mypy_boto3_iotdeviceadvisor.client import IoTDeviceAdvisorClient
 from mypy_boto3_iotevents.client import IoTEventsClient
 from mypy_boto3_iotevents_data.client import IoTEventsDataClient
 from mypy_boto3_iotfleethub.client import IoTFleetHubClient
+from mypy_boto3_iotfleetwise.client import IoTFleetWiseClient
 from mypy_boto3_iotsecuretunneling.client import IoTSecureTunnelingClient
 from mypy_boto3_iotsitewise.client import IoTSiteWiseClient
 from mypy_boto3_iotthingsgraph.client import IoTThingsGraphClient
@@ -218,6 +221,7 @@ from mypy_boto3_mgh.client import MigrationHubClient
 from mypy_boto3_mgn.client import mgnClient
 from mypy_boto3_migration_hub_refactor_spaces.client import MigrationHubRefactorSpacesClient
 from mypy_boto3_migrationhub_config.client import MigrationHubConfigClient
+from mypy_boto3_migrationhuborchestrator.client import MigrationHubOrchestratorClient
 from mypy_boto3_migrationhubstrategy.client import MigrationHubStrategyRecommendationsClient
 from mypy_boto3_mobile.client import MobileClient
 from mypy_boto3_mq.client import MQClient
@@ -1294,6 +1298,19 @@ def client(
 ) -> ConnectCampaignServiceClient: ...
 @overload
 def client(
+    service_name: Literal["connectcases"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ConnectCasesClient: ...
+@overload
+def client(
     service_name: Literal["connectparticipant"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -1305,6 +1322,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> ConnectParticipantClient: ...
+@overload
+def client(
+    service_name: Literal["controltower"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ControlTowerClient: ...
 @overload
 def client(
     service_name: Literal["cur"],
@@ -2308,6 +2338,19 @@ def client(
 ) -> IoTFleetHubClient: ...
 @overload
 def client(
+    service_name: Literal["iotfleetwise"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> IoTFleetWiseClient: ...
+@overload
+def client(
     service_name: Literal["iotsecuretunneling"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3021,6 +3064,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> MigrationHubConfigClient: ...
+@overload
+def client(
+    service_name: Literal["migrationhuborchestrator"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> MigrationHubOrchestratorClient: ...
 @overload
 def client(
     service_name: Literal["migrationhubstrategy"],

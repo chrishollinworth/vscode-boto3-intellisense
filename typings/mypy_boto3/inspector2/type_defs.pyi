@@ -36,6 +36,7 @@ from .literals import (
     FindingStatusType,
     FindingTypeSortByType,
     FindingTypeType,
+    FixAvailableType,
     FreeTrialInfoErrorCodeType,
     FreeTrialStatusType,
     FreeTrialTypeType,
@@ -941,6 +942,7 @@ FilterCriteriaTypeDef = TypedDict(
         "findingStatus": List["StringFilterTypeDef"],
         "findingType": List["StringFilterTypeDef"],
         "firstObservedAt": List["DateFilterTypeDef"],
+        "fixAvailable": List["StringFilterTypeDef"],
         "inspectorScore": List["NumberFilterTypeDef"],
         "lastObservedAt": List["DateFilterTypeDef"],
         "networkProtocol": List["StringFilterTypeDef"],
@@ -1023,6 +1025,7 @@ _RequiredFindingTypeDef = TypedDict(
 _OptionalFindingTypeDef = TypedDict(
     "_OptionalFindingTypeDef",
     {
+        "fixAvailable": FixAvailableType,
         "inspectorScore": float,
         "inspectorScoreDetails": "InspectorScoreDetailsTypeDef",
         "networkReachabilityDetails": "NetworkReachabilityDetailsTypeDef",
@@ -1462,7 +1465,6 @@ _RequiredPackageVulnerabilityDetailsTypeDef = TypedDict(
     {
         "source": str,
         "vulnerabilityId": str,
-        "vulnerablePackages": List["VulnerablePackageTypeDef"],
     },
 )
 _OptionalPackageVulnerabilityDetailsTypeDef = TypedDict(
@@ -1475,6 +1477,7 @@ _OptionalPackageVulnerabilityDetailsTypeDef = TypedDict(
         "vendorCreatedAt": datetime,
         "vendorSeverity": str,
         "vendorUpdatedAt": datetime,
+        "vulnerablePackages": List["VulnerablePackageTypeDef"],
     },
     total=False,
 )
@@ -1824,6 +1827,7 @@ _OptionalVulnerablePackageTypeDef = TypedDict(
         "fixedInVersion": str,
         "packageManager": PackageManagerType,
         "release": str,
+        "remediation": str,
         "sourceLayerHash": str,
     },
     total=False,

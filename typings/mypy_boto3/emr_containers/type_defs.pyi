@@ -71,6 +71,7 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "S3MonitoringConfigurationTypeDef",
+    "SparkSqlJobDriverTypeDef",
     "SparkSubmitJobDriverTypeDef",
     "StartJobRunRequestRequestTypeDef",
     "StartJobRunResponseTypeDef",
@@ -366,6 +367,7 @@ JobDriverTypeDef = TypedDict(
     "JobDriverTypeDef",
     {
         "sparkSubmitJobDriver": "SparkSubmitJobDriverTypeDef",
+        "sparkSqlJobDriver": "SparkSqlJobDriverTypeDef",
     },
     total=False,
 )
@@ -534,6 +536,15 @@ S3MonitoringConfigurationTypeDef = TypedDict(
     {
         "logUri": str,
     },
+)
+
+SparkSqlJobDriverTypeDef = TypedDict(
+    "SparkSqlJobDriverTypeDef",
+    {
+        "entryPoint": str,
+        "sparkSqlParameters": str,
+    },
+    total=False,
 )
 
 _RequiredSparkSubmitJobDriverTypeDef = TypedDict(

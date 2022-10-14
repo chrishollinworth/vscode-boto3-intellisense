@@ -106,7 +106,7 @@ class Exceptions:
 
 class OpenSearchServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html)
     """
 
@@ -124,14 +124,14 @@ class OpenSearchServiceClient(BaseClient):
         Allows the remote domain owner to accept an inbound cross-cluster connection
         request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.accept_inbound_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.accept_inbound_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#accept_inbound_connection)
         """
     def add_tags(self, *, ARN: str, TagList: List["TagTypeDef"]) -> None:
         """
         Attaches tags to an existing domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.add_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.add_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#add_tags)
         """
     def associate_package(
@@ -140,14 +140,14 @@ class OpenSearchServiceClient(BaseClient):
         """
         Associates a package with an Amazon OpenSearch Service domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.associate_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.associate_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#associate_package)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#can_paginate)
         """
     def cancel_service_software_update(
@@ -157,14 +157,14 @@ class OpenSearchServiceClient(BaseClient):
         Cancels a scheduled service software update for an Amazon OpenSearch Service
         domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.cancel_service_software_update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.cancel_service_software_update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#cancel_service_software_update)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#close)
         """
     def create_domain(
@@ -190,7 +190,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Creates a new Amazon OpenSearch Service domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.create_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.create_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#create_domain)
         """
     def create_outbound_connection(
@@ -204,7 +204,7 @@ class OpenSearchServiceClient(BaseClient):
         Creates a new cross-cluster connection from a local OpenSearch domain to a
         remote OpenSearch domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.create_outbound_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.create_outbound_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#create_outbound_connection)
         """
     def create_package(
@@ -218,14 +218,14 @@ class OpenSearchServiceClient(BaseClient):
         """
         Create a package for use with Amazon OpenSearch Service domains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.create_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.create_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#create_package)
         """
     def delete_domain(self, *, DomainName: str) -> DeleteDomainResponseTypeDef:
         """
         Permanently deletes the specified domain and all of its data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.delete_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.delete_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#delete_domain)
         """
     def delete_inbound_connection(
@@ -235,7 +235,7 @@ class OpenSearchServiceClient(BaseClient):
         Allows the remote domain owner to delete an existing inbound cross-cluster
         connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.delete_inbound_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.delete_inbound_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#delete_inbound_connection)
         """
     def delete_outbound_connection(
@@ -245,14 +245,14 @@ class OpenSearchServiceClient(BaseClient):
         Allows the local domain owner to delete an existing outbound cross-cluster
         connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.delete_outbound_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.delete_outbound_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#delete_outbound_connection)
         """
     def delete_package(self, *, PackageID: str) -> DeletePackageResponseTypeDef:
         """
         Deletes the package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.delete_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.delete_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#delete_package)
         """
     def describe_domain(self, *, DomainName: str) -> DescribeDomainResponseTypeDef:
@@ -260,7 +260,7 @@ class OpenSearchServiceClient(BaseClient):
         Returns domain configuration information about the specified domain, including
         the domain ID, domain endpoint, and domain ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_domain)
         """
     def describe_domain_auto_tunes(
@@ -270,7 +270,7 @@ class OpenSearchServiceClient(BaseClient):
         Provides scheduled Auto-Tune action details for the domain, such as Auto-Tune
         action type, description, severity, and scheduled date.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_domain_auto_tunes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_domain_auto_tunes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_domain_auto_tunes)
         """
     def describe_domain_change_progress(
@@ -280,7 +280,7 @@ class OpenSearchServiceClient(BaseClient):
         Returns information about the current blue/green deployment happening on a
         domain, including a change ID, status, and progress stages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_domain_change_progress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_domain_change_progress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_domain_change_progress)
         """
     def describe_domain_config(self, *, DomainName: str) -> DescribeDomainConfigResponseTypeDef:
@@ -288,7 +288,7 @@ class OpenSearchServiceClient(BaseClient):
         Provides cluster configuration information about the specified domain, such as
         the state, creation date, update version, and update date for cluster options.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_domain_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_domain_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_domain_config)
         """
     def describe_domains(self, *, DomainNames: List[str]) -> DescribeDomainsResponseTypeDef:
@@ -296,7 +296,7 @@ class OpenSearchServiceClient(BaseClient):
         Returns domain configuration information about the specified domains, including
         the domain ID, domain endpoint, and domain ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_domains)
         """
     def describe_inbound_connections(
@@ -309,7 +309,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Lists all the inbound cross-cluster connections for a remote domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_inbound_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_inbound_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_inbound_connections)
         """
     def describe_instance_type_limits(
@@ -323,7 +323,7 @@ class OpenSearchServiceClient(BaseClient):
         Describe the limits for a given instance type and OpenSearch or Elasticsearch
         version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_instance_type_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_instance_type_limits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_instance_type_limits)
         """
     def describe_outbound_connections(
@@ -336,7 +336,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Lists all the outbound cross-cluster connections for a local domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_outbound_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_outbound_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_outbound_connections)
         """
     def describe_packages(
@@ -349,7 +349,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Describes all packages available to Amazon OpenSearch Service domains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_packages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_packages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_packages)
         """
     def describe_reserved_instance_offerings(
@@ -362,7 +362,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Lists available reserved OpenSearch instance offerings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_reserved_instance_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_reserved_instance_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_reserved_instance_offerings)
         """
     def describe_reserved_instances(
@@ -371,7 +371,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Returns information about reserved OpenSearch instances for this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.describe_reserved_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.describe_reserved_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#describe_reserved_instances)
         """
     def dissociate_package(
@@ -380,7 +380,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Dissociates a package from the Amazon OpenSearch Service domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.dissociate_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.dissociate_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#dissociate_package)
         """
     def generate_presigned_url(
@@ -393,7 +393,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#generate_presigned_url)
         """
     def get_compatible_versions(
@@ -402,7 +402,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Returns a list of upgrade-compatible versions of OpenSearch/Elasticsearch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.get_compatible_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.get_compatible_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#get_compatible_versions)
         """
     def get_package_version_history(
@@ -412,7 +412,7 @@ class OpenSearchServiceClient(BaseClient):
         Returns a list of package versions, along with their creation time and commit
         message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.get_package_version_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.get_package_version_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#get_package_version_history)
         """
     def get_upgrade_history(
@@ -421,7 +421,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Retrieves the complete history of the last 10 upgrades performed on the domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.get_upgrade_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.get_upgrade_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#get_upgrade_history)
         """
     def get_upgrade_status(self, *, DomainName: str) -> GetUpgradeStatusResponseTypeDef:
@@ -429,7 +429,7 @@ class OpenSearchServiceClient(BaseClient):
         Retrieves the latest status of the last upgrade or upgrade eligibility check
         performed on the domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.get_upgrade_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.get_upgrade_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#get_upgrade_status)
         """
     def list_domain_names(
@@ -438,7 +438,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Returns the names of all domains owned by the current user's account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.list_domain_names)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.list_domain_names)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#list_domain_names)
         """
     def list_domains_for_package(
@@ -447,7 +447,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Lists all Amazon OpenSearch Service domains associated with the package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.list_domains_for_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.list_domains_for_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#list_domains_for_package)
         """
     def list_instance_type_details(
@@ -464,7 +464,7 @@ class OpenSearchServiceClient(BaseClient):
         client.list_instance_type_details( EngineVersion='string', DomainName='string',
         MaxResults=123, NextToken='stri...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.list_instance_type_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.list_instance_type_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#list_instance_type_details)
         """
     def list_packages_for_domain(
@@ -473,14 +473,14 @@ class OpenSearchServiceClient(BaseClient):
         """
         Lists all packages associated with the Amazon OpenSearch Service domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.list_packages_for_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.list_packages_for_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#list_packages_for_domain)
         """
     def list_tags(self, *, ARN: str) -> ListTagsResponseTypeDef:
         """
         Returns all tags for the given domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.list_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#list_tags)
         """
     def list_versions(
@@ -489,7 +489,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         List all supported versions of OpenSearch and Elasticsearch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.list_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.list_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#list_versions)
         """
     def purchase_reserved_instance_offering(
@@ -498,7 +498,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Allows you to purchase reserved OpenSearch instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.purchase_reserved_instance_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.purchase_reserved_instance_offering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#purchase_reserved_instance_offering)
         """
     def reject_inbound_connection(
@@ -508,14 +508,14 @@ class OpenSearchServiceClient(BaseClient):
         Allows the remote domain owner to reject an inbound cross-cluster connection
         request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.reject_inbound_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.reject_inbound_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#reject_inbound_connection)
         """
     def remove_tags(self, *, ARN: str, TagKeys: List[str]) -> None:
         """
         Removes the specified set of tags from the given domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.remove_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.remove_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#remove_tags)
         """
     def start_service_software_update(
@@ -524,7 +524,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Schedules a service software update for an Amazon OpenSearch Service domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.start_service_software_update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.start_service_software_update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#start_service_software_update)
         """
     def update_domain_config(
@@ -550,7 +550,7 @@ class OpenSearchServiceClient(BaseClient):
         Modifies the cluster configuration of the specified domain, such as setting the
         instance type and the number of instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.update_domain_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.update_domain_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#update_domain_config)
         """
     def update_package(
@@ -564,7 +564,7 @@ class OpenSearchServiceClient(BaseClient):
         """
         Updates a package for use with Amazon OpenSearch Service domains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.update_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.update_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#update_package)
         """
     def upgrade_domain(
@@ -579,6 +579,6 @@ class OpenSearchServiceClient(BaseClient):
         Allows you to either upgrade your domain or perform an upgrade eligibility check
         to a compatible version of OpenSearch or Elasticsearch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/opensearch.html#OpenSearchService.Client.upgrade_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/opensearch.html#OpenSearchService.Client.upgrade_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/client.html#upgrade_domain)
         """

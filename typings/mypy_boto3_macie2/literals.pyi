@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "AdminStatusType",
+    "AllowListStatusCodeType",
     "AllowsUnencryptedObjectUploadsType",
     "AvailabilityCodeType",
     "BucketMetadataErrorCodeType",
@@ -84,6 +85,16 @@ __all__ = (
 )
 
 AdminStatusType = Literal["DISABLING_IN_PROGRESS", "ENABLED"]
+AllowListStatusCodeType = Literal[
+    "OK",
+    "S3_OBJECT_ACCESS_DENIED",
+    "S3_OBJECT_EMPTY",
+    "S3_OBJECT_NOT_FOUND",
+    "S3_OBJECT_OVERSIZE",
+    "S3_THROTTLED",
+    "S3_USER_ACCESS_DENIED",
+    "UNKNOWN_ERROR",
+]
 AllowsUnencryptedObjectUploadsType = Literal["FALSE", "TRUE", "UNKNOWN"]
 AvailabilityCodeType = Literal["AVAILABLE", "UNAVAILABLE"]
 BucketMetadataErrorCodeType = Literal["ACCESS_DENIED"]

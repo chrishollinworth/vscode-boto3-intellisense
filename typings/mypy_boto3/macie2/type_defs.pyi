@@ -17,6 +17,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     AdminStatusType,
+    AllowListStatusCodeType,
     AllowsUnencryptedObjectUploadsType,
     AvailabilityCodeType,
     DataIdentifierSeverityType,
@@ -78,6 +79,9 @@ __all__ = (
     "AccountDetailTypeDef",
     "AccountLevelPermissionsTypeDef",
     "AdminAccountTypeDef",
+    "AllowListCriteriaTypeDef",
+    "AllowListStatusTypeDef",
+    "AllowListSummaryTypeDef",
     "ApiCallDetailsTypeDef",
     "AssumedRoleTypeDef",
     "AwsAccountTypeDef",
@@ -103,6 +107,8 @@ __all__ = (
     "ClassificationExportConfigurationTypeDef",
     "ClassificationResultStatusTypeDef",
     "ClassificationResultTypeDef",
+    "CreateAllowListRequestRequestTypeDef",
+    "CreateAllowListResponseTypeDef",
     "CreateClassificationJobRequestRequestTypeDef",
     "CreateClassificationJobResponseTypeDef",
     "CreateCustomDataIdentifierRequestRequestTypeDef",
@@ -123,6 +129,7 @@ __all__ = (
     "DeclineInvitationsRequestRequestTypeDef",
     "DeclineInvitationsResponseTypeDef",
     "DefaultDetectionTypeDef",
+    "DeleteAllowListRequestRequestTypeDef",
     "DeleteCustomDataIdentifierRequestRequestTypeDef",
     "DeleteFindingsFilterRequestRequestTypeDef",
     "DeleteInvitationsRequestRequestTypeDef",
@@ -147,6 +154,8 @@ __all__ = (
     "FindingTypeDef",
     "FindingsFilterListItemTypeDef",
     "GetAdministratorAccountResponseTypeDef",
+    "GetAllowListRequestRequestTypeDef",
+    "GetAllowListResponseTypeDef",
     "GetBucketStatisticsRequestRequestTypeDef",
     "GetBucketStatisticsResponseTypeDef",
     "GetClassificationExportConfigurationResponseTypeDef",
@@ -188,6 +197,8 @@ __all__ = (
     "JobSummaryTypeDef",
     "KeyValuePairTypeDef",
     "LastRunErrorStatusTypeDef",
+    "ListAllowListsRequestRequestTypeDef",
+    "ListAllowListsResponseTypeDef",
     "ListClassificationJobsRequestRequestTypeDef",
     "ListClassificationJobsResponseTypeDef",
     "ListCustomDataIdentifiersRequestRequestTypeDef",
@@ -236,6 +247,7 @@ __all__ = (
     "S3DestinationTypeDef",
     "S3JobDefinitionTypeDef",
     "S3ObjectTypeDef",
+    "S3WordsListTypeDef",
     "ScopingTypeDef",
     "SearchResourcesBucketCriteriaTypeDef",
     "SearchResourcesCriteriaBlockTypeDef",
@@ -268,6 +280,8 @@ __all__ = (
     "TestCustomDataIdentifierResponseTypeDef",
     "UnprocessedAccountTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAllowListRequestRequestTypeDef",
+    "UpdateAllowListResponseTypeDef",
     "UpdateClassificationJobRequestRequestTypeDef",
     "UpdateFindingsFilterRequestRequestTypeDef",
     "UpdateFindingsFilterResponseTypeDef",
@@ -338,6 +352,45 @@ AdminAccountTypeDef = TypedDict(
     {
         "accountId": str,
         "status": AdminStatusType,
+    },
+    total=False,
+)
+
+AllowListCriteriaTypeDef = TypedDict(
+    "AllowListCriteriaTypeDef",
+    {
+        "regex": str,
+        "s3WordsList": "S3WordsListTypeDef",
+    },
+    total=False,
+)
+
+_RequiredAllowListStatusTypeDef = TypedDict(
+    "_RequiredAllowListStatusTypeDef",
+    {
+        "code": AllowListStatusCodeType,
+    },
+)
+_OptionalAllowListStatusTypeDef = TypedDict(
+    "_OptionalAllowListStatusTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class AllowListStatusTypeDef(_RequiredAllowListStatusTypeDef, _OptionalAllowListStatusTypeDef):
+    pass
+
+AllowListSummaryTypeDef = TypedDict(
+    "AllowListSummaryTypeDef",
+    {
+        "arn": str,
+        "createdAt": datetime,
+        "description": str,
+        "id": str,
+        "name": str,
+        "updatedAt": datetime,
     },
     total=False,
 )
@@ -619,6 +672,37 @@ ClassificationResultTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCreateAllowListRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAllowListRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "criteria": "AllowListCriteriaTypeDef",
+        "name": str,
+    },
+)
+_OptionalCreateAllowListRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAllowListRequestRequestTypeDef",
+    {
+        "description": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateAllowListRequestRequestTypeDef(
+    _RequiredCreateAllowListRequestRequestTypeDef, _OptionalCreateAllowListRequestRequestTypeDef
+):
+    pass
+
+CreateAllowListResponseTypeDef = TypedDict(
+    "CreateAllowListResponseTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateClassificationJobRequestRequestTypeDef = TypedDict(
     "_RequiredCreateClassificationJobRequestRequestTypeDef",
     {
@@ -631,6 +715,7 @@ _RequiredCreateClassificationJobRequestRequestTypeDef = TypedDict(
 _OptionalCreateClassificationJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreateClassificationJobRequestRequestTypeDef",
     {
+        "allowListIds": List[str],
         "customDataIdentifierIds": List[str],
         "description": str,
         "initialRun": bool,
@@ -878,6 +963,25 @@ DefaultDetectionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDeleteAllowListRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteAllowListRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+_OptionalDeleteAllowListRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteAllowListRequestRequestTypeDef",
+    {
+        "ignoreJobChecks": str,
+    },
+    total=False,
+)
+
+class DeleteAllowListRequestRequestTypeDef(
+    _RequiredDeleteAllowListRequestRequestTypeDef, _OptionalDeleteAllowListRequestRequestTypeDef
+):
+    pass
+
 DeleteCustomDataIdentifierRequestRequestTypeDef = TypedDict(
     "DeleteCustomDataIdentifierRequestRequestTypeDef",
     {
@@ -944,6 +1048,7 @@ DescribeClassificationJobRequestRequestTypeDef = TypedDict(
 DescribeClassificationJobResponseTypeDef = TypedDict(
     "DescribeClassificationJobResponseTypeDef",
     {
+        "allowListIds": List[str],
         "clientToken": str,
         "createdAt": datetime,
         "customDataIdentifierIds": List[str],
@@ -1125,6 +1230,29 @@ GetAdministratorAccountResponseTypeDef = TypedDict(
     "GetAdministratorAccountResponseTypeDef",
     {
         "administrator": "InvitationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAllowListRequestRequestTypeDef = TypedDict(
+    "GetAllowListRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+GetAllowListResponseTypeDef = TypedDict(
+    "GetAllowListResponseTypeDef",
+    {
+        "arn": str,
+        "createdAt": datetime,
+        "criteria": "AllowListCriteriaTypeDef",
+        "description": str,
+        "id": str,
+        "name": str,
+        "status": "AllowListStatusTypeDef",
+        "tags": Dict[str, str],
+        "updatedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1558,6 +1686,24 @@ LastRunErrorStatusTypeDef = TypedDict(
         "code": LastRunErrorStatusCodeType,
     },
     total=False,
+)
+
+ListAllowListsRequestRequestTypeDef = TypedDict(
+    "ListAllowListsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListAllowListsResponseTypeDef = TypedDict(
+    "ListAllowListsResponseTypeDef",
+    {
+        "allowLists": List["AllowListSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListClassificationJobsRequestRequestTypeDef = TypedDict(
@@ -2055,6 +2201,14 @@ S3ObjectTypeDef = TypedDict(
     total=False,
 )
 
+S3WordsListTypeDef = TypedDict(
+    "S3WordsListTypeDef",
+    {
+        "bucketName": str,
+        "objectKey": str,
+    },
+)
+
 ScopingTypeDef = TypedDict(
     "ScopingTypeDef",
     {
@@ -2361,6 +2515,36 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "resourceArn": str,
         "tagKeys": List[str],
+    },
+)
+
+_RequiredUpdateAllowListRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAllowListRequestRequestTypeDef",
+    {
+        "criteria": "AllowListCriteriaTypeDef",
+        "id": str,
+        "name": str,
+    },
+)
+_OptionalUpdateAllowListRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAllowListRequestRequestTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class UpdateAllowListRequestRequestTypeDef(
+    _RequiredUpdateAllowListRequestRequestTypeDef, _OptionalUpdateAllowListRequestRequestTypeDef
+):
+    pass
+
+UpdateAllowListResponseTypeDef = TypedDict(
+    "UpdateAllowListResponseTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

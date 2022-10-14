@@ -21,6 +21,8 @@ from .literals import (
     InferenceExecutionStatusType,
     InferenceSchedulerStatusType,
     IngestionJobStatusType,
+    LabelRatingType,
+    LatestInferenceResultType,
     ModelStatusType,
     MonotonicityType,
     StatisticalIssueStatusType,
@@ -39,6 +41,10 @@ __all__ = (
     "CreateDatasetResponseTypeDef",
     "CreateInferenceSchedulerRequestRequestTypeDef",
     "CreateInferenceSchedulerResponseTypeDef",
+    "CreateLabelGroupRequestRequestTypeDef",
+    "CreateLabelGroupResponseTypeDef",
+    "CreateLabelRequestRequestTypeDef",
+    "CreateLabelResponseTypeDef",
     "CreateModelRequestRequestTypeDef",
     "CreateModelResponseTypeDef",
     "DataIngestionJobSummaryTypeDef",
@@ -48,6 +54,8 @@ __all__ = (
     "DatasetSummaryTypeDef",
     "DeleteDatasetRequestRequestTypeDef",
     "DeleteInferenceSchedulerRequestRequestTypeDef",
+    "DeleteLabelGroupRequestRequestTypeDef",
+    "DeleteLabelRequestRequestTypeDef",
     "DeleteModelRequestRequestTypeDef",
     "DescribeDataIngestionJobRequestRequestTypeDef",
     "DescribeDataIngestionJobResponseTypeDef",
@@ -55,6 +63,10 @@ __all__ = (
     "DescribeDatasetResponseTypeDef",
     "DescribeInferenceSchedulerRequestRequestTypeDef",
     "DescribeInferenceSchedulerResponseTypeDef",
+    "DescribeLabelGroupRequestRequestTypeDef",
+    "DescribeLabelGroupResponseTypeDef",
+    "DescribeLabelRequestRequestTypeDef",
+    "DescribeLabelResponseTypeDef",
     "DescribeModelRequestRequestTypeDef",
     "DescribeModelResponseTypeDef",
     "DuplicateTimestampsTypeDef",
@@ -71,6 +83,8 @@ __all__ = (
     "IngestionS3InputConfigurationTypeDef",
     "InsufficientSensorDataTypeDef",
     "InvalidSensorDataTypeDef",
+    "LabelGroupSummaryTypeDef",
+    "LabelSummaryTypeDef",
     "LabelsInputConfigurationTypeDef",
     "LabelsS3InputConfigurationTypeDef",
     "LargeTimestampGapsTypeDef",
@@ -84,6 +98,10 @@ __all__ = (
     "ListInferenceExecutionsResponseTypeDef",
     "ListInferenceSchedulersRequestRequestTypeDef",
     "ListInferenceSchedulersResponseTypeDef",
+    "ListLabelGroupsRequestRequestTypeDef",
+    "ListLabelGroupsResponseTypeDef",
+    "ListLabelsRequestRequestTypeDef",
+    "ListLabelsResponseTypeDef",
     "ListModelsRequestRequestTypeDef",
     "ListModelsResponseTypeDef",
     "ListSensorStatisticsRequestRequestTypeDef",
@@ -110,6 +128,7 @@ __all__ = (
     "UnsupportedTimestampsTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateInferenceSchedulerRequestRequestTypeDef",
+    "UpdateLabelGroupRequestRequestTypeDef",
 )
 
 _RequiredCategoricalValuesTypeDef = TypedDict(
@@ -205,6 +224,69 @@ CreateInferenceSchedulerResponseTypeDef = TypedDict(
         "InferenceSchedulerArn": str,
         "InferenceSchedulerName": str,
         "Status": InferenceSchedulerStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLabelGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLabelGroupRequestRequestTypeDef",
+    {
+        "LabelGroupName": str,
+        "ClientToken": str,
+    },
+)
+_OptionalCreateLabelGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLabelGroupRequestRequestTypeDef",
+    {
+        "FaultCodes": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateLabelGroupRequestRequestTypeDef(
+    _RequiredCreateLabelGroupRequestRequestTypeDef, _OptionalCreateLabelGroupRequestRequestTypeDef
+):
+    pass
+
+CreateLabelGroupResponseTypeDef = TypedDict(
+    "CreateLabelGroupResponseTypeDef",
+    {
+        "LabelGroupName": str,
+        "LabelGroupArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLabelRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLabelRequestRequestTypeDef",
+    {
+        "LabelGroupName": str,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "Rating": LabelRatingType,
+        "ClientToken": str,
+    },
+)
+_OptionalCreateLabelRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLabelRequestRequestTypeDef",
+    {
+        "FaultCode": str,
+        "Notes": str,
+        "Equipment": str,
+    },
+    total=False,
+)
+
+class CreateLabelRequestRequestTypeDef(
+    _RequiredCreateLabelRequestRequestTypeDef, _OptionalCreateLabelRequestRequestTypeDef
+):
+    pass
+
+CreateLabelResponseTypeDef = TypedDict(
+    "CreateLabelResponseTypeDef",
+    {
+        "LabelId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -313,6 +395,21 @@ DeleteInferenceSchedulerRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteLabelGroupRequestRequestTypeDef = TypedDict(
+    "DeleteLabelGroupRequestRequestTypeDef",
+    {
+        "LabelGroupName": str,
+    },
+)
+
+DeleteLabelRequestRequestTypeDef = TypedDict(
+    "DeleteLabelRequestRequestTypeDef",
+    {
+        "LabelGroupName": str,
+        "LabelId": str,
+    },
+)
+
 DeleteModelRequestRequestTypeDef = TypedDict(
     "DeleteModelRequestRequestTypeDef",
     {
@@ -397,6 +494,51 @@ DescribeInferenceSchedulerResponseTypeDef = TypedDict(
         "DataOutputConfiguration": "InferenceOutputConfigurationTypeDef",
         "RoleArn": str,
         "ServerSideKmsKeyId": str,
+        "LatestInferenceResult": LatestInferenceResultType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLabelGroupRequestRequestTypeDef = TypedDict(
+    "DescribeLabelGroupRequestRequestTypeDef",
+    {
+        "LabelGroupName": str,
+    },
+)
+
+DescribeLabelGroupResponseTypeDef = TypedDict(
+    "DescribeLabelGroupResponseTypeDef",
+    {
+        "LabelGroupName": str,
+        "LabelGroupArn": str,
+        "FaultCodes": List[str],
+        "CreatedAt": datetime,
+        "UpdatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLabelRequestRequestTypeDef = TypedDict(
+    "DescribeLabelRequestRequestTypeDef",
+    {
+        "LabelGroupName": str,
+        "LabelId": str,
+    },
+)
+
+DescribeLabelResponseTypeDef = TypedDict(
+    "DescribeLabelResponseTypeDef",
+    {
+        "LabelGroupName": str,
+        "LabelGroupArn": str,
+        "LabelId": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "Rating": LabelRatingType,
+        "FaultCode": str,
+        "Notes": str,
+        "Equipment": str,
+        "CreatedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -561,6 +703,7 @@ InferenceSchedulerSummaryTypeDef = TypedDict(
         "Status": InferenceSchedulerStatusType,
         "DataDelayOffsetInMinutes": int,
         "DataUploadFrequency": DataUploadFrequencyType,
+        "LatestInferenceResult": LatestInferenceResultType,
     },
     total=False,
 )
@@ -628,11 +771,40 @@ InvalidSensorDataTypeDef = TypedDict(
     },
 )
 
+LabelGroupSummaryTypeDef = TypedDict(
+    "LabelGroupSummaryTypeDef",
+    {
+        "LabelGroupName": str,
+        "LabelGroupArn": str,
+        "CreatedAt": datetime,
+        "UpdatedAt": datetime,
+    },
+    total=False,
+)
+
+LabelSummaryTypeDef = TypedDict(
+    "LabelSummaryTypeDef",
+    {
+        "LabelGroupName": str,
+        "LabelId": str,
+        "LabelGroupArn": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "Rating": LabelRatingType,
+        "FaultCode": str,
+        "Equipment": str,
+        "CreatedAt": datetime,
+    },
+    total=False,
+)
+
 LabelsInputConfigurationTypeDef = TypedDict(
     "LabelsInputConfigurationTypeDef",
     {
         "S3InputConfiguration": "LabelsS3InputConfigurationTypeDef",
+        "LabelGroupName": str,
     },
+    total=False,
 )
 
 _RequiredLabelsS3InputConfigurationTypeDef = TypedDict(
@@ -794,6 +966,58 @@ ListInferenceSchedulersResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "InferenceSchedulerSummaries": List["InferenceSchedulerSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListLabelGroupsRequestRequestTypeDef = TypedDict(
+    "ListLabelGroupsRequestRequestTypeDef",
+    {
+        "LabelGroupNameBeginsWith": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListLabelGroupsResponseTypeDef = TypedDict(
+    "ListLabelGroupsResponseTypeDef",
+    {
+        "NextToken": str,
+        "LabelGroupSummaries": List["LabelGroupSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListLabelsRequestRequestTypeDef = TypedDict(
+    "_RequiredListLabelsRequestRequestTypeDef",
+    {
+        "LabelGroupName": str,
+    },
+)
+_OptionalListLabelsRequestRequestTypeDef = TypedDict(
+    "_OptionalListLabelsRequestRequestTypeDef",
+    {
+        "IntervalStartTime": Union[datetime, str],
+        "IntervalEndTime": Union[datetime, str],
+        "FaultCode": str,
+        "Equipment": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListLabelsRequestRequestTypeDef(
+    _RequiredListLabelsRequestRequestTypeDef, _OptionalListLabelsRequestRequestTypeDef
+):
+    pass
+
+ListLabelsResponseTypeDef = TypedDict(
+    "ListLabelsResponseTypeDef",
+    {
+        "NextToken": str,
+        "LabelSummaries": List["LabelSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1072,5 +1296,24 @@ _OptionalUpdateInferenceSchedulerRequestRequestTypeDef = TypedDict(
 class UpdateInferenceSchedulerRequestRequestTypeDef(
     _RequiredUpdateInferenceSchedulerRequestRequestTypeDef,
     _OptionalUpdateInferenceSchedulerRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateLabelGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateLabelGroupRequestRequestTypeDef",
+    {
+        "LabelGroupName": str,
+    },
+)
+_OptionalUpdateLabelGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateLabelGroupRequestRequestTypeDef",
+    {
+        "FaultCodes": List[str],
+    },
+    total=False,
+)
+
+class UpdateLabelGroupRequestRequestTypeDef(
+    _RequiredUpdateLabelGroupRequestRequestTypeDef, _OptionalUpdateLabelGroupRequestRequestTypeDef
 ):
     pass

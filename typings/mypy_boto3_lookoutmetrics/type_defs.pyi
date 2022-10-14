@@ -32,6 +32,10 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
@@ -94,6 +98,7 @@ __all__ = (
     "DimensionValueContributionTypeDef",
     "ExecutionStatusTypeDef",
     "FileFormatDescriptorTypeDef",
+    "FilterTypeDef",
     "GetAnomalyGroupRequestRequestTypeDef",
     "GetAnomalyGroupResponseTypeDef",
     "GetDataQualityMetricsRequestRequestTypeDef",
@@ -122,6 +127,7 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "MetricLevelImpactTypeDef",
     "MetricSetDataQualityMetricTypeDef",
+    "MetricSetDimensionFilterTypeDef",
     "MetricSetSummaryTypeDef",
     "MetricSourceTypeDef",
     "MetricTypeDef",
@@ -473,6 +479,7 @@ _OptionalCreateMetricSetRequestRequestTypeDef = TypedDict(
         "MetricSetFrequency": FrequencyType,
         "Timezone": str,
         "Tags": Dict[str, str],
+        "DimensionFilterList": List["MetricSetDimensionFilterTypeDef"],
     },
     total=False,
 )
@@ -628,6 +635,7 @@ DescribeMetricSetResponseTypeDef = TypedDict(
         "MetricSetFrequency": FrequencyType,
         "Timezone": str,
         "MetricSource": "MetricSourceTypeDef",
+        "DimensionFilterList": List["MetricSetDimensionFilterTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -765,6 +773,15 @@ FileFormatDescriptorTypeDef = TypedDict(
     {
         "CsvFormatDescriptor": "CsvFormatDescriptorTypeDef",
         "JsonFormatDescriptor": "JsonFormatDescriptorTypeDef",
+    },
+    total=False,
+)
+
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "DimensionValue": str,
+        "FilterOperation": Literal["EQUALS"],
     },
     total=False,
 )
@@ -1086,6 +1103,15 @@ MetricSetDataQualityMetricTypeDef = TypedDict(
     total=False,
 )
 
+MetricSetDimensionFilterTypeDef = TypedDict(
+    "MetricSetDimensionFilterTypeDef",
+    {
+        "Name": str,
+        "FilterList": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
 MetricSetSummaryTypeDef = TypedDict(
     "MetricSetSummaryTypeDef",
     {
@@ -1349,6 +1375,7 @@ _OptionalUpdateMetricSetRequestRequestTypeDef = TypedDict(
         "DimensionList": List[str],
         "MetricSetFrequency": FrequencyType,
         "MetricSource": "MetricSourceTypeDef",
+        "DimensionFilterList": List["MetricSetDimensionFilterTypeDef"],
     },
     total=False,
 )

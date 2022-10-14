@@ -27,6 +27,7 @@ __all__ = (
     "CapacityTypesType",
     "ClusterActiveWaiterName",
     "ClusterDeletedWaiterName",
+    "ClusterIssueCodeType",
     "ClusterStatusType",
     "ConnectorConfigProviderType",
     "DescribeAddonVersionsPaginatorName",
@@ -77,11 +78,26 @@ AddonIssueCodeType = Literal[
     "UnsupportedAddonModification",
 ]
 AddonStatusType = Literal[
-    "ACTIVE", "CREATE_FAILED", "CREATING", "DEGRADED", "DELETE_FAILED", "DELETING", "UPDATING"
+    "ACTIVE",
+    "CREATE_FAILED",
+    "CREATING",
+    "DEGRADED",
+    "DELETE_FAILED",
+    "DELETING",
+    "UPDATE_FAILED",
+    "UPDATING",
 ]
 CapacityTypesType = Literal["ON_DEMAND", "SPOT"]
 ClusterActiveWaiterName = Literal["cluster_active"]
 ClusterDeletedWaiterName = Literal["cluster_deleted"]
+ClusterIssueCodeType = Literal[
+    "AccessDenied",
+    "ClusterUnreachable",
+    "ConfigurationConflict",
+    "InternalFailure",
+    "ResourceLimitExceeded",
+    "ResourceNotFound",
+]
 ClusterStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "PENDING", "UPDATING"]
 ConnectorConfigProviderType = Literal[
     "AKS", "ANTHOS", "EC2", "EKS_ANYWHERE", "GKE", "OPENSHIFT", "OTHER", "RANCHER", "TANZU"
@@ -145,7 +161,7 @@ NodegroupIssueCodeType = Literal[
 NodegroupStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATING", "DEGRADED", "DELETE_FAILED", "DELETING", "UPDATING"
 ]
-ResolveConflictsType = Literal["NONE", "OVERWRITE"]
+ResolveConflictsType = Literal["NONE", "OVERWRITE", "PRESERVE"]
 TaintEffectType = Literal["NO_EXECUTE", "NO_SCHEDULE", "PREFER_NO_SCHEDULE"]
 UpdateParamTypeType = Literal[
     "AddonVersion",

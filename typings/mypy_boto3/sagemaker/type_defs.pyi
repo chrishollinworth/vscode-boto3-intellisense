@@ -37,6 +37,7 @@ from .literals import (
     AutoMLJobStatusType,
     AutoMLMetricEnumType,
     AutoMLMetricExtendedEnumType,
+    AutoMLModeType,
     AutoMLS3DataTypeType,
     AutoMLSortByType,
     AutoMLSortOrderType,
@@ -49,6 +50,9 @@ from .literals import (
     CapacitySizeTypeType,
     CaptureModeType,
     CaptureStatusType,
+    ClarifyFeatureTypeType,
+    ClarifyTextGranularityType,
+    ClarifyTextLanguageType,
     CodeRepositorySortByType,
     CodeRepositorySortOrderType,
     CompilationJobStatusType,
@@ -69,11 +73,13 @@ from .literals import (
     EndpointConfigSortKeyType,
     EndpointSortKeyType,
     EndpointStatusType,
+    ExecutionRoleIdentityConfigType,
     ExecutionStatusType,
     FailureHandlingPolicyType,
     FeatureGroupSortByType,
     FeatureGroupSortOrderType,
     FeatureGroupStatusType,
+    FeatureStatusType,
     FeatureTypeType,
     FileSystemAccessModeType,
     FileSystemTypeType,
@@ -199,6 +205,7 @@ from .literals import (
     UserProfileStatusType,
     VariantPropertyTypeType,
     VariantStatusType,
+    WarmPoolResourceStatusType,
     WorkforceStatusType,
 )
 
@@ -269,6 +276,7 @@ __all__ = (
     "CallbackStepMetadataTypeDef",
     "CandidateArtifactLocationsTypeDef",
     "CandidatePropertiesTypeDef",
+    "CanvasAppSettingsTypeDef",
     "CapacitySizeTypeDef",
     "CaptureContentTypeHeaderTypeDef",
     "CaptureOptionTypeDef",
@@ -279,6 +287,11 @@ __all__ = (
     "ChannelTypeDef",
     "CheckpointConfigTypeDef",
     "ClarifyCheckStepMetadataTypeDef",
+    "ClarifyExplainerConfigTypeDef",
+    "ClarifyInferenceConfigTypeDef",
+    "ClarifyShapBaselineConfigTypeDef",
+    "ClarifyShapConfigTypeDef",
+    "ClarifyTextConfigTypeDef",
     "CodeRepositorySummaryTypeDef",
     "CognitoConfigTypeDef",
     "CognitoMemberDefinitionTypeDef",
@@ -594,6 +607,7 @@ __all__ = (
     "ExperimentSummaryTypeDef",
     "ExperimentTypeDef",
     "ExplainabilityTypeDef",
+    "ExplainerConfigTypeDef",
     "FailStepMetadataTypeDef",
     "FeatureDefinitionTypeDef",
     "FeatureGroupSummaryTypeDef",
@@ -632,9 +646,12 @@ __all__ = (
     "HyperParameterTuningInstanceConfigTypeDef",
     "HyperParameterTuningJobConfigTypeDef",
     "HyperParameterTuningJobObjectiveTypeDef",
+    "HyperParameterTuningJobSearchEntityTypeDef",
+    "HyperParameterTuningJobStrategyConfigTypeDef",
     "HyperParameterTuningJobSummaryTypeDef",
     "HyperParameterTuningJobWarmStartConfigTypeDef",
     "HyperParameterTuningResourceConfigTypeDef",
+    "HyperbandStrategyConfigTypeDef",
     "ImageConfigTypeDef",
     "ImageTypeDef",
     "ImageVersionTypeDef",
@@ -920,8 +937,10 @@ __all__ = (
     "RStudioServerProDomainSettingsForUpdateTypeDef",
     "RStudioServerProDomainSettingsTypeDef",
     "RecommendationJobCompiledOutputConfigTypeDef",
+    "RecommendationJobContainerConfigTypeDef",
     "RecommendationJobInputConfigTypeDef",
     "RecommendationJobOutputConfigTypeDef",
+    "RecommendationJobPayloadConfigTypeDef",
     "RecommendationJobResourceLimitTypeDef",
     "RecommendationJobStoppingConditionsTypeDef",
     "RecommendationMetricsTypeDef",
@@ -934,6 +953,7 @@ __all__ = (
     "RenderingErrorTypeDef",
     "RepositoryAuthConfigTypeDef",
     "ResolvedAttributesTypeDef",
+    "ResourceConfigForUpdateTypeDef",
     "ResourceConfigTypeDef",
     "ResourceLimitsTypeDef",
     "ResourceSpecTypeDef",
@@ -989,6 +1009,7 @@ __all__ = (
     "TargetPlatformTypeDef",
     "TensorBoardAppSettingsTypeDef",
     "TensorBoardOutputConfigTypeDef",
+    "TimeSeriesForecastingSettingsTypeDef",
     "TrafficPatternTypeDef",
     "TrafficRoutingConfigTypeDef",
     "TrainingJobDefinitionTypeDef",
@@ -1080,6 +1101,7 @@ __all__ = (
     "VertexTypeDef",
     "VpcConfigTypeDef",
     "WaiterConfigTypeDef",
+    "WarmPoolStatusTypeDef",
     "WorkforceTypeDef",
     "WorkforceVpcConfigRequestTypeDef",
     "WorkforceVpcConfigResponseTypeDef",
@@ -1629,6 +1651,7 @@ AutoMLJobConfigTypeDef = TypedDict(
         "SecurityConfig": "AutoMLSecurityConfigTypeDef",
         "DataSplitConfig": "AutoMLDataSplitConfigTypeDef",
         "CandidateGenerationConfig": "AutoMLCandidateGenerationConfigTypeDef",
+        "Mode": AutoMLModeType,
     },
     total=False,
 )
@@ -1843,6 +1866,14 @@ CandidatePropertiesTypeDef = TypedDict(
     total=False,
 )
 
+CanvasAppSettingsTypeDef = TypedDict(
+    "CanvasAppSettingsTypeDef",
+    {
+        "TimeSeriesForecastingSettings": "TimeSeriesForecastingSettingsTypeDef",
+    },
+    total=False,
+)
+
 CapacitySizeTypeDef = TypedDict(
     "CapacitySizeTypeDef",
     {
@@ -1965,6 +1996,84 @@ ClarifyCheckStepMetadataTypeDef = TypedDict(
         "RegisterNewBaseline": bool,
     },
     total=False,
+)
+
+_RequiredClarifyExplainerConfigTypeDef = TypedDict(
+    "_RequiredClarifyExplainerConfigTypeDef",
+    {
+        "ShapConfig": "ClarifyShapConfigTypeDef",
+    },
+)
+_OptionalClarifyExplainerConfigTypeDef = TypedDict(
+    "_OptionalClarifyExplainerConfigTypeDef",
+    {
+        "EnableExplanations": str,
+        "InferenceConfig": "ClarifyInferenceConfigTypeDef",
+    },
+    total=False,
+)
+
+class ClarifyExplainerConfigTypeDef(
+    _RequiredClarifyExplainerConfigTypeDef, _OptionalClarifyExplainerConfigTypeDef
+):
+    pass
+
+ClarifyInferenceConfigTypeDef = TypedDict(
+    "ClarifyInferenceConfigTypeDef",
+    {
+        "FeaturesAttribute": str,
+        "ContentTemplate": str,
+        "MaxRecordCount": int,
+        "MaxPayloadInMB": int,
+        "ProbabilityIndex": int,
+        "LabelIndex": int,
+        "ProbabilityAttribute": str,
+        "LabelAttribute": str,
+        "LabelHeaders": List[str],
+        "FeatureHeaders": List[str],
+        "FeatureTypes": List[ClarifyFeatureTypeType],
+    },
+    total=False,
+)
+
+ClarifyShapBaselineConfigTypeDef = TypedDict(
+    "ClarifyShapBaselineConfigTypeDef",
+    {
+        "MimeType": str,
+        "ShapBaseline": str,
+        "ShapBaselineUri": str,
+    },
+    total=False,
+)
+
+_RequiredClarifyShapConfigTypeDef = TypedDict(
+    "_RequiredClarifyShapConfigTypeDef",
+    {
+        "ShapBaselineConfig": "ClarifyShapBaselineConfigTypeDef",
+    },
+)
+_OptionalClarifyShapConfigTypeDef = TypedDict(
+    "_OptionalClarifyShapConfigTypeDef",
+    {
+        "NumberOfSamples": int,
+        "UseLogit": bool,
+        "Seed": int,
+        "TextConfig": "ClarifyTextConfigTypeDef",
+    },
+    total=False,
+)
+
+class ClarifyShapConfigTypeDef(
+    _RequiredClarifyShapConfigTypeDef, _OptionalClarifyShapConfigTypeDef
+):
+    pass
+
+ClarifyTextConfigTypeDef = TypedDict(
+    "ClarifyTextConfigTypeDef",
+    {
+        "Language": ClarifyTextLanguageType,
+        "Granularity": ClarifyTextGranularityType,
+    },
 )
 
 _RequiredCodeRepositorySummaryTypeDef = TypedDict(
@@ -2587,6 +2696,7 @@ _OptionalCreateEndpointConfigInputRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "KmsKeyId": str,
         "AsyncInferenceConfig": "AsyncInferenceConfigTypeDef",
+        "ExplainerConfig": "ExplainerConfigTypeDef",
     },
     total=False,
 )
@@ -4710,6 +4820,7 @@ DescribeEndpointConfigOutputTypeDef = TypedDict(
         "KmsKeyId": str,
         "CreationTime": datetime,
         "AsyncInferenceConfig": "AsyncInferenceConfigTypeDef",
+        "ExplainerConfig": "ExplainerConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4736,6 +4847,7 @@ DescribeEndpointOutputTypeDef = TypedDict(
         "LastDeploymentConfig": "DeploymentConfigTypeDef",
         "AsyncInferenceConfig": "AsyncInferenceConfigTypeDef",
         "PendingDeploymentSummary": "PendingDeploymentSummaryTypeDef",
+        "ExplainerConfig": "ExplainerConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5495,6 +5607,7 @@ DescribeTrainingJobResponseTypeDef = TypedDict(
         "ProfilingStatus": ProfilingStatusType,
         "RetryStrategy": "RetryStrategyTypeDef",
         "Environment": Dict[str, str],
+        "WarmPoolStatus": "WarmPoolStatusTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5819,6 +5932,7 @@ DomainSettingsForUpdateTypeDef = TypedDict(
     "DomainSettingsForUpdateTypeDef",
     {
         "RStudioServerProDomainSettingsForUpdate": "RStudioServerProDomainSettingsForUpdateTypeDef",
+        "ExecutionRoleIdentityConfig": ExecutionRoleIdentityConfigType,
     },
     total=False,
 )
@@ -5828,6 +5942,7 @@ DomainSettingsTypeDef = TypedDict(
     {
         "SecurityGroupIds": List[str],
         "RStudioServerProDomainSettings": "RStudioServerProDomainSettingsTypeDef",
+        "ExecutionRoleIdentityConfig": ExecutionRoleIdentityConfigType,
     },
     total=False,
 )
@@ -6247,6 +6362,14 @@ ExplainabilityTypeDef = TypedDict(
     "ExplainabilityTypeDef",
     {
         "Report": "MetricsSourceTypeDef",
+    },
+    total=False,
+)
+
+ExplainerConfigTypeDef = TypedDict(
+    "ExplainerConfigTypeDef",
+    {
+        "ClarifyExplainerConfig": "ClarifyExplainerConfigTypeDef",
     },
     total=False,
 )
@@ -6801,6 +6924,7 @@ _RequiredHyperParameterTuningJobConfigTypeDef = TypedDict(
 _OptionalHyperParameterTuningJobConfigTypeDef = TypedDict(
     "_OptionalHyperParameterTuningJobConfigTypeDef",
     {
+        "StrategyConfig": "HyperParameterTuningJobStrategyConfigTypeDef",
         "HyperParameterTuningJobObjective": "HyperParameterTuningJobObjectiveTypeDef",
         "ParameterRanges": "ParameterRangesTypeDef",
         "TrainingJobEarlyStoppingType": TrainingJobEarlyStoppingTypeType,
@@ -6820,6 +6944,37 @@ HyperParameterTuningJobObjectiveTypeDef = TypedDict(
         "Type": HyperParameterTuningJobObjectiveTypeType,
         "MetricName": str,
     },
+)
+
+HyperParameterTuningJobSearchEntityTypeDef = TypedDict(
+    "HyperParameterTuningJobSearchEntityTypeDef",
+    {
+        "HyperParameterTuningJobName": str,
+        "HyperParameterTuningJobArn": str,
+        "HyperParameterTuningJobConfig": "HyperParameterTuningJobConfigTypeDef",
+        "TrainingJobDefinition": "HyperParameterTrainingJobDefinitionTypeDef",
+        "TrainingJobDefinitions": List["HyperParameterTrainingJobDefinitionTypeDef"],
+        "HyperParameterTuningJobStatus": HyperParameterTuningJobStatusType,
+        "CreationTime": datetime,
+        "HyperParameterTuningEndTime": datetime,
+        "LastModifiedTime": datetime,
+        "TrainingJobStatusCounters": "TrainingJobStatusCountersTypeDef",
+        "ObjectiveStatusCounters": "ObjectiveStatusCountersTypeDef",
+        "BestTrainingJob": "HyperParameterTrainingJobSummaryTypeDef",
+        "OverallBestTrainingJob": "HyperParameterTrainingJobSummaryTypeDef",
+        "WarmStartConfig": "HyperParameterTuningJobWarmStartConfigTypeDef",
+        "FailureReason": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+HyperParameterTuningJobStrategyConfigTypeDef = TypedDict(
+    "HyperParameterTuningJobStrategyConfigTypeDef",
+    {
+        "HyperbandStrategyConfig": "HyperbandStrategyConfigTypeDef",
+    },
+    total=False,
 )
 
 _RequiredHyperParameterTuningJobSummaryTypeDef = TypedDict(
@@ -6866,6 +7021,15 @@ HyperParameterTuningResourceConfigTypeDef = TypedDict(
         "VolumeKmsKeyId": str,
         "AllocationStrategy": Literal["Prioritized"],
         "InstanceConfigs": List["HyperParameterTuningInstanceConfigTypeDef"],
+    },
+    total=False,
+)
+
+HyperbandStrategyConfigTypeDef = TypedDict(
+    "HyperbandStrategyConfigTypeDef",
+    {
+        "MinResource": int,
+        "MaxResource": int,
     },
     total=False,
 )
@@ -8693,6 +8857,7 @@ ListTrainingJobsRequestRequestTypeDef = TypedDict(
         "StatusEquals": TrainingJobStatusType,
         "SortBy": SortByType,
         "SortOrder": SortOrderType,
+        "WarmPoolStatusEquals": WarmPoolResourceStatusType,
     },
     total=False,
 )
@@ -10396,6 +10561,9 @@ _OptionalProductionVariantTypeDef = TypedDict(
         "AcceleratorType": ProductionVariantAcceleratorTypeType,
         "CoreDumpConfig": "ProductionVariantCoreDumpConfigTypeDef",
         "ServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
+        "VolumeSizeInGB": int,
+        "ModelDataDownloadTimeoutInSeconds": int,
+        "ContainerStartupHealthCheckTimeoutInSeconds": int,
     },
     total=False,
 )
@@ -10680,6 +10848,20 @@ RecommendationJobCompiledOutputConfigTypeDef = TypedDict(
     total=False,
 )
 
+RecommendationJobContainerConfigTypeDef = TypedDict(
+    "RecommendationJobContainerConfigTypeDef",
+    {
+        "Domain": str,
+        "Task": str,
+        "Framework": str,
+        "FrameworkVersion": str,
+        "PayloadConfig": "RecommendationJobPayloadConfigTypeDef",
+        "NearestModelName": str,
+        "SupportedInstanceTypes": List[str],
+    },
+    total=False,
+)
+
 _RequiredRecommendationJobInputConfigTypeDef = TypedDict(
     "_RequiredRecommendationJobInputConfigTypeDef",
     {
@@ -10694,6 +10876,7 @@ _OptionalRecommendationJobInputConfigTypeDef = TypedDict(
         "ResourceLimit": "RecommendationJobResourceLimitTypeDef",
         "EndpointConfigurations": List["EndpointInputConfigurationTypeDef"],
         "VolumeKmsKeyId": str,
+        "ContainerConfig": "RecommendationJobContainerConfigTypeDef",
     },
     total=False,
 )
@@ -10708,6 +10891,15 @@ RecommendationJobOutputConfigTypeDef = TypedDict(
     {
         "KmsKeyId": str,
         "CompiledOutputConfig": "RecommendationJobCompiledOutputConfigTypeDef",
+    },
+    total=False,
+)
+
+RecommendationJobPayloadConfigTypeDef = TypedDict(
+    "RecommendationJobPayloadConfigTypeDef",
+    {
+        "SamplePayloadUrl": str,
+        "SupportedContentTypes": List[str],
     },
     total=False,
 )
@@ -10856,6 +11048,13 @@ ResolvedAttributesTypeDef = TypedDict(
     total=False,
 )
 
+ResourceConfigForUpdateTypeDef = TypedDict(
+    "ResourceConfigForUpdateTypeDef",
+    {
+        "KeepAlivePeriodInSeconds": int,
+    },
+)
+
 _RequiredResourceConfigTypeDef = TypedDict(
     "_RequiredResourceConfigTypeDef",
     {
@@ -10869,6 +11068,7 @@ _OptionalResourceConfigTypeDef = TypedDict(
         "InstanceCount": int,
         "VolumeKmsKeyId": str,
         "InstanceGroups": List["InstanceGroupTypeDef"],
+        "KeepAlivePeriodInSeconds": int,
     },
     total=False,
 )
@@ -11021,6 +11221,7 @@ SearchRecordTypeDef = TypedDict(
         "FeatureGroup": "FeatureGroupTypeDef",
         "Project": "ProjectTypeDef",
         "FeatureMetadata": "FeatureMetadataTypeDef",
+        "HyperParameterTuningJob": "HyperParameterTuningJobSearchEntityTypeDef",
     },
     total=False,
 )
@@ -11483,6 +11684,15 @@ class TensorBoardOutputConfigTypeDef(
 ):
     pass
 
+TimeSeriesForecastingSettingsTypeDef = TypedDict(
+    "TimeSeriesForecastingSettingsTypeDef",
+    {
+        "Status": FeatureStatusType,
+        "AmazonForecastRoleArn": str,
+    },
+    total=False,
+)
+
 TrafficPatternTypeDef = TypedDict(
     "TrafficPatternTypeDef",
     {
@@ -11570,6 +11780,7 @@ _OptionalTrainingJobSummaryTypeDef = TypedDict(
     {
         "TrainingEndTime": datetime,
         "LastModifiedTime": datetime,
+        "WarmPoolStatus": "WarmPoolStatusTypeDef",
     },
     total=False,
 )
@@ -12606,6 +12817,7 @@ _OptionalUpdateTrainingJobRequestRequestTypeDef = TypedDict(
     {
         "ProfilerConfig": "ProfilerConfigForUpdateTypeDef",
         "ProfilerRuleConfigurations": List["ProfilerRuleConfigurationTypeDef"],
+        "ResourceConfig": "ResourceConfigForUpdateTypeDef",
     },
     total=False,
 )
@@ -12806,6 +13018,7 @@ UserSettingsTypeDef = TypedDict(
         "TensorBoardAppSettings": "TensorBoardAppSettingsTypeDef",
         "RStudioServerProAppSettings": "RStudioServerProAppSettingsTypeDef",
         "RSessionAppSettings": "RSessionAppSettingsTypeDef",
+        "CanvasAppSettings": "CanvasAppSettingsTypeDef",
     },
     total=False,
 )
@@ -12843,6 +13056,24 @@ WaiterConfigTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredWarmPoolStatusTypeDef = TypedDict(
+    "_RequiredWarmPoolStatusTypeDef",
+    {
+        "Status": WarmPoolResourceStatusType,
+    },
+)
+_OptionalWarmPoolStatusTypeDef = TypedDict(
+    "_OptionalWarmPoolStatusTypeDef",
+    {
+        "ResourceRetainedBillableTimeInSeconds": int,
+        "ReusedByJob": str,
+    },
+    total=False,
+)
+
+class WarmPoolStatusTypeDef(_RequiredWarmPoolStatusTypeDef, _OptionalWarmPoolStatusTypeDef):
+    pass
 
 _RequiredWorkforceTypeDef = TypedDict(
     "_RequiredWorkforceTypeDef",

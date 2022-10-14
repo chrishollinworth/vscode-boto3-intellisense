@@ -642,7 +642,7 @@ TimeSeriesDataPointTypeDef = TypedDict(
     "TimeSeriesDataPointTypeDef",
     {
         "Time": str,
-        "Value": "DatumTypeDef",
+        "Value": Dict[str, Any],
     },
 )
 

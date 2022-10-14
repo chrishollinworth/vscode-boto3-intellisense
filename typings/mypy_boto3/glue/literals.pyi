@@ -96,6 +96,8 @@ __all__ = (
     "SessionStatusType",
     "SortDirectionTypeType",
     "SortType",
+    "SourceControlAuthStrategyType",
+    "SourceControlProviderType",
     "StartingPositionType",
     "StatementStateType",
     "TargetFormatType",
@@ -312,6 +314,8 @@ SeparatorType = Literal["comma", "ctrla", "pipe", "semicolon", "tab"]
 SessionStatusType = Literal["FAILED", "PROVISIONING", "READY", "STOPPED", "STOPPING", "TIMEOUT"]
 SortDirectionTypeType = Literal["ASCENDING", "DESCENDING"]
 SortType = Literal["ASC", "DESC"]
+SourceControlAuthStrategyType = Literal["AWS_SECRETS_MANAGER", "PERSONAL_ACCESS_TOKEN"]
+SourceControlProviderType = Literal["AWS_CODE_COMMIT", "GITHUB"]
 StartingPositionType = Literal["earliest", "latest", "trim_horizon"]
 StatementStateType = Literal["AVAILABLE", "CANCELLED", "CANCELLING", "ERROR", "RUNNING", "WAITING"]
 TargetFormatType = Literal["avro", "csv", "json", "orc", "parquet"]

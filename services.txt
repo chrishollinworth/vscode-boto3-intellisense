@@ -69,7 +69,9 @@ config
 connect
 connect_contact_lens
 connectcampaigns
+connectcases
 connectparticipant
+controltower
 cur
 customer_profiles
 databrew
@@ -147,6 +149,7 @@ iotdeviceadvisor
 iotevents
 iotevents_data
 iotfleethub
+iotfleetwise
 iotsecuretunneling
 iotsitewise
 iotthingsgraph
@@ -202,6 +205,7 @@ mgh
 mgn
 migration_hub_refactor_spaces
 migrationhub_config
+migrationhuborchestrator
 migrationhubstrategy
 mobile
 mq

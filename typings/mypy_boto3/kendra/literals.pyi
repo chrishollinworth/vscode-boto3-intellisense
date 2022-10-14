@@ -230,7 +230,9 @@ ScoreConfidenceType = Literal["HIGH", "LOW", "MEDIUM", "NOT_AVAILABLE", "VERY_HI
 ServiceNowAuthenticationTypeType = Literal["HTTP_BASIC", "OAUTH2"]
 ServiceNowBuildVersionTypeType = Literal["LONDON", "OTHERS"]
 SharePointOnlineAuthenticationTypeType = Literal["HTTP_BASIC", "OAUTH2"]
-SharePointVersionType = Literal["SHAREPOINT_2013", "SHAREPOINT_2016", "SHAREPOINT_ONLINE"]
+SharePointVersionType = Literal[
+    "SHAREPOINT_2013", "SHAREPOINT_2016", "SHAREPOINT_2019", "SHAREPOINT_ONLINE"
+]
 SlackEntityType = Literal["DIRECT_MESSAGE", "GROUP_MESSAGE", "PRIVATE_CHANNEL", "PUBLIC_CHANNEL"]
 SortOrderType = Literal["ASC", "DESC"]
 ThesaurusStatusType = Literal[

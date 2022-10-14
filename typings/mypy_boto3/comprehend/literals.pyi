@@ -47,6 +47,7 @@ __all__ = (
     "SentimentTypeType",
     "SplitType",
     "SyntaxLanguageCodeType",
+    "TargetedSentimentEntityTypeType",
 )
 
 AugmentedManifestsDocumentTypeFormatType = Literal[
@@ -152,3 +153,22 @@ PiiEntityTypeType = Literal[
 SentimentTypeType = Literal["MIXED", "NEGATIVE", "NEUTRAL", "POSITIVE"]
 SplitType = Literal["TEST", "TRAIN"]
 SyntaxLanguageCodeType = Literal["de", "en", "es", "fr", "it", "pt"]
+TargetedSentimentEntityTypeType = Literal[
+    "ATTRIBUTE",
+    "BOOK",
+    "BRAND",
+    "COMMERCIAL_ITEM",
+    "DATE",
+    "EVENT",
+    "FACILITY",
+    "GAME",
+    "LOCATION",
+    "MOVIE",
+    "MUSIC",
+    "ORGANIZATION",
+    "OTHER",
+    "PERSON",
+    "PERSONAL_TITLE",
+    "QUANTITY",
+    "SOFTWARE",
+]

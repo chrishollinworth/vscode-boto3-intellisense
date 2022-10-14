@@ -12,6 +12,7 @@ Usage::
         ListClustersPaginator,
         ListCompatibleImagesPaginator,
         ListJobsPaginator,
+        ListLongTermPricingPaginator,
         SnowballClient,
     )
 
@@ -25,6 +26,7 @@ Usage::
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     list_compatible_images_paginator: ListCompatibleImagesPaginator = client.get_paginator("list_compatible_images")
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
+    list_long_term_pricing_paginator: ListLongTermPricingPaginator = client.get_paginator("list_long_term_pricing")
     ```
 """
 from .client import SnowballClient
@@ -34,6 +36,7 @@ from .paginator import (
     ListClustersPaginator,
     ListCompatibleImagesPaginator,
     ListJobsPaginator,
+    ListLongTermPricingPaginator,
 )
 
 Client = SnowballClient
@@ -45,5 +48,6 @@ __all__ = (
     "ListClustersPaginator",
     "ListCompatibleImagesPaginator",
     "ListJobsPaginator",
+    "ListLongTermPricingPaginator",
     "SnowballClient",
 )

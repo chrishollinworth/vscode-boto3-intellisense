@@ -112,6 +112,8 @@ __all__ = (
     "OnlineAbConfigTypeDef",
     "OnlineAbDefinitionTypeDef",
     "PaginatorConfigTypeDef",
+    "ProjectAppConfigResourceConfigTypeDef",
+    "ProjectAppConfigResourceTypeDef",
     "ProjectDataDeliveryConfigTypeDef",
     "ProjectDataDeliveryTypeDef",
     "ProjectSummaryTypeDef",
@@ -300,6 +302,7 @@ _RequiredCreateProjectRequestRequestTypeDef = TypedDict(
 _OptionalCreateProjectRequestRequestTypeDef = TypedDict(
     "_OptionalCreateProjectRequestRequestTypeDef",
     {
+        "appConfigResource": "ProjectAppConfigResourceConfigTypeDef",
         "dataDelivery": "ProjectDataDeliveryConfigTypeDef",
         "description": str,
         "tags": Dict[str, str],
@@ -1089,6 +1092,24 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+ProjectAppConfigResourceConfigTypeDef = TypedDict(
+    "ProjectAppConfigResourceConfigTypeDef",
+    {
+        "applicationId": str,
+        "environmentId": str,
+    },
+    total=False,
+)
+
+ProjectAppConfigResourceTypeDef = TypedDict(
+    "ProjectAppConfigResourceTypeDef",
+    {
+        "applicationId": str,
+        "configurationProfileId": str,
+        "environmentId": str,
+    },
+)
+
 ProjectDataDeliveryConfigTypeDef = TypedDict(
     "ProjectDataDeliveryConfigTypeDef",
     {
@@ -1149,6 +1170,7 @@ _OptionalProjectTypeDef = TypedDict(
     {
         "activeExperimentCount": int,
         "activeLaunchCount": int,
+        "appConfigResource": "ProjectAppConfigResourceTypeDef",
         "dataDelivery": "ProjectDataDeliveryTypeDef",
         "description": str,
         "experimentCount": int,
@@ -1624,6 +1646,7 @@ _RequiredUpdateProjectRequestRequestTypeDef = TypedDict(
 _OptionalUpdateProjectRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateProjectRequestRequestTypeDef",
     {
+        "appConfigResource": "ProjectAppConfigResourceConfigTypeDef",
         "description": str,
     },
     total=False,

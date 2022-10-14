@@ -76,6 +76,7 @@ ProtocolType = Literal[
     "rist",
     "rtp",
     "rtp-fec",
+    "srt-caller",
     "srt-listener",
     "st2110-jpegxs",
     "zixi-pull",

@@ -34,7 +34,7 @@ __all__ = ("ListMemberAccountsPaginator", "ListS3ResourcesPaginator")
 
 class ListMemberAccountsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/macie.html#Macie.Paginator.ListMemberAccounts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/macie.html#Macie.Paginator.ListMemberAccounts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/paginators.html#listmemberaccountspaginator)
     """
 
@@ -42,13 +42,13 @@ class ListMemberAccountsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMemberAccountsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/macie.html#Macie.Paginator.ListMemberAccounts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/macie.html#Macie.Paginator.ListMemberAccounts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/paginators.html#listmemberaccountspaginator)
         """
 
 class ListS3ResourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/macie.html#Macie.Paginator.ListS3Resources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/macie.html#Macie.Paginator.ListS3Resources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/paginators.html#lists3resourcespaginator)
     """
 
@@ -56,6 +56,6 @@ class ListS3ResourcesPaginator(Boto3Paginator):
         self, *, memberAccountId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListS3ResourcesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/macie.html#Macie.Paginator.ListS3Resources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/macie.html#Macie.Paginator.ListS3Resources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/paginators.html#lists3resourcespaginator)
         """

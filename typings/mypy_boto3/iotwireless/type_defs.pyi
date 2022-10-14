@@ -20,6 +20,7 @@ from .literals import (
     ConnectionStatusType,
     DeviceStateType,
     DlClassType,
+    DownlinkModeType,
     EventNotificationResourceTypeType,
     EventNotificationTopicStatusType,
     EventType,
@@ -66,6 +67,7 @@ __all__ = (
     "AssociateWirelessGatewayWithCertificateRequestRequestTypeDef",
     "AssociateWirelessGatewayWithCertificateResponseTypeDef",
     "AssociateWirelessGatewayWithThingRequestRequestTypeDef",
+    "BeaconingTypeDef",
     "CancelMulticastGroupSessionRequestRequestTypeDef",
     "CertificateListTypeDef",
     "ConnectionStatusEventConfigurationTypeDef",
@@ -117,6 +119,7 @@ __all__ = (
     "EventNotificationItemConfigurationsTypeDef",
     "FPortsTypeDef",
     "FuotaTaskTypeDef",
+    "GatewayListItemTypeDef",
     "GetDestinationRequestRequestTypeDef",
     "GetDestinationResponseTypeDef",
     "GetDeviceProfileRequestRequestTypeDef",
@@ -226,6 +229,7 @@ __all__ = (
     "NetworkAnalyzerConfigurationsTypeDef",
     "OtaaV1_0_xTypeDef",
     "OtaaV1_1TypeDef",
+    "ParticipatingGatewaysTypeDef",
     "PositionConfigurationItemTypeDef",
     "PositionSolverConfigurationsTypeDef",
     "PositionSolverDetailsTypeDef",
@@ -402,6 +406,15 @@ AssociateWirelessGatewayWithThingRequestRequestTypeDef = TypedDict(
         "Id": str,
         "ThingArn": str,
     },
+)
+
+BeaconingTypeDef = TypedDict(
+    "BeaconingTypeDef",
+    {
+        "DataRate": int,
+        "Frequencies": List[int],
+    },
+    total=False,
 )
 
 CancelMulticastGroupSessionRequestRequestTypeDef = TypedDict(
@@ -960,6 +973,14 @@ FuotaTaskTypeDef = TypedDict(
         "Name": str,
     },
     total=False,
+)
+
+GatewayListItemTypeDef = TypedDict(
+    "GatewayListItemTypeDef",
+    {
+        "GatewayId": str,
+        "DownlinkFrequency": int,
+    },
 )
 
 GetDestinationRequestRequestTypeDef = TypedDict(
@@ -1833,6 +1854,7 @@ LoRaWANGatewayTypeDef = TypedDict(
         "JoinEuiFilters": List[List[str]],
         "NetIdFilters": List[str],
         "SubBands": List[int],
+        "Beaconing": "BeaconingTypeDef",
     },
     total=False,
 )
@@ -1940,6 +1962,7 @@ LoRaWANSendDataToDeviceTypeDef = TypedDict(
     "LoRaWANSendDataToDeviceTypeDef",
     {
         "FPort": int,
+        "ParticipatingGateways": "ParticipatingGatewaysTypeDef",
     },
     total=False,
 )
@@ -2064,6 +2087,15 @@ OtaaV1_1TypeDef = TypedDict(
         "JoinEui": str,
     },
     total=False,
+)
+
+ParticipatingGatewaysTypeDef = TypedDict(
+    "ParticipatingGatewaysTypeDef",
+    {
+        "DownlinkMode": DownlinkModeType,
+        "GatewayList": List["GatewayListItemTypeDef"],
+        "TransmissionInterval": int,
+    },
 )
 
 PositionConfigurationItemTypeDef = TypedDict(

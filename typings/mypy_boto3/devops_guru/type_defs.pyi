@@ -32,6 +32,7 @@ from .literals import (
     InsightTypeType,
     LocaleType,
     LogAnomalyTypeType,
+    NotificationMessageTypeType,
     OptInStatusType,
     OrganizationResourceCollectionTypeType,
     ResourceCollectionTypeType,
@@ -131,6 +132,7 @@ __all__ = (
     "MonitoredResourceIdentifierTypeDef",
     "NotificationChannelConfigTypeDef",
     "NotificationChannelTypeDef",
+    "NotificationFilterConfigTypeDef",
     "OpsCenterIntegrationConfigTypeDef",
     "OpsCenterIntegrationTypeDef",
     "PaginatorConfigTypeDef",
@@ -1119,18 +1121,39 @@ MonitoredResourceIdentifierTypeDef = TypedDict(
     total=False,
 )
 
-NotificationChannelConfigTypeDef = TypedDict(
-    "NotificationChannelConfigTypeDef",
+_RequiredNotificationChannelConfigTypeDef = TypedDict(
+    "_RequiredNotificationChannelConfigTypeDef",
     {
         "Sns": "SnsChannelConfigTypeDef",
     },
 )
+_OptionalNotificationChannelConfigTypeDef = TypedDict(
+    "_OptionalNotificationChannelConfigTypeDef",
+    {
+        "Filters": "NotificationFilterConfigTypeDef",
+    },
+    total=False,
+)
+
+class NotificationChannelConfigTypeDef(
+    _RequiredNotificationChannelConfigTypeDef, _OptionalNotificationChannelConfigTypeDef
+):
+    pass
 
 NotificationChannelTypeDef = TypedDict(
     "NotificationChannelTypeDef",
     {
         "Id": str,
         "Config": "NotificationChannelConfigTypeDef",
+    },
+    total=False,
+)
+
+NotificationFilterConfigTypeDef = TypedDict(
+    "NotificationFilterConfigTypeDef",
+    {
+        "Severities": List[InsightSeverityType],
+        "MessageTypes": List[NotificationMessageTypeType],
     },
     total=False,
 )

@@ -47,6 +47,7 @@ __all__ = (
     "ListRecommendationsPaginatorName",
     "LocaleType",
     "LogAnomalyTypeType",
+    "NotificationMessageTypeType",
     "OptInStatusType",
     "OrganizationResourceCollectionTypeType",
     "ResourceCollectionTypeType",
@@ -118,6 +119,9 @@ LogAnomalyTypeType = Literal[
     "NEW_FIELD_NAME",
     "NUMERICAL_NAN",
     "NUMERICAL_POINT",
+]
+NotificationMessageTypeType = Literal[
+    "CLOSED_INSIGHT", "NEW_ASSOCIATION", "NEW_INSIGHT", "NEW_RECOMMENDATION", "SEVERITY_UPGRADED"
 ]
 OptInStatusType = Literal["DISABLED", "ENABLED"]
 OrganizationResourceCollectionTypeType = Literal[

@@ -62,6 +62,9 @@ from .literals import (
     DvbSubDestinationShadowColorType,
     DvbSubDestinationTeletextGridControlType,
     DvbSubOcrLanguageType,
+    Eac3AtmosCodingModeType,
+    Eac3AtmosDrcLineType,
+    Eac3AtmosDrcRfType,
     Eac3AttenuationControlType,
     Eac3BitstreamModeType,
     Eac3CodingModeType,
@@ -384,6 +387,7 @@ __all__ = (
     "DvbSubDestinationSettingsTypeDef",
     "DvbSubSourceSettingsTypeDef",
     "DvbTdtSettingsTypeDef",
+    "Eac3AtmosSettingsTypeDef",
     "Eac3SettingsTypeDef",
     "EbuTtDDestinationSettingsTypeDef",
     "EmbeddedSourceSettingsTypeDef",
@@ -721,6 +725,7 @@ AudioCodecSettingsTypeDef = TypedDict(
     {
         "AacSettings": "AacSettingsTypeDef",
         "Ac3Settings": "Ac3SettingsTypeDef",
+        "Eac3AtmosSettings": "Eac3AtmosSettingsTypeDef",
         "Eac3Settings": "Eac3SettingsTypeDef",
         "Mp2Settings": "Mp2SettingsTypeDef",
         "PassThroughSettings": Dict[str, Any],
@@ -1905,6 +1910,20 @@ DvbTdtSettingsTypeDef = TypedDict(
     total=False,
 )
 
+Eac3AtmosSettingsTypeDef = TypedDict(
+    "Eac3AtmosSettingsTypeDef",
+    {
+        "Bitrate": float,
+        "CodingMode": Eac3AtmosCodingModeType,
+        "Dialnorm": int,
+        "DrcLine": Eac3AtmosDrcLineType,
+        "DrcRf": Eac3AtmosDrcRfType,
+        "HeightTrim": float,
+        "SurroundTrim": float,
+    },
+    total=False,
+)
+
 Eac3SettingsTypeDef = TypedDict(
     "Eac3SettingsTypeDef",
     {
@@ -2177,6 +2196,7 @@ H265ColorSpaceSettingsTypeDef = TypedDict(
     "H265ColorSpaceSettingsTypeDef",
     {
         "ColorSpacePassthroughSettings": Dict[str, Any],
+        "DolbyVision81Settings": Dict[str, Any],
         "Hdr10Settings": "Hdr10SettingsTypeDef",
         "Rec601Settings": Dict[str, Any],
         "Rec709Settings": Dict[str, Any],

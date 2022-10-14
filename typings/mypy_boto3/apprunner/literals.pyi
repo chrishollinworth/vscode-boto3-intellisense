@@ -68,7 +68,9 @@ OperationTypeType = Literal[
     "CREATE_SERVICE", "DELETE_SERVICE", "PAUSE_SERVICE", "RESUME_SERVICE", "START_DEPLOYMENT"
 ]
 ProviderTypeType = Literal["GITHUB"]
-RuntimeType = Literal["CORRETTO_11", "CORRETTO_8", "NODEJS_12", "NODEJS_14", "PYTHON_3"]
+RuntimeType = Literal[
+    "CORRETTO_11", "CORRETTO_8", "NODEJS_12", "NODEJS_14", "NODEJS_16", "PYTHON_3"
+]
 ServiceStatusType = Literal[
     "CREATE_FAILED", "DELETED", "DELETE_FAILED", "OPERATION_IN_PROGRESS", "PAUSED", "RUNNING"
 ]

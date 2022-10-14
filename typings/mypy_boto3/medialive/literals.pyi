@@ -71,6 +71,9 @@ __all__ = (
     "DvbSubDestinationShadowColorType",
     "DvbSubDestinationTeletextGridControlType",
     "DvbSubOcrLanguageType",
+    "Eac3AtmosCodingModeType",
+    "Eac3AtmosDrcLineType",
+    "Eac3AtmosDrcRfType",
     "Eac3AttenuationControlType",
     "Eac3BitstreamModeType",
     "Eac3CodingModeType",
@@ -385,6 +388,13 @@ DvbSubDestinationOutlineColorType = Literal["BLACK", "BLUE", "GREEN", "RED", "WH
 DvbSubDestinationShadowColorType = Literal["BLACK", "NONE", "WHITE"]
 DvbSubDestinationTeletextGridControlType = Literal["FIXED", "SCALED"]
 DvbSubOcrLanguageType = Literal["DEU", "ENG", "FRA", "NLD", "POR", "SPA"]
+Eac3AtmosCodingModeType = Literal["CODING_MODE_5_1_4", "CODING_MODE_7_1_4", "CODING_MODE_9_1_6"]
+Eac3AtmosDrcLineType = Literal[
+    "FILM_LIGHT", "FILM_STANDARD", "MUSIC_LIGHT", "MUSIC_STANDARD", "NONE", "SPEECH"
+]
+Eac3AtmosDrcRfType = Literal[
+    "FILM_LIGHT", "FILM_STANDARD", "MUSIC_LIGHT", "MUSIC_STANDARD", "NONE", "SPEECH"
+]
 Eac3AttenuationControlType = Literal["ATTENUATE_3_DB", "NONE"]
 Eac3BitstreamModeType = Literal[
     "COMMENTARY", "COMPLETE_MAIN", "EMERGENCY", "HEARING_IMPAIRED", "VISUALLY_IMPAIRED"

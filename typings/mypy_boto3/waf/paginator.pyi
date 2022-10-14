@@ -93,7 +93,7 @@ __all__ = (
 
 class GetRateBasedRuleManagedKeysPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#getratebasedrulemanagedkeyspaginator)
     """
 
@@ -101,13 +101,13 @@ class GetRateBasedRuleManagedKeysPaginator(Boto3Paginator):
         self, *, RuleId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRateBasedRuleManagedKeysResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#getratebasedrulemanagedkeyspaginator)
         """
 
 class ListActivatedRulesInRuleGroupPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listactivatedrulesinrulegrouppaginator)
     """
 
@@ -115,13 +115,13 @@ class ListActivatedRulesInRuleGroupPaginator(Boto3Paginator):
         self, *, RuleGroupId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListActivatedRulesInRuleGroupResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listactivatedrulesinrulegrouppaginator)
         """
 
 class ListByteMatchSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListByteMatchSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListByteMatchSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listbytematchsetspaginator)
     """
 
@@ -129,13 +129,13 @@ class ListByteMatchSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListByteMatchSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListByteMatchSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListByteMatchSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listbytematchsetspaginator)
         """
 
 class ListGeoMatchSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listgeomatchsetspaginator)
     """
 
@@ -143,13 +143,13 @@ class ListGeoMatchSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGeoMatchSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listgeomatchsetspaginator)
         """
 
 class ListIPSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListIPSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListIPSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listipsetspaginator)
     """
 
@@ -157,13 +157,13 @@ class ListIPSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIPSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListIPSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListIPSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listipsetspaginator)
         """
 
 class ListLoggingConfigurationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listloggingconfigurationspaginator)
     """
 
@@ -171,13 +171,13 @@ class ListLoggingConfigurationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLoggingConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listloggingconfigurationspaginator)
         """
 
 class ListRateBasedRulesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRateBasedRules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRateBasedRules)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listratebasedrulespaginator)
     """
 
@@ -185,13 +185,13 @@ class ListRateBasedRulesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRateBasedRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRateBasedRules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRateBasedRules.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listratebasedrulespaginator)
         """
 
 class ListRegexMatchSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listregexmatchsetspaginator)
     """
 
@@ -199,13 +199,13 @@ class ListRegexMatchSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRegexMatchSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listregexmatchsetspaginator)
         """
 
 class ListRegexPatternSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listregexpatternsetspaginator)
     """
 
@@ -213,13 +213,13 @@ class ListRegexPatternSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRegexPatternSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listregexpatternsetspaginator)
         """
 
 class ListRuleGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRuleGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRuleGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listrulegroupspaginator)
     """
 
@@ -227,13 +227,13 @@ class ListRuleGroupsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRuleGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRuleGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRuleGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listrulegroupspaginator)
         """
 
 class ListRulesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRules)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listrulespaginator)
     """
 
@@ -241,13 +241,13 @@ class ListRulesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListRules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListRules.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listrulespaginator)
         """
 
 class ListSizeConstraintSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listsizeconstraintsetspaginator)
     """
 
@@ -255,13 +255,13 @@ class ListSizeConstraintSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSizeConstraintSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listsizeconstraintsetspaginator)
         """
 
 class ListSqlInjectionMatchSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listsqlinjectionmatchsetspaginator)
     """
 
@@ -269,13 +269,13 @@ class ListSqlInjectionMatchSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSqlInjectionMatchSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listsqlinjectionmatchsetspaginator)
         """
 
 class ListSubscribedRuleGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listsubscribedrulegroupspaginator)
     """
 
@@ -283,13 +283,13 @@ class ListSubscribedRuleGroupsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscribedRuleGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listsubscribedrulegroupspaginator)
         """
 
 class ListWebACLsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListWebACLs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListWebACLs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listwebaclspaginator)
     """
 
@@ -297,13 +297,13 @@ class ListWebACLsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWebACLsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListWebACLs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListWebACLs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listwebaclspaginator)
         """
 
 class ListXssMatchSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListXssMatchSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListXssMatchSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listxssmatchsetspaginator)
     """
 
@@ -311,6 +311,6 @@ class ListXssMatchSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListXssMatchSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/waf.html#WAF.Paginator.ListXssMatchSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/waf.html#WAF.Paginator.ListXssMatchSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf/paginators.html#listxssmatchsetspaginator)
         """

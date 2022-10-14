@@ -39,6 +39,7 @@ from .literals import (
     MergeStrategyType,
     MessageSelectionStrategyType,
     ObfuscationSettingTypeType,
+    PromptAttemptType,
     SearchOrderType,
     SlotConstraintType,
     SlotFilterOperatorType,
@@ -68,10 +69,13 @@ __all__ = (
     "AggregatedUtterancesFilterTypeDef",
     "AggregatedUtterancesSortByTypeDef",
     "AggregatedUtterancesSummaryTypeDef",
+    "AllowedInputTypesTypeDef",
     "AssociatedTranscriptFilterTypeDef",
     "AssociatedTranscriptTypeDef",
+    "AudioAndDTMFInputSpecificationTypeDef",
     "AudioLogDestinationTypeDef",
     "AudioLogSettingTypeDef",
+    "AudioSpecificationTypeDef",
     "BotAliasHistoryEventTypeDef",
     "BotAliasLocaleSettingsTypeDef",
     "BotAliasSummaryTypeDef",
@@ -101,6 +105,7 @@ __all__ = (
     "ButtonTypeDef",
     "CloudWatchLogGroupLogDestinationTypeDef",
     "CodeHookSpecificationTypeDef",
+    "CompositeSlotTypeSettingTypeDef",
     "ConditionTypeDef",
     "ConditionalBranchTypeDef",
     "ConditionalSpecificationTypeDef",
@@ -129,6 +134,7 @@ __all__ = (
     "CustomPayloadTypeDef",
     "CustomVocabularyExportSpecificationTypeDef",
     "CustomVocabularyImportSpecificationTypeDef",
+    "DTMFSpecificationTypeDef",
     "DataPrivacyTypeDef",
     "DateRangeFilterTypeDef",
     "DefaultConditionalBranchTypeDef",
@@ -252,6 +258,7 @@ __all__ = (
     "PostDialogCodeHookInvocationSpecificationTypeDef",
     "PostFulfillmentStatusSpecificationTypeDef",
     "PrincipalTypeDef",
+    "PromptAttemptSpecificationTypeDef",
     "PromptSpecificationTypeDef",
     "RecommendedIntentSummaryTypeDef",
     "RelativeAggregationDurationTypeDef",
@@ -282,6 +289,7 @@ __all__ = (
     "SlotValueRegexFilterTypeDef",
     "SlotValueSelectionSettingTypeDef",
     "SlotValueTypeDef",
+    "SpecificationsTypeDef",
     "StartBotRecommendationRequestRequestTypeDef",
     "StartBotRecommendationResponseTypeDef",
     "StartImportRequestRequestTypeDef",
@@ -289,7 +297,11 @@ __all__ = (
     "StillWaitingResponseSpecificationTypeDef",
     "StopBotRecommendationRequestRequestTypeDef",
     "StopBotRecommendationResponseTypeDef",
+    "SubSlotSettingTypeDef",
+    "SubSlotTypeCompositionTypeDef",
+    "SubSlotValueElicitationSettingTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TextInputSpecificationTypeDef",
     "TextLogDestinationTypeDef",
     "TextLogSettingTypeDef",
     "TranscriptFilterTypeDef",
@@ -357,6 +369,14 @@ AggregatedUtterancesSummaryTypeDef = TypedDict(
     total=False,
 )
 
+AllowedInputTypesTypeDef = TypedDict(
+    "AllowedInputTypesTypeDef",
+    {
+        "allowAudioInput": bool,
+        "allowDTMFInput": bool,
+    },
+)
+
 AssociatedTranscriptFilterTypeDef = TypedDict(
     "AssociatedTranscriptFilterTypeDef",
     {
@@ -373,6 +393,26 @@ AssociatedTranscriptTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAudioAndDTMFInputSpecificationTypeDef = TypedDict(
+    "_RequiredAudioAndDTMFInputSpecificationTypeDef",
+    {
+        "startTimeoutMs": int,
+    },
+)
+_OptionalAudioAndDTMFInputSpecificationTypeDef = TypedDict(
+    "_OptionalAudioAndDTMFInputSpecificationTypeDef",
+    {
+        "audioSpecification": "AudioSpecificationTypeDef",
+        "dtmfSpecification": "DTMFSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class AudioAndDTMFInputSpecificationTypeDef(
+    _RequiredAudioAndDTMFInputSpecificationTypeDef, _OptionalAudioAndDTMFInputSpecificationTypeDef
+):
+    pass
+
 AudioLogDestinationTypeDef = TypedDict(
     "AudioLogDestinationTypeDef",
     {
@@ -385,6 +425,14 @@ AudioLogSettingTypeDef = TypedDict(
     {
         "enabled": bool,
         "destination": "AudioLogDestinationTypeDef",
+    },
+)
+
+AudioSpecificationTypeDef = TypedDict(
+    "AudioSpecificationTypeDef",
+    {
+        "maxLengthMs": int,
+        "endTimeoutMs": int,
     },
 )
 
@@ -704,6 +752,14 @@ CodeHookSpecificationTypeDef = TypedDict(
     {
         "lambdaCodeHook": "LambdaCodeHookTypeDef",
     },
+)
+
+CompositeSlotTypeSettingTypeDef = TypedDict(
+    "CompositeSlotTypeSettingTypeDef",
+    {
+        "subSlots": List["SubSlotTypeCompositionTypeDef"],
+    },
+    total=False,
 )
 
 ConditionTypeDef = TypedDict(
@@ -1065,6 +1121,7 @@ _OptionalCreateSlotRequestRequestTypeDef = TypedDict(
         "slotTypeId": str,
         "obfuscationSetting": "ObfuscationSettingTypeDef",
         "multipleValuesSetting": "MultipleValuesSettingTypeDef",
+        "subSlotSetting": "SubSlotSettingTypeDef",
     },
     total=False,
 )
@@ -1089,6 +1146,7 @@ CreateSlotResponseTypeDef = TypedDict(
         "intentId": str,
         "creationDateTime": datetime,
         "multipleValuesSetting": "MultipleValuesSettingTypeDef",
+        "subSlotSetting": "SubSlotSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1110,6 +1168,7 @@ _OptionalCreateSlotTypeRequestRequestTypeDef = TypedDict(
         "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
         "parentSlotTypeSignature": str,
         "externalSourceSetting": "ExternalSourceSettingTypeDef",
+        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
     },
     total=False,
 )
@@ -1133,6 +1192,7 @@ CreateSlotTypeResponseTypeDef = TypedDict(
         "localeId": str,
         "creationDateTime": datetime,
         "externalSourceSetting": "ExternalSourceSettingTypeDef",
+        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1168,6 +1228,16 @@ CustomVocabularyImportSpecificationTypeDef = TypedDict(
         "botId": str,
         "botVersion": str,
         "localeId": str,
+    },
+)
+
+DTMFSpecificationTypeDef = TypedDict(
+    "DTMFSpecificationTypeDef",
+    {
+        "maxLength": int,
+        "endTimeoutMs": int,
+        "deletionCharacter": str,
+        "endCharacter": str,
     },
 )
 
@@ -1759,6 +1829,7 @@ DescribeSlotResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "multipleValuesSetting": "MultipleValuesSettingTypeDef",
+        "subSlotSetting": "SubSlotSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1788,6 +1859,7 @@ DescribeSlotTypeResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "externalSourceSetting": "ExternalSourceSettingTypeDef",
+        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2824,6 +2896,27 @@ PrincipalTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPromptAttemptSpecificationTypeDef = TypedDict(
+    "_RequiredPromptAttemptSpecificationTypeDef",
+    {
+        "allowedInputTypes": "AllowedInputTypesTypeDef",
+    },
+)
+_OptionalPromptAttemptSpecificationTypeDef = TypedDict(
+    "_OptionalPromptAttemptSpecificationTypeDef",
+    {
+        "allowInterrupt": bool,
+        "audioAndDTMFInputSpecification": "AudioAndDTMFInputSpecificationTypeDef",
+        "textInputSpecification": "TextInputSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class PromptAttemptSpecificationTypeDef(
+    _RequiredPromptAttemptSpecificationTypeDef, _OptionalPromptAttemptSpecificationTypeDef
+):
+    pass
+
 _RequiredPromptSpecificationTypeDef = TypedDict(
     "_RequiredPromptSpecificationTypeDef",
     {
@@ -2836,6 +2929,7 @@ _OptionalPromptSpecificationTypeDef = TypedDict(
     {
         "allowInterrupt": bool,
         "messageSelectionStrategy": MessageSelectionStrategyType,
+        "promptAttemptsSpecification": Dict[PromptAttemptType, "PromptAttemptSpecificationTypeDef"],
     },
     total=False,
 )
@@ -3186,6 +3280,14 @@ SlotValueTypeDef = TypedDict(
     total=False,
 )
 
+SpecificationsTypeDef = TypedDict(
+    "SpecificationsTypeDef",
+    {
+        "slotTypeId": str,
+        "valueElicitationSetting": "SubSlotValueElicitationSettingTypeDef",
+    },
+)
+
 _RequiredStartBotRecommendationRequestRequestTypeDef = TypedDict(
     "_RequiredStartBotRecommendationRequestRequestTypeDef",
     {
@@ -3301,11 +3403,56 @@ StopBotRecommendationResponseTypeDef = TypedDict(
     },
 )
 
+SubSlotSettingTypeDef = TypedDict(
+    "SubSlotSettingTypeDef",
+    {
+        "expression": str,
+        "slotSpecifications": Dict[str, "SpecificationsTypeDef"],
+    },
+    total=False,
+)
+
+SubSlotTypeCompositionTypeDef = TypedDict(
+    "SubSlotTypeCompositionTypeDef",
+    {
+        "name": str,
+        "slotTypeId": str,
+    },
+)
+
+_RequiredSubSlotValueElicitationSettingTypeDef = TypedDict(
+    "_RequiredSubSlotValueElicitationSettingTypeDef",
+    {
+        "promptSpecification": "PromptSpecificationTypeDef",
+    },
+)
+_OptionalSubSlotValueElicitationSettingTypeDef = TypedDict(
+    "_OptionalSubSlotValueElicitationSettingTypeDef",
+    {
+        "defaultValueSpecification": "SlotDefaultValueSpecificationTypeDef",
+        "sampleUtterances": List["SampleUtteranceTypeDef"],
+        "waitAndContinueSpecification": "WaitAndContinueSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class SubSlotValueElicitationSettingTypeDef(
+    _RequiredSubSlotValueElicitationSettingTypeDef, _OptionalSubSlotValueElicitationSettingTypeDef
+):
+    pass
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
         "resourceARN": str,
         "tags": Dict[str, str],
+    },
+)
+
+TextInputSpecificationTypeDef = TypedDict(
+    "TextInputSpecificationTypeDef",
+    {
+        "startTimeoutMs": int,
     },
 )
 
@@ -3640,6 +3787,7 @@ _OptionalUpdateSlotRequestRequestTypeDef = TypedDict(
         "slotTypeId": str,
         "obfuscationSetting": "ObfuscationSettingTypeDef",
         "multipleValuesSetting": "MultipleValuesSettingTypeDef",
+        "subSlotSetting": "SubSlotSettingTypeDef",
     },
     total=False,
 )
@@ -3665,6 +3813,7 @@ UpdateSlotResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "multipleValuesSetting": "MultipleValuesSettingTypeDef",
+        "subSlotSetting": "SubSlotSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3687,6 +3836,7 @@ _OptionalUpdateSlotTypeRequestRequestTypeDef = TypedDict(
         "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
         "parentSlotTypeSignature": str,
         "externalSourceSetting": "ExternalSourceSettingTypeDef",
+        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
     },
     total=False,
 )
@@ -3711,6 +3861,7 @@ UpdateSlotTypeResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "externalSourceSetting": "ExternalSourceSettingTypeDef",
+        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

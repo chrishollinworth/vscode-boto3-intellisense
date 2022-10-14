@@ -23,6 +23,7 @@ __all__ = (
     "ConnectionStatusType",
     "DeviceStateType",
     "DlClassType",
+    "DownlinkModeType",
     "EventNotificationPartnerTypeType",
     "EventNotificationResourceTypeType",
     "EventNotificationTopicStatusType",
@@ -59,6 +60,7 @@ DeviceStateType = Literal[
     "Provisioned", "RegisteredNotSeen", "RegisteredReachable", "RegisteredUnreachable"
 ]
 DlClassType = Literal["ClassB", "ClassC"]
+DownlinkModeType = Literal["CONCURRENT", "SEQUENTIAL", "USING_UPLINK_GATEWAY"]
 EventNotificationPartnerTypeType = Literal["Sidewalk"]
 EventNotificationResourceTypeType = Literal["SidewalkAccount", "WirelessDevice", "WirelessGateway"]
 EventNotificationTopicStatusType = Literal["Disabled", "Enabled"]

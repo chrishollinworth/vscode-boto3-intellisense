@@ -246,6 +246,7 @@ __all__ = (
     "UpdateVPCEConfigurationResultTypeDef",
     "UploadTypeDef",
     "VPCEConfigurationTypeDef",
+    "VpcConfigTypeDef",
 )
 
 AccountSettingsTypeDef = TypedDict(
@@ -408,6 +409,7 @@ _OptionalCreateProjectRequestRequestTypeDef = TypedDict(
     "_OptionalCreateProjectRequestRequestTypeDef",
     {
         "defaultJobTimeoutMinutes": int,
+        "vpcConfig": "VpcConfigTypeDef",
     },
     total=False,
 )
@@ -1815,6 +1817,7 @@ ProjectTypeDef = TypedDict(
         "name": str,
         "defaultJobTimeoutMinutes": int,
         "created": datetime,
+        "vpcConfig": "VpcConfigTypeDef",
     },
     total=False,
 )
@@ -1891,6 +1894,7 @@ RemoteAccessSessionTypeDef = TypedDict(
         "deviceUdid": str,
         "interactionMode": InteractionModeType,
         "skipAppResign": bool,
+        "vpcConfig": "VpcConfigTypeDef",
     },
     total=False,
 )
@@ -1975,6 +1979,7 @@ RunTypeDef = TypedDict(
         "skipAppResign": bool,
         "testSpecArn": str,
         "deviceSelectionResult": "DeviceSelectionResultTypeDef",
+        "vpcConfig": "VpcConfigTypeDef",
     },
     total=False,
 )
@@ -2378,6 +2383,7 @@ _OptionalUpdateProjectRequestRequestTypeDef = TypedDict(
     {
         "name": str,
         "defaultJobTimeoutMinutes": int,
+        "vpcConfig": "VpcConfigTypeDef",
     },
     total=False,
 )
@@ -2512,4 +2518,13 @@ VPCEConfigurationTypeDef = TypedDict(
         "vpceConfigurationDescription": str,
     },
     total=False,
+)
+
+VpcConfigTypeDef = TypedDict(
+    "VpcConfigTypeDef",
+    {
+        "securityGroupIds": List[str],
+        "subnetIds": List[str],
+        "vpcId": str,
+    },
 )

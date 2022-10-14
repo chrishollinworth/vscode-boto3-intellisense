@@ -67,9 +67,13 @@ __all__ = (
     "GetRelationalDatabasesPaginatorName",
     "GetStaticIpsPaginatorName",
     "HeaderEnumType",
+    "HttpEndpointType",
+    "HttpProtocolIpv6Type",
+    "HttpTokensType",
     "InstanceAccessProtocolType",
     "InstanceHealthReasonType",
     "InstanceHealthStateType",
+    "InstanceMetadataStateType",
     "InstanceMetricNameType",
     "InstancePlatformType",
     "InstanceSnapshotStateType",
@@ -203,6 +207,9 @@ HeaderEnumType = Literal[
     "Origin",
     "Referer",
 ]
+HttpEndpointType = Literal["disabled", "enabled"]
+HttpProtocolIpv6Type = Literal["disabled", "enabled"]
+HttpTokensType = Literal["optional", "required"]
 InstanceAccessProtocolType = Literal["rdp", "ssh"]
 InstanceHealthReasonType = Literal[
     "Instance.DeregistrationInProgress",
@@ -220,10 +227,12 @@ InstanceHealthReasonType = Literal[
 InstanceHealthStateType = Literal[
     "draining", "healthy", "initial", "unavailable", "unhealthy", "unused"
 ]
+InstanceMetadataStateType = Literal["applied", "pending"]
 InstanceMetricNameType = Literal[
     "BurstCapacityPercentage",
     "BurstCapacityTime",
     "CPUUtilization",
+    "MetadataNoToken",
     "NetworkIn",
     "NetworkOut",
     "StatusCheckFailed",
@@ -425,6 +434,7 @@ OperationTypeType = Literal[
     "UpdateDistribution",
     "UpdateDistributionBundle",
     "UpdateDomainEntry",
+    "UpdateInstanceMetadataOptions",
     "UpdateLoadBalancerAttribute",
     "UpdateRelationalDatabase",
     "UpdateRelationalDatabaseParameters",

@@ -81,9 +81,12 @@ __all__ = (
     "ReferenceStatusType",
     "ReferenceTypeType",
     "SearchAvailablePhoneNumbersPaginatorName",
+    "SearchQueuesPaginatorName",
+    "SearchRoutingProfilesPaginatorName",
     "SearchSecurityProfilesPaginatorName",
     "SearchUsersPaginatorName",
     "SearchVocabulariesPaginatorName",
+    "SearchableQueueTypeType",
     "SourceTypeType",
     "StatisticType",
     "StorageTypeType",
@@ -202,7 +205,7 @@ InstanceStorageResourceTypeType = Literal[
     "SCHEDULED_REPORTS",
 ]
 IntegrationTypeType = Literal[
-    "EVENT", "PINPOINT_APP", "VOICE_ID", "WISDOM_ASSISTANT", "WISDOM_KNOWLEDGE_BASE"
+    "CASES_DOMAIN", "EVENT", "PINPOINT_APP", "VOICE_ID", "WISDOM_ASSISTANT", "WISDOM_KNOWLEDGE_BASE"
 ]
 LexVersionType = Literal["V1", "V2"]
 ListAgentStatusesPaginatorName = Literal["list_agent_statuses"]
@@ -482,9 +485,12 @@ QuickConnectTypeType = Literal["PHONE_NUMBER", "QUEUE", "USER"]
 ReferenceStatusType = Literal["APPROVED", "REJECTED"]
 ReferenceTypeType = Literal["ATTACHMENT", "DATE", "EMAIL", "NUMBER", "STRING", "URL"]
 SearchAvailablePhoneNumbersPaginatorName = Literal["search_available_phone_numbers"]
+SearchQueuesPaginatorName = Literal["search_queues"]
+SearchRoutingProfilesPaginatorName = Literal["search_routing_profiles"]
 SearchSecurityProfilesPaginatorName = Literal["search_security_profiles"]
 SearchUsersPaginatorName = Literal["search_users"]
 SearchVocabulariesPaginatorName = Literal["search_vocabularies"]
+SearchableQueueTypeType = Literal["STANDARD"]
 SourceTypeType = Literal["SALESFORCE", "ZENDESK"]
 StatisticType = Literal["AVG", "MAX", "SUM"]
 StorageTypeType = Literal["KINESIS_FIREHOSE", "KINESIS_STREAM", "KINESIS_VIDEO_STREAM", "S3"]

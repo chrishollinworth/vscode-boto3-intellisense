@@ -22,6 +22,7 @@ __all__ = (
     "AsyncOperationNameType",
     "BucketCannedACLType",
     "BucketLocationConstraintType",
+    "BucketVersioningStatusType",
     "ExpirationStatusType",
     "FormatType",
     "GeneratedManifestFormatType",
@@ -31,6 +32,8 @@ __all__ = (
     "JobReportScopeType",
     "JobStatusType",
     "ListAccessPointsForObjectLambdaPaginatorName",
+    "MFADeleteStatusType",
+    "MFADeleteType",
     "MultiRegionAccessPointStatusType",
     "NetworkOriginType",
     "ObjectLambdaAllowedFeatureType",
@@ -72,6 +75,7 @@ BucketLocationConstraintType = Literal[
     "us-west-1",
     "us-west-2",
 ]
+BucketVersioningStatusType = Literal["Enabled", "Suspended"]
 ExpirationStatusType = Literal["Disabled", "Enabled"]
 FormatType = Literal["CSV", "Parquet"]
 GeneratedManifestFormatType = Literal["S3InventoryReport_CSV_20211130"]
@@ -95,6 +99,8 @@ JobStatusType = Literal[
     "Suspended",
 ]
 ListAccessPointsForObjectLambdaPaginatorName = Literal["list_access_points_for_object_lambda"]
+MFADeleteStatusType = Literal["Disabled", "Enabled"]
+MFADeleteType = Literal["Disabled", "Enabled"]
 MultiRegionAccessPointStatusType = Literal[
     "CREATING",
     "DELETING",
@@ -104,8 +110,12 @@ MultiRegionAccessPointStatusType = Literal[
     "READY",
 ]
 NetworkOriginType = Literal["Internet", "VPC"]
-ObjectLambdaAllowedFeatureType = Literal["GetObject-PartNumber", "GetObject-Range"]
-ObjectLambdaTransformationConfigurationActionType = Literal["GetObject"]
+ObjectLambdaAllowedFeatureType = Literal[
+    "GetObject-PartNumber", "GetObject-Range", "HeadObject-PartNumber", "HeadObject-Range"
+]
+ObjectLambdaTransformationConfigurationActionType = Literal[
+    "GetObject", "HeadObject", "ListObjects", "ListObjectsV2"
+]
 OperationNameType = Literal[
     "LambdaInvoke",
     "S3DeleteObjectTagging",

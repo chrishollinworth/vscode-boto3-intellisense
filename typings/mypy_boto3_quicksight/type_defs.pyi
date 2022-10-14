@@ -76,6 +76,7 @@ __all__ = (
     "AnalysisSummaryTypeDef",
     "AnalysisTypeDef",
     "AnonymousUserDashboardEmbeddingConfigurationTypeDef",
+    "AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef",
     "AnonymousUserEmbeddingExperienceConfigurationTypeDef",
     "AthenaParametersTypeDef",
     "AuroraParametersTypeDef",
@@ -139,6 +140,7 @@ __all__ = (
     "DashboardTypeDef",
     "DashboardVersionSummaryTypeDef",
     "DashboardVersionTypeDef",
+    "DashboardVisualIdTypeDef",
     "DataColorPaletteTypeDef",
     "DataSetConfigurationTypeDef",
     "DataSetReferenceTypeDef",
@@ -338,6 +340,7 @@ __all__ = (
     "RegisterUserRequestRequestTypeDef",
     "RegisterUserResponseTypeDef",
     "RegisteredUserDashboardEmbeddingConfigurationTypeDef",
+    "RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef",
     "RegisteredUserEmbeddingExperienceConfigurationTypeDef",
     "RegisteredUserQSearchBarEmbeddingConfigurationTypeDef",
     "RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef",
@@ -590,10 +593,18 @@ AnonymousUserDashboardEmbeddingConfigurationTypeDef = TypedDict(
     },
 )
 
+AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef = TypedDict(
+    "AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef",
+    {
+        "InitialDashboardVisualId": "DashboardVisualIdTypeDef",
+    },
+)
+
 AnonymousUserEmbeddingExperienceConfigurationTypeDef = TypedDict(
     "AnonymousUserEmbeddingExperienceConfigurationTypeDef",
     {
         "Dashboard": "AnonymousUserDashboardEmbeddingConfigurationTypeDef",
+        "DashboardVisual": "AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef",
     },
     total=False,
 )
@@ -1471,6 +1482,15 @@ DashboardVersionTypeDef = TypedDict(
     total=False,
 )
 
+DashboardVisualIdTypeDef = TypedDict(
+    "DashboardVisualIdTypeDef",
+    {
+        "DashboardId": str,
+        "SheetId": str,
+        "VisualId": str,
+    },
+)
+
 DataColorPaletteTypeDef = TypedDict(
     "DataColorPaletteTypeDef",
     {
@@ -1560,6 +1580,7 @@ DataSourceCredentialsTypeDef = TypedDict(
     {
         "CredentialPair": "CredentialPairTypeDef",
         "CopySourceArn": str,
+        "SecretArn": str,
     },
     total=False,
 )
@@ -1617,6 +1638,7 @@ DataSourceTypeDef = TypedDict(
         "VpcConnectionProperties": "VpcConnectionPropertiesTypeDef",
         "SslProperties": "SslPropertiesTypeDef",
         "ErrorInfo": "DataSourceErrorInfoTypeDef",
+        "SecretArn": str,
     },
     total=False,
 )
@@ -2739,14 +2761,25 @@ GenerateEmbedUrlForRegisteredUserResponseTypeDef = TypedDict(
     },
 )
 
-GeoSpatialColumnGroupTypeDef = TypedDict(
-    "GeoSpatialColumnGroupTypeDef",
+_RequiredGeoSpatialColumnGroupTypeDef = TypedDict(
+    "_RequiredGeoSpatialColumnGroupTypeDef",
     {
         "Name": str,
-        "CountryCode": Literal["US"],
         "Columns": List[str],
     },
 )
+_OptionalGeoSpatialColumnGroupTypeDef = TypedDict(
+    "_OptionalGeoSpatialColumnGroupTypeDef",
+    {
+        "CountryCode": Literal["US"],
+    },
+    total=False,
+)
+
+class GeoSpatialColumnGroupTypeDef(
+    _RequiredGeoSpatialColumnGroupTypeDef, _OptionalGeoSpatialColumnGroupTypeDef
+):
+    pass
 
 _RequiredGetDashboardEmbedUrlRequestRequestTypeDef = TypedDict(
     "_RequiredGetDashboardEmbedUrlRequestRequestTypeDef",
@@ -3907,12 +3940,20 @@ RegisteredUserDashboardEmbeddingConfigurationTypeDef = TypedDict(
     },
 )
 
+RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef = TypedDict(
+    "RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef",
+    {
+        "InitialDashboardVisualId": "DashboardVisualIdTypeDef",
+    },
+)
+
 RegisteredUserEmbeddingExperienceConfigurationTypeDef = TypedDict(
     "RegisteredUserEmbeddingExperienceConfigurationTypeDef",
     {
         "Dashboard": "RegisteredUserDashboardEmbeddingConfigurationTypeDef",
         "QuickSightConsole": "RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef",
         "QSearchBar": "RegisteredUserQSearchBarEmbeddingConfigurationTypeDef",
+        "DashboardVisual": "RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef",
     },
     total=False,
 )

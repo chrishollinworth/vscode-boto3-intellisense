@@ -46,6 +46,7 @@ from .literals import (
     DocumentStatusType,
     DocumentTypeType,
     ExecutionModeType,
+    ExternalAlarmStateType,
     FaultType,
     InstanceInformationFilterKeyType,
     InstancePatchStateOperatorTypeType,
@@ -106,6 +107,9 @@ __all__ = (
     "AccountSharingInfoTypeDef",
     "ActivationTypeDef",
     "AddTagsToResourceRequestRequestTypeDef",
+    "AlarmConfigurationTypeDef",
+    "AlarmStateInformationTypeDef",
+    "AlarmTypeDef",
     "AssociateOpsItemRelatedItemRequestRequestTypeDef",
     "AssociateOpsItemRelatedItemResponseTypeDef",
     "AssociationDescriptionTypeDef",
@@ -540,6 +544,40 @@ AddTagsToResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredAlarmConfigurationTypeDef = TypedDict(
+    "_RequiredAlarmConfigurationTypeDef",
+    {
+        "Alarms": List["AlarmTypeDef"],
+    },
+)
+_OptionalAlarmConfigurationTypeDef = TypedDict(
+    "_OptionalAlarmConfigurationTypeDef",
+    {
+        "IgnorePollAlarmFailure": bool,
+    },
+    total=False,
+)
+
+class AlarmConfigurationTypeDef(
+    _RequiredAlarmConfigurationTypeDef, _OptionalAlarmConfigurationTypeDef
+):
+    pass
+
+AlarmStateInformationTypeDef = TypedDict(
+    "AlarmStateInformationTypeDef",
+    {
+        "Name": str,
+        "State": ExternalAlarmStateType,
+    },
+)
+
+AlarmTypeDef = TypedDict(
+    "AlarmTypeDef",
+    {
+        "Name": str,
+    },
+)
+
 AssociateOpsItemRelatedItemRequestRequestTypeDef = TypedDict(
     "AssociateOpsItemRelatedItemRequestRequestTypeDef",
     {
@@ -587,6 +625,8 @@ AssociationDescriptionTypeDef = TypedDict(
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
         "TargetMaps": List[Dict[str, List[str]]],
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
+        "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
     },
     total=False,
 )
@@ -635,6 +675,8 @@ AssociationExecutionTypeDef = TypedDict(
         "CreatedTime": datetime,
         "LastExecutionDate": datetime,
         "ResourceCountByStatus": str,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
+        "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
     },
     total=False,
 )
@@ -786,6 +828,8 @@ AutomationExecutionMetadataTypeDef = TypedDict(
         "MaxErrors": str,
         "Target": str,
         "AutomationType": AutomationTypeType,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
+        "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
         "AutomationSubtype": Literal["ChangeRequest"],
         "ScheduledTime": datetime,
         "Runbooks": List["RunbookTypeDef"],
@@ -824,6 +868,8 @@ AutomationExecutionTypeDef = TypedDict(
         "Target": str,
         "TargetLocations": List["TargetLocationTypeDef"],
         "ProgressCounters": "ProgressCountersTypeDef",
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
+        "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
         "AutomationSubtype": Literal["ChangeRequest"],
         "ScheduledTime": datetime,
         "Runbooks": List["RunbookTypeDef"],
@@ -970,6 +1016,8 @@ CommandTypeDef = TypedDict(
         "NotificationConfig": "NotificationConfigTypeDef",
         "CloudWatchOutputConfig": "CloudWatchOutputConfigTypeDef",
         "TimeoutSeconds": int,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
+        "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
     },
     total=False,
 )
@@ -1120,6 +1168,7 @@ _OptionalCreateAssociationBatchRequestEntryTypeDef = TypedDict(
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
         "TargetMaps": List[Dict[str, List[str]]],
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -1172,6 +1221,8 @@ _OptionalCreateAssociationRequestRequestTypeDef = TypedDict(
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
         "TargetMaps": List[Dict[str, List[str]]],
+        "Tags": List["TagTypeDef"],
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -2990,6 +3041,8 @@ GetMaintenanceWindowExecutionTaskResultTypeDef = TypedDict(
         "StatusDetails": str,
         "StartTime": datetime,
         "EndTime": datetime,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
+        "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3049,6 +3102,7 @@ GetMaintenanceWindowTaskResultTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4044,6 +4098,8 @@ MaintenanceWindowExecutionTaskIdentityTypeDef = TypedDict(
         "EndTime": datetime,
         "TaskArn": str,
         "TaskType": MaintenanceWindowTaskTypeType,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
+        "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
     },
     total=False,
 )
@@ -4204,6 +4260,7 @@ MaintenanceWindowTaskTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -4902,6 +4959,7 @@ _OptionalRegisterTaskWithMaintenanceWindowRequestRequestTypeDef = TypedDict(
         "Description": str,
         "ClientToken": str,
         "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -5237,6 +5295,7 @@ _OptionalSendCommandRequestRequestTypeDef = TypedDict(
         "ServiceRoleArn": str,
         "NotificationConfig": "NotificationConfigTypeDef",
         "CloudWatchOutputConfig": "CloudWatchOutputConfigTypeDef",
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -5342,6 +5401,7 @@ _OptionalStartAutomationExecutionRequestRequestTypeDef = TypedDict(
         "MaxErrors": str,
         "TargetLocations": List["TargetLocationTypeDef"],
         "Tags": List["TagTypeDef"],
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -5574,6 +5634,7 @@ _OptionalUpdateAssociationRequestRequestTypeDef = TypedDict(
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
         "TargetMaps": List[Dict[str, List[str]]],
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -5789,6 +5850,7 @@ _OptionalUpdateMaintenanceWindowTaskRequestRequestTypeDef = TypedDict(
         "Description": str,
         "Replace": bool,
         "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -5816,6 +5878,7 @@ UpdateMaintenanceWindowTaskResultTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
+        "AlarmConfiguration": "AlarmConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -6,9 +6,9 @@ Type annotations for cloudtrail service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_cloudtrail.literals import EventCategoryType
+    from mypy_boto3_cloudtrail.literals import DestinationTypeType
 
-    data: EventCategoryType = "insight"
+    data: DestinationTypeType = "AWS_SERVICE"
     ```
 """
 import sys
@@ -19,9 +19,14 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "DestinationTypeType",
     "EventCategoryType",
     "EventDataStoreStatusType",
+    "ImportFailureStatusType",
+    "ImportStatusType",
     "InsightTypeType",
+    "ListImportFailuresPaginatorName",
+    "ListImportsPaginatorName",
     "ListPublicKeysPaginatorName",
     "ListTagsPaginatorName",
     "ListTrailsPaginatorName",
@@ -31,9 +36,14 @@ __all__ = (
     "ReadWriteTypeType",
 )
 
+DestinationTypeType = Literal["AWS_SERVICE", "EVENT_DATA_STORE"]
 EventCategoryType = Literal["insight"]
 EventDataStoreStatusType = Literal["CREATED", "ENABLED", "PENDING_DELETION"]
+ImportFailureStatusType = Literal["FAILED", "RETRY", "SUCCEEDED"]
+ImportStatusType = Literal["COMPLETED", "FAILED", "INITIALIZING", "IN_PROGRESS", "STOPPED"]
 InsightTypeType = Literal["ApiCallRateInsight", "ApiErrorRateInsight"]
+ListImportFailuresPaginatorName = Literal["list_import_failures"]
+ListImportsPaginatorName = Literal["list_imports"]
 ListPublicKeysPaginatorName = Literal["list_public_keys"]
 ListTagsPaginatorName = Literal["list_tags"]
 ListTrailsPaginatorName = Literal["list_trails"]

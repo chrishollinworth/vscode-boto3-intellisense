@@ -29,6 +29,7 @@ from .literals import (
     DiskIopsConfigurationModeType,
     DriveCacheTypeType,
     EventTypeType,
+    FileCacheLifecycleType,
     FileSystemLifecycleType,
     FileSystemMaintenanceOperationType,
     FileSystemTypeType,
@@ -90,6 +91,9 @@ __all__ = (
     "CreateDataRepositoryAssociationResponseTypeDef",
     "CreateDataRepositoryTaskRequestRequestTypeDef",
     "CreateDataRepositoryTaskResponseTypeDef",
+    "CreateFileCacheLustreConfigurationTypeDef",
+    "CreateFileCacheRequestRequestTypeDef",
+    "CreateFileCacheResponseTypeDef",
     "CreateFileSystemFromBackupRequestRequestTypeDef",
     "CreateFileSystemFromBackupResponseTypeDef",
     "CreateFileSystemLustreConfigurationTypeDef",
@@ -121,6 +125,8 @@ __all__ = (
     "DeleteBackupResponseTypeDef",
     "DeleteDataRepositoryAssociationRequestRequestTypeDef",
     "DeleteDataRepositoryAssociationResponseTypeDef",
+    "DeleteFileCacheRequestRequestTypeDef",
+    "DeleteFileCacheResponseTypeDef",
     "DeleteFileSystemLustreConfigurationTypeDef",
     "DeleteFileSystemLustreResponseTypeDef",
     "DeleteFileSystemOpenZFSConfigurationTypeDef",
@@ -144,6 +150,8 @@ __all__ = (
     "DescribeDataRepositoryAssociationsResponseTypeDef",
     "DescribeDataRepositoryTasksRequestRequestTypeDef",
     "DescribeDataRepositoryTasksResponseTypeDef",
+    "DescribeFileCachesRequestRequestTypeDef",
+    "DescribeFileCachesResponseTypeDef",
     "DescribeFileSystemAliasesRequestRequestTypeDef",
     "DescribeFileSystemAliasesResponseTypeDef",
     "DescribeFileSystemsRequestRequestTypeDef",
@@ -157,6 +165,13 @@ __all__ = (
     "DisassociateFileSystemAliasesRequestRequestTypeDef",
     "DisassociateFileSystemAliasesResponseTypeDef",
     "DiskIopsConfigurationTypeDef",
+    "FileCacheCreatingTypeDef",
+    "FileCacheDataRepositoryAssociationTypeDef",
+    "FileCacheFailureDetailsTypeDef",
+    "FileCacheLustreConfigurationTypeDef",
+    "FileCacheLustreMetadataConfigurationTypeDef",
+    "FileCacheNFSConfigurationTypeDef",
+    "FileCacheTypeDef",
     "FileSystemEndpointTypeDef",
     "FileSystemEndpointsTypeDef",
     "FileSystemFailureDetailsTypeDef",
@@ -169,6 +184,7 @@ __all__ = (
     "LustreLogConfigurationTypeDef",
     "LustreLogCreateConfigurationTypeDef",
     "LustreRootSquashConfigurationTypeDef",
+    "NFSDataRepositoryConfigurationTypeDef",
     "OntapFileSystemConfigurationTypeDef",
     "OntapVolumeConfigurationTypeDef",
     "OpenZFSClientConfigurationTypeDef",
@@ -201,6 +217,9 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateDataRepositoryAssociationRequestRequestTypeDef",
     "UpdateDataRepositoryAssociationResponseTypeDef",
+    "UpdateFileCacheLustreConfigurationTypeDef",
+    "UpdateFileCacheRequestRequestTypeDef",
+    "UpdateFileCacheResponseTypeDef",
     "UpdateFileSystemLustreConfigurationTypeDef",
     "UpdateFileSystemOntapConfigurationTypeDef",
     "UpdateFileSystemOpenZFSConfigurationTypeDef",
@@ -438,13 +457,13 @@ _RequiredCreateDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDataRepositoryAssociationRequestRequestTypeDef",
     {
         "FileSystemId": str,
-        "FileSystemPath": str,
         "DataRepositoryPath": str,
     },
 )
 _OptionalCreateDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDataRepositoryAssociationRequestRequestTypeDef",
     {
+        "FileSystemPath": str,
         "BatchImportMetaDataOnCreate": bool,
         "ImportedFileChunkSize": int,
         "S3": "S3DataRepositoryConfigurationTypeDef",
@@ -482,6 +501,7 @@ _OptionalCreateDataRepositoryTaskRequestRequestTypeDef = TypedDict(
         "Paths": List[str],
         "ClientRequestToken": str,
         "Tags": List["TagTypeDef"],
+        "CapacityToRelease": int,
     },
     total=False,
 )
@@ -496,6 +516,64 @@ CreateDataRepositoryTaskResponseTypeDef = TypedDict(
     "CreateDataRepositoryTaskResponseTypeDef",
     {
         "DataRepositoryTask": "DataRepositoryTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateFileCacheLustreConfigurationTypeDef = TypedDict(
+    "_RequiredCreateFileCacheLustreConfigurationTypeDef",
+    {
+        "PerUnitStorageThroughput": int,
+        "DeploymentType": Literal["CACHE_1"],
+        "MetadataConfiguration": "FileCacheLustreMetadataConfigurationTypeDef",
+    },
+)
+_OptionalCreateFileCacheLustreConfigurationTypeDef = TypedDict(
+    "_OptionalCreateFileCacheLustreConfigurationTypeDef",
+    {
+        "WeeklyMaintenanceStartTime": str,
+    },
+    total=False,
+)
+
+class CreateFileCacheLustreConfigurationTypeDef(
+    _RequiredCreateFileCacheLustreConfigurationTypeDef,
+    _OptionalCreateFileCacheLustreConfigurationTypeDef,
+):
+    pass
+
+_RequiredCreateFileCacheRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFileCacheRequestRequestTypeDef",
+    {
+        "FileCacheType": Literal["LUSTRE"],
+        "FileCacheTypeVersion": str,
+        "StorageCapacity": int,
+        "SubnetIds": List[str],
+    },
+)
+_OptionalCreateFileCacheRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFileCacheRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "SecurityGroupIds": List[str],
+        "Tags": List["TagTypeDef"],
+        "CopyTagsToDataRepositoryAssociations": bool,
+        "KmsKeyId": str,
+        "LustreConfiguration": "CreateFileCacheLustreConfigurationTypeDef",
+        "DataRepositoryAssociations": List["FileCacheDataRepositoryAssociationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFileCacheRequestRequestTypeDef(
+    _RequiredCreateFileCacheRequestRequestTypeDef, _OptionalCreateFileCacheRequestRequestTypeDef
+):
+    pass
+
+CreateFileCacheResponseTypeDef = TypedDict(
+    "CreateFileCacheResponseTypeDef",
+    {
+        "FileCache": "FileCacheCreatingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -519,6 +597,7 @@ _OptionalCreateFileSystemFromBackupRequestRequestTypeDef = TypedDict(
         "KmsKeyId": str,
         "FileSystemTypeVersion": str,
         "OpenZFSConfiguration": "CreateFileSystemOpenZFSConfigurationTypeDef",
+        "StorageCapacity": int,
     },
     total=False,
 )
@@ -898,6 +977,10 @@ DataRepositoryAssociationTypeDef = TypedDict(
         "S3": "S3DataRepositoryConfigurationTypeDef",
         "Tags": List["TagTypeDef"],
         "CreationTime": datetime,
+        "FileCacheId": str,
+        "FileCachePath": str,
+        "DataRepositorySubdirectories": List[str],
+        "NFS": "NFSDataRepositoryConfigurationTypeDef",
     },
     total=False,
 )
@@ -947,6 +1030,7 @@ DataRepositoryTaskStatusTypeDef = TypedDict(
         "SucceededCount": int,
         "FailedCount": int,
         "LastUpdatedTime": datetime,
+        "ReleasedCapacity": int,
     },
     total=False,
 )
@@ -958,7 +1042,6 @@ _RequiredDataRepositoryTaskTypeDef = TypedDict(
         "Lifecycle": DataRepositoryTaskLifecycleType,
         "Type": DataRepositoryTaskTypeType,
         "CreationTime": datetime,
-        "FileSystemId": str,
     },
 )
 _OptionalDataRepositoryTaskTypeDef = TypedDict(
@@ -968,10 +1051,13 @@ _OptionalDataRepositoryTaskTypeDef = TypedDict(
         "EndTime": datetime,
         "ResourceARN": str,
         "Tags": List["TagTypeDef"],
+        "FileSystemId": str,
         "Paths": List[str],
         "FailureDetails": "DataRepositoryTaskFailureDetailsTypeDef",
         "Status": "DataRepositoryTaskStatusTypeDef",
         "Report": "CompletionReportTypeDef",
+        "CapacityToRelease": int,
+        "FileCacheId": str,
     },
     total=False,
 )
@@ -1013,13 +1099,13 @@ _RequiredDeleteDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteDataRepositoryAssociationRequestRequestTypeDef",
     {
         "AssociationId": str,
-        "DeleteDataInFileSystem": bool,
     },
 )
 _OptionalDeleteDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
     "_OptionalDeleteDataRepositoryAssociationRequestRequestTypeDef",
     {
         "ClientRequestToken": str,
+        "DeleteDataInFileSystem": bool,
     },
     total=False,
 )
@@ -1036,6 +1122,34 @@ DeleteDataRepositoryAssociationResponseTypeDef = TypedDict(
         "AssociationId": str,
         "Lifecycle": DataRepositoryLifecycleType,
         "DeleteDataInFileSystem": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteFileCacheRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteFileCacheRequestRequestTypeDef",
+    {
+        "FileCacheId": str,
+    },
+)
+_OptionalDeleteFileCacheRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteFileCacheRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class DeleteFileCacheRequestRequestTypeDef(
+    _RequiredDeleteFileCacheRequestRequestTypeDef, _OptionalDeleteFileCacheRequestRequestTypeDef
+):
+    pass
+
+DeleteFileCacheResponseTypeDef = TypedDict(
+    "DeleteFileCacheResponseTypeDef",
+    {
+        "FileCacheId": str,
+        "Lifecycle": FileCacheLifecycleType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1303,6 +1417,25 @@ DescribeDataRepositoryTasksResponseTypeDef = TypedDict(
     },
 )
 
+DescribeFileCachesRequestRequestTypeDef = TypedDict(
+    "DescribeFileCachesRequestRequestTypeDef",
+    {
+        "FileCacheIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFileCachesResponseTypeDef = TypedDict(
+    "DescribeFileCachesResponseTypeDef",
+    {
+        "FileCaches": List["FileCacheTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDescribeFileSystemAliasesRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeFileSystemAliasesRequestRequestTypeDef",
     {
@@ -1451,6 +1584,123 @@ DiskIopsConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+FileCacheCreatingTypeDef = TypedDict(
+    "FileCacheCreatingTypeDef",
+    {
+        "OwnerId": str,
+        "CreationTime": datetime,
+        "FileCacheId": str,
+        "FileCacheType": Literal["LUSTRE"],
+        "FileCacheTypeVersion": str,
+        "Lifecycle": FileCacheLifecycleType,
+        "FailureDetails": "FileCacheFailureDetailsTypeDef",
+        "StorageCapacity": int,
+        "VpcId": str,
+        "SubnetIds": List[str],
+        "NetworkInterfaceIds": List[str],
+        "DNSName": str,
+        "KmsKeyId": str,
+        "ResourceARN": str,
+        "Tags": List["TagTypeDef"],
+        "CopyTagsToDataRepositoryAssociations": bool,
+        "LustreConfiguration": "FileCacheLustreConfigurationTypeDef",
+        "DataRepositoryAssociationIds": List[str],
+    },
+    total=False,
+)
+
+_RequiredFileCacheDataRepositoryAssociationTypeDef = TypedDict(
+    "_RequiredFileCacheDataRepositoryAssociationTypeDef",
+    {
+        "FileCachePath": str,
+        "DataRepositoryPath": str,
+    },
+)
+_OptionalFileCacheDataRepositoryAssociationTypeDef = TypedDict(
+    "_OptionalFileCacheDataRepositoryAssociationTypeDef",
+    {
+        "DataRepositorySubdirectories": List[str],
+        "NFS": "FileCacheNFSConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class FileCacheDataRepositoryAssociationTypeDef(
+    _RequiredFileCacheDataRepositoryAssociationTypeDef,
+    _OptionalFileCacheDataRepositoryAssociationTypeDef,
+):
+    pass
+
+FileCacheFailureDetailsTypeDef = TypedDict(
+    "FileCacheFailureDetailsTypeDef",
+    {
+        "Message": str,
+    },
+    total=False,
+)
+
+FileCacheLustreConfigurationTypeDef = TypedDict(
+    "FileCacheLustreConfigurationTypeDef",
+    {
+        "PerUnitStorageThroughput": int,
+        "DeploymentType": Literal["CACHE_1"],
+        "MountName": str,
+        "WeeklyMaintenanceStartTime": str,
+        "MetadataConfiguration": "FileCacheLustreMetadataConfigurationTypeDef",
+        "LogConfiguration": "LustreLogConfigurationTypeDef",
+    },
+    total=False,
+)
+
+FileCacheLustreMetadataConfigurationTypeDef = TypedDict(
+    "FileCacheLustreMetadataConfigurationTypeDef",
+    {
+        "StorageCapacity": int,
+    },
+)
+
+_RequiredFileCacheNFSConfigurationTypeDef = TypedDict(
+    "_RequiredFileCacheNFSConfigurationTypeDef",
+    {
+        "Version": Literal["NFS3"],
+    },
+)
+_OptionalFileCacheNFSConfigurationTypeDef = TypedDict(
+    "_OptionalFileCacheNFSConfigurationTypeDef",
+    {
+        "DnsIps": List[str],
+    },
+    total=False,
+)
+
+class FileCacheNFSConfigurationTypeDef(
+    _RequiredFileCacheNFSConfigurationTypeDef, _OptionalFileCacheNFSConfigurationTypeDef
+):
+    pass
+
+FileCacheTypeDef = TypedDict(
+    "FileCacheTypeDef",
+    {
+        "OwnerId": str,
+        "CreationTime": datetime,
+        "FileCacheId": str,
+        "FileCacheType": Literal["LUSTRE"],
+        "FileCacheTypeVersion": str,
+        "Lifecycle": FileCacheLifecycleType,
+        "FailureDetails": "FileCacheFailureDetailsTypeDef",
+        "StorageCapacity": int,
+        "VpcId": str,
+        "SubnetIds": List[str],
+        "NetworkInterfaceIds": List[str],
+        "DNSName": str,
+        "KmsKeyId": str,
+        "ResourceARN": str,
+        "LustreConfiguration": "FileCacheLustreConfigurationTypeDef",
+        "DataRepositoryAssociationIds": List[str],
+    },
+    total=False,
+)
+
 FileSystemEndpointTypeDef = TypedDict(
     "FileSystemEndpointTypeDef",
     {
@@ -1497,7 +1747,7 @@ FileSystemTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "WindowsConfiguration": "WindowsFileSystemConfigurationTypeDef",
         "LustreConfiguration": "LustreFileSystemConfigurationTypeDef",
-        "AdministrativeActions": List[Dict[str, Any]],
+        "AdministrativeActions": List["AdministrativeActionTypeDef"],
         "OntapConfiguration": "OntapFileSystemConfigurationTypeDef",
         "FileSystemTypeVersion": str,
         "OpenZFSConfiguration": "OpenZFSFileSystemConfigurationTypeDef",
@@ -1617,6 +1867,26 @@ LustreRootSquashConfigurationTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredNFSDataRepositoryConfigurationTypeDef = TypedDict(
+    "_RequiredNFSDataRepositoryConfigurationTypeDef",
+    {
+        "Version": Literal["NFS3"],
+    },
+)
+_OptionalNFSDataRepositoryConfigurationTypeDef = TypedDict(
+    "_OptionalNFSDataRepositoryConfigurationTypeDef",
+    {
+        "DnsIps": List[str],
+        "AutoExportPolicy": "AutoExportPolicyTypeDef",
+    },
+    total=False,
+)
+
+class NFSDataRepositoryConfigurationTypeDef(
+    _RequiredNFSDataRepositoryConfigurationTypeDef, _OptionalNFSDataRepositoryConfigurationTypeDef
+):
+    pass
 
 OntapFileSystemConfigurationTypeDef = TypedDict(
     "OntapFileSystemConfigurationTypeDef",
@@ -1887,7 +2157,7 @@ SnapshotTypeDef = TypedDict(
         "Lifecycle": SnapshotLifecycleType,
         "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
         "Tags": List["TagTypeDef"],
-        "AdministrativeActions": List["AdministrativeActionTypeDef"],
+        "AdministrativeActions": List[Dict[str, Any]],
     },
     total=False,
 )
@@ -2009,6 +2279,42 @@ UpdateDataRepositoryAssociationResponseTypeDef = TypedDict(
     "UpdateDataRepositoryAssociationResponseTypeDef",
     {
         "Association": "DataRepositoryAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateFileCacheLustreConfigurationTypeDef = TypedDict(
+    "UpdateFileCacheLustreConfigurationTypeDef",
+    {
+        "WeeklyMaintenanceStartTime": str,
+    },
+    total=False,
+)
+
+_RequiredUpdateFileCacheRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFileCacheRequestRequestTypeDef",
+    {
+        "FileCacheId": str,
+    },
+)
+_OptionalUpdateFileCacheRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFileCacheRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "LustreConfiguration": "UpdateFileCacheLustreConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateFileCacheRequestRequestTypeDef(
+    _RequiredUpdateFileCacheRequestRequestTypeDef, _OptionalUpdateFileCacheRequestRequestTypeDef
+):
+    pass
+
+UpdateFileCacheResponseTypeDef = TypedDict(
+    "UpdateFileCacheResponseTypeDef",
+    {
+        "FileCache": "FileCacheTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

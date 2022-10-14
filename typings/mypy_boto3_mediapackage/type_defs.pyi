@@ -17,6 +17,7 @@ from typing import Any, Dict, List
 from .literals import (
     AdMarkersType,
     AdsOnDeliveryRestrictionsType,
+    CmafEncryptionMethodType,
     EncryptionMethodType,
     ManifestLayoutType,
     OriginationType,
@@ -134,6 +135,7 @@ _OptionalCmafEncryptionTypeDef = TypedDict(
     "_OptionalCmafEncryptionTypeDef",
     {
         "ConstantInitializationVector": str,
+        "EncryptionMethod": CmafEncryptionMethodType,
         "KeyRotationIntervalSeconds": int,
     },
     total=False,
@@ -547,6 +549,8 @@ _OptionalHlsManifestTypeDef = TypedDict(
         "PlaylistWindowSeconds": int,
         "ProgramDateTimeIntervalSeconds": int,
         "Url": str,
+        "AdTriggers": List[__AdTriggersElementType],
+        "AdsOnDeliveryRestrictions": AdsOnDeliveryRestrictionsType,
     },
     total=False,
 )

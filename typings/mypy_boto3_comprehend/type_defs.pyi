@@ -36,6 +36,7 @@ from .literals import (
     SentimentTypeType,
     SplitType,
     SyntaxLanguageCodeType,
+    TargetedSentimentEntityTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -60,6 +61,9 @@ __all__ = (
     "BatchDetectSyntaxItemResultTypeDef",
     "BatchDetectSyntaxRequestRequestTypeDef",
     "BatchDetectSyntaxResponseTypeDef",
+    "BatchDetectTargetedSentimentItemResultTypeDef",
+    "BatchDetectTargetedSentimentRequestRequestTypeDef",
+    "BatchDetectTargetedSentimentResponseTypeDef",
     "BatchItemErrorTypeDef",
     "ClassifierEvaluationMetricsTypeDef",
     "ClassifierMetadataTypeDef",
@@ -115,6 +119,8 @@ __all__ = (
     "DetectSentimentResponseTypeDef",
     "DetectSyntaxRequestRequestTypeDef",
     "DetectSyntaxResponseTypeDef",
+    "DetectTargetedSentimentRequestRequestTypeDef",
+    "DetectTargetedSentimentResponseTypeDef",
     "DocumentClassTypeDef",
     "DocumentClassificationJobFilterTypeDef",
     "DocumentClassificationJobPropertiesTypeDef",
@@ -184,6 +190,7 @@ __all__ = (
     "ListTargetedSentimentDetectionJobsResponseTypeDef",
     "ListTopicsDetectionJobsRequestRequestTypeDef",
     "ListTopicsDetectionJobsResponseTypeDef",
+    "MentionSentimentTypeDef",
     "OutputDataConfigTypeDef",
     "PaginatorConfigTypeDef",
     "PartOfSpeechTagTypeDef",
@@ -237,6 +244,8 @@ __all__ = (
     "TagTypeDef",
     "TargetedSentimentDetectionJobFilterTypeDef",
     "TargetedSentimentDetectionJobPropertiesTypeDef",
+    "TargetedSentimentEntityTypeDef",
+    "TargetedSentimentMentionTypeDef",
     "TopicsDetectionJobFilterTypeDef",
     "TopicsDetectionJobPropertiesTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -392,6 +401,32 @@ BatchDetectSyntaxResponseTypeDef = TypedDict(
     "BatchDetectSyntaxResponseTypeDef",
     {
         "ResultList": List["BatchDetectSyntaxItemResultTypeDef"],
+        "ErrorList": List["BatchItemErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchDetectTargetedSentimentItemResultTypeDef = TypedDict(
+    "BatchDetectTargetedSentimentItemResultTypeDef",
+    {
+        "Index": int,
+        "Entities": List["TargetedSentimentEntityTypeDef"],
+    },
+    total=False,
+)
+
+BatchDetectTargetedSentimentRequestRequestTypeDef = TypedDict(
+    "BatchDetectTargetedSentimentRequestRequestTypeDef",
+    {
+        "TextList": List[str],
+        "LanguageCode": LanguageCodeType,
+    },
+)
+
+BatchDetectTargetedSentimentResponseTypeDef = TypedDict(
+    "BatchDetectTargetedSentimentResponseTypeDef",
+    {
+        "ResultList": List["BatchDetectTargetedSentimentItemResultTypeDef"],
         "ErrorList": List["BatchItemErrorTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -916,6 +951,22 @@ DetectSyntaxResponseTypeDef = TypedDict(
     "DetectSyntaxResponseTypeDef",
     {
         "SyntaxTokens": List["SyntaxTokenTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DetectTargetedSentimentRequestRequestTypeDef = TypedDict(
+    "DetectTargetedSentimentRequestRequestTypeDef",
+    {
+        "Text": str,
+        "LanguageCode": LanguageCodeType,
+    },
+)
+
+DetectTargetedSentimentResponseTypeDef = TypedDict(
+    "DetectTargetedSentimentResponseTypeDef",
+    {
+        "Entities": List["TargetedSentimentEntityTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1749,6 +1800,15 @@ ListTopicsDetectionJobsResponseTypeDef = TypedDict(
     },
 )
 
+MentionSentimentTypeDef = TypedDict(
+    "MentionSentimentTypeDef",
+    {
+        "Sentiment": SentimentTypeType,
+        "SentimentScore": "SentimentScoreTypeDef",
+    },
+    total=False,
+)
+
 _RequiredOutputDataConfigTypeDef = TypedDict(
     "_RequiredOutputDataConfigTypeDef",
     {
@@ -2459,6 +2519,29 @@ TargetedSentimentDetectionJobPropertiesTypeDef = TypedDict(
         "DataAccessRoleArn": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+    },
+    total=False,
+)
+
+TargetedSentimentEntityTypeDef = TypedDict(
+    "TargetedSentimentEntityTypeDef",
+    {
+        "DescriptiveMentionIndex": List[int],
+        "Mentions": List["TargetedSentimentMentionTypeDef"],
+    },
+    total=False,
+)
+
+TargetedSentimentMentionTypeDef = TypedDict(
+    "TargetedSentimentMentionTypeDef",
+    {
+        "Score": float,
+        "GroupScore": float,
+        "Text": str,
+        "Type": TargetedSentimentEntityTypeType,
+        "MentionSentiment": "MentionSentimentTypeDef",
+        "BeginOffset": int,
+        "EndOffset": int,
     },
     total=False,
 )

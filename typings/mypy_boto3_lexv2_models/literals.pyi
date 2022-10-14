@@ -64,6 +64,7 @@ __all__ = (
     "MergeStrategyType",
     "MessageSelectionStrategyType",
     "ObfuscationSettingTypeType",
+    "PromptAttemptType",
     "SearchOrderType",
     "SlotConstraintType",
     "SlotFilterNameType",
@@ -158,17 +159,18 @@ IntentSortAttributeType = Literal["IntentName", "LastUpdatedDateTime"]
 MergeStrategyType = Literal["Append", "FailOnConflict", "Overwrite"]
 MessageSelectionStrategyType = Literal["Ordered", "Random"]
 ObfuscationSettingTypeType = Literal["DefaultObfuscation", "None"]
+PromptAttemptType = Literal["Initial", "Retry1", "Retry2", "Retry3", "Retry4", "Retry5"]
 SearchOrderType = Literal["Ascending", "Descending"]
 SlotConstraintType = Literal["Optional", "Required"]
 SlotFilterNameType = Literal["SlotName"]
 SlotFilterOperatorType = Literal["CO", "EQ"]
 SlotShapeType = Literal["List", "Scalar"]
 SlotSortAttributeType = Literal["LastUpdatedDateTime", "SlotName"]
-SlotTypeCategoryType = Literal["Custom", "Extended", "ExternalGrammar"]
+SlotTypeCategoryType = Literal["Composite", "Custom", "Extended", "ExternalGrammar"]
 SlotTypeFilterNameType = Literal["ExternalSourceType", "SlotTypeName"]
 SlotTypeFilterOperatorType = Literal["CO", "EQ"]
 SlotTypeSortAttributeType = Literal["LastUpdatedDateTime", "SlotTypeName"]
-SlotValueResolutionStrategyType = Literal["OriginalValue", "TopResolution"]
+SlotValueResolutionStrategyType = Literal["Concatenation", "OriginalValue", "TopResolution"]
 SortOrderType = Literal["Ascending", "Descending"]
 TimeDimensionType = Literal["Days", "Hours", "Weeks"]
 TranscriptFormatType = Literal["Lex"]

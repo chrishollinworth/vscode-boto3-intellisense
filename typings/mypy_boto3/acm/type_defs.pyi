@@ -29,6 +29,7 @@ from .literals import (
     RenewalEligibilityType,
     RenewalStatusType,
     RevocationReasonType,
+    SortOrderType,
     ValidationMethodType,
 )
 
@@ -135,6 +136,22 @@ CertificateSummaryTypeDef = TypedDict(
     {
         "CertificateArn": str,
         "DomainName": str,
+        "SubjectAlternativeNameSummaries": List[str],
+        "HasAdditionalSubjectAlternativeNames": bool,
+        "Status": CertificateStatusType,
+        "Type": CertificateTypeType,
+        "KeyAlgorithm": KeyAlgorithmType,
+        "KeyUsages": List[KeyUsageNameType],
+        "ExtendedKeyUsages": List[ExtendedKeyUsageNameType],
+        "InUse": bool,
+        "Exported": bool,
+        "RenewalEligibility": RenewalEligibilityType,
+        "NotBefore": datetime,
+        "NotAfter": datetime,
+        "CreatedAt": datetime,
+        "IssuedAt": datetime,
+        "ImportedAt": datetime,
+        "RevokedAt": datetime,
     },
     total=False,
 )
@@ -304,6 +321,8 @@ ListCertificatesRequestRequestTypeDef = TypedDict(
         "Includes": "FiltersTypeDef",
         "NextToken": str,
         "MaxItems": int,
+        "SortBy": Literal["CREATED_AT"],
+        "SortOrder": SortOrderType,
     },
     total=False,
 )

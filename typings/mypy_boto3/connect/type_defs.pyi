@@ -313,6 +313,8 @@ __all__ = (
     "QueueInfoTypeDef",
     "QueueQuickConnectConfigTypeDef",
     "QueueReferenceTypeDef",
+    "QueueSearchCriteriaTypeDef",
+    "QueueSearchFilterTypeDef",
     "QueueSummaryTypeDef",
     "QueueTypeDef",
     "QuickConnectConfigTypeDef",
@@ -329,11 +331,17 @@ __all__ = (
     "RoutingProfileQueueConfigTypeDef",
     "RoutingProfileQueueReferenceTypeDef",
     "RoutingProfileReferenceTypeDef",
+    "RoutingProfileSearchCriteriaTypeDef",
+    "RoutingProfileSearchFilterTypeDef",
     "RoutingProfileSummaryTypeDef",
     "RoutingProfileTypeDef",
     "S3ConfigTypeDef",
     "SearchAvailablePhoneNumbersRequestRequestTypeDef",
     "SearchAvailablePhoneNumbersResponseTypeDef",
+    "SearchQueuesRequestRequestTypeDef",
+    "SearchQueuesResponseTypeDef",
+    "SearchRoutingProfilesRequestRequestTypeDef",
+    "SearchRoutingProfilesResponseTypeDef",
     "SearchSecurityProfilesRequestRequestTypeDef",
     "SearchSecurityProfilesResponseTypeDef",
     "SearchUsersRequestRequestTypeDef",
@@ -3335,6 +3343,25 @@ QueueReferenceTypeDef = TypedDict(
     total=False,
 )
 
+QueueSearchCriteriaTypeDef = TypedDict(
+    "QueueSearchCriteriaTypeDef",
+    {
+        "OrConditions": List[Dict[str, Any]],
+        "AndConditions": List[Dict[str, Any]],
+        "StringCondition": "StringConditionTypeDef",
+        "QueueTypeCondition": Literal["STANDARD"],
+    },
+    total=False,
+)
+
+QueueSearchFilterTypeDef = TypedDict(
+    "QueueSearchFilterTypeDef",
+    {
+        "TagFilter": "ControlPlaneTagFilterTypeDef",
+    },
+    total=False,
+)
+
 QueueSummaryTypeDef = TypedDict(
     "QueueSummaryTypeDef",
     {
@@ -3522,6 +3549,24 @@ RoutingProfileReferenceTypeDef = TypedDict(
     total=False,
 )
 
+RoutingProfileSearchCriteriaTypeDef = TypedDict(
+    "RoutingProfileSearchCriteriaTypeDef",
+    {
+        "OrConditions": List[Dict[str, Any]],
+        "AndConditions": List[Dict[str, Any]],
+        "StringCondition": "StringConditionTypeDef",
+    },
+    total=False,
+)
+
+RoutingProfileSearchFilterTypeDef = TypedDict(
+    "RoutingProfileSearchFilterTypeDef",
+    {
+        "TagFilter": "ControlPlaneTagFilterTypeDef",
+    },
+    total=False,
+)
+
 RoutingProfileSummaryTypeDef = TypedDict(
     "RoutingProfileSummaryTypeDef",
     {
@@ -3543,6 +3588,8 @@ RoutingProfileTypeDef = TypedDict(
         "MediaConcurrencies": List["MediaConcurrencyTypeDef"],
         "DefaultOutboundQueueId": str,
         "Tags": Dict[str, str],
+        "NumberOfAssociatedQueues": int,
+        "NumberOfAssociatedUsers": int,
     },
     total=False,
 )
@@ -3594,6 +3641,71 @@ SearchAvailablePhoneNumbersResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "AvailableNumbersList": List["AvailableNumberSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSearchQueuesRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchQueuesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalSearchQueuesRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchQueuesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "SearchFilter": "QueueSearchFilterTypeDef",
+        "SearchCriteria": "QueueSearchCriteriaTypeDef",
+    },
+    total=False,
+)
+
+class SearchQueuesRequestRequestTypeDef(
+    _RequiredSearchQueuesRequestRequestTypeDef, _OptionalSearchQueuesRequestRequestTypeDef
+):
+    pass
+
+SearchQueuesResponseTypeDef = TypedDict(
+    "SearchQueuesResponseTypeDef",
+    {
+        "Queues": List["QueueTypeDef"],
+        "NextToken": str,
+        "ApproximateTotalCount": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSearchRoutingProfilesRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchRoutingProfilesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalSearchRoutingProfilesRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchRoutingProfilesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "SearchFilter": "RoutingProfileSearchFilterTypeDef",
+        "SearchCriteria": "RoutingProfileSearchCriteriaTypeDef",
+    },
+    total=False,
+)
+
+class SearchRoutingProfilesRequestRequestTypeDef(
+    _RequiredSearchRoutingProfilesRequestRequestTypeDef,
+    _OptionalSearchRoutingProfilesRequestRequestTypeDef,
+):
+    pass
+
+SearchRoutingProfilesResponseTypeDef = TypedDict(
+    "SearchRoutingProfilesResponseTypeDef",
+    {
+        "RoutingProfiles": List["RoutingProfileTypeDef"],
+        "NextToken": str,
+        "ApproximateTotalCount": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

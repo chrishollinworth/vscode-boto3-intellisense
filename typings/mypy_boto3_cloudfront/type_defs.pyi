@@ -32,6 +32,7 @@ from .literals import (
     ItemSelectionType,
     MethodType,
     MinimumProtocolVersionType,
+    OriginAccessControlSigningBehaviorsType,
     OriginProtocolPolicyType,
     OriginRequestPolicyCookieBehaviorType,
     OriginRequestPolicyHeaderBehaviorType,
@@ -104,6 +105,8 @@ __all__ = (
     "CreateKeyGroupResultTypeDef",
     "CreateMonitoringSubscriptionRequestRequestTypeDef",
     "CreateMonitoringSubscriptionResultTypeDef",
+    "CreateOriginAccessControlRequestRequestTypeDef",
+    "CreateOriginAccessControlResultTypeDef",
     "CreateOriginRequestPolicyRequestRequestTypeDef",
     "CreateOriginRequestPolicyResultTypeDef",
     "CreatePublicKeyRequestRequestTypeDef",
@@ -129,6 +132,7 @@ __all__ = (
     "DeleteFunctionRequestRequestTypeDef",
     "DeleteKeyGroupRequestRequestTypeDef",
     "DeleteMonitoringSubscriptionRequestRequestTypeDef",
+    "DeleteOriginAccessControlRequestRequestTypeDef",
     "DeleteOriginRequestPolicyRequestRequestTypeDef",
     "DeletePublicKeyRequestRequestTypeDef",
     "DeleteRealtimeLogConfigRequestRequestTypeDef",
@@ -192,6 +196,10 @@ __all__ = (
     "GetKeyGroupResultTypeDef",
     "GetMonitoringSubscriptionRequestRequestTypeDef",
     "GetMonitoringSubscriptionResultTypeDef",
+    "GetOriginAccessControlConfigRequestRequestTypeDef",
+    "GetOriginAccessControlConfigResultTypeDef",
+    "GetOriginAccessControlRequestRequestTypeDef",
+    "GetOriginAccessControlResultTypeDef",
     "GetOriginRequestPolicyConfigRequestRequestTypeDef",
     "GetOriginRequestPolicyConfigResultTypeDef",
     "GetOriginRequestPolicyRequestRequestTypeDef",
@@ -254,6 +262,8 @@ __all__ = (
     "ListInvalidationsResultTypeDef",
     "ListKeyGroupsRequestRequestTypeDef",
     "ListKeyGroupsResultTypeDef",
+    "ListOriginAccessControlsRequestRequestTypeDef",
+    "ListOriginAccessControlsResultTypeDef",
     "ListOriginRequestPoliciesRequestRequestTypeDef",
     "ListOriginRequestPoliciesResultTypeDef",
     "ListPublicKeysRequestRequestTypeDef",
@@ -268,6 +278,10 @@ __all__ = (
     "ListTagsForResourceResultTypeDef",
     "LoggingConfigTypeDef",
     "MonitoringSubscriptionTypeDef",
+    "OriginAccessControlConfigTypeDef",
+    "OriginAccessControlListTypeDef",
+    "OriginAccessControlSummaryTypeDef",
+    "OriginAccessControlTypeDef",
     "OriginCustomHeaderTypeDef",
     "OriginGroupFailoverCriteriaTypeDef",
     "OriginGroupMemberTypeDef",
@@ -357,6 +371,8 @@ __all__ = (
     "UpdateFunctionResultTypeDef",
     "UpdateKeyGroupRequestRequestTypeDef",
     "UpdateKeyGroupResultTypeDef",
+    "UpdateOriginAccessControlRequestRequestTypeDef",
+    "UpdateOriginAccessControlResultTypeDef",
     "UpdateOriginRequestPolicyRequestRequestTypeDef",
     "UpdateOriginRequestPolicyResultTypeDef",
     "UpdatePublicKeyRequestRequestTypeDef",
@@ -983,6 +999,23 @@ CreateMonitoringSubscriptionResultTypeDef = TypedDict(
     },
 )
 
+CreateOriginAccessControlRequestRequestTypeDef = TypedDict(
+    "CreateOriginAccessControlRequestRequestTypeDef",
+    {
+        "OriginAccessControlConfig": "OriginAccessControlConfigTypeDef",
+    },
+)
+
+CreateOriginAccessControlResultTypeDef = TypedDict(
+    "CreateOriginAccessControlResultTypeDef",
+    {
+        "OriginAccessControl": "OriginAccessControlTypeDef",
+        "Location": str,
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateOriginRequestPolicyRequestRequestTypeDef = TypedDict(
     "CreateOriginRequestPolicyRequestRequestTypeDef",
     {
@@ -1333,6 +1366,26 @@ DeleteMonitoringSubscriptionRequestRequestTypeDef = TypedDict(
         "DistributionId": str,
     },
 )
+
+_RequiredDeleteOriginAccessControlRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteOriginAccessControlRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalDeleteOriginAccessControlRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteOriginAccessControlRequestRequestTypeDef",
+    {
+        "IfMatch": str,
+    },
+    total=False,
+)
+
+class DeleteOriginAccessControlRequestRequestTypeDef(
+    _RequiredDeleteOriginAccessControlRequestRequestTypeDef,
+    _OptionalDeleteOriginAccessControlRequestRequestTypeDef,
+):
+    pass
 
 _RequiredDeleteOriginRequestPolicyRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteOriginRequestPolicyRequestRequestTypeDef",
@@ -2189,6 +2242,38 @@ GetMonitoringSubscriptionResultTypeDef = TypedDict(
     },
 )
 
+GetOriginAccessControlConfigRequestRequestTypeDef = TypedDict(
+    "GetOriginAccessControlConfigRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetOriginAccessControlConfigResultTypeDef = TypedDict(
+    "GetOriginAccessControlConfigResultTypeDef",
+    {
+        "OriginAccessControlConfig": "OriginAccessControlConfigTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetOriginAccessControlRequestRequestTypeDef = TypedDict(
+    "GetOriginAccessControlRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetOriginAccessControlResultTypeDef = TypedDict(
+    "GetOriginAccessControlResultTypeDef",
+    {
+        "OriginAccessControl": "OriginAccessControlTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetOriginRequestPolicyConfigRequestRequestTypeDef = TypedDict(
     "GetOriginRequestPolicyConfigRequestRequestTypeDef",
     {
@@ -2868,6 +2953,23 @@ ListKeyGroupsResultTypeDef = TypedDict(
     },
 )
 
+ListOriginAccessControlsRequestRequestTypeDef = TypedDict(
+    "ListOriginAccessControlsRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListOriginAccessControlsResultTypeDef = TypedDict(
+    "ListOriginAccessControlsResultTypeDef",
+    {
+        "OriginAccessControlList": "OriginAccessControlListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListOriginRequestPoliciesRequestRequestTypeDef = TypedDict(
     "ListOriginRequestPoliciesRequestRequestTypeDef",
     {
@@ -2987,6 +3089,71 @@ MonitoringSubscriptionTypeDef = TypedDict(
     },
     total=False,
 )
+
+OriginAccessControlConfigTypeDef = TypedDict(
+    "OriginAccessControlConfigTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "SigningProtocol": Literal["sigv4"],
+        "SigningBehavior": OriginAccessControlSigningBehaviorsType,
+        "OriginAccessControlOriginType": Literal["s3"],
+    },
+)
+
+_RequiredOriginAccessControlListTypeDef = TypedDict(
+    "_RequiredOriginAccessControlListTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": int,
+        "IsTruncated": bool,
+        "Quantity": int,
+    },
+)
+_OptionalOriginAccessControlListTypeDef = TypedDict(
+    "_OptionalOriginAccessControlListTypeDef",
+    {
+        "NextMarker": str,
+        "Items": List["OriginAccessControlSummaryTypeDef"],
+    },
+    total=False,
+)
+
+class OriginAccessControlListTypeDef(
+    _RequiredOriginAccessControlListTypeDef, _OptionalOriginAccessControlListTypeDef
+):
+    pass
+
+OriginAccessControlSummaryTypeDef = TypedDict(
+    "OriginAccessControlSummaryTypeDef",
+    {
+        "Id": str,
+        "Description": str,
+        "Name": str,
+        "SigningProtocol": Literal["sigv4"],
+        "SigningBehavior": OriginAccessControlSigningBehaviorsType,
+        "OriginAccessControlOriginType": Literal["s3"],
+    },
+)
+
+_RequiredOriginAccessControlTypeDef = TypedDict(
+    "_RequiredOriginAccessControlTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalOriginAccessControlTypeDef = TypedDict(
+    "_OptionalOriginAccessControlTypeDef",
+    {
+        "OriginAccessControlConfig": "OriginAccessControlConfigTypeDef",
+    },
+    total=False,
+)
+
+class OriginAccessControlTypeDef(
+    _RequiredOriginAccessControlTypeDef, _OptionalOriginAccessControlTypeDef
+):
+    pass
 
 OriginCustomHeaderTypeDef = TypedDict(
     "OriginCustomHeaderTypeDef",
@@ -3206,6 +3373,7 @@ _OptionalOriginTypeDef = TypedDict(
         "ConnectionAttempts": int,
         "ConnectionTimeout": int,
         "OriginShield": "OriginShieldTypeDef",
+        "OriginAccessControlId": str,
     },
     total=False,
 )
@@ -3530,8 +3698,8 @@ _OptionalResponseHeadersPolicyConfigTypeDef = TypedDict(
         "Comment": str,
         "CorsConfig": "ResponseHeadersPolicyCorsConfigTypeDef",
         "SecurityHeadersConfig": "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
-        "CustomHeadersConfig": "ResponseHeadersPolicyCustomHeadersConfigTypeDef",
         "ServerTimingHeadersConfig": "ResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
+        "CustomHeadersConfig": "ResponseHeadersPolicyCustomHeadersConfigTypeDef",
     },
     total=False,
 )
@@ -4214,6 +4382,36 @@ UpdateKeyGroupResultTypeDef = TypedDict(
     "UpdateKeyGroupResultTypeDef",
     {
         "KeyGroup": "KeyGroupTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateOriginAccessControlRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateOriginAccessControlRequestRequestTypeDef",
+    {
+        "OriginAccessControlConfig": "OriginAccessControlConfigTypeDef",
+        "Id": str,
+    },
+)
+_OptionalUpdateOriginAccessControlRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateOriginAccessControlRequestRequestTypeDef",
+    {
+        "IfMatch": str,
+    },
+    total=False,
+)
+
+class UpdateOriginAccessControlRequestRequestTypeDef(
+    _RequiredUpdateOriginAccessControlRequestRequestTypeDef,
+    _OptionalUpdateOriginAccessControlRequestRequestTypeDef,
+):
+    pass
+
+UpdateOriginAccessControlResultTypeDef = TypedDict(
+    "UpdateOriginAccessControlResultTypeDef",
+    {
+        "OriginAccessControl": "OriginAccessControlTypeDef",
         "ETag": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

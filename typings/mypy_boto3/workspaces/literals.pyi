@@ -39,6 +39,7 @@ __all__ = (
     "DescribeWorkspacesPaginatorName",
     "ImageTypeType",
     "ListAvailableManagementCidrRangesPaginatorName",
+    "LogUploadEnumType",
     "ModificationResourceEnumType",
     "ModificationStateEnumType",
     "OperatingSystemTypeType",
@@ -100,6 +101,7 @@ DescribeWorkspacesConnectionStatusPaginatorName = Literal["describe_workspaces_c
 DescribeWorkspacesPaginatorName = Literal["describe_workspaces"]
 ImageTypeType = Literal["OWNED", "SHARED"]
 ListAvailableManagementCidrRangesPaginatorName = Literal["list_available_management_cidr_ranges"]
+LogUploadEnumType = Literal["DISABLED", "ENABLED"]
 ModificationResourceEnumType = Literal["COMPUTE_TYPE", "ROOT_VOLUME", "USER_VOLUME"]
 ModificationStateEnumType = Literal["UPDATE_INITIATED", "UPDATE_IN_PROGRESS"]
 OperatingSystemTypeType = Literal["LINUX", "WINDOWS"]

@@ -29,6 +29,7 @@ __all__ = (
     "DeploymentStatusType",
     "EffectiveDeploymentExecutionStatusType",
     "InstalledComponentLifecycleStateType",
+    "InstalledComponentTopologyFilterType",
     "IoTJobAbortActionType",
     "IoTJobExecutionFailureTypeType",
     "LambdaEventSourceTypeType",
@@ -60,6 +61,7 @@ EffectiveDeploymentExecutionStatusType = Literal[
 InstalledComponentLifecycleStateType = Literal[
     "BROKEN", "ERRORED", "FINISHED", "INSTALLED", "NEW", "RUNNING", "STARTING", "STOPPING"
 ]
+InstalledComponentTopologyFilterType = Literal["ALL", "ROOT"]
 IoTJobAbortActionType = Literal["CANCEL"]
 IoTJobExecutionFailureTypeType = Literal["ALL", "FAILED", "REJECTED", "TIMED_OUT"]
 LambdaEventSourceTypeType = Literal["IOT_CORE", "PUB_SUB"]

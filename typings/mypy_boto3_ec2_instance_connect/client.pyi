@@ -43,7 +43,7 @@ class Exceptions:
 
 class EC2InstanceConnectClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/client.html)
     """
 
@@ -58,14 +58,14 @@ class EC2InstanceConnectClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/client.html#close)
         """
     def generate_presigned_url(
@@ -78,7 +78,7 @@ class EC2InstanceConnectClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/client.html#generate_presigned_url)
         """
     def send_serial_console_ssh_public_key(
@@ -87,7 +87,7 @@ class EC2InstanceConnectClient(BaseClient):
         """
         Pushes an SSH public key to the specified EC2 instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.send_serial_console_ssh_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.send_serial_console_ssh_public_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/client.html#send_serial_console_ssh_public_key)
         """
     def send_ssh_public_key(
@@ -102,6 +102,6 @@ class EC2InstanceConnectClient(BaseClient):
         Pushes an SSH public key to the specified EC2 instance for use by the specified
         user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.send_ssh_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.send_ssh_public_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/client.html#send_ssh_public_key)
         """

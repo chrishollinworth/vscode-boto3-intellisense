@@ -82,7 +82,7 @@ class Exceptions:
 
 class Private5GClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html)
     """
 
@@ -97,7 +97,7 @@ class Private5GClient(BaseClient):
         """
         Acknowledges that the specified network order was received.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.acknowledge_order_receipt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.acknowledge_order_receipt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#acknowledge_order_receipt)
         """
     def activate_device_identifier(
@@ -106,7 +106,7 @@ class Private5GClient(BaseClient):
         """
         Activates the specified device identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.activate_device_identifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.activate_device_identifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#activate_device_identifier)
         """
     def activate_network_site(
@@ -115,21 +115,21 @@ class Private5GClient(BaseClient):
         """
         Activates the specified network site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.activate_network_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.activate_network_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#activate_network_site)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#close)
         """
     def configure_access_point(
@@ -145,7 +145,7 @@ class Private5GClient(BaseClient):
         """
         Configures the specified network resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.configure_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.configure_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#configure_access_point)
         """
     def create_network(
@@ -159,7 +159,7 @@ class Private5GClient(BaseClient):
         """
         Creates a network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.create_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.create_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#create_network)
         """
     def create_network_site(
@@ -177,7 +177,7 @@ class Private5GClient(BaseClient):
         """
         Creates a network site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.create_network_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.create_network_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#create_network_site)
         """
     def deactivate_device_identifier(
@@ -186,7 +186,7 @@ class Private5GClient(BaseClient):
         """
         Deactivates the specified device identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.deactivate_device_identifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.deactivate_device_identifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#deactivate_device_identifier)
         """
     def delete_network(
@@ -195,7 +195,7 @@ class Private5GClient(BaseClient):
         """
         Deletes the specified network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.delete_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.delete_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#delete_network)
         """
     def delete_network_site(
@@ -204,7 +204,7 @@ class Private5GClient(BaseClient):
         """
         Deletes the specified network site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.delete_network_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.delete_network_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#delete_network_site)
         """
     def generate_presigned_url(
@@ -217,7 +217,7 @@ class Private5GClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#generate_presigned_url)
         """
     def get_device_identifier(
@@ -226,35 +226,35 @@ class Private5GClient(BaseClient):
         """
         Gets the specified device identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.get_device_identifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.get_device_identifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#get_device_identifier)
         """
     def get_network(self, *, networkArn: str) -> GetNetworkResponseTypeDef:
         """
         Gets the specified network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.get_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.get_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#get_network)
         """
     def get_network_resource(self, *, networkResourceArn: str) -> GetNetworkResourceResponseTypeDef:
         """
         Gets the specified network resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.get_network_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.get_network_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#get_network_resource)
         """
     def get_network_site(self, *, networkSiteArn: str) -> GetNetworkSiteResponseTypeDef:
         """
         Gets the specified network site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.get_network_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.get_network_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#get_network_site)
         """
     def get_order(self, *, orderArn: str) -> GetOrderResponseTypeDef:
         """
         Gets the specified order.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.get_order)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.get_order)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#get_order)
         """
     def list_device_identifiers(
@@ -268,7 +268,7 @@ class Private5GClient(BaseClient):
         """
         Lists device identifiers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.list_device_identifiers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.list_device_identifiers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#list_device_identifiers)
         """
     def list_network_resources(
@@ -282,7 +282,7 @@ class Private5GClient(BaseClient):
         """
         Lists network resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.list_network_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.list_network_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#list_network_resources)
         """
     def list_network_sites(
@@ -296,7 +296,7 @@ class Private5GClient(BaseClient):
         """
         Lists network sites.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.list_network_sites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.list_network_sites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#list_network_sites)
         """
     def list_networks(
@@ -309,7 +309,7 @@ class Private5GClient(BaseClient):
         """
         Lists networks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.list_networks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.list_networks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#list_networks)
         """
     def list_orders(
@@ -323,35 +323,35 @@ class Private5GClient(BaseClient):
         """
         Lists orders.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.list_orders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.list_orders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#list_orders)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#list_tags_for_resource)
         """
     def ping(self) -> PingResponseTypeDef:
         """
         Checks the health of the service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.ping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.ping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#ping)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Adds tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#untag_resource)
         """
     def update_network_site(
@@ -360,7 +360,7 @@ class Private5GClient(BaseClient):
         """
         Updates the specified network site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.update_network_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.update_network_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#update_network_site)
         """
     def update_network_site_plan(
@@ -369,7 +369,7 @@ class Private5GClient(BaseClient):
         """
         Updates the specified network site plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Client.update_network_site_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Client.update_network_site_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/client.html#update_network_site_plan)
         """
     @overload
@@ -377,7 +377,7 @@ class Private5GClient(BaseClient):
         self, operation_name: Literal["list_device_identifiers"]
     ) -> ListDeviceIdentifiersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Paginator.ListDeviceIdentifiers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Paginator.ListDeviceIdentifiers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listdeviceidentifierspaginator)
         """
     @overload
@@ -385,7 +385,7 @@ class Private5GClient(BaseClient):
         self, operation_name: Literal["list_network_resources"]
     ) -> ListNetworkResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworkresourcespaginator)
         """
     @overload
@@ -393,18 +393,18 @@ class Private5GClient(BaseClient):
         self, operation_name: Literal["list_network_sites"]
     ) -> ListNetworkSitesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkSites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkSites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworksitespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_networks"]) -> ListNetworksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworkspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_orders"]) -> ListOrdersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/privatenetworks.html#Private5G.Paginator.ListOrders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/privatenetworks.html#Private5G.Paginator.ListOrders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listorderspaginator)
         """

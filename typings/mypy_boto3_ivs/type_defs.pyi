@@ -217,6 +217,7 @@ _OptionalCreateRecordingConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalCreateRecordingConfigurationRequestRequestTypeDef",
     {
         "name": str,
+        "recordingReconnectWindowSeconds": int,
         "tags": Dict[str, str],
         "thumbnailConfiguration": "ThumbnailConfigurationTypeDef",
     },
@@ -662,6 +663,7 @@ _OptionalRecordingConfigurationTypeDef = TypedDict(
     "_OptionalRecordingConfigurationTypeDef",
     {
         "name": str,
+        "recordingReconnectWindowSeconds": int,
         "tags": Dict[str, str],
         "thumbnailConfiguration": "ThumbnailConfigurationTypeDef",
     },

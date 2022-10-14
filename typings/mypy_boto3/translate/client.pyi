@@ -30,12 +30,14 @@ from .type_defs import (
     InputDataConfigTypeDef,
     ListLanguagesResponseTypeDef,
     ListParallelDataResponseTypeDef,
+    ListTagsForResourceResponseTypeDef,
     ListTerminologiesResponseTypeDef,
     ListTextTranslationJobsResponseTypeDef,
     OutputDataConfigTypeDef,
     ParallelDataConfigTypeDef,
     StartTextTranslationJobResponseTypeDef,
     StopTextTranslationJobResponseTypeDef,
+    TagTypeDef,
     TerminologyDataTypeDef,
     TextTranslationJobFilterTypeDef,
     TranslateTextResponseTypeDef,
@@ -71,12 +73,13 @@ class Exceptions:
     ServiceUnavailableException: Type[BotocoreClientError]
     TextSizeLimitExceededException: Type[BotocoreClientError]
     TooManyRequestsException: Type[BotocoreClientError]
+    TooManyTagsException: Type[BotocoreClientError]
     UnsupportedDisplayLanguageCodeException: Type[BotocoreClientError]
     UnsupportedLanguagePairException: Type[BotocoreClientError]
 
 class TranslateClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html)
     """
 
@@ -91,14 +94,14 @@ class TranslateClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#close)
         """
     def create_parallel_data(
@@ -108,27 +111,28 @@ class TranslateClient(BaseClient):
         ParallelDataConfig: "ParallelDataConfigTypeDef",
         ClientToken: str,
         Description: str = None,
-        EncryptionKey: "EncryptionKeyTypeDef" = None
+        EncryptionKey: "EncryptionKeyTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateParallelDataResponseTypeDef:
         """
         Creates a parallel data resource in Amazon Translate by importing an input file
         from Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.create_parallel_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.create_parallel_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#create_parallel_data)
         """
     def delete_parallel_data(self, *, Name: str) -> DeleteParallelDataResponseTypeDef:
         """
         Deletes a parallel data resource in Amazon Translate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.delete_parallel_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.delete_parallel_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#delete_parallel_data)
         """
     def delete_terminology(self, *, Name: str) -> None:
         """
         A synchronous action that deletes a custom terminology.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.delete_terminology)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.delete_terminology)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#delete_terminology)
         """
     def describe_text_translation_job(
@@ -139,7 +143,7 @@ class TranslateClient(BaseClient):
         including name, ID, status, source and target languages, input/output S3
         buckets, and so on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.describe_text_translation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.describe_text_translation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#describe_text_translation_job)
         """
     def generate_presigned_url(
@@ -152,14 +156,14 @@ class TranslateClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#generate_presigned_url)
         """
     def get_parallel_data(self, *, Name: str) -> GetParallelDataResponseTypeDef:
         """
         Provides information about a parallel data resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.get_parallel_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.get_parallel_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#get_parallel_data)
         """
     def get_terminology(
@@ -168,7 +172,7 @@ class TranslateClient(BaseClient):
         """
         Retrieves a custom terminology.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.get_terminology)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.get_terminology)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#get_terminology)
         """
     def import_terminology(
@@ -178,13 +182,14 @@ class TranslateClient(BaseClient):
         MergeStrategy: Literal["OVERWRITE"],
         TerminologyData: "TerminologyDataTypeDef",
         Description: str = None,
-        EncryptionKey: "EncryptionKeyTypeDef" = None
+        EncryptionKey: "EncryptionKeyTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> ImportTerminologyResponseTypeDef:
         """
         Creates or updates a custom terminology, depending on whether one already exists
         for the given terminology name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.import_terminology)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.import_terminology)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#import_terminology)
         """
     def list_languages(
@@ -198,7 +203,7 @@ class TranslateClient(BaseClient):
         Provides a list of languages (RFC-5646 codes and names) that Amazon Translate
         supports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.list_languages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.list_languages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#list_languages)
         """
     def list_parallel_data(
@@ -207,8 +212,17 @@ class TranslateClient(BaseClient):
         """
         Provides a list of your parallel data resources in Amazon Translate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.list_parallel_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.list_parallel_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#list_parallel_data)
+        """
+    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/transl
+        ate-2017-07-01/ListTagsForResource>`_ **Request Syntax** response =
+        client.list_tags_for_resource( ResourceArn='string' ).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#list_tags_for_resource)
         """
     def list_terminologies(
         self, *, NextToken: str = None, MaxResults: int = None
@@ -216,7 +230,7 @@ class TranslateClient(BaseClient):
         """
         Provides a list of custom terminologies associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.list_terminologies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.list_terminologies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#list_terminologies)
         """
     def list_text_translation_jobs(
@@ -229,7 +243,7 @@ class TranslateClient(BaseClient):
         """
         Gets a list of the batch translation jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.list_text_translation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.list_text_translation_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#list_text_translation_jobs)
         """
     def start_text_translation_job(
@@ -249,15 +263,25 @@ class TranslateClient(BaseClient):
         """
         Starts an asynchronous batch translation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.start_text_translation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.start_text_translation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#start_text_translation_job)
         """
     def stop_text_translation_job(self, *, JobId: str) -> StopTextTranslationJobResponseTypeDef:
         """
         Stops an asynchronous batch translation job that is in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.stop_text_translation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.stop_text_translation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#stop_text_translation_job)
+        """
+    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        """
+        See also: `AWS API Documentation
+        <https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TagResource>`_
+        **Request Syntax** response = client.tag_resource( ResourceArn='string', Tags=[
+        { 'Key': 'string', 'Value': 'string' }...
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#tag_resource)
         """
     def translate_text(
         self,
@@ -271,8 +295,18 @@ class TranslateClient(BaseClient):
         """
         Translates input text from the source language to the target language.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.translate_text)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.translate_text)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#translate_text)
+        """
+    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        """
+        See also: `AWS API Documentation
+        <https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/UntagResource>`_
+        **Request Syntax** response = client.untag_resource( ResourceArn='string',
+        TagKeys=[ 'string', ] ).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#untag_resource)
         """
     def update_parallel_data(
         self,
@@ -286,13 +320,13 @@ class TranslateClient(BaseClient):
         Updates a previously created parallel data resource by importing a new input
         file from Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Client.update_parallel_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Client.update_parallel_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/client.html#update_parallel_data)
         """
     def get_paginator(
         self, operation_name: Literal["list_terminologies"]
     ) -> ListTerminologiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.58/reference/services/translate.html#Translate.Paginator.ListTerminologies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/translate.html#Translate.Paginator.ListTerminologies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/paginators.html#listterminologiespaginator)
         """

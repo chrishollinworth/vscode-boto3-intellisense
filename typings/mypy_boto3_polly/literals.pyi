@@ -69,6 +69,7 @@ LanguageCodeType = Literal[
     "ru-RU",
     "sv-SE",
     "tr-TR",
+    "yue-CN",
 ]
 ListLexiconsPaginatorName = Literal["list_lexicons"]
 ListSpeechSynthesisTasksPaginatorName = Literal["list_speech_synthesis_tasks"]
@@ -105,6 +106,7 @@ VoiceIdType = Literal[
     "Gwyneth",
     "Hannah",
     "Hans",
+    "Hiujin",
     "Ines",
     "Ivy",
     "Jacek",

@@ -16,7 +16,10 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    DestinationTypeType,
     EventDataStoreStatusType,
+    ImportFailureStatusType,
+    ImportStatusType,
     InsightTypeType,
     LookupAttributeKeyType,
     QueryStatusType,
@@ -38,6 +41,7 @@ __all__ = (
     "AdvancedFieldSelectorTypeDef",
     "CancelQueryRequestRequestTypeDef",
     "CancelQueryResponseTypeDef",
+    "ChannelTypeDef",
     "CreateEventDataStoreRequestRequestTypeDef",
     "CreateEventDataStoreResponseTypeDef",
     "CreateTrailRequestRequestTypeDef",
@@ -49,13 +53,18 @@ __all__ = (
     "DescribeQueryResponseTypeDef",
     "DescribeTrailsRequestRequestTypeDef",
     "DescribeTrailsResponseTypeDef",
+    "DestinationTypeDef",
     "EventDataStoreTypeDef",
     "EventSelectorTypeDef",
     "EventTypeDef",
+    "GetChannelRequestRequestTypeDef",
+    "GetChannelResponseTypeDef",
     "GetEventDataStoreRequestRequestTypeDef",
     "GetEventDataStoreResponseTypeDef",
     "GetEventSelectorsRequestRequestTypeDef",
     "GetEventSelectorsResponseTypeDef",
+    "GetImportRequestRequestTypeDef",
+    "GetImportResponseTypeDef",
     "GetInsightSelectorsRequestRequestTypeDef",
     "GetInsightSelectorsResponseTypeDef",
     "GetQueryResultsRequestRequestTypeDef",
@@ -64,9 +73,19 @@ __all__ = (
     "GetTrailResponseTypeDef",
     "GetTrailStatusRequestRequestTypeDef",
     "GetTrailStatusResponseTypeDef",
+    "ImportFailureListItemTypeDef",
+    "ImportSourceTypeDef",
+    "ImportStatisticsTypeDef",
+    "ImportsListItemTypeDef",
     "InsightSelectorTypeDef",
+    "ListChannelsRequestRequestTypeDef",
+    "ListChannelsResponseTypeDef",
     "ListEventDataStoresRequestRequestTypeDef",
     "ListEventDataStoresResponseTypeDef",
+    "ListImportFailuresRequestRequestTypeDef",
+    "ListImportFailuresResponseTypeDef",
+    "ListImportsRequestRequestTypeDef",
+    "ListImportsResponseTypeDef",
     "ListPublicKeysRequestRequestTypeDef",
     "ListPublicKeysResponseTypeDef",
     "ListQueriesRequestRequestTypeDef",
@@ -93,9 +112,15 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RestoreEventDataStoreRequestRequestTypeDef",
     "RestoreEventDataStoreResponseTypeDef",
+    "S3ImportSourceTypeDef",
+    "SourceConfigTypeDef",
+    "StartImportRequestRequestTypeDef",
+    "StartImportResponseTypeDef",
     "StartLoggingRequestRequestTypeDef",
     "StartQueryRequestRequestTypeDef",
     "StartQueryResponseTypeDef",
+    "StopImportRequestRequestTypeDef",
+    "StopImportResponseTypeDef",
     "StopLoggingRequestRequestTypeDef",
     "TagTypeDef",
     "TrailInfoTypeDef",
@@ -172,6 +197,15 @@ CancelQueryResponseTypeDef = TypedDict(
         "QueryStatus": QueryStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ChannelTypeDef = TypedDict(
+    "ChannelTypeDef",
+    {
+        "ChannelArn": str,
+        "Name": str,
+    },
+    total=False,
 )
 
 _RequiredCreateEventDataStoreRequestRequestTypeDef = TypedDict(
@@ -326,6 +360,14 @@ DescribeTrailsResponseTypeDef = TypedDict(
     },
 )
 
+DestinationTypeDef = TypedDict(
+    "DestinationTypeDef",
+    {
+        "Type": DestinationTypeType,
+        "Location": str,
+    },
+)
+
 EventDataStoreTypeDef = TypedDict(
     "EventDataStoreTypeDef",
     {
@@ -370,6 +412,25 @@ EventTypeDef = TypedDict(
     total=False,
 )
 
+GetChannelRequestRequestTypeDef = TypedDict(
+    "GetChannelRequestRequestTypeDef",
+    {
+        "Channel": str,
+    },
+)
+
+GetChannelResponseTypeDef = TypedDict(
+    "GetChannelResponseTypeDef",
+    {
+        "ChannelArn": str,
+        "Name": str,
+        "Source": str,
+        "SourceConfig": "SourceConfigTypeDef",
+        "Destinations": List["DestinationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetEventDataStoreRequestRequestTypeDef = TypedDict(
     "GetEventDataStoreRequestRequestTypeDef",
     {
@@ -407,6 +468,29 @@ GetEventSelectorsResponseTypeDef = TypedDict(
         "TrailARN": str,
         "EventSelectors": List["EventSelectorTypeDef"],
         "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetImportRequestRequestTypeDef = TypedDict(
+    "GetImportRequestRequestTypeDef",
+    {
+        "ImportId": str,
+    },
+)
+
+GetImportResponseTypeDef = TypedDict(
+    "GetImportResponseTypeDef",
+    {
+        "ImportId": str,
+        "Destinations": List[str],
+        "ImportSource": "ImportSourceTypeDef",
+        "StartEventTime": datetime,
+        "EndEventTime": datetime,
+        "ImportStatus": ImportStatusType,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "ImportStatistics": "ImportStatisticsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -506,12 +590,73 @@ GetTrailStatusResponseTypeDef = TypedDict(
     },
 )
 
+ImportFailureListItemTypeDef = TypedDict(
+    "ImportFailureListItemTypeDef",
+    {
+        "Location": str,
+        "Status": ImportFailureStatusType,
+        "ErrorType": str,
+        "ErrorMessage": str,
+        "LastUpdatedTime": datetime,
+    },
+    total=False,
+)
+
+ImportSourceTypeDef = TypedDict(
+    "ImportSourceTypeDef",
+    {
+        "S3": "S3ImportSourceTypeDef",
+    },
+)
+
+ImportStatisticsTypeDef = TypedDict(
+    "ImportStatisticsTypeDef",
+    {
+        "PrefixesFound": int,
+        "PrefixesCompleted": int,
+        "FilesCompleted": int,
+        "EventsCompleted": int,
+        "FailedEntries": int,
+    },
+    total=False,
+)
+
+ImportsListItemTypeDef = TypedDict(
+    "ImportsListItemTypeDef",
+    {
+        "ImportId": str,
+        "ImportStatus": ImportStatusType,
+        "Destinations": List[str],
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
 InsightSelectorTypeDef = TypedDict(
     "InsightSelectorTypeDef",
     {
         "InsightType": InsightTypeType,
     },
     total=False,
+)
+
+ListChannelsRequestRequestTypeDef = TypedDict(
+    "ListChannelsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListChannelsResponseTypeDef = TypedDict(
+    "ListChannelsResponseTypeDef",
+    {
+        "Channels": List["ChannelTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListEventDataStoresRequestRequestTypeDef = TypedDict(
@@ -527,6 +672,56 @@ ListEventDataStoresResponseTypeDef = TypedDict(
     "ListEventDataStoresResponseTypeDef",
     {
         "EventDataStores": List["EventDataStoreTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListImportFailuresRequestRequestTypeDef = TypedDict(
+    "_RequiredListImportFailuresRequestRequestTypeDef",
+    {
+        "ImportId": str,
+    },
+)
+_OptionalListImportFailuresRequestRequestTypeDef = TypedDict(
+    "_OptionalListImportFailuresRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListImportFailuresRequestRequestTypeDef(
+    _RequiredListImportFailuresRequestRequestTypeDef,
+    _OptionalListImportFailuresRequestRequestTypeDef,
+):
+    pass
+
+ListImportFailuresResponseTypeDef = TypedDict(
+    "ListImportFailuresResponseTypeDef",
+    {
+        "Failures": List["ImportFailureListItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListImportsRequestRequestTypeDef = TypedDict(
+    "ListImportsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "Destination": str,
+        "ImportStatus": ImportStatusType,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListImportsResponseTypeDef = TypedDict(
+    "ListImportsResponseTypeDef",
+    {
+        "Imports": List["ImportsListItemTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -819,6 +1014,51 @@ RestoreEventDataStoreResponseTypeDef = TypedDict(
     },
 )
 
+S3ImportSourceTypeDef = TypedDict(
+    "S3ImportSourceTypeDef",
+    {
+        "S3LocationUri": str,
+        "S3BucketRegion": str,
+        "S3BucketAccessRoleArn": str,
+    },
+)
+
+SourceConfigTypeDef = TypedDict(
+    "SourceConfigTypeDef",
+    {
+        "ApplyToAllRegions": bool,
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+    },
+    total=False,
+)
+
+StartImportRequestRequestTypeDef = TypedDict(
+    "StartImportRequestRequestTypeDef",
+    {
+        "Destinations": List[str],
+        "ImportSource": "ImportSourceTypeDef",
+        "StartEventTime": Union[datetime, str],
+        "EndEventTime": Union[datetime, str],
+        "ImportId": str,
+    },
+    total=False,
+)
+
+StartImportResponseTypeDef = TypedDict(
+    "StartImportResponseTypeDef",
+    {
+        "ImportId": str,
+        "Destinations": List[str],
+        "ImportSource": "ImportSourceTypeDef",
+        "StartEventTime": datetime,
+        "EndEventTime": datetime,
+        "ImportStatus": ImportStatusType,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StartLoggingRequestRequestTypeDef = TypedDict(
     "StartLoggingRequestRequestTypeDef",
     {
@@ -837,6 +1077,29 @@ StartQueryResponseTypeDef = TypedDict(
     "StartQueryResponseTypeDef",
     {
         "QueryId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopImportRequestRequestTypeDef = TypedDict(
+    "StopImportRequestRequestTypeDef",
+    {
+        "ImportId": str,
+    },
+)
+
+StopImportResponseTypeDef = TypedDict(
+    "StopImportResponseTypeDef",
+    {
+        "ImportId": str,
+        "ImportSource": "ImportSourceTypeDef",
+        "Destinations": List[str],
+        "ImportStatus": ImportStatusType,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "StartEventTime": datetime,
+        "EndEventTime": datetime,
+        "ImportStatistics": "ImportStatisticsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -39,6 +39,7 @@ __all__ = (
     "DeleteSessionRequestRequestTypeDef",
     "DeleteSessionResponseTypeDef",
     "DialogActionTypeDef",
+    "ElicitSubSlotTypeDef",
     "GetSessionRequestRequestTypeDef",
     "GetSessionResponseTypeDef",
     "ImageResponseCardTypeDef",
@@ -127,11 +128,29 @@ _OptionalDialogActionTypeDef = TypedDict(
     {
         "slotToElicit": str,
         "slotElicitationStyle": StyleTypeType,
+        "subSlotToElicit": "ElicitSubSlotTypeDef",
     },
     total=False,
 )
 
 class DialogActionTypeDef(_RequiredDialogActionTypeDef, _OptionalDialogActionTypeDef):
+    pass
+
+_RequiredElicitSubSlotTypeDef = TypedDict(
+    "_RequiredElicitSubSlotTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalElicitSubSlotTypeDef = TypedDict(
+    "_OptionalElicitSubSlotTypeDef",
+    {
+        "subSlotToElicit": Dict[str, Any],
+    },
+    total=False,
+)
+
+class ElicitSubSlotTypeDef(_RequiredElicitSubSlotTypeDef, _OptionalElicitSubSlotTypeDef):
     pass
 
 GetSessionRequestRequestTypeDef = TypedDict(
@@ -355,7 +374,9 @@ RuntimeHintDetailsTypeDef = TypedDict(
     "RuntimeHintDetailsTypeDef",
     {
         "runtimeHintValues": List["RuntimeHintValueTypeDef"],
+        "subSlotHints": Dict[str, Dict[str, Any]],
     },
+    total=False,
 )
 
 RuntimeHintValueTypeDef = TypedDict(
@@ -412,6 +433,7 @@ SlotTypeDef = TypedDict(
         "value": "ValueTypeDef",
         "shape": ShapeType,
         "values": List[Dict[str, Any]],
+        "subSlots": Dict[str, Dict[str, Any]],
     },
     total=False,
 )

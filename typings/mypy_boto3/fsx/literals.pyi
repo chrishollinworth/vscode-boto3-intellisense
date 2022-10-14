@@ -38,6 +38,9 @@ __all__ = (
     "DiskIopsConfigurationModeType",
     "DriveCacheTypeType",
     "EventTypeType",
+    "FileCacheLifecycleType",
+    "FileCacheLustreDeploymentTypeType",
+    "FileCacheTypeType",
     "FileSystemLifecycleType",
     "FileSystemMaintenanceOperationType",
     "FileSystemTypeType",
@@ -46,6 +49,7 @@ __all__ = (
     "ListTagsForResourcePaginatorName",
     "LustreAccessAuditLogLevelType",
     "LustreDeploymentTypeType",
+    "NfsVersionType",
     "OntapDeploymentTypeType",
     "OntapVolumeTypeType",
     "OpenZFSCopyStrategyType",
@@ -93,12 +97,17 @@ DataRepositoryLifecycleType = Literal[
     "AVAILABLE", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "UPDATING"
 ]
 DataRepositoryTaskFilterNameType = Literal[
-    "data-repository-association-id", "file-system-id", "task-lifecycle"
+    "data-repository-association-id", "file-cache-id", "file-system-id", "task-lifecycle"
 ]
 DataRepositoryTaskLifecycleType = Literal[
     "CANCELED", "CANCELING", "EXECUTING", "FAILED", "PENDING", "SUCCEEDED"
 ]
-DataRepositoryTaskTypeType = Literal["EXPORT_TO_REPOSITORY", "IMPORT_METADATA_FROM_REPOSITORY"]
+DataRepositoryTaskTypeType = Literal[
+    "AUTO_RELEASE_DATA",
+    "EXPORT_TO_REPOSITORY",
+    "IMPORT_METADATA_FROM_REPOSITORY",
+    "RELEASE_DATA_FROM_FILESYSTEM",
+]
 DeleteFileSystemOpenZFSOptionType = Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]
 DeleteOpenZFSVolumeOptionType = Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]
 DescribeBackupsPaginatorName = Literal["describe_backups"]
@@ -108,6 +117,9 @@ DescribeVolumesPaginatorName = Literal["describe_volumes"]
 DiskIopsConfigurationModeType = Literal["AUTOMATIC", "USER_PROVISIONED"]
 DriveCacheTypeType = Literal["NONE", "READ"]
 EventTypeType = Literal["CHANGED", "DELETED", "NEW"]
+FileCacheLifecycleType = Literal["AVAILABLE", "CREATING", "DELETING", "FAILED", "UPDATING"]
+FileCacheLustreDeploymentTypeType = Literal["CACHE_1"]
+FileCacheTypeType = Literal["LUSTRE"]
 FileSystemLifecycleType = Literal[
     "AVAILABLE",
     "CREATING",
@@ -120,12 +132,19 @@ FileSystemLifecycleType = Literal[
 FileSystemMaintenanceOperationType = Literal["BACKING_UP", "PATCHING"]
 FileSystemTypeType = Literal["LUSTRE", "ONTAP", "OPENZFS", "WINDOWS"]
 FilterNameType = Literal[
-    "backup-type", "data-repository-type", "file-system-id", "file-system-type", "volume-id"
+    "backup-type",
+    "data-repository-type",
+    "file-cache-id",
+    "file-cache-type",
+    "file-system-id",
+    "file-system-type",
+    "volume-id",
 ]
 FlexCacheEndpointTypeType = Literal["CACHE", "NONE", "ORIGIN"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LustreAccessAuditLogLevelType = Literal["DISABLED", "ERROR_ONLY", "WARN_ERROR", "WARN_ONLY"]
 LustreDeploymentTypeType = Literal["PERSISTENT_1", "PERSISTENT_2", "SCRATCH_1", "SCRATCH_2"]
+NfsVersionType = Literal["NFS3"]
 OntapDeploymentTypeType = Literal["MULTI_AZ_1", "SINGLE_AZ_1"]
 OntapVolumeTypeType = Literal["DP", "LS", "RW"]
 OpenZFSCopyStrategyType = Literal["CLONE", "FULL_COPY"]

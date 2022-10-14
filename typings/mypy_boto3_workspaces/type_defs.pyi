@@ -29,6 +29,7 @@ from .literals import (
     DedicatedTenancySupportResultEnumType,
     DeletableSamlPropertyType,
     ImageTypeType,
+    LogUploadEnumType,
     ModificationResourceEnumType,
     ModificationStateEnumType,
     OperatingSystemTypeType,
@@ -254,6 +255,7 @@ ClientPropertiesTypeDef = TypedDict(
     "ClientPropertiesTypeDef",
     {
         "ReconnectEnabled": ReconnectEnumType,
+        "LogUploadEnabled": LogUploadEnumType,
     },
     total=False,
 )
