@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    DeliveryStatusType,
     DestinationTypeType,
     EventDataStoreStatusType,
     ImportFailureStatusType,
@@ -49,6 +50,7 @@ __all__ = (
     "DataResourceTypeDef",
     "DeleteEventDataStoreRequestRequestTypeDef",
     "DeleteTrailRequestRequestTypeDef",
+    "DeregisterOrganizationDelegatedAdminRequestRequestTypeDef",
     "DescribeQueryRequestRequestTypeDef",
     "DescribeQueryResponseTypeDef",
     "DescribeTrailsRequestRequestTypeDef",
@@ -106,6 +108,7 @@ __all__ = (
     "QueryStatisticsForDescribeQueryTypeDef",
     "QueryStatisticsTypeDef",
     "QueryTypeDef",
+    "RegisterOrganizationDelegatedAdminRequestRequestTypeDef",
     "RemoveTagsRequestRequestTypeDef",
     "ResourceTagTypeDef",
     "ResourceTypeDef",
@@ -182,13 +185,24 @@ class AdvancedFieldSelectorTypeDef(
 ):
     pass
 
-CancelQueryRequestRequestTypeDef = TypedDict(
-    "CancelQueryRequestRequestTypeDef",
+_RequiredCancelQueryRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelQueryRequestRequestTypeDef",
     {
-        "EventDataStore": str,
         "QueryId": str,
     },
 )
+_OptionalCancelQueryRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelQueryRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+    },
+    total=False,
+)
+
+class CancelQueryRequestRequestTypeDef(
+    _RequiredCancelQueryRequestRequestTypeDef, _OptionalCancelQueryRequestRequestTypeDef
+):
+    pass
 
 CancelQueryResponseTypeDef = TypedDict(
     "CancelQueryResponseTypeDef",
@@ -223,6 +237,7 @@ _OptionalCreateEventDataStoreRequestRequestTypeDef = TypedDict(
         "RetentionPeriod": int,
         "TerminationProtectionEnabled": bool,
         "TagsList": List["TagTypeDef"],
+        "KmsKeyId": str,
     },
     total=False,
 )
@@ -247,6 +262,7 @@ CreateEventDataStoreResponseTypeDef = TypedDict(
         "TagsList": List["TagTypeDef"],
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+        "KmsKeyId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -323,13 +339,31 @@ DeleteTrailRequestRequestTypeDef = TypedDict(
     },
 )
 
-DescribeQueryRequestRequestTypeDef = TypedDict(
-    "DescribeQueryRequestRequestTypeDef",
+DeregisterOrganizationDelegatedAdminRequestRequestTypeDef = TypedDict(
+    "DeregisterOrganizationDelegatedAdminRequestRequestTypeDef",
     {
-        "EventDataStore": str,
+        "DelegatedAdminAccountId": str,
+    },
+)
+
+_RequiredDescribeQueryRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeQueryRequestRequestTypeDef",
+    {
         "QueryId": str,
     },
 )
+_OptionalDescribeQueryRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeQueryRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+    },
+    total=False,
+)
+
+class DescribeQueryRequestRequestTypeDef(
+    _RequiredDescribeQueryRequestRequestTypeDef, _OptionalDescribeQueryRequestRequestTypeDef
+):
+    pass
 
 DescribeQueryResponseTypeDef = TypedDict(
     "DescribeQueryResponseTypeDef",
@@ -339,6 +373,8 @@ DescribeQueryResponseTypeDef = TypedDict(
         "QueryStatus": QueryStatusType,
         "QueryStatistics": "QueryStatisticsForDescribeQueryTypeDef",
         "ErrorMessage": str,
+        "DeliveryS3Uri": str,
+        "DeliveryStatus": DeliveryStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -451,6 +487,7 @@ GetEventDataStoreResponseTypeDef = TypedDict(
         "TerminationProtectionEnabled": bool,
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+        "KmsKeyId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -514,13 +551,13 @@ GetInsightSelectorsResponseTypeDef = TypedDict(
 _RequiredGetQueryResultsRequestRequestTypeDef = TypedDict(
     "_RequiredGetQueryResultsRequestRequestTypeDef",
     {
-        "EventDataStore": str,
         "QueryId": str,
     },
 )
 _OptionalGetQueryResultsRequestRequestTypeDef = TypedDict(
     "_OptionalGetQueryResultsRequestRequestTypeDef",
     {
+        "EventDataStore": str,
         "NextToken": str,
         "MaxQueryResults": int,
     },
@@ -953,6 +990,13 @@ QueryTypeDef = TypedDict(
     total=False,
 )
 
+RegisterOrganizationDelegatedAdminRequestRequestTypeDef = TypedDict(
+    "RegisterOrganizationDelegatedAdminRequestRequestTypeDef",
+    {
+        "MemberAccountId": str,
+    },
+)
+
 RemoveTagsRequestRequestTypeDef = TypedDict(
     "RemoveTagsRequestRequestTypeDef",
     {
@@ -1010,6 +1054,7 @@ RestoreEventDataStoreResponseTypeDef = TypedDict(
         "TerminationProtectionEnabled": bool,
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+        "KmsKeyId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1066,12 +1111,24 @@ StartLoggingRequestRequestTypeDef = TypedDict(
     },
 )
 
-StartQueryRequestRequestTypeDef = TypedDict(
-    "StartQueryRequestRequestTypeDef",
+_RequiredStartQueryRequestRequestTypeDef = TypedDict(
+    "_RequiredStartQueryRequestRequestTypeDef",
     {
         "QueryStatement": str,
     },
 )
+_OptionalStartQueryRequestRequestTypeDef = TypedDict(
+    "_OptionalStartQueryRequestRequestTypeDef",
+    {
+        "DeliveryS3Uri": str,
+    },
+    total=False,
+)
+
+class StartQueryRequestRequestTypeDef(
+    _RequiredStartQueryRequestRequestTypeDef, _OptionalStartQueryRequestRequestTypeDef
+):
+    pass
 
 StartQueryResponseTypeDef = TypedDict(
     "StartQueryResponseTypeDef",
@@ -1176,6 +1233,7 @@ _OptionalUpdateEventDataStoreRequestRequestTypeDef = TypedDict(
         "OrganizationEnabled": bool,
         "RetentionPeriod": int,
         "TerminationProtectionEnabled": bool,
+        "KmsKeyId": str,
     },
     total=False,
 )
@@ -1199,6 +1257,7 @@ UpdateEventDataStoreResponseTypeDef = TypedDict(
         "TerminationProtectionEnabled": bool,
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+        "KmsKeyId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -22,6 +22,9 @@ from .literals import (
     ContactStatusType,
     CriticalityType,
     EndpointStatusType,
+    EphemerisInvalidReasonType,
+    EphemerisSourceType,
+    EphemerisStatusType,
     FrequencyUnitsType,
     PolarizationType,
 )
@@ -49,6 +52,7 @@ __all__ = (
     "ContactIdResponseTypeDef",
     "CreateConfigRequestRequestTypeDef",
     "CreateDataflowEndpointGroupRequestRequestTypeDef",
+    "CreateEphemerisRequestRequestTypeDef",
     "CreateMissionProfileRequestRequestTypeDef",
     "DataflowDetailTypeDef",
     "DataflowEndpointConfigTypeDef",
@@ -58,14 +62,23 @@ __all__ = (
     "DecodeConfigTypeDef",
     "DeleteConfigRequestRequestTypeDef",
     "DeleteDataflowEndpointGroupRequestRequestTypeDef",
+    "DeleteEphemerisRequestRequestTypeDef",
     "DeleteMissionProfileRequestRequestTypeDef",
     "DemodulationConfigTypeDef",
     "DescribeContactRequestRequestTypeDef",
     "DescribeContactResponseTypeDef",
+    "DescribeEphemerisRequestRequestTypeDef",
+    "DescribeEphemerisResponseTypeDef",
     "DestinationTypeDef",
     "EirpTypeDef",
     "ElevationTypeDef",
     "EndpointDetailsTypeDef",
+    "EphemerisDataTypeDef",
+    "EphemerisDescriptionTypeDef",
+    "EphemerisIdResponseTypeDef",
+    "EphemerisItemTypeDef",
+    "EphemerisMetaDataTypeDef",
+    "EphemerisTypeDescriptionTypeDef",
     "FrequencyBandwidthTypeDef",
     "FrequencyTypeDef",
     "GetConfigRequestRequestTypeDef",
@@ -85,6 +98,8 @@ __all__ = (
     "ListContactsResponseTypeDef",
     "ListDataflowEndpointGroupsRequestRequestTypeDef",
     "ListDataflowEndpointGroupsResponseTypeDef",
+    "ListEphemeridesRequestRequestTypeDef",
+    "ListEphemeridesResponseTypeDef",
     "ListGroundStationsRequestRequestTypeDef",
     "ListGroundStationsResponseTypeDef",
     "ListMissionProfilesRequestRequestTypeDef",
@@ -95,9 +110,11 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "MissionProfileIdResponseTypeDef",
     "MissionProfileListItemTypeDef",
+    "OEMEphemerisTypeDef",
     "PaginatorConfigTypeDef",
     "ReserveContactRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "S3ObjectTypeDef",
     "S3RecordingConfigTypeDef",
     "S3RecordingDetailsTypeDef",
     "SatelliteListItemTypeDef",
@@ -105,10 +122,14 @@ __all__ = (
     "SocketAddressTypeDef",
     "SourceTypeDef",
     "SpectrumConfigTypeDef",
+    "TLEDataTypeDef",
+    "TLEEphemerisTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TimeRangeTypeDef",
     "TrackingConfigTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateConfigRequestRequestTypeDef",
+    "UpdateEphemerisRequestRequestTypeDef",
     "UpdateMissionProfileRequestRequestTypeDef",
     "UplinkEchoConfigTypeDef",
     "UplinkSpectrumConfigTypeDef",
@@ -278,6 +299,31 @@ class CreateDataflowEndpointGroupRequestRequestTypeDef(
 ):
     pass
 
+_RequiredCreateEphemerisRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEphemerisRequestRequestTypeDef",
+    {
+        "name": str,
+        "satelliteId": str,
+    },
+)
+_OptionalCreateEphemerisRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEphemerisRequestRequestTypeDef",
+    {
+        "enabled": bool,
+        "ephemeris": "EphemerisDataTypeDef",
+        "expirationTime": Union[datetime, str],
+        "kmsKeyArn": str,
+        "priority": int,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateEphemerisRequestRequestTypeDef(
+    _RequiredCreateEphemerisRequestRequestTypeDef, _OptionalCreateEphemerisRequestRequestTypeDef
+):
+    pass
+
 _RequiredCreateMissionProfileRequestRequestTypeDef = TypedDict(
     "_RequiredCreateMissionProfileRequestRequestTypeDef",
     {
@@ -382,6 +428,13 @@ DeleteDataflowEndpointGroupRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteEphemerisRequestRequestTypeDef = TypedDict(
+    "DeleteEphemerisRequestRequestTypeDef",
+    {
+        "ephemerisId": str,
+    },
+)
+
 DeleteMissionProfileRequestRequestTypeDef = TypedDict(
     "DeleteMissionProfileRequestRequestTypeDef",
     {
@@ -424,6 +477,30 @@ DescribeContactResponseTypeDef = TypedDict(
     },
 )
 
+DescribeEphemerisRequestRequestTypeDef = TypedDict(
+    "DescribeEphemerisRequestRequestTypeDef",
+    {
+        "ephemerisId": str,
+    },
+)
+
+DescribeEphemerisResponseTypeDef = TypedDict(
+    "DescribeEphemerisResponseTypeDef",
+    {
+        "creationTime": datetime,
+        "enabled": bool,
+        "ephemerisId": str,
+        "invalidReason": EphemerisInvalidReasonType,
+        "name": str,
+        "priority": int,
+        "satelliteId": str,
+        "status": EphemerisStatusType,
+        "suppliedData": "EphemerisTypeDescriptionTypeDef",
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DestinationTypeDef = TypedDict(
     "DestinationTypeDef",
     {
@@ -456,6 +533,76 @@ EndpointDetailsTypeDef = TypedDict(
     {
         "endpoint": "DataflowEndpointTypeDef",
         "securityDetails": "SecurityDetailsTypeDef",
+    },
+    total=False,
+)
+
+EphemerisDataTypeDef = TypedDict(
+    "EphemerisDataTypeDef",
+    {
+        "oem": "OEMEphemerisTypeDef",
+        "tle": "TLEEphemerisTypeDef",
+    },
+    total=False,
+)
+
+EphemerisDescriptionTypeDef = TypedDict(
+    "EphemerisDescriptionTypeDef",
+    {
+        "ephemerisData": str,
+        "sourceS3Object": "S3ObjectTypeDef",
+    },
+    total=False,
+)
+
+EphemerisIdResponseTypeDef = TypedDict(
+    "EphemerisIdResponseTypeDef",
+    {
+        "ephemerisId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EphemerisItemTypeDef = TypedDict(
+    "EphemerisItemTypeDef",
+    {
+        "creationTime": datetime,
+        "enabled": bool,
+        "ephemerisId": str,
+        "name": str,
+        "priority": int,
+        "sourceS3Object": "S3ObjectTypeDef",
+        "status": EphemerisStatusType,
+    },
+    total=False,
+)
+
+_RequiredEphemerisMetaDataTypeDef = TypedDict(
+    "_RequiredEphemerisMetaDataTypeDef",
+    {
+        "source": EphemerisSourceType,
+    },
+)
+_OptionalEphemerisMetaDataTypeDef = TypedDict(
+    "_OptionalEphemerisMetaDataTypeDef",
+    {
+        "ephemerisId": str,
+        "epoch": datetime,
+        "name": str,
+    },
+    total=False,
+)
+
+class EphemerisMetaDataTypeDef(
+    _RequiredEphemerisMetaDataTypeDef, _OptionalEphemerisMetaDataTypeDef
+):
+    pass
+
+EphemerisTypeDescriptionTypeDef = TypedDict(
+    "EphemerisTypeDescriptionTypeDef",
+    {
+        "oem": "EphemerisDescriptionTypeDef",
+        "tle": "EphemerisDescriptionTypeDef",
     },
     total=False,
 )
@@ -569,6 +716,7 @@ GetSatelliteRequestRequestTypeDef = TypedDict(
 GetSatelliteResponseTypeDef = TypedDict(
     "GetSatelliteResponseTypeDef",
     {
+        "currentEphemeris": "EphemerisMetaDataTypeDef",
         "groundStations": List[str],
         "noradSatelliteID": int,
         "satelliteArn": str,
@@ -652,6 +800,38 @@ ListDataflowEndpointGroupsResponseTypeDef = TypedDict(
     "ListDataflowEndpointGroupsResponseTypeDef",
     {
         "dataflowEndpointGroupList": List["DataflowEndpointListItemTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListEphemeridesRequestRequestTypeDef = TypedDict(
+    "_RequiredListEphemeridesRequestRequestTypeDef",
+    {
+        "endTime": Union[datetime, str],
+        "satelliteId": str,
+        "startTime": Union[datetime, str],
+    },
+)
+_OptionalListEphemeridesRequestRequestTypeDef = TypedDict(
+    "_OptionalListEphemeridesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+        "statusList": List[EphemerisStatusType],
+    },
+    total=False,
+)
+
+class ListEphemeridesRequestRequestTypeDef(
+    _RequiredListEphemeridesRequestRequestTypeDef, _OptionalListEphemeridesRequestRequestTypeDef
+):
+    pass
+
+ListEphemeridesResponseTypeDef = TypedDict(
+    "ListEphemeridesResponseTypeDef",
+    {
+        "ephemerides": List["EphemerisItemTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -746,6 +926,15 @@ MissionProfileListItemTypeDef = TypedDict(
     total=False,
 )
 
+OEMEphemerisTypeDef = TypedDict(
+    "OEMEphemerisTypeDef",
+    {
+        "oemData": str,
+        "s3Object": "S3ObjectTypeDef",
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -790,6 +979,16 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+S3ObjectTypeDef = TypedDict(
+    "S3ObjectTypeDef",
+    {
+        "bucket": str,
+        "key": str,
+        "version": str,
+    },
+    total=False,
+)
+
 _RequiredS3RecordingConfigTypeDef = TypedDict(
     "_RequiredS3RecordingConfigTypeDef",
     {
@@ -822,6 +1021,7 @@ S3RecordingDetailsTypeDef = TypedDict(
 SatelliteListItemTypeDef = TypedDict(
     "SatelliteListItemTypeDef",
     {
+        "currentEphemeris": "EphemerisMetaDataTypeDef",
         "groundStations": List[str],
         "noradSatelliteID": int,
         "satelliteArn": str,
@@ -876,11 +1076,37 @@ _OptionalSpectrumConfigTypeDef = TypedDict(
 class SpectrumConfigTypeDef(_RequiredSpectrumConfigTypeDef, _OptionalSpectrumConfigTypeDef):
     pass
 
+TLEDataTypeDef = TypedDict(
+    "TLEDataTypeDef",
+    {
+        "tleLine1": str,
+        "tleLine2": str,
+        "validTimeRange": "TimeRangeTypeDef",
+    },
+)
+
+TLEEphemerisTypeDef = TypedDict(
+    "TLEEphemerisTypeDef",
+    {
+        "s3Object": "S3ObjectTypeDef",
+        "tleData": List["TLEDataTypeDef"],
+    },
+    total=False,
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
         "resourceArn": str,
         "tags": Dict[str, str],
+    },
+)
+
+TimeRangeTypeDef = TypedDict(
+    "TimeRangeTypeDef",
+    {
+        "endTime": Union[datetime, str],
+        "startTime": Union[datetime, str],
     },
 )
 
@@ -908,6 +1134,27 @@ UpdateConfigRequestRequestTypeDef = TypedDict(
         "name": str,
     },
 )
+
+_RequiredUpdateEphemerisRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEphemerisRequestRequestTypeDef",
+    {
+        "enabled": bool,
+        "ephemerisId": str,
+    },
+)
+_OptionalUpdateEphemerisRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEphemerisRequestRequestTypeDef",
+    {
+        "name": str,
+        "priority": int,
+    },
+    total=False,
+)
+
+class UpdateEphemerisRequestRequestTypeDef(
+    _RequiredUpdateEphemerisRequestRequestTypeDef, _OptionalUpdateEphemerisRequestRequestTypeDef
+):
+    pass
 
 _RequiredUpdateMissionProfileRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateMissionProfileRequestRequestTypeDef",

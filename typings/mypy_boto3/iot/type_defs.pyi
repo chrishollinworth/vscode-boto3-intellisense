@@ -374,6 +374,7 @@ __all__ = (
     "IotAnalyticsActionTypeDef",
     "IotEventsActionTypeDef",
     "IotSiteWiseActionTypeDef",
+    "IssuerCertificateIdentifierTypeDef",
     "JobExecutionStatusDetailsTypeDef",
     "JobExecutionSummaryForJobTypeDef",
     "JobExecutionSummaryForThingTypeDef",
@@ -459,6 +460,8 @@ __all__ = (
     "ListProvisioningTemplateVersionsResponseTypeDef",
     "ListProvisioningTemplatesRequestRequestTypeDef",
     "ListProvisioningTemplatesResponseTypeDef",
+    "ListRelatedResourcesForAuditFindingRequestRequestTypeDef",
+    "ListRelatedResourcesForAuditFindingResponseTypeDef",
     "ListRoleAliasesRequestRequestTypeDef",
     "ListRoleAliasesResponseTypeDef",
     "ListScheduledAuditsRequestRequestTypeDef",
@@ -501,6 +504,8 @@ __all__ = (
     "ListV2LoggingLevelsResponseTypeDef",
     "ListViolationEventsRequestRequestTypeDef",
     "ListViolationEventsResponseTypeDef",
+    "LocationActionTypeDef",
+    "LocationTimestampTypeDef",
     "LogTargetConfigurationTypeDef",
     "LogTargetTypeDef",
     "LoggingOptionsPayloadTypeDef",
@@ -738,6 +743,7 @@ ActionTypeDef = TypedDict(
         "http": "HttpActionTypeDef",
         "kafka": "KafkaActionTypeDef",
         "openSearch": "OpenSearchActionTypeDef",
+        "location": "LocationActionTypeDef",
     },
     total=False,
 )
@@ -4099,6 +4105,16 @@ IotSiteWiseActionTypeDef = TypedDict(
     },
 )
 
+IssuerCertificateIdentifierTypeDef = TypedDict(
+    "IssuerCertificateIdentifierTypeDef",
+    {
+        "issuerCertificateSubject": str,
+        "issuerId": str,
+        "issuerCertificateSerialNumber": str,
+    },
+    total=False,
+)
+
 JobExecutionStatusDetailsTypeDef = TypedDict(
     "JobExecutionStatusDetailsTypeDef",
     {
@@ -5138,6 +5154,36 @@ ListProvisioningTemplatesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListRelatedResourcesForAuditFindingRequestRequestTypeDef = TypedDict(
+    "_RequiredListRelatedResourcesForAuditFindingRequestRequestTypeDef",
+    {
+        "findingId": str,
+    },
+)
+_OptionalListRelatedResourcesForAuditFindingRequestRequestTypeDef = TypedDict(
+    "_OptionalListRelatedResourcesForAuditFindingRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListRelatedResourcesForAuditFindingRequestRequestTypeDef(
+    _RequiredListRelatedResourcesForAuditFindingRequestRequestTypeDef,
+    _OptionalListRelatedResourcesForAuditFindingRequestRequestTypeDef,
+):
+    pass
+
+ListRelatedResourcesForAuditFindingResponseTypeDef = TypedDict(
+    "ListRelatedResourcesForAuditFindingResponseTypeDef",
+    {
+        "relatedResources": List["RelatedResourceTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListRoleAliasesRequestRequestTypeDef = TypedDict(
     "ListRoleAliasesRequestRequestTypeDef",
     {
@@ -5660,6 +5706,46 @@ ListViolationEventsResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredLocationActionTypeDef = TypedDict(
+    "_RequiredLocationActionTypeDef",
+    {
+        "roleArn": str,
+        "trackerName": str,
+        "deviceId": str,
+        "latitude": str,
+        "longitude": str,
+    },
+)
+_OptionalLocationActionTypeDef = TypedDict(
+    "_OptionalLocationActionTypeDef",
+    {
+        "timestamp": "LocationTimestampTypeDef",
+    },
+    total=False,
+)
+
+class LocationActionTypeDef(_RequiredLocationActionTypeDef, _OptionalLocationActionTypeDef):
+    pass
+
+_RequiredLocationTimestampTypeDef = TypedDict(
+    "_RequiredLocationTimestampTypeDef",
+    {
+        "value": str,
+    },
+)
+_OptionalLocationTimestampTypeDef = TypedDict(
+    "_OptionalLocationTimestampTypeDef",
+    {
+        "unit": str,
+    },
+    total=False,
+)
+
+class LocationTimestampTypeDef(
+    _RequiredLocationTimestampTypeDef, _OptionalLocationTimestampTypeDef
+):
+    pass
 
 LogTargetConfigurationTypeDef = TypedDict(
     "LogTargetConfigurationTypeDef",
@@ -6296,6 +6382,8 @@ ResourceIdentifierTypeDef = TypedDict(
         "account": str,
         "iamRoleArn": str,
         "roleAliasArn": str,
+        "issuerCertificateIdentifier": "IssuerCertificateIdentifierTypeDef",
+        "deviceCertificateArn": str,
     },
     total=False,
 )

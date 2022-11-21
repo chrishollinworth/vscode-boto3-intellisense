@@ -40,6 +40,7 @@ Usage::
         ListHyperParameterTuningJobsPaginator,
         ListImageVersionsPaginator,
         ListImagesPaginator,
+        ListInferenceRecommendationsJobStepsPaginator,
         ListInferenceRecommendationsJobsPaginator,
         ListLabelingJobsForWorkteamPaginator,
         ListLabelingJobsPaginator,
@@ -127,6 +128,7 @@ Usage::
     list_hyper_parameter_tuning_jobs_paginator: ListHyperParameterTuningJobsPaginator = client.get_paginator("list_hyper_parameter_tuning_jobs")
     list_image_versions_paginator: ListImageVersionsPaginator = client.get_paginator("list_image_versions")
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
+    list_inference_recommendations_job_steps_paginator: ListInferenceRecommendationsJobStepsPaginator = client.get_paginator("list_inference_recommendations_job_steps")
     list_inference_recommendations_jobs_paginator: ListInferenceRecommendationsJobsPaginator = client.get_paginator("list_inference_recommendations_jobs")
     list_labeling_jobs_paginator: ListLabelingJobsPaginator = client.get_paginator("list_labeling_jobs")
     list_labeling_jobs_for_workteam_paginator: ListLabelingJobsForWorkteamPaginator = client.get_paginator("list_labeling_jobs_for_workteam")
@@ -191,6 +193,7 @@ from .paginator import (
     ListImagesPaginator,
     ListImageVersionsPaginator,
     ListInferenceRecommendationsJobsPaginator,
+    ListInferenceRecommendationsJobStepsPaginator,
     ListLabelingJobsForWorkteamPaginator,
     ListLabelingJobsPaginator,
     ListLineageGroupsPaginator,
@@ -277,6 +280,7 @@ __all__ = (
     "ListHyperParameterTuningJobsPaginator",
     "ListImageVersionsPaginator",
     "ListImagesPaginator",
+    "ListInferenceRecommendationsJobStepsPaginator",
     "ListInferenceRecommendationsJobsPaginator",
     "ListLabelingJobsForWorkteamPaginator",
     "ListLabelingJobsPaginator",

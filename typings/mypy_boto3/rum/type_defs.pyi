@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import StateEnumType, TelemetryType
+from .literals import CustomEventsStatusType, MetricDestinationType, StateEnumType, TelemetryType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -27,21 +27,37 @@ __all__ = (
     "AppMonitorDetailsTypeDef",
     "AppMonitorSummaryTypeDef",
     "AppMonitorTypeDef",
+    "BatchCreateRumMetricDefinitionsErrorTypeDef",
+    "BatchCreateRumMetricDefinitionsRequestRequestTypeDef",
+    "BatchCreateRumMetricDefinitionsResponseTypeDef",
+    "BatchDeleteRumMetricDefinitionsErrorTypeDef",
+    "BatchDeleteRumMetricDefinitionsRequestRequestTypeDef",
+    "BatchDeleteRumMetricDefinitionsResponseTypeDef",
+    "BatchGetRumMetricDefinitionsRequestRequestTypeDef",
+    "BatchGetRumMetricDefinitionsResponseTypeDef",
     "CreateAppMonitorRequestRequestTypeDef",
     "CreateAppMonitorResponseTypeDef",
+    "CustomEventsTypeDef",
     "CwLogTypeDef",
     "DataStorageTypeDef",
     "DeleteAppMonitorRequestRequestTypeDef",
+    "DeleteRumMetricsDestinationRequestRequestTypeDef",
     "GetAppMonitorDataRequestRequestTypeDef",
     "GetAppMonitorDataResponseTypeDef",
     "GetAppMonitorRequestRequestTypeDef",
     "GetAppMonitorResponseTypeDef",
     "ListAppMonitorsRequestRequestTypeDef",
     "ListAppMonitorsResponseTypeDef",
+    "ListRumMetricsDestinationsRequestRequestTypeDef",
+    "ListRumMetricsDestinationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MetricDefinitionRequestTypeDef",
+    "MetricDefinitionTypeDef",
+    "MetricDestinationSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "PutRumEventsRequestRequestTypeDef",
+    "PutRumMetricsDestinationRequestRequestTypeDef",
     "QueryFilterTypeDef",
     "ResponseMetadataTypeDef",
     "RumEventTypeDef",
@@ -49,6 +65,7 @@ __all__ = (
     "TimeRangeTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateAppMonitorRequestRequestTypeDef",
+    "UpdateRumMetricDefinitionRequestRequestTypeDef",
     "UserDetailsTypeDef",
 )
 
@@ -95,6 +112,7 @@ AppMonitorTypeDef = TypedDict(
     {
         "AppMonitorConfiguration": "AppMonitorConfigurationTypeDef",
         "Created": str,
+        "CustomEvents": "CustomEventsTypeDef",
         "DataStorage": "DataStorageTypeDef",
         "Domain": str,
         "Id": str,
@@ -104,6 +122,118 @@ AppMonitorTypeDef = TypedDict(
         "Tags": Dict[str, str],
     },
     total=False,
+)
+
+BatchCreateRumMetricDefinitionsErrorTypeDef = TypedDict(
+    "BatchCreateRumMetricDefinitionsErrorTypeDef",
+    {
+        "ErrorCode": str,
+        "ErrorMessage": str,
+        "MetricDefinition": "MetricDefinitionRequestTypeDef",
+    },
+)
+
+_RequiredBatchCreateRumMetricDefinitionsRequestRequestTypeDef = TypedDict(
+    "_RequiredBatchCreateRumMetricDefinitionsRequestRequestTypeDef",
+    {
+        "AppMonitorName": str,
+        "Destination": MetricDestinationType,
+        "MetricDefinitions": List["MetricDefinitionRequestTypeDef"],
+    },
+)
+_OptionalBatchCreateRumMetricDefinitionsRequestRequestTypeDef = TypedDict(
+    "_OptionalBatchCreateRumMetricDefinitionsRequestRequestTypeDef",
+    {
+        "DestinationArn": str,
+    },
+    total=False,
+)
+
+class BatchCreateRumMetricDefinitionsRequestRequestTypeDef(
+    _RequiredBatchCreateRumMetricDefinitionsRequestRequestTypeDef,
+    _OptionalBatchCreateRumMetricDefinitionsRequestRequestTypeDef,
+):
+    pass
+
+BatchCreateRumMetricDefinitionsResponseTypeDef = TypedDict(
+    "BatchCreateRumMetricDefinitionsResponseTypeDef",
+    {
+        "Errors": List["BatchCreateRumMetricDefinitionsErrorTypeDef"],
+        "MetricDefinitions": List["MetricDefinitionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchDeleteRumMetricDefinitionsErrorTypeDef = TypedDict(
+    "BatchDeleteRumMetricDefinitionsErrorTypeDef",
+    {
+        "ErrorCode": str,
+        "ErrorMessage": str,
+        "MetricDefinitionId": str,
+    },
+)
+
+_RequiredBatchDeleteRumMetricDefinitionsRequestRequestTypeDef = TypedDict(
+    "_RequiredBatchDeleteRumMetricDefinitionsRequestRequestTypeDef",
+    {
+        "AppMonitorName": str,
+        "Destination": MetricDestinationType,
+        "MetricDefinitionIds": List[str],
+    },
+)
+_OptionalBatchDeleteRumMetricDefinitionsRequestRequestTypeDef = TypedDict(
+    "_OptionalBatchDeleteRumMetricDefinitionsRequestRequestTypeDef",
+    {
+        "DestinationArn": str,
+    },
+    total=False,
+)
+
+class BatchDeleteRumMetricDefinitionsRequestRequestTypeDef(
+    _RequiredBatchDeleteRumMetricDefinitionsRequestRequestTypeDef,
+    _OptionalBatchDeleteRumMetricDefinitionsRequestRequestTypeDef,
+):
+    pass
+
+BatchDeleteRumMetricDefinitionsResponseTypeDef = TypedDict(
+    "BatchDeleteRumMetricDefinitionsResponseTypeDef",
+    {
+        "Errors": List["BatchDeleteRumMetricDefinitionsErrorTypeDef"],
+        "MetricDefinitionIds": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredBatchGetRumMetricDefinitionsRequestRequestTypeDef = TypedDict(
+    "_RequiredBatchGetRumMetricDefinitionsRequestRequestTypeDef",
+    {
+        "AppMonitorName": str,
+        "Destination": MetricDestinationType,
+    },
+)
+_OptionalBatchGetRumMetricDefinitionsRequestRequestTypeDef = TypedDict(
+    "_OptionalBatchGetRumMetricDefinitionsRequestRequestTypeDef",
+    {
+        "DestinationArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class BatchGetRumMetricDefinitionsRequestRequestTypeDef(
+    _RequiredBatchGetRumMetricDefinitionsRequestRequestTypeDef,
+    _OptionalBatchGetRumMetricDefinitionsRequestRequestTypeDef,
+):
+    pass
+
+BatchGetRumMetricDefinitionsResponseTypeDef = TypedDict(
+    "BatchGetRumMetricDefinitionsResponseTypeDef",
+    {
+        "MetricDefinitions": List["MetricDefinitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredCreateAppMonitorRequestRequestTypeDef = TypedDict(
@@ -117,6 +247,7 @@ _OptionalCreateAppMonitorRequestRequestTypeDef = TypedDict(
     "_OptionalCreateAppMonitorRequestRequestTypeDef",
     {
         "AppMonitorConfiguration": "AppMonitorConfigurationTypeDef",
+        "CustomEvents": "CustomEventsTypeDef",
         "CwLogEnabled": bool,
         "Tags": Dict[str, str],
     },
@@ -134,6 +265,14 @@ CreateAppMonitorResponseTypeDef = TypedDict(
         "Id": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CustomEventsTypeDef = TypedDict(
+    "CustomEventsTypeDef",
+    {
+        "Status": CustomEventsStatusType,
+    },
+    total=False,
 )
 
 CwLogTypeDef = TypedDict(
@@ -159,6 +298,27 @@ DeleteAppMonitorRequestRequestTypeDef = TypedDict(
         "Name": str,
     },
 )
+
+_RequiredDeleteRumMetricsDestinationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteRumMetricsDestinationRequestRequestTypeDef",
+    {
+        "AppMonitorName": str,
+        "Destination": MetricDestinationType,
+    },
+)
+_OptionalDeleteRumMetricsDestinationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteRumMetricsDestinationRequestRequestTypeDef",
+    {
+        "DestinationArn": str,
+    },
+    total=False,
+)
+
+class DeleteRumMetricsDestinationRequestRequestTypeDef(
+    _RequiredDeleteRumMetricsDestinationRequestRequestTypeDef,
+    _OptionalDeleteRumMetricsDestinationRequestRequestTypeDef,
+):
+    pass
 
 _RequiredGetAppMonitorDataRequestRequestTypeDef = TypedDict(
     "_RequiredGetAppMonitorDataRequestRequestTypeDef",
@@ -224,6 +384,36 @@ ListAppMonitorsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListRumMetricsDestinationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListRumMetricsDestinationsRequestRequestTypeDef",
+    {
+        "AppMonitorName": str,
+    },
+)
+_OptionalListRumMetricsDestinationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListRumMetricsDestinationsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListRumMetricsDestinationsRequestRequestTypeDef(
+    _RequiredListRumMetricsDestinationsRequestRequestTypeDef,
+    _OptionalListRumMetricsDestinationsRequestRequestTypeDef,
+):
+    pass
+
+ListRumMetricsDestinationsResponseTypeDef = TypedDict(
+    "ListRumMetricsDestinationsResponseTypeDef",
+    {
+        "Destinations": List["MetricDestinationSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -238,6 +428,59 @@ ListTagsForResourceResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredMetricDefinitionRequestTypeDef = TypedDict(
+    "_RequiredMetricDefinitionRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalMetricDefinitionRequestTypeDef = TypedDict(
+    "_OptionalMetricDefinitionRequestTypeDef",
+    {
+        "DimensionKeys": Dict[str, str],
+        "EventPattern": str,
+        "UnitLabel": str,
+        "ValueKey": str,
+    },
+    total=False,
+)
+
+class MetricDefinitionRequestTypeDef(
+    _RequiredMetricDefinitionRequestTypeDef, _OptionalMetricDefinitionRequestTypeDef
+):
+    pass
+
+_RequiredMetricDefinitionTypeDef = TypedDict(
+    "_RequiredMetricDefinitionTypeDef",
+    {
+        "MetricDefinitionId": str,
+        "Name": str,
+    },
+)
+_OptionalMetricDefinitionTypeDef = TypedDict(
+    "_OptionalMetricDefinitionTypeDef",
+    {
+        "DimensionKeys": Dict[str, str],
+        "EventPattern": str,
+        "UnitLabel": str,
+        "ValueKey": str,
+    },
+    total=False,
+)
+
+class MetricDefinitionTypeDef(_RequiredMetricDefinitionTypeDef, _OptionalMetricDefinitionTypeDef):
+    pass
+
+MetricDestinationSummaryTypeDef = TypedDict(
+    "MetricDestinationSummaryTypeDef",
+    {
+        "Destination": MetricDestinationType,
+        "DestinationArn": str,
+        "IamRoleArn": str,
+    },
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -260,6 +503,28 @@ PutRumEventsRequestRequestTypeDef = TypedDict(
         "UserDetails": "UserDetailsTypeDef",
     },
 )
+
+_RequiredPutRumMetricsDestinationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutRumMetricsDestinationRequestRequestTypeDef",
+    {
+        "AppMonitorName": str,
+        "Destination": MetricDestinationType,
+    },
+)
+_OptionalPutRumMetricsDestinationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutRumMetricsDestinationRequestRequestTypeDef",
+    {
+        "DestinationArn": str,
+        "IamRoleArn": str,
+    },
+    total=False,
+)
+
+class PutRumMetricsDestinationRequestRequestTypeDef(
+    _RequiredPutRumMetricsDestinationRequestRequestTypeDef,
+    _OptionalPutRumMetricsDestinationRequestRequestTypeDef,
+):
+    pass
 
 QueryFilterTypeDef = TypedDict(
     "QueryFilterTypeDef",
@@ -344,6 +609,7 @@ _OptionalUpdateAppMonitorRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateAppMonitorRequestRequestTypeDef",
     {
         "AppMonitorConfiguration": "AppMonitorConfigurationTypeDef",
+        "CustomEvents": "CustomEventsTypeDef",
         "CwLogEnabled": bool,
         "Domain": str,
     },
@@ -352,6 +618,29 @@ _OptionalUpdateAppMonitorRequestRequestTypeDef = TypedDict(
 
 class UpdateAppMonitorRequestRequestTypeDef(
     _RequiredUpdateAppMonitorRequestRequestTypeDef, _OptionalUpdateAppMonitorRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateRumMetricDefinitionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateRumMetricDefinitionRequestRequestTypeDef",
+    {
+        "AppMonitorName": str,
+        "Destination": MetricDestinationType,
+        "MetricDefinition": "MetricDefinitionRequestTypeDef",
+        "MetricDefinitionId": str,
+    },
+)
+_OptionalUpdateRumMetricDefinitionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateRumMetricDefinitionRequestRequestTypeDef",
+    {
+        "DestinationArn": str,
+    },
+    total=False,
+)
+
+class UpdateRumMetricDefinitionRequestRequestTypeDef(
+    _RequiredUpdateRumMetricDefinitionRequestRequestTypeDef,
+    _OptionalUpdateRumMetricDefinitionRequestRequestTypeDef,
 ):
     pass
 

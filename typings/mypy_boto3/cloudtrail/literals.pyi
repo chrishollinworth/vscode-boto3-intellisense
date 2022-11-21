@@ -6,9 +6,9 @@ Type annotations for cloudtrail service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_cloudtrail.literals import DestinationTypeType
+    from mypy_boto3_cloudtrail.literals import DeliveryStatusType
 
-    data: DestinationTypeType = "AWS_SERVICE"
+    data: DeliveryStatusType = "ACCESS_DENIED"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "DeliveryStatusType",
     "DestinationTypeType",
     "EventCategoryType",
     "EventDataStoreStatusType",
@@ -36,6 +37,17 @@ __all__ = (
     "ReadWriteTypeType",
 )
 
+DeliveryStatusType = Literal[
+    "ACCESS_DENIED",
+    "ACCESS_DENIED_SIGNING_FILE",
+    "CANCELLED",
+    "FAILED",
+    "FAILED_SIGNING_FILE",
+    "PENDING",
+    "RESOURCE_NOT_FOUND",
+    "SUCCESS",
+    "UNKNOWN",
+]
 DestinationTypeType = Literal["AWS_SERVICE", "EVENT_DATA_STORE"]
 EventCategoryType = Literal["insight"]
 EventDataStoreStatusType = Literal["CREATED", "ENABLED", "PENDING_DELETION"]

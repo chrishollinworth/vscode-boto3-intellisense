@@ -6,9 +6,9 @@ Type annotations for support-app service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_support_app.literals import NotificationSeverityLevelType
+    from mypy_boto3_support_app.literals import AccountTypeType
 
-    data: NotificationSeverityLevelType = "all"
+    data: AccountTypeType = "management"
     ```
 """
 import sys
@@ -18,6 +18,7 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("NotificationSeverityLevelType",)
+__all__ = ("AccountTypeType", "NotificationSeverityLevelType")
 
+AccountTypeType = Literal["management", "member"]
 NotificationSeverityLevelType = Literal["all", "high", "none"]

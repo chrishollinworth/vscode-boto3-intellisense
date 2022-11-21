@@ -78,6 +78,8 @@ __all__ = (
     "GetQueryResultsRequestRequestTypeDef",
     "GetQueryResultsResponseTypeDef",
     "InputLogEventTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ListTagsLogGroupRequestRequestTypeDef",
     "ListTagsLogGroupResponseTypeDef",
     "LogGroupFieldTypeDef",
@@ -114,9 +116,11 @@ __all__ = (
     "StopQueryResponseTypeDef",
     "SubscriptionFilterTypeDef",
     "TagLogGroupRequestRequestTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TestMetricFilterRequestRequestTypeDef",
     "TestMetricFilterResponseTypeDef",
     "UntagLogGroupRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
 )
 
 AssociateKmsKeyRequestRequestTypeDef = TypedDict(
@@ -666,6 +670,21 @@ InputLogEventTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsLogGroupRequestRequestTypeDef = TypedDict(
     "ListTagsLogGroupRequestRequestTypeDef",
     {
@@ -805,14 +824,26 @@ class PutDestinationPolicyRequestRequestTypeDef(
 ):
     pass
 
-PutDestinationRequestRequestTypeDef = TypedDict(
-    "PutDestinationRequestRequestTypeDef",
+_RequiredPutDestinationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutDestinationRequestRequestTypeDef",
     {
         "destinationName": str,
         "targetArn": str,
         "roleArn": str,
     },
 )
+_OptionalPutDestinationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutDestinationRequestRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class PutDestinationRequestRequestTypeDef(
+    _RequiredPutDestinationRequestRequestTypeDef, _OptionalPutDestinationRequestRequestTypeDef
+):
+    pass
 
 PutDestinationResponseTypeDef = TypedDict(
     "PutDestinationResponseTypeDef",
@@ -1092,6 +1123,14 @@ TagLogGroupRequestRequestTypeDef = TypedDict(
     },
 )
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tags": Dict[str, str],
+    },
+)
+
 TestMetricFilterRequestRequestTypeDef = TypedDict(
     "TestMetricFilterRequestRequestTypeDef",
     {
@@ -1113,5 +1152,13 @@ UntagLogGroupRequestRequestTypeDef = TypedDict(
     {
         "logGroupName": str,
         "tags": List[str],
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tagKeys": List[str],
     },
 )

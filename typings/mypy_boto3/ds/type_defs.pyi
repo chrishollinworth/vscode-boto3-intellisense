@@ -28,6 +28,7 @@ from .literals import (
     DomainControllerStatusType,
     IpRouteStatusMsgType,
     LDAPSStatusType,
+    OSVersionType,
     RadiusAuthenticationProtocolType,
     RadiusStatusType,
     RegionTypeType,
@@ -41,6 +42,7 @@ from .literals import (
     TrustDirectionType,
     TrustStateType,
     TrustTypeType,
+    UpdateStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -116,6 +118,8 @@ __all__ = (
     "DescribeSnapshotsResultTypeDef",
     "DescribeTrustsRequestRequestTypeDef",
     "DescribeTrustsResultTypeDef",
+    "DescribeUpdateDirectoryRequestRequestTypeDef",
+    "DescribeUpdateDirectoryResultTypeDef",
     "DirectoryConnectSettingsDescriptionTypeDef",
     "DirectoryConnectSettingsTypeDef",
     "DirectoryDescriptionTypeDef",
@@ -149,6 +153,7 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
     "LogSubscriptionTypeDef",
+    "OSUpdateSettingsTypeDef",
     "OwnerDirectoryDescriptionTypeDef",
     "PaginatorConfigTypeDef",
     "RadiusSettingsTypeDef",
@@ -182,12 +187,15 @@ __all__ = (
     "UnshareDirectoryResultTypeDef",
     "UnshareTargetTypeDef",
     "UpdateConditionalForwarderRequestRequestTypeDef",
+    "UpdateDirectorySetupRequestRequestTypeDef",
+    "UpdateInfoEntryTypeDef",
     "UpdateNumberOfDomainControllersRequestRequestTypeDef",
     "UpdateRadiusRequestRequestTypeDef",
     "UpdateSettingsRequestRequestTypeDef",
     "UpdateSettingsResultTypeDef",
     "UpdateTrustRequestRequestTypeDef",
     "UpdateTrustResultTypeDef",
+    "UpdateValueTypeDef",
     "VerifyTrustRequestRequestTypeDef",
     "VerifyTrustResultTypeDef",
 )
@@ -936,6 +944,37 @@ DescribeTrustsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribeUpdateDirectoryRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeUpdateDirectoryRequestRequestTypeDef",
+    {
+        "DirectoryId": str,
+        "UpdateType": Literal["OS"],
+    },
+)
+_OptionalDescribeUpdateDirectoryRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeUpdateDirectoryRequestRequestTypeDef",
+    {
+        "RegionName": str,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeUpdateDirectoryRequestRequestTypeDef(
+    _RequiredDescribeUpdateDirectoryRequestRequestTypeDef,
+    _OptionalDescribeUpdateDirectoryRequestRequestTypeDef,
+):
+    pass
+
+DescribeUpdateDirectoryResultTypeDef = TypedDict(
+    "DescribeUpdateDirectoryResultTypeDef",
+    {
+        "UpdateActivities": List["UpdateInfoEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DirectoryConnectSettingsDescriptionTypeDef = TypedDict(
     "DirectoryConnectSettingsDescriptionTypeDef",
     {
@@ -987,6 +1026,7 @@ DirectoryDescriptionTypeDef = TypedDict(
         "DesiredNumberOfDomainControllers": int,
         "OwnerDirectoryDescription": "OwnerDirectoryDescriptionTypeDef",
         "RegionsInfo": "RegionsInfoTypeDef",
+        "OsVersion": OSVersionType,
     },
     total=False,
 )
@@ -1340,6 +1380,14 @@ LogSubscriptionTypeDef = TypedDict(
         "DirectoryId": str,
         "LogGroupName": str,
         "SubscriptionCreatedDateTime": datetime,
+    },
+    total=False,
+)
+
+OSUpdateSettingsTypeDef = TypedDict(
+    "OSUpdateSettingsTypeDef",
+    {
+        "OSVersion": OSVersionType,
     },
     total=False,
 )
@@ -1702,6 +1750,43 @@ UpdateConditionalForwarderRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateDirectorySetupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDirectorySetupRequestRequestTypeDef",
+    {
+        "DirectoryId": str,
+        "UpdateType": Literal["OS"],
+    },
+)
+_OptionalUpdateDirectorySetupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDirectorySetupRequestRequestTypeDef",
+    {
+        "OSUpdateSettings": "OSUpdateSettingsTypeDef",
+        "CreateSnapshotBeforeUpdate": bool,
+    },
+    total=False,
+)
+
+class UpdateDirectorySetupRequestRequestTypeDef(
+    _RequiredUpdateDirectorySetupRequestRequestTypeDef,
+    _OptionalUpdateDirectorySetupRequestRequestTypeDef,
+):
+    pass
+
+UpdateInfoEntryTypeDef = TypedDict(
+    "UpdateInfoEntryTypeDef",
+    {
+        "Region": str,
+        "Status": UpdateStatusType,
+        "StatusReason": str,
+        "InitiatedBy": str,
+        "NewValue": "UpdateValueTypeDef",
+        "PreviousValue": "UpdateValueTypeDef",
+        "StartTime": datetime,
+        "LastUpdatedDateTime": datetime,
+    },
+    total=False,
+)
+
 UpdateNumberOfDomainControllersRequestRequestTypeDef = TypedDict(
     "UpdateNumberOfDomainControllersRequestRequestTypeDef",
     {
@@ -1760,6 +1845,14 @@ UpdateTrustResultTypeDef = TypedDict(
         "TrustId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+UpdateValueTypeDef = TypedDict(
+    "UpdateValueTypeDef",
+    {
+        "OSUpdateSettings": "OSUpdateSettingsTypeDef",
+    },
+    total=False,
 )
 
 VerifyTrustRequestRequestTypeDef = TypedDict(

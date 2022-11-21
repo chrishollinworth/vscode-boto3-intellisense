@@ -6,27 +6,24 @@ Type annotations for servicecatalog-appregistry service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_servicecatalog_appregistry.type_defs import ApplicationSummaryTypeDef
+    from mypy_boto3_servicecatalog_appregistry.type_defs import AppRegistryConfigurationTypeDef
 
-    data: ApplicationSummaryTypeDef = {...}
+    data: AppRegistryConfigurationTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import ResourceGroupStateType, SyncActionType
+from .literals import ResourceGroupStateType, ResourceTypeType, SyncActionType
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AppRegistryConfigurationTypeDef",
     "ApplicationSummaryTypeDef",
     "ApplicationTypeDef",
     "AssociateAttributeGroupRequestRequestTypeDef",
@@ -54,6 +51,7 @@ __all__ = (
     "GetAssociatedResourceResponseTypeDef",
     "GetAttributeGroupRequestRequestTypeDef",
     "GetAttributeGroupResponseTypeDef",
+    "GetConfigurationResponseTypeDef",
     "IntegrationsTypeDef",
     "ListApplicationsRequestRequestTypeDef",
     "ListApplicationsResponseTypeDef",
@@ -68,6 +66,8 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PutConfigurationRequestRequestTypeDef",
+    "ResourceDetailsTypeDef",
     "ResourceGroupTypeDef",
     "ResourceInfoTypeDef",
     "ResourceIntegrationsTypeDef",
@@ -75,12 +75,21 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "SyncResourceRequestRequestTypeDef",
     "SyncResourceResponseTypeDef",
+    "TagQueryConfigurationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateApplicationRequestRequestTypeDef",
     "UpdateApplicationResponseTypeDef",
     "UpdateAttributeGroupRequestRequestTypeDef",
     "UpdateAttributeGroupResponseTypeDef",
+)
+
+AppRegistryConfigurationTypeDef = TypedDict(
+    "AppRegistryConfigurationTypeDef",
+    {
+        "tagQueryConfiguration": "TagQueryConfigurationTypeDef",
+    },
+    total=False,
 )
 
 ApplicationSummaryTypeDef = TypedDict(
@@ -131,7 +140,7 @@ AssociateResourceRequestRequestTypeDef = TypedDict(
     "AssociateResourceRequestRequestTypeDef",
     {
         "application": str,
-        "resourceType": Literal["CFN_STACK"],
+        "resourceType": ResourceTypeType,
         "resource": str,
     },
 )
@@ -293,7 +302,7 @@ DisassociateResourceRequestRequestTypeDef = TypedDict(
     "DisassociateResourceRequestRequestTypeDef",
     {
         "application": str,
-        "resourceType": Literal["CFN_STACK"],
+        "resourceType": ResourceTypeType,
         "resource": str,
     },
 )
@@ -334,7 +343,7 @@ GetAssociatedResourceRequestRequestTypeDef = TypedDict(
     "GetAssociatedResourceRequestRequestTypeDef",
     {
         "application": str,
-        "resourceType": Literal["CFN_STACK"],
+        "resourceType": ResourceTypeType,
         "resource": str,
     },
 )
@@ -365,6 +374,14 @@ GetAttributeGroupResponseTypeDef = TypedDict(
         "creationTime": datetime,
         "lastUpdateTime": datetime,
         "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetConfigurationResponseTypeDef = TypedDict(
+    "GetConfigurationResponseTypeDef",
+    {
+        "configuration": "AppRegistryConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -528,6 +545,21 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PutConfigurationRequestRequestTypeDef = TypedDict(
+    "PutConfigurationRequestRequestTypeDef",
+    {
+        "configuration": "AppRegistryConfigurationTypeDef",
+    },
+)
+
+ResourceDetailsTypeDef = TypedDict(
+    "ResourceDetailsTypeDef",
+    {
+        "tagValue": str,
+    },
+    total=False,
+)
+
 ResourceGroupTypeDef = TypedDict(
     "ResourceGroupTypeDef",
     {
@@ -543,6 +575,8 @@ ResourceInfoTypeDef = TypedDict(
     {
         "name": str,
         "arn": str,
+        "resourceType": ResourceTypeType,
+        "resourceDetails": "ResourceDetailsTypeDef",
     },
     total=False,
 )
@@ -580,7 +614,7 @@ ResponseMetadataTypeDef = TypedDict(
 SyncResourceRequestRequestTypeDef = TypedDict(
     "SyncResourceRequestRequestTypeDef",
     {
-        "resourceType": Literal["CFN_STACK"],
+        "resourceType": ResourceTypeType,
         "resource": str,
     },
 )
@@ -593,6 +627,14 @@ SyncResourceResponseTypeDef = TypedDict(
         "actionTaken": SyncActionType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+TagQueryConfigurationTypeDef = TypedDict(
+    "TagQueryConfigurationTypeDef",
+    {
+        "tagKey": str,
+    },
+    total=False,
 )
 
 TagResourceRequestRequestTypeDef = TypedDict(

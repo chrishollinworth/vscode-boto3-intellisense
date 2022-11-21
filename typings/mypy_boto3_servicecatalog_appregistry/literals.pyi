@@ -37,5 +37,5 @@ ListAttributeGroupsPaginatorName = Literal["list_attribute_groups"]
 ResourceGroupStateType = Literal[
     "CREATE_COMPLETE", "CREATE_FAILED", "CREATING", "UPDATE_COMPLETE", "UPDATE_FAILED", "UPDATING"
 ]
-ResourceTypeType = Literal["CFN_STACK"]
+ResourceTypeType = Literal["CFN_STACK", "RESOURCE_TAG_VALUE"]
 SyncActionType = Literal["NO_ACTION", "START_SYNC"]

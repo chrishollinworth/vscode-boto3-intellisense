@@ -21,6 +21,8 @@ from .literals import (
     AccessPropertyValueType,
     ApplicationType,
     AssociationStatusType,
+    BundleTypeType,
+    CertificateBasedAuthStatusEnumType,
     ClientDeviceTypeType,
     ComputeType,
     ConnectionAliasStateType,
@@ -33,11 +35,14 @@ from .literals import (
     ModificationResourceEnumType,
     ModificationStateEnumType,
     OperatingSystemTypeType,
+    ProtocolType,
     ReconnectEnumType,
     RunningModeType,
     SamlStatusEnumType,
+    StandbyWorkspaceRelationshipTypeType,
     TargetWorkspaceStateType,
     TenancyType,
+    WorkspaceBundleStateType,
     WorkspaceDirectoryStateType,
     WorkspaceDirectoryTypeType,
     WorkspaceImageIngestionProcessType,
@@ -61,6 +66,7 @@ __all__ = (
     "AssociateConnectionAliasResultTypeDef",
     "AssociateIpGroupsRequestRequestTypeDef",
     "AuthorizeIpRulesRequestRequestTypeDef",
+    "CertificateBasedAuthPropertiesTypeDef",
     "ClientPropertiesResultTypeDef",
     "ClientPropertiesTypeDef",
     "ComputeTypeTypeDef",
@@ -76,6 +82,8 @@ __all__ = (
     "CreateConnectionAliasResultTypeDef",
     "CreateIpGroupRequestRequestTypeDef",
     "CreateIpGroupResultTypeDef",
+    "CreateStandbyWorkspacesRequestRequestTypeDef",
+    "CreateStandbyWorkspacesResultTypeDef",
     "CreateTagsRequestRequestTypeDef",
     "CreateUpdatedWorkspaceImageRequestRequestTypeDef",
     "CreateUpdatedWorkspaceImageResultTypeDef",
@@ -129,6 +137,7 @@ __all__ = (
     "DescribeWorkspacesResultTypeDef",
     "DisassociateConnectionAliasRequestRequestTypeDef",
     "DisassociateIpGroupsRequestRequestTypeDef",
+    "FailedCreateStandbyWorkspacesRequestTypeDef",
     "FailedCreateWorkspaceRequestTypeDef",
     "FailedWorkspaceChangeRequestTypeDef",
     "ImagePermissionTypeDef",
@@ -145,6 +154,7 @@ __all__ = (
     "MigrateWorkspaceResultTypeDef",
     "ModificationStateTypeDef",
     "ModifyAccountRequestRequestTypeDef",
+    "ModifyCertificateBasedAuthPropertiesRequestRequestTypeDef",
     "ModifyClientPropertiesRequestRequestTypeDef",
     "ModifySamlPropertiesRequestRequestTypeDef",
     "ModifySelfservicePermissionsRequestRequestTypeDef",
@@ -154,6 +164,7 @@ __all__ = (
     "ModifyWorkspaceStateRequestRequestTypeDef",
     "OperatingSystemTypeDef",
     "PaginatorConfigTypeDef",
+    "PendingCreateStandbyWorkspacesRequestTypeDef",
     "RebootRequestTypeDef",
     "RebootWorkspacesRequestRequestTypeDef",
     "RebootWorkspacesResultTypeDef",
@@ -161,6 +172,7 @@ __all__ = (
     "RebuildWorkspacesRequestRequestTypeDef",
     "RebuildWorkspacesResultTypeDef",
     "RegisterWorkspaceDirectoryRequestRequestTypeDef",
+    "RelatedWorkspacePropertiesTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreWorkspaceRequestRequestTypeDef",
     "RevokeIpRulesRequestRequestTypeDef",
@@ -168,6 +180,7 @@ __all__ = (
     "SamlPropertiesTypeDef",
     "SelfservicePermissionsTypeDef",
     "SnapshotTypeDef",
+    "StandbyWorkspaceTypeDef",
     "StartRequestTypeDef",
     "StartWorkspacesRequestRequestTypeDef",
     "StartWorkspacesResultTypeDef",
@@ -240,6 +253,15 @@ AuthorizeIpRulesRequestRequestTypeDef = TypedDict(
         "GroupId": str,
         "UserRules": List["IpRuleItemTypeDef"],
     },
+)
+
+CertificateBasedAuthPropertiesTypeDef = TypedDict(
+    "CertificateBasedAuthPropertiesTypeDef",
+    {
+        "Status": CertificateBasedAuthStatusEnumType,
+        "CertificateAuthorityArn": str,
+    },
+    total=False,
 )
 
 ClientPropertiesResultTypeDef = TypedDict(
@@ -411,6 +433,23 @@ CreateIpGroupResultTypeDef = TypedDict(
     "CreateIpGroupResultTypeDef",
     {
         "GroupId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateStandbyWorkspacesRequestRequestTypeDef = TypedDict(
+    "CreateStandbyWorkspacesRequestRequestTypeDef",
+    {
+        "PrimaryRegion": str,
+        "StandbyWorkspaces": List["StandbyWorkspaceTypeDef"],
+    },
+)
+
+CreateStandbyWorkspacesResultTypeDef = TypedDict(
+    "CreateStandbyWorkspacesResultTypeDef",
+    {
+        "FailedStandbyRequests": List["FailedCreateStandbyWorkspacesRequestTypeDef"],
+        "PendingStandbyRequests": List["PendingCreateStandbyWorkspacesRequestTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -972,6 +1011,16 @@ DisassociateIpGroupsRequestRequestTypeDef = TypedDict(
     },
 )
 
+FailedCreateStandbyWorkspacesRequestTypeDef = TypedDict(
+    "FailedCreateStandbyWorkspacesRequestTypeDef",
+    {
+        "StandbyWorkspaceRequest": "StandbyWorkspaceTypeDef",
+        "ErrorCode": str,
+        "ErrorMessage": str,
+    },
+    total=False,
+)
+
 FailedCreateWorkspaceRequestTypeDef = TypedDict(
     "FailedCreateWorkspaceRequestTypeDef",
     {
@@ -1172,6 +1221,29 @@ ModifyAccountRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredModifyCertificateBasedAuthPropertiesRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyCertificateBasedAuthPropertiesRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+    },
+)
+_OptionalModifyCertificateBasedAuthPropertiesRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyCertificateBasedAuthPropertiesRequestRequestTypeDef",
+    {
+        "CertificateBasedAuthProperties": "CertificateBasedAuthPropertiesTypeDef",
+        "PropertiesToDelete": List[
+            Literal["CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN"]
+        ],
+    },
+    total=False,
+)
+
+class ModifyCertificateBasedAuthPropertiesRequestRequestTypeDef(
+    _RequiredModifyCertificateBasedAuthPropertiesRequestRequestTypeDef,
+    _OptionalModifyCertificateBasedAuthPropertiesRequestRequestTypeDef,
+):
+    pass
+
 ModifyClientPropertiesRequestRequestTypeDef = TypedDict(
     "ModifyClientPropertiesRequestRequestTypeDef",
     {
@@ -1259,6 +1331,17 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PendingCreateStandbyWorkspacesRequestTypeDef = TypedDict(
+    "PendingCreateStandbyWorkspacesRequestTypeDef",
+    {
+        "UserName": str,
+        "DirectoryId": str,
+        "State": WorkspaceStateType,
+        "WorkspaceId": str,
+    },
+    total=False,
+)
+
 RebootRequestTypeDef = TypedDict(
     "RebootRequestTypeDef",
     {
@@ -1327,6 +1410,17 @@ class RegisterWorkspaceDirectoryRequestRequestTypeDef(
 ):
     pass
 
+RelatedWorkspacePropertiesTypeDef = TypedDict(
+    "RelatedWorkspacePropertiesTypeDef",
+    {
+        "WorkspaceId": str,
+        "Region": str,
+        "State": WorkspaceStateType,
+        "Type": StandbyWorkspaceRelationshipTypeType,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1390,6 +1484,25 @@ SnapshotTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredStandbyWorkspaceTypeDef = TypedDict(
+    "_RequiredStandbyWorkspaceTypeDef",
+    {
+        "PrimaryWorkspaceId": str,
+        "DirectoryId": str,
+    },
+)
+_OptionalStandbyWorkspaceTypeDef = TypedDict(
+    "_OptionalStandbyWorkspaceTypeDef",
+    {
+        "VolumeEncryptionKey": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class StandbyWorkspaceTypeDef(_RequiredStandbyWorkspaceTypeDef, _OptionalStandbyWorkspaceTypeDef):
+    pass
 
 StartRequestTypeDef = TypedDict(
     "StartRequestTypeDef",
@@ -1577,6 +1690,8 @@ WorkspaceBundleTypeDef = TypedDict(
         "ComputeType": "ComputeTypeTypeDef",
         "LastUpdatedTime": datetime,
         "CreationTime": datetime,
+        "State": WorkspaceBundleStateType,
+        "BundleType": BundleTypeType,
     },
     total=False,
 )
@@ -1625,6 +1740,7 @@ WorkspaceDirectoryTypeDef = TypedDict(
         "Tenancy": TenancyType,
         "SelfservicePermissions": "SelfservicePermissionsTypeDef",
         "SamlProperties": "SamlPropertiesTypeDef",
+        "CertificateBasedAuthProperties": "CertificateBasedAuthPropertiesTypeDef",
     },
     total=False,
 )
@@ -1655,6 +1771,7 @@ WorkspacePropertiesTypeDef = TypedDict(
         "RootVolumeSizeGib": int,
         "UserVolumeSizeGib": int,
         "ComputeTypeName": ComputeType,
+        "Protocols": List[ProtocolType],
     },
     total=False,
 )
@@ -1700,6 +1817,7 @@ WorkspaceTypeDef = TypedDict(
         "RootVolumeEncryptionEnabled": bool,
         "WorkspaceProperties": "WorkspacePropertiesTypeDef",
         "ModificationStates": List["ModificationStateTypeDef"],
+        "RelatedWorkspaces": List["RelatedWorkspacePropertiesTypeDef"],
     },
     total=False,
 )

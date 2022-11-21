@@ -2076,7 +2076,9 @@ WorkflowDetailsTypeDef = TypedDict(
     "WorkflowDetailsTypeDef",
     {
         "OnUpload": List["WorkflowDetailTypeDef"],
+        "OnPartialUpload": List["WorkflowDetailTypeDef"],
     },
+    total=False,
 )
 
 WorkflowStepTypeDef = TypedDict(

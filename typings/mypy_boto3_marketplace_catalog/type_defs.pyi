@@ -39,10 +39,15 @@ __all__ = (
     "ListChangeSetsResponseTypeDef",
     "ListEntitiesRequestRequestTypeDef",
     "ListEntitiesResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
     "SortTypeDef",
     "StartChangeSetRequestRequestTypeDef",
     "StartChangeSetResponseTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TagTypeDef",
+    "UntagResourceRequestRequestTypeDef",
 )
 
 CancelChangeSetRequestRequestTypeDef = TypedDict(
@@ -100,6 +105,7 @@ _RequiredChangeTypeDef = TypedDict(
 _OptionalChangeTypeDef = TypedDict(
     "_OptionalChangeTypeDef",
     {
+        "EntityTags": List["TagTypeDef"],
         "ChangeName": str,
     },
     total=False,
@@ -263,6 +269,22 @@ ListEntitiesResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -295,6 +317,7 @@ _OptionalStartChangeSetRequestRequestTypeDef = TypedDict(
     {
         "ChangeSetName": str,
         "ClientRequestToken": str,
+        "ChangeSetTags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -310,5 +333,29 @@ StartChangeSetResponseTypeDef = TypedDict(
         "ChangeSetId": str,
         "ChangeSetArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
     },
 )

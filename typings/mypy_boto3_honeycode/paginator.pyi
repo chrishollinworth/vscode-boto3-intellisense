@@ -46,7 +46,7 @@ __all__ = (
 
 class ListTableColumnsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablecolumnspaginator)
     """
 
@@ -54,13 +54,13 @@ class ListTableColumnsPaginator(Boto3Paginator):
         self, *, workbookId: str, tableId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTableColumnsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablecolumnspaginator)
         """
 
 class ListTableRowsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablerowspaginator)
     """
 
@@ -73,13 +73,13 @@ class ListTableRowsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTableRowsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablerowspaginator)
         """
 
 class ListTablesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/honeycode.html#Honeycode.Paginator.ListTables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/honeycode.html#Honeycode.Paginator.ListTables)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablespaginator)
     """
 
@@ -87,13 +87,13 @@ class ListTablesPaginator(Boto3Paginator):
         self, *, workbookId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTablesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/honeycode.html#Honeycode.Paginator.ListTables.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/honeycode.html#Honeycode.Paginator.ListTables.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablespaginator)
         """
 
 class QueryTableRowsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#querytablerowspaginator)
     """
 
@@ -106,6 +106,6 @@ class QueryTableRowsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[QueryTableRowsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#querytablerowspaginator)
         """

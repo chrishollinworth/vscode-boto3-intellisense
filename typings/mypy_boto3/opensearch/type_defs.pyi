@@ -30,6 +30,7 @@ from .literals import (
     OutboundConnectionStatusCodeType,
     OverallChangeStatusType,
     PackageStatusType,
+    PrincipalTypeType,
     ReservedInstancePaymentOptionType,
     RollbackOnDisableType,
     ScheduledAutoTuneActionTypeType,
@@ -38,6 +39,8 @@ from .literals import (
     UpgradeStatusType,
     UpgradeStepType,
     VolumeTypeType,
+    VpcEndpointErrorCodeType,
+    VpcEndpointStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -62,6 +65,9 @@ __all__ = (
     "AdvancedSecurityOptionsTypeDef",
     "AssociatePackageRequestRequestTypeDef",
     "AssociatePackageResponseTypeDef",
+    "AuthorizeVpcEndpointAccessRequestRequestTypeDef",
+    "AuthorizeVpcEndpointAccessResponseTypeDef",
+    "AuthorizedPrincipalTypeDef",
     "AutoTuneDetailsTypeDef",
     "AutoTuneMaintenanceScheduleTypeDef",
     "AutoTuneOptionsInputTypeDef",
@@ -87,6 +93,8 @@ __all__ = (
     "CreateOutboundConnectionResponseTypeDef",
     "CreatePackageRequestRequestTypeDef",
     "CreatePackageResponseTypeDef",
+    "CreateVpcEndpointRequestRequestTypeDef",
+    "CreateVpcEndpointResponseTypeDef",
     "DeleteDomainRequestRequestTypeDef",
     "DeleteDomainResponseTypeDef",
     "DeleteInboundConnectionRequestRequestTypeDef",
@@ -95,6 +103,8 @@ __all__ = (
     "DeleteOutboundConnectionResponseTypeDef",
     "DeletePackageRequestRequestTypeDef",
     "DeletePackageResponseTypeDef",
+    "DeleteVpcEndpointRequestRequestTypeDef",
+    "DeleteVpcEndpointResponseTypeDef",
     "DescribeDomainAutoTunesRequestRequestTypeDef",
     "DescribeDomainAutoTunesResponseTypeDef",
     "DescribeDomainChangeProgressRequestRequestTypeDef",
@@ -118,6 +128,8 @@ __all__ = (
     "DescribeReservedInstanceOfferingsResponseTypeDef",
     "DescribeReservedInstancesRequestRequestTypeDef",
     "DescribeReservedInstancesResponseTypeDef",
+    "DescribeVpcEndpointsRequestRequestTypeDef",
+    "DescribeVpcEndpointsResponseTypeDef",
     "DissociatePackageRequestRequestTypeDef",
     "DissociatePackageResponseTypeDef",
     "DomainConfigTypeDef",
@@ -161,6 +173,12 @@ __all__ = (
     "ListTagsResponseTypeDef",
     "ListVersionsRequestRequestTypeDef",
     "ListVersionsResponseTypeDef",
+    "ListVpcEndpointAccessRequestRequestTypeDef",
+    "ListVpcEndpointAccessResponseTypeDef",
+    "ListVpcEndpointsForDomainRequestRequestTypeDef",
+    "ListVpcEndpointsForDomainResponseTypeDef",
+    "ListVpcEndpointsRequestRequestTypeDef",
+    "ListVpcEndpointsResponseTypeDef",
     "LogPublishingOptionTypeDef",
     "LogPublishingOptionsStatusTypeDef",
     "MasterUserOptionsTypeDef",
@@ -181,6 +199,7 @@ __all__ = (
     "ReservedInstanceOfferingTypeDef",
     "ReservedInstanceTypeDef",
     "ResponseMetadataTypeDef",
+    "RevokeVpcEndpointAccessRequestRequestTypeDef",
     "SAMLIdpTypeDef",
     "SAMLOptionsInputTypeDef",
     "SAMLOptionsOutputTypeDef",
@@ -197,6 +216,8 @@ __all__ = (
     "UpdateDomainConfigResponseTypeDef",
     "UpdatePackageRequestRequestTypeDef",
     "UpdatePackageResponseTypeDef",
+    "UpdateVpcEndpointRequestRequestTypeDef",
+    "UpdateVpcEndpointResponseTypeDef",
     "UpgradeDomainRequestRequestTypeDef",
     "UpgradeDomainResponseTypeDef",
     "UpgradeHistoryTypeDef",
@@ -205,6 +226,9 @@ __all__ = (
     "VPCDerivedInfoTypeDef",
     "VPCOptionsTypeDef",
     "VersionStatusTypeDef",
+    "VpcEndpointErrorTypeDef",
+    "VpcEndpointSummaryTypeDef",
+    "VpcEndpointTypeDef",
     "ZoneAwarenessConfigTypeDef",
 )
 
@@ -322,6 +346,31 @@ AssociatePackageResponseTypeDef = TypedDict(
         "DomainPackageDetails": "DomainPackageDetailsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+AuthorizeVpcEndpointAccessRequestRequestTypeDef = TypedDict(
+    "AuthorizeVpcEndpointAccessRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Account": str,
+    },
+)
+
+AuthorizeVpcEndpointAccessResponseTypeDef = TypedDict(
+    "AuthorizeVpcEndpointAccessResponseTypeDef",
+    {
+        "AuthorizedPrincipal": "AuthorizedPrincipalTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AuthorizedPrincipalTypeDef = TypedDict(
+    "AuthorizedPrincipalTypeDef",
+    {
+        "PrincipalType": PrincipalTypeType,
+        "Principal": str,
+    },
+    total=False,
 )
 
 AutoTuneDetailsTypeDef = TypedDict(
@@ -610,6 +659,34 @@ CreatePackageResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateVpcEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpcEndpointRequestRequestTypeDef",
+    {
+        "DomainArn": str,
+        "VpcOptions": "VPCOptionsTypeDef",
+    },
+)
+_OptionalCreateVpcEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpcEndpointRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateVpcEndpointRequestRequestTypeDef(
+    _RequiredCreateVpcEndpointRequestRequestTypeDef, _OptionalCreateVpcEndpointRequestRequestTypeDef
+):
+    pass
+
+CreateVpcEndpointResponseTypeDef = TypedDict(
+    "CreateVpcEndpointResponseTypeDef",
+    {
+        "VpcEndpoint": "VpcEndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteDomainRequestRequestTypeDef = TypedDict(
     "DeleteDomainRequestRequestTypeDef",
     {
@@ -666,6 +743,21 @@ DeletePackageResponseTypeDef = TypedDict(
     "DeletePackageResponseTypeDef",
     {
         "PackageDetails": "PackageDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteVpcEndpointRequestRequestTypeDef = TypedDict(
+    "DeleteVpcEndpointRequestRequestTypeDef",
+    {
+        "VpcEndpointId": str,
+    },
+)
+
+DeleteVpcEndpointResponseTypeDef = TypedDict(
+    "DeleteVpcEndpointResponseTypeDef",
+    {
+        "VpcEndpointSummary": "VpcEndpointSummaryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -902,6 +994,22 @@ DescribeReservedInstancesResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "ReservedInstances": List["ReservedInstanceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcEndpointsRequestRequestTypeDef = TypedDict(
+    "DescribeVpcEndpointsRequestRequestTypeDef",
+    {
+        "VpcEndpointIds": List[str],
+    },
+)
+
+DescribeVpcEndpointsResponseTypeDef = TypedDict(
+    "DescribeVpcEndpointsResponseTypeDef",
+    {
+        "VpcEndpoints": List["VpcEndpointTypeDef"],
+        "VpcEndpointErrors": List["VpcEndpointErrorTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1404,6 +1512,81 @@ ListVersionsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListVpcEndpointAccessRequestRequestTypeDef = TypedDict(
+    "_RequiredListVpcEndpointAccessRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalListVpcEndpointAccessRequestRequestTypeDef = TypedDict(
+    "_OptionalListVpcEndpointAccessRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListVpcEndpointAccessRequestRequestTypeDef(
+    _RequiredListVpcEndpointAccessRequestRequestTypeDef,
+    _OptionalListVpcEndpointAccessRequestRequestTypeDef,
+):
+    pass
+
+ListVpcEndpointAccessResponseTypeDef = TypedDict(
+    "ListVpcEndpointAccessResponseTypeDef",
+    {
+        "AuthorizedPrincipalList": List["AuthorizedPrincipalTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListVpcEndpointsForDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredListVpcEndpointsForDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalListVpcEndpointsForDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalListVpcEndpointsForDomainRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListVpcEndpointsForDomainRequestRequestTypeDef(
+    _RequiredListVpcEndpointsForDomainRequestRequestTypeDef,
+    _OptionalListVpcEndpointsForDomainRequestRequestTypeDef,
+):
+    pass
+
+ListVpcEndpointsForDomainResponseTypeDef = TypedDict(
+    "ListVpcEndpointsForDomainResponseTypeDef",
+    {
+        "VpcEndpointSummaryList": List["VpcEndpointSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListVpcEndpointsRequestRequestTypeDef = TypedDict(
+    "ListVpcEndpointsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListVpcEndpointsResponseTypeDef = TypedDict(
+    "ListVpcEndpointsResponseTypeDef",
+    {
+        "VpcEndpointSummaryList": List["VpcEndpointSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 LogPublishingOptionTypeDef = TypedDict(
     "LogPublishingOptionTypeDef",
     {
@@ -1633,6 +1816,14 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RevokeVpcEndpointAccessRequestRequestTypeDef = TypedDict(
+    "RevokeVpcEndpointAccessRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Account": str,
+    },
+)
+
 SAMLIdpTypeDef = TypedDict(
     "SAMLIdpTypeDef",
     {
@@ -1822,6 +2013,22 @@ UpdatePackageResponseTypeDef = TypedDict(
     },
 )
 
+UpdateVpcEndpointRequestRequestTypeDef = TypedDict(
+    "UpdateVpcEndpointRequestRequestTypeDef",
+    {
+        "VpcEndpointId": str,
+        "VpcOptions": "VPCOptionsTypeDef",
+    },
+)
+
+UpdateVpcEndpointResponseTypeDef = TypedDict(
+    "UpdateVpcEndpointResponseTypeDef",
+    {
+        "VpcEndpoint": "VpcEndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpgradeDomainRequestRequestTypeDef = TypedDict(
     "_RequiredUpgradeDomainRequestRequestTypeDef",
     {
@@ -1912,6 +2119,40 @@ VersionStatusTypeDef = TypedDict(
         "Options": str,
         "Status": "OptionStatusTypeDef",
     },
+)
+
+VpcEndpointErrorTypeDef = TypedDict(
+    "VpcEndpointErrorTypeDef",
+    {
+        "VpcEndpointId": str,
+        "ErrorCode": VpcEndpointErrorCodeType,
+        "ErrorMessage": str,
+    },
+    total=False,
+)
+
+VpcEndpointSummaryTypeDef = TypedDict(
+    "VpcEndpointSummaryTypeDef",
+    {
+        "VpcEndpointId": str,
+        "VpcEndpointOwner": str,
+        "DomainArn": str,
+        "Status": VpcEndpointStatusType,
+    },
+    total=False,
+)
+
+VpcEndpointTypeDef = TypedDict(
+    "VpcEndpointTypeDef",
+    {
+        "VpcEndpointId": str,
+        "VpcEndpointOwner": str,
+        "DomainArn": str,
+        "VpcOptions": "VPCDerivedInfoTypeDef",
+        "Status": VpcEndpointStatusType,
+        "Endpoint": str,
+    },
+    total=False,
 )
 
 ZoneAwarenessConfigTypeDef = TypedDict(

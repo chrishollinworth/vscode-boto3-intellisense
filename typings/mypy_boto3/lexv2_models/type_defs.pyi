@@ -28,6 +28,7 @@ from .literals import (
     CustomVocabularyStatusType,
     DialogActionTypeType,
     EffectType,
+    ErrorCodeType,
     ExportFilterOperatorType,
     ExportStatusType,
     ImportExportFileFormatType,
@@ -76,6 +77,12 @@ __all__ = (
     "AudioLogDestinationTypeDef",
     "AudioLogSettingTypeDef",
     "AudioSpecificationTypeDef",
+    "BatchCreateCustomVocabularyItemRequestRequestTypeDef",
+    "BatchCreateCustomVocabularyItemResponseTypeDef",
+    "BatchDeleteCustomVocabularyItemRequestRequestTypeDef",
+    "BatchDeleteCustomVocabularyItemResponseTypeDef",
+    "BatchUpdateCustomVocabularyItemRequestRequestTypeDef",
+    "BatchUpdateCustomVocabularyItemResponseTypeDef",
     "BotAliasHistoryEventTypeDef",
     "BotAliasLocaleSettingsTypeDef",
     "BotAliasSummaryTypeDef",
@@ -132,8 +139,10 @@ __all__ = (
     "CreateSlotTypeResponseTypeDef",
     "CreateUploadUrlResponseTypeDef",
     "CustomPayloadTypeDef",
+    "CustomVocabularyEntryIdTypeDef",
     "CustomVocabularyExportSpecificationTypeDef",
     "CustomVocabularyImportSpecificationTypeDef",
+    "CustomVocabularyItemTypeDef",
     "DTMFSpecificationTypeDef",
     "DataPrivacyTypeDef",
     "DateRangeFilterTypeDef",
@@ -195,6 +204,7 @@ __all__ = (
     "ExportSortByTypeDef",
     "ExportSummaryTypeDef",
     "ExternalSourceSettingTypeDef",
+    "FailedCustomVocabularyItemTypeDef",
     "FulfillmentCodeHookSettingsTypeDef",
     "FulfillmentStartResponseSpecificationTypeDef",
     "FulfillmentUpdateResponseSpecificationTypeDef",
@@ -234,6 +244,8 @@ __all__ = (
     "ListBuiltInIntentsResponseTypeDef",
     "ListBuiltInSlotTypesRequestRequestTypeDef",
     "ListBuiltInSlotTypesResponseTypeDef",
+    "ListCustomVocabularyItemsRequestRequestTypeDef",
+    "ListCustomVocabularyItemsResponseTypeDef",
     "ListExportsRequestRequestTypeDef",
     "ListExportsResponseTypeDef",
     "ListImportsRequestRequestTypeDef",
@@ -251,6 +263,7 @@ __all__ = (
     "MessageGroupTypeDef",
     "MessageTypeDef",
     "MultipleValuesSettingTypeDef",
+    "NewCustomVocabularyItemTypeDef",
     "ObfuscationSettingTypeDef",
     "OutputContextTypeDef",
     "PathFormatTypeDef",
@@ -433,6 +446,72 @@ AudioSpecificationTypeDef = TypedDict(
     {
         "maxLengthMs": int,
         "endTimeoutMs": int,
+    },
+)
+
+BatchCreateCustomVocabularyItemRequestRequestTypeDef = TypedDict(
+    "BatchCreateCustomVocabularyItemRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "customVocabularyItemList": List["NewCustomVocabularyItemTypeDef"],
+    },
+)
+
+BatchCreateCustomVocabularyItemResponseTypeDef = TypedDict(
+    "BatchCreateCustomVocabularyItemResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "errors": List["FailedCustomVocabularyItemTypeDef"],
+        "resources": List["CustomVocabularyItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchDeleteCustomVocabularyItemRequestRequestTypeDef = TypedDict(
+    "BatchDeleteCustomVocabularyItemRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "customVocabularyItemList": List["CustomVocabularyEntryIdTypeDef"],
+    },
+)
+
+BatchDeleteCustomVocabularyItemResponseTypeDef = TypedDict(
+    "BatchDeleteCustomVocabularyItemResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "errors": List["FailedCustomVocabularyItemTypeDef"],
+        "resources": List["CustomVocabularyItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchUpdateCustomVocabularyItemRequestRequestTypeDef = TypedDict(
+    "BatchUpdateCustomVocabularyItemRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "customVocabularyItemList": List["CustomVocabularyItemTypeDef"],
+    },
+)
+
+BatchUpdateCustomVocabularyItemResponseTypeDef = TypedDict(
+    "BatchUpdateCustomVocabularyItemResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "errors": List["FailedCustomVocabularyItemTypeDef"],
+        "resources": List["CustomVocabularyItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1213,6 +1292,13 @@ CustomPayloadTypeDef = TypedDict(
     },
 )
 
+CustomVocabularyEntryIdTypeDef = TypedDict(
+    "CustomVocabularyEntryIdTypeDef",
+    {
+        "itemId": str,
+    },
+)
+
 CustomVocabularyExportSpecificationTypeDef = TypedDict(
     "CustomVocabularyExportSpecificationTypeDef",
     {
@@ -1230,6 +1316,27 @@ CustomVocabularyImportSpecificationTypeDef = TypedDict(
         "localeId": str,
     },
 )
+
+_RequiredCustomVocabularyItemTypeDef = TypedDict(
+    "_RequiredCustomVocabularyItemTypeDef",
+    {
+        "itemId": str,
+        "phrase": str,
+    },
+)
+_OptionalCustomVocabularyItemTypeDef = TypedDict(
+    "_OptionalCustomVocabularyItemTypeDef",
+    {
+        "weight": int,
+        "displayAs": str,
+    },
+    total=False,
+)
+
+class CustomVocabularyItemTypeDef(
+    _RequiredCustomVocabularyItemTypeDef, _OptionalCustomVocabularyItemTypeDef
+):
+    pass
 
 DTMFSpecificationTypeDef = TypedDict(
     "DTMFSpecificationTypeDef",
@@ -1998,6 +2105,16 @@ ExternalSourceSettingTypeDef = TypedDict(
     total=False,
 )
 
+FailedCustomVocabularyItemTypeDef = TypedDict(
+    "FailedCustomVocabularyItemTypeDef",
+    {
+        "itemId": str,
+        "errorMessage": str,
+        "errorCode": ErrorCodeType,
+    },
+    total=False,
+)
+
 _RequiredFulfillmentCodeHookSettingsTypeDef = TypedDict(
     "_RequiredFulfillmentCodeHookSettingsTypeDef",
     {
@@ -2574,6 +2691,41 @@ ListBuiltInSlotTypesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListCustomVocabularyItemsRequestRequestTypeDef = TypedDict(
+    "_RequiredListCustomVocabularyItemsRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+    },
+)
+_OptionalListCustomVocabularyItemsRequestRequestTypeDef = TypedDict(
+    "_OptionalListCustomVocabularyItemsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListCustomVocabularyItemsRequestRequestTypeDef(
+    _RequiredListCustomVocabularyItemsRequestRequestTypeDef,
+    _OptionalListCustomVocabularyItemsRequestRequestTypeDef,
+):
+    pass
+
+ListCustomVocabularyItemsResponseTypeDef = TypedDict(
+    "ListCustomVocabularyItemsResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "customVocabularyItems": List["CustomVocabularyItemTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListExportsRequestRequestTypeDef = TypedDict(
     "ListExportsRequestRequestTypeDef",
     {
@@ -2823,6 +2975,26 @@ MultipleValuesSettingTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredNewCustomVocabularyItemTypeDef = TypedDict(
+    "_RequiredNewCustomVocabularyItemTypeDef",
+    {
+        "phrase": str,
+    },
+)
+_OptionalNewCustomVocabularyItemTypeDef = TypedDict(
+    "_OptionalNewCustomVocabularyItemTypeDef",
+    {
+        "weight": int,
+        "displayAs": str,
+    },
+    total=False,
+)
+
+class NewCustomVocabularyItemTypeDef(
+    _RequiredNewCustomVocabularyItemTypeDef, _OptionalNewCustomVocabularyItemTypeDef
+):
+    pass
 
 ObfuscationSettingTypeDef = TypedDict(
     "ObfuscationSettingTypeDef",

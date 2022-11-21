@@ -46,10 +46,13 @@ __all__ = (
     "DescribeUserGroupsPaginatorName",
     "DescribeUsersPaginatorName",
     "DestinationTypeType",
+    "InputAuthenticationTypeType",
+    "IpDiscoveryType",
     "LogDeliveryConfigurationStatusType",
     "LogFormatType",
     "LogTypeType",
     "MultiAZStatusType",
+    "NetworkTypeType",
     "NodeUpdateInitiatedByType",
     "NodeUpdateStatusType",
     "OutpostModeType",
@@ -67,7 +70,7 @@ __all__ = (
 AZModeType = Literal["cross-az", "single-az"]
 AuthTokenUpdateStatusType = Literal["ROTATING", "SETTING"]
 AuthTokenUpdateStrategyTypeType = Literal["DELETE", "ROTATE", "SET"]
-AuthenticationTypeType = Literal["no-password", "password"]
+AuthenticationTypeType = Literal["iam", "no-password", "password"]
 AutomaticFailoverStatusType = Literal["disabled", "disabling", "enabled", "enabling"]
 CacheClusterAvailableWaiterName = Literal["cache_cluster_available"]
 CacheClusterDeletedWaiterName = Literal["cache_cluster_deleted"]
@@ -93,12 +96,15 @@ DescribeUpdateActionsPaginatorName = Literal["describe_update_actions"]
 DescribeUserGroupsPaginatorName = Literal["describe_user_groups"]
 DescribeUsersPaginatorName = Literal["describe_users"]
 DestinationTypeType = Literal["cloudwatch-logs", "kinesis-firehose"]
+InputAuthenticationTypeType = Literal["iam", "no-password-required", "password"]
+IpDiscoveryType = Literal["ipv4", "ipv6"]
 LogDeliveryConfigurationStatusType = Literal[
     "active", "disabling", "enabling", "error", "modifying"
 ]
 LogFormatType = Literal["json", "text"]
 LogTypeType = Literal["engine-log", "slow-log"]
 MultiAZStatusType = Literal["disabled", "enabled"]
+NetworkTypeType = Literal["dual_stack", "ipv4", "ipv6"]
 NodeUpdateInitiatedByType = Literal["customer", "system"]
 NodeUpdateStatusType = Literal[
     "complete", "in-progress", "not-applied", "stopped", "stopping", "waiting-to-start"

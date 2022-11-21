@@ -39,13 +39,14 @@ BlockTypeType = Literal[
     "QUERY",
     "QUERY_RESULT",
     "SELECTION_ELEMENT",
+    "SIGNATURE",
     "TABLE",
     "TITLE",
     "WORD",
 ]
 ContentClassifierType = Literal["FreeOfAdultContent", "FreeOfPersonallyIdentifiableInformation"]
 EntityTypeType = Literal["COLUMN_HEADER", "KEY", "VALUE"]
-FeatureTypeType = Literal["FORMS", "QUERIES", "TABLES"]
+FeatureTypeType = Literal["FORMS", "QUERIES", "SIGNATURES", "TABLES"]
 JobStatusType = Literal["FAILED", "IN_PROGRESS", "PARTIAL_SUCCESS", "SUCCEEDED"]
 RelationshipTypeType = Literal[
     "ANSWER", "CHILD", "COMPLEX_FEATURES", "MERGED_CELL", "TITLE", "VALUE"

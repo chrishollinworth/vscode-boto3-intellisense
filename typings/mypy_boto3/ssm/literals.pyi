@@ -90,6 +90,7 @@ __all__ = (
     "GetOpsSummaryPaginatorName",
     "GetParameterHistoryPaginatorName",
     "GetParametersByPathPaginatorName",
+    "GetResourcePoliciesPaginatorName",
     "InstanceInformationFilterKeyType",
     "InstancePatchStateOperatorTypeType",
     "InventoryAttributeDataTypeType",
@@ -304,6 +305,7 @@ GetInventorySchemaPaginatorName = Literal["get_inventory_schema"]
 GetOpsSummaryPaginatorName = Literal["get_ops_summary"]
 GetParameterHistoryPaginatorName = Literal["get_parameter_history"]
 GetParametersByPathPaginatorName = Literal["get_parameters_by_path"]
+GetResourcePoliciesPaginatorName = Literal["get_resource_policies"]
 InstanceInformationFilterKeyType = Literal[
     "ActivationIds",
     "AgentVersion",
@@ -353,6 +355,7 @@ NotificationTypeType = Literal["Command", "Invocation"]
 OperatingSystemType = Literal[
     "AMAZON_LINUX",
     "AMAZON_LINUX_2",
+    "AMAZON_LINUX_2022",
     "CENTOS",
     "DEBIAN",
     "MACOS",
@@ -371,6 +374,7 @@ OpsItemDataTypeType = Literal["SearchableString", "String"]
 OpsItemEventFilterKeyType = Literal["OpsItemId"]
 OpsItemEventFilterOperatorType = Literal["Equal"]
 OpsItemFilterKeyType = Literal[
+    "AccountId",
     "ActualEndTime",
     "ActualStartTime",
     "AutomationId",

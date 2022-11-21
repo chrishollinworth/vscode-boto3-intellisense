@@ -41,7 +41,9 @@ __all__ = (
     "ListRepositorySyncDefinitionsPaginatorName",
     "ListServiceInstanceOutputsPaginatorName",
     "ListServiceInstanceProvisionedResourcesPaginatorName",
+    "ListServiceInstancesFilterByType",
     "ListServiceInstancesPaginatorName",
+    "ListServiceInstancesSortByType",
     "ListServicePipelineOutputsPaginatorName",
     "ListServicePipelineProvisionedResourcesPaginatorName",
     "ListServiceTemplateVersionsPaginatorName",
@@ -62,6 +64,7 @@ __all__ = (
     "ServiceTemplateSupportedComponentSourceTypeType",
     "ServiceTemplateVersionRegisteredWaiterName",
     "ServiceUpdatedWaiterName",
+    "SortOrderType",
     "SyncTypeType",
     "TemplateTypeType",
     "TemplateVersionStatusType",
@@ -102,7 +105,28 @@ ListServiceInstanceOutputsPaginatorName = Literal["list_service_instance_outputs
 ListServiceInstanceProvisionedResourcesPaginatorName = Literal[
     "list_service_instance_provisioned_resources"
 ]
+ListServiceInstancesFilterByType = Literal[
+    "createdAtAfter",
+    "createdAtBefore",
+    "deployedTemplateVersionStatus",
+    "deploymentStatus",
+    "environmentName",
+    "lastDeploymentAttemptedAtAfter",
+    "lastDeploymentAttemptedAtBefore",
+    "name",
+    "serviceName",
+    "templateName",
+]
 ListServiceInstancesPaginatorName = Literal["list_service_instances"]
+ListServiceInstancesSortByType = Literal[
+    "createdAt",
+    "deploymentStatus",
+    "environmentName",
+    "lastDeploymentAttemptedAt",
+    "name",
+    "serviceName",
+    "templateName",
+]
 ListServicePipelineOutputsPaginatorName = Literal["list_service_pipeline_outputs"]
 ListServicePipelineProvisionedResourcesPaginatorName = Literal[
     "list_service_pipeline_provisioned_resources"
@@ -140,6 +164,7 @@ ServiceStatusType = Literal[
 ServiceTemplateSupportedComponentSourceTypeType = Literal["DIRECTLY_DEFINED"]
 ServiceTemplateVersionRegisteredWaiterName = Literal["service_template_version_registered"]
 ServiceUpdatedWaiterName = Literal["service_updated"]
+SortOrderType = Literal["ASCENDING", "DESCENDING"]
 SyncTypeType = Literal["TEMPLATE_SYNC"]
 TemplateTypeType = Literal["ENVIRONMENT", "SERVICE"]
 TemplateVersionStatusType = Literal[

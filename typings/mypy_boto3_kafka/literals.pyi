@@ -35,6 +35,7 @@ __all__ = (
     "ListNodesPaginatorName",
     "ListScramSecretsPaginatorName",
     "NodeTypeType",
+    "StorageModeType",
 )
 
 BrokerAZDistributionType = Literal["DEFAULT"]
@@ -64,3 +65,4 @@ ListKafkaVersionsPaginatorName = Literal["list_kafka_versions"]
 ListNodesPaginatorName = Literal["list_nodes"]
 ListScramSecretsPaginatorName = Literal["list_scram_secrets"]
 NodeTypeType = Literal["BROKER"]
+StorageModeType = Literal["LOCAL", "TIERED"]

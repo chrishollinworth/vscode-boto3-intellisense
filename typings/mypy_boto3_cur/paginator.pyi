@@ -28,7 +28,7 @@ __all__ = ("DescribeReportDefinitionsPaginator",)
 
 class DescribeReportDefinitionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/paginators.html#describereportdefinitionspaginator)
     """
 
@@ -36,6 +36,6 @@ class DescribeReportDefinitionsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReportDefinitionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/paginators.html#describereportdefinitionspaginator)
         """

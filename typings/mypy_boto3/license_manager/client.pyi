@@ -74,7 +74,9 @@ from .type_defs import (
     ListLicenseSpecificationsForResourceResponseTypeDef,
     ListLicensesResponseTypeDef,
     ListLicenseVersionsResponseTypeDef,
+    ListReceivedGrantsForOrganizationResponseTypeDef,
     ListReceivedGrantsResponseTypeDef,
+    ListReceivedLicensesForOrganizationResponseTypeDef,
     ListReceivedLicensesResponseTypeDef,
     ListResourceInventoryResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
@@ -125,7 +127,7 @@ class Exceptions:
 
 class LicenseManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html)
     """
 
@@ -140,14 +142,14 @@ class LicenseManagerClient(BaseClient):
         """
         Accepts the specified grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.accept_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.accept_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#accept_grant)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#can_paginate)
         """
     def check_in_license(
@@ -156,7 +158,7 @@ class LicenseManagerClient(BaseClient):
         """
         Checks in the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.check_in_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.check_in_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#check_in_license)
         """
     def checkout_borrow_license(
@@ -172,7 +174,7 @@ class LicenseManagerClient(BaseClient):
         """
         Checks out the specified license for offline use.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.checkout_borrow_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.checkout_borrow_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#checkout_borrow_license)
         """
     def checkout_license(
@@ -189,14 +191,14 @@ class LicenseManagerClient(BaseClient):
         """
         Checks out the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.checkout_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.checkout_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#checkout_license)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#close)
         """
     def create_grant(
@@ -212,7 +214,7 @@ class LicenseManagerClient(BaseClient):
         """
         Creates a grant for the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.create_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.create_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#create_grant)
         """
     def create_grant_version(
@@ -229,7 +231,7 @@ class LicenseManagerClient(BaseClient):
         """
         Creates a new version of the specified grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.create_grant_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.create_grant_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#create_grant_version)
         """
     def create_license(
@@ -250,7 +252,7 @@ class LicenseManagerClient(BaseClient):
         """
         Creates a license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.create_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.create_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#create_license)
         """
     def create_license_configuration(
@@ -269,7 +271,7 @@ class LicenseManagerClient(BaseClient):
         """
         Creates a license configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.create_license_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.create_license_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#create_license_configuration)
         """
     def create_license_conversion_task_for_resource(
@@ -282,7 +284,7 @@ class LicenseManagerClient(BaseClient):
         """
         Creates a new license conversion task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.create_license_conversion_task_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.create_license_conversion_task_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#create_license_conversion_task_for_resource)
         """
     def create_license_manager_report_generator(
@@ -299,7 +301,7 @@ class LicenseManagerClient(BaseClient):
         """
         Creates a report generator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.create_license_manager_report_generator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.create_license_manager_report_generator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#create_license_manager_report_generator)
         """
     def create_license_version(
@@ -321,7 +323,7 @@ class LicenseManagerClient(BaseClient):
         """
         Creates a new version of the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.create_license_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.create_license_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#create_license_version)
         """
     def create_token(
@@ -336,7 +338,7 @@ class LicenseManagerClient(BaseClient):
         """
         Creates a long-lived token.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.create_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.create_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#create_token)
         """
     def delete_grant(
@@ -345,7 +347,7 @@ class LicenseManagerClient(BaseClient):
         """
         Deletes the specified grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.delete_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.delete_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#delete_grant)
         """
     def delete_license(
@@ -354,14 +356,14 @@ class LicenseManagerClient(BaseClient):
         """
         Deletes the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.delete_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.delete_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#delete_license)
         """
     def delete_license_configuration(self, *, LicenseConfigurationArn: str) -> Dict[str, Any]:
         """
         Deletes the specified license configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.delete_license_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.delete_license_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#delete_license_configuration)
         """
     def delete_license_manager_report_generator(
@@ -370,14 +372,14 @@ class LicenseManagerClient(BaseClient):
         """
         Deletes the specified report generator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.delete_license_manager_report_generator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.delete_license_manager_report_generator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#delete_license_manager_report_generator)
         """
     def delete_token(self, *, TokenId: str) -> Dict[str, Any]:
         """
         Deletes the specified token.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.delete_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.delete_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#delete_token)
         """
     def extend_license_consumption(
@@ -386,7 +388,7 @@ class LicenseManagerClient(BaseClient):
         """
         Extends the expiration date for license consumption.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.extend_license_consumption)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.extend_license_consumption)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#extend_license_consumption)
         """
     def generate_presigned_url(
@@ -399,7 +401,7 @@ class LicenseManagerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#generate_presigned_url)
         """
     def get_access_token(
@@ -408,21 +410,21 @@ class LicenseManagerClient(BaseClient):
         """
         Gets a temporary access token to use with AssumeRoleWithWebIdentity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.get_access_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.get_access_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#get_access_token)
         """
     def get_grant(self, *, GrantArn: str, Version: str = None) -> GetGrantResponseTypeDef:
         """
         Gets detailed information about the specified grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.get_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.get_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#get_grant)
         """
     def get_license(self, *, LicenseArn: str, Version: str = None) -> GetLicenseResponseTypeDef:
         """
         Gets detailed information about the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.get_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.get_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#get_license)
         """
     def get_license_configuration(
@@ -431,7 +433,7 @@ class LicenseManagerClient(BaseClient):
         """
         Gets detailed information about the specified license configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.get_license_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.get_license_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#get_license_configuration)
         """
     def get_license_conversion_task(
@@ -440,7 +442,7 @@ class LicenseManagerClient(BaseClient):
         """
         Gets information about the specified license type conversion task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.get_license_conversion_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.get_license_conversion_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#get_license_conversion_task)
         """
     def get_license_manager_report_generator(
@@ -449,21 +451,21 @@ class LicenseManagerClient(BaseClient):
         """
         Gets information about the specified report generator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.get_license_manager_report_generator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.get_license_manager_report_generator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#get_license_manager_report_generator)
         """
     def get_license_usage(self, *, LicenseArn: str) -> GetLicenseUsageResponseTypeDef:
         """
         Gets detailed information about the usage of the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.get_license_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.get_license_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#get_license_usage)
         """
     def get_service_settings(self) -> GetServiceSettingsResponseTypeDef:
         """
         Gets the License Manager settings for the current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.get_service_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.get_service_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#get_service_settings)
         """
     def list_associations_for_license_configuration(
@@ -472,7 +474,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists the resource associations for the specified license configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_associations_for_license_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_associations_for_license_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_associations_for_license_configuration)
         """
     def list_distributed_grants(
@@ -486,7 +488,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists the grants distributed for the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_distributed_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_distributed_grants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_distributed_grants)
         """
     def list_failures_for_license_configuration_operations(
@@ -495,7 +497,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists the license configuration operations that failed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_failures_for_license_configuration_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_failures_for_license_configuration_operations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_failures_for_license_configuration_operations)
         """
     def list_license_configurations(
@@ -509,7 +511,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists the license configurations for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_license_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_license_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_license_configurations)
         """
     def list_license_conversion_tasks(
@@ -522,7 +524,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists the license type conversion tasks for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_license_conversion_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_license_conversion_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_license_conversion_tasks)
         """
     def list_license_manager_report_generators(
@@ -535,7 +537,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists the report generators for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_license_manager_report_generators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_license_manager_report_generators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_license_manager_report_generators)
         """
     def list_license_specifications_for_resource(
@@ -544,7 +546,7 @@ class LicenseManagerClient(BaseClient):
         """
         Describes the license configurations for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_license_specifications_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_license_specifications_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_license_specifications_for_resource)
         """
     def list_license_versions(
@@ -553,7 +555,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists all versions of the specified license.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_license_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_license_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_license_versions)
         """
     def list_licenses(
@@ -567,7 +569,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists the licenses for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_licenses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_licenses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_licenses)
         """
     def list_received_grants(
@@ -581,8 +583,22 @@ class LicenseManagerClient(BaseClient):
         """
         Lists grants that are received but not accepted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_received_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_received_grants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_received_grants)
+        """
+    def list_received_grants_for_organization(
+        self,
+        *,
+        LicenseArn: str,
+        Filters: List["FilterTypeDef"] = None,
+        NextToken: str = None,
+        MaxResults: int = None
+    ) -> ListReceivedGrantsForOrganizationResponseTypeDef:
+        """
+        Lists the grants received for all accounts in the organization.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_received_grants_for_organization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_received_grants_for_organization)
         """
     def list_received_licenses(
         self,
@@ -595,8 +611,21 @@ class LicenseManagerClient(BaseClient):
         """
         Lists received licenses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_received_licenses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_received_licenses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_received_licenses)
+        """
+    def list_received_licenses_for_organization(
+        self,
+        *,
+        Filters: List["FilterTypeDef"] = None,
+        NextToken: str = None,
+        MaxResults: int = None
+    ) -> ListReceivedLicensesForOrganizationResponseTypeDef:
+        """
+        Lists the licenses received for all accounts in the organization.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_received_licenses_for_organization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_received_licenses_for_organization)
         """
     def list_resource_inventory(
         self,
@@ -608,14 +637,14 @@ class LicenseManagerClient(BaseClient):
         """
         Lists resources managed using Systems Manager inventory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_resource_inventory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_resource_inventory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_resource_inventory)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for the specified license configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_tags_for_resource)
         """
     def list_tokens(
@@ -629,7 +658,7 @@ class LicenseManagerClient(BaseClient):
         """
         Lists your tokens.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_tokens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_tokens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_tokens)
         """
     def list_usage_for_license_configuration(
@@ -644,28 +673,28 @@ class LicenseManagerClient(BaseClient):
         Lists all license usage records for a license configuration, displaying license
         consumption details by resource at a selected point in time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.list_usage_for_license_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.list_usage_for_license_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#list_usage_for_license_configuration)
         """
     def reject_grant(self, *, GrantArn: str) -> RejectGrantResponseTypeDef:
         """
         Rejects the specified grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.reject_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.reject_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#reject_grant)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds the specified tags to the specified license configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes the specified tags from the specified license configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#untag_resource)
         """
     def update_license_configuration(
@@ -684,7 +713,7 @@ class LicenseManagerClient(BaseClient):
         """
         Modifies the attributes of an existing license configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.update_license_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.update_license_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#update_license_configuration)
         """
     def update_license_manager_report_generator(
@@ -701,7 +730,7 @@ class LicenseManagerClient(BaseClient):
         """
         Updates a report generator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.update_license_manager_report_generator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.update_license_manager_report_generator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#update_license_manager_report_generator)
         """
     def update_license_specifications_for_resource(
@@ -715,7 +744,7 @@ class LicenseManagerClient(BaseClient):
         Adds or removes the specified license configurations for the specified Amazon
         Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.update_license_specifications_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.update_license_specifications_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#update_license_specifications_for_resource)
         """
     def update_service_settings(
@@ -729,7 +758,7 @@ class LicenseManagerClient(BaseClient):
         """
         Updates License Manager settings for the current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Client.update_service_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Client.update_service_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/client.html#update_service_settings)
         """
     @overload
@@ -737,7 +766,7 @@ class LicenseManagerClient(BaseClient):
         self, operation_name: Literal["list_associations_for_license_configuration"]
     ) -> ListAssociationsForLicenseConfigurationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Paginator.ListAssociationsForLicenseConfiguration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Paginator.ListAssociationsForLicenseConfiguration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/paginators.html#listassociationsforlicenseconfigurationpaginator)
         """
     @overload
@@ -745,7 +774,7 @@ class LicenseManagerClient(BaseClient):
         self, operation_name: Literal["list_license_configurations"]
     ) -> ListLicenseConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/paginators.html#listlicenseconfigurationspaginator)
         """
     @overload
@@ -753,7 +782,7 @@ class LicenseManagerClient(BaseClient):
         self, operation_name: Literal["list_license_specifications_for_resource"]
     ) -> ListLicenseSpecificationsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseSpecificationsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseSpecificationsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/paginators.html#listlicensespecificationsforresourcepaginator)
         """
     @overload
@@ -761,7 +790,7 @@ class LicenseManagerClient(BaseClient):
         self, operation_name: Literal["list_resource_inventory"]
     ) -> ListResourceInventoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Paginator.ListResourceInventory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Paginator.ListResourceInventory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/paginators.html#listresourceinventorypaginator)
         """
     @overload
@@ -769,6 +798,6 @@ class LicenseManagerClient(BaseClient):
         self, operation_name: Literal["list_usage_for_license_configuration"]
     ) -> ListUsageForLicenseConfigurationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/license-manager.html#LicenseManager.Paginator.ListUsageForLicenseConfiguration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/license-manager.html#LicenseManager.Paginator.ListUsageForLicenseConfiguration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager/paginators.html#listusageforlicenseconfigurationpaginator)
         """

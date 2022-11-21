@@ -568,9 +568,15 @@ CmfcScte35SourceType = Literal["NONE", "PASSTHROUGH"]
 CmfcTimedMetadataType = Literal["NONE", "PASSTHROUGH"]
 ColorMetadataType = Literal["IGNORE", "INSERT"]
 ColorSpaceConversionType = Literal[
-    "FORCE_601", "FORCE_709", "FORCE_HDR10", "FORCE_HLG_2020", "NONE"
+    "FORCE_601",
+    "FORCE_709",
+    "FORCE_HDR10",
+    "FORCE_HLG_2020",
+    "FORCE_P3D65_SDR",
+    "FORCE_P3DCI",
+    "NONE",
 ]
-ColorSpaceType = Literal["FOLLOW", "HDR10", "HLG_2020", "REC_601", "REC_709"]
+ColorSpaceType = Literal["FOLLOW", "HDR10", "HLG_2020", "P3D65_SDR", "P3DCI", "REC_601", "REC_709"]
 ColorSpaceUsageType = Literal["FALLBACK", "FORCE"]
 CommitmentType = Literal["ONE_YEAR"]
 ContainerTypeType = Literal[

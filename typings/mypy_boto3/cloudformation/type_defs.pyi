@@ -50,6 +50,7 @@ from .literals import (
     StackDriftDetectionStatusType,
     StackDriftStatusType,
     StackInstanceDetailedStatusType,
+    StackInstanceFilterNameType,
     StackInstanceStatusType,
     StackResourceDriftStatusType,
     StackSetDriftDetectionStatusType,
@@ -185,6 +186,7 @@ __all__ = (
     "LoggingConfigTypeDef",
     "ManagedExecutionTypeDef",
     "ModuleInfoTypeDef",
+    "OperationResultFilterTypeDef",
     "OutputTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterConstraintsTypeDef",
@@ -236,6 +238,7 @@ __all__ = (
     "StackSetDriftDetectionDetailsTypeDef",
     "StackSetOperationPreferencesTypeDef",
     "StackSetOperationResultSummaryTypeDef",
+    "StackSetOperationStatusDetailsTypeDef",
     "StackSetOperationSummaryTypeDef",
     "StackSetOperationTypeDef",
     "StackSetSummaryTypeDef",
@@ -1537,6 +1540,7 @@ _OptionalListStackSetOperationResultsInputRequestTypeDef = TypedDict(
         "NextToken": str,
         "MaxResults": int,
         "CallAs": CallAsType,
+        "Filters": List["OperationResultFilterTypeDef"],
     },
     total=False,
 )
@@ -1714,6 +1718,15 @@ ModuleInfoTypeDef = TypedDict(
     {
         "TypeHierarchy": str,
         "LogicalIdHierarchy": str,
+    },
+    total=False,
+)
+
+OperationResultFilterTypeDef = TypedDict(
+    "OperationResultFilterTypeDef",
+    {
+        "Name": Literal["OPERATION_RESULT_STATUS"],
+        "Values": str,
     },
     total=False,
 )
@@ -2186,7 +2199,7 @@ StackInstanceComprehensiveStatusTypeDef = TypedDict(
 StackInstanceFilterTypeDef = TypedDict(
     "StackInstanceFilterTypeDef",
     {
-        "Name": Literal["DETAILED_STATUS"],
+        "Name": StackInstanceFilterNameType,
         "Values": str,
     },
     total=False,
@@ -2205,6 +2218,7 @@ StackInstanceSummaryTypeDef = TypedDict(
         "OrganizationalUnitId": str,
         "DriftStatus": StackDriftStatusType,
         "LastDriftCheckTimestamp": datetime,
+        "LastOperationId": str,
     },
     total=False,
 )
@@ -2223,6 +2237,7 @@ StackInstanceTypeDef = TypedDict(
         "OrganizationalUnitId": str,
         "DriftStatus": StackDriftStatusType,
         "LastDriftCheckTimestamp": datetime,
+        "LastOperationId": str,
     },
     total=False,
 )
@@ -2422,6 +2437,14 @@ StackSetOperationResultSummaryTypeDef = TypedDict(
     total=False,
 )
 
+StackSetOperationStatusDetailsTypeDef = TypedDict(
+    "StackSetOperationStatusDetailsTypeDef",
+    {
+        "FailedStackInstancesCount": int,
+    },
+    total=False,
+)
+
 StackSetOperationSummaryTypeDef = TypedDict(
     "StackSetOperationSummaryTypeDef",
     {
@@ -2431,6 +2454,8 @@ StackSetOperationSummaryTypeDef = TypedDict(
         "CreationTimestamp": datetime,
         "EndTimestamp": datetime,
         "StatusReason": str,
+        "StatusDetails": "StackSetOperationStatusDetailsTypeDef",
+        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
     },
     total=False,
 )
@@ -2451,6 +2476,7 @@ StackSetOperationTypeDef = TypedDict(
         "DeploymentTargets": "DeploymentTargetsTypeDef",
         "StackSetDriftDetectionDetails": "StackSetDriftDetectionDetailsTypeDef",
         "StatusReason": str,
+        "StatusDetails": "StackSetOperationStatusDetailsTypeDef",
     },
     total=False,
 )

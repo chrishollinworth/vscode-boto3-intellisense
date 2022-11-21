@@ -56,6 +56,7 @@ __all__ = (
     "ListStacksPaginatorName",
     "ListTypesPaginatorName",
     "OnFailureType",
+    "OperationResultFilterNameType",
     "OperationStatusType",
     "PermissionModelsType",
     "ProvisioningTypeType",
@@ -156,6 +157,7 @@ HandlerErrorCodeType = Literal[
     "ServiceLimitExceeded",
     "Throttling",
     "Unknown",
+    "UnsupportedTarget",
 ]
 HookFailureModeType = Literal["FAIL", "WARN"]
 HookInvocationPointType = Literal["PRE_PROVISION"]
@@ -175,6 +177,7 @@ ListStackSetsPaginatorName = Literal["list_stack_sets"]
 ListStacksPaginatorName = Literal["list_stacks"]
 ListTypesPaginatorName = Literal["list_types"]
 OnFailureType = Literal["DELETE", "DO_NOTHING", "ROLLBACK"]
+OperationResultFilterNameType = Literal["OPERATION_RESULT_STATUS"]
 OperationStatusType = Literal["FAILED", "IN_PROGRESS", "PENDING", "SUCCESS"]
 PermissionModelsType = Literal["SELF_MANAGED", "SERVICE_MANAGED"]
 ProvisioningTypeType = Literal["FULLY_MUTABLE", "IMMUTABLE", "NON_PROVISIONABLE"]
@@ -225,7 +228,7 @@ StackImportCompleteWaiterName = Literal["stack_import_complete"]
 StackInstanceDetailedStatusType = Literal[
     "CANCELLED", "FAILED", "INOPERABLE", "PENDING", "RUNNING", "SUCCEEDED"
 ]
-StackInstanceFilterNameType = Literal["DETAILED_STATUS"]
+StackInstanceFilterNameType = Literal["DETAILED_STATUS", "LAST_OPERATION_ID"]
 StackInstanceStatusType = Literal["CURRENT", "INOPERABLE", "OUTDATED"]
 StackResourceDriftStatusType = Literal["DELETED", "IN_SYNC", "MODIFIED", "NOT_CHECKED"]
 StackRollbackCompleteWaiterName = Literal["stack_rollback_complete"]

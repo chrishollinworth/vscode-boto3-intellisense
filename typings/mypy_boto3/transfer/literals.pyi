@@ -66,7 +66,7 @@ CertificateUsageTypeType = Literal["ENCRYPTION", "SIGNING"]
 CompressionEnumType = Literal["DISABLED", "ZLIB"]
 CustomStepStatusType = Literal["FAILURE", "SUCCESS"]
 DomainType = Literal["EFS", "S3"]
-EncryptionAlgType = Literal["AES128_CBC", "AES192_CBC", "AES256_CBC"]
+EncryptionAlgType = Literal["AES128_CBC", "AES192_CBC", "AES256_CBC", "NONE"]
 EndpointTypeType = Literal["PUBLIC", "VPC", "VPC_ENDPOINT"]
 ExecutionErrorTypeType = Literal[
     "ALREADY_EXISTS",

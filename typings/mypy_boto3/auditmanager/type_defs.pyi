@@ -25,6 +25,8 @@ from .literals import (
     ControlStatusType,
     ControlTypeType,
     DelegationStatusType,
+    EvidenceFinderBackfillStatusType,
+    EvidenceFinderEnablementStatusType,
     FrameworkTypeType,
     ObjectTypeEnumType,
     RoleTypeType,
@@ -107,6 +109,7 @@ __all__ = (
     "DeregisterAccountResponseTypeDef",
     "DeregisterOrganizationAdminAccountRequestRequestTypeDef",
     "DisassociateAssessmentReportEvidenceFolderRequestRequestTypeDef",
+    "EvidenceFinderEnablementTypeDef",
     "EvidenceInsightsTypeDef",
     "EvidenceTypeDef",
     "FrameworkMetadataTypeDef",
@@ -738,6 +741,7 @@ _OptionalCreateAssessmentReportRequestRequestTypeDef = TypedDict(
     "_OptionalCreateAssessmentReportRequestRequestTypeDef",
     {
         "description": str,
+        "queryStatement": str,
     },
     total=False,
 )
@@ -936,6 +940,17 @@ DisassociateAssessmentReportEvidenceFolderRequestRequestTypeDef = TypedDict(
         "assessmentId": str,
         "evidenceFolderId": str,
     },
+)
+
+EvidenceFinderEnablementTypeDef = TypedDict(
+    "EvidenceFinderEnablementTypeDef",
+    {
+        "eventDataStoreArn": str,
+        "enablementStatus": EvidenceFinderEnablementStatusType,
+        "backfillStatus": EvidenceFinderBackfillStatusType,
+        "error": str,
+    },
+    total=False,
 )
 
 EvidenceInsightsTypeDef = TypedDict(
@@ -1691,6 +1706,7 @@ ResourceTypeDef = TypedDict(
     {
         "arn": str,
         "value": str,
+        "complianceCheck": str,
     },
     total=False,
 )
@@ -1742,6 +1758,7 @@ SettingsTypeDef = TypedDict(
         "defaultAssessmentReportsDestination": "AssessmentReportsDestinationTypeDef",
         "defaultProcessOwners": List["RoleTypeDef"],
         "kmsKey": str,
+        "evidenceFinderEnablement": "EvidenceFinderEnablementTypeDef",
     },
     total=False,
 )
@@ -2014,6 +2031,7 @@ UpdateSettingsRequestRequestTypeDef = TypedDict(
         "defaultAssessmentReportsDestination": "AssessmentReportsDestinationTypeDef",
         "defaultProcessOwners": List["RoleTypeDef"],
         "kmsKey": str,
+        "evidenceFinderEnabled": bool,
     },
     total=False,
 )

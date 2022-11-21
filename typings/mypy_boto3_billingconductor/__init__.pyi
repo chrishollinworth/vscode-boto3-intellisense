@@ -11,6 +11,7 @@ Usage::
         ListAccountAssociationsPaginator,
         ListBillingGroupCostReportsPaginator,
         ListBillingGroupsPaginator,
+        ListCustomLineItemVersionsPaginator,
         ListCustomLineItemsPaginator,
         ListPricingPlansAssociatedWithPricingRulePaginator,
         ListPricingPlansPaginator,
@@ -27,6 +28,7 @@ Usage::
     list_account_associations_paginator: ListAccountAssociationsPaginator = client.get_paginator("list_account_associations")
     list_billing_group_cost_reports_paginator: ListBillingGroupCostReportsPaginator = client.get_paginator("list_billing_group_cost_reports")
     list_billing_groups_paginator: ListBillingGroupsPaginator = client.get_paginator("list_billing_groups")
+    list_custom_line_item_versions_paginator: ListCustomLineItemVersionsPaginator = client.get_paginator("list_custom_line_item_versions")
     list_custom_line_items_paginator: ListCustomLineItemsPaginator = client.get_paginator("list_custom_line_items")
     list_pricing_plans_paginator: ListPricingPlansPaginator = client.get_paginator("list_pricing_plans")
     list_pricing_plans_associated_with_pricing_rule_paginator: ListPricingPlansAssociatedWithPricingRulePaginator = client.get_paginator("list_pricing_plans_associated_with_pricing_rule")
@@ -41,6 +43,7 @@ from .paginator import (
     ListBillingGroupCostReportsPaginator,
     ListBillingGroupsPaginator,
     ListCustomLineItemsPaginator,
+    ListCustomLineItemVersionsPaginator,
     ListPricingPlansAssociatedWithPricingRulePaginator,
     ListPricingPlansPaginator,
     ListPricingRulesAssociatedToPricingPlanPaginator,
@@ -56,6 +59,7 @@ __all__ = (
     "ListAccountAssociationsPaginator",
     "ListBillingGroupCostReportsPaginator",
     "ListBillingGroupsPaginator",
+    "ListCustomLineItemVersionsPaginator",
     "ListCustomLineItemsPaginator",
     "ListPricingPlansAssociatedWithPricingRulePaginator",
     "ListPricingPlansPaginator",

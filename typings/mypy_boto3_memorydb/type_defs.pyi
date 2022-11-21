@@ -15,7 +15,13 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import AuthenticationTypeType, AZStatusType, ServiceUpdateStatusType, SourceTypeType
+from .literals import (
+    AuthenticationTypeType,
+    AZStatusType,
+    DataTieringStatusType,
+    ServiceUpdateStatusType,
+    SourceTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -279,6 +285,7 @@ ClusterTypeDef = TypedDict(
         "SnapshotWindow": str,
         "ACLName": str,
         "AutoMinorVersionUpgrade": bool,
+        "DataTiering": DataTieringStatusType,
     },
     total=False,
 )
@@ -370,6 +377,7 @@ _OptionalCreateClusterRequestRequestTypeDef = TypedDict(
         "SnapshotWindow": str,
         "EngineVersion": str,
         "AutoMinorVersionUpgrade": bool,
+        "DataTiering": bool,
     },
     total=False,
 )
@@ -1104,6 +1112,7 @@ SnapshotTypeDef = TypedDict(
         "KmsKeyId": str,
         "ARN": str,
         "ClusterConfiguration": "ClusterConfigurationTypeDef",
+        "DataTiering": DataTieringStatusType,
     },
     total=False,
 )

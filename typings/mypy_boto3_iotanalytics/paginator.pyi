@@ -50,7 +50,7 @@ __all__ = (
 
 class ListChannelsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listchannelspaginator)
     """
 
@@ -58,13 +58,13 @@ class ListChannelsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListChannelsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listchannelspaginator)
         """
 
 class ListDatasetContentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatasetcontentspaginator)
     """
 
@@ -77,13 +77,13 @@ class ListDatasetContentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetContentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatasetcontentspaginator)
         """
 
 class ListDatasetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatasetspaginator)
     """
 
@@ -91,13 +91,13 @@ class ListDatasetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatasetspaginator)
         """
 
 class ListDatastoresPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatastorespaginator)
     """
 
@@ -105,13 +105,13 @@ class ListDatastoresPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatastoresResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatastorespaginator)
         """
 
 class ListPipelinesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listpipelinespaginator)
     """
 
@@ -119,6 +119,6 @@ class ListPipelinesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelinesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listpipelinespaginator)
         """

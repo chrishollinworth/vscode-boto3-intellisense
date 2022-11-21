@@ -299,6 +299,7 @@ _OptionalAppSummaryTypeDef = TypedDict(
         "complianceStatus": AppComplianceStatusTypeType,
         "description": str,
         "resiliencyScore": float,
+        "status": AppStatusTypeType,
     },
     total=False,
 )

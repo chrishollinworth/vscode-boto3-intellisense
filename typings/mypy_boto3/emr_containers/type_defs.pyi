@@ -20,6 +20,7 @@ from .literals import (
     FailureReasonType,
     JobRunStateType,
     PersistentAppUIType,
+    TemplateParameterDataTypeType,
     VirtualClusterStateType,
 )
 
@@ -41,16 +42,22 @@ __all__ = (
     "ConfigurationTypeDef",
     "ContainerInfoTypeDef",
     "ContainerProviderTypeDef",
+    "CreateJobTemplateRequestRequestTypeDef",
+    "CreateJobTemplateResponseTypeDef",
     "CreateManagedEndpointRequestRequestTypeDef",
     "CreateManagedEndpointResponseTypeDef",
     "CreateVirtualClusterRequestRequestTypeDef",
     "CreateVirtualClusterResponseTypeDef",
+    "DeleteJobTemplateRequestRequestTypeDef",
+    "DeleteJobTemplateResponseTypeDef",
     "DeleteManagedEndpointRequestRequestTypeDef",
     "DeleteManagedEndpointResponseTypeDef",
     "DeleteVirtualClusterRequestRequestTypeDef",
     "DeleteVirtualClusterResponseTypeDef",
     "DescribeJobRunRequestRequestTypeDef",
     "DescribeJobRunResponseTypeDef",
+    "DescribeJobTemplateRequestRequestTypeDef",
+    "DescribeJobTemplateResponseTypeDef",
     "DescribeManagedEndpointRequestRequestTypeDef",
     "DescribeManagedEndpointResponseTypeDef",
     "DescribeVirtualClusterRequestRequestTypeDef",
@@ -59,8 +66,12 @@ __all__ = (
     "EndpointTypeDef",
     "JobDriverTypeDef",
     "JobRunTypeDef",
+    "JobTemplateDataTypeDef",
+    "JobTemplateTypeDef",
     "ListJobRunsRequestRequestTypeDef",
     "ListJobRunsResponseTypeDef",
+    "ListJobTemplatesRequestRequestTypeDef",
+    "ListJobTemplatesResponseTypeDef",
     "ListManagedEndpointsRequestRequestTypeDef",
     "ListManagedEndpointsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -69,6 +80,10 @@ __all__ = (
     "ListVirtualClustersResponseTypeDef",
     "MonitoringConfigurationTypeDef",
     "PaginatorConfigTypeDef",
+    "ParametricCloudWatchMonitoringConfigurationTypeDef",
+    "ParametricConfigurationOverridesTypeDef",
+    "ParametricMonitoringConfigurationTypeDef",
+    "ParametricS3MonitoringConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "S3MonitoringConfigurationTypeDef",
     "SparkSqlJobDriverTypeDef",
@@ -76,6 +91,7 @@ __all__ = (
     "StartJobRunRequestRequestTypeDef",
     "StartJobRunResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TemplateParameterConfigurationTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "VirtualClusterTypeDef",
 )
@@ -181,6 +197,39 @@ class ContainerProviderTypeDef(
 ):
     pass
 
+_RequiredCreateJobTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateJobTemplateRequestRequestTypeDef",
+    {
+        "name": str,
+        "clientToken": str,
+        "jobTemplateData": "JobTemplateDataTypeDef",
+    },
+)
+_OptionalCreateJobTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateJobTemplateRequestRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+        "kmsKeyArn": str,
+    },
+    total=False,
+)
+
+class CreateJobTemplateRequestRequestTypeDef(
+    _RequiredCreateJobTemplateRequestRequestTypeDef, _OptionalCreateJobTemplateRequestRequestTypeDef
+):
+    pass
+
+CreateJobTemplateResponseTypeDef = TypedDict(
+    "CreateJobTemplateResponseTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "createdAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateManagedEndpointRequestRequestTypeDef = TypedDict(
     "_RequiredCreateManagedEndpointRequestRequestTypeDef",
     {
@@ -251,6 +300,21 @@ CreateVirtualClusterResponseTypeDef = TypedDict(
     },
 )
 
+DeleteJobTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteJobTemplateRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+DeleteJobTemplateResponseTypeDef = TypedDict(
+    "DeleteJobTemplateResponseTypeDef",
+    {
+        "id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteManagedEndpointRequestRequestTypeDef = TypedDict(
     "DeleteManagedEndpointRequestRequestTypeDef",
     {
@@ -295,6 +359,21 @@ DescribeJobRunResponseTypeDef = TypedDict(
     "DescribeJobRunResponseTypeDef",
     {
         "jobRun": "JobRunTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeJobTemplateRequestRequestTypeDef = TypedDict(
+    "DescribeJobTemplateRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+DescribeJobTemplateResponseTypeDef = TypedDict(
+    "DescribeJobTemplateResponseTypeDef",
+    {
+        "jobTemplate": "JobTemplateTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -395,6 +474,51 @@ JobRunTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredJobTemplateDataTypeDef = TypedDict(
+    "_RequiredJobTemplateDataTypeDef",
+    {
+        "executionRoleArn": str,
+        "releaseLabel": str,
+        "jobDriver": "JobDriverTypeDef",
+    },
+)
+_OptionalJobTemplateDataTypeDef = TypedDict(
+    "_OptionalJobTemplateDataTypeDef",
+    {
+        "configurationOverrides": "ParametricConfigurationOverridesTypeDef",
+        "parameterConfiguration": Dict[str, "TemplateParameterConfigurationTypeDef"],
+        "jobTags": Dict[str, str],
+    },
+    total=False,
+)
+
+class JobTemplateDataTypeDef(_RequiredJobTemplateDataTypeDef, _OptionalJobTemplateDataTypeDef):
+    pass
+
+_RequiredJobTemplateTypeDef = TypedDict(
+    "_RequiredJobTemplateTypeDef",
+    {
+        "jobTemplateData": "JobTemplateDataTypeDef",
+    },
+)
+_OptionalJobTemplateTypeDef = TypedDict(
+    "_OptionalJobTemplateTypeDef",
+    {
+        "name": str,
+        "id": str,
+        "arn": str,
+        "createdAt": datetime,
+        "createdBy": str,
+        "tags": Dict[str, str],
+        "kmsKeyArn": str,
+        "decryptionError": str,
+    },
+    total=False,
+)
+
+class JobTemplateTypeDef(_RequiredJobTemplateTypeDef, _OptionalJobTemplateTypeDef):
+    pass
+
 _RequiredListJobRunsRequestRequestTypeDef = TypedDict(
     "_RequiredListJobRunsRequestRequestTypeDef",
     {
@@ -423,6 +547,26 @@ ListJobRunsResponseTypeDef = TypedDict(
     "ListJobRunsResponseTypeDef",
     {
         "jobRuns": List["JobRunTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListJobTemplatesRequestRequestTypeDef = TypedDict(
+    "ListJobTemplatesRequestRequestTypeDef",
+    {
+        "createdAfter": Union[datetime, str],
+        "createdBefore": Union[datetime, str],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListJobTemplatesResponseTypeDef = TypedDict(
+    "ListJobTemplatesResponseTypeDef",
+    {
+        "templates": List["JobTemplateTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -520,6 +664,42 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+ParametricCloudWatchMonitoringConfigurationTypeDef = TypedDict(
+    "ParametricCloudWatchMonitoringConfigurationTypeDef",
+    {
+        "logGroupName": str,
+        "logStreamNamePrefix": str,
+    },
+    total=False,
+)
+
+ParametricConfigurationOverridesTypeDef = TypedDict(
+    "ParametricConfigurationOverridesTypeDef",
+    {
+        "applicationConfiguration": List["ConfigurationTypeDef"],
+        "monitoringConfiguration": "ParametricMonitoringConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ParametricMonitoringConfigurationTypeDef = TypedDict(
+    "ParametricMonitoringConfigurationTypeDef",
+    {
+        "persistentAppUI": str,
+        "cloudWatchMonitoringConfiguration": "ParametricCloudWatchMonitoringConfigurationTypeDef",
+        "s3MonitoringConfiguration": "ParametricS3MonitoringConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ParametricS3MonitoringConfigurationTypeDef = TypedDict(
+    "ParametricS3MonitoringConfigurationTypeDef",
+    {
+        "logUri": str,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -572,17 +752,19 @@ _RequiredStartJobRunRequestRequestTypeDef = TypedDict(
     {
         "virtualClusterId": str,
         "clientToken": str,
-        "executionRoleArn": str,
-        "releaseLabel": str,
-        "jobDriver": "JobDriverTypeDef",
     },
 )
 _OptionalStartJobRunRequestRequestTypeDef = TypedDict(
     "_OptionalStartJobRunRequestRequestTypeDef",
     {
         "name": str,
+        "executionRoleArn": str,
+        "releaseLabel": str,
+        "jobDriver": "JobDriverTypeDef",
         "configurationOverrides": "ConfigurationOverridesTypeDef",
         "tags": Dict[str, str],
+        "jobTemplateId": str,
+        "jobTemplateParameters": Dict[str, str],
     },
     total=False,
 )
@@ -609,6 +791,15 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "resourceArn": str,
         "tags": Dict[str, str],
     },
+)
+
+TemplateParameterConfigurationTypeDef = TypedDict(
+    "TemplateParameterConfigurationTypeDef",
+    {
+        "type": TemplateParameterDataTypeType,
+        "defaultValue": str,
+    },
+    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(

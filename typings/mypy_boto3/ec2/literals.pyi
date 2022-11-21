@@ -26,6 +26,7 @@ __all__ = (
     "ActivityStatusType",
     "AddressAttributeNameType",
     "AddressFamilyType",
+    "AddressTransferStatusType",
     "AffinityType",
     "AllocationStateType",
     "AllocationStrategyType",
@@ -85,6 +86,7 @@ __all__ = (
     "DefaultTargetCapacityTypeType",
     "DeleteFleetErrorCodeType",
     "DeleteQueuedReservedInstancesErrorCodeType",
+    "DescribeAddressTransfersPaginatorName",
     "DescribeAddressesAttributePaginatorName",
     "DescribeByoipCidrsPaginatorName",
     "DescribeCapacityReservationFleetsPaginatorName",
@@ -472,6 +474,7 @@ AccountAttributeNameType = Literal["default-vpc", "supported-platforms"]
 ActivityStatusType = Literal["error", "fulfilled", "pending_fulfillment", "pending_termination"]
 AddressAttributeNameType = Literal["domain-name"]
 AddressFamilyType = Literal["ipv4", "ipv6"]
+AddressTransferStatusType = Literal["accepted", "disabled", "pending"]
 AffinityType = Literal["default", "host"]
 AllocationStateType = Literal[
     "available",
@@ -482,14 +485,18 @@ AllocationStateType = Literal[
     "under-assessment",
 ]
 AllocationStrategyType = Literal[
-    "capacityOptimized", "capacityOptimizedPrioritized", "diversified", "lowestPrice"
+    "capacityOptimized",
+    "capacityOptimizedPrioritized",
+    "diversified",
+    "lowestPrice",
+    "priceCapacityOptimized",
 ]
 AllocationTypeType = Literal["used"]
 AllowsMultipleInstanceTypesType = Literal["off", "on"]
 AnalysisStatusType = Literal["failed", "running", "succeeded"]
 ApplianceModeSupportValueType = Literal["disable", "enable"]
-ArchitectureTypeType = Literal["arm64", "i386", "x86_64", "x86_64_mac"]
-ArchitectureValuesType = Literal["arm64", "i386", "x86_64", "x86_64_mac"]
+ArchitectureTypeType = Literal["arm64", "arm64_mac", "i386", "x86_64", "x86_64_mac"]
+ArchitectureValuesType = Literal["arm64", "arm64_mac", "i386", "x86_64", "x86_64_mac"]
 AssociatedNetworkTypeType = Literal["vpc"]
 AssociationStatusCodeType = Literal[
     "associated", "associating", "association-failed", "disassociated", "disassociating"
@@ -602,6 +609,7 @@ DeleteFleetErrorCodeType = Literal[
 DeleteQueuedReservedInstancesErrorCodeType = Literal[
     "reserved-instances-id-invalid", "reserved-instances-not-in-queued-state", "unexpected-error"
 ]
+DescribeAddressTransfersPaginatorName = Literal["describe_address_transfers"]
 DescribeAddressesAttributePaginatorName = Literal["describe_addresses_attribute"]
 DescribeByoipCidrsPaginatorName = Literal["describe_byoip_cidrs"]
 DescribeCapacityReservationFleetsPaginatorName = Literal["describe_capacity_reservation_fleets"]
@@ -1419,9 +1427,13 @@ InstanceTypeType = Literal[
     "t4g.nano",
     "t4g.small",
     "t4g.xlarge",
+    "trn1.2xlarge",
+    "trn1.32xlarge",
     "u-12tb1.112xlarge",
     "u-12tb1.metal",
+    "u-18tb1.112xlarge",
     "u-18tb1.metal",
+    "u-24tb1.112xlarge",
     "u-24tb1.metal",
     "u-3tb1.56xlarge",
     "u-6tb1.112xlarge",
@@ -1768,7 +1780,11 @@ SnapshotAttributeNameType = Literal["createVolumePermission", "productCodes"]
 SnapshotCompletedWaiterName = Literal["snapshot_completed"]
 SnapshotStateType = Literal["completed", "error", "pending", "recoverable", "recovering"]
 SpotAllocationStrategyType = Literal[
-    "capacity-optimized", "capacity-optimized-prioritized", "diversified", "lowest-price"
+    "capacity-optimized",
+    "capacity-optimized-prioritized",
+    "diversified",
+    "lowest-price",
+    "price-capacity-optimized",
 ]
 SpotInstanceInterruptionBehaviorType = Literal["hibernate", "stop", "terminate"]
 SpotInstanceRequestFulfilledWaiterName = Literal["spot_instance_request_fulfilled"]

@@ -58,6 +58,7 @@ __all__ = (
     "CustomLineItemFlatChargeDetailsTypeDef",
     "CustomLineItemListElementTypeDef",
     "CustomLineItemPercentageChargeDetailsTypeDef",
+    "CustomLineItemVersionListElementTypeDef",
     "DeleteBillingGroupInputRequestTypeDef",
     "DeleteBillingGroupOutputTypeDef",
     "DeleteCustomLineItemInputRequestTypeDef",
@@ -83,6 +84,10 @@ __all__ = (
     "ListCustomLineItemChargeDetailsTypeDef",
     "ListCustomLineItemFlatChargeDetailsTypeDef",
     "ListCustomLineItemPercentageChargeDetailsTypeDef",
+    "ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef",
+    "ListCustomLineItemVersionsFilterTypeDef",
+    "ListCustomLineItemVersionsInputRequestTypeDef",
+    "ListCustomLineItemVersionsOutputTypeDef",
     "ListCustomLineItemsFilterTypeDef",
     "ListCustomLineItemsInputRequestTypeDef",
     "ListCustomLineItemsOutputTypeDef",
@@ -397,6 +402,7 @@ _OptionalCreatePricingRuleInputRequestTypeDef = TypedDict(
         "Description": str,
         "Service": str,
         "Tags": Dict[str, str],
+        "BillingEntity": str,
     },
     total=False,
 )
@@ -414,13 +420,25 @@ CreatePricingRuleOutputTypeDef = TypedDict(
     },
 )
 
-CustomLineItemBillingPeriodRangeTypeDef = TypedDict(
-    "CustomLineItemBillingPeriodRangeTypeDef",
+_RequiredCustomLineItemBillingPeriodRangeTypeDef = TypedDict(
+    "_RequiredCustomLineItemBillingPeriodRangeTypeDef",
     {
         "InclusiveStartBillingPeriod": str,
-        "ExclusiveEndBillingPeriod": str,
     },
 )
+_OptionalCustomLineItemBillingPeriodRangeTypeDef = TypedDict(
+    "_OptionalCustomLineItemBillingPeriodRangeTypeDef",
+    {
+        "ExclusiveEndBillingPeriod": str,
+    },
+    total=False,
+)
+
+class CustomLineItemBillingPeriodRangeTypeDef(
+    _RequiredCustomLineItemBillingPeriodRangeTypeDef,
+    _OptionalCustomLineItemBillingPeriodRangeTypeDef,
+):
+    pass
 
 _RequiredCustomLineItemChargeDetailsTypeDef = TypedDict(
     "_RequiredCustomLineItemChargeDetailsTypeDef",
@@ -485,6 +503,24 @@ class CustomLineItemPercentageChargeDetailsTypeDef(
     _OptionalCustomLineItemPercentageChargeDetailsTypeDef,
 ):
     pass
+
+CustomLineItemVersionListElementTypeDef = TypedDict(
+    "CustomLineItemVersionListElementTypeDef",
+    {
+        "Name": str,
+        "ChargeDetails": "ListCustomLineItemChargeDetailsTypeDef",
+        "CurrencyCode": CurrencyCodeType,
+        "Description": str,
+        "ProductCode": str,
+        "BillingGroupArn": str,
+        "CreationTime": int,
+        "LastModifiedTime": int,
+        "AssociationSize": int,
+        "StartBillingPeriod": str,
+        "EndBillingPeriod": str,
+    },
+    total=False,
+)
 
 DeleteBillingGroupInputRequestTypeDef = TypedDict(
     "DeleteBillingGroupInputRequestTypeDef",
@@ -719,6 +755,54 @@ ListCustomLineItemPercentageChargeDetailsTypeDef = TypedDict(
     },
 )
 
+ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef = TypedDict(
+    "ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef",
+    {
+        "StartBillingPeriod": str,
+        "EndBillingPeriod": str,
+    },
+    total=False,
+)
+
+ListCustomLineItemVersionsFilterTypeDef = TypedDict(
+    "ListCustomLineItemVersionsFilterTypeDef",
+    {
+        "BillingPeriodRange": "ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef",
+    },
+    total=False,
+)
+
+_RequiredListCustomLineItemVersionsInputRequestTypeDef = TypedDict(
+    "_RequiredListCustomLineItemVersionsInputRequestTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalListCustomLineItemVersionsInputRequestTypeDef = TypedDict(
+    "_OptionalListCustomLineItemVersionsInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": "ListCustomLineItemVersionsFilterTypeDef",
+    },
+    total=False,
+)
+
+class ListCustomLineItemVersionsInputRequestTypeDef(
+    _RequiredListCustomLineItemVersionsInputRequestTypeDef,
+    _OptionalListCustomLineItemVersionsInputRequestTypeDef,
+):
+    pass
+
+ListCustomLineItemVersionsOutputTypeDef = TypedDict(
+    "ListCustomLineItemVersionsOutputTypeDef",
+    {
+        "CustomLineItemVersions": List["CustomLineItemVersionListElementTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCustomLineItemsFilterTypeDef = TypedDict(
     "ListCustomLineItemsFilterTypeDef",
     {
@@ -921,6 +1005,7 @@ ListResourcesAssociatedToCustomLineItemResponseElementTypeDef = TypedDict(
     {
         "Arn": str,
         "Relationship": CustomLineItemRelationshipType,
+        "EndBillingPeriod": str,
     },
     total=False,
 )
@@ -976,6 +1061,7 @@ PricingRuleListElementTypeDef = TypedDict(
         "AssociatedPricingPlanCount": int,
         "CreationTime": int,
         "LastModifiedTime": int,
+        "BillingEntity": str,
     },
     total=False,
 )
@@ -1171,6 +1257,7 @@ UpdatePricingRuleOutputTypeDef = TypedDict(
         "Service": str,
         "AssociatedPricingPlanCount": int,
         "LastModifiedTime": int,
+        "BillingEntity": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

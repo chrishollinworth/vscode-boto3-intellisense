@@ -47,11 +47,14 @@ __all__ = (
     "ApiAssociationTypeDef",
     "ApiCacheTypeDef",
     "ApiKeyTypeDef",
+    "AppSyncRuntimeTypeDef",
     "AssociateApiRequestRequestTypeDef",
     "AssociateApiResponseTypeDef",
     "AuthorizationConfigTypeDef",
     "AwsIamConfigTypeDef",
     "CachingConfigTypeDef",
+    "CodeErrorLocationTypeDef",
+    "CodeErrorTypeDef",
     "CognitoUserPoolConfigTypeDef",
     "CreateApiCacheRequestRequestTypeDef",
     "CreateApiCacheResponseTypeDef",
@@ -84,6 +87,9 @@ __all__ = (
     "DynamodbDataSourceConfigTypeDef",
     "ElasticsearchDataSourceConfigTypeDef",
     "ErrorDetailTypeDef",
+    "EvaluateCodeErrorDetailTypeDef",
+    "EvaluateCodeRequestRequestTypeDef",
+    "EvaluateCodeResponseTypeDef",
     "EvaluateMappingTemplateRequestRequestTypeDef",
     "EvaluateMappingTemplateResponseTypeDef",
     "FlushApiCacheRequestRequestTypeDef",
@@ -211,6 +217,14 @@ ApiKeyTypeDef = TypedDict(
     total=False,
 )
 
+AppSyncRuntimeTypeDef = TypedDict(
+    "AppSyncRuntimeTypeDef",
+    {
+        "name": Literal["APPSYNC_JS"],
+        "runtimeVersion": str,
+    },
+)
+
 AssociateApiRequestRequestTypeDef = TypedDict(
     "AssociateApiRequestRequestTypeDef",
     {
@@ -271,6 +285,26 @@ _OptionalCachingConfigTypeDef = TypedDict(
 
 class CachingConfigTypeDef(_RequiredCachingConfigTypeDef, _OptionalCachingConfigTypeDef):
     pass
+
+CodeErrorLocationTypeDef = TypedDict(
+    "CodeErrorLocationTypeDef",
+    {
+        "line": int,
+        "column": int,
+        "span": int,
+    },
+    total=False,
+)
+
+CodeErrorTypeDef = TypedDict(
+    "CodeErrorTypeDef",
+    {
+        "errorType": str,
+        "value": str,
+        "location": "CodeErrorLocationTypeDef",
+    },
+    total=False,
+)
 
 _RequiredCognitoUserPoolConfigTypeDef = TypedDict(
     "_RequiredCognitoUserPoolConfigTypeDef",
@@ -421,7 +455,6 @@ _RequiredCreateFunctionRequestRequestTypeDef = TypedDict(
         "apiId": str,
         "name": str,
         "dataSourceName": str,
-        "functionVersion": str,
     },
 )
 _OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
@@ -430,8 +463,11 @@ _OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
         "description": str,
         "requestMappingTemplate": str,
         "responseMappingTemplate": str,
+        "functionVersion": str,
         "syncConfig": "SyncConfigTypeDef",
         "maxBatchSize": int,
+        "runtime": "AppSyncRuntimeTypeDef",
+        "code": str,
     },
     total=False,
 )
@@ -502,6 +538,8 @@ _OptionalCreateResolverRequestRequestTypeDef = TypedDict(
         "syncConfig": "SyncConfigTypeDef",
         "cachingConfig": "CachingConfigTypeDef",
         "maxBatchSize": int,
+        "runtime": "AppSyncRuntimeTypeDef",
+        "code": str,
     },
     total=False,
 )
@@ -683,6 +721,46 @@ ErrorDetailTypeDef = TypedDict(
     total=False,
 )
 
+EvaluateCodeErrorDetailTypeDef = TypedDict(
+    "EvaluateCodeErrorDetailTypeDef",
+    {
+        "message": str,
+        "codeErrors": List["CodeErrorTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredEvaluateCodeRequestRequestTypeDef = TypedDict(
+    "_RequiredEvaluateCodeRequestRequestTypeDef",
+    {
+        "runtime": "AppSyncRuntimeTypeDef",
+        "code": str,
+        "context": str,
+    },
+)
+_OptionalEvaluateCodeRequestRequestTypeDef = TypedDict(
+    "_OptionalEvaluateCodeRequestRequestTypeDef",
+    {
+        "function": str,
+    },
+    total=False,
+)
+
+class EvaluateCodeRequestRequestTypeDef(
+    _RequiredEvaluateCodeRequestRequestTypeDef, _OptionalEvaluateCodeRequestRequestTypeDef
+):
+    pass
+
+EvaluateCodeResponseTypeDef = TypedDict(
+    "EvaluateCodeResponseTypeDef",
+    {
+        "evaluationResult": str,
+        "error": "EvaluateCodeErrorDetailTypeDef",
+        "logs": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 EvaluateMappingTemplateRequestRequestTypeDef = TypedDict(
     "EvaluateMappingTemplateRequestRequestTypeDef",
     {
@@ -696,6 +774,7 @@ EvaluateMappingTemplateResponseTypeDef = TypedDict(
     {
         "evaluationResult": str,
         "error": "ErrorDetailTypeDef",
+        "logs": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -720,6 +799,8 @@ FunctionConfigurationTypeDef = TypedDict(
         "functionVersion": str,
         "syncConfig": "SyncConfigTypeDef",
         "maxBatchSize": int,
+        "runtime": "AppSyncRuntimeTypeDef",
+        "code": str,
     },
     total=False,
 )
@@ -1288,6 +1369,8 @@ ResolverTypeDef = TypedDict(
         "syncConfig": "SyncConfigTypeDef",
         "cachingConfig": "CachingConfigTypeDef",
         "maxBatchSize": int,
+        "runtime": "AppSyncRuntimeTypeDef",
+        "code": str,
     },
     total=False,
 )
@@ -1474,7 +1557,6 @@ _RequiredUpdateFunctionRequestRequestTypeDef = TypedDict(
         "name": str,
         "functionId": str,
         "dataSourceName": str,
-        "functionVersion": str,
     },
 )
 _OptionalUpdateFunctionRequestRequestTypeDef = TypedDict(
@@ -1483,8 +1565,11 @@ _OptionalUpdateFunctionRequestRequestTypeDef = TypedDict(
         "description": str,
         "requestMappingTemplate": str,
         "responseMappingTemplate": str,
+        "functionVersion": str,
         "syncConfig": "SyncConfigTypeDef",
         "maxBatchSize": int,
+        "runtime": "AppSyncRuntimeTypeDef",
+        "code": str,
     },
     total=False,
 )
@@ -1555,6 +1640,8 @@ _OptionalUpdateResolverRequestRequestTypeDef = TypedDict(
         "syncConfig": "SyncConfigTypeDef",
         "cachingConfig": "CachingConfigTypeDef",
         "maxBatchSize": int,
+        "runtime": "AppSyncRuntimeTypeDef",
+        "code": str,
     },
     total=False,
 )

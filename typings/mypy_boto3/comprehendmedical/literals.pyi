@@ -41,11 +41,24 @@ __all__ = (
     "SNOMEDCTTraitNameType",
 )
 
-AttributeNameType = Literal["DIAGNOSIS", "NEGATION", "SIGN", "SYMPTOM"]
+AttributeNameType = Literal[
+    "DIAGNOSIS",
+    "FUTURE",
+    "HYPOTHETICAL",
+    "LOW_CONFIDENCE",
+    "NEGATION",
+    "PAST_HISTORY",
+    "PERTAINS_TO_FAMILY",
+    "SIGN",
+    "SYMPTOM",
+]
 EntitySubTypeType = Literal[
     "ACUITY",
     "ADDRESS",
     "AGE",
+    "ALCOHOL_CONSUMPTION",
+    "ALLERGIES",
+    "AMOUNT",
     "BRAND_NAME",
     "CONTACT_POINT",
     "DATE",
@@ -56,6 +69,7 @@ EntitySubTypeType = Literal[
     "EMAIL",
     "FORM",
     "FREQUENCY",
+    "GENDER",
     "GENERIC_NAME",
     "ID",
     "IDENTIFIER",
@@ -65,7 +79,9 @@ EntitySubTypeType = Literal[
     "PROFESSION",
     "QUALITY",
     "QUANTITY",
+    "RACE_ETHNICITY",
     "RATE",
+    "REC_DRUG_USE",
     "ROUTE_OR_MODE",
     "STRENGTH",
     "SYSTEM_ORGAN_SITE",
@@ -79,11 +95,13 @@ EntitySubTypeType = Literal[
     "TIME_TO_PROCEDURE_NAME",
     "TIME_TO_TEST_NAME",
     "TIME_TO_TREATMENT_NAME",
+    "TOBACCO_USE",
     "TREATMENT_NAME",
     "URL",
 ]
 EntityTypeType = Literal[
     "ANATOMY",
+    "BEHAVIORAL_ENVIRONMENTAL_SOCIAL",
     "MEDICAL_CONDITION",
     "MEDICATION",
     "PROTECTED_HEALTH_INFORMATION",
@@ -102,7 +120,15 @@ ICD10CMAttributeTypeType = Literal[
 ICD10CMEntityCategoryType = Literal["MEDICAL_CONDITION"]
 ICD10CMEntityTypeType = Literal["DX_NAME", "TIME_EXPRESSION"]
 ICD10CMRelationshipTypeType = Literal["OVERLAP", "SYSTEM_ORGAN_SITE"]
-ICD10CMTraitNameType = Literal["DIAGNOSIS", "NEGATION", "SIGN", "SYMPTOM"]
+ICD10CMTraitNameType = Literal[
+    "DIAGNOSIS",
+    "HYPOTHETICAL",
+    "LOW_CONFIDENCE",
+    "NEGATION",
+    "PERTAINS_TO_FAMILY",
+    "SIGN",
+    "SYMPTOM",
+]
 JobStatusType = Literal[
     "COMPLETED",
     "FAILED",
@@ -116,6 +142,7 @@ LanguageCodeType = Literal["en"]
 RelationshipTypeType = Literal[
     "ACUITY",
     "ADMINISTERED_VIA",
+    "AMOUNT",
     "DIRECTION",
     "DOSAGE",
     "DURATION",
@@ -148,4 +175,14 @@ SNOMEDCTEntityTypeType = Literal["DX_NAME", "PROCEDURE_NAME", "TEST_NAME", "TREA
 SNOMEDCTRelationshipTypeType = Literal[
     "ACUITY", "DIRECTION", "QUALITY", "SYSTEM_ORGAN_SITE", "TEST_UNITS", "TEST_VALUE"
 ]
-SNOMEDCTTraitNameType = Literal["DIAGNOSIS", "NEGATION", "SIGN", "SYMPTOM"]
+SNOMEDCTTraitNameType = Literal[
+    "DIAGNOSIS",
+    "FUTURE",
+    "HYPOTHETICAL",
+    "LOW_CONFIDENCE",
+    "NEGATION",
+    "PAST_HISTORY",
+    "PERTAINS_TO_FAMILY",
+    "SIGN",
+    "SYMPTOM",
+]

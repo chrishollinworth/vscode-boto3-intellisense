@@ -100,6 +100,7 @@ __all__ = (
     "StopExecutionOutputTypeDef",
     "TagResourceInputRequestTypeDef",
     "TagTypeDef",
+    "TaskCredentialsTypeDef",
     "TaskFailedEventDetailsTypeDef",
     "TaskScheduledEventDetailsTypeDef",
     "TaskStartFailedEventDetailsTypeDef",
@@ -592,6 +593,7 @@ _OptionalLambdaFunctionScheduledEventDetailsTypeDef = TypedDict(
         "input": str,
         "inputDetails": "HistoryEventExecutionDataDetailsTypeDef",
         "timeoutInSeconds": int,
+        "taskCredentials": "TaskCredentialsTypeDef",
     },
     total=False,
 )
@@ -968,6 +970,14 @@ TagTypeDef = TypedDict(
     total=False,
 )
 
+TaskCredentialsTypeDef = TypedDict(
+    "TaskCredentialsTypeDef",
+    {
+        "roleArn": str,
+    },
+    total=False,
+)
+
 _RequiredTaskFailedEventDetailsTypeDef = TypedDict(
     "_RequiredTaskFailedEventDetailsTypeDef",
     {
@@ -1003,6 +1013,7 @@ _OptionalTaskScheduledEventDetailsTypeDef = TypedDict(
     {
         "timeoutInSeconds": int,
         "heartbeatInSeconds": int,
+        "taskCredentials": "TaskCredentialsTypeDef",
     },
     total=False,
 )

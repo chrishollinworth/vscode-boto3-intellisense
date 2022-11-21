@@ -24,6 +24,7 @@ from .literals import (
     ConfigurationStateType,
     EnhancedMonitoringType,
     KafkaVersionStatusType,
+    StorageModeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -158,6 +159,8 @@ __all__ = (
     "UpdateMonitoringResponseTypeDef",
     "UpdateSecurityRequestRequestTypeDef",
     "UpdateSecurityResponseTypeDef",
+    "UpdateStorageRequestRequestTypeDef",
+    "UpdateStorageResponseTypeDef",
     "VpcConfigTypeDef",
     "ZookeeperNodeInfoTypeDef",
 )
@@ -320,6 +323,7 @@ ClusterInfoTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ZookeeperConnectString": str,
         "ZookeeperConnectStringTls": str,
+        "StorageMode": StorageModeType,
     },
     total=False,
 )
@@ -454,6 +458,7 @@ _OptionalCreateClusterRequestRequestTypeDef = TypedDict(
         "OpenMonitoring": "OpenMonitoringInfoTypeDef",
         "LoggingInfo": "LoggingInfoTypeDef",
         "Tags": Dict[str, str],
+        "StorageMode": StorageModeType,
     },
     total=False,
 )
@@ -1026,6 +1031,7 @@ MutableClusterInfoTypeDef = TypedDict(
         "ClientAuthentication": "ClientAuthenticationTypeDef",
         "EncryptionInfo": "EncryptionInfoTypeDef",
         "ConnectivityInfo": "ConnectivityInfoTypeDef",
+        "StorageMode": StorageModeType,
     },
     total=False,
 )
@@ -1116,6 +1122,7 @@ _OptionalProvisionedRequestTypeDef = TypedDict(
         "EnhancedMonitoring": EnhancedMonitoringType,
         "OpenMonitoring": "OpenMonitoringInfoTypeDef",
         "LoggingInfo": "LoggingInfoTypeDef",
+        "StorageMode": StorageModeType,
     },
     total=False,
 )
@@ -1152,6 +1159,7 @@ _OptionalProvisionedTypeDef = TypedDict(
         "LoggingInfo": "LoggingInfoTypeDef",
         "ZookeeperConnectString": str,
         "ZookeeperConnectStringTls": str,
+        "StorageMode": StorageModeType,
     },
     total=False,
 )
@@ -1547,6 +1555,37 @@ class UpdateSecurityRequestRequestTypeDef(
 
 UpdateSecurityResponseTypeDef = TypedDict(
     "UpdateSecurityResponseTypeDef",
+    {
+        "ClusterArn": str,
+        "ClusterOperationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateStorageRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateStorageRequestRequestTypeDef",
+    {
+        "ClusterArn": str,
+        "CurrentVersion": str,
+    },
+)
+_OptionalUpdateStorageRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateStorageRequestRequestTypeDef",
+    {
+        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
+        "StorageMode": StorageModeType,
+        "VolumeSizeGB": int,
+    },
+    total=False,
+)
+
+class UpdateStorageRequestRequestTypeDef(
+    _RequiredUpdateStorageRequestRequestTypeDef, _OptionalUpdateStorageRequestRequestTypeDef
+):
+    pass
+
+UpdateStorageResponseTypeDef = TypedDict(
+    "UpdateStorageResponseTypeDef",
     {
         "ClusterArn": str,
         "ClusterOperationArn": str,

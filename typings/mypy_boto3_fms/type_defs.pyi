@@ -20,6 +20,7 @@ from .literals import (
     CustomerPolicyScopeIdTypeType,
     DependentServiceNameType,
     DestinationTypeType,
+    FailedItemReasonType,
     FirewallDeploymentModelType,
     MarketplaceSubscriptionOnboardingStatusType,
     PolicyComplianceStatusTypeType,
@@ -51,12 +52,18 @@ __all__ = (
     "AwsEc2InstanceViolationTypeDef",
     "AwsEc2NetworkInterfaceViolationTypeDef",
     "AwsVPCSecurityGroupViolationTypeDef",
+    "BatchAssociateResourceRequestRequestTypeDef",
+    "BatchAssociateResourceResponseTypeDef",
+    "BatchDisassociateResourceRequestRequestTypeDef",
+    "BatchDisassociateResourceResponseTypeDef",
     "ComplianceViolatorTypeDef",
     "DeleteAppsListRequestRequestTypeDef",
     "DeletePolicyRequestRequestTypeDef",
     "DeleteProtocolsListRequestRequestTypeDef",
+    "DeleteResourceSetRequestRequestTypeDef",
     "DisassociateThirdPartyFirewallRequestRequestTypeDef",
     "DisassociateThirdPartyFirewallResponseTypeDef",
+    "DiscoveredResourceTypeDef",
     "DnsDuplicateRuleGroupViolationTypeDef",
     "DnsRuleGroupLimitExceededViolationTypeDef",
     "DnsRuleGroupPriorityConflictViolationTypeDef",
@@ -70,6 +77,7 @@ __all__ = (
     "EvaluationResultTypeDef",
     "ExpectedRouteTypeDef",
     "FMSPolicyUpdateFirewallCreationConfigActionTypeDef",
+    "FailedItemTypeDef",
     "FirewallSubnetIsOutOfScopeViolationTypeDef",
     "FirewallSubnetMissingVPCEndpointViolationTypeDef",
     "GetAdminAccountResponseTypeDef",
@@ -84,6 +92,8 @@ __all__ = (
     "GetProtectionStatusResponseTypeDef",
     "GetProtocolsListRequestRequestTypeDef",
     "GetProtocolsListResponseTypeDef",
+    "GetResourceSetRequestRequestTypeDef",
+    "GetResourceSetResponseTypeDef",
     "GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef",
     "GetThirdPartyFirewallAssociationStatusResponseTypeDef",
     "GetViolationDetailsRequestRequestTypeDef",
@@ -92,12 +102,18 @@ __all__ = (
     "ListAppsListsResponseTypeDef",
     "ListComplianceStatusRequestRequestTypeDef",
     "ListComplianceStatusResponseTypeDef",
+    "ListDiscoveredResourcesRequestRequestTypeDef",
+    "ListDiscoveredResourcesResponseTypeDef",
     "ListMemberAccountsRequestRequestTypeDef",
     "ListMemberAccountsResponseTypeDef",
     "ListPoliciesRequestRequestTypeDef",
     "ListPoliciesResponseTypeDef",
     "ListProtocolsListsRequestRequestTypeDef",
     "ListProtocolsListsResponseTypeDef",
+    "ListResourceSetResourcesRequestRequestTypeDef",
+    "ListResourceSetResourcesResponseTypeDef",
+    "ListResourceSetsRequestRequestTypeDef",
+    "ListResourceSetsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
@@ -112,6 +128,7 @@ __all__ = (
     "NetworkFirewallPolicyDescriptionTypeDef",
     "NetworkFirewallPolicyModifiedViolationTypeDef",
     "NetworkFirewallPolicyTypeDef",
+    "NetworkFirewallStatefulRuleGroupOverrideTypeDef",
     "NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef",
     "NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef",
     "PaginatorConfigTypeDef",
@@ -132,9 +149,14 @@ __all__ = (
     "PutPolicyResponseTypeDef",
     "PutProtocolsListRequestRequestTypeDef",
     "PutProtocolsListResponseTypeDef",
+    "PutResourceSetRequestRequestTypeDef",
+    "PutResourceSetResponseTypeDef",
     "RemediationActionTypeDef",
     "RemediationActionWithOrderTypeDef",
+    "ResourceSetSummaryTypeDef",
+    "ResourceSetTypeDef",
     "ResourceTagTypeDef",
+    "ResourceTypeDef",
     "ResourceViolationTypeDef",
     "ResponseMetadataTypeDef",
     "RouteHasOutOfScopeEndpointViolationTypeDef",
@@ -258,6 +280,40 @@ AwsVPCSecurityGroupViolationTypeDef = TypedDict(
     total=False,
 )
 
+BatchAssociateResourceRequestRequestTypeDef = TypedDict(
+    "BatchAssociateResourceRequestRequestTypeDef",
+    {
+        "ResourceSetIdentifier": str,
+        "Items": List[str],
+    },
+)
+
+BatchAssociateResourceResponseTypeDef = TypedDict(
+    "BatchAssociateResourceResponseTypeDef",
+    {
+        "ResourceSetIdentifier": str,
+        "FailedItems": List["FailedItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchDisassociateResourceRequestRequestTypeDef = TypedDict(
+    "BatchDisassociateResourceRequestRequestTypeDef",
+    {
+        "ResourceSetIdentifier": str,
+        "Items": List[str],
+    },
+)
+
+BatchDisassociateResourceResponseTypeDef = TypedDict(
+    "BatchDisassociateResourceResponseTypeDef",
+    {
+        "ResourceSetIdentifier": str,
+        "FailedItems": List["FailedItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ComplianceViolatorTypeDef = TypedDict(
     "ComplianceViolatorTypeDef",
     {
@@ -302,6 +358,13 @@ DeleteProtocolsListRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteResourceSetRequestRequestTypeDef = TypedDict(
+    "DeleteResourceSetRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
 DisassociateThirdPartyFirewallRequestRequestTypeDef = TypedDict(
     "DisassociateThirdPartyFirewallRequestRequestTypeDef",
     {
@@ -315,6 +378,17 @@ DisassociateThirdPartyFirewallResponseTypeDef = TypedDict(
         "ThirdPartyFirewallStatus": ThirdPartyFirewallAssociationStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DiscoveredResourceTypeDef = TypedDict(
+    "DiscoveredResourceTypeDef",
+    {
+        "URI": str,
+        "AccountId": str,
+        "Type": str,
+        "Name": str,
+    },
+    total=False,
 )
 
 DnsDuplicateRuleGroupViolationTypeDef = TypedDict(
@@ -530,6 +604,15 @@ FMSPolicyUpdateFirewallCreationConfigActionTypeDef = TypedDict(
     total=False,
 )
 
+FailedItemTypeDef = TypedDict(
+    "FailedItemTypeDef",
+    {
+        "URI": str,
+        "Reason": FailedItemReasonType,
+    },
+    total=False,
+)
+
 FirewallSubnetIsOutOfScopeViolationTypeDef = TypedDict(
     "FirewallSubnetIsOutOfScopeViolationTypeDef",
     {
@@ -694,6 +777,22 @@ GetProtocolsListResponseTypeDef = TypedDict(
     },
 )
 
+GetResourceSetRequestRequestTypeDef = TypedDict(
+    "GetResourceSetRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetResourceSetResponseTypeDef = TypedDict(
+    "GetResourceSetResponseTypeDef",
+    {
+        "ResourceSet": "ResourceSetTypeDef",
+        "ResourceSetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef = TypedDict(
     "GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef",
     {
@@ -787,6 +886,37 @@ ListComplianceStatusResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListDiscoveredResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListDiscoveredResourcesRequestRequestTypeDef",
+    {
+        "MemberAccountIds": List[str],
+        "ResourceType": str,
+    },
+)
+_OptionalListDiscoveredResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListDiscoveredResourcesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListDiscoveredResourcesRequestRequestTypeDef(
+    _RequiredListDiscoveredResourcesRequestRequestTypeDef,
+    _OptionalListDiscoveredResourcesRequestRequestTypeDef,
+):
+    pass
+
+ListDiscoveredResourcesResponseTypeDef = TypedDict(
+    "ListDiscoveredResourcesResponseTypeDef",
+    {
+        "Items": List["DiscoveredResourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListMemberAccountsRequestRequestTypeDef = TypedDict(
     "ListMemberAccountsRequestRequestTypeDef",
     {
@@ -848,6 +978,54 @@ ListProtocolsListsResponseTypeDef = TypedDict(
     "ListProtocolsListsResponseTypeDef",
     {
         "ProtocolsLists": List["ProtocolsListDataSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListResourceSetResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListResourceSetResourcesRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalListResourceSetResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListResourceSetResourcesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListResourceSetResourcesRequestRequestTypeDef(
+    _RequiredListResourceSetResourcesRequestRequestTypeDef,
+    _OptionalListResourceSetResourcesRequestRequestTypeDef,
+):
+    pass
+
+ListResourceSetResourcesResponseTypeDef = TypedDict(
+    "ListResourceSetResourcesResponseTypeDef",
+    {
+        "Items": List["ResourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListResourceSetsRequestRequestTypeDef = TypedDict(
+    "ListResourceSetsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListResourceSetsResponseTypeDef = TypedDict(
+    "ListResourceSetsResponseTypeDef",
+    {
+        "ResourceSets": List["ResourceSetSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1030,6 +1208,14 @@ NetworkFirewallPolicyTypeDef = TypedDict(
     total=False,
 )
 
+NetworkFirewallStatefulRuleGroupOverrideTypeDef = TypedDict(
+    "NetworkFirewallStatefulRuleGroupOverrideTypeDef",
+    {
+        "Action": Literal["DROP_TO_ALERT"],
+    },
+    total=False,
+)
+
 NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef = TypedDict(
     "NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef",
     {
@@ -1143,6 +1329,8 @@ _OptionalPolicyTypeDef = TypedDict(
         "DeleteUnusedFMManagedResources": bool,
         "IncludeMap": Dict[CustomerPolicyScopeIdTypeType, List[str]],
         "ExcludeMap": Dict[CustomerPolicyScopeIdTypeType, List[str]],
+        "ResourceSetIds": List[str],
+        "PolicyDescription": str,
     },
     total=False,
 )
@@ -1306,6 +1494,34 @@ PutProtocolsListResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredPutResourceSetRequestRequestTypeDef = TypedDict(
+    "_RequiredPutResourceSetRequestRequestTypeDef",
+    {
+        "ResourceSet": "ResourceSetTypeDef",
+    },
+)
+_OptionalPutResourceSetRequestRequestTypeDef = TypedDict(
+    "_OptionalPutResourceSetRequestRequestTypeDef",
+    {
+        "TagList": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class PutResourceSetRequestRequestTypeDef(
+    _RequiredPutResourceSetRequestRequestTypeDef, _OptionalPutResourceSetRequestRequestTypeDef
+):
+    pass
+
+PutResourceSetResponseTypeDef = TypedDict(
+    "PutResourceSetResponseTypeDef",
+    {
+        "ResourceSet": "ResourceSetTypeDef",
+        "ResourceSetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 RemediationActionTypeDef = TypedDict(
     "RemediationActionTypeDef",
     {
@@ -1331,6 +1547,38 @@ RemediationActionWithOrderTypeDef = TypedDict(
     total=False,
 )
 
+ResourceSetSummaryTypeDef = TypedDict(
+    "ResourceSetSummaryTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "LastUpdateTime": datetime,
+    },
+    total=False,
+)
+
+_RequiredResourceSetTypeDef = TypedDict(
+    "_RequiredResourceSetTypeDef",
+    {
+        "Name": str,
+        "ResourceTypeList": List[str],
+    },
+)
+_OptionalResourceSetTypeDef = TypedDict(
+    "_OptionalResourceSetTypeDef",
+    {
+        "Id": str,
+        "Description": str,
+        "UpdateToken": str,
+        "LastUpdateTime": datetime,
+    },
+    total=False,
+)
+
+class ResourceSetTypeDef(_RequiredResourceSetTypeDef, _OptionalResourceSetTypeDef):
+    pass
+
 _RequiredResourceTagTypeDef = TypedDict(
     "_RequiredResourceTagTypeDef",
     {
@@ -1346,6 +1594,23 @@ _OptionalResourceTagTypeDef = TypedDict(
 )
 
 class ResourceTagTypeDef(_RequiredResourceTagTypeDef, _OptionalResourceTagTypeDef):
+    pass
+
+_RequiredResourceTypeDef = TypedDict(
+    "_RequiredResourceTypeDef",
+    {
+        "URI": str,
+    },
+)
+_OptionalResourceTypeDef = TypedDict(
+    "_OptionalResourceTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+class ResourceTypeDef(_RequiredResourceTypeDef, _OptionalResourceTypeDef):
     pass
 
 ResourceViolationTypeDef = TypedDict(
@@ -1477,6 +1742,7 @@ StatefulRuleGroupTypeDef = TypedDict(
         "RuleGroupName": str,
         "ResourceId": str,
         "Priority": int,
+        "Override": "NetworkFirewallStatefulRuleGroupOverrideTypeDef",
     },
     total=False,
 )

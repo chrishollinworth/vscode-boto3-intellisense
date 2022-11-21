@@ -11,6 +11,7 @@ Usage::
     from mypy_boto3_emr_containers import EMRContainersClient
     from mypy_boto3_emr_containers.paginator import (
         ListJobRunsPaginator,
+        ListJobTemplatesPaginator,
         ListManagedEndpointsPaginator,
         ListVirtualClustersPaginator,
     )
@@ -18,6 +19,7 @@ Usage::
     client: EMRContainersClient = boto3.client("emr-containers")
 
     list_job_runs_paginator: ListJobRunsPaginator = client.get_paginator("list_job_runs")
+    list_job_templates_paginator: ListJobTemplatesPaginator = client.get_paginator("list_job_templates")
     list_managed_endpoints_paginator: ListManagedEndpointsPaginator = client.get_paginator("list_managed_endpoints")
     list_virtual_clusters_paginator: ListVirtualClustersPaginator = client.get_paginator("list_virtual_clusters")
     ```
@@ -31,6 +33,7 @@ from botocore.paginate import Paginator as Boto3Paginator
 from .literals import EndpointStateType, JobRunStateType, VirtualClusterStateType
 from .type_defs import (
     ListJobRunsResponseTypeDef,
+    ListJobTemplatesResponseTypeDef,
     ListManagedEndpointsResponseTypeDef,
     ListVirtualClustersResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -41,11 +44,16 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("ListJobRunsPaginator", "ListManagedEndpointsPaginator", "ListVirtualClustersPaginator")
+__all__ = (
+    "ListJobRunsPaginator",
+    "ListJobTemplatesPaginator",
+    "ListManagedEndpointsPaginator",
+    "ListVirtualClustersPaginator",
+)
 
 class ListJobRunsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobrunspaginator)
     """
 
@@ -60,13 +68,31 @@ class ListJobRunsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobRunsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobrunspaginator)
+        """
+
+class ListJobTemplatesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobTemplates)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobtemplatespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        createdAfter: Union[datetime, str] = None,
+        createdBefore: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListJobTemplatesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobTemplates.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobtemplatespaginator)
         """
 
 class ListManagedEndpointsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listmanagedendpointspaginator)
     """
 
@@ -81,13 +107,13 @@ class ListManagedEndpointsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListManagedEndpointsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listmanagedendpointspaginator)
         """
 
 class ListVirtualClustersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listvirtualclusterspaginator)
     """
 
@@ -102,6 +128,6 @@ class ListVirtualClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVirtualClustersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listvirtualclusterspaginator)
         """

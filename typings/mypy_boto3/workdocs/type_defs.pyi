@@ -34,6 +34,7 @@ from .literals import (
     RoleTypeType,
     ShareStatusTypeType,
     StorageTypeType,
+    SubscriptionProtocolTypeType,
     UserFilterTypeType,
     UserSortTypeType,
     UserStatusTypeType,
@@ -72,6 +73,7 @@ __all__ = (
     "DeleteCommentRequestRequestTypeDef",
     "DeleteCustomMetadataRequestRequestTypeDef",
     "DeleteDocumentRequestRequestTypeDef",
+    "DeleteDocumentVersionRequestRequestTypeDef",
     "DeleteFolderContentsRequestRequestTypeDef",
     "DeleteFolderRequestRequestTypeDef",
     "DeleteLabelsRequestRequestTypeDef",
@@ -126,6 +128,7 @@ __all__ = (
     "ResourcePathComponentTypeDef",
     "ResourcePathTypeDef",
     "ResponseMetadataTypeDef",
+    "RestoreDocumentVersionsRequestRequestTypeDef",
     "SharePrincipalTypeDef",
     "ShareResultTypeDef",
     "StorageRuleTypeTypeDef",
@@ -379,7 +382,7 @@ CreateNotificationSubscriptionRequestRequestTypeDef = TypedDict(
     {
         "OrganizationId": str,
         "Endpoint": str,
-        "Protocol": Literal["HTTPS"],
+        "Protocol": SubscriptionProtocolTypeType,
         "SubscriptionType": Literal["ALL"],
     },
 )
@@ -505,6 +508,28 @@ _OptionalDeleteDocumentRequestRequestTypeDef = TypedDict(
 
 class DeleteDocumentRequestRequestTypeDef(
     _RequiredDeleteDocumentRequestRequestTypeDef, _OptionalDeleteDocumentRequestRequestTypeDef
+):
+    pass
+
+_RequiredDeleteDocumentVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteDocumentVersionRequestRequestTypeDef",
+    {
+        "DocumentId": str,
+        "VersionId": str,
+        "DeletePriorVersions": bool,
+    },
+)
+_OptionalDeleteDocumentVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteDocumentVersionRequestRequestTypeDef",
+    {
+        "AuthenticationToken": str,
+    },
+    total=False,
+)
+
+class DeleteDocumentVersionRequestRequestTypeDef(
+    _RequiredDeleteDocumentVersionRequestRequestTypeDef,
+    _OptionalDeleteDocumentVersionRequestRequestTypeDef,
 ):
     pass
 
@@ -1120,14 +1145,8 @@ GroupMetadataTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredInitiateDocumentVersionUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredInitiateDocumentVersionUploadRequestRequestTypeDef",
-    {
-        "ParentFolderId": str,
-    },
-)
-_OptionalInitiateDocumentVersionUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalInitiateDocumentVersionUploadRequestRequestTypeDef",
+InitiateDocumentVersionUploadRequestRequestTypeDef = TypedDict(
+    "InitiateDocumentVersionUploadRequestRequestTypeDef",
     {
         "AuthenticationToken": str,
         "Id": str,
@@ -1136,15 +1155,10 @@ _OptionalInitiateDocumentVersionUploadRequestRequestTypeDef = TypedDict(
         "ContentModifiedTimestamp": Union[datetime, str],
         "ContentType": str,
         "DocumentSizeInBytes": int,
+        "ParentFolderId": str,
     },
     total=False,
 )
-
-class InitiateDocumentVersionUploadRequestRequestTypeDef(
-    _RequiredInitiateDocumentVersionUploadRequestRequestTypeDef,
-    _OptionalInitiateDocumentVersionUploadRequestRequestTypeDef,
-):
-    pass
 
 InitiateDocumentVersionUploadResponseTypeDef = TypedDict(
     "InitiateDocumentVersionUploadResponseTypeDef",
@@ -1286,6 +1300,26 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+_RequiredRestoreDocumentVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredRestoreDocumentVersionsRequestRequestTypeDef",
+    {
+        "DocumentId": str,
+    },
+)
+_OptionalRestoreDocumentVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalRestoreDocumentVersionsRequestRequestTypeDef",
+    {
+        "AuthenticationToken": str,
+    },
+    total=False,
+)
+
+class RestoreDocumentVersionsRequestRequestTypeDef(
+    _RequiredRestoreDocumentVersionsRequestRequestTypeDef,
+    _OptionalRestoreDocumentVersionsRequestRequestTypeDef,
+):
+    pass
+
 SharePrincipalTypeDef = TypedDict(
     "SharePrincipalTypeDef",
     {
@@ -1322,7 +1356,7 @@ SubscriptionTypeDef = TypedDict(
     {
         "SubscriptionId": str,
         "EndPoint": str,
-        "Protocol": Literal["HTTPS"],
+        "Protocol": SubscriptionProtocolTypeType,
     },
     total=False,
 )

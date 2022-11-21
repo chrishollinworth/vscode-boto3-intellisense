@@ -266,10 +266,12 @@ __all__ = (
     "AutoMLS3DataSourceTypeDef",
     "AutoMLSecurityConfigTypeDef",
     "AutoRollbackConfigTypeDef",
+    "BatchDataCaptureConfigTypeDef",
     "BatchDescribeModelPackageErrorTypeDef",
     "BatchDescribeModelPackageInputRequestTypeDef",
     "BatchDescribeModelPackageOutputTypeDef",
     "BatchDescribeModelPackageSummaryTypeDef",
+    "BatchTransformInputTypeDef",
     "BiasTypeDef",
     "BlueGreenUpdatePolicyTypeDef",
     "CacheHitResultTypeDef",
@@ -595,9 +597,11 @@ __all__ = (
     "EdgePresetDeploymentOutputTypeDef",
     "EdgeTypeDef",
     "EndpointConfigSummaryTypeDef",
+    "EndpointInfoTypeDef",
     "EndpointInputConfigurationTypeDef",
     "EndpointInputTypeDef",
     "EndpointOutputConfigurationTypeDef",
+    "EndpointPerformanceTypeDef",
     "EndpointSummaryTypeDef",
     "EndpointTypeDef",
     "EnvironmentParameterRangesTypeDef",
@@ -656,7 +660,9 @@ __all__ = (
     "ImageTypeDef",
     "ImageVersionTypeDef",
     "InferenceExecutionConfigTypeDef",
+    "InferenceMetricsTypeDef",
     "InferenceRecommendationTypeDef",
+    "InferenceRecommendationsJobStepTypeDef",
     "InferenceRecommendationsJobTypeDef",
     "InferenceSpecificationTypeDef",
     "InputConfigTypeDef",
@@ -737,6 +743,8 @@ __all__ = (
     "ListImageVersionsResponseTypeDef",
     "ListImagesRequestRequestTypeDef",
     "ListImagesResponseTypeDef",
+    "ListInferenceRecommendationsJobStepsRequestRequestTypeDef",
+    "ListInferenceRecommendationsJobStepsResponseTypeDef",
     "ListInferenceRecommendationsJobsRequestRequestTypeDef",
     "ListInferenceRecommendationsJobsResponseTypeDef",
     "ListLabelingJobsForWorkteamRequestRequestTypeDef",
@@ -847,11 +855,14 @@ __all__ = (
     "MonitoringBaselineConfigTypeDef",
     "MonitoringClusterConfigTypeDef",
     "MonitoringConstraintsResourceTypeDef",
+    "MonitoringCsvDatasetFormatTypeDef",
+    "MonitoringDatasetFormatTypeDef",
     "MonitoringExecutionSummaryTypeDef",
     "MonitoringGroundTruthS3InputTypeDef",
     "MonitoringInputTypeDef",
     "MonitoringJobDefinitionSummaryTypeDef",
     "MonitoringJobDefinitionTypeDef",
+    "MonitoringJsonDatasetFormatTypeDef",
     "MonitoringNetworkConfigTypeDef",
     "MonitoringOutputConfigTypeDef",
     "MonitoringOutputTypeDef",
@@ -938,6 +949,7 @@ __all__ = (
     "RStudioServerProDomainSettingsTypeDef",
     "RecommendationJobCompiledOutputConfigTypeDef",
     "RecommendationJobContainerConfigTypeDef",
+    "RecommendationJobInferenceBenchmarkTypeDef",
     "RecommendationJobInputConfigTypeDef",
     "RecommendationJobOutputConfigTypeDef",
     "RecommendationJobPayloadConfigTypeDef",
@@ -1239,6 +1251,8 @@ _OptionalAlgorithmSpecificationTypeDef = TypedDict(
         "AlgorithmName": str,
         "MetricDefinitions": List["MetricDefinitionTypeDef"],
         "EnableSageMakerMetricsTimeSeries": bool,
+        "ContainerEntrypoint": List[str],
+        "ContainerArguments": List[str],
     },
     total=False,
 )
@@ -1740,6 +1754,26 @@ AutoRollbackConfigTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredBatchDataCaptureConfigTypeDef = TypedDict(
+    "_RequiredBatchDataCaptureConfigTypeDef",
+    {
+        "DestinationS3Uri": str,
+    },
+)
+_OptionalBatchDataCaptureConfigTypeDef = TypedDict(
+    "_OptionalBatchDataCaptureConfigTypeDef",
+    {
+        "KmsKeyId": str,
+        "GenerateInferenceId": bool,
+    },
+    total=False,
+)
+
+class BatchDataCaptureConfigTypeDef(
+    _RequiredBatchDataCaptureConfigTypeDef, _OptionalBatchDataCaptureConfigTypeDef
+):
+    pass
+
 BatchDescribeModelPackageErrorTypeDef = TypedDict(
     "BatchDescribeModelPackageErrorTypeDef",
     {
@@ -1787,6 +1821,34 @@ _OptionalBatchDescribeModelPackageSummaryTypeDef = TypedDict(
 class BatchDescribeModelPackageSummaryTypeDef(
     _RequiredBatchDescribeModelPackageSummaryTypeDef,
     _OptionalBatchDescribeModelPackageSummaryTypeDef,
+):
+    pass
+
+_RequiredBatchTransformInputTypeDef = TypedDict(
+    "_RequiredBatchTransformInputTypeDef",
+    {
+        "DataCapturedDestinationS3Uri": str,
+        "DatasetFormat": "MonitoringDatasetFormatTypeDef",
+        "LocalPath": str,
+    },
+)
+_OptionalBatchTransformInputTypeDef = TypedDict(
+    "_OptionalBatchTransformInputTypeDef",
+    {
+        "S3InputMode": ProcessingS3InputModeType,
+        "S3DataDistributionType": ProcessingS3DataDistributionTypeType,
+        "FeaturesAttribute": str,
+        "InferenceAttribute": str,
+        "ProbabilityAttribute": str,
+        "ProbabilityThresholdAttribute": float,
+        "StartTimeOffset": str,
+        "EndTimeOffset": str,
+    },
+    total=False,
+)
+
+class BatchTransformInputTypeDef(
+    _RequiredBatchTransformInputTypeDef, _OptionalBatchTransformInputTypeDef
 ):
     pass
 
@@ -3576,6 +3638,7 @@ _OptionalCreateTransformJobRequestRequestTypeDef = TypedDict(
         "MaxPayloadInMB": int,
         "BatchStrategy": BatchStrategyType,
         "Environment": Dict[str, str],
+        "DataCaptureConfig": "BatchDataCaptureConfigTypeDef",
         "DataProcessing": "DataProcessingTypeDef",
         "Tags": List["TagTypeDef"],
         "ExperimentConfig": "ExperimentConfigTypeDef",
@@ -3864,7 +3927,9 @@ DataQualityJobInputTypeDef = TypedDict(
     "DataQualityJobInputTypeDef",
     {
         "EndpointInput": "EndpointInputTypeDef",
+        "BatchTransformInput": "BatchTransformInputTypeDef",
     },
+    total=False,
 )
 
 DataSourceTypeDef = TypedDict(
@@ -5096,6 +5161,7 @@ DescribeInferenceRecommendationsJobResponseTypeDef = TypedDict(
         "InputConfig": "RecommendationJobInputConfigTypeDef",
         "StoppingConditions": "RecommendationJobStoppingConditionsTypeDef",
         "InferenceRecommendations": List["InferenceRecommendationTypeDef"],
+        "EndpointPerformances": List["EndpointPerformanceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5634,6 +5700,7 @@ DescribeTransformJobResponseTypeDef = TypedDict(
         "Environment": Dict[str, str],
         "TransformInput": "TransformInputTypeDef",
         "TransformOutput": "TransformOutputTypeDef",
+        "DataCaptureConfig": "BatchDataCaptureConfigTypeDef",
         "TransformResources": "TransformResourcesTypeDef",
         "CreationTime": datetime,
         "TransformStartTime": datetime,
@@ -6192,6 +6259,13 @@ EndpointConfigSummaryTypeDef = TypedDict(
     },
 )
 
+EndpointInfoTypeDef = TypedDict(
+    "EndpointInfoTypeDef",
+    {
+        "EndpointName": str,
+    },
+)
+
 _RequiredEndpointInputConfigurationTypeDef = TypedDict(
     "_RequiredEndpointInputConfigurationTypeDef",
     {
@@ -6244,6 +6318,14 @@ EndpointOutputConfigurationTypeDef = TypedDict(
         "VariantName": str,
         "InstanceType": ProductionVariantInstanceTypeType,
         "InitialInstanceCount": int,
+    },
+)
+
+EndpointPerformanceTypeDef = TypedDict(
+    "EndpointPerformanceTypeDef",
+    {
+        "Metrics": "InferenceMetricsTypeDef",
+        "EndpointInfo": "EndpointInfoTypeDef",
     },
 )
 
@@ -7103,6 +7185,14 @@ InferenceExecutionConfigTypeDef = TypedDict(
     },
 )
 
+InferenceMetricsTypeDef = TypedDict(
+    "InferenceMetricsTypeDef",
+    {
+        "MaxInvocations": int,
+        "ModelLatency": int,
+    },
+)
+
 InferenceRecommendationTypeDef = TypedDict(
     "InferenceRecommendationTypeDef",
     {
@@ -7111,6 +7201,27 @@ InferenceRecommendationTypeDef = TypedDict(
         "ModelConfiguration": "ModelConfigurationTypeDef",
     },
 )
+
+_RequiredInferenceRecommendationsJobStepTypeDef = TypedDict(
+    "_RequiredInferenceRecommendationsJobStepTypeDef",
+    {
+        "StepType": Literal["BENCHMARK"],
+        "JobName": str,
+        "Status": RecommendationJobStatusType,
+    },
+)
+_OptionalInferenceRecommendationsJobStepTypeDef = TypedDict(
+    "_OptionalInferenceRecommendationsJobStepTypeDef",
+    {
+        "InferenceBenchmark": "RecommendationJobInferenceBenchmarkTypeDef",
+    },
+    total=False,
+)
+
+class InferenceRecommendationsJobStepTypeDef(
+    _RequiredInferenceRecommendationsJobStepTypeDef, _OptionalInferenceRecommendationsJobStepTypeDef
+):
+    pass
 
 _RequiredInferenceRecommendationsJobTypeDef = TypedDict(
     "_RequiredInferenceRecommendationsJobTypeDef",
@@ -8164,6 +8275,38 @@ ListImagesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListInferenceRecommendationsJobStepsRequestRequestTypeDef = TypedDict(
+    "_RequiredListInferenceRecommendationsJobStepsRequestRequestTypeDef",
+    {
+        "JobName": str,
+    },
+)
+_OptionalListInferenceRecommendationsJobStepsRequestRequestTypeDef = TypedDict(
+    "_OptionalListInferenceRecommendationsJobStepsRequestRequestTypeDef",
+    {
+        "Status": RecommendationJobStatusType,
+        "StepType": Literal["BENCHMARK"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListInferenceRecommendationsJobStepsRequestRequestTypeDef(
+    _RequiredListInferenceRecommendationsJobStepsRequestRequestTypeDef,
+    _OptionalListInferenceRecommendationsJobStepsRequestRequestTypeDef,
+):
+    pass
+
+ListInferenceRecommendationsJobStepsResponseTypeDef = TypedDict(
+    "ListInferenceRecommendationsJobStepsResponseTypeDef",
+    {
+        "Steps": List["InferenceRecommendationsJobStepTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListInferenceRecommendationsJobsRequestRequestTypeDef = TypedDict(
     "ListInferenceRecommendationsJobsRequestRequestTypeDef",
     {
@@ -9113,13 +9256,25 @@ ModelBiasBaselineConfigTypeDef = TypedDict(
     total=False,
 )
 
-ModelBiasJobInputTypeDef = TypedDict(
-    "ModelBiasJobInputTypeDef",
+_RequiredModelBiasJobInputTypeDef = TypedDict(
+    "_RequiredModelBiasJobInputTypeDef",
     {
-        "EndpointInput": "EndpointInputTypeDef",
         "GroundTruthS3Input": "MonitoringGroundTruthS3InputTypeDef",
     },
 )
+_OptionalModelBiasJobInputTypeDef = TypedDict(
+    "_OptionalModelBiasJobInputTypeDef",
+    {
+        "EndpointInput": "EndpointInputTypeDef",
+        "BatchTransformInput": "BatchTransformInputTypeDef",
+    },
+    total=False,
+)
+
+class ModelBiasJobInputTypeDef(
+    _RequiredModelBiasJobInputTypeDef, _OptionalModelBiasJobInputTypeDef
+):
+    pass
 
 ModelClientConfigTypeDef = TypedDict(
     "ModelClientConfigTypeDef",
@@ -9207,7 +9362,9 @@ ModelExplainabilityJobInputTypeDef = TypedDict(
     "ModelExplainabilityJobInputTypeDef",
     {
         "EndpointInput": "EndpointInputTypeDef",
+        "BatchTransformInput": "BatchTransformInputTypeDef",
     },
+    total=False,
 )
 
 ModelInputTypeDef = TypedDict(
@@ -9475,13 +9632,25 @@ ModelQualityBaselineConfigTypeDef = TypedDict(
     total=False,
 )
 
-ModelQualityJobInputTypeDef = TypedDict(
-    "ModelQualityJobInputTypeDef",
+_RequiredModelQualityJobInputTypeDef = TypedDict(
+    "_RequiredModelQualityJobInputTypeDef",
     {
-        "EndpointInput": "EndpointInputTypeDef",
         "GroundTruthS3Input": "MonitoringGroundTruthS3InputTypeDef",
     },
 )
+_OptionalModelQualityJobInputTypeDef = TypedDict(
+    "_OptionalModelQualityJobInputTypeDef",
+    {
+        "EndpointInput": "EndpointInputTypeDef",
+        "BatchTransformInput": "BatchTransformInputTypeDef",
+    },
+    total=False,
+)
+
+class ModelQualityJobInputTypeDef(
+    _RequiredModelQualityJobInputTypeDef, _OptionalModelQualityJobInputTypeDef
+):
+    pass
 
 ModelQualityTypeDef = TypedDict(
     "ModelQualityTypeDef",
@@ -9570,6 +9739,24 @@ MonitoringConstraintsResourceTypeDef = TypedDict(
     total=False,
 )
 
+MonitoringCsvDatasetFormatTypeDef = TypedDict(
+    "MonitoringCsvDatasetFormatTypeDef",
+    {
+        "Header": bool,
+    },
+    total=False,
+)
+
+MonitoringDatasetFormatTypeDef = TypedDict(
+    "MonitoringDatasetFormatTypeDef",
+    {
+        "Csv": "MonitoringCsvDatasetFormatTypeDef",
+        "Json": "MonitoringJsonDatasetFormatTypeDef",
+        "Parquet": Dict[str, Any],
+    },
+    total=False,
+)
+
 _RequiredMonitoringExecutionSummaryTypeDef = TypedDict(
     "_RequiredMonitoringExecutionSummaryTypeDef",
     {
@@ -9609,7 +9796,9 @@ MonitoringInputTypeDef = TypedDict(
     "MonitoringInputTypeDef",
     {
         "EndpointInput": "EndpointInputTypeDef",
+        "BatchTransformInput": "BatchTransformInputTypeDef",
     },
+    total=False,
 )
 
 MonitoringJobDefinitionSummaryTypeDef = TypedDict(
@@ -9647,6 +9836,14 @@ class MonitoringJobDefinitionTypeDef(
     _RequiredMonitoringJobDefinitionTypeDef, _OptionalMonitoringJobDefinitionTypeDef
 ):
     pass
+
+MonitoringJsonDatasetFormatTypeDef = TypedDict(
+    "MonitoringJsonDatasetFormatTypeDef",
+    {
+        "Line": bool,
+    },
+    total=False,
+)
 
 MonitoringNetworkConfigTypeDef = TypedDict(
     "MonitoringNetworkConfigTypeDef",
@@ -10584,23 +10781,16 @@ ProfilerConfigForUpdateTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredProfilerConfigTypeDef = TypedDict(
-    "_RequiredProfilerConfigTypeDef",
+ProfilerConfigTypeDef = TypedDict(
+    "ProfilerConfigTypeDef",
     {
         "S3OutputPath": str,
-    },
-)
-_OptionalProfilerConfigTypeDef = TypedDict(
-    "_OptionalProfilerConfigTypeDef",
-    {
         "ProfilingIntervalInMilliseconds": int,
         "ProfilingParameters": Dict[str, str],
+        "DisableProfiler": bool,
     },
     total=False,
 )
-
-class ProfilerConfigTypeDef(_RequiredProfilerConfigTypeDef, _OptionalProfilerConfigTypeDef):
-    pass
 
 _RequiredProfilerRuleConfigurationTypeDef = TypedDict(
     "_RequiredProfilerRuleConfigurationTypeDef",
@@ -10862,6 +11052,28 @@ RecommendationJobContainerConfigTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredRecommendationJobInferenceBenchmarkTypeDef = TypedDict(
+    "_RequiredRecommendationJobInferenceBenchmarkTypeDef",
+    {
+        "ModelConfiguration": "ModelConfigurationTypeDef",
+    },
+)
+_OptionalRecommendationJobInferenceBenchmarkTypeDef = TypedDict(
+    "_OptionalRecommendationJobInferenceBenchmarkTypeDef",
+    {
+        "Metrics": "RecommendationMetricsTypeDef",
+        "EndpointConfiguration": "EndpointOutputConfigurationTypeDef",
+        "FailureReason": str,
+    },
+    total=False,
+)
+
+class RecommendationJobInferenceBenchmarkTypeDef(
+    _RequiredRecommendationJobInferenceBenchmarkTypeDef,
+    _OptionalRecommendationJobInferenceBenchmarkTypeDef,
+):
+    pass
+
 _RequiredRecommendationJobInputConfigTypeDef = TypedDict(
     "_RequiredRecommendationJobInputConfigTypeDef",
     {
@@ -10877,6 +11089,7 @@ _OptionalRecommendationJobInputConfigTypeDef = TypedDict(
         "EndpointConfigurations": List["EndpointInputConfigurationTypeDef"],
         "VolumeKmsKeyId": str,
         "ContainerConfig": "RecommendationJobContainerConfigTypeDef",
+        "Endpoints": List["EndpointInfoTypeDef"],
     },
     total=False,
 )
@@ -11076,13 +11289,22 @@ _OptionalResourceConfigTypeDef = TypedDict(
 class ResourceConfigTypeDef(_RequiredResourceConfigTypeDef, _OptionalResourceConfigTypeDef):
     pass
 
-ResourceLimitsTypeDef = TypedDict(
-    "ResourceLimitsTypeDef",
+_RequiredResourceLimitsTypeDef = TypedDict(
+    "_RequiredResourceLimitsTypeDef",
     {
-        "MaxNumberOfTrainingJobs": int,
         "MaxParallelTrainingJobs": int,
     },
 )
+_OptionalResourceLimitsTypeDef = TypedDict(
+    "_OptionalResourceLimitsTypeDef",
+    {
+        "MaxNumberOfTrainingJobs": int,
+    },
+    total=False,
+)
+
+class ResourceLimitsTypeDef(_RequiredResourceLimitsTypeDef, _OptionalResourceLimitsTypeDef):
+    pass
 
 ResourceSpecTypeDef = TypedDict(
     "ResourceSpecTypeDef",

@@ -36,6 +36,7 @@ from .literals import (
     InstanceStorageResourceTypeType,
     IntegrationTypeType,
     LexVersionType,
+    MonitorCapabilityType,
     PhoneNumberCountryCodeType,
     PhoneNumberTypeType,
     PhoneNumberWorkflowStatusType,
@@ -51,6 +52,7 @@ from .literals import (
     StringComparisonTypeType,
     TaskTemplateFieldTypeType,
     TaskTemplateStatusType,
+    TrafficDistributionGroupStatusType,
     TrafficTypeType,
     UnitType,
     UseCaseTypeType,
@@ -124,6 +126,8 @@ __all__ = (
     "CreateSecurityProfileResponseTypeDef",
     "CreateTaskTemplateRequestRequestTypeDef",
     "CreateTaskTemplateResponseTypeDef",
+    "CreateTrafficDistributionGroupRequestRequestTypeDef",
+    "CreateTrafficDistributionGroupResponseTypeDef",
     "CreateUseCaseRequestRequestTypeDef",
     "CreateUseCaseResponseTypeDef",
     "CreateUserHierarchyGroupRequestRequestTypeDef",
@@ -146,6 +150,7 @@ __all__ = (
     "DeleteQuickConnectRequestRequestTypeDef",
     "DeleteSecurityProfileRequestRequestTypeDef",
     "DeleteTaskTemplateRequestRequestTypeDef",
+    "DeleteTrafficDistributionGroupRequestRequestTypeDef",
     "DeleteUseCaseRequestRequestTypeDef",
     "DeleteUserHierarchyGroupRequestRequestTypeDef",
     "DeleteUserRequestRequestTypeDef",
@@ -177,6 +182,8 @@ __all__ = (
     "DescribeRoutingProfileResponseTypeDef",
     "DescribeSecurityProfileRequestRequestTypeDef",
     "DescribeSecurityProfileResponseTypeDef",
+    "DescribeTrafficDistributionGroupRequestRequestTypeDef",
+    "DescribeTrafficDistributionGroupResponseTypeDef",
     "DescribeUserHierarchyGroupRequestRequestTypeDef",
     "DescribeUserHierarchyGroupResponseTypeDef",
     "DescribeUserHierarchyStructureRequestRequestTypeDef",
@@ -195,6 +202,8 @@ __all__ = (
     "DisassociateQueueQuickConnectsRequestRequestTypeDef",
     "DisassociateRoutingProfileQueuesRequestRequestTypeDef",
     "DisassociateSecurityKeyRequestRequestTypeDef",
+    "DismissUserContactRequestRequestTypeDef",
+    "DistributionTypeDef",
     "EmailReferenceTypeDef",
     "EncryptionConfigTypeDef",
     "FiltersTypeDef",
@@ -210,6 +219,8 @@ __all__ = (
     "GetMetricDataResponseTypeDef",
     "GetTaskTemplateRequestRequestTypeDef",
     "GetTaskTemplateResponseTypeDef",
+    "GetTrafficDistributionRequestRequestTypeDef",
+    "GetTrafficDistributionResponseTypeDef",
     "HierarchyGroupConditionTypeDef",
     "HierarchyGroupSummaryReferenceTypeDef",
     "HierarchyGroupSummaryTypeDef",
@@ -294,6 +305,8 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListTaskTemplatesRequestRequestTypeDef",
     "ListTaskTemplatesResponseTypeDef",
+    "ListTrafficDistributionGroupsRequestRequestTypeDef",
+    "ListTrafficDistributionGroupsResponseTypeDef",
     "ListUseCasesRequestRequestTypeDef",
     "ListUseCasesResponseTypeDef",
     "ListUserHierarchyGroupsRequestRequestTypeDef",
@@ -301,6 +314,8 @@ __all__ = (
     "ListUsersRequestRequestTypeDef",
     "ListUsersResponseTypeDef",
     "MediaConcurrencyTypeDef",
+    "MonitorContactRequestRequestTypeDef",
+    "MonitorContactResponseTypeDef",
     "NumberReferenceTypeDef",
     "OutboundCallerConfigTypeDef",
     "PaginatorConfigTypeDef",
@@ -324,6 +339,8 @@ __all__ = (
     "ReferenceSummaryTypeDef",
     "ReferenceTypeDef",
     "ReleasePhoneNumberRequestRequestTypeDef",
+    "ReplicateInstanceRequestRequestTypeDef",
+    "ReplicateInstanceResponseTypeDef",
     "RequiredFieldInfoTypeDef",
     "ResponseMetadataTypeDef",
     "ResumeContactRecordingRequestRequestTypeDef",
@@ -377,7 +394,10 @@ __all__ = (
     "TaskTemplateFieldIdentifierTypeDef",
     "TaskTemplateFieldTypeDef",
     "TaskTemplateMetadataTypeDef",
+    "TelephonyConfigTypeDef",
     "ThresholdTypeDef",
+    "TrafficDistributionGroupSummaryTypeDef",
+    "TrafficDistributionGroupTypeDef",
     "TransferContactRequestRequestTypeDef",
     "TransferContactResponseTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -409,6 +429,7 @@ __all__ = (
     "UpdateSecurityProfileRequestRequestTypeDef",
     "UpdateTaskTemplateRequestRequestTypeDef",
     "UpdateTaskTemplateResponseTypeDef",
+    "UpdateTrafficDistributionRequestRequestTypeDef",
     "UpdateUserHierarchyGroupNameRequestRequestTypeDef",
     "UpdateUserHierarchyRequestRequestTypeDef",
     "UpdateUserHierarchyStructureRequestRequestTypeDef",
@@ -1119,6 +1140,8 @@ _OptionalCreateSecurityProfileRequestRequestTypeDef = TypedDict(
         "Description": str,
         "Permissions": List[str],
         "Tags": Dict[str, str],
+        "AllowedAccessControlTags": Dict[str, str],
+        "TagRestrictedResources": List[str],
     },
     total=False,
 )
@@ -1167,6 +1190,38 @@ class CreateTaskTemplateRequestRequestTypeDef(
 
 CreateTaskTemplateResponseTypeDef = TypedDict(
     "CreateTaskTemplateResponseTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTrafficDistributionGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTrafficDistributionGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+        "InstanceId": str,
+    },
+)
+_OptionalCreateTrafficDistributionGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTrafficDistributionGroupRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ClientToken": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateTrafficDistributionGroupRequestRequestTypeDef(
+    _RequiredCreateTrafficDistributionGroupRequestRequestTypeDef,
+    _OptionalCreateTrafficDistributionGroupRequestRequestTypeDef,
+):
+    pass
+
+CreateTrafficDistributionGroupResponseTypeDef = TypedDict(
+    "CreateTrafficDistributionGroupResponseTypeDef",
     {
         "Id": str,
         "Arn": str,
@@ -1424,6 +1479,13 @@ DeleteTaskTemplateRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteTrafficDistributionGroupRequestRequestTypeDef = TypedDict(
+    "DeleteTrafficDistributionGroupRequestRequestTypeDef",
+    {
+        "TrafficDistributionGroupId": str,
+    },
+)
+
 DeleteUseCaseRequestRequestTypeDef = TypedDict(
     "DeleteUseCaseRequestRequestTypeDef",
     {
@@ -1674,6 +1736,21 @@ DescribeSecurityProfileResponseTypeDef = TypedDict(
     },
 )
 
+DescribeTrafficDistributionGroupRequestRequestTypeDef = TypedDict(
+    "DescribeTrafficDistributionGroupRequestRequestTypeDef",
+    {
+        "TrafficDistributionGroupId": str,
+    },
+)
+
+DescribeTrafficDistributionGroupResponseTypeDef = TypedDict(
+    "DescribeTrafficDistributionGroupResponseTypeDef",
+    {
+        "TrafficDistributionGroup": "TrafficDistributionGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeUserHierarchyGroupRequestRequestTypeDef = TypedDict(
     "DescribeUserHierarchyGroupRequestRequestTypeDef",
     {
@@ -1834,6 +1911,23 @@ DisassociateSecurityKeyRequestRequestTypeDef = TypedDict(
     },
 )
 
+DismissUserContactRequestRequestTypeDef = TypedDict(
+    "DismissUserContactRequestRequestTypeDef",
+    {
+        "UserId": str,
+        "InstanceId": str,
+        "ContactId": str,
+    },
+)
+
+DistributionTypeDef = TypedDict(
+    "DistributionTypeDef",
+    {
+        "Region": str,
+        "Percentage": int,
+    },
+)
+
 EmailReferenceTypeDef = TypedDict(
     "EmailReferenceTypeDef",
     {
@@ -1952,6 +2046,9 @@ GetFederationTokenResponseTypeDef = TypedDict(
     "GetFederationTokenResponseTypeDef",
     {
         "Credentials": "CredentialsTypeDef",
+        "SignInUrl": str,
+        "UserArn": str,
+        "UserId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2026,6 +2123,23 @@ GetTaskTemplateResponseTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "CreatedTime": datetime,
         "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTrafficDistributionRequestRequestTypeDef = TypedDict(
+    "GetTrafficDistributionRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetTrafficDistributionResponseTypeDef = TypedDict(
+    "GetTrafficDistributionResponseTypeDef",
+    {
+        "TelephonyConfig": "TelephonyConfigTypeDef",
+        "Id": str,
+        "Arn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3137,6 +3251,25 @@ ListTaskTemplatesResponseTypeDef = TypedDict(
     },
 )
 
+ListTrafficDistributionGroupsRequestRequestTypeDef = TypedDict(
+    "ListTrafficDistributionGroupsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "InstanceId": str,
+    },
+    total=False,
+)
+
+ListTrafficDistributionGroupsResponseTypeDef = TypedDict(
+    "ListTrafficDistributionGroupsResponseTypeDef",
+    {
+        "NextToken": str,
+        "TrafficDistributionGroupSummaryList": List["TrafficDistributionGroupSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListUseCasesRequestRequestTypeDef = TypedDict(
     "_RequiredListUseCasesRequestRequestTypeDef",
     {
@@ -3231,6 +3364,37 @@ MediaConcurrencyTypeDef = TypedDict(
     {
         "Channel": ChannelType,
         "Concurrency": int,
+    },
+)
+
+_RequiredMonitorContactRequestRequestTypeDef = TypedDict(
+    "_RequiredMonitorContactRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactId": str,
+        "UserId": str,
+    },
+)
+_OptionalMonitorContactRequestRequestTypeDef = TypedDict(
+    "_OptionalMonitorContactRequestRequestTypeDef",
+    {
+        "AllowedMonitorCapabilities": List[MonitorCapabilityType],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class MonitorContactRequestRequestTypeDef(
+    _RequiredMonitorContactRequestRequestTypeDef, _OptionalMonitorContactRequestRequestTypeDef
+):
+    pass
+
+MonitorContactResponseTypeDef = TypedDict(
+    "MonitorContactResponseTypeDef",
+    {
+        "ContactId": str,
+        "ContactArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -3482,6 +3646,36 @@ class ReleasePhoneNumberRequestRequestTypeDef(
     _OptionalReleasePhoneNumberRequestRequestTypeDef,
 ):
     pass
+
+_RequiredReplicateInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredReplicateInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ReplicaRegion": str,
+        "ReplicaAlias": str,
+    },
+)
+_OptionalReplicateInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalReplicateInstanceRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ReplicateInstanceRequestRequestTypeDef(
+    _RequiredReplicateInstanceRequestRequestTypeDef, _OptionalReplicateInstanceRequestRequestTypeDef
+):
+    pass
+
+ReplicateInstanceResponseTypeDef = TypedDict(
+    "ReplicateInstanceResponseTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 RequiredFieldInfoTypeDef = TypedDict(
     "RequiredFieldInfoTypeDef",
@@ -3850,6 +4044,8 @@ SecurityProfileTypeDef = TypedDict(
         "SecurityProfileName": str,
         "Description": str,
         "Tags": Dict[str, str],
+        "AllowedAccessControlTags": Dict[str, str],
+        "TagRestrictedResources": List[str],
     },
     total=False,
 )
@@ -4138,11 +4334,44 @@ TaskTemplateMetadataTypeDef = TypedDict(
     total=False,
 )
 
+TelephonyConfigTypeDef = TypedDict(
+    "TelephonyConfigTypeDef",
+    {
+        "Distributions": List["DistributionTypeDef"],
+    },
+)
+
 ThresholdTypeDef = TypedDict(
     "ThresholdTypeDef",
     {
         "Comparison": Literal["LT"],
         "ThresholdValue": float,
+    },
+    total=False,
+)
+
+TrafficDistributionGroupSummaryTypeDef = TypedDict(
+    "TrafficDistributionGroupSummaryTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "InstanceArn": str,
+        "Status": TrafficDistributionGroupStatusType,
+    },
+    total=False,
+)
+
+TrafficDistributionGroupTypeDef = TypedDict(
+    "TrafficDistributionGroupTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "Description": str,
+        "InstanceArn": str,
+        "Status": TrafficDistributionGroupStatusType,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -4570,6 +4799,8 @@ _OptionalUpdateSecurityProfileRequestRequestTypeDef = TypedDict(
     {
         "Description": str,
         "Permissions": List[str],
+        "AllowedAccessControlTags": Dict[str, str],
+        "TagRestrictedResources": List[str],
     },
     total=False,
 )
@@ -4625,6 +4856,26 @@ UpdateTaskTemplateResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredUpdateTrafficDistributionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTrafficDistributionRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalUpdateTrafficDistributionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTrafficDistributionRequestRequestTypeDef",
+    {
+        "TelephonyConfig": "TelephonyConfigTypeDef",
+    },
+    total=False,
+)
+
+class UpdateTrafficDistributionRequestRequestTypeDef(
+    _RequiredUpdateTrafficDistributionRequestRequestTypeDef,
+    _OptionalUpdateTrafficDistributionRequestRequestTypeDef,
+):
+    pass
 
 UpdateUserHierarchyGroupNameRequestRequestTypeDef = TypedDict(
     "UpdateUserHierarchyGroupNameRequestRequestTypeDef",
@@ -4758,6 +5009,8 @@ UserIdentityInfoTypeDef = TypedDict(
         "FirstName": str,
         "LastName": str,
         "Email": str,
+        "SecondaryEmail": str,
+        "Mobile": str,
     },
     total=False,
 )

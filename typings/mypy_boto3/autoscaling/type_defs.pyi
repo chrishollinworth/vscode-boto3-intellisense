@@ -158,6 +158,7 @@ __all__ = (
     "MetricStatTypeDef",
     "MetricTypeDef",
     "MixedInstancesPolicyTypeDef",
+    "NetworkBandwidthGbpsRequestTypeDef",
     "NetworkInterfaceCountRequestTypeDef",
     "NotificationConfigurationTypeDef",
     "PaginatorConfigTypeDef",
@@ -1343,6 +1344,8 @@ _OptionalInstanceRequirementsTypeDef = TypedDict(
         "AcceleratorManufacturers": List[AcceleratorManufacturerType],
         "AcceleratorNames": List[AcceleratorNameType],
         "AcceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBRequestTypeDef",
+        "NetworkBandwidthGbps": "NetworkBandwidthGbpsRequestTypeDef",
+        "AllowedInstanceTypes": List[str],
     },
     total=False,
 )
@@ -1668,6 +1671,15 @@ MixedInstancesPolicyTypeDef = TypedDict(
     {
         "LaunchTemplate": "LaunchTemplateTypeDef",
         "InstancesDistribution": "InstancesDistributionTypeDef",
+    },
+    total=False,
+)
+
+NetworkBandwidthGbpsRequestTypeDef = TypedDict(
+    "NetworkBandwidthGbpsRequestTypeDef",
+    {
+        "Min": float,
+        "Max": float,
     },
     total=False,
 )

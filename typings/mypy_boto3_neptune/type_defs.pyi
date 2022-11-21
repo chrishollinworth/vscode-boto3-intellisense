@@ -186,6 +186,8 @@ __all__ = (
     "RestoreDBClusterFromSnapshotResultTypeDef",
     "RestoreDBClusterToPointInTimeMessageRequestTypeDef",
     "RestoreDBClusterToPointInTimeResultTypeDef",
+    "ServerlessV2ScalingConfigurationInfoTypeDef",
+    "ServerlessV2ScalingConfigurationTypeDef",
     "StartDBClusterMessageRequestTypeDef",
     "StartDBClusterResultTypeDef",
     "StopDBClusterMessageRequestTypeDef",
@@ -456,6 +458,7 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "EnableIAMDatabaseAuthentication": bool,
         "EnableCloudwatchLogsExports": List[str],
         "DeletionProtection": bool,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "GlobalClusterIdentifier": str,
         "SourceRegion": str,
     },
@@ -926,6 +929,7 @@ DBClusterTypeDef = TypedDict(
         "DeletionProtection": bool,
         "CrossAccountClone": bool,
         "AutomaticRestartTime": datetime,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationInfoTypeDef",
     },
     total=False,
 )
@@ -1845,6 +1849,7 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "DBInstanceParameterGroupName": str,
         "DeletionProtection": bool,
         "CopyTagsToSnapshot": bool,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
     },
     total=False,
 )
@@ -2386,6 +2391,7 @@ _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
         "DBClusterParameterGroupName": str,
         "DeletionProtection": bool,
         "CopyTagsToSnapshot": bool,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
     },
     total=False,
 )
@@ -2427,6 +2433,7 @@ _OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
         "EnableCloudwatchLogsExports": List[str],
         "DBClusterParameterGroupName": str,
         "DeletionProtection": bool,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
     },
     total=False,
 )
@@ -2443,6 +2450,24 @@ RestoreDBClusterToPointInTimeResultTypeDef = TypedDict(
         "DBCluster": "DBClusterTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ServerlessV2ScalingConfigurationInfoTypeDef = TypedDict(
+    "ServerlessV2ScalingConfigurationInfoTypeDef",
+    {
+        "MinCapacity": float,
+        "MaxCapacity": float,
+    },
+    total=False,
+)
+
+ServerlessV2ScalingConfigurationTypeDef = TypedDict(
+    "ServerlessV2ScalingConfigurationTypeDef",
+    {
+        "MinCapacity": float,
+        "MaxCapacity": float,
+    },
+    total=False,
 )
 
 StartDBClusterMessageRequestTypeDef = TypedDict(

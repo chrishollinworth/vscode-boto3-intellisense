@@ -35,6 +35,7 @@ __all__ = (
     "DescribeEngineDefaultParametersPaginatorName",
     "DescribeEventSubscriptionsPaginatorName",
     "DescribeEventsPaginatorName",
+    "DescribeGlobalClustersPaginatorName",
     "DescribeOrderableDBInstanceOptionsPaginatorName",
     "DescribePendingMaintenanceActionsPaginatorName",
     "SourceTypeType",
@@ -56,6 +57,7 @@ DescribeDBSubnetGroupsPaginatorName = Literal["describe_db_subnet_groups"]
 DescribeEngineDefaultParametersPaginatorName = Literal["describe_engine_default_parameters"]
 DescribeEventSubscriptionsPaginatorName = Literal["describe_event_subscriptions"]
 DescribeEventsPaginatorName = Literal["describe_events"]
+DescribeGlobalClustersPaginatorName = Literal["describe_global_clusters"]
 DescribeOrderableDBInstanceOptionsPaginatorName = Literal["describe_orderable_db_instance_options"]
 DescribePendingMaintenanceActionsPaginatorName = Literal["describe_pending_maintenance_actions"]
 SourceTypeType = Literal[

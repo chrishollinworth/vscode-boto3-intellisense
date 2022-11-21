@@ -38,6 +38,7 @@ __all__ = (
     "TriggerTypeType",
     "WorkflowTypeType",
     "ZendeskConnectorOperatorType",
+    "logicalOperatorType",
 )
 
 ConflictResolvingModelType = Literal["RECENCY", "SOURCE"]
@@ -179,3 +180,4 @@ ZendeskConnectorOperatorType = Literal[
     "VALIDATE_NON_ZERO",
     "VALIDATE_NUMERIC",
 ]
+logicalOperatorType = Literal["AND", "OR"]

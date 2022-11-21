@@ -31,6 +31,8 @@ __all__ = (
     "ListDatasetsPaginatorName",
     "ListEventTrackersPaginatorName",
     "ListFiltersPaginatorName",
+    "ListMetricAttributionMetricsPaginatorName",
+    "ListMetricAttributionsPaginatorName",
     "ListRecipesPaginatorName",
     "ListRecommendersPaginatorName",
     "ListSchemasPaginatorName",
@@ -53,6 +55,8 @@ ListDatasetImportJobsPaginatorName = Literal["list_dataset_import_jobs"]
 ListDatasetsPaginatorName = Literal["list_datasets"]
 ListEventTrackersPaginatorName = Literal["list_event_trackers"]
 ListFiltersPaginatorName = Literal["list_filters"]
+ListMetricAttributionMetricsPaginatorName = Literal["list_metric_attribution_metrics"]
+ListMetricAttributionsPaginatorName = Literal["list_metric_attributions"]
 ListRecipesPaginatorName = Literal["list_recipes"]
 ListRecommendersPaginatorName = Literal["list_recommenders"]
 ListSchemasPaginatorName = Literal["list_schemas"]

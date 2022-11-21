@@ -45,6 +45,7 @@ __all__ = (
     "CreateSamplingRuleRequestRequestTypeDef",
     "CreateSamplingRuleResultTypeDef",
     "DeleteGroupRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestRequestTypeDef",
     "DeleteSamplingRuleRequestRequestTypeDef",
     "DeleteSamplingRuleResultTypeDef",
     "EdgeStatisticsTypeDef",
@@ -97,16 +98,21 @@ __all__ = (
     "InsightTypeDef",
     "InsightsConfigurationTypeDef",
     "InstanceIdDetailTypeDef",
+    "ListResourcePoliciesRequestRequestTypeDef",
+    "ListResourcePoliciesResultTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PutEncryptionConfigRequestRequestTypeDef",
     "PutEncryptionConfigResultTypeDef",
+    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyResultTypeDef",
     "PutTelemetryRecordsRequestRequestTypeDef",
     "PutTraceSegmentsRequestRequestTypeDef",
     "PutTraceSegmentsResultTypeDef",
     "RequestImpactStatisticsTypeDef",
     "ResourceARNDetailTypeDef",
+    "ResourcePolicyTypeDef",
     "ResponseMetadataTypeDef",
     "ResponseTimeRootCauseEntityTypeDef",
     "ResponseTimeRootCauseServiceTypeDef",
@@ -284,6 +290,26 @@ DeleteGroupRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDeleteResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteResourcePolicyRequestRequestTypeDef",
+    {
+        "PolicyName": str,
+    },
+)
+_OptionalDeleteResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteResourcePolicyRequestRequestTypeDef",
+    {
+        "PolicyRevisionId": str,
+    },
+    total=False,
+)
+
+class DeleteResourcePolicyRequestRequestTypeDef(
+    _RequiredDeleteResourcePolicyRequestRequestTypeDef,
+    _OptionalDeleteResourcePolicyRequestRequestTypeDef,
+):
+    pass
+
 DeleteSamplingRuleRequestRequestTypeDef = TypedDict(
     "DeleteSamplingRuleRequestRequestTypeDef",
     {
@@ -322,6 +348,8 @@ EdgeTypeDef = TypedDict(
         "SummaryStatistics": "EdgeStatisticsTypeDef",
         "ResponseTimeHistogram": List["HistogramEntryTypeDef"],
         "Aliases": List["AliasTypeDef"],
+        "EdgeType": str,
+        "ReceivedEventAgeHistogram": List["HistogramEntryTypeDef"],
     },
     total=False,
 )
@@ -900,6 +928,23 @@ InstanceIdDetailTypeDef = TypedDict(
     total=False,
 )
 
+ListResourcePoliciesRequestRequestTypeDef = TypedDict(
+    "ListResourcePoliciesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListResourcePoliciesResultTypeDef = TypedDict(
+    "ListResourcePoliciesResultTypeDef",
+    {
+        "ResourcePolicies": List["ResourcePolicyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
     "_RequiredListTagsForResourceRequestRequestTypeDef",
     {
@@ -967,6 +1012,35 @@ PutEncryptionConfigResultTypeDef = TypedDict(
     },
 )
 
+_RequiredPutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredPutResourcePolicyRequestRequestTypeDef",
+    {
+        "PolicyName": str,
+        "PolicyDocument": str,
+    },
+)
+_OptionalPutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalPutResourcePolicyRequestRequestTypeDef",
+    {
+        "PolicyRevisionId": str,
+        "BypassPolicyLockoutCheck": bool,
+    },
+    total=False,
+)
+
+class PutResourcePolicyRequestRequestTypeDef(
+    _RequiredPutResourcePolicyRequestRequestTypeDef, _OptionalPutResourcePolicyRequestRequestTypeDef
+):
+    pass
+
+PutResourcePolicyResultTypeDef = TypedDict(
+    "PutResourcePolicyResultTypeDef",
+    {
+        "ResourcePolicy": "ResourcePolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredPutTelemetryRecordsRequestRequestTypeDef = TypedDict(
     "_RequiredPutTelemetryRecordsRequestRequestTypeDef",
     {
@@ -1018,6 +1092,17 @@ ResourceARNDetailTypeDef = TypedDict(
     "ResourceARNDetailTypeDef",
     {
         "ARN": str,
+    },
+    total=False,
+)
+
+ResourcePolicyTypeDef = TypedDict(
+    "ResourcePolicyTypeDef",
+    {
+        "PolicyName": str,
+        "PolicyDocument": str,
+        "PolicyRevisionId": str,
+        "LastUpdatedTime": datetime,
     },
     total=False,
 )

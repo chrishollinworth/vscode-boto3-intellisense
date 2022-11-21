@@ -22,8 +22,6 @@ from .literals import (
     KnowledgeBaseTypeType,
     RecommendationSourceTypeType,
     RelevanceLevelType,
-    RelevanceType,
-    TargetTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -62,7 +60,6 @@ __all__ = (
     "DeleteKnowledgeBaseRequestRequestTypeDef",
     "DocumentTextTypeDef",
     "DocumentTypeDef",
-    "FeedbackDataTypeDef",
     "FilterTypeDef",
     "GetAssistantAssociationRequestRequestTypeDef",
     "GetAssistantAssociationResponseTypeDef",
@@ -96,8 +93,6 @@ __all__ = (
     "NotifyRecommendationsReceivedRequestRequestTypeDef",
     "NotifyRecommendationsReceivedResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PutFeedbackRequestRequestTypeDef",
-    "PutFeedbackResponseTypeDef",
     "QueryAssistantRequestRequestTypeDef",
     "QueryAssistantResponseTypeDef",
     "QueryRecommendationTriggerDataTypeDef",
@@ -527,13 +522,6 @@ _OptionalDocumentTypeDef = TypedDict(
 class DocumentTypeDef(_RequiredDocumentTypeDef, _OptionalDocumentTypeDef):
     pass
 
-FeedbackDataTypeDef = TypedDict(
-    "FeedbackDataTypeDef",
-    {
-        "relevance": RelevanceType,
-    },
-)
-
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
     {
@@ -886,28 +874,6 @@ PaginatorConfigTypeDef = TypedDict(
         "StartingToken": str,
     },
     total=False,
-)
-
-PutFeedbackRequestRequestTypeDef = TypedDict(
-    "PutFeedbackRequestRequestTypeDef",
-    {
-        "assistantId": str,
-        "feedback": "FeedbackDataTypeDef",
-        "targetId": str,
-        "targetType": TargetTypeType,
-    },
-)
-
-PutFeedbackResponseTypeDef = TypedDict(
-    "PutFeedbackResponseTypeDef",
-    {
-        "assistantArn": str,
-        "assistantId": str,
-        "feedback": "FeedbackDataTypeDef",
-        "targetId": str,
-        "targetType": TargetTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
 )
 
 _RequiredQueryAssistantRequestRequestTypeDef = TypedDict(

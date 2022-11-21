@@ -147,6 +147,8 @@ __all__ = (
     "FSxWindowsFileServerVolumeConfigurationTypeDef",
     "FailureTypeDef",
     "FirelensConfigurationTypeDef",
+    "GetTaskProtectionRequestRequestTypeDef",
+    "GetTaskProtectionResponseTypeDef",
     "HealthCheckTypeDef",
     "HostEntryTypeDef",
     "HostVolumePropertiesTypeDef",
@@ -188,6 +190,7 @@ __all__ = (
     "PlacementStrategyTypeDef",
     "PlatformDeviceTypeDef",
     "PortMappingTypeDef",
+    "ProtectedTaskTypeDef",
     "ProxyConfigurationTypeDef",
     "PutAccountSettingDefaultRequestRequestTypeDef",
     "PutAccountSettingDefaultResponseTypeDef",
@@ -250,6 +253,8 @@ __all__ = (
     "UpdateServicePrimaryTaskSetResponseTypeDef",
     "UpdateServiceRequestRequestTypeDef",
     "UpdateServiceResponseTypeDef",
+    "UpdateTaskProtectionRequestRequestTypeDef",
+    "UpdateTaskProtectionResponseTypeDef",
     "UpdateTaskSetRequestRequestTypeDef",
     "UpdateTaskSetResponseTypeDef",
     "VersionInfoTypeDef",
@@ -1311,6 +1316,34 @@ class FirelensConfigurationTypeDef(
 ):
     pass
 
+_RequiredGetTaskProtectionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTaskProtectionRequestRequestTypeDef",
+    {
+        "cluster": str,
+    },
+)
+_OptionalGetTaskProtectionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTaskProtectionRequestRequestTypeDef",
+    {
+        "tasks": List[str],
+    },
+    total=False,
+)
+
+class GetTaskProtectionRequestRequestTypeDef(
+    _RequiredGetTaskProtectionRequestRequestTypeDef, _OptionalGetTaskProtectionRequestRequestTypeDef
+):
+    pass
+
+GetTaskProtectionResponseTypeDef = TypedDict(
+    "GetTaskProtectionResponseTypeDef",
+    {
+        "protectedTasks": List["ProtectedTaskTypeDef"],
+        "failures": List["FailureTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredHealthCheckTypeDef = TypedDict(
     "_RequiredHealthCheckTypeDef",
     {
@@ -1756,6 +1789,16 @@ PortMappingTypeDef = TypedDict(
         "containerPort": int,
         "hostPort": int,
         "protocol": TransportProtocolType,
+    },
+    total=False,
+)
+
+ProtectedTaskTypeDef = TypedDict(
+    "ProtectedTaskTypeDef",
+    {
+        "taskArn": str,
+        "protectionEnabled": bool,
+        "expirationDate": datetime,
     },
     total=False,
 )
@@ -2627,6 +2670,37 @@ UpdateServiceResponseTypeDef = TypedDict(
     "UpdateServiceResponseTypeDef",
     {
         "service": "ServiceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateTaskProtectionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTaskProtectionRequestRequestTypeDef",
+    {
+        "cluster": str,
+        "tasks": List[str],
+        "protectionEnabled": bool,
+    },
+)
+_OptionalUpdateTaskProtectionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTaskProtectionRequestRequestTypeDef",
+    {
+        "expiresInMinutes": int,
+    },
+    total=False,
+)
+
+class UpdateTaskProtectionRequestRequestTypeDef(
+    _RequiredUpdateTaskProtectionRequestRequestTypeDef,
+    _OptionalUpdateTaskProtectionRequestRequestTypeDef,
+):
+    pass
+
+UpdateTaskProtectionResponseTypeDef = TypedDict(
+    "UpdateTaskProtectionResponseTypeDef",
+    {
+        "protectedTasks": List["ProtectedTaskTypeDef"],
+        "failures": List["FailureTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

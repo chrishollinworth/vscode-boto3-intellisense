@@ -28,7 +28,7 @@ __all__ = ("ListAccessPointsForObjectLambdaPaginator",)
 
 class ListAccessPointsForObjectLambdaPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/s3control.html#S3Control.Paginator.ListAccessPointsForObjectLambda)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/s3control.html#S3Control.Paginator.ListAccessPointsForObjectLambda)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/paginators.html#listaccesspointsforobjectlambdapaginator)
     """
 
@@ -36,6 +36,6 @@ class ListAccessPointsForObjectLambdaPaginator(Boto3Paginator):
         self, *, AccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccessPointsForObjectLambdaResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/s3control.html#S3Control.Paginator.ListAccessPointsForObjectLambda.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/s3control.html#S3Control.Paginator.ListAccessPointsForObjectLambda.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3control/paginators.html#listaccesspointsforobjectlambdapaginator)
         """

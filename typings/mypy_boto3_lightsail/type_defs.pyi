@@ -25,6 +25,7 @@ from .literals import (
     BlueprintTypeType,
     BPAStatusMessageType,
     BucketMetricNameType,
+    CertificateDomainValidationStatusType,
     CertificateStatusType,
     ComparisonOperatorType,
     ContactMethodStatusType,
@@ -38,6 +39,7 @@ from .literals import (
     DiskSnapshotStateType,
     DiskStateType,
     DistributionMetricNameType,
+    DnsRecordCreationStateCodeType,
     ExportSnapshotRecordSourceTypeType,
     ForwardValuesType,
     HeaderEnumType,
@@ -56,6 +58,7 @@ from .literals import (
     LoadBalancerMetricNameType,
     LoadBalancerProtocolType,
     LoadBalancerStateType,
+    LoadBalancerTlsCertificateDnsRecordCreationStateCodeType,
     LoadBalancerTlsCertificateDomainStatusType,
     LoadBalancerTlsCertificateFailureReasonType,
     LoadBalancerTlsCertificateRenewalStatusType,
@@ -64,6 +67,7 @@ from .literals import (
     MetricNameType,
     MetricStatisticType,
     MetricUnitType,
+    NameServersUpdateStateCodeType,
     NetworkProtocolType,
     OperationStatusType,
     OperationTypeType,
@@ -71,6 +75,7 @@ from .literals import (
     PortAccessTypeType,
     PortInfoSourceTypeType,
     PortStateType,
+    R53HostedZoneDeletionStateCodeType,
     RecordStateType,
     RegionNameType,
     RelationalDatabaseMetricNameType,
@@ -250,6 +255,7 @@ __all__ = (
     "DiskSnapshotTypeDef",
     "DiskTypeDef",
     "DistributionBundleTypeDef",
+    "DnsRecordCreationStateTypeDef",
     "DomainEntryTypeDef",
     "DomainTypeDef",
     "DomainValidationRecordTypeDef",
@@ -403,6 +409,7 @@ __all__ = (
     "IsVpcPeeredResultTypeDef",
     "KeyPairTypeDef",
     "LightsailDistributionTypeDef",
+    "LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef",
     "LoadBalancerTlsCertificateDomainValidationOptionTypeDef",
     "LoadBalancerTlsCertificateDomainValidationRecordTypeDef",
     "LoadBalancerTlsCertificateRenewalSummaryTypeDef",
@@ -414,6 +421,7 @@ __all__ = (
     "MetricDatapointTypeDef",
     "MonitoredResourceInfoTypeDef",
     "MonthlyTransferTypeDef",
+    "NameServersUpdateStateTypeDef",
     "OpenInstancePublicPortsRequestRequestTypeDef",
     "OpenInstancePublicPortsResultTypeDef",
     "OperationTypeDef",
@@ -431,6 +439,7 @@ __all__ = (
     "PutInstancePublicPortsRequestRequestTypeDef",
     "PutInstancePublicPortsResultTypeDef",
     "QueryStringObjectTypeDef",
+    "R53HostedZoneDeletionStateTypeDef",
     "RebootInstanceRequestRequestTypeDef",
     "RebootInstanceResultTypeDef",
     "RebootRelationalDatabaseRequestRequestTypeDef",
@@ -438,6 +447,7 @@ __all__ = (
     "RegionTypeDef",
     "RegisterContainerImageRequestRequestTypeDef",
     "RegisterContainerImageResultTypeDef",
+    "RegisteredDomainDelegationInfoTypeDef",
     "RelationalDatabaseBlueprintTypeDef",
     "RelationalDatabaseBundleTypeDef",
     "RelationalDatabaseEndpointTypeDef",
@@ -2361,6 +2371,15 @@ DistributionBundleTypeDef = TypedDict(
     total=False,
 )
 
+DnsRecordCreationStateTypeDef = TypedDict(
+    "DnsRecordCreationStateTypeDef",
+    {
+        "code": DnsRecordCreationStateCodeType,
+        "message": str,
+    },
+    total=False,
+)
+
 DomainEntryTypeDef = TypedDict(
     "DomainEntryTypeDef",
     {
@@ -2385,6 +2404,7 @@ DomainTypeDef = TypedDict(
         "resourceType": ResourceTypeType,
         "tags": List["TagTypeDef"],
         "domainEntries": List["DomainEntryTypeDef"],
+        "registeredDomainDelegationInfo": "RegisteredDomainDelegationInfoTypeDef",
     },
     total=False,
 )
@@ -2394,6 +2414,8 @@ DomainValidationRecordTypeDef = TypedDict(
     {
         "domainName": str,
         "resourceRecord": "ResourceRecordTypeDef",
+        "dnsRecordCreationState": "DnsRecordCreationStateTypeDef",
+        "validationStatus": CertificateDomainValidationStatusType,
     },
     total=False,
 )
@@ -3896,6 +3918,15 @@ LightsailDistributionTypeDef = TypedDict(
     total=False,
 )
 
+LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef = TypedDict(
+    "LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef",
+    {
+        "code": LoadBalancerTlsCertificateDnsRecordCreationStateCodeType,
+        "message": str,
+    },
+    total=False,
+)
+
 LoadBalancerTlsCertificateDomainValidationOptionTypeDef = TypedDict(
     "LoadBalancerTlsCertificateDomainValidationOptionTypeDef",
     {
@@ -3913,6 +3944,7 @@ LoadBalancerTlsCertificateDomainValidationRecordTypeDef = TypedDict(
         "value": str,
         "validationStatus": LoadBalancerTlsCertificateDomainStatusType,
         "domainName": str,
+        "dnsRecordCreationState": "LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef",
     },
     total=False,
 )
@@ -4042,6 +4074,15 @@ MonthlyTransferTypeDef = TypedDict(
     "MonthlyTransferTypeDef",
     {
         "gbPerMonthAllocated": int,
+    },
+    total=False,
+)
+
+NameServersUpdateStateTypeDef = TypedDict(
+    "NameServersUpdateStateTypeDef",
+    {
+        "code": NameServersUpdateStateCodeType,
+        "message": str,
     },
     total=False,
 )
@@ -4229,6 +4270,15 @@ QueryStringObjectTypeDef = TypedDict(
     total=False,
 )
 
+R53HostedZoneDeletionStateTypeDef = TypedDict(
+    "R53HostedZoneDeletionStateTypeDef",
+    {
+        "code": R53HostedZoneDeletionStateCodeType,
+        "message": str,
+    },
+    total=False,
+)
+
 RebootInstanceRequestRequestTypeDef = TypedDict(
     "RebootInstanceRequestRequestTypeDef",
     {
@@ -4287,6 +4337,15 @@ RegisterContainerImageResultTypeDef = TypedDict(
         "containerImage": "ContainerImageTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+RegisteredDomainDelegationInfoTypeDef = TypedDict(
+    "RegisteredDomainDelegationInfoTypeDef",
+    {
+        "nameServersUpdateState": "NameServersUpdateStateTypeDef",
+        "r53HostedZoneDeletionState": "R53HostedZoneDeletionStateTypeDef",
+    },
+    total=False,
 )
 
 RelationalDatabaseBlueprintTypeDef = TypedDict(

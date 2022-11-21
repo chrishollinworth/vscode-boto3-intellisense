@@ -22,6 +22,7 @@ __all__ = (
     "AggregationTypeType",
     "AmplitudeConnectorOperatorType",
     "AuthenticationTypeType",
+    "CatalogTypeType",
     "ConnectionModeType",
     "ConnectorProvisioningTypeType",
     "ConnectorTypeType",
@@ -39,6 +40,7 @@ __all__ = (
     "OperatorPropertiesKeysType",
     "OperatorType",
     "OperatorsType",
+    "PathPrefixType",
     "PrefixFormatType",
     "PrefixTypeType",
     "PrivateConnectionProvisioningFailureCauseType",
@@ -47,6 +49,7 @@ __all__ = (
     "S3InputFileTypeType",
     "SAPODataConnectorOperatorType",
     "SalesforceConnectorOperatorType",
+    "SalesforceDataTransferApiType",
     "ScheduleFrequencyTypeType",
     "ServiceNowConnectorOperatorType",
     "SingularConnectorOperatorType",
@@ -62,6 +65,7 @@ __all__ = (
 AggregationTypeType = Literal["None", "SingleFile"]
 AmplitudeConnectorOperatorType = Literal["BETWEEN"]
 AuthenticationTypeType = Literal["APIKEY", "BASIC", "CUSTOM", "OAUTH2"]
+CatalogTypeType = Literal["GLUE"]
 ConnectionModeType = Literal["Private", "Public"]
 ConnectorProvisioningTypeType = Literal["LAMBDA"]
 ConnectorTypeType = Literal[
@@ -170,10 +174,12 @@ OperatorPropertiesKeysType = Literal[
     "DATA_TYPE",
     "DESTINATION_DATA_TYPE",
     "EXCLUDE_SOURCE_FIELDS_LIST",
+    "INCLUDE_NEW_FIELDS",
     "LOWER_BOUND",
     "MASK_LENGTH",
     "MASK_VALUE",
     "MATH_OPERATION_FIELDS_ORDER",
+    "ORDERED_PARTITION_KEYS_LIST",
     "SOURCE_DATA_TYPE",
     "SUBFIELD_CATEGORY_MAP",
     "TRUNCATE_LENGTH",
@@ -228,6 +234,7 @@ OperatorsType = Literal[
     "VALIDATE_NON_ZERO",
     "VALIDATE_NUMERIC",
 ]
+PathPrefixType = Literal["EXECUTION_ID", "SCHEMA_VERSION"]
 PrefixFormatType = Literal["DAY", "HOUR", "MINUTE", "MONTH", "YEAR"]
 PrefixTypeType = Literal["FILENAME", "PATH", "PATH_AND_FILENAME"]
 PrivateConnectionProvisioningFailureCauseType = Literal[
@@ -303,6 +310,7 @@ SalesforceConnectorOperatorType = Literal[
     "VALIDATE_NON_ZERO",
     "VALIDATE_NUMERIC",
 ]
+SalesforceDataTransferApiType = Literal["AUTOMATIC", "BULKV2", "REST_SYNC"]
 ScheduleFrequencyTypeType = Literal["BYMINUTE", "DAILY", "HOURLY", "MONTHLY", "ONCE", "WEEKLY"]
 ServiceNowConnectorOperatorType = Literal[
     "ADDITION",
@@ -365,7 +373,16 @@ SlackConnectorOperatorType = Literal[
     "VALIDATE_NUMERIC",
 ]
 TaskTypeType = Literal[
-    "Arithmetic", "Filter", "Map", "Map_all", "Mask", "Merge", "Passthrough", "Truncate", "Validate"
+    "Arithmetic",
+    "Filter",
+    "Map",
+    "Map_all",
+    "Mask",
+    "Merge",
+    "Partition",
+    "Passthrough",
+    "Truncate",
+    "Validate",
 ]
 TrendmicroConnectorOperatorType = Literal[
     "ADDITION",

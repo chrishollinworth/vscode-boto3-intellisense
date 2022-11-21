@@ -40,6 +40,7 @@ __all__ = (
     "OutputTypeType",
     "RelationalDatabaseSourceTypeType",
     "ResolverKindType",
+    "RuntimeNameType",
     "SchemaStatusType",
     "TypeDefinitionFormatType",
 )
@@ -91,6 +92,7 @@ ListTypesPaginatorName = Literal["list_types"]
 OutputTypeType = Literal["JSON", "SDL"]
 RelationalDatabaseSourceTypeType = Literal["RDS_HTTP_ENDPOINT"]
 ResolverKindType = Literal["PIPELINE", "UNIT"]
+RuntimeNameType = Literal["APPSYNC_JS"]
 SchemaStatusType = Literal[
     "ACTIVE", "DELETING", "FAILED", "NOT_APPLICABLE", "PROCESSING", "SUCCESS"
 ]

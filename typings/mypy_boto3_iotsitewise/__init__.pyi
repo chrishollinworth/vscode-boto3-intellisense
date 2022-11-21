@@ -16,7 +16,9 @@ Usage::
         GetInterpolatedAssetPropertyValuesPaginator,
         IoTSiteWiseClient,
         ListAccessPoliciesPaginator,
+        ListAssetModelPropertiesPaginator,
         ListAssetModelsPaginator,
+        ListAssetPropertiesPaginator,
         ListAssetRelationshipsPaginator,
         ListAssetsPaginator,
         ListAssociatedAssetsPaginator,
@@ -47,7 +49,9 @@ Usage::
     get_asset_property_value_history_paginator: GetAssetPropertyValueHistoryPaginator = client.get_paginator("get_asset_property_value_history")
     get_interpolated_asset_property_values_paginator: GetInterpolatedAssetPropertyValuesPaginator = client.get_paginator("get_interpolated_asset_property_values")
     list_access_policies_paginator: ListAccessPoliciesPaginator = client.get_paginator("list_access_policies")
+    list_asset_model_properties_paginator: ListAssetModelPropertiesPaginator = client.get_paginator("list_asset_model_properties")
     list_asset_models_paginator: ListAssetModelsPaginator = client.get_paginator("list_asset_models")
+    list_asset_properties_paginator: ListAssetPropertiesPaginator = client.get_paginator("list_asset_properties")
     list_asset_relationships_paginator: ListAssetRelationshipsPaginator = client.get_paginator("list_asset_relationships")
     list_assets_paginator: ListAssetsPaginator = client.get_paginator("list_assets")
     list_associated_assets_paginator: ListAssociatedAssetsPaginator = client.get_paginator("list_associated_assets")
@@ -66,7 +70,9 @@ from .paginator import (
     GetAssetPropertyValueHistoryPaginator,
     GetInterpolatedAssetPropertyValuesPaginator,
     ListAccessPoliciesPaginator,
+    ListAssetModelPropertiesPaginator,
     ListAssetModelsPaginator,
+    ListAssetPropertiesPaginator,
     ListAssetRelationshipsPaginator,
     ListAssetsPaginator,
     ListAssociatedAssetsPaginator,
@@ -100,7 +106,9 @@ __all__ = (
     "GetInterpolatedAssetPropertyValuesPaginator",
     "IoTSiteWiseClient",
     "ListAccessPoliciesPaginator",
+    "ListAssetModelPropertiesPaginator",
     "ListAssetModelsPaginator",
+    "ListAssetPropertiesPaginator",
     "ListAssetRelationshipsPaginator",
     "ListAssetsPaginator",
     "ListAssociatedAssetsPaginator",

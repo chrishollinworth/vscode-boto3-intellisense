@@ -26,6 +26,7 @@ __all__ = (
     "CopyProductStatusType",
     "DescribePortfolioShareTypeType",
     "EvaluationTypeType",
+    "LastSyncStatusType",
     "ListAcceptedPortfolioSharesPaginatorName",
     "ListConstraintsForPortfolioPaginatorName",
     "ListLaunchPathsPaginatorName",
@@ -66,6 +67,7 @@ __all__ = (
     "ServiceActionDefinitionTypeType",
     "ShareStatusType",
     "SortOrderType",
+    "SourceTypeType",
     "StackInstanceStatusType",
     "StackSetOperationTypeType",
     "StatusType",
@@ -80,6 +82,7 @@ DescribePortfolioShareTypeType = Literal[
     "ACCOUNT", "ORGANIZATION", "ORGANIZATIONAL_UNIT", "ORGANIZATION_MEMBER_ACCOUNT"
 ]
 EvaluationTypeType = Literal["DYNAMIC", "STATIC"]
+LastSyncStatusType = Literal["FAILED", "SUCCEEDED"]
 ListAcceptedPortfolioSharesPaginatorName = Literal["list_accepted_portfolio_shares"]
 ListConstraintsForPortfolioPaginatorName = Literal["list_constraints_for_portfolio"]
 ListLaunchPathsPaginatorName = Literal["list_launch_paths"]
@@ -100,7 +103,7 @@ ListServiceActionsPaginatorName = Literal["list_service_actions"]
 ListTagOptionsPaginatorName = Literal["list_tag_options"]
 OrganizationNodeTypeType = Literal["ACCOUNT", "ORGANIZATION", "ORGANIZATIONAL_UNIT"]
 PortfolioShareTypeType = Literal["AWS_ORGANIZATIONS", "AWS_SERVICECATALOG", "IMPORTED"]
-PrincipalTypeType = Literal["IAM"]
+PrincipalTypeType = Literal["IAM", "IAM_PATTERN"]
 ProductSourceType = Literal["ACCOUNT"]
 ProductTypeType = Literal["CLOUD_FORMATION_TEMPLATE", "MARKETPLACE"]
 ProductViewFilterByType = Literal["FullTextSearch", "Owner", "ProductType", "SourceProductId"]
@@ -141,6 +144,7 @@ ShareStatusType = Literal[
     "COMPLETED", "COMPLETED_WITH_ERRORS", "ERROR", "IN_PROGRESS", "NOT_STARTED"
 ]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
+SourceTypeType = Literal["CODESTAR"]
 StackInstanceStatusType = Literal["CURRENT", "INOPERABLE", "OUTDATED"]
 StackSetOperationTypeType = Literal["CREATE", "DELETE", "UPDATE"]
 StatusType = Literal["AVAILABLE", "CREATING", "FAILED"]

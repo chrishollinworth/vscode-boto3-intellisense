@@ -524,6 +524,7 @@ _OptionalCreateReplicationInstanceMessageRequestTypeDef = TypedDict(
         "PubliclyAccessible": bool,
         "DnsNameServers": str,
         "ResourceIdentifier": str,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -1785,6 +1786,7 @@ _OptionalModifyReplicationInstanceMessageRequestTypeDef = TypedDict(
         "AllowMajorVersionUpgrade": bool,
         "AutoMinorVersionUpgrade": bool,
         "ReplicationInstanceIdentifier": str,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -2244,10 +2246,12 @@ ReplicationInstanceTypeDef = TypedDict(
         "ReplicationInstancePrivateIpAddress": str,
         "ReplicationInstancePublicIpAddresses": List[str],
         "ReplicationInstancePrivateIpAddresses": List[str],
+        "ReplicationInstanceIpv6Addresses": List[str],
         "PubliclyAccessible": bool,
         "SecondaryAvailabilityZone": str,
         "FreeUntil": datetime,
         "DnsNameServers": str,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -2259,6 +2263,7 @@ ReplicationPendingModifiedValuesTypeDef = TypedDict(
         "AllocatedStorage": int,
         "MultiAZ": bool,
         "EngineVersion": str,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -2271,6 +2276,7 @@ ReplicationSubnetGroupTypeDef = TypedDict(
         "VpcId": str,
         "SubnetGroupStatus": str,
         "Subnets": List["SubnetTypeDef"],
+        "SupportedNetworkTypes": List[str],
     },
     total=False,
 )
@@ -2628,6 +2634,10 @@ TableStatisticsTypeDef = TypedDict(
         "Deletes": int,
         "Updates": int,
         "Ddls": int,
+        "AppliedInserts": int,
+        "AppliedDeletes": int,
+        "AppliedUpdates": int,
+        "AppliedDdls": int,
         "FullLoadRows": int,
         "FullLoadCondtnlChkFailedRows": int,
         "FullLoadErrorRows": int,

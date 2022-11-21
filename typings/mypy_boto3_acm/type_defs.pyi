@@ -431,6 +431,7 @@ _OptionalRequestCertificateRequestRequestTypeDef = TypedDict(
         "Options": "CertificateOptionsTypeDef",
         "CertificateAuthorityArn": str,
         "Tags": List["TagTypeDef"],
+        "KeyAlgorithm": KeyAlgorithmType,
     },
     total=False,
 )

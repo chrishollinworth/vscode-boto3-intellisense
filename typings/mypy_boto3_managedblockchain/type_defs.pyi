@@ -6,9 +6,9 @@ Type annotations for managedblockchain service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_managedblockchain.type_defs import ApprovalThresholdPolicyTypeDef
+    from mypy_boto3_managedblockchain.type_defs import AccessorSummaryTypeDef
 
-    data: ApprovalThresholdPolicyTypeDef = {...}
+    data: AccessorSummaryTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AccessorStatusType,
     EditionType,
     FrameworkType,
     InvitationStatusType,
@@ -29,12 +30,20 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccessorSummaryTypeDef",
+    "AccessorTypeDef",
     "ApprovalThresholdPolicyTypeDef",
+    "CreateAccessorInputRequestTypeDef",
+    "CreateAccessorOutputTypeDef",
     "CreateMemberInputRequestTypeDef",
     "CreateMemberOutputTypeDef",
     "CreateNetworkInputRequestTypeDef",
@@ -43,8 +52,11 @@ __all__ = (
     "CreateNodeOutputTypeDef",
     "CreateProposalInputRequestTypeDef",
     "CreateProposalOutputTypeDef",
+    "DeleteAccessorInputRequestTypeDef",
     "DeleteMemberInputRequestTypeDef",
     "DeleteNodeInputRequestTypeDef",
+    "GetAccessorInputRequestTypeDef",
+    "GetAccessorOutputTypeDef",
     "GetMemberInputRequestTypeDef",
     "GetMemberOutputTypeDef",
     "GetNetworkInputRequestTypeDef",
@@ -55,6 +67,8 @@ __all__ = (
     "GetProposalOutputTypeDef",
     "InvitationTypeDef",
     "InviteActionTypeDef",
+    "ListAccessorsInputRequestTypeDef",
+    "ListAccessorsOutputTypeDef",
     "ListInvitationsInputRequestTypeDef",
     "ListInvitationsOutputTypeDef",
     "ListMembersInputRequestTypeDef",
@@ -95,6 +109,7 @@ __all__ = (
     "NodeLogPublishingConfigurationTypeDef",
     "NodeSummaryTypeDef",
     "NodeTypeDef",
+    "PaginatorConfigTypeDef",
     "ProposalActionsTypeDef",
     "ProposalSummaryTypeDef",
     "ProposalTypeDef",
@@ -110,6 +125,31 @@ __all__ = (
     "VotingPolicyTypeDef",
 )
 
+AccessorSummaryTypeDef = TypedDict(
+    "AccessorSummaryTypeDef",
+    {
+        "Id": str,
+        "Type": Literal["BILLING_TOKEN"],
+        "Status": AccessorStatusType,
+        "CreationDate": datetime,
+        "Arn": str,
+    },
+    total=False,
+)
+
+AccessorTypeDef = TypedDict(
+    "AccessorTypeDef",
+    {
+        "Id": str,
+        "Type": Literal["BILLING_TOKEN"],
+        "BillingToken": str,
+        "Status": AccessorStatusType,
+        "CreationDate": datetime,
+        "Arn": str,
+    },
+    total=False,
+)
+
 ApprovalThresholdPolicyTypeDef = TypedDict(
     "ApprovalThresholdPolicyTypeDef",
     {
@@ -118,6 +158,23 @@ ApprovalThresholdPolicyTypeDef = TypedDict(
         "ThresholdComparator": ThresholdComparatorType,
     },
     total=False,
+)
+
+CreateAccessorInputRequestTypeDef = TypedDict(
+    "CreateAccessorInputRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "AccessorType": Literal["BILLING_TOKEN"],
+    },
+)
+
+CreateAccessorOutputTypeDef = TypedDict(
+    "CreateAccessorOutputTypeDef",
+    {
+        "AccessorId": str,
+        "BillingToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CreateMemberInputRequestTypeDef = TypedDict(
@@ -234,6 +291,13 @@ CreateProposalOutputTypeDef = TypedDict(
     },
 )
 
+DeleteAccessorInputRequestTypeDef = TypedDict(
+    "DeleteAccessorInputRequestTypeDef",
+    {
+        "AccessorId": str,
+    },
+)
+
 DeleteMemberInputRequestTypeDef = TypedDict(
     "DeleteMemberInputRequestTypeDef",
     {
@@ -261,6 +325,21 @@ class DeleteNodeInputRequestTypeDef(
     _RequiredDeleteNodeInputRequestTypeDef, _OptionalDeleteNodeInputRequestTypeDef
 ):
     pass
+
+GetAccessorInputRequestTypeDef = TypedDict(
+    "GetAccessorInputRequestTypeDef",
+    {
+        "AccessorId": str,
+    },
+)
+
+GetAccessorOutputTypeDef = TypedDict(
+    "GetAccessorOutputTypeDef",
+    {
+        "Accessor": "AccessorTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 GetMemberInputRequestTypeDef = TypedDict(
     "GetMemberInputRequestTypeDef",
@@ -354,6 +433,24 @@ InviteActionTypeDef = TypedDict(
     "InviteActionTypeDef",
     {
         "Principal": str,
+    },
+)
+
+ListAccessorsInputRequestTypeDef = TypedDict(
+    "ListAccessorsInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListAccessorsOutputTypeDef = TypedDict(
+    "ListAccessorsOutputTypeDef",
+    {
+        "Accessors": List["AccessorSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -822,6 +919,16 @@ NodeTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "Arn": str,
         "KmsKeyArn": str,
+    },
+    total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
     },
     total=False,
 )

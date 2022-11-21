@@ -74,6 +74,7 @@ __all__ = (
     "DescribeSourceRegionsPaginatorName",
     "DownloadDBLogFilePortionPaginatorName",
     "EngineFamilyType",
+    "ExportSourceTypeType",
     "FailoverStatusType",
     "IAMAuthModeType",
     "ReplicaModeType",
@@ -161,6 +162,7 @@ DescribeReservedDBInstancesPaginatorName = Literal["describe_reserved_db_instanc
 DescribeSourceRegionsPaginatorName = Literal["describe_source_regions"]
 DownloadDBLogFilePortionPaginatorName = Literal["download_db_log_file_portion"]
 EngineFamilyType = Literal["MYSQL", "POSTGRESQL", "SQLSERVER"]
+ExportSourceTypeType = Literal["CLUSTER", "SNAPSHOT"]
 FailoverStatusType = Literal["cancelling", "failing-over", "pending"]
 IAMAuthModeType = Literal["DISABLED", "ENABLED", "REQUIRED"]
 ReplicaModeType = Literal["mounted", "open-read-only"]

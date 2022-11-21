@@ -45,6 +45,7 @@ from .literals import (
     FilterValueTypeType,
     GlueRecordTypeType,
     JDBCDataTypeType,
+    JdbcMetadataEntryType,
     JobBookmarksEncryptionModeType,
     JobRunStateType,
     JoinTypeType,
@@ -1909,6 +1910,8 @@ _OptionalCreateCsvClassifierRequestTypeDef = TypedDict(
         "Header": List[str],
         "DisableValueTrimming": bool,
         "AllowSingleColumn": bool,
+        "CustomDatatypeConfigured": bool,
+        "CustomDatatypes": List[str],
     },
     total=False,
 )
@@ -2480,6 +2483,8 @@ _OptionalCsvClassifierTypeDef = TypedDict(
         "Header": List[str],
         "DisableValueTrimming": bool,
         "AllowSingleColumn": bool,
+        "CustomDatatypeConfigured": bool,
+        "CustomDatatypes": List[str],
     },
     total=False,
 )
@@ -5129,6 +5134,7 @@ JdbcTargetTypeDef = TypedDict(
         "ConnectionName": str,
         "Path": str,
         "Exclusions": List[str],
+        "EnableAdditionalMetadata": List[JdbcMetadataEntryType],
     },
     total=False,
 )
@@ -7835,6 +7841,8 @@ _OptionalUpdateCsvClassifierRequestTypeDef = TypedDict(
         "Header": List[str],
         "DisableValueTrimming": bool,
         "AllowSingleColumn": bool,
+        "CustomDatatypeConfigured": bool,
+        "CustomDatatypes": List[str],
     },
     total=False,
 )

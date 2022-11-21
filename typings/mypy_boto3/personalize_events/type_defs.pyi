@@ -23,6 +23,7 @@ else:
 __all__ = (
     "EventTypeDef",
     "ItemTypeDef",
+    "MetricAttributionTypeDef",
     "PutEventsRequestRequestTypeDef",
     "PutItemsRequestRequestTypeDef",
     "PutUsersRequestRequestTypeDef",
@@ -45,6 +46,7 @@ _OptionalEventTypeDef = TypedDict(
         "properties": str,
         "recommendationId": str,
         "impression": List[str],
+        "metricAttribution": "MetricAttributionTypeDef",
     },
     total=False,
 )
@@ -68,6 +70,13 @@ _OptionalItemTypeDef = TypedDict(
 
 class ItemTypeDef(_RequiredItemTypeDef, _OptionalItemTypeDef):
     pass
+
+MetricAttributionTypeDef = TypedDict(
+    "MetricAttributionTypeDef",
+    {
+        "eventAttributionSource": str,
+    },
+)
 
 _RequiredPutEventsRequestRequestTypeDef = TypedDict(
     "_RequiredPutEventsRequestRequestTypeDef",

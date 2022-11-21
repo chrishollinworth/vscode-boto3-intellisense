@@ -129,7 +129,35 @@ OrganizationResourceCollectionTypeType = Literal[
 ]
 ResourceCollectionTypeType = Literal["AWS_CLOUD_FORMATION", "AWS_SERVICE", "AWS_TAGS"]
 ResourcePermissionType = Literal["FULL_PERMISSION", "MISSING_PERMISSION"]
-ResourceTypeFilterType = Literal["LOG_GROUPS"]
+ResourceTypeFilterType = Literal[
+    "CLOUDFRONT_DISTRIBUTION",
+    "DYNAMODB_TABLE",
+    "EC2_NAT_GATEWAY",
+    "ECS_CLUSTER",
+    "ECS_SERVICE",
+    "EKS_CLUSTER",
+    "ELASTICACHE_CACHE_CLUSTER",
+    "ELASTICSEARCH_DOMAIN",
+    "ELASTIC_BEANSTALK_ENVIRONMENT",
+    "ELASTIC_LOAD_BALANCER_LOAD_BALANCER",
+    "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER",
+    "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP",
+    "KINESIS_STREAM",
+    "LAMBDA_FUNCTION",
+    "LOG_GROUPS",
+    "OPEN_SEARCH_SERVICE_DOMAIN",
+    "RDS_DB_CLUSTER",
+    "RDS_DB_INSTANCE",
+    "REDSHIFT_CLUSTER",
+    "ROUTE53_HEALTH_CHECK",
+    "ROUTE53_HOSTED_ZONE",
+    "S3_BUCKET",
+    "SAGEMAKER_ENDPOINT",
+    "SNS_TOPIC",
+    "SQS_QUEUE",
+    "STEP_FUNCTIONS_ACTIVITY",
+    "STEP_FUNCTIONS_STATE_MACHINE",
+]
 SearchInsightsPaginatorName = Literal["search_insights"]
 SearchOrganizationInsightsPaginatorName = Literal["search_organization_insights"]
 ServiceNameType = Literal[

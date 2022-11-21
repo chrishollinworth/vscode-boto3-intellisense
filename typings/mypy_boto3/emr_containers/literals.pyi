@@ -24,9 +24,11 @@ __all__ = (
     "FailureReasonType",
     "JobRunStateType",
     "ListJobRunsPaginatorName",
+    "ListJobTemplatesPaginatorName",
     "ListManagedEndpointsPaginatorName",
     "ListVirtualClustersPaginatorName",
     "PersistentAppUIType",
+    "TemplateParameterDataTypeType",
     "VirtualClusterStateType",
 )
 
@@ -41,7 +43,9 @@ JobRunStateType = Literal[
     "CANCELLED", "CANCEL_PENDING", "COMPLETED", "FAILED", "PENDING", "RUNNING", "SUBMITTED"
 ]
 ListJobRunsPaginatorName = Literal["list_job_runs"]
+ListJobTemplatesPaginatorName = Literal["list_job_templates"]
 ListManagedEndpointsPaginatorName = Literal["list_managed_endpoints"]
 ListVirtualClustersPaginatorName = Literal["list_virtual_clusters"]
 PersistentAppUIType = Literal["DISABLED", "ENABLED"]
+TemplateParameterDataTypeType = Literal["NUMBER", "STRING"]
 VirtualClusterStateType = Literal["ARRESTED", "RUNNING", "TERMINATED", "TERMINATING"]

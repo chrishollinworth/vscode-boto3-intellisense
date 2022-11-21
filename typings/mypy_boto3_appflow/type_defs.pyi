@@ -34,6 +34,7 @@ from .literals import (
     OperatorPropertiesKeysType,
     OperatorsType,
     OperatorType,
+    PathPrefixType,
     PrefixFormatType,
     PrefixTypeType,
     PrivateConnectionProvisioningFailureCauseType,
@@ -41,6 +42,7 @@ from .literals import (
     S3ConnectorOperatorType,
     S3InputFileTypeType,
     SalesforceConnectorOperatorType,
+    SalesforceDataTransferApiType,
     SAPODataConnectorOperatorType,
     ScheduleFrequencyTypeType,
     ServiceNowConnectorOperatorType,
@@ -126,6 +128,7 @@ __all__ = (
     "ExecutionResultTypeDef",
     "FieldTypeDetailsTypeDef",
     "FlowDefinitionTypeDef",
+    "GlueDataCatalogConfigTypeDef",
     "GoogleAnalyticsConnectorProfileCredentialsTypeDef",
     "GoogleAnalyticsMetadataTypeDef",
     "GoogleAnalyticsSourcePropertiesTypeDef",
@@ -149,6 +152,8 @@ __all__ = (
     "MarketoConnectorProfilePropertiesTypeDef",
     "MarketoDestinationPropertiesTypeDef",
     "MarketoSourcePropertiesTypeDef",
+    "MetadataCatalogConfigTypeDef",
+    "MetadataCatalogDetailTypeDef",
     "OAuth2CredentialsTypeDef",
     "OAuth2CustomParameterTypeDef",
     "OAuth2DefaultsTypeDef",
@@ -163,6 +168,7 @@ __all__ = (
     "RedshiftDestinationPropertiesTypeDef",
     "RegisterConnectorRequestRequestTypeDef",
     "RegisterConnectorResponseTypeDef",
+    "RegistrationOutputTypeDef",
     "ResponseMetadataTypeDef",
     "S3DestinationPropertiesTypeDef",
     "S3InputFormatConfigTypeDef",
@@ -210,6 +216,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateConnectorProfileRequestRequestTypeDef",
     "UpdateConnectorProfileResponseTypeDef",
+    "UpdateConnectorRegistrationRequestRequestTypeDef",
+    "UpdateConnectorRegistrationResponseTypeDef",
     "UpdateFlowRequestRequestTypeDef",
     "UpdateFlowResponseTypeDef",
     "UpsolverDestinationPropertiesTypeDef",
@@ -228,6 +236,7 @@ AggregationConfigTypeDef = TypedDict(
     "AggregationConfigTypeDef",
     {
         "aggregationType": AggregationTypeType,
+        "targetFileSize": int,
     },
     total=False,
 )
@@ -602,6 +611,7 @@ _OptionalCreateFlowRequestRequestTypeDef = TypedDict(
         "description": str,
         "kmsArn": str,
         "tags": Dict[str, str],
+        "metadataCatalogConfig": "MetadataCatalogConfigTypeDef",
     },
     total=False,
 )
@@ -957,6 +967,9 @@ DescribeFlowResponseTypeDef = TypedDict(
         "createdBy": str,
         "lastUpdatedBy": str,
         "tags": Dict[str, str],
+        "metadataCatalogConfig": "MetadataCatalogConfigTypeDef",
+        "lastRunMetadataCatalogDetails": List["MetadataCatalogDetailTypeDef"],
+        "schemaVersion": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1095,6 +1108,7 @@ ExecutionRecordTypeDef = TypedDict(
         "lastUpdatedAt": datetime,
         "dataPullStartTime": datetime,
         "dataPullEndTime": datetime,
+        "metadataCatalogDetails": List["MetadataCatalogDetailTypeDef"],
     },
     total=False,
 )
@@ -1152,6 +1166,15 @@ FlowDefinitionTypeDef = TypedDict(
         "lastRunExecutionDetails": "ExecutionDetailsTypeDef",
     },
     total=False,
+)
+
+GlueDataCatalogConfigTypeDef = TypedDict(
+    "GlueDataCatalogConfigTypeDef",
+    {
+        "roleArn": str,
+        "databaseName": str,
+        "tablePrefix": str,
+    },
 )
 
 _RequiredGoogleAnalyticsConnectorProfileCredentialsTypeDef = TypedDict(
@@ -1393,6 +1416,25 @@ MarketoSourcePropertiesTypeDef = TypedDict(
     },
 )
 
+MetadataCatalogConfigTypeDef = TypedDict(
+    "MetadataCatalogConfigTypeDef",
+    {
+        "glueDataCatalog": "GlueDataCatalogConfigTypeDef",
+    },
+    total=False,
+)
+
+MetadataCatalogDetailTypeDef = TypedDict(
+    "MetadataCatalogDetailTypeDef",
+    {
+        "catalogType": Literal["GLUE"],
+        "tableName": str,
+        "tableRegistrationOutput": "RegistrationOutputTypeDef",
+        "partitionRegistrationOutput": "RegistrationOutputTypeDef",
+    },
+    total=False,
+)
+
 OAuth2CredentialsTypeDef = TypedDict(
     "OAuth2CredentialsTypeDef",
     {
@@ -1483,6 +1525,7 @@ PrefixConfigTypeDef = TypedDict(
     {
         "prefixType": PrefixTypeType,
         "prefixFormat": PrefixFormatType,
+        "pathPrefixHierarchy": List[PathPrefixType],
     },
     total=False,
 )
@@ -1574,6 +1617,16 @@ RegisterConnectorResponseTypeDef = TypedDict(
         "connectorArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+RegistrationOutputTypeDef = TypedDict(
+    "RegistrationOutputTypeDef",
+    {
+        "message": str,
+        "result": str,
+        "status": ExecutionStatusType,
+    },
+    total=False,
 )
 
 ResponseMetadataTypeDef = TypedDict(
@@ -1742,6 +1795,7 @@ _OptionalSalesforceDestinationPropertiesTypeDef = TypedDict(
         "idFieldNames": List[str],
         "errorHandlingConfig": "ErrorHandlingConfigTypeDef",
         "writeOperationType": WriteOperationTypeType,
+        "dataTransferApi": SalesforceDataTransferApiType,
     },
     total=False,
 )
@@ -1755,6 +1809,7 @@ SalesforceMetadataTypeDef = TypedDict(
     "SalesforceMetadataTypeDef",
     {
         "oAuthScopes": List[str],
+        "dataTransferApis": List[SalesforceDataTransferApiType],
     },
     total=False,
 )
@@ -1770,6 +1825,7 @@ _OptionalSalesforceSourcePropertiesTypeDef = TypedDict(
     {
         "enableDynamicFieldUpdate": bool,
         "includeDeletedRecords": bool,
+        "dataTransferApi": SalesforceDataTransferApiType,
     },
     total=False,
 )
@@ -2160,6 +2216,35 @@ UpdateConnectorProfileResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateConnectorRegistrationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateConnectorRegistrationRequestRequestTypeDef",
+    {
+        "connectorLabel": str,
+    },
+)
+_OptionalUpdateConnectorRegistrationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateConnectorRegistrationRequestRequestTypeDef",
+    {
+        "description": str,
+        "connectorProvisioningConfig": "ConnectorProvisioningConfigTypeDef",
+    },
+    total=False,
+)
+
+class UpdateConnectorRegistrationRequestRequestTypeDef(
+    _RequiredUpdateConnectorRegistrationRequestRequestTypeDef,
+    _OptionalUpdateConnectorRegistrationRequestRequestTypeDef,
+):
+    pass
+
+UpdateConnectorRegistrationResponseTypeDef = TypedDict(
+    "UpdateConnectorRegistrationResponseTypeDef",
+    {
+        "connectorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateFlowRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFlowRequestRequestTypeDef",
     {
@@ -2174,6 +2259,7 @@ _OptionalUpdateFlowRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateFlowRequestRequestTypeDef",
     {
         "description": str,
+        "metadataCatalogConfig": "MetadataCatalogConfigTypeDef",
     },
     total=False,
 )

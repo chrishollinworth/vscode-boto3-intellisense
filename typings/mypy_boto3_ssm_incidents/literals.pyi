@@ -48,6 +48,7 @@ ItemTypeType = Literal[
     "METRIC",
     "OTHER",
     "PARENT",
+    "TASK",
 ]
 ListIncidentRecordsPaginatorName = Literal["list_incident_records"]
 ListRelatedItemsPaginatorName = Literal["list_related_items"]

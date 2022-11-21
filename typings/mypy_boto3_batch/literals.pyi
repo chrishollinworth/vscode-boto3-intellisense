@@ -40,6 +40,7 @@ __all__ = (
     "ListJobsPaginatorName",
     "ListSchedulingPoliciesPaginatorName",
     "LogDriverType",
+    "OrchestrationTypeType",
     "PlatformCapabilityType",
     "ResourceTypeType",
     "RetryActionType",
@@ -68,6 +69,7 @@ JobStatusType = Literal[
 ListJobsPaginatorName = Literal["list_jobs"]
 ListSchedulingPoliciesPaginatorName = Literal["list_scheduling_policies"]
 LogDriverType = Literal["awslogs", "fluentd", "gelf", "journald", "json-file", "splunk", "syslog"]
+OrchestrationTypeType = Literal["ECS", "EKS"]
 PlatformCapabilityType = Literal["EC2", "FARGATE"]
 ResourceTypeType = Literal["GPU", "MEMORY", "VCPU"]
 RetryActionType = Literal["EXIT", "RETRY"]

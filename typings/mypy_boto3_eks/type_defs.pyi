@@ -60,6 +60,8 @@ __all__ = (
     "CompatibilityTypeDef",
     "ConnectorConfigRequestTypeDef",
     "ConnectorConfigResponseTypeDef",
+    "ControlPlanePlacementRequestTypeDef",
+    "ControlPlanePlacementResponseTypeDef",
     "CreateAddonRequestRequestTypeDef",
     "CreateAddonResponseTypeDef",
     "CreateClusterRequestRequestTypeDef",
@@ -361,6 +363,22 @@ ConnectorConfigResponseTypeDef = TypedDict(
         "activationExpiry": datetime,
         "provider": str,
         "roleArn": str,
+    },
+    total=False,
+)
+
+ControlPlanePlacementRequestTypeDef = TypedDict(
+    "ControlPlanePlacementRequestTypeDef",
+    {
+        "groupName": str,
+    },
+    total=False,
+)
+
+ControlPlanePlacementResponseTypeDef = TypedDict(
+    "ControlPlanePlacementResponseTypeDef",
+    {
+        "groupName": str,
     },
     total=False,
 )
@@ -1181,21 +1199,45 @@ OidcIdentityProviderConfigTypeDef = TypedDict(
     total=False,
 )
 
-OutpostConfigRequestTypeDef = TypedDict(
-    "OutpostConfigRequestTypeDef",
+_RequiredOutpostConfigRequestTypeDef = TypedDict(
+    "_RequiredOutpostConfigRequestTypeDef",
     {
         "outpostArns": List[str],
         "controlPlaneInstanceType": str,
     },
+)
+_OptionalOutpostConfigRequestTypeDef = TypedDict(
+    "_OptionalOutpostConfigRequestTypeDef",
+    {
+        "controlPlanePlacement": "ControlPlanePlacementRequestTypeDef",
+    },
+    total=False,
 )
 
-OutpostConfigResponseTypeDef = TypedDict(
-    "OutpostConfigResponseTypeDef",
+class OutpostConfigRequestTypeDef(
+    _RequiredOutpostConfigRequestTypeDef, _OptionalOutpostConfigRequestTypeDef
+):
+    pass
+
+_RequiredOutpostConfigResponseTypeDef = TypedDict(
+    "_RequiredOutpostConfigResponseTypeDef",
     {
         "outpostArns": List[str],
         "controlPlaneInstanceType": str,
     },
 )
+_OptionalOutpostConfigResponseTypeDef = TypedDict(
+    "_OptionalOutpostConfigResponseTypeDef",
+    {
+        "controlPlanePlacement": "ControlPlanePlacementResponseTypeDef",
+    },
+    total=False,
+)
+
+class OutpostConfigResponseTypeDef(
+    _RequiredOutpostConfigResponseTypeDef, _OptionalOutpostConfigResponseTypeDef
+):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",

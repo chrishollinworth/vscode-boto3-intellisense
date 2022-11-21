@@ -63,6 +63,8 @@ __all__ = (
     "AccessPointTypeDef",
     "AccountLevelTypeDef",
     "ActivityMetricsTypeDef",
+    "AdvancedCostOptimizationMetricsTypeDef",
+    "AdvancedDataProtectionMetricsTypeDef",
     "AsyncErrorDetailsTypeDef",
     "AsyncOperationTypeDef",
     "AsyncRequestParametersTypeDef",
@@ -101,6 +103,7 @@ __all__ = (
     "DescribeJobResultTypeDef",
     "DescribeMultiRegionAccessPointOperationRequestRequestTypeDef",
     "DescribeMultiRegionAccessPointOperationResultTypeDef",
+    "DetailedStatusCodesMetricsTypeDef",
     "EstablishedMultiRegionAccessPointPolicyTypeDef",
     "ExcludeTypeDef",
     "GeneratedManifestEncryptionTypeDef",
@@ -284,6 +287,9 @@ _OptionalAccountLevelTypeDef = TypedDict(
     "_OptionalAccountLevelTypeDef",
     {
         "ActivityMetrics": "ActivityMetricsTypeDef",
+        "AdvancedCostOptimizationMetrics": "AdvancedCostOptimizationMetricsTypeDef",
+        "AdvancedDataProtectionMetrics": "AdvancedDataProtectionMetricsTypeDef",
+        "DetailedStatusCodesMetrics": "DetailedStatusCodesMetricsTypeDef",
     },
     total=False,
 )
@@ -293,6 +299,22 @@ class AccountLevelTypeDef(_RequiredAccountLevelTypeDef, _OptionalAccountLevelTyp
 
 ActivityMetricsTypeDef = TypedDict(
     "ActivityMetricsTypeDef",
+    {
+        "IsEnabled": bool,
+    },
+    total=False,
+)
+
+AdvancedCostOptimizationMetricsTypeDef = TypedDict(
+    "AdvancedCostOptimizationMetricsTypeDef",
+    {
+        "IsEnabled": bool,
+    },
+    total=False,
+)
+
+AdvancedDataProtectionMetricsTypeDef = TypedDict(
+    "AdvancedDataProtectionMetricsTypeDef",
     {
         "IsEnabled": bool,
     },
@@ -366,6 +388,9 @@ BucketLevelTypeDef = TypedDict(
     {
         "ActivityMetrics": "ActivityMetricsTypeDef",
         "PrefixLevel": "PrefixLevelTypeDef",
+        "AdvancedCostOptimizationMetrics": "AdvancedCostOptimizationMetricsTypeDef",
+        "AdvancedDataProtectionMetrics": "AdvancedDataProtectionMetricsTypeDef",
+        "DetailedStatusCodesMetrics": "DetailedStatusCodesMetricsTypeDef",
     },
     total=False,
 )
@@ -692,6 +717,14 @@ DescribeMultiRegionAccessPointOperationResultTypeDef = TypedDict(
         "AsyncOperation": "AsyncOperationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DetailedStatusCodesMetricsTypeDef = TypedDict(
+    "DetailedStatusCodesMetricsTypeDef",
+    {
+        "IsEnabled": bool,
+    },
+    total=False,
 )
 
 EstablishedMultiRegionAccessPointPolicyTypeDef = TypedDict(
@@ -1245,6 +1278,8 @@ LifecycleRuleAndOperatorTypeDef = TypedDict(
     {
         "Prefix": str,
         "Tags": List["S3TagTypeDef"],
+        "ObjectSizeGreaterThan": int,
+        "ObjectSizeLessThan": int,
     },
     total=False,
 )
@@ -1255,6 +1290,8 @@ LifecycleRuleFilterTypeDef = TypedDict(
         "Prefix": str,
         "Tag": "S3TagTypeDef",
         "And": "LifecycleRuleAndOperatorTypeDef",
+        "ObjectSizeGreaterThan": int,
+        "ObjectSizeLessThan": int,
     },
     total=False,
 )
@@ -1527,6 +1564,7 @@ NoncurrentVersionExpirationTypeDef = TypedDict(
     "NoncurrentVersionExpirationTypeDef",
     {
         "NoncurrentDays": int,
+        "NewerNoncurrentVersions": int,
     },
     total=False,
 )

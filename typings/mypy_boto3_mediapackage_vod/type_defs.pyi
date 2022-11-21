@@ -18,6 +18,8 @@ from .literals import (
     AdMarkersType,
     EncryptionMethodType,
     ManifestLayoutType,
+    PresetSpeke20AudioType,
+    PresetSpeke20VideoType,
     ProfileType,
     ScteMarkersSourceType,
     SegmentTemplateFormatType,
@@ -60,6 +62,7 @@ __all__ = (
     "DescribePackagingGroupResponseTypeDef",
     "EgressAccessLogsTypeDef",
     "EgressEndpointTypeDef",
+    "EncryptionContractConfigurationTypeDef",
     "HlsEncryptionTypeDef",
     "HlsManifestTypeDef",
     "HlsPackageTypeDef",
@@ -322,6 +325,7 @@ _OptionalDashPackageTypeDef = TypedDict(
     {
         "Encryption": "DashEncryptionTypeDef",
         "IncludeEncoderConfigurationInSegments": bool,
+        "IncludeIframeOnlyStream": bool,
         "PeriodTriggers": List[Literal["ADS"]],
         "SegmentDurationSeconds": int,
         "SegmentTemplateFormat": SegmentTemplateFormatType,
@@ -434,6 +438,14 @@ EgressEndpointTypeDef = TypedDict(
         "Url": str,
     },
     total=False,
+)
+
+EncryptionContractConfigurationTypeDef = TypedDict(
+    "EncryptionContractConfigurationTypeDef",
+    {
+        "PresetSpeke20Audio": PresetSpeke20AudioType,
+        "PresetSpeke20Video": PresetSpeke20VideoType,
+    },
 )
 
 _RequiredHlsEncryptionTypeDef = TypedDict(
@@ -641,14 +653,24 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
-SpekeKeyProviderTypeDef = TypedDict(
-    "SpekeKeyProviderTypeDef",
+_RequiredSpekeKeyProviderTypeDef = TypedDict(
+    "_RequiredSpekeKeyProviderTypeDef",
     {
         "RoleArn": str,
         "SystemIds": List[str],
         "Url": str,
     },
 )
+_OptionalSpekeKeyProviderTypeDef = TypedDict(
+    "_OptionalSpekeKeyProviderTypeDef",
+    {
+        "EncryptionContractConfiguration": "EncryptionContractConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class SpekeKeyProviderTypeDef(_RequiredSpekeKeyProviderTypeDef, _OptionalSpekeKeyProviderTypeDef):
+    pass
 
 StreamSelectionTypeDef = TypedDict(
     "StreamSelectionTypeDef",

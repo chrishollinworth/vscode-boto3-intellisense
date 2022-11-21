@@ -23,6 +23,7 @@ __all__ = (
     "CustomerPolicyScopeIdTypeType",
     "DependentServiceNameType",
     "DestinationTypeType",
+    "FailedItemReasonType",
     "FirewallDeploymentModelType",
     "ListAppsListsPaginatorName",
     "ListComplianceStatusPaginatorName",
@@ -31,6 +32,7 @@ __all__ = (
     "ListProtocolsListsPaginatorName",
     "ListThirdPartyFirewallFirewallPoliciesPaginatorName",
     "MarketplaceSubscriptionOnboardingStatusType",
+    "NetworkFirewallOverrideActionType",
     "PolicyComplianceStatusTypeType",
     "RemediationActionTypeType",
     "RuleOrderType",
@@ -45,6 +47,14 @@ AccountRoleStatusType = Literal["CREATING", "DELETED", "DELETING", "PENDING_DELE
 CustomerPolicyScopeIdTypeType = Literal["ACCOUNT", "ORG_UNIT"]
 DependentServiceNameType = Literal["AWSCONFIG", "AWSSHIELD_ADVANCED", "AWSVPC", "AWSWAF"]
 DestinationTypeType = Literal["IPV4", "IPV6", "PREFIX_LIST"]
+FailedItemReasonType = Literal[
+    "NOT_VALID_ACCOUNT_ID",
+    "NOT_VALID_ARN",
+    "NOT_VALID_PARTITION",
+    "NOT_VALID_REGION",
+    "NOT_VALID_RESOURCE_TYPE",
+    "NOT_VALID_SERVICE",
+]
 FirewallDeploymentModelType = Literal["CENTRALIZED", "DISTRIBUTED"]
 ListAppsListsPaginatorName = Literal["list_apps_lists"]
 ListComplianceStatusPaginatorName = Literal["list_compliance_status"]
@@ -55,11 +65,13 @@ ListThirdPartyFirewallFirewallPoliciesPaginatorName = Literal[
     "list_third_party_firewall_firewall_policies"
 ]
 MarketplaceSubscriptionOnboardingStatusType = Literal["COMPLETE", "NOT_COMPLETE", "NO_SUBSCRIPTION"]
+NetworkFirewallOverrideActionType = Literal["DROP_TO_ALERT"]
 PolicyComplianceStatusTypeType = Literal["COMPLIANT", "NON_COMPLIANT"]
 RemediationActionTypeType = Literal["MODIFY", "REMOVE"]
 RuleOrderType = Literal["DEFAULT_ACTION_ORDER", "STRICT_ORDER"]
 SecurityServiceTypeType = Literal[
     "DNS_FIREWALL",
+    "IMPORT_NETWORK_FIREWALL",
     "NETWORK_FIREWALL",
     "SECURITY_GROUPS_COMMON",
     "SECURITY_GROUPS_CONTENT_AUDIT",

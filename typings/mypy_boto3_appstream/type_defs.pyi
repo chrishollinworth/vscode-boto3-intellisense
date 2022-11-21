@@ -20,6 +20,7 @@ from .literals import (
     ApplicationAttributeType,
     AppVisibilityType,
     AuthenticationTypeType,
+    CertificateBasedAuthStatusType,
     FleetAttributeType,
     FleetErrorCodeType,
     FleetStateType,
@@ -67,6 +68,7 @@ __all__ = (
     "BatchAssociateUserStackResultTypeDef",
     "BatchDisassociateUserStackRequestRequestTypeDef",
     "BatchDisassociateUserStackResultTypeDef",
+    "CertificateBasedAuthPropertiesTypeDef",
     "ComputeCapacityStatusTypeDef",
     "ComputeCapacityTypeDef",
     "CopyImageRequestRequestTypeDef",
@@ -362,6 +364,15 @@ BatchDisassociateUserStackResultTypeDef = TypedDict(
     },
 )
 
+CertificateBasedAuthPropertiesTypeDef = TypedDict(
+    "CertificateBasedAuthPropertiesTypeDef",
+    {
+        "Status": CertificateBasedAuthStatusType,
+        "CertificateAuthorityArn": str,
+    },
+    total=False,
+)
+
 _RequiredComputeCapacityStatusTypeDef = TypedDict(
     "_RequiredComputeCapacityStatusTypeDef",
     {
@@ -497,6 +508,7 @@ _OptionalCreateDirectoryConfigRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDirectoryConfigRequestRequestTypeDef",
     {
         "ServiceAccountCredentials": "ServiceAccountCredentialsTypeDef",
+        "CertificateBasedAuthProperties": "CertificateBasedAuthPropertiesTypeDef",
     },
     total=False,
 )
@@ -1210,6 +1222,7 @@ _OptionalDirectoryConfigTypeDef = TypedDict(
         "OrganizationalUnitDistinguishedNames": List[str],
         "ServiceAccountCredentials": "ServiceAccountCredentialsTypeDef",
         "CreatedTime": datetime,
+        "CertificateBasedAuthProperties": "CertificateBasedAuthPropertiesTypeDef",
     },
     total=False,
 )
@@ -1853,6 +1866,7 @@ _OptionalUpdateDirectoryConfigRequestRequestTypeDef = TypedDict(
     {
         "OrganizationalUnitDistinguishedNames": List[str],
         "ServiceAccountCredentials": "ServiceAccountCredentialsTypeDef",
+        "CertificateBasedAuthProperties": "CertificateBasedAuthPropertiesTypeDef",
     },
     total=False,
 )

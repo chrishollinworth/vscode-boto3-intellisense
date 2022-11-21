@@ -28,6 +28,7 @@ from .literals import (
     ChallengeResponseType,
     CompromisedCredentialsEventActionTypeType,
     DefaultEmailOptionTypeType,
+    DeletionProtectionTypeType,
     DeliveryMediumTypeType,
     DeviceRememberedStatusTypeType,
     DomainStatusTypeType,
@@ -1265,6 +1266,7 @@ _OptionalCreateUserPoolRequestRequestTypeDef = TypedDict(
     "_OptionalCreateUserPoolRequestRequestTypeDef",
     {
         "Policies": "UserPoolPolicyTypeTypeDef",
+        "DeletionProtection": DeletionProtectionTypeType,
         "LambdaConfig": "LambdaConfigTypeTypeDef",
         "AutoVerifiedAttributes": List[VerifiedAttributeTypeType],
         "AliasAttributes": List[AliasAttributeTypeType],
@@ -3027,6 +3029,7 @@ _OptionalUpdateUserPoolRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateUserPoolRequestRequestTypeDef",
     {
         "Policies": "UserPoolPolicyTypeTypeDef",
+        "DeletionProtection": DeletionProtectionTypeType,
         "LambdaConfig": "LambdaConfigTypeTypeDef",
         "AutoVerifiedAttributes": List[VerifiedAttributeTypeType],
         "SmsVerificationMessage": str,
@@ -3165,6 +3168,7 @@ UserPoolTypeTypeDef = TypedDict(
         "Id": str,
         "Name": str,
         "Policies": "UserPoolPolicyTypeTypeDef",
+        "DeletionProtection": DeletionProtectionTypeType,
         "LambdaConfig": "LambdaConfigTypeTypeDef",
         "Status": StatusTypeType,
         "LastModifiedDate": datetime,

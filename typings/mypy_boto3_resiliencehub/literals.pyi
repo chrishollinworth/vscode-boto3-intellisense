@@ -56,7 +56,12 @@ AssessmentInvokerType = Literal["System", "User"]
 AssessmentStatusType = Literal["Failed", "InProgress", "Pending", "Success"]
 ComplianceStatusType = Literal["PolicyBreached", "PolicyMet"]
 ConfigRecommendationOptimizationTypeType = Literal[
-    "BestAZRecovery", "BestAttainable", "LeastChange", "LeastCost", "LeastErrors"
+    "BestAZRecovery",
+    "BestAttainable",
+    "BestRegionRecovery",
+    "LeastChange",
+    "LeastCost",
+    "LeastErrors",
 ]
 CostFrequencyType = Literal["Daily", "Hourly", "Monthly", "Yearly"]
 DataLocationConstraintType = Literal["AnyLocation", "SameContinent", "SameCountry"]

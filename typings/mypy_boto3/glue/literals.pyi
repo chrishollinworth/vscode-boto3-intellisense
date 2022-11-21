@@ -64,6 +64,7 @@ __all__ = (
     "GetUserDefinedFunctionsPaginatorName",
     "GlueRecordTypeType",
     "JDBCDataTypeType",
+    "JdbcMetadataEntryType",
     "JobBookmarksEncryptionModeType",
     "JobRunStateType",
     "JoinTypeType",
@@ -262,6 +263,7 @@ JDBCDataTypeType = Literal[
     "VARBINARY",
     "VARCHAR",
 ]
+JdbcMetadataEntryType = Literal["COMMENTS", "RAWTYPES"]
 JobBookmarksEncryptionModeType = Literal["CSE-KMS", "DISABLED"]
 JobRunStateType = Literal[
     "ERROR",

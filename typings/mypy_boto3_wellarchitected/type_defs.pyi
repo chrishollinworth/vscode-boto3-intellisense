@@ -18,6 +18,8 @@ from typing import Any, Dict, List
 from .literals import (
     AdditionalResourceTypeType,
     AnswerReasonType,
+    CheckFailureReasonType,
+    CheckStatusType,
     ChoiceReasonType,
     ChoiceStatusType,
     DifferenceStatusType,
@@ -32,10 +34,15 @@ from .literals import (
     ShareInvitationActionType,
     ShareResourceTypeType,
     ShareStatusType,
+    TrustedAdvisorIntegrationStatusType,
     WorkloadEnvironmentType,
     WorkloadImprovementStatusType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -46,6 +53,8 @@ __all__ = (
     "AnswerSummaryTypeDef",
     "AnswerTypeDef",
     "AssociateLensesInputRequestTypeDef",
+    "CheckDetailTypeDef",
+    "CheckSummaryTypeDef",
     "ChoiceAnswerSummaryTypeDef",
     "ChoiceAnswerTypeDef",
     "ChoiceContentTypeDef",
@@ -95,6 +104,10 @@ __all__ = (
     "LensUpgradeSummaryTypeDef",
     "ListAnswersInputRequestTypeDef",
     "ListAnswersOutputTypeDef",
+    "ListCheckDetailsInputRequestTypeDef",
+    "ListCheckDetailsOutputTypeDef",
+    "ListCheckSummariesInputRequestTypeDef",
+    "ListCheckSummariesOutputTypeDef",
     "ListLensReviewImprovementsInputRequestTypeDef",
     "ListLensReviewImprovementsOutputTypeDef",
     "ListLensReviewsInputRequestTypeDef",
@@ -139,6 +152,7 @@ __all__ = (
     "UpdateWorkloadShareOutputTypeDef",
     "UpgradeLensReviewInputRequestTypeDef",
     "VersionDifferencesTypeDef",
+    "WorkloadDiscoveryConfigTypeDef",
     "WorkloadShareSummaryTypeDef",
     "WorkloadShareTypeDef",
     "WorkloadSummaryTypeDef",
@@ -197,6 +211,44 @@ AssociateLensesInputRequestTypeDef = TypedDict(
         "WorkloadId": str,
         "LensAliases": List[str],
     },
+)
+
+CheckDetailTypeDef = TypedDict(
+    "CheckDetailTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "Provider": Literal["TRUSTED_ADVISOR"],
+        "LensArn": str,
+        "PillarId": str,
+        "QuestionId": str,
+        "ChoiceId": str,
+        "Status": CheckStatusType,
+        "AccountId": str,
+        "FlaggedResources": int,
+        "Reason": CheckFailureReasonType,
+        "UpdatedAt": datetime,
+    },
+    total=False,
+)
+
+CheckSummaryTypeDef = TypedDict(
+    "CheckSummaryTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "Provider": Literal["TRUSTED_ADVISOR"],
+        "Description": str,
+        "UpdatedAt": datetime,
+        "LensArn": str,
+        "PillarId": str,
+        "QuestionId": str,
+        "ChoiceId": str,
+        "Status": CheckStatusType,
+        "AccountSummary": Dict[CheckStatusType, int],
+    },
+    total=False,
 )
 
 ChoiceAnswerSummaryTypeDef = TypedDict(
@@ -358,6 +410,8 @@ _OptionalCreateWorkloadInputRequestTypeDef = TypedDict(
         "Industry": str,
         "Notes": str,
         "Tags": Dict[str, str],
+        "DiscoveryConfig": "WorkloadDiscoveryConfigTypeDef",
+        "Applications": List[str],
     },
     total=False,
 )
@@ -821,6 +875,72 @@ ListAnswersOutputTypeDef = TypedDict(
         "LensAlias": str,
         "LensArn": str,
         "AnswerSummaries": List["AnswerSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCheckDetailsInputRequestTypeDef = TypedDict(
+    "_RequiredListCheckDetailsInputRequestTypeDef",
+    {
+        "WorkloadId": str,
+        "LensArn": str,
+        "PillarId": str,
+        "QuestionId": str,
+        "ChoiceId": str,
+    },
+)
+_OptionalListCheckDetailsInputRequestTypeDef = TypedDict(
+    "_OptionalListCheckDetailsInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListCheckDetailsInputRequestTypeDef(
+    _RequiredListCheckDetailsInputRequestTypeDef, _OptionalListCheckDetailsInputRequestTypeDef
+):
+    pass
+
+ListCheckDetailsOutputTypeDef = TypedDict(
+    "ListCheckDetailsOutputTypeDef",
+    {
+        "CheckDetails": List["CheckDetailTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCheckSummariesInputRequestTypeDef = TypedDict(
+    "_RequiredListCheckSummariesInputRequestTypeDef",
+    {
+        "WorkloadId": str,
+        "LensArn": str,
+        "PillarId": str,
+        "QuestionId": str,
+        "ChoiceId": str,
+    },
+)
+_OptionalListCheckSummariesInputRequestTypeDef = TypedDict(
+    "_OptionalListCheckSummariesInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListCheckSummariesInputRequestTypeDef(
+    _RequiredListCheckSummariesInputRequestTypeDef, _OptionalListCheckSummariesInputRequestTypeDef
+):
+    pass
+
+ListCheckSummariesOutputTypeDef = TypedDict(
+    "ListCheckSummariesOutputTypeDef",
+    {
+        "CheckSummaries": List["CheckSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1314,6 +1434,8 @@ _OptionalUpdateWorkloadInputRequestTypeDef = TypedDict(
         "Industry": str,
         "Notes": str,
         "ImprovementStatus": WorkloadImprovementStatusType,
+        "DiscoveryConfig": "WorkloadDiscoveryConfigTypeDef",
+        "Applications": List[str],
     },
     total=False,
 )
@@ -1374,6 +1496,14 @@ VersionDifferencesTypeDef = TypedDict(
     "VersionDifferencesTypeDef",
     {
         "PillarDifferences": List["PillarDifferenceTypeDef"],
+    },
+    total=False,
+)
+
+WorkloadDiscoveryConfigTypeDef = TypedDict(
+    "WorkloadDiscoveryConfigTypeDef",
+    {
+        "TrustedAdvisorIntegrationStatus": TrustedAdvisorIntegrationStatusType,
     },
     total=False,
 )
@@ -1445,6 +1575,8 @@ WorkloadTypeDef = TypedDict(
         "Owner": str,
         "ShareInvitationId": str,
         "Tags": Dict[str, str],
+        "DiscoveryConfig": "WorkloadDiscoveryConfigTypeDef",
+        "Applications": List[str],
     },
     total=False,
 )

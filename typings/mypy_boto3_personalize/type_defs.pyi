@@ -70,6 +70,8 @@ __all__ = (
     "CreateEventTrackerResponseTypeDef",
     "CreateFilterRequestRequestTypeDef",
     "CreateFilterResponseTypeDef",
+    "CreateMetricAttributionRequestRequestTypeDef",
+    "CreateMetricAttributionResponseTypeDef",
     "CreateRecommenderRequestRequestTypeDef",
     "CreateRecommenderResponseTypeDef",
     "CreateSchemaRequestRequestTypeDef",
@@ -99,6 +101,7 @@ __all__ = (
     "DeleteDatasetRequestRequestTypeDef",
     "DeleteEventTrackerRequestRequestTypeDef",
     "DeleteFilterRequestRequestTypeDef",
+    "DeleteMetricAttributionRequestRequestTypeDef",
     "DeleteRecommenderRequestRequestTypeDef",
     "DeleteSchemaRequestRequestTypeDef",
     "DeleteSolutionRequestRequestTypeDef",
@@ -124,6 +127,8 @@ __all__ = (
     "DescribeFeatureTransformationResponseTypeDef",
     "DescribeFilterRequestRequestTypeDef",
     "DescribeFilterResponseTypeDef",
+    "DescribeMetricAttributionRequestRequestTypeDef",
+    "DescribeMetricAttributionResponseTypeDef",
     "DescribeRecipeRequestRequestTypeDef",
     "DescribeRecipeResponseTypeDef",
     "DescribeRecommenderRequestRequestTypeDef",
@@ -164,6 +169,10 @@ __all__ = (
     "ListEventTrackersResponseTypeDef",
     "ListFiltersRequestRequestTypeDef",
     "ListFiltersResponseTypeDef",
+    "ListMetricAttributionMetricsRequestRequestTypeDef",
+    "ListMetricAttributionMetricsResponseTypeDef",
+    "ListMetricAttributionsRequestRequestTypeDef",
+    "ListMetricAttributionsResponseTypeDef",
     "ListRecipesRequestRequestTypeDef",
     "ListRecipesResponseTypeDef",
     "ListRecommendersRequestRequestTypeDef",
@@ -176,6 +185,10 @@ __all__ = (
     "ListSolutionsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MetricAttributeTypeDef",
+    "MetricAttributionOutputTypeDef",
+    "MetricAttributionSummaryTypeDef",
+    "MetricAttributionTypeDef",
     "OptimizationObjectiveTypeDef",
     "PaginatorConfigTypeDef",
     "RecipeSummaryTypeDef",
@@ -202,6 +215,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateCampaignRequestRequestTypeDef",
     "UpdateCampaignResponseTypeDef",
+    "UpdateMetricAttributionRequestRequestTypeDef",
+    "UpdateMetricAttributionResponseTypeDef",
     "UpdateRecommenderRequestRequestTypeDef",
     "UpdateRecommenderResponseTypeDef",
 )
@@ -608,6 +623,7 @@ _OptionalCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
     {
         "tags": List["TagTypeDef"],
         "importMode": ImportModeType,
+        "publishAttributionMetricsToS3": bool,
     },
     total=False,
 )
@@ -715,6 +731,24 @@ CreateFilterResponseTypeDef = TypedDict(
     },
 )
 
+CreateMetricAttributionRequestRequestTypeDef = TypedDict(
+    "CreateMetricAttributionRequestRequestTypeDef",
+    {
+        "name": str,
+        "datasetGroupArn": str,
+        "metrics": List["MetricAttributeTypeDef"],
+        "metricsOutputConfig": "MetricAttributionOutputTypeDef",
+    },
+)
+
+CreateMetricAttributionResponseTypeDef = TypedDict(
+    "CreateMetricAttributionResponseTypeDef",
+    {
+        "metricAttributionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateRecommenderRequestRequestTypeDef = TypedDict(
     "_RequiredCreateRecommenderRequestRequestTypeDef",
     {
@@ -815,6 +849,7 @@ _RequiredCreateSolutionVersionRequestRequestTypeDef = TypedDict(
 _OptionalCreateSolutionVersionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateSolutionVersionRequestRequestTypeDef",
     {
+        "name": str,
         "trainingMode": TrainingModeType,
         "tags": List["TagTypeDef"],
     },
@@ -937,6 +972,7 @@ DatasetImportJobTypeDef = TypedDict(
         "lastUpdatedDateTime": datetime,
         "failureReason": str,
         "importMode": ImportModeType,
+        "publishAttributionMetricsToS3": bool,
     },
     total=False,
 )
@@ -1068,6 +1104,13 @@ DeleteFilterRequestRequestTypeDef = TypedDict(
     "DeleteFilterRequestRequestTypeDef",
     {
         "filterArn": str,
+    },
+)
+
+DeleteMetricAttributionRequestRequestTypeDef = TypedDict(
+    "DeleteMetricAttributionRequestRequestTypeDef",
+    {
+        "metricAttributionArn": str,
     },
 )
 
@@ -1253,6 +1296,21 @@ DescribeFilterResponseTypeDef = TypedDict(
     "DescribeFilterResponseTypeDef",
     {
         "filter": "FilterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMetricAttributionRequestRequestTypeDef = TypedDict(
+    "DescribeMetricAttributionRequestRequestTypeDef",
+    {
+        "metricAttributionArn": str,
+    },
+)
+
+DescribeMetricAttributionResponseTypeDef = TypedDict(
+    "DescribeMetricAttributionResponseTypeDef",
+    {
+        "metricAttribution": "MetricAttributionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1636,6 +1694,44 @@ ListFiltersResponseTypeDef = TypedDict(
     },
 )
 
+ListMetricAttributionMetricsRequestRequestTypeDef = TypedDict(
+    "ListMetricAttributionMetricsRequestRequestTypeDef",
+    {
+        "metricAttributionArn": str,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListMetricAttributionMetricsResponseTypeDef = TypedDict(
+    "ListMetricAttributionMetricsResponseTypeDef",
+    {
+        "metrics": List["MetricAttributeTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListMetricAttributionsRequestRequestTypeDef = TypedDict(
+    "ListMetricAttributionsRequestRequestTypeDef",
+    {
+        "datasetGroupArn": str,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListMetricAttributionsResponseTypeDef = TypedDict(
+    "ListMetricAttributionsResponseTypeDef",
+    {
+        "metricAttributions": List["MetricAttributionSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListRecipesRequestRequestTypeDef = TypedDict(
     "ListRecipesRequestRequestTypeDef",
     {
@@ -1744,6 +1840,62 @@ ListTagsForResourceResponseTypeDef = TypedDict(
         "tags": List["TagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+MetricAttributeTypeDef = TypedDict(
+    "MetricAttributeTypeDef",
+    {
+        "eventType": str,
+        "metricName": str,
+        "expression": str,
+    },
+)
+
+_RequiredMetricAttributionOutputTypeDef = TypedDict(
+    "_RequiredMetricAttributionOutputTypeDef",
+    {
+        "roleArn": str,
+    },
+)
+_OptionalMetricAttributionOutputTypeDef = TypedDict(
+    "_OptionalMetricAttributionOutputTypeDef",
+    {
+        "s3DataDestination": "S3DataConfigTypeDef",
+    },
+    total=False,
+)
+
+class MetricAttributionOutputTypeDef(
+    _RequiredMetricAttributionOutputTypeDef, _OptionalMetricAttributionOutputTypeDef
+):
+    pass
+
+MetricAttributionSummaryTypeDef = TypedDict(
+    "MetricAttributionSummaryTypeDef",
+    {
+        "name": str,
+        "metricAttributionArn": str,
+        "status": str,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "failureReason": str,
+    },
+    total=False,
+)
+
+MetricAttributionTypeDef = TypedDict(
+    "MetricAttributionTypeDef",
+    {
+        "name": str,
+        "metricAttributionArn": str,
+        "datasetGroupArn": str,
+        "metricsOutputConfig": "MetricAttributionOutputTypeDef",
+        "status": str,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "failureReason": str,
+    },
+    total=False,
 )
 
 OptimizationObjectiveTypeDef = TypedDict(
@@ -1897,6 +2049,7 @@ SolutionSummaryTypeDef = TypedDict(
         "status": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "recipeArn": str,
     },
     total=False,
 )
@@ -1936,6 +2089,7 @@ SolutionVersionSummaryTypeDef = TypedDict(
 SolutionVersionTypeDef = TypedDict(
     "SolutionVersionTypeDef",
     {
+        "name": str,
         "solutionVersionArn": str,
         "solutionArn": str,
         "performHPO": bool,
@@ -2049,6 +2203,25 @@ UpdateCampaignResponseTypeDef = TypedDict(
     "UpdateCampaignResponseTypeDef",
     {
         "campaignArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateMetricAttributionRequestRequestTypeDef = TypedDict(
+    "UpdateMetricAttributionRequestRequestTypeDef",
+    {
+        "addMetrics": List["MetricAttributeTypeDef"],
+        "removeMetrics": List[str],
+        "metricsOutputConfig": "MetricAttributionOutputTypeDef",
+        "metricAttributionArn": str,
+    },
+    total=False,
+)
+
+UpdateMetricAttributionResponseTypeDef = TypedDict(
+    "UpdateMetricAttributionResponseTypeDef",
+    {
+        "metricAttributionArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

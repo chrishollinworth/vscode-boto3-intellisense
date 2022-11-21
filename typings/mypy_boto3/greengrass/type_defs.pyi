@@ -1106,6 +1106,7 @@ FunctionConfigurationTypeDef = TypedDict(
         "MemorySize": int,
         "Pinned": bool,
         "Timeout": int,
+        "FunctionRuntimeOverride": str,
     },
     total=False,
 )

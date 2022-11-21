@@ -30,6 +30,7 @@ from .literals import (
     RuntimeType,
     ServiceStatusType,
     VpcConnectorStatusType,
+    VpcIngressConnectionStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -63,6 +64,8 @@ __all__ = (
     "CreateServiceResponseTypeDef",
     "CreateVpcConnectorRequestRequestTypeDef",
     "CreateVpcConnectorResponseTypeDef",
+    "CreateVpcIngressConnectionRequestRequestTypeDef",
+    "CreateVpcIngressConnectionResponseTypeDef",
     "CustomDomainTypeDef",
     "DeleteAutoScalingConfigurationRequestRequestTypeDef",
     "DeleteAutoScalingConfigurationResponseTypeDef",
@@ -74,6 +77,8 @@ __all__ = (
     "DeleteServiceResponseTypeDef",
     "DeleteVpcConnectorRequestRequestTypeDef",
     "DeleteVpcConnectorResponseTypeDef",
+    "DeleteVpcIngressConnectionRequestRequestTypeDef",
+    "DeleteVpcIngressConnectionResponseTypeDef",
     "DescribeAutoScalingConfigurationRequestRequestTypeDef",
     "DescribeAutoScalingConfigurationResponseTypeDef",
     "DescribeCustomDomainsRequestRequestTypeDef",
@@ -84,6 +89,8 @@ __all__ = (
     "DescribeServiceResponseTypeDef",
     "DescribeVpcConnectorRequestRequestTypeDef",
     "DescribeVpcConnectorResponseTypeDef",
+    "DescribeVpcIngressConnectionRequestRequestTypeDef",
+    "DescribeVpcIngressConnectionResponseTypeDef",
     "DisassociateCustomDomainRequestRequestTypeDef",
     "DisassociateCustomDomainResponseTypeDef",
     "EgressConfigurationTypeDef",
@@ -91,6 +98,8 @@ __all__ = (
     "HealthCheckConfigurationTypeDef",
     "ImageConfigurationTypeDef",
     "ImageRepositoryTypeDef",
+    "IngressConfigurationTypeDef",
+    "IngressVpcConfigurationTypeDef",
     "InstanceConfigurationTypeDef",
     "ListAutoScalingConfigurationsRequestRequestTypeDef",
     "ListAutoScalingConfigurationsResponseTypeDef",
@@ -106,6 +115,9 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListVpcConnectorsRequestRequestTypeDef",
     "ListVpcConnectorsResponseTypeDef",
+    "ListVpcIngressConnectionsFilterTypeDef",
+    "ListVpcIngressConnectionsRequestRequestTypeDef",
+    "ListVpcIngressConnectionsResponseTypeDef",
     "NetworkConfigurationTypeDef",
     "ObservabilityConfigurationSummaryTypeDef",
     "ObservabilityConfigurationTypeDef",
@@ -128,7 +140,12 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateServiceRequestRequestTypeDef",
     "UpdateServiceResponseTypeDef",
+    "UpdateVpcIngressConnectionRequestRequestTypeDef",
+    "UpdateVpcIngressConnectionResponseTypeDef",
     "VpcConnectorTypeDef",
+    "VpcDNSTargetTypeDef",
+    "VpcIngressConnectionSummaryTypeDef",
+    "VpcIngressConnectionTypeDef",
 )
 
 _RequiredAssociateCustomDomainRequestRequestTypeDef = TypedDict(
@@ -158,6 +175,7 @@ AssociateCustomDomainResponseTypeDef = TypedDict(
         "DNSTarget": str,
         "ServiceArn": str,
         "CustomDomain": "CustomDomainTypeDef",
+        "VpcDNSTargets": List["VpcDNSTargetTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -445,6 +463,36 @@ CreateVpcConnectorResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateVpcIngressConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpcIngressConnectionRequestRequestTypeDef",
+    {
+        "ServiceArn": str,
+        "VpcIngressConnectionName": str,
+        "IngressVpcConfiguration": "IngressVpcConfigurationTypeDef",
+    },
+)
+_OptionalCreateVpcIngressConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpcIngressConnectionRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVpcIngressConnectionRequestRequestTypeDef(
+    _RequiredCreateVpcIngressConnectionRequestRequestTypeDef,
+    _OptionalCreateVpcIngressConnectionRequestRequestTypeDef,
+):
+    pass
+
+CreateVpcIngressConnectionResponseTypeDef = TypedDict(
+    "CreateVpcIngressConnectionResponseTypeDef",
+    {
+        "VpcIngressConnection": "VpcIngressConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCustomDomainTypeDef = TypedDict(
     "_RequiredCustomDomainTypeDef",
     {
@@ -540,6 +588,21 @@ DeleteVpcConnectorResponseTypeDef = TypedDict(
     },
 )
 
+DeleteVpcIngressConnectionRequestRequestTypeDef = TypedDict(
+    "DeleteVpcIngressConnectionRequestRequestTypeDef",
+    {
+        "VpcIngressConnectionArn": str,
+    },
+)
+
+DeleteVpcIngressConnectionResponseTypeDef = TypedDict(
+    "DeleteVpcIngressConnectionResponseTypeDef",
+    {
+        "VpcIngressConnection": "VpcIngressConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
     "DescribeAutoScalingConfigurationRequestRequestTypeDef",
     {
@@ -582,6 +645,7 @@ DescribeCustomDomainsResponseTypeDef = TypedDict(
         "DNSTarget": str,
         "ServiceArn": str,
         "CustomDomains": List["CustomDomainTypeDef"],
+        "VpcDNSTargets": List["VpcDNSTargetTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -632,6 +696,21 @@ DescribeVpcConnectorResponseTypeDef = TypedDict(
     },
 )
 
+DescribeVpcIngressConnectionRequestRequestTypeDef = TypedDict(
+    "DescribeVpcIngressConnectionRequestRequestTypeDef",
+    {
+        "VpcIngressConnectionArn": str,
+    },
+)
+
+DescribeVpcIngressConnectionResponseTypeDef = TypedDict(
+    "DescribeVpcIngressConnectionResponseTypeDef",
+    {
+        "VpcIngressConnection": "VpcIngressConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DisassociateCustomDomainRequestRequestTypeDef = TypedDict(
     "DisassociateCustomDomainRequestRequestTypeDef",
     {
@@ -646,6 +725,7 @@ DisassociateCustomDomainResponseTypeDef = TypedDict(
         "DNSTarget": str,
         "ServiceArn": str,
         "CustomDomain": "CustomDomainTypeDef",
+        "VpcDNSTargets": List["VpcDNSTargetTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -706,6 +786,23 @@ _OptionalImageRepositoryTypeDef = TypedDict(
 
 class ImageRepositoryTypeDef(_RequiredImageRepositoryTypeDef, _OptionalImageRepositoryTypeDef):
     pass
+
+IngressConfigurationTypeDef = TypedDict(
+    "IngressConfigurationTypeDef",
+    {
+        "IsPubliclyAccessible": bool,
+    },
+    total=False,
+)
+
+IngressVpcConfigurationTypeDef = TypedDict(
+    "IngressVpcConfigurationTypeDef",
+    {
+        "VpcId": str,
+        "VpcEndpointId": str,
+    },
+    total=False,
+)
 
 InstanceConfigurationTypeDef = TypedDict(
     "InstanceConfigurationTypeDef",
@@ -856,10 +953,39 @@ ListVpcConnectorsResponseTypeDef = TypedDict(
     },
 )
 
+ListVpcIngressConnectionsFilterTypeDef = TypedDict(
+    "ListVpcIngressConnectionsFilterTypeDef",
+    {
+        "ServiceArn": str,
+        "VpcEndpointId": str,
+    },
+    total=False,
+)
+
+ListVpcIngressConnectionsRequestRequestTypeDef = TypedDict(
+    "ListVpcIngressConnectionsRequestRequestTypeDef",
+    {
+        "Filter": "ListVpcIngressConnectionsFilterTypeDef",
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListVpcIngressConnectionsResponseTypeDef = TypedDict(
+    "ListVpcIngressConnectionsResponseTypeDef",
+    {
+        "VpcIngressConnectionSummaryList": List["VpcIngressConnectionSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 NetworkConfigurationTypeDef = TypedDict(
     "NetworkConfigurationTypeDef",
     {
         "EgressConfiguration": "EgressConfigurationTypeDef",
+        "IngressConfiguration": "IngressConfigurationTypeDef",
     },
     total=False,
 )
@@ -986,7 +1112,6 @@ _RequiredServiceTypeDef = TypedDict(
         "ServiceName": str,
         "ServiceId": str,
         "ServiceArn": str,
-        "ServiceUrl": str,
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
         "Status": ServiceStatusType,
@@ -999,6 +1124,7 @@ _RequiredServiceTypeDef = TypedDict(
 _OptionalServiceTypeDef = TypedDict(
     "_OptionalServiceTypeDef",
     {
+        "ServiceUrl": str,
         "DeletedAt": datetime,
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
         "HealthCheckConfiguration": "HealthCheckConfigurationTypeDef",
@@ -1109,6 +1235,22 @@ UpdateServiceResponseTypeDef = TypedDict(
     },
 )
 
+UpdateVpcIngressConnectionRequestRequestTypeDef = TypedDict(
+    "UpdateVpcIngressConnectionRequestRequestTypeDef",
+    {
+        "VpcIngressConnectionArn": str,
+        "IngressVpcConfiguration": "IngressVpcConfigurationTypeDef",
+    },
+)
+
+UpdateVpcIngressConnectionResponseTypeDef = TypedDict(
+    "UpdateVpcIngressConnectionResponseTypeDef",
+    {
+        "VpcIngressConnection": "VpcIngressConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 VpcConnectorTypeDef = TypedDict(
     "VpcConnectorTypeDef",
     {
@@ -1118,6 +1260,41 @@ VpcConnectorTypeDef = TypedDict(
         "Subnets": List[str],
         "SecurityGroups": List[str],
         "Status": VpcConnectorStatusType,
+        "CreatedAt": datetime,
+        "DeletedAt": datetime,
+    },
+    total=False,
+)
+
+VpcDNSTargetTypeDef = TypedDict(
+    "VpcDNSTargetTypeDef",
+    {
+        "VpcIngressConnectionArn": str,
+        "VpcId": str,
+        "DomainName": str,
+    },
+    total=False,
+)
+
+VpcIngressConnectionSummaryTypeDef = TypedDict(
+    "VpcIngressConnectionSummaryTypeDef",
+    {
+        "VpcIngressConnectionArn": str,
+        "ServiceArn": str,
+    },
+    total=False,
+)
+
+VpcIngressConnectionTypeDef = TypedDict(
+    "VpcIngressConnectionTypeDef",
+    {
+        "VpcIngressConnectionArn": str,
+        "VpcIngressConnectionName": str,
+        "ServiceArn": str,
+        "Status": VpcIngressConnectionStatusType,
+        "AccountId": str,
+        "DomainName": str,
+        "IngressVpcConfiguration": "IngressVpcConfigurationTypeDef",
         "CreatedAt": datetime,
         "DeletedAt": datetime,
     },

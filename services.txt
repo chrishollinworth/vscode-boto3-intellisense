@@ -38,6 +38,7 @@ chime_sdk_identity
 chime_sdk_media_pipelines
 chime_sdk_meetings
 chime_sdk_messaging
+chime_sdk_voice
 cloud9
 cloudcontrol
 clouddirectory
@@ -142,6 +143,7 @@ inspector2
 iot
 iot_data
 iot_jobs_data
+iot_roborunner
 iot1click_devices
 iot1click_projects
 iotanalytics
@@ -245,6 +247,7 @@ redshift_data
 redshift_serverless
 rekognition
 resiliencehub
+resource_explorer_2
 resource_groups
 resourcegroupstaggingapi
 robomaker
@@ -265,6 +268,7 @@ sagemaker_edge
 sagemaker_featurestore_runtime
 sagemaker_runtime
 savingsplans
+scheduler
 schemas
 sdb
 secretsmanager
@@ -287,6 +291,7 @@ sqs
 ssm
 ssm_contacts
 ssm_incidents
+ssm_sap
 sso
 sso_admin
 sso_oidc

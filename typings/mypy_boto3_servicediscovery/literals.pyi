@@ -42,7 +42,7 @@ __all__ = (
 )
 
 CustomHealthStatusType = Literal["HEALTHY", "UNHEALTHY"]
-FilterConditionType = Literal["BETWEEN", "EQ", "IN"]
+FilterConditionType = Literal["BEGINS_WITH", "BETWEEN", "EQ", "IN"]
 HealthCheckTypeType = Literal["HTTP", "HTTPS", "TCP"]
 HealthStatusFilterType = Literal["ALL", "HEALTHY", "HEALTHY_OR_ELSE_ALL", "UNHEALTHY"]
 HealthStatusType = Literal["HEALTHY", "UNHEALTHY", "UNKNOWN"]
@@ -50,7 +50,7 @@ ListInstancesPaginatorName = Literal["list_instances"]
 ListNamespacesPaginatorName = Literal["list_namespaces"]
 ListOperationsPaginatorName = Literal["list_operations"]
 ListServicesPaginatorName = Literal["list_services"]
-NamespaceFilterNameType = Literal["TYPE"]
+NamespaceFilterNameType = Literal["HTTP_NAME", "NAME", "TYPE"]
 NamespaceTypeType = Literal["DNS_PRIVATE", "DNS_PUBLIC", "HTTP"]
 OperationFilterNameType = Literal["NAMESPACE_ID", "SERVICE_ID", "STATUS", "TYPE", "UPDATE_DATE"]
 OperationStatusType = Literal["FAIL", "PENDING", "SUBMITTED", "SUCCESS"]

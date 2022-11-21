@@ -261,6 +261,7 @@ __all__ = (
     "TriggerDetailsTypeDef",
     "UnarchiveFindingsRequestRequestTypeDef",
     "UnprocessedAccountTypeDef",
+    "UnprocessedDataSourcesResultTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDetectorRequestRequestTypeDef",
     "UpdateFilterRequestRequestTypeDef",
@@ -516,6 +517,7 @@ CreateDetectorResponseTypeDef = TypedDict(
     "CreateDetectorResponseTypeDef",
     {
         "DetectorId": str,
+        "UnprocessedDataSources": "UnprocessedDataSourcesResultTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1007,6 +1009,7 @@ EbsVolumesResultTypeDef = TypedDict(
     "EbsVolumesResultTypeDef",
     {
         "Status": DataSourceStatusType,
+        "Reason": str,
     },
     total=False,
 )
@@ -2568,6 +2571,14 @@ UnprocessedAccountTypeDef = TypedDict(
         "AccountId": str,
         "Result": str,
     },
+)
+
+UnprocessedDataSourcesResultTypeDef = TypedDict(
+    "UnprocessedDataSourcesResultTypeDef",
+    {
+        "MalwareProtection": "MalwareProtectionConfigurationResultTypeDef",
+    },
+    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(

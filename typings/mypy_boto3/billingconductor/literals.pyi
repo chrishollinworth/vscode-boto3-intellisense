@@ -27,6 +27,7 @@ __all__ = (
     "ListAccountAssociationsPaginatorName",
     "ListBillingGroupCostReportsPaginatorName",
     "ListBillingGroupsPaginatorName",
+    "ListCustomLineItemVersionsPaginatorName",
     "ListCustomLineItemsPaginatorName",
     "ListPricingPlansAssociatedWithPricingRulePaginatorName",
     "ListPricingPlansPaginatorName",
@@ -38,7 +39,11 @@ __all__ = (
 )
 
 AssociateResourceErrorReasonType = Literal[
-    "ILLEGAL_CUSTOMLINEITEM", "INTERNAL_SERVER_EXCEPTION", "INVALID_ARN", "SERVICE_LIMIT_EXCEEDED"
+    "ILLEGAL_CUSTOMLINEITEM",
+    "INTERNAL_SERVER_EXCEPTION",
+    "INVALID_ARN",
+    "INVALID_BILLING_PERIOD_RANGE",
+    "SERVICE_LIMIT_EXCEEDED",
 ]
 BillingGroupStatusType = Literal["ACTIVE", "PRIMARY_ACCOUNT_MISSING"]
 CurrencyCodeType = Literal["CNY", "USD"]
@@ -47,6 +52,7 @@ CustomLineItemTypeType = Literal["CREDIT", "FEE"]
 ListAccountAssociationsPaginatorName = Literal["list_account_associations"]
 ListBillingGroupCostReportsPaginatorName = Literal["list_billing_group_cost_reports"]
 ListBillingGroupsPaginatorName = Literal["list_billing_groups"]
+ListCustomLineItemVersionsPaginatorName = Literal["list_custom_line_item_versions"]
 ListCustomLineItemsPaginatorName = Literal["list_custom_line_items"]
 ListPricingPlansAssociatedWithPricingRulePaginatorName = Literal[
     "list_pricing_plans_associated_with_pricing_rule"
@@ -59,5 +65,5 @@ ListPricingRulesPaginatorName = Literal["list_pricing_rules"]
 ListResourcesAssociatedToCustomLineItemPaginatorName = Literal[
     "list_resources_associated_to_custom_line_item"
 ]
-PricingRuleScopeType = Literal["GLOBAL", "SERVICE"]
+PricingRuleScopeType = Literal["BILLING_ENTITY", "GLOBAL", "SERVICE"]
 PricingRuleTypeType = Literal["DISCOUNT", "MARKUP"]

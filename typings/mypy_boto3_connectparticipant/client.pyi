@@ -47,7 +47,7 @@ class Exceptions:
 
 class ConnectParticipantClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html)
     """
 
@@ -62,14 +62,14 @@ class ConnectParticipantClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#close)
         """
     def complete_attachment_upload(
@@ -79,7 +79,7 @@ class ConnectParticipantClient(BaseClient):
         Allows you to confirm that the attachment has been uploaded using the pre-signed
         URL provided in StartAttachmentUpload API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.complete_attachment_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.complete_attachment_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#complete_attachment_upload)
         """
     def create_participant_connection(
@@ -92,7 +92,7 @@ class ConnectParticipantClient(BaseClient):
         """
         Creates the participant's connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.create_participant_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.create_participant_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#create_participant_connection)
         """
     def disconnect_participant(
@@ -101,7 +101,7 @@ class ConnectParticipantClient(BaseClient):
         """
         Disconnects a participant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.disconnect_participant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.disconnect_participant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#disconnect_participant)
         """
     def generate_presigned_url(
@@ -114,7 +114,7 @@ class ConnectParticipantClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#generate_presigned_url)
         """
     def get_attachment(
@@ -123,7 +123,7 @@ class ConnectParticipantClient(BaseClient):
         """
         Provides a pre-signed URL for download of a completed attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.get_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.get_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#get_attachment)
         """
     def get_transcript(
@@ -140,7 +140,7 @@ class ConnectParticipantClient(BaseClient):
         """
         Retrieves a transcript of the session, including details about any attachments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.get_transcript)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.get_transcript)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#get_transcript)
         """
     def send_event(
@@ -154,7 +154,7 @@ class ConnectParticipantClient(BaseClient):
         """
         Sends an event.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.send_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.send_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#send_event)
         """
     def send_message(
@@ -163,7 +163,7 @@ class ConnectParticipantClient(BaseClient):
         """
         Sends a message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.send_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.send_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#send_message)
         """
     def start_attachment_upload(
@@ -179,6 +179,6 @@ class ConnectParticipantClient(BaseClient):
         Provides a pre-signed Amazon S3 URL in response for uploading the file directly
         to S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/connectparticipant.html#ConnectParticipant.Client.start_attachment_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/connectparticipant.html#ConnectParticipant.Client.start_attachment_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/client.html#start_attachment_upload)
         """

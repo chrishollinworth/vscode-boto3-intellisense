@@ -29,6 +29,7 @@ __all__ = (
     "DatasetTypeType",
     "DescribeProjectVersionsPaginatorName",
     "DescribeProjectsPaginatorName",
+    "DetectLabelsFeatureNameType",
     "EmotionNameType",
     "FaceAttributesType",
     "FaceSearchSortByType",
@@ -78,6 +79,7 @@ DatasetStatusType = Literal[
 DatasetTypeType = Literal["TEST", "TRAIN"]
 DescribeProjectVersionsPaginatorName = Literal["describe_project_versions"]
 DescribeProjectsPaginatorName = Literal["describe_projects"]
+DetectLabelsFeatureNameType = Literal["GENERAL_LABELS", "IMAGE_PROPERTIES"]
 EmotionNameType = Literal[
     "ANGRY", "CALM", "CONFUSED", "DISGUSTED", "FEAR", "HAPPY", "SAD", "SURPRISED", "UNKNOWN"
 ]

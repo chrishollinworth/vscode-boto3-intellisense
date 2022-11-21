@@ -245,6 +245,7 @@ from .literals import (
     Scte35AposWebDeliveryAllowedBehaviorType,
     Scte35ArchiveAllowedFlagType,
     Scte35DeviceRestrictionsType,
+    Scte35InputModeType,
     Scte35NoRegionalBlackoutFlagType,
     Scte35SegmentationCancelIndicatorType,
     Scte35SpliceInsertNoRegionalBlackoutBehaviorType,
@@ -392,6 +393,7 @@ __all__ = (
     "EbuTtDDestinationSettingsTypeDef",
     "EmbeddedSourceSettingsTypeDef",
     "EncoderSettingsTypeDef",
+    "EsamTypeDef",
     "FailoverConditionSettingsTypeDef",
     "FailoverConditionTypeDef",
     "FeatureActivationsTypeDef",
@@ -541,6 +543,7 @@ __all__ = (
     "Scte35DeliveryRestrictionsTypeDef",
     "Scte35DescriptorSettingsTypeDef",
     "Scte35DescriptorTypeDef",
+    "Scte35InputScheduleActionSettingsTypeDef",
     "Scte35ReturnToNetworkScheduleActionSettingsTypeDef",
     "Scte35SegmentationDescriptorTypeDef",
     "Scte35SpliceInsertScheduleActionSettingsTypeDef",
@@ -925,6 +928,7 @@ AvailConfigurationTypeDef = TypedDict(
 AvailSettingsTypeDef = TypedDict(
     "AvailSettingsTypeDef",
     {
+        "Esam": "EsamTypeDef",
         "Scte35SpliceInsert": "Scte35SpliceInsertTypeDef",
         "Scte35TimeSignalApos": "Scte35TimeSignalAposTypeDef",
     },
@@ -1998,6 +2002,27 @@ _OptionalEncoderSettingsTypeDef = TypedDict(
 )
 
 class EncoderSettingsTypeDef(_RequiredEncoderSettingsTypeDef, _OptionalEncoderSettingsTypeDef):
+    pass
+
+_RequiredEsamTypeDef = TypedDict(
+    "_RequiredEsamTypeDef",
+    {
+        "AcquisitionPointId": str,
+        "PoisEndpoint": str,
+    },
+)
+_OptionalEsamTypeDef = TypedDict(
+    "_OptionalEsamTypeDef",
+    {
+        "AdAvailOffset": int,
+        "PasswordParam": str,
+        "Username": str,
+        "ZoneIdentity": str,
+    },
+    total=False,
+)
+
+class EsamTypeDef(_RequiredEsamTypeDef, _OptionalEsamTypeDef):
     pass
 
 FailoverConditionSettingsTypeDef = TypedDict(
@@ -3859,6 +3884,7 @@ ScheduleActionSettingsTypeDef = TypedDict(
         "MotionGraphicsImageActivateSettings": "MotionGraphicsActivateScheduleActionSettingsTypeDef",
         "MotionGraphicsImageDeactivateSettings": Dict[str, Any],
         "PauseStateSettings": "PauseStateScheduleActionSettingsTypeDef",
+        "Scte35InputSettings": "Scte35InputScheduleActionSettingsTypeDef",
         "Scte35ReturnToNetworkSettings": "Scte35ReturnToNetworkScheduleActionSettingsTypeDef",
         "Scte35SpliceInsertSettings": "Scte35SpliceInsertScheduleActionSettingsTypeDef",
         "Scte35TimeSignalSettings": "Scte35TimeSignalScheduleActionSettingsTypeDef",
@@ -3928,6 +3954,26 @@ Scte35DescriptorTypeDef = TypedDict(
         "Scte35DescriptorSettings": "Scte35DescriptorSettingsTypeDef",
     },
 )
+
+_RequiredScte35InputScheduleActionSettingsTypeDef = TypedDict(
+    "_RequiredScte35InputScheduleActionSettingsTypeDef",
+    {
+        "Mode": Scte35InputModeType,
+    },
+)
+_OptionalScte35InputScheduleActionSettingsTypeDef = TypedDict(
+    "_OptionalScte35InputScheduleActionSettingsTypeDef",
+    {
+        "InputAttachmentNameReference": str,
+    },
+    total=False,
+)
+
+class Scte35InputScheduleActionSettingsTypeDef(
+    _RequiredScte35InputScheduleActionSettingsTypeDef,
+    _OptionalScte35InputScheduleActionSettingsTypeDef,
+):
+    pass
 
 Scte35ReturnToNetworkScheduleActionSettingsTypeDef = TypedDict(
     "Scte35ReturnToNetworkScheduleActionSettingsTypeDef",

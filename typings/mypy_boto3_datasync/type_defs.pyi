@@ -452,6 +452,7 @@ _OptionalCreateLocationObjectStorageRequestRequestTypeDef = TypedDict(
         "AccessKey": str,
         "SecretKey": str,
         "Tags": List["TagListEntryTypeDef"],
+        "ServerCertificate": Union[bytes, IO[bytes], StreamingBody],
     },
     total=False,
 )
@@ -771,6 +772,7 @@ DescribeLocationObjectStorageResponseTypeDef = TypedDict(
         "ServerProtocol": ObjectStorageServerProtocolType,
         "AgentArns": List[str],
         "CreationTime": datetime,
+        "ServerCertificate": bytes,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -838,6 +840,7 @@ DescribeTaskExecutionResponseTypeDef = TypedDict(
         "BytesWritten": int,
         "BytesTransferred": int,
         "Result": "TaskExecutionResultDetailTypeDef",
+        "BytesCompressed": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1349,6 +1352,7 @@ _OptionalUpdateLocationObjectStorageRequestRequestTypeDef = TypedDict(
         "AccessKey": str,
         "SecretKey": str,
         "AgentArns": List[str],
+        "ServerCertificate": Union[bytes, IO[bytes], StreamingBody],
     },
     total=False,
 )

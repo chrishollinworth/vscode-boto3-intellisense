@@ -1747,7 +1747,7 @@ FileSystemTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "WindowsConfiguration": "WindowsFileSystemConfigurationTypeDef",
         "LustreConfiguration": "LustreFileSystemConfigurationTypeDef",
-        "AdministrativeActions": List["AdministrativeActionTypeDef"],
+        "AdministrativeActions": List[Dict[str, Any]],
         "OntapConfiguration": "OntapFileSystemConfigurationTypeDef",
         "FileSystemTypeVersion": str,
         "OpenZFSConfiguration": "OpenZFSFileSystemConfigurationTypeDef",
@@ -2157,7 +2157,7 @@ SnapshotTypeDef = TypedDict(
         "Lifecycle": SnapshotLifecycleType,
         "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
         "Tags": List["TagTypeDef"],
-        "AdministrativeActions": List[Dict[str, Any]],
+        "AdministrativeActions": List["AdministrativeActionTypeDef"],
     },
     total=False,
 )

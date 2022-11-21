@@ -26,10 +26,14 @@ __all__ = (
     "CriticalityType",
     "EirpUnitsType",
     "EndpointStatusType",
+    "EphemerisInvalidReasonType",
+    "EphemerisSourceType",
+    "EphemerisStatusType",
     "FrequencyUnitsType",
     "ListConfigsPaginatorName",
     "ListContactsPaginatorName",
     "ListDataflowEndpointGroupsPaginatorName",
+    "ListEphemeridesPaginatorName",
     "ListGroundStationsPaginatorName",
     "ListMissionProfilesPaginatorName",
     "ListSatellitesPaginatorName",
@@ -65,10 +69,20 @@ ContactStatusType = Literal[
 CriticalityType = Literal["PREFERRED", "REMOVED", "REQUIRED"]
 EirpUnitsType = Literal["dBW"]
 EndpointStatusType = Literal["created", "creating", "deleted", "deleting", "failed"]
+EphemerisInvalidReasonType = Literal[
+    "KMS_KEY_INVALID",
+    "METADATA_INVALID",
+    "TIME_RANGE_INVALID",
+    "TRAJECTORY_INVALID",
+    "VALIDATION_ERROR",
+]
+EphemerisSourceType = Literal["CUSTOMER_PROVIDED", "SPACE_TRACK"]
+EphemerisStatusType = Literal["DISABLED", "ENABLED", "ERROR", "EXPIRED", "INVALID", "VALIDATING"]
 FrequencyUnitsType = Literal["GHz", "MHz", "kHz"]
 ListConfigsPaginatorName = Literal["list_configs"]
 ListContactsPaginatorName = Literal["list_contacts"]
 ListDataflowEndpointGroupsPaginatorName = Literal["list_dataflow_endpoint_groups"]
+ListEphemeridesPaginatorName = Literal["list_ephemerides"]
 ListGroundStationsPaginatorName = Literal["list_ground_stations"]
 ListMissionProfilesPaginatorName = Literal["list_mission_profiles"]
 ListSatellitesPaginatorName = Literal["list_satellites"]

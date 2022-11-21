@@ -175,6 +175,7 @@ __all__ = (
     "DeletePatchBaselineRequestRequestTypeDef",
     "DeletePatchBaselineResultTypeDef",
     "DeleteResourceDataSyncRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestRequestTypeDef",
     "DeregisterManagedInstanceRequestRequestTypeDef",
     "DeregisterPatchBaselineForPatchGroupRequestRequestTypeDef",
     "DeregisterPatchBaselineForPatchGroupResultTypeDef",
@@ -309,6 +310,9 @@ __all__ = (
     "GetPatchBaselineForPatchGroupResultTypeDef",
     "GetPatchBaselineRequestRequestTypeDef",
     "GetPatchBaselineResultTypeDef",
+    "GetResourcePoliciesRequestRequestTypeDef",
+    "GetResourcePoliciesResponseEntryTypeDef",
+    "GetResourcePoliciesResponseTypeDef",
     "GetServiceSettingRequestRequestTypeDef",
     "GetServiceSettingResultTypeDef",
     "InstanceAggregatedAssociationOverviewTypeDef",
@@ -427,6 +431,8 @@ __all__ = (
     "PutInventoryResultTypeDef",
     "PutParameterRequestRequestTypeDef",
     "PutParameterResultTypeDef",
+    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyResponseTypeDef",
     "RegisterDefaultPatchBaselineRequestRequestTypeDef",
     "RegisterDefaultPatchBaselineResultTypeDef",
     "RegisterPatchBaselineForPatchGroupRequestRequestTypeDef",
@@ -1336,6 +1342,7 @@ _OptionalCreateOpsItemRequestRequestTypeDef = TypedDict(
         "ActualEndTime": Union[datetime, str],
         "PlannedStartTime": Union[datetime, str],
         "PlannedEndTime": Union[datetime, str],
+        "AccountId": str,
     },
     total=False,
 )
@@ -1349,6 +1356,7 @@ CreateOpsItemResponseTypeDef = TypedDict(
     "CreateOpsItemResponseTypeDef",
     {
         "OpsItemId": str,
+        "OpsItemArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1590,6 +1598,15 @@ class DeleteResourceDataSyncRequestRequestTypeDef(
     _OptionalDeleteResourceDataSyncRequestRequestTypeDef,
 ):
     pass
+
+DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
+    "DeleteResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "PolicyId": str,
+        "PolicyHash": str,
+    },
+)
 
 DeregisterManagedInstanceRequestRequestTypeDef = TypedDict(
     "DeregisterManagedInstanceRequestRequestTypeDef",
@@ -3107,12 +3124,24 @@ GetMaintenanceWindowTaskResultTypeDef = TypedDict(
     },
 )
 
-GetOpsItemRequestRequestTypeDef = TypedDict(
-    "GetOpsItemRequestRequestTypeDef",
+_RequiredGetOpsItemRequestRequestTypeDef = TypedDict(
+    "_RequiredGetOpsItemRequestRequestTypeDef",
     {
         "OpsItemId": str,
     },
 )
+_OptionalGetOpsItemRequestRequestTypeDef = TypedDict(
+    "_OptionalGetOpsItemRequestRequestTypeDef",
+    {
+        "OpsItemArn": str,
+    },
+    total=False,
+)
+
+class GetOpsItemRequestRequestTypeDef(
+    _RequiredGetOpsItemRequestRequestTypeDef, _OptionalGetOpsItemRequestRequestTypeDef
+):
+    pass
 
 GetOpsItemResponseTypeDef = TypedDict(
     "GetOpsItemResponseTypeDef",
@@ -3348,6 +3377,46 @@ GetPatchBaselineResultTypeDef = TypedDict(
         "ModifiedDate": datetime,
         "Description": str,
         "Sources": List["PatchSourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetResourcePoliciesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetResourcePoliciesRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalGetResourcePoliciesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetResourcePoliciesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetResourcePoliciesRequestRequestTypeDef(
+    _RequiredGetResourcePoliciesRequestRequestTypeDef,
+    _OptionalGetResourcePoliciesRequestRequestTypeDef,
+):
+    pass
+
+GetResourcePoliciesResponseEntryTypeDef = TypedDict(
+    "GetResourcePoliciesResponseEntryTypeDef",
+    {
+        "PolicyId": str,
+        "PolicyHash": str,
+        "Policy": str,
+    },
+    total=False,
+)
+
+GetResourcePoliciesResponseTypeDef = TypedDict(
+    "GetResourcePoliciesResponseTypeDef",
+    {
+        "NextToken": str,
+        "Policies": List["GetResourcePoliciesResponseEntryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4494,6 +4563,7 @@ OpsItemTypeDef = TypedDict(
         "ActualEndTime": datetime,
         "PlannedStartTime": datetime,
         "PlannedEndTime": datetime,
+        "OpsItemArn": str,
     },
     total=False,
 )
@@ -4867,6 +4937,36 @@ PutParameterResultTypeDef = TypedDict(
     {
         "Version": int,
         "Tier": ParameterTierType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredPutResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Policy": str,
+    },
+)
+_OptionalPutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalPutResourcePolicyRequestRequestTypeDef",
+    {
+        "PolicyId": str,
+        "PolicyHash": str,
+    },
+    total=False,
+)
+
+class PutResourcePolicyRequestRequestTypeDef(
+    _RequiredPutResourcePolicyRequestRequestTypeDef, _OptionalPutResourcePolicyRequestRequestTypeDef
+):
+    pass
+
+PutResourcePolicyResponseTypeDef = TypedDict(
+    "PutResourcePolicyResponseTypeDef",
+    {
+        "PolicyId": str,
+        "PolicyHash": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5521,6 +5621,7 @@ StepExecutionTypeDef = TypedDict(
         "ValidNextSteps": List[str],
         "Targets": List["TargetTypeDef"],
         "TargetLocation": "TargetLocationTypeDef",
+        "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
     },
     total=False,
 )
@@ -5561,6 +5662,7 @@ TargetLocationTypeDef = TypedDict(
         "TargetLocationMaxConcurrency": str,
         "TargetLocationMaxErrors": str,
         "ExecutionRoleName": str,
+        "TargetLocationAlarmConfiguration": "AlarmConfigurationTypeDef",
     },
     total=False,
 )
@@ -5914,6 +6016,7 @@ _OptionalUpdateOpsItemRequestRequestTypeDef = TypedDict(
         "ActualEndTime": Union[datetime, str],
         "PlannedStartTime": Union[datetime, str],
         "PlannedEndTime": Union[datetime, str],
+        "OpsItemArn": str,
     },
     total=False,
 )

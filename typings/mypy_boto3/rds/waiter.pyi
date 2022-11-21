@@ -54,7 +54,7 @@ __all__ = (
 
 class DBClusterAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBClusterAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBClusterAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclusteravailablewaiter)
     """
 
@@ -69,13 +69,13 @@ class DBClusterAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBClusterAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBClusterAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclusteravailablewaiter)
         """
 
 class DBClusterDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBClusterDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBClusterDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclusterdeletedwaiter)
     """
 
@@ -90,13 +90,13 @@ class DBClusterDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBClusterDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBClusterDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclusterdeletedwaiter)
         """
 
 class DBClusterSnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotavailablewaiter)
     """
 
@@ -114,13 +114,13 @@ class DBClusterSnapshotAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotavailablewaiter)
         """
 
 class DBClusterSnapshotDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotdeletedwaiter)
     """
 
@@ -138,13 +138,13 @@ class DBClusterSnapshotDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotdeletedwaiter)
         """
 
 class DBInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstanceavailablewaiter)
     """
 
@@ -158,13 +158,13 @@ class DBInstanceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstanceavailablewaiter)
         """
 
 class DBInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstancedeletedwaiter)
     """
 
@@ -178,13 +178,13 @@ class DBInstanceDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstancedeletedwaiter)
         """
 
 class DBSnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotavailablewaiter)
     """
 
@@ -203,13 +203,13 @@ class DBSnapshotAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotavailablewaiter)
         """
 
 class DBSnapshotCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotcompletedwaiter)
     """
 
@@ -228,13 +228,13 @@ class DBSnapshotCompletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotcompletedwaiter)
         """
 
 class DBSnapshotDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotdeletedwaiter)
     """
 
@@ -253,6 +253,6 @@ class DBSnapshotDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotdeletedwaiter)
         """

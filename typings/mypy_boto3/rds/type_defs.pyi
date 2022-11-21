@@ -27,6 +27,7 @@ from .literals import (
     DBProxyEndpointTargetRoleType,
     DBProxyStatusType,
     EngineFamilyType,
+    ExportSourceTypeType,
     FailoverStatusType,
     IAMAuthModeType,
     ReplicaModeType,
@@ -636,6 +637,9 @@ ClusterPendingModifiedValuesTypeDef = TypedDict(
         "MasterUserPassword": str,
         "IAMDatabaseAuthenticationEnabled": bool,
         "EngineVersion": str,
+        "BackupRetentionPeriod": int,
+        "AllocatedStorage": int,
+        "Iops": int,
     },
     total=False,
 )
@@ -924,6 +928,7 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "PerformanceInsightsRetentionPeriod": int,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "NetworkType": str,
+        "DBSystemId": str,
         "SourceRegion": str,
     },
     total=False,
@@ -1060,6 +1065,7 @@ _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "CustomIamInstanceProfile": str,
         "BackupTarget": str,
         "NetworkType": str,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -1111,6 +1117,7 @@ _OptionalCreateDBInstanceReadReplicaMessageRequestTypeDef = TypedDict(
         "MaxAllocatedStorage": int,
         "CustomIamInstanceProfile": str,
         "NetworkType": str,
+        "StorageThroughput": int,
         "SourceRegion": str,
     },
     total=False,
@@ -1625,6 +1632,7 @@ DBClusterSnapshotTypeDef = TypedDict(
         "SourceDBClusterSnapshotArn": str,
         "IAMDatabaseAuthenticationEnabled": bool,
         "TagList": List["TagTypeDef"],
+        "DBSystemId": str,
     },
     total=False,
 )
@@ -1701,6 +1709,7 @@ DBClusterTypeDef = TypedDict(
         "PerformanceInsightsRetentionPeriod": int,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationInfoTypeDef",
         "NetworkType": str,
+        "DBSystemId": str,
     },
     total=False,
 )
@@ -1743,6 +1752,7 @@ DBEngineVersionResponseMetadataTypeDef = TypedDict(
         "CreateTime": datetime,
         "TagList": List["TagTypeDef"],
         "SupportsBabelfish": bool,
+        "CustomDBEngineVersionManifest": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1776,6 +1786,7 @@ DBEngineVersionTypeDef = TypedDict(
         "CreateTime": datetime,
         "TagList": List["TagTypeDef"],
         "SupportsBabelfish": bool,
+        "CustomDBEngineVersionManifest": str,
     },
     total=False,
 )
@@ -1821,6 +1832,7 @@ DBInstanceAutomatedBackupTypeDef = TypedDict(
             "DBInstanceAutomatedBackupsReplicationTypeDef"
         ],
         "BackupTarget": str,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -1944,6 +1956,8 @@ DBInstanceTypeDef = TypedDict(
         "BackupTarget": str,
         "NetworkType": str,
         "ActivityStreamPolicyStatus": ActivityStreamPolicyStatusType,
+        "StorageThroughput": int,
+        "DBSystemId": str,
     },
     total=False,
 )
@@ -2158,6 +2172,7 @@ DBSnapshotTypeDef = TypedDict(
         "OriginalSnapshotCreateTime": datetime,
         "SnapshotDatabaseTime": datetime,
         "SnapshotTarget": str,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -2924,6 +2939,7 @@ DescribeExportTasksMessageRequestTypeDef = TypedDict(
         "Filters": List["FilterTypeDef"],
         "Marker": str,
         "MaxRecords": int,
+        "SourceType": ExportSourceTypeType,
     },
     total=False,
 )
@@ -3239,6 +3255,7 @@ ExportTaskResponseMetadataTypeDef = TypedDict(
         "TotalExtractedDataInGB": int,
         "FailureCause": str,
         "WarningMessage": str,
+        "SourceType": ExportSourceTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3261,6 +3278,7 @@ ExportTaskTypeDef = TypedDict(
         "TotalExtractedDataInGB": int,
         "FailureCause": str,
         "WarningMessage": str,
+        "SourceType": ExportSourceTypeType,
     },
     total=False,
 )
@@ -3671,6 +3689,7 @@ _OptionalModifyDBInstanceMessageRequestTypeDef = TypedDict(
         "AutomationMode": AutomationModeType,
         "ResumeFullAutomationModeMinutes": int,
         "NetworkType": str,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -4132,6 +4151,11 @@ OrderableDBInstanceOptionTypeDef = TypedDict(
         "SupportsGlobalDatabases": bool,
         "SupportsClusters": bool,
         "SupportedNetworkTypes": List[str],
+        "SupportsStorageThroughput": bool,
+        "MinStorageThroughputPerDbInstance": int,
+        "MaxStorageThroughputPerDbInstance": int,
+        "MinStorageThroughputPerIops": float,
+        "MaxStorageThroughputPerIops": float,
     },
     total=False,
 )
@@ -4233,6 +4257,7 @@ PendingModifiedValuesTypeDef = TypedDict(
         "IAMDatabaseAuthenticationEnabled": bool,
         "AutomationMode": AutomationModeType,
         "ResumeFullAutomationModeTime": datetime,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -4772,12 +4797,12 @@ _RequiredRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef = TypedDict(
     "_RequiredRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef",
     {
         "DBInstanceIdentifier": str,
-        "DBSnapshotIdentifier": str,
     },
 )
 _OptionalRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef = TypedDict(
     "_OptionalRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef",
     {
+        "DBSnapshotIdentifier": str,
         "DBInstanceClass": str,
         "Port": int,
         "AvailabilityZone": str,
@@ -4808,6 +4833,8 @@ _OptionalRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef = TypedDict(
         "CustomIamInstanceProfile": str,
         "BackupTarget": str,
         "NetworkType": str,
+        "StorageThroughput": int,
+        "DBClusterSnapshotIdentifier": str,
     },
     total=False,
 )
@@ -4879,6 +4906,7 @@ _OptionalRestoreDBInstanceFromS3MessageRequestTypeDef = TypedDict(
         "DeletionProtection": bool,
         "MaxAllocatedStorage": int,
         "NetworkType": str,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -4942,6 +4970,7 @@ _OptionalRestoreDBInstanceToPointInTimeMessageRequestTypeDef = TypedDict(
         "CustomIamInstanceProfile": str,
         "BackupTarget": str,
         "NetworkType": str,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -5390,6 +5419,8 @@ ValidStorageOptionsTypeDef = TypedDict(
         "ProvisionedIops": List["RangeTypeDef"],
         "IopsToStorageRatio": List["DoubleRangeTypeDef"],
         "SupportsStorageAutoscaling": bool,
+        "ProvisionedStorageThroughput": List["RangeTypeDef"],
+        "StorageThroughputToIopsRatio": List["DoubleRangeTypeDef"],
     },
     total=False,
 )

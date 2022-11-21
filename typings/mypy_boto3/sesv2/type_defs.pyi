@@ -30,19 +30,33 @@ from .literals import (
     DkimSigningKeyLengthType,
     DkimStatusType,
     EventTypeType,
+    FeatureStatusType,
     IdentityTypeType,
     ImportDestinationTypeType,
     JobStatusType,
+    ListRecommendationsFilterKeyType,
     MailFromDomainStatusType,
     MailTypeType,
+    MetricDimensionNameType,
+    MetricType,
+    QueryErrorCodeType,
+    RecommendationImpactType,
+    RecommendationStatusType,
+    RecommendationTypeType,
     ReviewStatusType,
+    ScalingModeType,
     SubscriptionStatusType,
     SuppressionListImportActionType,
     SuppressionListReasonType,
     TlsPolicyType,
+    VerificationStatusType,
     WarmupStatusType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -50,6 +64,9 @@ else:
 
 __all__ = (
     "AccountDetailsTypeDef",
+    "BatchGetMetricDataQueryTypeDef",
+    "BatchGetMetricDataRequestRequestTypeDef",
+    "BatchGetMetricDataResponseTypeDef",
     "BlacklistEntryTypeDef",
     "BodyTypeDef",
     "BulkEmailContentTypeDef",
@@ -77,6 +94,9 @@ __all__ = (
     "CreateImportJobResponseTypeDef",
     "CustomVerificationEmailTemplateMetadataTypeDef",
     "DailyVolumeTypeDef",
+    "DashboardAttributesTypeDef",
+    "DashboardOptionsTypeDef",
+    "DedicatedIpPoolTypeDef",
     "DedicatedIpTypeDef",
     "DeleteConfigurationSetEventDestinationRequestRequestTypeDef",
     "DeleteConfigurationSetRequestRequestTypeDef",
@@ -115,6 +135,8 @@ __all__ = (
     "GetContactResponseTypeDef",
     "GetCustomVerificationEmailTemplateRequestRequestTypeDef",
     "GetCustomVerificationEmailTemplateResponseTypeDef",
+    "GetDedicatedIpPoolRequestRequestTypeDef",
+    "GetDedicatedIpPoolResponseTypeDef",
     "GetDedicatedIpRequestRequestTypeDef",
     "GetDedicatedIpResponseTypeDef",
     "GetDedicatedIpsRequestRequestTypeDef",
@@ -136,6 +158,8 @@ __all__ = (
     "GetImportJobResponseTypeDef",
     "GetSuppressedDestinationRequestRequestTypeDef",
     "GetSuppressedDestinationResponseTypeDef",
+    "GuardianAttributesTypeDef",
+    "GuardianOptionsTypeDef",
     "IdentityInfoTypeDef",
     "ImportDataSourceTypeDef",
     "ImportDestinationTypeDef",
@@ -165,6 +189,8 @@ __all__ = (
     "ListImportJobsRequestRequestTypeDef",
     "ListImportJobsResponseTypeDef",
     "ListManagementOptionsTypeDef",
+    "ListRecommendationsRequestRequestTypeDef",
+    "ListRecommendationsResponseTypeDef",
     "ListSuppressedDestinationsRequestRequestTypeDef",
     "ListSuppressedDestinationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -172,6 +198,8 @@ __all__ = (
     "MailFromAttributesTypeDef",
     "MessageTagTypeDef",
     "MessageTypeDef",
+    "MetricDataErrorTypeDef",
+    "MetricDataResultTypeDef",
     "OverallVolumeTypeDef",
     "PinpointDestinationTypeDef",
     "PlacementStatisticsTypeDef",
@@ -179,11 +207,13 @@ __all__ = (
     "PutAccountDetailsRequestRequestTypeDef",
     "PutAccountSendingAttributesRequestRequestTypeDef",
     "PutAccountSuppressionAttributesRequestRequestTypeDef",
+    "PutAccountVdmAttributesRequestRequestTypeDef",
     "PutConfigurationSetDeliveryOptionsRequestRequestTypeDef",
     "PutConfigurationSetReputationOptionsRequestRequestTypeDef",
     "PutConfigurationSetSendingOptionsRequestRequestTypeDef",
     "PutConfigurationSetSuppressionOptionsRequestRequestTypeDef",
     "PutConfigurationSetTrackingOptionsRequestRequestTypeDef",
+    "PutConfigurationSetVdmOptionsRequestRequestTypeDef",
     "PutDedicatedIpInPoolRequestRequestTypeDef",
     "PutDedicatedIpWarmupAttributesRequestRequestTypeDef",
     "PutDeliverabilityDashboardOptionRequestRequestTypeDef",
@@ -195,6 +225,7 @@ __all__ = (
     "PutEmailIdentityMailFromAttributesRequestRequestTypeDef",
     "PutSuppressedDestinationRequestRequestTypeDef",
     "RawMessageTypeDef",
+    "RecommendationTypeDef",
     "ReplacementEmailContentTypeDef",
     "ReplacementTemplateTypeDef",
     "ReputationOptionsTypeDef",
@@ -231,6 +262,8 @@ __all__ = (
     "UpdateCustomVerificationEmailTemplateRequestRequestTypeDef",
     "UpdateEmailIdentityPolicyRequestRequestTypeDef",
     "UpdateEmailTemplateRequestRequestTypeDef",
+    "VdmAttributesTypeDef",
+    "VdmOptionsTypeDef",
     "VolumeStatisticsTypeDef",
 )
 
@@ -245,6 +278,45 @@ AccountDetailsTypeDef = TypedDict(
         "ReviewDetails": "ReviewDetailsTypeDef",
     },
     total=False,
+)
+
+_RequiredBatchGetMetricDataQueryTypeDef = TypedDict(
+    "_RequiredBatchGetMetricDataQueryTypeDef",
+    {
+        "Id": str,
+        "Namespace": Literal["VDM"],
+        "Metric": MetricType,
+        "StartDate": Union[datetime, str],
+        "EndDate": Union[datetime, str],
+    },
+)
+_OptionalBatchGetMetricDataQueryTypeDef = TypedDict(
+    "_OptionalBatchGetMetricDataQueryTypeDef",
+    {
+        "Dimensions": Dict[MetricDimensionNameType, str],
+    },
+    total=False,
+)
+
+class BatchGetMetricDataQueryTypeDef(
+    _RequiredBatchGetMetricDataQueryTypeDef, _OptionalBatchGetMetricDataQueryTypeDef
+):
+    pass
+
+BatchGetMetricDataRequestRequestTypeDef = TypedDict(
+    "BatchGetMetricDataRequestRequestTypeDef",
+    {
+        "Queries": List["BatchGetMetricDataQueryTypeDef"],
+    },
+)
+
+BatchGetMetricDataResponseTypeDef = TypedDict(
+    "BatchGetMetricDataResponseTypeDef",
+    {
+        "Results": List["MetricDataResultTypeDef"],
+        "Errors": List["MetricDataErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 BlacklistEntryTypeDef = TypedDict(
@@ -388,6 +460,7 @@ _OptionalCreateConfigurationSetRequestRequestTypeDef = TypedDict(
         "SendingOptions": "SendingOptionsTypeDef",
         "Tags": List["TagTypeDef"],
         "SuppressionOptions": "SuppressionOptionsTypeDef",
+        "VdmOptions": "VdmOptionsTypeDef",
     },
     total=False,
 )
@@ -463,6 +536,7 @@ _OptionalCreateDedicatedIpPoolRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDedicatedIpPoolRequestRequestTypeDef",
     {
         "Tags": List["TagTypeDef"],
+        "ScalingMode": ScalingModeType,
     },
     total=False,
 )
@@ -589,6 +663,30 @@ DailyVolumeTypeDef = TypedDict(
         "DomainIspPlacements": List["DomainIspPlacementTypeDef"],
     },
     total=False,
+)
+
+DashboardAttributesTypeDef = TypedDict(
+    "DashboardAttributesTypeDef",
+    {
+        "EngagementMetrics": FeatureStatusType,
+    },
+    total=False,
+)
+
+DashboardOptionsTypeDef = TypedDict(
+    "DashboardOptionsTypeDef",
+    {
+        "EngagementMetrics": FeatureStatusType,
+    },
+    total=False,
+)
+
+DedicatedIpPoolTypeDef = TypedDict(
+    "DedicatedIpPoolTypeDef",
+    {
+        "PoolName": str,
+        "ScalingMode": ScalingModeType,
+    },
 )
 
 _RequiredDedicatedIpTypeDef = TypedDict(
@@ -865,6 +963,7 @@ GetAccountResponseTypeDef = TypedDict(
         "SendingEnabled": bool,
         "SuppressionAttributes": "SuppressionAttributesTypeDef",
         "Details": "AccountDetailsTypeDef",
+        "VdmAttributes": "VdmAttributesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -916,6 +1015,7 @@ GetConfigurationSetResponseTypeDef = TypedDict(
         "SendingOptions": "SendingOptionsTypeDef",
         "Tags": List["TagTypeDef"],
         "SuppressionOptions": "SuppressionOptionsTypeDef",
+        "VdmOptions": "VdmOptionsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -979,6 +1079,21 @@ GetCustomVerificationEmailTemplateResponseTypeDef = TypedDict(
         "TemplateContent": str,
         "SuccessRedirectionURL": str,
         "FailureRedirectionURL": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDedicatedIpPoolRequestRequestTypeDef = TypedDict(
+    "GetDedicatedIpPoolRequestRequestTypeDef",
+    {
+        "PoolName": str,
+    },
+)
+
+GetDedicatedIpPoolResponseTypeDef = TypedDict(
+    "GetDedicatedIpPoolResponseTypeDef",
+    {
+        "DedicatedIpPool": "DedicatedIpPoolTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1114,6 +1229,7 @@ GetEmailIdentityResponseTypeDef = TypedDict(
         "Policies": Dict[str, str],
         "Tags": List["TagTypeDef"],
         "ConfigurationSetName": str,
+        "VerificationStatus": VerificationStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1172,12 +1288,29 @@ GetSuppressedDestinationResponseTypeDef = TypedDict(
     },
 )
 
+GuardianAttributesTypeDef = TypedDict(
+    "GuardianAttributesTypeDef",
+    {
+        "OptimizedSharedDelivery": FeatureStatusType,
+    },
+    total=False,
+)
+
+GuardianOptionsTypeDef = TypedDict(
+    "GuardianOptionsTypeDef",
+    {
+        "OptimizedSharedDelivery": FeatureStatusType,
+    },
+    total=False,
+)
+
 IdentityInfoTypeDef = TypedDict(
     "IdentityInfoTypeDef",
     {
         "IdentityType": IdentityTypeType,
         "IdentityName": str,
         "SendingEnabled": bool,
+        "VerificationStatus": VerificationStatusType,
     },
     total=False,
 )
@@ -1206,6 +1339,8 @@ ImportJobSummaryTypeDef = TypedDict(
         "ImportDestination": "ImportDestinationTypeDef",
         "JobStatus": JobStatusType,
         "CreatedTimestamp": datetime,
+        "ProcessedRecordsCount": int,
+        "FailedRecordsCount": int,
     },
     total=False,
 )
@@ -1471,6 +1606,25 @@ class ListManagementOptionsTypeDef(
 ):
     pass
 
+ListRecommendationsRequestRequestTypeDef = TypedDict(
+    "ListRecommendationsRequestRequestTypeDef",
+    {
+        "Filter": Dict[ListRecommendationsFilterKeyType, str],
+        "NextToken": str,
+        "PageSize": int,
+    },
+    total=False,
+)
+
+ListRecommendationsResponseTypeDef = TypedDict(
+    "ListRecommendationsResponseTypeDef",
+    {
+        "Recommendations": List["RecommendationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListSuppressedDestinationsRequestRequestTypeDef = TypedDict(
     "ListSuppressedDestinationsRequestRequestTypeDef",
     {
@@ -1530,6 +1684,26 @@ MessageTypeDef = TypedDict(
         "Subject": "ContentTypeDef",
         "Body": "BodyTypeDef",
     },
+)
+
+MetricDataErrorTypeDef = TypedDict(
+    "MetricDataErrorTypeDef",
+    {
+        "Id": str,
+        "Code": QueryErrorCodeType,
+        "Message": str,
+    },
+    total=False,
+)
+
+MetricDataResultTypeDef = TypedDict(
+    "MetricDataResultTypeDef",
+    {
+        "Id": str,
+        "Timestamps": List[datetime],
+        "Values": List[int],
+    },
+    total=False,
 )
 
 OverallVolumeTypeDef = TypedDict(
@@ -1607,6 +1781,13 @@ PutAccountSuppressionAttributesRequestRequestTypeDef = TypedDict(
         "SuppressedReasons": List[SuppressionListReasonType],
     },
     total=False,
+)
+
+PutAccountVdmAttributesRequestRequestTypeDef = TypedDict(
+    "PutAccountVdmAttributesRequestRequestTypeDef",
+    {
+        "VdmAttributes": "VdmAttributesTypeDef",
+    },
 )
 
 _RequiredPutConfigurationSetDeliveryOptionsRequestRequestTypeDef = TypedDict(
@@ -1707,6 +1888,26 @@ _OptionalPutConfigurationSetTrackingOptionsRequestRequestTypeDef = TypedDict(
 class PutConfigurationSetTrackingOptionsRequestRequestTypeDef(
     _RequiredPutConfigurationSetTrackingOptionsRequestRequestTypeDef,
     _OptionalPutConfigurationSetTrackingOptionsRequestRequestTypeDef,
+):
+    pass
+
+_RequiredPutConfigurationSetVdmOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredPutConfigurationSetVdmOptionsRequestRequestTypeDef",
+    {
+        "ConfigurationSetName": str,
+    },
+)
+_OptionalPutConfigurationSetVdmOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalPutConfigurationSetVdmOptionsRequestRequestTypeDef",
+    {
+        "VdmOptions": "VdmOptionsTypeDef",
+    },
+    total=False,
+)
+
+class PutConfigurationSetVdmOptionsRequestRequestTypeDef(
+    _RequiredPutConfigurationSetVdmOptionsRequestRequestTypeDef,
+    _OptionalPutConfigurationSetVdmOptionsRequestRequestTypeDef,
 ):
     pass
 
@@ -1870,6 +2071,20 @@ RawMessageTypeDef = TypedDict(
     {
         "Data": Union[bytes, IO[bytes], StreamingBody],
     },
+)
+
+RecommendationTypeDef = TypedDict(
+    "RecommendationTypeDef",
+    {
+        "ResourceArn": str,
+        "Type": RecommendationTypeType,
+        "Description": str,
+        "Status": RecommendationStatusType,
+        "CreatedTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+        "Impact": RecommendationImpactType,
+    },
+    total=False,
 )
 
 ReplacementEmailContentTypeDef = TypedDict(
@@ -2273,6 +2488,33 @@ UpdateEmailTemplateRequestRequestTypeDef = TypedDict(
         "TemplateName": str,
         "TemplateContent": "EmailTemplateContentTypeDef",
     },
+)
+
+_RequiredVdmAttributesTypeDef = TypedDict(
+    "_RequiredVdmAttributesTypeDef",
+    {
+        "VdmEnabled": FeatureStatusType,
+    },
+)
+_OptionalVdmAttributesTypeDef = TypedDict(
+    "_OptionalVdmAttributesTypeDef",
+    {
+        "DashboardAttributes": "DashboardAttributesTypeDef",
+        "GuardianAttributes": "GuardianAttributesTypeDef",
+    },
+    total=False,
+)
+
+class VdmAttributesTypeDef(_RequiredVdmAttributesTypeDef, _OptionalVdmAttributesTypeDef):
+    pass
+
+VdmOptionsTypeDef = TypedDict(
+    "VdmOptionsTypeDef",
+    {
+        "DashboardOptions": "DashboardOptionsTypeDef",
+        "GuardianOptions": "GuardianOptionsTypeDef",
+    },
+    total=False,
 )
 
 VolumeStatisticsTypeDef = TypedDict(

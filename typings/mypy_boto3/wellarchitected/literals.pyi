@@ -21,6 +21,9 @@ else:
 __all__ = (
     "AdditionalResourceTypeType",
     "AnswerReasonType",
+    "CheckFailureReasonType",
+    "CheckProviderType",
+    "CheckStatusType",
     "ChoiceReasonType",
     "ChoiceStatusType",
     "DifferenceStatusType",
@@ -35,6 +38,7 @@ __all__ = (
     "ShareInvitationActionType",
     "ShareResourceTypeType",
     "ShareStatusType",
+    "TrustedAdvisorIntegrationStatusType",
     "WorkloadEnvironmentType",
     "WorkloadImprovementStatusType",
 )
@@ -43,6 +47,11 @@ AdditionalResourceTypeType = Literal["HELPFUL_RESOURCE", "IMPROVEMENT_PLAN"]
 AnswerReasonType = Literal[
     "ARCHITECTURE_CONSTRAINTS", "BUSINESS_PRIORITIES", "NONE", "OTHER", "OUT_OF_SCOPE"
 ]
+CheckFailureReasonType = Literal[
+    "ACCESS_DENIED", "ASSUME_ROLE_ERROR", "PREMIUM_SUPPORT_REQUIRED", "UNKNOWN_ERROR"
+]
+CheckProviderType = Literal["TRUSTED_ADVISOR"]
+CheckStatusType = Literal["ERROR", "FETCH_FAILED", "NOT_AVAILABLE", "OKAY", "WARNING"]
 ChoiceReasonType = Literal[
     "ARCHITECTURE_CONSTRAINTS", "BUSINESS_PRIORITIES", "NONE", "OTHER", "OUT_OF_SCOPE"
 ]
@@ -61,6 +70,7 @@ ShareResourceTypeType = Literal["LENS", "WORKLOAD"]
 ShareStatusType = Literal[
     "ACCEPTED", "ASSOCIATED", "ASSOCIATING", "EXPIRED", "FAILED", "PENDING", "REJECTED", "REVOKED"
 ]
+TrustedAdvisorIntegrationStatusType = Literal["DISABLED", "ENABLED"]
 WorkloadEnvironmentType = Literal["PREPRODUCTION", "PRODUCTION"]
 WorkloadImprovementStatusType = Literal[
     "COMPLETE", "IN_PROGRESS", "NOT_APPLICABLE", "NOT_STARTED", "RISK_ACKNOWLEDGED"

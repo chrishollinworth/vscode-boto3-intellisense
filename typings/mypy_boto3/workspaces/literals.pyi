@@ -22,6 +22,8 @@ __all__ = (
     "AccessPropertyValueType",
     "ApplicationType",
     "AssociationStatusType",
+    "BundleTypeType",
+    "CertificateBasedAuthStatusEnumType",
     "ClientDeviceTypeType",
     "ComputeType",
     "ConnectionAliasStateType",
@@ -29,6 +31,7 @@ __all__ = (
     "DedicatedTenancyModificationStateEnumType",
     "DedicatedTenancySupportEnumType",
     "DedicatedTenancySupportResultEnumType",
+    "DeletableCertificateBasedAuthPropertyType",
     "DeletableSamlPropertyType",
     "DescribeAccountModificationsPaginatorName",
     "DescribeIpGroupsPaginatorName",
@@ -43,11 +46,14 @@ __all__ = (
     "ModificationResourceEnumType",
     "ModificationStateEnumType",
     "OperatingSystemTypeType",
+    "ProtocolType",
     "ReconnectEnumType",
     "RunningModeType",
     "SamlStatusEnumType",
+    "StandbyWorkspaceRelationshipTypeType",
     "TargetWorkspaceStateType",
     "TenancyType",
+    "WorkspaceBundleStateType",
     "WorkspaceDirectoryStateType",
     "WorkspaceDirectoryTypeType",
     "WorkspaceImageIngestionProcessType",
@@ -65,6 +71,8 @@ AssociationStatusType = Literal[
     "PENDING_ASSOCIATION",
     "PENDING_DISASSOCIATION",
 ]
+BundleTypeType = Literal["REGULAR", "STANDBY"]
+CertificateBasedAuthStatusEnumType = Literal["DISABLED", "ENABLED"]
 ClientDeviceTypeType = Literal[
     "DeviceTypeAndroid",
     "DeviceTypeIos",
@@ -89,6 +97,9 @@ ConnectionStateType = Literal["CONNECTED", "DISCONNECTED", "UNKNOWN"]
 DedicatedTenancyModificationStateEnumType = Literal["COMPLETED", "FAILED", "PENDING"]
 DedicatedTenancySupportEnumType = Literal["ENABLED"]
 DedicatedTenancySupportResultEnumType = Literal["DISABLED", "ENABLED"]
+DeletableCertificateBasedAuthPropertyType = Literal[
+    "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN"
+]
 DeletableSamlPropertyType = Literal[
     "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME", "SAML_PROPERTIES_USER_ACCESS_URL"
 ]
@@ -105,17 +116,26 @@ LogUploadEnumType = Literal["DISABLED", "ENABLED"]
 ModificationResourceEnumType = Literal["COMPUTE_TYPE", "ROOT_VOLUME", "USER_VOLUME"]
 ModificationStateEnumType = Literal["UPDATE_INITIATED", "UPDATE_IN_PROGRESS"]
 OperatingSystemTypeType = Literal["LINUX", "WINDOWS"]
+ProtocolType = Literal["PCOIP", "WSP"]
 ReconnectEnumType = Literal["DISABLED", "ENABLED"]
-RunningModeType = Literal["ALWAYS_ON", "AUTO_STOP"]
+RunningModeType = Literal["ALWAYS_ON", "AUTO_STOP", "MANUAL"]
 SamlStatusEnumType = Literal["DISABLED", "ENABLED", "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK"]
+StandbyWorkspaceRelationshipTypeType = Literal["PRIMARY", "STANDBY"]
 TargetWorkspaceStateType = Literal["ADMIN_MAINTENANCE", "AVAILABLE"]
 TenancyType = Literal["DEDICATED", "SHARED"]
+WorkspaceBundleStateType = Literal["AVAILABLE", "ERROR", "PENDING"]
 WorkspaceDirectoryStateType = Literal[
     "DEREGISTERED", "DEREGISTERING", "ERROR", "REGISTERED", "REGISTERING"
 ]
 WorkspaceDirectoryTypeType = Literal["AD_CONNECTOR", "SIMPLE_AD"]
 WorkspaceImageIngestionProcessType = Literal[
-    "BYOL_GRAPHICS", "BYOL_GRAPHICSPRO", "BYOL_GRAPHICS_G4DN", "BYOL_REGULAR", "BYOL_REGULAR_WSP"
+    "BYOL_GRAPHICS",
+    "BYOL_GRAPHICSPRO",
+    "BYOL_GRAPHICS_G4DN",
+    "BYOL_GRAPHICS_G4DN_BYOP",
+    "BYOL_REGULAR",
+    "BYOL_REGULAR_BYOP",
+    "BYOL_REGULAR_WSP",
 ]
 WorkspaceImageRequiredTenancyType = Literal["DEDICATED", "DEFAULT"]
 WorkspaceImageStateType = Literal["AVAILABLE", "ERROR", "PENDING"]

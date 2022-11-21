@@ -29,6 +29,7 @@ __all__ = (
     "BehaviorEnumType",
     "BlueprintTypeType",
     "BucketMetricNameType",
+    "CertificateDomainValidationStatusType",
     "CertificateStatusType",
     "CloudFormationStackRecordSourceTypeType",
     "ComparisonOperatorType",
@@ -44,6 +45,7 @@ __all__ = (
     "DiskSnapshotStateType",
     "DiskStateType",
     "DistributionMetricNameType",
+    "DnsRecordCreationStateCodeType",
     "ExportSnapshotRecordSourceTypeType",
     "ForwardValuesType",
     "GetActiveNamesPaginatorName",
@@ -82,6 +84,7 @@ __all__ = (
     "LoadBalancerMetricNameType",
     "LoadBalancerProtocolType",
     "LoadBalancerStateType",
+    "LoadBalancerTlsCertificateDnsRecordCreationStateCodeType",
     "LoadBalancerTlsCertificateDomainStatusType",
     "LoadBalancerTlsCertificateFailureReasonType",
     "LoadBalancerTlsCertificateRenewalStatusType",
@@ -90,6 +93,7 @@ __all__ = (
     "MetricNameType",
     "MetricStatisticType",
     "MetricUnitType",
+    "NameServersUpdateStateCodeType",
     "NetworkProtocolType",
     "OperationStatusType",
     "OperationTypeType",
@@ -97,6 +101,7 @@ __all__ = (
     "PortAccessTypeType",
     "PortInfoSourceTypeType",
     "PortStateType",
+    "R53HostedZoneDeletionStateCodeType",
     "RecordStateType",
     "RegionNameType",
     "RelationalDatabaseEngineType",
@@ -121,6 +126,7 @@ BPAStatusMessageType = Literal[
 BehaviorEnumType = Literal["cache", "dont-cache"]
 BlueprintTypeType = Literal["app", "os"]
 BucketMetricNameType = Literal["BucketSizeBytes", "NumberOfObjects"]
+CertificateDomainValidationStatusType = Literal["FAILED", "PENDING_VALIDATION", "SUCCESS"]
 CertificateStatusType = Literal[
     "EXPIRED",
     "FAILED",
@@ -168,6 +174,7 @@ DistributionMetricNameType = Literal[
     "Requests",
     "TotalErrorRate",
 ]
+DnsRecordCreationStateCodeType = Literal["FAILED", "STARTED", "SUCCEEDED"]
 ExportSnapshotRecordSourceTypeType = Literal["DiskSnapshot", "InstanceSnapshot"]
 ForwardValuesType = Literal["all", "allow-list", "none"]
 GetActiveNamesPaginatorName = Literal["get_active_names"]
@@ -265,6 +272,7 @@ LoadBalancerMetricNameType = Literal[
 ]
 LoadBalancerProtocolType = Literal["HTTP", "HTTP_HTTPS"]
 LoadBalancerStateType = Literal["active", "active_impaired", "failed", "provisioning", "unknown"]
+LoadBalancerTlsCertificateDnsRecordCreationStateCodeType = Literal["FAILED", "STARTED", "SUCCEEDED"]
 LoadBalancerTlsCertificateDomainStatusType = Literal["FAILED", "PENDING_VALIDATION", "SUCCESS"]
 LoadBalancerTlsCertificateFailureReasonType = Literal[
     "ADDITIONAL_VERIFICATION_REQUIRED",
@@ -355,6 +363,7 @@ MetricUnitType = Literal[
     "Terabytes",
     "Terabytes/Second",
 ]
+NameServersUpdateStateCodeType = Literal["FAILED", "PENDING", "STARTED", "SUCCEEDED"]
 NetworkProtocolType = Literal["all", "icmp", "tcp", "udp"]
 OperationStatusType = Literal["Completed", "Failed", "NotStarted", "Started", "Succeeded"]
 OperationTypeType = Literal[
@@ -443,6 +452,7 @@ OriginProtocolPolicyEnumType = Literal["http-only", "https-only"]
 PortAccessTypeType = Literal["Private", "Public"]
 PortInfoSourceTypeType = Literal["CLOSED", "DEFAULT", "INSTANCE", "NONE"]
 PortStateType = Literal["closed", "open"]
+R53HostedZoneDeletionStateCodeType = Literal["FAILED", "PENDING", "STARTED", "SUCCEEDED"]
 RecordStateType = Literal["Failed", "Started", "Succeeded"]
 RegionNameType = Literal[
     "ap-northeast-1",

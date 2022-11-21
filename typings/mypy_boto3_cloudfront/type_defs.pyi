@@ -23,6 +23,7 @@ from .literals import (
     CachePolicyQueryStringBehaviorType,
     CachePolicyTypeType,
     CertificateSourceType,
+    ContinuousDeploymentPolicyTypeType,
     EventTypeType,
     FrameOptionsListType,
     FunctionStageType,
@@ -83,12 +84,22 @@ __all__ = (
     "ContentTypeProfileConfigTypeDef",
     "ContentTypeProfileTypeDef",
     "ContentTypeProfilesTypeDef",
+    "ContinuousDeploymentPolicyConfigTypeDef",
+    "ContinuousDeploymentPolicyListTypeDef",
+    "ContinuousDeploymentPolicySummaryTypeDef",
+    "ContinuousDeploymentPolicyTypeDef",
+    "ContinuousDeploymentSingleHeaderConfigTypeDef",
+    "ContinuousDeploymentSingleWeightConfigTypeDef",
     "CookieNamesTypeDef",
     "CookiePreferenceTypeDef",
+    "CopyDistributionRequestRequestTypeDef",
+    "CopyDistributionResultTypeDef",
     "CreateCachePolicyRequestRequestTypeDef",
     "CreateCachePolicyResultTypeDef",
     "CreateCloudFrontOriginAccessIdentityRequestRequestTypeDef",
     "CreateCloudFrontOriginAccessIdentityResultTypeDef",
+    "CreateContinuousDeploymentPolicyRequestRequestTypeDef",
+    "CreateContinuousDeploymentPolicyResultTypeDef",
     "CreateDistributionRequestRequestTypeDef",
     "CreateDistributionResultTypeDef",
     "CreateDistributionWithTagsRequestRequestTypeDef",
@@ -126,6 +137,7 @@ __all__ = (
     "DefaultCacheBehaviorTypeDef",
     "DeleteCachePolicyRequestRequestTypeDef",
     "DeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef",
+    "DeleteContinuousDeploymentPolicyRequestRequestTypeDef",
     "DeleteDistributionRequestRequestTypeDef",
     "DeleteFieldLevelEncryptionConfigRequestRequestTypeDef",
     "DeleteFieldLevelEncryptionProfileRequestRequestTypeDef",
@@ -174,6 +186,10 @@ __all__ = (
     "GetCloudFrontOriginAccessIdentityConfigResultTypeDef",
     "GetCloudFrontOriginAccessIdentityRequestRequestTypeDef",
     "GetCloudFrontOriginAccessIdentityResultTypeDef",
+    "GetContinuousDeploymentPolicyConfigRequestRequestTypeDef",
+    "GetContinuousDeploymentPolicyConfigResultTypeDef",
+    "GetContinuousDeploymentPolicyRequestRequestTypeDef",
+    "GetContinuousDeploymentPolicyResultTypeDef",
     "GetDistributionConfigRequestRequestTypeDef",
     "GetDistributionConfigResultTypeDef",
     "GetDistributionRequestRequestTypeDef",
@@ -238,6 +254,8 @@ __all__ = (
     "ListCloudFrontOriginAccessIdentitiesResultTypeDef",
     "ListConflictingAliasesRequestRequestTypeDef",
     "ListConflictingAliasesResultTypeDef",
+    "ListContinuousDeploymentPoliciesRequestRequestTypeDef",
+    "ListContinuousDeploymentPoliciesResultTypeDef",
     "ListDistributionsByCachePolicyIdRequestRequestTypeDef",
     "ListDistributionsByCachePolicyIdResultTypeDef",
     "ListDistributionsByKeyGroupRequestRequestTypeDef",
@@ -339,7 +357,9 @@ __all__ = (
     "RestrictionsTypeDef",
     "S3OriginConfigTypeDef",
     "S3OriginTypeDef",
+    "SessionStickinessConfigTypeDef",
     "SignerTypeDef",
+    "StagingDistributionDnsNamesTypeDef",
     "StatusCodesTypeDef",
     "StreamingDistributionConfigTypeDef",
     "StreamingDistributionConfigWithTagsTypeDef",
@@ -354,6 +374,7 @@ __all__ = (
     "TestFunctionRequestRequestTypeDef",
     "TestFunctionResultTypeDef",
     "TestResultTypeDef",
+    "TrafficConfigTypeDef",
     "TrustedKeyGroupsTypeDef",
     "TrustedSignersTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -361,6 +382,8 @@ __all__ = (
     "UpdateCachePolicyResultTypeDef",
     "UpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef",
     "UpdateCloudFrontOriginAccessIdentityResultTypeDef",
+    "UpdateContinuousDeploymentPolicyRequestRequestTypeDef",
+    "UpdateContinuousDeploymentPolicyResultTypeDef",
     "UpdateDistributionRequestRequestTypeDef",
     "UpdateDistributionResultTypeDef",
     "UpdateFieldLevelEncryptionConfigRequestRequestTypeDef",
@@ -794,6 +817,92 @@ class ContentTypeProfilesTypeDef(
 ):
     pass
 
+_RequiredContinuousDeploymentPolicyConfigTypeDef = TypedDict(
+    "_RequiredContinuousDeploymentPolicyConfigTypeDef",
+    {
+        "StagingDistributionDnsNames": "StagingDistributionDnsNamesTypeDef",
+        "Enabled": bool,
+    },
+)
+_OptionalContinuousDeploymentPolicyConfigTypeDef = TypedDict(
+    "_OptionalContinuousDeploymentPolicyConfigTypeDef",
+    {
+        "TrafficConfig": "TrafficConfigTypeDef",
+    },
+    total=False,
+)
+
+class ContinuousDeploymentPolicyConfigTypeDef(
+    _RequiredContinuousDeploymentPolicyConfigTypeDef,
+    _OptionalContinuousDeploymentPolicyConfigTypeDef,
+):
+    pass
+
+_RequiredContinuousDeploymentPolicyListTypeDef = TypedDict(
+    "_RequiredContinuousDeploymentPolicyListTypeDef",
+    {
+        "MaxItems": int,
+        "Quantity": int,
+    },
+)
+_OptionalContinuousDeploymentPolicyListTypeDef = TypedDict(
+    "_OptionalContinuousDeploymentPolicyListTypeDef",
+    {
+        "NextMarker": str,
+        "Items": List["ContinuousDeploymentPolicySummaryTypeDef"],
+    },
+    total=False,
+)
+
+class ContinuousDeploymentPolicyListTypeDef(
+    _RequiredContinuousDeploymentPolicyListTypeDef, _OptionalContinuousDeploymentPolicyListTypeDef
+):
+    pass
+
+ContinuousDeploymentPolicySummaryTypeDef = TypedDict(
+    "ContinuousDeploymentPolicySummaryTypeDef",
+    {
+        "ContinuousDeploymentPolicy": "ContinuousDeploymentPolicyTypeDef",
+    },
+)
+
+ContinuousDeploymentPolicyTypeDef = TypedDict(
+    "ContinuousDeploymentPolicyTypeDef",
+    {
+        "Id": str,
+        "LastModifiedTime": datetime,
+        "ContinuousDeploymentPolicyConfig": "ContinuousDeploymentPolicyConfigTypeDef",
+    },
+)
+
+ContinuousDeploymentSingleHeaderConfigTypeDef = TypedDict(
+    "ContinuousDeploymentSingleHeaderConfigTypeDef",
+    {
+        "Header": str,
+        "Value": str,
+    },
+)
+
+_RequiredContinuousDeploymentSingleWeightConfigTypeDef = TypedDict(
+    "_RequiredContinuousDeploymentSingleWeightConfigTypeDef",
+    {
+        "Weight": float,
+    },
+)
+_OptionalContinuousDeploymentSingleWeightConfigTypeDef = TypedDict(
+    "_OptionalContinuousDeploymentSingleWeightConfigTypeDef",
+    {
+        "SessionStickinessConfig": "SessionStickinessConfigTypeDef",
+    },
+    total=False,
+)
+
+class ContinuousDeploymentSingleWeightConfigTypeDef(
+    _RequiredContinuousDeploymentSingleWeightConfigTypeDef,
+    _OptionalContinuousDeploymentSingleWeightConfigTypeDef,
+):
+    pass
+
 _RequiredCookieNamesTypeDef = TypedDict(
     "_RequiredCookieNamesTypeDef",
     {
@@ -828,6 +937,37 @@ _OptionalCookiePreferenceTypeDef = TypedDict(
 class CookiePreferenceTypeDef(_RequiredCookiePreferenceTypeDef, _OptionalCookiePreferenceTypeDef):
     pass
 
+_RequiredCopyDistributionRequestRequestTypeDef = TypedDict(
+    "_RequiredCopyDistributionRequestRequestTypeDef",
+    {
+        "PrimaryDistributionId": str,
+        "CallerReference": str,
+    },
+)
+_OptionalCopyDistributionRequestRequestTypeDef = TypedDict(
+    "_OptionalCopyDistributionRequestRequestTypeDef",
+    {
+        "Staging": bool,
+        "IfMatch": str,
+    },
+    total=False,
+)
+
+class CopyDistributionRequestRequestTypeDef(
+    _RequiredCopyDistributionRequestRequestTypeDef, _OptionalCopyDistributionRequestRequestTypeDef
+):
+    pass
+
+CopyDistributionResultTypeDef = TypedDict(
+    "CopyDistributionResultTypeDef",
+    {
+        "Distribution": "DistributionTypeDef",
+        "Location": str,
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateCachePolicyRequestRequestTypeDef = TypedDict(
     "CreateCachePolicyRequestRequestTypeDef",
     {
@@ -856,6 +996,23 @@ CreateCloudFrontOriginAccessIdentityResultTypeDef = TypedDict(
     "CreateCloudFrontOriginAccessIdentityResultTypeDef",
     {
         "CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentityTypeDef",
+        "Location": str,
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
+    "CreateContinuousDeploymentPolicyRequestRequestTypeDef",
+    {
+        "ContinuousDeploymentPolicyConfig": "ContinuousDeploymentPolicyConfigTypeDef",
+    },
+)
+
+CreateContinuousDeploymentPolicyResultTypeDef = TypedDict(
+    "CreateContinuousDeploymentPolicyResultTypeDef",
+    {
+        "ContinuousDeploymentPolicy": "ContinuousDeploymentPolicyTypeDef",
         "Location": str,
         "ETag": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -1270,6 +1427,26 @@ _OptionalDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef = TypedDict(
 class DeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef(
     _RequiredDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef,
     _OptionalDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDeleteContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteContinuousDeploymentPolicyRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalDeleteContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteContinuousDeploymentPolicyRequestRequestTypeDef",
+    {
+        "IfMatch": str,
+    },
+    total=False,
+)
+
+class DeleteContinuousDeploymentPolicyRequestRequestTypeDef(
+    _RequiredDeleteContinuousDeploymentPolicyRequestRequestTypeDef,
+    _OptionalDeleteContinuousDeploymentPolicyRequestRequestTypeDef,
 ):
     pass
 
@@ -2054,6 +2231,38 @@ GetCloudFrontOriginAccessIdentityResultTypeDef = TypedDict(
     },
 )
 
+GetContinuousDeploymentPolicyConfigRequestRequestTypeDef = TypedDict(
+    "GetContinuousDeploymentPolicyConfigRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetContinuousDeploymentPolicyConfigResultTypeDef = TypedDict(
+    "GetContinuousDeploymentPolicyConfigResultTypeDef",
+    {
+        "ContinuousDeploymentPolicyConfig": "ContinuousDeploymentPolicyConfigTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
+    "GetContinuousDeploymentPolicyRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetContinuousDeploymentPolicyResultTypeDef = TypedDict(
+    "GetContinuousDeploymentPolicyResultTypeDef",
+    {
+        "ContinuousDeploymentPolicy": "ContinuousDeploymentPolicyTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetDistributionConfigRequestRequestTypeDef = TypedDict(
     "GetDistributionConfigRequestRequestTypeDef",
     {
@@ -2675,6 +2884,23 @@ ListConflictingAliasesResultTypeDef = TypedDict(
     },
 )
 
+ListContinuousDeploymentPoliciesRequestRequestTypeDef = TypedDict(
+    "ListContinuousDeploymentPoliciesRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListContinuousDeploymentPoliciesResultTypeDef = TypedDict(
+    "ListContinuousDeploymentPoliciesResultTypeDef",
+    {
+        "ContinuousDeploymentPolicyList": "ContinuousDeploymentPolicyListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListDistributionsByCachePolicyIdRequestRequestTypeDef = TypedDict(
     "_RequiredListDistributionsByCachePolicyIdRequestRequestTypeDef",
     {
@@ -3090,16 +3316,27 @@ MonitoringSubscriptionTypeDef = TypedDict(
     total=False,
 )
 
-OriginAccessControlConfigTypeDef = TypedDict(
-    "OriginAccessControlConfigTypeDef",
+_RequiredOriginAccessControlConfigTypeDef = TypedDict(
+    "_RequiredOriginAccessControlConfigTypeDef",
     {
         "Name": str,
-        "Description": str,
         "SigningProtocol": Literal["sigv4"],
         "SigningBehavior": OriginAccessControlSigningBehaviorsType,
         "OriginAccessControlOriginType": Literal["s3"],
     },
 )
+_OptionalOriginAccessControlConfigTypeDef = TypedDict(
+    "_OptionalOriginAccessControlConfigTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class OriginAccessControlConfigTypeDef(
+    _RequiredOriginAccessControlConfigTypeDef, _OptionalOriginAccessControlConfigTypeDef
+):
+    pass
 
 _RequiredOriginAccessControlListTypeDef = TypedDict(
     "_RequiredOriginAccessControlListTypeDef",
@@ -3941,6 +4178,14 @@ S3OriginTypeDef = TypedDict(
     },
 )
 
+SessionStickinessConfigTypeDef = TypedDict(
+    "SessionStickinessConfigTypeDef",
+    {
+        "IdleTTL": int,
+        "MaximumTTL": int,
+    },
+)
+
 SignerTypeDef = TypedDict(
     "SignerTypeDef",
     {
@@ -3949,6 +4194,25 @@ SignerTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredStagingDistributionDnsNamesTypeDef = TypedDict(
+    "_RequiredStagingDistributionDnsNamesTypeDef",
+    {
+        "Quantity": int,
+    },
+)
+_OptionalStagingDistributionDnsNamesTypeDef = TypedDict(
+    "_OptionalStagingDistributionDnsNamesTypeDef",
+    {
+        "Items": List[str],
+    },
+    total=False,
+)
+
+class StagingDistributionDnsNamesTypeDef(
+    _RequiredStagingDistributionDnsNamesTypeDef, _OptionalStagingDistributionDnsNamesTypeDef
+):
+    pass
 
 StatusCodesTypeDef = TypedDict(
     "StatusCodesTypeDef",
@@ -4146,6 +4410,24 @@ TestResultTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredTrafficConfigTypeDef = TypedDict(
+    "_RequiredTrafficConfigTypeDef",
+    {
+        "Type": ContinuousDeploymentPolicyTypeType,
+    },
+)
+_OptionalTrafficConfigTypeDef = TypedDict(
+    "_OptionalTrafficConfigTypeDef",
+    {
+        "SingleWeightConfig": "ContinuousDeploymentSingleWeightConfigTypeDef",
+        "SingleHeaderConfig": "ContinuousDeploymentSingleHeaderConfigTypeDef",
+    },
+    total=False,
+)
+
+class TrafficConfigTypeDef(_RequiredTrafficConfigTypeDef, _OptionalTrafficConfigTypeDef):
+    pass
+
 _RequiredTrustedKeyGroupsTypeDef = TypedDict(
     "_RequiredTrustedKeyGroupsTypeDef",
     {
@@ -4244,6 +4526,36 @@ UpdateCloudFrontOriginAccessIdentityResultTypeDef = TypedDict(
     "UpdateCloudFrontOriginAccessIdentityResultTypeDef",
     {
         "CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentityTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateContinuousDeploymentPolicyRequestRequestTypeDef",
+    {
+        "ContinuousDeploymentPolicyConfig": "ContinuousDeploymentPolicyConfigTypeDef",
+        "Id": str,
+    },
+)
+_OptionalUpdateContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateContinuousDeploymentPolicyRequestRequestTypeDef",
+    {
+        "IfMatch": str,
+    },
+    total=False,
+)
+
+class UpdateContinuousDeploymentPolicyRequestRequestTypeDef(
+    _RequiredUpdateContinuousDeploymentPolicyRequestRequestTypeDef,
+    _OptionalUpdateContinuousDeploymentPolicyRequestRequestTypeDef,
+):
+    pass
+
+UpdateContinuousDeploymentPolicyResultTypeDef = TypedDict(
+    "UpdateContinuousDeploymentPolicyResultTypeDef",
+    {
+        "ContinuousDeploymentPolicy": "ContinuousDeploymentPolicyTypeDef",
         "ETag": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

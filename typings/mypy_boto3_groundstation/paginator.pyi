@@ -13,6 +13,7 @@ Usage::
         ListConfigsPaginator,
         ListContactsPaginator,
         ListDataflowEndpointGroupsPaginator,
+        ListEphemeridesPaginator,
         ListGroundStationsPaginator,
         ListMissionProfilesPaginator,
         ListSatellitesPaginator,
@@ -23,6 +24,7 @@ Usage::
     list_configs_paginator: ListConfigsPaginator = client.get_paginator("list_configs")
     list_contacts_paginator: ListContactsPaginator = client.get_paginator("list_contacts")
     list_dataflow_endpoint_groups_paginator: ListDataflowEndpointGroupsPaginator = client.get_paginator("list_dataflow_endpoint_groups")
+    list_ephemerides_paginator: ListEphemeridesPaginator = client.get_paginator("list_ephemerides")
     list_ground_stations_paginator: ListGroundStationsPaginator = client.get_paginator("list_ground_stations")
     list_mission_profiles_paginator: ListMissionProfilesPaginator = client.get_paginator("list_mission_profiles")
     list_satellites_paginator: ListSatellitesPaginator = client.get_paginator("list_satellites")
@@ -33,11 +35,12 @@ from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from .literals import ContactStatusType
+from .literals import ContactStatusType, EphemerisStatusType
 from .type_defs import (
     ListConfigsResponseTypeDef,
     ListContactsResponseTypeDef,
     ListDataflowEndpointGroupsResponseTypeDef,
+    ListEphemeridesResponseTypeDef,
     ListGroundStationsResponseTypeDef,
     ListMissionProfilesResponseTypeDef,
     ListSatellitesResponseTypeDef,
@@ -48,6 +51,7 @@ __all__ = (
     "ListConfigsPaginator",
     "ListContactsPaginator",
     "ListDataflowEndpointGroupsPaginator",
+    "ListEphemeridesPaginator",
     "ListGroundStationsPaginator",
     "ListMissionProfilesPaginator",
     "ListSatellitesPaginator",
@@ -55,7 +59,7 @@ __all__ = (
 
 class ListConfigsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listconfigspaginator)
     """
 
@@ -63,13 +67,13 @@ class ListConfigsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listconfigspaginator)
         """
 
 class ListContactsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListContacts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListContacts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listcontactspaginator)
     """
 
@@ -85,13 +89,13 @@ class ListContactsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContactsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListContacts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListContacts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listcontactspaginator)
         """
 
 class ListDataflowEndpointGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listdataflowendpointgroupspaginator)
     """
 
@@ -99,13 +103,33 @@ class ListDataflowEndpointGroupsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataflowEndpointGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listdataflowendpointgroupspaginator)
+        """
+
+class ListEphemeridesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListEphemerides)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listephemeridespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        endTime: Union[datetime, str],
+        satelliteId: str,
+        startTime: Union[datetime, str],
+        statusList: List[EphemerisStatusType] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListEphemeridesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListEphemerides.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listephemeridespaginator)
         """
 
 class ListGroundStationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listgroundstationspaginator)
     """
 
@@ -113,13 +137,13 @@ class ListGroundStationsPaginator(Boto3Paginator):
         self, *, satelliteId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroundStationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listgroundstationspaginator)
         """
 
 class ListMissionProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listmissionprofilespaginator)
     """
 
@@ -127,13 +151,13 @@ class ListMissionProfilesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMissionProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listmissionprofilespaginator)
         """
 
 class ListSatellitesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listsatellitespaginator)
     """
 
@@ -141,6 +165,6 @@ class ListSatellitesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSatellitesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listsatellitespaginator)
         """

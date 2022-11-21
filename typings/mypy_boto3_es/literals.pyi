@@ -40,6 +40,7 @@ __all__ = (
     "OverallChangeStatusType",
     "PackageStatusType",
     "PackageTypeType",
+    "PrincipalTypeType",
     "ReservedElasticsearchInstancePaymentOptionType",
     "RollbackOnDisableType",
     "ScheduledAutoTuneActionTypeType",
@@ -49,6 +50,8 @@ __all__ = (
     "UpgradeStatusType",
     "UpgradeStepType",
     "VolumeTypeType",
+    "VpcEndpointErrorCodeType",
+    "VpcEndpointStatusType",
 )
 
 AutoTuneDesiredStateType = Literal["DISABLED", "ENABLED"]
@@ -171,6 +174,7 @@ PackageStatusType = Literal[
     "VALIDATION_FAILED",
 ]
 PackageTypeType = Literal["TXT-DICTIONARY"]
+PrincipalTypeType = Literal["AWS_ACCOUNT", "AWS_SERVICE"]
 ReservedElasticsearchInstancePaymentOptionType = Literal[
     "ALL_UPFRONT", "NO_UPFRONT", "PARTIAL_UPFRONT"
 ]
@@ -182,3 +186,7 @@ TimeUnitType = Literal["HOURS"]
 UpgradeStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED", "SUCCEEDED_WITH_ISSUES"]
 UpgradeStepType = Literal["PRE_UPGRADE_CHECK", "SNAPSHOT", "UPGRADE"]
 VolumeTypeType = Literal["gp2", "gp3", "io1", "standard"]
+VpcEndpointErrorCodeType = Literal["ENDPOINT_NOT_FOUND", "SERVER_ERROR"]
+VpcEndpointStatusType = Literal[
+    "ACTIVE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
+]

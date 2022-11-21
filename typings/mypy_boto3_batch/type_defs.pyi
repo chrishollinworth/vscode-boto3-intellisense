@@ -31,6 +31,7 @@ from .literals import (
     JQStateType,
     JQStatusType,
     LogDriverType,
+    OrchestrationTypeType,
     PlatformCapabilityType,
     ResourceTypeType,
     RetryActionType,
@@ -80,6 +81,26 @@ __all__ = (
     "EFSAuthorizationConfigTypeDef",
     "EFSVolumeConfigurationTypeDef",
     "Ec2ConfigurationTypeDef",
+    "EksAttemptContainerDetailTypeDef",
+    "EksAttemptDetailTypeDef",
+    "EksConfigurationTypeDef",
+    "EksContainerDetailTypeDef",
+    "EksContainerEnvironmentVariableTypeDef",
+    "EksContainerOverrideTypeDef",
+    "EksContainerResourceRequirementsTypeDef",
+    "EksContainerSecurityContextTypeDef",
+    "EksContainerTypeDef",
+    "EksContainerVolumeMountTypeDef",
+    "EksEmptyDirTypeDef",
+    "EksHostPathTypeDef",
+    "EksPodPropertiesDetailTypeDef",
+    "EksPodPropertiesOverrideTypeDef",
+    "EksPodPropertiesTypeDef",
+    "EksPropertiesDetailTypeDef",
+    "EksPropertiesOverrideTypeDef",
+    "EksPropertiesTypeDef",
+    "EksSecretTypeDef",
+    "EksVolumeTypeDef",
     "EvaluateOnExitTypeDef",
     "FairsharePolicyTypeDef",
     "FargatePlatformConfigurationTypeDef",
@@ -215,6 +236,9 @@ _OptionalComputeEnvironmentDetailTypeDef = TypedDict(
         "computeResources": "ComputeResourceTypeDef",
         "serviceRole": str,
         "updatePolicy": "UpdatePolicyTypeDef",
+        "eksConfiguration": "EksConfigurationTypeDef",
+        "containerOrchestrationType": OrchestrationTypeType,
+        "uuid": str,
     },
     total=False,
 )
@@ -385,6 +409,7 @@ _OptionalCreateComputeEnvironmentRequestRequestTypeDef = TypedDict(
         "computeResources": "ComputeResourceTypeDef",
         "serviceRole": str,
         "tags": Dict[str, str],
+        "eksConfiguration": "EksConfigurationTypeDef",
     },
     total=False,
 )
@@ -642,11 +667,257 @@ _OptionalEc2ConfigurationTypeDef = TypedDict(
     "_OptionalEc2ConfigurationTypeDef",
     {
         "imageIdOverride": str,
+        "imageKubernetesVersion": str,
     },
     total=False,
 )
 
 class Ec2ConfigurationTypeDef(_RequiredEc2ConfigurationTypeDef, _OptionalEc2ConfigurationTypeDef):
+    pass
+
+EksAttemptContainerDetailTypeDef = TypedDict(
+    "EksAttemptContainerDetailTypeDef",
+    {
+        "exitCode": int,
+        "reason": str,
+    },
+    total=False,
+)
+
+EksAttemptDetailTypeDef = TypedDict(
+    "EksAttemptDetailTypeDef",
+    {
+        "containers": List["EksAttemptContainerDetailTypeDef"],
+        "podName": str,
+        "nodeName": str,
+        "startedAt": int,
+        "stoppedAt": int,
+        "statusReason": str,
+    },
+    total=False,
+)
+
+EksConfigurationTypeDef = TypedDict(
+    "EksConfigurationTypeDef",
+    {
+        "eksClusterArn": str,
+        "kubernetesNamespace": str,
+    },
+)
+
+EksContainerDetailTypeDef = TypedDict(
+    "EksContainerDetailTypeDef",
+    {
+        "name": str,
+        "image": str,
+        "imagePullPolicy": str,
+        "command": List[str],
+        "args": List[str],
+        "env": List["EksContainerEnvironmentVariableTypeDef"],
+        "resources": "EksContainerResourceRequirementsTypeDef",
+        "exitCode": int,
+        "reason": str,
+        "volumeMounts": List["EksContainerVolumeMountTypeDef"],
+        "securityContext": "EksContainerSecurityContextTypeDef",
+    },
+    total=False,
+)
+
+_RequiredEksContainerEnvironmentVariableTypeDef = TypedDict(
+    "_RequiredEksContainerEnvironmentVariableTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalEksContainerEnvironmentVariableTypeDef = TypedDict(
+    "_OptionalEksContainerEnvironmentVariableTypeDef",
+    {
+        "value": str,
+    },
+    total=False,
+)
+
+class EksContainerEnvironmentVariableTypeDef(
+    _RequiredEksContainerEnvironmentVariableTypeDef, _OptionalEksContainerEnvironmentVariableTypeDef
+):
+    pass
+
+EksContainerOverrideTypeDef = TypedDict(
+    "EksContainerOverrideTypeDef",
+    {
+        "image": str,
+        "command": List[str],
+        "args": List[str],
+        "env": List["EksContainerEnvironmentVariableTypeDef"],
+        "resources": "EksContainerResourceRequirementsTypeDef",
+    },
+    total=False,
+)
+
+EksContainerResourceRequirementsTypeDef = TypedDict(
+    "EksContainerResourceRequirementsTypeDef",
+    {
+        "limits": Dict[str, str],
+        "requests": Dict[str, str],
+    },
+    total=False,
+)
+
+EksContainerSecurityContextTypeDef = TypedDict(
+    "EksContainerSecurityContextTypeDef",
+    {
+        "runAsUser": int,
+        "runAsGroup": int,
+        "privileged": bool,
+        "readOnlyRootFilesystem": bool,
+        "runAsNonRoot": bool,
+    },
+    total=False,
+)
+
+_RequiredEksContainerTypeDef = TypedDict(
+    "_RequiredEksContainerTypeDef",
+    {
+        "image": str,
+    },
+)
+_OptionalEksContainerTypeDef = TypedDict(
+    "_OptionalEksContainerTypeDef",
+    {
+        "name": str,
+        "imagePullPolicy": str,
+        "command": List[str],
+        "args": List[str],
+        "env": List["EksContainerEnvironmentVariableTypeDef"],
+        "resources": "EksContainerResourceRequirementsTypeDef",
+        "volumeMounts": List["EksContainerVolumeMountTypeDef"],
+        "securityContext": "EksContainerSecurityContextTypeDef",
+    },
+    total=False,
+)
+
+class EksContainerTypeDef(_RequiredEksContainerTypeDef, _OptionalEksContainerTypeDef):
+    pass
+
+EksContainerVolumeMountTypeDef = TypedDict(
+    "EksContainerVolumeMountTypeDef",
+    {
+        "name": str,
+        "mountPath": str,
+        "readOnly": bool,
+    },
+    total=False,
+)
+
+EksEmptyDirTypeDef = TypedDict(
+    "EksEmptyDirTypeDef",
+    {
+        "medium": str,
+        "sizeLimit": str,
+    },
+    total=False,
+)
+
+EksHostPathTypeDef = TypedDict(
+    "EksHostPathTypeDef",
+    {
+        "path": str,
+    },
+    total=False,
+)
+
+EksPodPropertiesDetailTypeDef = TypedDict(
+    "EksPodPropertiesDetailTypeDef",
+    {
+        "serviceAccountName": str,
+        "hostNetwork": bool,
+        "dnsPolicy": str,
+        "containers": List["EksContainerDetailTypeDef"],
+        "volumes": List["EksVolumeTypeDef"],
+        "podName": str,
+        "nodeName": str,
+    },
+    total=False,
+)
+
+EksPodPropertiesOverrideTypeDef = TypedDict(
+    "EksPodPropertiesOverrideTypeDef",
+    {
+        "containers": List["EksContainerOverrideTypeDef"],
+    },
+    total=False,
+)
+
+EksPodPropertiesTypeDef = TypedDict(
+    "EksPodPropertiesTypeDef",
+    {
+        "serviceAccountName": str,
+        "hostNetwork": bool,
+        "dnsPolicy": str,
+        "containers": List["EksContainerTypeDef"],
+        "volumes": List["EksVolumeTypeDef"],
+    },
+    total=False,
+)
+
+EksPropertiesDetailTypeDef = TypedDict(
+    "EksPropertiesDetailTypeDef",
+    {
+        "podProperties": "EksPodPropertiesDetailTypeDef",
+    },
+    total=False,
+)
+
+EksPropertiesOverrideTypeDef = TypedDict(
+    "EksPropertiesOverrideTypeDef",
+    {
+        "podProperties": "EksPodPropertiesOverrideTypeDef",
+    },
+    total=False,
+)
+
+EksPropertiesTypeDef = TypedDict(
+    "EksPropertiesTypeDef",
+    {
+        "podProperties": "EksPodPropertiesTypeDef",
+    },
+    total=False,
+)
+
+_RequiredEksSecretTypeDef = TypedDict(
+    "_RequiredEksSecretTypeDef",
+    {
+        "secretName": str,
+    },
+)
+_OptionalEksSecretTypeDef = TypedDict(
+    "_OptionalEksSecretTypeDef",
+    {
+        "optional": bool,
+    },
+    total=False,
+)
+
+class EksSecretTypeDef(_RequiredEksSecretTypeDef, _OptionalEksSecretTypeDef):
+    pass
+
+_RequiredEksVolumeTypeDef = TypedDict(
+    "_RequiredEksVolumeTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalEksVolumeTypeDef = TypedDict(
+    "_OptionalEksVolumeTypeDef",
+    {
+        "hostPath": "EksHostPathTypeDef",
+        "emptyDir": "EksEmptyDirTypeDef",
+        "secret": "EksSecretTypeDef",
+    },
+    total=False,
+)
+
+class EksVolumeTypeDef(_RequiredEksVolumeTypeDef, _OptionalEksVolumeTypeDef):
     pass
 
 _RequiredEvaluateOnExitTypeDef = TypedDict(
@@ -716,6 +987,8 @@ _OptionalJobDefinitionTypeDef = TypedDict(
         "tags": Dict[str, str],
         "propagateTags": bool,
         "platformCapabilities": List[PlatformCapabilityType],
+        "eksProperties": "EksPropertiesTypeDef",
+        "containerOrchestrationType": OrchestrationTypeType,
     },
     total=False,
 )
@@ -764,6 +1037,8 @@ _OptionalJobDetailTypeDef = TypedDict(
         "tags": Dict[str, str],
         "propagateTags": bool,
         "platformCapabilities": List[PlatformCapabilityType],
+        "eksProperties": "EksPropertiesDetailTypeDef",
+        "eksAttempts": List["EksAttemptDetailTypeDef"],
     },
     total=False,
 )
@@ -1077,6 +1352,7 @@ _OptionalRegisterJobDefinitionRequestRequestTypeDef = TypedDict(
         "timeout": "JobTimeoutTypeDef",
         "tags": Dict[str, str],
         "platformCapabilities": List[PlatformCapabilityType],
+        "eksProperties": "EksPropertiesTypeDef",
     },
     total=False,
 )
@@ -1200,6 +1476,7 @@ _OptionalSubmitJobRequestRequestTypeDef = TypedDict(
         "propagateTags": bool,
         "timeout": "JobTimeoutTypeDef",
         "tags": Dict[str, str],
+        "eksPropertiesOverride": "EksPropertiesOverrideTypeDef",
     },
     total=False,
 )

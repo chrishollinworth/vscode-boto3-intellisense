@@ -19,16 +19,20 @@ from .literals import (
     ApplicationInstanceHealthStatusType,
     ApplicationInstanceStatusType,
     ConnectionTypeType,
+    DesiredStateType,
     DeviceAggregatedStatusType,
     DeviceBrandType,
     DeviceConnectionStatusType,
+    DeviceReportedStatusType,
     DeviceStatusType,
     DeviceTypeType,
+    JobTypeType,
     ListDevicesSortByType,
     NetworkConnectionStatusType,
     NodeCategoryType,
     NodeFromTemplateJobStatusType,
     NodeInstanceStatusType,
+    NodeSignalValueType,
     PackageImportJobStatusType,
     PackageImportJobTypeType,
     PackageVersionStatusType,
@@ -119,6 +123,7 @@ __all__ = (
     "NodeInstanceTypeDef",
     "NodeInterfaceTypeDef",
     "NodeOutputPortTypeDef",
+    "NodeSignalTypeDef",
     "NodeTypeDef",
     "NtpPayloadTypeDef",
     "NtpStatusTypeDef",
@@ -136,8 +141,11 @@ __all__ = (
     "ProvisionDeviceResponseTypeDef",
     "RegisterPackageVersionRequestRequestTypeDef",
     "RemoveApplicationInstanceRequestRequestTypeDef",
+    "ReportedRuntimeContextStateTypeDef",
     "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
+    "SignalApplicationInstanceNodeInstancesRequestRequestTypeDef",
+    "SignalApplicationInstanceNodeInstancesResponseTypeDef",
     "StaticIpConnectionInfoTypeDef",
     "StorageLocationTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -165,6 +173,7 @@ ApplicationInstanceTypeDef = TypedDict(
         "Description": str,
         "HealthStatus": ApplicationInstanceHealthStatusType,
         "Name": str,
+        "RuntimeContextStates": List["ReportedRuntimeContextStateTypeDef"],
         "Status": ApplicationInstanceStatusType,
         "StatusDescription": str,
         "Tags": Dict[str, str],
@@ -206,14 +215,26 @@ CreateApplicationInstanceResponseTypeDef = TypedDict(
     },
 )
 
-CreateJobForDevicesRequestRequestTypeDef = TypedDict(
-    "CreateJobForDevicesRequestRequestTypeDef",
+_RequiredCreateJobForDevicesRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateJobForDevicesRequestRequestTypeDef",
     {
         "DeviceIds": List[str],
-        "DeviceJobConfig": "DeviceJobConfigTypeDef",
-        "JobType": Literal["OTA"],
+        "JobType": JobTypeType,
     },
 )
+_OptionalCreateJobForDevicesRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateJobForDevicesRequestRequestTypeDef",
+    {
+        "DeviceJobConfig": "DeviceJobConfigTypeDef",
+    },
+    total=False,
+)
+
+class CreateJobForDevicesRequestRequestTypeDef(
+    _RequiredCreateJobForDevicesRequestRequestTypeDef,
+    _OptionalCreateJobForDevicesRequestRequestTypeDef,
+):
+    pass
 
 CreateJobForDevicesResponseTypeDef = TypedDict(
     "CreateJobForDevicesResponseTypeDef",
@@ -415,6 +436,7 @@ DescribeApplicationInstanceResponseTypeDef = TypedDict(
         "HealthStatus": ApplicationInstanceHealthStatusType,
         "LastUpdatedTime": datetime,
         "Name": str,
+        "RuntimeContextStates": List["ReportedRuntimeContextStateTypeDef"],
         "RuntimeRoleArn": str,
         "Status": ApplicationInstanceStatusType,
         "StatusDescription": str,
@@ -440,6 +462,7 @@ DescribeDeviceJobResponseTypeDef = TypedDict(
         "DeviceType": DeviceTypeType,
         "ImageVersion": str,
         "JobId": str,
+        "JobType": JobTypeType,
         "Status": UpdateProgressType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -646,6 +669,7 @@ DeviceJobTypeDef = TypedDict(
         "DeviceId": str,
         "DeviceName": str,
         "JobId": str,
+        "JobType": JobTypeType,
     },
     total=False,
 )
@@ -718,6 +742,7 @@ LatestDeviceJobTypeDef = TypedDict(
     "LatestDeviceJobTypeDef",
     {
         "ImageVersion": str,
+        "JobType": JobTypeType,
         "Status": UpdateProgressType,
     },
     total=False,
@@ -1038,6 +1063,14 @@ NodeOutputPortTypeDef = TypedDict(
     total=False,
 )
 
+NodeSignalTypeDef = TypedDict(
+    "NodeSignalTypeDef",
+    {
+        "NodeInstanceId": str,
+        "Signal": NodeSignalValueType,
+    },
+)
+
 _RequiredNodeTypeDef = TypedDict(
     "_RequiredNodeTypeDef",
     {
@@ -1246,6 +1279,16 @@ RemoveApplicationInstanceRequestRequestTypeDef = TypedDict(
     },
 )
 
+ReportedRuntimeContextStateTypeDef = TypedDict(
+    "ReportedRuntimeContextStateTypeDef",
+    {
+        "DesiredState": DesiredStateType,
+        "DeviceReportedStatus": DeviceReportedStatusType,
+        "DeviceReportedTime": datetime,
+        "RuntimeContextName": str,
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1274,6 +1317,22 @@ _OptionalS3LocationTypeDef = TypedDict(
 
 class S3LocationTypeDef(_RequiredS3LocationTypeDef, _OptionalS3LocationTypeDef):
     pass
+
+SignalApplicationInstanceNodeInstancesRequestRequestTypeDef = TypedDict(
+    "SignalApplicationInstanceNodeInstancesRequestRequestTypeDef",
+    {
+        "ApplicationInstanceId": str,
+        "NodeSignals": List["NodeSignalTypeDef"],
+    },
+)
+
+SignalApplicationInstanceNodeInstancesResponseTypeDef = TypedDict(
+    "SignalApplicationInstanceNodeInstancesResponseTypeDef",
+    {
+        "ApplicationInstanceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 StaticIpConnectionInfoTypeDef = TypedDict(
     "StaticIpConnectionInfoTypeDef",

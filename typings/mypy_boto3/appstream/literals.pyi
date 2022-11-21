@@ -24,6 +24,7 @@ __all__ = (
     "AppVisibilityType",
     "ApplicationAttributeType",
     "AuthenticationTypeType",
+    "CertificateBasedAuthStatusType",
     "DescribeDirectoryConfigsPaginatorName",
     "DescribeFleetsPaginatorName",
     "DescribeImageBuildersPaginatorName",
@@ -72,7 +73,10 @@ ActionType = Literal[
 ]
 AppVisibilityType = Literal["ALL", "ASSOCIATED"]
 ApplicationAttributeType = Literal["LAUNCH_PARAMETERS", "WORKING_DIRECTORY"]
-AuthenticationTypeType = Literal["API", "SAML", "USERPOOL"]
+AuthenticationTypeType = Literal["API", "AWS_AD", "SAML", "USERPOOL"]
+CertificateBasedAuthStatusType = Literal[
+    "DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"
+]
 DescribeDirectoryConfigsPaginatorName = Literal["describe_directory_configs"]
 DescribeFleetsPaginatorName = Literal["describe_fleets"]
 DescribeImageBuildersPaginatorName = Literal["describe_image_builders"]

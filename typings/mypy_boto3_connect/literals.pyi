@@ -68,9 +68,11 @@ __all__ = (
     "ListSecurityProfilePermissionsPaginatorName",
     "ListSecurityProfilesPaginatorName",
     "ListTaskTemplatesPaginatorName",
+    "ListTrafficDistributionGroupsPaginatorName",
     "ListUseCasesPaginatorName",
     "ListUserHierarchyGroupsPaginatorName",
     "ListUsersPaginatorName",
+    "MonitorCapabilityType",
     "PhoneNumberCountryCodeType",
     "PhoneNumberTypeType",
     "PhoneNumberWorkflowStatusType",
@@ -93,6 +95,7 @@ __all__ = (
     "StringComparisonTypeType",
     "TaskTemplateFieldTypeType",
     "TaskTemplateStatusType",
+    "TrafficDistributionGroupStatusType",
     "TrafficTypeType",
     "UnitType",
     "UseCaseTypeType",
@@ -188,6 +191,7 @@ InstanceAttributeTypeType = Literal[
     "CONTACTFLOW_LOGS",
     "CONTACT_LENS",
     "EARLY_MEDIA",
+    "ENHANCED_CONTACT_MONITORING",
     "HIGH_VOLUME_OUTBOUND",
     "INBOUND_CALLS",
     "MULTI_PARTY_CONFERENCE",
@@ -234,9 +238,11 @@ ListSecurityKeysPaginatorName = Literal["list_security_keys"]
 ListSecurityProfilePermissionsPaginatorName = Literal["list_security_profile_permissions"]
 ListSecurityProfilesPaginatorName = Literal["list_security_profiles"]
 ListTaskTemplatesPaginatorName = Literal["list_task_templates"]
+ListTrafficDistributionGroupsPaginatorName = Literal["list_traffic_distribution_groups"]
 ListUseCasesPaginatorName = Literal["list_use_cases"]
 ListUserHierarchyGroupsPaginatorName = Literal["list_user_hierarchy_groups"]
 ListUsersPaginatorName = Literal["list_users"]
+MonitorCapabilityType = Literal["BARGE", "SILENT_MONITOR"]
 PhoneNumberCountryCodeType = Literal[
     "AD",
     "AE",
@@ -510,6 +516,14 @@ TaskTemplateFieldTypeType = Literal[
     "URL",
 ]
 TaskTemplateStatusType = Literal["ACTIVE", "INACTIVE"]
+TrafficDistributionGroupStatusType = Literal[
+    "ACTIVE",
+    "CREATION_FAILED",
+    "CREATION_IN_PROGRESS",
+    "DELETION_FAILED",
+    "PENDING_DELETION",
+    "UPDATE_IN_PROGRESS",
+]
 TrafficTypeType = Literal["CAMPAIGN", "GENERAL"]
 UnitType = Literal["COUNT", "PERCENT", "SECONDS"]
 UseCaseTypeType = Literal["CONNECT_CAMPAIGNS", "RULES_EVALUATION"]

@@ -48,6 +48,7 @@ __all__ = (
     "CustomVocabularyStatusType",
     "DialogActionTypeType",
     "EffectType",
+    "ErrorCodeType",
     "ExportFilterNameType",
     "ExportFilterOperatorType",
     "ExportSortAttributeType",
@@ -143,6 +144,12 @@ DialogActionTypeType = Literal[
     "StartIntent",
 ]
 EffectType = Literal["Allow", "Deny"]
+ErrorCodeType = Literal[
+    "DUPLICATE_INPUT",
+    "INTERNAL_SERVER_FAILURE",
+    "RESOURCE_ALREADY_EXISTS",
+    "RESOURCE_DOES_NOT_EXIST",
+]
 ExportFilterNameType = Literal["ExportResourceType"]
 ExportFilterOperatorType = Literal["CO", "EQ"]
 ExportSortAttributeType = Literal["LastUpdatedDateTime"]

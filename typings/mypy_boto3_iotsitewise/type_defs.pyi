@@ -38,6 +38,8 @@ from .literals import (
     ForwardingConfigStateType,
     IdentityTypeType,
     JobStatusType,
+    ListAssetModelPropertiesFilterType,
+    ListAssetPropertiesFilterType,
     ListAssetsFilterType,
     ListBulkImportJobsFilterType,
     ListTimeSeriesTypeType,
@@ -77,9 +79,11 @@ __all__ = (
     "AssetModelHierarchyDefinitionTypeDef",
     "AssetModelHierarchyTypeDef",
     "AssetModelPropertyDefinitionTypeDef",
+    "AssetModelPropertySummaryTypeDef",
     "AssetModelPropertyTypeDef",
     "AssetModelStatusTypeDef",
     "AssetModelSummaryTypeDef",
+    "AssetPropertySummaryTypeDef",
     "AssetPropertyTypeDef",
     "AssetPropertyValueTypeDef",
     "AssetRelationshipSummaryTypeDef",
@@ -210,8 +214,12 @@ __all__ = (
     "JobSummaryTypeDef",
     "ListAccessPoliciesRequestRequestTypeDef",
     "ListAccessPoliciesResponseTypeDef",
+    "ListAssetModelPropertiesRequestRequestTypeDef",
+    "ListAssetModelPropertiesResponseTypeDef",
     "ListAssetModelsRequestRequestTypeDef",
     "ListAssetModelsResponseTypeDef",
+    "ListAssetPropertiesRequestRequestTypeDef",
+    "ListAssetPropertiesResponseTypeDef",
     "ListAssetRelationshipsRequestRequestTypeDef",
     "ListAssetRelationshipsResponseTypeDef",
     "ListAssetsRequestRequestTypeDef",
@@ -369,6 +377,7 @@ _OptionalAssetCompositeModelTypeDef = TypedDict(
     "_OptionalAssetCompositeModelTypeDef",
     {
         "description": str,
+        "id": str,
     },
     total=False,
 )
@@ -447,6 +456,7 @@ _OptionalAssetModelCompositeModelTypeDef = TypedDict(
     {
         "description": str,
         "properties": List["AssetModelPropertyTypeDef"],
+        "id": str,
     },
     total=False,
 )
@@ -506,6 +516,30 @@ class AssetModelPropertyDefinitionTypeDef(
 ):
     pass
 
+_RequiredAssetModelPropertySummaryTypeDef = TypedDict(
+    "_RequiredAssetModelPropertySummaryTypeDef",
+    {
+        "name": str,
+        "dataType": PropertyDataTypeType,
+        "type": "PropertyTypeTypeDef",
+    },
+)
+_OptionalAssetModelPropertySummaryTypeDef = TypedDict(
+    "_OptionalAssetModelPropertySummaryTypeDef",
+    {
+        "id": str,
+        "dataTypeSpec": str,
+        "unit": str,
+        "assetModelCompositeModelId": str,
+    },
+    total=False,
+)
+
+class AssetModelPropertySummaryTypeDef(
+    _RequiredAssetModelPropertySummaryTypeDef, _OptionalAssetModelPropertySummaryTypeDef
+):
+    pass
+
 _RequiredAssetModelPropertyTypeDef = TypedDict(
     "_RequiredAssetModelPropertyTypeDef",
     {
@@ -557,6 +591,18 @@ AssetModelSummaryTypeDef = TypedDict(
         "lastUpdateDate": datetime,
         "status": "AssetModelStatusTypeDef",
     },
+)
+
+AssetPropertySummaryTypeDef = TypedDict(
+    "AssetPropertySummaryTypeDef",
+    {
+        "id": str,
+        "alias": str,
+        "unit": str,
+        "notification": "PropertyNotificationTypeDef",
+        "assetCompositeModelId": str,
+    },
+    total=False,
 )
 
 _RequiredAssetPropertyTypeDef = TypedDict(
@@ -1148,14 +1194,26 @@ BatchPutAssetPropertyValueResponseTypeDef = TypedDict(
     },
 )
 
-CompositeModelPropertyTypeDef = TypedDict(
-    "CompositeModelPropertyTypeDef",
+_RequiredCompositeModelPropertyTypeDef = TypedDict(
+    "_RequiredCompositeModelPropertyTypeDef",
     {
         "name": str,
         "type": str,
         "assetProperty": "PropertyTypeDef",
     },
 )
+_OptionalCompositeModelPropertyTypeDef = TypedDict(
+    "_OptionalCompositeModelPropertyTypeDef",
+    {
+        "id": str,
+    },
+    total=False,
+)
+
+class CompositeModelPropertyTypeDef(
+    _RequiredCompositeModelPropertyTypeDef, _OptionalCompositeModelPropertyTypeDef
+):
+    pass
 
 ConfigurationErrorDetailsTypeDef = TypedDict(
     "ConfigurationErrorDetailsTypeDef",
@@ -1648,12 +1706,25 @@ DescribeAccessPolicyResponseTypeDef = TypedDict(
     },
 )
 
-DescribeAssetModelRequestRequestTypeDef = TypedDict(
-    "DescribeAssetModelRequestRequestTypeDef",
+_RequiredDescribeAssetModelRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeAssetModelRequestRequestTypeDef",
     {
         "assetModelId": str,
     },
 )
+_OptionalDescribeAssetModelRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeAssetModelRequestRequestTypeDef",
+    {
+        "excludeProperties": bool,
+    },
+    total=False,
+)
+
+class DescribeAssetModelRequestRequestTypeDef(
+    _RequiredDescribeAssetModelRequestRequestTypeDef,
+    _OptionalDescribeAssetModelRequestRequestTypeDef,
+):
+    pass
 
 DescribeAssetModelResponseTypeDef = TypedDict(
     "DescribeAssetModelResponseTypeDef",
@@ -1692,12 +1763,24 @@ DescribeAssetPropertyResponseTypeDef = TypedDict(
     },
 )
 
-DescribeAssetRequestRequestTypeDef = TypedDict(
-    "DescribeAssetRequestRequestTypeDef",
+_RequiredDescribeAssetRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeAssetRequestRequestTypeDef",
     {
         "assetId": str,
     },
 )
+_OptionalDescribeAssetRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeAssetRequestRequestTypeDef",
+    {
+        "excludeProperties": bool,
+    },
+    total=False,
+)
+
+class DescribeAssetRequestRequestTypeDef(
+    _RequiredDescribeAssetRequestRequestTypeDef, _OptionalDescribeAssetRequestRequestTypeDef
+):
+    pass
 
 DescribeAssetResponseTypeDef = TypedDict(
     "DescribeAssetResponseTypeDef",
@@ -2304,6 +2387,37 @@ ListAccessPoliciesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListAssetModelPropertiesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAssetModelPropertiesRequestRequestTypeDef",
+    {
+        "assetModelId": str,
+    },
+)
+_OptionalListAssetModelPropertiesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAssetModelPropertiesRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+        "filter": ListAssetModelPropertiesFilterType,
+    },
+    total=False,
+)
+
+class ListAssetModelPropertiesRequestRequestTypeDef(
+    _RequiredListAssetModelPropertiesRequestRequestTypeDef,
+    _OptionalListAssetModelPropertiesRequestRequestTypeDef,
+):
+    pass
+
+ListAssetModelPropertiesResponseTypeDef = TypedDict(
+    "ListAssetModelPropertiesResponseTypeDef",
+    {
+        "assetModelPropertySummaries": List["AssetModelPropertySummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListAssetModelsRequestRequestTypeDef = TypedDict(
     "ListAssetModelsRequestRequestTypeDef",
     {
@@ -2317,6 +2431,37 @@ ListAssetModelsResponseTypeDef = TypedDict(
     "ListAssetModelsResponseTypeDef",
     {
         "assetModelSummaries": List["AssetModelSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAssetPropertiesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAssetPropertiesRequestRequestTypeDef",
+    {
+        "assetId": str,
+    },
+)
+_OptionalListAssetPropertiesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAssetPropertiesRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+        "filter": ListAssetPropertiesFilterType,
+    },
+    total=False,
+)
+
+class ListAssetPropertiesRequestRequestTypeDef(
+    _RequiredListAssetPropertiesRequestRequestTypeDef,
+    _OptionalListAssetPropertiesRequestRequestTypeDef,
+):
+    pass
+
+ListAssetPropertiesResponseTypeDef = TypedDict(
+    "ListAssetPropertiesResponseTypeDef",
+    {
+        "assetPropertySummaries": List["AssetPropertySummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

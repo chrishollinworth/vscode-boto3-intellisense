@@ -22,8 +22,10 @@ from .literals import (
     CopyProductStatusType,
     DescribePortfolioShareTypeType,
     EvaluationTypeType,
+    LastSyncStatusType,
     OrganizationNodeTypeType,
     PortfolioShareTypeType,
+    PrincipalTypeType,
     ProductTypeType,
     ProductViewFilterByType,
     ProductViewSortByType,
@@ -68,6 +70,7 @@ __all__ = (
     "BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef",
     "BudgetDetailTypeDef",
     "CloudWatchDashboardTypeDef",
+    "CodeStarParametersTypeDef",
     "ConstraintDetailTypeDef",
     "ConstraintSummaryTypeDef",
     "CopyProductInputRequestTypeDef",
@@ -145,6 +148,7 @@ __all__ = (
     "GetProvisionedProductOutputsOutputTypeDef",
     "ImportAsProvisionedProductInputRequestTypeDef",
     "ImportAsProvisionedProductOutputTypeDef",
+    "LastSyncTypeDef",
     "LaunchPathSummaryTypeDef",
     "LaunchPathTypeDef",
     "ListAcceptedPortfolioSharesInputRequestTypeDef",
@@ -233,6 +237,9 @@ __all__ = (
     "ServiceActionSummaryTypeDef",
     "ShareDetailsTypeDef",
     "ShareErrorTypeDef",
+    "SourceConnectionDetailTypeDef",
+    "SourceConnectionParametersTypeDef",
+    "SourceConnectionTypeDef",
     "StackInstanceTypeDef",
     "TagOptionDetailTypeDef",
     "TagOptionSummaryTypeDef",
@@ -305,7 +312,7 @@ _RequiredAssociatePrincipalWithPortfolioInputRequestTypeDef = TypedDict(
     {
         "PortfolioId": str,
         "PrincipalARN": str,
-        "PrincipalType": Literal["IAM"],
+        "PrincipalType": PrincipalTypeType,
     },
 )
 _OptionalAssociatePrincipalWithPortfolioInputRequestTypeDef = TypedDict(
@@ -446,6 +453,16 @@ CloudWatchDashboardTypeDef = TypedDict(
     total=False,
 )
 
+CodeStarParametersTypeDef = TypedDict(
+    "CodeStarParametersTypeDef",
+    {
+        "ConnectionArn": str,
+        "Repository": str,
+        "Branch": str,
+        "ArtifactPath": str,
+    },
+)
+
 ConstraintDetailTypeDef = TypedDict(
     "ConstraintDetailTypeDef",
     {
@@ -579,6 +596,7 @@ _OptionalCreatePortfolioShareInputRequestTypeDef = TypedDict(
         "AccountId": str,
         "OrganizationNode": "OrganizationNodeTypeDef",
         "ShareTagOptions": bool,
+        "SharePrincipals": bool,
     },
     total=False,
 )
@@ -603,7 +621,6 @@ _RequiredCreateProductInputRequestTypeDef = TypedDict(
         "Name": str,
         "Owner": str,
         "ProductType": ProductTypeType,
-        "ProvisioningArtifactParameters": "ProvisioningArtifactPropertiesTypeDef",
         "IdempotencyToken": str,
     },
 )
@@ -617,6 +634,8 @@ _OptionalCreateProductInputRequestTypeDef = TypedDict(
         "SupportEmail": str,
         "SupportUrl": str,
         "Tags": List["TagTypeDef"],
+        "ProvisioningArtifactParameters": "ProvisioningArtifactPropertiesTypeDef",
+        "SourceConnection": "SourceConnectionTypeDef",
     },
     total=False,
 )
@@ -1346,6 +1365,7 @@ _OptionalDisassociatePrincipalFromPortfolioInputRequestTypeDef = TypedDict(
     "_OptionalDisassociatePrincipalFromPortfolioInputRequestTypeDef",
     {
         "AcceptLanguage": str,
+        "PrincipalType": PrincipalTypeType,
     },
     total=False,
 )
@@ -1549,6 +1569,18 @@ ImportAsProvisionedProductOutputTypeDef = TypedDict(
         "RecordDetail": "RecordDetailTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+LastSyncTypeDef = TypedDict(
+    "LastSyncTypeDef",
+    {
+        "LastSyncTime": datetime,
+        "LastSyncStatus": LastSyncStatusType,
+        "LastSyncStatusMessage": str,
+        "LastSuccessfulSyncTime": datetime,
+        "LastSuccessfulSyncProvisioningArtifactId": str,
+    },
+    total=False,
 )
 
 LaunchPathSummaryTypeDef = TypedDict(
@@ -2134,6 +2166,7 @@ PortfolioShareDetailTypeDef = TypedDict(
         "Type": DescribePortfolioShareTypeType,
         "Accepted": bool,
         "ShareTagOptions": bool,
+        "SharePrincipals": bool,
     },
     total=False,
 )
@@ -2142,7 +2175,7 @@ PrincipalTypeDef = TypedDict(
     "PrincipalTypeDef",
     {
         "PrincipalARN": str,
-        "PrincipalType": Literal["IAM"],
+        "PrincipalType": PrincipalTypeType,
     },
     total=False,
 )
@@ -2163,6 +2196,7 @@ ProductViewDetailTypeDef = TypedDict(
         "Status": StatusType,
         "ProductARN": str,
         "CreatedTime": datetime,
+        "SourceConnection": "SourceConnectionDetailTypeDef",
     },
     total=False,
 )
@@ -2315,6 +2349,7 @@ ProvisioningArtifactDetailTypeDef = TypedDict(
         "CreatedTime": datetime,
         "Active": bool,
         "Guidance": ProvisioningArtifactGuidanceType,
+        "SourceRevision": str,
     },
     total=False,
 )
@@ -2350,27 +2385,17 @@ ProvisioningArtifactPreferencesTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredProvisioningArtifactPropertiesTypeDef = TypedDict(
-    "_RequiredProvisioningArtifactPropertiesTypeDef",
-    {
-        "Info": Dict[str, str],
-    },
-)
-_OptionalProvisioningArtifactPropertiesTypeDef = TypedDict(
-    "_OptionalProvisioningArtifactPropertiesTypeDef",
+ProvisioningArtifactPropertiesTypeDef = TypedDict(
+    "ProvisioningArtifactPropertiesTypeDef",
     {
         "Name": str,
         "Description": str,
+        "Info": Dict[str, str],
         "Type": ProvisioningArtifactTypeType,
         "DisableTemplateValidation": bool,
     },
     total=False,
 )
-
-class ProvisioningArtifactPropertiesTypeDef(
-    _RequiredProvisioningArtifactPropertiesTypeDef, _OptionalProvisioningArtifactPropertiesTypeDef
-):
-    pass
 
 ProvisioningArtifactSummaryTypeDef = TypedDict(
     "ProvisioningArtifactSummaryTypeDef",
@@ -2693,6 +2718,41 @@ ShareErrorTypeDef = TypedDict(
     total=False,
 )
 
+SourceConnectionDetailTypeDef = TypedDict(
+    "SourceConnectionDetailTypeDef",
+    {
+        "Type": Literal["CODESTAR"],
+        "ConnectionParameters": "SourceConnectionParametersTypeDef",
+        "LastSync": "LastSyncTypeDef",
+    },
+    total=False,
+)
+
+SourceConnectionParametersTypeDef = TypedDict(
+    "SourceConnectionParametersTypeDef",
+    {
+        "CodeStar": "CodeStarParametersTypeDef",
+    },
+    total=False,
+)
+
+_RequiredSourceConnectionTypeDef = TypedDict(
+    "_RequiredSourceConnectionTypeDef",
+    {
+        "ConnectionParameters": "SourceConnectionParametersTypeDef",
+    },
+)
+_OptionalSourceConnectionTypeDef = TypedDict(
+    "_OptionalSourceConnectionTypeDef",
+    {
+        "Type": Literal["CODESTAR"],
+    },
+    total=False,
+)
+
+class SourceConnectionTypeDef(_RequiredSourceConnectionTypeDef, _OptionalSourceConnectionTypeDef):
+    pass
+
 StackInstanceTypeDef = TypedDict(
     "StackInstanceTypeDef",
     {
@@ -2841,6 +2901,7 @@ _OptionalUpdatePortfolioShareInputRequestTypeDef = TypedDict(
         "AccountId": str,
         "OrganizationNode": "OrganizationNodeTypeDef",
         "ShareTagOptions": bool,
+        "SharePrincipals": bool,
     },
     total=False,
 )
@@ -2879,6 +2940,7 @@ _OptionalUpdateProductInputRequestTypeDef = TypedDict(
         "SupportUrl": str,
         "AddTags": List["TagTypeDef"],
         "RemoveTags": List[str],
+        "SourceConnection": "SourceConnectionTypeDef",
     },
     total=False,
 )

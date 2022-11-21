@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AZStatusType",
     "AuthenticationTypeType",
+    "DataTieringStatusType",
     "InputAuthenticationTypeType",
     "ServiceUpdateStatusType",
     "ServiceUpdateTypeType",
@@ -29,6 +30,7 @@ __all__ = (
 
 AZStatusType = Literal["multiaz", "singleaz"]
 AuthenticationTypeType = Literal["no-password", "password"]
+DataTieringStatusType = Literal["false", "true"]
 InputAuthenticationTypeType = Literal["password"]
 ServiceUpdateStatusType = Literal["available", "complete", "in-progress", "scheduled"]
 ServiceUpdateTypeType = Literal["security-update"]

@@ -35,6 +35,8 @@ __all__ = (
     "AssociateNetworkSettingsResponseTypeDef",
     "AssociateTrustStoreRequestRequestTypeDef",
     "AssociateTrustStoreResponseTypeDef",
+    "AssociateUserAccessLoggingSettingsRequestRequestTypeDef",
+    "AssociateUserAccessLoggingSettingsResponseTypeDef",
     "AssociateUserSettingsRequestRequestTypeDef",
     "AssociateUserSettingsResponseTypeDef",
     "BrowserSettingsSummaryTypeDef",
@@ -51,6 +53,8 @@ __all__ = (
     "CreatePortalResponseTypeDef",
     "CreateTrustStoreRequestRequestTypeDef",
     "CreateTrustStoreResponseTypeDef",
+    "CreateUserAccessLoggingSettingsRequestRequestTypeDef",
+    "CreateUserAccessLoggingSettingsResponseTypeDef",
     "CreateUserSettingsRequestRequestTypeDef",
     "CreateUserSettingsResponseTypeDef",
     "DeleteBrowserSettingsRequestRequestTypeDef",
@@ -58,10 +62,12 @@ __all__ = (
     "DeleteNetworkSettingsRequestRequestTypeDef",
     "DeletePortalRequestRequestTypeDef",
     "DeleteTrustStoreRequestRequestTypeDef",
+    "DeleteUserAccessLoggingSettingsRequestRequestTypeDef",
     "DeleteUserSettingsRequestRequestTypeDef",
     "DisassociateBrowserSettingsRequestRequestTypeDef",
     "DisassociateNetworkSettingsRequestRequestTypeDef",
     "DisassociateTrustStoreRequestRequestTypeDef",
+    "DisassociateUserAccessLoggingSettingsRequestRequestTypeDef",
     "DisassociateUserSettingsRequestRequestTypeDef",
     "GetBrowserSettingsRequestRequestTypeDef",
     "GetBrowserSettingsResponseTypeDef",
@@ -77,6 +83,8 @@ __all__ = (
     "GetTrustStoreCertificateResponseTypeDef",
     "GetTrustStoreRequestRequestTypeDef",
     "GetTrustStoreResponseTypeDef",
+    "GetUserAccessLoggingSettingsRequestRequestTypeDef",
+    "GetUserAccessLoggingSettingsResponseTypeDef",
     "GetUserSettingsRequestRequestTypeDef",
     "GetUserSettingsResponseTypeDef",
     "IdentityProviderSummaryTypeDef",
@@ -95,6 +103,8 @@ __all__ = (
     "ListTrustStoreCertificatesResponseTypeDef",
     "ListTrustStoresRequestRequestTypeDef",
     "ListTrustStoresResponseTypeDef",
+    "ListUserAccessLoggingSettingsRequestRequestTypeDef",
+    "ListUserAccessLoggingSettingsResponseTypeDef",
     "ListUserSettingsRequestRequestTypeDef",
     "ListUserSettingsResponseTypeDef",
     "NetworkSettingsSummaryTypeDef",
@@ -117,8 +127,12 @@ __all__ = (
     "UpdatePortalResponseTypeDef",
     "UpdateTrustStoreRequestRequestTypeDef",
     "UpdateTrustStoreResponseTypeDef",
+    "UpdateUserAccessLoggingSettingsRequestRequestTypeDef",
+    "UpdateUserAccessLoggingSettingsResponseTypeDef",
     "UpdateUserSettingsRequestRequestTypeDef",
     "UpdateUserSettingsResponseTypeDef",
+    "UserAccessLoggingSettingsSummaryTypeDef",
+    "UserAccessLoggingSettingsTypeDef",
     "UserSettingsSummaryTypeDef",
     "UserSettingsTypeDef",
 )
@@ -170,6 +184,23 @@ AssociateTrustStoreResponseTypeDef = TypedDict(
     {
         "portalArn": str,
         "trustStoreArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssociateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "AssociateUserAccessLoggingSettingsRequestRequestTypeDef",
+    {
+        "portalArn": str,
+        "userAccessLoggingSettingsArn": str,
+    },
+)
+
+AssociateUserAccessLoggingSettingsResponseTypeDef = TypedDict(
+    "AssociateUserAccessLoggingSettingsResponseTypeDef",
+    {
+        "portalArn": str,
+        "userAccessLoggingSettingsArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -384,6 +415,35 @@ CreateTrustStoreResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateUserAccessLoggingSettingsRequestRequestTypeDef",
+    {
+        "kinesisStreamArn": str,
+    },
+)
+_OptionalCreateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateUserAccessLoggingSettingsRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateUserAccessLoggingSettingsRequestRequestTypeDef(
+    _RequiredCreateUserAccessLoggingSettingsRequestRequestTypeDef,
+    _OptionalCreateUserAccessLoggingSettingsRequestRequestTypeDef,
+):
+    pass
+
+CreateUserAccessLoggingSettingsResponseTypeDef = TypedDict(
+    "CreateUserAccessLoggingSettingsResponseTypeDef",
+    {
+        "userAccessLoggingSettingsArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateUserSettingsRequestRequestTypeDef = TypedDict(
     "_RequiredCreateUserSettingsRequestRequestTypeDef",
     {
@@ -454,6 +514,13 @@ DeleteTrustStoreRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "DeleteUserAccessLoggingSettingsRequestRequestTypeDef",
+    {
+        "userAccessLoggingSettingsArn": str,
+    },
+)
+
 DeleteUserSettingsRequestRequestTypeDef = TypedDict(
     "DeleteUserSettingsRequestRequestTypeDef",
     {
@@ -477,6 +544,13 @@ DisassociateNetworkSettingsRequestRequestTypeDef = TypedDict(
 
 DisassociateTrustStoreRequestRequestTypeDef = TypedDict(
     "DisassociateTrustStoreRequestRequestTypeDef",
+    {
+        "portalArn": str,
+    },
+)
+
+DisassociateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "DisassociateUserAccessLoggingSettingsRequestRequestTypeDef",
     {
         "portalArn": str,
     },
@@ -593,6 +667,21 @@ GetTrustStoreResponseTypeDef = TypedDict(
     "GetTrustStoreResponseTypeDef",
     {
         "trustStore": "TrustStoreTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "GetUserAccessLoggingSettingsRequestRequestTypeDef",
+    {
+        "userAccessLoggingSettingsArn": str,
+    },
+)
+
+GetUserAccessLoggingSettingsResponseTypeDef = TypedDict(
+    "GetUserAccessLoggingSettingsResponseTypeDef",
+    {
+        "userAccessLoggingSettings": "UserAccessLoggingSettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -789,6 +878,24 @@ ListTrustStoresResponseTypeDef = TypedDict(
     },
 )
 
+ListUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "ListUserAccessLoggingSettingsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListUserAccessLoggingSettingsResponseTypeDef = TypedDict(
+    "ListUserAccessLoggingSettingsResponseTypeDef",
+    {
+        "nextToken": str,
+        "userAccessLoggingSettings": List["UserAccessLoggingSettingsSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListUserSettingsRequestRequestTypeDef = TypedDict(
     "ListUserSettingsRequestRequestTypeDef",
     {
@@ -849,6 +956,7 @@ PortalSummaryTypeDef = TypedDict(
         "portalStatus": PortalStatusType,
         "rendererType": Literal["AppStream"],
         "trustStoreArn": str,
+        "userAccessLoggingSettingsArn": str,
         "userSettingsArn": str,
     },
     total=False,
@@ -868,6 +976,7 @@ PortalTypeDef = TypedDict(
         "rendererType": Literal["AppStream"],
         "statusReason": str,
         "trustStoreArn": str,
+        "userAccessLoggingSettingsArn": str,
         "userSettingsArn": str,
     },
     total=False,
@@ -1084,6 +1193,35 @@ UpdateTrustStoreResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateUserAccessLoggingSettingsRequestRequestTypeDef",
+    {
+        "userAccessLoggingSettingsArn": str,
+    },
+)
+_OptionalUpdateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateUserAccessLoggingSettingsRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "kinesisStreamArn": str,
+    },
+    total=False,
+)
+
+class UpdateUserAccessLoggingSettingsRequestRequestTypeDef(
+    _RequiredUpdateUserAccessLoggingSettingsRequestRequestTypeDef,
+    _OptionalUpdateUserAccessLoggingSettingsRequestRequestTypeDef,
+):
+    pass
+
+UpdateUserAccessLoggingSettingsResponseTypeDef = TypedDict(
+    "UpdateUserAccessLoggingSettingsResponseTypeDef",
+    {
+        "userAccessLoggingSettings": "UserAccessLoggingSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateUserSettingsRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateUserSettingsRequestRequestTypeDef",
     {
@@ -1118,6 +1256,35 @@ UpdateUserSettingsResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+UserAccessLoggingSettingsSummaryTypeDef = TypedDict(
+    "UserAccessLoggingSettingsSummaryTypeDef",
+    {
+        "kinesisStreamArn": str,
+        "userAccessLoggingSettingsArn": str,
+    },
+    total=False,
+)
+
+_RequiredUserAccessLoggingSettingsTypeDef = TypedDict(
+    "_RequiredUserAccessLoggingSettingsTypeDef",
+    {
+        "userAccessLoggingSettingsArn": str,
+    },
+)
+_OptionalUserAccessLoggingSettingsTypeDef = TypedDict(
+    "_OptionalUserAccessLoggingSettingsTypeDef",
+    {
+        "associatedPortalArns": List[str],
+        "kinesisStreamArn": str,
+    },
+    total=False,
+)
+
+class UserAccessLoggingSettingsTypeDef(
+    _RequiredUserAccessLoggingSettingsTypeDef, _OptionalUserAccessLoggingSettingsTypeDef
+):
+    pass
 
 UserSettingsSummaryTypeDef = TypedDict(
     "UserSettingsSummaryTypeDef",

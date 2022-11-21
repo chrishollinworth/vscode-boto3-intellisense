@@ -24,6 +24,7 @@ from .literals import (
     AuditReportStatusType,
     CertificateAuthorityStatusType,
     CertificateAuthorityTypeType,
+    CertificateAuthorityUsageModeType,
     ExtendedKeyUsageTypeType,
     FailureReasonType,
     KeyAlgorithmType,
@@ -196,6 +197,7 @@ CertificateAuthorityTypeDef = TypedDict(
         "RevocationConfiguration": "RevocationConfigurationTypeDef",
         "RestorableUntil": datetime,
         "KeyStorageSecurityStandard": KeyStorageSecurityStandardType,
+        "UsageMode": CertificateAuthorityUsageModeType,
     },
     total=False,
 )
@@ -232,6 +234,7 @@ _OptionalCreateCertificateAuthorityRequestRequestTypeDef = TypedDict(
         "IdempotencyToken": str,
         "KeyStorageSecurityStandard": KeyStorageSecurityStandardType,
         "Tags": List["TagTypeDef"],
+        "UsageMode": CertificateAuthorityUsageModeType,
     },
     total=False,
 )

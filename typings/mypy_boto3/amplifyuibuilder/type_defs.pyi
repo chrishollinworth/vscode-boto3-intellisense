@@ -185,13 +185,13 @@ class ComponentChildTypeDef(_RequiredComponentChildTypeDef, _OptionalComponentCh
 ComponentConditionPropertyTypeDef = TypedDict(
     "ComponentConditionPropertyTypeDef",
     {
-        "else": "ComponentPropertyTypeDef",
+        "else": Dict[str, Any],
         "field": str,
         "operand": str,
         "operandType": str,
         "operator": str,
         "property": str,
-        "then": "ComponentPropertyTypeDef",
+        "then": Dict[str, Any],
     },
     total=False,
 )
@@ -645,6 +645,7 @@ _OptionalFieldInputConfigTypeDef = TypedDict(
         "defaultCountryCode": str,
         "defaultValue": str,
         "descriptiveText": str,
+        "isArray": bool,
         "maxValue": float,
         "minValue": float,
         "name": str,

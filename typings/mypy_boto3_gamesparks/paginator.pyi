@@ -57,7 +57,7 @@ __all__ = (
 
 class ListExtensionVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListExtensionVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListExtensionVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listextensionversionspaginator)
     """
 
@@ -65,13 +65,13 @@ class ListExtensionVersionsPaginator(Boto3Paginator):
         self, *, Name: str, Namespace: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExtensionVersionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListExtensionVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListExtensionVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listextensionversionspaginator)
         """
 
 class ListExtensionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListExtensions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListExtensions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listextensionspaginator)
     """
 
@@ -79,13 +79,13 @@ class ListExtensionsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExtensionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListExtensions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListExtensions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listextensionspaginator)
         """
 
 class ListGamesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListGames)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListGames)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listgamespaginator)
     """
 
@@ -93,13 +93,13 @@ class ListGamesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGamesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListGames.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListGames.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listgamespaginator)
         """
 
 class ListGeneratedCodeJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListGeneratedCodeJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListGeneratedCodeJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listgeneratedcodejobspaginator)
     """
 
@@ -107,13 +107,13 @@ class ListGeneratedCodeJobsPaginator(Boto3Paginator):
         self, *, GameName: str, SnapshotId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGeneratedCodeJobsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListGeneratedCodeJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListGeneratedCodeJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listgeneratedcodejobspaginator)
         """
 
 class ListSnapshotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListSnapshots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listsnapshotspaginator)
     """
 
@@ -121,13 +121,13 @@ class ListSnapshotsPaginator(Boto3Paginator):
         self, *, GameName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSnapshotsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListSnapshots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#listsnapshotspaginator)
         """
 
 class ListStageDeploymentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListStageDeployments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListStageDeployments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#liststagedeploymentspaginator)
     """
 
@@ -135,13 +135,13 @@ class ListStageDeploymentsPaginator(Boto3Paginator):
         self, *, GameName: str, StageName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStageDeploymentsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListStageDeployments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListStageDeployments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#liststagedeploymentspaginator)
         """
 
 class ListStagesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListStages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListStages)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#liststagespaginator)
     """
 
@@ -149,6 +149,6 @@ class ListStagesPaginator(Boto3Paginator):
         self, *, GameName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStagesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/gamesparks.html#GameSparks.Paginator.ListStages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/gamesparks.html#GameSparks.Paginator.ListStages.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamesparks/paginators.html#liststagespaginator)
         """

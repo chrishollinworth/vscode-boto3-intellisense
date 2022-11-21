@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List
 
-from .literals import NotificationSeverityLevelType
+from .literals import AccountTypeType, NotificationSeverityLevelType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -31,6 +31,8 @@ __all__ = (
     "ListSlackWorkspaceConfigurationsRequestRequestTypeDef",
     "ListSlackWorkspaceConfigurationsResultTypeDef",
     "PutAccountAliasRequestRequestTypeDef",
+    "RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef",
+    "RegisterSlackWorkspaceForOrganizationResultTypeDef",
     "ResponseMetadataTypeDef",
     "SlackChannelConfigurationTypeDef",
     "SlackWorkspaceConfigurationTypeDef",
@@ -128,6 +130,23 @@ PutAccountAliasRequestRequestTypeDef = TypedDict(
     },
 )
 
+RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef = TypedDict(
+    "RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef",
+    {
+        "teamId": str,
+    },
+)
+
+RegisterSlackWorkspaceForOrganizationResultTypeDef = TypedDict(
+    "RegisterSlackWorkspaceForOrganizationResultTypeDef",
+    {
+        "accountType": AccountTypeType,
+        "teamId": str,
+        "teamName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -164,12 +183,25 @@ class SlackChannelConfigurationTypeDef(
 ):
     pass
 
-SlackWorkspaceConfigurationTypeDef = TypedDict(
-    "SlackWorkspaceConfigurationTypeDef",
+_RequiredSlackWorkspaceConfigurationTypeDef = TypedDict(
+    "_RequiredSlackWorkspaceConfigurationTypeDef",
     {
         "teamId": str,
     },
 )
+_OptionalSlackWorkspaceConfigurationTypeDef = TypedDict(
+    "_OptionalSlackWorkspaceConfigurationTypeDef",
+    {
+        "allowOrganizationMemberAccount": bool,
+        "teamName": str,
+    },
+    total=False,
+)
+
+class SlackWorkspaceConfigurationTypeDef(
+    _RequiredSlackWorkspaceConfigurationTypeDef, _OptionalSlackWorkspaceConfigurationTypeDef
+):
+    pass
 
 _RequiredUpdateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateSlackChannelConfigurationRequestRequestTypeDef",

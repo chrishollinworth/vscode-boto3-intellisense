@@ -50,7 +50,11 @@ __all__ = (
     "ImageFileTypeType",
     "JobStatusType",
     "ListAccessPoliciesPaginatorName",
+    "ListAssetModelPropertiesFilterType",
+    "ListAssetModelPropertiesPaginatorName",
     "ListAssetModelsPaginatorName",
+    "ListAssetPropertiesFilterType",
+    "ListAssetPropertiesPaginatorName",
     "ListAssetRelationshipsPaginatorName",
     "ListAssetsFilterType",
     "ListAssetsPaginatorName",
@@ -140,7 +144,11 @@ JobStatusType = Literal[
     "CANCELLED", "COMPLETED", "COMPLETED_WITH_FAILURES", "FAILED", "PENDING", "RUNNING"
 ]
 ListAccessPoliciesPaginatorName = Literal["list_access_policies"]
+ListAssetModelPropertiesFilterType = Literal["ALL", "BASE"]
+ListAssetModelPropertiesPaginatorName = Literal["list_asset_model_properties"]
 ListAssetModelsPaginatorName = Literal["list_asset_models"]
+ListAssetPropertiesFilterType = Literal["ALL", "BASE"]
+ListAssetPropertiesPaginatorName = Literal["list_asset_properties"]
 ListAssetRelationshipsPaginatorName = Literal["list_asset_relationships"]
 ListAssetsFilterType = Literal["ALL", "TOP_LEVEL"]
 ListAssetsPaginatorName = Literal["list_assets"]

@@ -65,6 +65,9 @@ __all__ = (
     "CriterionTypeDef",
     "DeleteAnalyzerRequestRequestTypeDef",
     "DeleteArchiveRuleRequestRequestTypeDef",
+    "EbsSnapshotConfigurationTypeDef",
+    "EcrRepositoryConfigurationTypeDef",
+    "EfsFileSystemConfigurationTypeDef",
     "FindingSourceDetailTypeDef",
     "FindingSourceTypeDef",
     "FindingSummaryTypeDef",
@@ -114,12 +117,17 @@ __all__ = (
     "PolicyGenerationDetailsTypeDef",
     "PolicyGenerationTypeDef",
     "PositionTypeDef",
+    "RdsDbClusterSnapshotAttributeValueTypeDef",
+    "RdsDbClusterSnapshotConfigurationTypeDef",
+    "RdsDbSnapshotAttributeValueTypeDef",
+    "RdsDbSnapshotConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "S3AccessPointConfigurationTypeDef",
     "S3BucketAclGrantConfigurationTypeDef",
     "S3BucketConfigurationTypeDef",
     "S3PublicAccessBlockConfigurationTypeDef",
     "SecretsManagerSecretConfigurationTypeDef",
+    "SnsTopicConfigurationTypeDef",
     "SortCriteriaTypeDef",
     "SpanTypeDef",
     "SqsQueueConfigurationTypeDef",
@@ -360,10 +368,16 @@ CloudTrailPropertiesTypeDef = TypedDict(
 ConfigurationTypeDef = TypedDict(
     "ConfigurationTypeDef",
     {
+        "ebsSnapshot": "EbsSnapshotConfigurationTypeDef",
+        "ecrRepository": "EcrRepositoryConfigurationTypeDef",
         "iamRole": "IamRoleConfigurationTypeDef",
+        "efsFileSystem": "EfsFileSystemConfigurationTypeDef",
         "kmsKey": "KmsKeyConfigurationTypeDef",
+        "rdsDbClusterSnapshot": "RdsDbClusterSnapshotConfigurationTypeDef",
+        "rdsDbSnapshot": "RdsDbSnapshotConfigurationTypeDef",
         "secretsManagerSecret": "SecretsManagerSecretConfigurationTypeDef",
         "s3Bucket": "S3BucketConfigurationTypeDef",
+        "snsTopic": "SnsTopicConfigurationTypeDef",
         "sqsQueue": "SqsQueueConfigurationTypeDef",
     },
     total=False,
@@ -498,6 +512,32 @@ class DeleteArchiveRuleRequestRequestTypeDef(
     _RequiredDeleteArchiveRuleRequestRequestTypeDef, _OptionalDeleteArchiveRuleRequestRequestTypeDef
 ):
     pass
+
+EbsSnapshotConfigurationTypeDef = TypedDict(
+    "EbsSnapshotConfigurationTypeDef",
+    {
+        "userIds": List[str],
+        "groups": List[str],
+        "kmsKeyId": str,
+    },
+    total=False,
+)
+
+EcrRepositoryConfigurationTypeDef = TypedDict(
+    "EcrRepositoryConfigurationTypeDef",
+    {
+        "repositoryPolicy": str,
+    },
+    total=False,
+)
+
+EfsFileSystemConfigurationTypeDef = TypedDict(
+    "EfsFileSystemConfigurationTypeDef",
+    {
+        "fileSystemPolicy": str,
+    },
+    total=False,
+)
 
 FindingSourceDetailTypeDef = TypedDict(
     "FindingSourceDetailTypeDef",
@@ -1101,6 +1141,40 @@ PositionTypeDef = TypedDict(
     },
 )
 
+RdsDbClusterSnapshotAttributeValueTypeDef = TypedDict(
+    "RdsDbClusterSnapshotAttributeValueTypeDef",
+    {
+        "accountIds": List[str],
+    },
+    total=False,
+)
+
+RdsDbClusterSnapshotConfigurationTypeDef = TypedDict(
+    "RdsDbClusterSnapshotConfigurationTypeDef",
+    {
+        "attributes": Dict[str, "RdsDbClusterSnapshotAttributeValueTypeDef"],
+        "kmsKeyId": str,
+    },
+    total=False,
+)
+
+RdsDbSnapshotAttributeValueTypeDef = TypedDict(
+    "RdsDbSnapshotAttributeValueTypeDef",
+    {
+        "accountIds": List[str],
+    },
+    total=False,
+)
+
+RdsDbSnapshotConfigurationTypeDef = TypedDict(
+    "RdsDbSnapshotConfigurationTypeDef",
+    {
+        "attributes": Dict[str, "RdsDbSnapshotAttributeValueTypeDef"],
+        "kmsKeyId": str,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1154,6 +1228,14 @@ SecretsManagerSecretConfigurationTypeDef = TypedDict(
     {
         "kmsKeyId": str,
         "secretPolicy": str,
+    },
+    total=False,
+)
+
+SnsTopicConfigurationTypeDef = TypedDict(
+    "SnsTopicConfigurationTypeDef",
+    {
+        "topicPolicy": str,
     },
     total=False,
 )
@@ -1212,13 +1294,25 @@ StartPolicyGenerationResponseTypeDef = TypedDict(
     },
 )
 
-StartResourceScanRequestRequestTypeDef = TypedDict(
-    "StartResourceScanRequestRequestTypeDef",
+_RequiredStartResourceScanRequestRequestTypeDef = TypedDict(
+    "_RequiredStartResourceScanRequestRequestTypeDef",
     {
         "analyzerArn": str,
         "resourceArn": str,
     },
 )
+_OptionalStartResourceScanRequestRequestTypeDef = TypedDict(
+    "_OptionalStartResourceScanRequestRequestTypeDef",
+    {
+        "resourceOwnerAccount": str,
+    },
+    total=False,
+)
+
+class StartResourceScanRequestRequestTypeDef(
+    _RequiredStartResourceScanRequestRequestTypeDef, _OptionalStartResourceScanRequestRequestTypeDef
+):
+    pass
 
 StatusReasonTypeDef = TypedDict(
     "StatusReasonTypeDef",

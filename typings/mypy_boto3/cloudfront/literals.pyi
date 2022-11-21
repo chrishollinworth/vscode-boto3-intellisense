@@ -24,6 +24,7 @@ __all__ = (
     "CachePolicyQueryStringBehaviorType",
     "CachePolicyTypeType",
     "CertificateSourceType",
+    "ContinuousDeploymentPolicyTypeType",
     "DistributionDeployedWaiterName",
     "EventTypeType",
     "FormatType",
@@ -65,6 +66,7 @@ CachePolicyHeaderBehaviorType = Literal["none", "whitelist"]
 CachePolicyQueryStringBehaviorType = Literal["all", "allExcept", "none", "whitelist"]
 CachePolicyTypeType = Literal["custom", "managed"]
 CertificateSourceType = Literal["acm", "cloudfront", "iam"]
+ContinuousDeploymentPolicyTypeType = Literal["SingleHeader", "SingleWeight"]
 DistributionDeployedWaiterName = Literal["distribution_deployed"]
 EventTypeType = Literal["origin-request", "origin-response", "viewer-request", "viewer-response"]
 FormatType = Literal["URLEncoded"]

@@ -275,6 +275,7 @@ __all__ = (
     "Scte35AposWebDeliveryAllowedBehaviorType",
     "Scte35ArchiveAllowedFlagType",
     "Scte35DeviceRestrictionsType",
+    "Scte35InputModeType",
     "Scte35NoRegionalBlackoutFlagType",
     "Scte35SegmentationCancelIndicatorType",
     "Scte35SpliceInsertNoRegionalBlackoutBehaviorType",
@@ -680,6 +681,7 @@ Scte35ArchiveAllowedFlagType = Literal["ARCHIVE_ALLOWED", "ARCHIVE_NOT_ALLOWED"]
 Scte35DeviceRestrictionsType = Literal[
     "NONE", "RESTRICT_GROUP0", "RESTRICT_GROUP1", "RESTRICT_GROUP2"
 ]
+Scte35InputModeType = Literal["FIXED", "FOLLOW_ACTIVE"]
 Scte35NoRegionalBlackoutFlagType = Literal["NO_REGIONAL_BLACKOUT", "REGIONAL_BLACKOUT"]
 Scte35SegmentationCancelIndicatorType = Literal[
     "SEGMENTATION_EVENT_CANCELED", "SEGMENTATION_EVENT_NOT_CANCELED"

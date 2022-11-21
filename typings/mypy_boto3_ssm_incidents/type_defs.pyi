@@ -54,6 +54,7 @@ __all__ = (
     "DeleteResponsePlanInputRequestTypeDef",
     "DeleteTimelineEventInputRequestTypeDef",
     "DynamicSsmParameterValueTypeDef",
+    "EventReferenceTypeDef",
     "EventSummaryTypeDef",
     "FilterTypeDef",
     "GetIncidentRecordInputRequestTypeDef",
@@ -70,6 +71,7 @@ __all__ = (
     "IncidentRecordSummaryTypeDef",
     "IncidentRecordTypeDef",
     "IncidentTemplateTypeDef",
+    "IntegrationTypeDef",
     "ItemIdentifierTypeDef",
     "ItemValueTypeDef",
     "ListIncidentRecordsInputRequestTypeDef",
@@ -85,6 +87,9 @@ __all__ = (
     "ListTimelineEventsInputRequestTypeDef",
     "ListTimelineEventsOutputTypeDef",
     "NotificationTargetItemTypeDef",
+    "PagerDutyConfigurationTypeDef",
+    "PagerDutyIncidentConfigurationTypeDef",
+    "PagerDutyIncidentDetailTypeDef",
     "PaginatorConfigTypeDef",
     "PutResourcePolicyInputRequestTypeDef",
     "PutResourcePolicyOutputTypeDef",
@@ -184,6 +189,7 @@ _OptionalCreateReplicationSetInputRequestTypeDef = TypedDict(
     "_OptionalCreateReplicationSetInputRequestTypeDef",
     {
         "clientToken": str,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -217,6 +223,7 @@ _OptionalCreateResponsePlanInputRequestTypeDef = TypedDict(
         "clientToken": str,
         "displayName": str,
         "engagements": List[str],
+        "integrations": List["IntegrationTypeDef"],
         "tags": Dict[str, str],
     },
     total=False,
@@ -248,6 +255,7 @@ _OptionalCreateTimelineEventInputRequestTypeDef = TypedDict(
     "_OptionalCreateTimelineEventInputRequestTypeDef",
     {
         "clientToken": str,
+        "eventReferences": List["EventReferenceTypeDef"],
     },
     total=False,
 )
@@ -318,8 +326,17 @@ DynamicSsmParameterValueTypeDef = TypedDict(
     total=False,
 )
 
-EventSummaryTypeDef = TypedDict(
-    "EventSummaryTypeDef",
+EventReferenceTypeDef = TypedDict(
+    "EventReferenceTypeDef",
+    {
+        "relatedItemId": str,
+        "resource": str,
+    },
+    total=False,
+)
+
+_RequiredEventSummaryTypeDef = TypedDict(
+    "_RequiredEventSummaryTypeDef",
     {
         "eventId": str,
         "eventTime": datetime,
@@ -328,6 +345,16 @@ EventSummaryTypeDef = TypedDict(
         "incidentRecordArn": str,
     },
 )
+_OptionalEventSummaryTypeDef = TypedDict(
+    "_OptionalEventSummaryTypeDef",
+    {
+        "eventReferences": List["EventReferenceTypeDef"],
+    },
+    total=False,
+)
+
+class EventSummaryTypeDef(_RequiredEventSummaryTypeDef, _OptionalEventSummaryTypeDef):
+    pass
 
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
@@ -412,6 +439,7 @@ GetResponsePlanOutputTypeDef = TypedDict(
         "displayName": str,
         "engagements": List[str],
         "incidentTemplate": "IncidentTemplateTypeDef",
+        "integrations": List["IntegrationTypeDef"],
         "name": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -528,6 +556,14 @@ _OptionalIncidentTemplateTypeDef = TypedDict(
 class IncidentTemplateTypeDef(_RequiredIncidentTemplateTypeDef, _OptionalIncidentTemplateTypeDef):
     pass
 
+IntegrationTypeDef = TypedDict(
+    "IntegrationTypeDef",
+    {
+        "pagerDutyConfiguration": "PagerDutyConfigurationTypeDef",
+    },
+    total=False,
+)
+
 ItemIdentifierTypeDef = TypedDict(
     "ItemIdentifierTypeDef",
     {
@@ -541,6 +577,7 @@ ItemValueTypeDef = TypedDict(
     {
         "arn": str,
         "metricDefinition": str,
+        "pagerDutyIncidentDetail": "PagerDutyIncidentDetailTypeDef",
         "url": str,
     },
     total=False,
@@ -685,6 +722,42 @@ NotificationTargetItemTypeDef = TypedDict(
     total=False,
 )
 
+PagerDutyConfigurationTypeDef = TypedDict(
+    "PagerDutyConfigurationTypeDef",
+    {
+        "name": str,
+        "pagerDutyIncidentConfiguration": "PagerDutyIncidentConfigurationTypeDef",
+        "secretId": str,
+    },
+)
+
+PagerDutyIncidentConfigurationTypeDef = TypedDict(
+    "PagerDutyIncidentConfigurationTypeDef",
+    {
+        "serviceId": str,
+    },
+)
+
+_RequiredPagerDutyIncidentDetailTypeDef = TypedDict(
+    "_RequiredPagerDutyIncidentDetailTypeDef",
+    {
+        "id": str,
+    },
+)
+_OptionalPagerDutyIncidentDetailTypeDef = TypedDict(
+    "_OptionalPagerDutyIncidentDetailTypeDef",
+    {
+        "autoResolve": bool,
+        "secretId": str,
+    },
+    total=False,
+)
+
+class PagerDutyIncidentDetailTypeDef(
+    _RequiredPagerDutyIncidentDetailTypeDef, _OptionalPagerDutyIncidentDetailTypeDef
+):
+    pass
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -747,6 +820,7 @@ _RequiredRelatedItemTypeDef = TypedDict(
 _OptionalRelatedItemTypeDef = TypedDict(
     "_OptionalRelatedItemTypeDef",
     {
+        "generatedId": str,
         "title": str,
     },
     total=False,
@@ -887,8 +961,8 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-TimelineEventTypeDef = TypedDict(
-    "TimelineEventTypeDef",
+_RequiredTimelineEventTypeDef = TypedDict(
+    "_RequiredTimelineEventTypeDef",
     {
         "eventData": str,
         "eventId": str,
@@ -898,6 +972,16 @@ TimelineEventTypeDef = TypedDict(
         "incidentRecordArn": str,
     },
 )
+_OptionalTimelineEventTypeDef = TypedDict(
+    "_OptionalTimelineEventTypeDef",
+    {
+        "eventReferences": List["EventReferenceTypeDef"],
+    },
+    total=False,
+)
+
+class TimelineEventTypeDef(_RequiredTimelineEventTypeDef, _OptionalTimelineEventTypeDef):
+    pass
 
 _RequiredTriggerDetailsTypeDef = TypedDict(
     "_RequiredTriggerDetailsTypeDef",
@@ -1043,6 +1127,7 @@ _OptionalUpdateResponsePlanInputRequestTypeDef = TypedDict(
         "incidentTemplateSummary": str,
         "incidentTemplateTags": Dict[str, str],
         "incidentTemplateTitle": str,
+        "integrations": List["IntegrationTypeDef"],
     },
     total=False,
 )
@@ -1064,6 +1149,7 @@ _OptionalUpdateTimelineEventInputRequestTypeDef = TypedDict(
     {
         "clientToken": str,
         "eventData": str,
+        "eventReferences": List["EventReferenceTypeDef"],
         "eventTime": Union[datetime, str],
         "eventType": str,
     },

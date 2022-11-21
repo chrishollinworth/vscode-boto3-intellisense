@@ -12,6 +12,7 @@ Usage::
         ConversionTaskCompletedWaiter,
         ConversionTaskDeletedWaiter,
         CustomerGatewayAvailableWaiter,
+        DescribeAddressTransfersPaginator,
         DescribeAddressesAttributePaginator,
         DescribeByoipCidrsPaginator,
         DescribeCapacityReservationFleetsPaginator,
@@ -212,6 +213,7 @@ Usage::
     vpn_connection_available_waiter: VpnConnectionAvailableWaiter = client.get_waiter("vpn_connection_available")
     vpn_connection_deleted_waiter: VpnConnectionDeletedWaiter = client.get_waiter("vpn_connection_deleted")
 
+    describe_address_transfers_paginator: DescribeAddressTransfersPaginator = client.get_paginator("describe_address_transfers")
     describe_addresses_attribute_paginator: DescribeAddressesAttributePaginator = client.get_paginator("describe_addresses_attribute")
     describe_byoip_cidrs_paginator: DescribeByoipCidrsPaginator = client.get_paginator("describe_byoip_cidrs")
     describe_capacity_reservation_fleets_paginator: DescribeCapacityReservationFleetsPaginator = client.get_paginator("describe_capacity_reservation_fleets")
@@ -340,6 +342,7 @@ Usage::
 from .client import EC2Client
 from .paginator import (
     DescribeAddressesAttributePaginator,
+    DescribeAddressTransfersPaginator,
     DescribeByoipCidrsPaginator,
     DescribeCapacityReservationFleetsPaginator,
     DescribeCapacityReservationsPaginator,
@@ -512,6 +515,7 @@ __all__ = (
     "ConversionTaskCompletedWaiter",
     "ConversionTaskDeletedWaiter",
     "CustomerGatewayAvailableWaiter",
+    "DescribeAddressTransfersPaginator",
     "DescribeAddressesAttributePaginator",
     "DescribeByoipCidrsPaginator",
     "DescribeCapacityReservationFleetsPaginator",

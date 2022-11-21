@@ -21,12 +21,15 @@ from .literals import (
     DeploymentUpdateTypeType,
     EnvironmentAccountConnectionRequesterAccountTypeType,
     EnvironmentAccountConnectionStatusType,
+    ListServiceInstancesFilterByType,
+    ListServiceInstancesSortByType,
     ProvisionedResourceEngineType,
     RepositoryProviderType,
     RepositorySyncStatusType,
     ResourceDeploymentStatusType,
     ResourceSyncStatusType,
     ServiceStatusType,
+    SortOrderType,
     TemplateTypeType,
     TemplateVersionStatusType,
 )
@@ -158,6 +161,7 @@ __all__ = (
     "ListServiceInstanceOutputsOutputTypeDef",
     "ListServiceInstanceProvisionedResourcesInputRequestTypeDef",
     "ListServiceInstanceProvisionedResourcesOutputTypeDef",
+    "ListServiceInstancesFilterTypeDef",
     "ListServiceInstancesInputRequestTypeDef",
     "ListServiceInstancesOutputTypeDef",
     "ListServicePipelineOutputsInputRequestTypeDef",
@@ -249,6 +253,7 @@ AcceptEnvironmentAccountConnectionOutputTypeDef = TypedDict(
 AccountSettingsTypeDef = TypedDict(
     "AccountSettingsTypeDef",
     {
+        "pipelineCodebuildRoleArn": str,
         "pipelineProvisioningRepository": "RepositoryBranchTypeDef",
         "pipelineServiceRoleArn": str,
     },
@@ -432,6 +437,7 @@ _OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
     "_OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef",
     {
         "clientToken": str,
+        "codebuildRoleArn": str,
         "componentRoleArn": str,
         "tags": List["TagTypeDef"],
     },
@@ -464,6 +470,7 @@ _RequiredCreateEnvironmentInputRequestTypeDef = TypedDict(
 _OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
     "_OptionalCreateEnvironmentInputRequestTypeDef",
     {
+        "codebuildRoleArn": str,
         "componentRoleArn": str,
         "description": str,
         "environmentAccountConnectionId": str,
@@ -916,6 +923,7 @@ _RequiredEnvironmentAccountConnectionTypeDef = TypedDict(
 _OptionalEnvironmentAccountConnectionTypeDef = TypedDict(
     "_OptionalEnvironmentAccountConnectionTypeDef",
     {
+        "codebuildRoleArn": str,
         "componentRoleArn": str,
     },
     total=False,
@@ -1091,6 +1099,7 @@ _RequiredEnvironmentTypeDef = TypedDict(
 _OptionalEnvironmentTypeDef = TypedDict(
     "_OptionalEnvironmentTypeDef",
     {
+        "codebuildRoleArn": str,
         "componentRoleArn": str,
         "deploymentStatusMessage": str,
         "description": str,
@@ -1670,12 +1679,24 @@ ListServiceInstanceProvisionedResourcesOutputTypeDef = TypedDict(
     },
 )
 
+ListServiceInstancesFilterTypeDef = TypedDict(
+    "ListServiceInstancesFilterTypeDef",
+    {
+        "key": ListServiceInstancesFilterByType,
+        "value": str,
+    },
+    total=False,
+)
+
 ListServiceInstancesInputRequestTypeDef = TypedDict(
     "ListServiceInstancesInputRequestTypeDef",
     {
+        "filters": List["ListServiceInstancesFilterTypeDef"],
         "maxResults": int,
         "nextToken": str,
         "serviceName": str,
+        "sortBy": ListServiceInstancesSortByType,
+        "sortOrder": SortOrderType,
     },
     total=False,
 )
@@ -1847,7 +1868,6 @@ _RequiredNotifyResourceDeploymentStatusChangeInputRequestTypeDef = TypedDict(
     "_RequiredNotifyResourceDeploymentStatusChangeInputRequestTypeDef",
     {
         "resourceArn": str,
-        "status": ResourceDeploymentStatusType,
     },
 )
 _OptionalNotifyResourceDeploymentStatusChangeInputRequestTypeDef = TypedDict(
@@ -1855,6 +1875,7 @@ _OptionalNotifyResourceDeploymentStatusChangeInputRequestTypeDef = TypedDict(
     {
         "deploymentId": str,
         "outputs": List["OutputTypeDef"],
+        "status": ResourceDeploymentStatusType,
         "statusMessage": str,
     },
     total=False,
@@ -2359,6 +2380,7 @@ UpdateAccountSettingsInputRequestTypeDef = TypedDict(
     "UpdateAccountSettingsInputRequestTypeDef",
     {
         "deletePipelineProvisioningRepository": bool,
+        "pipelineCodebuildRoleArn": str,
         "pipelineProvisioningRepository": "RepositoryBranchInputTypeDef",
         "pipelineServiceRoleArn": str,
     },
@@ -2414,6 +2436,7 @@ _RequiredUpdateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
 _OptionalUpdateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
     "_OptionalUpdateEnvironmentAccountConnectionInputRequestTypeDef",
     {
+        "codebuildRoleArn": str,
         "componentRoleArn": str,
         "roleArn": str,
     },
@@ -2444,6 +2467,7 @@ _RequiredUpdateEnvironmentInputRequestTypeDef = TypedDict(
 _OptionalUpdateEnvironmentInputRequestTypeDef = TypedDict(
     "_OptionalUpdateEnvironmentInputRequestTypeDef",
     {
+        "codebuildRoleArn": str,
         "componentRoleArn": str,
         "description": str,
         "environmentAccountConnectionId": str,

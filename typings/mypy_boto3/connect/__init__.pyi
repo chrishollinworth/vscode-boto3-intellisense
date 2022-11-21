@@ -35,6 +35,7 @@ Usage::
         ListSecurityProfilePermissionsPaginator,
         ListSecurityProfilesPaginator,
         ListTaskTemplatesPaginator,
+        ListTrafficDistributionGroupsPaginator,
         ListUseCasesPaginator,
         ListUserHierarchyGroupsPaginator,
         ListUsersPaginator,
@@ -78,6 +79,7 @@ Usage::
     list_security_profile_permissions_paginator: ListSecurityProfilePermissionsPaginator = client.get_paginator("list_security_profile_permissions")
     list_security_profiles_paginator: ListSecurityProfilesPaginator = client.get_paginator("list_security_profiles")
     list_task_templates_paginator: ListTaskTemplatesPaginator = client.get_paginator("list_task_templates")
+    list_traffic_distribution_groups_paginator: ListTrafficDistributionGroupsPaginator = client.get_paginator("list_traffic_distribution_groups")
     list_use_cases_paginator: ListUseCasesPaginator = client.get_paginator("list_use_cases")
     list_user_hierarchy_groups_paginator: ListUserHierarchyGroupsPaginator = client.get_paginator("list_user_hierarchy_groups")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
@@ -118,6 +120,7 @@ from .paginator import (
     ListSecurityProfilePermissionsPaginator,
     ListSecurityProfilesPaginator,
     ListTaskTemplatesPaginator,
+    ListTrafficDistributionGroupsPaginator,
     ListUseCasesPaginator,
     ListUserHierarchyGroupsPaginator,
     ListUsersPaginator,
@@ -161,6 +164,7 @@ __all__ = (
     "ListSecurityProfilePermissionsPaginator",
     "ListSecurityProfilesPaginator",
     "ListTaskTemplatesPaginator",
+    "ListTrafficDistributionGroupsPaginator",
     "ListUseCasesPaginator",
     "ListUserHierarchyGroupsPaginator",
     "ListUsersPaginator",

@@ -49,7 +49,7 @@ __all__ = (
 
 class BotAliasAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAliasAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAliasAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botaliasavailablewaiter)
     """
 
@@ -57,49 +57,49 @@ class BotAliasAvailableWaiter(Boto3Waiter):
         self, *, botAliasId: str, botId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAliasAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAliasAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botaliasavailablewaiter)
         """
 
 class BotAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botavailablewaiter)
     """
 
     def wait(self, *, botId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botavailablewaiter)
         """
 
 class BotExportCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotExportCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotExportCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botexportcompletedwaiter)
     """
 
     def wait(self, *, exportId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotExportCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotExportCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botexportcompletedwaiter)
         """
 
 class BotImportCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotImportCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotImportCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botimportcompletedwaiter)
     """
 
     def wait(self, *, importId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotImportCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotImportCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botimportcompletedwaiter)
         """
 
 class BotLocaleBuiltWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleBuilt)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleBuilt)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocalebuiltwaiter)
     """
 
@@ -112,13 +112,13 @@ class BotLocaleBuiltWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleBuilt.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleBuilt.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocalebuiltwaiter)
         """
 
 class BotLocaleCreatedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleCreated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleCreated)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocalecreatedwaiter)
     """
 
@@ -131,13 +131,13 @@ class BotLocaleCreatedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleCreated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleCreated.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocalecreatedwaiter)
         """
 
 class BotLocaleExpressTestingAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleExpressTestingAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleExpressTestingAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocaleexpresstestingavailablewaiter)
     """
 
@@ -150,13 +150,13 @@ class BotLocaleExpressTestingAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleExpressTestingAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleExpressTestingAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocaleexpresstestingavailablewaiter)
         """
 
 class BotVersionAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotVersionAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotVersionAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botversionavailablewaiter)
     """
 
@@ -164,6 +164,6 @@ class BotVersionAvailableWaiter(Boto3Waiter):
         self, *, botId: str, botVersion: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotVersionAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotVersionAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botversionavailablewaiter)
         """

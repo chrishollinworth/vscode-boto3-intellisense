@@ -447,6 +447,7 @@ DataLakeSettingsTypeDef = TypedDict(
         "DataLakeAdmins": List["DataLakePrincipalTypeDef"],
         "CreateDatabaseDefaultPermissions": List["PrincipalPermissionsTypeDef"],
         "CreateTableDefaultPermissions": List["PrincipalPermissionsTypeDef"],
+        "Parameters": Dict[str, str],
         "TrustedResourceOwners": List[str],
         "AllowExternalDataFiltering": bool,
         "ExternalDataFilteringAllowList": List["DataLakePrincipalTypeDef"],

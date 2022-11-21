@@ -27,6 +27,7 @@ __all__ = (
     "CertificateAuthorityCSRCreatedWaiterName",
     "CertificateAuthorityStatusType",
     "CertificateAuthorityTypeType",
+    "CertificateAuthorityUsageModeType",
     "CertificateIssuedWaiterName",
     "ExtendedKeyUsageTypeType",
     "FailureReasonType",
@@ -53,6 +54,7 @@ CertificateAuthorityStatusType = Literal[
     "ACTIVE", "CREATING", "DELETED", "DISABLED", "EXPIRED", "FAILED", "PENDING_CERTIFICATE"
 ]
 CertificateAuthorityTypeType = Literal["ROOT", "SUBORDINATE"]
+CertificateAuthorityUsageModeType = Literal["GENERAL_PURPOSE", "SHORT_LIVED_CERTIFICATE"]
 CertificateIssuedWaiterName = Literal["certificate_issued"]
 ExtendedKeyUsageTypeType = Literal[
     "CERTIFICATE_TRANSPARENCY",

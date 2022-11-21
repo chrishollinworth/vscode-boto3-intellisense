@@ -41,7 +41,7 @@ __all__ = (
 
 class ListConnectorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListConnectors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListConnectors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listconnectorspaginator)
     """
 
@@ -49,13 +49,13 @@ class ListConnectorsPaginator(Boto3Paginator):
         self, *, connectorNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConnectorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListConnectors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListConnectors.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listconnectorspaginator)
         """
 
 class ListCustomPluginsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListCustomPlugins)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListCustomPlugins)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listcustompluginspaginator)
     """
 
@@ -63,13 +63,13 @@ class ListCustomPluginsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCustomPluginsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListCustomPlugins.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListCustomPlugins.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listcustompluginspaginator)
         """
 
 class ListWorkerConfigurationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListWorkerConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListWorkerConfigurations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listworkerconfigurationspaginator)
     """
 
@@ -77,6 +77,6 @@ class ListWorkerConfigurationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkerConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListWorkerConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListWorkerConfigurations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listworkerconfigurationspaginator)
         """

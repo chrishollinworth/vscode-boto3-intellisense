@@ -96,11 +96,17 @@ ReasonCodeType = Literal[
     "SERVICE_LINKED_ROLE_CREATION_FAILED",
 ]
 ResourceTypeType = Literal[
+    "AWS::EC2::Snapshot",
+    "AWS::ECR::Repository",
+    "AWS::EFS::FileSystem",
     "AWS::IAM::Role",
     "AWS::KMS::Key",
     "AWS::Lambda::Function",
     "AWS::Lambda::LayerVersion",
+    "AWS::RDS::DBClusterSnapshot",
+    "AWS::RDS::DBSnapshot",
     "AWS::S3::Bucket",
+    "AWS::SNS::Topic",
     "AWS::SQS::Queue",
     "AWS::SecretsManager::Secret",
 ]

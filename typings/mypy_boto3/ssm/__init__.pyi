@@ -41,6 +41,7 @@ Usage::
         GetOpsSummaryPaginator,
         GetParameterHistoryPaginator,
         GetParametersByPathPaginator,
+        GetResourcePoliciesPaginator,
         ListAssociationVersionsPaginator,
         ListAssociationsPaginator,
         ListCommandInvocationsPaginator,
@@ -97,6 +98,7 @@ Usage::
     get_ops_summary_paginator: GetOpsSummaryPaginator = client.get_paginator("get_ops_summary")
     get_parameter_history_paginator: GetParameterHistoryPaginator = client.get_paginator("get_parameter_history")
     get_parameters_by_path_paginator: GetParametersByPathPaginator = client.get_paginator("get_parameters_by_path")
+    get_resource_policies_paginator: GetResourcePoliciesPaginator = client.get_paginator("get_resource_policies")
     list_association_versions_paginator: ListAssociationVersionsPaginator = client.get_paginator("list_association_versions")
     list_associations_paginator: ListAssociationsPaginator = client.get_paginator("list_associations")
     list_command_invocations_paginator: ListCommandInvocationsPaginator = client.get_paginator("list_command_invocations")
@@ -147,6 +149,7 @@ from .paginator import (
     GetOpsSummaryPaginator,
     GetParameterHistoryPaginator,
     GetParametersByPathPaginator,
+    GetResourcePoliciesPaginator,
     ListAssociationsPaginator,
     ListAssociationVersionsPaginator,
     ListCommandInvocationsPaginator,
@@ -201,6 +204,7 @@ __all__ = (
     "GetOpsSummaryPaginator",
     "GetParameterHistoryPaginator",
     "GetParametersByPathPaginator",
+    "GetResourcePoliciesPaginator",
     "ListAssociationVersionsPaginator",
     "ListAssociationsPaginator",
     "ListCommandInvocationsPaginator",

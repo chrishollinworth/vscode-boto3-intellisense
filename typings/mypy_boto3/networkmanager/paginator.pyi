@@ -120,7 +120,7 @@ __all__ = (
 
 class DescribeGlobalNetworksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#describeglobalnetworkspaginator)
     """
 
@@ -128,13 +128,13 @@ class DescribeGlobalNetworksPaginator(Boto3Paginator):
         self, *, GlobalNetworkIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeGlobalNetworksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#describeglobalnetworkspaginator)
         """
 
 class GetConnectPeerAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnectPeerAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnectPeerAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getconnectpeerassociationspaginator)
     """
 
@@ -146,13 +146,13 @@ class GetConnectPeerAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetConnectPeerAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnectPeerAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnectPeerAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getconnectpeerassociationspaginator)
         """
 
 class GetConnectionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnections)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getconnectionspaginator)
     """
 
@@ -165,13 +165,13 @@ class GetConnectionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetConnectionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnections.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getconnectionspaginator)
         """
 
 class GetCoreNetworkChangeEventsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeEvents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcorenetworkchangeeventspaginator)
     """
 
@@ -183,13 +183,13 @@ class GetCoreNetworkChangeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetCoreNetworkChangeEventsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeEvents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcorenetworkchangeeventspaginator)
         """
 
 class GetCoreNetworkChangeSetPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeSet)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeSet)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcorenetworkchangesetpaginator)
     """
 
@@ -201,13 +201,13 @@ class GetCoreNetworkChangeSetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetCoreNetworkChangeSetResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeSet.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeSet.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcorenetworkchangesetpaginator)
         """
 
 class GetCustomerGatewayAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcustomergatewayassociationspaginator)
     """
 
@@ -219,13 +219,13 @@ class GetCustomerGatewayAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetCustomerGatewayAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcustomergatewayassociationspaginator)
         """
 
 class GetDevicesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getdevicespaginator)
     """
 
@@ -238,13 +238,13 @@ class GetDevicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDevicesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getdevicespaginator)
         """
 
 class GetLinkAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getlinkassociationspaginator)
     """
 
@@ -257,13 +257,13 @@ class GetLinkAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetLinkAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getlinkassociationspaginator)
         """
 
 class GetLinksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getlinkspaginator)
     """
 
@@ -278,13 +278,13 @@ class GetLinksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetLinksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getlinkspaginator)
         """
 
 class GetNetworkResourceCountsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceCounts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceCounts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcecountspaginator)
     """
 
@@ -296,13 +296,13 @@ class GetNetworkResourceCountsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetNetworkResourceCountsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceCounts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceCounts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcecountspaginator)
         """
 
 class GetNetworkResourceRelationshipsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceRelationships)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceRelationships)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcerelationshipspaginator)
     """
 
@@ -319,13 +319,13 @@ class GetNetworkResourceRelationshipsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetNetworkResourceRelationshipsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceRelationships.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceRelationships.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcerelationshipspaginator)
         """
 
 class GetNetworkResourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcespaginator)
     """
 
@@ -342,13 +342,13 @@ class GetNetworkResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetNetworkResourcesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcespaginator)
         """
 
 class GetNetworkTelemetryPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkTelemetry)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkTelemetry)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworktelemetrypaginator)
     """
 
@@ -365,13 +365,13 @@ class GetNetworkTelemetryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetNetworkTelemetryResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkTelemetry.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkTelemetry.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworktelemetrypaginator)
         """
 
 class GetSitesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getsitespaginator)
     """
 
@@ -383,13 +383,13 @@ class GetSitesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSitesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getsitespaginator)
         """
 
 class GetTransitGatewayConnectPeerAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayConnectPeerAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayConnectPeerAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#gettransitgatewayconnectpeerassociationspaginator)
     """
 
@@ -401,13 +401,13 @@ class GetTransitGatewayConnectPeerAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTransitGatewayConnectPeerAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayConnectPeerAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayConnectPeerAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#gettransitgatewayconnectpeerassociationspaginator)
         """
 
 class GetTransitGatewayRegistrationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#gettransitgatewayregistrationspaginator)
     """
 
@@ -419,13 +419,13 @@ class GetTransitGatewayRegistrationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTransitGatewayRegistrationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#gettransitgatewayregistrationspaginator)
         """
 
 class ListAttachmentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListAttachments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListAttachments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listattachmentspaginator)
     """
 
@@ -439,13 +439,13 @@ class ListAttachmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAttachmentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListAttachments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListAttachments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listattachmentspaginator)
         """
 
 class ListConnectPeersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListConnectPeers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListConnectPeers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listconnectpeerspaginator)
     """
 
@@ -457,13 +457,13 @@ class ListConnectPeersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConnectPeersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListConnectPeers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListConnectPeers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listconnectpeerspaginator)
         """
 
 class ListCoreNetworkPolicyVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworkPolicyVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworkPolicyVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listcorenetworkpolicyversionspaginator)
     """
 
@@ -471,13 +471,13 @@ class ListCoreNetworkPolicyVersionsPaginator(Boto3Paginator):
         self, *, CoreNetworkId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCoreNetworkPolicyVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworkPolicyVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworkPolicyVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listcorenetworkpolicyversionspaginator)
         """
 
 class ListCoreNetworksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listcorenetworkspaginator)
     """
 
@@ -485,13 +485,13 @@ class ListCoreNetworksPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCoreNetworksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listcorenetworkspaginator)
         """
 
 class ListPeeringsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListPeerings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListPeerings)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listpeeringspaginator)
     """
 
@@ -505,6 +505,6 @@ class ListPeeringsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPeeringsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/networkmanager.html#NetworkManager.Paginator.ListPeerings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/networkmanager.html#NetworkManager.Paginator.ListPeerings.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listpeeringspaginator)
         """

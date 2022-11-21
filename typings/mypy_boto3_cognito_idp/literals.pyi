@@ -33,6 +33,7 @@ __all__ = (
     "CustomEmailSenderLambdaVersionTypeType",
     "CustomSMSSenderLambdaVersionTypeType",
     "DefaultEmailOptionTypeType",
+    "DeletionProtectionTypeType",
     "DeliveryMediumTypeType",
     "DeviceRememberedStatusTypeType",
     "DomainStatusTypeType",
@@ -101,6 +102,7 @@ CompromisedCredentialsEventActionTypeType = Literal["BLOCK", "NO_ACTION"]
 CustomEmailSenderLambdaVersionTypeType = Literal["V1_0"]
 CustomSMSSenderLambdaVersionTypeType = Literal["V1_0"]
 DefaultEmailOptionTypeType = Literal["CONFIRM_WITH_CODE", "CONFIRM_WITH_LINK"]
+DeletionProtectionTypeType = Literal["ACTIVE", "INACTIVE"]
 DeliveryMediumTypeType = Literal["EMAIL", "SMS"]
 DeviceRememberedStatusTypeType = Literal["not_remembered", "remembered"]
 DomainStatusTypeType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]

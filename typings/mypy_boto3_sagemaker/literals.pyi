@@ -148,6 +148,7 @@ __all__ = (
     "ListHyperParameterTuningJobsPaginatorName",
     "ListImageVersionsPaginatorName",
     "ListImagesPaginatorName",
+    "ListInferenceRecommendationsJobStepsPaginatorName",
     "ListInferenceRecommendationsJobsPaginatorName",
     "ListInferenceRecommendationsJobsSortByType",
     "ListLabelingJobsForWorkteamPaginatorName",
@@ -235,6 +236,7 @@ __all__ = (
     "RStudioServerProUserGroupType",
     "RecommendationJobStatusType",
     "RecommendationJobTypeType",
+    "RecommendationStepTypeType",
     "RecordWrapperType",
     "RedshiftResultCompressionTypeType",
     "RedshiftResultFormatType",
@@ -396,6 +398,7 @@ AutoMLMetricExtendedEnumType = Literal[
     "BalancedAccuracy",
     "F1",
     "F1macro",
+    "InferenceLatency",
     "LogLoss",
     "MAE",
     "MSE",
@@ -551,7 +554,7 @@ HyperParameterTuningJobSortByOptionsType = Literal["CreationTime", "Name", "Stat
 HyperParameterTuningJobStatusType = Literal[
     "Completed", "Failed", "InProgress", "Stopped", "Stopping"
 ]
-HyperParameterTuningJobStrategyTypeType = Literal["Bayesian", "Hyperband", "Random"]
+HyperParameterTuningJobStrategyTypeType = Literal["Bayesian", "Grid", "Hyperband", "Random"]
 HyperParameterTuningJobWarmStartTypeType = Literal["IdenticalDataAndAlgorithm", "TransferLearning"]
 ImageCreatedWaiterName = Literal["image_created"]
 ImageDeletedWaiterName = Literal["image_deleted"]
@@ -681,6 +684,9 @@ ListHumanTaskUisPaginatorName = Literal["list_human_task_uis"]
 ListHyperParameterTuningJobsPaginatorName = Literal["list_hyper_parameter_tuning_jobs"]
 ListImageVersionsPaginatorName = Literal["list_image_versions"]
 ListImagesPaginatorName = Literal["list_images"]
+ListInferenceRecommendationsJobStepsPaginatorName = Literal[
+    "list_inference_recommendations_job_steps"
+]
 ListInferenceRecommendationsJobsPaginatorName = Literal["list_inference_recommendations_jobs"]
 ListInferenceRecommendationsJobsSortByType = Literal["CreationTime", "Name", "Status"]
 ListLabelingJobsForWorkteamPaginatorName = Literal["list_labeling_jobs_for_workteam"]
@@ -859,6 +865,27 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.c5d.9xlarge",
     "ml.c5d.large",
     "ml.c5d.xlarge",
+    "ml.c6g.12xlarge",
+    "ml.c6g.16xlarge",
+    "ml.c6g.2xlarge",
+    "ml.c6g.4xlarge",
+    "ml.c6g.8xlarge",
+    "ml.c6g.large",
+    "ml.c6g.xlarge",
+    "ml.c6gd.12xlarge",
+    "ml.c6gd.16xlarge",
+    "ml.c6gd.2xlarge",
+    "ml.c6gd.4xlarge",
+    "ml.c6gd.8xlarge",
+    "ml.c6gd.large",
+    "ml.c6gd.xlarge",
+    "ml.c6gn.12xlarge",
+    "ml.c6gn.16xlarge",
+    "ml.c6gn.2xlarge",
+    "ml.c6gn.4xlarge",
+    "ml.c6gn.8xlarge",
+    "ml.c6gn.large",
+    "ml.c6gn.xlarge",
     "ml.c6i.12xlarge",
     "ml.c6i.16xlarge",
     "ml.c6i.24xlarge",
@@ -868,6 +895,13 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.c6i.8xlarge",
     "ml.c6i.large",
     "ml.c6i.xlarge",
+    "ml.c7g.12xlarge",
+    "ml.c7g.16xlarge",
+    "ml.c7g.2xlarge",
+    "ml.c7g.4xlarge",
+    "ml.c7g.8xlarge",
+    "ml.c7g.large",
+    "ml.c7g.xlarge",
     "ml.g4dn.12xlarge",
     "ml.g4dn.16xlarge",
     "ml.g4dn.2xlarge",
@@ -903,6 +937,20 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.m5d.4xlarge",
     "ml.m5d.large",
     "ml.m5d.xlarge",
+    "ml.m6g.12xlarge",
+    "ml.m6g.16xlarge",
+    "ml.m6g.2xlarge",
+    "ml.m6g.4xlarge",
+    "ml.m6g.8xlarge",
+    "ml.m6g.large",
+    "ml.m6g.xlarge",
+    "ml.m6gd.12xlarge",
+    "ml.m6gd.16xlarge",
+    "ml.m6gd.2xlarge",
+    "ml.m6gd.4xlarge",
+    "ml.m6gd.8xlarge",
+    "ml.m6gd.large",
+    "ml.m6gd.xlarge",
     "ml.p2.16xlarge",
     "ml.p2.8xlarge",
     "ml.p2.xlarge",
@@ -922,6 +970,20 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.r5d.4xlarge",
     "ml.r5d.large",
     "ml.r5d.xlarge",
+    "ml.r6g.12xlarge",
+    "ml.r6g.16xlarge",
+    "ml.r6g.2xlarge",
+    "ml.r6g.4xlarge",
+    "ml.r6g.8xlarge",
+    "ml.r6g.large",
+    "ml.r6g.xlarge",
+    "ml.r6gd.12xlarge",
+    "ml.r6gd.16xlarge",
+    "ml.r6gd.2xlarge",
+    "ml.r6gd.4xlarge",
+    "ml.r6gd.8xlarge",
+    "ml.r6gd.large",
+    "ml.r6gd.xlarge",
     "ml.t2.2xlarge",
     "ml.t2.large",
     "ml.t2.medium",
@@ -948,6 +1010,7 @@ RecommendationJobStatusType = Literal[
     "COMPLETED", "FAILED", "IN_PROGRESS", "PENDING", "STOPPED", "STOPPING"
 ]
 RecommendationJobTypeType = Literal["Advanced", "Default"]
+RecommendationStepTypeType = Literal["BENCHMARK"]
 RecordWrapperType = Literal["None", "RecordIO"]
 RedshiftResultCompressionTypeType = Literal["BZIP2", "GZIP", "None", "SNAPPY", "ZSTD"]
 RedshiftResultFormatType = Literal["CSV", "PARQUET"]
@@ -1112,6 +1175,8 @@ TrainingInstanceTypeType = Literal[
     "ml.p3.8xlarge",
     "ml.p3dn.24xlarge",
     "ml.p4d.24xlarge",
+    "ml.trn1.2xlarge",
+    "ml.trn1.32xlarge",
 ]
 TrainingJobCompletedOrStoppedWaiterName = Literal["training_job_completed_or_stopped"]
 TrainingJobEarlyStoppingTypeType = Literal["Auto", "Off"]

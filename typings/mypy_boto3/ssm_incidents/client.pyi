@@ -33,6 +33,7 @@ from .type_defs import (
     CreateReplicationSetOutputTypeDef,
     CreateResponsePlanOutputTypeDef,
     CreateTimelineEventOutputTypeDef,
+    EventReferenceTypeDef,
     FilterTypeDef,
     GetIncidentRecordOutputTypeDef,
     GetReplicationSetOutputTypeDef,
@@ -40,6 +41,7 @@ from .type_defs import (
     GetResponsePlanOutputTypeDef,
     GetTimelineEventOutputTypeDef,
     IncidentTemplateTypeDef,
+    IntegrationTypeDef,
     ListIncidentRecordsOutputTypeDef,
     ListRelatedItemsOutputTypeDef,
     ListReplicationSetsOutputTypeDef,
@@ -83,7 +85,7 @@ class Exceptions:
 
 class SSMIncidentsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html)
     """
 
@@ -98,24 +100,28 @@ class SSMIncidentsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#close)
         """
     def create_replication_set(
-        self, *, regions: Dict[str, "RegionMapInputValueTypeDef"], clientToken: str = None
+        self,
+        *,
+        regions: Dict[str, "RegionMapInputValueTypeDef"],
+        clientToken: str = None,
+        tags: Dict[str, str] = None
     ) -> CreateReplicationSetOutputTypeDef:
         """
         A replication set replicates and encrypts your data to the provided Regions with
         the provided KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.create_replication_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.create_replication_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#create_replication_set)
         """
     def create_response_plan(
@@ -128,12 +134,13 @@ class SSMIncidentsClient(BaseClient):
         clientToken: str = None,
         displayName: str = None,
         engagements: List[str] = None,
+        integrations: List["IntegrationTypeDef"] = None,
         tags: Dict[str, str] = None
     ) -> CreateResponsePlanOutputTypeDef:
         """
         Creates a response plan that automates the initial response to incidents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.create_response_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.create_response_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#create_response_plan)
         """
     def create_timeline_event(
@@ -143,27 +150,28 @@ class SSMIncidentsClient(BaseClient):
         eventTime: Union[datetime, str],
         eventType: str,
         incidentRecordArn: str,
-        clientToken: str = None
+        clientToken: str = None,
+        eventReferences: List["EventReferenceTypeDef"] = None
     ) -> CreateTimelineEventOutputTypeDef:
         """
         Creates a custom timeline event on the incident details page of an incident
         record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.create_timeline_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.create_timeline_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#create_timeline_event)
         """
     def delete_incident_record(self, *, arn: str) -> Dict[str, Any]:
         """
         Delete an incident record from Incident Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_incident_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_incident_record)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_incident_record)
         """
     def delete_replication_set(self, *, arn: str) -> Dict[str, Any]:
         """
         Deletes all Regions in your replication set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_replication_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_replication_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_replication_set)
         """
     def delete_resource_policy(self, *, policyId: str, resourceArn: str) -> Dict[str, Any]:
@@ -171,21 +179,21 @@ class SSMIncidentsClient(BaseClient):
         Deletes the resource policy that Resource Access Manager uses to share your
         Incident Manager resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_resource_policy)
         """
     def delete_response_plan(self, *, arn: str) -> Dict[str, Any]:
         """
         Deletes the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_response_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_response_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_response_plan)
         """
     def delete_timeline_event(self, *, eventId: str, incidentRecordArn: str) -> Dict[str, Any]:
         """
         Deletes a timeline event from an incident.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_timeline_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_timeline_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_timeline_event)
         """
     def generate_presigned_url(
@@ -198,21 +206,21 @@ class SSMIncidentsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#generate_presigned_url)
         """
     def get_incident_record(self, *, arn: str) -> GetIncidentRecordOutputTypeDef:
         """
         Returns the details for the specified incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.get_incident_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.get_incident_record)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_incident_record)
         """
     def get_replication_set(self, *, arn: str) -> GetReplicationSetOutputTypeDef:
         """
         Retrieve your Incident Manager replication set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.get_replication_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.get_replication_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_replication_set)
         """
     def get_resource_policies(
@@ -221,14 +229,14 @@ class SSMIncidentsClient(BaseClient):
         """
         Retrieves the resource policies attached to the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.get_resource_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.get_resource_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_resource_policies)
         """
     def get_response_plan(self, *, arn: str) -> GetResponsePlanOutputTypeDef:
         """
         Retrieves the details of the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.get_response_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.get_response_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_response_plan)
         """
     def get_timeline_event(
@@ -237,7 +245,7 @@ class SSMIncidentsClient(BaseClient):
         """
         Retrieves a timeline event based on its ID and incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.get_timeline_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.get_timeline_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_timeline_event)
         """
     def list_incident_records(
@@ -250,7 +258,7 @@ class SSMIncidentsClient(BaseClient):
         """
         Lists all incident records in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.list_incident_records)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.list_incident_records)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_incident_records)
         """
     def list_related_items(
@@ -259,7 +267,7 @@ class SSMIncidentsClient(BaseClient):
         """
         List all related items for an incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.list_related_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.list_related_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_related_items)
         """
     def list_replication_sets(
@@ -268,7 +276,7 @@ class SSMIncidentsClient(BaseClient):
         """
         Lists details about the replication set configured in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.list_replication_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.list_replication_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_replication_sets)
         """
     def list_response_plans(
@@ -277,14 +285,14 @@ class SSMIncidentsClient(BaseClient):
         """
         Lists all response plans in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.list_response_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.list_response_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_response_plans)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags that are attached to the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_tags_for_resource)
         """
     def list_timeline_events(
@@ -300,7 +308,7 @@ class SSMIncidentsClient(BaseClient):
         """
         Lists timeline events for the specified incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.list_timeline_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.list_timeline_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_timeline_events)
         """
     def put_resource_policy(
@@ -309,7 +317,7 @@ class SSMIncidentsClient(BaseClient):
         """
         Adds a resource policy to the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#put_resource_policy)
         """
     def start_incident(
@@ -326,21 +334,21 @@ class SSMIncidentsClient(BaseClient):
         Used to start an incident from CloudWatch alarms, EventBridge events, or
         manually.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.start_incident)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.start_incident)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#start_incident)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Adds a tag to a response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a tag from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#untag_resource)
         """
     def update_deletion_protection(
@@ -350,7 +358,7 @@ class SSMIncidentsClient(BaseClient):
         Update deletion protection to either allow or deny deletion of the final Region
         in a replication set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.update_deletion_protection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.update_deletion_protection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_deletion_protection)
         """
     def update_incident_record(
@@ -368,7 +376,7 @@ class SSMIncidentsClient(BaseClient):
         """
         Update the details of an incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.update_incident_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.update_incident_record)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_incident_record)
         """
     def update_related_items(
@@ -381,7 +389,7 @@ class SSMIncidentsClient(BaseClient):
         """
         Add or remove related items from the related items tab of an incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.update_related_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.update_related_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_related_items)
         """
     def update_replication_set(
@@ -394,7 +402,7 @@ class SSMIncidentsClient(BaseClient):
         """
         Add or delete Regions from your replication set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.update_replication_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.update_replication_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_replication_set)
         """
     def update_response_plan(
@@ -411,12 +419,13 @@ class SSMIncidentsClient(BaseClient):
         incidentTemplateNotificationTargets: List["NotificationTargetItemTypeDef"] = None,
         incidentTemplateSummary: str = None,
         incidentTemplateTags: Dict[str, str] = None,
-        incidentTemplateTitle: str = None
+        incidentTemplateTitle: str = None,
+        integrations: List["IntegrationTypeDef"] = None
     ) -> Dict[str, Any]:
         """
         Updates the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.update_response_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.update_response_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_response_plan)
         """
     def update_timeline_event(
@@ -426,13 +435,14 @@ class SSMIncidentsClient(BaseClient):
         incidentRecordArn: str,
         clientToken: str = None,
         eventData: str = None,
+        eventReferences: List["EventReferenceTypeDef"] = None,
         eventTime: Union[datetime, str] = None,
         eventType: str = None
     ) -> Dict[str, Any]:
         """
         Updates a timeline event.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Client.update_timeline_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Client.update_timeline_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_timeline_event)
         """
     @overload
@@ -440,7 +450,7 @@ class SSMIncidentsClient(BaseClient):
         self, operation_name: Literal["get_resource_policies"]
     ) -> GetResourcePoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#getresourcepoliciespaginator)
         """
     @overload
@@ -448,7 +458,7 @@ class SSMIncidentsClient(BaseClient):
         self, operation_name: Literal["list_incident_records"]
     ) -> ListIncidentRecordsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentrecordspaginator)
         """
     @overload
@@ -456,7 +466,7 @@ class SSMIncidentsClient(BaseClient):
         self, operation_name: Literal["list_related_items"]
     ) -> ListRelatedItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listrelateditemspaginator)
         """
     @overload
@@ -464,7 +474,7 @@ class SSMIncidentsClient(BaseClient):
         self, operation_name: Literal["list_replication_sets"]
     ) -> ListReplicationSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listreplicationsetspaginator)
         """
     @overload
@@ -472,7 +482,7 @@ class SSMIncidentsClient(BaseClient):
         self, operation_name: Literal["list_response_plans"]
     ) -> ListResponsePlansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listresponseplanspaginator)
         """
     @overload
@@ -480,7 +490,7 @@ class SSMIncidentsClient(BaseClient):
         self, operation_name: Literal["list_timeline_events"]
     ) -> ListTimelineEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listtimelineeventspaginator)
         """
     @overload
@@ -488,7 +498,7 @@ class SSMIncidentsClient(BaseClient):
         self, waiter_name: Literal["wait_for_replication_set_active"]
     ) -> WaitForReplicationSetActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Waiter.WaitForReplicationSetActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Waiter.WaitForReplicationSetActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/waiters.html#waitforreplicationsetactivewaiter)
         """
     @overload
@@ -496,6 +506,6 @@ class SSMIncidentsClient(BaseClient):
         self, waiter_name: Literal["wait_for_replication_set_deleted"]
     ) -> WaitForReplicationSetDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/ssm-incidents.html#SSMIncidents.Waiter.WaitForReplicationSetDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/ssm-incidents.html#SSMIncidents.Waiter.WaitForReplicationSetDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/waiters.html#waitforreplicationsetdeletedwaiter)
         """

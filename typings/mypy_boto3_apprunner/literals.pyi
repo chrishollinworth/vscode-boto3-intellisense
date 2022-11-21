@@ -36,6 +36,7 @@ __all__ = (
     "SourceCodeVersionTypeType",
     "TracingVendorType",
     "VpcConnectorStatusType",
+    "VpcIngressConnectionStatusType",
 )
 
 AutoScalingConfigurationStatusType = Literal["ACTIVE", "INACTIVE"]
@@ -69,7 +70,16 @@ OperationTypeType = Literal[
 ]
 ProviderTypeType = Literal["GITHUB"]
 RuntimeType = Literal[
-    "CORRETTO_11", "CORRETTO_8", "NODEJS_12", "NODEJS_14", "NODEJS_16", "PYTHON_3"
+    "CORRETTO_11",
+    "CORRETTO_8",
+    "DOTNET_6",
+    "GO_1",
+    "NODEJS_12",
+    "NODEJS_14",
+    "NODEJS_16",
+    "PHP_81",
+    "PYTHON_3",
+    "RUBY_31",
 ]
 ServiceStatusType = Literal[
     "CREATE_FAILED", "DELETED", "DELETE_FAILED", "OPERATION_IN_PROGRESS", "PAUSED", "RUNNING"
@@ -77,3 +87,13 @@ ServiceStatusType = Literal[
 SourceCodeVersionTypeType = Literal["BRANCH"]
 TracingVendorType = Literal["AWSXRAY"]
 VpcConnectorStatusType = Literal["ACTIVE", "INACTIVE"]
+VpcIngressConnectionStatusType = Literal[
+    "AVAILABLE",
+    "DELETED",
+    "FAILED_CREATION",
+    "FAILED_DELETION",
+    "FAILED_UPDATE",
+    "PENDING_CREATION",
+    "PENDING_DELETION",
+    "PENDING_UPDATE",
+]

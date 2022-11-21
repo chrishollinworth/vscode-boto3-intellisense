@@ -26,6 +26,7 @@ from .literals import (
     DatasetStatusMessageCodeType,
     DatasetStatusType,
     DatasetTypeType,
+    DetectLabelsFeatureNameType,
     EmotionNameType,
     FaceAttributesType,
     FaceSearchSortByType,
@@ -118,8 +119,14 @@ __all__ = (
     "DetectCustomLabelsResponseTypeDef",
     "DetectFacesRequestRequestTypeDef",
     "DetectFacesResponseTypeDef",
+    "DetectLabelsImageBackgroundTypeDef",
+    "DetectLabelsImageForegroundTypeDef",
+    "DetectLabelsImagePropertiesSettingsTypeDef",
+    "DetectLabelsImagePropertiesTypeDef",
+    "DetectLabelsImageQualityTypeDef",
     "DetectLabelsRequestRequestTypeDef",
     "DetectLabelsResponseTypeDef",
+    "DetectLabelsSettingsTypeDef",
     "DetectModerationLabelsRequestRequestTypeDef",
     "DetectModerationLabelsResponseTypeDef",
     "DetectProtectiveEquipmentRequestRequestTypeDef",
@@ -130,6 +137,7 @@ __all__ = (
     "DetectionFilterTypeDef",
     "DistributeDatasetEntriesRequestRequestTypeDef",
     "DistributeDatasetTypeDef",
+    "DominantColorTypeDef",
     "EmotionTypeDef",
     "EquipmentDetectionTypeDef",
     "EvaluationResultTypeDef",
@@ -142,6 +150,7 @@ __all__ = (
     "FaceSearchSettingsTypeDef",
     "FaceTypeDef",
     "GenderTypeDef",
+    "GeneralLabelsSettingsTypeDef",
     "GeometryTypeDef",
     "GetCelebrityInfoRequestRequestTypeDef",
     "GetCelebrityInfoResponseTypeDef",
@@ -174,6 +183,8 @@ __all__ = (
     "KinesisVideoStreamStartSelectorTypeDef",
     "KinesisVideoStreamTypeDef",
     "KnownGenderTypeDef",
+    "LabelAliasTypeDef",
+    "LabelCategoryTypeDef",
     "LabelDetectionTypeDef",
     "LabelTypeDef",
     "LandmarkTypeDef",
@@ -1006,6 +1017,53 @@ DetectFacesResponseTypeDef = TypedDict(
     },
 )
 
+DetectLabelsImageBackgroundTypeDef = TypedDict(
+    "DetectLabelsImageBackgroundTypeDef",
+    {
+        "Quality": "DetectLabelsImageQualityTypeDef",
+        "DominantColors": List["DominantColorTypeDef"],
+    },
+    total=False,
+)
+
+DetectLabelsImageForegroundTypeDef = TypedDict(
+    "DetectLabelsImageForegroundTypeDef",
+    {
+        "Quality": "DetectLabelsImageQualityTypeDef",
+        "DominantColors": List["DominantColorTypeDef"],
+    },
+    total=False,
+)
+
+DetectLabelsImagePropertiesSettingsTypeDef = TypedDict(
+    "DetectLabelsImagePropertiesSettingsTypeDef",
+    {
+        "MaxDominantColors": int,
+    },
+    total=False,
+)
+
+DetectLabelsImagePropertiesTypeDef = TypedDict(
+    "DetectLabelsImagePropertiesTypeDef",
+    {
+        "Quality": "DetectLabelsImageQualityTypeDef",
+        "DominantColors": List["DominantColorTypeDef"],
+        "Foreground": "DetectLabelsImageForegroundTypeDef",
+        "Background": "DetectLabelsImageBackgroundTypeDef",
+    },
+    total=False,
+)
+
+DetectLabelsImageQualityTypeDef = TypedDict(
+    "DetectLabelsImageQualityTypeDef",
+    {
+        "Brightness": float,
+        "Sharpness": float,
+        "Contrast": float,
+    },
+    total=False,
+)
+
 _RequiredDetectLabelsRequestRequestTypeDef = TypedDict(
     "_RequiredDetectLabelsRequestRequestTypeDef",
     {
@@ -1017,6 +1075,8 @@ _OptionalDetectLabelsRequestRequestTypeDef = TypedDict(
     {
         "MaxLabels": int,
         "MinConfidence": float,
+        "Features": List[DetectLabelsFeatureNameType],
+        "Settings": "DetectLabelsSettingsTypeDef",
     },
     total=False,
 )
@@ -1032,8 +1092,18 @@ DetectLabelsResponseTypeDef = TypedDict(
         "Labels": List["LabelTypeDef"],
         "OrientationCorrection": OrientationCorrectionType,
         "LabelModelVersion": str,
+        "ImageProperties": "DetectLabelsImagePropertiesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DetectLabelsSettingsTypeDef = TypedDict(
+    "DetectLabelsSettingsTypeDef",
+    {
+        "GeneralLabels": "GeneralLabelsSettingsTypeDef",
+        "ImageProperties": "DetectLabelsImagePropertiesSettingsTypeDef",
+    },
+    total=False,
 )
 
 _RequiredDetectModerationLabelsRequestRequestTypeDef = TypedDict(
@@ -1156,6 +1226,20 @@ DistributeDatasetTypeDef = TypedDict(
     {
         "Arn": str,
     },
+)
+
+DominantColorTypeDef = TypedDict(
+    "DominantColorTypeDef",
+    {
+        "Red": int,
+        "Blue": int,
+        "Green": int,
+        "HexCode": str,
+        "CSSColor": str,
+        "SimplifiedColor": str,
+        "PixelPercent": float,
+    },
+    total=False,
 )
 
 EmotionTypeDef = TypedDict(
@@ -1281,6 +1365,17 @@ GenderTypeDef = TypedDict(
     {
         "Value": GenderTypeType,
         "Confidence": float,
+    },
+    total=False,
+)
+
+GeneralLabelsSettingsTypeDef = TypedDict(
+    "GeneralLabelsSettingsTypeDef",
+    {
+        "LabelInclusionFilters": List[str],
+        "LabelExclusionFilters": List[str],
+        "LabelCategoryInclusionFilters": List[str],
+        "LabelCategoryExclusionFilters": List[str],
     },
     total=False,
 )
@@ -1681,6 +1776,7 @@ InstanceTypeDef = TypedDict(
     {
         "BoundingBox": "BoundingBoxTypeDef",
         "Confidence": float,
+        "DominantColors": List["DominantColorTypeDef"],
     },
     total=False,
 )
@@ -1718,6 +1814,22 @@ KnownGenderTypeDef = TypedDict(
     total=False,
 )
 
+LabelAliasTypeDef = TypedDict(
+    "LabelAliasTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
+LabelCategoryTypeDef = TypedDict(
+    "LabelCategoryTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
 LabelDetectionTypeDef = TypedDict(
     "LabelDetectionTypeDef",
     {
@@ -1734,6 +1846,8 @@ LabelTypeDef = TypedDict(
         "Confidence": float,
         "Instances": List["InstanceTypeDef"],
         "Parents": List["ParentTypeDef"],
+        "Aliases": List["LabelAliasTypeDef"],
+        "Categories": List["LabelCategoryTypeDef"],
     },
     total=False,
 )

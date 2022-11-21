@@ -37,14 +37,11 @@ from .literals import (
     OrganizationResourceCollectionTypeType,
     ResourceCollectionTypeType,
     ResourcePermissionType,
+    ResourceTypeFilterType,
     ServiceNameType,
     UpdateResourceCollectionActionType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -341,6 +338,7 @@ CloudFormationHealthTypeDef = TypedDict(
     {
         "StackName": str,
         "Insight": "InsightHealthTypeDef",
+        "AnalyzedResourceCount": int,
     },
     total=False,
 )
@@ -409,6 +407,7 @@ DescribeAccountHealthResponseTypeDef = TypedDict(
         "OpenProactiveInsights": int,
         "MetricsAnalyzed": int,
         "ResourceHours": int,
+        "AnalyzedResourceCount": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -958,30 +957,19 @@ ListMonitoredResourcesFiltersTypeDef = TypedDict(
     "ListMonitoredResourcesFiltersTypeDef",
     {
         "ResourcePermission": ResourcePermissionType,
-        "ResourceTypeFilters": List[Literal["LOG_GROUPS"]],
+        "ResourceTypeFilters": List[ResourceTypeFilterType],
     },
 )
 
-_RequiredListMonitoredResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListMonitoredResourcesRequestRequestTypeDef",
+ListMonitoredResourcesRequestRequestTypeDef = TypedDict(
+    "ListMonitoredResourcesRequestRequestTypeDef",
     {
         "Filters": "ListMonitoredResourcesFiltersTypeDef",
-    },
-)
-_OptionalListMonitoredResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListMonitoredResourcesRequestRequestTypeDef",
-    {
         "MaxResults": int,
         "NextToken": str,
     },
     total=False,
 )
-
-class ListMonitoredResourcesRequestRequestTypeDef(
-    _RequiredListMonitoredResourcesRequestRequestTypeDef,
-    _OptionalListMonitoredResourcesRequestRequestTypeDef,
-):
-    pass
 
 ListMonitoredResourcesResponseTypeDef = TypedDict(
     "ListMonitoredResourcesResponseTypeDef",
@@ -1117,6 +1105,8 @@ MonitoredResourceIdentifierTypeDef = TypedDict(
         "MonitoredResourceName": str,
         "Type": str,
         "ResourcePermission": ResourcePermissionType,
+        "LastUpdated": datetime,
+        "ResourceCollection": "ResourceCollectionTypeDef",
     },
     total=False,
 )
@@ -1667,6 +1657,7 @@ ServiceHealthTypeDef = TypedDict(
     {
         "ServiceName": ServiceNameType,
         "Insight": "ServiceInsightHealthTypeDef",
+        "AnalyzedResourceCount": int,
     },
     total=False,
 )
@@ -1768,6 +1759,7 @@ TagHealthTypeDef = TypedDict(
         "AppBoundaryKey": str,
         "TagValue": str,
         "Insight": "InsightHealthTypeDef",
+        "AnalyzedResourceCount": int,
     },
     total=False,
 )

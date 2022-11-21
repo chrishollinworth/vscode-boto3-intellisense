@@ -22,9 +22,11 @@ __all__ = (
     "ApplicationInstanceHealthStatusType",
     "ApplicationInstanceStatusType",
     "ConnectionTypeType",
+    "DesiredStateType",
     "DeviceAggregatedStatusType",
     "DeviceBrandType",
     "DeviceConnectionStatusType",
+    "DeviceReportedStatusType",
     "DeviceStatusType",
     "DeviceTypeType",
     "JobResourceTypeType",
@@ -34,6 +36,7 @@ __all__ = (
     "NodeCategoryType",
     "NodeFromTemplateJobStatusType",
     "NodeInstanceStatusType",
+    "NodeSignalValueType",
     "PackageImportJobStatusType",
     "PackageImportJobTypeType",
     "PackageVersionStatusType",
@@ -59,6 +62,7 @@ ApplicationInstanceStatusType = Literal[
     "REMOVAL_SUCCEEDED",
 ]
 ConnectionTypeType = Literal["DHCP", "STATIC_IP"]
+DesiredStateType = Literal["REMOVED", "RUNNING", "STOPPED"]
 DeviceAggregatedStatusType = Literal[
     "AWAITING_PROVISIONING",
     "DELETING",
@@ -68,23 +72,38 @@ DeviceAggregatedStatusType = Literal[
     "OFFLINE",
     "ONLINE",
     "PENDING",
+    "REBOOTING",
     "UPDATE_NEEDED",
 ]
 DeviceBrandType = Literal["AWS_PANORAMA", "LENOVO"]
 DeviceConnectionStatusType = Literal[
     "AWAITING_CREDENTIALS", "ERROR", "NOT_AVAILABLE", "OFFLINE", "ONLINE"
 ]
+DeviceReportedStatusType = Literal[
+    "INSTALL_ERROR",
+    "INSTALL_IN_PROGRESS",
+    "LAUNCHED",
+    "LAUNCH_ERROR",
+    "REMOVAL_FAILED",
+    "REMOVAL_IN_PROGRESS",
+    "RUNNING",
+    "STARTING",
+    "STOPPED",
+    "STOPPING",
+    "STOP_ERROR",
+]
 DeviceStatusType = Literal[
     "AWAITING_PROVISIONING", "DELETING", "ERROR", "FAILED", "PENDING", "SUCCEEDED"
 ]
 DeviceTypeType = Literal["PANORAMA_APPLIANCE", "PANORAMA_APPLIANCE_DEVELOPER_KIT"]
 JobResourceTypeType = Literal["PACKAGE"]
-JobTypeType = Literal["OTA"]
+JobTypeType = Literal["OTA", "REBOOT"]
 ListDevicesSortByType = Literal["CREATED_TIME", "DEVICE_AGGREGATED_STATUS", "DEVICE_ID", "NAME"]
 NetworkConnectionStatusType = Literal["CONNECTED", "CONNECTING", "NOT_CONNECTED"]
 NodeCategoryType = Literal["BUSINESS_LOGIC", "MEDIA_SINK", "MEDIA_SOURCE", "ML_MODEL"]
 NodeFromTemplateJobStatusType = Literal["FAILED", "PENDING", "SUCCEEDED"]
-NodeInstanceStatusType = Literal["ERROR", "NOT_AVAILABLE", "RUNNING"]
+NodeInstanceStatusType = Literal["ERROR", "NOT_AVAILABLE", "PAUSED", "RUNNING"]
+NodeSignalValueType = Literal["PAUSE", "RESUME"]
 PackageImportJobStatusType = Literal["FAILED", "PENDING", "SUCCEEDED"]
 PackageImportJobTypeType = Literal["MARKETPLACE_NODE_PACKAGE_VERSION", "NODE_PACKAGE_VERSION"]
 PackageVersionStatusType = Literal["DELETING", "FAILED", "REGISTER_COMPLETED", "REGISTER_PENDING"]

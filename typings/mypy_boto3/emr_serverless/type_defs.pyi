@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import ApplicationStateType, JobRunStateType
+from .literals import ApplicationStateType, ArchitectureType, JobRunStateType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -88,6 +88,7 @@ _OptionalApplicationSummaryTypeDef = TypedDict(
     {
         "name": str,
         "stateDetails": str,
+        "architecture": ArchitectureType,
     },
     total=False,
 )
@@ -120,6 +121,7 @@ _OptionalApplicationTypeDef = TypedDict(
         "autoStartConfiguration": "AutoStartConfigTypeDef",
         "autoStopConfiguration": "AutoStopConfigTypeDef",
         "networkConfiguration": "NetworkConfigurationTypeDef",
+        "architecture": ArchitectureType,
     },
     total=False,
 )
@@ -206,6 +208,7 @@ _OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
         "autoStartConfiguration": "AutoStartConfigTypeDef",
         "autoStopConfiguration": "AutoStopConfigTypeDef",
         "networkConfiguration": "NetworkConfigurationTypeDef",
+        "architecture": ArchitectureType,
     },
     total=False,
 )
@@ -635,6 +638,7 @@ _OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
         "autoStartConfiguration": "AutoStartConfigTypeDef",
         "autoStopConfiguration": "AutoStopConfigTypeDef",
         "networkConfiguration": "NetworkConfigurationTypeDef",
+        "architecture": ArchitectureType,
     },
     total=False,
 )

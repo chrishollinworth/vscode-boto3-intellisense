@@ -414,6 +414,7 @@ _OptionalCreateDeploymentRequestRequestTypeDef = TypedDict(
         "components": Dict[str, "ComponentDeploymentSpecificationTypeDef"],
         "iotJobConfiguration": "DeploymentIoTJobConfigurationTypeDef",
         "deploymentPolicies": "DeploymentPoliciesTypeDef",
+        "parentTargetArn": str,
         "tags": Dict[str, str],
         "clientToken": str,
     },
@@ -503,6 +504,7 @@ DeploymentTypeDef = TypedDict(
         "creationTimestamp": datetime,
         "deploymentStatus": DeploymentStatusType,
         "isLatestForTarget": bool,
+        "parentTargetArn": str,
     },
     total=False,
 )
@@ -696,6 +698,7 @@ GetDeploymentResponseTypeDef = TypedDict(
         "iotJobConfiguration": "DeploymentIoTJobConfigurationTypeDef",
         "creationTimestamp": datetime,
         "isLatestForTarget": bool,
+        "parentTargetArn": str,
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -992,6 +995,7 @@ ListDeploymentsRequestRequestTypeDef = TypedDict(
     {
         "targetArn": str,
         "historyFilter": DeploymentHistoryFilterType,
+        "parentTargetArn": str,
         "maxResults": int,
         "nextToken": str,
     },

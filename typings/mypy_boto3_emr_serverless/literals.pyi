@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "ApplicationStateType",
+    "ArchitectureType",
     "JobRunStateType",
     "ListApplicationsPaginatorName",
     "ListJobRunsPaginatorName",
@@ -28,6 +29,7 @@ __all__ = (
 ApplicationStateType = Literal[
     "CREATED", "CREATING", "STARTED", "STARTING", "STOPPED", "STOPPING", "TERMINATED"
 ]
+ArchitectureType = Literal["ARM64", "X86_64"]
 JobRunStateType = Literal[
     "CANCELLED", "CANCELLING", "FAILED", "PENDING", "RUNNING", "SCHEDULED", "SUBMITTED", "SUCCESS"
 ]

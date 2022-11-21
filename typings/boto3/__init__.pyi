@@ -46,6 +46,7 @@ from mypy_boto3_chime_sdk_identity.client import ChimeSDKIdentityClient
 from mypy_boto3_chime_sdk_media_pipelines.client import ChimeSDKMediaPipelinesClient
 from mypy_boto3_chime_sdk_meetings.client import ChimeSDKMeetingsClient
 from mypy_boto3_chime_sdk_messaging.client import ChimeSDKMessagingClient
+from mypy_boto3_chime_sdk_voice.client import ChimeSDKVoiceClient
 from mypy_boto3_cloud9.client import Cloud9Client
 from mypy_boto3_cloudcontrol.client import CloudControlApiClient
 from mypy_boto3_clouddirectory.client import CloudDirectoryClient
@@ -158,6 +159,7 @@ from mypy_boto3_iot1click_projects.client import IoT1ClickProjectsClient
 from mypy_boto3_iot.client import IoTClient
 from mypy_boto3_iot_data.client import IoTDataPlaneClient
 from mypy_boto3_iot_jobs_data.client import IoTJobsDataPlaneClient
+from mypy_boto3_iot_roborunner.client import IoTRoboRunnerClient
 from mypy_boto3_iotanalytics.client import IoTAnalyticsClient
 from mypy_boto3_iotdeviceadvisor.client import IoTDeviceAdvisorClient
 from mypy_boto3_iotevents.client import IoTEventsClient
@@ -262,6 +264,7 @@ from mypy_boto3_redshift_data.client import RedshiftDataAPIServiceClient
 from mypy_boto3_redshift_serverless.client import RedshiftServerlessClient
 from mypy_boto3_rekognition.client import RekognitionClient
 from mypy_boto3_resiliencehub.client import ResilienceHubClient
+from mypy_boto3_resource_explorer_2.client import ResourceExplorerClient
 from mypy_boto3_resource_groups.client import ResourceGroupsClient
 from mypy_boto3_resourcegroupstaggingapi.client import ResourceGroupsTaggingAPIClient
 from mypy_boto3_robomaker.client import RoboMakerClient
@@ -283,6 +286,7 @@ from mypy_boto3_sagemaker_edge.client import SagemakerEdgeManagerClient
 from mypy_boto3_sagemaker_featurestore_runtime.client import SageMakerFeatureStoreRuntimeClient
 from mypy_boto3_sagemaker_runtime.client import SageMakerRuntimeClient
 from mypy_boto3_savingsplans.client import SavingsPlansClient
+from mypy_boto3_scheduler.client import EventBridgeSchedulerClient
 from mypy_boto3_schemas.client import SchemasClient
 from mypy_boto3_sdb.client import SimpleDBClient
 from mypy_boto3_secretsmanager.client import SecretsManagerClient
@@ -307,6 +311,7 @@ from mypy_boto3_sqs.service_resource import SQSServiceResource
 from mypy_boto3_ssm.client import SSMClient
 from mypy_boto3_ssm_contacts.client import SSMContactsClient
 from mypy_boto3_ssm_incidents.client import SSMIncidentsClient
+from mypy_boto3_ssm_sap.client import SsmSapClient
 from mypy_boto3_sso.client import SSOClient
 from mypy_boto3_sso_admin.client import SSOAdminClient
 from mypy_boto3_sso_oidc.client import SSOOIDCClient
@@ -893,6 +898,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> ChimeSDKMessagingClient: ...
+@overload
+def client(
+    service_name: Literal["chime-sdk-voice"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ChimeSDKVoiceClient: ...
 @overload
 def client(
     service_name: Literal["cloud9"],
@@ -2247,6 +2265,19 @@ def client(
 ) -> IoTJobsDataPlaneClient: ...
 @overload
 def client(
+    service_name: Literal["iot-roborunner"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> IoTRoboRunnerClient: ...
+@overload
+def client(
     service_name: Literal["iot1click-devices"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3586,6 +3617,19 @@ def client(
 ) -> ResilienceHubClient: ...
 @overload
 def client(
+    service_name: Literal["resource-explorer-2"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ResourceExplorerClient: ...
+@overload
+def client(
     service_name: Literal["resource-groups"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3844,6 +3888,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> SavingsPlansClient: ...
+@overload
+def client(
+    service_name: Literal["scheduler"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> EventBridgeSchedulerClient: ...
 @overload
 def client(
     service_name: Literal["schemas"],
@@ -4130,6 +4187,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> SSMIncidentsClient: ...
+@overload
+def client(
+    service_name: Literal["ssm-sap"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> SsmSapClient: ...
 @overload
 def client(
     service_name: Literal["sso"],

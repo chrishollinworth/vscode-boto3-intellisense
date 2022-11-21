@@ -23,11 +23,15 @@ __all__ = (
     "CertificateTypeType",
     "ClientAuthenticationStatusType",
     "ClientAuthenticationTypeType",
+    "DescribeClientAuthenticationSettingsPaginatorName",
     "DescribeDirectoriesPaginatorName",
     "DescribeDomainControllersPaginatorName",
+    "DescribeLDAPSSettingsPaginatorName",
+    "DescribeRegionsPaginatorName",
     "DescribeSharedDirectoriesPaginatorName",
     "DescribeSnapshotsPaginatorName",
     "DescribeTrustsPaginatorName",
+    "DescribeUpdateDirectoryPaginatorName",
     "DirectoryConfigurationStatusType",
     "DirectoryEditionType",
     "DirectorySizeType",
@@ -37,10 +41,12 @@ __all__ = (
     "IpRouteStatusMsgType",
     "LDAPSStatusType",
     "LDAPSTypeType",
+    "ListCertificatesPaginatorName",
     "ListIpRoutesPaginatorName",
     "ListLogSubscriptionsPaginatorName",
     "ListSchemaExtensionsPaginatorName",
     "ListTagsForResourcePaginatorName",
+    "OSVersionType",
     "RadiusAuthenticationProtocolType",
     "RadiusStatusType",
     "RegionTypeType",
@@ -56,6 +62,8 @@ __all__ = (
     "TrustDirectionType",
     "TrustStateType",
     "TrustTypeType",
+    "UpdateStatusType",
+    "UpdateTypeType",
 )
 
 CertificateStateType = Literal[
@@ -69,11 +77,17 @@ CertificateStateType = Literal[
 CertificateTypeType = Literal["ClientCertAuth", "ClientLDAPS"]
 ClientAuthenticationStatusType = Literal["Disabled", "Enabled"]
 ClientAuthenticationTypeType = Literal["SmartCard", "SmartCardOrPassword"]
+DescribeClientAuthenticationSettingsPaginatorName = Literal[
+    "describe_client_authentication_settings"
+]
 DescribeDirectoriesPaginatorName = Literal["describe_directories"]
 DescribeDomainControllersPaginatorName = Literal["describe_domain_controllers"]
+DescribeLDAPSSettingsPaginatorName = Literal["describe_ldaps_settings"]
+DescribeRegionsPaginatorName = Literal["describe_regions"]
 DescribeSharedDirectoriesPaginatorName = Literal["describe_shared_directories"]
 DescribeSnapshotsPaginatorName = Literal["describe_snapshots"]
 DescribeTrustsPaginatorName = Literal["describe_trusts"]
+DescribeUpdateDirectoryPaginatorName = Literal["describe_update_directory"]
 DirectoryConfigurationStatusType = Literal["Default", "Failed", "Requested", "Updated", "Updating"]
 DirectoryEditionType = Literal["Enterprise", "Standard"]
 DirectorySizeType = Literal["Large", "Small"]
@@ -99,10 +113,12 @@ IpRouteStatusMsgType = Literal[
 ]
 LDAPSStatusType = Literal["Disabled", "EnableFailed", "Enabled", "Enabling"]
 LDAPSTypeType = Literal["Client"]
+ListCertificatesPaginatorName = Literal["list_certificates"]
 ListIpRoutesPaginatorName = Literal["list_ip_routes"]
 ListLogSubscriptionsPaginatorName = Literal["list_log_subscriptions"]
 ListSchemaExtensionsPaginatorName = Literal["list_schema_extensions"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
+OSVersionType = Literal["SERVER_2012", "SERVER_2019"]
 RadiusAuthenticationProtocolType = Literal["CHAP", "MS-CHAPv1", "MS-CHAPv2", "PAP"]
 RadiusStatusType = Literal["Completed", "Creating", "Failed"]
 RegionTypeType = Literal["Additional", "Primary"]
@@ -150,3 +166,5 @@ TrustStateType = Literal[
     "Verifying",
 ]
 TrustTypeType = Literal["External", "Forest"]
+UpdateStatusType = Literal["UpdateFailed", "Updated", "Updating"]
+UpdateTypeType = Literal["OS"]

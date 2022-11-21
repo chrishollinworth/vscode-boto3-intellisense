@@ -22,6 +22,7 @@ Usage::
         DescribeEngineDefaultParametersPaginator,
         DescribeEventSubscriptionsPaginator,
         DescribeEventsPaginator,
+        DescribeGlobalClustersPaginator,
         DescribeOrderableDBInstanceOptionsPaginator,
         DescribePendingMaintenanceActionsPaginator,
         NeptuneClient,
@@ -48,6 +49,7 @@ Usage::
     describe_engine_default_parameters_paginator: DescribeEngineDefaultParametersPaginator = client.get_paginator("describe_engine_default_parameters")
     describe_event_subscriptions_paginator: DescribeEventSubscriptionsPaginator = client.get_paginator("describe_event_subscriptions")
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
+    describe_global_clusters_paginator: DescribeGlobalClustersPaginator = client.get_paginator("describe_global_clusters")
     describe_orderable_db_instance_options_paginator: DescribeOrderableDBInstanceOptionsPaginator = client.get_paginator("describe_orderable_db_instance_options")
     describe_pending_maintenance_actions_paginator: DescribePendingMaintenanceActionsPaginator = client.get_paginator("describe_pending_maintenance_actions")
     ```
@@ -67,6 +69,7 @@ from .paginator import (
     DescribeEngineDefaultParametersPaginator,
     DescribeEventsPaginator,
     DescribeEventSubscriptionsPaginator,
+    DescribeGlobalClustersPaginator,
     DescribeOrderableDBInstanceOptionsPaginator,
     DescribePendingMaintenanceActionsPaginator,
 )
@@ -91,6 +94,7 @@ __all__ = (
     "DescribeEngineDefaultParametersPaginator",
     "DescribeEventSubscriptionsPaginator",
     "DescribeEventsPaginator",
+    "DescribeGlobalClustersPaginator",
     "DescribeOrderableDBInstanceOptionsPaginator",
     "DescribePendingMaintenanceActionsPaginator",
     "NeptuneClient",

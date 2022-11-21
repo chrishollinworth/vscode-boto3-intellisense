@@ -21,6 +21,7 @@ from .literals import (
     FieldTypeType,
     OrderType,
     RelatedItemTypeType,
+    TemplateStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -352,6 +353,7 @@ _OptionalCreateTemplateRequestRequestTypeDef = TypedDict(
         "description": str,
         "layoutConfiguration": "LayoutConfigurationTypeDef",
         "requiredFields": List["RequiredFieldTypeDef"],
+        "status": TemplateStatusType,
     },
     total=False,
 )
@@ -640,6 +642,7 @@ GetTemplateResponseTypeDef = TypedDict(
         "layoutConfiguration": "LayoutConfigurationTypeDef",
         "name": str,
         "requiredFields": List["RequiredFieldTypeDef"],
+        "status": TemplateStatusType,
         "tags": Dict[str, str],
         "templateArn": str,
         "templateId": str,
@@ -844,6 +847,7 @@ _OptionalListTemplatesRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
+        "status": List[TemplateStatusType],
     },
     total=False,
 )
@@ -1068,6 +1072,7 @@ TemplateSummaryTypeDef = TypedDict(
     "TemplateSummaryTypeDef",
     {
         "name": str,
+        "status": TemplateStatusType,
         "templateArn": str,
         "templateId": str,
     },
@@ -1146,6 +1151,7 @@ _OptionalUpdateTemplateRequestRequestTypeDef = TypedDict(
         "layoutConfiguration": "LayoutConfigurationTypeDef",
         "name": str,
         "requiredFields": List["RequiredFieldTypeDef"],
+        "status": TemplateStatusType,
     },
     total=False,
 )

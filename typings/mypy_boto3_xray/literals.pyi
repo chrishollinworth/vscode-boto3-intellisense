@@ -31,6 +31,8 @@ __all__ = (
     "GetTraceSummariesPaginatorName",
     "InsightCategoryType",
     "InsightStateType",
+    "ListResourcePoliciesPaginatorName",
+    "ListTagsForResourcePaginatorName",
     "SamplingStrategyNameType",
     "TimeRangeTypeType",
 )
@@ -47,5 +49,7 @@ GetTraceGraphPaginatorName = Literal["get_trace_graph"]
 GetTraceSummariesPaginatorName = Literal["get_trace_summaries"]
 InsightCategoryType = Literal["FAULT"]
 InsightStateType = Literal["ACTIVE", "CLOSED"]
+ListResourcePoliciesPaginatorName = Literal["list_resource_policies"]
+ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 SamplingStrategyNameType = Literal["FixedRate", "PartialScan"]
 TimeRangeTypeType = Literal["Event", "TraceId"]

@@ -63,7 +63,7 @@ class Exceptions:
 
 class AppConfigClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html)
     """
 
@@ -78,14 +78,14 @@ class AppConfigClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#close)
         """
     def create_application(
@@ -94,7 +94,7 @@ class AppConfigClient(BaseClient):
         """
         Creates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_application)
         """
     def create_configuration_profile(
@@ -113,7 +113,7 @@ class AppConfigClient(BaseClient):
         Creates a configuration profile, which is information that enables AppConfig to
         access the configuration source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.create_configuration_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.create_configuration_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_configuration_profile)
         """
     def create_deployment_strategy(
@@ -132,7 +132,7 @@ class AppConfigClient(BaseClient):
         Creates a deployment strategy that defines important criteria for rolling out
         your configuration to the designated targets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.create_deployment_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.create_deployment_strategy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_deployment_strategy)
         """
     def create_environment(
@@ -147,7 +147,7 @@ class AppConfigClient(BaseClient):
         """
         Creates an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.create_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.create_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_environment)
         """
     def create_extension(
@@ -163,7 +163,7 @@ class AppConfigClient(BaseClient):
         """
         Creates an AppConfig extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.create_extension)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.create_extension)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_extension)
         """
     def create_extension_association(
@@ -180,7 +180,7 @@ class AppConfigClient(BaseClient):
         extension, you associate the extension with an AppConfig application,
         environment, or configuration profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.create_extension_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.create_extension_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_extension_association)
         """
     def create_hosted_configuration_version(
@@ -196,14 +196,14 @@ class AppConfigClient(BaseClient):
         """
         Creates a new configuration in the AppConfig hosted configuration store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.create_hosted_configuration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.create_hosted_configuration_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_hosted_configuration_version)
         """
     def delete_application(self, *, ApplicationId: str) -> None:
         """
         Deletes an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_application)
         """
     def delete_configuration_profile(
@@ -212,35 +212,35 @@ class AppConfigClient(BaseClient):
         """
         Deletes a configuration profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.delete_configuration_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.delete_configuration_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_configuration_profile)
         """
     def delete_deployment_strategy(self, *, DeploymentStrategyId: str) -> None:
         """
         Deletes a deployment strategy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.delete_deployment_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.delete_deployment_strategy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_deployment_strategy)
         """
     def delete_environment(self, *, ApplicationId: str, EnvironmentId: str) -> None:
         """
         Deletes an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.delete_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_environment)
         """
     def delete_extension(self, *, ExtensionIdentifier: str, VersionNumber: int = None) -> None:
         """
         Deletes an AppConfig extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.delete_extension)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.delete_extension)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_extension)
         """
     def delete_extension_association(self, *, ExtensionAssociationId: str) -> None:
         """
         Deletes an extension association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.delete_extension_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.delete_extension_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_extension_association)
         """
     def delete_hosted_configuration_version(
@@ -250,7 +250,7 @@ class AppConfigClient(BaseClient):
         Deletes a version of a configuration from the AppConfig hosted configuration
         store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.delete_hosted_configuration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.delete_hosted_configuration_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_hosted_configuration_version)
         """
     def generate_presigned_url(
@@ -263,14 +263,14 @@ class AppConfigClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#generate_presigned_url)
         """
     def get_application(self, *, ApplicationId: str) -> ApplicationResponseMetadataTypeDef:
         """
         Retrieves information about an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_application)
         """
     def get_configuration(
@@ -285,7 +285,7 @@ class AppConfigClient(BaseClient):
         """
         Retrieves the latest deployed configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_configuration)
         """
     def get_configuration_profile(
@@ -294,7 +294,7 @@ class AppConfigClient(BaseClient):
         """
         Retrieves information about a configuration profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_configuration_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_configuration_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_configuration_profile)
         """
     def get_deployment(
@@ -303,7 +303,7 @@ class AppConfigClient(BaseClient):
         """
         Retrieves information about a configuration deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_deployment)
         """
     def get_deployment_strategy(
@@ -312,7 +312,7 @@ class AppConfigClient(BaseClient):
         """
         Retrieves information about a deployment strategy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_deployment_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_deployment_strategy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_deployment_strategy)
         """
     def get_environment(
@@ -321,7 +321,7 @@ class AppConfigClient(BaseClient):
         """
         Retrieves information about an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_environment)
         """
     def get_extension(
@@ -330,7 +330,7 @@ class AppConfigClient(BaseClient):
         """
         Returns information about an AppConfig extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_extension)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_extension)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_extension)
         """
     def get_extension_association(
@@ -339,7 +339,7 @@ class AppConfigClient(BaseClient):
         """
         Returns information about an AppConfig extension association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_extension_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_extension_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_extension_association)
         """
     def get_hosted_configuration_version(
@@ -348,7 +348,7 @@ class AppConfigClient(BaseClient):
         """
         Retrieves information about a specific configuration version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.get_hosted_configuration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.get_hosted_configuration_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_hosted_configuration_version)
         """
     def list_applications(
@@ -357,7 +357,7 @@ class AppConfigClient(BaseClient):
         """
         Lists all applications in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_applications)
         """
     def list_configuration_profiles(
@@ -366,7 +366,7 @@ class AppConfigClient(BaseClient):
         """
         Lists the configuration profiles for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_configuration_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_configuration_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_configuration_profiles)
         """
     def list_deployment_strategies(
@@ -375,7 +375,7 @@ class AppConfigClient(BaseClient):
         """
         Lists deployment strategies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_deployment_strategies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_deployment_strategies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_deployment_strategies)
         """
     def list_deployments(
@@ -389,7 +389,7 @@ class AppConfigClient(BaseClient):
         """
         Lists the deployments for an environment in descending deployment number order.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_deployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_deployments)
         """
     def list_environments(
@@ -398,7 +398,7 @@ class AppConfigClient(BaseClient):
         """
         Lists the environments for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_environments)
         """
     def list_extension_associations(
@@ -413,7 +413,7 @@ class AppConfigClient(BaseClient):
         """
         Lists all AppConfig extension associations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_extension_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_extension_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_extension_associations)
         """
     def list_extensions(
@@ -423,7 +423,7 @@ class AppConfigClient(BaseClient):
         Lists all custom and Amazon Web Services-authored AppConfig extensions in the
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_extensions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_extensions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_extensions)
         """
     def list_hosted_configuration_versions(
@@ -438,14 +438,14 @@ class AppConfigClient(BaseClient):
         Lists configurations stored in the AppConfig hosted configuration store by
         version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_hosted_configuration_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_hosted_configuration_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_hosted_configuration_versions)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ResourceTagsTypeDef:
         """
         Retrieves the list of key-value tags assigned to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_tags_for_resource)
         """
     def start_deployment(
@@ -462,7 +462,7 @@ class AppConfigClient(BaseClient):
         """
         Starts a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.start_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.start_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#start_deployment)
         """
     def stop_deployment(
@@ -471,21 +471,21 @@ class AppConfigClient(BaseClient):
         """
         Stops a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.stop_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.stop_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#stop_deployment)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
         """
         Assigns metadata to an AppConfig resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
         """
         Deletes a tag key and value from an AppConfig resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#untag_resource)
         """
     def update_application(
@@ -494,7 +494,7 @@ class AppConfigClient(BaseClient):
         """
         Updates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_application)
         """
     def update_configuration_profile(
@@ -510,7 +510,7 @@ class AppConfigClient(BaseClient):
         """
         Updates a configuration profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.update_configuration_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.update_configuration_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_configuration_profile)
         """
     def update_deployment_strategy(
@@ -526,7 +526,7 @@ class AppConfigClient(BaseClient):
         """
         Updates a deployment strategy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.update_deployment_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.update_deployment_strategy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_deployment_strategy)
         """
     def update_environment(
@@ -541,7 +541,7 @@ class AppConfigClient(BaseClient):
         """
         Updates an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.update_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_environment)
         """
     def update_extension(
@@ -556,7 +556,7 @@ class AppConfigClient(BaseClient):
         """
         Updates an AppConfig extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.update_extension)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.update_extension)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_extension)
         """
     def update_extension_association(
@@ -565,7 +565,7 @@ class AppConfigClient(BaseClient):
         """
         Updates an association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.update_extension_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.update_extension_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_extension_association)
         """
     def validate_configuration(
@@ -574,6 +574,6 @@ class AppConfigClient(BaseClient):
         """
         Uses the validators in a configuration profile to validate a configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/appconfig.html#AppConfig.Client.validate_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/appconfig.html#AppConfig.Client.validate_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#validate_configuration)
         """

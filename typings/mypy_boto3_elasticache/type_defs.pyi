@@ -24,10 +24,13 @@ from .literals import (
     ChangeTypeType,
     DataTieringStatusType,
     DestinationTypeType,
+    InputAuthenticationTypeType,
+    IpDiscoveryType,
     LogDeliveryConfigurationStatusType,
     LogFormatType,
     LogTypeType,
     MultiAZStatusType,
+    NetworkTypeType,
     NodeUpdateInitiatedByType,
     NodeUpdateStatusType,
     OutpostModeType,
@@ -51,6 +54,7 @@ else:
 __all__ = (
     "AddTagsToResourceMessageRequestTypeDef",
     "AllowedNodeTypeModificationsMessageTypeDef",
+    "AuthenticationModeTypeDef",
     "AuthenticationTypeDef",
     "AuthorizeCacheSecurityGroupIngressMessageRequestTypeDef",
     "AuthorizeCacheSecurityGroupIngressResultTypeDef",
@@ -253,6 +257,15 @@ AllowedNodeTypeModificationsMessageTypeDef = TypedDict(
     },
 )
 
+AuthenticationModeTypeDef = TypedDict(
+    "AuthenticationModeTypeDef",
+    {
+        "Type": InputAuthenticationTypeType,
+        "Passwords": List[str],
+    },
+    total=False,
+)
+
 AuthenticationTypeDef = TypedDict(
     "AuthenticationTypeDef",
     {
@@ -371,6 +384,8 @@ CacheClusterTypeDef = TypedDict(
         "ARN": str,
         "ReplicationGroupLogDeliveryEnabled": bool,
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationTypeDef"],
+        "NetworkType": NetworkTypeType,
+        "IpDiscovery": IpDiscoveryType,
     },
     total=False,
 )
@@ -547,6 +562,7 @@ CacheSubnetGroupTypeDef = TypedDict(
         "VpcId": str,
         "Subnets": List["SubnetTypeDef"],
         "ARN": str,
+        "SupportedNetworkTypes": List[NetworkTypeType],
     },
     total=False,
 )
@@ -671,6 +687,8 @@ _OptionalCreateCacheClusterMessageRequestTypeDef = TypedDict(
         "PreferredOutpostArns": List[str],
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
         "TransitEncryptionEnabled": bool,
+        "NetworkType": NetworkTypeType,
+        "IpDiscovery": IpDiscoveryType,
     },
     total=False,
 )
@@ -849,6 +867,8 @@ _OptionalCreateReplicationGroupMessageRequestTypeDef = TypedDict(
         "UserGroupIds": List[str],
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
         "DataTieringEnabled": bool,
+        "NetworkType": NetworkTypeType,
+        "IpDiscovery": IpDiscoveryType,
     },
     total=False,
 )
@@ -933,6 +953,7 @@ _OptionalCreateUserMessageRequestTypeDef = TypedDict(
         "Passwords": List[str],
         "NoPasswordRequired": bool,
         "Tags": List["TagTypeDef"],
+        "AuthenticationMode": "AuthenticationModeTypeDef",
     },
     total=False,
 )
@@ -1694,6 +1715,7 @@ _OptionalModifyCacheClusterMessageRequestTypeDef = TypedDict(
         "AuthToken": str,
         "AuthTokenUpdateStrategy": AuthTokenUpdateStrategyTypeType,
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
+        "IpDiscovery": IpDiscoveryType,
     },
     total=False,
 )
@@ -1815,6 +1837,7 @@ _OptionalModifyReplicationGroupMessageRequestTypeDef = TypedDict(
         "UserGroupIdsToRemove": List[str],
         "RemoveUserGroups": bool,
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
+        "IpDiscovery": IpDiscoveryType,
     },
     total=False,
 )
@@ -1898,6 +1921,7 @@ _OptionalModifyUserMessageRequestTypeDef = TypedDict(
         "AppendAccessString": str,
         "Passwords": List[str],
         "NoPasswordRequired": bool,
+        "AuthenticationMode": "AuthenticationModeTypeDef",
     },
     total=False,
 )
@@ -2205,6 +2229,8 @@ ReplicationGroupTypeDef = TypedDict(
         "ReplicationGroupCreateTime": datetime,
         "DataTiering": DataTieringStatusType,
         "AutoMinorVersionUpgrade": bool,
+        "NetworkType": NetworkTypeType,
+        "IpDiscovery": IpDiscoveryType,
     },
     total=False,
 )
@@ -2438,6 +2464,7 @@ SubnetTypeDef = TypedDict(
         "SubnetIdentifier": str,
         "SubnetAvailabilityZone": "AvailabilityZoneTypeDef",
         "SubnetOutpost": "SubnetOutpostTypeDef",
+        "SupportedNetworkTypes": List[NetworkTypeType],
     },
     total=False,
 )

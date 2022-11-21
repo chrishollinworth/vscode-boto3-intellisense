@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AccessTypeType,
     ChannelStateType,
+    MessageTypeType,
     ModeType,
     OriginManifestTypeType,
     PlaybackModeType,
@@ -130,12 +131,14 @@ __all__ = (
     "ScheduleEntryTypeDef",
     "SecretsManagerAccessTokenConfigurationTypeDef",
     "SegmentDeliveryConfigurationTypeDef",
+    "SegmentationDescriptorTypeDef",
     "SlateSourceTypeDef",
     "SourceLocationTypeDef",
     "SpliceInsertMessageTypeDef",
     "StartChannelRequestRequestTypeDef",
     "StopChannelRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TimeSignalMessageTypeDef",
     "TransitionTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateChannelRequestRequestTypeDef",
@@ -161,10 +164,11 @@ AccessConfigurationTypeDef = TypedDict(
 AdBreakTypeDef = TypedDict(
     "AdBreakTypeDef",
     {
-        "MessageType": Literal["SPLICE_INSERT"],
+        "MessageType": MessageTypeType,
         "OffsetMillis": int,
         "Slate": "SlateSourceTypeDef",
         "SpliceInsertMessage": "SpliceInsertMessageTypeDef",
+        "TimeSignalMessage": "TimeSignalMessageTypeDef",
     },
     total=False,
 )
@@ -1174,8 +1178,14 @@ PutChannelPolicyRequestRequestTypeDef = TypedDict(
     },
 )
 
-PutPlaybackConfigurationRequestRequestTypeDef = TypedDict(
-    "PutPlaybackConfigurationRequestRequestTypeDef",
+_RequiredPutPlaybackConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutPlaybackConfigurationRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalPutPlaybackConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutPlaybackConfigurationRequestRequestTypeDef",
     {
         "AdDecisionServerUrl": str,
         "AvailSuppression": "AvailSuppressionTypeDef",
@@ -1185,7 +1195,6 @@ PutPlaybackConfigurationRequestRequestTypeDef = TypedDict(
         "DashConfiguration": "DashConfigurationForPutTypeDef",
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
         "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
-        "Name": str,
         "PersonalizationThresholdSeconds": int,
         "SlateAdUrl": str,
         "Tags": Dict[str, str],
@@ -1194,6 +1203,12 @@ PutPlaybackConfigurationRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
+
+class PutPlaybackConfigurationRequestRequestTypeDef(
+    _RequiredPutPlaybackConfigurationRequestRequestTypeDef,
+    _OptionalPutPlaybackConfigurationRequestRequestTypeDef,
+):
+    pass
 
 PutPlaybackConfigurationResponseTypeDef = TypedDict(
     "PutPlaybackConfigurationResponseTypeDef",
@@ -1337,6 +1352,21 @@ SegmentDeliveryConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+SegmentationDescriptorTypeDef = TypedDict(
+    "SegmentationDescriptorTypeDef",
+    {
+        "SegmentNum": int,
+        "SegmentationEventId": int,
+        "SegmentationTypeId": int,
+        "SegmentationUpid": str,
+        "SegmentationUpidType": int,
+        "SegmentsExpected": int,
+        "SubSegmentNum": int,
+        "SubSegmentsExpected": int,
+    },
+    total=False,
+)
+
 SlateSourceTypeDef = TypedDict(
     "SlateSourceTypeDef",
     {
@@ -1401,6 +1431,14 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "ResourceArn": str,
         "Tags": Dict[str, str],
     },
+)
+
+TimeSignalMessageTypeDef = TypedDict(
+    "TimeSignalMessageTypeDef",
+    {
+        "SegmentationDescriptors": List["SegmentationDescriptorTypeDef"],
+    },
+    total=False,
 )
 
 _RequiredTransitionTypeDef = TypedDict(

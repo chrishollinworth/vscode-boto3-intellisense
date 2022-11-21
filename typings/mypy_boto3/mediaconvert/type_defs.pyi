@@ -1098,6 +1098,7 @@ ColorCorrectorTypeDef = TypedDict(
         "Hue": int,
         "SampleRangeConversion": SampleRangeConversionType,
         "Saturation": int,
+        "SdrReferenceWhiteLevel": int,
     },
     total=False,
 )
@@ -1725,6 +1726,7 @@ H264SettingsTypeDef = TypedDict(
         "GopClosedCadence": int,
         "GopSize": float,
         "GopSizeUnits": H264GopSizeUnitsType,
+        "HrdBufferFinalFillPercentage": int,
         "HrdBufferInitialFillPercentage": int,
         "HrdBufferSize": int,
         "InterlaceMode": H264InterlaceModeType,
@@ -1781,6 +1783,7 @@ H265SettingsTypeDef = TypedDict(
         "GopClosedCadence": int,
         "GopSize": float,
         "GopSizeUnits": H265GopSizeUnitsType,
+        "HrdBufferFinalFillPercentage": int,
         "HrdBufferInitialFillPercentage": int,
         "HrdBufferSize": int,
         "InterlaceMode": H265InterlaceModeType,
@@ -1970,6 +1973,7 @@ ImageInserterTypeDef = TypedDict(
     "ImageInserterTypeDef",
     {
         "InsertableImages": List["InsertableImageTypeDef"],
+        "SdrReferenceWhiteLevel": int,
     },
     total=False,
 )
@@ -2521,6 +2525,7 @@ Mpeg2SettingsTypeDef = TypedDict(
         "GopClosedCadence": int,
         "GopSize": float,
         "GopSizeUnits": Mpeg2GopSizeUnitsType,
+        "HrdBufferFinalFillPercentage": int,
         "HrdBufferInitialFillPercentage": int,
         "HrdBufferSize": int,
         "InterlaceMode": Mpeg2InterlaceModeType,

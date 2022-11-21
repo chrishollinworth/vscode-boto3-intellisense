@@ -6,9 +6,9 @@ Type annotations for wafv2 service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_wafv2.type_defs import ActionConditionTypeDef
+    from mypy_boto3_wafv2.type_defs import AWSManagedRulesBotControlRuleSetTypeDef
 
-    data: ActionConditionTypeDef = {...}
+    data: AWSManagedRulesBotControlRuleSetTypeDef = {...}
     ```
 """
 import sys
@@ -27,6 +27,7 @@ from .literals import (
     FilterBehaviorType,
     FilterRequirementType,
     ForwardedIPPositionType,
+    InspectionLevelType,
     IPAddressVersionType,
     JsonMatchScopeType,
     LabelMatchScopeType,
@@ -49,6 +50,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AWSManagedRulesBotControlRuleSetTypeDef",
     "ActionConditionTypeDef",
     "AllowActionTypeDef",
     "AndStatementTypeDef",
@@ -59,6 +61,9 @@ __all__ = (
     "CaptchaActionTypeDef",
     "CaptchaConfigTypeDef",
     "CaptchaResponseTypeDef",
+    "ChallengeActionTypeDef",
+    "ChallengeConfigTypeDef",
+    "ChallengeResponseTypeDef",
     "CheckCapacityRequestRequestTypeDef",
     "CheckCapacityResponseTypeDef",
     "ConditionTypeDef",
@@ -185,6 +190,7 @@ __all__ = (
     "RegexTypeDef",
     "ReleaseSummaryTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleActionOverrideTypeDef",
     "RuleActionTypeDef",
     "RuleGroupReferenceStatementTypeDef",
     "RuleGroupSummaryTypeDef",
@@ -219,6 +225,13 @@ __all__ = (
     "WebACLSummaryTypeDef",
     "WebACLTypeDef",
     "XssMatchStatementTypeDef",
+)
+
+AWSManagedRulesBotControlRuleSetTypeDef = TypedDict(
+    "AWSManagedRulesBotControlRuleSetTypeDef",
+    {
+        "InspectionLevel": InspectionLevelType,
+    },
 )
 
 ActionConditionTypeDef = TypedDict(
@@ -295,6 +308,32 @@ CaptchaConfigTypeDef = TypedDict(
 
 CaptchaResponseTypeDef = TypedDict(
     "CaptchaResponseTypeDef",
+    {
+        "ResponseCode": int,
+        "SolveTimestamp": int,
+        "FailureReason": FailureReasonType,
+    },
+    total=False,
+)
+
+ChallengeActionTypeDef = TypedDict(
+    "ChallengeActionTypeDef",
+    {
+        "CustomRequestHandling": "CustomRequestHandlingTypeDef",
+    },
+    total=False,
+)
+
+ChallengeConfigTypeDef = TypedDict(
+    "ChallengeConfigTypeDef",
+    {
+        "ImmunityTimeProperty": "ImmunityTimePropertyTypeDef",
+    },
+    total=False,
+)
+
+ChallengeResponseTypeDef = TypedDict(
+    "ChallengeResponseTypeDef",
     {
         "ResponseCode": int,
         "SolveTimestamp": int,
@@ -467,6 +506,8 @@ _OptionalCreateWebACLRequestRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "CustomResponseBodies": Dict[str, "CustomResponseBodyTypeDef"],
         "CaptchaConfig": "CaptchaConfigTypeDef",
+        "ChallengeConfig": "ChallengeConfigTypeDef",
+        "TokenDomains": List[str],
     },
     total=False,
 )
@@ -1472,6 +1513,7 @@ ManagedRuleGroupConfigTypeDef = TypedDict(
         "PayloadType": PayloadTypeType,
         "UsernameField": "UsernameFieldTypeDef",
         "PasswordField": "PasswordFieldTypeDef",
+        "AWSManagedRulesBotControlRuleSet": "AWSManagedRulesBotControlRuleSetTypeDef",
     },
     total=False,
 )
@@ -1488,8 +1530,9 @@ _OptionalManagedRuleGroupStatementTypeDef = TypedDict(
     {
         "Version": str,
         "ExcludedRules": List["ExcludedRuleTypeDef"],
-        "ScopeDownStatement": Dict[str, Any],
+        "ScopeDownStatement": "StatementTypeDef",
         "ManagedRuleGroupConfigs": List["ManagedRuleGroupConfigTypeDef"],
+        "RuleActionOverrides": List["RuleActionOverrideTypeDef"],
     },
     total=False,
 )
@@ -1581,7 +1624,7 @@ MobileSdkReleaseTypeDef = TypedDict(
 NotStatementTypeDef = TypedDict(
     "NotStatementTypeDef",
     {
-        "Statement": "StatementTypeDef",
+        "Statement": Dict[str, Any],
     },
 )
 
@@ -1763,6 +1806,14 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RuleActionOverrideTypeDef = TypedDict(
+    "RuleActionOverrideTypeDef",
+    {
+        "Name": str,
+        "ActionToUse": "RuleActionTypeDef",
+    },
+)
+
 RuleActionTypeDef = TypedDict(
     "RuleActionTypeDef",
     {
@@ -1770,6 +1821,7 @@ RuleActionTypeDef = TypedDict(
         "Allow": "AllowActionTypeDef",
         "Count": "CountActionTypeDef",
         "Captcha": "CaptchaActionTypeDef",
+        "Challenge": "ChallengeActionTypeDef",
     },
     total=False,
 )
@@ -1784,6 +1836,7 @@ _OptionalRuleGroupReferenceStatementTypeDef = TypedDict(
     "_OptionalRuleGroupReferenceStatementTypeDef",
     {
         "ExcludedRules": List["ExcludedRuleTypeDef"],
+        "RuleActionOverrides": List["RuleActionOverrideTypeDef"],
     },
     total=False,
 )
@@ -1856,6 +1909,7 @@ _OptionalRuleTypeDef = TypedDict(
         "OverrideAction": "OverrideActionTypeDef",
         "RuleLabels": List["LabelTypeDef"],
         "CaptchaConfig": "CaptchaConfigTypeDef",
+        "ChallengeConfig": "ChallengeConfigTypeDef",
     },
     total=False,
 )
@@ -1880,6 +1934,8 @@ _OptionalSampledHTTPRequestTypeDef = TypedDict(
         "ResponseCodeSent": int,
         "Labels": List["LabelTypeDef"],
         "CaptchaResponse": "CaptchaResponseTypeDef",
+        "ChallengeResponse": "ChallengeResponseTypeDef",
+        "OverriddenAction": str,
     },
     total=False,
 )
@@ -2140,6 +2196,8 @@ _OptionalUpdateWebACLRequestRequestTypeDef = TypedDict(
         "Rules": List["RuleTypeDef"],
         "CustomResponseBodies": Dict[str, "CustomResponseBodyTypeDef"],
         "CaptchaConfig": "CaptchaConfigTypeDef",
+        "ChallengeConfig": "ChallengeConfigTypeDef",
+        "TokenDomains": List[str],
     },
     total=False,
 )
@@ -2216,6 +2274,8 @@ _OptionalWebACLTypeDef = TypedDict(
         "LabelNamespace": str,
         "CustomResponseBodies": Dict[str, "CustomResponseBodyTypeDef"],
         "CaptchaConfig": "CaptchaConfigTypeDef",
+        "ChallengeConfig": "ChallengeConfigTypeDef",
+        "TokenDomains": List[str],
     },
     total=False,
 )

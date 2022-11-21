@@ -22,6 +22,8 @@ Usage::
         QuickSightClient,
         SearchAnalysesPaginator,
         SearchDashboardsPaginator,
+        SearchDataSetsPaginator,
+        SearchDataSourcesPaginator,
     )
 
     session = boto3.Session()
@@ -43,6 +45,8 @@ Usage::
     list_themes_paginator: ListThemesPaginator = client.get_paginator("list_themes")
     search_analyses_paginator: SearchAnalysesPaginator = client.get_paginator("search_analyses")
     search_dashboards_paginator: SearchDashboardsPaginator = client.get_paginator("search_dashboards")
+    search_data_sets_paginator: SearchDataSetsPaginator = client.get_paginator("search_data_sets")
+    search_data_sources_paginator: SearchDataSourcesPaginator = client.get_paginator("search_data_sources")
     ```
 """
 from .client import QuickSightClient
@@ -61,6 +65,8 @@ from .paginator import (
     ListThemeVersionsPaginator,
     SearchAnalysesPaginator,
     SearchDashboardsPaginator,
+    SearchDataSetsPaginator,
+    SearchDataSourcesPaginator,
 )
 
 Client = QuickSightClient
@@ -82,4 +88,6 @@ __all__ = (
     "QuickSightClient",
     "SearchAnalysesPaginator",
     "SearchDashboardsPaginator",
+    "SearchDataSetsPaginator",
+    "SearchDataSourcesPaginator",
 )

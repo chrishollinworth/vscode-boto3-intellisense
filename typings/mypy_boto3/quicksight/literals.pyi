@@ -29,8 +29,10 @@ __all__ = (
     "DashboardErrorTypeType",
     "DashboardFilterAttributeType",
     "DashboardUIStateType",
+    "DataSetFilterAttributeType",
     "DataSetImportModeType",
     "DataSourceErrorInfoTypeType",
+    "DataSourceFilterAttributeType",
     "DataSourceTypeType",
     "EditionType",
     "EmbeddingIdentityTypeType",
@@ -71,6 +73,8 @@ __all__ = (
     "RowLevelPermissionPolicyType",
     "SearchAnalysesPaginatorName",
     "SearchDashboardsPaginatorName",
+    "SearchDataSetsPaginatorName",
+    "SearchDataSourcesPaginatorName",
     "StatusType",
     "TemplateErrorTypeType",
     "TextQualifierType",
@@ -91,7 +95,15 @@ AnalysisErrorTypeType = Literal[
     "PARAMETER_VALUE_INCOMPATIBLE",
     "SOURCE_NOT_FOUND",
 ]
-AnalysisFilterAttributeType = Literal["QUICKSIGHT_USER"]
+AnalysisFilterAttributeType = Literal[
+    "ANALYSIS_NAME",
+    "DIRECT_QUICKSIGHT_OWNER",
+    "DIRECT_QUICKSIGHT_SOLE_OWNER",
+    "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+    "QUICKSIGHT_OWNER",
+    "QUICKSIGHT_USER",
+    "QUICKSIGHT_VIEWER_OR_OWNER",
+]
 AssignmentStatusType = Literal["DISABLED", "DRAFT", "ENABLED"]
 AuthenticationMethodOptionType = Literal["ACTIVE_DIRECTORY", "IAM_AND_QUICKSIGHT", "IAM_ONLY"]
 ColumnDataTypeType = Literal["DATETIME", "DECIMAL", "INTEGER", "STRING"]
@@ -109,8 +121,24 @@ DashboardErrorTypeType = Literal[
     "PARAMETER_VALUE_INCOMPATIBLE",
     "SOURCE_NOT_FOUND",
 ]
-DashboardFilterAttributeType = Literal["QUICKSIGHT_USER"]
+DashboardFilterAttributeType = Literal[
+    "DASHBOARD_NAME",
+    "DIRECT_QUICKSIGHT_OWNER",
+    "DIRECT_QUICKSIGHT_SOLE_OWNER",
+    "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+    "QUICKSIGHT_OWNER",
+    "QUICKSIGHT_USER",
+    "QUICKSIGHT_VIEWER_OR_OWNER",
+]
 DashboardUIStateType = Literal["COLLAPSED", "EXPANDED"]
+DataSetFilterAttributeType = Literal[
+    "DATASET_NAME",
+    "DIRECT_QUICKSIGHT_OWNER",
+    "DIRECT_QUICKSIGHT_SOLE_OWNER",
+    "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+    "QUICKSIGHT_OWNER",
+    "QUICKSIGHT_VIEWER_OR_OWNER",
+]
 DataSetImportModeType = Literal["DIRECT_QUERY", "SPICE"]
 DataSourceErrorInfoTypeType = Literal[
     "ACCESS_DENIED",
@@ -122,6 +150,12 @@ DataSourceErrorInfoTypeType = Literal[
     "UNKNOWN",
     "UNKNOWN_HOST",
 ]
+DataSourceFilterAttributeType = Literal[
+    "DATASOURCE_NAME",
+    "DIRECT_QUICKSIGHT_OWNER",
+    "DIRECT_QUICKSIGHT_SOLE_OWNER",
+    "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+]
 DataSourceTypeType = Literal[
     "ADOBE_ANALYTICS",
     "AMAZON_ELASTICSEARCH",
@@ -130,6 +164,7 @@ DataSourceTypeType = Literal[
     "AURORA",
     "AURORA_POSTGRESQL",
     "AWS_IOT_ANALYTICS",
+    "DATABRICKS",
     "EXASOL",
     "GITHUB",
     "JIRA",
@@ -152,8 +187,16 @@ DataSourceTypeType = Literal[
 EditionType = Literal["ENTERPRISE", "ENTERPRISE_AND_Q", "STANDARD"]
 EmbeddingIdentityTypeType = Literal["ANONYMOUS", "IAM", "QUICKSIGHT"]
 FileFormatType = Literal["CLF", "CSV", "ELF", "JSON", "TSV", "XLSX"]
-FilterOperatorType = Literal["StringEquals"]
-FolderFilterAttributeType = Literal["PARENT_FOLDER_ARN"]
+FilterOperatorType = Literal["StringEquals", "StringLike"]
+FolderFilterAttributeType = Literal[
+    "DIRECT_QUICKSIGHT_OWNER",
+    "DIRECT_QUICKSIGHT_SOLE_OWNER",
+    "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+    "FOLDER_NAME",
+    "PARENT_FOLDER_ARN",
+    "QUICKSIGHT_OWNER",
+    "QUICKSIGHT_VIEWER_OR_OWNER",
+]
 FolderTypeType = Literal["SHARED"]
 GeoSpatialCountryCodeType = Literal["US"]
 GeoSpatialDataRoleType = Literal[
@@ -251,6 +294,8 @@ RowLevelPermissionFormatVersionType = Literal["VERSION_1", "VERSION_2"]
 RowLevelPermissionPolicyType = Literal["DENY_ACCESS", "GRANT_ACCESS"]
 SearchAnalysesPaginatorName = Literal["search_analyses"]
 SearchDashboardsPaginatorName = Literal["search_dashboards"]
+SearchDataSetsPaginatorName = Literal["search_data_sets"]
+SearchDataSourcesPaginatorName = Literal["search_data_sources"]
 StatusType = Literal["DISABLED", "ENABLED"]
 TemplateErrorTypeType = Literal[
     "ACCESS_DENIED", "DATA_SET_NOT_FOUND", "INTERNAL_FAILURE", "SOURCE_NOT_FOUND"

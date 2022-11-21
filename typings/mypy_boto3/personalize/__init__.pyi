@@ -16,6 +16,8 @@ Usage::
         ListDatasetsPaginator,
         ListEventTrackersPaginator,
         ListFiltersPaginator,
+        ListMetricAttributionMetricsPaginator,
+        ListMetricAttributionsPaginator,
         ListRecipesPaginator,
         ListRecommendersPaginator,
         ListSchemasPaginator,
@@ -38,6 +40,8 @@ Usage::
     list_datasets_paginator: ListDatasetsPaginator = client.get_paginator("list_datasets")
     list_event_trackers_paginator: ListEventTrackersPaginator = client.get_paginator("list_event_trackers")
     list_filters_paginator: ListFiltersPaginator = client.get_paginator("list_filters")
+    list_metric_attribution_metrics_paginator: ListMetricAttributionMetricsPaginator = client.get_paginator("list_metric_attribution_metrics")
+    list_metric_attributions_paginator: ListMetricAttributionsPaginator = client.get_paginator("list_metric_attributions")
     list_recipes_paginator: ListRecipesPaginator = client.get_paginator("list_recipes")
     list_recommenders_paginator: ListRecommendersPaginator = client.get_paginator("list_recommenders")
     list_schemas_paginator: ListSchemasPaginator = client.get_paginator("list_schemas")
@@ -56,6 +60,8 @@ from .paginator import (
     ListDatasetsPaginator,
     ListEventTrackersPaginator,
     ListFiltersPaginator,
+    ListMetricAttributionMetricsPaginator,
+    ListMetricAttributionsPaginator,
     ListRecipesPaginator,
     ListRecommendersPaginator,
     ListSchemasPaginator,
@@ -76,6 +82,8 @@ __all__ = (
     "ListDatasetsPaginator",
     "ListEventTrackersPaginator",
     "ListFiltersPaginator",
+    "ListMetricAttributionMetricsPaginator",
+    "ListMetricAttributionsPaginator",
     "ListRecipesPaginator",
     "ListRecommendersPaginator",
     "ListSchemasPaginator",

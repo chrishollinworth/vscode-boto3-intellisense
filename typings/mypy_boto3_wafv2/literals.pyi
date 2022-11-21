@@ -29,6 +29,7 @@ __all__ = (
     "FilterRequirementType",
     "ForwardedIPPositionType",
     "IPAddressVersionType",
+    "InspectionLevelType",
     "JsonMatchScopeType",
     "LabelMatchScopeType",
     "MapMatchScopeType",
@@ -44,7 +45,7 @@ __all__ = (
     "TextTransformationTypeType",
 )
 
-ActionValueType = Literal["ALLOW", "BLOCK", "CAPTCHA", "COUNT", "EXCLUDED_AS_COUNT"]
+ActionValueType = Literal["ALLOW", "BLOCK", "CAPTCHA", "CHALLENGE", "COUNT", "EXCLUDED_AS_COUNT"]
 BodyParsingFallbackBehaviorType = Literal["EVALUATE_AS_STRING", "MATCH", "NO_MATCH"]
 ComparisonOperatorType = Literal["EQ", "GE", "GT", "LE", "LT", "NE"]
 CountryCodeType = Literal[
@@ -299,12 +300,15 @@ CountryCodeType = Literal[
     "ZM",
     "ZW",
 ]
-FailureReasonType = Literal["TOKEN_EXPIRED", "TOKEN_MISSING"]
+FailureReasonType = Literal[
+    "TOKEN_DOMAIN_MISMATCH", "TOKEN_EXPIRED", "TOKEN_INVALID", "TOKEN_MISSING"
+]
 FallbackBehaviorType = Literal["MATCH", "NO_MATCH"]
 FilterBehaviorType = Literal["DROP", "KEEP"]
 FilterRequirementType = Literal["MEETS_ALL", "MEETS_ANY"]
 ForwardedIPPositionType = Literal["ANY", "FIRST", "LAST"]
 IPAddressVersionType = Literal["IPV4", "IPV6"]
+InspectionLevelType = Literal["COMMON", "TARGETED"]
 JsonMatchScopeType = Literal["ALL", "KEY", "VALUE"]
 LabelMatchScopeType = Literal["LABEL", "NAMESPACE"]
 MapMatchScopeType = Literal["ALL", "KEY", "VALUE"]

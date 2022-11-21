@@ -40,6 +40,8 @@ __all__ = (
     "AcceleratorTypeDef",
     "AddCustomRoutingEndpointsRequestRequestTypeDef",
     "AddCustomRoutingEndpointsResponseTypeDef",
+    "AddEndpointsRequestRequestTypeDef",
+    "AddEndpointsResponseTypeDef",
     "AdvertiseByoipCidrRequestRequestTypeDef",
     "AdvertiseByoipCidrResponseTypeDef",
     "AllowCustomRoutingTrafficRequestRequestTypeDef",
@@ -95,6 +97,7 @@ __all__ = (
     "EndpointConfigurationTypeDef",
     "EndpointDescriptionTypeDef",
     "EndpointGroupTypeDef",
+    "EndpointIdentifierTypeDef",
     "IpSetTypeDef",
     "ListAcceleratorsRequestRequestTypeDef",
     "ListAcceleratorsResponseTypeDef",
@@ -124,6 +127,7 @@ __all__ = (
     "ProvisionByoipCidrRequestRequestTypeDef",
     "ProvisionByoipCidrResponseTypeDef",
     "RemoveCustomRoutingEndpointsRequestRequestTypeDef",
+    "RemoveEndpointsRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
     "SocketAddressTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -196,6 +200,23 @@ AddCustomRoutingEndpointsResponseTypeDef = TypedDict(
     "AddCustomRoutingEndpointsResponseTypeDef",
     {
         "EndpointDescriptions": List["CustomRoutingEndpointDescriptionTypeDef"],
+        "EndpointGroupArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AddEndpointsRequestRequestTypeDef = TypedDict(
+    "AddEndpointsRequestRequestTypeDef",
+    {
+        "EndpointConfigurations": List["EndpointConfigurationTypeDef"],
+        "EndpointGroupArn": str,
+    },
+)
+
+AddEndpointsResponseTypeDef = TypedDict(
+    "AddEndpointsResponseTypeDef",
+    {
+        "EndpointDescriptions": List["EndpointDescriptionTypeDef"],
         "EndpointGroupArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -766,6 +787,25 @@ EndpointGroupTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredEndpointIdentifierTypeDef = TypedDict(
+    "_RequiredEndpointIdentifierTypeDef",
+    {
+        "EndpointId": str,
+    },
+)
+_OptionalEndpointIdentifierTypeDef = TypedDict(
+    "_OptionalEndpointIdentifierTypeDef",
+    {
+        "ClientIPPreservationEnabled": bool,
+    },
+    total=False,
+)
+
+class EndpointIdentifierTypeDef(
+    _RequiredEndpointIdentifierTypeDef, _OptionalEndpointIdentifierTypeDef
+):
+    pass
+
 IpSetTypeDef = TypedDict(
     "IpSetTypeDef",
     {
@@ -1098,6 +1138,14 @@ RemoveCustomRoutingEndpointsRequestRequestTypeDef = TypedDict(
     "RemoveCustomRoutingEndpointsRequestRequestTypeDef",
     {
         "EndpointIds": List[str],
+        "EndpointGroupArn": str,
+    },
+)
+
+RemoveEndpointsRequestRequestTypeDef = TypedDict(
+    "RemoveEndpointsRequestRequestTypeDef",
+    {
+        "EndpointIdentifiers": List["EndpointIdentifierTypeDef"],
         "EndpointGroupArn": str,
     },
 )

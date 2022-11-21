@@ -24,6 +24,8 @@ Usage::
         ListThemesPaginator,
         SearchAnalysesPaginator,
         SearchDashboardsPaginator,
+        SearchDataSetsPaginator,
+        SearchDataSourcesPaginator,
     )
 
     client: QuickSightClient = boto3.client("quicksight")
@@ -42,6 +44,8 @@ Usage::
     list_themes_paginator: ListThemesPaginator = client.get_paginator("list_themes")
     search_analyses_paginator: SearchAnalysesPaginator = client.get_paginator("search_analyses")
     search_dashboards_paginator: SearchDashboardsPaginator = client.get_paginator("search_dashboards")
+    search_data_sets_paginator: SearchDataSetsPaginator = client.get_paginator("search_data_sets")
+    search_data_sources_paginator: SearchDataSourcesPaginator = client.get_paginator("search_data_sources")
     ```
 """
 from typing import Iterator, List
@@ -52,6 +56,8 @@ from .literals import ThemeTypeType
 from .type_defs import (
     AnalysisSearchFilterTypeDef,
     DashboardSearchFilterTypeDef,
+    DataSetSearchFilterTypeDef,
+    DataSourceSearchFilterTypeDef,
     ListAnalysesResponseTypeDef,
     ListDashboardsResponseTypeDef,
     ListDashboardVersionsResponseTypeDef,
@@ -67,6 +73,8 @@ from .type_defs import (
     PaginatorConfigTypeDef,
     SearchAnalysesResponseTypeDef,
     SearchDashboardsResponseTypeDef,
+    SearchDataSetsResponseTypeDef,
+    SearchDataSourcesResponseTypeDef,
 )
 
 __all__ = (
@@ -84,11 +92,13 @@ __all__ = (
     "ListThemesPaginator",
     "SearchAnalysesPaginator",
     "SearchDashboardsPaginator",
+    "SearchDataSetsPaginator",
+    "SearchDataSourcesPaginator",
 )
 
 class ListAnalysesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listanalysespaginator)
     """
 
@@ -96,13 +106,13 @@ class ListAnalysesPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAnalysesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listanalysespaginator)
         """
 
 class ListDashboardVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardversionspaginator)
     """
 
@@ -114,13 +124,13 @@ class ListDashboardVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDashboardVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardversionspaginator)
         """
 
 class ListDashboardsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardspaginator)
     """
 
@@ -128,13 +138,13 @@ class ListDashboardsPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDashboardsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardspaginator)
         """
 
 class ListDataSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasetspaginator)
     """
 
@@ -142,13 +152,13 @@ class ListDataSetsPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasetspaginator)
         """
 
 class ListDataSourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasourcespaginator)
     """
 
@@ -156,13 +166,13 @@ class ListDataSourcesPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourcesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasourcespaginator)
         """
 
 class ListIngestionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listingestionspaginator)
     """
 
@@ -170,13 +180,13 @@ class ListIngestionsPaginator(Boto3Paginator):
         self, *, DataSetId: str, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIngestionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listingestionspaginator)
         """
 
 class ListNamespacesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listnamespacespaginator)
     """
 
@@ -184,13 +194,13 @@ class ListNamespacesPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNamespacesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listnamespacespaginator)
         """
 
 class ListTemplateAliasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatealiasespaginator)
     """
 
@@ -198,13 +208,13 @@ class ListTemplateAliasesPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, TemplateId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTemplateAliasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatealiasespaginator)
         """
 
 class ListTemplateVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplateversionspaginator)
     """
 
@@ -212,13 +222,13 @@ class ListTemplateVersionsPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, TemplateId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTemplateVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplateversionspaginator)
         """
 
 class ListTemplatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatespaginator)
     """
 
@@ -226,13 +236,13 @@ class ListTemplatesPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTemplatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatespaginator)
         """
 
 class ListThemeVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemeversionspaginator)
     """
 
@@ -240,13 +250,13 @@ class ListThemeVersionsPaginator(Boto3Paginator):
         self, *, AwsAccountId: str, ThemeId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThemeVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemeversionspaginator)
         """
 
 class ListThemesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListThemes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListThemes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemespaginator)
     """
 
@@ -258,13 +268,13 @@ class ListThemesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThemesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.ListThemes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.ListThemes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemespaginator)
         """
 
 class SearchAnalysesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchanalysespaginator)
     """
 
@@ -276,13 +286,13 @@ class SearchAnalysesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchAnalysesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchanalysespaginator)
         """
 
 class SearchDashboardsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdashboardspaginator)
     """
 
@@ -294,6 +304,42 @@ class SearchDashboardsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchDashboardsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdashboardspaginator)
+        """
+
+class SearchDataSetsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.SearchDataSets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdatasetspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        AwsAccountId: str,
+        Filters: List["DataSetSearchFilterTypeDef"],
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[SearchDataSetsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.SearchDataSets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdatasetspaginator)
+        """
+
+class SearchDataSourcesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.SearchDataSources)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdatasourcespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        AwsAccountId: str,
+        Filters: List["DataSourceSearchFilterTypeDef"],
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[SearchDataSourcesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/quicksight.html#QuickSight.Paginator.SearchDataSources.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdatasourcespaginator)
         """

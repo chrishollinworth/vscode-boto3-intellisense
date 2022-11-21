@@ -31,16 +31,27 @@ __all__ = (
     "DkimSigningKeyLengthType",
     "DkimStatusType",
     "EventTypeType",
+    "FeatureStatusType",
     "IdentityTypeType",
     "ImportDestinationTypeType",
     "JobStatusType",
+    "ListRecommendationsFilterKeyType",
     "MailFromDomainStatusType",
     "MailTypeType",
+    "MetricDimensionNameType",
+    "MetricNamespaceType",
+    "MetricType",
+    "QueryErrorCodeType",
+    "RecommendationImpactType",
+    "RecommendationStatusType",
+    "RecommendationTypeType",
     "ReviewStatusType",
+    "ScalingModeType",
     "SubscriptionStatusType",
     "SuppressionListImportActionType",
     "SuppressionListReasonType",
     "TlsPolicyType",
+    "VerificationStatusType",
     "WarmupStatusType",
 )
 
@@ -82,14 +93,36 @@ EventTypeType = Literal[
     "SEND",
     "SUBSCRIPTION",
 ]
+FeatureStatusType = Literal["DISABLED", "ENABLED"]
 IdentityTypeType = Literal["DOMAIN", "EMAIL_ADDRESS", "MANAGED_DOMAIN"]
 ImportDestinationTypeType = Literal["CONTACT_LIST", "SUPPRESSION_LIST"]
 JobStatusType = Literal["COMPLETED", "CREATED", "FAILED", "PROCESSING"]
+ListRecommendationsFilterKeyType = Literal["IMPACT", "RESOURCE_ARN", "STATUS", "TYPE"]
 MailFromDomainStatusType = Literal["FAILED", "PENDING", "SUCCESS", "TEMPORARY_FAILURE"]
 MailTypeType = Literal["MARKETING", "TRANSACTIONAL"]
+MetricDimensionNameType = Literal["CONFIGURATION_SET", "EMAIL_IDENTITY", "ISP"]
+MetricNamespaceType = Literal["VDM"]
+MetricType = Literal[
+    "CLICK",
+    "COMPLAINT",
+    "DELIVERY",
+    "DELIVERY_CLICK",
+    "DELIVERY_COMPLAINT",
+    "DELIVERY_OPEN",
+    "OPEN",
+    "PERMANENT_BOUNCE",
+    "SEND",
+    "TRANSIENT_BOUNCE",
+]
+QueryErrorCodeType = Literal["ACCESS_DENIED", "INTERNAL_FAILURE"]
+RecommendationImpactType = Literal["HIGH", "LOW"]
+RecommendationStatusType = Literal["FIXED", "OPEN"]
+RecommendationTypeType = Literal["DKIM", "DMARC", "SPF"]
 ReviewStatusType = Literal["DENIED", "FAILED", "GRANTED", "PENDING"]
+ScalingModeType = Literal["MANAGED", "STANDARD"]
 SubscriptionStatusType = Literal["OPT_IN", "OPT_OUT"]
 SuppressionListImportActionType = Literal["DELETE", "PUT"]
 SuppressionListReasonType = Literal["BOUNCE", "COMPLAINT"]
 TlsPolicyType = Literal["OPTIONAL", "REQUIRE"]
+VerificationStatusType = Literal["FAILED", "NOT_STARTED", "PENDING", "SUCCESS", "TEMPORARY_FAILURE"]
 WarmupStatusType = Literal["DONE", "IN_PROGRESS"]

@@ -25,6 +25,8 @@ __all__ = (
     "ListPackagingConfigurationsPaginatorName",
     "ListPackagingGroupsPaginatorName",
     "ManifestLayoutType",
+    "PresetSpeke20AudioType",
+    "PresetSpeke20VideoType",
     "ProfileType",
     "ScteMarkersSourceType",
     "SegmentTemplateFormatType",
@@ -38,6 +40,21 @@ ListAssetsPaginatorName = Literal["list_assets"]
 ListPackagingConfigurationsPaginatorName = Literal["list_packaging_configurations"]
 ListPackagingGroupsPaginatorName = Literal["list_packaging_groups"]
 ManifestLayoutType = Literal["COMPACT", "FULL"]
+PresetSpeke20AudioType = Literal[
+    "PRESET-AUDIO-1", "PRESET-AUDIO-2", "PRESET-AUDIO-3", "SHARED", "UNENCRYPTED"
+]
+PresetSpeke20VideoType = Literal[
+    "PRESET-VIDEO-1",
+    "PRESET-VIDEO-2",
+    "PRESET-VIDEO-3",
+    "PRESET-VIDEO-4",
+    "PRESET-VIDEO-5",
+    "PRESET-VIDEO-6",
+    "PRESET-VIDEO-7",
+    "PRESET-VIDEO-8",
+    "SHARED",
+    "UNENCRYPTED",
+]
 ProfileType = Literal["HBBTV_1_5", "NONE"]
 ScteMarkersSourceType = Literal["MANIFEST", "SEGMENTS"]
 SegmentTemplateFormatType = Literal[

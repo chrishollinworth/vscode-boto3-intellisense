@@ -3611,6 +3611,8 @@ AwsLambdaFunctionDetailsTypeDef = TypedDict(
         "TracingConfig": "AwsLambdaFunctionTracingConfigTypeDef",
         "VpcConfig": "AwsLambdaFunctionVpcConfigTypeDef",
         "Version": str,
+        "Architectures": List[str],
+        "PackageType": str,
     },
     total=False,
 )
@@ -6945,6 +6947,8 @@ SoftwarePackageTypeDef = TypedDict(
         "FilePath": str,
         "FixedInVersion": str,
         "Remediation": str,
+        "SourceLayerHash": str,
+        "SourceLayerArn": str,
     },
     total=False,
 )

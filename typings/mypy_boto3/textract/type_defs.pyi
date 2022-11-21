@@ -51,9 +51,11 @@ __all__ = (
     "DocumentLocationTypeDef",
     "DocumentMetadataTypeDef",
     "DocumentTypeDef",
+    "ExpenseCurrencyTypeDef",
     "ExpenseDetectionTypeDef",
     "ExpenseDocumentTypeDef",
     "ExpenseFieldTypeDef",
+    "ExpenseGroupPropertyTypeDef",
     "ExpenseTypeTypeDef",
     "GeometryTypeDef",
     "GetDocumentAnalysisRequestRequestTypeDef",
@@ -247,6 +249,15 @@ DocumentTypeDef = TypedDict(
     total=False,
 )
 
+ExpenseCurrencyTypeDef = TypedDict(
+    "ExpenseCurrencyTypeDef",
+    {
+        "Code": str,
+        "Confidence": float,
+    },
+    total=False,
+)
+
 ExpenseDetectionTypeDef = TypedDict(
     "ExpenseDetectionTypeDef",
     {
@@ -263,6 +274,7 @@ ExpenseDocumentTypeDef = TypedDict(
         "ExpenseIndex": int,
         "SummaryFields": List["ExpenseFieldTypeDef"],
         "LineItemGroups": List["LineItemGroupTypeDef"],
+        "Blocks": List["BlockTypeDef"],
     },
     total=False,
 )
@@ -274,6 +286,17 @@ ExpenseFieldTypeDef = TypedDict(
         "LabelDetection": "ExpenseDetectionTypeDef",
         "ValueDetection": "ExpenseDetectionTypeDef",
         "PageNumber": int,
+        "Currency": "ExpenseCurrencyTypeDef",
+        "GroupProperties": List["ExpenseGroupPropertyTypeDef"],
+    },
+    total=False,
+)
+
+ExpenseGroupPropertyTypeDef = TypedDict(
+    "ExpenseGroupPropertyTypeDef",
+    {
+        "Types": List[str],
+        "Id": str,
     },
     total=False,
 )
@@ -451,6 +474,7 @@ IdentityDocumentTypeDef = TypedDict(
     {
         "DocumentIndex": int,
         "IdentityDocumentFields": List["IdentityDocumentFieldTypeDef"],
+        "Blocks": List["BlockTypeDef"],
     },
     total=False,
 )

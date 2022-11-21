@@ -23,6 +23,7 @@ from .paginator import (
     ListBillingGroupCostReportsPaginator,
     ListBillingGroupsPaginator,
     ListCustomLineItemsPaginator,
+    ListCustomLineItemVersionsPaginator,
     ListPricingPlansAssociatedWithPricingRulePaginator,
     ListPricingPlansPaginator,
     ListPricingRulesAssociatedToPricingPlanPaginator,
@@ -56,6 +57,8 @@ from .type_defs import (
     ListBillingGroupsOutputTypeDef,
     ListCustomLineItemsFilterTypeDef,
     ListCustomLineItemsOutputTypeDef,
+    ListCustomLineItemVersionsFilterTypeDef,
+    ListCustomLineItemVersionsOutputTypeDef,
     ListPricingPlansAssociatedWithPricingRuleOutputTypeDef,
     ListPricingPlansFilterTypeDef,
     ListPricingPlansOutputTypeDef,
@@ -98,7 +101,7 @@ class Exceptions:
 
 class BillingConductorClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html)
     """
 
@@ -116,7 +119,7 @@ class BillingConductorClient(BaseClient):
         Connects an array of account IDs in a consolidated billing family to a
         predefined billing group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.associate_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.associate_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#associate_accounts)
         """
     def associate_pricing_rules(
@@ -125,7 +128,7 @@ class BillingConductorClient(BaseClient):
         """
         Connects an array of `PricingRuleArns` to a defined `PricingPlan`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.associate_pricing_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.associate_pricing_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#associate_pricing_rules)
         """
     def batch_associate_resources_to_custom_line_item(
@@ -138,7 +141,7 @@ class BillingConductorClient(BaseClient):
         """
         Associates a batch of resources to a percentage custom line item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.batch_associate_resources_to_custom_line_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.batch_associate_resources_to_custom_line_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#batch_associate_resources_to_custom_line_item)
         """
     def batch_disassociate_resources_from_custom_line_item(
@@ -151,21 +154,21 @@ class BillingConductorClient(BaseClient):
         """
         Disassociates a batch of resources from a percentage custom line item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.batch_disassociate_resources_from_custom_line_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.batch_disassociate_resources_from_custom_line_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#batch_disassociate_resources_from_custom_line_item)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#close)
         """
     def create_billing_group(
@@ -183,7 +186,7 @@ class BillingConductorClient(BaseClient):
         Creates a billing group that resembles a consolidated billing family that Amazon
         Web Services charges, based off of the predefined pricing plan computation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.create_billing_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.create_billing_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#create_billing_group)
         """
     def create_custom_line_item(
@@ -202,7 +205,7 @@ class BillingConductorClient(BaseClient):
         that can be applied to a single billing group for the current or previous
         billing period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.create_custom_line_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.create_custom_line_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#create_custom_line_item)
         """
     def create_pricing_plan(
@@ -218,7 +221,7 @@ class BillingConductorClient(BaseClient):
         Creates a pricing plan that is used for computing Amazon Web Services charges
         for billing groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.create_pricing_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.create_pricing_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#create_pricing_plan)
         """
     def create_pricing_rule(
@@ -231,20 +234,21 @@ class BillingConductorClient(BaseClient):
         ClientToken: str = None,
         Description: str = None,
         Service: str = None,
-        Tags: Dict[str, str] = None
+        Tags: Dict[str, str] = None,
+        BillingEntity: str = None
     ) -> CreatePricingRuleOutputTypeDef:
         """
         Creates a pricing rule can be associated to a pricing plan, or a set of pricing
         plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.create_pricing_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.create_pricing_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#create_pricing_rule)
         """
     def delete_billing_group(self, *, Arn: str) -> DeleteBillingGroupOutputTypeDef:
         """
         Deletes a billing group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.delete_billing_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.delete_billing_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#delete_billing_group)
         """
     def delete_custom_line_item(
@@ -254,21 +258,22 @@ class BillingConductorClient(BaseClient):
         Deletes the custom line item identified by the given ARN in the current, or
         previous billing period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.delete_custom_line_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.delete_custom_line_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#delete_custom_line_item)
         """
     def delete_pricing_plan(self, *, Arn: str) -> DeletePricingPlanOutputTypeDef:
         """
         Deletes a pricing plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.delete_pricing_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.delete_pricing_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#delete_pricing_plan)
         """
     def delete_pricing_rule(self, *, Arn: str) -> DeletePricingRuleOutputTypeDef:
         """
-        Deletes the pricing rule identified by the input Amazon Resource Name (ARN).
+        Deletes the pricing rule that's identified by the input Amazon Resource Name
+        (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.delete_pricing_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.delete_pricing_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#delete_pricing_rule)
         """
     def disassociate_accounts(
@@ -277,7 +282,7 @@ class BillingConductorClient(BaseClient):
         """
         Removes the specified list of account IDs from the given billing group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.disassociate_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.disassociate_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#disassociate_accounts)
         """
     def disassociate_pricing_rules(
@@ -286,7 +291,7 @@ class BillingConductorClient(BaseClient):
         """
         Disassociates a list of pricing rules from a pricing plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.disassociate_pricing_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.disassociate_pricing_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#disassociate_pricing_rules)
         """
     def generate_presigned_url(
@@ -299,7 +304,7 @@ class BillingConductorClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#generate_presigned_url)
         """
     def list_account_associations(
@@ -310,10 +315,10 @@ class BillingConductorClient(BaseClient):
         NextToken: str = None
     ) -> ListAccountAssociationsOutputTypeDef:
         """
-        * **Amazon Web Services Billing Conductor is in beta release and is subject to
-        change.
+        This is a paginated call to list linked accounts that are linked to the payer
+        account for the specified time period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_account_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_account_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_account_associations)
         """
     def list_billing_group_cost_reports(
@@ -329,7 +334,7 @@ class BillingConductorClient(BaseClient):
         charges and the calculated Amazon Web Services charges based on the associated
         pricing plan of a billing group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_billing_group_cost_reports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_billing_group_cost_reports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_billing_group_cost_reports)
         """
     def list_billing_groups(
@@ -344,8 +349,22 @@ class BillingConductorClient(BaseClient):
         A paginated call to retrieve a list of billing groups for the given billing
         period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_billing_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_billing_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_billing_groups)
+        """
+    def list_custom_line_item_versions(
+        self,
+        *,
+        Arn: str,
+        MaxResults: int = None,
+        NextToken: str = None,
+        Filters: "ListCustomLineItemVersionsFilterTypeDef" = None
+    ) -> ListCustomLineItemVersionsOutputTypeDef:
+        """
+        A paginated call to get a list of all custom line item versions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_custom_line_item_versions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_custom_line_item_versions)
         """
     def list_custom_line_items(
         self,
@@ -359,7 +378,7 @@ class BillingConductorClient(BaseClient):
         A paginated call to get a list of all custom line items (FFLIs) for the given
         billing period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_custom_line_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_custom_line_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_custom_line_items)
         """
     def list_pricing_plans(
@@ -373,7 +392,7 @@ class BillingConductorClient(BaseClient):
         """
         A paginated call to get pricing plans for the given billing period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_pricing_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_pricing_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_pricing_plans)
         """
     def list_pricing_plans_associated_with_pricing_rule(
@@ -385,9 +404,9 @@ class BillingConductorClient(BaseClient):
         NextToken: str = None
     ) -> ListPricingPlansAssociatedWithPricingRuleOutputTypeDef:
         """
-        A list of the pricing plans associated with a pricing rule.
+        A list of the pricing plans that are associated with a pricing rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_pricing_plans_associated_with_pricing_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_pricing_plans_associated_with_pricing_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_pricing_plans_associated_with_pricing_rule)
         """
     def list_pricing_rules(
@@ -402,7 +421,7 @@ class BillingConductorClient(BaseClient):
         Describes a pricing rule that can be associated to a pricing plan, or set of
         pricing plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_pricing_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_pricing_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_pricing_rules)
         """
     def list_pricing_rules_associated_to_pricing_plan(
@@ -414,9 +433,9 @@ class BillingConductorClient(BaseClient):
         NextToken: str = None
     ) -> ListPricingRulesAssociatedToPricingPlanOutputTypeDef:
         """
-        Lists the pricing rules associated with a pricing plan.
+        Lists the pricing rules that are associated with a pricing plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_pricing_rules_associated_to_pricing_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_pricing_rules_associated_to_pricing_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_pricing_rules_associated_to_pricing_plan)
         """
     def list_resources_associated_to_custom_line_item(
@@ -429,30 +448,30 @@ class BillingConductorClient(BaseClient):
         Filters: "ListResourcesAssociatedToCustomLineItemFilterTypeDef" = None
     ) -> ListResourcesAssociatedToCustomLineItemOutputTypeDef:
         """
-        List the resources associated to a custom line item.
+        List the resources that are associated to a custom line item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_resources_associated_to_custom_line_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_resources_associated_to_custom_line_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_resources_associated_to_custom_line_item)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         A list the tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#list_tags_for_resource)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Associates the specified tags to a resource with the specified `resourceArn`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Deletes specified tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#untag_resource)
         """
     def update_billing_group(
@@ -467,7 +486,7 @@ class BillingConductorClient(BaseClient):
         """
         This updates an existing billing group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.update_billing_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.update_billing_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#update_billing_group)
         """
     def update_custom_line_item(
@@ -482,7 +501,7 @@ class BillingConductorClient(BaseClient):
         """
         Update an existing custom line item in the current or previous billing period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.update_custom_line_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.update_custom_line_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#update_custom_line_item)
         """
     def update_pricing_plan(
@@ -491,7 +510,7 @@ class BillingConductorClient(BaseClient):
         """
         This updates an existing pricing plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.update_pricing_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.update_pricing_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#update_pricing_plan)
         """
     def update_pricing_rule(
@@ -506,7 +525,7 @@ class BillingConductorClient(BaseClient):
         """
         Updates an existing pricing rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Client.update_pricing_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Client.update_pricing_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/client.html#update_pricing_rule)
         """
     @overload
@@ -514,7 +533,7 @@ class BillingConductorClient(BaseClient):
         self, operation_name: Literal["list_account_associations"]
     ) -> ListAccountAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListAccountAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListAccountAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listaccountassociationspaginator)
         """
     @overload
@@ -522,7 +541,7 @@ class BillingConductorClient(BaseClient):
         self, operation_name: Literal["list_billing_group_cost_reports"]
     ) -> ListBillingGroupCostReportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListBillingGroupCostReports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListBillingGroupCostReports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listbillinggroupcostreportspaginator)
         """
     @overload
@@ -530,15 +549,23 @@ class BillingConductorClient(BaseClient):
         self, operation_name: Literal["list_billing_groups"]
     ) -> ListBillingGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListBillingGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListBillingGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listbillinggroupspaginator)
+        """
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_custom_line_item_versions"]
+    ) -> ListCustomLineItemVersionsPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListCustomLineItemVersions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listcustomlineitemversionspaginator)
         """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_custom_line_items"]
     ) -> ListCustomLineItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListCustomLineItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListCustomLineItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listcustomlineitemspaginator)
         """
     @overload
@@ -546,7 +573,7 @@ class BillingConductorClient(BaseClient):
         self, operation_name: Literal["list_pricing_plans"]
     ) -> ListPricingPlansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListPricingPlans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListPricingPlans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listpricingplanspaginator)
         """
     @overload
@@ -554,7 +581,7 @@ class BillingConductorClient(BaseClient):
         self, operation_name: Literal["list_pricing_plans_associated_with_pricing_rule"]
     ) -> ListPricingPlansAssociatedWithPricingRulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListPricingPlansAssociatedWithPricingRule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListPricingPlansAssociatedWithPricingRule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listpricingplansassociatedwithpricingrulepaginator)
         """
     @overload
@@ -562,7 +589,7 @@ class BillingConductorClient(BaseClient):
         self, operation_name: Literal["list_pricing_rules"]
     ) -> ListPricingRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListPricingRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListPricingRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listpricingrulespaginator)
         """
     @overload
@@ -570,7 +597,7 @@ class BillingConductorClient(BaseClient):
         self, operation_name: Literal["list_pricing_rules_associated_to_pricing_plan"]
     ) -> ListPricingRulesAssociatedToPricingPlanPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListPricingRulesAssociatedToPricingPlan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListPricingRulesAssociatedToPricingPlan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listpricingrulesassociatedtopricingplanpaginator)
         """
     @overload
@@ -578,6 +605,6 @@ class BillingConductorClient(BaseClient):
         self, operation_name: Literal["list_resources_associated_to_custom_line_item"]
     ) -> ListResourcesAssociatedToCustomLineItemPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/billingconductor.html#BillingConductor.Paginator.ListResourcesAssociatedToCustomLineItem)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/billingconductor.html#BillingConductor.Paginator.ListResourcesAssociatedToCustomLineItem)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/paginators.html#listresourcesassociatedtocustomlineitempaginator)
         """

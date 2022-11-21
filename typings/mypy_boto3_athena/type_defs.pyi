@@ -111,6 +111,9 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "ResultConfigurationTypeDef",
     "ResultConfigurationUpdatesTypeDef",
+    "ResultReuseByAgeConfigurationTypeDef",
+    "ResultReuseConfigurationTypeDef",
+    "ResultReuseInformationTypeDef",
     "ResultSetMetadataTypeDef",
     "ResultSetTypeDef",
     "RowTypeDef",
@@ -899,6 +902,7 @@ QueryExecutionStatisticsTypeDef = TypedDict(
         "QueryQueueTimeInMillis": int,
         "QueryPlanningTimeInMillis": int,
         "ServiceProcessingTimeInMillis": int,
+        "ResultReuseInformation": "ResultReuseInformationTypeDef",
     },
     total=False,
 )
@@ -922,6 +926,7 @@ QueryExecutionTypeDef = TypedDict(
         "Query": str,
         "StatementType": StatementTypeType,
         "ResultConfiguration": "ResultConfigurationTypeDef",
+        "ResultReuseConfiguration": "ResultReuseConfigurationTypeDef",
         "QueryExecutionContext": "QueryExecutionContextTypeDef",
         "Status": "QueryExecutionStatusTypeDef",
         "Statistics": "QueryExecutionStatisticsTypeDef",
@@ -1029,6 +1034,40 @@ ResultConfigurationUpdatesTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredResultReuseByAgeConfigurationTypeDef = TypedDict(
+    "_RequiredResultReuseByAgeConfigurationTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+_OptionalResultReuseByAgeConfigurationTypeDef = TypedDict(
+    "_OptionalResultReuseByAgeConfigurationTypeDef",
+    {
+        "MaxAgeInMinutes": int,
+    },
+    total=False,
+)
+
+class ResultReuseByAgeConfigurationTypeDef(
+    _RequiredResultReuseByAgeConfigurationTypeDef, _OptionalResultReuseByAgeConfigurationTypeDef
+):
+    pass
+
+ResultReuseConfigurationTypeDef = TypedDict(
+    "ResultReuseConfigurationTypeDef",
+    {
+        "ResultReuseByAgeConfiguration": "ResultReuseByAgeConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ResultReuseInformationTypeDef = TypedDict(
+    "ResultReuseInformationTypeDef",
+    {
+        "ReusedPreviousResult": bool,
+    },
+)
+
 ResultSetMetadataTypeDef = TypedDict(
     "ResultSetMetadataTypeDef",
     {
@@ -1068,6 +1107,7 @@ _OptionalStartQueryExecutionInputRequestTypeDef = TypedDict(
         "ResultConfiguration": "ResultConfigurationTypeDef",
         "WorkGroup": str,
         "ExecutionParameters": List[str],
+        "ResultReuseConfiguration": "ResultReuseConfigurationTypeDef",
     },
     total=False,
 )

@@ -48,7 +48,7 @@ class Exceptions:
 
 class SSOOIDCClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/sso-oidc.html#SSOOIDC.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/sso-oidc.html#SSOOIDC.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html)
     """
 
@@ -63,14 +63,14 @@ class SSOOIDCClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/sso-oidc.html#SSOOIDC.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/sso-oidc.html#SSOOIDC.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/sso-oidc.html#SSOOIDC.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/sso-oidc.html#SSOOIDC.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#close)
         """
     def create_token(
@@ -88,7 +88,7 @@ class SSOOIDCClient(BaseClient):
         """
         Creates and returns an access token for the authorized client.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/sso-oidc.html#SSOOIDC.Client.create_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/sso-oidc.html#SSOOIDC.Client.create_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#create_token)
         """
     def generate_presigned_url(
@@ -101,7 +101,7 @@ class SSOOIDCClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/sso-oidc.html#SSOOIDC.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/sso-oidc.html#SSOOIDC.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#generate_presigned_url)
         """
     def register_client(
@@ -110,7 +110,7 @@ class SSOOIDCClient(BaseClient):
         """
         Registers a client with IAM Identity Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/sso-oidc.html#SSOOIDC.Client.register_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/sso-oidc.html#SSOOIDC.Client.register_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#register_client)
         """
     def start_device_authorization(
@@ -120,6 +120,6 @@ class SSOOIDCClient(BaseClient):
         Initiates device authorization by requesting a pair of verification codes from
         the authorization service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.89/reference/services/sso-oidc.html#SSOOIDC.Client.start_device_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/sso-oidc.html#SSOOIDC.Client.start_device_authorization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#start_device_authorization)
         """

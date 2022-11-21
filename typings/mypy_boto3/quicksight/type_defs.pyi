@@ -17,19 +17,25 @@ from typing import Any, Dict, List, Union
 
 from .literals import (
     AnalysisErrorTypeType,
+    AnalysisFilterAttributeType,
     AssignmentStatusType,
     AuthenticationMethodOptionType,
     ColumnDataTypeType,
     ColumnTagNameType,
     DashboardBehaviorType,
     DashboardErrorTypeType,
+    DashboardFilterAttributeType,
     DashboardUIStateType,
+    DataSetFilterAttributeType,
     DataSetImportModeType,
     DataSourceErrorInfoTypeType,
+    DataSourceFilterAttributeType,
     DataSourceTypeType,
     EditionType,
     EmbeddingIdentityTypeType,
     FileFormatType,
+    FilterOperatorType,
+    FolderFilterAttributeType,
     GeoSpatialDataRoleType,
     IdentityTypeType,
     IngestionErrorTypeType,
@@ -78,6 +84,7 @@ __all__ = (
     "AnonymousUserDashboardEmbeddingConfigurationTypeDef",
     "AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef",
     "AnonymousUserEmbeddingExperienceConfigurationTypeDef",
+    "AnonymousUserQSearchBarEmbeddingConfigurationTypeDef",
     "AthenaParametersTypeDef",
     "AuroraParametersTypeDef",
     "AuroraPostgreSqlParametersTypeDef",
@@ -145,17 +152,23 @@ __all__ = (
     "DataSetConfigurationTypeDef",
     "DataSetReferenceTypeDef",
     "DataSetSchemaTypeDef",
+    "DataSetSearchFilterTypeDef",
     "DataSetSummaryTypeDef",
     "DataSetTypeDef",
     "DataSetUsageConfigurationTypeDef",
     "DataSourceCredentialsTypeDef",
     "DataSourceErrorInfoTypeDef",
     "DataSourceParametersTypeDef",
+    "DataSourceSearchFilterTypeDef",
+    "DataSourceSummaryTypeDef",
     "DataSourceTypeDef",
+    "DatabricksParametersTypeDef",
     "DateTimeParameterTypeDef",
     "DecimalParameterTypeDef",
     "DeleteAccountCustomizationRequestRequestTypeDef",
     "DeleteAccountCustomizationResponseTypeDef",
+    "DeleteAccountSubscriptionRequestRequestTypeDef",
+    "DeleteAccountSubscriptionResponseTypeDef",
     "DeleteAnalysisRequestRequestTypeDef",
     "DeleteAnalysisResponseTypeDef",
     "DeleteDashboardRequestRequestTypeDef",
@@ -360,6 +373,10 @@ __all__ = (
     "SearchAnalysesResponseTypeDef",
     "SearchDashboardsRequestRequestTypeDef",
     "SearchDashboardsResponseTypeDef",
+    "SearchDataSetsRequestRequestTypeDef",
+    "SearchDataSetsResponseTypeDef",
+    "SearchDataSourcesRequestRequestTypeDef",
+    "SearchDataSourcesResponseTypeDef",
     "SearchFoldersRequestRequestTypeDef",
     "SearchFoldersResponseTypeDef",
     "SearchGroupsRequestRequestTypeDef",
@@ -486,6 +503,7 @@ AccountSettingsTypeDef = TypedDict(
         "DefaultNamespace": str,
         "NotificationEmail": str,
         "PublicSharingEnabled": bool,
+        "TerminationProtectionEnabled": bool,
     },
     total=False,
 )
@@ -533,8 +551,8 @@ AnalysisErrorTypeDef = TypedDict(
 AnalysisSearchFilterTypeDef = TypedDict(
     "AnalysisSearchFilterTypeDef",
     {
-        "Operator": Literal["StringEquals"],
-        "Name": Literal["QUICKSIGHT_USER"],
+        "Operator": FilterOperatorType,
+        "Name": AnalysisFilterAttributeType,
         "Value": str,
     },
     total=False,
@@ -605,14 +623,23 @@ AnonymousUserEmbeddingExperienceConfigurationTypeDef = TypedDict(
     {
         "Dashboard": "AnonymousUserDashboardEmbeddingConfigurationTypeDef",
         "DashboardVisual": "AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef",
+        "QSearchBar": "AnonymousUserQSearchBarEmbeddingConfigurationTypeDef",
     },
     total=False,
+)
+
+AnonymousUserQSearchBarEmbeddingConfigurationTypeDef = TypedDict(
+    "AnonymousUserQSearchBarEmbeddingConfigurationTypeDef",
+    {
+        "InitialTopicId": str,
+    },
 )
 
 AthenaParametersTypeDef = TypedDict(
     "AthenaParametersTypeDef",
     {
         "WorkGroup": str,
+        "RoleArn": str,
     },
     total=False,
 )
@@ -1391,13 +1418,13 @@ DashboardPublishOptionsTypeDef = TypedDict(
 _RequiredDashboardSearchFilterTypeDef = TypedDict(
     "_RequiredDashboardSearchFilterTypeDef",
     {
-        "Operator": Literal["StringEquals"],
+        "Operator": FilterOperatorType,
     },
 )
 _OptionalDashboardSearchFilterTypeDef = TypedDict(
     "_OptionalDashboardSearchFilterTypeDef",
     {
-        "Name": Literal["QUICKSIGHT_USER"],
+        "Name": DashboardFilterAttributeType,
         "Value": str,
     },
     total=False,
@@ -1527,6 +1554,15 @@ DataSetSchemaTypeDef = TypedDict(
     total=False,
 )
 
+DataSetSearchFilterTypeDef = TypedDict(
+    "DataSetSearchFilterTypeDef",
+    {
+        "Operator": FilterOperatorType,
+        "Name": DataSetFilterAttributeType,
+        "Value": str,
+    },
+)
+
 DataSetSummaryTypeDef = TypedDict(
     "DataSetSummaryTypeDef",
     {
@@ -1619,6 +1655,29 @@ DataSourceParametersTypeDef = TypedDict(
         "TwitterParameters": "TwitterParametersTypeDef",
         "AmazonOpenSearchParameters": "AmazonOpenSearchParametersTypeDef",
         "ExasolParameters": "ExasolParametersTypeDef",
+        "DatabricksParameters": "DatabricksParametersTypeDef",
+    },
+    total=False,
+)
+
+DataSourceSearchFilterTypeDef = TypedDict(
+    "DataSourceSearchFilterTypeDef",
+    {
+        "Operator": FilterOperatorType,
+        "Name": DataSourceFilterAttributeType,
+        "Value": str,
+    },
+)
+
+DataSourceSummaryTypeDef = TypedDict(
+    "DataSourceSummaryTypeDef",
+    {
+        "Arn": str,
+        "DataSourceId": str,
+        "Name": str,
+        "Type": DataSourceTypeType,
+        "CreatedTime": datetime,
+        "LastUpdatedTime": datetime,
     },
     total=False,
 )
@@ -1641,6 +1700,15 @@ DataSourceTypeDef = TypedDict(
         "SecretArn": str,
     },
     total=False,
+)
+
+DatabricksParametersTypeDef = TypedDict(
+    "DatabricksParametersTypeDef",
+    {
+        "Host": str,
+        "Port": int,
+        "SqlEndpointPath": str,
+    },
 )
 
 DateTimeParameterTypeDef = TypedDict(
@@ -1681,6 +1749,22 @@ class DeleteAccountCustomizationRequestRequestTypeDef(
 
 DeleteAccountCustomizationResponseTypeDef = TypedDict(
     "DeleteAccountCustomizationResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteAccountSubscriptionRequestRequestTypeDef = TypedDict(
+    "DeleteAccountSubscriptionRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+    },
+)
+
+DeleteAccountSubscriptionResponseTypeDef = TypedDict(
+    "DeleteAccountSubscriptionResponseTypeDef",
     {
         "RequestId": str,
         "Status": int,
@@ -2659,8 +2743,8 @@ FolderMemberTypeDef = TypedDict(
 FolderSearchFilterTypeDef = TypedDict(
     "FolderSearchFilterTypeDef",
     {
-        "Operator": Literal["StringEquals"],
-        "Name": Literal["PARENT_FOLDER_ARN"],
+        "Operator": FilterOperatorType,
+        "Name": FolderFilterAttributeType,
         "Value": str,
     },
     total=False,
@@ -2724,6 +2808,7 @@ GenerateEmbedUrlForAnonymousUserResponseTypeDef = TypedDict(
         "EmbedUrl": str,
         "Status": int,
         "RequestId": str,
+        "AnonymousUserArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4202,6 +4287,70 @@ SearchDashboardsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredSearchDataSetsRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchDataSetsRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "Filters": List["DataSetSearchFilterTypeDef"],
+    },
+)
+_OptionalSearchDataSetsRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchDataSetsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class SearchDataSetsRequestRequestTypeDef(
+    _RequiredSearchDataSetsRequestRequestTypeDef, _OptionalSearchDataSetsRequestRequestTypeDef
+):
+    pass
+
+SearchDataSetsResponseTypeDef = TypedDict(
+    "SearchDataSetsResponseTypeDef",
+    {
+        "DataSetSummaries": List["DataSetSummaryTypeDef"],
+        "NextToken": str,
+        "Status": int,
+        "RequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSearchDataSourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchDataSourcesRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "Filters": List["DataSourceSearchFilterTypeDef"],
+    },
+)
+_OptionalSearchDataSourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchDataSourcesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class SearchDataSourcesRequestRequestTypeDef(
+    _RequiredSearchDataSourcesRequestRequestTypeDef, _OptionalSearchDataSourcesRequestRequestTypeDef
+):
+    pass
+
+SearchDataSourcesResponseTypeDef = TypedDict(
+    "SearchDataSourcesResponseTypeDef",
+    {
+        "DataSourceSummaries": List["DataSourceSummaryTypeDef"],
+        "NextToken": str,
+        "Status": int,
+        "RequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredSearchFoldersRequestRequestTypeDef = TypedDict(
     "_RequiredSearchFoldersRequestRequestTypeDef",
     {
@@ -4715,6 +4864,7 @@ _OptionalUpdateAccountSettingsRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateAccountSettingsRequestRequestTypeDef",
     {
         "NotificationEmail": str,
+        "TerminationProtectionEnabled": bool,
     },
     total=False,
 )

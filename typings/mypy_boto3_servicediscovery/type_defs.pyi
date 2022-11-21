@@ -21,6 +21,7 @@ from .literals import (
     HealthCheckTypeType,
     HealthStatusFilterType,
     HealthStatusType,
+    NamespaceFilterNameType,
     NamespaceTypeType,
     OperationFilterNameType,
     OperationStatusType,
@@ -644,7 +645,7 @@ ListTagsForResourceResponseTypeDef = TypedDict(
 _RequiredNamespaceFilterTypeDef = TypedDict(
     "_RequiredNamespaceFilterTypeDef",
     {
-        "Name": Literal["TYPE"],
+        "Name": NamespaceFilterNameType,
         "Values": List[str],
     },
 )

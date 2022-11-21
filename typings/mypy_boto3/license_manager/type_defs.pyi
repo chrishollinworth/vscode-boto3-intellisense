@@ -132,8 +132,12 @@ __all__ = (
     "ListLicenseVersionsResponseTypeDef",
     "ListLicensesRequestRequestTypeDef",
     "ListLicensesResponseTypeDef",
+    "ListReceivedGrantsForOrganizationRequestRequestTypeDef",
+    "ListReceivedGrantsForOrganizationResponseTypeDef",
     "ListReceivedGrantsRequestRequestTypeDef",
     "ListReceivedGrantsResponseTypeDef",
+    "ListReceivedLicensesForOrganizationRequestRequestTypeDef",
+    "ListReceivedLicensesForOrganizationResponseTypeDef",
     "ListReceivedLicensesRequestRequestTypeDef",
     "ListReceivedLicensesResponseTypeDef",
     "ListResourceInventoryRequestRequestTypeDef",
@@ -1374,6 +1378,37 @@ ListLicensesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListReceivedGrantsForOrganizationRequestRequestTypeDef = TypedDict(
+    "_RequiredListReceivedGrantsForOrganizationRequestRequestTypeDef",
+    {
+        "LicenseArn": str,
+    },
+)
+_OptionalListReceivedGrantsForOrganizationRequestRequestTypeDef = TypedDict(
+    "_OptionalListReceivedGrantsForOrganizationRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListReceivedGrantsForOrganizationRequestRequestTypeDef(
+    _RequiredListReceivedGrantsForOrganizationRequestRequestTypeDef,
+    _OptionalListReceivedGrantsForOrganizationRequestRequestTypeDef,
+):
+    pass
+
+ListReceivedGrantsForOrganizationResponseTypeDef = TypedDict(
+    "ListReceivedGrantsForOrganizationResponseTypeDef",
+    {
+        "Grants": List["GrantTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListReceivedGrantsRequestRequestTypeDef = TypedDict(
     "ListReceivedGrantsRequestRequestTypeDef",
     {
@@ -1389,6 +1424,25 @@ ListReceivedGrantsResponseTypeDef = TypedDict(
     "ListReceivedGrantsResponseTypeDef",
     {
         "Grants": List["GrantTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListReceivedLicensesForOrganizationRequestRequestTypeDef = TypedDict(
+    "ListReceivedLicensesForOrganizationRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListReceivedLicensesForOrganizationResponseTypeDef = TypedDict(
+    "ListReceivedLicensesForOrganizationResponseTypeDef",
+    {
+        "Licenses": List["GrantedLicenseTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

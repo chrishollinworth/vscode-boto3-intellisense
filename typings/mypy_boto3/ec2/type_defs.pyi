@@ -24,6 +24,7 @@ from .literals import (
     AccountAttributeNameType,
     ActivityStatusType,
     AddressFamilyType,
+    AddressTransferStatusType,
     AffinityType,
     AllocationStateType,
     AllocationStrategyType,
@@ -288,6 +289,8 @@ __all__ = (
     "AcceleratorCountTypeDef",
     "AcceleratorTotalMemoryMiBRequestTypeDef",
     "AcceleratorTotalMemoryMiBTypeDef",
+    "AcceptAddressTransferRequestRequestTypeDef",
+    "AcceptAddressTransferResultTypeDef",
     "AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef",
     "AcceptReservedInstancesExchangeQuoteResultTypeDef",
     "AcceptTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
@@ -312,6 +315,7 @@ __all__ = (
     "AddedPrincipalTypeDef",
     "AdditionalDetailTypeDef",
     "AddressAttributeTypeDef",
+    "AddressTransferTypeDef",
     "AddressTypeDef",
     "AdvertiseByoipCidrRequestRequestTypeDef",
     "AdvertiseByoipCidrResultTypeDef",
@@ -419,6 +423,8 @@ __all__ = (
     "CancelCapacityReservationResultTypeDef",
     "CancelConversionRequestRequestTypeDef",
     "CancelExportTaskRequestRequestTypeDef",
+    "CancelImageLaunchPermissionRequestRequestTypeDef",
+    "CancelImageLaunchPermissionResultTypeDef",
     "CancelImportTaskRequestRequestTypeDef",
     "CancelImportTaskResultTypeDef",
     "CancelReservedInstancesListingRequestRequestTypeDef",
@@ -836,6 +842,8 @@ __all__ = (
     "DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef",
     "DescribeAccountAttributesRequestRequestTypeDef",
     "DescribeAccountAttributesResultTypeDef",
+    "DescribeAddressTransfersRequestRequestTypeDef",
+    "DescribeAddressTransfersResultTypeDef",
     "DescribeAddressesAttributeRequestRequestTypeDef",
     "DescribeAddressesAttributeResultTypeDef",
     "DescribeAddressesRequestRequestTypeDef",
@@ -1132,6 +1140,8 @@ __all__ = (
     "DhcpOptionsTypeDef",
     "DirectoryServiceAuthenticationRequestTypeDef",
     "DirectoryServiceAuthenticationTypeDef",
+    "DisableAddressTransferRequestRequestTypeDef",
+    "DisableAddressTransferResultTypeDef",
     "DisableEbsEncryptionByDefaultRequestRequestTypeDef",
     "DisableEbsEncryptionByDefaultResultTypeDef",
     "DisableFastLaunchRequestRequestTypeDef",
@@ -1205,6 +1215,8 @@ __all__ = (
     "ElasticGpusTypeDef",
     "ElasticInferenceAcceleratorAssociationTypeDef",
     "ElasticInferenceAcceleratorTypeDef",
+    "EnableAddressTransferRequestRequestTypeDef",
+    "EnableAddressTransferResultTypeDef",
     "EnableEbsEncryptionByDefaultRequestRequestTypeDef",
     "EnableEbsEncryptionByDefaultResultTypeDef",
     "EnableFastLaunchRequestRequestTypeDef",
@@ -1672,6 +1684,8 @@ __all__ = (
     "NetworkAclAssociationTypeDef",
     "NetworkAclEntryTypeDef",
     "NetworkAclTypeDef",
+    "NetworkBandwidthGbpsRequestTypeDef",
+    "NetworkBandwidthGbpsTypeDef",
     "NetworkCardInfoTypeDef",
     "NetworkInfoTypeDef",
     "NetworkInsightsAccessScopeAnalysisTypeDef",
@@ -2149,6 +2163,35 @@ AcceleratorTotalMemoryMiBTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAcceptAddressTransferRequestRequestTypeDef = TypedDict(
+    "_RequiredAcceptAddressTransferRequestRequestTypeDef",
+    {
+        "Address": str,
+    },
+)
+_OptionalAcceptAddressTransferRequestRequestTypeDef = TypedDict(
+    "_OptionalAcceptAddressTransferRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AcceptAddressTransferRequestRequestTypeDef(
+    _RequiredAcceptAddressTransferRequestRequestTypeDef,
+    _OptionalAcceptAddressTransferRequestRequestTypeDef,
+):
+    pass
+
+AcceptAddressTransferResultTypeDef = TypedDict(
+    "AcceptAddressTransferResultTypeDef",
+    {
+        "AddressTransfer": "AddressTransferTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef = TypedDict(
     "_RequiredAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef",
     {
@@ -2420,6 +2463,19 @@ AddressAttributeTypeDef = TypedDict(
         "AllocationId": str,
         "PtrRecord": str,
         "PtrRecordUpdate": "PtrUpdateStatusTypeDef",
+    },
+    total=False,
+)
+
+AddressTransferTypeDef = TypedDict(
+    "AddressTransferTypeDef",
+    {
+        "PublicIp": str,
+        "AllocationId": str,
+        "TransferAccountId": str,
+        "TransferOfferExpirationTimestamp": datetime,
+        "TransferOfferAcceptedTimestamp": datetime,
+        "AddressTransferStatus": AddressTransferStatusType,
     },
     total=False,
 )
@@ -3942,6 +3998,34 @@ CancelExportTaskRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredCancelImageLaunchPermissionRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelImageLaunchPermissionRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalCancelImageLaunchPermissionRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelImageLaunchPermissionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CancelImageLaunchPermissionRequestRequestTypeDef(
+    _RequiredCancelImageLaunchPermissionRequestRequestTypeDef,
+    _OptionalCancelImageLaunchPermissionRequestRequestTypeDef,
+):
+    pass
+
+CancelImageLaunchPermissionResultTypeDef = TypedDict(
+    "CancelImageLaunchPermissionResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CancelImportTaskRequestRequestTypeDef = TypedDict(
     "CancelImportTaskRequestRequestTypeDef",
     {
@@ -4649,6 +4733,7 @@ _OptionalCopyImageRequestRequestTypeDef = TypedDict(
         "KmsKeyId": str,
         "DestinationOutpostArn": str,
         "DryRun": bool,
+        "CopyImageTags": bool,
     },
     total=False,
 )
@@ -5796,6 +5881,7 @@ _OptionalCreateNatGatewayRequestRequestTypeDef = TypedDict(
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "ConnectivityType": ConnectivityTypeType,
+        "PrivateIpAddress": str,
     },
     total=False,
 )
@@ -6188,6 +6274,8 @@ _OptionalCreateReplaceRootVolumeTaskRequestRequestTypeDef = TypedDict(
         "ClientToken": str,
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ImageId": str,
+        "DeleteReplacedRootVolume": bool,
     },
     total=False,
 )
@@ -9929,6 +10017,26 @@ DescribeAccountAttributesResultTypeDef = TypedDict(
     },
 )
 
+DescribeAddressTransfersRequestRequestTypeDef = TypedDict(
+    "DescribeAddressTransfersRequestRequestTypeDef",
+    {
+        "AllocationIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeAddressTransfersResultTypeDef = TypedDict(
+    "DescribeAddressTransfersResultTypeDef",
+    {
+        "AddressTransfers": List["AddressTransferTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeAddressesAttributeRequestRequestTypeDef = TypedDict(
     "DescribeAddressesAttributeRequestRequestTypeDef",
     {
@@ -13397,6 +13505,34 @@ DirectoryServiceAuthenticationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDisableAddressTransferRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableAddressTransferRequestRequestTypeDef",
+    {
+        "AllocationId": str,
+    },
+)
+_OptionalDisableAddressTransferRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableAddressTransferRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableAddressTransferRequestRequestTypeDef(
+    _RequiredDisableAddressTransferRequestRequestTypeDef,
+    _OptionalDisableAddressTransferRequestRequestTypeDef,
+):
+    pass
+
+DisableAddressTransferResultTypeDef = TypedDict(
+    "DisableAddressTransferResultTypeDef",
+    {
+        "AddressTransfer": "AddressTransferTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DisableEbsEncryptionByDefaultRequestRequestTypeDef = TypedDict(
     "DisableEbsEncryptionByDefaultRequestRequestTypeDef",
     {
@@ -14246,6 +14382,35 @@ class ElasticInferenceAcceleratorTypeDef(
     _RequiredElasticInferenceAcceleratorTypeDef, _OptionalElasticInferenceAcceleratorTypeDef
 ):
     pass
+
+_RequiredEnableAddressTransferRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableAddressTransferRequestRequestTypeDef",
+    {
+        "AllocationId": str,
+        "TransferAccountId": str,
+    },
+)
+_OptionalEnableAddressTransferRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableAddressTransferRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableAddressTransferRequestRequestTypeDef(
+    _RequiredEnableAddressTransferRequestRequestTypeDef,
+    _OptionalEnableAddressTransferRequestRequestTypeDef,
+):
+    pass
+
+EnableAddressTransferResultTypeDef = TypedDict(
+    "EnableAddressTransferResultTypeDef",
+    {
+        "AddressTransfer": "AddressTransferTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 EnableEbsEncryptionByDefaultRequestRequestTypeDef = TypedDict(
     "EnableEbsEncryptionByDefaultRequestRequestTypeDef",
@@ -17335,6 +17500,8 @@ _OptionalInstanceRequirementsRequestTypeDef = TypedDict(
         "AcceleratorManufacturers": List[AcceleratorManufacturerType],
         "AcceleratorNames": List[AcceleratorNameType],
         "AcceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBRequestTypeDef",
+        "NetworkBandwidthGbps": "NetworkBandwidthGbpsRequestTypeDef",
+        "AllowedInstanceTypes": List[str],
     },
     total=False,
 )
@@ -17368,6 +17535,8 @@ InstanceRequirementsTypeDef = TypedDict(
         "AcceleratorManufacturers": List[AcceleratorManufacturerType],
         "AcceleratorNames": List[AcceleratorNameType],
         "AcceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBTypeDef",
+        "NetworkBandwidthGbps": "NetworkBandwidthGbpsTypeDef",
+        "AllowedInstanceTypes": List[str],
     },
     total=False,
 )
@@ -18314,6 +18483,7 @@ LaunchTemplatePlacementRequestTypeDef = TypedDict(
         "SpreadDomain": str,
         "HostResourceGroupArn": str,
         "PartitionNumber": int,
+        "GroupId": str,
     },
     total=False,
 )
@@ -18329,6 +18499,7 @@ LaunchTemplatePlacementTypeDef = TypedDict(
         "SpreadDomain": str,
         "HostResourceGroupArn": str,
         "PartitionNumber": int,
+        "GroupId": str,
     },
     total=False,
 )
@@ -19357,6 +19528,7 @@ _OptionalModifyInstancePlacementRequestRequestTypeDef = TypedDict(
         "Tenancy": HostTenancyType,
         "PartitionNumber": int,
         "HostResourceGroupArn": str,
+        "GroupId": str,
     },
     total=False,
 )
@@ -20695,6 +20867,24 @@ NetworkAclTypeDef = TypedDict(
     total=False,
 )
 
+NetworkBandwidthGbpsRequestTypeDef = TypedDict(
+    "NetworkBandwidthGbpsRequestTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
+)
+
+NetworkBandwidthGbpsTypeDef = TypedDict(
+    "NetworkBandwidthGbpsTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
+)
+
 NetworkCardInfoTypeDef = TypedDict(
     "NetworkCardInfoTypeDef",
     {
@@ -21236,6 +21426,7 @@ PlacementTypeDef = TypedDict(
         "Tenancy": TenancyType,
         "SpreadDomain": str,
         "HostResourceGroupArn": str,
+        "GroupId": str,
     },
     total=False,
 )
@@ -22239,6 +22430,9 @@ ReplaceRootVolumeTaskTypeDef = TypedDict(
         "StartTime": str,
         "CompleteTime": str,
         "Tags": List["TagTypeDef"],
+        "ImageId": str,
+        "SnapshotId": str,
+        "DeleteReplacedRootVolume": bool,
     },
     total=False,
 )

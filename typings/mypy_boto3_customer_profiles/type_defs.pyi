@@ -34,6 +34,7 @@ from .literals import (
     TaskTypeType,
     TriggerTypeType,
     ZendeskConnectorOperatorType,
+    logicalOperatorType,
 )
 
 if sys.version_info >= (3, 8):
@@ -48,6 +49,7 @@ else:
 __all__ = (
     "AddProfileKeyRequestRequestTypeDef",
     "AddProfileKeyResponseTypeDef",
+    "AdditionalSearchKeyTypeDef",
     "AddressTypeDef",
     "AppflowIntegrationTypeDef",
     "AppflowIntegrationWorkflowAttributesTypeDef",
@@ -82,6 +84,7 @@ __all__ = (
     "ExportingLocationTypeDef",
     "FieldSourceProfileIdsTypeDef",
     "FlowDefinitionTypeDef",
+    "FoundByKeyValueTypeDef",
     "GetAutoMergingPreviewRequestRequestTypeDef",
     "GetAutoMergingPreviewResponseTypeDef",
     "GetDomainRequestRequestTypeDef",
@@ -188,6 +191,14 @@ AddProfileKeyResponseTypeDef = TypedDict(
         "KeyName": str,
         "Values": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AdditionalSearchKeyTypeDef = TypedDict(
+    "AdditionalSearchKeyTypeDef",
+    {
+        "KeyName": str,
+        "Values": List[str],
     },
 )
 
@@ -636,6 +647,15 @@ _OptionalFlowDefinitionTypeDef = TypedDict(
 
 class FlowDefinitionTypeDef(_RequiredFlowDefinitionTypeDef, _OptionalFlowDefinitionTypeDef):
     pass
+
+FoundByKeyValueTypeDef = TypedDict(
+    "FoundByKeyValueTypeDef",
+    {
+        "KeyName": str,
+        "Values": List[str],
+    },
+    total=False,
+)
 
 _RequiredGetAutoMergingPreviewRequestRequestTypeDef = TypedDict(
     "_RequiredGetAutoMergingPreviewRequestRequestTypeDef",
@@ -1391,6 +1411,7 @@ ProfileTypeDef = TypedDict(
         "MailingAddress": "AddressTypeDef",
         "BillingAddress": "AddressTypeDef",
         "Attributes": Dict[str, str],
+        "FoundByItems": List["FoundByKeyValueTypeDef"],
     },
     total=False,
 )
@@ -1614,6 +1635,8 @@ _OptionalSearchProfilesRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "AdditionalSearchKeys": List["AdditionalSearchKeyTypeDef"],
+        "LogicalOperator": logicalOperatorType,
     },
     total=False,
 )

@@ -27,6 +27,7 @@ __all__ = (
     "RelatedItemTypeType",
     "SearchCasesPaginatorName",
     "SearchRelatedItemsPaginatorName",
+    "TemplateStatusType",
 )
 
 CommentBodyTextTypeType = Literal["Text/Plain"]
@@ -37,3 +38,4 @@ OrderType = Literal["Asc", "Desc"]
 RelatedItemTypeType = Literal["Comment", "Contact"]
 SearchCasesPaginatorName = Literal["search_cases"]
 SearchRelatedItemsPaginatorName = Literal["search_related_items"]
+TemplateStatusType = Literal["Active", "Inactive"]
