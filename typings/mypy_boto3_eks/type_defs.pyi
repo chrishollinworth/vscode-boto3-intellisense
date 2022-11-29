@@ -123,6 +123,7 @@ __all__ = (
     "ListUpdatesResponseTypeDef",
     "LogSetupTypeDef",
     "LoggingTypeDef",
+    "MarketplaceInformationTypeDef",
     "NodegroupHealthTypeDef",
     "NodegroupResourcesTypeDef",
     "NodegroupScalingConfigTypeDef",
@@ -175,6 +176,9 @@ AddonInfoTypeDef = TypedDict(
         "addonName": str,
         "type": str,
         "addonVersions": List["AddonVersionInfoTypeDef"],
+        "publisher": str,
+        "owner": str,
+        "marketplaceInformation": "MarketplaceInformationTypeDef",
     },
     total=False,
 )
@@ -202,6 +206,9 @@ AddonTypeDef = TypedDict(
         "modifiedAt": datetime,
         "serviceAccountRoleArn": str,
         "tags": Dict[str, str],
+        "publisher": str,
+        "owner": str,
+        "marketplaceInformation": "MarketplaceInformationTypeDef",
     },
     total=False,
 )
@@ -212,6 +219,7 @@ AddonVersionInfoTypeDef = TypedDict(
         "addonVersion": str,
         "architecture": List[str],
         "compatibilities": List["CompatibilityTypeDef"],
+        "requiresConfiguration": bool,
     },
     total=False,
 )
@@ -639,6 +647,9 @@ DescribeAddonVersionsRequestRequestTypeDef = TypedDict(
         "maxResults": int,
         "nextToken": str,
         "addonName": str,
+        "types": List[str],
+        "publishers": List[str],
+        "owners": List[str],
     },
     total=False,
 )
@@ -1076,6 +1087,15 @@ LoggingTypeDef = TypedDict(
     "LoggingTypeDef",
     {
         "clusterLogging": List["LogSetupTypeDef"],
+    },
+    total=False,
+)
+
+MarketplaceInformationTypeDef = TypedDict(
+    "MarketplaceInformationTypeDef",
+    {
+        "productId": str,
+        "productUrl": str,
     },
     total=False,
 )

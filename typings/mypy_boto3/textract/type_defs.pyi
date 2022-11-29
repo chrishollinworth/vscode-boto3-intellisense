@@ -48,6 +48,8 @@ __all__ = (
     "BoundingBoxTypeDef",
     "DetectDocumentTextRequestRequestTypeDef",
     "DetectDocumentTextResponseTypeDef",
+    "DetectedSignatureTypeDef",
+    "DocumentGroupTypeDef",
     "DocumentLocationTypeDef",
     "DocumentMetadataTypeDef",
     "DocumentTypeDef",
@@ -57,6 +59,7 @@ __all__ = (
     "ExpenseFieldTypeDef",
     "ExpenseGroupPropertyTypeDef",
     "ExpenseTypeTypeDef",
+    "ExtractionTypeDef",
     "GeometryTypeDef",
     "GetDocumentAnalysisRequestRequestTypeDef",
     "GetDocumentAnalysisResponseTypeDef",
@@ -64,28 +67,44 @@ __all__ = (
     "GetDocumentTextDetectionResponseTypeDef",
     "GetExpenseAnalysisRequestRequestTypeDef",
     "GetExpenseAnalysisResponseTypeDef",
+    "GetLendingAnalysisRequestRequestTypeDef",
+    "GetLendingAnalysisResponseTypeDef",
+    "GetLendingAnalysisSummaryRequestRequestTypeDef",
+    "GetLendingAnalysisSummaryResponseTypeDef",
     "HumanLoopActivationOutputTypeDef",
     "HumanLoopConfigTypeDef",
     "HumanLoopDataAttributesTypeDef",
     "IdentityDocumentFieldTypeDef",
     "IdentityDocumentTypeDef",
+    "LendingDetectionTypeDef",
+    "LendingDocumentTypeDef",
+    "LendingFieldTypeDef",
+    "LendingResultTypeDef",
+    "LendingSummaryTypeDef",
     "LineItemFieldsTypeDef",
     "LineItemGroupTypeDef",
     "NormalizedValueTypeDef",
     "NotificationChannelTypeDef",
     "OutputConfigTypeDef",
+    "PageClassificationTypeDef",
     "PointTypeDef",
+    "PredictionTypeDef",
     "QueriesConfigTypeDef",
     "QueryTypeDef",
     "RelationshipTypeDef",
     "ResponseMetadataTypeDef",
     "S3ObjectTypeDef",
+    "SignatureDetectionTypeDef",
+    "SplitDocumentTypeDef",
     "StartDocumentAnalysisRequestRequestTypeDef",
     "StartDocumentAnalysisResponseTypeDef",
     "StartDocumentTextDetectionRequestRequestTypeDef",
     "StartDocumentTextDetectionResponseTypeDef",
     "StartExpenseAnalysisRequestRequestTypeDef",
     "StartExpenseAnalysisResponseTypeDef",
+    "StartLendingAnalysisRequestRequestTypeDef",
+    "StartLendingAnalysisResponseTypeDef",
+    "UndetectedSignatureTypeDef",
     "WarningTypeDef",
 )
 
@@ -224,6 +243,25 @@ DetectDocumentTextResponseTypeDef = TypedDict(
     },
 )
 
+DetectedSignatureTypeDef = TypedDict(
+    "DetectedSignatureTypeDef",
+    {
+        "Page": int,
+    },
+    total=False,
+)
+
+DocumentGroupTypeDef = TypedDict(
+    "DocumentGroupTypeDef",
+    {
+        "Type": str,
+        "SplitDocuments": List["SplitDocumentTypeDef"],
+        "DetectedSignatures": List["DetectedSignatureTypeDef"],
+        "UndetectedSignatures": List["UndetectedSignatureTypeDef"],
+    },
+    total=False,
+)
+
 DocumentLocationTypeDef = TypedDict(
     "DocumentLocationTypeDef",
     {
@@ -306,6 +344,16 @@ ExpenseTypeTypeDef = TypedDict(
     {
         "Text": str,
         "Confidence": float,
+    },
+    total=False,
+)
+
+ExtractionTypeDef = TypedDict(
+    "ExtractionTypeDef",
+    {
+        "LendingDocument": "LendingDocumentTypeDef",
+        "ExpenseDocument": "ExpenseDocumentTypeDef",
+        "IdentityDocument": "IdentityDocumentTypeDef",
     },
     total=False,
 )
@@ -424,6 +472,61 @@ GetExpenseAnalysisResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetLendingAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredGetLendingAnalysisRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetLendingAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalGetLendingAnalysisRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetLendingAnalysisRequestRequestTypeDef(
+    _RequiredGetLendingAnalysisRequestRequestTypeDef,
+    _OptionalGetLendingAnalysisRequestRequestTypeDef,
+):
+    pass
+
+GetLendingAnalysisResponseTypeDef = TypedDict(
+    "GetLendingAnalysisResponseTypeDef",
+    {
+        "DocumentMetadata": "DocumentMetadataTypeDef",
+        "JobStatus": JobStatusType,
+        "NextToken": str,
+        "Results": List["LendingResultTypeDef"],
+        "Warnings": List["WarningTypeDef"],
+        "StatusMessage": str,
+        "AnalyzeLendingModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetLendingAnalysisSummaryRequestRequestTypeDef = TypedDict(
+    "GetLendingAnalysisSummaryRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+GetLendingAnalysisSummaryResponseTypeDef = TypedDict(
+    "GetLendingAnalysisSummaryResponseTypeDef",
+    {
+        "DocumentMetadata": "DocumentMetadataTypeDef",
+        "JobStatus": JobStatusType,
+        "Summary": "LendingSummaryTypeDef",
+        "Warnings": List["WarningTypeDef"],
+        "StatusMessage": str,
+        "AnalyzeLendingModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 HumanLoopActivationOutputTypeDef = TypedDict(
     "HumanLoopActivationOutputTypeDef",
     {
@@ -479,6 +582,55 @@ IdentityDocumentTypeDef = TypedDict(
     total=False,
 )
 
+LendingDetectionTypeDef = TypedDict(
+    "LendingDetectionTypeDef",
+    {
+        "Text": str,
+        "SelectionStatus": SelectionStatusType,
+        "Geometry": "GeometryTypeDef",
+        "Confidence": float,
+    },
+    total=False,
+)
+
+LendingDocumentTypeDef = TypedDict(
+    "LendingDocumentTypeDef",
+    {
+        "LendingFields": List["LendingFieldTypeDef"],
+        "SignatureDetections": List["SignatureDetectionTypeDef"],
+    },
+    total=False,
+)
+
+LendingFieldTypeDef = TypedDict(
+    "LendingFieldTypeDef",
+    {
+        "Type": str,
+        "KeyDetection": "LendingDetectionTypeDef",
+        "ValueDetections": List["LendingDetectionTypeDef"],
+    },
+    total=False,
+)
+
+LendingResultTypeDef = TypedDict(
+    "LendingResultTypeDef",
+    {
+        "Page": int,
+        "PageClassification": "PageClassificationTypeDef",
+        "Extractions": List["ExtractionTypeDef"],
+    },
+    total=False,
+)
+
+LendingSummaryTypeDef = TypedDict(
+    "LendingSummaryTypeDef",
+    {
+        "DocumentGroups": List["DocumentGroupTypeDef"],
+        "UndetectedDocumentTypes": List[str],
+    },
+    total=False,
+)
+
 LineItemFieldsTypeDef = TypedDict(
     "LineItemFieldsTypeDef",
     {
@@ -530,11 +682,28 @@ _OptionalOutputConfigTypeDef = TypedDict(
 class OutputConfigTypeDef(_RequiredOutputConfigTypeDef, _OptionalOutputConfigTypeDef):
     pass
 
+PageClassificationTypeDef = TypedDict(
+    "PageClassificationTypeDef",
+    {
+        "PageType": List["PredictionTypeDef"],
+        "PageNumber": List["PredictionTypeDef"],
+    },
+)
+
 PointTypeDef = TypedDict(
     "PointTypeDef",
     {
         "X": float,
         "Y": float,
+    },
+    total=False,
+)
+
+PredictionTypeDef = TypedDict(
+    "PredictionTypeDef",
+    {
+        "Value": str,
+        "Confidence": float,
     },
     total=False,
 )
@@ -590,6 +759,24 @@ S3ObjectTypeDef = TypedDict(
         "Bucket": str,
         "Name": str,
         "Version": str,
+    },
+    total=False,
+)
+
+SignatureDetectionTypeDef = TypedDict(
+    "SignatureDetectionTypeDef",
+    {
+        "Confidence": float,
+        "Geometry": "GeometryTypeDef",
+    },
+    total=False,
+)
+
+SplitDocumentTypeDef = TypedDict(
+    "SplitDocumentTypeDef",
+    {
+        "Index": int,
+        "Pages": List[int],
     },
     total=False,
 )
@@ -690,6 +877,46 @@ StartExpenseAnalysisResponseTypeDef = TypedDict(
         "JobId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredStartLendingAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredStartLendingAnalysisRequestRequestTypeDef",
+    {
+        "DocumentLocation": "DocumentLocationTypeDef",
+    },
+)
+_OptionalStartLendingAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalStartLendingAnalysisRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "JobTag": str,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "OutputConfig": "OutputConfigTypeDef",
+        "KMSKeyId": str,
+    },
+    total=False,
+)
+
+class StartLendingAnalysisRequestRequestTypeDef(
+    _RequiredStartLendingAnalysisRequestRequestTypeDef,
+    _OptionalStartLendingAnalysisRequestRequestTypeDef,
+):
+    pass
+
+StartLendingAnalysisResponseTypeDef = TypedDict(
+    "StartLendingAnalysisResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UndetectedSignatureTypeDef = TypedDict(
+    "UndetectedSignatureTypeDef",
+    {
+        "Page": int,
+    },
+    total=False,
 )
 
 WarningTypeDef = TypedDict(

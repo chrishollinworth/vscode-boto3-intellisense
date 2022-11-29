@@ -45,10 +45,14 @@ __all__ = (
     "RegisterIdentityProviderRequestRequestTypeDef",
     "RegisterIdentityProviderResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "SettingsTypeDef",
     "StartProductSubscriptionRequestRequestTypeDef",
     "StartProductSubscriptionResponseTypeDef",
     "StopProductSubscriptionRequestRequestTypeDef",
     "StopProductSubscriptionResponseTypeDef",
+    "UpdateIdentityProviderSettingsRequestRequestTypeDef",
+    "UpdateIdentityProviderSettingsResponseTypeDef",
+    "UpdateSettingsTypeDef",
 )
 
 ActiveDirectoryIdentityProviderTypeDef = TypedDict(
@@ -148,6 +152,7 @@ _RequiredIdentityProviderSummaryTypeDef = TypedDict(
     {
         "IdentityProvider": "IdentityProviderTypeDef",
         "Product": str,
+        "Settings": "SettingsTypeDef",
         "Status": str,
     },
 )
@@ -353,13 +358,26 @@ class ProductUserSummaryTypeDef(
 ):
     pass
 
-RegisterIdentityProviderRequestRequestTypeDef = TypedDict(
-    "RegisterIdentityProviderRequestRequestTypeDef",
+_RequiredRegisterIdentityProviderRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterIdentityProviderRequestRequestTypeDef",
     {
         "IdentityProvider": "IdentityProviderTypeDef",
         "Product": str,
     },
 )
+_OptionalRegisterIdentityProviderRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterIdentityProviderRequestRequestTypeDef",
+    {
+        "Settings": "SettingsTypeDef",
+    },
+    total=False,
+)
+
+class RegisterIdentityProviderRequestRequestTypeDef(
+    _RequiredRegisterIdentityProviderRequestRequestTypeDef,
+    _OptionalRegisterIdentityProviderRequestRequestTypeDef,
+):
+    pass
 
 RegisterIdentityProviderResponseTypeDef = TypedDict(
     "RegisterIdentityProviderResponseTypeDef",
@@ -377,6 +395,14 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+SettingsTypeDef = TypedDict(
+    "SettingsTypeDef",
+    {
+        "SecurityGroupId": str,
+        "Subnets": List[str],
     },
 )
 
@@ -439,3 +465,38 @@ StopProductSubscriptionResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+UpdateIdentityProviderSettingsRequestRequestTypeDef = TypedDict(
+    "UpdateIdentityProviderSettingsRequestRequestTypeDef",
+    {
+        "IdentityProvider": "IdentityProviderTypeDef",
+        "Product": str,
+        "UpdateSettings": "UpdateSettingsTypeDef",
+    },
+)
+
+UpdateIdentityProviderSettingsResponseTypeDef = TypedDict(
+    "UpdateIdentityProviderSettingsResponseTypeDef",
+    {
+        "IdentityProviderSummary": "IdentityProviderSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateSettingsTypeDef = TypedDict(
+    "_RequiredUpdateSettingsTypeDef",
+    {
+        "AddSubnets": List[str],
+        "RemoveSubnets": List[str],
+    },
+)
+_OptionalUpdateSettingsTypeDef = TypedDict(
+    "_OptionalUpdateSettingsTypeDef",
+    {
+        "SecurityGroupId": str,
+    },
+    total=False,
+)
+
+class UpdateSettingsTypeDef(_RequiredUpdateSettingsTypeDef, _OptionalUpdateSettingsTypeDef):
+    pass

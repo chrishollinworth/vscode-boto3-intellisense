@@ -29,6 +29,7 @@ from mypy_boto3_appmesh.client import AppMeshClient
 from mypy_boto3_apprunner.client import AppRunnerClient
 from mypy_boto3_appstream.client import AppStreamClient
 from mypy_boto3_appsync.client import AppSyncClient
+from mypy_boto3_arc_zonal_shift.client import ARCZonalShiftClient
 from mypy_boto3_athena.client import AthenaClient
 from mypy_boto3_auditmanager.client import AuditManagerClient
 from mypy_boto3_autoscaling.client import AutoScalingClient
@@ -233,6 +234,7 @@ from mypy_boto3_neptune.client import NeptuneClient
 from mypy_boto3_network_firewall.client import NetworkFirewallClient
 from mypy_boto3_networkmanager.client import NetworkManagerClient
 from mypy_boto3_nimble.client import NimbleStudioClient
+from mypy_boto3_oam.client import CloudWatchObservabilityAccessManagerClient
 from mypy_boto3_opensearch.client import OpenSearchServiceClient
 from mypy_boto3_opsworks.client import OpsWorksClient
 from mypy_boto3_opsworks.service_resource import OpsWorksServiceResource
@@ -677,6 +679,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> AppSyncClient: ...
+@overload
+def client(
+    service_name: Literal["arc-zonal-shift"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ARCZonalShiftClient: ...
 @overload
 def client(
     service_name: Literal["athena"],
@@ -3225,6 +3240,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> NimbleStudioClient: ...
+@overload
+def client(
+    service_name: Literal["oam"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> CloudWatchObservabilityAccessManagerClient: ...
 @overload
 def client(
     service_name: Literal["opensearch"],

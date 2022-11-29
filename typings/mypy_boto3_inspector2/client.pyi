@@ -103,7 +103,7 @@ class Exceptions:
 
 class Inspector2Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html)
     """
 
@@ -119,7 +119,7 @@ class Inspector2Client(BaseClient):
         Associates an Amazon Web Services account with an Amazon Inspector delegated
         administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.associate_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.associate_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#associate_member)
         """
     def batch_get_account_status(
@@ -129,7 +129,7 @@ class Inspector2Client(BaseClient):
         Retrieves the Amazon Inspector status of multiple Amazon Web Services accounts
         within your environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.batch_get_account_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.batch_get_account_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#batch_get_account_status)
         """
     def batch_get_free_trial_info(
@@ -138,28 +138,28 @@ class Inspector2Client(BaseClient):
         """
         Gets free trial status for multiple Amazon Web Services accounts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.batch_get_free_trial_info)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.batch_get_free_trial_info)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#batch_get_free_trial_info)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#can_paginate)
         """
     def cancel_findings_report(self, *, reportId: str) -> CancelFindingsReportResponseTypeDef:
         """
         Cancels the given findings report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.cancel_findings_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.cancel_findings_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#cancel_findings_report)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#close)
         """
     def create_filter(
@@ -175,7 +175,7 @@ class Inspector2Client(BaseClient):
         """
         Creates a filter resource using specified filter criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.create_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.create_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#create_filter)
         """
     def create_findings_report(
@@ -188,14 +188,14 @@ class Inspector2Client(BaseClient):
         """
         Creates a finding report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.create_findings_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.create_findings_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#create_findings_report)
         """
     def delete_filter(self, *, arn: str) -> DeleteFilterResponseTypeDef:
         """
         Deletes a filter resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.delete_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.delete_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#delete_filter)
         """
     def describe_organization_configuration(
@@ -203,11 +203,9 @@ class Inspector2Client(BaseClient):
     ) -> DescribeOrganizationConfigurationResponseTypeDef:
         """
         Describe Amazon Inspector configuration settings for an Amazon Web Services
-        organization See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/
-        WebAPI/inspector2-2020-06-08/DescribeOrganizationConfiguration>`_ **Request
-        Syntax** response = client.describe_organization_conf...
+        organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.describe_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.describe_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#describe_organization_configuration)
         """
     def disable(
@@ -216,7 +214,7 @@ class Inspector2Client(BaseClient):
         """
         Disables Amazon Inspector scans for one or more Amazon Web Services accounts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.disable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.disable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#disable)
         """
     def disable_delegated_admin_account(
@@ -225,14 +223,14 @@ class Inspector2Client(BaseClient):
         """
         Disables the Amazon Inspector delegated administrator for your organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.disable_delegated_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.disable_delegated_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#disable_delegated_admin_account)
         """
     def disassociate_member(self, *, accountId: str) -> DisassociateMemberResponseTypeDef:
         """
         Disassociates a member account from an Amazon Inspector delegated administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.disassociate_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.disassociate_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#disassociate_member)
         """
     def enable(
@@ -245,7 +243,7 @@ class Inspector2Client(BaseClient):
         """
         Enables Amazon Inspector scans for one or more Amazon Web Services accounts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.enable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.enable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#enable)
         """
     def enable_delegated_admin_account(
@@ -255,7 +253,7 @@ class Inspector2Client(BaseClient):
         Enables the Amazon Inspector delegated administrator for your Organizations
         organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.enable_delegated_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.enable_delegated_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#enable_delegated_admin_account)
         """
     def generate_presigned_url(
@@ -268,14 +266,14 @@ class Inspector2Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#generate_presigned_url)
         """
     def get_configuration(self) -> GetConfigurationResponseTypeDef:
         """
         Retrieves setting configurations for Inspector scans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.get_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.get_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#get_configuration)
         """
     def get_delegated_admin_account(self) -> GetDelegatedAdminAccountResponseTypeDef:
@@ -283,7 +281,7 @@ class Inspector2Client(BaseClient):
         Retrieves information about the Amazon Inspector delegated administrator for
         your organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.get_delegated_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.get_delegated_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#get_delegated_admin_account)
         """
     def get_findings_report_status(
@@ -292,14 +290,14 @@ class Inspector2Client(BaseClient):
         """
         Gets the status of a findings report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.get_findings_report_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.get_findings_report_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#get_findings_report_status)
         """
     def get_member(self, *, accountId: str) -> GetMemberResponseTypeDef:
         """
         Gets member information for your organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.get_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.get_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#get_member)
         """
     def list_account_permissions(
@@ -308,7 +306,7 @@ class Inspector2Client(BaseClient):
         """
         Lists the permissions an account has to configure Amazon Inspector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_account_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_account_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_account_permissions)
         """
     def list_coverage(
@@ -321,7 +319,7 @@ class Inspector2Client(BaseClient):
         """
         Lists coverage details for you environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_coverage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_coverage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_coverage)
         """
     def list_coverage_statistics(
@@ -334,7 +332,7 @@ class Inspector2Client(BaseClient):
         """
         Lists Amazon Inspector coverage statistics for your environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_coverage_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_coverage_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_coverage_statistics)
         """
     def list_delegated_admin_accounts(
@@ -344,7 +342,7 @@ class Inspector2Client(BaseClient):
         Lists information about the Amazon Inspector delegated administrator of your
         organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_delegated_admin_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_delegated_admin_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_delegated_admin_accounts)
         """
     def list_filters(
@@ -358,7 +356,7 @@ class Inspector2Client(BaseClient):
         """
         Lists the filters associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_filters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_filters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_filters)
         """
     def list_finding_aggregations(
@@ -373,7 +371,7 @@ class Inspector2Client(BaseClient):
         """
         Lists aggregated finding data for your environment based on specific criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_finding_aggregations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_finding_aggregations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_finding_aggregations)
         """
     def list_findings(
@@ -387,7 +385,7 @@ class Inspector2Client(BaseClient):
         """
         Lists findings for your environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_findings)
         """
     def list_members(
@@ -397,14 +395,14 @@ class Inspector2Client(BaseClient):
         List members associated with the Amazon Inspector delegated administrator for
         your organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_members)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all tags attached to a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_tags_for_resource)
         """
     def list_usage_totals(
@@ -413,21 +411,21 @@ class Inspector2Client(BaseClient):
         """
         Lists the Amazon Inspector usage totals over the last 30 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.list_usage_totals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.list_usage_totals)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#list_usage_totals)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Adds tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#untag_resource)
         """
     def update_configuration(
@@ -436,7 +434,7 @@ class Inspector2Client(BaseClient):
         """
         Updates setting configurations for your Amazon Inspector account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.update_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.update_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#update_configuration)
         """
     def update_filter(
@@ -453,7 +451,7 @@ class Inspector2Client(BaseClient):
         Specifies the action that is to be applied to the findings that match the
         filter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.update_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.update_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#update_filter)
         """
     def update_organization_configuration(
@@ -462,7 +460,7 @@ class Inspector2Client(BaseClient):
         """
         Updates the configurations for your Amazon Inspector organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Client.update_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Client.update_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/client.html#update_organization_configuration)
         """
     @overload
@@ -470,13 +468,13 @@ class Inspector2Client(BaseClient):
         self, operation_name: Literal["list_account_permissions"]
     ) -> ListAccountPermissionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListAccountPermissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListAccountPermissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listaccountpermissionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_coverage"]) -> ListCoveragePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListCoverage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListCoverage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragepaginator)
         """
     @overload
@@ -484,7 +482,7 @@ class Inspector2Client(BaseClient):
         self, operation_name: Literal["list_coverage_statistics"]
     ) -> ListCoverageStatisticsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListCoverageStatistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListCoverageStatistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragestatisticspaginator)
         """
     @overload
@@ -492,13 +490,13 @@ class Inspector2Client(BaseClient):
         self, operation_name: Literal["list_delegated_admin_accounts"]
     ) -> ListDelegatedAdminAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListDelegatedAdminAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListDelegatedAdminAccounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listdelegatedadminaccountspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_filters"]) -> ListFiltersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListFilters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListFilters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfilterspaginator)
         """
     @overload
@@ -506,19 +504,19 @@ class Inspector2Client(BaseClient):
         self, operation_name: Literal["list_finding_aggregations"]
     ) -> ListFindingAggregationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListFindingAggregations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListFindingAggregations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingaggregationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_findings"]) -> ListFindingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListFindings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListFindings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_members"]) -> ListMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listmemberspaginator)
         """
     @overload
@@ -526,6 +524,6 @@ class Inspector2Client(BaseClient):
         self, operation_name: Literal["list_usage_totals"]
     ) -> ListUsageTotalsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/inspector2.html#Inspector2.Paginator.ListUsageTotals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/inspector2.html#Inspector2.Paginator.ListUsageTotals)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listusagetotalspaginator)
         """

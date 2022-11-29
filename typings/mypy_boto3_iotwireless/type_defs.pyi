@@ -13,7 +13,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     BatteryLevelType,
@@ -32,6 +34,7 @@ from .literals import (
     MessageTypeType,
     PositionConfigurationFecType,
     PositionConfigurationStatusType,
+    PositioningConfigStatusType,
     PositionResourceTypeType,
     SigningAlgType,
     SupportedRfRegionType,
@@ -58,6 +61,7 @@ __all__ = (
     "AbpV1_0_xTypeDef",
     "AbpV1_1TypeDef",
     "AccuracyTypeDef",
+    "ApplicationConfigTypeDef",
     "AssociateAwsAccountWithPartnerAccountRequestRequestTypeDef",
     "AssociateAwsAccountWithPartnerAccountResponseTypeDef",
     "AssociateMulticastGroupWithFuotaTaskRequestRequestTypeDef",
@@ -69,6 +73,10 @@ __all__ = (
     "AssociateWirelessGatewayWithThingRequestRequestTypeDef",
     "BeaconingTypeDef",
     "CancelMulticastGroupSessionRequestRequestTypeDef",
+    "CdmaLocalIdTypeDef",
+    "CdmaNmrObjTypeDef",
+    "CdmaObjTypeDef",
+    "CellTowersTypeDef",
     "CertificateListTypeDef",
     "ConnectionStatusEventConfigurationTypeDef",
     "ConnectionStatusResourceTypeEventConfigurationTypeDef",
@@ -138,12 +146,16 @@ __all__ = (
     "GetPartnerAccountResponseTypeDef",
     "GetPositionConfigurationRequestRequestTypeDef",
     "GetPositionConfigurationResponseTypeDef",
+    "GetPositionEstimateRequestRequestTypeDef",
+    "GetPositionEstimateResponseTypeDef",
     "GetPositionRequestRequestTypeDef",
     "GetPositionResponseTypeDef",
     "GetResourceEventConfigurationRequestRequestTypeDef",
     "GetResourceEventConfigurationResponseTypeDef",
     "GetResourceLogLevelRequestRequestTypeDef",
     "GetResourceLogLevelResponseTypeDef",
+    "GetResourcePositionRequestRequestTypeDef",
+    "GetResourcePositionResponseTypeDef",
     "GetServiceEndpointRequestRequestTypeDef",
     "GetServiceEndpointResponseTypeDef",
     "GetServiceProfileRequestRequestTypeDef",
@@ -164,6 +176,12 @@ __all__ = (
     "GetWirelessGatewayTaskDefinitionResponseTypeDef",
     "GetWirelessGatewayTaskRequestRequestTypeDef",
     "GetWirelessGatewayTaskResponseTypeDef",
+    "GlobalIdentityTypeDef",
+    "GnssTypeDef",
+    "GsmLocalIdTypeDef",
+    "GsmNmrObjTypeDef",
+    "GsmObjTypeDef",
+    "IpTypeDef",
     "JoinEventConfigurationTypeDef",
     "JoinResourceTypeEventConfigurationTypeDef",
     "ListDestinationsRequestRequestTypeDef",
@@ -221,6 +239,9 @@ __all__ = (
     "LoRaWANUpdateDeviceTypeDef",
     "LoRaWANUpdateGatewayTaskCreateTypeDef",
     "LoRaWANUpdateGatewayTaskEntryTypeDef",
+    "LteLocalIdTypeDef",
+    "LteNmrObjTypeDef",
+    "LteObjTypeDef",
     "MessageDeliveryStatusEventConfigurationTypeDef",
     "MessageDeliveryStatusResourceTypeEventConfigurationTypeDef",
     "MulticastGroupByFuotaTaskTypeDef",
@@ -264,6 +285,9 @@ __all__ = (
     "StartMulticastGroupSessionRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TdscdmaLocalIdTypeDef",
+    "TdscdmaNmrObjTypeDef",
+    "TdscdmaObjTypeDef",
     "TestWirelessDeviceRequestRequestTypeDef",
     "TestWirelessDeviceResponseTypeDef",
     "TraceContentTypeDef",
@@ -280,10 +304,15 @@ __all__ = (
     "UpdatePartnerAccountRequestRequestTypeDef",
     "UpdatePositionRequestRequestTypeDef",
     "UpdateResourceEventConfigurationRequestRequestTypeDef",
+    "UpdateResourcePositionRequestRequestTypeDef",
     "UpdateWirelessDeviceRequestRequestTypeDef",
     "UpdateWirelessGatewayRequestRequestTypeDef",
     "UpdateWirelessGatewayTaskCreateTypeDef",
     "UpdateWirelessGatewayTaskEntryTypeDef",
+    "WcdmaLocalIdTypeDef",
+    "WcdmaNmrObjTypeDef",
+    "WcdmaObjTypeDef",
+    "WiFiAccessPointTypeDef",
     "WirelessDeviceEventLogOptionTypeDef",
     "WirelessDeviceLogOptionTypeDef",
     "WirelessDeviceStatisticsTypeDef",
@@ -318,6 +347,16 @@ AccuracyTypeDef = TypedDict(
     {
         "HorizontalAccuracy": float,
         "VerticalAccuracy": float,
+    },
+    total=False,
+)
+
+ApplicationConfigTypeDef = TypedDict(
+    "ApplicationConfigTypeDef",
+    {
+        "FPort": int,
+        "Type": Literal["SemtechGeolocation"],
+        "DestinationName": str,
     },
     total=False,
 )
@@ -422,6 +461,69 @@ CancelMulticastGroupSessionRequestRequestTypeDef = TypedDict(
     {
         "Id": str,
     },
+)
+
+CdmaLocalIdTypeDef = TypedDict(
+    "CdmaLocalIdTypeDef",
+    {
+        "PnOffset": int,
+        "CdmaChannel": int,
+    },
+)
+
+_RequiredCdmaNmrObjTypeDef = TypedDict(
+    "_RequiredCdmaNmrObjTypeDef",
+    {
+        "PnOffset": int,
+        "CdmaChannel": int,
+    },
+)
+_OptionalCdmaNmrObjTypeDef = TypedDict(
+    "_OptionalCdmaNmrObjTypeDef",
+    {
+        "PilotPower": int,
+        "BaseStationId": int,
+    },
+    total=False,
+)
+
+class CdmaNmrObjTypeDef(_RequiredCdmaNmrObjTypeDef, _OptionalCdmaNmrObjTypeDef):
+    pass
+
+_RequiredCdmaObjTypeDef = TypedDict(
+    "_RequiredCdmaObjTypeDef",
+    {
+        "SystemId": int,
+        "NetworkId": int,
+        "BaseStationId": int,
+    },
+)
+_OptionalCdmaObjTypeDef = TypedDict(
+    "_OptionalCdmaObjTypeDef",
+    {
+        "RegistrationZone": int,
+        "CdmaLocalId": "CdmaLocalIdTypeDef",
+        "PilotPower": int,
+        "BaseLat": float,
+        "BaseLng": float,
+        "CdmaNmr": List["CdmaNmrObjTypeDef"],
+    },
+    total=False,
+)
+
+class CdmaObjTypeDef(_RequiredCdmaObjTypeDef, _OptionalCdmaObjTypeDef):
+    pass
+
+CellTowersTypeDef = TypedDict(
+    "CellTowersTypeDef",
+    {
+        "Gsm": List["GsmObjTypeDef"],
+        "Wcdma": List["WcdmaObjTypeDef"],
+        "Tdscdma": List["TdscdmaObjTypeDef"],
+        "Lte": List["LteObjTypeDef"],
+        "Cdma": List["CdmaObjTypeDef"],
+    },
+    total=False,
 )
 
 CertificateListTypeDef = TypedDict(
@@ -636,6 +738,7 @@ _OptionalCreateWirelessDeviceRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "LoRaWAN": "LoRaWANDeviceTypeDef",
         "Tags": List["TagTypeDef"],
+        "Positioning": PositioningConfigStatusType,
     },
     total=False,
 )
@@ -961,6 +1064,7 @@ FPortsTypeDef = TypedDict(
         "Multicast": int,
         "ClockSync": int,
         "Positioning": "PositioningTypeDef",
+        "Applications": List["ApplicationConfigTypeDef"],
     },
     total=False,
 )
@@ -1156,6 +1260,26 @@ GetPositionConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+GetPositionEstimateRequestRequestTypeDef = TypedDict(
+    "GetPositionEstimateRequestRequestTypeDef",
+    {
+        "WiFiAccessPoints": List["WiFiAccessPointTypeDef"],
+        "CellTowers": "CellTowersTypeDef",
+        "Ip": "IpTypeDef",
+        "Gnss": "GnssTypeDef",
+        "Timestamp": Union[datetime, str],
+    },
+    total=False,
+)
+
+GetPositionEstimateResponseTypeDef = TypedDict(
+    "GetPositionEstimateResponseTypeDef",
+    {
+        "GeoJsonPayload": bytes,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetPositionRequestRequestTypeDef = TypedDict(
     "GetPositionRequestRequestTypeDef",
     {
@@ -1226,6 +1350,22 @@ GetResourceLogLevelResponseTypeDef = TypedDict(
     },
 )
 
+GetResourcePositionRequestRequestTypeDef = TypedDict(
+    "GetResourcePositionRequestRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ResourceType": PositionResourceTypeType,
+    },
+)
+
+GetResourcePositionResponseTypeDef = TypedDict(
+    "GetResourcePositionResponseTypeDef",
+    {
+        "GeoJsonPayload": bytes,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetServiceEndpointRequestRequestTypeDef = TypedDict(
     "GetServiceEndpointRequestRequestTypeDef",
     {
@@ -1283,6 +1423,7 @@ GetWirelessDeviceResponseTypeDef = TypedDict(
         "ThingArn": str,
         "LoRaWAN": "LoRaWANDeviceTypeDef",
         "Sidewalk": "SidewalkDeviceTypeDef",
+        "Positioning": PositioningConfigStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1409,6 +1550,92 @@ GetWirelessGatewayTaskResponseTypeDef = TypedDict(
         "TaskCreatedAt": str,
         "Status": WirelessGatewayTaskStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GlobalIdentityTypeDef = TypedDict(
+    "GlobalIdentityTypeDef",
+    {
+        "Lac": int,
+        "GeranCid": int,
+    },
+)
+
+_RequiredGnssTypeDef = TypedDict(
+    "_RequiredGnssTypeDef",
+    {
+        "Payload": str,
+    },
+)
+_OptionalGnssTypeDef = TypedDict(
+    "_OptionalGnssTypeDef",
+    {
+        "CaptureTime": float,
+        "CaptureTimeAccuracy": float,
+        "AssistPosition": List[float],
+        "AssistAltitude": float,
+        "Use2DSolver": bool,
+    },
+    total=False,
+)
+
+class GnssTypeDef(_RequiredGnssTypeDef, _OptionalGnssTypeDef):
+    pass
+
+GsmLocalIdTypeDef = TypedDict(
+    "GsmLocalIdTypeDef",
+    {
+        "Bsic": int,
+        "Bcch": int,
+    },
+)
+
+_RequiredGsmNmrObjTypeDef = TypedDict(
+    "_RequiredGsmNmrObjTypeDef",
+    {
+        "Bsic": int,
+        "Bcch": int,
+    },
+)
+_OptionalGsmNmrObjTypeDef = TypedDict(
+    "_OptionalGsmNmrObjTypeDef",
+    {
+        "RxLevel": int,
+        "GlobalIdentity": "GlobalIdentityTypeDef",
+    },
+    total=False,
+)
+
+class GsmNmrObjTypeDef(_RequiredGsmNmrObjTypeDef, _OptionalGsmNmrObjTypeDef):
+    pass
+
+_RequiredGsmObjTypeDef = TypedDict(
+    "_RequiredGsmObjTypeDef",
+    {
+        "Mcc": int,
+        "Mnc": int,
+        "Lac": int,
+        "GeranCid": int,
+    },
+)
+_OptionalGsmObjTypeDef = TypedDict(
+    "_OptionalGsmObjTypeDef",
+    {
+        "GsmLocalId": "GsmLocalIdTypeDef",
+        "GsmTimingAdvance": int,
+        "RxLevel": int,
+        "GsmNmr": List["GsmNmrObjTypeDef"],
+    },
+    total=False,
+)
+
+class GsmObjTypeDef(_RequiredGsmObjTypeDef, _OptionalGsmObjTypeDef):
+    pass
+
+IpTypeDef = TypedDict(
+    "IpTypeDef",
+    {
+        "IpAddress": str,
     },
 )
 
@@ -2017,6 +2244,59 @@ LoRaWANUpdateGatewayTaskEntryTypeDef = TypedDict(
     total=False,
 )
 
+LteLocalIdTypeDef = TypedDict(
+    "LteLocalIdTypeDef",
+    {
+        "Pci": int,
+        "Earfcn": int,
+    },
+)
+
+_RequiredLteNmrObjTypeDef = TypedDict(
+    "_RequiredLteNmrObjTypeDef",
+    {
+        "Pci": int,
+        "Earfcn": int,
+        "EutranCid": int,
+    },
+)
+_OptionalLteNmrObjTypeDef = TypedDict(
+    "_OptionalLteNmrObjTypeDef",
+    {
+        "Rsrp": int,
+        "Rsrq": float,
+    },
+    total=False,
+)
+
+class LteNmrObjTypeDef(_RequiredLteNmrObjTypeDef, _OptionalLteNmrObjTypeDef):
+    pass
+
+_RequiredLteObjTypeDef = TypedDict(
+    "_RequiredLteObjTypeDef",
+    {
+        "Mcc": int,
+        "Mnc": int,
+        "EutranCid": int,
+    },
+)
+_OptionalLteObjTypeDef = TypedDict(
+    "_OptionalLteObjTypeDef",
+    {
+        "Tac": int,
+        "LteLocalId": "LteLocalIdTypeDef",
+        "LteTimingAdvance": int,
+        "Rsrp": int,
+        "Rsrq": float,
+        "NrCapable": bool,
+        "LteNmr": List["LteNmrObjTypeDef"],
+    },
+    total=False,
+)
+
+class LteObjTypeDef(_RequiredLteObjTypeDef, _OptionalLteObjTypeDef):
+    pass
+
 MessageDeliveryStatusEventConfigurationTypeDef = TypedDict(
     "MessageDeliveryStatusEventConfigurationTypeDef",
     {
@@ -2469,6 +2749,58 @@ TagTypeDef = TypedDict(
     },
 )
 
+TdscdmaLocalIdTypeDef = TypedDict(
+    "TdscdmaLocalIdTypeDef",
+    {
+        "Uarfcn": int,
+        "CellParams": int,
+    },
+)
+
+_RequiredTdscdmaNmrObjTypeDef = TypedDict(
+    "_RequiredTdscdmaNmrObjTypeDef",
+    {
+        "Uarfcn": int,
+        "CellParams": int,
+    },
+)
+_OptionalTdscdmaNmrObjTypeDef = TypedDict(
+    "_OptionalTdscdmaNmrObjTypeDef",
+    {
+        "UtranCid": int,
+        "Rscp": int,
+        "PathLoss": int,
+    },
+    total=False,
+)
+
+class TdscdmaNmrObjTypeDef(_RequiredTdscdmaNmrObjTypeDef, _OptionalTdscdmaNmrObjTypeDef):
+    pass
+
+_RequiredTdscdmaObjTypeDef = TypedDict(
+    "_RequiredTdscdmaObjTypeDef",
+    {
+        "Mcc": int,
+        "Mnc": int,
+        "UtranCid": int,
+    },
+)
+_OptionalTdscdmaObjTypeDef = TypedDict(
+    "_OptionalTdscdmaObjTypeDef",
+    {
+        "Lac": int,
+        "TdscdmaLocalId": "TdscdmaLocalIdTypeDef",
+        "TdscdmaTimingAdvance": int,
+        "Rscp": int,
+        "PathLoss": int,
+        "TdscdmaNmr": List["TdscdmaNmrObjTypeDef"],
+    },
+    total=False,
+)
+
+class TdscdmaObjTypeDef(_RequiredTdscdmaObjTypeDef, _OptionalTdscdmaObjTypeDef):
+    pass
+
 TestWirelessDeviceRequestRequestTypeDef = TypedDict(
     "TestWirelessDeviceRequestRequestTypeDef",
     {
@@ -2555,6 +2887,7 @@ UpdateFPortsTypeDef = TypedDict(
     "UpdateFPortsTypeDef",
     {
         "Positioning": "PositioningTypeDef",
+        "Applications": List["ApplicationConfigTypeDef"],
     },
     total=False,
 )
@@ -2683,6 +3016,27 @@ class UpdateResourceEventConfigurationRequestRequestTypeDef(
 ):
     pass
 
+_RequiredUpdateResourcePositionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateResourcePositionRequestRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ResourceType": PositionResourceTypeType,
+    },
+)
+_OptionalUpdateResourcePositionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateResourcePositionRequestRequestTypeDef",
+    {
+        "GeoJsonPayload": Union[bytes, IO[bytes], StreamingBody],
+    },
+    total=False,
+)
+
+class UpdateResourcePositionRequestRequestTypeDef(
+    _RequiredUpdateResourcePositionRequestRequestTypeDef,
+    _OptionalUpdateResourcePositionRequestRequestTypeDef,
+):
+    pass
+
 _RequiredUpdateWirelessDeviceRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateWirelessDeviceRequestRequestTypeDef",
     {
@@ -2696,6 +3050,7 @@ _OptionalUpdateWirelessDeviceRequestRequestTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "LoRaWAN": "LoRaWANUpdateDeviceTypeDef",
+        "Positioning": PositioningConfigStatusType,
     },
     total=False,
 )
@@ -2747,6 +3102,65 @@ UpdateWirelessGatewayTaskEntryTypeDef = TypedDict(
         "Arn": str,
     },
     total=False,
+)
+
+WcdmaLocalIdTypeDef = TypedDict(
+    "WcdmaLocalIdTypeDef",
+    {
+        "Uarfcndl": int,
+        "Psc": int,
+    },
+)
+
+_RequiredWcdmaNmrObjTypeDef = TypedDict(
+    "_RequiredWcdmaNmrObjTypeDef",
+    {
+        "Uarfcndl": int,
+        "Psc": int,
+        "UtranCid": int,
+    },
+)
+_OptionalWcdmaNmrObjTypeDef = TypedDict(
+    "_OptionalWcdmaNmrObjTypeDef",
+    {
+        "Rscp": int,
+        "PathLoss": int,
+    },
+    total=False,
+)
+
+class WcdmaNmrObjTypeDef(_RequiredWcdmaNmrObjTypeDef, _OptionalWcdmaNmrObjTypeDef):
+    pass
+
+_RequiredWcdmaObjTypeDef = TypedDict(
+    "_RequiredWcdmaObjTypeDef",
+    {
+        "Mcc": int,
+        "Mnc": int,
+        "UtranCid": int,
+    },
+)
+_OptionalWcdmaObjTypeDef = TypedDict(
+    "_OptionalWcdmaObjTypeDef",
+    {
+        "Lac": int,
+        "WcdmaLocalId": "WcdmaLocalIdTypeDef",
+        "Rscp": int,
+        "PathLoss": int,
+        "WcdmaNmr": List["WcdmaNmrObjTypeDef"],
+    },
+    total=False,
+)
+
+class WcdmaObjTypeDef(_RequiredWcdmaObjTypeDef, _OptionalWcdmaObjTypeDef):
+    pass
+
+WiFiAccessPointTypeDef = TypedDict(
+    "WiFiAccessPointTypeDef",
+    {
+        "MacAddress": str,
+        "Rss": int,
+    },
 )
 
 WirelessDeviceEventLogOptionTypeDef = TypedDict(

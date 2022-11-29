@@ -17,6 +17,7 @@ from typing import Any, Dict, List, Union
 
 from .literals import (
     AgentUpdateStatusType,
+    ApplicationProtocolType,
     AssignPublicIpType,
     CapacityProviderStatusType,
     CapacityProviderUpdateStatusType,
@@ -80,6 +81,8 @@ __all__ = (
     "CapacityProviderStrategyItemTypeDef",
     "CapacityProviderTypeDef",
     "ClusterConfigurationTypeDef",
+    "ClusterServiceConnectDefaultsRequestTypeDef",
+    "ClusterServiceConnectDefaultsTypeDef",
     "ClusterSettingTypeDef",
     "ClusterTypeDef",
     "ContainerDefinitionTypeDef",
@@ -166,6 +169,8 @@ __all__ = (
     "ListClustersResponseTypeDef",
     "ListContainerInstancesRequestRequestTypeDef",
     "ListContainerInstancesResponseTypeDef",
+    "ListServicesByNamespaceRequestRequestTypeDef",
+    "ListServicesByNamespaceResponseTypeDef",
     "ListServicesRequestRequestTypeDef",
     "ListServicesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -213,6 +218,10 @@ __all__ = (
     "RuntimePlatformTypeDef",
     "ScaleTypeDef",
     "SecretTypeDef",
+    "ServiceConnectClientAliasTypeDef",
+    "ServiceConnectConfigurationTypeDef",
+    "ServiceConnectServiceResourceTypeDef",
+    "ServiceConnectServiceTypeDef",
     "ServiceEventTypeDef",
     "ServiceRegistryTypeDef",
     "ServiceTypeDef",
@@ -392,6 +401,21 @@ ClusterConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+ClusterServiceConnectDefaultsRequestTypeDef = TypedDict(
+    "ClusterServiceConnectDefaultsRequestTypeDef",
+    {
+        "namespace": str,
+    },
+)
+
+ClusterServiceConnectDefaultsTypeDef = TypedDict(
+    "ClusterServiceConnectDefaultsTypeDef",
+    {
+        "namespace": str,
+    },
+    total=False,
+)
+
 ClusterSettingTypeDef = TypedDict(
     "ClusterSettingTypeDef",
     {
@@ -419,6 +443,7 @@ ClusterTypeDef = TypedDict(
         "defaultCapacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
         "attachments": List["AttachmentTypeDef"],
         "attachmentsStatus": str,
+        "serviceConnectDefaults": "ClusterServiceConnectDefaultsTypeDef",
     },
     total=False,
 )
@@ -602,6 +627,7 @@ CreateClusterRequestRequestTypeDef = TypedDict(
         "configuration": "ClusterConfigurationTypeDef",
         "capacityProviders": List[str],
         "defaultCapacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
+        "serviceConnectDefaults": "ClusterServiceConnectDefaultsRequestTypeDef",
     },
     total=False,
 )
@@ -644,6 +670,7 @@ _OptionalCreateServiceRequestRequestTypeDef = TypedDict(
         "enableECSManagedTags": bool,
         "propagateTags": PropagateTagsType,
         "enableExecuteCommand": bool,
+        "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
     },
     total=False,
 )
@@ -885,6 +912,8 @@ DeploymentTypeDef = TypedDict(
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "rolloutState": DeploymentRolloutStateType,
         "rolloutStateReason": str,
+        "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
+        "serviceConnectResources": List["ServiceConnectServiceResourceTypeDef"],
     },
     total=False,
 )
@@ -1151,6 +1180,7 @@ DiscoverPollEndpointResponseTypeDef = TypedDict(
     {
         "endpoint": str,
         "telemetryEndpoint": str,
+        "serviceConnectEndpoint": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1533,6 +1563,36 @@ ListContainerInstancesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListServicesByNamespaceRequestRequestTypeDef = TypedDict(
+    "_RequiredListServicesByNamespaceRequestRequestTypeDef",
+    {
+        "namespace": str,
+    },
+)
+_OptionalListServicesByNamespaceRequestRequestTypeDef = TypedDict(
+    "_OptionalListServicesByNamespaceRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListServicesByNamespaceRequestRequestTypeDef(
+    _RequiredListServicesByNamespaceRequestRequestTypeDef,
+    _OptionalListServicesByNamespaceRequestRequestTypeDef,
+):
+    pass
+
+ListServicesByNamespaceResponseTypeDef = TypedDict(
+    "ListServicesByNamespaceResponseTypeDef",
+    {
+        "serviceArns": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListServicesRequestRequestTypeDef = TypedDict(
     "ListServicesRequestRequestTypeDef",
     {
@@ -1789,6 +1849,8 @@ PortMappingTypeDef = TypedDict(
         "containerPort": int,
         "hostPort": int,
         "protocol": TransportProtocolType,
+        "name": str,
+        "appProtocol": ApplicationProtocolType,
     },
     total=False,
 )
@@ -2086,6 +2148,76 @@ SecretTypeDef = TypedDict(
         "valueFrom": str,
     },
 )
+
+_RequiredServiceConnectClientAliasTypeDef = TypedDict(
+    "_RequiredServiceConnectClientAliasTypeDef",
+    {
+        "port": int,
+    },
+)
+_OptionalServiceConnectClientAliasTypeDef = TypedDict(
+    "_OptionalServiceConnectClientAliasTypeDef",
+    {
+        "dnsName": str,
+    },
+    total=False,
+)
+
+class ServiceConnectClientAliasTypeDef(
+    _RequiredServiceConnectClientAliasTypeDef, _OptionalServiceConnectClientAliasTypeDef
+):
+    pass
+
+_RequiredServiceConnectConfigurationTypeDef = TypedDict(
+    "_RequiredServiceConnectConfigurationTypeDef",
+    {
+        "enabled": bool,
+    },
+)
+_OptionalServiceConnectConfigurationTypeDef = TypedDict(
+    "_OptionalServiceConnectConfigurationTypeDef",
+    {
+        "namespace": str,
+        "services": List["ServiceConnectServiceTypeDef"],
+        "logConfiguration": "LogConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class ServiceConnectConfigurationTypeDef(
+    _RequiredServiceConnectConfigurationTypeDef, _OptionalServiceConnectConfigurationTypeDef
+):
+    pass
+
+ServiceConnectServiceResourceTypeDef = TypedDict(
+    "ServiceConnectServiceResourceTypeDef",
+    {
+        "discoveryName": str,
+        "discoveryArn": str,
+    },
+    total=False,
+)
+
+_RequiredServiceConnectServiceTypeDef = TypedDict(
+    "_RequiredServiceConnectServiceTypeDef",
+    {
+        "portName": str,
+    },
+)
+_OptionalServiceConnectServiceTypeDef = TypedDict(
+    "_OptionalServiceConnectServiceTypeDef",
+    {
+        "discoveryName": str,
+        "clientAliases": List["ServiceConnectClientAliasTypeDef"],
+        "ingressPortOverride": int,
+    },
+    total=False,
+)
+
+class ServiceConnectServiceTypeDef(
+    _RequiredServiceConnectServiceTypeDef, _OptionalServiceConnectServiceTypeDef
+):
+    pass
 
 ServiceEventTypeDef = TypedDict(
     "ServiceEventTypeDef",
@@ -2524,6 +2656,7 @@ _OptionalUpdateClusterRequestRequestTypeDef = TypedDict(
     {
         "settings": List["ClusterSettingTypeDef"],
         "configuration": "ClusterConfigurationTypeDef",
+        "serviceConnectDefaults": "ClusterServiceConnectDefaultsRequestTypeDef",
     },
     total=False,
 )
@@ -2657,6 +2790,7 @@ _OptionalUpdateServiceRequestRequestTypeDef = TypedDict(
         "loadBalancers": List["LoadBalancerTypeDef"],
         "propagateTags": PropagateTagsType,
         "serviceRegistries": List["ServiceRegistryTypeDef"],
+        "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
     },
     total=False,
 )

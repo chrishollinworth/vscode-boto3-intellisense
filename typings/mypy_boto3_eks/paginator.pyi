@@ -57,7 +57,7 @@ __all__ = (
 
 class DescribeAddonVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#describeaddonversionspaginator)
     """
 
@@ -66,16 +66,19 @@ class DescribeAddonVersionsPaginator(Boto3Paginator):
         *,
         kubernetesVersion: str = None,
         addonName: str = None,
+        types: List[str] = None,
+        publishers: List[str] = None,
+        owners: List[str] = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAddonVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#describeaddonversionspaginator)
         """
 
 class ListAddonsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListAddons)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListAddons)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listaddonspaginator)
     """
 
@@ -83,13 +86,13 @@ class ListAddonsPaginator(Boto3Paginator):
         self, *, clusterName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAddonsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListAddons.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListAddons.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listaddonspaginator)
         """
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListClusters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListClusters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listclusterspaginator)
     """
 
@@ -97,13 +100,13 @@ class ListClustersPaginator(Boto3Paginator):
         self, *, include: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListClusters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListClusters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listclusterspaginator)
         """
 
 class ListFargateProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listfargateprofilespaginator)
     """
 
@@ -111,13 +114,13 @@ class ListFargateProfilesPaginator(Boto3Paginator):
         self, *, clusterName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFargateProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListFargateProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListFargateProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listfargateprofilespaginator)
         """
 
 class ListIdentityProviderConfigsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListIdentityProviderConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListIdentityProviderConfigs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listidentityproviderconfigspaginator)
     """
 
@@ -125,13 +128,13 @@ class ListIdentityProviderConfigsPaginator(Boto3Paginator):
         self, *, clusterName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIdentityProviderConfigsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListIdentityProviderConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListIdentityProviderConfigs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listidentityproviderconfigspaginator)
         """
 
 class ListNodegroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListNodegroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListNodegroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listnodegroupspaginator)
     """
 
@@ -139,13 +142,13 @@ class ListNodegroupsPaginator(Boto3Paginator):
         self, *, clusterName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNodegroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListNodegroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListNodegroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listnodegroupspaginator)
         """
 
 class ListUpdatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListUpdates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListUpdates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listupdatespaginator)
     """
 
@@ -158,6 +161,6 @@ class ListUpdatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUpdatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/eks.html#EKS.Paginator.ListUpdates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/eks.html#EKS.Paginator.ListUpdates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listupdatespaginator)
         """

@@ -6,15 +6,17 @@ Type annotations for mgn service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mgn.type_defs import CPUTypeDef
+    from mypy_boto3_mgn.type_defs import ApplicationAggregatedStatusTypeDef
 
-    data: CPUTypeDef = {...}
+    data: ApplicationAggregatedStatusTypeDef = {...}
     ```
 """
 import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    ApplicationHealthStatusType,
+    ApplicationProgressStatusType,
     BootModeType,
     ChangeServerLifeCycleStateSourceServerLifecycleStateType,
     DataReplicationErrorStringType,
@@ -38,6 +40,9 @@ from .literals import (
     ReplicationTypeType,
     SsmDocumentTypeType,
     TargetInstanceTypeRightSizingMethodType,
+    VolumeTypeType,
+    WaveHealthStatusType,
+    WaveProgressStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -50,21 +55,32 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ApplicationAggregatedStatusTypeDef",
+    "ApplicationResponseMetadataTypeDef",
+    "ApplicationTypeDef",
+    "ArchiveApplicationRequestRequestTypeDef",
+    "ArchiveWaveRequestRequestTypeDef",
+    "AssociateApplicationsRequestRequestTypeDef",
+    "AssociateSourceServersRequestRequestTypeDef",
     "CPUTypeDef",
     "ChangeServerLifeCycleStateRequestRequestTypeDef",
     "ChangeServerLifeCycleStateSourceServerLifecycleTypeDef",
+    "CreateApplicationRequestRequestTypeDef",
     "CreateLaunchConfigurationTemplateRequestRequestTypeDef",
     "CreateReplicationConfigurationTemplateRequestRequestTypeDef",
+    "CreateWaveRequestRequestTypeDef",
     "DataReplicationErrorTypeDef",
     "DataReplicationInfoReplicatedDiskTypeDef",
     "DataReplicationInfoTypeDef",
     "DataReplicationInitiationStepTypeDef",
     "DataReplicationInitiationTypeDef",
+    "DeleteApplicationRequestRequestTypeDef",
     "DeleteJobRequestRequestTypeDef",
     "DeleteLaunchConfigurationTemplateRequestRequestTypeDef",
     "DeleteReplicationConfigurationTemplateRequestRequestTypeDef",
     "DeleteSourceServerRequestRequestTypeDef",
     "DeleteVcenterClientRequestRequestTypeDef",
+    "DeleteWaveRequestRequestTypeDef",
     "DescribeJobLogItemsRequestRequestTypeDef",
     "DescribeJobLogItemsResponseTypeDef",
     "DescribeJobsRequestFiltersTypeDef",
@@ -79,6 +95,8 @@ __all__ = (
     "DescribeSourceServersResponseTypeDef",
     "DescribeVcenterClientsRequestRequestTypeDef",
     "DescribeVcenterClientsResponseTypeDef",
+    "DisassociateApplicationsRequestRequestTypeDef",
+    "DisassociateSourceServersRequestRequestTypeDef",
     "DisconnectFromServiceRequestRequestTypeDef",
     "DiskTypeDef",
     "FinalizeCutoverRequestRequestTypeDef",
@@ -92,6 +110,7 @@ __all__ = (
     "LaunchConfigurationTemplateResponseMetadataTypeDef",
     "LaunchConfigurationTemplateTypeDef",
     "LaunchConfigurationTypeDef",
+    "LaunchTemplateDiskConfTypeDef",
     "LaunchedInstanceTypeDef",
     "LicensingTypeDef",
     "LifeCycleLastCutoverFinalizedTypeDef",
@@ -103,8 +122,18 @@ __all__ = (
     "LifeCycleLastTestRevertedTypeDef",
     "LifeCycleLastTestTypeDef",
     "LifeCycleTypeDef",
+    "ListApplicationsRequestFiltersTypeDef",
+    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsResponseTypeDef",
+    "ListSourceServerActionsRequestRequestTypeDef",
+    "ListSourceServerActionsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTemplateActionsRequestRequestTypeDef",
+    "ListTemplateActionsResponseTypeDef",
+    "ListWavesRequestFiltersTypeDef",
+    "ListWavesRequestRequestTypeDef",
+    "ListWavesResponseTypeDef",
     "MarkAsArchivedRequestRequestTypeDef",
     "NetworkInterfaceTypeDef",
     "OSTypeDef",
@@ -112,6 +141,10 @@ __all__ = (
     "ParticipatingServerTypeDef",
     "PostLaunchActionsStatusTypeDef",
     "PostLaunchActionsTypeDef",
+    "PutSourceServerActionRequestRequestTypeDef",
+    "PutTemplateActionRequestRequestTypeDef",
+    "RemoveSourceServerActionRequestRequestTypeDef",
+    "RemoveTemplateActionRequestRequestTypeDef",
     "ReplicationConfigurationReplicatedDiskTypeDef",
     "ReplicationConfigurationTemplateResponseMetadataTypeDef",
     "ReplicationConfigurationTemplateTypeDef",
@@ -119,6 +152,9 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RetryDataReplicationRequestRequestTypeDef",
     "SourcePropertiesTypeDef",
+    "SourceServerActionDocumentResponseMetadataTypeDef",
+    "SourceServerActionDocumentTypeDef",
+    "SourceServerActionsRequestFiltersTypeDef",
     "SourceServerResponseMetadataTypeDef",
     "SourceServerTypeDef",
     "SsmDocumentTypeDef",
@@ -129,15 +165,100 @@ __all__ = (
     "StartTestRequestRequestTypeDef",
     "StartTestResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TemplateActionDocumentResponseMetadataTypeDef",
+    "TemplateActionDocumentTypeDef",
+    "TemplateActionsRequestFiltersTypeDef",
     "TerminateTargetInstancesRequestRequestTypeDef",
     "TerminateTargetInstancesResponseTypeDef",
+    "UnarchiveApplicationRequestRequestTypeDef",
+    "UnarchiveWaveRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateApplicationRequestRequestTypeDef",
     "UpdateLaunchConfigurationRequestRequestTypeDef",
     "UpdateLaunchConfigurationTemplateRequestRequestTypeDef",
     "UpdateReplicationConfigurationRequestRequestTypeDef",
     "UpdateReplicationConfigurationTemplateRequestRequestTypeDef",
     "UpdateSourceServerReplicationTypeRequestRequestTypeDef",
+    "UpdateWaveRequestRequestTypeDef",
     "VcenterClientTypeDef",
+    "WaveAggregatedStatusTypeDef",
+    "WaveResponseMetadataTypeDef",
+    "WaveTypeDef",
+)
+
+ApplicationAggregatedStatusTypeDef = TypedDict(
+    "ApplicationAggregatedStatusTypeDef",
+    {
+        "healthStatus": ApplicationHealthStatusType,
+        "lastUpdateDateTime": str,
+        "progressStatus": ApplicationProgressStatusType,
+        "totalSourceServers": int,
+    },
+    total=False,
+)
+
+ApplicationResponseMetadataTypeDef = TypedDict(
+    "ApplicationResponseMetadataTypeDef",
+    {
+        "applicationAggregatedStatus": "ApplicationAggregatedStatusTypeDef",
+        "applicationID": str,
+        "arn": str,
+        "creationDateTime": str,
+        "description": str,
+        "isArchived": bool,
+        "lastModifiedDateTime": str,
+        "name": str,
+        "tags": Dict[str, str],
+        "waveID": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ApplicationTypeDef = TypedDict(
+    "ApplicationTypeDef",
+    {
+        "applicationAggregatedStatus": "ApplicationAggregatedStatusTypeDef",
+        "applicationID": str,
+        "arn": str,
+        "creationDateTime": str,
+        "description": str,
+        "isArchived": bool,
+        "lastModifiedDateTime": str,
+        "name": str,
+        "tags": Dict[str, str],
+        "waveID": str,
+    },
+    total=False,
+)
+
+ArchiveApplicationRequestRequestTypeDef = TypedDict(
+    "ArchiveApplicationRequestRequestTypeDef",
+    {
+        "applicationID": str,
+    },
+)
+
+ArchiveWaveRequestRequestTypeDef = TypedDict(
+    "ArchiveWaveRequestRequestTypeDef",
+    {
+        "waveID": str,
+    },
+)
+
+AssociateApplicationsRequestRequestTypeDef = TypedDict(
+    "AssociateApplicationsRequestRequestTypeDef",
+    {
+        "applicationIDs": List[str],
+        "waveID": str,
+    },
+)
+
+AssociateSourceServersRequestRequestTypeDef = TypedDict(
+    "AssociateSourceServersRequestRequestTypeDef",
+    {
+        "applicationID": str,
+        "sourceServerIDs": List[str],
+    },
 )
 
 CPUTypeDef = TypedDict(
@@ -164,11 +285,43 @@ ChangeServerLifeCycleStateSourceServerLifecycleTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationRequestRequestTypeDef",
+    {
+        "description": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateApplicationRequestRequestTypeDef(
+    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
+):
+    pass
+
 CreateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
     "CreateLaunchConfigurationTemplateRequestRequestTypeDef",
     {
+        "associatePublicIpAddress": bool,
+        "bootMode": BootModeType,
+        "copyPrivateIp": bool,
+        "copyTags": bool,
+        "enableMapAutoTagging": bool,
+        "largeVolumeConf": "LaunchTemplateDiskConfTypeDef",
+        "launchDisposition": LaunchDispositionType,
+        "licensing": "LicensingTypeDef",
+        "mapAutoTaggingMpeID": str,
         "postLaunchActions": "PostLaunchActionsTypeDef",
+        "smallVolumeConf": "LaunchTemplateDiskConfTypeDef",
+        "smallVolumeMaxSize": int,
         "tags": Dict[str, str],
+        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
     },
     total=False,
 )
@@ -201,6 +354,26 @@ _OptionalCreateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict
 class CreateReplicationConfigurationTemplateRequestRequestTypeDef(
     _RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef,
     _OptionalCreateReplicationConfigurationTemplateRequestRequestTypeDef,
+):
+    pass
+
+_RequiredCreateWaveRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWaveRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalCreateWaveRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWaveRequestRequestTypeDef",
+    {
+        "description": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateWaveRequestRequestTypeDef(
+    _RequiredCreateWaveRequestRequestTypeDef, _OptionalCreateWaveRequestRequestTypeDef
 ):
     pass
 
@@ -258,6 +431,13 @@ DataReplicationInitiationTypeDef = TypedDict(
     total=False,
 )
 
+DeleteApplicationRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationRequestRequestTypeDef",
+    {
+        "applicationID": str,
+    },
+)
+
 DeleteJobRequestRequestTypeDef = TypedDict(
     "DeleteJobRequestRequestTypeDef",
     {
@@ -290,6 +470,13 @@ DeleteVcenterClientRequestRequestTypeDef = TypedDict(
     "DeleteVcenterClientRequestRequestTypeDef",
     {
         "vcenterClientID": str,
+    },
+)
+
+DeleteWaveRequestRequestTypeDef = TypedDict(
+    "DeleteWaveRequestRequestTypeDef",
+    {
+        "waveID": str,
     },
 )
 
@@ -393,6 +580,7 @@ DescribeReplicationConfigurationTemplatesResponseTypeDef = TypedDict(
 DescribeSourceServersRequestFiltersTypeDef = TypedDict(
     "DescribeSourceServersRequestFiltersTypeDef",
     {
+        "applicationIDs": List[str],
         "isArchived": bool,
         "lifeCycleStates": List[LifeCycleStateType],
         "replicationTypes": List[ReplicationTypeType],
@@ -435,6 +623,22 @@ DescribeVcenterClientsResponseTypeDef = TypedDict(
         "items": List["VcenterClientTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateApplicationsRequestRequestTypeDef = TypedDict(
+    "DisassociateApplicationsRequestRequestTypeDef",
+    {
+        "applicationIDs": List[str],
+        "waveID": str,
+    },
+)
+
+DisassociateSourceServersRequestRequestTypeDef = TypedDict(
+    "DisassociateSourceServersRequestRequestTypeDef",
+    {
+        "applicationID": str,
+        "sourceServerIDs": List[str],
     },
 )
 
@@ -548,9 +752,22 @@ LaunchConfigurationTemplateResponseMetadataTypeDef = TypedDict(
     "LaunchConfigurationTemplateResponseMetadataTypeDef",
     {
         "arn": str,
+        "associatePublicIpAddress": bool,
+        "bootMode": BootModeType,
+        "copyPrivateIp": bool,
+        "copyTags": bool,
+        "ec2LaunchTemplateID": str,
+        "enableMapAutoTagging": bool,
+        "largeVolumeConf": "LaunchTemplateDiskConfTypeDef",
         "launchConfigurationTemplateID": str,
+        "launchDisposition": LaunchDispositionType,
+        "licensing": "LicensingTypeDef",
+        "mapAutoTaggingMpeID": str,
         "postLaunchActions": "PostLaunchActionsTypeDef",
+        "smallVolumeConf": "LaunchTemplateDiskConfTypeDef",
+        "smallVolumeMaxSize": int,
         "tags": Dict[str, str],
+        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -565,8 +782,21 @@ _OptionalLaunchConfigurationTemplateTypeDef = TypedDict(
     "_OptionalLaunchConfigurationTemplateTypeDef",
     {
         "arn": str,
+        "associatePublicIpAddress": bool,
+        "bootMode": BootModeType,
+        "copyPrivateIp": bool,
+        "copyTags": bool,
+        "ec2LaunchTemplateID": str,
+        "enableMapAutoTagging": bool,
+        "largeVolumeConf": "LaunchTemplateDiskConfTypeDef",
+        "launchDisposition": LaunchDispositionType,
+        "licensing": "LicensingTypeDef",
+        "mapAutoTaggingMpeID": str,
         "postLaunchActions": "PostLaunchActionsTypeDef",
+        "smallVolumeConf": "LaunchTemplateDiskConfTypeDef",
+        "smallVolumeMaxSize": int,
         "tags": Dict[str, str],
+        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
     },
     total=False,
 )
@@ -583,14 +813,26 @@ LaunchConfigurationTypeDef = TypedDict(
         "copyPrivateIp": bool,
         "copyTags": bool,
         "ec2LaunchTemplateID": str,
+        "enableMapAutoTagging": bool,
         "launchDisposition": LaunchDispositionType,
         "licensing": "LicensingTypeDef",
+        "mapAutoTaggingMpeID": str,
         "name": str,
         "postLaunchActions": "PostLaunchActionsTypeDef",
         "sourceServerID": str,
         "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+LaunchTemplateDiskConfTypeDef = TypedDict(
+    "LaunchTemplateDiskConfTypeDef",
+    {
+        "iops": int,
+        "throughput": int,
+        "volumeType": VolumeTypeType,
+    },
+    total=False,
 )
 
 LaunchedInstanceTypeDef = TypedDict(
@@ -695,6 +937,66 @@ LifeCycleTypeDef = TypedDict(
     total=False,
 )
 
+ListApplicationsRequestFiltersTypeDef = TypedDict(
+    "ListApplicationsRequestFiltersTypeDef",
+    {
+        "applicationIDs": List[str],
+        "isArchived": bool,
+        "waveIDs": List[str],
+    },
+    total=False,
+)
+
+ListApplicationsRequestRequestTypeDef = TypedDict(
+    "ListApplicationsRequestRequestTypeDef",
+    {
+        "filters": "ListApplicationsRequestFiltersTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListApplicationsResponseTypeDef = TypedDict(
+    "ListApplicationsResponseTypeDef",
+    {
+        "items": List["ApplicationTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListSourceServerActionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListSourceServerActionsRequestRequestTypeDef",
+    {
+        "sourceServerID": str,
+    },
+)
+_OptionalListSourceServerActionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListSourceServerActionsRequestRequestTypeDef",
+    {
+        "filters": "SourceServerActionsRequestFiltersTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListSourceServerActionsRequestRequestTypeDef(
+    _RequiredListSourceServerActionsRequestRequestTypeDef,
+    _OptionalListSourceServerActionsRequestRequestTypeDef,
+):
+    pass
+
+ListSourceServerActionsResponseTypeDef = TypedDict(
+    "ListSourceServerActionsResponseTypeDef",
+    {
+        "items": List["SourceServerActionDocumentTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -706,6 +1008,65 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef",
     {
         "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTemplateActionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListTemplateActionsRequestRequestTypeDef",
+    {
+        "launchConfigurationTemplateID": str,
+    },
+)
+_OptionalListTemplateActionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListTemplateActionsRequestRequestTypeDef",
+    {
+        "filters": "TemplateActionsRequestFiltersTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListTemplateActionsRequestRequestTypeDef(
+    _RequiredListTemplateActionsRequestRequestTypeDef,
+    _OptionalListTemplateActionsRequestRequestTypeDef,
+):
+    pass
+
+ListTemplateActionsResponseTypeDef = TypedDict(
+    "ListTemplateActionsResponseTypeDef",
+    {
+        "items": List["TemplateActionDocumentTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListWavesRequestFiltersTypeDef = TypedDict(
+    "ListWavesRequestFiltersTypeDef",
+    {
+        "isArchived": bool,
+        "waveIDs": List[str],
+    },
+    total=False,
+)
+
+ListWavesRequestRequestTypeDef = TypedDict(
+    "ListWavesRequestRequestTypeDef",
+    {
+        "filters": "ListWavesRequestFiltersTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListWavesResponseTypeDef = TypedDict(
+    "ListWavesResponseTypeDef",
+    {
+        "items": List["WaveTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -785,6 +1146,78 @@ PostLaunchActionsTypeDef = TypedDict(
         "ssmDocuments": List["SsmDocumentTypeDef"],
     },
     total=False,
+)
+
+_RequiredPutSourceServerActionRequestRequestTypeDef = TypedDict(
+    "_RequiredPutSourceServerActionRequestRequestTypeDef",
+    {
+        "actionID": str,
+        "actionName": str,
+        "documentIdentifier": str,
+        "order": int,
+        "sourceServerID": str,
+    },
+)
+_OptionalPutSourceServerActionRequestRequestTypeDef = TypedDict(
+    "_OptionalPutSourceServerActionRequestRequestTypeDef",
+    {
+        "active": bool,
+        "documentVersion": str,
+        "mustSucceedForCutover": bool,
+        "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
+        "timeoutSeconds": int,
+    },
+    total=False,
+)
+
+class PutSourceServerActionRequestRequestTypeDef(
+    _RequiredPutSourceServerActionRequestRequestTypeDef,
+    _OptionalPutSourceServerActionRequestRequestTypeDef,
+):
+    pass
+
+_RequiredPutTemplateActionRequestRequestTypeDef = TypedDict(
+    "_RequiredPutTemplateActionRequestRequestTypeDef",
+    {
+        "actionID": str,
+        "actionName": str,
+        "documentIdentifier": str,
+        "launchConfigurationTemplateID": str,
+        "order": int,
+    },
+)
+_OptionalPutTemplateActionRequestRequestTypeDef = TypedDict(
+    "_OptionalPutTemplateActionRequestRequestTypeDef",
+    {
+        "active": bool,
+        "documentVersion": str,
+        "mustSucceedForCutover": bool,
+        "operatingSystem": str,
+        "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
+        "timeoutSeconds": int,
+    },
+    total=False,
+)
+
+class PutTemplateActionRequestRequestTypeDef(
+    _RequiredPutTemplateActionRequestRequestTypeDef, _OptionalPutTemplateActionRequestRequestTypeDef
+):
+    pass
+
+RemoveSourceServerActionRequestRequestTypeDef = TypedDict(
+    "RemoveSourceServerActionRequestRequestTypeDef",
+    {
+        "actionID": str,
+        "sourceServerID": str,
+    },
+)
+
+RemoveTemplateActionRequestRequestTypeDef = TypedDict(
+    "RemoveTemplateActionRequestRequestTypeDef",
+    {
+        "actionID": str,
+        "launchConfigurationTemplateID": str,
+    },
 )
 
 ReplicationConfigurationReplicatedDiskTypeDef = TypedDict(
@@ -909,9 +1342,50 @@ SourcePropertiesTypeDef = TypedDict(
     total=False,
 )
 
+SourceServerActionDocumentResponseMetadataTypeDef = TypedDict(
+    "SourceServerActionDocumentResponseMetadataTypeDef",
+    {
+        "actionID": str,
+        "actionName": str,
+        "active": bool,
+        "documentIdentifier": str,
+        "documentVersion": str,
+        "mustSucceedForCutover": bool,
+        "order": int,
+        "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
+        "timeoutSeconds": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SourceServerActionDocumentTypeDef = TypedDict(
+    "SourceServerActionDocumentTypeDef",
+    {
+        "actionID": str,
+        "actionName": str,
+        "active": bool,
+        "documentIdentifier": str,
+        "documentVersion": str,
+        "mustSucceedForCutover": bool,
+        "order": int,
+        "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
+        "timeoutSeconds": int,
+    },
+    total=False,
+)
+
+SourceServerActionsRequestFiltersTypeDef = TypedDict(
+    "SourceServerActionsRequestFiltersTypeDef",
+    {
+        "actionIDs": List[str],
+    },
+    total=False,
+)
+
 SourceServerResponseMetadataTypeDef = TypedDict(
     "SourceServerResponseMetadataTypeDef",
     {
+        "applicationID": str,
         "arn": str,
         "dataReplicationInfo": "DataReplicationInfoTypeDef",
         "isArchived": bool,
@@ -929,6 +1403,7 @@ SourceServerResponseMetadataTypeDef = TypedDict(
 SourceServerTypeDef = TypedDict(
     "SourceServerTypeDef",
     {
+        "applicationID": str,
         "arn": str,
         "dataReplicationInfo": "DataReplicationInfoTypeDef",
         "isArchived": bool,
@@ -1040,6 +1515,48 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+TemplateActionDocumentResponseMetadataTypeDef = TypedDict(
+    "TemplateActionDocumentResponseMetadataTypeDef",
+    {
+        "actionID": str,
+        "actionName": str,
+        "active": bool,
+        "documentIdentifier": str,
+        "documentVersion": str,
+        "mustSucceedForCutover": bool,
+        "operatingSystem": str,
+        "order": int,
+        "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
+        "timeoutSeconds": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+TemplateActionDocumentTypeDef = TypedDict(
+    "TemplateActionDocumentTypeDef",
+    {
+        "actionID": str,
+        "actionName": str,
+        "active": bool,
+        "documentIdentifier": str,
+        "documentVersion": str,
+        "mustSucceedForCutover": bool,
+        "operatingSystem": str,
+        "order": int,
+        "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
+        "timeoutSeconds": int,
+    },
+    total=False,
+)
+
+TemplateActionsRequestFiltersTypeDef = TypedDict(
+    "TemplateActionsRequestFiltersTypeDef",
+    {
+        "actionIDs": List[str],
+    },
+    total=False,
+)
+
 _RequiredTerminateTargetInstancesRequestRequestTypeDef = TypedDict(
     "_RequiredTerminateTargetInstancesRequestRequestTypeDef",
     {
@@ -1068,6 +1585,20 @@ TerminateTargetInstancesResponseTypeDef = TypedDict(
     },
 )
 
+UnarchiveApplicationRequestRequestTypeDef = TypedDict(
+    "UnarchiveApplicationRequestRequestTypeDef",
+    {
+        "applicationID": str,
+    },
+)
+
+UnarchiveWaveRequestRequestTypeDef = TypedDict(
+    "UnarchiveWaveRequestRequestTypeDef",
+    {
+        "waveID": str,
+    },
+)
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -1075,6 +1606,26 @@ UntagResourceRequestRequestTypeDef = TypedDict(
         "tagKeys": List[str],
     },
 )
+
+_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateApplicationRequestRequestTypeDef",
+    {
+        "applicationID": str,
+    },
+)
+_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateApplicationRequestRequestTypeDef",
+    {
+        "description": str,
+        "name": str,
+    },
+    total=False,
+)
+
+class UpdateApplicationRequestRequestTypeDef(
+    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
+):
+    pass
 
 _RequiredUpdateLaunchConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateLaunchConfigurationRequestRequestTypeDef",
@@ -1088,8 +1639,10 @@ _OptionalUpdateLaunchConfigurationRequestRequestTypeDef = TypedDict(
         "bootMode": BootModeType,
         "copyPrivateIp": bool,
         "copyTags": bool,
+        "enableMapAutoTagging": bool,
         "launchDisposition": LaunchDispositionType,
         "licensing": "LicensingTypeDef",
+        "mapAutoTaggingMpeID": str,
         "name": str,
         "postLaunchActions": "PostLaunchActionsTypeDef",
         "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
@@ -1112,7 +1665,19 @@ _RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
 _OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef",
     {
+        "associatePublicIpAddress": bool,
+        "bootMode": BootModeType,
+        "copyPrivateIp": bool,
+        "copyTags": bool,
+        "enableMapAutoTagging": bool,
+        "largeVolumeConf": "LaunchTemplateDiskConfTypeDef",
+        "launchDisposition": LaunchDispositionType,
+        "licensing": "LicensingTypeDef",
+        "mapAutoTaggingMpeID": str,
         "postLaunchActions": "PostLaunchActionsTypeDef",
+        "smallVolumeConf": "LaunchTemplateDiskConfTypeDef",
+        "smallVolumeMaxSize": int,
+        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
     },
     total=False,
 )
@@ -1196,6 +1761,26 @@ UpdateSourceServerReplicationTypeRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateWaveRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateWaveRequestRequestTypeDef",
+    {
+        "waveID": str,
+    },
+)
+_OptionalUpdateWaveRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateWaveRequestRequestTypeDef",
+    {
+        "description": str,
+        "name": str,
+    },
+    total=False,
+)
+
+class UpdateWaveRequestRequestTypeDef(
+    _RequiredUpdateWaveRequestRequestTypeDef, _OptionalUpdateWaveRequestRequestTypeDef
+):
+    pass
+
 VcenterClientTypeDef = TypedDict(
     "VcenterClientTypeDef",
     {
@@ -1207,6 +1792,50 @@ VcenterClientTypeDef = TypedDict(
         "tags": Dict[str, str],
         "vcenterClientID": str,
         "vcenterUUID": str,
+    },
+    total=False,
+)
+
+WaveAggregatedStatusTypeDef = TypedDict(
+    "WaveAggregatedStatusTypeDef",
+    {
+        "healthStatus": WaveHealthStatusType,
+        "lastUpdateDateTime": str,
+        "progressStatus": WaveProgressStatusType,
+        "replicationStartedDateTime": str,
+        "totalApplications": int,
+    },
+    total=False,
+)
+
+WaveResponseMetadataTypeDef = TypedDict(
+    "WaveResponseMetadataTypeDef",
+    {
+        "arn": str,
+        "creationDateTime": str,
+        "description": str,
+        "isArchived": bool,
+        "lastModifiedDateTime": str,
+        "name": str,
+        "tags": Dict[str, str],
+        "waveAggregatedStatus": "WaveAggregatedStatusTypeDef",
+        "waveID": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+WaveTypeDef = TypedDict(
+    "WaveTypeDef",
+    {
+        "arn": str,
+        "creationDateTime": str,
+        "description": str,
+        "isArchived": bool,
+        "lastModifiedDateTime": str,
+        "name": str,
+        "tags": Dict[str, str],
+        "waveAggregatedStatus": "WaveAggregatedStatusTypeDef",
+        "waveID": str,
     },
     total=False,
 )

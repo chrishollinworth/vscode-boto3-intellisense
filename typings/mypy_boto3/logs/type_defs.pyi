@@ -15,6 +15,7 @@ import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    DataProtectionStatusType,
     DistributionType,
     ExportTaskStatusCodeType,
     OrderByType,
@@ -34,6 +35,7 @@ __all__ = (
     "CreateExportTaskResponseTypeDef",
     "CreateLogGroupRequestRequestTypeDef",
     "CreateLogStreamRequestRequestTypeDef",
+    "DeleteDataProtectionPolicyRequestRequestTypeDef",
     "DeleteDestinationRequestRequestTypeDef",
     "DeleteLogGroupRequestRequestTypeDef",
     "DeleteLogStreamRequestRequestTypeDef",
@@ -69,6 +71,8 @@ __all__ = (
     "FilterLogEventsRequestRequestTypeDef",
     "FilterLogEventsResponseTypeDef",
     "FilteredLogEventTypeDef",
+    "GetDataProtectionPolicyRequestRequestTypeDef",
+    "GetDataProtectionPolicyResponseTypeDef",
     "GetLogEventsRequestRequestTypeDef",
     "GetLogEventsResponseTypeDef",
     "GetLogGroupFieldsRequestRequestTypeDef",
@@ -90,6 +94,8 @@ __all__ = (
     "MetricTransformationTypeDef",
     "OutputLogEventTypeDef",
     "PaginatorConfigTypeDef",
+    "PutDataProtectionPolicyRequestRequestTypeDef",
+    "PutDataProtectionPolicyResponseTypeDef",
     "PutDestinationPolicyRequestRequestTypeDef",
     "PutDestinationRequestRequestTypeDef",
     "PutDestinationResponseTypeDef",
@@ -195,6 +201,13 @@ CreateLogStreamRequestRequestTypeDef = TypedDict(
     {
         "logGroupName": str,
         "logStreamName": str,
+    },
+)
+
+DeleteDataProtectionPolicyRequestRequestTypeDef = TypedDict(
+    "DeleteDataProtectionPolicyRequestRequestTypeDef",
+    {
+        "logGroupIdentifier": str,
     },
 )
 
@@ -308,9 +321,12 @@ DescribeExportTasksResponseTypeDef = TypedDict(
 DescribeLogGroupsRequestRequestTypeDef = TypedDict(
     "DescribeLogGroupsRequestRequestTypeDef",
     {
+        "accountIdentifiers": List[str],
         "logGroupNamePrefix": str,
+        "logGroupNamePattern": str,
         "nextToken": str,
         "limit": int,
+        "includeLinkedAccounts": bool,
     },
     total=False,
 )
@@ -333,6 +349,7 @@ _RequiredDescribeLogStreamsRequestRequestTypeDef = TypedDict(
 _OptionalDescribeLogStreamsRequestRequestTypeDef = TypedDict(
     "_OptionalDescribeLogStreamsRequestRequestTypeDef",
     {
+        "logGroupIdentifier": str,
         "logStreamNamePrefix": str,
         "orderBy": OrderByType,
         "descending": bool,
@@ -530,6 +547,7 @@ _RequiredFilterLogEventsRequestRequestTypeDef = TypedDict(
 _OptionalFilterLogEventsRequestRequestTypeDef = TypedDict(
     "_OptionalFilterLogEventsRequestRequestTypeDef",
     {
+        "logGroupIdentifier": str,
         "logStreamNames": List[str],
         "logStreamNamePrefix": str,
         "startTime": int,
@@ -538,6 +556,7 @@ _OptionalFilterLogEventsRequestRequestTypeDef = TypedDict(
         "nextToken": str,
         "limit": int,
         "interleaved": bool,
+        "unmask": bool,
     },
     total=False,
 )
@@ -569,6 +588,23 @@ FilteredLogEventTypeDef = TypedDict(
     total=False,
 )
 
+GetDataProtectionPolicyRequestRequestTypeDef = TypedDict(
+    "GetDataProtectionPolicyRequestRequestTypeDef",
+    {
+        "logGroupIdentifier": str,
+    },
+)
+
+GetDataProtectionPolicyResponseTypeDef = TypedDict(
+    "GetDataProtectionPolicyResponseTypeDef",
+    {
+        "logGroupIdentifier": str,
+        "policyDocument": str,
+        "lastUpdatedTime": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetLogEventsRequestRequestTypeDef = TypedDict(
     "_RequiredGetLogEventsRequestRequestTypeDef",
     {
@@ -579,11 +615,13 @@ _RequiredGetLogEventsRequestRequestTypeDef = TypedDict(
 _OptionalGetLogEventsRequestRequestTypeDef = TypedDict(
     "_OptionalGetLogEventsRequestRequestTypeDef",
     {
+        "logGroupIdentifier": str,
         "startTime": int,
         "endTime": int,
         "nextToken": str,
         "limit": int,
         "startFromHead": bool,
+        "unmask": bool,
     },
     total=False,
 )
@@ -613,6 +651,7 @@ _OptionalGetLogGroupFieldsRequestRequestTypeDef = TypedDict(
     "_OptionalGetLogGroupFieldsRequestRequestTypeDef",
     {
         "time": int,
+        "logGroupIdentifier": str,
     },
     total=False,
 )
@@ -630,12 +669,24 @@ GetLogGroupFieldsResponseTypeDef = TypedDict(
     },
 )
 
-GetLogRecordRequestRequestTypeDef = TypedDict(
-    "GetLogRecordRequestRequestTypeDef",
+_RequiredGetLogRecordRequestRequestTypeDef = TypedDict(
+    "_RequiredGetLogRecordRequestRequestTypeDef",
     {
         "logRecordPointer": str,
     },
 )
+_OptionalGetLogRecordRequestRequestTypeDef = TypedDict(
+    "_OptionalGetLogRecordRequestRequestTypeDef",
+    {
+        "unmask": bool,
+    },
+    total=False,
+)
+
+class GetLogRecordRequestRequestTypeDef(
+    _RequiredGetLogRecordRequestRequestTypeDef, _OptionalGetLogRecordRequestRequestTypeDef
+):
+    pass
 
 GetLogRecordResponseTypeDef = TypedDict(
     "GetLogRecordResponseTypeDef",
@@ -719,6 +770,7 @@ LogGroupTypeDef = TypedDict(
         "arn": str,
         "storedBytes": int,
         "kmsKeyId": str,
+        "dataProtectionStatus": DataProtectionStatusType,
     },
     total=False,
 )
@@ -801,6 +853,24 @@ PaginatorConfigTypeDef = TypedDict(
         "StartingToken": str,
     },
     total=False,
+)
+
+PutDataProtectionPolicyRequestRequestTypeDef = TypedDict(
+    "PutDataProtectionPolicyRequestRequestTypeDef",
+    {
+        "logGroupIdentifier": str,
+        "policyDocument": str,
+    },
+)
+
+PutDataProtectionPolicyResponseTypeDef = TypedDict(
+    "PutDataProtectionPolicyResponseTypeDef",
+    {
+        "logGroupIdentifier": str,
+        "policyDocument": str,
+        "lastUpdatedTime": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredPutDestinationPolicyRequestRequestTypeDef = TypedDict(
@@ -1068,6 +1138,7 @@ _OptionalStartQueryRequestRequestTypeDef = TypedDict(
     {
         "logGroupName": str,
         "logGroupNames": List[str],
+        "logGroupIdentifiers": List[str],
         "limit": int,
     },
     total=False,

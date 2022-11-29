@@ -19,6 +19,7 @@ from .literals import (
     BaseModelNameType,
     CallAnalyticsJobStatusType,
     CLMLanguageCodeType,
+    InputTypeType,
     LanguageCodeType,
     MediaFormatType,
     ModelStatusType,
@@ -216,6 +217,7 @@ CategoryPropertiesTypeDef = TypedDict(
         "Rules": List["RuleTypeDef"],
         "CreateTime": datetime,
         "LastUpdateTime": datetime,
+        "InputType": InputTypeType,
     },
     total=False,
 )
@@ -247,13 +249,26 @@ _OptionalContentRedactionTypeDef = TypedDict(
 class ContentRedactionTypeDef(_RequiredContentRedactionTypeDef, _OptionalContentRedactionTypeDef):
     pass
 
-CreateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
-    "CreateCallAnalyticsCategoryRequestRequestTypeDef",
+_RequiredCreateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCallAnalyticsCategoryRequestRequestTypeDef",
     {
         "CategoryName": str,
         "Rules": List["RuleTypeDef"],
     },
 )
+_OptionalCreateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCallAnalyticsCategoryRequestRequestTypeDef",
+    {
+        "InputType": InputTypeType,
+    },
+    total=False,
+)
+
+class CreateCallAnalyticsCategoryRequestRequestTypeDef(
+    _RequiredCreateCallAnalyticsCategoryRequestRequestTypeDef,
+    _OptionalCreateCallAnalyticsCategoryRequestRequestTypeDef,
+):
+    pass
 
 CreateCallAnalyticsCategoryResponseTypeDef = TypedDict(
     "CreateCallAnalyticsCategoryResponseTypeDef",
@@ -1240,13 +1255,26 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-UpdateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
-    "UpdateCallAnalyticsCategoryRequestRequestTypeDef",
+_RequiredUpdateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateCallAnalyticsCategoryRequestRequestTypeDef",
     {
         "CategoryName": str,
         "Rules": List["RuleTypeDef"],
     },
 )
+_OptionalUpdateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateCallAnalyticsCategoryRequestRequestTypeDef",
+    {
+        "InputType": InputTypeType,
+    },
+    total=False,
+)
+
+class UpdateCallAnalyticsCategoryRequestRequestTypeDef(
+    _RequiredUpdateCallAnalyticsCategoryRequestRequestTypeDef,
+    _OptionalUpdateCallAnalyticsCategoryRequestRequestTypeDef,
+):
+    pass
 
 UpdateCallAnalyticsCategoryResponseTypeDef = TypedDict(
     "UpdateCallAnalyticsCategoryResponseTypeDef",

@@ -98,4 +98,4 @@ StandardUnitType = Literal[
 ]
 StateValueType = Literal["ALARM", "INSUFFICIENT_DATA", "OK"]
 StatisticType = Literal["Average", "Maximum", "Minimum", "SampleCount", "Sum"]
-StatusCodeType = Literal["Complete", "InternalError", "PartialData"]
+StatusCodeType = Literal["Complete", "Forbidden", "InternalError", "PartialData"]

@@ -59,7 +59,7 @@ __all__ = (
 
 class ListAppsListsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListAppsLists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListAppsLists)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listappslistspaginator)
     """
 
@@ -67,13 +67,13 @@ class ListAppsListsPaginator(Boto3Paginator):
         self, *, DefaultLists: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppsListsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListAppsLists.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListAppsLists.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listappslistspaginator)
         """
 
 class ListComplianceStatusPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListComplianceStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListComplianceStatus)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listcompliancestatuspaginator)
     """
 
@@ -81,13 +81,13 @@ class ListComplianceStatusPaginator(Boto3Paginator):
         self, *, PolicyId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListComplianceStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListComplianceStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListComplianceStatus.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listcompliancestatuspaginator)
         """
 
 class ListMemberAccountsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListMemberAccounts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListMemberAccounts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listmemberaccountspaginator)
     """
 
@@ -95,13 +95,13 @@ class ListMemberAccountsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMemberAccountsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListMemberAccounts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListMemberAccounts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listmemberaccountspaginator)
         """
 
 class ListPoliciesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListPolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListPolicies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listpoliciespaginator)
     """
 
@@ -109,13 +109,13 @@ class ListPoliciesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPoliciesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListPolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListPolicies.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listpoliciespaginator)
         """
 
 class ListProtocolsListsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListProtocolsLists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListProtocolsLists)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listprotocolslistspaginator)
     """
 
@@ -123,13 +123,13 @@ class ListProtocolsListsPaginator(Boto3Paginator):
         self, *, DefaultLists: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProtocolsListsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListProtocolsLists.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListProtocolsLists.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listprotocolslistspaginator)
         """
 
 class ListThirdPartyFirewallFirewallPoliciesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listthirdpartyfirewallfirewallpoliciespaginator)
     """
 
@@ -140,6 +140,6 @@ class ListThirdPartyFirewallFirewallPoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThirdPartyFirewallFirewallPoliciesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/fms.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/fms.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listthirdpartyfirewallfirewallpoliciespaginator)
         """

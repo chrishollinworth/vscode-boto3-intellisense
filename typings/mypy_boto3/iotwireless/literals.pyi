@@ -6,9 +6,9 @@ Type annotations for iotwireless service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_iotwireless.literals import BatteryLevelType
+    from mypy_boto3_iotwireless.literals import ApplicationConfigTypeType
 
-    data: BatteryLevelType = "critical"
+    data: ApplicationConfigTypeType = "SemtechGeolocation"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ApplicationConfigTypeType",
     "BatteryLevelType",
     "ConnectionStatusType",
     "DeviceStateType",
@@ -40,6 +41,7 @@ __all__ = (
     "PositionResourceTypeType",
     "PositionSolverProviderType",
     "PositionSolverTypeType",
+    "PositioningConfigStatusType",
     "SigningAlgType",
     "SupportedRfRegionType",
     "WirelessDeviceEventType",
@@ -54,6 +56,7 @@ __all__ = (
     "WirelessGatewayTypeType",
 )
 
+ApplicationConfigTypeType = Literal["SemtechGeolocation"]
 BatteryLevelType = Literal["critical", "low", "normal"]
 ConnectionStatusType = Literal["Connected", "Disconnected"]
 DeviceStateType = Literal[
@@ -98,6 +101,7 @@ PositionConfigurationStatusType = Literal["Disabled", "Enabled"]
 PositionResourceTypeType = Literal["WirelessDevice", "WirelessGateway"]
 PositionSolverProviderType = Literal["Semtech"]
 PositionSolverTypeType = Literal["GNSS"]
+PositioningConfigStatusType = Literal["Disabled", "Enabled"]
 SigningAlgType = Literal["Ed25519", "P256r1"]
 SupportedRfRegionType = Literal["AS923-1", "AU915", "EU868", "US915"]
 WirelessDeviceEventType = Literal["Downlink_Data", "Join", "Registration", "Rejoin", "Uplink_Data"]

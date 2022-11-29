@@ -13,6 +13,10 @@ Usage::
         DescribeReplicationConfigurationTemplatesPaginator,
         DescribeSourceServersPaginator,
         DescribeVcenterClientsPaginator,
+        ListApplicationsPaginator,
+        ListSourceServerActionsPaginator,
+        ListTemplateActionsPaginator,
+        ListWavesPaginator,
         mgnClient,
     )
 
@@ -27,6 +31,10 @@ Usage::
     describe_replication_configuration_templates_paginator: DescribeReplicationConfigurationTemplatesPaginator = client.get_paginator("describe_replication_configuration_templates")
     describe_source_servers_paginator: DescribeSourceServersPaginator = client.get_paginator("describe_source_servers")
     describe_vcenter_clients_paginator: DescribeVcenterClientsPaginator = client.get_paginator("describe_vcenter_clients")
+    list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
+    list_source_server_actions_paginator: ListSourceServerActionsPaginator = client.get_paginator("list_source_server_actions")
+    list_template_actions_paginator: ListTemplateActionsPaginator = client.get_paginator("list_template_actions")
+    list_waves_paginator: ListWavesPaginator = client.get_paginator("list_waves")
     ```
 """
 from .client import mgnClient
@@ -37,6 +45,10 @@ from .paginator import (
     DescribeReplicationConfigurationTemplatesPaginator,
     DescribeSourceServersPaginator,
     DescribeVcenterClientsPaginator,
+    ListApplicationsPaginator,
+    ListSourceServerActionsPaginator,
+    ListTemplateActionsPaginator,
+    ListWavesPaginator,
 )
 
 Client = mgnClient
@@ -49,5 +61,9 @@ __all__ = (
     "DescribeReplicationConfigurationTemplatesPaginator",
     "DescribeSourceServersPaginator",
     "DescribeVcenterClientsPaginator",
+    "ListApplicationsPaginator",
+    "ListSourceServerActionsPaginator",
+    "ListTemplateActionsPaginator",
+    "ListWavesPaginator",
     "mgnClient",
 )

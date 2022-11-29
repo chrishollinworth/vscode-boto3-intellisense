@@ -185,6 +185,7 @@ from .literals import (
     OperationTypeType,
     PartitionLoadFrequencyType,
     PaymentOptionType,
+    PeriodTypeType,
     PlacementGroupStateType,
     PlacementGroupStrategyType,
     PlacementStrategyType,
@@ -391,6 +392,8 @@ __all__ = (
     "AttachVolumeRequestVolumeTypeDef",
     "AttachVpnGatewayRequestRequestTypeDef",
     "AttachVpnGatewayResultTypeDef",
+    "AttachmentEnaSrdSpecificationTypeDef",
+    "AttachmentEnaSrdUdpSpecificationTypeDef",
     "AttributeBooleanValueTypeDef",
     "AttributeValueTypeDef",
     "AuthorizationRuleTypeDef",
@@ -686,6 +689,8 @@ __all__ = (
     "CreditSpecificationRequestTypeDef",
     "CreditSpecificationTypeDef",
     "CustomerGatewayTypeDef",
+    "DataQueryTypeDef",
+    "DataResponseTypeDef",
     "DeleteCarrierGatewayRequestRequestTypeDef",
     "DeleteCarrierGatewayResultTypeDef",
     "DeleteClientVpnEndpointRequestRequestTypeDef",
@@ -852,6 +857,8 @@ __all__ = (
     "DescribeAggregateIdFormatResultTypeDef",
     "DescribeAvailabilityZonesRequestRequestTypeDef",
     "DescribeAvailabilityZonesResultTypeDef",
+    "DescribeAwsNetworkPerformanceMetricSubscriptionsRequestRequestTypeDef",
+    "DescribeAwsNetworkPerformanceMetricSubscriptionsResultTypeDef",
     "DescribeBundleTasksRequestRequestTypeDef",
     "DescribeBundleTasksResultTypeDef",
     "DescribeByoipCidrsRequestRequestTypeDef",
@@ -1142,6 +1149,8 @@ __all__ = (
     "DirectoryServiceAuthenticationTypeDef",
     "DisableAddressTransferRequestRequestTypeDef",
     "DisableAddressTransferResultTypeDef",
+    "DisableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef",
+    "DisableAwsNetworkPerformanceMetricSubscriptionResultTypeDef",
     "DisableEbsEncryptionByDefaultRequestRequestTypeDef",
     "DisableEbsEncryptionByDefaultResultTypeDef",
     "DisableFastLaunchRequestRequestTypeDef",
@@ -1215,8 +1224,12 @@ __all__ = (
     "ElasticGpusTypeDef",
     "ElasticInferenceAcceleratorAssociationTypeDef",
     "ElasticInferenceAcceleratorTypeDef",
+    "EnaSrdSpecificationTypeDef",
+    "EnaSrdUdpSpecificationTypeDef",
     "EnableAddressTransferRequestRequestTypeDef",
     "EnableAddressTransferResultTypeDef",
+    "EnableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef",
+    "EnableAwsNetworkPerformanceMetricSubscriptionResultTypeDef",
     "EnableEbsEncryptionByDefaultRequestRequestTypeDef",
     "EnableEbsEncryptionByDefaultResultTypeDef",
     "EnableFastLaunchRequestRequestTypeDef",
@@ -1231,6 +1244,8 @@ __all__ = (
     "EnableImageDeprecationResultTypeDef",
     "EnableIpamOrganizationAdminAccountRequestRequestTypeDef",
     "EnableIpamOrganizationAdminAccountResultTypeDef",
+    "EnableReachabilityAnalyzerOrganizationSharingRequestRequestTypeDef",
+    "EnableReachabilityAnalyzerOrganizationSharingResultTypeDef",
     "EnableSerialConsoleAccessRequestRequestTypeDef",
     "EnableSerialConsoleAccessResultTypeDef",
     "EnableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
@@ -1293,6 +1308,8 @@ __all__ = (
     "GetAssociatedEnclaveCertificateIamRolesResultTypeDef",
     "GetAssociatedIpv6PoolCidrsRequestRequestTypeDef",
     "GetAssociatedIpv6PoolCidrsResultTypeDef",
+    "GetAwsNetworkPerformanceDataRequestRequestTypeDef",
+    "GetAwsNetworkPerformanceDataResultTypeDef",
     "GetCapacityReservationUsageRequestRequestTypeDef",
     "GetCapacityReservationUsageResultTypeDef",
     "GetCoipPoolUsageRequestRequestTypeDef",
@@ -1558,6 +1575,7 @@ __all__ = (
     "MemoryInfoTypeDef",
     "MemoryMiBRequestTypeDef",
     "MemoryMiBTypeDef",
+    "MetricPointTypeDef",
     "ModifyAddressAttributeRequestRequestTypeDef",
     "ModifyAddressAttributeResultTypeDef",
     "ModifyAvailabilityZoneGroupRequestRequestTypeDef",
@@ -1992,6 +2010,7 @@ __all__ = (
     "SubnetCidrReservationTypeDef",
     "SubnetIpv6CidrBlockAssociationTypeDef",
     "SubnetTypeDef",
+    "SubscriptionTypeDef",
     "SuccessfulInstanceCreditSpecificationItemTypeDef",
     "SuccessfulQueuedPurchaseDeletionTypeDef",
     "TagDescriptionTypeDef",
@@ -3453,6 +3472,7 @@ _OptionalAttachNetworkInterfaceRequestNetworkInterfaceTypeDef = TypedDict(
     {
         "DryRun": bool,
         "NetworkCardIndex": int,
+        "EnaSrdSpecification": "EnaSrdSpecificationTypeDef",
     },
     total=False,
 )
@@ -3476,6 +3496,7 @@ _OptionalAttachNetworkInterfaceRequestRequestTypeDef = TypedDict(
     {
         "DryRun": bool,
         "NetworkCardIndex": int,
+        "EnaSrdSpecification": "EnaSrdSpecificationTypeDef",
     },
     total=False,
 )
@@ -3582,6 +3603,23 @@ AttachVpnGatewayResultTypeDef = TypedDict(
         "VpcAttachment": "VpcAttachmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+AttachmentEnaSrdSpecificationTypeDef = TypedDict(
+    "AttachmentEnaSrdSpecificationTypeDef",
+    {
+        "EnaSrdEnabled": bool,
+        "EnaSrdUdpSpecification": "AttachmentEnaSrdUdpSpecificationTypeDef",
+    },
+    total=False,
+)
+
+AttachmentEnaSrdUdpSpecificationTypeDef = TypedDict(
+    "AttachmentEnaSrdUdpSpecificationTypeDef",
+    {
+        "EnaSrdUdpEnabled": bool,
+    },
+    total=False,
 )
 
 AttributeBooleanValueTypeDef = TypedDict(
@@ -7914,6 +7952,33 @@ CustomerGatewayTypeDef = TypedDict(
     total=False,
 )
 
+DataQueryTypeDef = TypedDict(
+    "DataQueryTypeDef",
+    {
+        "Id": str,
+        "Source": str,
+        "Destination": str,
+        "Metric": Literal["aggregate-latency"],
+        "Statistic": Literal["p50"],
+        "Period": PeriodTypeType,
+    },
+    total=False,
+)
+
+DataResponseTypeDef = TypedDict(
+    "DataResponseTypeDef",
+    {
+        "Id": str,
+        "Source": str,
+        "Destination": str,
+        "Metric": Literal["aggregate-latency"],
+        "Statistic": Literal["p50"],
+        "Period": PeriodTypeType,
+        "MetricPoints": List["MetricPointTypeDef"],
+    },
+    total=False,
+)
+
 _RequiredDeleteCarrierGatewayRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteCarrierGatewayRequestRequestTypeDef",
     {
@@ -10110,6 +10175,26 @@ DescribeAvailabilityZonesResultTypeDef = TypedDict(
     "DescribeAvailabilityZonesResultTypeDef",
     {
         "AvailabilityZones": List["AvailabilityZoneTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAwsNetworkPerformanceMetricSubscriptionsRequestRequestTypeDef = TypedDict(
+    "DescribeAwsNetworkPerformanceMetricSubscriptionsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeAwsNetworkPerformanceMetricSubscriptionsResultTypeDef = TypedDict(
+    "DescribeAwsNetworkPerformanceMetricSubscriptionsResultTypeDef",
+    {
+        "NextToken": str,
+        "Subscriptions": List["SubscriptionTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -13533,6 +13618,26 @@ DisableAddressTransferResultTypeDef = TypedDict(
     },
 )
 
+DisableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef = TypedDict(
+    "DisableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef",
+    {
+        "Source": str,
+        "Destination": str,
+        "Metric": Literal["aggregate-latency"],
+        "Statistic": Literal["p50"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DisableAwsNetworkPerformanceMetricSubscriptionResultTypeDef = TypedDict(
+    "DisableAwsNetworkPerformanceMetricSubscriptionResultTypeDef",
+    {
+        "Output": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DisableEbsEncryptionByDefaultRequestRequestTypeDef = TypedDict(
     "DisableEbsEncryptionByDefaultRequestRequestTypeDef",
     {
@@ -14383,6 +14488,23 @@ class ElasticInferenceAcceleratorTypeDef(
 ):
     pass
 
+EnaSrdSpecificationTypeDef = TypedDict(
+    "EnaSrdSpecificationTypeDef",
+    {
+        "EnaSrdEnabled": bool,
+        "EnaSrdUdpSpecification": "EnaSrdUdpSpecificationTypeDef",
+    },
+    total=False,
+)
+
+EnaSrdUdpSpecificationTypeDef = TypedDict(
+    "EnaSrdUdpSpecificationTypeDef",
+    {
+        "EnaSrdUdpEnabled": bool,
+    },
+    total=False,
+)
+
 _RequiredEnableAddressTransferRequestRequestTypeDef = TypedDict(
     "_RequiredEnableAddressTransferRequestRequestTypeDef",
     {
@@ -14408,6 +14530,26 @@ EnableAddressTransferResultTypeDef = TypedDict(
     "EnableAddressTransferResultTypeDef",
     {
         "AddressTransfer": "AddressTransferTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EnableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef = TypedDict(
+    "EnableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef",
+    {
+        "Source": str,
+        "Destination": str,
+        "Metric": Literal["aggregate-latency"],
+        "Statistic": Literal["p50"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+EnableAwsNetworkPerformanceMetricSubscriptionResultTypeDef = TypedDict(
+    "EnableAwsNetworkPerformanceMetricSubscriptionResultTypeDef",
+    {
+        "Output": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -14595,6 +14737,22 @@ EnableIpamOrganizationAdminAccountResultTypeDef = TypedDict(
     "EnableIpamOrganizationAdminAccountResultTypeDef",
     {
         "Success": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EnableReachabilityAnalyzerOrganizationSharingRequestRequestTypeDef = TypedDict(
+    "EnableReachabilityAnalyzerOrganizationSharingRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+EnableReachabilityAnalyzerOrganizationSharingResultTypeDef = TypedDict(
+    "EnableReachabilityAnalyzerOrganizationSharingResultTypeDef",
+    {
+        "ReturnValue": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -15416,6 +15574,28 @@ GetAssociatedIpv6PoolCidrsResultTypeDef = TypedDict(
     "GetAssociatedIpv6PoolCidrsResultTypeDef",
     {
         "Ipv6CidrAssociations": List["Ipv6CidrAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAwsNetworkPerformanceDataRequestRequestTypeDef = TypedDict(
+    "GetAwsNetworkPerformanceDataRequestRequestTypeDef",
+    {
+        "DataQueries": List["DataQueryTypeDef"],
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+GetAwsNetworkPerformanceDataResultTypeDef = TypedDict(
+    "GetAwsNetworkPerformanceDataResultTypeDef",
+    {
+        "DataResponses": List["DataResponseTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -18885,6 +19065,17 @@ MemoryMiBTypeDef = TypedDict(
     total=False,
 )
 
+MetricPointTypeDef = TypedDict(
+    "MetricPointTypeDef",
+    {
+        "StartDate": datetime,
+        "EndDate": datetime,
+        "Value": float,
+        "Status": str,
+    },
+    total=False,
+)
+
 _RequiredModifyAddressAttributeRequestRequestTypeDef = TypedDict(
     "_RequiredModifyAddressAttributeRequestRequestTypeDef",
     {
@@ -19765,6 +19956,7 @@ ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef = TypedDict(
         "DryRun": bool,
         "Groups": List[str],
         "SourceDestCheck": "AttributeBooleanValueTypeDef",
+        "EnaSrdSpecification": "EnaSrdSpecificationTypeDef",
     },
     total=False,
 )
@@ -19783,6 +19975,7 @@ _OptionalModifyNetworkInterfaceAttributeRequestRequestTypeDef = TypedDict(
         "DryRun": bool,
         "Groups": List[str],
         "SourceDestCheck": "AttributeBooleanValueTypeDef",
+        "EnaSrdSpecification": "EnaSrdSpecificationTypeDef",
     },
     total=False,
 )
@@ -20910,6 +21103,7 @@ NetworkInfoTypeDef = TypedDict(
         "EfaSupported": bool,
         "EfaInfo": "EfaInfoTypeDef",
         "EncryptionInTransitSupported": bool,
+        "EnaSrdSupported": bool,
     },
     total=False,
 )
@@ -20960,6 +21154,7 @@ NetworkInsightsAnalysisTypeDef = TypedDict(
         "NetworkInsightsAnalysisId": str,
         "NetworkInsightsAnalysisArn": str,
         "NetworkInsightsPathId": str,
+        "AdditionalAccounts": List[str],
         "FilterInArns": List[str],
         "StartDate": datetime,
         "Status": AnalysisStatusType,
@@ -20970,6 +21165,7 @@ NetworkInsightsAnalysisTypeDef = TypedDict(
         "ReturnPathComponents": List["PathComponentTypeDef"],
         "Explanations": List["ExplanationTypeDef"],
         "AlternatePathHints": List["AlternatePathHintTypeDef"],
+        "SuggestedAccounts": List[str],
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -20983,6 +21179,8 @@ NetworkInsightsPathTypeDef = TypedDict(
         "CreatedDate": datetime,
         "Source": str,
         "Destination": str,
+        "SourceArn": str,
+        "DestinationArn": str,
         "SourceIp": str,
         "DestinationIp": str,
         "Protocol": ProtocolType,
@@ -21026,6 +21224,7 @@ NetworkInterfaceAttachmentTypeDef = TypedDict(
         "InstanceId": str,
         "InstanceOwnerId": str,
         "Status": AttachmentStatusType,
+        "EnaSrdSpecification": "AttachmentEnaSrdSpecificationTypeDef",
     },
     total=False,
 )
@@ -24890,6 +25089,7 @@ _RequiredStartNetworkInsightsAnalysisRequestRequestTypeDef = TypedDict(
 _OptionalStartNetworkInsightsAnalysisRequestRequestTypeDef = TypedDict(
     "_OptionalStartNetworkInsightsAnalysisRequestRequestTypeDef",
     {
+        "AdditionalAccounts": List[str],
         "FilterInArns": List[str],
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
@@ -25084,6 +25284,18 @@ SubnetTypeDef = TypedDict(
         "EnableDns64": bool,
         "Ipv6Native": bool,
         "PrivateDnsNameOptionsOnLaunch": "PrivateDnsNameOptionsOnLaunchTypeDef",
+    },
+    total=False,
+)
+
+SubscriptionTypeDef = TypedDict(
+    "SubscriptionTypeDef",
+    {
+        "Source": str,
+        "Destination": str,
+        "Metric": Literal["aggregate-latency"],
+        "Statistic": Literal["p50"],
+        "Period": PeriodTypeType,
     },
     total=False,
 )

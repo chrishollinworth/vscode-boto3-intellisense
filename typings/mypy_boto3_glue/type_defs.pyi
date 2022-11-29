@@ -54,6 +54,7 @@ from .literals import (
     LogicalType,
     MLUserDataEncryptionModeStringType,
     NodeTypeType,
+    ParamTypeType,
     ParquetCompressionTypeType,
     PartitionIndexStatusType,
     PermissionType,
@@ -279,6 +280,7 @@ __all__ = (
     "DropDuplicatesTypeDef",
     "DropFieldsTypeDef",
     "DropNullFieldsTypeDef",
+    "DynamicTransformTypeDef",
     "DynamoDBCatalogSourceTypeDef",
     "DynamoDBTargetTypeDef",
     "EdgeTypeDef",
@@ -624,6 +626,7 @@ __all__ = (
     "TaskRunPropertiesTypeDef",
     "TaskRunSortCriteriaTypeDef",
     "TaskRunTypeDef",
+    "TransformConfigParameterTypeDef",
     "TransformEncryptionTypeDef",
     "TransformFilterCriteriaTypeDef",
     "TransformParametersTypeDef",
@@ -1464,6 +1467,7 @@ CodeGenConfigurationNodeTypeDef = TypedDict(
         "MySQLCatalogTarget": "MySQLCatalogTargetTypeDef",
         "OracleSQLCatalogTarget": "OracleSQLCatalogTargetTypeDef",
         "PostgreSQLCatalogTarget": "PostgreSQLCatalogTargetTypeDef",
+        "DynamicTransform": "DynamicTransformTypeDef",
     },
     total=False,
 )
@@ -3223,6 +3227,28 @@ _OptionalDropNullFieldsTypeDef = TypedDict(
 )
 
 class DropNullFieldsTypeDef(_RequiredDropNullFieldsTypeDef, _OptionalDropNullFieldsTypeDef):
+    pass
+
+_RequiredDynamicTransformTypeDef = TypedDict(
+    "_RequiredDynamicTransformTypeDef",
+    {
+        "Name": str,
+        "TransformName": str,
+        "Inputs": List[str],
+        "FunctionName": str,
+        "Path": str,
+    },
+)
+_OptionalDynamicTransformTypeDef = TypedDict(
+    "_OptionalDynamicTransformTypeDef",
+    {
+        "Parameters": List["TransformConfigParameterTypeDef"],
+        "Version": str,
+    },
+    total=False,
+)
+
+class DynamicTransformTypeDef(_RequiredDynamicTransformTypeDef, _OptionalDynamicTransformTypeDef):
     pass
 
 DynamoDBCatalogSourceTypeDef = TypedDict(
@@ -7537,6 +7563,30 @@ TaskRunTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredTransformConfigParameterTypeDef = TypedDict(
+    "_RequiredTransformConfigParameterTypeDef",
+    {
+        "Name": str,
+        "Type": ParamTypeType,
+    },
+)
+_OptionalTransformConfigParameterTypeDef = TypedDict(
+    "_OptionalTransformConfigParameterTypeDef",
+    {
+        "ValidationRule": str,
+        "ValidationMessage": str,
+        "Value": List[str],
+        "ListType": ParamTypeType,
+        "IsOptional": bool,
+    },
+    total=False,
+)
+
+class TransformConfigParameterTypeDef(
+    _RequiredTransformConfigParameterTypeDef, _OptionalTransformConfigParameterTypeDef
+):
+    pass
 
 TransformEncryptionTypeDef = TypedDict(
     "TransformEncryptionTypeDef",

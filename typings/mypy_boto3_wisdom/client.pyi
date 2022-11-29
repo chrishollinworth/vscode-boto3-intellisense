@@ -85,7 +85,7 @@ class Exceptions:
 
 class ConnectWisdomServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html)
     """
 
@@ -100,14 +100,14 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#close)
         """
     def create_assistant(
@@ -123,7 +123,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Creates an Amazon Connect Wisdom assistant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.create_assistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.create_assistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#create_assistant)
         """
     def create_assistant_association(
@@ -139,7 +139,7 @@ class ConnectWisdomServiceClient(BaseClient):
         Creates an association between an Amazon Connect Wisdom assistant and another
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.create_assistant_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.create_assistant_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#create_assistant_association)
         """
     def create_content(
@@ -157,7 +157,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Creates Wisdom content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.create_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.create_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#create_content)
         """
     def create_knowledge_base(
@@ -175,7 +175,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Creates a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.create_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.create_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#create_knowledge_base)
         """
     def create_session(
@@ -190,14 +190,14 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Creates a session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.create_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.create_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#create_session)
         """
     def delete_assistant(self, *, assistantId: str) -> Dict[str, Any]:
         """
         Deletes an assistant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.delete_assistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.delete_assistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#delete_assistant)
         """
     def delete_assistant_association(
@@ -206,21 +206,21 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Deletes an assistant association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.delete_assistant_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.delete_assistant_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#delete_assistant_association)
         """
     def delete_content(self, *, contentId: str, knowledgeBaseId: str) -> Dict[str, Any]:
         """
         Deletes the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.delete_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.delete_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#delete_content)
         """
     def delete_knowledge_base(self, *, knowledgeBaseId: str) -> Dict[str, Any]:
         """
         Deletes the knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.delete_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.delete_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#delete_knowledge_base)
         """
     def generate_presigned_url(
@@ -233,14 +233,14 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#generate_presigned_url)
         """
     def get_assistant(self, *, assistantId: str) -> GetAssistantResponseTypeDef:
         """
         Retrieves information about an assistant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.get_assistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.get_assistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#get_assistant)
         """
     def get_assistant_association(
@@ -249,14 +249,14 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Retrieves information about an assistant association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.get_assistant_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.get_assistant_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#get_assistant_association)
         """
     def get_content(self, *, contentId: str, knowledgeBaseId: str) -> GetContentResponseTypeDef:
         """
         Retrieves content, including a pre-signed URL to download the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.get_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.get_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#get_content)
         """
     def get_content_summary(
@@ -265,14 +265,14 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Retrieves summary information about the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.get_content_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.get_content_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#get_content_summary)
         """
     def get_knowledge_base(self, *, knowledgeBaseId: str) -> GetKnowledgeBaseResponseTypeDef:
         """
         Retrieves information about the knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.get_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.get_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#get_knowledge_base)
         """
     def get_recommendations(
@@ -286,14 +286,14 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Retrieves recommendations for the specified session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.get_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.get_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#get_recommendations)
         """
     def get_session(self, *, assistantId: str, sessionId: str) -> GetSessionResponseTypeDef:
         """
         Retrieves information for a specified session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.get_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.get_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#get_session)
         """
     def list_assistant_associations(
@@ -302,7 +302,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Lists information about assistant associations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.list_assistant_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.list_assistant_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#list_assistant_associations)
         """
     def list_assistants(
@@ -311,7 +311,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Lists information about assistants.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.list_assistants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.list_assistants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#list_assistants)
         """
     def list_contents(
@@ -320,7 +320,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Lists the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.list_contents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.list_contents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#list_contents)
         """
     def list_knowledge_bases(
@@ -329,14 +329,14 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Lists the knowledge bases.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.list_knowledge_bases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.list_knowledge_bases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#list_knowledge_bases)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#list_tags_for_resource)
         """
     def notify_recommendations_received(
@@ -346,7 +346,7 @@ class ConnectWisdomServiceClient(BaseClient):
         Removes the specified recommendations from the specified assistant's queue of
         newly available recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.notify_recommendations_received)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.notify_recommendations_received)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#notify_recommendations_received)
         """
     def query_assistant(
@@ -355,14 +355,14 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Performs a manual search against the specified assistant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.query_assistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.query_assistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#query_assistant)
         """
     def remove_knowledge_base_template_uri(self, *, knowledgeBaseId: str) -> Dict[str, Any]:
         """
         Removes a URI template from a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.remove_knowledge_base_template_uri)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.remove_knowledge_base_template_uri)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#remove_knowledge_base_template_uri)
         """
     def search_content(
@@ -376,7 +376,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Searches for content in a specified knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.search_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.search_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#search_content)
         """
     def search_sessions(
@@ -390,7 +390,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Searches for sessions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.search_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.search_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#search_sessions)
         """
     def start_content_upload(
@@ -399,21 +399,21 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Get a URL to upload content to a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.start_content_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.start_content_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#start_content_upload)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#untag_resource)
         """
     def update_content(
@@ -431,7 +431,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Updates information about the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.update_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.update_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#update_content)
         """
     def update_knowledge_base_template_uri(
@@ -440,7 +440,7 @@ class ConnectWisdomServiceClient(BaseClient):
         """
         Updates the template URI of a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Client.update_knowledge_base_template_uri)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Client.update_knowledge_base_template_uri)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/client.html#update_knowledge_base_template_uri)
         """
     @overload
@@ -448,19 +448,19 @@ class ConnectWisdomServiceClient(BaseClient):
         self, operation_name: Literal["list_assistant_associations"]
     ) -> ListAssistantAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistantAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistantAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listassistantassociationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_assistants"]) -> ListAssistantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listassistantspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_contents"]) -> ListContentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListContents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListContents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listcontentspaginator)
         """
     @overload
@@ -468,24 +468,24 @@ class ConnectWisdomServiceClient(BaseClient):
         self, operation_name: Literal["list_knowledge_bases"]
     ) -> ListKnowledgeBasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListKnowledgeBases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListKnowledgeBases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listknowledgebasespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["query_assistant"]) -> QueryAssistantPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Paginator.QueryAssistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.QueryAssistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#queryassistantpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["search_content"]) -> SearchContentPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchContent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchContent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#searchcontentpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["search_sessions"]) -> SearchSessionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchSessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#searchsessionspaginator)
         """

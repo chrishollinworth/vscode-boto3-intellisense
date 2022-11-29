@@ -110,7 +110,7 @@ class Exceptions:
 
 class AuditManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html)
     """
 
@@ -128,7 +128,7 @@ class AuditManagerClient(BaseClient):
         Associates an evidence folder to an assessment report in a Audit Manager
         assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.associate_assessment_report_evidence_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.associate_assessment_report_evidence_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#associate_assessment_report_evidence_folder)
         """
     def batch_associate_assessment_report_evidence(
@@ -138,7 +138,7 @@ class AuditManagerClient(BaseClient):
         Associates a list of evidence to an assessment report in an Audit Manager
         assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.batch_associate_assessment_report_evidence)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.batch_associate_assessment_report_evidence)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#batch_associate_assessment_report_evidence)
         """
     def batch_create_delegation_by_assessment(
@@ -147,7 +147,7 @@ class AuditManagerClient(BaseClient):
         """
         Creates a batch of delegations for an assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.batch_create_delegation_by_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.batch_create_delegation_by_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#batch_create_delegation_by_assessment)
         """
     def batch_delete_delegation_by_assessment(
@@ -156,7 +156,7 @@ class AuditManagerClient(BaseClient):
         """
         Deletes a batch of delegations for an assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.batch_delete_delegation_by_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.batch_delete_delegation_by_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#batch_delete_delegation_by_assessment)
         """
     def batch_disassociate_assessment_report_evidence(
@@ -165,7 +165,7 @@ class AuditManagerClient(BaseClient):
         """
         Disassociates a list of evidence from an assessment report in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.batch_disassociate_assessment_report_evidence)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.batch_disassociate_assessment_report_evidence)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#batch_disassociate_assessment_report_evidence)
         """
     def batch_import_evidence_to_assessment_control(
@@ -180,21 +180,21 @@ class AuditManagerClient(BaseClient):
         Uploads one or more pieces of evidence to a control in an Audit Manager
         assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.batch_import_evidence_to_assessment_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.batch_import_evidence_to_assessment_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#batch_import_evidence_to_assessment_control)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#close)
         """
     def create_assessment(
@@ -211,7 +211,7 @@ class AuditManagerClient(BaseClient):
         """
         Creates an assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.create_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.create_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#create_assessment)
         """
     def create_assessment_framework(
@@ -226,7 +226,7 @@ class AuditManagerClient(BaseClient):
         """
         Creates a custom framework in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.create_assessment_framework)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.create_assessment_framework)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#create_assessment_framework)
         """
     def create_assessment_report(
@@ -235,7 +235,7 @@ class AuditManagerClient(BaseClient):
         """
         Creates an assessment report for the specified assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.create_assessment_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.create_assessment_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#create_assessment_report)
         """
     def create_control(
@@ -252,21 +252,21 @@ class AuditManagerClient(BaseClient):
         """
         Creates a new custom control in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.create_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.create_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#create_control)
         """
     def delete_assessment(self, *, assessmentId: str) -> Dict[str, Any]:
         """
         Deletes an assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.delete_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.delete_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#delete_assessment)
         """
     def delete_assessment_framework(self, *, frameworkId: str) -> Dict[str, Any]:
         """
         Deletes a custom framework in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.delete_assessment_framework)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.delete_assessment_framework)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#delete_assessment_framework)
         """
     def delete_assessment_framework_share(
@@ -275,7 +275,7 @@ class AuditManagerClient(BaseClient):
         """
         Deletes a share request for a custom framework in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.delete_assessment_framework_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.delete_assessment_framework_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#delete_assessment_framework_share)
         """
     def delete_assessment_report(
@@ -284,21 +284,21 @@ class AuditManagerClient(BaseClient):
         """
         Deletes an assessment report in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.delete_assessment_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.delete_assessment_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#delete_assessment_report)
         """
     def delete_control(self, *, controlId: str) -> Dict[str, Any]:
         """
         Deletes a custom control in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.delete_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.delete_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#delete_control)
         """
     def deregister_account(self) -> DeregisterAccountResponseTypeDef:
         """
         Deregisters an account in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.deregister_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.deregister_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#deregister_account)
         """
     def deregister_organization_admin_account(
@@ -308,7 +308,7 @@ class AuditManagerClient(BaseClient):
         Removes the specified Amazon Web Services account as a delegated administrator
         for Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.deregister_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.deregister_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#deregister_organization_admin_account)
         """
     def disassociate_assessment_report_evidence_folder(
@@ -318,7 +318,7 @@ class AuditManagerClient(BaseClient):
         Disassociates an evidence folder from the specified assessment report in Audit
         Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.disassociate_assessment_report_evidence_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.disassociate_assessment_report_evidence_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#disassociate_assessment_report_evidence_folder)
         """
     def generate_presigned_url(
@@ -331,21 +331,21 @@ class AuditManagerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#generate_presigned_url)
         """
     def get_account_status(self) -> GetAccountStatusResponseTypeDef:
         """
         Returns the registration status of an account in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_account_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_account_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_account_status)
         """
     def get_assessment(self, *, assessmentId: str) -> GetAssessmentResponseTypeDef:
         """
         Returns an assessment from Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_assessment)
         """
     def get_assessment_framework(
@@ -354,7 +354,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns a framework from Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_assessment_framework)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_assessment_framework)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_assessment_framework)
         """
     def get_assessment_report_url(
@@ -363,7 +363,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns the URL of an assessment report in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_assessment_report_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_assessment_report_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_assessment_report_url)
         """
     def get_change_logs(
@@ -378,14 +378,14 @@ class AuditManagerClient(BaseClient):
         """
         Returns a list of changelogs from Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_change_logs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_change_logs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_change_logs)
         """
     def get_control(self, *, controlId: str) -> GetControlResponseTypeDef:
         """
         Returns a control from Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_control)
         """
     def get_delegations(
@@ -394,7 +394,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns a list of delegations from an audit owner to a delegate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_delegations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_delegations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_delegations)
         """
     def get_evidence(
@@ -403,7 +403,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns evidence from Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_evidence)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_evidence)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_evidence)
         """
     def get_evidence_by_evidence_folder(
@@ -418,7 +418,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns all evidence from a specified evidence folder in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_evidence_by_evidence_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_evidence_by_evidence_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_evidence_by_evidence_folder)
         """
     def get_evidence_folder(
@@ -427,7 +427,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns an evidence folder from the specified assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_evidence_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_evidence_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_evidence_folder)
         """
     def get_evidence_folders_by_assessment(
@@ -436,7 +436,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns the evidence folders from a specified assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_evidence_folders_by_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_evidence_folders_by_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_evidence_folders_by_assessment)
         """
     def get_evidence_folders_by_assessment_control(
@@ -452,14 +452,14 @@ class AuditManagerClient(BaseClient):
         Returns a list of evidence folders that are associated with a specified control
         of an assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_evidence_folders_by_assessment_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_evidence_folders_by_assessment_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_evidence_folders_by_assessment_control)
         """
     def get_insights(self) -> GetInsightsResponseTypeDef:
         """
         Gets the latest analytics data for all your current active assessments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_insights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_insights)
         """
     def get_insights_by_assessment(
@@ -468,7 +468,7 @@ class AuditManagerClient(BaseClient):
         """
         Gets the latest analytics data for a specific active assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_insights_by_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_insights_by_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_insights_by_assessment)
         """
     def get_organization_admin_account(self) -> GetOrganizationAdminAccountResponseTypeDef:
@@ -476,7 +476,7 @@ class AuditManagerClient(BaseClient):
         Returns the name of the delegated Amazon Web Services administrator account for
         the organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_organization_admin_account)
         """
     def get_services_in_scope(self) -> GetServicesInScopeResponseTypeDef:
@@ -484,14 +484,14 @@ class AuditManagerClient(BaseClient):
         Returns a list of all of the Amazon Web Services that you can choose to include
         in your assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_services_in_scope)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_services_in_scope)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_services_in_scope)
         """
     def get_settings(self, *, attribute: SettingAttributeType) -> GetSettingsResponseTypeDef:
         """
         Returns the settings for the specified Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.get_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.get_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#get_settings)
         """
     def list_assessment_control_insights_by_control_domain(
@@ -506,7 +506,7 @@ class AuditManagerClient(BaseClient):
         Lists the latest analytics data for controls within a specific control domain
         and a specific active assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_assessment_control_insights_by_control_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_assessment_control_insights_by_control_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_assessment_control_insights_by_control_domain)
         """
     def list_assessment_framework_share_requests(
@@ -516,7 +516,7 @@ class AuditManagerClient(BaseClient):
         Returns a list of sent or received share requests for custom frameworks in Audit
         Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_assessment_framework_share_requests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_assessment_framework_share_requests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_assessment_framework_share_requests)
         """
     def list_assessment_frameworks(
@@ -526,7 +526,7 @@ class AuditManagerClient(BaseClient):
         Returns a list of the frameworks that are available in the Audit Manager
         framework library.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_assessment_frameworks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_assessment_frameworks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_assessment_frameworks)
         """
     def list_assessment_reports(
@@ -535,7 +535,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns a list of assessment reports created in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_assessment_reports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_assessment_reports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_assessment_reports)
         """
     def list_assessments(
@@ -544,7 +544,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns a list of current and past assessments from Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_assessments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_assessments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_assessments)
         """
     def list_control_domain_insights(
@@ -554,7 +554,7 @@ class AuditManagerClient(BaseClient):
         Lists the latest analytics data for control domains across all of your active
         assessments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_control_domain_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_control_domain_insights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_control_domain_insights)
         """
     def list_control_domain_insights_by_assessment(
@@ -563,7 +563,7 @@ class AuditManagerClient(BaseClient):
         """
         Lists analytics data for control domains within a specified active assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_control_domain_insights_by_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_control_domain_insights_by_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_control_domain_insights_by_assessment)
         """
     def list_control_insights_by_control_domain(
@@ -573,7 +573,7 @@ class AuditManagerClient(BaseClient):
         Lists the latest analytics data for controls within a specific control domain
         across all active assessments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_control_insights_by_control_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_control_insights_by_control_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_control_insights_by_control_domain)
         """
     def list_controls(
@@ -582,7 +582,7 @@ class AuditManagerClient(BaseClient):
         """
         Returns a list of controls from Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_controls)
         """
     def list_keywords_for_data_source(
@@ -592,7 +592,7 @@ class AuditManagerClient(BaseClient):
         Returns a list of keywords that are pre-mapped to the specified control data
         source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_keywords_for_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_keywords_for_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_keywords_for_data_source)
         """
     def list_notifications(
@@ -601,14 +601,14 @@ class AuditManagerClient(BaseClient):
         """
         Returns a list of all Audit Manager notifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_notifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_notifications)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Returns a list of tags for the specified resource in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#list_tags_for_resource)
         """
     def register_account(
@@ -617,7 +617,7 @@ class AuditManagerClient(BaseClient):
         """
         Enables Audit Manager for the specified Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.register_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.register_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#register_account)
         """
     def register_organization_admin_account(
@@ -627,7 +627,7 @@ class AuditManagerClient(BaseClient):
         Enables an Amazon Web Services account within the organization as the delegated
         administrator for Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.register_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.register_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#register_organization_admin_account)
         """
     def start_assessment_framework_share(
@@ -641,21 +641,21 @@ class AuditManagerClient(BaseClient):
         """
         Creates a share request for a custom framework in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.start_assessment_framework_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.start_assessment_framework_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#start_assessment_framework_share)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Tags the specified resource in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a tag from a resource in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#untag_resource)
         """
     def update_assessment(
@@ -671,7 +671,7 @@ class AuditManagerClient(BaseClient):
         """
         Edits an Audit Manager assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.update_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.update_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#update_assessment)
         """
     def update_assessment_control(
@@ -686,7 +686,7 @@ class AuditManagerClient(BaseClient):
         """
         Updates a control within an assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.update_assessment_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.update_assessment_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#update_assessment_control)
         """
     def update_assessment_control_set_status(
@@ -695,7 +695,7 @@ class AuditManagerClient(BaseClient):
         """
         Updates the status of a control set in an Audit Manager assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.update_assessment_control_set_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.update_assessment_control_set_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#update_assessment_control_set_status)
         """
     def update_assessment_framework(
@@ -710,7 +710,7 @@ class AuditManagerClient(BaseClient):
         """
         Updates a custom framework in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.update_assessment_framework)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.update_assessment_framework)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#update_assessment_framework)
         """
     def update_assessment_framework_share(
@@ -719,7 +719,7 @@ class AuditManagerClient(BaseClient):
         """
         Updates a share request for a custom framework in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.update_assessment_framework_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.update_assessment_framework_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#update_assessment_framework_share)
         """
     def update_assessment_status(
@@ -728,7 +728,7 @@ class AuditManagerClient(BaseClient):
         """
         Updates the status of an assessment in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.update_assessment_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.update_assessment_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#update_assessment_status)
         """
     def update_control(
@@ -745,7 +745,7 @@ class AuditManagerClient(BaseClient):
         """
         Updates a custom control in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.update_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.update_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#update_control)
         """
     def update_settings(
@@ -760,7 +760,7 @@ class AuditManagerClient(BaseClient):
         """
         Updates Audit Manager settings for the current user account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.update_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.update_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#update_settings)
         """
     def validate_assessment_report_integrity(
@@ -769,6 +769,6 @@ class AuditManagerClient(BaseClient):
         """
         Validates the integrity of an assessment report in Audit Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/auditmanager.html#AuditManager.Client.validate_assessment_report_integrity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/auditmanager.html#AuditManager.Client.validate_assessment_report_integrity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/client.html#validate_assessment_report_integrity)
         """

@@ -51,6 +51,7 @@ from .literals import (
     PrincipalMappingStatusType,
     PrincipalTypeType,
     QueryIdentifiersEnclosingOptionType,
+    QueryResultFormatType,
     QueryResultTypeType,
     QuerySuggestionsBlockListStatusType,
     QuerySuggestionsStatusType,
@@ -292,6 +293,9 @@ __all__ = (
     "SuggestionTextWithHighlightsTypeDef",
     "SuggestionTypeDef",
     "SuggestionValueTypeDef",
+    "TableCellTypeDef",
+    "TableExcerptTypeDef",
+    "TableRowTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TemplateConfigurationTypeDef",
@@ -2634,6 +2638,7 @@ QueryResultItemTypeDef = TypedDict(
     {
         "Id": str,
         "Type": QueryResultTypeType,
+        "Format": QueryResultFormatType,
         "AdditionalAttributes": List["AdditionalResultAttributeTypeDef"],
         "DocumentId": str,
         "DocumentTitle": "TextWithHighlightsTypeDef",
@@ -2642,6 +2647,7 @@ QueryResultItemTypeDef = TypedDict(
         "DocumentAttributes": List["DocumentAttributeTypeDef"],
         "ScoreAttributes": "ScoreAttributesTypeDef",
         "FeedbackToken": str,
+        "TableExcerpt": "TableExcerptTypeDef",
     },
     total=False,
 )
@@ -3222,6 +3228,34 @@ SuggestionValueTypeDef = TypedDict(
     "SuggestionValueTypeDef",
     {
         "Text": "SuggestionTextWithHighlightsTypeDef",
+    },
+    total=False,
+)
+
+TableCellTypeDef = TypedDict(
+    "TableCellTypeDef",
+    {
+        "Value": str,
+        "TopAnswer": bool,
+        "Highlighted": bool,
+        "Header": bool,
+    },
+    total=False,
+)
+
+TableExcerptTypeDef = TypedDict(
+    "TableExcerptTypeDef",
+    {
+        "Rows": List["TableRowTypeDef"],
+        "TotalNumberOfRows": int,
+    },
+    total=False,
+)
+
+TableRowTypeDef = TypedDict(
+    "TableRowTypeDef",
+    {
+        "Cells": List["TableCellTypeDef"],
     },
     total=False,
 )

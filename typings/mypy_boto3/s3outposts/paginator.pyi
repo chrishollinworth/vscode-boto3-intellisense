@@ -34,7 +34,7 @@ __all__ = ("ListEndpointsPaginator", "ListSharedEndpointsPaginator")
 
 class ListEndpointsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listendpointspaginator)
     """
 
@@ -42,13 +42,13 @@ class ListEndpointsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listendpointspaginator)
         """
 
 class ListSharedEndpointsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/s3outposts.html#S3Outposts.Paginator.ListSharedEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/s3outposts.html#S3Outposts.Paginator.ListSharedEndpoints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listsharedendpointspaginator)
     """
 
@@ -56,6 +56,6 @@ class ListSharedEndpointsPaginator(Boto3Paginator):
         self, *, OutpostId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSharedEndpointsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/s3outposts.html#S3Outposts.Paginator.ListSharedEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/s3outposts.html#S3Outposts.Paginator.ListSharedEndpoints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listsharedendpointspaginator)
         """

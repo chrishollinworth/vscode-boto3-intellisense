@@ -15,8 +15,10 @@ Usage::
         ListBackupSelectionsPaginator,
         ListBackupVaultsPaginator,
         ListCopyJobsPaginator,
+        ListLegalHoldsPaginator,
         ListProtectedResourcesPaginator,
         ListRecoveryPointsByBackupVaultPaginator,
+        ListRecoveryPointsByLegalHoldPaginator,
         ListRecoveryPointsByResourcePaginator,
         ListRestoreJobsPaginator,
     )
@@ -33,8 +35,10 @@ Usage::
     list_backup_selections_paginator: ListBackupSelectionsPaginator = client.get_paginator("list_backup_selections")
     list_backup_vaults_paginator: ListBackupVaultsPaginator = client.get_paginator("list_backup_vaults")
     list_copy_jobs_paginator: ListCopyJobsPaginator = client.get_paginator("list_copy_jobs")
+    list_legal_holds_paginator: ListLegalHoldsPaginator = client.get_paginator("list_legal_holds")
     list_protected_resources_paginator: ListProtectedResourcesPaginator = client.get_paginator("list_protected_resources")
     list_recovery_points_by_backup_vault_paginator: ListRecoveryPointsByBackupVaultPaginator = client.get_paginator("list_recovery_points_by_backup_vault")
+    list_recovery_points_by_legal_hold_paginator: ListRecoveryPointsByLegalHoldPaginator = client.get_paginator("list_recovery_points_by_legal_hold")
     list_recovery_points_by_resource_paginator: ListRecoveryPointsByResourcePaginator = client.get_paginator("list_recovery_points_by_resource")
     list_restore_jobs_paginator: ListRestoreJobsPaginator = client.get_paginator("list_restore_jobs")
     ```
@@ -48,8 +52,10 @@ from .paginator import (
     ListBackupSelectionsPaginator,
     ListBackupVaultsPaginator,
     ListCopyJobsPaginator,
+    ListLegalHoldsPaginator,
     ListProtectedResourcesPaginator,
     ListRecoveryPointsByBackupVaultPaginator,
+    ListRecoveryPointsByLegalHoldPaginator,
     ListRecoveryPointsByResourcePaginator,
     ListRestoreJobsPaginator,
 )
@@ -66,8 +72,10 @@ __all__ = (
     "ListBackupSelectionsPaginator",
     "ListBackupVaultsPaginator",
     "ListCopyJobsPaginator",
+    "ListLegalHoldsPaginator",
     "ListProtectedResourcesPaginator",
     "ListRecoveryPointsByBackupVaultPaginator",
+    "ListRecoveryPointsByLegalHoldPaginator",
     "ListRecoveryPointsByResourcePaginator",
     "ListRestoreJobsPaginator",
 )

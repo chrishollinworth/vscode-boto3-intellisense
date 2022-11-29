@@ -61,6 +61,7 @@ __all__ = (
     "FleetMetricUnitType",
     "GetBehaviorModelTrainingSummariesPaginatorName",
     "IndexStatusType",
+    "JobEndBehaviorType",
     "JobExecutionFailureTypeType",
     "JobExecutionStatusType",
     "JobStatusType",
@@ -258,11 +259,12 @@ FleetMetricUnitType = Literal[
 ]
 GetBehaviorModelTrainingSummariesPaginatorName = Literal["get_behavior_model_training_summaries"]
 IndexStatusType = Literal["ACTIVE", "BUILDING", "REBUILDING"]
+JobEndBehaviorType = Literal["CANCEL", "FORCE_CANCEL", "STOP_ROLLOUT"]
 JobExecutionFailureTypeType = Literal["ALL", "FAILED", "REJECTED", "TIMED_OUT"]
 JobExecutionStatusType = Literal[
     "CANCELED", "FAILED", "IN_PROGRESS", "QUEUED", "REJECTED", "REMOVED", "SUCCEEDED", "TIMED_OUT"
 ]
-JobStatusType = Literal["CANCELED", "COMPLETED", "DELETION_IN_PROGRESS", "IN_PROGRESS"]
+JobStatusType = Literal["CANCELED", "COMPLETED", "DELETION_IN_PROGRESS", "IN_PROGRESS", "SCHEDULED"]
 ListActiveViolationsPaginatorName = Literal["list_active_violations"]
 ListAttachedPoliciesPaginatorName = Literal["list_attached_policies"]
 ListAuditFindingsPaginatorName = Literal["list_audit_findings"]

@@ -77,6 +77,7 @@ __all__ = (
     "LogicalType",
     "MLUserDataEncryptionModeStringType",
     "NodeTypeType",
+    "ParamTypeType",
     "ParquetCompressionTypeType",
     "PartitionIndexStatusType",
     "PermissionType",
@@ -286,6 +287,7 @@ LogicalOperatorType = Literal["EQUALS"]
 LogicalType = Literal["AND", "ANY"]
 MLUserDataEncryptionModeStringType = Literal["DISABLED", "SSE-KMS"]
 NodeTypeType = Literal["CRAWLER", "JOB", "TRIGGER"]
+ParamTypeType = Literal["bool", "complex", "float", "int", "list", "null", "str"]
 ParquetCompressionTypeType = Literal["gzip", "lzo", "none", "snappy", "uncompressed"]
 PartitionIndexStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED"]
 PermissionType = Literal[

@@ -21,6 +21,7 @@ appmesh
 apprunner
 appstream
 appsync
+arc_zonal_shift
 athena
 auditmanager
 autoscaling
@@ -155,7 +156,7 @@ iotfleetwise
 iotsecuretunneling
 iotsitewise
 iotthingsgraph
-iotwinmaker
+iottwinmaker
 iotwireless
 ivs
 ivschat
@@ -217,6 +218,7 @@ neptune
 network_firewall
 networkmanager
 nimble
+oam
 opensearch
 opsworks
 opsworkscm

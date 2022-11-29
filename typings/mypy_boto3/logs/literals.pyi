@@ -6,9 +6,9 @@ Type annotations for logs service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_logs.literals import DescribeDestinationsPaginatorName
+    from mypy_boto3_logs.literals import DataProtectionStatusType
 
-    data: DescribeDestinationsPaginatorName = "describe_destinations"
+    data: DataProtectionStatusType = "ACTIVATED"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "DataProtectionStatusType",
     "DescribeDestinationsPaginatorName",
     "DescribeExportTasksPaginatorName",
     "DescribeLogGroupsPaginatorName",
@@ -35,6 +36,7 @@ __all__ = (
     "StandardUnitType",
 )
 
+DataProtectionStatusType = Literal["ACTIVATED", "ARCHIVED", "DELETED", "DISABLED"]
 DescribeDestinationsPaginatorName = Literal["describe_destinations"]
 DescribeExportTasksPaginatorName = Literal["describe_export_tasks"]
 DescribeLogGroupsPaginatorName = Literal["describe_log_groups"]

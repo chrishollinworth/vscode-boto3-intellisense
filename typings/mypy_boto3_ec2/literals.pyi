@@ -88,6 +88,7 @@ __all__ = (
     "DeleteQueuedReservedInstancesErrorCodeType",
     "DescribeAddressTransfersPaginatorName",
     "DescribeAddressesAttributePaginatorName",
+    "DescribeAwsNetworkPerformanceMetricSubscriptionsPaginatorName",
     "DescribeByoipCidrsPaginatorName",
     "DescribeCapacityReservationFleetsPaginatorName",
     "DescribeCapacityReservationsPaginatorName",
@@ -233,6 +234,7 @@ __all__ = (
     "GatewayAssociationStateType",
     "GatewayTypeType",
     "GetAssociatedIpv6PoolCidrsPaginatorName",
+    "GetAwsNetworkPerformanceDataPaginatorName",
     "GetGroupsForCapacityReservationPaginatorName",
     "GetInstanceTypesFromInstanceRequirementsPaginatorName",
     "GetIpamAddressHistoryPaginatorName",
@@ -325,6 +327,7 @@ __all__ = (
     "LogDestinationTypeType",
     "MarketTypeType",
     "MembershipTypeType",
+    "MetricTypeType",
     "ModifyAvailabilityZoneOptInStatusType",
     "MonitoringStateType",
     "MoveStatusType",
@@ -346,6 +349,7 @@ __all__ = (
     "PasswordDataAvailableWaiterName",
     "PayerResponsibilityType",
     "PaymentOptionType",
+    "PeriodTypeType",
     "PermissionGroupType",
     "PlacementGroupStateType",
     "PlacementGroupStrategyType",
@@ -391,6 +395,7 @@ __all__ = (
     "SpreadLevelType",
     "StateType",
     "StaticSourcesSupportValueType",
+    "StatisticTypeType",
     "StatusNameType",
     "StatusType",
     "StatusTypeType",
@@ -611,6 +616,9 @@ DeleteQueuedReservedInstancesErrorCodeType = Literal[
 ]
 DescribeAddressTransfersPaginatorName = Literal["describe_address_transfers"]
 DescribeAddressesAttributePaginatorName = Literal["describe_addresses_attribute"]
+DescribeAwsNetworkPerformanceMetricSubscriptionsPaginatorName = Literal[
+    "describe_aws_network_performance_metric_subscriptions"
+]
 DescribeByoipCidrsPaginatorName = Literal["describe_byoip_cidrs"]
 DescribeCapacityReservationFleetsPaginatorName = Literal["describe_capacity_reservation_fleets"]
 DescribeCapacityReservationsPaginatorName = Literal["describe_capacity_reservations"]
@@ -812,6 +820,7 @@ GatewayAssociationStateType = Literal[
 ]
 GatewayTypeType = Literal["ipsec.1"]
 GetAssociatedIpv6PoolCidrsPaginatorName = Literal["get_associated_ipv6_pool_cidrs"]
+GetAwsNetworkPerformanceDataPaginatorName = Literal["get_aws_network_performance_data"]
 GetGroupsForCapacityReservationPaginatorName = Literal["get_groups_for_capacity_reservation"]
 GetInstanceTypesFromInstanceRequirementsPaginatorName = Literal[
     "get_instance_types_from_instance_requirements"
@@ -1585,6 +1594,7 @@ LocationTypeType = Literal["availability-zone", "availability-zone-id", "region"
 LogDestinationTypeType = Literal["cloud-watch-logs", "kinesis-data-firehose", "s3"]
 MarketTypeType = Literal["spot"]
 MembershipTypeType = Literal["igmp", "static"]
+MetricTypeType = Literal["aggregate-latency"]
 ModifyAvailabilityZoneOptInStatusType = Literal["not-opted-in", "opted-in"]
 MonitoringStateType = Literal["disabled", "disabling", "enabled", "pending"]
 MoveStatusType = Literal["movingToVpc", "restoringToClassic"]
@@ -1631,6 +1641,9 @@ PartitionLoadFrequencyType = Literal["daily", "monthly", "none", "weekly"]
 PasswordDataAvailableWaiterName = Literal["password_data_available"]
 PayerResponsibilityType = Literal["ServiceOwner"]
 PaymentOptionType = Literal["AllUpfront", "NoUpfront", "PartialUpfront"]
+PeriodTypeType = Literal[
+    "fifteen-minutes", "five-minutes", "one-day", "one-hour", "one-week", "three-hours"
+]
 PermissionGroupType = Literal["all"]
 PlacementGroupStateType = Literal["available", "deleted", "deleting", "pending"]
 PlacementGroupStrategyType = Literal["cluster", "partition", "spread"]
@@ -1802,6 +1815,7 @@ StateType = Literal[
     "Rejected",
 ]
 StaticSourcesSupportValueType = Literal["disable", "enable"]
+StatisticTypeType = Literal["p50"]
 StatusNameType = Literal["reachability"]
 StatusType = Literal["InClassic", "InVpc", "MoveInProgress"]
 StatusTypeType = Literal["failed", "initializing", "insufficient-data", "passed"]

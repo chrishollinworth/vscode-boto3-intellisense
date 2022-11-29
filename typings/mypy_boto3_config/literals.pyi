@@ -48,6 +48,7 @@ __all__ = (
     "DescribePendingAggregationRequestsPaginatorName",
     "DescribeRemediationExecutionStatusPaginatorName",
     "DescribeRetentionConfigurationsPaginatorName",
+    "EvaluationModeType",
     "EventSourceType",
     "GetAggregateComplianceDetailsByConfigRulePaginatorName",
     "GetComplianceDetailsByConfigRulePaginatorName",
@@ -58,6 +59,7 @@ __all__ = (
     "GetResourceConfigHistoryPaginatorName",
     "ListAggregateDiscoveredResourcesPaginatorName",
     "ListDiscoveredResourcesPaginatorName",
+    "ListResourceEvaluationsPaginatorName",
     "ListTagsForResourcePaginatorName",
     "MaximumExecutionFrequencyType",
     "MemberAccountRuleStatusType",
@@ -72,7 +74,9 @@ __all__ = (
     "RemediationExecutionStateType",
     "RemediationExecutionStepStateType",
     "RemediationTargetTypeType",
+    "ResourceConfigurationSchemaTypeType",
     "ResourceCountGroupKeyType",
+    "ResourceEvaluationStatusType",
     "ResourceTypeType",
     "ResourceValueTypeType",
     "SelectAggregateResourceConfigPaginatorName",
@@ -130,6 +134,7 @@ DescribeOrganizationConformancePacksPaginatorName = Literal[
 DescribePendingAggregationRequestsPaginatorName = Literal["describe_pending_aggregation_requests"]
 DescribeRemediationExecutionStatusPaginatorName = Literal["describe_remediation_execution_status"]
 DescribeRetentionConfigurationsPaginatorName = Literal["describe_retention_configurations"]
+EvaluationModeType = Literal["DETECTIVE", "PROACTIVE"]
 EventSourceType = Literal["aws.config"]
 GetAggregateComplianceDetailsByConfigRulePaginatorName = Literal[
     "get_aggregate_compliance_details_by_config_rule"
@@ -148,6 +153,7 @@ GetOrganizationConformancePackDetailedStatusPaginatorName = Literal[
 GetResourceConfigHistoryPaginatorName = Literal["get_resource_config_history"]
 ListAggregateDiscoveredResourcesPaginatorName = Literal["list_aggregate_discovered_resources"]
 ListDiscoveredResourcesPaginatorName = Literal["list_discovered_resources"]
+ListResourceEvaluationsPaginatorName = Literal["list_resource_evaluations"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 MaximumExecutionFrequencyType = Literal[
     "One_Hour", "Six_Hours", "Three_Hours", "Twelve_Hours", "TwentyFour_Hours"
@@ -215,7 +221,9 @@ RecorderStatusType = Literal["Failure", "Pending", "Success"]
 RemediationExecutionStateType = Literal["FAILED", "IN_PROGRESS", "QUEUED", "SUCCEEDED"]
 RemediationExecutionStepStateType = Literal["FAILED", "PENDING", "SUCCEEDED"]
 RemediationTargetTypeType = Literal["SSM_DOCUMENT"]
+ResourceConfigurationSchemaTypeType = Literal["CFN_RESOURCE_SCHEMA"]
 ResourceCountGroupKeyType = Literal["ACCOUNT_ID", "AWS_REGION", "RESOURCE_TYPE"]
+ResourceEvaluationStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
 ResourceTypeType = Literal[
     "AWS::ACM::Certificate",
     "AWS::AccessAnalyzer::Analyzer",

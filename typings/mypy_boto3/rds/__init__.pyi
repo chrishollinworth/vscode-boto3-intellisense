@@ -16,6 +16,7 @@ Usage::
         DBSnapshotAvailableWaiter,
         DBSnapshotCompletedWaiter,
         DBSnapshotDeletedWaiter,
+        DescribeBlueGreenDeploymentsPaginator,
         DescribeCertificatesPaginator,
         DescribeDBClusterBacktracksPaginator,
         DescribeDBClusterEndpointsPaginator,
@@ -68,6 +69,7 @@ Usage::
     db_snapshot_completed_waiter: DBSnapshotCompletedWaiter = client.get_waiter("db_snapshot_completed")
     db_snapshot_deleted_waiter: DBSnapshotDeletedWaiter = client.get_waiter("db_snapshot_deleted")
 
+    describe_blue_green_deployments_paginator: DescribeBlueGreenDeploymentsPaginator = client.get_paginator("describe_blue_green_deployments")
     describe_certificates_paginator: DescribeCertificatesPaginator = client.get_paginator("describe_certificates")
     describe_db_cluster_backtracks_paginator: DescribeDBClusterBacktracksPaginator = client.get_paginator("describe_db_cluster_backtracks")
     describe_db_cluster_endpoints_paginator: DescribeDBClusterEndpointsPaginator = client.get_paginator("describe_db_cluster_endpoints")
@@ -106,6 +108,7 @@ Usage::
 """
 from .client import RDSClient
 from .paginator import (
+    DescribeBlueGreenDeploymentsPaginator,
     DescribeCertificatesPaginator,
     DescribeDBClusterBacktracksPaginator,
     DescribeDBClusterEndpointsPaginator,
@@ -166,6 +169,7 @@ __all__ = (
     "DBSnapshotAvailableWaiter",
     "DBSnapshotCompletedWaiter",
     "DBSnapshotDeletedWaiter",
+    "DescribeBlueGreenDeploymentsPaginator",
     "DescribeCertificatesPaginator",
     "DescribeDBClusterBacktracksPaginator",
     "DescribeDBClusterEndpointsPaginator",

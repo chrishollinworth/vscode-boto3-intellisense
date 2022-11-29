@@ -22,6 +22,7 @@ __all__ = (
     "BaseModelNameType",
     "CLMLanguageCodeType",
     "CallAnalyticsJobStatusType",
+    "InputTypeType",
     "LanguageCodeType",
     "MediaFormatType",
     "MedicalContentIdentificationTypeType",
@@ -44,6 +45,7 @@ __all__ = (
 BaseModelNameType = Literal["NarrowBand", "WideBand"]
 CLMLanguageCodeType = Literal["en-AU", "en-GB", "en-US", "es-US", "hi-IN"]
 CallAnalyticsJobStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED"]
+InputTypeType = Literal["POST_CALL", "REAL_TIME"]
 LanguageCodeType = Literal[
     "af-ZA",
     "ar-AE",

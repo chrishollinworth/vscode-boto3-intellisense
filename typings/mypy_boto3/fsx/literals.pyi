@@ -46,6 +46,7 @@ __all__ = (
     "FileSystemTypeType",
     "FilterNameType",
     "FlexCacheEndpointTypeType",
+    "InputOntapVolumeTypeType",
     "ListTagsForResourcePaginatorName",
     "LustreAccessAuditLogLevelType",
     "LustreDeploymentTypeType",
@@ -68,7 +69,6 @@ __all__ = (
     "StorageVirtualMachineFilterNameType",
     "StorageVirtualMachineLifecycleType",
     "StorageVirtualMachineRootVolumeSecurityStyleType",
-    "StorageVirtualMachineSubtypeType",
     "TieringPolicyNameType",
     "VolumeFilterNameType",
     "VolumeLifecycleType",
@@ -84,6 +84,7 @@ AdministrativeActionTypeType = Literal[
     "RELEASE_NFS_V3_LOCKS",
     "SNAPSHOT_UPDATE",
     "STORAGE_OPTIMIZATION",
+    "VOLUME_RESTORE",
     "VOLUME_UPDATE",
 ]
 AliasLifecycleType = Literal["AVAILABLE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"]
@@ -141,6 +142,7 @@ FilterNameType = Literal[
     "volume-id",
 ]
 FlexCacheEndpointTypeType = Literal["CACHE", "NONE", "ORIGIN"]
+InputOntapVolumeTypeType = Literal["DP", "RW"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LustreAccessAuditLogLevelType = Literal["DISABLED", "ERROR_ONLY", "WARN_ERROR", "WARN_ONLY"]
 LustreDeploymentTypeType = Literal["PERSISTENT_1", "PERSISTENT_2", "SCRATCH_1", "SCRATCH_2"]
@@ -149,7 +151,7 @@ OntapDeploymentTypeType = Literal["MULTI_AZ_1", "SINGLE_AZ_1"]
 OntapVolumeTypeType = Literal["DP", "LS", "RW"]
 OpenZFSCopyStrategyType = Literal["CLONE", "FULL_COPY"]
 OpenZFSDataCompressionTypeType = Literal["LZ4", "NONE", "ZSTD"]
-OpenZFSDeploymentTypeType = Literal["SINGLE_AZ_1"]
+OpenZFSDeploymentTypeType = Literal["SINGLE_AZ_1", "SINGLE_AZ_2"]
 OpenZFSQuotaTypeType = Literal["GROUP", "USER"]
 ReportFormatType = Literal["REPORT_CSV_20191124"]
 ReportScopeType = Literal["FAILED_FILES_ONLY"]
@@ -165,9 +167,6 @@ StorageVirtualMachineLifecycleType = Literal[
     "CREATED", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "PENDING"
 ]
 StorageVirtualMachineRootVolumeSecurityStyleType = Literal["MIXED", "NTFS", "UNIX"]
-StorageVirtualMachineSubtypeType = Literal[
-    "DEFAULT", "DP_DESTINATION", "SYNC_DESTINATION", "SYNC_SOURCE"
-]
 TieringPolicyNameType = Literal["ALL", "AUTO", "NONE", "SNAPSHOT_ONLY"]
 VolumeFilterNameType = Literal["file-system-id", "storage-virtual-machine-id"]
 VolumeLifecycleType = Literal[

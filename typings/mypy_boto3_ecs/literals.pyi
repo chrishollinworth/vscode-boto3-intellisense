@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "AgentUpdateStatusType",
+    "ApplicationProtocolType",
     "AssignPublicIpType",
     "CPUArchitectureType",
     "CapacityProviderFieldType",
@@ -50,6 +51,7 @@ __all__ = (
     "ListAttributesPaginatorName",
     "ListClustersPaginatorName",
     "ListContainerInstancesPaginatorName",
+    "ListServicesByNamespacePaginatorName",
     "ListServicesPaginatorName",
     "ListTaskDefinitionFamiliesPaginatorName",
     "ListTaskDefinitionsPaginatorName",
@@ -91,6 +93,7 @@ __all__ = (
 )
 
 AgentUpdateStatusType = Literal["FAILED", "PENDING", "STAGED", "STAGING", "UPDATED", "UPDATING"]
+ApplicationProtocolType = Literal["grpc", "http", "http2"]
 AssignPublicIpType = Literal["DISABLED", "ENABLED"]
 CPUArchitectureType = Literal["ARM64", "X86_64"]
 CapacityProviderFieldType = Literal["TAGS"]
@@ -130,6 +133,7 @@ ListAccountSettingsPaginatorName = Literal["list_account_settings"]
 ListAttributesPaginatorName = Literal["list_attributes"]
 ListClustersPaginatorName = Literal["list_clusters"]
 ListContainerInstancesPaginatorName = Literal["list_container_instances"]
+ListServicesByNamespacePaginatorName = Literal["list_services_by_namespace"]
 ListServicesPaginatorName = Literal["list_services"]
 ListTaskDefinitionFamiliesPaginatorName = Literal["list_task_definition_families"]
 ListTaskDefinitionsPaginatorName = Literal["list_task_definitions"]
@@ -180,7 +184,14 @@ TaskDefinitionPlacementConstraintTypeType = Literal["memberOf"]
 TaskDefinitionStatusType = Literal["ACTIVE", "INACTIVE"]
 TaskFieldType = Literal["TAGS"]
 TaskSetFieldType = Literal["TAGS"]
-TaskStopCodeType = Literal["EssentialContainerExited", "TaskFailedToStart", "UserInitiated"]
+TaskStopCodeType = Literal[
+    "EssentialContainerExited",
+    "ServiceSchedulerInitiated",
+    "SpotInterruption",
+    "TaskFailedToStart",
+    "TerminationNotice",
+    "UserInitiated",
+]
 TasksRunningWaiterName = Literal["tasks_running"]
 TasksStoppedWaiterName = Literal["tasks_stopped"]
 TransportProtocolType = Literal["tcp", "udp"]

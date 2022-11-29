@@ -35,6 +35,7 @@ Usage::
         GetResourceConfigHistoryPaginator,
         ListAggregateDiscoveredResourcesPaginator,
         ListDiscoveredResourcesPaginator,
+        ListResourceEvaluationsPaginator,
         ListTagsForResourcePaginator,
         SelectAggregateResourceConfigPaginator,
         SelectResourceConfigPaginator,
@@ -72,6 +73,7 @@ Usage::
     get_resource_config_history_paginator: GetResourceConfigHistoryPaginator = client.get_paginator("get_resource_config_history")
     list_aggregate_discovered_resources_paginator: ListAggregateDiscoveredResourcesPaginator = client.get_paginator("list_aggregate_discovered_resources")
     list_discovered_resources_paginator: ListDiscoveredResourcesPaginator = client.get_paginator("list_discovered_resources")
+    list_resource_evaluations_paginator: ListResourceEvaluationsPaginator = client.get_paginator("list_resource_evaluations")
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     select_aggregate_resource_config_paginator: SelectAggregateResourceConfigPaginator = client.get_paginator("select_aggregate_resource_config")
     select_resource_config_paginator: SelectResourceConfigPaginator = client.get_paginator("select_resource_config")
@@ -106,6 +108,7 @@ from .paginator import (
     GetResourceConfigHistoryPaginator,
     ListAggregateDiscoveredResourcesPaginator,
     ListDiscoveredResourcesPaginator,
+    ListResourceEvaluationsPaginator,
     ListTagsForResourcePaginator,
     SelectAggregateResourceConfigPaginator,
     SelectResourceConfigPaginator,
@@ -143,6 +146,7 @@ __all__ = (
     "GetResourceConfigHistoryPaginator",
     "ListAggregateDiscoveredResourcesPaginator",
     "ListDiscoveredResourcesPaginator",
+    "ListResourceEvaluationsPaginator",
     "ListTagsForResourcePaginator",
     "SelectAggregateResourceConfigPaginator",
     "SelectResourceConfigPaginator",

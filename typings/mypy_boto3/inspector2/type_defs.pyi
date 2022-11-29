@@ -21,6 +21,7 @@ from .literals import (
     AggregationResourceTypeType,
     AggregationTypeType,
     AmiSortByType,
+    ArchitectureType,
     AwsEcrContainerSortByType,
     CoverageResourceTypeType,
     CoverageStringComparisonType,
@@ -31,6 +32,7 @@ from .literals import (
     EcrRescanDurationType,
     EcrScanFrequencyType,
     ErrorCodeType,
+    ExploitAvailableType,
     ExternalReportStatusType,
     FilterActionType,
     FindingStatusType,
@@ -42,16 +44,20 @@ from .literals import (
     FreeTrialTypeType,
     GroupKeyType,
     ImageLayerSortByType,
+    LambdaFunctionSortByType,
+    LambdaLayerSortByType,
     NetworkProtocolType,
     OperationType,
     PackageManagerType,
     PackageSortByType,
+    PackageTypeType,
     RelationshipStatusType,
     ReportFormatType,
     ReportingErrorCodeType,
     RepositorySortByType,
     ResourceScanTypeType,
     ResourceTypeType,
+    RuntimeType,
     ScanStatusCodeType,
     ScanStatusReasonType,
     ScanTypeType,
@@ -90,6 +96,7 @@ __all__ = (
     "AwsEcrContainerAggregationResponseTypeDef",
     "AwsEcrContainerAggregationTypeDef",
     "AwsEcrContainerImageDetailsTypeDef",
+    "AwsLambdaFunctionDetailsTypeDef",
     "BatchGetAccountStatusRequestRequestTypeDef",
     "BatchGetAccountStatusResponseTypeDef",
     "BatchGetFreeTrialInfoRequestRequestTypeDef",
@@ -133,6 +140,7 @@ __all__ = (
     "EnableDelegatedAdminAccountResponseTypeDef",
     "EnableRequestRequestTypeDef",
     "EnableResponseTypeDef",
+    "ExploitabilityDetailsTypeDef",
     "FailedAccountTypeDef",
     "FilterCriteriaTypeDef",
     "FilterTypeDef",
@@ -151,6 +159,12 @@ __all__ = (
     "ImageLayerAggregationResponseTypeDef",
     "ImageLayerAggregationTypeDef",
     "InspectorScoreDetailsTypeDef",
+    "LambdaFunctionAggregationResponseTypeDef",
+    "LambdaFunctionAggregationTypeDef",
+    "LambdaFunctionMetadataTypeDef",
+    "LambdaLayerAggregationResponseTypeDef",
+    "LambdaLayerAggregationTypeDef",
+    "LambdaVpcConfigTypeDef",
     "ListAccountPermissionsRequestRequestTypeDef",
     "ListAccountPermissionsResponseTypeDef",
     "ListCoverageRequestRequestTypeDef",
@@ -261,6 +275,8 @@ AggregationRequestTypeDef = TypedDict(
         "ec2InstanceAggregation": "Ec2InstanceAggregationTypeDef",
         "findingTypeAggregation": "FindingTypeAggregationTypeDef",
         "imageLayerAggregation": "ImageLayerAggregationTypeDef",
+        "lambdaFunctionAggregation": "LambdaFunctionAggregationTypeDef",
+        "lambdaLayerAggregation": "LambdaLayerAggregationTypeDef",
         "packageAggregation": "PackageAggregationTypeDef",
         "repositoryAggregation": "RepositoryAggregationTypeDef",
         "titleAggregation": "TitleAggregationTypeDef",
@@ -277,6 +293,8 @@ AggregationResponseTypeDef = TypedDict(
         "ec2InstanceAggregation": "Ec2InstanceAggregationResponseTypeDef",
         "findingTypeAggregation": "FindingTypeAggregationResponseTypeDef",
         "imageLayerAggregation": "ImageLayerAggregationResponseTypeDef",
+        "lambdaFunctionAggregation": "LambdaFunctionAggregationResponseTypeDef",
+        "lambdaLayerAggregation": "LambdaLayerAggregationResponseTypeDef",
         "packageAggregation": "PackageAggregationResponseTypeDef",
         "repositoryAggregation": "RepositoryAggregationResponseTypeDef",
         "titleAggregation": "TitleAggregationResponseTypeDef",
@@ -330,13 +348,23 @@ AssociateMemberResponseTypeDef = TypedDict(
     },
 )
 
-AutoEnableTypeDef = TypedDict(
-    "AutoEnableTypeDef",
+_RequiredAutoEnableTypeDef = TypedDict(
+    "_RequiredAutoEnableTypeDef",
     {
         "ec2": bool,
         "ecr": bool,
     },
 )
+_OptionalAutoEnableTypeDef = TypedDict(
+    "_OptionalAutoEnableTypeDef",
+    {
+        "lambda": bool,
+    },
+    total=False,
+)
+
+class AutoEnableTypeDef(_RequiredAutoEnableTypeDef, _OptionalAutoEnableTypeDef):
+    pass
 
 AwsEc2InstanceDetailsTypeDef = TypedDict(
     "AwsEc2InstanceDetailsTypeDef",
@@ -419,6 +447,33 @@ class AwsEcrContainerImageDetailsTypeDef(
 ):
     pass
 
+_RequiredAwsLambdaFunctionDetailsTypeDef = TypedDict(
+    "_RequiredAwsLambdaFunctionDetailsTypeDef",
+    {
+        "codeSha256": str,
+        "executionRoleArn": str,
+        "functionName": str,
+        "runtime": RuntimeType,
+        "version": str,
+    },
+)
+_OptionalAwsLambdaFunctionDetailsTypeDef = TypedDict(
+    "_OptionalAwsLambdaFunctionDetailsTypeDef",
+    {
+        "architectures": List[ArchitectureType],
+        "lastModifiedAt": datetime,
+        "layers": List[str],
+        "packageType": PackageTypeType,
+        "vpcConfig": "LambdaVpcConfigTypeDef",
+    },
+    total=False,
+)
+
+class AwsLambdaFunctionDetailsTypeDef(
+    _RequiredAwsLambdaFunctionDetailsTypeDef, _OptionalAwsLambdaFunctionDetailsTypeDef
+):
+    pass
+
 BatchGetAccountStatusRequestRequestTypeDef = TypedDict(
     "BatchGetAccountStatusRequestRequestTypeDef",
     {
@@ -483,6 +538,9 @@ CoverageFilterCriteriaTypeDef = TypedDict(
         "ec2InstanceTags": List["CoverageMapFilterTypeDef"],
         "ecrImageTags": List["CoverageStringFilterTypeDef"],
         "ecrRepositoryName": List["CoverageStringFilterTypeDef"],
+        "lambdaFunctionName": List["CoverageStringFilterTypeDef"],
+        "lambdaFunctionRuntime": List["CoverageStringFilterTypeDef"],
+        "lambdaFunctionTags": List["CoverageMapFilterTypeDef"],
         "resourceId": List["CoverageStringFilterTypeDef"],
         "resourceType": List["CoverageStringFilterTypeDef"],
         "scanStatusCode": List["CoverageStringFilterTypeDef"],
@@ -903,6 +961,14 @@ EnableResponseTypeDef = TypedDict(
     },
 )
 
+ExploitabilityDetailsTypeDef = TypedDict(
+    "ExploitabilityDetailsTypeDef",
+    {
+        "lastKnownExploitAt": datetime,
+    },
+    total=False,
+)
+
 _RequiredFailedAccountTypeDef = TypedDict(
     "_RequiredFailedAccountTypeDef",
     {
@@ -938,12 +1004,18 @@ FilterCriteriaTypeDef = TypedDict(
         "ecrImageRegistry": List["StringFilterTypeDef"],
         "ecrImageRepositoryName": List["StringFilterTypeDef"],
         "ecrImageTags": List["StringFilterTypeDef"],
+        "exploitAvailable": List["StringFilterTypeDef"],
         "findingArn": List["StringFilterTypeDef"],
         "findingStatus": List["StringFilterTypeDef"],
         "findingType": List["StringFilterTypeDef"],
         "firstObservedAt": List["DateFilterTypeDef"],
         "fixAvailable": List["StringFilterTypeDef"],
         "inspectorScore": List["NumberFilterTypeDef"],
+        "lambdaFunctionExecutionRoleArn": List["StringFilterTypeDef"],
+        "lambdaFunctionLastModifiedAt": List["DateFilterTypeDef"],
+        "lambdaFunctionLayers": List["StringFilterTypeDef"],
+        "lambdaFunctionName": List["StringFilterTypeDef"],
+        "lambdaFunctionRuntime": List["StringFilterTypeDef"],
         "lastObservedAt": List["DateFilterTypeDef"],
         "networkProtocol": List["StringFilterTypeDef"],
         "portRange": List["PortRangeFilterTypeDef"],
@@ -1025,6 +1097,8 @@ _RequiredFindingTypeDef = TypedDict(
 _OptionalFindingTypeDef = TypedDict(
     "_OptionalFindingTypeDef",
     {
+        "exploitAvailable": ExploitAvailableType,
+        "exploitabilityDetails": "ExploitabilityDetailsTypeDef",
         "fixAvailable": FixAvailableType,
         "inspectorScore": float,
         "inspectorScoreDetails": "InspectorScoreDetailsTypeDef",
@@ -1156,6 +1230,99 @@ InspectorScoreDetailsTypeDef = TypedDict(
     "InspectorScoreDetailsTypeDef",
     {
         "adjustedCvss": "CvssScoreDetailsTypeDef",
+    },
+    total=False,
+)
+
+_RequiredLambdaFunctionAggregationResponseTypeDef = TypedDict(
+    "_RequiredLambdaFunctionAggregationResponseTypeDef",
+    {
+        "resourceId": str,
+    },
+)
+_OptionalLambdaFunctionAggregationResponseTypeDef = TypedDict(
+    "_OptionalLambdaFunctionAggregationResponseTypeDef",
+    {
+        "accountId": str,
+        "functionName": str,
+        "lambdaTags": Dict[str, str],
+        "lastModifiedAt": datetime,
+        "runtime": str,
+        "severityCounts": "SeverityCountsTypeDef",
+    },
+    total=False,
+)
+
+class LambdaFunctionAggregationResponseTypeDef(
+    _RequiredLambdaFunctionAggregationResponseTypeDef,
+    _OptionalLambdaFunctionAggregationResponseTypeDef,
+):
+    pass
+
+LambdaFunctionAggregationTypeDef = TypedDict(
+    "LambdaFunctionAggregationTypeDef",
+    {
+        "functionNames": List["StringFilterTypeDef"],
+        "functionTags": List["MapFilterTypeDef"],
+        "resourceIds": List["StringFilterTypeDef"],
+        "runtimes": List["StringFilterTypeDef"],
+        "sortBy": LambdaFunctionSortByType,
+        "sortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+LambdaFunctionMetadataTypeDef = TypedDict(
+    "LambdaFunctionMetadataTypeDef",
+    {
+        "functionName": str,
+        "functionTags": Dict[str, str],
+        "layers": List[str],
+        "runtime": RuntimeType,
+    },
+    total=False,
+)
+
+_RequiredLambdaLayerAggregationResponseTypeDef = TypedDict(
+    "_RequiredLambdaLayerAggregationResponseTypeDef",
+    {
+        "accountId": str,
+        "functionName": str,
+        "layerArn": str,
+        "resourceId": str,
+    },
+)
+_OptionalLambdaLayerAggregationResponseTypeDef = TypedDict(
+    "_OptionalLambdaLayerAggregationResponseTypeDef",
+    {
+        "severityCounts": "SeverityCountsTypeDef",
+    },
+    total=False,
+)
+
+class LambdaLayerAggregationResponseTypeDef(
+    _RequiredLambdaLayerAggregationResponseTypeDef, _OptionalLambdaLayerAggregationResponseTypeDef
+):
+    pass
+
+LambdaLayerAggregationTypeDef = TypedDict(
+    "LambdaLayerAggregationTypeDef",
+    {
+        "functionNames": List["StringFilterTypeDef"],
+        "layerArns": List["StringFilterTypeDef"],
+        "resourceIds": List["StringFilterTypeDef"],
+        "sortBy": LambdaLayerSortByType,
+        "sortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+LambdaVpcConfigTypeDef = TypedDict(
+    "LambdaVpcConfigTypeDef",
+    {
+        "securityGroupIds": List[str],
+        "subnetIds": List[str],
+        "vpcId": str,
     },
     total=False,
 )
@@ -1454,6 +1621,7 @@ PackageFilterTypeDef = TypedDict(
         "epoch": "NumberFilterTypeDef",
         "name": "StringFilterTypeDef",
         "release": "StringFilterTypeDef",
+        "sourceLambdaLayerArn": "StringFilterTypeDef",
         "sourceLayerHash": "StringFilterTypeDef",
         "version": "StringFilterTypeDef",
     },
@@ -1575,6 +1743,7 @@ ResourceDetailsTypeDef = TypedDict(
     {
         "awsEc2Instance": "AwsEc2InstanceDetailsTypeDef",
         "awsEcrContainerImage": "AwsEcrContainerImageDetailsTypeDef",
+        "awsLambdaFunction": "AwsLambdaFunctionDetailsTypeDef",
     },
     total=False,
 )
@@ -1585,25 +1754,46 @@ ResourceScanMetadataTypeDef = TypedDict(
         "ec2": "Ec2MetadataTypeDef",
         "ecrImage": "EcrContainerImageMetadataTypeDef",
         "ecrRepository": "EcrRepositoryMetadataTypeDef",
+        "lambdaFunction": "LambdaFunctionMetadataTypeDef",
     },
     total=False,
 )
 
-ResourceStateTypeDef = TypedDict(
-    "ResourceStateTypeDef",
+_RequiredResourceStateTypeDef = TypedDict(
+    "_RequiredResourceStateTypeDef",
     {
         "ec2": "StateTypeDef",
         "ecr": "StateTypeDef",
     },
 )
+_OptionalResourceStateTypeDef = TypedDict(
+    "_OptionalResourceStateTypeDef",
+    {
+        "lambda": "StateTypeDef",
+    },
+    total=False,
+)
 
-ResourceStatusTypeDef = TypedDict(
-    "ResourceStatusTypeDef",
+class ResourceStateTypeDef(_RequiredResourceStateTypeDef, _OptionalResourceStateTypeDef):
+    pass
+
+_RequiredResourceStatusTypeDef = TypedDict(
+    "_RequiredResourceStatusTypeDef",
     {
         "ec2": StatusType,
         "ecr": StatusType,
     },
 )
+_OptionalResourceStatusTypeDef = TypedDict(
+    "_OptionalResourceStatusTypeDef",
+    {
+        "lambda": StatusType,
+    },
+    total=False,
+)
+
+class ResourceStatusTypeDef(_RequiredResourceStatusTypeDef, _OptionalResourceStatusTypeDef):
+    pass
 
 _RequiredResourceTypeDef = TypedDict(
     "_RequiredResourceTypeDef",
@@ -1828,6 +2018,7 @@ _OptionalVulnerablePackageTypeDef = TypedDict(
         "packageManager": PackageManagerType,
         "release": str,
         "remediation": str,
+        "sourceLambdaLayerArn": str,
         "sourceLayerHash": str,
     },
     total=False,

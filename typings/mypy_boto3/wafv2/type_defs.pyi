@@ -1624,14 +1624,14 @@ MobileSdkReleaseTypeDef = TypedDict(
 NotStatementTypeDef = TypedDict(
     "NotStatementTypeDef",
     {
-        "Statement": Dict[str, Any],
+        "Statement": "StatementTypeDef",
     },
 )
 
 OrStatementTypeDef = TypedDict(
     "OrStatementTypeDef",
     {
-        "Statements": List["StatementTypeDef"],
+        "Statements": List[Dict[str, Any]],
     },
 )
 

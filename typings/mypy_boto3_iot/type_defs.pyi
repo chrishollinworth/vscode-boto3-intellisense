@@ -52,6 +52,7 @@ from .literals import (
     FieldTypeType,
     FleetMetricUnitType,
     IndexStatusType,
+    JobEndBehaviorType,
     JobExecutionFailureTypeType,
     JobExecutionStatusType,
     JobStatusType,
@@ -519,6 +520,7 @@ __all__ = (
     "MitigationActionParamsTypeDef",
     "MitigationActionTypeDef",
     "MqttContextTypeDef",
+    "MqttHeadersTypeDef",
     "NonCompliantResourceTypeDef",
     "OTAUpdateFileTypeDef",
     "OTAUpdateInfoTypeDef",
@@ -564,6 +566,7 @@ __all__ = (
     "S3LocationTypeDef",
     "SalesforceActionTypeDef",
     "ScheduledAuditMetadataTypeDef",
+    "SchedulingConfigTypeDef",
     "SearchIndexRequestRequestTypeDef",
     "SearchIndexResponseTypeDef",
     "SecurityProfileIdentifierTypeDef",
@@ -670,6 +673,7 @@ __all__ = (
     "UpdateThingGroupsForThingRequestRequestTypeDef",
     "UpdateThingRequestRequestTypeDef",
     "UpdateTopicRuleDestinationRequestRequestTypeDef",
+    "UserPropertyTypeDef",
     "ValidateSecurityProfileBehaviorsRequestRequestTypeDef",
     "ValidateSecurityProfileBehaviorsResponseTypeDef",
     "ValidationErrorTypeDef",
@@ -1832,6 +1836,7 @@ _OptionalCreateJobRequestRequestTypeDef = TypedDict(
         "jobTemplateArn": str,
         "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
         "documentParameters": Dict[str, str],
+        "schedulingConfig": "SchedulingConfigTypeDef",
     },
     total=False,
 )
@@ -4256,6 +4261,7 @@ JobTypeDef = TypedDict(
         "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
         "documentParameters": Dict[str, str],
         "isConcurrent": bool,
+        "schedulingConfig": "SchedulingConfigTypeDef",
     },
     total=False,
 )
@@ -5911,6 +5917,19 @@ MqttContextTypeDef = TypedDict(
     total=False,
 )
 
+MqttHeadersTypeDef = TypedDict(
+    "MqttHeadersTypeDef",
+    {
+        "payloadFormatIndicator": str,
+        "contentType": str,
+        "responseTopic": str,
+        "correlationData": str,
+        "messageExpiry": str,
+        "userProperties": List["UserPropertyTypeDef"],
+    },
+    total=False,
+)
+
 NonCompliantResourceTypeDef = TypedDict(
     "NonCompliantResourceTypeDef",
     {
@@ -6364,6 +6383,7 @@ _OptionalRepublishActionTypeDef = TypedDict(
     "_OptionalRepublishActionTypeDef",
     {
         "qos": int,
+        "headers": "MqttHeadersTypeDef",
     },
     total=False,
 )
@@ -6475,6 +6495,16 @@ ScheduledAuditMetadataTypeDef = TypedDict(
         "frequency": AuditFrequencyType,
         "dayOfMonth": str,
         "dayOfWeek": DayOfWeekType,
+    },
+    total=False,
+)
+
+SchedulingConfigTypeDef = TypedDict(
+    "SchedulingConfigTypeDef",
+    {
+        "startTime": str,
+        "endTime": str,
+        "endBehavior": JobEndBehaviorType,
     },
     total=False,
 )
@@ -7864,6 +7894,14 @@ UpdateTopicRuleDestinationRequestRequestTypeDef = TypedDict(
     {
         "arn": str,
         "status": TopicRuleDestinationStatusType,
+    },
+)
+
+UserPropertyTypeDef = TypedDict(
+    "UserPropertyTypeDef",
+    {
+        "key": str,
+        "value": str,
     },
 )
 

@@ -139,6 +139,8 @@ __all__ = (
     "GetMultiRegionAccessPointPolicyStatusResultTypeDef",
     "GetMultiRegionAccessPointRequestRequestTypeDef",
     "GetMultiRegionAccessPointResultTypeDef",
+    "GetMultiRegionAccessPointRoutesRequestRequestTypeDef",
+    "GetMultiRegionAccessPointRoutesResultTypeDef",
     "GetPublicAccessBlockOutputTypeDef",
     "GetPublicAccessBlockRequestRequestTypeDef",
     "GetStorageLensConfigurationRequestRequestTypeDef",
@@ -180,6 +182,7 @@ __all__ = (
     "MultiRegionAccessPointPolicyDocumentTypeDef",
     "MultiRegionAccessPointRegionalResponseTypeDef",
     "MultiRegionAccessPointReportTypeDef",
+    "MultiRegionAccessPointRouteTypeDef",
     "MultiRegionAccessPointsAsyncResponseTypeDef",
     "NoncurrentVersionExpirationTypeDef",
     "NoncurrentVersionTransitionTypeDef",
@@ -238,6 +241,7 @@ __all__ = (
     "StorageLensDataExportEncryptionTypeDef",
     "StorageLensDataExportTypeDef",
     "StorageLensTagTypeDef",
+    "SubmitMultiRegionAccessPointRoutesRequestRequestTypeDef",
     "TaggingTypeDef",
     "TransitionTypeDef",
     "UpdateJobPriorityRequestRequestTypeDef",
@@ -1022,6 +1026,23 @@ GetMultiRegionAccessPointResultTypeDef = TypedDict(
     },
 )
 
+GetMultiRegionAccessPointRoutesRequestRequestTypeDef = TypedDict(
+    "GetMultiRegionAccessPointRoutesRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Mrap": str,
+    },
+)
+
+GetMultiRegionAccessPointRoutesResultTypeDef = TypedDict(
+    "GetMultiRegionAccessPointRoutesResultTypeDef",
+    {
+        "Mrap": str,
+        "Routes": List["MultiRegionAccessPointRouteTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetPublicAccessBlockOutputTypeDef = TypedDict(
     "GetPublicAccessBlockOutputTypeDef",
     {
@@ -1551,6 +1572,26 @@ MultiRegionAccessPointReportTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredMultiRegionAccessPointRouteTypeDef = TypedDict(
+    "_RequiredMultiRegionAccessPointRouteTypeDef",
+    {
+        "TrafficDialPercentage": int,
+    },
+)
+_OptionalMultiRegionAccessPointRouteTypeDef = TypedDict(
+    "_OptionalMultiRegionAccessPointRouteTypeDef",
+    {
+        "Bucket": str,
+        "Region": str,
+    },
+    total=False,
+)
+
+class MultiRegionAccessPointRouteTypeDef(
+    _RequiredMultiRegionAccessPointRouteTypeDef, _OptionalMultiRegionAccessPointRouteTypeDef
+):
+    pass
 
 MultiRegionAccessPointsAsyncResponseTypeDef = TypedDict(
     "MultiRegionAccessPointsAsyncResponseTypeDef",
@@ -2236,6 +2277,15 @@ StorageLensTagTypeDef = TypedDict(
     {
         "Key": str,
         "Value": str,
+    },
+)
+
+SubmitMultiRegionAccessPointRoutesRequestRequestTypeDef = TypedDict(
+    "SubmitMultiRegionAccessPointRoutesRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Mrap": str,
+        "RouteUpdates": List["MultiRegionAccessPointRouteTypeDef"],
     },
 )
 

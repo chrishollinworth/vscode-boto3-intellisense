@@ -23,6 +23,7 @@ __all__ = (
     "BackupVaultEventType",
     "ConditionTypeType",
     "CopyJobStateType",
+    "LegalHoldStatusType",
     "ListBackupJobsPaginatorName",
     "ListBackupPlanTemplatesPaginatorName",
     "ListBackupPlanVersionsPaginatorName",
@@ -30,8 +31,10 @@ __all__ = (
     "ListBackupSelectionsPaginatorName",
     "ListBackupVaultsPaginatorName",
     "ListCopyJobsPaginatorName",
+    "ListLegalHoldsPaginatorName",
     "ListProtectedResourcesPaginatorName",
     "ListRecoveryPointsByBackupVaultPaginatorName",
+    "ListRecoveryPointsByLegalHoldPaginatorName",
     "ListRecoveryPointsByResourcePaginatorName",
     "ListRestoreJobsPaginatorName",
     "RecoveryPointStatusType",
@@ -40,7 +43,15 @@ __all__ = (
 )
 
 BackupJobStateType = Literal[
-    "ABORTED", "ABORTING", "COMPLETED", "CREATED", "EXPIRED", "FAILED", "PENDING", "RUNNING"
+    "ABORTED",
+    "ABORTING",
+    "COMPLETED",
+    "CREATED",
+    "EXPIRED",
+    "FAILED",
+    "PARTIAL",
+    "PENDING",
+    "RUNNING",
 ]
 BackupVaultEventType = Literal[
     "BACKUP_JOB_COMPLETED",
@@ -62,7 +73,8 @@ BackupVaultEventType = Literal[
     "S3_RESTORE_OBJECT_FAILED",
 ]
 ConditionTypeType = Literal["STRINGEQUALS"]
-CopyJobStateType = Literal["COMPLETED", "CREATED", "FAILED", "RUNNING"]
+CopyJobStateType = Literal["COMPLETED", "CREATED", "FAILED", "PARTIAL", "RUNNING"]
+LegalHoldStatusType = Literal["ACTIVE", "CANCELED", "CANCELING", "CREATING"]
 ListBackupJobsPaginatorName = Literal["list_backup_jobs"]
 ListBackupPlanTemplatesPaginatorName = Literal["list_backup_plan_templates"]
 ListBackupPlanVersionsPaginatorName = Literal["list_backup_plan_versions"]
@@ -70,8 +82,10 @@ ListBackupPlansPaginatorName = Literal["list_backup_plans"]
 ListBackupSelectionsPaginatorName = Literal["list_backup_selections"]
 ListBackupVaultsPaginatorName = Literal["list_backup_vaults"]
 ListCopyJobsPaginatorName = Literal["list_copy_jobs"]
+ListLegalHoldsPaginatorName = Literal["list_legal_holds"]
 ListProtectedResourcesPaginatorName = Literal["list_protected_resources"]
 ListRecoveryPointsByBackupVaultPaginatorName = Literal["list_recovery_points_by_backup_vault"]
+ListRecoveryPointsByLegalHoldPaginatorName = Literal["list_recovery_points_by_legal_hold"]
 ListRecoveryPointsByResourcePaginatorName = Literal["list_recovery_points_by_resource"]
 ListRestoreJobsPaginatorName = Literal["list_restore_jobs"]
 RecoveryPointStatusType = Literal["COMPLETED", "DELETING", "EXPIRED", "PARTIAL"]

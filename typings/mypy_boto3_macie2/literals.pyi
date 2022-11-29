@@ -22,10 +22,13 @@ __all__ = (
     "AdminStatusType",
     "AllowListStatusCodeType",
     "AllowsUnencryptedObjectUploadsType",
+    "AutomatedDiscoveryStatusType",
     "AvailabilityCodeType",
     "BucketMetadataErrorCodeType",
+    "ClassificationScopeUpdateOperationType",
     "CurrencyType",
     "DataIdentifierSeverityType",
+    "DataIdentifierTypeType",
     "DayOfWeekType",
     "DescribeBucketsPaginatorName",
     "EffectivePermissionType",
@@ -46,15 +49,21 @@ __all__ = (
     "JobStatusType",
     "JobTypeType",
     "LastRunErrorStatusCodeType",
+    "ListAllowListsPaginatorName",
     "ListClassificationJobsPaginatorName",
+    "ListClassificationScopesPaginatorName",
     "ListCustomDataIdentifiersPaginatorName",
     "ListFindingsFiltersPaginatorName",
     "ListFindingsPaginatorName",
     "ListInvitationsPaginatorName",
     "ListJobsFilterKeyType",
     "ListJobsSortAttributeNameType",
+    "ListManagedDataIdentifiersPaginatorName",
     "ListMembersPaginatorName",
     "ListOrganizationAdminAccountsPaginatorName",
+    "ListResourceProfileArtifactsPaginatorName",
+    "ListResourceProfileDetectionsPaginatorName",
+    "ListSensitivityInspectionTemplatesPaginatorName",
     "MacieStatusType",
     "ManagedDataIdentifierSelectorType",
     "OrderByType",
@@ -96,10 +105,13 @@ AllowListStatusCodeType = Literal[
     "UNKNOWN_ERROR",
 ]
 AllowsUnencryptedObjectUploadsType = Literal["FALSE", "TRUE", "UNKNOWN"]
+AutomatedDiscoveryStatusType = Literal["DISABLED", "ENABLED"]
 AvailabilityCodeType = Literal["AVAILABLE", "UNAVAILABLE"]
 BucketMetadataErrorCodeType = Literal["ACCESS_DENIED"]
+ClassificationScopeUpdateOperationType = Literal["ADD", "REMOVE", "REPLACE"]
 CurrencyType = Literal["USD"]
 DataIdentifierSeverityType = Literal["HIGH", "LOW", "MEDIUM"]
+DataIdentifierTypeType = Literal["CUSTOM", "MANAGED"]
 DayOfWeekType = Literal[
     "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
 ]
@@ -135,19 +147,25 @@ JobComparatorType = Literal["CONTAINS", "EQ", "GT", "GTE", "LT", "LTE", "NE", "S
 JobStatusType = Literal["CANCELLED", "COMPLETE", "IDLE", "PAUSED", "RUNNING", "USER_PAUSED"]
 JobTypeType = Literal["ONE_TIME", "SCHEDULED"]
 LastRunErrorStatusCodeType = Literal["ERROR", "NONE"]
+ListAllowListsPaginatorName = Literal["list_allow_lists"]
 ListClassificationJobsPaginatorName = Literal["list_classification_jobs"]
+ListClassificationScopesPaginatorName = Literal["list_classification_scopes"]
 ListCustomDataIdentifiersPaginatorName = Literal["list_custom_data_identifiers"]
 ListFindingsFiltersPaginatorName = Literal["list_findings_filters"]
 ListFindingsPaginatorName = Literal["list_findings"]
 ListInvitationsPaginatorName = Literal["list_invitations"]
 ListJobsFilterKeyType = Literal["createdAt", "jobStatus", "jobType", "name"]
 ListJobsSortAttributeNameType = Literal["createdAt", "jobStatus", "jobType", "name"]
+ListManagedDataIdentifiersPaginatorName = Literal["list_managed_data_identifiers"]
 ListMembersPaginatorName = Literal["list_members"]
 ListOrganizationAdminAccountsPaginatorName = Literal["list_organization_admin_accounts"]
+ListResourceProfileArtifactsPaginatorName = Literal["list_resource_profile_artifacts"]
+ListResourceProfileDetectionsPaginatorName = Literal["list_resource_profile_detections"]
+ListSensitivityInspectionTemplatesPaginatorName = Literal["list_sensitivity_inspection_templates"]
 MacieStatusType = Literal["ENABLED", "PAUSED"]
 ManagedDataIdentifierSelectorType = Literal["ALL", "EXCLUDE", "INCLUDE", "NONE"]
 OrderByType = Literal["ASC", "DESC"]
-OriginTypeType = Literal["SENSITIVE_DATA_DISCOVERY_JOB"]
+OriginTypeType = Literal["AUTOMATED_SENSITIVE_DATA_DISCOVERY", "SENSITIVE_DATA_DISCOVERY_JOB"]
 RelationshipStatusType = Literal[
     "AccountSuspended",
     "Created",
@@ -206,7 +224,12 @@ UsageStatisticsFilterKeyType = Literal["accountId", "freeTrialStartDate", "servi
 UsageStatisticsSortKeyType = Literal[
     "accountId", "freeTrialStartDate", "serviceLimitValue", "total"
 ]
-UsageTypeType = Literal["DATA_INVENTORY_EVALUATION", "SENSITIVE_DATA_DISCOVERY"]
+UsageTypeType = Literal[
+    "AUTOMATED_OBJECT_MONITORING",
+    "AUTOMATED_SENSITIVE_DATA_DISCOVERY",
+    "DATA_INVENTORY_EVALUATION",
+    "SENSITIVE_DATA_DISCOVERY",
+]
 UserIdentityTypeType = Literal[
     "AWSAccount", "AWSService", "AssumedRole", "FederatedUser", "IAMUser", "Root"
 ]

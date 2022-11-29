@@ -466,13 +466,24 @@ ConnectorOperatorTypeDef = TypedDict(
     total=False,
 )
 
-ConnectorProfileConfigTypeDef = TypedDict(
-    "ConnectorProfileConfigTypeDef",
+_RequiredConnectorProfileConfigTypeDef = TypedDict(
+    "_RequiredConnectorProfileConfigTypeDef",
     {
         "connectorProfileProperties": "ConnectorProfilePropertiesTypeDef",
-        "connectorProfileCredentials": "ConnectorProfileCredentialsTypeDef",
     },
 )
+_OptionalConnectorProfileConfigTypeDef = TypedDict(
+    "_OptionalConnectorProfileConfigTypeDef",
+    {
+        "connectorProfileCredentials": "ConnectorProfileCredentialsTypeDef",
+    },
+    total=False,
+)
+
+class ConnectorProfileConfigTypeDef(
+    _RequiredConnectorProfileConfigTypeDef, _OptionalConnectorProfileConfigTypeDef
+):
+    pass
 
 ConnectorProfileCredentialsTypeDef = TypedDict(
     "ConnectorProfileCredentialsTypeDef",
@@ -1555,12 +1566,12 @@ RedshiftConnectorProfileCredentialsTypeDef = TypedDict(
         "username": str,
         "password": str,
     },
+    total=False,
 )
 
 _RequiredRedshiftConnectorProfilePropertiesTypeDef = TypedDict(
     "_RequiredRedshiftConnectorProfilePropertiesTypeDef",
     {
-        "databaseUrl": str,
         "bucketName": str,
         "roleArn": str,
     },
@@ -1568,7 +1579,13 @@ _RequiredRedshiftConnectorProfilePropertiesTypeDef = TypedDict(
 _OptionalRedshiftConnectorProfilePropertiesTypeDef = TypedDict(
     "_OptionalRedshiftConnectorProfilePropertiesTypeDef",
     {
+        "databaseUrl": str,
         "bucketPrefix": str,
+        "dataApiRoleArn": str,
+        "isRedshiftServerless": bool,
+        "clusterIdentifier": str,
+        "workgroupName": str,
+        "databaseName": str,
     },
     total=False,
 )

@@ -14,6 +14,7 @@ Usage::
         CustomerGatewayAvailableWaiter,
         DescribeAddressTransfersPaginator,
         DescribeAddressesAttributePaginator,
+        DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator,
         DescribeByoipCidrsPaginator,
         DescribeCapacityReservationFleetsPaginator,
         DescribeCapacityReservationsPaginator,
@@ -120,6 +121,7 @@ Usage::
         ExportTaskCancelledWaiter,
         ExportTaskCompletedWaiter,
         GetAssociatedIpv6PoolCidrsPaginator,
+        GetAwsNetworkPerformanceDataPaginator,
         GetGroupsForCapacityReservationPaginator,
         GetInstanceTypesFromInstanceRequirementsPaginator,
         GetIpamAddressHistoryPaginator,
@@ -215,6 +217,7 @@ Usage::
 
     describe_address_transfers_paginator: DescribeAddressTransfersPaginator = client.get_paginator("describe_address_transfers")
     describe_addresses_attribute_paginator: DescribeAddressesAttributePaginator = client.get_paginator("describe_addresses_attribute")
+    describe_aws_network_performance_metric_subscriptions_paginator: DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator = client.get_paginator("describe_aws_network_performance_metric_subscriptions")
     describe_byoip_cidrs_paginator: DescribeByoipCidrsPaginator = client.get_paginator("describe_byoip_cidrs")
     describe_capacity_reservation_fleets_paginator: DescribeCapacityReservationFleetsPaginator = client.get_paginator("describe_capacity_reservation_fleets")
     describe_capacity_reservations_paginator: DescribeCapacityReservationsPaginator = client.get_paginator("describe_capacity_reservations")
@@ -317,6 +320,7 @@ Usage::
     describe_vpc_peering_connections_paginator: DescribeVpcPeeringConnectionsPaginator = client.get_paginator("describe_vpc_peering_connections")
     describe_vpcs_paginator: DescribeVpcsPaginator = client.get_paginator("describe_vpcs")
     get_associated_ipv6_pool_cidrs_paginator: GetAssociatedIpv6PoolCidrsPaginator = client.get_paginator("get_associated_ipv6_pool_cidrs")
+    get_aws_network_performance_data_paginator: GetAwsNetworkPerformanceDataPaginator = client.get_paginator("get_aws_network_performance_data")
     get_groups_for_capacity_reservation_paginator: GetGroupsForCapacityReservationPaginator = client.get_paginator("get_groups_for_capacity_reservation")
     get_instance_types_from_instance_requirements_paginator: GetInstanceTypesFromInstanceRequirementsPaginator = client.get_paginator("get_instance_types_from_instance_requirements")
     get_ipam_address_history_paginator: GetIpamAddressHistoryPaginator = client.get_paginator("get_ipam_address_history")
@@ -343,6 +347,7 @@ from .client import EC2Client
 from .paginator import (
     DescribeAddressesAttributePaginator,
     DescribeAddressTransfersPaginator,
+    DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator,
     DescribeByoipCidrsPaginator,
     DescribeCapacityReservationFleetsPaginator,
     DescribeCapacityReservationsPaginator,
@@ -445,6 +450,7 @@ from .paginator import (
     DescribeVpcPeeringConnectionsPaginator,
     DescribeVpcsPaginator,
     GetAssociatedIpv6PoolCidrsPaginator,
+    GetAwsNetworkPerformanceDataPaginator,
     GetGroupsForCapacityReservationPaginator,
     GetInstanceTypesFromInstanceRequirementsPaginator,
     GetIpamAddressHistoryPaginator,
@@ -517,6 +523,7 @@ __all__ = (
     "CustomerGatewayAvailableWaiter",
     "DescribeAddressTransfersPaginator",
     "DescribeAddressesAttributePaginator",
+    "DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator",
     "DescribeByoipCidrsPaginator",
     "DescribeCapacityReservationFleetsPaginator",
     "DescribeCapacityReservationsPaginator",
@@ -623,6 +630,7 @@ __all__ = (
     "ExportTaskCancelledWaiter",
     "ExportTaskCompletedWaiter",
     "GetAssociatedIpv6PoolCidrsPaginator",
+    "GetAwsNetworkPerformanceDataPaginator",
     "GetGroupsForCapacityReservationPaginator",
     "GetInstanceTypesFromInstanceRequirementsPaginator",
     "GetIpamAddressHistoryPaginator",

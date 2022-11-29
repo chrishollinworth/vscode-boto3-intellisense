@@ -52,7 +52,7 @@ __all__ = (
 
 class GetWorkUnitsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.GetWorkUnits)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.GetWorkUnits)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#getworkunitspaginator)
     """
 
@@ -60,13 +60,13 @@ class GetWorkUnitsPaginator(Boto3Paginator):
         self, *, QueryId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetWorkUnitsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.GetWorkUnits.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.GetWorkUnits.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#getworkunitspaginator)
         """
 
 class ListDataCellsFilterPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.ListDataCellsFilter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.ListDataCellsFilter)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#listdatacellsfilterpaginator)
     """
 
@@ -77,13 +77,13 @@ class ListDataCellsFilterPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataCellsFilterResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.ListDataCellsFilter.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.ListDataCellsFilter.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#listdatacellsfilterpaginator)
         """
 
 class ListLFTagsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.ListLFTags)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.ListLFTags)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#listlftagspaginator)
     """
 
@@ -95,13 +95,13 @@ class ListLFTagsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLFTagsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.ListLFTags.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.ListLFTags.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#listlftagspaginator)
         """
 
 class SearchDatabasesByLFTagsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.SearchDatabasesByLFTags)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.SearchDatabasesByLFTags)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#searchdatabasesbylftagspaginator)
     """
 
@@ -113,13 +113,13 @@ class SearchDatabasesByLFTagsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchDatabasesByLFTagsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.SearchDatabasesByLFTags.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.SearchDatabasesByLFTags.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#searchdatabasesbylftagspaginator)
         """
 
 class SearchTablesByLFTagsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.SearchTablesByLFTags)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.SearchTablesByLFTags)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#searchtablesbylftagspaginator)
     """
 
@@ -131,6 +131,6 @@ class SearchTablesByLFTagsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchTablesByLFTagsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/lakeformation.html#LakeFormation.Paginator.SearchTablesByLFTags.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lakeformation.html#LakeFormation.Paginator.SearchTablesByLFTags.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/paginators.html#searchtablesbylftagspaginator)
         """

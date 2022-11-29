@@ -16,6 +16,8 @@ from typing import IO, Any, Dict, List, Union
 
 from botocore.response import StreamingBody
 
+from .literals import PayloadFormatIndicatorType
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -183,6 +185,12 @@ _OptionalPublishRequestRequestTypeDef = TypedDict(
         "qos": int,
         "retain": bool,
         "payload": Union[bytes, IO[bytes], StreamingBody],
+        "userProperties": str,
+        "payloadFormatIndicator": PayloadFormatIndicatorType,
+        "contentType": str,
+        "responseTopic": str,
+        "correlationData": str,
+        "messageExpiry": int,
     },
     total=False,
 )

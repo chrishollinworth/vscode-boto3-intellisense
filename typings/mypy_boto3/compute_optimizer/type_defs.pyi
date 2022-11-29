@@ -26,6 +26,7 @@ from .literals import (
     ExportableInstanceFieldType,
     ExportableLambdaFunctionFieldType,
     ExportableVolumeFieldType,
+    ExternalMetricsSourceType,
     FilterNameType,
     FindingReasonCodeType,
     FindingType,
@@ -83,6 +84,7 @@ __all__ = (
     "ExportEC2InstanceRecommendationsResponseTypeDef",
     "ExportLambdaFunctionRecommendationsRequestRequestTypeDef",
     "ExportLambdaFunctionRecommendationsResponseTypeDef",
+    "ExternalMetricsPreferenceTypeDef",
     "FilterTypeDef",
     "GetAutoScalingGroupRecommendationsRequestRequestTypeDef",
     "GetAutoScalingGroupRecommendationsResponseTypeDef",
@@ -266,6 +268,7 @@ EffectiveRecommendationPreferencesTypeDef = TypedDict(
         "cpuVendorArchitectures": List[CpuVendorArchitectureType],
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
         "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
+        "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
     },
     total=False,
 )
@@ -430,6 +433,14 @@ ExportLambdaFunctionRecommendationsResponseTypeDef = TypedDict(
     },
 )
 
+ExternalMetricsPreferenceTypeDef = TypedDict(
+    "ExternalMetricsPreferenceTypeDef",
+    {
+        "source": ExternalMetricsSourceType,
+    },
+    total=False,
+)
+
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
     {
@@ -550,6 +561,7 @@ GetEffectiveRecommendationPreferencesResponseTypeDef = TypedDict(
     "GetEffectiveRecommendationPreferencesResponseTypeDef",
     {
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
+        "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -791,6 +803,7 @@ _OptionalPutRecommendationPreferencesRequestRequestTypeDef = TypedDict(
         "scope": "ScopeTypeDef",
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
         "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
+        "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
     },
     total=False,
 )
@@ -831,6 +844,7 @@ RecommendationPreferencesDetailTypeDef = TypedDict(
         "resourceType": ResourceTypeType,
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
         "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
+        "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
     },
     total=False,
 )

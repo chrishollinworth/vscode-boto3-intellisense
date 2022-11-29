@@ -12,6 +12,7 @@ Usage::
         ListAttributesPaginator,
         ListClustersPaginator,
         ListContainerInstancesPaginator,
+        ListServicesByNamespacePaginator,
         ListServicesPaginator,
         ListTaskDefinitionFamiliesPaginator,
         ListTaskDefinitionsPaginator,
@@ -37,6 +38,7 @@ Usage::
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     list_container_instances_paginator: ListContainerInstancesPaginator = client.get_paginator("list_container_instances")
     list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
+    list_services_by_namespace_paginator: ListServicesByNamespacePaginator = client.get_paginator("list_services_by_namespace")
     list_task_definition_families_paginator: ListTaskDefinitionFamiliesPaginator = client.get_paginator("list_task_definition_families")
     list_task_definitions_paginator: ListTaskDefinitionsPaginator = client.get_paginator("list_task_definitions")
     list_tasks_paginator: ListTasksPaginator = client.get_paginator("list_tasks")
@@ -48,6 +50,7 @@ from .paginator import (
     ListAttributesPaginator,
     ListClustersPaginator,
     ListContainerInstancesPaginator,
+    ListServicesByNamespacePaginator,
     ListServicesPaginator,
     ListTaskDefinitionFamiliesPaginator,
     ListTaskDefinitionsPaginator,
@@ -69,6 +72,7 @@ __all__ = (
     "ListAttributesPaginator",
     "ListClustersPaginator",
     "ListContainerInstancesPaginator",
+    "ListServicesByNamespacePaginator",
     "ListServicesPaginator",
     "ListTaskDefinitionFamiliesPaginator",
     "ListTaskDefinitionsPaginator",

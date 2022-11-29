@@ -29,6 +29,8 @@ from .literals import (
     PackageTypeType,
     ProvisionedConcurrencyStatusEnumType,
     RuntimeType,
+    SnapStartApplyOnType,
+    SnapStartOptimizationStatusType,
     SourceAccessTypeType,
     StateReasonCodeType,
     StateType,
@@ -174,6 +176,8 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "SelfManagedEventSourceTypeDef",
     "SelfManagedKafkaEventSourceConfigTypeDef",
+    "SnapStartResponseTypeDef",
+    "SnapStartTypeDef",
     "SourceAccessConfigurationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TracingConfigResponseTypeDef",
@@ -513,6 +517,7 @@ _OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
         "CodeSigningConfigArn": str,
         "Architectures": List[ArchitectureType],
         "EphemeralStorage": "EphemeralStorageTypeDef",
+        "SnapStart": "SnapStartTypeDef",
     },
     total=False,
 )
@@ -864,6 +869,7 @@ FunctionConfigurationResponseMetadataTypeDef = TypedDict(
         "SigningJobArn": str,
         "Architectures": List[ArchitectureType],
         "EphemeralStorage": "EphemeralStorageTypeDef",
+        "SnapStart": "SnapStartResponseTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -904,6 +910,7 @@ FunctionConfigurationTypeDef = TypedDict(
         "SigningJobArn": str,
         "Architectures": List[ArchitectureType],
         "EphemeralStorage": "EphemeralStorageTypeDef",
+        "SnapStart": "SnapStartResponseTypeDef",
     },
     total=False,
 )
@@ -1907,6 +1914,23 @@ SelfManagedKafkaEventSourceConfigTypeDef = TypedDict(
     total=False,
 )
 
+SnapStartResponseTypeDef = TypedDict(
+    "SnapStartResponseTypeDef",
+    {
+        "ApplyOn": SnapStartApplyOnType,
+        "OptimizationStatus": SnapStartOptimizationStatusType,
+    },
+    total=False,
+)
+
+SnapStartTypeDef = TypedDict(
+    "SnapStartTypeDef",
+    {
+        "ApplyOn": SnapStartApplyOnType,
+    },
+    total=False,
+)
+
 SourceAccessConfigurationTypeDef = TypedDict(
     "SourceAccessConfigurationTypeDef",
     {
@@ -2086,6 +2110,7 @@ _OptionalUpdateFunctionConfigurationRequestRequestTypeDef = TypedDict(
         "FileSystemConfigs": List["FileSystemConfigTypeDef"],
         "ImageConfig": "ImageConfigTypeDef",
         "EphemeralStorage": "EphemeralStorageTypeDef",
+        "SnapStart": "SnapStartTypeDef",
     },
     total=False,
 )

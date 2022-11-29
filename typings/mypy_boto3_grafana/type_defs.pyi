@@ -54,6 +54,8 @@ __all__ = (
     "DeleteWorkspaceResponseTypeDef",
     "DescribeWorkspaceAuthenticationRequestRequestTypeDef",
     "DescribeWorkspaceAuthenticationResponseTypeDef",
+    "DescribeWorkspaceConfigurationRequestRequestTypeDef",
+    "DescribeWorkspaceConfigurationResponseTypeDef",
     "DescribeWorkspaceRequestRequestTypeDef",
     "DescribeWorkspaceResponseTypeDef",
     "DisassociateLicenseRequestRequestTypeDef",
@@ -79,9 +81,11 @@ __all__ = (
     "UpdatePermissionsResponseTypeDef",
     "UpdateWorkspaceAuthenticationRequestRequestTypeDef",
     "UpdateWorkspaceAuthenticationResponseTypeDef",
+    "UpdateWorkspaceConfigurationRequestRequestTypeDef",
     "UpdateWorkspaceRequestRequestTypeDef",
     "UpdateWorkspaceResponseTypeDef",
     "UserTypeDef",
+    "VpcConfigurationTypeDef",
     "WorkspaceDescriptionTypeDef",
     "WorkspaceSummaryTypeDef",
 )
@@ -194,9 +198,11 @@ _OptionalCreateWorkspaceRequestRequestTypeDef = TypedDict(
     "_OptionalCreateWorkspaceRequestRequestTypeDef",
     {
         "clientToken": str,
+        "configuration": str,
         "organizationRoleName": str,
         "stackSetName": str,
         "tags": Dict[str, str],
+        "vpcConfiguration": "VpcConfigurationTypeDef",
         "workspaceDataSources": List[DataSourceTypeType],
         "workspaceDescription": str,
         "workspaceName": str,
@@ -263,6 +269,21 @@ DescribeWorkspaceAuthenticationResponseTypeDef = TypedDict(
     "DescribeWorkspaceAuthenticationResponseTypeDef",
     {
         "authentication": "AuthenticationDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeWorkspaceConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeWorkspaceConfigurationRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+    },
+)
+
+DescribeWorkspaceConfigurationResponseTypeDef = TypedDict(
+    "DescribeWorkspaceConfigurationResponseTypeDef",
+    {
+        "configuration": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -530,6 +551,14 @@ UpdateWorkspaceAuthenticationResponseTypeDef = TypedDict(
     },
 )
 
+UpdateWorkspaceConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateWorkspaceConfigurationRequestRequestTypeDef",
+    {
+        "configuration": str,
+        "workspaceId": str,
+    },
+)
+
 _RequiredUpdateWorkspaceRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateWorkspaceRequestRequestTypeDef",
     {
@@ -542,7 +571,9 @@ _OptionalUpdateWorkspaceRequestRequestTypeDef = TypedDict(
         "accountAccessType": AccountAccessTypeType,
         "organizationRoleName": str,
         "permissionType": PermissionTypeType,
+        "removeVpcConfiguration": bool,
         "stackSetName": str,
+        "vpcConfiguration": "VpcConfigurationTypeDef",
         "workspaceDataSources": List[DataSourceTypeType],
         "workspaceDescription": str,
         "workspaceName": str,
@@ -571,6 +602,14 @@ UserTypeDef = TypedDict(
     {
         "id": str,
         "type": UserTypeType,
+    },
+)
+
+VpcConfigurationTypeDef = TypedDict(
+    "VpcConfigurationTypeDef",
+    {
+        "securityGroupIds": List[str],
+        "subnetIds": List[str],
     },
 )
 
@@ -603,6 +642,7 @@ _OptionalWorkspaceDescriptionTypeDef = TypedDict(
         "permissionType": PermissionTypeType,
         "stackSetName": str,
         "tags": Dict[str, str],
+        "vpcConfiguration": "VpcConfigurationTypeDef",
         "workspaceRoleArn": str,
     },
     total=False,

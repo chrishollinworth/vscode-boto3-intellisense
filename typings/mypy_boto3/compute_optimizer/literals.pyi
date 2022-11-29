@@ -31,6 +31,7 @@ __all__ = (
     "ExportableInstanceFieldType",
     "ExportableLambdaFunctionFieldType",
     "ExportableVolumeFieldType",
+    "ExternalMetricsSourceType",
     "FileFormatType",
     "FilterNameType",
     "FindingReasonCodeType",
@@ -140,6 +141,7 @@ ExportableInstanceFieldType = Literal[
     "CurrentVCpus",
     "EffectiveRecommendationPreferencesCpuVendorArchitectures",
     "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+    "EffectiveRecommendationPreferencesExternalMetricsSource",
     "EffectiveRecommendationPreferencesInferredWorkloadTypes",
     "Finding",
     "FindingReasonCodes",
@@ -239,6 +241,7 @@ ExportableVolumeFieldType = Literal[
     "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
     "VolumeArn",
 ]
+ExternalMetricsSourceType = Literal["Datadog", "Dynatrace", "Instana", "NewRelic"]
 FileFormatType = Literal["Csv"]
 FilterNameType = Literal["Finding", "FindingReasonCodes", "RecommendationSourceType"]
 FindingReasonCodeType = Literal["MemoryOverprovisioned", "MemoryUnderprovisioned"]
@@ -302,7 +305,9 @@ PlatformDifferenceType = Literal[
     "StorageInterface",
     "VirtualizationType",
 ]
-RecommendationPreferenceNameType = Literal["EnhancedInfrastructureMetrics", "InferredWorkloadTypes"]
+RecommendationPreferenceNameType = Literal[
+    "EnhancedInfrastructureMetrics", "ExternalMetricsPreference", "InferredWorkloadTypes"
+]
 RecommendationSourceTypeType = Literal[
     "AutoScalingGroup", "EbsVolume", "Ec2Instance", "LambdaFunction"
 ]

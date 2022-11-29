@@ -481,7 +481,7 @@ ResponseMetadataTypeDef = TypedDict(
 RowTypeDef = TypedDict(
     "RowTypeDef",
     {
-        "Data": List["DatumTypeDef"],
+        "Data": List[Dict[str, Any]],
     },
 )
 
@@ -642,7 +642,7 @@ TimeSeriesDataPointTypeDef = TypedDict(
     "TimeSeriesDataPointTypeDef",
     {
         "Time": str,
-        "Value": Dict[str, Any],
+        "Value": "DatumTypeDef",
     },
 )
 

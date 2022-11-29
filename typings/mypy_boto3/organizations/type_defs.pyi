@@ -79,6 +79,7 @@ __all__ = (
     "DescribeOrganizationalUnitResponseTypeDef",
     "DescribePolicyRequestRequestTypeDef",
     "DescribePolicyResponseTypeDef",
+    "DescribeResourcePolicyResponseTypeDef",
     "DetachPolicyRequestRequestTypeDef",
     "DisableAWSServiceAccessRequestRequestTypeDef",
     "DisablePolicyTypeRequestRequestTypeDef",
@@ -136,8 +137,12 @@ __all__ = (
     "PolicyTargetSummaryTypeDef",
     "PolicyTypeDef",
     "PolicyTypeSummaryTypeDef",
+    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyResponseTypeDef",
     "RegisterDelegatedAdministratorRequestRequestTypeDef",
     "RemoveAccountFromOrganizationRequestRequestTypeDef",
+    "ResourcePolicySummaryTypeDef",
+    "ResourcePolicyTypeDef",
     "ResponseMetadataTypeDef",
     "RootTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -536,6 +541,14 @@ DescribePolicyResponseTypeDef = TypedDict(
     "DescribePolicyResponseTypeDef",
     {
         "Policy": "PolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeResourcePolicyResponseTypeDef = TypedDict(
+    "DescribeResourcePolicyResponseTypeDef",
+    {
+        "ResourcePolicy": "ResourcePolicyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1185,6 +1198,33 @@ PolicyTypeSummaryTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredPutResourcePolicyRequestRequestTypeDef",
+    {
+        "Content": str,
+    },
+)
+_OptionalPutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalPutResourcePolicyRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class PutResourcePolicyRequestRequestTypeDef(
+    _RequiredPutResourcePolicyRequestRequestTypeDef, _OptionalPutResourcePolicyRequestRequestTypeDef
+):
+    pass
+
+PutResourcePolicyResponseTypeDef = TypedDict(
+    "PutResourcePolicyResponseTypeDef",
+    {
+        "ResourcePolicy": "ResourcePolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 RegisterDelegatedAdministratorRequestRequestTypeDef = TypedDict(
     "RegisterDelegatedAdministratorRequestRequestTypeDef",
     {
@@ -1198,6 +1238,24 @@ RemoveAccountFromOrganizationRequestRequestTypeDef = TypedDict(
     {
         "AccountId": str,
     },
+)
+
+ResourcePolicySummaryTypeDef = TypedDict(
+    "ResourcePolicySummaryTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+    },
+    total=False,
+)
+
+ResourcePolicyTypeDef = TypedDict(
+    "ResourcePolicyTypeDef",
+    {
+        "ResourcePolicySummary": "ResourcePolicySummaryTypeDef",
+        "Content": str,
+    },
+    total=False,
 )
 
 ResponseMetadataTypeDef = TypedDict(

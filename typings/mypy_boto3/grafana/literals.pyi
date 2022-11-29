@@ -44,6 +44,7 @@ DataSourceTypeType = Literal[
     "REDSHIFT",
     "SITEWISE",
     "TIMESTREAM",
+    "TWINMAKER",
     "XRAY",
 ]
 LicenseTypeType = Literal["ENTERPRISE", "ENTERPRISE_FREE_TRIAL"]

@@ -45,7 +45,7 @@ __all__ = (
 
 class ListAppsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/amplify.html#Amplify.Paginator.ListApps)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplify.html#Amplify.Paginator.ListApps)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listappspaginator)
     """
 
@@ -53,13 +53,13 @@ class ListAppsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/amplify.html#Amplify.Paginator.ListApps.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplify.html#Amplify.Paginator.ListApps.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listappspaginator)
         """
 
 class ListBranchesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/amplify.html#Amplify.Paginator.ListBranches)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplify.html#Amplify.Paginator.ListBranches)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listbranchespaginator)
     """
 
@@ -67,13 +67,13 @@ class ListBranchesPaginator(Boto3Paginator):
         self, *, appId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBranchesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/amplify.html#Amplify.Paginator.ListBranches.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplify.html#Amplify.Paginator.ListBranches.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listbranchespaginator)
         """
 
 class ListDomainAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listdomainassociationspaginator)
     """
 
@@ -81,13 +81,13 @@ class ListDomainAssociationsPaginator(Boto3Paginator):
         self, *, appId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainAssociationsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listdomainassociationspaginator)
         """
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/amplify.html#Amplify.Paginator.ListJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplify.html#Amplify.Paginator.ListJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listjobspaginator)
     """
 
@@ -95,6 +95,6 @@ class ListJobsPaginator(Boto3Paginator):
         self, *, appId: str, branchName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/amplify.html#Amplify.Paginator.ListJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplify.html#Amplify.Paginator.ListJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listjobspaginator)
         """

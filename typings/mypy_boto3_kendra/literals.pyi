@@ -55,6 +55,7 @@ __all__ = (
     "PrincipalMappingStatusType",
     "PrincipalTypeType",
     "QueryIdentifiersEnclosingOptionType",
+    "QueryResultFormatType",
     "QueryResultTypeType",
     "QuerySuggestionsBlockListStatusType",
     "QuerySuggestionsStatusType",
@@ -198,6 +199,7 @@ PersonaType = Literal["OWNER", "VIEWER"]
 PrincipalMappingStatusType = Literal["DELETED", "DELETING", "FAILED", "PROCESSING", "SUCCEEDED"]
 PrincipalTypeType = Literal["GROUP", "USER"]
 QueryIdentifiersEnclosingOptionType = Literal["DOUBLE_QUOTES", "NONE"]
+QueryResultFormatType = Literal["TABLE", "TEXT"]
 QueryResultTypeType = Literal["ANSWER", "DOCUMENT", "QUESTION_ANSWER"]
 QuerySuggestionsBlockListStatusType = Literal[
     "ACTIVE", "ACTIVE_BUT_UPDATE_FAILED", "CREATING", "DELETING", "FAILED", "UPDATING"

@@ -35,12 +35,14 @@ from .literals import (
     FileSystemTypeType,
     FilterNameType,
     FlexCacheEndpointTypeType,
+    InputOntapVolumeTypeType,
     LustreAccessAuditLogLevelType,
     LustreDeploymentTypeType,
     OntapDeploymentTypeType,
     OntapVolumeTypeType,
     OpenZFSCopyStrategyType,
     OpenZFSDataCompressionTypeType,
+    OpenZFSDeploymentTypeType,
     OpenZFSQuotaTypeType,
     ResourceTypeType,
     RestoreOpenZFSVolumeOptionType,
@@ -51,7 +53,6 @@ from .literals import (
     StorageTypeType,
     StorageVirtualMachineLifecycleType,
     StorageVirtualMachineRootVolumeSecurityStyleType,
-    StorageVirtualMachineSubtypeType,
     TieringPolicyNameType,
     VolumeFilterNameType,
     VolumeLifecycleType,
@@ -668,7 +669,7 @@ class CreateFileSystemOntapConfigurationTypeDef(
 _RequiredCreateFileSystemOpenZFSConfigurationTypeDef = TypedDict(
     "_RequiredCreateFileSystemOpenZFSConfigurationTypeDef",
     {
-        "DeploymentType": Literal["SINGLE_AZ_1"],
+        "DeploymentType": OpenZFSDeploymentTypeType,
         "ThroughputCapacity": int,
     },
 )
@@ -762,17 +763,20 @@ class CreateFileSystemWindowsConfigurationTypeDef(
 _RequiredCreateOntapVolumeConfigurationTypeDef = TypedDict(
     "_RequiredCreateOntapVolumeConfigurationTypeDef",
     {
-        "JunctionPath": str,
         "SizeInMegabytes": int,
-        "StorageEfficiencyEnabled": bool,
         "StorageVirtualMachineId": str,
     },
 )
 _OptionalCreateOntapVolumeConfigurationTypeDef = TypedDict(
     "_OptionalCreateOntapVolumeConfigurationTypeDef",
     {
+        "JunctionPath": str,
         "SecurityStyle": SecurityStyleType,
+        "StorageEfficiencyEnabled": bool,
         "TieringPolicy": "TieringPolicyTypeDef",
+        "OntapVolumeType": InputOntapVolumeTypeType,
+        "SnapshotPolicy": str,
+        "CopyTagsToBackups": bool,
     },
     total=False,
 )
@@ -1918,6 +1922,8 @@ OntapVolumeConfigurationTypeDef = TypedDict(
         "TieringPolicy": "TieringPolicyTypeDef",
         "UUID": str,
         "OntapVolumeType": OntapVolumeTypeType,
+        "SnapshotPolicy": str,
+        "CopyTagsToBackups": bool,
     },
     total=False,
 )
@@ -1950,7 +1956,7 @@ OpenZFSFileSystemConfigurationTypeDef = TypedDict(
         "CopyTagsToBackups": bool,
         "CopyTagsToVolumes": bool,
         "DailyAutomaticBackupStartTime": str,
-        "DeploymentType": Literal["SINGLE_AZ_1"],
+        "DeploymentType": OpenZFSDeploymentTypeType,
         "ThroughputCapacity": int,
         "WeeklyMaintenanceStartTime": str,
         "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
@@ -1998,6 +2004,9 @@ OpenZFSVolumeConfigurationTypeDef = TypedDict(
         "ReadOnly": bool,
         "NfsExports": List["OpenZFSNfsExportTypeDef"],
         "UserAndGroupQuotas": List["OpenZFSUserOrGroupQuotaTypeDef"],
+        "RestoreToSnapshot": str,
+        "DeleteIntermediateSnaphots": bool,
+        "DeleteClonedVolumes": bool,
     },
     total=False,
 )
@@ -2078,6 +2087,7 @@ RestoreVolumeFromSnapshotResponseTypeDef = TypedDict(
     {
         "VolumeId": str,
         "Lifecycle": VolumeLifecycleType,
+        "AdministrativeActions": List["AdministrativeActionTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2182,7 +2192,6 @@ StorageVirtualMachineTypeDef = TypedDict(
         "Name": str,
         "ResourceARN": str,
         "StorageVirtualMachineId": str,
-        "Subtype": StorageVirtualMachineSubtypeType,
         "UUID": str,
         "Tags": List["TagTypeDef"],
         "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
@@ -2342,6 +2351,8 @@ UpdateFileSystemOntapConfigurationTypeDef = TypedDict(
         "WeeklyMaintenanceStartTime": str,
         "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
         "ThroughputCapacity": int,
+        "AddRouteTableIds": List[str],
+        "RemoveRouteTableIds": List[str],
     },
     total=False,
 )
@@ -2413,6 +2424,8 @@ UpdateOntapVolumeConfigurationTypeDef = TypedDict(
         "SizeInMegabytes": int,
         "StorageEfficiencyEnabled": bool,
         "TieringPolicy": "TieringPolicyTypeDef",
+        "SnapshotPolicy": str,
+        "CopyTagsToBackups": bool,
     },
     total=False,
 )

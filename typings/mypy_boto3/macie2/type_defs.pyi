@@ -19,8 +19,11 @@ from .literals import (
     AdminStatusType,
     AllowListStatusCodeType,
     AllowsUnencryptedObjectUploadsType,
+    AutomatedDiscoveryStatusType,
     AvailabilityCodeType,
+    ClassificationScopeUpdateOperationType,
     DataIdentifierSeverityType,
+    DataIdentifierTypeType,
     DayOfWeekType,
     EffectivePermissionType,
     EncryptionTypeType,
@@ -42,6 +45,7 @@ from .literals import (
     MacieStatusType,
     ManagedDataIdentifierSelectorType,
     OrderByType,
+    OriginTypeType,
     RelationshipStatusType,
     RevealRequestStatusType,
     RevealStatusType,
@@ -102,11 +106,13 @@ __all__ = (
     "BucketPublicAccessTypeDef",
     "BucketServerSideEncryptionTypeDef",
     "BucketSortCriteriaTypeDef",
+    "BucketStatisticsBySensitivityTypeDef",
     "CellTypeDef",
     "ClassificationDetailsTypeDef",
     "ClassificationExportConfigurationTypeDef",
     "ClassificationResultStatusTypeDef",
     "ClassificationResultTypeDef",
+    "ClassificationScopeSummaryTypeDef",
     "CreateAllowListRequestRequestTypeDef",
     "CreateAllowListResponseTypeDef",
     "CreateClassificationJobRequestRequestTypeDef",
@@ -141,6 +147,7 @@ __all__ = (
     "DescribeClassificationJobResponseTypeDef",
     "DescribeOrganizationConfigurationResponseTypeDef",
     "DetectedDataDetailsTypeDef",
+    "DetectionTypeDef",
     "DisableOrganizationAdminAccountRequestRequestTypeDef",
     "DisassociateMemberRequestRequestTypeDef",
     "DomainDetailsTypeDef",
@@ -156,9 +163,12 @@ __all__ = (
     "GetAdministratorAccountResponseTypeDef",
     "GetAllowListRequestRequestTypeDef",
     "GetAllowListResponseTypeDef",
+    "GetAutomatedDiscoveryConfigurationResponseTypeDef",
     "GetBucketStatisticsRequestRequestTypeDef",
     "GetBucketStatisticsResponseTypeDef",
     "GetClassificationExportConfigurationResponseTypeDef",
+    "GetClassificationScopeRequestRequestTypeDef",
+    "GetClassificationScopeResponseTypeDef",
     "GetCustomDataIdentifierRequestRequestTypeDef",
     "GetCustomDataIdentifierResponseTypeDef",
     "GetFindingStatisticsRequestRequestTypeDef",
@@ -173,11 +183,15 @@ __all__ = (
     "GetMasterAccountResponseTypeDef",
     "GetMemberRequestRequestTypeDef",
     "GetMemberResponseTypeDef",
+    "GetResourceProfileRequestRequestTypeDef",
+    "GetResourceProfileResponseTypeDef",
     "GetRevealConfigurationResponseTypeDef",
     "GetSensitiveDataOccurrencesAvailabilityRequestRequestTypeDef",
     "GetSensitiveDataOccurrencesAvailabilityResponseTypeDef",
     "GetSensitiveDataOccurrencesRequestRequestTypeDef",
     "GetSensitiveDataOccurrencesResponseTypeDef",
+    "GetSensitivityInspectionTemplateRequestRequestTypeDef",
+    "GetSensitivityInspectionTemplateResponseTypeDef",
     "GetUsageStatisticsRequestRequestTypeDef",
     "GetUsageStatisticsResponseTypeDef",
     "GetUsageTotalsRequestRequestTypeDef",
@@ -201,6 +215,8 @@ __all__ = (
     "ListAllowListsResponseTypeDef",
     "ListClassificationJobsRequestRequestTypeDef",
     "ListClassificationJobsResponseTypeDef",
+    "ListClassificationScopesRequestRequestTypeDef",
+    "ListClassificationScopesResponseTypeDef",
     "ListCustomDataIdentifiersRequestRequestTypeDef",
     "ListCustomDataIdentifiersResponseTypeDef",
     "ListFindingsFiltersRequestRequestTypeDef",
@@ -218,6 +234,12 @@ __all__ = (
     "ListMembersResponseTypeDef",
     "ListOrganizationAdminAccountsRequestRequestTypeDef",
     "ListOrganizationAdminAccountsResponseTypeDef",
+    "ListResourceProfileArtifactsRequestRequestTypeDef",
+    "ListResourceProfileArtifactsResponseTypeDef",
+    "ListResourceProfileDetectionsRequestRequestTypeDef",
+    "ListResourceProfileDetectionsResponseTypeDef",
+    "ListSensitivityInspectionTemplatesRequestRequestTypeDef",
+    "ListSensitivityInspectionTemplatesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ManagedDataIdentifierSummaryTypeDef",
@@ -237,6 +259,8 @@ __all__ = (
     "RangeTypeDef",
     "RecordTypeDef",
     "ReplicationDetailsTypeDef",
+    "ResourceProfileArtifactTypeDef",
+    "ResourceStatisticsTypeDef",
     "ResourcesAffectedTypeDef",
     "ResponseMetadataTypeDef",
     "RevealConfigurationTypeDef",
@@ -244,6 +268,10 @@ __all__ = (
     "S3BucketDefinitionForJobTypeDef",
     "S3BucketOwnerTypeDef",
     "S3BucketTypeDef",
+    "S3ClassificationScopeExclusionTypeDef",
+    "S3ClassificationScopeExclusionUpdateTypeDef",
+    "S3ClassificationScopeTypeDef",
+    "S3ClassificationScopeUpdateTypeDef",
     "S3DestinationTypeDef",
     "S3JobDefinitionTypeDef",
     "S3ObjectTypeDef",
@@ -260,6 +288,10 @@ __all__ = (
     "SearchResourcesTagCriterionTypeDef",
     "SecurityHubConfigurationTypeDef",
     "SensitiveDataItemTypeDef",
+    "SensitivityAggregationsTypeDef",
+    "SensitivityInspectionTemplateExcludesTypeDef",
+    "SensitivityInspectionTemplateIncludesTypeDef",
+    "SensitivityInspectionTemplatesEntryTypeDef",
     "ServerSideEncryptionTypeDef",
     "ServiceLimitTypeDef",
     "SessionContextAttributesTypeDef",
@@ -271,6 +303,7 @@ __all__ = (
     "SimpleScopeTermTypeDef",
     "SortCriteriaTypeDef",
     "StatisticsTypeDef",
+    "SuppressDataIdentifierTypeDef",
     "TagCriterionForJobTypeDef",
     "TagCriterionPairForJobTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -282,14 +315,19 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateAllowListRequestRequestTypeDef",
     "UpdateAllowListResponseTypeDef",
+    "UpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef",
     "UpdateClassificationJobRequestRequestTypeDef",
+    "UpdateClassificationScopeRequestRequestTypeDef",
     "UpdateFindingsFilterRequestRequestTypeDef",
     "UpdateFindingsFilterResponseTypeDef",
     "UpdateMacieSessionRequestRequestTypeDef",
     "UpdateMemberSessionRequestRequestTypeDef",
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
+    "UpdateResourceProfileDetectionsRequestRequestTypeDef",
+    "UpdateResourceProfileRequestRequestTypeDef",
     "UpdateRevealConfigurationRequestRequestTypeDef",
     "UpdateRevealConfigurationResponseTypeDef",
+    "UpdateSensitivityInspectionTemplateRequestRequestTypeDef",
     "UsageByAccountTypeDef",
     "UsageRecordTypeDef",
     "UsageStatisticsFilterTypeDef",
@@ -556,12 +594,14 @@ BucketMetadataTypeDef = TypedDict(
         "errorCode": Literal["ACCESS_DENIED"],
         "errorMessage": str,
         "jobDetails": "JobDetailsTypeDef",
+        "lastAutomatedDiscoveryTime": datetime,
         "lastUpdated": datetime,
         "objectCount": int,
         "objectCountByEncryptionType": "ObjectCountByEncryptionTypeTypeDef",
         "publicAccess": "BucketPublicAccessTypeDef",
         "region": str,
         "replicationDetails": "ReplicationDetailsTypeDef",
+        "sensitivityScore": int,
         "serverSideEncryption": "BucketServerSideEncryptionTypeDef",
         "sharedAccess": SharedAccessType,
         "sizeInBytes": int,
@@ -619,6 +659,17 @@ BucketSortCriteriaTypeDef = TypedDict(
     total=False,
 )
 
+BucketStatisticsBySensitivityTypeDef = TypedDict(
+    "BucketStatisticsBySensitivityTypeDef",
+    {
+        "classificationError": "SensitivityAggregationsTypeDef",
+        "notClassified": "SensitivityAggregationsTypeDef",
+        "notSensitive": "SensitivityAggregationsTypeDef",
+        "sensitive": "SensitivityAggregationsTypeDef",
+    },
+    total=False,
+)
+
 CellTypeDef = TypedDict(
     "CellTypeDef",
     {
@@ -636,7 +687,7 @@ ClassificationDetailsTypeDef = TypedDict(
         "detailedResultsLocation": str,
         "jobArn": str,
         "jobId": str,
-        "originType": Literal["SENSITIVE_DATA_DISCOVERY_JOB"],
+        "originType": OriginTypeType,
         "result": "ClassificationResultTypeDef",
     },
     total=False,
@@ -668,6 +719,15 @@ ClassificationResultTypeDef = TypedDict(
         "sensitiveData": List["SensitiveDataItemTypeDef"],
         "sizeClassified": int,
         "status": "ClassificationResultStatusTypeDef",
+    },
+    total=False,
+)
+
+ClassificationScopeSummaryTypeDef = TypedDict(
+    "ClassificationScopeSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
     },
     total=False,
 )
@@ -1089,6 +1149,19 @@ DetectedDataDetailsTypeDef = TypedDict(
     },
 )
 
+DetectionTypeDef = TypedDict(
+    "DetectionTypeDef",
+    {
+        "arn": str,
+        "count": int,
+        "id": str,
+        "name": str,
+        "suppressed": bool,
+        "type": DataIdentifierTypeType,
+    },
+    total=False,
+)
+
 DisableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
     "DisableOrganizationAdminAccountRequestRequestTypeDef",
     {
@@ -1257,6 +1330,19 @@ GetAllowListResponseTypeDef = TypedDict(
     },
 )
 
+GetAutomatedDiscoveryConfigurationResponseTypeDef = TypedDict(
+    "GetAutomatedDiscoveryConfigurationResponseTypeDef",
+    {
+        "classificationScopeId": str,
+        "disabledAt": datetime,
+        "firstEnabledAt": datetime,
+        "lastUpdatedAt": datetime,
+        "sensitivityInspectionTemplateId": str,
+        "status": AutomatedDiscoveryStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetBucketStatisticsRequestRequestTypeDef = TypedDict(
     "GetBucketStatisticsRequestRequestTypeDef",
     {
@@ -1273,6 +1359,7 @@ GetBucketStatisticsResponseTypeDef = TypedDict(
         "bucketCountByEncryptionType": "BucketCountByEncryptionTypeTypeDef",
         "bucketCountByObjectEncryptionRequirement": "BucketCountPolicyAllowsUnencryptedObjectUploadsTypeDef",
         "bucketCountBySharedAccessType": "BucketCountBySharedAccessTypeTypeDef",
+        "bucketStatisticsBySensitivity": "BucketStatisticsBySensitivityTypeDef",
         "classifiableObjectCount": int,
         "classifiableSizeInBytes": int,
         "lastUpdated": datetime,
@@ -1289,6 +1376,23 @@ GetClassificationExportConfigurationResponseTypeDef = TypedDict(
     "GetClassificationExportConfigurationResponseTypeDef",
     {
         "configuration": "ClassificationExportConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetClassificationScopeRequestRequestTypeDef = TypedDict(
+    "GetClassificationScopeRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+GetClassificationScopeResponseTypeDef = TypedDict(
+    "GetClassificationScopeResponseTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "s3": "S3ClassificationScopeTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1457,6 +1561,24 @@ GetMemberResponseTypeDef = TypedDict(
     },
 )
 
+GetResourceProfileRequestRequestTypeDef = TypedDict(
+    "GetResourceProfileRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+GetResourceProfileResponseTypeDef = TypedDict(
+    "GetResourceProfileResponseTypeDef",
+    {
+        "profileUpdatedAt": datetime,
+        "sensitivityScore": int,
+        "sensitivityScoreOverridden": bool,
+        "statistics": "ResourceStatisticsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetRevealConfigurationResponseTypeDef = TypedDict(
     "GetRevealConfigurationResponseTypeDef",
     {
@@ -1494,6 +1616,25 @@ GetSensitiveDataOccurrencesResponseTypeDef = TypedDict(
         "error": str,
         "sensitiveDataOccurrences": Dict[str, List["DetectedDataDetailsTypeDef"]],
         "status": RevealRequestStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetSensitivityInspectionTemplateRequestRequestTypeDef = TypedDict(
+    "GetSensitivityInspectionTemplateRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+GetSensitivityInspectionTemplateResponseTypeDef = TypedDict(
+    "GetSensitivityInspectionTemplateResponseTypeDef",
+    {
+        "description": str,
+        "excludes": "SensitivityInspectionTemplateExcludesTypeDef",
+        "includes": "SensitivityInspectionTemplateIncludesTypeDef",
+        "name": str,
+        "sensitivityInspectionTemplateId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1658,6 +1799,7 @@ JobScopingBlockTypeDef = TypedDict(
 JobSummaryTypeDef = TypedDict(
     "JobSummaryTypeDef",
     {
+        "bucketCriteria": "S3BucketCriteriaForJobTypeDef",
         "bucketDefinitions": List["S3BucketDefinitionForJobTypeDef"],
         "createdAt": datetime,
         "jobId": str,
@@ -1666,7 +1808,6 @@ JobSummaryTypeDef = TypedDict(
         "lastRunErrorStatus": "LastRunErrorStatusTypeDef",
         "name": str,
         "userPausedDetails": "UserPausedDetailsTypeDef",
-        "bucketCriteria": "S3BucketCriteriaForJobTypeDef",
     },
     total=False,
 )
@@ -1721,6 +1862,24 @@ ListClassificationJobsResponseTypeDef = TypedDict(
     "ListClassificationJobsResponseTypeDef",
     {
         "items": List["JobSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListClassificationScopesRequestRequestTypeDef = TypedDict(
+    "ListClassificationScopesRequestRequestTypeDef",
+    {
+        "name": str,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListClassificationScopesResponseTypeDef = TypedDict(
+    "ListClassificationScopesResponseTypeDef",
+    {
+        "classificationScopes": List["ClassificationScopeSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1882,6 +2041,83 @@ ListOrganizationAdminAccountsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListResourceProfileArtifactsRequestRequestTypeDef = TypedDict(
+    "_RequiredListResourceProfileArtifactsRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+_OptionalListResourceProfileArtifactsRequestRequestTypeDef = TypedDict(
+    "_OptionalListResourceProfileArtifactsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListResourceProfileArtifactsRequestRequestTypeDef(
+    _RequiredListResourceProfileArtifactsRequestRequestTypeDef,
+    _OptionalListResourceProfileArtifactsRequestRequestTypeDef,
+):
+    pass
+
+ListResourceProfileArtifactsResponseTypeDef = TypedDict(
+    "ListResourceProfileArtifactsResponseTypeDef",
+    {
+        "artifacts": List["ResourceProfileArtifactTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListResourceProfileDetectionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListResourceProfileDetectionsRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+_OptionalListResourceProfileDetectionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListResourceProfileDetectionsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListResourceProfileDetectionsRequestRequestTypeDef(
+    _RequiredListResourceProfileDetectionsRequestRequestTypeDef,
+    _OptionalListResourceProfileDetectionsRequestRequestTypeDef,
+):
+    pass
+
+ListResourceProfileDetectionsResponseTypeDef = TypedDict(
+    "ListResourceProfileDetectionsResponseTypeDef",
+    {
+        "detections": List["DetectionTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListSensitivityInspectionTemplatesRequestRequestTypeDef = TypedDict(
+    "ListSensitivityInspectionTemplatesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListSensitivityInspectionTemplatesResponseTypeDef = TypedDict(
+    "ListSensitivityInspectionTemplatesResponseTypeDef",
+    {
+        "nextToken": str,
+        "sensitivityInspectionTemplates": List["SensitivityInspectionTemplatesEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -1916,8 +2152,10 @@ MatchingBucketTypeDef = TypedDict(
         "errorCode": Literal["ACCESS_DENIED"],
         "errorMessage": str,
         "jobDetails": "JobDetailsTypeDef",
+        "lastAutomatedDiscoveryTime": datetime,
         "objectCount": int,
         "objectCountByEncryptionType": "ObjectCountByEncryptionTypeTypeDef",
+        "sensitivityScore": int,
         "sizeInBytes": int,
         "sizeInBytesCompressed": int,
         "unclassifiableObjectCount": "ObjectLevelStatisticsTypeDef",
@@ -2074,6 +2312,42 @@ ReplicationDetailsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredResourceProfileArtifactTypeDef = TypedDict(
+    "_RequiredResourceProfileArtifactTypeDef",
+    {
+        "arn": str,
+        "classificationResultStatus": str,
+    },
+)
+_OptionalResourceProfileArtifactTypeDef = TypedDict(
+    "_OptionalResourceProfileArtifactTypeDef",
+    {
+        "sensitive": bool,
+    },
+    total=False,
+)
+
+class ResourceProfileArtifactTypeDef(
+    _RequiredResourceProfileArtifactTypeDef, _OptionalResourceProfileArtifactTypeDef
+):
+    pass
+
+ResourceStatisticsTypeDef = TypedDict(
+    "ResourceStatisticsTypeDef",
+    {
+        "totalBytesClassified": int,
+        "totalDetections": int,
+        "totalDetectionsSuppressed": int,
+        "totalItemsClassified": int,
+        "totalItemsSensitive": int,
+        "totalItemsSkipped": int,
+        "totalItemsSkippedInvalidEncryption": int,
+        "totalItemsSkippedInvalidKms": int,
+        "totalItemsSkippedPermissionDenied": int,
+    },
+    total=False,
+)
+
 ResourcesAffectedTypeDef = TypedDict(
     "ResourcesAffectedTypeDef",
     {
@@ -2154,6 +2428,35 @@ S3BucketTypeDef = TypedDict(
     total=False,
 )
 
+S3ClassificationScopeExclusionTypeDef = TypedDict(
+    "S3ClassificationScopeExclusionTypeDef",
+    {
+        "bucketNames": List[str],
+    },
+)
+
+S3ClassificationScopeExclusionUpdateTypeDef = TypedDict(
+    "S3ClassificationScopeExclusionUpdateTypeDef",
+    {
+        "bucketNames": List[str],
+        "operation": ClassificationScopeUpdateOperationType,
+    },
+)
+
+S3ClassificationScopeTypeDef = TypedDict(
+    "S3ClassificationScopeTypeDef",
+    {
+        "excludes": "S3ClassificationScopeExclusionTypeDef",
+    },
+)
+
+S3ClassificationScopeUpdateTypeDef = TypedDict(
+    "S3ClassificationScopeUpdateTypeDef",
+    {
+        "excludes": "S3ClassificationScopeExclusionUpdateTypeDef",
+    },
+)
+
 _RequiredS3DestinationTypeDef = TypedDict(
     "_RequiredS3DestinationTypeDef",
     {
@@ -2175,9 +2478,9 @@ class S3DestinationTypeDef(_RequiredS3DestinationTypeDef, _OptionalS3Destination
 S3JobDefinitionTypeDef = TypedDict(
     "S3JobDefinitionTypeDef",
     {
+        "bucketCriteria": "S3BucketCriteriaForJobTypeDef",
         "bucketDefinitions": List["S3BucketDefinitionForJobTypeDef"],
         "scoping": "ScopingTypeDef",
-        "bucketCriteria": "S3BucketCriteriaForJobTypeDef",
     },
     total=False,
 )
@@ -2319,6 +2622,44 @@ SensitiveDataItemTypeDef = TypedDict(
     total=False,
 )
 
+SensitivityAggregationsTypeDef = TypedDict(
+    "SensitivityAggregationsTypeDef",
+    {
+        "classifiableSizeInBytes": int,
+        "publiclyAccessibleCount": int,
+        "totalCount": int,
+        "totalSizeInBytes": int,
+    },
+    total=False,
+)
+
+SensitivityInspectionTemplateExcludesTypeDef = TypedDict(
+    "SensitivityInspectionTemplateExcludesTypeDef",
+    {
+        "managedDataIdentifierIds": List[str],
+    },
+    total=False,
+)
+
+SensitivityInspectionTemplateIncludesTypeDef = TypedDict(
+    "SensitivityInspectionTemplateIncludesTypeDef",
+    {
+        "allowListIds": List[str],
+        "customDataIdentifierIds": List[str],
+        "managedDataIdentifierIds": List[str],
+    },
+    total=False,
+)
+
+SensitivityInspectionTemplatesEntryTypeDef = TypedDict(
+    "SensitivityInspectionTemplatesEntryTypeDef",
+    {
+        "id": str,
+        "name": str,
+    },
+    total=False,
+)
+
 ServerSideEncryptionTypeDef = TypedDict(
     "ServerSideEncryptionTypeDef",
     {
@@ -2419,6 +2760,15 @@ StatisticsTypeDef = TypedDict(
     {
         "approximateNumberOfObjectsToProcess": float,
         "numberOfRuns": float,
+    },
+    total=False,
+)
+
+SuppressDataIdentifierTypeDef = TypedDict(
+    "SuppressDataIdentifierTypeDef",
+    {
+        "id": str,
+        "type": DataIdentifierTypeType,
     },
     total=False,
 )
@@ -2548,6 +2898,13 @@ UpdateAllowListResponseTypeDef = TypedDict(
     },
 )
 
+UpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef",
+    {
+        "status": AutomatedDiscoveryStatusType,
+    },
+)
+
 UpdateClassificationJobRequestRequestTypeDef = TypedDict(
     "UpdateClassificationJobRequestRequestTypeDef",
     {
@@ -2555,6 +2912,26 @@ UpdateClassificationJobRequestRequestTypeDef = TypedDict(
         "jobStatus": JobStatusType,
     },
 )
+
+_RequiredUpdateClassificationScopeRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateClassificationScopeRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+_OptionalUpdateClassificationScopeRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateClassificationScopeRequestRequestTypeDef",
+    {
+        "s3": "S3ClassificationScopeUpdateTypeDef",
+    },
+    total=False,
+)
+
+class UpdateClassificationScopeRequestRequestTypeDef(
+    _RequiredUpdateClassificationScopeRequestRequestTypeDef,
+    _OptionalUpdateClassificationScopeRequestRequestTypeDef,
+):
+    pass
 
 _RequiredUpdateFindingsFilterRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFindingsFilterRequestRequestTypeDef",
@@ -2566,11 +2943,11 @@ _OptionalUpdateFindingsFilterRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateFindingsFilterRequestRequestTypeDef",
     {
         "action": FindingsFilterActionType,
+        "clientToken": str,
         "description": str,
         "findingCriteria": "FindingCriteriaTypeDef",
         "name": str,
         "position": int,
-        "clientToken": str,
     },
     total=False,
 )
@@ -2614,6 +2991,46 @@ UpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateResourceProfileDetectionsRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateResourceProfileDetectionsRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+_OptionalUpdateResourceProfileDetectionsRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateResourceProfileDetectionsRequestRequestTypeDef",
+    {
+        "suppressDataIdentifiers": List["SuppressDataIdentifierTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateResourceProfileDetectionsRequestRequestTypeDef(
+    _RequiredUpdateResourceProfileDetectionsRequestRequestTypeDef,
+    _OptionalUpdateResourceProfileDetectionsRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateResourceProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateResourceProfileRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+_OptionalUpdateResourceProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateResourceProfileRequestRequestTypeDef",
+    {
+        "sensitivityScoreOverride": int,
+    },
+    total=False,
+)
+
+class UpdateResourceProfileRequestRequestTypeDef(
+    _RequiredUpdateResourceProfileRequestRequestTypeDef,
+    _OptionalUpdateResourceProfileRequestRequestTypeDef,
+):
+    pass
+
 UpdateRevealConfigurationRequestRequestTypeDef = TypedDict(
     "UpdateRevealConfigurationRequestRequestTypeDef",
     {
@@ -2628,6 +3045,28 @@ UpdateRevealConfigurationResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredUpdateSensitivityInspectionTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateSensitivityInspectionTemplateRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+_OptionalUpdateSensitivityInspectionTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateSensitivityInspectionTemplateRequestRequestTypeDef",
+    {
+        "description": str,
+        "excludes": "SensitivityInspectionTemplateExcludesTypeDef",
+        "includes": "SensitivityInspectionTemplateIncludesTypeDef",
+    },
+    total=False,
+)
+
+class UpdateSensitivityInspectionTemplateRequestRequestTypeDef(
+    _RequiredUpdateSensitivityInspectionTemplateRequestRequestTypeDef,
+    _OptionalUpdateSensitivityInspectionTemplateRequestRequestTypeDef,
+):
+    pass
 
 UsageByAccountTypeDef = TypedDict(
     "UsageByAccountTypeDef",
@@ -2644,6 +3083,7 @@ UsageRecordTypeDef = TypedDict(
     "UsageRecordTypeDef",
     {
         "accountId": str,
+        "automatedDiscoveryFreeTrialStartDate": datetime,
         "freeTrialStartDate": datetime,
         "usage": List["UsageByAccountTypeDef"],
     },

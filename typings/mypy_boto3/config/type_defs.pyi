@@ -27,6 +27,7 @@ from .literals import (
     ConformancePackComplianceTypeType,
     ConformancePackStateType,
     DeliveryStatusType,
+    EvaluationModeType,
     MaximumExecutionFrequencyType,
     MemberAccountRuleStatusType,
     MessageTypeType,
@@ -40,6 +41,7 @@ from .literals import (
     RemediationExecutionStateType,
     RemediationExecutionStepStateType,
     ResourceCountGroupKeyType,
+    ResourceEvaluationStatusType,
     ResourceTypeType,
     SortOrderType,
 )
@@ -132,6 +134,7 @@ __all__ = (
     "DescribeComplianceByResourceResponseTypeDef",
     "DescribeConfigRuleEvaluationStatusRequestRequestTypeDef",
     "DescribeConfigRuleEvaluationStatusResponseTypeDef",
+    "DescribeConfigRulesFiltersTypeDef",
     "DescribeConfigRulesRequestRequestTypeDef",
     "DescribeConfigRulesResponseTypeDef",
     "DescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef",
@@ -170,9 +173,12 @@ __all__ = (
     "DescribeRemediationExecutionStatusResponseTypeDef",
     "DescribeRetentionConfigurationsRequestRequestTypeDef",
     "DescribeRetentionConfigurationsResponseTypeDef",
+    "EvaluationContextTypeDef",
+    "EvaluationModeConfigurationTypeDef",
     "EvaluationResultIdentifierTypeDef",
     "EvaluationResultQualifierTypeDef",
     "EvaluationResultTypeDef",
+    "EvaluationStatusTypeDef",
     "EvaluationTypeDef",
     "ExecutionControlsTypeDef",
     "ExternalEvaluationTypeDef",
@@ -213,6 +219,8 @@ __all__ = (
     "GetOrganizationCustomRulePolicyResponseTypeDef",
     "GetResourceConfigHistoryRequestRequestTypeDef",
     "GetResourceConfigHistoryResponseTypeDef",
+    "GetResourceEvaluationSummaryRequestRequestTypeDef",
+    "GetResourceEvaluationSummaryResponseTypeDef",
     "GetStoredQueryRequestRequestTypeDef",
     "GetStoredQueryResponseTypeDef",
     "GroupedResourceCountTypeDef",
@@ -222,6 +230,8 @@ __all__ = (
     "ListConformancePackComplianceScoresResponseTypeDef",
     "ListDiscoveredResourcesRequestRequestTypeDef",
     "ListDiscoveredResourcesResponseTypeDef",
+    "ListResourceEvaluationsRequestRequestTypeDef",
+    "ListResourceEvaluationsResponseTypeDef",
     "ListStoredQueriesRequestRequestTypeDef",
     "ListStoredQueriesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -276,6 +286,9 @@ __all__ = (
     "RemediationParameterValueTypeDef",
     "ResourceCountFiltersTypeDef",
     "ResourceCountTypeDef",
+    "ResourceDetailsTypeDef",
+    "ResourceEvaluationFiltersTypeDef",
+    "ResourceEvaluationTypeDef",
     "ResourceFiltersTypeDef",
     "ResourceIdentifierTypeDef",
     "ResourceKeyTypeDef",
@@ -294,6 +307,8 @@ __all__ = (
     "StartConfigurationRecorderRequestRequestTypeDef",
     "StartRemediationExecutionRequestRequestTypeDef",
     "StartRemediationExecutionResponseTypeDef",
+    "StartResourceEvaluationRequestRequestTypeDef",
+    "StartResourceEvaluationResponseTypeDef",
     "StaticValueTypeDef",
     "StatusDetailFiltersTypeDef",
     "StopConfigurationRecorderRequestRequestTypeDef",
@@ -302,6 +317,7 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TemplateSSMDocumentDetailsTypeDef",
+    "TimeWindowTypeDef",
     "UntagResourceRequestRequestTypeDef",
 )
 
@@ -649,6 +665,7 @@ _OptionalConfigRuleTypeDef = TypedDict(
         "MaximumExecutionFrequency": MaximumExecutionFrequencyType,
         "ConfigRuleState": ConfigRuleStateType,
         "CreatedBy": str,
+        "EvaluationModes": List["EvaluationModeConfigurationTypeDef"],
     },
     total=False,
 )
@@ -1205,11 +1222,20 @@ DescribeConfigRuleEvaluationStatusResponseTypeDef = TypedDict(
     },
 )
 
+DescribeConfigRulesFiltersTypeDef = TypedDict(
+    "DescribeConfigRulesFiltersTypeDef",
+    {
+        "EvaluationMode": EvaluationModeType,
+    },
+    total=False,
+)
+
 DescribeConfigRulesRequestRequestTypeDef = TypedDict(
     "DescribeConfigRulesRequestRequestTypeDef",
     {
         "ConfigRuleNames": List[str],
         "NextToken": str,
+        "Filters": "DescribeConfigRulesFiltersTypeDef",
     },
     total=False,
 )
@@ -1596,11 +1622,28 @@ DescribeRetentionConfigurationsResponseTypeDef = TypedDict(
     },
 )
 
+EvaluationContextTypeDef = TypedDict(
+    "EvaluationContextTypeDef",
+    {
+        "EvaluationContextIdentifier": str,
+    },
+    total=False,
+)
+
+EvaluationModeConfigurationTypeDef = TypedDict(
+    "EvaluationModeConfigurationTypeDef",
+    {
+        "Mode": EvaluationModeType,
+    },
+    total=False,
+)
+
 EvaluationResultIdentifierTypeDef = TypedDict(
     "EvaluationResultIdentifierTypeDef",
     {
         "EvaluationResultQualifier": "EvaluationResultQualifierTypeDef",
         "OrderingTimestamp": datetime,
+        "ResourceEvaluationId": str,
     },
     total=False,
 )
@@ -1611,6 +1654,7 @@ EvaluationResultQualifierTypeDef = TypedDict(
         "ConfigRuleName": str,
         "ResourceType": str,
         "ResourceId": str,
+        "EvaluationMode": EvaluationModeType,
     },
     total=False,
 )
@@ -1627,6 +1671,23 @@ EvaluationResultTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredEvaluationStatusTypeDef = TypedDict(
+    "_RequiredEvaluationStatusTypeDef",
+    {
+        "Status": ResourceEvaluationStatusType,
+    },
+)
+_OptionalEvaluationStatusTypeDef = TypedDict(
+    "_OptionalEvaluationStatusTypeDef",
+    {
+        "FailureReason": str,
+    },
+    total=False,
+)
+
+class EvaluationStatusTypeDef(_RequiredEvaluationStatusTypeDef, _OptionalEvaluationStatusTypeDef):
+    pass
 
 _RequiredEvaluationTypeDef = TypedDict(
     "_RequiredEvaluationTypeDef",
@@ -1896,27 +1957,17 @@ GetComplianceDetailsByConfigRuleResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredGetComplianceDetailsByResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredGetComplianceDetailsByResourceRequestRequestTypeDef",
+GetComplianceDetailsByResourceRequestRequestTypeDef = TypedDict(
+    "GetComplianceDetailsByResourceRequestRequestTypeDef",
     {
         "ResourceType": str,
         "ResourceId": str,
-    },
-)
-_OptionalGetComplianceDetailsByResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalGetComplianceDetailsByResourceRequestRequestTypeDef",
-    {
         "ComplianceTypes": List[ComplianceTypeType],
         "NextToken": str,
+        "ResourceEvaluationId": str,
     },
     total=False,
 )
-
-class GetComplianceDetailsByResourceRequestRequestTypeDef(
-    _RequiredGetComplianceDetailsByResourceRequestRequestTypeDef,
-    _OptionalGetComplianceDetailsByResourceRequestRequestTypeDef,
-):
-    pass
 
 GetComplianceDetailsByResourceResponseTypeDef = TypedDict(
     "GetComplianceDetailsByResourceResponseTypeDef",
@@ -2162,6 +2213,27 @@ GetResourceConfigHistoryResponseTypeDef = TypedDict(
     },
 )
 
+GetResourceEvaluationSummaryRequestRequestTypeDef = TypedDict(
+    "GetResourceEvaluationSummaryRequestRequestTypeDef",
+    {
+        "ResourceEvaluationId": str,
+    },
+)
+
+GetResourceEvaluationSummaryResponseTypeDef = TypedDict(
+    "GetResourceEvaluationSummaryResponseTypeDef",
+    {
+        "ResourceEvaluationId": str,
+        "EvaluationMode": EvaluationModeType,
+        "EvaluationStatus": "EvaluationStatusTypeDef",
+        "EvaluationStartTimestamp": datetime,
+        "Compliance": ComplianceTypeType,
+        "EvaluationContext": "EvaluationContextTypeDef",
+        "ResourceDetails": "ResourceDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetStoredQueryRequestRequestTypeDef = TypedDict(
     "GetStoredQueryRequestRequestTypeDef",
     {
@@ -2267,6 +2339,25 @@ ListDiscoveredResourcesResponseTypeDef = TypedDict(
     {
         "resourceIdentifiers": List["ResourceIdentifierTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListResourceEvaluationsRequestRequestTypeDef = TypedDict(
+    "ListResourceEvaluationsRequestRequestTypeDef",
+    {
+        "Filters": "ResourceEvaluationFiltersTypeDef",
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListResourceEvaluationsResponseTypeDef = TypedDict(
+    "ListResourceEvaluationsResponseTypeDef",
+    {
+        "ResourceEvaluations": List["ResourceEvaluationTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3080,6 +3171,45 @@ ResourceCountTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredResourceDetailsTypeDef = TypedDict(
+    "_RequiredResourceDetailsTypeDef",
+    {
+        "ResourceId": str,
+        "ResourceType": str,
+        "ResourceConfiguration": str,
+    },
+)
+_OptionalResourceDetailsTypeDef = TypedDict(
+    "_OptionalResourceDetailsTypeDef",
+    {
+        "ResourceConfigurationSchemaType": Literal["CFN_RESOURCE_SCHEMA"],
+    },
+    total=False,
+)
+
+class ResourceDetailsTypeDef(_RequiredResourceDetailsTypeDef, _OptionalResourceDetailsTypeDef):
+    pass
+
+ResourceEvaluationFiltersTypeDef = TypedDict(
+    "ResourceEvaluationFiltersTypeDef",
+    {
+        "EvaluationMode": EvaluationModeType,
+        "TimeWindow": "TimeWindowTypeDef",
+        "EvaluationContextIdentifier": str,
+    },
+    total=False,
+)
+
+ResourceEvaluationTypeDef = TypedDict(
+    "ResourceEvaluationTypeDef",
+    {
+        "ResourceEvaluationId": str,
+        "EvaluationMode": EvaluationModeType,
+        "EvaluationStartTimestamp": datetime,
+    },
+    total=False,
+)
+
 ResourceFiltersTypeDef = TypedDict(
     "ResourceFiltersTypeDef",
     {
@@ -3281,6 +3411,37 @@ StartRemediationExecutionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredStartResourceEvaluationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartResourceEvaluationRequestRequestTypeDef",
+    {
+        "ResourceDetails": "ResourceDetailsTypeDef",
+        "EvaluationMode": EvaluationModeType,
+    },
+)
+_OptionalStartResourceEvaluationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartResourceEvaluationRequestRequestTypeDef",
+    {
+        "EvaluationContext": "EvaluationContextTypeDef",
+        "EvaluationTimeout": int,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class StartResourceEvaluationRequestRequestTypeDef(
+    _RequiredStartResourceEvaluationRequestRequestTypeDef,
+    _OptionalStartResourceEvaluationRequestRequestTypeDef,
+):
+    pass
+
+StartResourceEvaluationResponseTypeDef = TypedDict(
+    "StartResourceEvaluationResponseTypeDef",
+    {
+        "ResourceEvaluationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StaticValueTypeDef = TypedDict(
     "StaticValueTypeDef",
     {
@@ -3380,6 +3541,15 @@ class TemplateSSMDocumentDetailsTypeDef(
     _RequiredTemplateSSMDocumentDetailsTypeDef, _OptionalTemplateSSMDocumentDetailsTypeDef
 ):
     pass
+
+TimeWindowTypeDef = TypedDict(
+    "TimeWindowTypeDef",
+    {
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+    },
+    total=False,
+)
 
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",

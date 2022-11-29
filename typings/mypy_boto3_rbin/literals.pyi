@@ -20,12 +20,16 @@ else:
 
 __all__ = (
     "ListRulesPaginatorName",
+    "LockStateType",
     "ResourceTypeType",
     "RetentionPeriodUnitType",
     "RuleStatusType",
+    "UnlockDelayUnitType",
 )
 
 ListRulesPaginatorName = Literal["list_rules"]
+LockStateType = Literal["locked", "pending_unlock", "unlocked"]
 ResourceTypeType = Literal["EBS_SNAPSHOT", "EC2_IMAGE"]
 RetentionPeriodUnitType = Literal["DAYS"]
 RuleStatusType = Literal["available", "pending"]
+UnlockDelayUnitType = Literal["DAYS"]

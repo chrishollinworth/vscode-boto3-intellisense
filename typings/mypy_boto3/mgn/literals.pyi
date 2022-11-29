@@ -6,9 +6,9 @@ Type annotations for mgn service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mgn.literals import BootModeType
+    from mypy_boto3_mgn.literals import ApplicationHealthStatusType
 
-    data: BootModeType = "LEGACY_BIOS"
+    data: ApplicationHealthStatusType = "ERROR"
     ```
 """
 import sys
@@ -19,6 +19,8 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ApplicationHealthStatusType",
+    "ApplicationProgressStatusType",
     "BootModeType",
     "ChangeServerLifeCycleStateSourceServerLifecycleStateType",
     "DataReplicationErrorStringType",
@@ -39,6 +41,10 @@ __all__ = (
     "LaunchDispositionType",
     "LaunchStatusType",
     "LifeCycleStateType",
+    "ListApplicationsPaginatorName",
+    "ListSourceServerActionsPaginatorName",
+    "ListTemplateActionsPaginatorName",
+    "ListWavesPaginatorName",
     "PostLaunchActionExecutionStatusType",
     "PostLaunchActionsDeploymentTypeType",
     "ReplicationConfigurationDataPlaneRoutingType",
@@ -49,8 +55,13 @@ __all__ = (
     "SsmDocumentTypeType",
     "SsmParameterStoreParameterTypeType",
     "TargetInstanceTypeRightSizingMethodType",
+    "VolumeTypeType",
+    "WaveHealthStatusType",
+    "WaveProgressStatusType",
 )
 
+ApplicationHealthStatusType = Literal["ERROR", "HEALTHY", "LAGGING"]
+ApplicationProgressStatusType = Literal["COMPLETED", "IN_PROGRESS", "NOT_STARTED"]
 BootModeType = Literal["LEGACY_BIOS", "UEFI"]
 ChangeServerLifeCycleStateSourceServerLifecycleStateType = Literal[
     "CUTOVER", "READY_FOR_CUTOVER", "READY_FOR_TEST"
@@ -148,8 +159,12 @@ LifeCycleStateType = Literal[
     "STOPPED",
     "TESTING",
 ]
+ListApplicationsPaginatorName = Literal["list_applications"]
+ListSourceServerActionsPaginatorName = Literal["list_source_server_actions"]
+ListTemplateActionsPaginatorName = Literal["list_template_actions"]
+ListWavesPaginatorName = Literal["list_waves"]
 PostLaunchActionExecutionStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
-PostLaunchActionsDeploymentTypeType = Literal["CUTOVER_ONLY", "TEST_AND_CUTOVER"]
+PostLaunchActionsDeploymentTypeType = Literal["CUTOVER_ONLY", "TEST_AND_CUTOVER", "TEST_ONLY"]
 ReplicationConfigurationDataPlaneRoutingType = Literal["PRIVATE_IP", "PUBLIC_IP"]
 ReplicationConfigurationDefaultLargeStagingDiskTypeType = Literal["GP2", "GP3", "ST1"]
 ReplicationConfigurationEbsEncryptionType = Literal["CUSTOM", "DEFAULT"]
@@ -160,3 +175,6 @@ ReplicationTypeType = Literal["AGENT_BASED", "SNAPSHOT_SHIPPING"]
 SsmDocumentTypeType = Literal["AUTOMATION", "COMMAND"]
 SsmParameterStoreParameterTypeType = Literal["STRING"]
 TargetInstanceTypeRightSizingMethodType = Literal["BASIC", "NONE"]
+VolumeTypeType = Literal["gp2", "gp3", "io1", "io2", "sc1", "st1", "standard"]
+WaveHealthStatusType = Literal["ERROR", "HEALTHY", "LAGGING"]
+WaveProgressStatusType = Literal["COMPLETED", "IN_PROGRESS", "NOT_STARTED"]

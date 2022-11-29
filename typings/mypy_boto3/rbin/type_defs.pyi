@@ -12,9 +12,10 @@ Usage::
     ```
 """
 import sys
+from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import ResourceTypeType, RuleStatusType
+from .literals import LockStateType, ResourceTypeType, RuleStatusType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -35,6 +36,9 @@ __all__ = (
     "ListRulesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "LockConfigurationTypeDef",
+    "LockRuleRequestRequestTypeDef",
+    "LockRuleResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ResourceTagTypeDef",
     "ResponseMetadataTypeDef",
@@ -42,6 +46,9 @@ __all__ = (
     "RuleSummaryTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "UnlockDelayTypeDef",
+    "UnlockRuleRequestRequestTypeDef",
+    "UnlockRuleResponseTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateRuleRequestRequestTypeDef",
     "UpdateRuleResponseTypeDef",
@@ -60,6 +67,7 @@ _OptionalCreateRuleRequestRequestTypeDef = TypedDict(
         "Description": str,
         "Tags": List["TagTypeDef"],
         "ResourceTags": List["ResourceTagTypeDef"],
+        "LockConfiguration": "LockConfigurationTypeDef",
     },
     total=False,
 )
@@ -79,6 +87,8 @@ CreateRuleResponseTypeDef = TypedDict(
         "ResourceType": ResourceTypeType,
         "ResourceTags": List["ResourceTagTypeDef"],
         "Status": RuleStatusType,
+        "LockConfiguration": "LockConfigurationTypeDef",
+        "LockState": LockStateType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -106,6 +116,9 @@ GetRuleResponseTypeDef = TypedDict(
         "RetentionPeriod": "RetentionPeriodTypeDef",
         "ResourceTags": List["ResourceTagTypeDef"],
         "Status": RuleStatusType,
+        "LockConfiguration": "LockConfigurationTypeDef",
+        "LockState": LockStateType,
+        "LockEndTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -122,6 +135,7 @@ _OptionalListRulesRequestRequestTypeDef = TypedDict(
         "MaxResults": int,
         "NextToken": str,
         "ResourceTags": List["ResourceTagTypeDef"],
+        "LockState": LockStateType,
     },
     total=False,
 )
@@ -151,6 +165,36 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef",
     {
         "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+LockConfigurationTypeDef = TypedDict(
+    "LockConfigurationTypeDef",
+    {
+        "UnlockDelay": "UnlockDelayTypeDef",
+    },
+)
+
+LockRuleRequestRequestTypeDef = TypedDict(
+    "LockRuleRequestRequestTypeDef",
+    {
+        "Identifier": str,
+        "LockConfiguration": "LockConfigurationTypeDef",
+    },
+)
+
+LockRuleResponseTypeDef = TypedDict(
+    "LockRuleResponseTypeDef",
+    {
+        "Identifier": str,
+        "Description": str,
+        "ResourceType": ResourceTypeType,
+        "RetentionPeriod": "RetentionPeriodTypeDef",
+        "ResourceTags": List["ResourceTagTypeDef"],
+        "Status": RuleStatusType,
+        "LockConfiguration": "LockConfigurationTypeDef",
+        "LockState": LockStateType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -207,6 +251,7 @@ RuleSummaryTypeDef = TypedDict(
         "Identifier": str,
         "Description": str,
         "RetentionPeriod": "RetentionPeriodTypeDef",
+        "LockState": LockStateType,
     },
     total=False,
 )
@@ -224,6 +269,37 @@ TagTypeDef = TypedDict(
     {
         "Key": str,
         "Value": str,
+    },
+)
+
+UnlockDelayTypeDef = TypedDict(
+    "UnlockDelayTypeDef",
+    {
+        "UnlockDelayValue": int,
+        "UnlockDelayUnit": Literal["DAYS"],
+    },
+)
+
+UnlockRuleRequestRequestTypeDef = TypedDict(
+    "UnlockRuleRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+UnlockRuleResponseTypeDef = TypedDict(
+    "UnlockRuleResponseTypeDef",
+    {
+        "Identifier": str,
+        "Description": str,
+        "ResourceType": ResourceTypeType,
+        "RetentionPeriod": "RetentionPeriodTypeDef",
+        "ResourceTags": List["ResourceTagTypeDef"],
+        "Status": RuleStatusType,
+        "LockConfiguration": "LockConfigurationTypeDef",
+        "LockState": LockStateType,
+        "LockEndTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -266,6 +342,8 @@ UpdateRuleResponseTypeDef = TypedDict(
         "ResourceType": ResourceTypeType,
         "ResourceTags": List["ResourceTagTypeDef"],
         "Status": RuleStatusType,
+        "LockState": LockStateType,
+        "LockEndTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

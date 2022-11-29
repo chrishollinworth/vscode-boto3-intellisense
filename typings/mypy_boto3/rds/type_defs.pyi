@@ -63,6 +63,8 @@ __all__ = (
     "AvailabilityZoneTypeDef",
     "AvailableProcessorFeatureTypeDef",
     "BacktrackDBClusterMessageRequestTypeDef",
+    "BlueGreenDeploymentTaskTypeDef",
+    "BlueGreenDeploymentTypeDef",
     "CancelExportTaskMessageRequestTypeDef",
     "CertificateMessageTypeDef",
     "CertificateTypeDef",
@@ -82,6 +84,8 @@ __all__ = (
     "CopyDBSnapshotResultTypeDef",
     "CopyOptionGroupMessageRequestTypeDef",
     "CopyOptionGroupResultTypeDef",
+    "CreateBlueGreenDeploymentRequestRequestTypeDef",
+    "CreateBlueGreenDeploymentResponseTypeDef",
     "CreateCustomDBEngineVersionMessageRequestTypeDef",
     "CreateDBClusterEndpointMessageRequestTypeDef",
     "CreateDBClusterMessageRequestTypeDef",
@@ -160,6 +164,8 @@ __all__ = (
     "DBSnapshotTypeDef",
     "DBSubnetGroupMessageTypeDef",
     "DBSubnetGroupTypeDef",
+    "DeleteBlueGreenDeploymentRequestRequestTypeDef",
+    "DeleteBlueGreenDeploymentResponseTypeDef",
     "DeleteCustomDBEngineVersionMessageRequestTypeDef",
     "DeleteDBClusterEndpointMessageRequestTypeDef",
     "DeleteDBClusterMessageRequestTypeDef",
@@ -186,6 +192,8 @@ __all__ = (
     "DeleteGlobalClusterResultTypeDef",
     "DeleteOptionGroupMessageRequestTypeDef",
     "DeregisterDBProxyTargetsRequestRequestTypeDef",
+    "DescribeBlueGreenDeploymentsRequestRequestTypeDef",
+    "DescribeBlueGreenDeploymentsResponseTypeDef",
     "DescribeCertificatesMessageRequestTypeDef",
     "DescribeDBClusterBacktracksMessageRequestTypeDef",
     "DescribeDBClusterEndpointsMessageRequestTypeDef",
@@ -383,6 +391,9 @@ __all__ = (
     "StopDBInstanceMessageRequestTypeDef",
     "StopDBInstanceResultTypeDef",
     "SubnetTypeDef",
+    "SwitchoverBlueGreenDeploymentRequestRequestTypeDef",
+    "SwitchoverBlueGreenDeploymentResponseTypeDef",
+    "SwitchoverDetailTypeDef",
     "SwitchoverReadReplicaMessageRequestTypeDef",
     "SwitchoverReadReplicaResultTypeDef",
     "TagListMessageTypeDef",
@@ -557,6 +568,33 @@ class BacktrackDBClusterMessageRequestTypeDef(
     _OptionalBacktrackDBClusterMessageRequestTypeDef,
 ):
     pass
+
+BlueGreenDeploymentTaskTypeDef = TypedDict(
+    "BlueGreenDeploymentTaskTypeDef",
+    {
+        "Name": str,
+        "Status": str,
+    },
+    total=False,
+)
+
+BlueGreenDeploymentTypeDef = TypedDict(
+    "BlueGreenDeploymentTypeDef",
+    {
+        "BlueGreenDeploymentIdentifier": str,
+        "BlueGreenDeploymentName": str,
+        "Source": str,
+        "Target": str,
+        "SwitchoverDetails": List["SwitchoverDetailTypeDef"],
+        "Tasks": List["BlueGreenDeploymentTaskTypeDef"],
+        "Status": str,
+        "StatusDetails": str,
+        "CreateTime": datetime,
+        "DeleteTime": datetime,
+        "TagList": List["TagTypeDef"],
+    },
+    total=False,
+)
 
 CancelExportTaskMessageRequestTypeDef = TypedDict(
     "CancelExportTaskMessageRequestTypeDef",
@@ -820,6 +858,38 @@ CopyOptionGroupResultTypeDef = TypedDict(
     "CopyOptionGroupResultTypeDef",
     {
         "OptionGroup": "OptionGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateBlueGreenDeploymentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBlueGreenDeploymentRequestRequestTypeDef",
+    {
+        "BlueGreenDeploymentName": str,
+        "Source": str,
+    },
+)
+_OptionalCreateBlueGreenDeploymentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBlueGreenDeploymentRequestRequestTypeDef",
+    {
+        "TargetEngineVersion": str,
+        "TargetDBParameterGroupName": str,
+        "TargetDBClusterParameterGroupName": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateBlueGreenDeploymentRequestRequestTypeDef(
+    _RequiredCreateBlueGreenDeploymentRequestRequestTypeDef,
+    _OptionalCreateBlueGreenDeploymentRequestRequestTypeDef,
+):
+    pass
+
+CreateBlueGreenDeploymentResponseTypeDef = TypedDict(
+    "CreateBlueGreenDeploymentResponseTypeDef",
+    {
+        "BlueGreenDeployment": "BlueGreenDeploymentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2200,6 +2270,34 @@ DBSubnetGroupTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDeleteBlueGreenDeploymentRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteBlueGreenDeploymentRequestRequestTypeDef",
+    {
+        "BlueGreenDeploymentIdentifier": str,
+    },
+)
+_OptionalDeleteBlueGreenDeploymentRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteBlueGreenDeploymentRequestRequestTypeDef",
+    {
+        "DeleteTarget": bool,
+    },
+    total=False,
+)
+
+class DeleteBlueGreenDeploymentRequestRequestTypeDef(
+    _RequiredDeleteBlueGreenDeploymentRequestRequestTypeDef,
+    _OptionalDeleteBlueGreenDeploymentRequestRequestTypeDef,
+):
+    pass
+
+DeleteBlueGreenDeploymentResponseTypeDef = TypedDict(
+    "DeleteBlueGreenDeploymentResponseTypeDef",
+    {
+        "BlueGreenDeployment": "BlueGreenDeploymentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
     "DeleteCustomDBEngineVersionMessageRequestTypeDef",
     {
@@ -2435,6 +2533,26 @@ class DeregisterDBProxyTargetsRequestRequestTypeDef(
     _OptionalDeregisterDBProxyTargetsRequestRequestTypeDef,
 ):
     pass
+
+DescribeBlueGreenDeploymentsRequestRequestTypeDef = TypedDict(
+    "DescribeBlueGreenDeploymentsRequestRequestTypeDef",
+    {
+        "BlueGreenDeploymentIdentifier": str,
+        "Filters": List["FilterTypeDef"],
+        "Marker": str,
+        "MaxRecords": int,
+    },
+    total=False,
+)
+
+DescribeBlueGreenDeploymentsResponseTypeDef = TypedDict(
+    "DescribeBlueGreenDeploymentsResponseTypeDef",
+    {
+        "BlueGreenDeployments": List["BlueGreenDeploymentTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DescribeCertificatesMessageRequestTypeDef = TypedDict(
     "DescribeCertificatesMessageRequestTypeDef",
@@ -5308,6 +5426,44 @@ SubnetTypeDef = TypedDict(
         "SubnetAvailabilityZone": "AvailabilityZoneTypeDef",
         "SubnetOutpost": "OutpostTypeDef",
         "SubnetStatus": str,
+    },
+    total=False,
+)
+
+_RequiredSwitchoverBlueGreenDeploymentRequestRequestTypeDef = TypedDict(
+    "_RequiredSwitchoverBlueGreenDeploymentRequestRequestTypeDef",
+    {
+        "BlueGreenDeploymentIdentifier": str,
+    },
+)
+_OptionalSwitchoverBlueGreenDeploymentRequestRequestTypeDef = TypedDict(
+    "_OptionalSwitchoverBlueGreenDeploymentRequestRequestTypeDef",
+    {
+        "SwitchoverTimeout": int,
+    },
+    total=False,
+)
+
+class SwitchoverBlueGreenDeploymentRequestRequestTypeDef(
+    _RequiredSwitchoverBlueGreenDeploymentRequestRequestTypeDef,
+    _OptionalSwitchoverBlueGreenDeploymentRequestRequestTypeDef,
+):
+    pass
+
+SwitchoverBlueGreenDeploymentResponseTypeDef = TypedDict(
+    "SwitchoverBlueGreenDeploymentResponseTypeDef",
+    {
+        "BlueGreenDeployment": "BlueGreenDeploymentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SwitchoverDetailTypeDef = TypedDict(
+    "SwitchoverDetailTypeDef",
+    {
+        "SourceMember": str,
+        "TargetMember": str,
+        "Status": str,
     },
     total=False,
 )

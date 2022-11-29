@@ -19,6 +19,7 @@ from .literals import (
     BackupJobStateType,
     BackupVaultEventType,
     CopyJobStateType,
+    LegalHoldStatusType,
     RecoveryPointStatusType,
     RestoreJobStatusType,
     StorageClassType,
@@ -46,6 +47,7 @@ __all__ = (
     "BackupSelectionsListMemberTypeDef",
     "BackupVaultListMemberTypeDef",
     "CalculatedLifecycleTypeDef",
+    "CancelLegalHoldInputRequestTypeDef",
     "ConditionParameterTypeDef",
     "ConditionTypeDef",
     "ConditionsTypeDef",
@@ -61,8 +63,11 @@ __all__ = (
     "CreateBackupVaultOutputTypeDef",
     "CreateFrameworkInputRequestTypeDef",
     "CreateFrameworkOutputTypeDef",
+    "CreateLegalHoldInputRequestTypeDef",
+    "CreateLegalHoldOutputTypeDef",
     "CreateReportPlanInputRequestTypeDef",
     "CreateReportPlanOutputTypeDef",
+    "DateRangeTypeDef",
     "DeleteBackupPlanInputRequestTypeDef",
     "DeleteBackupPlanOutputTypeDef",
     "DeleteBackupSelectionInputRequestTypeDef",
@@ -93,6 +98,7 @@ __all__ = (
     "DescribeReportPlanOutputTypeDef",
     "DescribeRestoreJobInputRequestTypeDef",
     "DescribeRestoreJobOutputTypeDef",
+    "DisassociateRecoveryPointFromParentInputRequestTypeDef",
     "DisassociateRecoveryPointInputRequestTypeDef",
     "ExportBackupPlanTemplateInputRequestTypeDef",
     "ExportBackupPlanTemplateOutputTypeDef",
@@ -110,9 +116,12 @@ __all__ = (
     "GetBackupVaultAccessPolicyOutputTypeDef",
     "GetBackupVaultNotificationsInputRequestTypeDef",
     "GetBackupVaultNotificationsOutputTypeDef",
+    "GetLegalHoldInputRequestTypeDef",
+    "GetLegalHoldOutputTypeDef",
     "GetRecoveryPointRestoreMetadataInputRequestTypeDef",
     "GetRecoveryPointRestoreMetadataOutputTypeDef",
     "GetSupportedResourceTypesOutputTypeDef",
+    "LegalHoldTypeDef",
     "LifecycleTypeDef",
     "ListBackupJobsInputRequestTypeDef",
     "ListBackupJobsOutputTypeDef",
@@ -130,10 +139,14 @@ __all__ = (
     "ListCopyJobsOutputTypeDef",
     "ListFrameworksInputRequestTypeDef",
     "ListFrameworksOutputTypeDef",
+    "ListLegalHoldsInputRequestTypeDef",
+    "ListLegalHoldsOutputTypeDef",
     "ListProtectedResourcesInputRequestTypeDef",
     "ListProtectedResourcesOutputTypeDef",
     "ListRecoveryPointsByBackupVaultInputRequestTypeDef",
     "ListRecoveryPointsByBackupVaultOutputTypeDef",
+    "ListRecoveryPointsByLegalHoldInputRequestTypeDef",
+    "ListRecoveryPointsByLegalHoldOutputTypeDef",
     "ListRecoveryPointsByResourceInputRequestTypeDef",
     "ListRecoveryPointsByResourceOutputTypeDef",
     "ListReportJobsInputRequestTypeDef",
@@ -152,6 +165,8 @@ __all__ = (
     "RecoveryPointByBackupVaultTypeDef",
     "RecoveryPointByResourceTypeDef",
     "RecoveryPointCreatorTypeDef",
+    "RecoveryPointMemberTypeDef",
+    "RecoveryPointSelectionTypeDef",
     "ReportDeliveryChannelTypeDef",
     "ReportDestinationTypeDef",
     "ReportJobTypeDef",
@@ -214,6 +229,8 @@ BackupJobTypeDef = TypedDict(
         "BytesTransferred": int,
         "BackupOptions": Dict[str, str],
         "BackupType": str,
+        "ParentJobId": str,
+        "IsParent": bool,
     },
     total=False,
 )
@@ -388,6 +405,26 @@ CalculatedLifecycleTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCancelLegalHoldInputRequestTypeDef = TypedDict(
+    "_RequiredCancelLegalHoldInputRequestTypeDef",
+    {
+        "LegalHoldId": str,
+        "CancelDescription": str,
+    },
+)
+_OptionalCancelLegalHoldInputRequestTypeDef = TypedDict(
+    "_OptionalCancelLegalHoldInputRequestTypeDef",
+    {
+        "RetainRecordInDays": int,
+    },
+    total=False,
+)
+
+class CancelLegalHoldInputRequestTypeDef(
+    _RequiredCancelLegalHoldInputRequestTypeDef, _OptionalCancelLegalHoldInputRequestTypeDef
+):
+    pass
+
 ConditionParameterTypeDef = TypedDict(
     "ConditionParameterTypeDef",
     {
@@ -471,6 +508,11 @@ CopyJobTypeDef = TypedDict(
         "IamRoleArn": str,
         "CreatedBy": "RecoveryPointCreatorTypeDef",
         "ResourceType": str,
+        "ParentJobId": str,
+        "IsParent": bool,
+        "CompositeMemberIdentifier": str,
+        "NumberOfChildJobs": int,
+        "ChildJobsInState": Dict[CopyJobStateType, int],
     },
     total=False,
 )
@@ -600,6 +642,42 @@ CreateFrameworkOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateLegalHoldInputRequestTypeDef = TypedDict(
+    "_RequiredCreateLegalHoldInputRequestTypeDef",
+    {
+        "Title": str,
+        "Description": str,
+    },
+)
+_OptionalCreateLegalHoldInputRequestTypeDef = TypedDict(
+    "_OptionalCreateLegalHoldInputRequestTypeDef",
+    {
+        "IdempotencyToken": str,
+        "RecoveryPointSelection": "RecoveryPointSelectionTypeDef",
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateLegalHoldInputRequestTypeDef(
+    _RequiredCreateLegalHoldInputRequestTypeDef, _OptionalCreateLegalHoldInputRequestTypeDef
+):
+    pass
+
+CreateLegalHoldOutputTypeDef = TypedDict(
+    "CreateLegalHoldOutputTypeDef",
+    {
+        "Title": str,
+        "Status": LegalHoldStatusType,
+        "Description": str,
+        "LegalHoldId": str,
+        "LegalHoldArn": str,
+        "CreationDate": datetime,
+        "RecoveryPointSelection": "RecoveryPointSelectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateReportPlanInputRequestTypeDef = TypedDict(
     "_RequiredCreateReportPlanInputRequestTypeDef",
     {
@@ -630,6 +708,14 @@ CreateReportPlanOutputTypeDef = TypedDict(
         "ReportPlanArn": str,
         "CreationTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DateRangeTypeDef = TypedDict(
+    "DateRangeTypeDef",
+    {
+        "FromDate": Union[datetime, str],
+        "ToDate": Union[datetime, str],
     },
 )
 
@@ -739,6 +825,10 @@ DescribeBackupJobOutputTypeDef = TypedDict(
         "StartBy": datetime,
         "BackupOptions": Dict[str, str],
         "BackupType": str,
+        "ParentJobId": str,
+        "IsParent": bool,
+        "NumberOfChildJobs": int,
+        "ChildJobsInState": Dict[BackupJobStateType, int],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -860,6 +950,9 @@ DescribeRecoveryPointOutputTypeDef = TypedDict(
         "IsEncrypted": bool,
         "StorageClass": StorageClassType,
         "LastRestoreTime": datetime,
+        "ParentRecoveryPointArn": str,
+        "CompositeMemberIdentifier": str,
+        "IsParent": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -927,6 +1020,14 @@ DescribeRestoreJobOutputTypeDef = TypedDict(
         "CreatedResourceArn": str,
         "ResourceType": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateRecoveryPointFromParentInputRequestTypeDef = TypedDict(
+    "DisassociateRecoveryPointFromParentInputRequestTypeDef",
+    {
+        "BackupVaultName": str,
+        "RecoveryPointArn": str,
     },
 )
 
@@ -1104,6 +1205,30 @@ GetBackupVaultNotificationsOutputTypeDef = TypedDict(
     },
 )
 
+GetLegalHoldInputRequestTypeDef = TypedDict(
+    "GetLegalHoldInputRequestTypeDef",
+    {
+        "LegalHoldId": str,
+    },
+)
+
+GetLegalHoldOutputTypeDef = TypedDict(
+    "GetLegalHoldOutputTypeDef",
+    {
+        "Title": str,
+        "Status": LegalHoldStatusType,
+        "Description": str,
+        "CancelDescription": str,
+        "LegalHoldId": str,
+        "LegalHoldArn": str,
+        "CreationDate": datetime,
+        "CancellationDate": datetime,
+        "RetainRecordUntil": datetime,
+        "RecoveryPointSelection": "RecoveryPointSelectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetRecoveryPointRestoreMetadataInputRequestTypeDef = TypedDict(
     "GetRecoveryPointRestoreMetadataInputRequestTypeDef",
     {
@@ -1130,6 +1255,20 @@ GetSupportedResourceTypesOutputTypeDef = TypedDict(
     },
 )
 
+LegalHoldTypeDef = TypedDict(
+    "LegalHoldTypeDef",
+    {
+        "Title": str,
+        "Status": LegalHoldStatusType,
+        "Description": str,
+        "LegalHoldId": str,
+        "LegalHoldArn": str,
+        "CreationDate": datetime,
+        "CancellationDate": datetime,
+    },
+    total=False,
+)
+
 LifecycleTypeDef = TypedDict(
     "LifecycleTypeDef",
     {
@@ -1153,6 +1292,7 @@ ListBackupJobsInputRequestTypeDef = TypedDict(
         "ByAccountId": str,
         "ByCompleteAfter": Union[datetime, str],
         "ByCompleteBefore": Union[datetime, str],
+        "ByParentJobId": str,
     },
     total=False,
 )
@@ -1295,6 +1435,7 @@ ListCopyJobsInputRequestTypeDef = TypedDict(
         "ByAccountId": str,
         "ByCompleteBefore": Union[datetime, str],
         "ByCompleteAfter": Union[datetime, str],
+        "ByParentJobId": str,
     },
     total=False,
 )
@@ -1322,6 +1463,24 @@ ListFrameworksOutputTypeDef = TypedDict(
     {
         "Frameworks": List["FrameworkTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListLegalHoldsInputRequestTypeDef = TypedDict(
+    "ListLegalHoldsInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListLegalHoldsOutputTypeDef = TypedDict(
+    "ListLegalHoldsOutputTypeDef",
+    {
+        "NextToken": str,
+        "LegalHolds": List["LegalHoldTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1360,6 +1519,7 @@ _OptionalListRecoveryPointsByBackupVaultInputRequestTypeDef = TypedDict(
         "ByBackupPlanId": str,
         "ByCreatedBefore": Union[datetime, str],
         "ByCreatedAfter": Union[datetime, str],
+        "ByParentRecoveryPointArn": str,
     },
     total=False,
 )
@@ -1375,6 +1535,36 @@ ListRecoveryPointsByBackupVaultOutputTypeDef = TypedDict(
     {
         "NextToken": str,
         "RecoveryPoints": List["RecoveryPointByBackupVaultTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListRecoveryPointsByLegalHoldInputRequestTypeDef = TypedDict(
+    "_RequiredListRecoveryPointsByLegalHoldInputRequestTypeDef",
+    {
+        "LegalHoldId": str,
+    },
+)
+_OptionalListRecoveryPointsByLegalHoldInputRequestTypeDef = TypedDict(
+    "_OptionalListRecoveryPointsByLegalHoldInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListRecoveryPointsByLegalHoldInputRequestTypeDef(
+    _RequiredListRecoveryPointsByLegalHoldInputRequestTypeDef,
+    _OptionalListRecoveryPointsByLegalHoldInputRequestTypeDef,
+):
+    pass
+
+ListRecoveryPointsByLegalHoldOutputTypeDef = TypedDict(
+    "ListRecoveryPointsByLegalHoldOutputTypeDef",
+    {
+        "RecoveryPoints": List["RecoveryPointMemberTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1594,6 +1784,9 @@ RecoveryPointByBackupVaultTypeDef = TypedDict(
         "EncryptionKeyArn": str,
         "IsEncrypted": bool,
         "LastRestoreTime": datetime,
+        "ParentRecoveryPointArn": str,
+        "CompositeMemberIdentifier": str,
+        "IsParent": bool,
     },
     total=False,
 )
@@ -1608,6 +1801,8 @@ RecoveryPointByResourceTypeDef = TypedDict(
         "EncryptionKeyArn": str,
         "BackupSizeBytes": int,
         "BackupVaultName": str,
+        "IsParent": bool,
+        "ParentRecoveryPointArn": str,
     },
     total=False,
 )
@@ -1619,6 +1814,24 @@ RecoveryPointCreatorTypeDef = TypedDict(
         "BackupPlanArn": str,
         "BackupPlanVersion": str,
         "BackupRuleId": str,
+    },
+    total=False,
+)
+
+RecoveryPointMemberTypeDef = TypedDict(
+    "RecoveryPointMemberTypeDef",
+    {
+        "RecoveryPointArn": str,
+    },
+    total=False,
+)
+
+RecoveryPointSelectionTypeDef = TypedDict(
+    "RecoveryPointSelectionTypeDef",
+    {
+        "VaultNames": List[str],
+        "ResourceIdentifiers": List[str],
+        "DateRange": "DateRangeTypeDef",
     },
     total=False,
 )
@@ -1694,6 +1907,9 @@ _OptionalReportSettingTypeDef = TypedDict(
     {
         "FrameworkArns": List[str],
         "NumberOfFrameworks": int,
+        "Accounts": List[str],
+        "OrganizationUnits": List[str],
+        "Regions": List[str],
     },
     total=False,
 )
@@ -1764,6 +1980,7 @@ StartBackupJobOutputTypeDef = TypedDict(
         "BackupJobId": str,
         "RecoveryPointArn": str,
         "CreationDate": datetime,
+        "IsParent": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1796,6 +2013,7 @@ StartCopyJobOutputTypeDef = TypedDict(
     {
         "CopyJobId": str,
         "CreationDate": datetime,
+        "IsParent": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

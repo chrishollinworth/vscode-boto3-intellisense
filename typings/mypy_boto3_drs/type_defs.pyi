@@ -21,6 +21,7 @@ from .literals import (
     DataReplicationStateType,
     EC2InstanceStateType,
     ExtensionStatusType,
+    FailbackLaunchTypeType,
     FailbackReplicationErrorType,
     FailbackStateType,
     InitiatedByType,
@@ -31,6 +32,7 @@ from .literals import (
     LastLaunchTypeType,
     LaunchDispositionType,
     LaunchStatusType,
+    OriginEnvironmentType,
     PITPolicyRuleUnitsType,
     RecoveryInstanceDataReplicationInitiationStepNameType,
     RecoveryInstanceDataReplicationInitiationStepStatusType,
@@ -40,6 +42,7 @@ from .literals import (
     ReplicationConfigurationDefaultLargeStagingDiskTypeType,
     ReplicationConfigurationEbsEncryptionType,
     ReplicationConfigurationReplicatedDiskStagingDiskTypeType,
+    ReplicationDirectionType,
     TargetInstanceTypeRightSizingMethodType,
 )
 
@@ -123,6 +126,9 @@ __all__ = (
     "ReplicationConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "RetryDataReplicationRequestRequestTypeDef",
+    "ReverseReplicationRequestRequestTypeDef",
+    "ReverseReplicationResponseTypeDef",
+    "SourceCloudPropertiesTypeDef",
     "SourcePropertiesTypeDef",
     "SourceServerResponseMetadataTypeDef",
     "SourceServerTypeDef",
@@ -133,7 +139,11 @@ __all__ = (
     "StartRecoveryRequestRequestTypeDef",
     "StartRecoveryRequestSourceServerTypeDef",
     "StartRecoveryResponseTypeDef",
+    "StartReplicationRequestRequestTypeDef",
+    "StartReplicationResponseTypeDef",
     "StopFailbackRequestRequestTypeDef",
+    "StopReplicationRequestRequestTypeDef",
+    "StopReplicationResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TerminateRecoveryInstancesRequestRequestTypeDef",
     "TerminateRecoveryInstancesResponseTypeDef",
@@ -847,6 +857,7 @@ RecoveryInstanceFailbackTypeDef = TypedDict(
         "failbackClientLastSeenByServiceDateTime": str,
         "failbackInitiationTime": str,
         "failbackJobID": str,
+        "failbackLaunchType": FailbackLaunchTypeType,
         "failbackToOriginalServer": bool,
         "firstByteDateTime": str,
         "state": FailbackStateType,
@@ -878,6 +889,7 @@ RecoveryInstanceTypeDef = TypedDict(
         "failback": "RecoveryInstanceFailbackTypeDef",
         "isDrill": bool,
         "jobID": str,
+        "originEnvironment": OriginEnvironmentType,
         "pointInTimeSnapshotDateTime": str,
         "recoveryInstanceID": str,
         "recoveryInstanceProperties": "RecoveryInstancePropertiesTypeDef",
@@ -1018,6 +1030,31 @@ RetryDataReplicationRequestRequestTypeDef = TypedDict(
     },
 )
 
+ReverseReplicationRequestRequestTypeDef = TypedDict(
+    "ReverseReplicationRequestRequestTypeDef",
+    {
+        "recoveryInstanceID": str,
+    },
+)
+
+ReverseReplicationResponseTypeDef = TypedDict(
+    "ReverseReplicationResponseTypeDef",
+    {
+        "reversedDirectionSourceServerArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SourceCloudPropertiesTypeDef = TypedDict(
+    "SourceCloudPropertiesTypeDef",
+    {
+        "originAccountID": str,
+        "originAvailabilityZone": str,
+        "originRegion": str,
+    },
+    total=False,
+)
+
 SourcePropertiesTypeDef = TypedDict(
     "SourcePropertiesTypeDef",
     {
@@ -1041,6 +1078,9 @@ SourceServerResponseMetadataTypeDef = TypedDict(
         "lastLaunchResult": LastLaunchResultType,
         "lifeCycle": "LifeCycleTypeDef",
         "recoveryInstanceId": str,
+        "replicationDirection": ReplicationDirectionType,
+        "reversedDirectionSourceServerArn": str,
+        "sourceCloudProperties": "SourceCloudPropertiesTypeDef",
         "sourceProperties": "SourcePropertiesTypeDef",
         "sourceServerID": str,
         "stagingArea": "StagingAreaTypeDef",
@@ -1057,6 +1097,9 @@ SourceServerTypeDef = TypedDict(
         "lastLaunchResult": LastLaunchResultType,
         "lifeCycle": "LifeCycleTypeDef",
         "recoveryInstanceId": str,
+        "replicationDirection": ReplicationDirectionType,
+        "reversedDirectionSourceServerArn": str,
+        "sourceCloudProperties": "SourceCloudPropertiesTypeDef",
         "sourceProperties": "SourcePropertiesTypeDef",
         "sourceServerID": str,
         "stagingArea": "StagingAreaTypeDef",
@@ -1162,10 +1205,40 @@ StartRecoveryResponseTypeDef = TypedDict(
     },
 )
 
+StartReplicationRequestRequestTypeDef = TypedDict(
+    "StartReplicationRequestRequestTypeDef",
+    {
+        "sourceServerID": str,
+    },
+)
+
+StartReplicationResponseTypeDef = TypedDict(
+    "StartReplicationResponseTypeDef",
+    {
+        "sourceServer": "SourceServerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StopFailbackRequestRequestTypeDef = TypedDict(
     "StopFailbackRequestRequestTypeDef",
     {
         "recoveryInstanceID": str,
+    },
+)
+
+StopReplicationRequestRequestTypeDef = TypedDict(
+    "StopReplicationRequestRequestTypeDef",
+    {
+        "sourceServerID": str,
+    },
+)
+
+StopReplicationResponseTypeDef = TypedDict(
+    "StopReplicationResponseTypeDef",
+    {
+        "sourceServer": "SourceServerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

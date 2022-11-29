@@ -843,6 +843,8 @@ ListMetricsInputRequestTypeDef = TypedDict(
         "Dimensions": List["DimensionFilterTypeDef"],
         "NextToken": str,
         "RecentlyActive": Literal["PT3H"],
+        "IncludeLinkedAccounts": bool,
+        "OwningAccount": str,
     },
     total=False,
 )
@@ -852,6 +854,7 @@ ListMetricsOutputTypeDef = TypedDict(
     {
         "Metrics": List["MetricTypeDef"],
         "NextToken": str,
+        "OwningAccounts": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -48,7 +48,10 @@ __all__ = (
     "LogTypeType",
     "PackageTypeType",
     "ProvisionedConcurrencyStatusEnumType",
+    "PublishedVersionActiveWaiterName",
     "RuntimeType",
+    "SnapStartApplyOnType",
+    "SnapStartOptimizationStatusType",
     "SourceAccessTypeType",
     "StateReasonCodeType",
     "StateType",
@@ -69,15 +72,26 @@ FunctionUrlAuthTypeType = Literal["AWS_IAM", "NONE"]
 FunctionVersionType = Literal["ALL"]
 InvocationTypeType = Literal["DryRun", "Event", "RequestResponse"]
 LastUpdateStatusReasonCodeType = Literal[
+    "DisabledKMSKey",
+    "EFSIOError",
+    "EFSMountConnectivityError",
+    "EFSMountFailure",
+    "EFSMountTimeout",
     "EniLimitExceeded",
+    "FunctionError",
     "ImageAccessDenied",
     "ImageDeleted",
     "InsufficientRolePermissions",
     "InternalError",
     "InvalidConfiguration",
     "InvalidImage",
+    "InvalidRuntime",
     "InvalidSecurityGroup",
+    "InvalidStateKMSKey",
     "InvalidSubnet",
+    "InvalidZipFileException",
+    "KMSKeyAccessDenied",
+    "KMSKeyNotFound",
     "SubnetOutOfIPAddresses",
 ]
 LastUpdateStatusType = Literal["Failed", "InProgress", "Successful"]
@@ -95,6 +109,7 @@ ListVersionsByFunctionPaginatorName = Literal["list_versions_by_function"]
 LogTypeType = Literal["None", "Tail"]
 PackageTypeType = Literal["Image", "Zip"]
 ProvisionedConcurrencyStatusEnumType = Literal["FAILED", "IN_PROGRESS", "READY"]
+PublishedVersionActiveWaiterName = Literal["published_version_active"]
 RuntimeType = Literal[
     "dotnet6",
     "dotnetcore1.0",
@@ -125,6 +140,8 @@ RuntimeType = Literal[
     "ruby2.5",
     "ruby2.7",
 ]
+SnapStartApplyOnType = Literal["None", "PublishedVersions"]
+SnapStartOptimizationStatusType = Literal["Off", "On"]
 SourceAccessTypeType = Literal[
     "BASIC_AUTH",
     "CLIENT_CERTIFICATE_TLS_AUTH",
@@ -137,7 +154,13 @@ SourceAccessTypeType = Literal[
 ]
 StateReasonCodeType = Literal[
     "Creating",
+    "DisabledKMSKey",
+    "EFSIOError",
+    "EFSMountConnectivityError",
+    "EFSMountFailure",
+    "EFSMountTimeout",
     "EniLimitExceeded",
+    "FunctionError",
     "Idle",
     "ImageAccessDenied",
     "ImageDeleted",
@@ -145,8 +168,13 @@ StateReasonCodeType = Literal[
     "InternalError",
     "InvalidConfiguration",
     "InvalidImage",
+    "InvalidRuntime",
     "InvalidSecurityGroup",
+    "InvalidStateKMSKey",
     "InvalidSubnet",
+    "InvalidZipFileException",
+    "KMSKeyAccessDenied",
+    "KMSKeyNotFound",
     "Restoring",
     "SubnetOutOfIPAddresses",
 ]

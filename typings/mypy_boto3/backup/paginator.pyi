@@ -17,8 +17,10 @@ Usage::
         ListBackupSelectionsPaginator,
         ListBackupVaultsPaginator,
         ListCopyJobsPaginator,
+        ListLegalHoldsPaginator,
         ListProtectedResourcesPaginator,
         ListRecoveryPointsByBackupVaultPaginator,
+        ListRecoveryPointsByLegalHoldPaginator,
         ListRecoveryPointsByResourcePaginator,
         ListRestoreJobsPaginator,
     )
@@ -32,8 +34,10 @@ Usage::
     list_backup_selections_paginator: ListBackupSelectionsPaginator = client.get_paginator("list_backup_selections")
     list_backup_vaults_paginator: ListBackupVaultsPaginator = client.get_paginator("list_backup_vaults")
     list_copy_jobs_paginator: ListCopyJobsPaginator = client.get_paginator("list_copy_jobs")
+    list_legal_holds_paginator: ListLegalHoldsPaginator = client.get_paginator("list_legal_holds")
     list_protected_resources_paginator: ListProtectedResourcesPaginator = client.get_paginator("list_protected_resources")
     list_recovery_points_by_backup_vault_paginator: ListRecoveryPointsByBackupVaultPaginator = client.get_paginator("list_recovery_points_by_backup_vault")
+    list_recovery_points_by_legal_hold_paginator: ListRecoveryPointsByLegalHoldPaginator = client.get_paginator("list_recovery_points_by_legal_hold")
     list_recovery_points_by_resource_paginator: ListRecoveryPointsByResourcePaginator = client.get_paginator("list_recovery_points_by_resource")
     list_restore_jobs_paginator: ListRestoreJobsPaginator = client.get_paginator("list_restore_jobs")
     ```
@@ -52,8 +56,10 @@ from .type_defs import (
     ListBackupSelectionsOutputTypeDef,
     ListBackupVaultsOutputTypeDef,
     ListCopyJobsOutputTypeDef,
+    ListLegalHoldsOutputTypeDef,
     ListProtectedResourcesOutputTypeDef,
     ListRecoveryPointsByBackupVaultOutputTypeDef,
+    ListRecoveryPointsByLegalHoldOutputTypeDef,
     ListRecoveryPointsByResourceOutputTypeDef,
     ListRestoreJobsOutputTypeDef,
     PaginatorConfigTypeDef,
@@ -67,15 +73,17 @@ __all__ = (
     "ListBackupSelectionsPaginator",
     "ListBackupVaultsPaginator",
     "ListCopyJobsPaginator",
+    "ListLegalHoldsPaginator",
     "ListProtectedResourcesPaginator",
     "ListRecoveryPointsByBackupVaultPaginator",
+    "ListRecoveryPointsByLegalHoldPaginator",
     "ListRecoveryPointsByResourcePaginator",
     "ListRestoreJobsPaginator",
 )
 
 class ListBackupJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupjobspaginator)
     """
 
@@ -91,16 +99,17 @@ class ListBackupJobsPaginator(Boto3Paginator):
         ByAccountId: str = None,
         ByCompleteAfter: Union[datetime, str] = None,
         ByCompleteBefore: Union[datetime, str] = None,
+        ByParentJobId: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBackupJobsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupjobspaginator)
         """
 
 class ListBackupPlanTemplatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupPlanTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupPlanTemplates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplantemplatespaginator)
     """
 
@@ -108,13 +117,13 @@ class ListBackupPlanTemplatesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBackupPlanTemplatesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupPlanTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupPlanTemplates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplantemplatespaginator)
         """
 
 class ListBackupPlanVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupPlanVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupPlanVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplanversionspaginator)
     """
 
@@ -122,13 +131,13 @@ class ListBackupPlanVersionsPaginator(Boto3Paginator):
         self, *, BackupPlanId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBackupPlanVersionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupPlanVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupPlanVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplanversionspaginator)
         """
 
 class ListBackupPlansPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupPlans)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupPlans)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplanspaginator)
     """
 
@@ -136,13 +145,13 @@ class ListBackupPlansPaginator(Boto3Paginator):
         self, *, IncludeDeleted: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBackupPlansOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupPlans.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupPlans.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplanspaginator)
         """
 
 class ListBackupSelectionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupSelections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupSelections)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupselectionspaginator)
     """
 
@@ -150,13 +159,13 @@ class ListBackupSelectionsPaginator(Boto3Paginator):
         self, *, BackupPlanId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBackupSelectionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupSelections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupSelections.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupselectionspaginator)
         """
 
 class ListBackupVaultsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupVaults)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupVaults)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupvaultspaginator)
     """
 
@@ -164,13 +173,13 @@ class ListBackupVaultsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBackupVaultsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListBackupVaults.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListBackupVaults.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupvaultspaginator)
         """
 
 class ListCopyJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListCopyJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListCopyJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listcopyjobspaginator)
     """
 
@@ -186,16 +195,31 @@ class ListCopyJobsPaginator(Boto3Paginator):
         ByAccountId: str = None,
         ByCompleteBefore: Union[datetime, str] = None,
         ByCompleteAfter: Union[datetime, str] = None,
+        ByParentJobId: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCopyJobsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListCopyJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListCopyJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listcopyjobspaginator)
+        """
+
+class ListLegalHoldsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListLegalHolds)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listlegalholdspaginator)
+    """
+
+    def paginate(
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListLegalHoldsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListLegalHolds.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listlegalholdspaginator)
         """
 
 class ListProtectedResourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListProtectedResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListProtectedResources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listprotectedresourcespaginator)
     """
 
@@ -203,13 +227,13 @@ class ListProtectedResourcesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProtectedResourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListProtectedResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListProtectedResources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listprotectedresourcespaginator)
         """
 
 class ListRecoveryPointsByBackupVaultPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByBackupVault)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByBackupVault)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbybackupvaultpaginator)
     """
 
@@ -222,16 +246,31 @@ class ListRecoveryPointsByBackupVaultPaginator(Boto3Paginator):
         ByBackupPlanId: str = None,
         ByCreatedBefore: Union[datetime, str] = None,
         ByCreatedAfter: Union[datetime, str] = None,
+        ByParentRecoveryPointArn: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecoveryPointsByBackupVaultOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByBackupVault.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByBackupVault.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbybackupvaultpaginator)
+        """
+
+class ListRecoveryPointsByLegalHoldPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByLegalHold)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbylegalholdpaginator)
+    """
+
+    def paginate(
+        self, *, LegalHoldId: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListRecoveryPointsByLegalHoldOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByLegalHold.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbylegalholdpaginator)
         """
 
 class ListRecoveryPointsByResourcePaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbyresourcepaginator)
     """
 
@@ -239,13 +278,13 @@ class ListRecoveryPointsByResourcePaginator(Boto3Paginator):
         self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecoveryPointsByResourceOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByResource.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByResource.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbyresourcepaginator)
         """
 
 class ListRestoreJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListRestoreJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListRestoreJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrestorejobspaginator)
     """
 
@@ -261,6 +300,6 @@ class ListRestoreJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRestoreJobsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/backup.html#Backup.Paginator.ListRestoreJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/backup.html#Backup.Paginator.ListRestoreJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrestorejobspaginator)
         """

@@ -39,6 +39,7 @@ __all__ = (
     "DBSnapshotAvailableWaiterName",
     "DBSnapshotCompletedWaiterName",
     "DBSnapshotDeletedWaiterName",
+    "DescribeBlueGreenDeploymentsPaginatorName",
     "DescribeCertificatesPaginatorName",
     "DescribeDBClusterBacktracksPaginatorName",
     "DescribeDBClusterEndpointsPaginatorName",
@@ -123,6 +124,7 @@ DBProxyStatusType = Literal[
 DBSnapshotAvailableWaiterName = Literal["db_snapshot_available"]
 DBSnapshotCompletedWaiterName = Literal["db_snapshot_completed"]
 DBSnapshotDeletedWaiterName = Literal["db_snapshot_deleted"]
+DescribeBlueGreenDeploymentsPaginatorName = Literal["describe_blue_green_deployments"]
 DescribeCertificatesPaginatorName = Literal["describe_certificates"]
 DescribeDBClusterBacktracksPaginatorName = Literal["describe_db_cluster_backtracks"]
 DescribeDBClusterEndpointsPaginatorName = Literal["describe_db_cluster_endpoints"]

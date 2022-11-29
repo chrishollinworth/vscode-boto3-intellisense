@@ -18,6 +18,7 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("ListRetainedMessagesPaginatorName",)
+__all__ = ("ListRetainedMessagesPaginatorName", "PayloadFormatIndicatorType")
 
 ListRetainedMessagesPaginatorName = Literal["list_retained_messages"]
+PayloadFormatIndicatorType = Literal["UNSPECIFIED_BYTES", "UTF8_DATA"]

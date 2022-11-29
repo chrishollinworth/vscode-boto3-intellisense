@@ -196,7 +196,7 @@ class Exceptions:
 
 class PinpointClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html)
     """
 
@@ -211,14 +211,14 @@ class PinpointClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#close)
         """
     def create_app(
@@ -227,7 +227,7 @@ class PinpointClient(BaseClient):
         """
         Creates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_app)
         """
     def create_campaign(
@@ -237,7 +237,7 @@ class PinpointClient(BaseClient):
         Creates a new campaign for an application or updates the settings of an existing
         campaign for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_campaign)
         """
     def create_email_template(
@@ -246,7 +246,7 @@ class PinpointClient(BaseClient):
         """
         Creates a message template for messages that are sent through the email channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_email_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_email_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_email_template)
         """
     def create_export_job(
@@ -255,7 +255,7 @@ class PinpointClient(BaseClient):
         """
         Creates an export job for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_export_job)
         """
     def create_import_job(
@@ -264,7 +264,7 @@ class PinpointClient(BaseClient):
         """
         Creates an import job for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_import_job)
         """
     def create_in_app_template(
@@ -273,7 +273,7 @@ class PinpointClient(BaseClient):
         """
         Creates a new message template for messages using the in-app message channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_in_app_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_in_app_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_in_app_template)
         """
     def create_journey(
@@ -282,7 +282,7 @@ class PinpointClient(BaseClient):
         """
         Creates a journey for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_journey)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_journey)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_journey)
         """
     def create_push_template(
@@ -295,7 +295,7 @@ class PinpointClient(BaseClient):
         Creates a message template for messages that are sent through a push
         notification channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_push_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_push_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_push_template)
         """
     def create_recommender_configuration(
@@ -304,7 +304,7 @@ class PinpointClient(BaseClient):
         """
         Creates an Amazon Pinpoint configuration for a recommender model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_recommender_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_recommender_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_recommender_configuration)
         """
     def create_segment(
@@ -315,7 +315,7 @@ class PinpointClient(BaseClient):
         dimension, and other settings for an existing segment that's associated with an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_segment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_segment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_segment)
         """
     def create_sms_template(
@@ -324,7 +324,7 @@ class PinpointClient(BaseClient):
         """
         Creates a message template for messages that are sent through the SMS channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_sms_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_sms_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_sms_template)
         """
     def create_voice_template(
@@ -333,7 +333,7 @@ class PinpointClient(BaseClient):
         """
         Creates a message template for messages that are sent through the voice channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.create_voice_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.create_voice_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#create_voice_template)
         """
     def delete_adm_channel(self, *, ApplicationId: str) -> DeleteAdmChannelResponseTypeDef:
@@ -341,7 +341,7 @@ class PinpointClient(BaseClient):
         Disables the ADM channel for an application and deletes any existing settings
         for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_adm_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_adm_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_adm_channel)
         """
     def delete_apns_channel(self, *, ApplicationId: str) -> DeleteApnsChannelResponseTypeDef:
@@ -349,7 +349,7 @@ class PinpointClient(BaseClient):
         Disables the APNs channel for an application and deletes any existing settings
         for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_apns_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_apns_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_apns_channel)
         """
     def delete_apns_sandbox_channel(
@@ -359,7 +359,7 @@ class PinpointClient(BaseClient):
         Disables the APNs sandbox channel for an application and deletes any existing
         settings for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_apns_sandbox_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_apns_sandbox_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_apns_sandbox_channel)
         """
     def delete_apns_voip_channel(
@@ -369,7 +369,7 @@ class PinpointClient(BaseClient):
         Disables the APNs VoIP channel for an application and deletes any existing
         settings for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_apns_voip_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_apns_voip_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_apns_voip_channel)
         """
     def delete_apns_voip_sandbox_channel(
@@ -379,14 +379,14 @@ class PinpointClient(BaseClient):
         Disables the APNs VoIP sandbox channel for an application and deletes any
         existing settings for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_apns_voip_sandbox_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_apns_voip_sandbox_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_apns_voip_sandbox_channel)
         """
     def delete_app(self, *, ApplicationId: str) -> DeleteAppResponseTypeDef:
         """
         Deletes an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_app)
         """
     def delete_baidu_channel(self, *, ApplicationId: str) -> DeleteBaiduChannelResponseTypeDef:
@@ -394,7 +394,7 @@ class PinpointClient(BaseClient):
         Disables the Baidu channel for an application and deletes any existing settings
         for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_baidu_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_baidu_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_baidu_channel)
         """
     def delete_campaign(
@@ -403,7 +403,7 @@ class PinpointClient(BaseClient):
         """
         Deletes a campaign from an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_campaign)
         """
     def delete_email_channel(self, *, ApplicationId: str) -> DeleteEmailChannelResponseTypeDef:
@@ -411,7 +411,7 @@ class PinpointClient(BaseClient):
         Disables the email channel for an application and deletes any existing settings
         for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_email_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_email_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_email_channel)
         """
     def delete_email_template(
@@ -421,7 +421,7 @@ class PinpointClient(BaseClient):
         Deletes a message template for messages that were sent through the email
         channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_email_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_email_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_email_template)
         """
     def delete_endpoint(
@@ -430,14 +430,14 @@ class PinpointClient(BaseClient):
         """
         Deletes an endpoint from an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_endpoint)
         """
     def delete_event_stream(self, *, ApplicationId: str) -> DeleteEventStreamResponseTypeDef:
         """
         Deletes the event stream for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_event_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_event_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_event_stream)
         """
     def delete_gcm_channel(self, *, ApplicationId: str) -> DeleteGcmChannelResponseTypeDef:
@@ -445,7 +445,7 @@ class PinpointClient(BaseClient):
         Disables the GCM channel for an application and deletes any existing settings
         for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_gcm_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_gcm_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_gcm_channel)
         """
     def delete_in_app_template(
@@ -454,14 +454,14 @@ class PinpointClient(BaseClient):
         """
         Deletes a message template for messages sent using the in-app message channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_in_app_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_in_app_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_in_app_template)
         """
     def delete_journey(self, *, ApplicationId: str, JourneyId: str) -> DeleteJourneyResponseTypeDef:
         """
         Deletes a journey from an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_journey)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_journey)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_journey)
         """
     def delete_push_template(
@@ -471,7 +471,7 @@ class PinpointClient(BaseClient):
         Deletes a message template for messages that were sent through a push
         notification channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_push_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_push_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_push_template)
         """
     def delete_recommender_configuration(
@@ -480,14 +480,14 @@ class PinpointClient(BaseClient):
         """
         Deletes an Amazon Pinpoint configuration for a recommender model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_recommender_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_recommender_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_recommender_configuration)
         """
     def delete_segment(self, *, ApplicationId: str, SegmentId: str) -> DeleteSegmentResponseTypeDef:
         """
         Deletes a segment from an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_segment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_segment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_segment)
         """
     def delete_sms_channel(self, *, ApplicationId: str) -> DeleteSmsChannelResponseTypeDef:
@@ -495,7 +495,7 @@ class PinpointClient(BaseClient):
         Disables the SMS channel for an application and deletes any existing settings
         for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_sms_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_sms_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_sms_channel)
         """
     def delete_sms_template(
@@ -504,7 +504,7 @@ class PinpointClient(BaseClient):
         """
         Deletes a message template for messages that were sent through the SMS channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_sms_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_sms_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_sms_template)
         """
     def delete_user_endpoints(
@@ -513,7 +513,7 @@ class PinpointClient(BaseClient):
         """
         Deletes all the endpoints that are associated with a specific user ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_user_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_user_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_user_endpoints)
         """
     def delete_voice_channel(self, *, ApplicationId: str) -> DeleteVoiceChannelResponseTypeDef:
@@ -521,7 +521,7 @@ class PinpointClient(BaseClient):
         Disables the voice channel for an application and deletes any existing settings
         for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_voice_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_voice_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_voice_channel)
         """
     def delete_voice_template(
@@ -531,7 +531,7 @@ class PinpointClient(BaseClient):
         Deletes a message template for messages that were sent through the voice
         channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.delete_voice_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.delete_voice_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#delete_voice_template)
         """
     def generate_presigned_url(
@@ -544,7 +544,7 @@ class PinpointClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#generate_presigned_url)
         """
     def get_adm_channel(self, *, ApplicationId: str) -> GetAdmChannelResponseTypeDef:
@@ -552,7 +552,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the ADM channel for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_adm_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_adm_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_adm_channel)
         """
     def get_apns_channel(self, *, ApplicationId: str) -> GetApnsChannelResponseTypeDef:
@@ -560,7 +560,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the APNs channel for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_apns_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_apns_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_apns_channel)
         """
     def get_apns_sandbox_channel(
@@ -570,7 +570,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the APNs sandbox channel
         for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_apns_sandbox_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_apns_sandbox_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_apns_sandbox_channel)
         """
     def get_apns_voip_channel(self, *, ApplicationId: str) -> GetApnsVoipChannelResponseTypeDef:
@@ -578,7 +578,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the APNs VoIP channel for
         an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_apns_voip_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_apns_voip_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_apns_voip_channel)
         """
     def get_apns_voip_sandbox_channel(
@@ -588,14 +588,14 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the APNs VoIP sandbox
         channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_apns_voip_sandbox_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_apns_voip_sandbox_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_apns_voip_sandbox_channel)
         """
     def get_app(self, *, ApplicationId: str) -> GetAppResponseTypeDef:
         """
         Retrieves information about an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_app)
         """
     def get_application_date_range_kpi(
@@ -612,7 +612,7 @@ class PinpointClient(BaseClient):
         Retrieves (queries) pre-aggregated data for a standard metric that applies to an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_application_date_range_kpi)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_application_date_range_kpi)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_application_date_range_kpi)
         """
     def get_application_settings(
@@ -621,7 +621,7 @@ class PinpointClient(BaseClient):
         """
         Retrieves information about the settings for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_application_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_application_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_application_settings)
         """
     def get_apps(self, *, PageSize: str = None, Token: str = None) -> GetAppsResponseTypeDef:
@@ -629,7 +629,7 @@ class PinpointClient(BaseClient):
         Retrieves information about all the applications that are associated with your
         Amazon Pinpoint account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_apps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_apps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_apps)
         """
     def get_baidu_channel(self, *, ApplicationId: str) -> GetBaiduChannelResponseTypeDef:
@@ -637,7 +637,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the Baidu channel for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_baidu_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_baidu_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_baidu_channel)
         """
     def get_campaign(self, *, ApplicationId: str, CampaignId: str) -> GetCampaignResponseTypeDef:
@@ -645,7 +645,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status, configuration, and other settings for a
         campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_campaign)
         """
     def get_campaign_activities(
@@ -654,7 +654,7 @@ class PinpointClient(BaseClient):
         """
         Retrieves information about all the activities for a campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_campaign_activities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_campaign_activities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_campaign_activities)
         """
     def get_campaign_date_range_kpi(
@@ -672,7 +672,7 @@ class PinpointClient(BaseClient):
         Retrieves (queries) pre-aggregated data for a standard metric that applies to a
         campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_campaign_date_range_kpi)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_campaign_date_range_kpi)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_campaign_date_range_kpi)
         """
     def get_campaign_version(
@@ -682,7 +682,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status, configuration, and other settings for a
         specific version of a campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_campaign_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_campaign_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_campaign_version)
         """
     def get_campaign_versions(
@@ -692,7 +692,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status, configuration, and other settings for
         all versions of a campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_campaign_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_campaign_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_campaign_versions)
         """
     def get_campaigns(
@@ -702,7 +702,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status, configuration, and other settings for
         all the campaigns that are associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_campaigns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_campaigns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_campaigns)
         """
     def get_channels(self, *, ApplicationId: str) -> GetChannelsResponseTypeDef:
@@ -710,7 +710,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the history and status of each channel for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_channels)
         """
     def get_email_channel(self, *, ApplicationId: str) -> GetEmailChannelResponseTypeDef:
@@ -718,7 +718,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the email channel for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_email_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_email_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_email_channel)
         """
     def get_email_template(
@@ -728,7 +728,7 @@ class PinpointClient(BaseClient):
         Retrieves the content and settings of a message template for messages that are
         sent through the email channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_email_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_email_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_email_template)
         """
     def get_endpoint(self, *, ApplicationId: str, EndpointId: str) -> GetEndpointResponseTypeDef:
@@ -736,14 +736,14 @@ class PinpointClient(BaseClient):
         Retrieves information about the settings and attributes of a specific endpoint
         for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_endpoint)
         """
     def get_event_stream(self, *, ApplicationId: str) -> GetEventStreamResponseTypeDef:
         """
         Retrieves information about the event stream settings for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_event_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_event_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_event_stream)
         """
     def get_export_job(self, *, ApplicationId: str, JobId: str) -> GetExportJobResponseTypeDef:
@@ -751,7 +751,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of a specific export job for
         an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_export_job)
         """
     def get_export_jobs(
@@ -761,7 +761,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of all the export jobs for
         an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_export_jobs)
         """
     def get_gcm_channel(self, *, ApplicationId: str) -> GetGcmChannelResponseTypeDef:
@@ -769,7 +769,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the GCM channel for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_gcm_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_gcm_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_gcm_channel)
         """
     def get_import_job(self, *, ApplicationId: str, JobId: str) -> GetImportJobResponseTypeDef:
@@ -777,7 +777,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of a specific import job for
         an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_import_job)
         """
     def get_import_jobs(
@@ -787,7 +787,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of all the import jobs for
         an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_import_jobs)
         """
     def get_in_app_messages(
@@ -796,7 +796,7 @@ class PinpointClient(BaseClient):
         """
         Retrieves the in-app messages targeted for the provided endpoint ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_in_app_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_in_app_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_in_app_messages)
         """
     def get_in_app_template(
@@ -806,7 +806,7 @@ class PinpointClient(BaseClient):
         Retrieves the content and settings of a message template for messages sent
         through the in-app channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_in_app_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_in_app_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_in_app_template)
         """
     def get_journey(self, *, ApplicationId: str, JourneyId: str) -> GetJourneyResponseTypeDef:
@@ -814,7 +814,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status, configuration, and other settings for a
         journey.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_journey)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_journey)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_journey)
         """
     def get_journey_date_range_kpi(
@@ -832,7 +832,7 @@ class PinpointClient(BaseClient):
         Retrieves (queries) pre-aggregated data for a standard engagement metric that
         applies to a journey.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_journey_date_range_kpi)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_journey_date_range_kpi)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_journey_date_range_kpi)
         """
     def get_journey_execution_activity_metrics(
@@ -848,7 +848,7 @@ class PinpointClient(BaseClient):
         Retrieves (queries) pre-aggregated data for a standard execution metric that
         applies to a journey activity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_journey_execution_activity_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_journey_execution_activity_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_journey_execution_activity_metrics)
         """
     def get_journey_execution_metrics(
@@ -858,7 +858,7 @@ class PinpointClient(BaseClient):
         Retrieves (queries) pre-aggregated data for a standard execution metric that
         applies to a journey.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_journey_execution_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_journey_execution_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_journey_execution_metrics)
         """
     def get_push_template(
@@ -868,7 +868,7 @@ class PinpointClient(BaseClient):
         Retrieves the content and settings of a message template for messages that are
         sent through a push notification channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_push_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_push_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_push_template)
         """
     def get_recommender_configuration(
@@ -878,7 +878,7 @@ class PinpointClient(BaseClient):
         Retrieves information about an Amazon Pinpoint configuration for a recommender
         model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_recommender_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_recommender_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_recommender_configuration)
         """
     def get_recommender_configurations(
@@ -888,7 +888,7 @@ class PinpointClient(BaseClient):
         Retrieves information about all the recommender model configurations that are
         associated with your Amazon Pinpoint account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_recommender_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_recommender_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_recommender_configurations)
         """
     def get_segment(self, *, ApplicationId: str, SegmentId: str) -> GetSegmentResponseTypeDef:
@@ -896,7 +896,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the configuration, dimension, and other settings for
         a specific segment that's associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_segment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_segment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_segment)
         """
     def get_segment_export_jobs(
@@ -906,7 +906,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the export jobs for a
         segment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_segment_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_segment_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_segment_export_jobs)
         """
     def get_segment_import_jobs(
@@ -916,7 +916,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the import jobs for a
         segment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_segment_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_segment_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_segment_import_jobs)
         """
     def get_segment_version(
@@ -926,7 +926,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the configuration, dimension, and other settings for
         a specific version of a segment that's associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_segment_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_segment_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_segment_version)
         """
     def get_segment_versions(
@@ -936,7 +936,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the configuration, dimension, and other settings for
         all the versions of a specific segment that's associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_segment_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_segment_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_segment_versions)
         """
     def get_segments(
@@ -946,7 +946,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the configuration, dimension, and other settings for
         all the segments that are associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_segments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_segments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_segments)
         """
     def get_sms_channel(self, *, ApplicationId: str) -> GetSmsChannelResponseTypeDef:
@@ -954,7 +954,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the SMS channel for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_sms_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_sms_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_sms_channel)
         """
     def get_sms_template(
@@ -964,7 +964,7 @@ class PinpointClient(BaseClient):
         Retrieves the content and settings of a message template for messages that are
         sent through the SMS channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_sms_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_sms_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_sms_template)
         """
     def get_user_endpoints(
@@ -974,7 +974,7 @@ class PinpointClient(BaseClient):
         Retrieves information about all the endpoints that are associated with a
         specific user ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_user_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_user_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_user_endpoints)
         """
     def get_voice_channel(self, *, ApplicationId: str) -> GetVoiceChannelResponseTypeDef:
@@ -982,7 +982,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status and settings of the voice channel for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_voice_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_voice_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_voice_channel)
         """
     def get_voice_template(
@@ -992,7 +992,7 @@ class PinpointClient(BaseClient):
         Retrieves the content and settings of a message template for messages that are
         sent through the voice channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.get_voice_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.get_voice_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#get_voice_template)
         """
     def list_journeys(
@@ -1002,7 +1002,7 @@ class PinpointClient(BaseClient):
         Retrieves information about the status, configuration, and other settings for
         all the journeys that are associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.list_journeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.list_journeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#list_journeys)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
@@ -1010,7 +1010,7 @@ class PinpointClient(BaseClient):
         Retrieves all the tags (keys and values) that are associated with an
         application, campaign, message template, or segment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#list_tags_for_resource)
         """
     def list_template_versions(
@@ -1019,7 +1019,7 @@ class PinpointClient(BaseClient):
         """
         Retrieves information about all the versions of a specific message template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.list_template_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.list_template_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#list_template_versions)
         """
     def list_templates(
@@ -1034,7 +1034,7 @@ class PinpointClient(BaseClient):
         Retrieves information about all the message templates that are associated with
         your Amazon Pinpoint account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.list_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.list_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#list_templates)
         """
     def phone_number_validate(
@@ -1043,7 +1043,7 @@ class PinpointClient(BaseClient):
         """
         Retrieves information about a phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.phone_number_validate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.phone_number_validate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#phone_number_validate)
         """
     def put_event_stream(
@@ -1053,7 +1053,7 @@ class PinpointClient(BaseClient):
         Creates a new event stream for an application or updates the settings of an
         existing event stream for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.put_event_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.put_event_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#put_event_stream)
         """
     def put_events(
@@ -1063,7 +1063,7 @@ class PinpointClient(BaseClient):
         Creates a new event to record for endpoints, or creates or updates endpoint data
         that existing events are associated with.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.put_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.put_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#put_events)
         """
     def remove_attributes(
@@ -1077,7 +1077,7 @@ class PinpointClient(BaseClient):
         Removes one or more attributes, of the same attribute type, from all the
         endpoints that are associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.remove_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.remove_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#remove_attributes)
         """
     def send_messages(
@@ -1086,7 +1086,7 @@ class PinpointClient(BaseClient):
         """
         Creates and sends a direct message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.send_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.send_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#send_messages)
         """
     def send_otp_message(
@@ -1101,7 +1101,7 @@ class PinpointClient(BaseClient):
         **Request Syntax** response = client.send_otp_message( ApplicationId='string',
         SendOTPMessageRequestParameters={ 'AllowedAttempts':...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.send_otp_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.send_otp_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#send_otp_message)
         """
     def send_users_messages(
@@ -1110,7 +1110,7 @@ class PinpointClient(BaseClient):
         """
         Creates and sends a message to a list of users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.send_users_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.send_users_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#send_users_messages)
         """
     def tag_resource(self, *, ResourceArn: str, TagsModel: "TagsModelTypeDef") -> None:
@@ -1118,7 +1118,7 @@ class PinpointClient(BaseClient):
         Adds one or more tags (keys and values) to an application, campaign, message
         template, or segment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
@@ -1126,7 +1126,7 @@ class PinpointClient(BaseClient):
         Removes one or more tags (keys and values) from an application, campaign,
         message template, or segment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#untag_resource)
         """
     def update_adm_channel(
@@ -1136,7 +1136,7 @@ class PinpointClient(BaseClient):
         Enables the ADM channel for an application or updates the status and settings of
         the ADM channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_adm_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_adm_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_adm_channel)
         """
     def update_apns_channel(
@@ -1146,7 +1146,7 @@ class PinpointClient(BaseClient):
         Enables the APNs channel for an application or updates the status and settings
         of the APNs channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_apns_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_apns_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_apns_channel)
         """
     def update_apns_sandbox_channel(
@@ -1156,7 +1156,7 @@ class PinpointClient(BaseClient):
         Enables the APNs sandbox channel for an application or updates the status and
         settings of the APNs sandbox channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_apns_sandbox_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_apns_sandbox_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_apns_sandbox_channel)
         """
     def update_apns_voip_channel(
@@ -1166,7 +1166,7 @@ class PinpointClient(BaseClient):
         Enables the APNs VoIP channel for an application or updates the status and
         settings of the APNs VoIP channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_apns_voip_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_apns_voip_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_apns_voip_channel)
         """
     def update_apns_voip_sandbox_channel(
@@ -1179,7 +1179,7 @@ class PinpointClient(BaseClient):
         Enables the APNs VoIP sandbox channel for an application or updates the status
         and settings of the APNs VoIP sandbox channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_apns_voip_sandbox_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_apns_voip_sandbox_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_apns_voip_sandbox_channel)
         """
     def update_application_settings(
@@ -1191,7 +1191,7 @@ class PinpointClient(BaseClient):
         """
         Updates the settings for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_application_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_application_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_application_settings)
         """
     def update_baidu_channel(
@@ -1201,7 +1201,7 @@ class PinpointClient(BaseClient):
         Enables the Baidu channel for an application or updates the status and settings
         of the Baidu channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_baidu_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_baidu_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_baidu_channel)
         """
     def update_campaign(
@@ -1214,7 +1214,7 @@ class PinpointClient(BaseClient):
         """
         Updates the configuration and other settings for a campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_campaign)
         """
     def update_email_channel(
@@ -1224,7 +1224,7 @@ class PinpointClient(BaseClient):
         Enables the email channel for an application or updates the status and settings
         of the email channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_email_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_email_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_email_channel)
         """
     def update_email_template(
@@ -1239,7 +1239,7 @@ class PinpointClient(BaseClient):
         Updates an existing message template for messages that are sent through the
         email channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_email_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_email_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_email_template)
         """
     def update_endpoint(
@@ -1249,7 +1249,7 @@ class PinpointClient(BaseClient):
         Creates a new endpoint for an application or updates the settings and attributes
         of an existing endpoint for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_endpoint)
         """
     def update_endpoints_batch(
@@ -1259,7 +1259,7 @@ class PinpointClient(BaseClient):
         Creates a new batch of endpoints for an application or updates the settings and
         attributes of a batch of existing endpoints for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_endpoints_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_endpoints_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_endpoints_batch)
         """
     def update_gcm_channel(
@@ -1269,7 +1269,7 @@ class PinpointClient(BaseClient):
         Enables the GCM channel for an application or updates the status and settings of
         the GCM channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_gcm_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_gcm_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_gcm_channel)
         """
     def update_in_app_template(
@@ -1284,7 +1284,7 @@ class PinpointClient(BaseClient):
         Updates an existing message template for messages sent through the in-app
         message channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_in_app_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_in_app_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_in_app_template)
         """
     def update_journey(
@@ -1297,7 +1297,7 @@ class PinpointClient(BaseClient):
         """
         Updates the configuration and other settings for a journey.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_journey)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_journey)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_journey)
         """
     def update_journey_state(
@@ -1310,7 +1310,7 @@ class PinpointClient(BaseClient):
         """
         Cancels (stops) an active journey.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_journey_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_journey_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_journey_state)
         """
     def update_push_template(
@@ -1325,7 +1325,7 @@ class PinpointClient(BaseClient):
         Updates an existing message template for messages that are sent through a push
         notification channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_push_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_push_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_push_template)
         """
     def update_recommender_configuration(
@@ -1337,7 +1337,7 @@ class PinpointClient(BaseClient):
         """
         Updates an Amazon Pinpoint configuration for a recommender model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_recommender_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_recommender_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_recommender_configuration)
         """
     def update_segment(
@@ -1352,7 +1352,7 @@ class PinpointClient(BaseClient):
         dimension, and other settings for an existing segment that's associated with an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_segment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_segment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_segment)
         """
     def update_sms_channel(
@@ -1362,7 +1362,7 @@ class PinpointClient(BaseClient):
         Enables the SMS channel for an application or updates the status and settings of
         the SMS channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_sms_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_sms_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_sms_channel)
         """
     def update_sms_template(
@@ -1377,7 +1377,7 @@ class PinpointClient(BaseClient):
         Updates an existing message template for messages that are sent through the SMS
         channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_sms_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_sms_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_sms_template)
         """
     def update_template_active_version(
@@ -1390,7 +1390,7 @@ class PinpointClient(BaseClient):
         """
         Changes the status of a specific version of a message template to *active* .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_template_active_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_template_active_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_template_active_version)
         """
     def update_voice_channel(
@@ -1400,7 +1400,7 @@ class PinpointClient(BaseClient):
         Enables the voice channel for an application or updates the status and settings
         of the voice channel for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_voice_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_voice_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_voice_channel)
         """
     def update_voice_template(
@@ -1415,7 +1415,7 @@ class PinpointClient(BaseClient):
         Updates an existing message template for messages that are sent through the
         voice channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.update_voice_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.update_voice_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#update_voice_template)
         """
     def verify_otp_message(
@@ -1430,6 +1430,6 @@ class PinpointClient(BaseClient):
         **Request Syntax** response = client.verify_otp_message( ApplicationId='string',
         VerifyOTPMessageRequestParameters={ 'DestinationIdenti...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/pinpoint.html#Pinpoint.Client.verify_otp_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/pinpoint.html#Pinpoint.Client.verify_otp_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/client.html#verify_otp_message)
         """

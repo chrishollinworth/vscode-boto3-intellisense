@@ -36,7 +36,7 @@ class Exceptions:
 
 class CloudSearchDomainClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudsearchdomain/client.html)
     """
 
@@ -51,14 +51,14 @@ class CloudSearchDomainClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudsearchdomain/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudsearchdomain/client.html#close)
         """
     def generate_presigned_url(
@@ -71,7 +71,7 @@ class CloudSearchDomainClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudsearchdomain/client.html#generate_presigned_url)
         """
     def search(
@@ -95,14 +95,14 @@ class CloudSearchDomainClient(BaseClient):
         """
         Retrieves a list of documents that match the specified search criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudsearchdomain/client.html#search)
         """
     def suggest(self, *, query: str, suggester: str, size: int = None) -> SuggestResponseTypeDef:
         """
         Retrieves autocomplete suggestions for a partial query string.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.suggest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.suggest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudsearchdomain/client.html#suggest)
         """
     def upload_documents(
@@ -111,6 +111,6 @@ class CloudSearchDomainClient(BaseClient):
         """
         Posts a batch of documents to a search domain for indexing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.upload_documents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/cloudsearchdomain.html#CloudSearchDomain.Client.upload_documents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudsearchdomain/client.html#upload_documents)
         """

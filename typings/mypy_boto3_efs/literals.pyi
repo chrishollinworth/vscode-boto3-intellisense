@@ -42,8 +42,13 @@ ReplicationStatusType = Literal["DELETING", "ENABLED", "ENABLING", "ERROR"]
 ResourceIdTypeType = Literal["LONG_ID", "SHORT_ID"]
 ResourceType = Literal["FILE_SYSTEM", "MOUNT_TARGET"]
 StatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]
-ThroughputModeType = Literal["bursting", "provisioned"]
+ThroughputModeType = Literal["bursting", "elastic", "provisioned"]
 TransitionToIARulesType = Literal[
-    "AFTER_14_DAYS", "AFTER_30_DAYS", "AFTER_60_DAYS", "AFTER_7_DAYS", "AFTER_90_DAYS"
+    "AFTER_14_DAYS",
+    "AFTER_1_DAY",
+    "AFTER_30_DAYS",
+    "AFTER_60_DAYS",
+    "AFTER_7_DAYS",
+    "AFTER_90_DAYS",
 ]
 TransitionToPrimaryStorageClassRulesType = Literal["AFTER_1_ACCESS"]

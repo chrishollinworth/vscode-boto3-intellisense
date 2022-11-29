@@ -22,14 +22,14 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from .literals import ResourceTypeType
+from .literals import LockStateType, ResourceTypeType
 from .type_defs import ListRulesResponseTypeDef, PaginatorConfigTypeDef, ResourceTagTypeDef
 
 __all__ = ("ListRulesPaginator",)
 
 class ListRulesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rbin.html#RecycleBin.Paginator.ListRules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rbin.html#RecycleBin.Paginator.ListRules)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/paginators.html#listrulespaginator)
     """
 
@@ -38,9 +38,10 @@ class ListRulesPaginator(Boto3Paginator):
         *,
         ResourceType: ResourceTypeType,
         ResourceTags: List["ResourceTagTypeDef"] = None,
+        LockState: LockStateType = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/rbin.html#RecycleBin.Paginator.ListRules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rbin.html#RecycleBin.Paginator.ListRules.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/paginators.html#listrulespaginator)
         """

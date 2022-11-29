@@ -24,6 +24,7 @@ Usage::
         ListLayersPaginator,
         ListProvisionedConcurrencyConfigsPaginator,
         ListVersionsByFunctionPaginator,
+        PublishedVersionActiveWaiter,
     )
 
     session = boto3.Session()
@@ -36,6 +37,7 @@ Usage::
     function_exists_waiter: FunctionExistsWaiter = client.get_waiter("function_exists")
     function_updated_waiter: FunctionUpdatedWaiter = client.get_waiter("function_updated")
     function_updated_v2_waiter: FunctionUpdatedV2Waiter = client.get_waiter("function_updated_v2")
+    published_version_active_waiter: PublishedVersionActiveWaiter = client.get_waiter("published_version_active")
 
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_code_signing_configs_paginator: ListCodeSigningConfigsPaginator = client.get_paginator("list_code_signing_configs")
@@ -70,6 +72,7 @@ from .waiter import (
     FunctionExistsWaiter,
     FunctionUpdatedV2Waiter,
     FunctionUpdatedWaiter,
+    PublishedVersionActiveWaiter,
 )
 
 Client = LambdaClient
@@ -93,4 +96,5 @@ __all__ = (
     "ListLayersPaginator",
     "ListProvisionedConcurrencyConfigsPaginator",
     "ListVersionsByFunctionPaginator",
+    "PublishedVersionActiveWaiter",
 )

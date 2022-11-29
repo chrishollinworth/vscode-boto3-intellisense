@@ -34,7 +34,7 @@ __all__ = ("ListPlacementsPaginator", "ListProjectsPaginator")
 
 class ListPlacementsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/paginators.html#listplacementspaginator)
     """
 
@@ -42,13 +42,13 @@ class ListPlacementsPaginator(Boto3Paginator):
         self, *, projectName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPlacementsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/paginators.html#listplacementspaginator)
         """
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/paginators.html#listprojectspaginator)
     """
 
@@ -56,6 +56,6 @@ class ListProjectsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/paginators.html#listprojectspaginator)
         """

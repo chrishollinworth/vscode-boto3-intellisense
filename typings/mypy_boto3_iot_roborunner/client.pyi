@@ -72,7 +72,7 @@ class Exceptions:
 
 class IoTRoboRunnerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html)
     """
 
@@ -87,14 +87,14 @@ class IoTRoboRunnerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#close)
         """
     def create_destination(
@@ -112,7 +112,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/CreateDestination>`_ **Request Syntax** response =
         client.create_destination( clientToken='string', name='string', site='stri...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.create_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.create_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#create_destination)
         """
     def create_site(
@@ -124,7 +124,7 @@ class IoTRoboRunnerClient(BaseClient):
         **Request Syntax** response = client.create_site( clientToken='string',
         name='string', countryCode='string', des...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.create_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.create_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#create_site)
         """
     def create_worker(
@@ -146,7 +146,7 @@ class IoTRoboRunnerClient(BaseClient):
         client.create_worker( clientToken='string', name='string', fleet='string',
         add...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.create_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.create_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#create_worker)
         """
     def create_worker_fleet(
@@ -163,7 +163,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/CreateWorkerFleet>`_ **Request Syntax** response =
         client.create_worker_fleet( clientToken='string', name='string', site='st...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.create_worker_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.create_worker_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#create_worker_fleet)
         """
     def delete_destination(self, *, id: str) -> Dict[str, Any]:
@@ -173,7 +173,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/DeleteDestination>`_ **Request Syntax** response =
         client.delete_destination( id='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.delete_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.delete_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#delete_destination)
         """
     def delete_site(self, *, id: str) -> Dict[str, Any]:
@@ -182,7 +182,7 @@ class IoTRoboRunnerClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/iot-roborunner-2018-05-10/DeleteSite>`_
         **Request Syntax** response = client.delete_site( id='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.delete_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.delete_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#delete_site)
         """
     def delete_worker(self, *, id: str) -> Dict[str, Any]:
@@ -192,7 +192,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/DeleteWorker>`_ **Request Syntax** response =
         client.delete_worker( id='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.delete_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.delete_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#delete_worker)
         """
     def delete_worker_fleet(self, *, id: str) -> Dict[str, Any]:
@@ -202,7 +202,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/DeleteWorkerFleet>`_ **Request Syntax** response =
         client.delete_worker_fleet( id='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.delete_worker_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.delete_worker_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#delete_worker_fleet)
         """
     def generate_presigned_url(
@@ -215,7 +215,7 @@ class IoTRoboRunnerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#generate_presigned_url)
         """
     def get_destination(self, *, id: str) -> GetDestinationResponseTypeDef:
@@ -225,7 +225,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/GetDestination>`_ **Request Syntax** response =
         client.get_destination( id='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.get_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.get_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#get_destination)
         """
     def get_site(self, *, id: str) -> GetSiteResponseTypeDef:
@@ -234,7 +234,7 @@ class IoTRoboRunnerClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/iot-roborunner-2018-05-10/GetSite>`_
         **Request Syntax** response = client.get_site( id='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.get_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.get_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#get_site)
         """
     def get_worker(self, *, id: str) -> GetWorkerResponseTypeDef:
@@ -243,7 +243,7 @@ class IoTRoboRunnerClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/iot-roborunner-2018-05-10/GetWorker>`_
         **Request Syntax** response = client.get_worker( id='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.get_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.get_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#get_worker)
         """
     def get_worker_fleet(self, *, id: str) -> GetWorkerFleetResponseTypeDef:
@@ -253,7 +253,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/GetWorkerFleet>`_ **Request Syntax** response =
         client.get_worker_fleet( id='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.get_worker_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.get_worker_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#get_worker_fleet)
         """
     def list_destinations(
@@ -270,7 +270,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/ListDestinations>`_ **Request Syntax** response =
         client.list_destinations( site='string', maxResults=123, nextToken='string', ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.list_destinations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.list_destinations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#list_destinations)
         """
     def list_sites(
@@ -282,7 +282,7 @@ class IoTRoboRunnerClient(BaseClient):
         **Request Syntax** response = client.list_sites( maxResults=123,
         nextToken='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.list_sites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.list_sites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#list_sites)
         """
     def list_worker_fleets(
@@ -294,7 +294,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/ListWorkerFleets>`_ **Request Syntax** response =
         client.list_worker_fleets( site='string', maxResults=123, nextToken='string' ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.list_worker_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.list_worker_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#list_worker_fleets)
         """
     def list_workers(
@@ -307,7 +307,7 @@ class IoTRoboRunnerClient(BaseClient):
         client.list_workers( site='string', maxResults=123, nextToken='string',
         fleet='str...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.list_workers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.list_workers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#list_workers)
         """
     def update_destination(
@@ -324,7 +324,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/UpdateDestination>`_ **Request Syntax** response =
         client.update_destination( id='string', name='string', state='ENABLED'|'DI...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.update_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.update_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#update_destination)
         """
     def update_site(
@@ -336,7 +336,7 @@ class IoTRoboRunnerClient(BaseClient):
         **Request Syntax** response = client.update_site( id='string', name='string',
         countryCode='string', description=...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.update_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.update_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#update_site)
         """
     def update_worker(
@@ -357,7 +357,7 @@ class IoTRoboRunnerClient(BaseClient):
         client.update_worker( id='string', name='string',
         additionalTransientProperties='str...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.update_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.update_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#update_worker)
         """
     def update_worker_fleet(
@@ -369,7 +369,7 @@ class IoTRoboRunnerClient(BaseClient):
         roborunner-2018-05-10/UpdateWorkerFleet>`_ **Request Syntax** response =
         client.update_worker_fleet( id='string', name='string', additionalFixedPr...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Client.update_worker_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Client.update_worker_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/client.html#update_worker_fleet)
         """
     @overload
@@ -377,13 +377,13 @@ class IoTRoboRunnerClient(BaseClient):
         self, operation_name: Literal["list_destinations"]
     ) -> ListDestinationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListDestinations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListDestinations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listdestinationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_sites"]) -> ListSitesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListSites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListSites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listsitespaginator)
         """
     @overload
@@ -391,12 +391,12 @@ class IoTRoboRunnerClient(BaseClient):
         self, operation_name: Literal["list_worker_fleets"]
     ) -> ListWorkerFleetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkerFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkerFleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listworkerfleetspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_workers"]) -> ListWorkersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.13/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listworkerspaginator)
         """

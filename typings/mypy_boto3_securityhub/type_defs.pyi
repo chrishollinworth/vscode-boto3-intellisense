@@ -596,6 +596,7 @@ __all__ = (
     "SortCriterionTypeDef",
     "StandardTypeDef",
     "StandardsControlTypeDef",
+    "StandardsManagedByTypeDef",
     "StandardsStatusReasonTypeDef",
     "StandardsSubscriptionRequestTypeDef",
     "StandardsSubscriptionTypeDef",
@@ -6969,6 +6970,7 @@ StandardTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "EnabledByDefault": bool,
+        "StandardsManagedBy": "StandardsManagedByTypeDef",
     },
     total=False,
 )
@@ -6986,6 +6988,15 @@ StandardsControlTypeDef = TypedDict(
         "RemediationUrl": str,
         "SeverityRating": SeverityRatingType,
         "RelatedRequirements": List[str],
+    },
+    total=False,
+)
+
+StandardsManagedByTypeDef = TypedDict(
+    "StandardsManagedByTypeDef",
+    {
+        "Company": str,
+        "Product": str,
     },
     total=False,
 )
