@@ -63,6 +63,7 @@ __all__ = (
     "DescribeSchedulePaginatorName",
     "DeviceSettingsSyncStateType",
     "DeviceUpdateStatusType",
+    "DolbyEProgramSelectionType",
     "DvbSdtOutputSdtType",
     "DvbSubDestinationAlignmentType",
     "DvbSubDestinationBackgroundColorType",
@@ -292,6 +293,8 @@ __all__ = (
     "Smpte2038DataPreferenceType",
     "TemporalFilterPostFilterSharpeningType",
     "TemporalFilterStrengthType",
+    "TimecodeBurninFontSizeType",
+    "TimecodeBurninPositionType",
     "TimecodeConfigSourceType",
     "TtmlDestinationStyleControlType",
     "UdpTimedMetadataId3FrameType",
@@ -381,6 +384,17 @@ ContentTypeType = Literal["image/jpeg"]
 DescribeSchedulePaginatorName = Literal["describe_schedule"]
 DeviceSettingsSyncStateType = Literal["SYNCED", "SYNCING"]
 DeviceUpdateStatusType = Literal["NOT_UP_TO_DATE", "UPDATING", "UP_TO_DATE"]
+DolbyEProgramSelectionType = Literal[
+    "ALL_CHANNELS",
+    "PROGRAM_1",
+    "PROGRAM_2",
+    "PROGRAM_3",
+    "PROGRAM_4",
+    "PROGRAM_5",
+    "PROGRAM_6",
+    "PROGRAM_7",
+    "PROGRAM_8",
+]
 DvbSdtOutputSdtType = Literal["SDT_FOLLOW", "SDT_FOLLOW_IF_PRESENT", "SDT_MANUAL", "SDT_NONE"]
 DvbSubDestinationAlignmentType = Literal["CENTERED", "LEFT", "SMART"]
 DvbSubDestinationBackgroundColorType = Literal["BLACK", "NONE", "WHITE"]
@@ -554,7 +568,7 @@ InputDeviceIpSchemeType = Literal["DHCP", "STATIC"]
 InputDeviceScanTypeType = Literal["INTERLACED", "PROGRESSIVE"]
 InputDeviceStateType = Literal["IDLE", "STREAMING"]
 InputDeviceTransferTypeType = Literal["INCOMING", "OUTGOING"]
-InputDeviceTypeType = Literal["HD"]
+InputDeviceTypeType = Literal["HD", "UHD"]
 InputFilterType = Literal["AUTO", "DISABLED", "FORCED"]
 InputLossActionForHlsOutType = Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"]
 InputLossActionForMsSmoothOutType = Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"]
@@ -717,6 +731,18 @@ TemporalFilterStrengthType = Literal[
     "STRENGTH_7",
     "STRENGTH_8",
     "STRENGTH_9",
+]
+TimecodeBurninFontSizeType = Literal["EXTRA_SMALL_10", "LARGE_48", "MEDIUM_32", "SMALL_16"]
+TimecodeBurninPositionType = Literal[
+    "BOTTOM_CENTER",
+    "BOTTOM_LEFT",
+    "BOTTOM_RIGHT",
+    "MIDDLE_CENTER",
+    "MIDDLE_LEFT",
+    "MIDDLE_RIGHT",
+    "TOP_CENTER",
+    "TOP_LEFT",
+    "TOP_RIGHT",
 ]
 TimecodeConfigSourceType = Literal["EMBEDDED", "SYSTEMCLOCK", "ZEROBASED"]
 TtmlDestinationStyleControlType = Literal["PASSTHROUGH", "USE_CONFIGURED"]

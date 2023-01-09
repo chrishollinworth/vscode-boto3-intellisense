@@ -35,6 +35,8 @@ __all__ = (
     "FaceSearchSortByType",
     "GenderTypeType",
     "KnownGenderTypeType",
+    "LabelDetectionAggregateByType",
+    "LabelDetectionFeatureNameType",
     "LabelDetectionSortByType",
     "LandmarkTypeType",
     "ListCollectionsPaginatorName",
@@ -87,6 +89,8 @@ FaceAttributesType = Literal["ALL", "DEFAULT"]
 FaceSearchSortByType = Literal["INDEX", "TIMESTAMP"]
 GenderTypeType = Literal["Female", "Male"]
 KnownGenderTypeType = Literal["Female", "Male", "Nonbinary", "Unlisted"]
+LabelDetectionAggregateByType = Literal["SEGMENTS", "TIMESTAMPS"]
+LabelDetectionFeatureNameType = Literal["GENERAL_LABELS"]
 LabelDetectionSortByType = Literal["NAME", "TIMESTAMP"]
 LandmarkTypeType = Literal[
     "chinBottom",

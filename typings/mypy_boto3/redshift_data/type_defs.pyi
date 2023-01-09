@@ -63,6 +63,7 @@ _RequiredBatchExecuteStatementInputRequestTypeDef = TypedDict(
 _OptionalBatchExecuteStatementInputRequestTypeDef = TypedDict(
     "_OptionalBatchExecuteStatementInputRequestTypeDef",
     {
+        "ClientToken": str,
         "ClusterIdentifier": str,
         "DbUser": str,
         "SecretArn": str,
@@ -208,6 +209,7 @@ _RequiredExecuteStatementInputRequestTypeDef = TypedDict(
 _OptionalExecuteStatementInputRequestTypeDef = TypedDict(
     "_OptionalExecuteStatementInputRequestTypeDef",
     {
+        "ClientToken": str,
         "ClusterIdentifier": str,
         "DbUser": str,
         "Parameters": List["SqlParameterTypeDef"],

@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import HypervisorStateType
+from .literals import HypervisorStateType, SyncMetadataStatusType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -29,6 +29,7 @@ else:
 __all__ = (
     "AssociateGatewayToServerInputRequestTypeDef",
     "AssociateGatewayToServerOutputTypeDef",
+    "BandwidthRateLimitIntervalTypeDef",
     "CreateGatewayInputRequestTypeDef",
     "CreateGatewayOutputTypeDef",
     "DeleteGatewayInputRequestTypeDef",
@@ -39,10 +40,17 @@ __all__ = (
     "DisassociateGatewayFromServerOutputTypeDef",
     "GatewayDetailsTypeDef",
     "GatewayTypeDef",
+    "GetBandwidthRateLimitScheduleInputRequestTypeDef",
+    "GetBandwidthRateLimitScheduleOutputTypeDef",
     "GetGatewayInputRequestTypeDef",
     "GetGatewayOutputTypeDef",
+    "GetHypervisorInputRequestTypeDef",
+    "GetHypervisorOutputTypeDef",
+    "GetHypervisorPropertyMappingsInputRequestTypeDef",
+    "GetHypervisorPropertyMappingsOutputTypeDef",
     "GetVirtualMachineInputRequestTypeDef",
     "GetVirtualMachineOutputTypeDef",
+    "HypervisorDetailsTypeDef",
     "HypervisorTypeDef",
     "ImportHypervisorConfigurationInputRequestTypeDef",
     "ImportHypervisorConfigurationOutputTypeDef",
@@ -56,9 +64,15 @@ __all__ = (
     "ListVirtualMachinesOutputTypeDef",
     "MaintenanceStartTimeTypeDef",
     "PaginatorConfigTypeDef",
+    "PutBandwidthRateLimitScheduleInputRequestTypeDef",
+    "PutBandwidthRateLimitScheduleOutputTypeDef",
+    "PutHypervisorPropertyMappingsInputRequestTypeDef",
+    "PutHypervisorPropertyMappingsOutputTypeDef",
     "PutMaintenanceStartTimeInputRequestTypeDef",
     "PutMaintenanceStartTimeOutputTypeDef",
     "ResponseMetadataTypeDef",
+    "StartVirtualMachinesMetadataSyncInputRequestTypeDef",
+    "StartVirtualMachinesMetadataSyncOutputTypeDef",
     "TagResourceInputRequestTypeDef",
     "TagResourceOutputTypeDef",
     "TagTypeDef",
@@ -73,6 +87,8 @@ __all__ = (
     "UpdateHypervisorOutputTypeDef",
     "VirtualMachineDetailsTypeDef",
     "VirtualMachineTypeDef",
+    "VmwareTagTypeDef",
+    "VmwareToAwsTagMappingTypeDef",
 )
 
 AssociateGatewayToServerInputRequestTypeDef = TypedDict(
@@ -90,6 +106,29 @@ AssociateGatewayToServerOutputTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredBandwidthRateLimitIntervalTypeDef = TypedDict(
+    "_RequiredBandwidthRateLimitIntervalTypeDef",
+    {
+        "DaysOfWeek": List[int],
+        "EndHourOfDay": int,
+        "EndMinuteOfHour": int,
+        "StartHourOfDay": int,
+        "StartMinuteOfHour": int,
+    },
+)
+_OptionalBandwidthRateLimitIntervalTypeDef = TypedDict(
+    "_OptionalBandwidthRateLimitIntervalTypeDef",
+    {
+        "AverageUploadRateLimitInBitsPerSec": int,
+    },
+    total=False,
+)
+
+class BandwidthRateLimitIntervalTypeDef(
+    _RequiredBandwidthRateLimitIntervalTypeDef, _OptionalBandwidthRateLimitIntervalTypeDef
+):
+    pass
 
 _RequiredCreateGatewayInputRequestTypeDef = TypedDict(
     "_RequiredCreateGatewayInputRequestTypeDef",
@@ -192,6 +231,22 @@ GatewayTypeDef = TypedDict(
     total=False,
 )
 
+GetBandwidthRateLimitScheduleInputRequestTypeDef = TypedDict(
+    "GetBandwidthRateLimitScheduleInputRequestTypeDef",
+    {
+        "GatewayArn": str,
+    },
+)
+
+GetBandwidthRateLimitScheduleOutputTypeDef = TypedDict(
+    "GetBandwidthRateLimitScheduleOutputTypeDef",
+    {
+        "BandwidthRateLimitIntervals": List["BandwidthRateLimitIntervalTypeDef"],
+        "GatewayArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetGatewayInputRequestTypeDef = TypedDict(
     "GetGatewayInputRequestTypeDef",
     {
@@ -203,6 +258,38 @@ GetGatewayOutputTypeDef = TypedDict(
     "GetGatewayOutputTypeDef",
     {
         "Gateway": "GatewayDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHypervisorInputRequestTypeDef = TypedDict(
+    "GetHypervisorInputRequestTypeDef",
+    {
+        "HypervisorArn": str,
+    },
+)
+
+GetHypervisorOutputTypeDef = TypedDict(
+    "GetHypervisorOutputTypeDef",
+    {
+        "Hypervisor": "HypervisorDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHypervisorPropertyMappingsInputRequestTypeDef = TypedDict(
+    "GetHypervisorPropertyMappingsInputRequestTypeDef",
+    {
+        "HypervisorArn": str,
+    },
+)
+
+GetHypervisorPropertyMappingsOutputTypeDef = TypedDict(
+    "GetHypervisorPropertyMappingsOutputTypeDef",
+    {
+        "HypervisorArn": str,
+        "IamRoleArn": str,
+        "VmwareToAwsTagMappings": List["VmwareToAwsTagMappingTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -220,6 +307,22 @@ GetVirtualMachineOutputTypeDef = TypedDict(
         "VirtualMachine": "VirtualMachineDetailsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+HypervisorDetailsTypeDef = TypedDict(
+    "HypervisorDetailsTypeDef",
+    {
+        "Host": str,
+        "HypervisorArn": str,
+        "KmsKeyArn": str,
+        "LastSuccessfulMetadataSyncTime": datetime,
+        "LatestMetadataSyncStatus": SyncMetadataStatusType,
+        "LatestMetadataSyncStatusMessage": str,
+        "LogGroupArn": str,
+        "Name": str,
+        "State": HypervisorStateType,
+    },
+    total=False,
 )
 
 HypervisorTypeDef = TypedDict(
@@ -368,6 +471,39 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PutBandwidthRateLimitScheduleInputRequestTypeDef = TypedDict(
+    "PutBandwidthRateLimitScheduleInputRequestTypeDef",
+    {
+        "BandwidthRateLimitIntervals": List["BandwidthRateLimitIntervalTypeDef"],
+        "GatewayArn": str,
+    },
+)
+
+PutBandwidthRateLimitScheduleOutputTypeDef = TypedDict(
+    "PutBandwidthRateLimitScheduleOutputTypeDef",
+    {
+        "GatewayArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutHypervisorPropertyMappingsInputRequestTypeDef = TypedDict(
+    "PutHypervisorPropertyMappingsInputRequestTypeDef",
+    {
+        "HypervisorArn": str,
+        "IamRoleArn": str,
+        "VmwareToAwsTagMappings": List["VmwareToAwsTagMappingTypeDef"],
+    },
+)
+
+PutHypervisorPropertyMappingsOutputTypeDef = TypedDict(
+    "PutHypervisorPropertyMappingsOutputTypeDef",
+    {
+        "HypervisorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredPutMaintenanceStartTimeInputRequestTypeDef = TypedDict(
     "_RequiredPutMaintenanceStartTimeInputRequestTypeDef",
     {
@@ -407,6 +543,21 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+StartVirtualMachinesMetadataSyncInputRequestTypeDef = TypedDict(
+    "StartVirtualMachinesMetadataSyncInputRequestTypeDef",
+    {
+        "HypervisorArn": str,
+    },
+)
+
+StartVirtualMachinesMetadataSyncOutputTypeDef = TypedDict(
+    "StartVirtualMachinesMetadataSyncOutputTypeDef",
+    {
+        "HypervisorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -525,6 +676,7 @@ _OptionalUpdateHypervisorInputRequestTypeDef = TypedDict(
     "_OptionalUpdateHypervisorInputRequestTypeDef",
     {
         "Host": str,
+        "LogGroupArn": str,
         "Name": str,
         "Password": str,
         "Username": str,
@@ -554,6 +706,7 @@ VirtualMachineDetailsTypeDef = TypedDict(
         "Name": str,
         "Path": str,
         "ResourceArn": str,
+        "VmwareTags": List["VmwareTagTypeDef"],
     },
     total=False,
 )
@@ -569,4 +722,24 @@ VirtualMachineTypeDef = TypedDict(
         "ResourceArn": str,
     },
     total=False,
+)
+
+VmwareTagTypeDef = TypedDict(
+    "VmwareTagTypeDef",
+    {
+        "VmwareCategory": str,
+        "VmwareTagDescription": str,
+        "VmwareTagName": str,
+    },
+    total=False,
+)
+
+VmwareToAwsTagMappingTypeDef = TypedDict(
+    "VmwareToAwsTagMappingTypeDef",
+    {
+        "AwsTagKey": str,
+        "AwsTagValue": str,
+        "VmwareCategory": str,
+        "VmwareTagName": str,
+    },
 )

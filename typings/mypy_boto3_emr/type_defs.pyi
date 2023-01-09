@@ -97,6 +97,7 @@ __all__ = (
     "CreateStudioInputRequestTypeDef",
     "CreateStudioOutputTypeDef",
     "CreateStudioSessionMappingInputRequestTypeDef",
+    "CredentialsTypeDef",
     "DeleteSecurityConfigurationInputRequestTypeDef",
     "DeleteStudioInputRequestTypeDef",
     "DeleteStudioSessionMappingInputRequestTypeDef",
@@ -124,6 +125,8 @@ __all__ = (
     "GetAutoTerminationPolicyInputRequestTypeDef",
     "GetAutoTerminationPolicyOutputTypeDef",
     "GetBlockPublicAccessConfigurationOutputTypeDef",
+    "GetClusterSessionCredentialsInputRequestTypeDef",
+    "GetClusterSessionCredentialsOutputTypeDef",
     "GetManagedScalingPolicyInputRequestTypeDef",
     "GetManagedScalingPolicyOutputTypeDef",
     "GetStudioSessionMappingInputRequestTypeDef",
@@ -239,6 +242,7 @@ __all__ = (
     "TerminateJobFlowsInputRequestTypeDef",
     "UpdateStudioInputRequestTypeDef",
     "UpdateStudioSessionMappingInputRequestTypeDef",
+    "UsernamePasswordTypeDef",
     "VolumeSpecificationTypeDef",
     "WaiterConfigTypeDef",
 )
@@ -676,6 +680,14 @@ class CreateStudioSessionMappingInputRequestTypeDef(
 ):
     pass
 
+CredentialsTypeDef = TypedDict(
+    "CredentialsTypeDef",
+    {
+        "UsernamePassword": "UsernamePasswordTypeDef",
+    },
+    total=False,
+)
+
 DeleteSecurityConfigurationInputRequestTypeDef = TypedDict(
     "DeleteSecurityConfigurationInputRequestTypeDef",
     {
@@ -944,6 +956,23 @@ GetBlockPublicAccessConfigurationOutputTypeDef = TypedDict(
     {
         "BlockPublicAccessConfiguration": "BlockPublicAccessConfigurationTypeDef",
         "BlockPublicAccessConfigurationMetadata": "BlockPublicAccessConfigurationMetadataTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetClusterSessionCredentialsInputRequestTypeDef = TypedDict(
+    "GetClusterSessionCredentialsInputRequestTypeDef",
+    {
+        "ClusterId": str,
+        "ExecutionRoleArn": str,
+    },
+)
+
+GetClusterSessionCredentialsOutputTypeDef = TypedDict(
+    "GetClusterSessionCredentialsOutputTypeDef",
+    {
+        "Credentials": "CredentialsTypeDef",
+        "ExpiresAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2535,6 +2564,15 @@ class UpdateStudioSessionMappingInputRequestTypeDef(
     _OptionalUpdateStudioSessionMappingInputRequestTypeDef,
 ):
     pass
+
+UsernamePasswordTypeDef = TypedDict(
+    "UsernamePasswordTypeDef",
+    {
+        "Username": str,
+        "Password": str,
+    },
+    total=False,
+)
 
 _RequiredVolumeSpecificationTypeDef = TypedDict(
     "_RequiredVolumeSpecificationTypeDef",

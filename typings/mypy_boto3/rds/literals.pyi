@@ -26,6 +26,7 @@ __all__ = (
     "AuditPolicyStateType",
     "AuthSchemeType",
     "AutomationModeType",
+    "ClientPasswordAuthTypeType",
     "CustomEngineVersionStatusType",
     "DBClusterAvailableWaiterName",
     "DBClusterDeletedWaiterName",
@@ -94,6 +95,9 @@ ApplyMethodType = Literal["immediate", "pending-reboot"]
 AuditPolicyStateType = Literal["locked", "unlocked"]
 AuthSchemeType = Literal["SECRETS"]
 AutomationModeType = Literal["all-paused", "full"]
+ClientPasswordAuthTypeType = Literal[
+    "MYSQL_NATIVE_PASSWORD", "POSTGRES_MD5", "POSTGRES_SCRAM_SHA_256", "SQL_SERVER_AUTHENTICATION"
+]
 CustomEngineVersionStatusType = Literal["available", "inactive", "inactive-except-restore"]
 DBClusterAvailableWaiterName = Literal["db_cluster_available"]
 DBClusterDeletedWaiterName = Literal["db_cluster_deleted"]
@@ -169,6 +173,7 @@ FailoverStatusType = Literal["cancelling", "failing-over", "pending"]
 IAMAuthModeType = Literal["DISABLED", "ENABLED", "REQUIRED"]
 ReplicaModeType = Literal["mounted", "open-read-only"]
 SourceTypeType = Literal[
+    "blue-green-deployment",
     "custom-engine-version",
     "db-cluster",
     "db-cluster-snapshot",

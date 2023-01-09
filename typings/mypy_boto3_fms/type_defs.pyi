@@ -29,6 +29,7 @@ from .literals import (
     SecurityServiceTypeType,
     TargetTypeType,
     ThirdPartyFirewallAssociationStatusType,
+    ThirdPartyFirewallType,
     ViolationReasonType,
 )
 
@@ -239,7 +240,7 @@ AssociateAdminAccountRequestRequestTypeDef = TypedDict(
 AssociateThirdPartyFirewallRequestRequestTypeDef = TypedDict(
     "AssociateThirdPartyFirewallRequestRequestTypeDef",
     {
-        "ThirdPartyFirewall": Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"],
+        "ThirdPartyFirewall": ThirdPartyFirewallType,
     },
 )
 
@@ -368,7 +369,7 @@ DeleteResourceSetRequestRequestTypeDef = TypedDict(
 DisassociateThirdPartyFirewallRequestRequestTypeDef = TypedDict(
     "DisassociateThirdPartyFirewallRequestRequestTypeDef",
     {
-        "ThirdPartyFirewall": Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"],
+        "ThirdPartyFirewall": ThirdPartyFirewallType,
     },
 )
 
@@ -796,7 +797,7 @@ GetResourceSetResponseTypeDef = TypedDict(
 GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef = TypedDict(
     "GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef",
     {
-        "ThirdPartyFirewall": Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"],
+        "ThirdPartyFirewall": ThirdPartyFirewallType,
     },
 )
 
@@ -1049,7 +1050,7 @@ ListTagsForResourceResponseTypeDef = TypedDict(
 _RequiredListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef = TypedDict(
     "_RequiredListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
     {
-        "ThirdPartyFirewall": Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"],
+        "ThirdPartyFirewall": ThirdPartyFirewallType,
         "MaxResults": int,
     },
 )

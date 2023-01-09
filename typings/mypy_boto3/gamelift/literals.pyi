@@ -25,6 +25,8 @@ __all__ = (
     "BuildStatusType",
     "CertificateTypeType",
     "ComparisonOperatorTypeType",
+    "ComputeStatusType",
+    "ComputeTypeType",
     "DescribeFleetAttributesPaginatorName",
     "DescribeFleetCapacityPaginatorName",
     "DescribeFleetEventsPaginatorName",
@@ -60,10 +62,13 @@ __all__ = (
     "IpProtocolType",
     "ListAliasesPaginatorName",
     "ListBuildsPaginatorName",
+    "ListComputePaginatorName",
     "ListFleetsPaginatorName",
     "ListGameServerGroupsPaginatorName",
     "ListGameServersPaginatorName",
+    "ListLocationsPaginatorName",
     "ListScriptsPaginatorName",
+    "LocationFilterType",
     "LocationUpdateStatusType",
     "MatchmakingConfigurationStatusType",
     "MetricNameType",
@@ -91,6 +96,8 @@ ComparisonOperatorTypeType = Literal[
     "LessThanOrEqualToThreshold",
     "LessThanThreshold",
 ]
+ComputeStatusType = Literal["ACTIVE", "PENDING", "TERMINATING"]
+ComputeTypeType = Literal["ANYWHERE", "EC2"]
 DescribeFleetAttributesPaginatorName = Literal["describe_fleet_attributes"]
 DescribeFleetCapacityPaginatorName = Literal["describe_fleet_capacity"]
 DescribeFleetEventsPaginatorName = Literal["describe_fleet_events"]
@@ -247,6 +254,7 @@ EventCodeType = Literal[
     "GAME_SESSION_ACTIVATION_TIMEOUT",
     "GENERIC_EVENT",
     "INSTANCE_INTERRUPTED",
+    "INSTANCE_RECYCLED",
     "SERVER_PROCESS_CRASHED",
     "SERVER_PROCESS_FORCE_TERMINATED",
     "SERVER_PROCESS_INVALID_PATH",
@@ -264,6 +272,7 @@ FleetStatusType = Literal[
     "DOWNLOADING",
     "ERROR",
     "NEW",
+    "NOT_FOUND",
     "TERMINATED",
     "VALIDATING",
 ]
@@ -376,10 +385,13 @@ InstanceStatusType = Literal["ACTIVE", "PENDING", "TERMINATING"]
 IpProtocolType = Literal["TCP", "UDP"]
 ListAliasesPaginatorName = Literal["list_aliases"]
 ListBuildsPaginatorName = Literal["list_builds"]
+ListComputePaginatorName = Literal["list_compute"]
 ListFleetsPaginatorName = Literal["list_fleets"]
 ListGameServerGroupsPaginatorName = Literal["list_game_server_groups"]
 ListGameServersPaginatorName = Literal["list_game_servers"]
+ListLocationsPaginatorName = Literal["list_locations"]
 ListScriptsPaginatorName = Literal["list_scripts"]
+LocationFilterType = Literal["AWS", "CUSTOM"]
 LocationUpdateStatusType = Literal["PENDING_UPDATE"]
 MatchmakingConfigurationStatusType = Literal[
     "CANCELLED",
@@ -397,6 +409,7 @@ MetricNameType = Literal[
     "ActiveInstances",
     "AvailableGameSessions",
     "AvailablePlayerSessions",
+    "ConcurrentActivatableGameSessions",
     "CurrentPlayerSessions",
     "IdleInstances",
     "PercentAvailableGameSessions",

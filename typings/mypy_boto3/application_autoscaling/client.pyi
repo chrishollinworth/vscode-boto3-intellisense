@@ -63,7 +63,7 @@ class Exceptions:
 
 class ApplicationAutoScalingClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html)
     """
 
@@ -78,14 +78,14 @@ class ApplicationAutoScalingClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#close)
         """
     def delete_scaling_policy(
@@ -100,7 +100,7 @@ class ApplicationAutoScalingClient(BaseClient):
         Deletes the specified scaling policy for an Application Auto Scaling scalable
         target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.delete_scaling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.delete_scaling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#delete_scaling_policy)
         """
     def delete_scheduled_action(
@@ -115,7 +115,7 @@ class ApplicationAutoScalingClient(BaseClient):
         Deletes the specified scheduled action for an Application Auto Scaling scalable
         target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.delete_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.delete_scheduled_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#delete_scheduled_action)
         """
     def deregister_scalable_target(
@@ -129,7 +129,7 @@ class ApplicationAutoScalingClient(BaseClient):
         Deregisters an Application Auto Scaling scalable target when you have finished
         using it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.deregister_scalable_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.deregister_scalable_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#deregister_scalable_target)
         """
     def describe_scalable_targets(
@@ -144,7 +144,7 @@ class ApplicationAutoScalingClient(BaseClient):
         """
         Gets information about the scalable targets in the specified namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scalable_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scalable_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#describe_scalable_targets)
         """
     def describe_scaling_activities(
@@ -154,13 +154,14 @@ class ApplicationAutoScalingClient(BaseClient):
         ResourceId: str = None,
         ScalableDimension: ScalableDimensionType = None,
         MaxResults: int = None,
-        NextToken: str = None
+        NextToken: str = None,
+        IncludeNotScaledActivities: bool = None
     ) -> DescribeScalingActivitiesResponseTypeDef:
         """
         Provides descriptive information about the scaling activities in the specified
         namespace from the previous six weeks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scaling_activities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scaling_activities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#describe_scaling_activities)
         """
     def describe_scaling_policies(
@@ -177,7 +178,7 @@ class ApplicationAutoScalingClient(BaseClient):
         Describes the Application Auto Scaling scaling policies for the specified
         service namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scaling_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scaling_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#describe_scaling_policies)
         """
     def describe_scheduled_actions(
@@ -194,7 +195,7 @@ class ApplicationAutoScalingClient(BaseClient):
         Describes the Application Auto Scaling scheduled actions for the specified
         service namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scheduled_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scheduled_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#describe_scheduled_actions)
         """
     def generate_presigned_url(
@@ -207,7 +208,7 @@ class ApplicationAutoScalingClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#generate_presigned_url)
         """
     def put_scaling_policy(
@@ -225,7 +226,7 @@ class ApplicationAutoScalingClient(BaseClient):
         Creates or updates a scaling policy for an Application Auto Scaling scalable
         target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.put_scaling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.put_scaling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#put_scaling_policy)
         """
     def put_scheduled_action(
@@ -245,7 +246,7 @@ class ApplicationAutoScalingClient(BaseClient):
         Creates or updates a scheduled action for an Application Auto Scaling scalable
         target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.put_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.put_scheduled_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#put_scheduled_action)
         """
     def register_scalable_target(
@@ -260,9 +261,9 @@ class ApplicationAutoScalingClient(BaseClient):
         SuspendedState: "SuspendedStateTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        Registers or updates a scalable target.
+        Registers or updates a scalable target, the resource that you want to scale.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.register_scalable_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.register_scalable_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#register_scalable_target)
         """
     @overload
@@ -270,7 +271,7 @@ class ApplicationAutoScalingClient(BaseClient):
         self, operation_name: Literal["describe_scalable_targets"]
     ) -> DescribeScalableTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalabletargetspaginator)
         """
     @overload
@@ -278,7 +279,7 @@ class ApplicationAutoScalingClient(BaseClient):
         self, operation_name: Literal["describe_scaling_activities"]
     ) -> DescribeScalingActivitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalingactivitiespaginator)
         """
     @overload
@@ -286,7 +287,7 @@ class ApplicationAutoScalingClient(BaseClient):
         self, operation_name: Literal["describe_scaling_policies"]
     ) -> DescribeScalingPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalingpoliciespaginator)
         """
     @overload
@@ -294,6 +295,6 @@ class ApplicationAutoScalingClient(BaseClient):
         self, operation_name: Literal["describe_scheduled_actions"]
     ) -> DescribeScheduledActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescheduledactionspaginator)
         """

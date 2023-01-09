@@ -14,6 +14,7 @@ Usage::
         ListLaunchProfileMembersPaginator,
         ListLaunchProfilesPaginator,
         ListStreamingImagesPaginator,
+        ListStreamingSessionBackupsPaginator,
         ListStreamingSessionsPaginator,
         ListStudioComponentsPaginator,
         ListStudioMembersPaginator,
@@ -54,6 +55,7 @@ Usage::
     list_launch_profile_members_paginator: ListLaunchProfileMembersPaginator = client.get_paginator("list_launch_profile_members")
     list_launch_profiles_paginator: ListLaunchProfilesPaginator = client.get_paginator("list_launch_profiles")
     list_streaming_images_paginator: ListStreamingImagesPaginator = client.get_paginator("list_streaming_images")
+    list_streaming_session_backups_paginator: ListStreamingSessionBackupsPaginator = client.get_paginator("list_streaming_session_backups")
     list_streaming_sessions_paginator: ListStreamingSessionsPaginator = client.get_paginator("list_streaming_sessions")
     list_studio_components_paginator: ListStudioComponentsPaginator = client.get_paginator("list_studio_components")
     list_studio_members_paginator: ListStudioMembersPaginator = client.get_paginator("list_studio_members")
@@ -67,6 +69,7 @@ from .paginator import (
     ListLaunchProfileMembersPaginator,
     ListLaunchProfilesPaginator,
     ListStreamingImagesPaginator,
+    ListStreamingSessionBackupsPaginator,
     ListStreamingSessionsPaginator,
     ListStudioComponentsPaginator,
     ListStudioMembersPaginator,
@@ -98,6 +101,7 @@ __all__ = (
     "ListLaunchProfileMembersPaginator",
     "ListLaunchProfilesPaginator",
     "ListStreamingImagesPaginator",
+    "ListStreamingSessionBackupsPaginator",
     "ListStreamingSessionsPaginator",
     "ListStudioComponentsPaginator",
     "ListStudioMembersPaginator",

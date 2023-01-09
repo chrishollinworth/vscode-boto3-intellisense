@@ -26,12 +26,14 @@ __all__ = (
     "ListDomainsAttributeNameType",
     "ListDomainsPaginatorName",
     "ListOperationsPaginatorName",
+    "ListOperationsSortAttributeNameType",
     "ListPricesPaginatorName",
     "OperationStatusType",
     "OperationTypeType",
     "OperatorType",
     "ReachabilityStatusType",
     "SortOrderType",
+    "StatusFlagType",
     "TransferableType",
     "ViewBillingPaginatorName",
 )
@@ -303,6 +305,7 @@ DomainAvailabilityType = Literal[
 ExtraParamNameType = Literal[
     "AU_ID_NUMBER",
     "AU_ID_TYPE",
+    "AU_PRIORITY_TOKEN",
     "BIRTH_CITY",
     "BIRTH_COUNTRY",
     "BIRTH_DATE_IN_YYYY_MM_DD",
@@ -335,6 +338,7 @@ ExtraParamNameType = Literal[
 ListDomainsAttributeNameType = Literal["DomainName", "Expiry"]
 ListDomainsPaginatorName = Literal["list_domains"]
 ListOperationsPaginatorName = Literal["list_operations"]
+ListOperationsSortAttributeNameType = Literal["SubmittedDate"]
 ListPricesPaginatorName = Literal["list_prices"]
 OperationStatusType = Literal["ERROR", "FAILED", "IN_PROGRESS", "SUBMITTED", "SUCCESSFUL"]
 OperationTypeType = Literal[
@@ -360,5 +364,19 @@ OperationTypeType = Literal[
 OperatorType = Literal["BEGINS_WITH", "GE", "LE"]
 ReachabilityStatusType = Literal["DONE", "EXPIRED", "PENDING"]
 SortOrderType = Literal["ASC", "DESC"]
-TransferableType = Literal["DONT_KNOW", "TRANSFERABLE", "UNTRANSFERABLE"]
+StatusFlagType = Literal[
+    "PENDING_ACCEPTANCE",
+    "PENDING_AUTHORIZATION",
+    "PENDING_CUSTOMER_ACTION",
+    "PENDING_PAYMENT_VERIFICATION",
+    "PENDING_SUPPORT_CASE",
+]
+TransferableType = Literal[
+    "DOMAIN_IN_ANOTHER_ACCOUNT",
+    "DOMAIN_IN_OWN_ACCOUNT",
+    "DONT_KNOW",
+    "PREMIUM_DOMAIN",
+    "TRANSFERABLE",
+    "UNTRANSFERABLE",
+]
 ViewBillingPaginatorName = Literal["view_billing"]

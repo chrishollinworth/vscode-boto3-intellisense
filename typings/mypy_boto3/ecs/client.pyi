@@ -184,7 +184,7 @@ class Exceptions:
 
 class ECSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html)
     """
 
@@ -199,14 +199,14 @@ class ECSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#close)
         """
     def create_capacity_provider(
@@ -219,7 +219,7 @@ class ECSClient(BaseClient):
         """
         Creates a new capacity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.create_capacity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.create_capacity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#create_capacity_provider)
         """
     def create_cluster(
@@ -236,7 +236,7 @@ class ECSClient(BaseClient):
         """
         Creates a new Amazon ECS cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.create_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.create_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#create_cluster)
         """
     def create_service(
@@ -267,9 +267,10 @@ class ECSClient(BaseClient):
         serviceConnectConfiguration: "ServiceConnectConfigurationTypeDef" = None
     ) -> CreateServiceResponseTypeDef:
         """
-        .
+        Runs and maintains your desired number of tasks from a specified task
+        definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.create_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.create_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#create_service)
         """
     def create_task_set(
@@ -292,7 +293,7 @@ class ECSClient(BaseClient):
         """
         Create a task set in the specified cluster and service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.create_task_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.create_task_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#create_task_set)
         """
     def delete_account_setting(
@@ -302,7 +303,7 @@ class ECSClient(BaseClient):
         Disables an account setting for a specified IAM user, IAM role, or the root user
         for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.delete_account_setting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.delete_account_setting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#delete_account_setting)
         """
     def delete_attributes(
@@ -311,7 +312,7 @@ class ECSClient(BaseClient):
         """
         Deletes one or more custom attributes from an Amazon ECS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.delete_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.delete_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#delete_attributes)
         """
     def delete_capacity_provider(
@@ -320,23 +321,23 @@ class ECSClient(BaseClient):
         """
         Deletes the specified capacity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.delete_capacity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.delete_capacity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#delete_capacity_provider)
         """
     def delete_cluster(self, *, cluster: str) -> DeleteClusterResponseTypeDef:
         """
         Deletes the specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.delete_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.delete_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#delete_cluster)
         """
     def delete_service(
         self, *, service: str, cluster: str = None, force: bool = None
     ) -> DeleteServiceResponseTypeDef:
         """
-        .
+        Deletes a specified service within a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.delete_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.delete_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#delete_service)
         """
     def delete_task_set(
@@ -345,7 +346,7 @@ class ECSClient(BaseClient):
         """
         Deletes a specified task set within a service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.delete_task_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.delete_task_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#delete_task_set)
         """
     def deregister_container_instance(
@@ -354,7 +355,7 @@ class ECSClient(BaseClient):
         """
         Deregisters an Amazon ECS container instance from the specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.deregister_container_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.deregister_container_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#deregister_container_instance)
         """
     def deregister_task_definition(
@@ -363,7 +364,7 @@ class ECSClient(BaseClient):
         """
         Deregisters the specified task definition by family and revision.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.deregister_task_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.deregister_task_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#deregister_task_definition)
         """
     def describe_capacity_providers(
@@ -377,7 +378,7 @@ class ECSClient(BaseClient):
         """
         Describes one or more of your capacity providers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.describe_capacity_providers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.describe_capacity_providers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#describe_capacity_providers)
         """
     def describe_clusters(
@@ -386,7 +387,7 @@ class ECSClient(BaseClient):
         """
         Describes one or more of your clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.describe_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.describe_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#describe_clusters)
         """
     def describe_container_instances(
@@ -399,16 +400,16 @@ class ECSClient(BaseClient):
         """
         Describes one or more container instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.describe_container_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.describe_container_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#describe_container_instances)
         """
     def describe_services(
         self, *, services: List[str], cluster: str = None, include: List[Literal["TAGS"]] = None
     ) -> DescribeServicesResponseTypeDef:
         """
-        .
+        Describes the specified services running in your cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.describe_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.describe_services)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#describe_services)
         """
     def describe_task_definition(
@@ -417,7 +418,7 @@ class ECSClient(BaseClient):
         """
         Describes a task definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.describe_task_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.describe_task_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#describe_task_definition)
         """
     def describe_task_sets(
@@ -431,7 +432,7 @@ class ECSClient(BaseClient):
         """
         Describes the task sets in the specified cluster and service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.describe_task_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.describe_task_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#describe_task_sets)
         """
     def describe_tasks(
@@ -440,7 +441,7 @@ class ECSClient(BaseClient):
         """
         Describes a specified task or tasks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.describe_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.describe_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#describe_tasks)
         """
     def discover_poll_endpoint(
@@ -449,7 +450,7 @@ class ECSClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.discover_poll_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.discover_poll_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#discover_poll_endpoint)
         """
     def execute_command(
@@ -464,7 +465,7 @@ class ECSClient(BaseClient):
         """
         Runs a command remotely on a container within a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.execute_command)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.execute_command)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#execute_command)
         """
     def generate_presigned_url(
@@ -477,7 +478,7 @@ class ECSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#generate_presigned_url)
         """
     def get_task_protection(
@@ -486,7 +487,7 @@ class ECSClient(BaseClient):
         """
         Retrieves the protection status of tasks in an Amazon ECS service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.get_task_protection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.get_task_protection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#get_task_protection)
         """
     def list_account_settings(
@@ -502,7 +503,7 @@ class ECSClient(BaseClient):
         """
         Lists the account settings for a specified principal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_account_settings)
         """
     def list_attributes(
@@ -519,7 +520,7 @@ class ECSClient(BaseClient):
         Lists the attributes for Amazon ECS resources within a specified target type and
         cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_attributes)
         """
     def list_clusters(
@@ -528,7 +529,7 @@ class ECSClient(BaseClient):
         """
         Returns a list of existing clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_clusters)
         """
     def list_container_instances(
@@ -543,7 +544,7 @@ class ECSClient(BaseClient):
         """
         Returns a list of container instances in a specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_container_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_container_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_container_instances)
         """
     def list_services(
@@ -558,7 +559,7 @@ class ECSClient(BaseClient):
         """
         Returns a list of services.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_services)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_services)
         """
     def list_services_by_namespace(
@@ -568,14 +569,14 @@ class ECSClient(BaseClient):
         This operation lists all of the services that are associated with a Cloud Map
         namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_services_by_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_services_by_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_services_by_namespace)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         List the tags for an Amazon ECS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_tags_for_resource)
         """
     def list_task_definition_families(
@@ -589,7 +590,7 @@ class ECSClient(BaseClient):
         """
         Returns a list of task definition families that are registered to your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_task_definition_families)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_task_definition_families)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_task_definition_families)
         """
     def list_task_definitions(
@@ -604,7 +605,7 @@ class ECSClient(BaseClient):
         """
         Returns a list of task definitions that are registered to your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_task_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_task_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_task_definitions)
         """
     def list_tasks(
@@ -623,7 +624,7 @@ class ECSClient(BaseClient):
         """
         Returns a list of tasks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.list_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.list_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#list_tasks)
         """
     def put_account_setting(
@@ -632,7 +633,7 @@ class ECSClient(BaseClient):
         """
         Modifies an account setting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.put_account_setting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.put_account_setting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#put_account_setting)
         """
     def put_account_setting_default(
@@ -642,7 +643,7 @@ class ECSClient(BaseClient):
         Modifies an account setting for all IAM users on an account for whom no
         individual account setting has been specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.put_account_setting_default)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.put_account_setting_default)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#put_account_setting_default)
         """
     def put_attributes(
@@ -651,7 +652,7 @@ class ECSClient(BaseClient):
         """
         Create or update an attribute on an Amazon ECS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.put_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.put_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#put_attributes)
         """
     def put_cluster_capacity_providers(
@@ -665,7 +666,7 @@ class ECSClient(BaseClient):
         Modifies the available capacity providers and the default capacity provider
         strategy for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.put_cluster_capacity_providers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.put_cluster_capacity_providers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#put_cluster_capacity_providers)
         """
     def register_container_instance(
@@ -684,7 +685,7 @@ class ECSClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.register_container_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.register_container_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#register_container_instance)
         """
     def register_task_definition(
@@ -712,7 +713,7 @@ class ECSClient(BaseClient):
         Registers a new task definition from the supplied `family` and
         `containerDefinitions`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.register_task_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.register_task_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#register_task_definition)
         """
     def run_task(
@@ -739,7 +740,7 @@ class ECSClient(BaseClient):
         """
         Starts a new task using the specified task definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.run_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.run_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#run_task)
         """
     def start_task(
@@ -762,7 +763,7 @@ class ECSClient(BaseClient):
         Starts a new task from the specified task definition on the specified container
         instance or instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.start_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.start_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#start_task)
         """
     def stop_task(
@@ -771,7 +772,7 @@ class ECSClient(BaseClient):
         """
         Stops a running task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.stop_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.stop_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#stop_task)
         """
     def submit_attachment_state_changes(
@@ -780,7 +781,7 @@ class ECSClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.submit_attachment_state_changes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.submit_attachment_state_changes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#submit_attachment_state_changes)
         """
     def submit_container_state_change(
@@ -798,7 +799,7 @@ class ECSClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.submit_container_state_change)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.submit_container_state_change)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#submit_container_state_change)
         """
     def submit_task_state_change(
@@ -818,21 +819,21 @@ class ECSClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.submit_task_state_change)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.submit_task_state_change)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#submit_task_state_change)
         """
     def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Associates the specified tags to a resource with the specified `resourceArn`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Deletes specified tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#untag_resource)
         """
     def update_capacity_provider(
@@ -841,7 +842,7 @@ class ECSClient(BaseClient):
         """
         Modifies the parameters for a capacity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_capacity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_capacity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_capacity_provider)
         """
     def update_cluster(
@@ -855,7 +856,7 @@ class ECSClient(BaseClient):
         """
         Updates the cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_cluster)
         """
     def update_cluster_settings(
@@ -864,7 +865,7 @@ class ECSClient(BaseClient):
         """
         Modifies the settings to use for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_cluster_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_cluster_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_cluster_settings)
         """
     def update_container_agent(
@@ -873,7 +874,7 @@ class ECSClient(BaseClient):
         """
         Updates the Amazon ECS container agent on a specified container instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_container_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_container_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_container_agent)
         """
     def update_container_instances_state(
@@ -886,7 +887,7 @@ class ECSClient(BaseClient):
         """
         Modifies the status of an Amazon ECS container instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_container_instances_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_container_instances_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_container_instances_state)
         """
     def update_service(
@@ -912,9 +913,9 @@ class ECSClient(BaseClient):
         serviceConnectConfiguration: "ServiceConnectConfigurationTypeDef" = None
     ) -> UpdateServiceResponseTypeDef:
         """
-        .
+        Modifies the parameters of a service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_service)
         """
     def update_service_primary_task_set(
@@ -923,7 +924,7 @@ class ECSClient(BaseClient):
         """
         Modifies which task set in a service is the primary task set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_service_primary_task_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_service_primary_task_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_service_primary_task_set)
         """
     def update_task_protection(
@@ -937,7 +938,7 @@ class ECSClient(BaseClient):
         """
         Updates the protection status of a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_task_protection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_task_protection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_task_protection)
         """
     def update_task_set(
@@ -946,7 +947,7 @@ class ECSClient(BaseClient):
         """
         Modifies a task set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Client.update_task_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Client.update_task_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/client.html#update_task_set)
         """
     @overload
@@ -954,19 +955,19 @@ class ECSClient(BaseClient):
         self, operation_name: Literal["list_account_settings"]
     ) -> ListAccountSettingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListAccountSettings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListAccountSettings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listaccountsettingspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_attributes"]) -> ListAttributesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListAttributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listattributespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listclusterspaginator)
         """
     @overload
@@ -974,13 +975,13 @@ class ECSClient(BaseClient):
         self, operation_name: Literal["list_container_instances"]
     ) -> ListContainerInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListContainerInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListContainerInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listcontainerinstancespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_services"]) -> ListServicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListServices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListServices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listservicespaginator)
         """
     @overload
@@ -988,7 +989,7 @@ class ECSClient(BaseClient):
         self, operation_name: Literal["list_services_by_namespace"]
     ) -> ListServicesByNamespacePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListServicesByNamespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListServicesByNamespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listservicesbynamespacepaginator)
         """
     @overload
@@ -996,7 +997,7 @@ class ECSClient(BaseClient):
         self, operation_name: Literal["list_task_definition_families"]
     ) -> ListTaskDefinitionFamiliesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskdefinitionfamiliespaginator)
         """
     @overload
@@ -1004,36 +1005,36 @@ class ECSClient(BaseClient):
         self, operation_name: Literal["list_task_definitions"]
     ) -> ListTaskDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskdefinitionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_tasks"]) -> ListTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Paginator.ListTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Paginator.ListTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskspaginator)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["services_inactive"]) -> ServicesInactiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesinactivewaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["services_stable"]) -> ServicesStableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Waiter.ServicesStable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Waiter.ServicesStable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesstablewaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["tasks_running"]) -> TasksRunningWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Waiter.TasksRunning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Waiter.TasksRunning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksrunningwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["tasks_stopped"]) -> TasksStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/ecs.html#ECS.Waiter.TasksStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ecs.html#ECS.Waiter.TasksStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksstoppedwaiter)
         """

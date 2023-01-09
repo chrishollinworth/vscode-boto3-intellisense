@@ -16,6 +16,7 @@ Usage::
         ImageVersionDeletedWaiter,
         ListActionsPaginator,
         ListAlgorithmsPaginator,
+        ListAliasesPaginator,
         ListAppImageConfigsPaginator,
         ListAppsPaginator,
         ListArtifactsPaginator,
@@ -40,18 +41,24 @@ Usage::
         ListHyperParameterTuningJobsPaginator,
         ListImageVersionsPaginator,
         ListImagesPaginator,
+        ListInferenceExperimentsPaginator,
         ListInferenceRecommendationsJobStepsPaginator,
         ListInferenceRecommendationsJobsPaginator,
         ListLabelingJobsForWorkteamPaginator,
         ListLabelingJobsPaginator,
         ListLineageGroupsPaginator,
         ListModelBiasJobDefinitionsPaginator,
+        ListModelCardExportJobsPaginator,
+        ListModelCardVersionsPaginator,
+        ListModelCardsPaginator,
         ListModelExplainabilityJobDefinitionsPaginator,
         ListModelMetadataPaginator,
         ListModelPackageGroupsPaginator,
         ListModelPackagesPaginator,
         ListModelQualityJobDefinitionsPaginator,
         ListModelsPaginator,
+        ListMonitoringAlertHistoryPaginator,
+        ListMonitoringAlertsPaginator,
         ListMonitoringExecutionsPaginator,
         ListMonitoringSchedulesPaginator,
         ListNotebookInstanceLifecycleConfigsPaginator,
@@ -61,6 +68,7 @@ Usage::
         ListPipelineParametersForExecutionPaginator,
         ListPipelinesPaginator,
         ListProcessingJobsPaginator,
+        ListSpacesPaginator,
         ListStageDevicesPaginator,
         ListStudioLifecycleConfigsPaginator,
         ListSubscribedWorkteamsPaginator,
@@ -104,6 +112,7 @@ Usage::
 
     list_actions_paginator: ListActionsPaginator = client.get_paginator("list_actions")
     list_algorithms_paginator: ListAlgorithmsPaginator = client.get_paginator("list_algorithms")
+    list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_app_image_configs_paginator: ListAppImageConfigsPaginator = client.get_paginator("list_app_image_configs")
     list_apps_paginator: ListAppsPaginator = client.get_paginator("list_apps")
     list_artifacts_paginator: ListArtifactsPaginator = client.get_paginator("list_artifacts")
@@ -128,18 +137,24 @@ Usage::
     list_hyper_parameter_tuning_jobs_paginator: ListHyperParameterTuningJobsPaginator = client.get_paginator("list_hyper_parameter_tuning_jobs")
     list_image_versions_paginator: ListImageVersionsPaginator = client.get_paginator("list_image_versions")
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
+    list_inference_experiments_paginator: ListInferenceExperimentsPaginator = client.get_paginator("list_inference_experiments")
     list_inference_recommendations_job_steps_paginator: ListInferenceRecommendationsJobStepsPaginator = client.get_paginator("list_inference_recommendations_job_steps")
     list_inference_recommendations_jobs_paginator: ListInferenceRecommendationsJobsPaginator = client.get_paginator("list_inference_recommendations_jobs")
     list_labeling_jobs_paginator: ListLabelingJobsPaginator = client.get_paginator("list_labeling_jobs")
     list_labeling_jobs_for_workteam_paginator: ListLabelingJobsForWorkteamPaginator = client.get_paginator("list_labeling_jobs_for_workteam")
     list_lineage_groups_paginator: ListLineageGroupsPaginator = client.get_paginator("list_lineage_groups")
     list_model_bias_job_definitions_paginator: ListModelBiasJobDefinitionsPaginator = client.get_paginator("list_model_bias_job_definitions")
+    list_model_card_export_jobs_paginator: ListModelCardExportJobsPaginator = client.get_paginator("list_model_card_export_jobs")
+    list_model_card_versions_paginator: ListModelCardVersionsPaginator = client.get_paginator("list_model_card_versions")
+    list_model_cards_paginator: ListModelCardsPaginator = client.get_paginator("list_model_cards")
     list_model_explainability_job_definitions_paginator: ListModelExplainabilityJobDefinitionsPaginator = client.get_paginator("list_model_explainability_job_definitions")
     list_model_metadata_paginator: ListModelMetadataPaginator = client.get_paginator("list_model_metadata")
     list_model_package_groups_paginator: ListModelPackageGroupsPaginator = client.get_paginator("list_model_package_groups")
     list_model_packages_paginator: ListModelPackagesPaginator = client.get_paginator("list_model_packages")
     list_model_quality_job_definitions_paginator: ListModelQualityJobDefinitionsPaginator = client.get_paginator("list_model_quality_job_definitions")
     list_models_paginator: ListModelsPaginator = client.get_paginator("list_models")
+    list_monitoring_alert_history_paginator: ListMonitoringAlertHistoryPaginator = client.get_paginator("list_monitoring_alert_history")
+    list_monitoring_alerts_paginator: ListMonitoringAlertsPaginator = client.get_paginator("list_monitoring_alerts")
     list_monitoring_executions_paginator: ListMonitoringExecutionsPaginator = client.get_paginator("list_monitoring_executions")
     list_monitoring_schedules_paginator: ListMonitoringSchedulesPaginator = client.get_paginator("list_monitoring_schedules")
     list_notebook_instance_lifecycle_configs_paginator: ListNotebookInstanceLifecycleConfigsPaginator = client.get_paginator("list_notebook_instance_lifecycle_configs")
@@ -149,6 +164,7 @@ Usage::
     list_pipeline_parameters_for_execution_paginator: ListPipelineParametersForExecutionPaginator = client.get_paginator("list_pipeline_parameters_for_execution")
     list_pipelines_paginator: ListPipelinesPaginator = client.get_paginator("list_pipelines")
     list_processing_jobs_paginator: ListProcessingJobsPaginator = client.get_paginator("list_processing_jobs")
+    list_spaces_paginator: ListSpacesPaginator = client.get_paginator("list_spaces")
     list_stage_devices_paginator: ListStageDevicesPaginator = client.get_paginator("list_stage_devices")
     list_studio_lifecycle_configs_paginator: ListStudioLifecycleConfigsPaginator = client.get_paginator("list_studio_lifecycle_configs")
     list_subscribed_workteams_paginator: ListSubscribedWorkteamsPaginator = client.get_paginator("list_subscribed_workteams")
@@ -168,6 +184,7 @@ from .client import SageMakerClient
 from .paginator import (
     ListActionsPaginator,
     ListAlgorithmsPaginator,
+    ListAliasesPaginator,
     ListAppImageConfigsPaginator,
     ListAppsPaginator,
     ListArtifactsPaginator,
@@ -192,18 +209,24 @@ from .paginator import (
     ListHyperParameterTuningJobsPaginator,
     ListImagesPaginator,
     ListImageVersionsPaginator,
+    ListInferenceExperimentsPaginator,
     ListInferenceRecommendationsJobsPaginator,
     ListInferenceRecommendationsJobStepsPaginator,
     ListLabelingJobsForWorkteamPaginator,
     ListLabelingJobsPaginator,
     ListLineageGroupsPaginator,
     ListModelBiasJobDefinitionsPaginator,
+    ListModelCardExportJobsPaginator,
+    ListModelCardsPaginator,
+    ListModelCardVersionsPaginator,
     ListModelExplainabilityJobDefinitionsPaginator,
     ListModelMetadataPaginator,
     ListModelPackageGroupsPaginator,
     ListModelPackagesPaginator,
     ListModelQualityJobDefinitionsPaginator,
     ListModelsPaginator,
+    ListMonitoringAlertHistoryPaginator,
+    ListMonitoringAlertsPaginator,
     ListMonitoringExecutionsPaginator,
     ListMonitoringSchedulesPaginator,
     ListNotebookInstanceLifecycleConfigsPaginator,
@@ -213,6 +236,7 @@ from .paginator import (
     ListPipelineParametersForExecutionPaginator,
     ListPipelinesPaginator,
     ListProcessingJobsPaginator,
+    ListSpacesPaginator,
     ListStageDevicesPaginator,
     ListStudioLifecycleConfigsPaginator,
     ListSubscribedWorkteamsPaginator,
@@ -256,6 +280,7 @@ __all__ = (
     "ImageVersionDeletedWaiter",
     "ListActionsPaginator",
     "ListAlgorithmsPaginator",
+    "ListAliasesPaginator",
     "ListAppImageConfigsPaginator",
     "ListAppsPaginator",
     "ListArtifactsPaginator",
@@ -280,18 +305,24 @@ __all__ = (
     "ListHyperParameterTuningJobsPaginator",
     "ListImageVersionsPaginator",
     "ListImagesPaginator",
+    "ListInferenceExperimentsPaginator",
     "ListInferenceRecommendationsJobStepsPaginator",
     "ListInferenceRecommendationsJobsPaginator",
     "ListLabelingJobsForWorkteamPaginator",
     "ListLabelingJobsPaginator",
     "ListLineageGroupsPaginator",
     "ListModelBiasJobDefinitionsPaginator",
+    "ListModelCardExportJobsPaginator",
+    "ListModelCardVersionsPaginator",
+    "ListModelCardsPaginator",
     "ListModelExplainabilityJobDefinitionsPaginator",
     "ListModelMetadataPaginator",
     "ListModelPackageGroupsPaginator",
     "ListModelPackagesPaginator",
     "ListModelQualityJobDefinitionsPaginator",
     "ListModelsPaginator",
+    "ListMonitoringAlertHistoryPaginator",
+    "ListMonitoringAlertsPaginator",
     "ListMonitoringExecutionsPaginator",
     "ListMonitoringSchedulesPaginator",
     "ListNotebookInstanceLifecycleConfigsPaginator",
@@ -301,6 +332,7 @@ __all__ = (
     "ListPipelineParametersForExecutionPaginator",
     "ListPipelinesPaginator",
     "ListProcessingJobsPaginator",
+    "ListSpacesPaginator",
     "ListStageDevicesPaginator",
     "ListStudioLifecycleConfigsPaginator",
     "ListSubscribedWorkteamsPaginator",

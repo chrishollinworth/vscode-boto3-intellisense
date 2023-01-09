@@ -36,7 +36,10 @@ __all__ = (
     "CrawlerLineageSettingsType",
     "CrawlerStateType",
     "CsvHeaderOptionType",
+    "DQStopJobOnFailureTimingType",
+    "DQTransformOutputType",
     "DataFormatType",
+    "DataQualityRuleResultStatusType",
     "DeleteBehaviorType",
     "EnableHybridValuesType",
     "ExecutionClassType",
@@ -194,7 +197,10 @@ CrawlerHistoryStateType = Literal["COMPLETED", "FAILED", "RUNNING", "STOPPED"]
 CrawlerLineageSettingsType = Literal["DISABLE", "ENABLE"]
 CrawlerStateType = Literal["READY", "RUNNING", "STOPPING"]
 CsvHeaderOptionType = Literal["ABSENT", "PRESENT", "UNKNOWN"]
+DQStopJobOnFailureTimingType = Literal["AfterDataLoad", "Immediate"]
+DQTransformOutputType = Literal["EvaluationResults", "PrimaryInput"]
 DataFormatType = Literal["AVRO", "JSON", "PROTOBUF"]
+DataQualityRuleResultStatusType = Literal["ERROR", "FAIL", "PASS"]
 DeleteBehaviorType = Literal["DELETE_FROM_DATABASE", "DEPRECATE_IN_DATABASE", "LOG"]
 EnableHybridValuesType = Literal["FALSE", "TRUE"]
 ExecutionClassType = Literal["FLEX", "STANDARD"]

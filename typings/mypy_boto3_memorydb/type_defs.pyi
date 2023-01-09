@@ -82,6 +82,10 @@ __all__ = (
     "DescribeParameterGroupsResponseTypeDef",
     "DescribeParametersRequestRequestTypeDef",
     "DescribeParametersResponseTypeDef",
+    "DescribeReservedNodesOfferingsRequestRequestTypeDef",
+    "DescribeReservedNodesOfferingsResponseTypeDef",
+    "DescribeReservedNodesRequestRequestTypeDef",
+    "DescribeReservedNodesResponseTypeDef",
     "DescribeServiceUpdatesRequestRequestTypeDef",
     "DescribeServiceUpdatesResponseTypeDef",
     "DescribeSnapshotsRequestRequestTypeDef",
@@ -101,11 +105,17 @@ __all__ = (
     "ListTagsRequestRequestTypeDef",
     "ListTagsResponseTypeDef",
     "NodeTypeDef",
+    "PaginatorConfigTypeDef",
     "ParameterGroupTypeDef",
     "ParameterNameValueTypeDef",
     "ParameterTypeDef",
     "PendingModifiedServiceUpdateTypeDef",
+    "PurchaseReservedNodesOfferingRequestRequestTypeDef",
+    "PurchaseReservedNodesOfferingResponseTypeDef",
+    "RecurringChargeTypeDef",
     "ReplicaConfigurationRequestTypeDef",
+    "ReservedNodeTypeDef",
+    "ReservedNodesOfferingTypeDef",
     "ResetParameterGroupRequestRequestTypeDef",
     "ResetParameterGroupResponseTypeDef",
     "ReshardingStatusTypeDef",
@@ -746,6 +756,51 @@ DescribeParametersResponseTypeDef = TypedDict(
     },
 )
 
+DescribeReservedNodesOfferingsRequestRequestTypeDef = TypedDict(
+    "DescribeReservedNodesOfferingsRequestRequestTypeDef",
+    {
+        "ReservedNodesOfferingId": str,
+        "NodeType": str,
+        "Duration": str,
+        "OfferingType": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeReservedNodesOfferingsResponseTypeDef = TypedDict(
+    "DescribeReservedNodesOfferingsResponseTypeDef",
+    {
+        "NextToken": str,
+        "ReservedNodesOfferings": List["ReservedNodesOfferingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReservedNodesRequestRequestTypeDef = TypedDict(
+    "DescribeReservedNodesRequestRequestTypeDef",
+    {
+        "ReservationId": str,
+        "ReservedNodesOfferingId": str,
+        "NodeType": str,
+        "Duration": str,
+        "OfferingType": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeReservedNodesResponseTypeDef = TypedDict(
+    "DescribeReservedNodesResponseTypeDef",
+    {
+        "NextToken": str,
+        "ReservedNodes": List["ReservedNodeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeServiceUpdatesRequestRequestTypeDef = TypedDict(
     "DescribeServiceUpdatesRequestRequestTypeDef",
     {
@@ -925,6 +980,16 @@ NodeTypeDef = TypedDict(
     total=False,
 )
 
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
 ParameterGroupTypeDef = TypedDict(
     "ParameterGroupTypeDef",
     {
@@ -967,10 +1032,80 @@ PendingModifiedServiceUpdateTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPurchaseReservedNodesOfferingRequestRequestTypeDef = TypedDict(
+    "_RequiredPurchaseReservedNodesOfferingRequestRequestTypeDef",
+    {
+        "ReservedNodesOfferingId": str,
+    },
+)
+_OptionalPurchaseReservedNodesOfferingRequestRequestTypeDef = TypedDict(
+    "_OptionalPurchaseReservedNodesOfferingRequestRequestTypeDef",
+    {
+        "ReservationId": str,
+        "NodeCount": int,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class PurchaseReservedNodesOfferingRequestRequestTypeDef(
+    _RequiredPurchaseReservedNodesOfferingRequestRequestTypeDef,
+    _OptionalPurchaseReservedNodesOfferingRequestRequestTypeDef,
+):
+    pass
+
+PurchaseReservedNodesOfferingResponseTypeDef = TypedDict(
+    "PurchaseReservedNodesOfferingResponseTypeDef",
+    {
+        "ReservedNode": "ReservedNodeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RecurringChargeTypeDef = TypedDict(
+    "RecurringChargeTypeDef",
+    {
+        "RecurringChargeAmount": float,
+        "RecurringChargeFrequency": str,
+    },
+    total=False,
+)
+
 ReplicaConfigurationRequestTypeDef = TypedDict(
     "ReplicaConfigurationRequestTypeDef",
     {
         "ReplicaCount": int,
+    },
+    total=False,
+)
+
+ReservedNodeTypeDef = TypedDict(
+    "ReservedNodeTypeDef",
+    {
+        "ReservationId": str,
+        "ReservedNodesOfferingId": str,
+        "NodeType": str,
+        "StartTime": datetime,
+        "Duration": int,
+        "FixedPrice": float,
+        "NodeCount": int,
+        "OfferingType": str,
+        "State": str,
+        "RecurringCharges": List["RecurringChargeTypeDef"],
+        "ARN": str,
+    },
+    total=False,
+)
+
+ReservedNodesOfferingTypeDef = TypedDict(
+    "ReservedNodesOfferingTypeDef",
+    {
+        "ReservedNodesOfferingId": str,
+        "NodeType": str,
+        "Duration": int,
+        "FixedPrice": float,
+        "OfferingType": str,
+        "RecurringCharges": List["RecurringChargeTypeDef"],
     },
     total=False,
 )

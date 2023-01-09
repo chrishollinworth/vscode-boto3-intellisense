@@ -51,7 +51,7 @@ class Exceptions:
 
 class ControlTowerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html)
     """
 
@@ -66,14 +66,14 @@ class ControlTowerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#close)
         """
     def disable_control(
@@ -82,7 +82,7 @@ class ControlTowerClient(BaseClient):
         """
         This API call turns off a control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Client.disable_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Client.disable_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#disable_control)
         """
     def enable_control(
@@ -91,7 +91,7 @@ class ControlTowerClient(BaseClient):
         """
         This API call activates a control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Client.enable_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Client.enable_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#enable_control)
         """
     def generate_presigned_url(
@@ -104,7 +104,7 @@ class ControlTowerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#generate_presigned_url)
         """
     def get_control_operation(
@@ -114,7 +114,7 @@ class ControlTowerClient(BaseClient):
         Returns the status of a particular `EnableControl` or `DisableControl`
         operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Client.get_control_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Client.get_control_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_control_operation)
         """
     def list_enabled_controls(
@@ -124,13 +124,13 @@ class ControlTowerClient(BaseClient):
         Lists the controls enabled by AWS Control Tower on the specified organizational
         unit and the accounts it contains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Client.list_enabled_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Client.list_enabled_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_enabled_controls)
         """
     def get_paginator(
         self, operation_name: Literal["list_enabled_controls"]
     ) -> ListEnabledControlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledcontrolspaginator)
         """

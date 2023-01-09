@@ -26,9 +26,14 @@ from .literals import (
     OperatorType,
     ReachabilityStatusType,
     SortOrderType,
+    StatusFlagType,
     TransferableType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -37,6 +42,8 @@ else:
 __all__ = (
     "AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef",
     "AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef",
+    "AssociateDelegationSignerToDomainRequestRequestTypeDef",
+    "AssociateDelegationSignerToDomainResponseTypeDef",
     "BillingRecordTypeDef",
     "CancelDomainTransferToAnotherAwsAccountRequestRequestTypeDef",
     "CancelDomainTransferToAnotherAwsAccountResponseTypeDef",
@@ -44,6 +51,7 @@ __all__ = (
     "CheckDomainAvailabilityResponseTypeDef",
     "CheckDomainTransferabilityRequestRequestTypeDef",
     "CheckDomainTransferabilityResponseTypeDef",
+    "ConsentTypeDef",
     "ContactDetailTypeDef",
     "DeleteDomainRequestRequestTypeDef",
     "DeleteDomainResponseTypeDef",
@@ -51,6 +59,10 @@ __all__ = (
     "DisableDomainAutoRenewRequestRequestTypeDef",
     "DisableDomainTransferLockRequestRequestTypeDef",
     "DisableDomainTransferLockResponseTypeDef",
+    "DisassociateDelegationSignerFromDomainRequestRequestTypeDef",
+    "DisassociateDelegationSignerFromDomainResponseTypeDef",
+    "DnssecKeyTypeDef",
+    "DnssecSigningAttributesTypeDef",
     "DomainPriceTypeDef",
     "DomainSuggestionTypeDef",
     "DomainSummaryTypeDef",
@@ -80,6 +92,7 @@ __all__ = (
     "OperationSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "PriceWithCurrencyTypeDef",
+    "PushDomainRequestRequestTypeDef",
     "RegisterDomainRequestRequestTypeDef",
     "RegisterDomainResponseTypeDef",
     "RejectDomainTransferFromAnotherAwsAccountRequestRequestTypeDef",
@@ -88,6 +101,7 @@ __all__ = (
     "RenewDomainResponseTypeDef",
     "ResendContactReachabilityEmailRequestRequestTypeDef",
     "ResendContactReachabilityEmailResponseTypeDef",
+    "ResendOperationAuthorizationRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
     "RetrieveDomainAuthCodeRequestRequestTypeDef",
     "RetrieveDomainAuthCodeResponseTypeDef",
@@ -118,6 +132,22 @@ AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef = TypedDict(
 
 AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef = TypedDict(
     "AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssociateDelegationSignerToDomainRequestRequestTypeDef = TypedDict(
+    "AssociateDelegationSignerToDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "SigningAttributes": "DnssecSigningAttributesTypeDef",
+    },
+)
+
+AssociateDelegationSignerToDomainResponseTypeDef = TypedDict(
+    "AssociateDelegationSignerToDomainResponseTypeDef",
     {
         "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -207,6 +237,14 @@ CheckDomainTransferabilityResponseTypeDef = TypedDict(
     },
 )
 
+ConsentTypeDef = TypedDict(
+    "ConsentTypeDef",
+    {
+        "MaxPrice": float,
+        "Currency": str,
+    },
+)
+
 ContactDetailTypeDef = TypedDict(
     "ContactDetailTypeDef",
     {
@@ -273,6 +311,46 @@ DisableDomainTransferLockResponseTypeDef = TypedDict(
     },
 )
 
+DisassociateDelegationSignerFromDomainRequestRequestTypeDef = TypedDict(
+    "DisassociateDelegationSignerFromDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Id": str,
+    },
+)
+
+DisassociateDelegationSignerFromDomainResponseTypeDef = TypedDict(
+    "DisassociateDelegationSignerFromDomainResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DnssecKeyTypeDef = TypedDict(
+    "DnssecKeyTypeDef",
+    {
+        "Algorithm": int,
+        "Flags": int,
+        "PublicKey": str,
+        "DigestType": int,
+        "Digest": str,
+        "KeyTag": int,
+        "Id": str,
+    },
+    total=False,
+)
+
+DnssecSigningAttributesTypeDef = TypedDict(
+    "DnssecSigningAttributesTypeDef",
+    {
+        "Algorithm": int,
+        "Flags": int,
+        "PublicKey": str,
+    },
+    total=False,
+)
+
 DomainPriceTypeDef = TypedDict(
     "DomainPriceTypeDef",
     {
@@ -295,24 +373,16 @@ DomainSuggestionTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredDomainSummaryTypeDef = TypedDict(
-    "_RequiredDomainSummaryTypeDef",
+DomainSummaryTypeDef = TypedDict(
+    "DomainSummaryTypeDef",
     {
         "DomainName": str,
-    },
-)
-_OptionalDomainSummaryTypeDef = TypedDict(
-    "_OptionalDomainSummaryTypeDef",
-    {
         "AutoRenew": bool,
         "TransferLock": bool,
         "Expiry": datetime,
     },
     total=False,
 )
-
-class DomainSummaryTypeDef(_RequiredDomainSummaryTypeDef, _OptionalDomainSummaryTypeDef):
-    pass
 
 DomainTransferabilityTypeDef = TypedDict(
     "DomainTransferabilityTypeDef",
@@ -409,6 +479,7 @@ GetDomainDetailResponseTypeDef = TypedDict(
         "Reseller": str,
         "DnsSec": str,
         "StatusList": List[str],
+        "DnssecKeys": List["DnssecKeyTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -446,6 +517,8 @@ GetOperationDetailResponseTypeDef = TypedDict(
         "DomainName": str,
         "Type": OperationTypeType,
         "SubmittedDate": datetime,
+        "LastUpdatedDate": datetime,
+        "StatusFlag": StatusFlagType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -476,6 +549,10 @@ ListOperationsRequestRequestTypeDef = TypedDict(
         "SubmittedSince": Union[datetime, str],
         "Marker": str,
         "MaxItems": int,
+        "Status": List[OperationStatusType],
+        "Type": List[OperationTypeType],
+        "SortBy": Literal["SubmittedDate"],
+        "SortOrder": SortOrderType,
     },
     total=False,
 )
@@ -547,7 +624,12 @@ OperationSummaryTypeDef = TypedDict(
         "Status": OperationStatusType,
         "Type": OperationTypeType,
         "SubmittedDate": datetime,
+        "DomainName": str,
+        "Message": str,
+        "StatusFlag": StatusFlagType,
+        "LastUpdatedDate": datetime,
     },
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -565,6 +647,14 @@ PriceWithCurrencyTypeDef = TypedDict(
     {
         "Price": float,
         "Currency": str,
+    },
+)
+
+PushDomainRequestRequestTypeDef = TypedDict(
+    "PushDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Target": str,
     },
 )
 
@@ -661,6 +751,13 @@ ResendContactReachabilityEmailResponseTypeDef = TypedDict(
         "emailAddress": str,
         "isAlreadyVerified": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResendOperationAuthorizationRequestRequestTypeDef = TypedDict(
+    "ResendOperationAuthorizationRequestRequestTypeDef",
+    {
+        "OperationId": str,
     },
 )
 
@@ -803,6 +900,7 @@ _OptionalUpdateDomainContactRequestRequestTypeDef = TypedDict(
         "AdminContact": "ContactDetailTypeDef",
         "RegistrantContact": "ContactDetailTypeDef",
         "TechContact": "ContactDetailTypeDef",
+        "Consent": "ConsentTypeDef",
     },
     total=False,
 )

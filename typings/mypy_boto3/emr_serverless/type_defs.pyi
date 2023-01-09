@@ -41,6 +41,8 @@ __all__ = (
     "GetJobRunRequestRequestTypeDef",
     "GetJobRunResponseTypeDef",
     "HiveTypeDef",
+    "ImageConfigurationInputTypeDef",
+    "ImageConfigurationTypeDef",
     "InitialCapacityConfigTypeDef",
     "JobDriverTypeDef",
     "JobRunSummaryTypeDef",
@@ -69,6 +71,8 @@ __all__ = (
     "UpdateApplicationRequestRequestTypeDef",
     "UpdateApplicationResponseTypeDef",
     "WorkerResourceConfigTypeDef",
+    "WorkerTypeSpecificationInputTypeDef",
+    "WorkerTypeSpecificationTypeDef",
 )
 
 _RequiredApplicationSummaryTypeDef = TypedDict(
@@ -122,6 +126,8 @@ _OptionalApplicationTypeDef = TypedDict(
         "autoStopConfiguration": "AutoStopConfigTypeDef",
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "architecture": ArchitectureType,
+        "imageConfiguration": "ImageConfigurationTypeDef",
+        "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationTypeDef"],
     },
     total=False,
 )
@@ -209,6 +215,8 @@ _OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
         "autoStopConfiguration": "AutoStopConfigTypeDef",
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "architecture": ArchitectureType,
+        "imageConfiguration": "ImageConfigurationInputTypeDef",
+        "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationInputTypeDef"],
     },
     total=False,
 )
@@ -298,6 +306,33 @@ _OptionalHiveTypeDef = TypedDict(
 )
 
 class HiveTypeDef(_RequiredHiveTypeDef, _OptionalHiveTypeDef):
+    pass
+
+ImageConfigurationInputTypeDef = TypedDict(
+    "ImageConfigurationInputTypeDef",
+    {
+        "imageUri": str,
+    },
+    total=False,
+)
+
+_RequiredImageConfigurationTypeDef = TypedDict(
+    "_RequiredImageConfigurationTypeDef",
+    {
+        "imageUri": str,
+    },
+)
+_OptionalImageConfigurationTypeDef = TypedDict(
+    "_OptionalImageConfigurationTypeDef",
+    {
+        "resolvedImageDigest": str,
+    },
+    total=False,
+)
+
+class ImageConfigurationTypeDef(
+    _RequiredImageConfigurationTypeDef, _OptionalImageConfigurationTypeDef
+):
     pass
 
 _RequiredInitialCapacityConfigTypeDef = TypedDict(
@@ -639,6 +674,8 @@ _OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
         "autoStopConfiguration": "AutoStopConfigTypeDef",
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "architecture": ArchitectureType,
+        "imageConfiguration": "ImageConfigurationInputTypeDef",
+        "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationInputTypeDef"],
     },
     total=False,
 )
@@ -675,3 +712,19 @@ class WorkerResourceConfigTypeDef(
     _RequiredWorkerResourceConfigTypeDef, _OptionalWorkerResourceConfigTypeDef
 ):
     pass
+
+WorkerTypeSpecificationInputTypeDef = TypedDict(
+    "WorkerTypeSpecificationInputTypeDef",
+    {
+        "imageConfiguration": "ImageConfigurationInputTypeDef",
+    },
+    total=False,
+)
+
+WorkerTypeSpecificationTypeDef = TypedDict(
+    "WorkerTypeSpecificationTypeDef",
+    {
+        "imageConfiguration": "ImageConfigurationTypeDef",
+    },
+    total=False,
+)

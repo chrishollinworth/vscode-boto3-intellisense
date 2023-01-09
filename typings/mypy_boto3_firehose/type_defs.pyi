@@ -6,9 +6,9 @@ Type annotations for firehose service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_firehose.type_defs import AmazonopensearchserviceBufferingHintsTypeDef
+    from mypy_boto3_firehose.type_defs import AmazonOpenSearchServerlessBufferingHintsTypeDef
 
-    data: AmazonopensearchserviceBufferingHintsTypeDef = {...}
+    data: AmazonOpenSearchServerlessBufferingHintsTypeDef = {...}
     ```
 """
 import sys
@@ -18,6 +18,7 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    AmazonOpenSearchServerlessS3BackupModeType,
     AmazonopensearchserviceIndexRotationPeriodType,
     AmazonopensearchserviceS3BackupModeType,
     CompressionFormatType,
@@ -52,6 +53,11 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AmazonOpenSearchServerlessBufferingHintsTypeDef",
+    "AmazonOpenSearchServerlessDestinationConfigurationTypeDef",
+    "AmazonOpenSearchServerlessDestinationDescriptionTypeDef",
+    "AmazonOpenSearchServerlessDestinationUpdateTypeDef",
+    "AmazonOpenSearchServerlessRetryOptionsTypeDef",
     "AmazonopensearchserviceBufferingHintsTypeDef",
     "AmazonopensearchserviceDestinationConfigurationTypeDef",
     "AmazonopensearchserviceDestinationDescriptionTypeDef",
@@ -137,6 +143,83 @@ __all__ = (
     "UpdateDestinationInputRequestTypeDef",
     "VpcConfigurationDescriptionTypeDef",
     "VpcConfigurationTypeDef",
+)
+
+AmazonOpenSearchServerlessBufferingHintsTypeDef = TypedDict(
+    "AmazonOpenSearchServerlessBufferingHintsTypeDef",
+    {
+        "IntervalInSeconds": int,
+        "SizeInMBs": int,
+    },
+    total=False,
+)
+
+_RequiredAmazonOpenSearchServerlessDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredAmazonOpenSearchServerlessDestinationConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "IndexName": str,
+        "S3Configuration": "S3DestinationConfigurationTypeDef",
+    },
+)
+_OptionalAmazonOpenSearchServerlessDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalAmazonOpenSearchServerlessDestinationConfigurationTypeDef",
+    {
+        "CollectionEndpoint": str,
+        "BufferingHints": "AmazonOpenSearchServerlessBufferingHintsTypeDef",
+        "RetryOptions": "AmazonOpenSearchServerlessRetryOptionsTypeDef",
+        "S3BackupMode": AmazonOpenSearchServerlessS3BackupModeType,
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "VpcConfiguration": "VpcConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class AmazonOpenSearchServerlessDestinationConfigurationTypeDef(
+    _RequiredAmazonOpenSearchServerlessDestinationConfigurationTypeDef,
+    _OptionalAmazonOpenSearchServerlessDestinationConfigurationTypeDef,
+):
+    pass
+
+AmazonOpenSearchServerlessDestinationDescriptionTypeDef = TypedDict(
+    "AmazonOpenSearchServerlessDestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "CollectionEndpoint": str,
+        "IndexName": str,
+        "BufferingHints": "AmazonOpenSearchServerlessBufferingHintsTypeDef",
+        "RetryOptions": "AmazonOpenSearchServerlessRetryOptionsTypeDef",
+        "S3BackupMode": AmazonOpenSearchServerlessS3BackupModeType,
+        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "VpcConfigurationDescription": "VpcConfigurationDescriptionTypeDef",
+    },
+    total=False,
+)
+
+AmazonOpenSearchServerlessDestinationUpdateTypeDef = TypedDict(
+    "AmazonOpenSearchServerlessDestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "CollectionEndpoint": str,
+        "IndexName": str,
+        "BufferingHints": "AmazonOpenSearchServerlessBufferingHintsTypeDef",
+        "RetryOptions": "AmazonOpenSearchServerlessRetryOptionsTypeDef",
+        "S3Update": "S3DestinationUpdateTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+    },
+    total=False,
+)
+
+AmazonOpenSearchServerlessRetryOptionsTypeDef = TypedDict(
+    "AmazonOpenSearchServerlessRetryOptionsTypeDef",
+    {
+        "DurationInSeconds": int,
+    },
+    total=False,
 )
 
 AmazonopensearchserviceBufferingHintsTypeDef = TypedDict(
@@ -282,6 +365,7 @@ _OptionalCreateDeliveryStreamInputRequestTypeDef = TypedDict(
         "SplunkDestinationConfiguration": "SplunkDestinationConfigurationTypeDef",
         "HttpEndpointDestinationConfiguration": "HttpEndpointDestinationConfigurationTypeDef",
         "Tags": List["TagTypeDef"],
+        "AmazonOpenSearchServerlessDestinationConfiguration": "AmazonOpenSearchServerlessDestinationConfigurationTypeDef",
     },
     total=False,
 )
@@ -445,6 +529,7 @@ _OptionalDestinationDescriptionTypeDef = TypedDict(
         "AmazonopensearchserviceDestinationDescription": "AmazonopensearchserviceDestinationDescriptionTypeDef",
         "SplunkDestinationDescription": "SplunkDestinationDescriptionTypeDef",
         "HttpEndpointDestinationDescription": "HttpEndpointDestinationDescriptionTypeDef",
+        "AmazonOpenSearchServerlessDestinationDescription": "AmazonOpenSearchServerlessDestinationDescriptionTypeDef",
     },
     total=False,
 )
@@ -1334,6 +1419,7 @@ _OptionalUpdateDestinationInputRequestTypeDef = TypedDict(
         "AmazonopensearchserviceDestinationUpdate": "AmazonopensearchserviceDestinationUpdateTypeDef",
         "SplunkDestinationUpdate": "SplunkDestinationUpdateTypeDef",
         "HttpEndpointDestinationUpdate": "HttpEndpointDestinationUpdateTypeDef",
+        "AmazonOpenSearchServerlessDestinationUpdate": "AmazonOpenSearchServerlessDestinationUpdateTypeDef",
     },
     total=False,
 )

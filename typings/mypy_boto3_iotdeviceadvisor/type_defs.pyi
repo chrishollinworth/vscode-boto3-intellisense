@@ -65,14 +65,25 @@ __all__ = (
     "UpdateSuiteDefinitionResponseTypeDef",
 )
 
-CreateSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "CreateSuiteDefinitionRequestRequestTypeDef",
+_RequiredCreateSuiteDefinitionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSuiteDefinitionRequestRequestTypeDef",
     {
         "suiteDefinitionConfiguration": "SuiteDefinitionConfigurationTypeDef",
+    },
+)
+_OptionalCreateSuiteDefinitionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSuiteDefinitionRequestRequestTypeDef",
+    {
         "tags": Dict[str, str],
     },
     total=False,
 )
+
+class CreateSuiteDefinitionRequestRequestTypeDef(
+    _RequiredCreateSuiteDefinitionRequestRequestTypeDef,
+    _OptionalCreateSuiteDefinitionRequestRequestTypeDef,
+):
+    pass
 
 CreateSuiteDefinitionResponseTypeDef = TypedDict(
     "CreateSuiteDefinitionResponseTypeDef",
@@ -273,13 +284,13 @@ _RequiredStartSuiteRunRequestRequestTypeDef = TypedDict(
     "_RequiredStartSuiteRunRequestRequestTypeDef",
     {
         "suiteDefinitionId": str,
+        "suiteRunConfiguration": "SuiteRunConfigurationTypeDef",
     },
 )
 _OptionalStartSuiteRunRequestRequestTypeDef = TypedDict(
     "_OptionalStartSuiteRunRequestRequestTypeDef",
     {
         "suiteDefinitionVersion": str,
-        "suiteRunConfiguration": "SuiteRunConfigurationTypeDef",
         "tags": Dict[str, str],
     },
     total=False,
@@ -296,6 +307,7 @@ StartSuiteRunResponseTypeDef = TypedDict(
         "suiteRunId": str,
         "suiteRunArn": str,
         "createdAt": datetime,
+        "endpoint": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -308,19 +320,29 @@ StopSuiteRunRequestRequestTypeDef = TypedDict(
     },
 )
 
-SuiteDefinitionConfigurationTypeDef = TypedDict(
-    "SuiteDefinitionConfigurationTypeDef",
+_RequiredSuiteDefinitionConfigurationTypeDef = TypedDict(
+    "_RequiredSuiteDefinitionConfigurationTypeDef",
     {
         "suiteDefinitionName": str,
+        "rootGroup": str,
+        "devicePermissionRoleArn": str,
+    },
+)
+_OptionalSuiteDefinitionConfigurationTypeDef = TypedDict(
+    "_OptionalSuiteDefinitionConfigurationTypeDef",
+    {
         "devices": List["DeviceUnderTestTypeDef"],
         "intendedForQualification": bool,
         "isLongDurationTest": bool,
-        "rootGroup": str,
-        "devicePermissionRoleArn": str,
         "protocol": ProtocolType,
     },
     total=False,
 )
+
+class SuiteDefinitionConfigurationTypeDef(
+    _RequiredSuiteDefinitionConfigurationTypeDef, _OptionalSuiteDefinitionConfigurationTypeDef
+):
+    pass
 
 SuiteDefinitionInformationTypeDef = TypedDict(
     "SuiteDefinitionInformationTypeDef",
@@ -336,15 +358,25 @@ SuiteDefinitionInformationTypeDef = TypedDict(
     total=False,
 )
 
-SuiteRunConfigurationTypeDef = TypedDict(
-    "SuiteRunConfigurationTypeDef",
+_RequiredSuiteRunConfigurationTypeDef = TypedDict(
+    "_RequiredSuiteRunConfigurationTypeDef",
     {
         "primaryDevice": "DeviceUnderTestTypeDef",
+    },
+)
+_OptionalSuiteRunConfigurationTypeDef = TypedDict(
+    "_OptionalSuiteRunConfigurationTypeDef",
+    {
         "selectedTestList": List[str],
         "parallelRun": bool,
     },
     total=False,
 )
+
+class SuiteRunConfigurationTypeDef(
+    _RequiredSuiteRunConfigurationTypeDef, _OptionalSuiteRunConfigurationTypeDef
+):
+    pass
 
 SuiteRunInformationTypeDef = TypedDict(
     "SuiteRunInformationTypeDef",
@@ -416,25 +448,13 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-_RequiredUpdateSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSuiteDefinitionRequestRequestTypeDef",
+UpdateSuiteDefinitionRequestRequestTypeDef = TypedDict(
+    "UpdateSuiteDefinitionRequestRequestTypeDef",
     {
         "suiteDefinitionId": str,
-    },
-)
-_OptionalUpdateSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSuiteDefinitionRequestRequestTypeDef",
-    {
         "suiteDefinitionConfiguration": "SuiteDefinitionConfigurationTypeDef",
     },
-    total=False,
 )
-
-class UpdateSuiteDefinitionRequestRequestTypeDef(
-    _RequiredUpdateSuiteDefinitionRequestRequestTypeDef,
-    _OptionalUpdateSuiteDefinitionRequestRequestTypeDef,
-):
-    pass
 
 UpdateSuiteDefinitionResponseTypeDef = TypedDict(
     "UpdateSuiteDefinitionResponseTypeDef",

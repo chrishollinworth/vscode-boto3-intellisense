@@ -2978,6 +2978,7 @@ VpcOptionsTypeDef = TypedDict(
     "VpcOptionsTypeDef",
     {
         "Ipv6Support": bool,
+        "ApplianceModeSupport": bool,
     },
     total=False,
 )

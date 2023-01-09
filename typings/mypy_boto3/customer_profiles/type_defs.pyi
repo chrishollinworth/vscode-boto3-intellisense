@@ -448,6 +448,8 @@ _OptionalCreateProfileRequestRequestTypeDef = TypedDict(
         "MailingAddress": "AddressTypeDef",
         "BillingAddress": "AddressTypeDef",
         "Attributes": Dict[str, str],
+        "PartyTypeString": str,
+        "GenderString": str,
     },
     total=False,
 )
@@ -1840,6 +1842,8 @@ _OptionalUpdateProfileRequestRequestTypeDef = TypedDict(
         "MailingAddress": "UpdateAddressTypeDef",
         "BillingAddress": "UpdateAddressTypeDef",
         "Attributes": Dict[str, str],
+        "PartyTypeString": str,
+        "GenderString": str,
     },
     total=False,
 )

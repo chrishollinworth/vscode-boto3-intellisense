@@ -70,6 +70,7 @@ from mypy_boto3_cloudwatch.client import CloudWatchClient
 from mypy_boto3_cloudwatch.service_resource import CloudWatchServiceResource
 from mypy_boto3_codeartifact.client import CodeArtifactClient
 from mypy_boto3_codebuild.client import CodeBuildClient
+from mypy_boto3_codecatalyst.client import CodeCatalystClient
 from mypy_boto3_codecommit.client import CodeCommitClient
 from mypy_boto3_codedeploy.client import CodeDeployClient
 from mypy_boto3_codeguru_reviewer.client import CodeGuruReviewerClient
@@ -106,6 +107,7 @@ from mypy_boto3_discovery.client import ApplicationDiscoveryServiceClient
 from mypy_boto3_dlm.client import DLMClient
 from mypy_boto3_dms.client import DatabaseMigrationServiceClient
 from mypy_boto3_docdb.client import DocDBClient
+from mypy_boto3_docdb_elastic.client import DocDBElasticClient
 from mypy_boto3_drs.client import drsClient
 from mypy_boto3_ds.client import DirectoryServiceClient
 from mypy_boto3_dynamodb.client import DynamoDBClient
@@ -189,6 +191,7 @@ from mypy_boto3_kinesis.client import KinesisClient
 from mypy_boto3_kinesis_video_archived_media.client import KinesisVideoArchivedMediaClient
 from mypy_boto3_kinesis_video_media.client import KinesisVideoMediaClient
 from mypy_boto3_kinesis_video_signaling.client import KinesisVideoSignalingChannelsClient
+from mypy_boto3_kinesis_video_webrtc_storage.client import KinesisVideoWebRTCStorageClient
 from mypy_boto3_kinesisanalytics.client import KinesisAnalyticsClient
 from mypy_boto3_kinesisanalyticsv2.client import KinesisAnalyticsV2Client
 from mypy_boto3_kinesisvideo.client import KinesisVideoClient
@@ -200,6 +203,9 @@ from mypy_boto3_lex_runtime.client import LexRuntimeServiceClient
 from mypy_boto3_lexv2_models.client import LexModelsV2Client
 from mypy_boto3_lexv2_runtime.client import LexRuntimeV2Client
 from mypy_boto3_license_manager.client import LicenseManagerClient
+from mypy_boto3_license_manager_linux_subscriptions.client import (
+    LicenseManagerLinuxSubscriptionsClient,
+)
 from mypy_boto3_license_manager_user_subscriptions.client import (
     LicenseManagerUserSubscriptionsClient,
 )
@@ -242,7 +248,9 @@ from mypy_boto3_network_firewall.client import NetworkFirewallClient
 from mypy_boto3_networkmanager.client import NetworkManagerClient
 from mypy_boto3_nimble.client import NimbleStudioClient
 from mypy_boto3_oam.client import CloudWatchObservabilityAccessManagerClient
+from mypy_boto3_omics.client import OmicsClient
 from mypy_boto3_opensearch.client import OpenSearchServiceClient
+from mypy_boto3_opensearchserverless.client import OpenSearchServiceServerlessClient
 from mypy_boto3_opsworks.client import OpsWorksClient
 from mypy_boto3_opsworks.service_resource import OpsWorksServiceResource
 from mypy_boto3_opsworkscm.client import OpsWorksCMClient
@@ -257,6 +265,7 @@ from mypy_boto3_pinpoint.client import PinpointClient
 from mypy_boto3_pinpoint_email.client import PinpointEmailClient
 from mypy_boto3_pinpoint_sms_voice.client import PinpointSMSVoiceClient
 from mypy_boto3_pinpoint_sms_voice_v2.client import PinpointSMSVoiceV2Client
+from mypy_boto3_pipes.client import EventBridgePipesClient
 from mypy_boto3_polly.client import PollyClient
 from mypy_boto3_pricing.client import PricingClient
 from mypy_boto3_privatenetworks.client import Private5GClient
@@ -293,6 +302,8 @@ from mypy_boto3_sagemaker.client import SageMakerClient
 from mypy_boto3_sagemaker_a2i_runtime.client import AugmentedAIRuntimeClient
 from mypy_boto3_sagemaker_edge.client import SagemakerEdgeManagerClient
 from mypy_boto3_sagemaker_featurestore_runtime.client import SageMakerFeatureStoreRuntimeClient
+from mypy_boto3_sagemaker_geospatial.client import SageMakergeospatialcapabilitiesClient
+from mypy_boto3_sagemaker_metrics.client import SageMakerMetricsClient
 from mypy_boto3_sagemaker_runtime.client import SageMakerRuntimeClient
 from mypy_boto3_savingsplans.client import SavingsPlansClient
 from mypy_boto3_scheduler.client import EventBridgeSchedulerClient
@@ -300,6 +311,7 @@ from mypy_boto3_schemas.client import SchemasClient
 from mypy_boto3_sdb.client import SimpleDBClient
 from mypy_boto3_secretsmanager.client import SecretsManagerClient
 from mypy_boto3_securityhub.client import SecurityHubClient
+from mypy_boto3_securitylake.client import SecurityLakeClient
 from mypy_boto3_serverlessrepo.client import ServerlessApplicationRepositoryClient
 from mypy_boto3_service_quotas.client import ServiceQuotasClient
 from mypy_boto3_servicecatalog.client import ServiceCatalogClient
@@ -309,6 +321,7 @@ from mypy_boto3_ses.client import SESClient
 from mypy_boto3_sesv2.client import SESV2Client
 from mypy_boto3_shield.client import ShieldClient
 from mypy_boto3_signer.client import signerClient
+from mypy_boto3_simspaceweaver.client import SimSpaceWeaverClient
 from mypy_boto3_sms.client import SMSClient
 from mypy_boto3_snow_device_management.client import SnowDeviceManagementClient
 from mypy_boto3_snowball.client import SnowballClient
@@ -1162,6 +1175,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["codecatalyst"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> CodeCatalystClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["codecommit"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -1663,6 +1690,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> DocDBClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["docdb-elastic"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> DocDBElasticClient: ...
     @overload
     def client(
         self,
@@ -2772,6 +2813,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["kinesis-video-webrtc-storage"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> KinesisVideoWebRTCStorageClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["kinesisanalytics"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -2923,6 +2978,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> LicenseManagerClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["license-manager-linux-subscriptions"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> LicenseManagerLinuxSubscriptionsClient: ...
     @overload
     def client(
         self,
@@ -3486,6 +3555,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["omics"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> OmicsClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["opensearch"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -3497,6 +3580,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> OpenSearchServiceClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["opensearchserverless"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> OpenSearchServiceServerlessClient: ...
     @overload
     def client(
         self,
@@ -3679,6 +3776,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> PinpointSMSVoiceV2Client: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["pipes"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> EventBridgePipesClient: ...
     @overload
     def client(
         self,
@@ -4172,6 +4283,34 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["sagemaker-geospatial"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> SageMakergeospatialcapabilitiesClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["sagemaker-metrics"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> SageMakerMetricsClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["sagemaker-runtime"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -4267,6 +4406,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> SecurityHubClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["securitylake"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> SecurityLakeClient: ...
     @overload
     def client(
         self,
@@ -4393,6 +4546,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> signerClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["simspaceweaver"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> SimSpaceWeaverClient: ...
     @overload
     def client(
         self,

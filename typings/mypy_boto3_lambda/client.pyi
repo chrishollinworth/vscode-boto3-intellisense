@@ -166,7 +166,7 @@ class Exceptions:
 
 class LambdaClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html)
     """
 
@@ -192,7 +192,7 @@ class LambdaClient(BaseClient):
         Adds permissions to the resource-based policy of a version of an `Lambda layer
         <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.add_layer_version_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.add_layer_version_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#add_layer_version_permission)
         """
     def add_permission(
@@ -214,21 +214,21 @@ class LambdaClient(BaseClient):
         Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web
         Services organization permission to use a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.add_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.add_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#add_permission)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#close)
         """
     def create_alias(
@@ -244,7 +244,7 @@ class LambdaClient(BaseClient):
         Creates an `alias <https://docs.aws.amazon.com/lambda/latest/dg/versioning-
         aliases.html>`__ for a Lambda function version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.create_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.create_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_alias)
         """
     def create_code_signing_config(
@@ -257,7 +257,7 @@ class LambdaClient(BaseClient):
         """
         Creates a code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.create_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.create_code_signing_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_code_signing_config)
         """
     def create_event_source_mapping(
@@ -288,7 +288,7 @@ class LambdaClient(BaseClient):
         """
         Creates a mapping between an event source and an Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.create_event_source_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.create_event_source_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_event_source_mapping)
         """
     def create_function(
@@ -321,7 +321,7 @@ class LambdaClient(BaseClient):
         """
         Creates a Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.create_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.create_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_function)
         """
     def create_function_url_config(
@@ -335,7 +335,7 @@ class LambdaClient(BaseClient):
         """
         Creates a Lambda function URL with the specified configuration parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.create_function_url_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.create_function_url_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_function_url_config)
         """
     def delete_alias(self, *, FunctionName: str, Name: str) -> None:
@@ -343,14 +343,14 @@ class LambdaClient(BaseClient):
         Deletes a Lambda function `alias
         <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_alias)
         """
     def delete_code_signing_config(self, *, CodeSigningConfigArn: str) -> Dict[str, Any]:
         """
         Deletes the code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_code_signing_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_code_signing_config)
         """
     def delete_event_source_mapping(
@@ -360,28 +360,28 @@ class LambdaClient(BaseClient):
         Deletes an `event source mapping
         <https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_event_source_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_event_source_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_event_source_mapping)
         """
     def delete_function(self, *, FunctionName: str, Qualifier: str = None) -> None:
         """
         Deletes a Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function)
         """
     def delete_function_code_signing_config(self, *, FunctionName: str) -> None:
         """
         Removes the code signing configuration from the function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_function_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_function_code_signing_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function_code_signing_config)
         """
     def delete_function_concurrency(self, *, FunctionName: str) -> None:
         """
         Removes a concurrent execution limit from a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_function_concurrency)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_function_concurrency)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function_concurrency)
         """
     def delete_function_event_invoke_config(
@@ -391,14 +391,14 @@ class LambdaClient(BaseClient):
         Deletes the configuration for asynchronous invocation for a function, version,
         or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_function_event_invoke_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_function_event_invoke_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function_event_invoke_config)
         """
     def delete_function_url_config(self, *, FunctionName: str, Qualifier: str = None) -> None:
         """
         Deletes a Lambda function URL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_function_url_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_function_url_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function_url_config)
         """
     def delete_layer_version(self, *, LayerName: str, VersionNumber: int) -> None:
@@ -406,14 +406,14 @@ class LambdaClient(BaseClient):
         Deletes a version of an `Lambda layer
         <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_layer_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_layer_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_layer_version)
         """
     def delete_provisioned_concurrency_config(self, *, FunctionName: str, Qualifier: str) -> None:
         """
         Deletes the provisioned concurrency configuration for a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.delete_provisioned_concurrency_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.delete_provisioned_concurrency_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_provisioned_concurrency_config)
         """
     def generate_presigned_url(
@@ -426,7 +426,7 @@ class LambdaClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#generate_presigned_url)
         """
     def get_account_settings(self) -> GetAccountSettingsResponseTypeDef:
@@ -435,7 +435,7 @@ class LambdaClient(BaseClient):
         <https://docs.aws.amazon.com/lambda/latest/dg/limits.html>`__ and usage in an
         Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_account_settings)
         """
     def get_alias(
@@ -445,7 +445,7 @@ class LambdaClient(BaseClient):
         Returns details about a Lambda function `alias
         <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_alias)
         """
     def get_code_signing_config(
@@ -454,7 +454,7 @@ class LambdaClient(BaseClient):
         """
         Returns information about the specified code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_code_signing_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_code_signing_config)
         """
     def get_event_source_mapping(
@@ -463,7 +463,7 @@ class LambdaClient(BaseClient):
         """
         Returns details about an event source mapping.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_event_source_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_event_source_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_event_source_mapping)
         """
     def get_function(
@@ -473,7 +473,7 @@ class LambdaClient(BaseClient):
         Returns information about the function or function version, with a link to
         download the deployment package that's valid for 10 minutes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function)
         """
     def get_function_code_signing_config(
@@ -482,7 +482,7 @@ class LambdaClient(BaseClient):
         """
         Returns the code signing configuration for the specified function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_function_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_function_code_signing_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_code_signing_config)
         """
     def get_function_concurrency(
@@ -491,7 +491,7 @@ class LambdaClient(BaseClient):
         """
         Returns details about the reserved concurrency configuration for a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_function_concurrency)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_function_concurrency)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_concurrency)
         """
     def get_function_configuration(
@@ -500,7 +500,7 @@ class LambdaClient(BaseClient):
         """
         Returns the version-specific settings of a Lambda function or version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_function_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_function_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_configuration)
         """
     def get_function_event_invoke_config(
@@ -510,7 +510,7 @@ class LambdaClient(BaseClient):
         Retrieves the configuration for asynchronous invocation for a function, version,
         or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_function_event_invoke_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_function_event_invoke_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_event_invoke_config)
         """
     def get_function_url_config(
@@ -519,7 +519,7 @@ class LambdaClient(BaseClient):
         """
         Returns details about a Lambda function URL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_function_url_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_function_url_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_url_config)
         """
     def get_layer_version(
@@ -530,7 +530,7 @@ class LambdaClient(BaseClient):
         <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__,
         with a link to download the layer archive that's valid for 10 minutes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_layer_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_layer_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_layer_version)
         """
     def get_layer_version_by_arn(self, *, Arn: str) -> GetLayerVersionResponseTypeDef:
@@ -539,7 +539,7 @@ class LambdaClient(BaseClient):
         <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__,
         with a link to download the layer archive that's valid for 10 minutes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_layer_version_by_arn)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_layer_version_by_arn)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_layer_version_by_arn)
         """
     def get_layer_version_policy(
@@ -549,7 +549,7 @@ class LambdaClient(BaseClient):
         Returns the permission policy for a version of an `Lambda layer
         <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_layer_version_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_layer_version_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_layer_version_policy)
         """
     def get_policy(self, *, FunctionName: str, Qualifier: str = None) -> GetPolicyResponseTypeDef:
@@ -558,7 +558,7 @@ class LambdaClient(BaseClient):
         <https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-
         based.html>`__ for a function, version, or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_policy)
         """
     def get_provisioned_concurrency_config(
@@ -568,7 +568,7 @@ class LambdaClient(BaseClient):
         Retrieves the provisioned concurrency configuration for a function's alias or
         version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.get_provisioned_concurrency_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.get_provisioned_concurrency_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_provisioned_concurrency_config)
         """
     def invoke(
@@ -584,7 +584,7 @@ class LambdaClient(BaseClient):
         """
         Invokes a Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.invoke)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.invoke)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#invoke)
         """
     def invoke_async(
@@ -593,7 +593,7 @@ class LambdaClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.invoke_async)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.invoke_async)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#invoke_async)
         """
     def list_aliases(
@@ -609,7 +609,7 @@ class LambdaClient(BaseClient):
         <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__ for a
         Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_aliases)
         """
     def list_code_signing_configs(
@@ -619,7 +619,7 @@ class LambdaClient(BaseClient):
         Returns a list of `code signing configurations
         <https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_code_signing_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_code_signing_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_code_signing_configs)
         """
     def list_event_source_mappings(
@@ -633,7 +633,7 @@ class LambdaClient(BaseClient):
         """
         Lists event source mappings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_event_source_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_event_source_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_event_source_mappings)
         """
     def list_function_event_invoke_configs(
@@ -642,7 +642,7 @@ class LambdaClient(BaseClient):
         """
         Retrieves a list of configurations for asynchronous invocation for a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_function_event_invoke_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_function_event_invoke_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_function_event_invoke_configs)
         """
     def list_function_url_configs(
@@ -651,7 +651,7 @@ class LambdaClient(BaseClient):
         """
         Returns a list of Lambda function URLs for the specified function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_function_url_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_function_url_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_function_url_configs)
         """
     def list_functions(
@@ -666,7 +666,7 @@ class LambdaClient(BaseClient):
         Returns a list of Lambda functions, with the version-specific configuration of
         each.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_functions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_functions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_functions)
         """
     def list_functions_by_code_signing_config(
@@ -675,7 +675,7 @@ class LambdaClient(BaseClient):
         """
         List the functions that use the specified code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_functions_by_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_functions_by_code_signing_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_functions_by_code_signing_config)
         """
     def list_layer_versions(
@@ -691,7 +691,7 @@ class LambdaClient(BaseClient):
         Lists the versions of an `Lambda layer
         <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_layer_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_layer_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_layer_versions)
         """
     def list_layers(
@@ -706,7 +706,7 @@ class LambdaClient(BaseClient):
         Lists `Lambda layers <https://docs.aws.amazon.com/lambda/latest/dg/invocation-
         layers.html>`__ and shows information about the latest version of each.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_layers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_layers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_layers)
         """
     def list_provisioned_concurrency_configs(
@@ -715,7 +715,7 @@ class LambdaClient(BaseClient):
         """
         Retrieves a list of provisioned concurrency configurations for a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_provisioned_concurrency_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_provisioned_concurrency_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_provisioned_concurrency_configs)
         """
     def list_tags(self, *, Resource: str) -> ListTagsResponseTypeDef:
@@ -723,7 +723,7 @@ class LambdaClient(BaseClient):
         Returns a function's `tags
         <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_tags)
         """
     def list_versions_by_function(
@@ -734,7 +734,7 @@ class LambdaClient(BaseClient):
         <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__, with
         the version-specific configuration of each.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.list_versions_by_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.list_versions_by_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_versions_by_function)
         """
     def publish_layer_version(
@@ -752,7 +752,7 @@ class LambdaClient(BaseClient):
         <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__ from
         a ZIP archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.publish_layer_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.publish_layer_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#publish_layer_version)
         """
     def publish_version(
@@ -767,7 +767,7 @@ class LambdaClient(BaseClient):
         Creates a `version <https://docs.aws.amazon.com/lambda/latest/dg/versioning-
         aliases.html>`__ from the current code and configuration of a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.publish_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.publish_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#publish_version)
         """
     def put_function_code_signing_config(
@@ -776,7 +776,7 @@ class LambdaClient(BaseClient):
         """
         Update the code signing configuration for the function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.put_function_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.put_function_code_signing_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_function_code_signing_config)
         """
     def put_function_concurrency(
@@ -786,7 +786,7 @@ class LambdaClient(BaseClient):
         Sets the maximum number of simultaneous executions for a function, and reserves
         capacity for that concurrency level.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.put_function_concurrency)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.put_function_concurrency)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_function_concurrency)
         """
     def put_function_event_invoke_config(
@@ -803,7 +803,7 @@ class LambdaClient(BaseClient):
         <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html>`__ on a
         function, version, or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.put_function_event_invoke_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.put_function_event_invoke_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_function_event_invoke_config)
         """
     def put_provisioned_concurrency_config(
@@ -812,7 +812,7 @@ class LambdaClient(BaseClient):
         """
         Adds a provisioned concurrency configuration to a function's alias or version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.put_provisioned_concurrency_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.put_provisioned_concurrency_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_provisioned_concurrency_config)
         """
     def remove_layer_version_permission(
@@ -823,7 +823,7 @@ class LambdaClient(BaseClient):
         layer <https://docs.aws.amazon.com/lambda/latest/dg/configuration-
         layers.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.remove_layer_version_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.remove_layer_version_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#remove_layer_version_permission)
         """
     def remove_permission(
@@ -833,7 +833,7 @@ class LambdaClient(BaseClient):
         Revokes function-use permission from an Amazon Web Service or another Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.remove_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.remove_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#remove_permission)
         """
     def tag_resource(self, *, Resource: str, Tags: Dict[str, str]) -> None:
@@ -841,7 +841,7 @@ class LambdaClient(BaseClient):
         Adds `tags <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html>`__ to a
         function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#tag_resource)
         """
     def untag_resource(self, *, Resource: str, TagKeys: List[str]) -> None:
@@ -849,7 +849,7 @@ class LambdaClient(BaseClient):
         Removes `tags <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html>`__
         from a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#untag_resource)
         """
     def update_alias(
@@ -866,7 +866,7 @@ class LambdaClient(BaseClient):
         Updates the configuration of a Lambda function `alias
         <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.update_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.update_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_alias)
         """
     def update_code_signing_config(
@@ -880,7 +880,7 @@ class LambdaClient(BaseClient):
         """
         Update the code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.update_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.update_code_signing_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_code_signing_config)
         """
     def update_event_source_mapping(
@@ -904,7 +904,7 @@ class LambdaClient(BaseClient):
         """
         Updates an event source mapping.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.update_event_source_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.update_event_source_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_event_source_mapping)
         """
     def update_function_code(
@@ -924,7 +924,7 @@ class LambdaClient(BaseClient):
         """
         Updates a Lambda function's code.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.update_function_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.update_function_code)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_function_code)
         """
     def update_function_configuration(
@@ -952,7 +952,7 @@ class LambdaClient(BaseClient):
         """
         Modify the version-specific settings of a Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.update_function_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.update_function_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_function_configuration)
         """
     def update_function_event_invoke_config(
@@ -968,7 +968,7 @@ class LambdaClient(BaseClient):
         Updates the configuration for asynchronous invocation for a function, version,
         or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.update_function_event_invoke_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.update_function_event_invoke_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_function_event_invoke_config)
         """
     def update_function_url_config(
@@ -982,13 +982,13 @@ class LambdaClient(BaseClient):
         """
         Updates the configuration for a Lambda function URL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Client.update_function_url_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Client.update_function_url_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_function_url_config)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListAliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListAliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listaliasespaginator)
         """
     @overload
@@ -996,7 +996,7 @@ class LambdaClient(BaseClient):
         self, operation_name: Literal["list_code_signing_configs"]
     ) -> ListCodeSigningConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listcodesigningconfigspaginator)
         """
     @overload
@@ -1004,7 +1004,7 @@ class LambdaClient(BaseClient):
         self, operation_name: Literal["list_event_source_mappings"]
     ) -> ListEventSourceMappingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listeventsourcemappingspaginator)
         """
     @overload
@@ -1012,7 +1012,7 @@ class LambdaClient(BaseClient):
         self, operation_name: Literal["list_function_event_invoke_configs"]
     ) -> ListFunctionEventInvokeConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctioneventinvokeconfigspaginator)
         """
     @overload
@@ -1020,13 +1020,13 @@ class LambdaClient(BaseClient):
         self, operation_name: Literal["list_function_url_configs"]
     ) -> ListFunctionUrlConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListFunctionUrlConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListFunctionUrlConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionurlconfigspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_functions"]) -> ListFunctionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionspaginator)
         """
     @overload
@@ -1034,7 +1034,7 @@ class LambdaClient(BaseClient):
         self, operation_name: Literal["list_functions_by_code_signing_config"]
     ) -> ListFunctionsByCodeSigningConfigPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionsbycodesigningconfigpaginator)
         """
     @overload
@@ -1042,13 +1042,13 @@ class LambdaClient(BaseClient):
         self, operation_name: Literal["list_layer_versions"]
     ) -> ListLayerVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listlayerversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_layers"]) -> ListLayersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListLayers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListLayers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listlayerspaginator)
         """
     @overload
@@ -1056,7 +1056,7 @@ class LambdaClient(BaseClient):
         self, operation_name: Literal["list_provisioned_concurrency_configs"]
     ) -> ListProvisionedConcurrencyConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listprovisionedconcurrencyconfigspaginator)
         """
     @overload
@@ -1064,37 +1064,37 @@ class LambdaClient(BaseClient):
         self, operation_name: Literal["list_versions_by_function"]
     ) -> ListVersionsByFunctionPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listversionsbyfunctionpaginator)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["function_active"]) -> FunctionActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionactivewaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["function_active_v2"]) -> FunctionActiveV2Waiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Waiter.FunctionActiveV2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Waiter.FunctionActiveV2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionactivev2waiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["function_exists"]) -> FunctionExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionexistswaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["function_updated"]) -> FunctionUpdatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionupdatedwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["function_updated_v2"]) -> FunctionUpdatedV2Waiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Waiter.FunctionUpdatedV2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Waiter.FunctionUpdatedV2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionupdatedv2waiter)
         """
     @overload
@@ -1102,6 +1102,6 @@ class LambdaClient(BaseClient):
         self, waiter_name: Literal["published_version_active"]
     ) -> PublishedVersionActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/lambda.html#Lambda.Waiter.PublishedVersionActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lambda.html#Lambda.Waiter.PublishedVersionActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#publishedversionactivewaiter)
         """

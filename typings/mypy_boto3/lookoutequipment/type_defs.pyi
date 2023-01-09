@@ -957,6 +957,7 @@ ListInferenceSchedulersRequestRequestTypeDef = TypedDict(
         "MaxResults": int,
         "InferenceSchedulerNameBeginsWith": str,
         "ModelName": str,
+        "Status": InferenceSchedulerStatusType,
     },
     total=False,
 )

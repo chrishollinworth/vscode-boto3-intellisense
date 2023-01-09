@@ -34,6 +34,7 @@ __all__ = (
     "CostCategoryStatusType",
     "DimensionType",
     "FindingReasonCodeType",
+    "GenerationStatusType",
     "GranularityType",
     "GroupDefinitionTypeType",
     "LookbackPeriodInDaysType",
@@ -71,6 +72,8 @@ CostCategoryStatusType = Literal["APPLIED", "PROCESSING"]
 DimensionType = Literal[
     "AGREEMENT_END_DATE_TIME_AFTER",
     "AGREEMENT_END_DATE_TIME_BEFORE",
+    "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+    "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
     "AZ",
     "BILLING_ENTITY",
     "CACHE_ENGINE",
@@ -120,11 +123,19 @@ FindingReasonCodeType = Literal[
     "NETWORK_PPS_OVER_PROVISIONED",
     "NETWORK_PPS_UNDER_PROVISIONED",
 ]
+GenerationStatusType = Literal["FAILED", "PROCESSING", "SUCCEEDED"]
 GranularityType = Literal["DAILY", "HOURLY", "MONTHLY"]
 GroupDefinitionTypeType = Literal["COST_CATEGORY", "DIMENSION", "TAG"]
 LookbackPeriodInDaysType = Literal["SEVEN_DAYS", "SIXTY_DAYS", "THIRTY_DAYS"]
 MatchOptionType = Literal[
-    "ABSENT", "CASE_INSENSITIVE", "CASE_SENSITIVE", "CONTAINS", "ENDS_WITH", "EQUALS", "STARTS_WITH"
+    "ABSENT",
+    "CASE_INSENSITIVE",
+    "CASE_SENSITIVE",
+    "CONTAINS",
+    "ENDS_WITH",
+    "EQUALS",
+    "GREATER_THAN_OR_EQUAL",
+    "STARTS_WITH",
 ]
 MetricType = Literal[
     "AMORTIZED_COST",

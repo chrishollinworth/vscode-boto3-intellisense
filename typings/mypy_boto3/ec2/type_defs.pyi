@@ -74,6 +74,7 @@ from .literals import (
     DeleteFleetErrorCodeType,
     DeleteQueuedReservedInstancesErrorCodeType,
     DestinationFileFormatType,
+    DeviceTrustProviderTypeType,
     DeviceTypeType,
     DiskImageFormatType,
     DiskTypeType,
@@ -253,10 +254,16 @@ from .literals import (
     TransitGatewayRouteTypeType,
     TransitGatewayStateType,
     TransportProtocolType,
+    TrustProviderTypeType,
     TunnelInsideIpVersionType,
     UnlimitedSupportedInstanceFamilyType,
     UnsuccessfulInstanceCreditSpecificationErrorCodeType,
     UsageClassTypeType,
+    UserTrustProviderTypeType,
+    VerifiedAccessEndpointProtocolType,
+    VerifiedAccessEndpointStatusCodeType,
+    VerifiedAccessEndpointTypeType,
+    VerifiedAccessLogDeliveryStatusCodeType,
     VirtualizationTypeType,
     VolumeAttachmentStateType,
     VolumeAttributeNameType,
@@ -387,6 +394,8 @@ __all__ = (
     "AttachNetworkInterfaceRequestNetworkInterfaceTypeDef",
     "AttachNetworkInterfaceRequestRequestTypeDef",
     "AttachNetworkInterfaceResultTypeDef",
+    "AttachVerifiedAccessTrustProviderRequestRequestTypeDef",
+    "AttachVerifiedAccessTrustProviderResultTypeDef",
     "AttachVolumeRequestInstanceTypeDef",
     "AttachVolumeRequestRequestTypeDef",
     "AttachVolumeRequestVolumeTypeDef",
@@ -664,6 +673,18 @@ __all__ = (
     "CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef",
     "CreateTransitGatewayVpcAttachmentRequestRequestTypeDef",
     "CreateTransitGatewayVpcAttachmentResultTypeDef",
+    "CreateVerifiedAccessEndpointEniOptionsTypeDef",
+    "CreateVerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+    "CreateVerifiedAccessEndpointRequestRequestTypeDef",
+    "CreateVerifiedAccessEndpointResultTypeDef",
+    "CreateVerifiedAccessGroupRequestRequestTypeDef",
+    "CreateVerifiedAccessGroupResultTypeDef",
+    "CreateVerifiedAccessInstanceRequestRequestTypeDef",
+    "CreateVerifiedAccessInstanceResultTypeDef",
+    "CreateVerifiedAccessTrustProviderDeviceOptionsTypeDef",
+    "CreateVerifiedAccessTrustProviderOidcOptionsTypeDef",
+    "CreateVerifiedAccessTrustProviderRequestRequestTypeDef",
+    "CreateVerifiedAccessTrustProviderResultTypeDef",
     "CreateVolumePermissionModificationsTypeDef",
     "CreateVolumePermissionTypeDef",
     "CreateVolumeRequestRequestTypeDef",
@@ -814,6 +835,14 @@ __all__ = (
     "DeleteTransitGatewayRouteTableResultTypeDef",
     "DeleteTransitGatewayVpcAttachmentRequestRequestTypeDef",
     "DeleteTransitGatewayVpcAttachmentResultTypeDef",
+    "DeleteVerifiedAccessEndpointRequestRequestTypeDef",
+    "DeleteVerifiedAccessEndpointResultTypeDef",
+    "DeleteVerifiedAccessGroupRequestRequestTypeDef",
+    "DeleteVerifiedAccessGroupResultTypeDef",
+    "DeleteVerifiedAccessInstanceRequestRequestTypeDef",
+    "DeleteVerifiedAccessInstanceResultTypeDef",
+    "DeleteVerifiedAccessTrustProviderRequestRequestTypeDef",
+    "DeleteVerifiedAccessTrustProviderResultTypeDef",
     "DeleteVolumeRequestRequestTypeDef",
     "DeleteVolumeRequestVolumeTypeDef",
     "DeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef",
@@ -1091,6 +1120,16 @@ __all__ = (
     "DescribeTransitGatewaysResultTypeDef",
     "DescribeTrunkInterfaceAssociationsRequestRequestTypeDef",
     "DescribeTrunkInterfaceAssociationsResultTypeDef",
+    "DescribeVerifiedAccessEndpointsRequestRequestTypeDef",
+    "DescribeVerifiedAccessEndpointsResultTypeDef",
+    "DescribeVerifiedAccessGroupsRequestRequestTypeDef",
+    "DescribeVerifiedAccessGroupsResultTypeDef",
+    "DescribeVerifiedAccessInstanceLoggingConfigurationsRequestRequestTypeDef",
+    "DescribeVerifiedAccessInstanceLoggingConfigurationsResultTypeDef",
+    "DescribeVerifiedAccessInstancesRequestRequestTypeDef",
+    "DescribeVerifiedAccessInstancesResultTypeDef",
+    "DescribeVerifiedAccessTrustProvidersRequestRequestTypeDef",
+    "DescribeVerifiedAccessTrustProvidersResultTypeDef",
     "DescribeVolumeAttributeRequestRequestTypeDef",
     "DescribeVolumeAttributeRequestVolumeTypeDef",
     "DescribeVolumeAttributeResultTypeDef",
@@ -1139,10 +1178,13 @@ __all__ = (
     "DetachInternetGatewayRequestVpcTypeDef",
     "DetachNetworkInterfaceRequestNetworkInterfaceTypeDef",
     "DetachNetworkInterfaceRequestRequestTypeDef",
+    "DetachVerifiedAccessTrustProviderRequestRequestTypeDef",
+    "DetachVerifiedAccessTrustProviderResultTypeDef",
     "DetachVolumeRequestInstanceTypeDef",
     "DetachVolumeRequestRequestTypeDef",
     "DetachVolumeRequestVolumeTypeDef",
     "DetachVpnGatewayRequestRequestTypeDef",
+    "DeviceOptionsTypeDef",
     "DhcpConfigurationTypeDef",
     "DhcpOptionsTypeDef",
     "DirectoryServiceAuthenticationRequestTypeDef",
@@ -1378,6 +1420,10 @@ __all__ = (
     "GetTransitGatewayRouteTableAssociationsResultTypeDef",
     "GetTransitGatewayRouteTablePropagationsRequestRequestTypeDef",
     "GetTransitGatewayRouteTablePropagationsResultTypeDef",
+    "GetVerifiedAccessEndpointPolicyRequestRequestTypeDef",
+    "GetVerifiedAccessEndpointPolicyResultTypeDef",
+    "GetVerifiedAccessGroupPolicyRequestRequestTypeDef",
+    "GetVerifiedAccessGroupPolicyResultTypeDef",
     "GetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef",
     "GetVpnConnectionDeviceSampleConfigurationResultTypeDef",
     "GetVpnConnectionDeviceTypesRequestRequestTypeDef",
@@ -1659,6 +1705,23 @@ __all__ = (
     "ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef",
     "ModifyTransitGatewayVpcAttachmentRequestRequestTypeDef",
     "ModifyTransitGatewayVpcAttachmentResultTypeDef",
+    "ModifyVerifiedAccessEndpointEniOptionsTypeDef",
+    "ModifyVerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+    "ModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef",
+    "ModifyVerifiedAccessEndpointPolicyResultTypeDef",
+    "ModifyVerifiedAccessEndpointRequestRequestTypeDef",
+    "ModifyVerifiedAccessEndpointResultTypeDef",
+    "ModifyVerifiedAccessGroupPolicyRequestRequestTypeDef",
+    "ModifyVerifiedAccessGroupPolicyResultTypeDef",
+    "ModifyVerifiedAccessGroupRequestRequestTypeDef",
+    "ModifyVerifiedAccessGroupResultTypeDef",
+    "ModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef",
+    "ModifyVerifiedAccessInstanceLoggingConfigurationResultTypeDef",
+    "ModifyVerifiedAccessInstanceRequestRequestTypeDef",
+    "ModifyVerifiedAccessInstanceResultTypeDef",
+    "ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef",
+    "ModifyVerifiedAccessTrustProviderRequestRequestTypeDef",
+    "ModifyVerifiedAccessTrustProviderResultTypeDef",
     "ModifyVolumeAttributeRequestRequestTypeDef",
     "ModifyVolumeAttributeRequestVolumeTypeDef",
     "ModifyVolumeRequestRequestTypeDef",
@@ -1722,6 +1785,7 @@ __all__ = (
     "NetworkInterfacePrivateIpAddressTypeDef",
     "NetworkInterfaceTypeDef",
     "NewDhcpConfigurationTypeDef",
+    "OidcOptionsTypeDef",
     "OnDemandOptionsRequestTypeDef",
     "OnDemandOptionsTypeDef",
     "PacketHeaderStatementRequestTypeDef",
@@ -2107,6 +2171,24 @@ __all__ = (
     "VCpuInfoTypeDef",
     "ValidationErrorTypeDef",
     "ValidationWarningTypeDef",
+    "VerifiedAccessEndpointEniOptionsTypeDef",
+    "VerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+    "VerifiedAccessEndpointStatusTypeDef",
+    "VerifiedAccessEndpointTypeDef",
+    "VerifiedAccessGroupTypeDef",
+    "VerifiedAccessInstanceLoggingConfigurationTypeDef",
+    "VerifiedAccessInstanceTypeDef",
+    "VerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef",
+    "VerifiedAccessLogCloudWatchLogsDestinationTypeDef",
+    "VerifiedAccessLogDeliveryStatusTypeDef",
+    "VerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef",
+    "VerifiedAccessLogKinesisDataFirehoseDestinationTypeDef",
+    "VerifiedAccessLogOptionsTypeDef",
+    "VerifiedAccessLogS3DestinationOptionsTypeDef",
+    "VerifiedAccessLogS3DestinationTypeDef",
+    "VerifiedAccessLogsTypeDef",
+    "VerifiedAccessTrustProviderCondensedTypeDef",
+    "VerifiedAccessTrustProviderTypeDef",
     "VgwTelemetryTypeDef",
     "VolumeAttachmentResponseMetadataTypeDef",
     "VolumeAttachmentTypeDef",
@@ -3512,6 +3594,37 @@ AttachNetworkInterfaceResultTypeDef = TypedDict(
     {
         "AttachmentId": str,
         "NetworkCardIndex": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAttachVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_RequiredAttachVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+        "VerifiedAccessTrustProviderId": str,
+    },
+)
+_OptionalAttachVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_OptionalAttachVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachVerifiedAccessTrustProviderRequestRequestTypeDef(
+    _RequiredAttachVerifiedAccessTrustProviderRequestRequestTypeDef,
+    _OptionalAttachVerifiedAccessTrustProviderRequestRequestTypeDef,
+):
+    pass
+
+AttachVerifiedAccessTrustProviderResultTypeDef = TypedDict(
+    "AttachVerifiedAccessTrustProviderResultTypeDef",
+    {
+        "VerifiedAccessTrustProvider": "VerifiedAccessTrustProviderTypeDef",
+        "VerifiedAccessInstance": "VerifiedAccessInstanceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7584,6 +7697,176 @@ CreateTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
     },
 )
 
+CreateVerifiedAccessEndpointEniOptionsTypeDef = TypedDict(
+    "CreateVerifiedAccessEndpointEniOptionsTypeDef",
+    {
+        "NetworkInterfaceId": str,
+        "Protocol": VerifiedAccessEndpointProtocolType,
+        "Port": int,
+    },
+    total=False,
+)
+
+CreateVerifiedAccessEndpointLoadBalancerOptionsTypeDef = TypedDict(
+    "CreateVerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+    {
+        "Protocol": VerifiedAccessEndpointProtocolType,
+        "Port": int,
+        "LoadBalancerArn": str,
+        "SubnetIds": List[str],
+    },
+    total=False,
+)
+
+_RequiredCreateVerifiedAccessEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVerifiedAccessEndpointRequestRequestTypeDef",
+    {
+        "VerifiedAccessGroupId": str,
+        "EndpointType": VerifiedAccessEndpointTypeType,
+        "AttachmentType": Literal["vpc"],
+        "DomainCertificateArn": str,
+        "ApplicationDomain": str,
+        "EndpointDomainPrefix": str,
+    },
+)
+_OptionalCreateVerifiedAccessEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVerifiedAccessEndpointRequestRequestTypeDef",
+    {
+        "SecurityGroupIds": List[str],
+        "LoadBalancerOptions": "CreateVerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+        "NetworkInterfaceOptions": "CreateVerifiedAccessEndpointEniOptionsTypeDef",
+        "Description": str,
+        "PolicyDocument": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateVerifiedAccessEndpointRequestRequestTypeDef(
+    _RequiredCreateVerifiedAccessEndpointRequestRequestTypeDef,
+    _OptionalCreateVerifiedAccessEndpointRequestRequestTypeDef,
+):
+    pass
+
+CreateVerifiedAccessEndpointResultTypeDef = TypedDict(
+    "CreateVerifiedAccessEndpointResultTypeDef",
+    {
+        "VerifiedAccessEndpoint": "VerifiedAccessEndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateVerifiedAccessGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVerifiedAccessGroupRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+    },
+)
+_OptionalCreateVerifiedAccessGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVerifiedAccessGroupRequestRequestTypeDef",
+    {
+        "Description": str,
+        "PolicyDocument": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateVerifiedAccessGroupRequestRequestTypeDef(
+    _RequiredCreateVerifiedAccessGroupRequestRequestTypeDef,
+    _OptionalCreateVerifiedAccessGroupRequestRequestTypeDef,
+):
+    pass
+
+CreateVerifiedAccessGroupResultTypeDef = TypedDict(
+    "CreateVerifiedAccessGroupResultTypeDef",
+    {
+        "VerifiedAccessGroup": "VerifiedAccessGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVerifiedAccessInstanceRequestRequestTypeDef = TypedDict(
+    "CreateVerifiedAccessInstanceRequestRequestTypeDef",
+    {
+        "Description": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+CreateVerifiedAccessInstanceResultTypeDef = TypedDict(
+    "CreateVerifiedAccessInstanceResultTypeDef",
+    {
+        "VerifiedAccessInstance": "VerifiedAccessInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVerifiedAccessTrustProviderDeviceOptionsTypeDef = TypedDict(
+    "CreateVerifiedAccessTrustProviderDeviceOptionsTypeDef",
+    {
+        "TenantId": str,
+    },
+    total=False,
+)
+
+CreateVerifiedAccessTrustProviderOidcOptionsTypeDef = TypedDict(
+    "CreateVerifiedAccessTrustProviderOidcOptionsTypeDef",
+    {
+        "Issuer": str,
+        "AuthorizationEndpoint": str,
+        "TokenEndpoint": str,
+        "UserInfoEndpoint": str,
+        "ClientId": str,
+        "ClientSecret": str,
+        "Scope": str,
+    },
+    total=False,
+)
+
+_RequiredCreateVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "TrustProviderType": TrustProviderTypeType,
+        "PolicyReferenceName": str,
+    },
+)
+_OptionalCreateVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "UserTrustProviderType": UserTrustProviderTypeType,
+        "DeviceTrustProviderType": DeviceTrustProviderTypeType,
+        "OidcOptions": "CreateVerifiedAccessTrustProviderOidcOptionsTypeDef",
+        "DeviceOptions": "CreateVerifiedAccessTrustProviderDeviceOptionsTypeDef",
+        "Description": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateVerifiedAccessTrustProviderRequestRequestTypeDef(
+    _RequiredCreateVerifiedAccessTrustProviderRequestRequestTypeDef,
+    _OptionalCreateVerifiedAccessTrustProviderRequestRequestTypeDef,
+):
+    pass
+
+CreateVerifiedAccessTrustProviderResultTypeDef = TypedDict(
+    "CreateVerifiedAccessTrustProviderResultTypeDef",
+    {
+        "VerifiedAccessTrustProvider": "VerifiedAccessTrustProviderTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateVolumePermissionModificationsTypeDef = TypedDict(
     "CreateVolumePermissionModificationsTypeDef",
     {
@@ -9666,6 +9949,122 @@ DeleteTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDeleteVerifiedAccessEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVerifiedAccessEndpointRequestRequestTypeDef",
+    {
+        "VerifiedAccessEndpointId": str,
+    },
+)
+_OptionalDeleteVerifiedAccessEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVerifiedAccessEndpointRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVerifiedAccessEndpointRequestRequestTypeDef(
+    _RequiredDeleteVerifiedAccessEndpointRequestRequestTypeDef,
+    _OptionalDeleteVerifiedAccessEndpointRequestRequestTypeDef,
+):
+    pass
+
+DeleteVerifiedAccessEndpointResultTypeDef = TypedDict(
+    "DeleteVerifiedAccessEndpointResultTypeDef",
+    {
+        "VerifiedAccessEndpoint": "VerifiedAccessEndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteVerifiedAccessGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVerifiedAccessGroupRequestRequestTypeDef",
+    {
+        "VerifiedAccessGroupId": str,
+    },
+)
+_OptionalDeleteVerifiedAccessGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVerifiedAccessGroupRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVerifiedAccessGroupRequestRequestTypeDef(
+    _RequiredDeleteVerifiedAccessGroupRequestRequestTypeDef,
+    _OptionalDeleteVerifiedAccessGroupRequestRequestTypeDef,
+):
+    pass
+
+DeleteVerifiedAccessGroupResultTypeDef = TypedDict(
+    "DeleteVerifiedAccessGroupResultTypeDef",
+    {
+        "VerifiedAccessGroup": "VerifiedAccessGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteVerifiedAccessInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVerifiedAccessInstanceRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+    },
+)
+_OptionalDeleteVerifiedAccessInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVerifiedAccessInstanceRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class DeleteVerifiedAccessInstanceRequestRequestTypeDef(
+    _RequiredDeleteVerifiedAccessInstanceRequestRequestTypeDef,
+    _OptionalDeleteVerifiedAccessInstanceRequestRequestTypeDef,
+):
+    pass
+
+DeleteVerifiedAccessInstanceResultTypeDef = TypedDict(
+    "DeleteVerifiedAccessInstanceResultTypeDef",
+    {
+        "VerifiedAccessInstance": "VerifiedAccessInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "VerifiedAccessTrustProviderId": str,
+    },
+)
+_OptionalDeleteVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class DeleteVerifiedAccessTrustProviderRequestRequestTypeDef(
+    _RequiredDeleteVerifiedAccessTrustProviderRequestRequestTypeDef,
+    _OptionalDeleteVerifiedAccessTrustProviderRequestRequestTypeDef,
+):
+    pass
+
+DeleteVerifiedAccessTrustProviderResultTypeDef = TypedDict(
+    "DeleteVerifiedAccessTrustProviderResultTypeDef",
+    {
+        "VerifiedAccessTrustProvider": "VerifiedAccessTrustProviderTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteVolumeRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteVolumeRequestRequestTypeDef",
     {
@@ -11075,6 +11474,8 @@ DescribeImagesRequestRequestTypeDef = TypedDict(
         "Owners": List[str],
         "IncludeDeprecated": bool,
         "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
     },
     total=False,
 )
@@ -11083,6 +11484,7 @@ DescribeImagesResultTypeDef = TypedDict(
     "DescribeImagesResultTypeDef",
     {
         "Images": List["ImageTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -12862,6 +13264,114 @@ DescribeTrunkInterfaceAssociationsResultTypeDef = TypedDict(
     },
 )
 
+DescribeVerifiedAccessEndpointsRequestRequestTypeDef = TypedDict(
+    "DescribeVerifiedAccessEndpointsRequestRequestTypeDef",
+    {
+        "VerifiedAccessEndpointIds": List[str],
+        "VerifiedAccessInstanceId": str,
+        "VerifiedAccessGroupId": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVerifiedAccessEndpointsResultTypeDef = TypedDict(
+    "DescribeVerifiedAccessEndpointsResultTypeDef",
+    {
+        "VerifiedAccessEndpoints": List["VerifiedAccessEndpointTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVerifiedAccessGroupsRequestRequestTypeDef = TypedDict(
+    "DescribeVerifiedAccessGroupsRequestRequestTypeDef",
+    {
+        "VerifiedAccessGroupIds": List[str],
+        "VerifiedAccessInstanceId": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVerifiedAccessGroupsResultTypeDef = TypedDict(
+    "DescribeVerifiedAccessGroupsResultTypeDef",
+    {
+        "VerifiedAccessGroups": List["VerifiedAccessGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVerifiedAccessInstanceLoggingConfigurationsRequestRequestTypeDef = TypedDict(
+    "DescribeVerifiedAccessInstanceLoggingConfigurationsRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVerifiedAccessInstanceLoggingConfigurationsResultTypeDef = TypedDict(
+    "DescribeVerifiedAccessInstanceLoggingConfigurationsResultTypeDef",
+    {
+        "LoggingConfigurations": List["VerifiedAccessInstanceLoggingConfigurationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVerifiedAccessInstancesRequestRequestTypeDef = TypedDict(
+    "DescribeVerifiedAccessInstancesRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVerifiedAccessInstancesResultTypeDef = TypedDict(
+    "DescribeVerifiedAccessInstancesResultTypeDef",
+    {
+        "VerifiedAccessInstances": List["VerifiedAccessInstanceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVerifiedAccessTrustProvidersRequestRequestTypeDef = TypedDict(
+    "DescribeVerifiedAccessTrustProvidersRequestRequestTypeDef",
+    {
+        "VerifiedAccessTrustProviderIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVerifiedAccessTrustProvidersResultTypeDef = TypedDict(
+    "DescribeVerifiedAccessTrustProvidersResultTypeDef",
+    {
+        "VerifiedAccessTrustProviders": List["VerifiedAccessTrustProviderTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDescribeVolumeAttributeRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeVolumeAttributeRequestRequestTypeDef",
     {
@@ -13480,6 +13990,37 @@ class DetachNetworkInterfaceRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDetachVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_RequiredDetachVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+        "VerifiedAccessTrustProviderId": str,
+    },
+)
+_OptionalDetachVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_OptionalDetachVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachVerifiedAccessTrustProviderRequestRequestTypeDef(
+    _RequiredDetachVerifiedAccessTrustProviderRequestRequestTypeDef,
+    _OptionalDetachVerifiedAccessTrustProviderRequestRequestTypeDef,
+):
+    pass
+
+DetachVerifiedAccessTrustProviderResultTypeDef = TypedDict(
+    "DetachVerifiedAccessTrustProviderResultTypeDef",
+    {
+        "VerifiedAccessTrustProvider": "VerifiedAccessTrustProviderTypeDef",
+        "VerifiedAccessInstance": "VerifiedAccessInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDetachVolumeRequestInstanceTypeDef = TypedDict(
     "_RequiredDetachVolumeRequestInstanceTypeDef",
     {
@@ -13553,6 +14094,14 @@ class DetachVpnGatewayRequestRequestTypeDef(
     _RequiredDetachVpnGatewayRequestRequestTypeDef, _OptionalDetachVpnGatewayRequestRequestTypeDef
 ):
     pass
+
+DeviceOptionsTypeDef = TypedDict(
+    "DeviceOptionsTypeDef",
+    {
+        "TenantId": str,
+    },
+    total=False,
+)
 
 DhcpConfigurationTypeDef = TypedDict(
     "DhcpConfigurationTypeDef",
@@ -15518,6 +16067,7 @@ FpgaImageTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "Public": bool,
         "DataRetentionSupport": bool,
+        "InstanceTypes": List[str],
     },
     total=False,
 )
@@ -16595,6 +17145,64 @@ GetTransitGatewayRouteTablePropagationsResultTypeDef = TypedDict(
     {
         "TransitGatewayRouteTablePropagations": List["TransitGatewayRouteTablePropagationTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetVerifiedAccessEndpointPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredGetVerifiedAccessEndpointPolicyRequestRequestTypeDef",
+    {
+        "VerifiedAccessEndpointId": str,
+    },
+)
+_OptionalGetVerifiedAccessEndpointPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalGetVerifiedAccessEndpointPolicyRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetVerifiedAccessEndpointPolicyRequestRequestTypeDef(
+    _RequiredGetVerifiedAccessEndpointPolicyRequestRequestTypeDef,
+    _OptionalGetVerifiedAccessEndpointPolicyRequestRequestTypeDef,
+):
+    pass
+
+GetVerifiedAccessEndpointPolicyResultTypeDef = TypedDict(
+    "GetVerifiedAccessEndpointPolicyResultTypeDef",
+    {
+        "PolicyEnabled": bool,
+        "PolicyDocument": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetVerifiedAccessGroupPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredGetVerifiedAccessGroupPolicyRequestRequestTypeDef",
+    {
+        "VerifiedAccessGroupId": str,
+    },
+)
+_OptionalGetVerifiedAccessGroupPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalGetVerifiedAccessGroupPolicyRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetVerifiedAccessGroupPolicyRequestRequestTypeDef(
+    _RequiredGetVerifiedAccessGroupPolicyRequestRequestTypeDef,
+    _OptionalGetVerifiedAccessGroupPolicyRequestRequestTypeDef,
+):
+    pass
+
+GetVerifiedAccessGroupPolicyResultTypeDef = TypedDict(
+    "GetVerifiedAccessGroupPolicyResultTypeDef",
+    {
+        "PolicyEnabled": bool,
+        "PolicyDocument": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -20415,6 +21023,252 @@ ModifyTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
     },
 )
 
+ModifyVerifiedAccessEndpointEniOptionsTypeDef = TypedDict(
+    "ModifyVerifiedAccessEndpointEniOptionsTypeDef",
+    {
+        "Protocol": VerifiedAccessEndpointProtocolType,
+        "Port": int,
+    },
+    total=False,
+)
+
+ModifyVerifiedAccessEndpointLoadBalancerOptionsTypeDef = TypedDict(
+    "ModifyVerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+    {
+        "SubnetIds": List[str],
+        "Protocol": VerifiedAccessEndpointProtocolType,
+        "Port": int,
+    },
+    total=False,
+)
+
+_RequiredModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef",
+    {
+        "VerifiedAccessEndpointId": str,
+        "PolicyEnabled": bool,
+    },
+)
+_OptionalModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef",
+    {
+        "PolicyDocument": str,
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef(
+    _RequiredModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef,
+    _OptionalModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef,
+):
+    pass
+
+ModifyVerifiedAccessEndpointPolicyResultTypeDef = TypedDict(
+    "ModifyVerifiedAccessEndpointPolicyResultTypeDef",
+    {
+        "PolicyEnabled": bool,
+        "PolicyDocument": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVerifiedAccessEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVerifiedAccessEndpointRequestRequestTypeDef",
+    {
+        "VerifiedAccessEndpointId": str,
+    },
+)
+_OptionalModifyVerifiedAccessEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVerifiedAccessEndpointRequestRequestTypeDef",
+    {
+        "VerifiedAccessGroupId": str,
+        "LoadBalancerOptions": "ModifyVerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+        "NetworkInterfaceOptions": "ModifyVerifiedAccessEndpointEniOptionsTypeDef",
+        "Description": str,
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVerifiedAccessEndpointRequestRequestTypeDef(
+    _RequiredModifyVerifiedAccessEndpointRequestRequestTypeDef,
+    _OptionalModifyVerifiedAccessEndpointRequestRequestTypeDef,
+):
+    pass
+
+ModifyVerifiedAccessEndpointResultTypeDef = TypedDict(
+    "ModifyVerifiedAccessEndpointResultTypeDef",
+    {
+        "VerifiedAccessEndpoint": "VerifiedAccessEndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVerifiedAccessGroupPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVerifiedAccessGroupPolicyRequestRequestTypeDef",
+    {
+        "VerifiedAccessGroupId": str,
+        "PolicyEnabled": bool,
+    },
+)
+_OptionalModifyVerifiedAccessGroupPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVerifiedAccessGroupPolicyRequestRequestTypeDef",
+    {
+        "PolicyDocument": str,
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVerifiedAccessGroupPolicyRequestRequestTypeDef(
+    _RequiredModifyVerifiedAccessGroupPolicyRequestRequestTypeDef,
+    _OptionalModifyVerifiedAccessGroupPolicyRequestRequestTypeDef,
+):
+    pass
+
+ModifyVerifiedAccessGroupPolicyResultTypeDef = TypedDict(
+    "ModifyVerifiedAccessGroupPolicyResultTypeDef",
+    {
+        "PolicyEnabled": bool,
+        "PolicyDocument": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVerifiedAccessGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVerifiedAccessGroupRequestRequestTypeDef",
+    {
+        "VerifiedAccessGroupId": str,
+    },
+)
+_OptionalModifyVerifiedAccessGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVerifiedAccessGroupRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+        "Description": str,
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVerifiedAccessGroupRequestRequestTypeDef(
+    _RequiredModifyVerifiedAccessGroupRequestRequestTypeDef,
+    _OptionalModifyVerifiedAccessGroupRequestRequestTypeDef,
+):
+    pass
+
+ModifyVerifiedAccessGroupResultTypeDef = TypedDict(
+    "ModifyVerifiedAccessGroupResultTypeDef",
+    {
+        "VerifiedAccessGroup": "VerifiedAccessGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+        "AccessLogs": "VerifiedAccessLogOptionsTypeDef",
+    },
+)
+_OptionalModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef(
+    _RequiredModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef,
+    _OptionalModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef,
+):
+    pass
+
+ModifyVerifiedAccessInstanceLoggingConfigurationResultTypeDef = TypedDict(
+    "ModifyVerifiedAccessInstanceLoggingConfigurationResultTypeDef",
+    {
+        "LoggingConfiguration": "VerifiedAccessInstanceLoggingConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVerifiedAccessInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVerifiedAccessInstanceRequestRequestTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+    },
+)
+_OptionalModifyVerifiedAccessInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVerifiedAccessInstanceRequestRequestTypeDef",
+    {
+        "Description": str,
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ModifyVerifiedAccessInstanceRequestRequestTypeDef(
+    _RequiredModifyVerifiedAccessInstanceRequestRequestTypeDef,
+    _OptionalModifyVerifiedAccessInstanceRequestRequestTypeDef,
+):
+    pass
+
+ModifyVerifiedAccessInstanceResultTypeDef = TypedDict(
+    "ModifyVerifiedAccessInstanceResultTypeDef",
+    {
+        "VerifiedAccessInstance": "VerifiedAccessInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef = TypedDict(
+    "ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef",
+    {
+        "Scope": str,
+    },
+    total=False,
+)
+
+_RequiredModifyVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "VerifiedAccessTrustProviderId": str,
+    },
+)
+_OptionalModifyVerifiedAccessTrustProviderRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVerifiedAccessTrustProviderRequestRequestTypeDef",
+    {
+        "OidcOptions": "ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef",
+        "Description": str,
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ModifyVerifiedAccessTrustProviderRequestRequestTypeDef(
+    _RequiredModifyVerifiedAccessTrustProviderRequestRequestTypeDef,
+    _OptionalModifyVerifiedAccessTrustProviderRequestRequestTypeDef,
+):
+    pass
+
+ModifyVerifiedAccessTrustProviderResultTypeDef = TypedDict(
+    "ModifyVerifiedAccessTrustProviderResultTypeDef",
+    {
+        "VerifiedAccessTrustProvider": "VerifiedAccessTrustProviderTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredModifyVolumeAttributeRequestRequestTypeDef = TypedDict(
     "_RequiredModifyVolumeAttributeRequestRequestTypeDef",
     {
@@ -21326,6 +22180,20 @@ NewDhcpConfigurationTypeDef = TypedDict(
     {
         "Key": str,
         "Values": List[str],
+    },
+    total=False,
+)
+
+OidcOptionsTypeDef = TypedDict(
+    "OidcOptionsTypeDef",
+    {
+        "Issuer": str,
+        "AuthorizationEndpoint": str,
+        "TokenEndpoint": str,
+        "UserInfoEndpoint": str,
+        "ClientId": str,
+        "ClientSecret": str,
+        "Scope": str,
     },
     total=False,
 )
@@ -26457,6 +27325,252 @@ ValidationWarningTypeDef = TypedDict(
     "ValidationWarningTypeDef",
     {
         "Errors": List["ValidationErrorTypeDef"],
+    },
+    total=False,
+)
+
+VerifiedAccessEndpointEniOptionsTypeDef = TypedDict(
+    "VerifiedAccessEndpointEniOptionsTypeDef",
+    {
+        "NetworkInterfaceId": str,
+        "Protocol": VerifiedAccessEndpointProtocolType,
+        "Port": int,
+    },
+    total=False,
+)
+
+VerifiedAccessEndpointLoadBalancerOptionsTypeDef = TypedDict(
+    "VerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+    {
+        "Protocol": VerifiedAccessEndpointProtocolType,
+        "Port": int,
+        "LoadBalancerArn": str,
+        "SubnetIds": List[str],
+    },
+    total=False,
+)
+
+VerifiedAccessEndpointStatusTypeDef = TypedDict(
+    "VerifiedAccessEndpointStatusTypeDef",
+    {
+        "Code": VerifiedAccessEndpointStatusCodeType,
+        "Message": str,
+    },
+    total=False,
+)
+
+VerifiedAccessEndpointTypeDef = TypedDict(
+    "VerifiedAccessEndpointTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+        "VerifiedAccessGroupId": str,
+        "VerifiedAccessEndpointId": str,
+        "ApplicationDomain": str,
+        "EndpointType": VerifiedAccessEndpointTypeType,
+        "AttachmentType": Literal["vpc"],
+        "DomainCertificateArn": str,
+        "EndpointDomain": str,
+        "DeviceValidationDomain": str,
+        "SecurityGroupIds": List[str],
+        "LoadBalancerOptions": "VerifiedAccessEndpointLoadBalancerOptionsTypeDef",
+        "NetworkInterfaceOptions": "VerifiedAccessEndpointEniOptionsTypeDef",
+        "Status": "VerifiedAccessEndpointStatusTypeDef",
+        "Description": str,
+        "CreationTime": str,
+        "LastUpdatedTime": str,
+        "DeletionTime": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+VerifiedAccessGroupTypeDef = TypedDict(
+    "VerifiedAccessGroupTypeDef",
+    {
+        "VerifiedAccessGroupId": str,
+        "VerifiedAccessInstanceId": str,
+        "Description": str,
+        "Owner": str,
+        "VerifiedAccessGroupArn": str,
+        "CreationTime": str,
+        "LastUpdatedTime": str,
+        "DeletionTime": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+VerifiedAccessInstanceLoggingConfigurationTypeDef = TypedDict(
+    "VerifiedAccessInstanceLoggingConfigurationTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+        "AccessLogs": "VerifiedAccessLogsTypeDef",
+    },
+    total=False,
+)
+
+VerifiedAccessInstanceTypeDef = TypedDict(
+    "VerifiedAccessInstanceTypeDef",
+    {
+        "VerifiedAccessInstanceId": str,
+        "Description": str,
+        "VerifiedAccessTrustProviders": List["VerifiedAccessTrustProviderCondensedTypeDef"],
+        "CreationTime": str,
+        "LastUpdatedTime": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredVerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef = TypedDict(
+    "_RequiredVerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+_OptionalVerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef = TypedDict(
+    "_OptionalVerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef",
+    {
+        "LogGroup": str,
+    },
+    total=False,
+)
+
+class VerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef(
+    _RequiredVerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef,
+    _OptionalVerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef,
+):
+    pass
+
+VerifiedAccessLogCloudWatchLogsDestinationTypeDef = TypedDict(
+    "VerifiedAccessLogCloudWatchLogsDestinationTypeDef",
+    {
+        "Enabled": bool,
+        "DeliveryStatus": "VerifiedAccessLogDeliveryStatusTypeDef",
+        "LogGroup": str,
+    },
+    total=False,
+)
+
+VerifiedAccessLogDeliveryStatusTypeDef = TypedDict(
+    "VerifiedAccessLogDeliveryStatusTypeDef",
+    {
+        "Code": VerifiedAccessLogDeliveryStatusCodeType,
+        "Message": str,
+    },
+    total=False,
+)
+
+_RequiredVerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef = TypedDict(
+    "_RequiredVerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+_OptionalVerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef = TypedDict(
+    "_OptionalVerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef",
+    {
+        "DeliveryStream": str,
+    },
+    total=False,
+)
+
+class VerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef(
+    _RequiredVerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef,
+    _OptionalVerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef,
+):
+    pass
+
+VerifiedAccessLogKinesisDataFirehoseDestinationTypeDef = TypedDict(
+    "VerifiedAccessLogKinesisDataFirehoseDestinationTypeDef",
+    {
+        "Enabled": bool,
+        "DeliveryStatus": "VerifiedAccessLogDeliveryStatusTypeDef",
+        "DeliveryStream": str,
+    },
+    total=False,
+)
+
+VerifiedAccessLogOptionsTypeDef = TypedDict(
+    "VerifiedAccessLogOptionsTypeDef",
+    {
+        "S3": "VerifiedAccessLogS3DestinationOptionsTypeDef",
+        "CloudWatchLogs": "VerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef",
+        "KinesisDataFirehose": "VerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef",
+    },
+    total=False,
+)
+
+_RequiredVerifiedAccessLogS3DestinationOptionsTypeDef = TypedDict(
+    "_RequiredVerifiedAccessLogS3DestinationOptionsTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+_OptionalVerifiedAccessLogS3DestinationOptionsTypeDef = TypedDict(
+    "_OptionalVerifiedAccessLogS3DestinationOptionsTypeDef",
+    {
+        "BucketName": str,
+        "Prefix": str,
+        "BucketOwner": str,
+    },
+    total=False,
+)
+
+class VerifiedAccessLogS3DestinationOptionsTypeDef(
+    _RequiredVerifiedAccessLogS3DestinationOptionsTypeDef,
+    _OptionalVerifiedAccessLogS3DestinationOptionsTypeDef,
+):
+    pass
+
+VerifiedAccessLogS3DestinationTypeDef = TypedDict(
+    "VerifiedAccessLogS3DestinationTypeDef",
+    {
+        "Enabled": bool,
+        "DeliveryStatus": "VerifiedAccessLogDeliveryStatusTypeDef",
+        "BucketName": str,
+        "Prefix": str,
+        "BucketOwner": str,
+    },
+    total=False,
+)
+
+VerifiedAccessLogsTypeDef = TypedDict(
+    "VerifiedAccessLogsTypeDef",
+    {
+        "S3": "VerifiedAccessLogS3DestinationTypeDef",
+        "CloudWatchLogs": "VerifiedAccessLogCloudWatchLogsDestinationTypeDef",
+        "KinesisDataFirehose": "VerifiedAccessLogKinesisDataFirehoseDestinationTypeDef",
+    },
+    total=False,
+)
+
+VerifiedAccessTrustProviderCondensedTypeDef = TypedDict(
+    "VerifiedAccessTrustProviderCondensedTypeDef",
+    {
+        "VerifiedAccessTrustProviderId": str,
+        "Description": str,
+        "TrustProviderType": TrustProviderTypeType,
+        "UserTrustProviderType": UserTrustProviderTypeType,
+        "DeviceTrustProviderType": DeviceTrustProviderTypeType,
+    },
+    total=False,
+)
+
+VerifiedAccessTrustProviderTypeDef = TypedDict(
+    "VerifiedAccessTrustProviderTypeDef",
+    {
+        "VerifiedAccessTrustProviderId": str,
+        "Description": str,
+        "TrustProviderType": TrustProviderTypeType,
+        "UserTrustProviderType": UserTrustProviderTypeType,
+        "DeviceTrustProviderType": DeviceTrustProviderTypeType,
+        "OidcOptions": "OidcOptionsTypeDef",
+        "DeviceOptions": "DeviceOptionsTypeDef",
+        "PolicyReferenceName": str,
+        "CreationTime": str,
+        "LastUpdatedTime": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )

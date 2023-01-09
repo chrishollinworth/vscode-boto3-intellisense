@@ -97,6 +97,7 @@ PreserveDevicesType = Literal["NONE", "PRESERVE"]
 S3StorageClassType = Literal[
     "DEEP_ARCHIVE",
     "GLACIER",
+    "GLACIER_INSTANT_RETRIEVAL",
     "INTELLIGENT_TIERING",
     "ONEZONE_IA",
     "OUTPOSTS",

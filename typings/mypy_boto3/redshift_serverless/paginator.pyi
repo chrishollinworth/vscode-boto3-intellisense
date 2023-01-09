@@ -14,6 +14,7 @@ Usage::
         ListNamespacesPaginator,
         ListRecoveryPointsPaginator,
         ListSnapshotsPaginator,
+        ListTableRestoreStatusPaginator,
         ListUsageLimitsPaginator,
         ListWorkgroupsPaginator,
     )
@@ -24,6 +25,7 @@ Usage::
     list_namespaces_paginator: ListNamespacesPaginator = client.get_paginator("list_namespaces")
     list_recovery_points_paginator: ListRecoveryPointsPaginator = client.get_paginator("list_recovery_points")
     list_snapshots_paginator: ListSnapshotsPaginator = client.get_paginator("list_snapshots")
+    list_table_restore_status_paginator: ListTableRestoreStatusPaginator = client.get_paginator("list_table_restore_status")
     list_usage_limits_paginator: ListUsageLimitsPaginator = client.get_paginator("list_usage_limits")
     list_workgroups_paginator: ListWorkgroupsPaginator = client.get_paginator("list_workgroups")
     ```
@@ -39,6 +41,7 @@ from .type_defs import (
     ListNamespacesResponseTypeDef,
     ListRecoveryPointsResponseTypeDef,
     ListSnapshotsResponseTypeDef,
+    ListTableRestoreStatusResponseTypeDef,
     ListUsageLimitsResponseTypeDef,
     ListWorkgroupsResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -49,13 +52,14 @@ __all__ = (
     "ListNamespacesPaginator",
     "ListRecoveryPointsPaginator",
     "ListSnapshotsPaginator",
+    "ListTableRestoreStatusPaginator",
     "ListUsageLimitsPaginator",
     "ListWorkgroupsPaginator",
 )
 
 class ListEndpointAccessPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListEndpointAccess)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListEndpointAccess)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listendpointaccesspaginator)
     """
 
@@ -67,13 +71,13 @@ class ListEndpointAccessPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointAccessResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListEndpointAccess.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListEndpointAccess.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listendpointaccesspaginator)
         """
 
 class ListNamespacesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListNamespaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListNamespaces)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listnamespacespaginator)
     """
 
@@ -81,13 +85,13 @@ class ListNamespacesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNamespacesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListNamespaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListNamespaces.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listnamespacespaginator)
         """
 
 class ListRecoveryPointsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListRecoveryPoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListRecoveryPoints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listrecoverypointspaginator)
     """
 
@@ -95,18 +99,19 @@ class ListRecoveryPointsPaginator(Boto3Paginator):
         self,
         *,
         endTime: Union[datetime, str] = None,
+        namespaceArn: str = None,
         namespaceName: str = None,
         startTime: Union[datetime, str] = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecoveryPointsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListRecoveryPoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListRecoveryPoints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listrecoverypointspaginator)
         """
 
 class ListSnapshotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListSnapshots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listsnapshotspaginator)
     """
 
@@ -121,13 +126,31 @@ class ListSnapshotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSnapshotsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListSnapshots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listsnapshotspaginator)
+        """
+
+class ListTableRestoreStatusPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListTableRestoreStatus)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listtablerestorestatuspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        namespaceName: str = None,
+        workgroupName: str = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListTableRestoreStatusResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListTableRestoreStatus.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listtablerestorestatuspaginator)
         """
 
 class ListUsageLimitsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListUsageLimits)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListUsageLimits)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listusagelimitspaginator)
     """
 
@@ -139,13 +162,13 @@ class ListUsageLimitsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUsageLimitsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListUsageLimits.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListUsageLimits.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listusagelimitspaginator)
         """
 
 class ListWorkgroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListWorkgroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListWorkgroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listworkgroupspaginator)
     """
 
@@ -153,6 +176,6 @@ class ListWorkgroupsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkgroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListWorkgroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListWorkgroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listworkgroupspaginator)
         """

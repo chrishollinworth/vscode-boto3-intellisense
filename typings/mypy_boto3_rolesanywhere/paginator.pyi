@@ -45,7 +45,7 @@ __all__ = (
 
 class ListCrlsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListCrls)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListCrls)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listcrlspaginator)
     """
 
@@ -53,13 +53,13 @@ class ListCrlsPaginator(Boto3Paginator):
         self, *, pageSize: int = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCrlsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListCrls.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListCrls.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listcrlspaginator)
         """
 
 class ListProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listprofilespaginator)
     """
 
@@ -67,13 +67,13 @@ class ListProfilesPaginator(Boto3Paginator):
         self, *, pageSize: int = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listprofilespaginator)
         """
 
 class ListSubjectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListSubjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListSubjects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listsubjectspaginator)
     """
 
@@ -81,13 +81,13 @@ class ListSubjectsPaginator(Boto3Paginator):
         self, *, pageSize: int = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubjectsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListSubjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListSubjects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listsubjectspaginator)
         """
 
 class ListTrustAnchorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListTrustAnchors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListTrustAnchors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listtrustanchorspaginator)
     """
 
@@ -95,6 +95,6 @@ class ListTrustAnchorsPaginator(Boto3Paginator):
         self, *, pageSize: int = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTrustAnchorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListTrustAnchors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListTrustAnchors.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listtrustanchorspaginator)
         """

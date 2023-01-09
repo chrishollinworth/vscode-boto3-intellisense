@@ -28,6 +28,7 @@ __all__ = (
     "CustomStepStatusType",
     "DomainType",
     "EncryptionAlgType",
+    "EncryptionTypeType",
     "EndpointTypeType",
     "ExecutionErrorTypeType",
     "ExecutionStatusType",
@@ -67,6 +68,7 @@ CompressionEnumType = Literal["DISABLED", "ZLIB"]
 CustomStepStatusType = Literal["FAILURE", "SUCCESS"]
 DomainType = Literal["EFS", "S3"]
 EncryptionAlgType = Literal["AES128_CBC", "AES192_CBC", "AES256_CBC", "NONE"]
+EncryptionTypeType = Literal["PGP"]
 EndpointTypeType = Literal["PUBLIC", "VPC", "VPC_ENDPOINT"]
 ExecutionErrorTypeType = Literal[
     "ALREADY_EXISTS",
@@ -105,4 +107,4 @@ SetStatOptionType = Literal["DEFAULT", "ENABLE_NO_OP"]
 SigningAlgType = Literal["NONE", "SHA1", "SHA256", "SHA384", "SHA512"]
 StateType = Literal["OFFLINE", "ONLINE", "STARTING", "START_FAILED", "STOPPING", "STOP_FAILED"]
 TlsSessionResumptionModeType = Literal["DISABLED", "ENABLED", "ENFORCED"]
-WorkflowStepTypeType = Literal["COPY", "CUSTOM", "DELETE", "TAG"]
+WorkflowStepTypeType = Literal["COPY", "CUSTOM", "DECRYPT", "DELETE", "TAG"]

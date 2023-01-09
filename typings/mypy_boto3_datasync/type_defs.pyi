@@ -1164,6 +1164,7 @@ _OptionalStartTaskExecutionRequestRequestTypeDef = TypedDict(
         "OverrideOptions": "OptionsTypeDef",
         "Includes": List["FilterRuleTypeDef"],
         "Excludes": List["FilterRuleTypeDef"],
+        "Tags": List["TagListEntryTypeDef"],
     },
     total=False,
 )

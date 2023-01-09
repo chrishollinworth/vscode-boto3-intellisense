@@ -24,6 +24,8 @@ from .literals import (
     BuildStatusType,
     CertificateTypeType,
     ComparisonOperatorTypeType,
+    ComputeStatusType,
+    ComputeTypeType,
     EC2InstanceTypeType,
     EventCodeType,
     FleetStatusType,
@@ -39,6 +41,7 @@ from .literals import (
     GameSessionStatusType,
     InstanceStatusType,
     IpProtocolType,
+    LocationFilterType,
     MatchmakingConfigurationStatusType,
     MetricNameType,
     OperatingSystemType,
@@ -65,12 +68,14 @@ else:
 __all__ = (
     "AcceptMatchInputRequestTypeDef",
     "AliasTypeDef",
+    "AnywhereConfigurationTypeDef",
     "AttributeValueTypeDef",
     "AwsCredentialsTypeDef",
     "BuildTypeDef",
     "CertificateConfigurationTypeDef",
     "ClaimGameServerInputRequestTypeDef",
     "ClaimGameServerOutputTypeDef",
+    "ComputeTypeDef",
     "CreateAliasInputRequestTypeDef",
     "CreateAliasOutputTypeDef",
     "CreateBuildInputRequestTypeDef",
@@ -85,6 +90,8 @@ __all__ = (
     "CreateGameSessionOutputTypeDef",
     "CreateGameSessionQueueInputRequestTypeDef",
     "CreateGameSessionQueueOutputTypeDef",
+    "CreateLocationInputRequestTypeDef",
+    "CreateLocationOutputTypeDef",
     "CreateMatchmakingConfigurationInputRequestTypeDef",
     "CreateMatchmakingConfigurationOutputTypeDef",
     "CreateMatchmakingRuleSetInputRequestTypeDef",
@@ -106,17 +113,21 @@ __all__ = (
     "DeleteGameServerGroupInputRequestTypeDef",
     "DeleteGameServerGroupOutputTypeDef",
     "DeleteGameSessionQueueInputRequestTypeDef",
+    "DeleteLocationInputRequestTypeDef",
     "DeleteMatchmakingConfigurationInputRequestTypeDef",
     "DeleteMatchmakingRuleSetInputRequestTypeDef",
     "DeleteScalingPolicyInputRequestTypeDef",
     "DeleteScriptInputRequestTypeDef",
     "DeleteVpcPeeringAuthorizationInputRequestTypeDef",
     "DeleteVpcPeeringConnectionInputRequestTypeDef",
+    "DeregisterComputeInputRequestTypeDef",
     "DeregisterGameServerInputRequestTypeDef",
     "DescribeAliasInputRequestTypeDef",
     "DescribeAliasOutputTypeDef",
     "DescribeBuildInputRequestTypeDef",
     "DescribeBuildOutputTypeDef",
+    "DescribeComputeInputRequestTypeDef",
+    "DescribeComputeOutputTypeDef",
     "DescribeEC2InstanceLimitsInputRequestTypeDef",
     "DescribeEC2InstanceLimitsOutputTypeDef",
     "DescribeFleetAttributesInputRequestTypeDef",
@@ -187,6 +198,10 @@ __all__ = (
     "GameSessionQueueDestinationTypeDef",
     "GameSessionQueueTypeDef",
     "GameSessionTypeDef",
+    "GetComputeAccessInputRequestTypeDef",
+    "GetComputeAccessOutputTypeDef",
+    "GetComputeAuthTokenInputRequestTypeDef",
+    "GetComputeAuthTokenOutputTypeDef",
     "GetGameSessionLogUrlInputRequestTypeDef",
     "GetGameSessionLogUrlOutputTypeDef",
     "GetInstanceAccessInputRequestTypeDef",
@@ -201,18 +216,23 @@ __all__ = (
     "ListAliasesOutputTypeDef",
     "ListBuildsInputRequestTypeDef",
     "ListBuildsOutputTypeDef",
+    "ListComputeInputRequestTypeDef",
+    "ListComputeOutputTypeDef",
     "ListFleetsInputRequestTypeDef",
     "ListFleetsOutputTypeDef",
     "ListGameServerGroupsInputRequestTypeDef",
     "ListGameServerGroupsOutputTypeDef",
     "ListGameServersInputRequestTypeDef",
     "ListGameServersOutputTypeDef",
+    "ListLocationsInputRequestTypeDef",
+    "ListLocationsOutputTypeDef",
     "ListScriptsInputRequestTypeDef",
     "ListScriptsOutputTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LocationAttributesTypeDef",
     "LocationConfigurationTypeDef",
+    "LocationModelTypeDef",
     "LocationStateTypeDef",
     "MatchedPlayerSessionTypeDef",
     "MatchmakingConfigurationTypeDef",
@@ -227,6 +247,8 @@ __all__ = (
     "PriorityConfigurationTypeDef",
     "PutScalingPolicyInputRequestTypeDef",
     "PutScalingPolicyOutputTypeDef",
+    "RegisterComputeInputRequestTypeDef",
+    "RegisterComputeOutputTypeDef",
     "RegisterGameServerInputRequestTypeDef",
     "RegisterGameServerOutputTypeDef",
     "RequestUploadCredentialsInputRequestTypeDef",
@@ -319,6 +341,13 @@ AliasTypeDef = TypedDict(
     total=False,
 )
 
+AnywhereConfigurationTypeDef = TypedDict(
+    "AnywhereConfigurationTypeDef",
+    {
+        "Cost": str,
+    },
+)
+
 AttributeValueTypeDef = TypedDict(
     "AttributeValueTypeDef",
     {
@@ -351,6 +380,7 @@ BuildTypeDef = TypedDict(
         "SizeOnDisk": int,
         "OperatingSystem": OperatingSystemType,
         "CreationTime": datetime,
+        "ServerSdkVersion": str,
     },
     total=False,
 )
@@ -390,6 +420,25 @@ ClaimGameServerOutputTypeDef = TypedDict(
     },
 )
 
+ComputeTypeDef = TypedDict(
+    "ComputeTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "ComputeName": str,
+        "ComputeArn": str,
+        "IpAddress": str,
+        "DnsName": str,
+        "ComputeStatus": ComputeStatusType,
+        "Location": str,
+        "CreationTime": datetime,
+        "OperatingSystem": OperatingSystemType,
+        "Type": EC2InstanceTypeType,
+        "GameLiftServiceSdkEndpoint": str,
+    },
+    total=False,
+)
+
 _RequiredCreateAliasInputRequestTypeDef = TypedDict(
     "_RequiredCreateAliasInputRequestTypeDef",
     {
@@ -427,6 +476,7 @@ CreateBuildInputRequestTypeDef = TypedDict(
         "StorageLocation": "S3LocationTypeDef",
         "OperatingSystem": OperatingSystemType,
         "Tags": List["TagTypeDef"],
+        "ServerSdkVersion": str,
     },
     total=False,
 )
@@ -445,7 +495,6 @@ _RequiredCreateFleetInputRequestTypeDef = TypedDict(
     "_RequiredCreateFleetInputRequestTypeDef",
     {
         "Name": str,
-        "EC2InstanceType": EC2InstanceTypeType,
     },
 )
 _OptionalCreateFleetInputRequestTypeDef = TypedDict(
@@ -457,6 +506,7 @@ _OptionalCreateFleetInputRequestTypeDef = TypedDict(
         "ServerLaunchPath": str,
         "ServerLaunchParameters": str,
         "LogPaths": List[str],
+        "EC2InstanceType": EC2InstanceTypeType,
         "EC2InboundPermissions": List["IpPermissionTypeDef"],
         "NewGameSessionProtectionPolicy": ProtectionPolicyType,
         "RuntimeConfiguration": "RuntimeConfigurationTypeDef",
@@ -469,6 +519,8 @@ _OptionalCreateFleetInputRequestTypeDef = TypedDict(
         "CertificateConfiguration": "CertificateConfigurationTypeDef",
         "Locations": List["LocationConfigurationTypeDef"],
         "Tags": List["TagTypeDef"],
+        "ComputeType": ComputeTypeType,
+        "AnywhereConfiguration": "AnywhereConfigurationTypeDef",
     },
     total=False,
 )
@@ -608,6 +660,33 @@ CreateGameSessionQueueOutputTypeDef = TypedDict(
     "CreateGameSessionQueueOutputTypeDef",
     {
         "GameSessionQueue": "GameSessionQueueTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocationInputRequestTypeDef = TypedDict(
+    "_RequiredCreateLocationInputRequestTypeDef",
+    {
+        "LocationName": str,
+    },
+)
+_OptionalCreateLocationInputRequestTypeDef = TypedDict(
+    "_OptionalCreateLocationInputRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateLocationInputRequestTypeDef(
+    _RequiredCreateLocationInputRequestTypeDef, _OptionalCreateLocationInputRequestTypeDef
+):
+    pass
+
+CreateLocationOutputTypeDef = TypedDict(
+    "CreateLocationOutputTypeDef",
+    {
+        "Location": "LocationModelTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -858,6 +937,13 @@ DeleteGameSessionQueueInputRequestTypeDef = TypedDict(
     },
 )
 
+DeleteLocationInputRequestTypeDef = TypedDict(
+    "DeleteLocationInputRequestTypeDef",
+    {
+        "LocationName": str,
+    },
+)
+
 DeleteMatchmakingConfigurationInputRequestTypeDef = TypedDict(
     "DeleteMatchmakingConfigurationInputRequestTypeDef",
     {
@@ -903,6 +989,14 @@ DeleteVpcPeeringConnectionInputRequestTypeDef = TypedDict(
     },
 )
 
+DeregisterComputeInputRequestTypeDef = TypedDict(
+    "DeregisterComputeInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "ComputeName": str,
+    },
+)
+
 DeregisterGameServerInputRequestTypeDef = TypedDict(
     "DeregisterGameServerInputRequestTypeDef",
     {
@@ -937,6 +1031,22 @@ DescribeBuildOutputTypeDef = TypedDict(
     "DescribeBuildOutputTypeDef",
     {
         "Build": "BuildTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeComputeInputRequestTypeDef = TypedDict(
+    "DescribeComputeInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "ComputeName": str,
+    },
+)
+
+DescribeComputeOutputTypeDef = TypedDict(
+    "DescribeComputeOutputTypeDef",
+    {
+        "Compute": "ComputeTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1559,6 +1669,8 @@ FleetAttributesTypeDef = TypedDict(
         "StoppedActions": List[Literal["AUTO_SCALING"]],
         "InstanceRoleArn": str,
         "CertificateConfiguration": "CertificateConfigurationTypeDef",
+        "ComputeType": ComputeTypeType,
+        "AnywhereConfiguration": "AnywhereConfigurationTypeDef",
     },
     total=False,
 )
@@ -1761,6 +1873,47 @@ GameSessionTypeDef = TypedDict(
     total=False,
 )
 
+GetComputeAccessInputRequestTypeDef = TypedDict(
+    "GetComputeAccessInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "ComputeName": str,
+    },
+)
+
+GetComputeAccessOutputTypeDef = TypedDict(
+    "GetComputeAccessOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "ComputeName": str,
+        "ComputeArn": str,
+        "Credentials": "AwsCredentialsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetComputeAuthTokenInputRequestTypeDef = TypedDict(
+    "GetComputeAuthTokenInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "ComputeName": str,
+    },
+)
+
+GetComputeAuthTokenOutputTypeDef = TypedDict(
+    "GetComputeAuthTokenOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "ComputeName": str,
+        "ComputeArn": str,
+        "AuthToken": str,
+        "ExpirationTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetGameSessionLogUrlInputRequestTypeDef = TypedDict(
     "GetGameSessionLogUrlInputRequestTypeDef",
     {
@@ -1908,6 +2061,36 @@ ListBuildsOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredListComputeInputRequestTypeDef = TypedDict(
+    "_RequiredListComputeInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalListComputeInputRequestTypeDef = TypedDict(
+    "_OptionalListComputeInputRequestTypeDef",
+    {
+        "Location": str,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListComputeInputRequestTypeDef(
+    _RequiredListComputeInputRequestTypeDef, _OptionalListComputeInputRequestTypeDef
+):
+    pass
+
+ListComputeOutputTypeDef = TypedDict(
+    "ListComputeOutputTypeDef",
+    {
+        "ComputeList": List["ComputeTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListFleetsInputRequestTypeDef = TypedDict(
     "ListFleetsInputRequestTypeDef",
     {
@@ -1976,6 +2159,25 @@ ListGameServersOutputTypeDef = TypedDict(
     },
 )
 
+ListLocationsInputRequestTypeDef = TypedDict(
+    "ListLocationsInputRequestTypeDef",
+    {
+        "Filters": List[LocationFilterType],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListLocationsOutputTypeDef = TypedDict(
+    "ListLocationsOutputTypeDef",
+    {
+        "Locations": List["LocationModelTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListScriptsInputRequestTypeDef = TypedDict(
     "ListScriptsInputRequestTypeDef",
     {
@@ -2023,6 +2225,14 @@ LocationConfigurationTypeDef = TypedDict(
     "LocationConfigurationTypeDef",
     {
         "Location": str,
+    },
+)
+
+LocationModelTypeDef = TypedDict(
+    "LocationModelTypeDef",
+    {
+        "LocationName": str,
+        "LocationArn": str,
     },
     total=False,
 )
@@ -2216,6 +2426,37 @@ PutScalingPolicyOutputTypeDef = TypedDict(
     "PutScalingPolicyOutputTypeDef",
     {
         "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRegisterComputeInputRequestTypeDef = TypedDict(
+    "_RequiredRegisterComputeInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "ComputeName": str,
+    },
+)
+_OptionalRegisterComputeInputRequestTypeDef = TypedDict(
+    "_OptionalRegisterComputeInputRequestTypeDef",
+    {
+        "CertificatePath": str,
+        "DnsName": str,
+        "IpAddress": str,
+        "Location": str,
+    },
+    total=False,
+)
+
+class RegisterComputeInputRequestTypeDef(
+    _RequiredRegisterComputeInputRequestTypeDef, _OptionalRegisterComputeInputRequestTypeDef
+):
+    pass
+
+RegisterComputeOutputTypeDef = TypedDict(
+    "RegisterComputeOutputTypeDef",
+    {
+        "Compute": "ComputeTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2721,6 +2962,7 @@ _OptionalUpdateFleetAttributesInputRequestTypeDef = TypedDict(
         "NewGameSessionProtectionPolicy": ProtectionPolicyType,
         "ResourceCreationLimitPolicy": "ResourceCreationLimitPolicyTypeDef",
         "MetricGroups": List[str],
+        "AnywhereConfiguration": "AnywhereConfigurationTypeDef",
     },
     total=False,
 )
@@ -2735,6 +2977,7 @@ UpdateFleetAttributesOutputTypeDef = TypedDict(
     "UpdateFleetAttributesOutputTypeDef",
     {
         "FleetId": str,
+        "FleetArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2796,6 +3039,7 @@ UpdateFleetPortSettingsOutputTypeDef = TypedDict(
     "UpdateFleetPortSettingsOutputTypeDef",
     {
         "FleetId": str,
+        "FleetArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

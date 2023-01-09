@@ -29,6 +29,7 @@ __all__ = (
     "DescribeAlarmHistoryPaginatorName",
     "DescribeAlarmsPaginatorName",
     "DescribeAnomalyDetectorsPaginatorName",
+    "EvaluationStateType",
     "GetMetricDataPaginatorName",
     "HistoryItemTypeType",
     "ListDashboardsPaginatorName",
@@ -60,6 +61,7 @@ CompositeAlarmExistsWaiterName = Literal["composite_alarm_exists"]
 DescribeAlarmHistoryPaginatorName = Literal["describe_alarm_history"]
 DescribeAlarmsPaginatorName = Literal["describe_alarms"]
 DescribeAnomalyDetectorsPaginatorName = Literal["describe_anomaly_detectors"]
+EvaluationStateType = Literal["PARTIAL_DATA"]
 GetMetricDataPaginatorName = Literal["get_metric_data"]
 HistoryItemTypeType = Literal["Action", "ConfigurationUpdate", "StateUpdate"]
 ListDashboardsPaginatorName = Literal["list_dashboards"]

@@ -33,13 +33,22 @@ __all__ = (
     "PropertyUpdateTypeType",
     "ScopeType",
     "StateType",
+    "SyncJobStateType",
+    "SyncResourceStateType",
+    "SyncResourceTypeType",
     "TypeType",
     "UpdateReasonType",
 )
 
 ColumnTypeType = Literal["EDGE", "NODE", "VALUE"]
 ComponentUpdateTypeType = Literal["CREATE", "DELETE", "UPDATE"]
-ErrorCodeType = Literal["INTERNAL_FAILURE", "VALIDATION_ERROR"]
+ErrorCodeType = Literal[
+    "INTERNAL_FAILURE",
+    "SYNC_CREATING_ERROR",
+    "SYNC_INITIALIZING_ERROR",
+    "SYNC_PROCESSING_ERROR",
+    "VALIDATION_ERROR",
+]
 GroupTypeType = Literal["TABULAR"]
 InterpolationTypeType = Literal["LINEAR"]
 OrderByTimeType = Literal["ASCENDING", "DESCENDING"]
@@ -51,6 +60,9 @@ PropertyGroupUpdateTypeType = Literal["CREATE", "DELETE", "UPDATE"]
 PropertyUpdateTypeType = Literal["CREATE", "DELETE", "UPDATE"]
 ScopeType = Literal["ENTITY", "WORKSPACE"]
 StateType = Literal["ACTIVE", "CREATING", "DELETING", "ERROR", "UPDATING"]
+SyncJobStateType = Literal["ACTIVE", "CREATING", "DELETING", "ERROR", "INITIALIZING"]
+SyncResourceStateType = Literal["DELETED", "ERROR", "INITIALIZING", "IN_SYNC", "PROCESSING"]
+SyncResourceTypeType = Literal["COMPONENT_TYPE", "ENTITY"]
 TypeType = Literal["BOOLEAN", "DOUBLE", "INTEGER", "LIST", "LONG", "MAP", "RELATIONSHIP", "STRING"]
 UpdateReasonType = Literal[
     "DEFAULT", "ENTITY_COUNT_UPDATE", "OVERWRITTEN", "PRICING_MODE_UPDATE", "PRICING_TIER_UPDATE"

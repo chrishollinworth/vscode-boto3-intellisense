@@ -202,8 +202,10 @@ SimpleCriterionKeyForJobType = Literal[
 StorageClassType = Literal[
     "DEEP_ARCHIVE",
     "GLACIER",
+    "GLACIER_IR",
     "INTELLIGENT_TIERING",
     "ONEZONE_IA",
+    "OUTPOSTS",
     "REDUCED_REDUNDANCY",
     "STANDARD",
     "STANDARD_IA",

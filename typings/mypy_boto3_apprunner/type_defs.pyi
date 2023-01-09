@@ -259,6 +259,7 @@ _OptionalCodeConfigurationValuesTypeDef = TypedDict(
         "StartCommand": str,
         "Port": str,
         "RuntimeEnvironmentVariables": Dict[str, str],
+        "RuntimeEnvironmentSecrets": Dict[str, str],
     },
     total=False,
 )
@@ -765,6 +766,7 @@ ImageConfigurationTypeDef = TypedDict(
         "RuntimeEnvironmentVariables": Dict[str, str],
         "StartCommand": str,
         "Port": str,
+        "RuntimeEnvironmentSecrets": Dict[str, str],
     },
     total=False,
 )

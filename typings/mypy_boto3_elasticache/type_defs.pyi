@@ -39,6 +39,7 @@ from .literals import (
     ServiceUpdateStatusType,
     SlaMetType,
     SourceTypeType,
+    TransitEncryptionModeType,
     UpdateActionStatusType,
 )
 
@@ -386,6 +387,7 @@ CacheClusterTypeDef = TypedDict(
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationTypeDef"],
         "NetworkType": NetworkTypeType,
         "IpDiscovery": IpDiscoveryType,
+        "TransitEncryptionMode": TransitEncryptionModeType,
     },
     total=False,
 )
@@ -869,6 +871,7 @@ _OptionalCreateReplicationGroupMessageRequestTypeDef = TypedDict(
         "DataTieringEnabled": bool,
         "NetworkType": NetworkTypeType,
         "IpDiscovery": IpDiscoveryType,
+        "TransitEncryptionMode": TransitEncryptionModeType,
     },
     total=False,
 )
@@ -1838,6 +1841,8 @@ _OptionalModifyReplicationGroupMessageRequestTypeDef = TypedDict(
         "RemoveUserGroups": bool,
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
         "IpDiscovery": IpDiscoveryType,
+        "TransitEncryptionEnabled": bool,
+        "TransitEncryptionMode": TransitEncryptionModeType,
     },
     total=False,
 )
@@ -2074,6 +2079,8 @@ PendingModifiedValuesTypeDef = TypedDict(
         "CacheNodeType": str,
         "AuthTokenStatus": AuthTokenUpdateStatusType,
         "LogDeliveryConfigurations": List["PendingLogDeliveryConfigurationTypeDef"],
+        "TransitEncryptionEnabled": bool,
+        "TransitEncryptionMode": TransitEncryptionModeType,
     },
     total=False,
 )
@@ -2195,6 +2202,8 @@ ReplicationGroupPendingModifiedValuesTypeDef = TypedDict(
         "AuthTokenStatus": AuthTokenUpdateStatusType,
         "UserGroups": "UserGroupsUpdateStatusTypeDef",
         "LogDeliveryConfigurations": List["PendingLogDeliveryConfigurationTypeDef"],
+        "TransitEncryptionEnabled": bool,
+        "TransitEncryptionMode": TransitEncryptionModeType,
     },
     total=False,
 )
@@ -2231,6 +2240,7 @@ ReplicationGroupTypeDef = TypedDict(
         "AutoMinorVersionUpgrade": bool,
         "NetworkType": NetworkTypeType,
         "IpDiscovery": IpDiscoveryType,
+        "TransitEncryptionMode": TransitEncryptionModeType,
     },
     total=False,
 )

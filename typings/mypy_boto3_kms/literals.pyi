@@ -22,6 +22,7 @@ __all__ = (
     "AlgorithmSpecType",
     "ConnectionErrorCodeTypeType",
     "ConnectionStateTypeType",
+    "CustomKeyStoreTypeType",
     "CustomerMasterKeySpecType",
     "DataKeyPairSpecType",
     "DataKeySpecType",
@@ -45,6 +46,7 @@ __all__ = (
     "OriginTypeType",
     "SigningAlgorithmSpecType",
     "WrappingKeySpecType",
+    "XksProxyConnectivityTypeType",
 )
 
 AlgorithmSpecType = Literal["RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "RSAES_PKCS1_V1_5"]
@@ -59,10 +61,19 @@ ConnectionErrorCodeTypeType = Literal[
     "USER_LOCKED_OUT",
     "USER_LOGGED_IN",
     "USER_NOT_FOUND",
+    "XKS_PROXY_ACCESS_DENIED",
+    "XKS_PROXY_INVALID_CONFIGURATION",
+    "XKS_PROXY_INVALID_RESPONSE",
+    "XKS_PROXY_INVALID_TLS_CONFIGURATION",
+    "XKS_PROXY_NOT_REACHABLE",
+    "XKS_PROXY_TIMED_OUT",
+    "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION",
+    "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND",
 ]
 ConnectionStateTypeType = Literal[
     "CONNECTED", "CONNECTING", "DISCONNECTED", "DISCONNECTING", "FAILED"
 ]
+CustomKeyStoreTypeType = Literal["AWS_CLOUDHSM", "EXTERNAL_KEY_STORE"]
 CustomerMasterKeySpecType = Literal[
     "ECC_NIST_P256",
     "ECC_NIST_P384",
@@ -148,7 +159,7 @@ ListRetirableGrantsPaginatorName = Literal["list_retirable_grants"]
 MacAlgorithmSpecType = Literal["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
 MessageTypeType = Literal["DIGEST", "RAW"]
 MultiRegionKeyTypeType = Literal["PRIMARY", "REPLICA"]
-OriginTypeType = Literal["AWS_CLOUDHSM", "AWS_KMS", "EXTERNAL"]
+OriginTypeType = Literal["AWS_CLOUDHSM", "AWS_KMS", "EXTERNAL", "EXTERNAL_KEY_STORE"]
 SigningAlgorithmSpecType = Literal[
     "ECDSA_SHA_256",
     "ECDSA_SHA_384",
@@ -162,3 +173,4 @@ SigningAlgorithmSpecType = Literal[
     "SM2DSA",
 ]
 WrappingKeySpecType = Literal["RSA_2048"]
+XksProxyConnectivityTypeType = Literal["PUBLIC_ENDPOINT", "VPC_ENDPOINT_SERVICE"]

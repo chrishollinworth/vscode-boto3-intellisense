@@ -6,9 +6,9 @@ Type annotations for connect service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_connect.literals import AgentStatusStateType
+    from mypy_boto3_connect.literals import ActionTypeType
 
-    data: AgentStatusStateType = "DISABLED"
+    data: ActionTypeType = "ASSIGN_CONTACT_CATEGORY"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ActionTypeType",
     "AgentStatusStateType",
     "AgentStatusTypeType",
     "ChannelType",
@@ -32,6 +33,7 @@ __all__ = (
     "CurrentMetricNameType",
     "DirectoryTypeType",
     "EncryptionTypeType",
+    "EventSourceNameType",
     "GetMetricDataPaginatorName",
     "GroupingType",
     "HierarchyGroupMatchTypeType",
@@ -64,6 +66,7 @@ __all__ = (
     "ListQuickConnectsPaginatorName",
     "ListRoutingProfileQueuesPaginatorName",
     "ListRoutingProfilesPaginatorName",
+    "ListRulesPaginatorName",
     "ListSecurityKeysPaginatorName",
     "ListSecurityProfilePermissionsPaginatorName",
     "ListSecurityProfilesPaginatorName",
@@ -73,6 +76,10 @@ __all__ = (
     "ListUserHierarchyGroupsPaginatorName",
     "ListUsersPaginatorName",
     "MonitorCapabilityType",
+    "NotificationContentTypeType",
+    "NotificationDeliveryTypeType",
+    "ParticipantTimerActionType",
+    "ParticipantTimerTypeType",
     "PhoneNumberCountryCodeType",
     "PhoneNumberTypeType",
     "PhoneNumberWorkflowStatusType",
@@ -82,6 +89,7 @@ __all__ = (
     "QuickConnectTypeType",
     "ReferenceStatusType",
     "ReferenceTypeType",
+    "RulePublishStatusType",
     "SearchAvailablePhoneNumbersPaginatorName",
     "SearchQueuesPaginatorName",
     "SearchRoutingProfilesPaginatorName",
@@ -89,12 +97,14 @@ __all__ = (
     "SearchUsersPaginatorName",
     "SearchVocabulariesPaginatorName",
     "SearchableQueueTypeType",
+    "SortOrderType",
     "SourceTypeType",
     "StatisticType",
     "StorageTypeType",
     "StringComparisonTypeType",
     "TaskTemplateFieldTypeType",
     "TaskTemplateStatusType",
+    "TimerEligibleParticipantRolesType",
     "TrafficDistributionGroupStatusType",
     "TrafficTypeType",
     "UnitType",
@@ -104,6 +114,9 @@ __all__ = (
     "VoiceRecordingTrackType",
 )
 
+ActionTypeType = Literal[
+    "ASSIGN_CONTACT_CATEGORY", "CREATE_TASK", "GENERATE_EVENTBRIDGE_EVENT", "SEND_NOTIFICATION"
+]
 AgentStatusStateType = Literal["DISABLED", "ENABLED"]
 AgentStatusTypeType = Literal["CUSTOM", "OFFLINE", "ROUTABLE"]
 ChannelType = Literal["CHAT", "TASK", "VOICE"]
@@ -123,7 +136,7 @@ ContactFlowTypeType = Literal[
     "QUEUE_TRANSFER",
 ]
 ContactInitiationMethodType = Literal[
-    "API", "CALLBACK", "INBOUND", "OUTBOUND", "QUEUE_TRANSFER", "TRANSFER"
+    "API", "CALLBACK", "DISCONNECT", "INBOUND", "MONITOR", "OUTBOUND", "QUEUE_TRANSFER", "TRANSFER"
 ]
 ContactStateType = Literal[
     "CONNECTED",
@@ -153,8 +166,16 @@ CurrentMetricNameType = Literal[
 ]
 DirectoryTypeType = Literal["CONNECT_MANAGED", "EXISTING_DIRECTORY", "SAML"]
 EncryptionTypeType = Literal["KMS"]
+EventSourceNameType = Literal[
+    "OnPostCallAnalysisAvailable",
+    "OnPostChatAnalysisAvailable",
+    "OnRealTimeCallAnalysisAvailable",
+    "OnSalesforceCaseCreate",
+    "OnZendeskTicketCreate",
+    "OnZendeskTicketStatusUpdate",
+]
 GetMetricDataPaginatorName = Literal["get_metric_data"]
-GroupingType = Literal["CHANNEL", "QUEUE"]
+GroupingType = Literal["CHANNEL", "QUEUE", "ROUTING_PROFILE"]
 HierarchyGroupMatchTypeType = Literal["EXACT", "WITH_CHILD_GROUPS"]
 HistoricalMetricNameType = Literal[
     "ABANDON_TIME",
@@ -234,6 +255,7 @@ ListQueuesPaginatorName = Literal["list_queues"]
 ListQuickConnectsPaginatorName = Literal["list_quick_connects"]
 ListRoutingProfileQueuesPaginatorName = Literal["list_routing_profile_queues"]
 ListRoutingProfilesPaginatorName = Literal["list_routing_profiles"]
+ListRulesPaginatorName = Literal["list_rules"]
 ListSecurityKeysPaginatorName = Literal["list_security_keys"]
 ListSecurityProfilePermissionsPaginatorName = Literal["list_security_profile_permissions"]
 ListSecurityProfilesPaginatorName = Literal["list_security_profiles"]
@@ -243,6 +265,10 @@ ListUseCasesPaginatorName = Literal["list_use_cases"]
 ListUserHierarchyGroupsPaginatorName = Literal["list_user_hierarchy_groups"]
 ListUsersPaginatorName = Literal["list_users"]
 MonitorCapabilityType = Literal["BARGE", "SILENT_MONITOR"]
+NotificationContentTypeType = Literal["PLAIN_TEXT"]
+NotificationDeliveryTypeType = Literal["EMAIL"]
+ParticipantTimerActionType = Literal["Unset"]
+ParticipantTimerTypeType = Literal["DISCONNECT_NONCUSTOMER", "IDLE"]
 PhoneNumberCountryCodeType = Literal[
     "AD",
     "AE",
@@ -490,6 +516,7 @@ QueueTypeType = Literal["AGENT", "STANDARD"]
 QuickConnectTypeType = Literal["PHONE_NUMBER", "QUEUE", "USER"]
 ReferenceStatusType = Literal["APPROVED", "REJECTED"]
 ReferenceTypeType = Literal["ATTACHMENT", "DATE", "EMAIL", "NUMBER", "STRING", "URL"]
+RulePublishStatusType = Literal["DRAFT", "PUBLISHED"]
 SearchAvailablePhoneNumbersPaginatorName = Literal["search_available_phone_numbers"]
 SearchQueuesPaginatorName = Literal["search_queues"]
 SearchRoutingProfilesPaginatorName = Literal["search_routing_profiles"]
@@ -497,6 +524,7 @@ SearchSecurityProfilesPaginatorName = Literal["search_security_profiles"]
 SearchUsersPaginatorName = Literal["search_users"]
 SearchVocabulariesPaginatorName = Literal["search_vocabularies"]
 SearchableQueueTypeType = Literal["STANDARD"]
+SortOrderType = Literal["ASCENDING", "DESCENDING"]
 SourceTypeType = Literal["SALESFORCE", "ZENDESK"]
 StatisticType = Literal["AVG", "MAX", "SUM"]
 StorageTypeType = Literal["KINESIS_FIREHOSE", "KINESIS_STREAM", "KINESIS_VIDEO_STREAM", "S3"]
@@ -516,6 +544,7 @@ TaskTemplateFieldTypeType = Literal[
     "URL",
 ]
 TaskTemplateStatusType = Literal["ACTIVE", "INACTIVE"]
+TimerEligibleParticipantRolesType = Literal["AGENT", "CUSTOMER"]
 TrafficDistributionGroupStatusType = Literal[
     "ACTIVE",
     "CREATION_FAILED",
@@ -536,8 +565,10 @@ VocabularyLanguageCodeType = Literal[
     "en-GB",
     "en-IE",
     "en-IN",
+    "en-NZ",
     "en-US",
     "en-WL",
+    "en-ZA",
     "es-ES",
     "es-US",
     "fr-CA",

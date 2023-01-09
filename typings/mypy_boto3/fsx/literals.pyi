@@ -69,6 +69,7 @@ __all__ = (
     "StorageVirtualMachineFilterNameType",
     "StorageVirtualMachineLifecycleType",
     "StorageVirtualMachineRootVolumeSecurityStyleType",
+    "StorageVirtualMachineSubtypeType",
     "TieringPolicyNameType",
     "VolumeFilterNameType",
     "VolumeLifecycleType",
@@ -167,6 +168,9 @@ StorageVirtualMachineLifecycleType = Literal[
     "CREATED", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "PENDING"
 ]
 StorageVirtualMachineRootVolumeSecurityStyleType = Literal["MIXED", "NTFS", "UNIX"]
+StorageVirtualMachineSubtypeType = Literal[
+    "DEFAULT", "DP_DESTINATION", "SYNC_DESTINATION", "SYNC_SOURCE"
+]
 TieringPolicyNameType = Literal["ALL", "AUTO", "NONE", "SNAPSHOT_ONLY"]
 VolumeFilterNameType = Literal["file-system-id", "storage-virtual-machine-id"]
 VolumeLifecycleType = Literal[

@@ -34,7 +34,10 @@ from .literals import (
     CrawlStateType,
     CsvHeaderOptionType,
     DataFormatType,
+    DataQualityRuleResultStatusType,
     DeleteBehaviorType,
+    DQStopJobOnFailureTimingType,
+    DQTransformOutputType,
     EnableHybridValuesType,
     ExecutionClassType,
     ExistConditionType,
@@ -127,6 +130,8 @@ __all__ = (
     "BatchGetCrawlersResponseTypeDef",
     "BatchGetCustomEntityTypesRequestRequestTypeDef",
     "BatchGetCustomEntityTypesResponseTypeDef",
+    "BatchGetDataQualityResultRequestRequestTypeDef",
+    "BatchGetDataQualityResultResponseTypeDef",
     "BatchGetDevEndpointsRequestRequestTypeDef",
     "BatchGetDevEndpointsResponseTypeDef",
     "BatchGetJobsRequestRequestTypeDef",
@@ -150,6 +155,8 @@ __all__ = (
     "BlueprintRunTypeDef",
     "BlueprintTypeDef",
     "BooleanColumnStatisticsDataTypeDef",
+    "CancelDataQualityRuleRecommendationRunRequestRequestTypeDef",
+    "CancelDataQualityRulesetEvaluationRunRequestRequestTypeDef",
     "CancelMLTaskRunRequestRequestTypeDef",
     "CancelMLTaskRunResponseTypeDef",
     "CancelStatementRequestRequestTypeDef",
@@ -196,6 +203,8 @@ __all__ = (
     "CreateCsvClassifierRequestTypeDef",
     "CreateCustomEntityTypeRequestRequestTypeDef",
     "CreateCustomEntityTypeResponseTypeDef",
+    "CreateDataQualityRulesetRequestRequestTypeDef",
+    "CreateDataQualityRulesetResponseTypeDef",
     "CreateDatabaseRequestRequestTypeDef",
     "CreateDevEndpointRequestRequestTypeDef",
     "CreateDevEndpointResponseTypeDef",
@@ -227,8 +236,23 @@ __all__ = (
     "CsvClassifierTypeDef",
     "CustomCodeTypeDef",
     "CustomEntityTypeTypeDef",
+    "DQResultsPublishingOptionsTypeDef",
+    "DQStopJobOnFailureOptionsTypeDef",
     "DataCatalogEncryptionSettingsTypeDef",
     "DataLakePrincipalTypeDef",
+    "DataQualityEvaluationRunAdditionalRunOptionsTypeDef",
+    "DataQualityResultDescriptionTypeDef",
+    "DataQualityResultFilterCriteriaTypeDef",
+    "DataQualityResultTypeDef",
+    "DataQualityRuleRecommendationRunDescriptionTypeDef",
+    "DataQualityRuleRecommendationRunFilterTypeDef",
+    "DataQualityRuleResultTypeDef",
+    "DataQualityRulesetEvaluationRunDescriptionTypeDef",
+    "DataQualityRulesetEvaluationRunFilterTypeDef",
+    "DataQualityRulesetFilterCriteriaTypeDef",
+    "DataQualityRulesetListDetailsTypeDef",
+    "DataQualityTargetTableTypeDef",
+    "DataSourceTypeDef",
     "DatabaseIdentifierTypeDef",
     "DatabaseInputTypeDef",
     "DatabaseTypeDef",
@@ -245,6 +269,7 @@ __all__ = (
     "DeleteCrawlerRequestRequestTypeDef",
     "DeleteCustomEntityTypeRequestRequestTypeDef",
     "DeleteCustomEntityTypeResponseTypeDef",
+    "DeleteDataQualityRulesetRequestRequestTypeDef",
     "DeleteDatabaseRequestRequestTypeDef",
     "DeleteDevEndpointRequestRequestTypeDef",
     "DeleteJobRequestRequestTypeDef",
@@ -288,6 +313,7 @@ __all__ = (
     "EncryptionConfigurationTypeDef",
     "ErrorDetailTypeDef",
     "ErrorDetailsTypeDef",
+    "EvaluateDataQualityTypeDef",
     "EvaluationMetricsTypeDef",
     "EventBatchingConditionTypeDef",
     "ExecutionPropertyTypeDef",
@@ -330,6 +356,14 @@ __all__ = (
     "GetCustomEntityTypeResponseTypeDef",
     "GetDataCatalogEncryptionSettingsRequestRequestTypeDef",
     "GetDataCatalogEncryptionSettingsResponseTypeDef",
+    "GetDataQualityResultRequestRequestTypeDef",
+    "GetDataQualityResultResponseTypeDef",
+    "GetDataQualityRuleRecommendationRunRequestRequestTypeDef",
+    "GetDataQualityRuleRecommendationRunResponseTypeDef",
+    "GetDataQualityRulesetEvaluationRunRequestRequestTypeDef",
+    "GetDataQualityRulesetEvaluationRunResponseTypeDef",
+    "GetDataQualityRulesetRequestRequestTypeDef",
+    "GetDataQualityRulesetResponseTypeDef",
     "GetDatabaseRequestRequestTypeDef",
     "GetDatabaseResponseTypeDef",
     "GetDatabasesRequestRequestTypeDef",
@@ -461,6 +495,14 @@ __all__ = (
     "ListCrawlsResponseTypeDef",
     "ListCustomEntityTypesRequestRequestTypeDef",
     "ListCustomEntityTypesResponseTypeDef",
+    "ListDataQualityResultsRequestRequestTypeDef",
+    "ListDataQualityResultsResponseTypeDef",
+    "ListDataQualityRuleRecommendationRunsRequestRequestTypeDef",
+    "ListDataQualityRuleRecommendationRunsResponseTypeDef",
+    "ListDataQualityRulesetEvaluationRunsRequestRequestTypeDef",
+    "ListDataQualityRulesetEvaluationRunsResponseTypeDef",
+    "ListDataQualityRulesetsRequestRequestTypeDef",
+    "ListDataQualityRulesetsResponseTypeDef",
     "ListDevEndpointsRequestRequestTypeDef",
     "ListDevEndpointsResponseTypeDef",
     "ListJobsRequestRequestTypeDef",
@@ -587,6 +629,10 @@ __all__ = (
     "StartBlueprintRunResponseTypeDef",
     "StartCrawlerRequestRequestTypeDef",
     "StartCrawlerScheduleRequestRequestTypeDef",
+    "StartDataQualityRuleRecommendationRunRequestRequestTypeDef",
+    "StartDataQualityRuleRecommendationRunResponseTypeDef",
+    "StartDataQualityRulesetEvaluationRunRequestRequestTypeDef",
+    "StartDataQualityRulesetEvaluationRunResponseTypeDef",
     "StartExportLabelsTaskRunRequestRequestTypeDef",
     "StartExportLabelsTaskRunResponseTypeDef",
     "StartImportLabelsTaskRunRequestRequestTypeDef",
@@ -648,6 +694,8 @@ __all__ = (
     "UpdateCrawlerRequestRequestTypeDef",
     "UpdateCrawlerScheduleRequestRequestTypeDef",
     "UpdateCsvClassifierRequestTypeDef",
+    "UpdateDataQualityRulesetRequestRequestTypeDef",
+    "UpdateDataQualityRulesetResponseTypeDef",
     "UpdateDatabaseRequestRequestTypeDef",
     "UpdateDevEndpointRequestRequestTypeDef",
     "UpdateGrokClassifierRequestTypeDef",
@@ -985,6 +1033,22 @@ BatchGetCustomEntityTypesResponseTypeDef = TypedDict(
     },
 )
 
+BatchGetDataQualityResultRequestRequestTypeDef = TypedDict(
+    "BatchGetDataQualityResultRequestRequestTypeDef",
+    {
+        "ResultIds": List[str],
+    },
+)
+
+BatchGetDataQualityResultResponseTypeDef = TypedDict(
+    "BatchGetDataQualityResultResponseTypeDef",
+    {
+        "Results": List["DataQualityResultTypeDef"],
+        "ResultsNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 BatchGetDevEndpointsRequestRequestTypeDef = TypedDict(
     "BatchGetDevEndpointsRequestRequestTypeDef",
     {
@@ -1235,6 +1299,20 @@ BooleanColumnStatisticsDataTypeDef = TypedDict(
     },
 )
 
+CancelDataQualityRuleRecommendationRunRequestRequestTypeDef = TypedDict(
+    "CancelDataQualityRuleRecommendationRunRequestRequestTypeDef",
+    {
+        "RunId": str,
+    },
+)
+
+CancelDataQualityRulesetEvaluationRunRequestRequestTypeDef = TypedDict(
+    "CancelDataQualityRulesetEvaluationRunRequestRequestTypeDef",
+    {
+        "RunId": str,
+    },
+)
+
 CancelMLTaskRunRequestRequestTypeDef = TypedDict(
     "CancelMLTaskRunRequestRequestTypeDef",
     {
@@ -1468,6 +1546,7 @@ CodeGenConfigurationNodeTypeDef = TypedDict(
         "OracleSQLCatalogTarget": "OracleSQLCatalogTargetTypeDef",
         "PostgreSQLCatalogTarget": "PostgreSQLCatalogTargetTypeDef",
         "DynamicTransform": "DynamicTransformTypeDef",
+        "EvaluateDataQuality": "EvaluateDataQualityTypeDef",
     },
     total=False,
 )
@@ -1948,6 +2027,38 @@ class CreateCustomEntityTypeRequestRequestTypeDef(
 
 CreateCustomEntityTypeResponseTypeDef = TypedDict(
     "CreateCustomEntityTypeResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDataQualityRulesetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDataQualityRulesetRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Ruleset": str,
+    },
+)
+_OptionalCreateDataQualityRulesetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDataQualityRulesetRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": Dict[str, str],
+        "TargetTable": "DataQualityTargetTableTypeDef",
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateDataQualityRulesetRequestRequestTypeDef(
+    _RequiredCreateDataQualityRulesetRequestRequestTypeDef,
+    _OptionalCreateDataQualityRulesetRequestRequestTypeDef,
+):
+    pass
+
+CreateDataQualityRulesetResponseTypeDef = TypedDict(
+    "CreateDataQualityRulesetResponseTypeDef",
     {
         "Name": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -2534,6 +2645,25 @@ _OptionalCustomEntityTypeTypeDef = TypedDict(
 class CustomEntityTypeTypeDef(_RequiredCustomEntityTypeTypeDef, _OptionalCustomEntityTypeTypeDef):
     pass
 
+DQResultsPublishingOptionsTypeDef = TypedDict(
+    "DQResultsPublishingOptionsTypeDef",
+    {
+        "EvaluationContext": str,
+        "ResultsS3Prefix": str,
+        "CloudWatchMetricsEnabled": bool,
+        "ResultsPublishingEnabled": bool,
+    },
+    total=False,
+)
+
+DQStopJobOnFailureOptionsTypeDef = TypedDict(
+    "DQStopJobOnFailureOptionsTypeDef",
+    {
+        "StopJobOnFailureTiming": DQStopJobOnFailureTimingType,
+    },
+    total=False,
+)
+
 DataCatalogEncryptionSettingsTypeDef = TypedDict(
     "DataCatalogEncryptionSettingsTypeDef",
     {
@@ -2549,6 +2679,175 @@ DataLakePrincipalTypeDef = TypedDict(
         "DataLakePrincipalIdentifier": str,
     },
     total=False,
+)
+
+DataQualityEvaluationRunAdditionalRunOptionsTypeDef = TypedDict(
+    "DataQualityEvaluationRunAdditionalRunOptionsTypeDef",
+    {
+        "CloudWatchMetricsEnabled": bool,
+        "ResultsS3Prefix": str,
+    },
+    total=False,
+)
+
+DataQualityResultDescriptionTypeDef = TypedDict(
+    "DataQualityResultDescriptionTypeDef",
+    {
+        "ResultId": str,
+        "DataSource": "DataSourceTypeDef",
+        "JobName": str,
+        "JobRunId": str,
+        "StartedOn": datetime,
+    },
+    total=False,
+)
+
+DataQualityResultFilterCriteriaTypeDef = TypedDict(
+    "DataQualityResultFilterCriteriaTypeDef",
+    {
+        "DataSource": "DataSourceTypeDef",
+        "JobName": str,
+        "JobRunId": str,
+        "StartedAfter": Union[datetime, str],
+        "StartedBefore": Union[datetime, str],
+    },
+    total=False,
+)
+
+DataQualityResultTypeDef = TypedDict(
+    "DataQualityResultTypeDef",
+    {
+        "ResultId": str,
+        "Score": float,
+        "DataSource": "DataSourceTypeDef",
+        "RulesetName": str,
+        "EvaluationContext": str,
+        "StartedOn": datetime,
+        "CompletedOn": datetime,
+        "JobName": str,
+        "JobRunId": str,
+        "RulesetEvaluationRunId": str,
+        "RuleResults": List["DataQualityRuleResultTypeDef"],
+    },
+    total=False,
+)
+
+DataQualityRuleRecommendationRunDescriptionTypeDef = TypedDict(
+    "DataQualityRuleRecommendationRunDescriptionTypeDef",
+    {
+        "RunId": str,
+        "Status": TaskStatusTypeType,
+        "StartedOn": datetime,
+        "DataSource": "DataSourceTypeDef",
+    },
+    total=False,
+)
+
+_RequiredDataQualityRuleRecommendationRunFilterTypeDef = TypedDict(
+    "_RequiredDataQualityRuleRecommendationRunFilterTypeDef",
+    {
+        "DataSource": "DataSourceTypeDef",
+    },
+)
+_OptionalDataQualityRuleRecommendationRunFilterTypeDef = TypedDict(
+    "_OptionalDataQualityRuleRecommendationRunFilterTypeDef",
+    {
+        "StartedBefore": Union[datetime, str],
+        "StartedAfter": Union[datetime, str],
+    },
+    total=False,
+)
+
+class DataQualityRuleRecommendationRunFilterTypeDef(
+    _RequiredDataQualityRuleRecommendationRunFilterTypeDef,
+    _OptionalDataQualityRuleRecommendationRunFilterTypeDef,
+):
+    pass
+
+DataQualityRuleResultTypeDef = TypedDict(
+    "DataQualityRuleResultTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "EvaluationMessage": str,
+        "Result": DataQualityRuleResultStatusType,
+    },
+    total=False,
+)
+
+DataQualityRulesetEvaluationRunDescriptionTypeDef = TypedDict(
+    "DataQualityRulesetEvaluationRunDescriptionTypeDef",
+    {
+        "RunId": str,
+        "Status": TaskStatusTypeType,
+        "StartedOn": datetime,
+        "DataSource": "DataSourceTypeDef",
+    },
+    total=False,
+)
+
+_RequiredDataQualityRulesetEvaluationRunFilterTypeDef = TypedDict(
+    "_RequiredDataQualityRulesetEvaluationRunFilterTypeDef",
+    {
+        "DataSource": "DataSourceTypeDef",
+    },
+)
+_OptionalDataQualityRulesetEvaluationRunFilterTypeDef = TypedDict(
+    "_OptionalDataQualityRulesetEvaluationRunFilterTypeDef",
+    {
+        "StartedBefore": Union[datetime, str],
+        "StartedAfter": Union[datetime, str],
+    },
+    total=False,
+)
+
+class DataQualityRulesetEvaluationRunFilterTypeDef(
+    _RequiredDataQualityRulesetEvaluationRunFilterTypeDef,
+    _OptionalDataQualityRulesetEvaluationRunFilterTypeDef,
+):
+    pass
+
+DataQualityRulesetFilterCriteriaTypeDef = TypedDict(
+    "DataQualityRulesetFilterCriteriaTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "CreatedBefore": Union[datetime, str],
+        "CreatedAfter": Union[datetime, str],
+        "LastModifiedBefore": Union[datetime, str],
+        "LastModifiedAfter": Union[datetime, str],
+        "TargetTable": "DataQualityTargetTableTypeDef",
+    },
+    total=False,
+)
+
+DataQualityRulesetListDetailsTypeDef = TypedDict(
+    "DataQualityRulesetListDetailsTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "CreatedOn": datetime,
+        "LastModifiedOn": datetime,
+        "TargetTable": "DataQualityTargetTableTypeDef",
+        "RecommendationRunId": str,
+        "RuleCount": int,
+    },
+    total=False,
+)
+
+DataQualityTargetTableTypeDef = TypedDict(
+    "DataQualityTargetTableTypeDef",
+    {
+        "TableName": str,
+        "DatabaseName": str,
+    },
+)
+
+DataSourceTypeDef = TypedDict(
+    "DataSourceTypeDef",
+    {
+        "GlueTable": "GlueTableTypeDef",
+    },
 )
 
 DatabaseIdentifierTypeDef = TypedDict(
@@ -2767,6 +3066,13 @@ DeleteCustomEntityTypeResponseTypeDef = TypedDict(
     {
         "Name": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteDataQualityRulesetRequestRequestTypeDef = TypedDict(
+    "DeleteDataQualityRulesetRequestRequestTypeDef",
+    {
+        "Name": str,
     },
 )
 
@@ -3062,6 +3368,7 @@ DeltaTargetTypeDef = TypedDict(
         "DeltaTables": List[str],
         "ConnectionName": str,
         "WriteManifest": bool,
+        "CreateNativeDeltaTable": bool,
     },
     total=False,
 )
@@ -3323,6 +3630,29 @@ ErrorDetailsTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredEvaluateDataQualityTypeDef = TypedDict(
+    "_RequiredEvaluateDataQualityTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Ruleset": str,
+    },
+)
+_OptionalEvaluateDataQualityTypeDef = TypedDict(
+    "_OptionalEvaluateDataQualityTypeDef",
+    {
+        "Output": DQTransformOutputType,
+        "PublishingOptions": "DQResultsPublishingOptionsTypeDef",
+        "StopJobOnFailureOptions": "DQStopJobOnFailureOptionsTypeDef",
+    },
+    total=False,
+)
+
+class EvaluateDataQualityTypeDef(
+    _RequiredEvaluateDataQualityTypeDef, _OptionalEvaluateDataQualityTypeDef
+):
+    pass
 
 _RequiredEvaluationMetricsTypeDef = TypedDict(
     "_RequiredEvaluationMetricsTypeDef",
@@ -3793,6 +4123,107 @@ GetDataCatalogEncryptionSettingsResponseTypeDef = TypedDict(
     "GetDataCatalogEncryptionSettingsResponseTypeDef",
     {
         "DataCatalogEncryptionSettings": "DataCatalogEncryptionSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDataQualityResultRequestRequestTypeDef = TypedDict(
+    "GetDataQualityResultRequestRequestTypeDef",
+    {
+        "ResultId": str,
+    },
+)
+
+GetDataQualityResultResponseTypeDef = TypedDict(
+    "GetDataQualityResultResponseTypeDef",
+    {
+        "ResultId": str,
+        "Score": float,
+        "DataSource": "DataSourceTypeDef",
+        "RulesetName": str,
+        "EvaluationContext": str,
+        "StartedOn": datetime,
+        "CompletedOn": datetime,
+        "JobName": str,
+        "JobRunId": str,
+        "RulesetEvaluationRunId": str,
+        "RuleResults": List["DataQualityRuleResultTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDataQualityRuleRecommendationRunRequestRequestTypeDef = TypedDict(
+    "GetDataQualityRuleRecommendationRunRequestRequestTypeDef",
+    {
+        "RunId": str,
+    },
+)
+
+GetDataQualityRuleRecommendationRunResponseTypeDef = TypedDict(
+    "GetDataQualityRuleRecommendationRunResponseTypeDef",
+    {
+        "RunId": str,
+        "DataSource": "DataSourceTypeDef",
+        "Role": str,
+        "NumberOfWorkers": int,
+        "Timeout": int,
+        "Status": TaskStatusTypeType,
+        "ErrorString": str,
+        "StartedOn": datetime,
+        "LastModifiedOn": datetime,
+        "CompletedOn": datetime,
+        "ExecutionTime": int,
+        "RecommendedRuleset": str,
+        "CreatedRulesetName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDataQualityRulesetEvaluationRunRequestRequestTypeDef = TypedDict(
+    "GetDataQualityRulesetEvaluationRunRequestRequestTypeDef",
+    {
+        "RunId": str,
+    },
+)
+
+GetDataQualityRulesetEvaluationRunResponseTypeDef = TypedDict(
+    "GetDataQualityRulesetEvaluationRunResponseTypeDef",
+    {
+        "RunId": str,
+        "DataSource": "DataSourceTypeDef",
+        "Role": str,
+        "NumberOfWorkers": int,
+        "Timeout": int,
+        "AdditionalRunOptions": "DataQualityEvaluationRunAdditionalRunOptionsTypeDef",
+        "Status": TaskStatusTypeType,
+        "ErrorString": str,
+        "StartedOn": datetime,
+        "LastModifiedOn": datetime,
+        "CompletedOn": datetime,
+        "ExecutionTime": int,
+        "RulesetNames": List[str],
+        "ResultIds": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDataQualityRulesetRequestRequestTypeDef = TypedDict(
+    "GetDataQualityRulesetRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+GetDataQualityRulesetResponseTypeDef = TypedDict(
+    "GetDataQualityRulesetResponseTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "Ruleset": str,
+        "TargetTable": "DataQualityTargetTableTypeDef",
+        "CreatedOn": datetime,
+        "LastModifiedOn": datetime,
+        "RecommendationRunId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4998,6 +5429,7 @@ _OptionalGlueTableTypeDef = TypedDict(
     {
         "CatalogId": str,
         "ConnectionName": str,
+        "AdditionalOptions": Dict[str, str],
     },
     total=False,
 )
@@ -5518,6 +5950,83 @@ ListCustomEntityTypesResponseTypeDef = TypedDict(
     "ListCustomEntityTypesResponseTypeDef",
     {
         "CustomEntityTypes": List["CustomEntityTypeTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDataQualityResultsRequestRequestTypeDef = TypedDict(
+    "ListDataQualityResultsRequestRequestTypeDef",
+    {
+        "Filter": "DataQualityResultFilterCriteriaTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDataQualityResultsResponseTypeDef = TypedDict(
+    "ListDataQualityResultsResponseTypeDef",
+    {
+        "Results": List["DataQualityResultDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDataQualityRuleRecommendationRunsRequestRequestTypeDef = TypedDict(
+    "ListDataQualityRuleRecommendationRunsRequestRequestTypeDef",
+    {
+        "Filter": "DataQualityRuleRecommendationRunFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDataQualityRuleRecommendationRunsResponseTypeDef = TypedDict(
+    "ListDataQualityRuleRecommendationRunsResponseTypeDef",
+    {
+        "Runs": List["DataQualityRuleRecommendationRunDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDataQualityRulesetEvaluationRunsRequestRequestTypeDef = TypedDict(
+    "ListDataQualityRulesetEvaluationRunsRequestRequestTypeDef",
+    {
+        "Filter": "DataQualityRulesetEvaluationRunFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDataQualityRulesetEvaluationRunsResponseTypeDef = TypedDict(
+    "ListDataQualityRulesetEvaluationRunsResponseTypeDef",
+    {
+        "Runs": List["DataQualityRulesetEvaluationRunDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDataQualityRulesetsRequestRequestTypeDef = TypedDict(
+    "ListDataQualityRulesetsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filter": "DataQualityRulesetFilterCriteriaTypeDef",
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+ListDataQualityRulesetsResponseTypeDef = TypedDict(
+    "ListDataQualityRulesetsResponseTypeDef",
+    {
+        "Rulesets": List["DataQualityRulesetListDetailsTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -7105,6 +7614,71 @@ StartCrawlerScheduleRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredStartDataQualityRuleRecommendationRunRequestRequestTypeDef = TypedDict(
+    "_RequiredStartDataQualityRuleRecommendationRunRequestRequestTypeDef",
+    {
+        "DataSource": "DataSourceTypeDef",
+        "Role": str,
+    },
+)
+_OptionalStartDataQualityRuleRecommendationRunRequestRequestTypeDef = TypedDict(
+    "_OptionalStartDataQualityRuleRecommendationRunRequestRequestTypeDef",
+    {
+        "NumberOfWorkers": int,
+        "Timeout": int,
+        "CreatedRulesetName": str,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class StartDataQualityRuleRecommendationRunRequestRequestTypeDef(
+    _RequiredStartDataQualityRuleRecommendationRunRequestRequestTypeDef,
+    _OptionalStartDataQualityRuleRecommendationRunRequestRequestTypeDef,
+):
+    pass
+
+StartDataQualityRuleRecommendationRunResponseTypeDef = TypedDict(
+    "StartDataQualityRuleRecommendationRunResponseTypeDef",
+    {
+        "RunId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartDataQualityRulesetEvaluationRunRequestRequestTypeDef = TypedDict(
+    "_RequiredStartDataQualityRulesetEvaluationRunRequestRequestTypeDef",
+    {
+        "DataSource": "DataSourceTypeDef",
+        "Role": str,
+        "RulesetNames": List[str],
+    },
+)
+_OptionalStartDataQualityRulesetEvaluationRunRequestRequestTypeDef = TypedDict(
+    "_OptionalStartDataQualityRulesetEvaluationRunRequestRequestTypeDef",
+    {
+        "NumberOfWorkers": int,
+        "Timeout": int,
+        "ClientToken": str,
+        "AdditionalRunOptions": "DataQualityEvaluationRunAdditionalRunOptionsTypeDef",
+    },
+    total=False,
+)
+
+class StartDataQualityRulesetEvaluationRunRequestRequestTypeDef(
+    _RequiredStartDataQualityRulesetEvaluationRunRequestRequestTypeDef,
+    _OptionalStartDataQualityRulesetEvaluationRunRequestRequestTypeDef,
+):
+    pass
+
+StartDataQualityRulesetEvaluationRunResponseTypeDef = TypedDict(
+    "StartDataQualityRulesetEvaluationRunResponseTypeDef",
+    {
+        "RunId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StartExportLabelsTaskRunRequestRequestTypeDef = TypedDict(
     "StartExportLabelsTaskRunRequestRequestTypeDef",
     {
@@ -7901,6 +8475,38 @@ class UpdateCsvClassifierRequestTypeDef(
     _RequiredUpdateCsvClassifierRequestTypeDef, _OptionalUpdateCsvClassifierRequestTypeDef
 ):
     pass
+
+_RequiredUpdateDataQualityRulesetRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDataQualityRulesetRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalUpdateDataQualityRulesetRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDataQualityRulesetRequestRequestTypeDef",
+    {
+        "UpdatedName": str,
+        "Description": str,
+        "Ruleset": str,
+    },
+    total=False,
+)
+
+class UpdateDataQualityRulesetRequestRequestTypeDef(
+    _RequiredUpdateDataQualityRulesetRequestRequestTypeDef,
+    _OptionalUpdateDataQualityRulesetRequestRequestTypeDef,
+):
+    pass
+
+UpdateDataQualityRulesetResponseTypeDef = TypedDict(
+    "UpdateDataQualityRulesetResponseTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "Ruleset": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredUpdateDatabaseRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateDatabaseRequestRequestTypeDef",

@@ -54,6 +54,7 @@ from .literals import (
     ChannelStateType,
     DeviceSettingsSyncStateType,
     DeviceUpdateStatusType,
+    DolbyEProgramSelectionType,
     DvbSdtOutputSdtType,
     DvbSubDestinationAlignmentType,
     DvbSubDestinationBackgroundColorType,
@@ -166,6 +167,7 @@ from .literals import (
     InputDeviceScanTypeType,
     InputDeviceStateType,
     InputDeviceTransferTypeType,
+    InputDeviceTypeType,
     InputFilterType,
     InputLossActionForHlsOutType,
     InputLossActionForMsSmoothOutType,
@@ -262,6 +264,8 @@ from .literals import (
     Smpte2038DataPreferenceType,
     TemporalFilterPostFilterSharpeningType,
     TemporalFilterStrengthType,
+    TimecodeBurninFontSizeType,
+    TimecodeBurninPositionType,
     TimecodeConfigSourceType,
     TtmlDestinationStyleControlType,
     UdpTimedMetadataId3FrameType,
@@ -295,6 +299,7 @@ __all__ = (
     "AudioChannelMappingTypeDef",
     "AudioCodecSettingsTypeDef",
     "AudioDescriptionTypeDef",
+    "AudioDolbyEDecodeTypeDef",
     "AudioHlsRenditionSelectionTypeDef",
     "AudioLanguageSelectionTypeDef",
     "AudioNormalizationSettingsTypeDef",
@@ -567,6 +572,7 @@ __all__ = (
     "StopTimecodeTypeDef",
     "TeletextSourceSettingsTypeDef",
     "TemporalFilterSettingsTypeDef",
+    "TimecodeBurninSettingsTypeDef",
     "TimecodeConfigTypeDef",
     "TransferInputDeviceRequestRequestTypeDef",
     "TransferringInputDeviceSummaryTypeDef",
@@ -763,6 +769,13 @@ _OptionalAudioDescriptionTypeDef = TypedDict(
 class AudioDescriptionTypeDef(_RequiredAudioDescriptionTypeDef, _OptionalAudioDescriptionTypeDef):
     pass
 
+AudioDolbyEDecodeTypeDef = TypedDict(
+    "AudioDolbyEDecodeTypeDef",
+    {
+        "ProgramSelection": DolbyEProgramSelectionType,
+    },
+)
+
 AudioHlsRenditionSelectionTypeDef = TypedDict(
     "AudioHlsRenditionSelectionTypeDef",
     {
@@ -865,12 +878,24 @@ class AudioSilenceFailoverSettingsTypeDef(
 ):
     pass
 
-AudioTrackSelectionTypeDef = TypedDict(
-    "AudioTrackSelectionTypeDef",
+_RequiredAudioTrackSelectionTypeDef = TypedDict(
+    "_RequiredAudioTrackSelectionTypeDef",
     {
         "Tracks": List["AudioTrackTypeDef"],
     },
 )
+_OptionalAudioTrackSelectionTypeDef = TypedDict(
+    "_OptionalAudioTrackSelectionTypeDef",
+    {
+        "DolbyEDecode": "AudioDolbyEDecodeTypeDef",
+    },
+    total=False,
+)
+
+class AudioTrackSelectionTypeDef(
+    _RequiredAudioTrackSelectionTypeDef, _OptionalAudioTrackSelectionTypeDef
+):
+    pass
 
 AudioTrackTypeDef = TypedDict(
     "AudioTrackTypeDef",
@@ -1637,7 +1662,7 @@ DescribeInputDeviceResponseTypeDef = TypedDict(
         "Name": str,
         "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
         "SerialNumber": str,
-        "Type": Literal["HD"],
+        "Type": InputDeviceTypeType,
         "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2134,6 +2159,7 @@ FrameCaptureSettingsTypeDef = TypedDict(
     {
         "CaptureInterval": int,
         "CaptureIntervalUnits": FrameCaptureIntervalUnitType,
+        "TimecodeBurninSettings": "TimecodeBurninSettingsTypeDef",
     },
     total=False,
 )
@@ -2213,6 +2239,7 @@ H264SettingsTypeDef = TypedDict(
         "Syntax": H264SyntaxType,
         "TemporalAq": H264TemporalAqType,
         "TimecodeInsertion": H264TimecodeInsertionBehaviorType,
+        "TimecodeBurninSettings": "TimecodeBurninSettingsTypeDef",
     },
     total=False,
 )
@@ -2274,6 +2301,7 @@ _OptionalH265SettingsTypeDef = TypedDict(
         "Slices": int,
         "Tier": H265TierType,
         "TimecodeInsertion": H265TimecodeInsertionBehaviorType,
+        "TimecodeBurninSettings": "TimecodeBurninSettingsTypeDef",
     },
     total=False,
 )
@@ -2547,6 +2575,7 @@ InputDeviceConfigurableSettingsTypeDef = TypedDict(
     {
         "ConfiguredInput": InputDeviceConfiguredInputType,
         "MaxBitrate": int,
+        "LatencyMs": int,
     },
     total=False,
 )
@@ -2562,6 +2591,7 @@ InputDeviceHdSettingsTypeDef = TypedDict(
         "MaxBitrate": int,
         "ScanType": InputDeviceScanTypeType,
         "Width": int,
+        "LatencyMs": int,
     },
     total=False,
 )
@@ -2607,7 +2637,7 @@ InputDeviceSummaryTypeDef = TypedDict(
         "Name": str,
         "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
         "SerialNumber": str,
-        "Type": Literal["HD"],
+        "Type": InputDeviceTypeType,
         "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
     },
     total=False,
@@ -2624,6 +2654,7 @@ InputDeviceUhdSettingsTypeDef = TypedDict(
         "MaxBitrate": int,
         "ScanType": InputDeviceScanTypeType,
         "Width": int,
+        "LatencyMs": int,
     },
     total=False,
 )
@@ -3260,6 +3291,7 @@ _OptionalMpeg2SettingsTypeDef = TypedDict(
         "ScanType": Mpeg2ScanTypeType,
         "SubgopLength": Mpeg2SubGopLengthType,
         "TimecodeInsertion": Mpeg2TimecodeInsertionBehaviorType,
+        "TimecodeBurninSettings": "TimecodeBurninSettingsTypeDef",
     },
     total=False,
 )
@@ -4286,6 +4318,26 @@ TemporalFilterSettingsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredTimecodeBurninSettingsTypeDef = TypedDict(
+    "_RequiredTimecodeBurninSettingsTypeDef",
+    {
+        "FontSize": TimecodeBurninFontSizeType,
+        "Position": TimecodeBurninPositionType,
+    },
+)
+_OptionalTimecodeBurninSettingsTypeDef = TypedDict(
+    "_OptionalTimecodeBurninSettingsTypeDef",
+    {
+        "Prefix": str,
+    },
+    total=False,
+)
+
+class TimecodeBurninSettingsTypeDef(
+    _RequiredTimecodeBurninSettingsTypeDef, _OptionalTimecodeBurninSettingsTypeDef
+):
+    pass
+
 _RequiredTimecodeConfigTypeDef = TypedDict(
     "_RequiredTimecodeConfigTypeDef",
     {
@@ -4481,7 +4533,7 @@ UpdateInputDeviceResponseTypeDef = TypedDict(
         "Name": str,
         "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
         "SerialNumber": str,
-        "Type": Literal["HD"],
+        "Type": InputDeviceTypeType,
         "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

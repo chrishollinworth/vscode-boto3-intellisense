@@ -1039,6 +1039,8 @@ _OptionalJobDetailTypeDef = TypedDict(
         "platformCapabilities": List[PlatformCapabilityType],
         "eksProperties": "EksPropertiesDetailTypeDef",
         "eksAttempts": List["EksAttemptDetailTypeDef"],
+        "isCancelled": bool,
+        "isTerminated": bool,
     },
     total=False,
 )

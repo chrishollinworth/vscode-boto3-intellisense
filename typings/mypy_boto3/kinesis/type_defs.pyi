@@ -102,6 +102,7 @@ __all__ = (
     "StreamDescriptionSummaryTypeDef",
     "StreamDescriptionTypeDef",
     "StreamModeDetailsTypeDef",
+    "StreamSummaryTypeDef",
     "SubscribeToShardEventStreamTypeDef",
     "SubscribeToShardEventTypeDef",
     "SubscribeToShardInputRequestTypeDef",
@@ -113,13 +114,25 @@ __all__ = (
     "WaiterConfigTypeDef",
 )
 
-AddTagsToStreamInputRequestTypeDef = TypedDict(
-    "AddTagsToStreamInputRequestTypeDef",
+_RequiredAddTagsToStreamInputRequestTypeDef = TypedDict(
+    "_RequiredAddTagsToStreamInputRequestTypeDef",
     {
-        "StreamName": str,
         "Tags": Dict[str, str],
     },
 )
+_OptionalAddTagsToStreamInputRequestTypeDef = TypedDict(
+    "_OptionalAddTagsToStreamInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class AddTagsToStreamInputRequestTypeDef(
+    _RequiredAddTagsToStreamInputRequestTypeDef, _OptionalAddTagsToStreamInputRequestTypeDef
+):
+    pass
 
 ChildShardTypeDef = TypedDict(
     "ChildShardTypeDef",
@@ -171,32 +184,36 @@ class CreateStreamInputRequestTypeDef(
 ):
     pass
 
-DecreaseStreamRetentionPeriodInputRequestTypeDef = TypedDict(
-    "DecreaseStreamRetentionPeriodInputRequestTypeDef",
+_RequiredDecreaseStreamRetentionPeriodInputRequestTypeDef = TypedDict(
+    "_RequiredDecreaseStreamRetentionPeriodInputRequestTypeDef",
     {
-        "StreamName": str,
         "RetentionPeriodHours": int,
     },
 )
-
-_RequiredDeleteStreamInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteStreamInputRequestTypeDef",
+_OptionalDecreaseStreamRetentionPeriodInputRequestTypeDef = TypedDict(
+    "_OptionalDecreaseStreamRetentionPeriodInputRequestTypeDef",
     {
         "StreamName": str,
-    },
-)
-_OptionalDeleteStreamInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteStreamInputRequestTypeDef",
-    {
-        "EnforceConsumerDeletion": bool,
+        "StreamARN": str,
     },
     total=False,
 )
 
-class DeleteStreamInputRequestTypeDef(
-    _RequiredDeleteStreamInputRequestTypeDef, _OptionalDeleteStreamInputRequestTypeDef
+class DecreaseStreamRetentionPeriodInputRequestTypeDef(
+    _RequiredDecreaseStreamRetentionPeriodInputRequestTypeDef,
+    _OptionalDecreaseStreamRetentionPeriodInputRequestTypeDef,
 ):
     pass
+
+DeleteStreamInputRequestTypeDef = TypedDict(
+    "DeleteStreamInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "EnforceConsumerDeletion": bool,
+        "StreamARN": str,
+    },
+    total=False,
+)
 
 DeregisterStreamConsumerInputRequestTypeDef = TypedDict(
     "DeregisterStreamConsumerInputRequestTypeDef",
@@ -237,25 +254,16 @@ DescribeStreamConsumerOutputTypeDef = TypedDict(
     },
 )
 
-_RequiredDescribeStreamInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeStreamInputRequestTypeDef",
+DescribeStreamInputRequestTypeDef = TypedDict(
+    "DescribeStreamInputRequestTypeDef",
     {
         "StreamName": str,
-    },
-)
-_OptionalDescribeStreamInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeStreamInputRequestTypeDef",
-    {
         "Limit": int,
         "ExclusiveStartShardId": str,
+        "StreamARN": str,
     },
     total=False,
 )
-
-class DescribeStreamInputRequestTypeDef(
-    _RequiredDescribeStreamInputRequestTypeDef, _OptionalDescribeStreamInputRequestTypeDef
-):
-    pass
 
 DescribeStreamOutputTypeDef = TypedDict(
     "DescribeStreamOutputTypeDef",
@@ -269,7 +277,9 @@ DescribeStreamSummaryInputRequestTypeDef = TypedDict(
     "DescribeStreamSummaryInputRequestTypeDef",
     {
         "StreamName": str,
+        "StreamARN": str,
     },
+    total=False,
 )
 
 DescribeStreamSummaryOutputTypeDef = TypedDict(
@@ -280,21 +290,47 @@ DescribeStreamSummaryOutputTypeDef = TypedDict(
     },
 )
 
-DisableEnhancedMonitoringInputRequestTypeDef = TypedDict(
-    "DisableEnhancedMonitoringInputRequestTypeDef",
+_RequiredDisableEnhancedMonitoringInputRequestTypeDef = TypedDict(
+    "_RequiredDisableEnhancedMonitoringInputRequestTypeDef",
     {
-        "StreamName": str,
         "ShardLevelMetrics": List[MetricsNameType],
     },
+)
+_OptionalDisableEnhancedMonitoringInputRequestTypeDef = TypedDict(
+    "_OptionalDisableEnhancedMonitoringInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
 )
 
-EnableEnhancedMonitoringInputRequestTypeDef = TypedDict(
-    "EnableEnhancedMonitoringInputRequestTypeDef",
+class DisableEnhancedMonitoringInputRequestTypeDef(
+    _RequiredDisableEnhancedMonitoringInputRequestTypeDef,
+    _OptionalDisableEnhancedMonitoringInputRequestTypeDef,
+):
+    pass
+
+_RequiredEnableEnhancedMonitoringInputRequestTypeDef = TypedDict(
+    "_RequiredEnableEnhancedMonitoringInputRequestTypeDef",
     {
-        "StreamName": str,
         "ShardLevelMetrics": List[MetricsNameType],
     },
 )
+_OptionalEnableEnhancedMonitoringInputRequestTypeDef = TypedDict(
+    "_OptionalEnableEnhancedMonitoringInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class EnableEnhancedMonitoringInputRequestTypeDef(
+    _RequiredEnableEnhancedMonitoringInputRequestTypeDef,
+    _OptionalEnableEnhancedMonitoringInputRequestTypeDef,
+):
+    pass
 
 EnhancedMetricsTypeDef = TypedDict(
     "EnhancedMetricsTypeDef",
@@ -310,6 +346,7 @@ EnhancedMonitoringOutputTypeDef = TypedDict(
         "StreamName": str,
         "CurrentShardLevelMetrics": List[MetricsNameType],
         "DesiredShardLevelMetrics": List[MetricsNameType],
+        "StreamARN": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -324,6 +361,7 @@ _OptionalGetRecordsInputRequestTypeDef = TypedDict(
     "_OptionalGetRecordsInputRequestTypeDef",
     {
         "Limit": int,
+        "StreamARN": str,
     },
     total=False,
 )
@@ -347,7 +385,6 @@ GetRecordsOutputTypeDef = TypedDict(
 _RequiredGetShardIteratorInputRequestTypeDef = TypedDict(
     "_RequiredGetShardIteratorInputRequestTypeDef",
     {
-        "StreamName": str,
         "ShardId": str,
         "ShardIteratorType": ShardIteratorTypeType,
     },
@@ -355,8 +392,10 @@ _RequiredGetShardIteratorInputRequestTypeDef = TypedDict(
 _OptionalGetShardIteratorInputRequestTypeDef = TypedDict(
     "_OptionalGetShardIteratorInputRequestTypeDef",
     {
+        "StreamName": str,
         "StartingSequenceNumber": str,
         "Timestamp": Union[datetime, str],
+        "StreamARN": str,
     },
     total=False,
 )
@@ -382,13 +421,26 @@ HashKeyRangeTypeDef = TypedDict(
     },
 )
 
-IncreaseStreamRetentionPeriodInputRequestTypeDef = TypedDict(
-    "IncreaseStreamRetentionPeriodInputRequestTypeDef",
+_RequiredIncreaseStreamRetentionPeriodInputRequestTypeDef = TypedDict(
+    "_RequiredIncreaseStreamRetentionPeriodInputRequestTypeDef",
     {
-        "StreamName": str,
         "RetentionPeriodHours": int,
     },
 )
+_OptionalIncreaseStreamRetentionPeriodInputRequestTypeDef = TypedDict(
+    "_OptionalIncreaseStreamRetentionPeriodInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class IncreaseStreamRetentionPeriodInputRequestTypeDef(
+    _RequiredIncreaseStreamRetentionPeriodInputRequestTypeDef,
+    _OptionalIncreaseStreamRetentionPeriodInputRequestTypeDef,
+):
+    pass
 
 InternalFailureExceptionTypeDef = TypedDict(
     "InternalFailureExceptionTypeDef",
@@ -455,6 +507,7 @@ ListShardsInputRequestTypeDef = TypedDict(
         "MaxResults": int,
         "StreamCreationTimestamp": Union[datetime, str],
         "ShardFilter": "ShardFilterTypeDef",
+        "StreamARN": str,
     },
     total=False,
 )
@@ -503,6 +556,7 @@ ListStreamsInputRequestTypeDef = TypedDict(
     {
         "Limit": int,
         "ExclusiveStartStreamName": str,
+        "NextToken": str,
     },
     total=False,
 )
@@ -512,29 +566,22 @@ ListStreamsOutputTypeDef = TypedDict(
     {
         "StreamNames": List[str],
         "HasMoreStreams": bool,
+        "NextToken": str,
+        "StreamSummaries": List["StreamSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
-_RequiredListTagsForStreamInputRequestTypeDef = TypedDict(
-    "_RequiredListTagsForStreamInputRequestTypeDef",
+ListTagsForStreamInputRequestTypeDef = TypedDict(
+    "ListTagsForStreamInputRequestTypeDef",
     {
         "StreamName": str,
-    },
-)
-_OptionalListTagsForStreamInputRequestTypeDef = TypedDict(
-    "_OptionalListTagsForStreamInputRequestTypeDef",
-    {
         "ExclusiveStartTagKey": str,
         "Limit": int,
+        "StreamARN": str,
     },
     total=False,
 )
-
-class ListTagsForStreamInputRequestTypeDef(
-    _RequiredListTagsForStreamInputRequestTypeDef, _OptionalListTagsForStreamInputRequestTypeDef
-):
-    pass
 
 ListTagsForStreamOutputTypeDef = TypedDict(
     "ListTagsForStreamOutputTypeDef",
@@ -545,14 +592,26 @@ ListTagsForStreamOutputTypeDef = TypedDict(
     },
 )
 
-MergeShardsInputRequestTypeDef = TypedDict(
-    "MergeShardsInputRequestTypeDef",
+_RequiredMergeShardsInputRequestTypeDef = TypedDict(
+    "_RequiredMergeShardsInputRequestTypeDef",
     {
-        "StreamName": str,
         "ShardToMerge": str,
         "AdjacentShardToMerge": str,
     },
 )
+_OptionalMergeShardsInputRequestTypeDef = TypedDict(
+    "_OptionalMergeShardsInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class MergeShardsInputRequestTypeDef(
+    _RequiredMergeShardsInputRequestTypeDef, _OptionalMergeShardsInputRequestTypeDef
+):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
@@ -567,7 +626,6 @@ PaginatorConfigTypeDef = TypedDict(
 _RequiredPutRecordInputRequestTypeDef = TypedDict(
     "_RequiredPutRecordInputRequestTypeDef",
     {
-        "StreamName": str,
         "Data": Union[bytes, IO[bytes], StreamingBody],
         "PartitionKey": str,
     },
@@ -575,8 +633,10 @@ _RequiredPutRecordInputRequestTypeDef = TypedDict(
 _OptionalPutRecordInputRequestTypeDef = TypedDict(
     "_OptionalPutRecordInputRequestTypeDef",
     {
+        "StreamName": str,
         "ExplicitHashKey": str,
         "SequenceNumberForOrdering": str,
+        "StreamARN": str,
     },
     total=False,
 )
@@ -596,13 +656,25 @@ PutRecordOutputTypeDef = TypedDict(
     },
 )
 
-PutRecordsInputRequestTypeDef = TypedDict(
-    "PutRecordsInputRequestTypeDef",
+_RequiredPutRecordsInputRequestTypeDef = TypedDict(
+    "_RequiredPutRecordsInputRequestTypeDef",
     {
         "Records": List["PutRecordsRequestEntryTypeDef"],
-        "StreamName": str,
     },
 )
+_OptionalPutRecordsInputRequestTypeDef = TypedDict(
+    "_OptionalPutRecordsInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class PutRecordsInputRequestTypeDef(
+    _RequiredPutRecordsInputRequestTypeDef, _OptionalPutRecordsInputRequestTypeDef
+):
+    pass
 
 PutRecordsOutputTypeDef = TypedDict(
     "PutRecordsOutputTypeDef",
@@ -681,13 +753,26 @@ RegisterStreamConsumerOutputTypeDef = TypedDict(
     },
 )
 
-RemoveTagsFromStreamInputRequestTypeDef = TypedDict(
-    "RemoveTagsFromStreamInputRequestTypeDef",
+_RequiredRemoveTagsFromStreamInputRequestTypeDef = TypedDict(
+    "_RequiredRemoveTagsFromStreamInputRequestTypeDef",
     {
-        "StreamName": str,
         "TagKeys": List[str],
     },
 )
+_OptionalRemoveTagsFromStreamInputRequestTypeDef = TypedDict(
+    "_OptionalRemoveTagsFromStreamInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class RemoveTagsFromStreamInputRequestTypeDef(
+    _RequiredRemoveTagsFromStreamInputRequestTypeDef,
+    _OptionalRemoveTagsFromStreamInputRequestTypeDef,
+):
+    pass
 
 ResourceInUseExceptionTypeDef = TypedDict(
     "ResourceInUseExceptionTypeDef",
@@ -773,23 +858,48 @@ _OptionalShardTypeDef = TypedDict(
 class ShardTypeDef(_RequiredShardTypeDef, _OptionalShardTypeDef):
     pass
 
-SplitShardInputRequestTypeDef = TypedDict(
-    "SplitShardInputRequestTypeDef",
+_RequiredSplitShardInputRequestTypeDef = TypedDict(
+    "_RequiredSplitShardInputRequestTypeDef",
     {
-        "StreamName": str,
         "ShardToSplit": str,
         "NewStartingHashKey": str,
     },
 )
-
-StartStreamEncryptionInputRequestTypeDef = TypedDict(
-    "StartStreamEncryptionInputRequestTypeDef",
+_OptionalSplitShardInputRequestTypeDef = TypedDict(
+    "_OptionalSplitShardInputRequestTypeDef",
     {
         "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class SplitShardInputRequestTypeDef(
+    _RequiredSplitShardInputRequestTypeDef, _OptionalSplitShardInputRequestTypeDef
+):
+    pass
+
+_RequiredStartStreamEncryptionInputRequestTypeDef = TypedDict(
+    "_RequiredStartStreamEncryptionInputRequestTypeDef",
+    {
         "EncryptionType": EncryptionTypeType,
         "KeyId": str,
     },
 )
+_OptionalStartStreamEncryptionInputRequestTypeDef = TypedDict(
+    "_OptionalStartStreamEncryptionInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class StartStreamEncryptionInputRequestTypeDef(
+    _RequiredStartStreamEncryptionInputRequestTypeDef,
+    _OptionalStartStreamEncryptionInputRequestTypeDef,
+):
+    pass
 
 _RequiredStartingPositionTypeDef = TypedDict(
     "_RequiredStartingPositionTypeDef",
@@ -809,14 +919,27 @@ _OptionalStartingPositionTypeDef = TypedDict(
 class StartingPositionTypeDef(_RequiredStartingPositionTypeDef, _OptionalStartingPositionTypeDef):
     pass
 
-StopStreamEncryptionInputRequestTypeDef = TypedDict(
-    "StopStreamEncryptionInputRequestTypeDef",
+_RequiredStopStreamEncryptionInputRequestTypeDef = TypedDict(
+    "_RequiredStopStreamEncryptionInputRequestTypeDef",
     {
-        "StreamName": str,
         "EncryptionType": EncryptionTypeType,
         "KeyId": str,
     },
 )
+_OptionalStopStreamEncryptionInputRequestTypeDef = TypedDict(
+    "_OptionalStopStreamEncryptionInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class StopStreamEncryptionInputRequestTypeDef(
+    _RequiredStopStreamEncryptionInputRequestTypeDef,
+    _OptionalStopStreamEncryptionInputRequestTypeDef,
+):
+    pass
 
 _RequiredStreamDescriptionSummaryTypeDef = TypedDict(
     "_RequiredStreamDescriptionSummaryTypeDef",
@@ -880,6 +1003,26 @@ StreamModeDetailsTypeDef = TypedDict(
         "StreamMode": StreamModeType,
     },
 )
+
+_RequiredStreamSummaryTypeDef = TypedDict(
+    "_RequiredStreamSummaryTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+        "StreamStatus": StreamStatusType,
+    },
+)
+_OptionalStreamSummaryTypeDef = TypedDict(
+    "_OptionalStreamSummaryTypeDef",
+    {
+        "StreamModeDetails": "StreamModeDetailsTypeDef",
+        "StreamCreationTimestamp": datetime,
+    },
+    total=False,
+)
+
+class StreamSummaryTypeDef(_RequiredStreamSummaryTypeDef, _OptionalStreamSummaryTypeDef):
+    pass
 
 _RequiredSubscribeToShardEventStreamTypeDef = TypedDict(
     "_RequiredSubscribeToShardEventStreamTypeDef",
@@ -963,14 +1106,26 @@ _OptionalTagTypeDef = TypedDict(
 class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
     pass
 
-UpdateShardCountInputRequestTypeDef = TypedDict(
-    "UpdateShardCountInputRequestTypeDef",
+_RequiredUpdateShardCountInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateShardCountInputRequestTypeDef",
     {
-        "StreamName": str,
         "TargetShardCount": int,
         "ScalingType": Literal["UNIFORM_SCALING"],
     },
 )
+_OptionalUpdateShardCountInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateShardCountInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class UpdateShardCountInputRequestTypeDef(
+    _RequiredUpdateShardCountInputRequestTypeDef, _OptionalUpdateShardCountInputRequestTypeDef
+):
+    pass
 
 UpdateShardCountOutputTypeDef = TypedDict(
     "UpdateShardCountOutputTypeDef",
@@ -978,6 +1133,7 @@ UpdateShardCountOutputTypeDef = TypedDict(
         "StreamName": str,
         "CurrentShardCount": int,
         "TargetShardCount": int,
+        "StreamARN": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

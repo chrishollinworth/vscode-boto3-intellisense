@@ -58,7 +58,7 @@ __all__ = (
 
 class ListAssistantAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistantAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistantAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listassistantassociationspaginator)
     """
 
@@ -66,13 +66,13 @@ class ListAssistantAssociationsPaginator(Boto3Paginator):
         self, *, assistantId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssistantAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistantAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistantAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listassistantassociationspaginator)
         """
 
 class ListAssistantsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistants)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistants)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listassistantspaginator)
     """
 
@@ -80,13 +80,13 @@ class ListAssistantsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssistantsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistants.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListAssistants.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listassistantspaginator)
         """
 
 class ListContentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListContents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListContents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listcontentspaginator)
     """
 
@@ -94,13 +94,13 @@ class ListContentsPaginator(Boto3Paginator):
         self, *, knowledgeBaseId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListContents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListContents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listcontentspaginator)
         """
 
 class ListKnowledgeBasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListKnowledgeBases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListKnowledgeBases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listknowledgebasespaginator)
     """
 
@@ -108,13 +108,13 @@ class ListKnowledgeBasesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKnowledgeBasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListKnowledgeBases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.ListKnowledgeBases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#listknowledgebasespaginator)
         """
 
 class QueryAssistantPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.QueryAssistant)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.QueryAssistant)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#queryassistantpaginator)
     """
 
@@ -122,13 +122,13 @@ class QueryAssistantPaginator(Boto3Paginator):
         self, *, assistantId: str, queryText: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[QueryAssistantResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.QueryAssistant.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.QueryAssistant.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#queryassistantpaginator)
         """
 
 class SearchContentPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchContent)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchContent)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#searchcontentpaginator)
     """
 
@@ -140,13 +140,13 @@ class SearchContentPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchContentResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchContent.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchContent.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#searchcontentpaginator)
         """
 
 class SearchSessionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchSessions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchSessions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#searchsessionspaginator)
     """
 
@@ -158,6 +158,6 @@ class SearchSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchSessionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchSessions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wisdom.html#ConnectWisdomService.Paginator.SearchSessions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wisdom/paginators.html#searchsessionspaginator)
         """

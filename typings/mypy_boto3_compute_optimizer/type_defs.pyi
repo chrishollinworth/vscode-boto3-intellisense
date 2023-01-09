@@ -16,13 +16,21 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AutoScalingConfigurationType,
     CpuVendorArchitectureType,
     CurrencyType,
     CurrentPerformanceRiskType,
     EBSFindingType,
     EBSMetricNameType,
+    ECSServiceLaunchTypeType,
+    ECSServiceMetricNameType,
+    ECSServiceMetricStatisticType,
+    ECSServiceRecommendationFilterNameType,
+    ECSServiceRecommendationFindingReasonCodeType,
+    ECSServiceRecommendationFindingType,
     EnhancedInfrastructureMetricsType,
     ExportableAutoScalingGroupFieldType,
+    ExportableECSServiceFieldType,
     ExportableInstanceFieldType,
     ExportableLambdaFunctionFieldType,
     ExportableVolumeFieldType,
@@ -66,12 +74,21 @@ __all__ = (
     "AutoScalingGroupConfigurationTypeDef",
     "AutoScalingGroupRecommendationOptionTypeDef",
     "AutoScalingGroupRecommendationTypeDef",
+    "ContainerConfigurationTypeDef",
+    "ContainerRecommendationTypeDef",
     "CurrentPerformanceRiskRatingsTypeDef",
     "DeleteRecommendationPreferencesRequestRequestTypeDef",
     "DescribeRecommendationExportJobsRequestRequestTypeDef",
     "DescribeRecommendationExportJobsResponseTypeDef",
     "EBSFilterTypeDef",
     "EBSUtilizationMetricTypeDef",
+    "ECSServiceProjectedMetricTypeDef",
+    "ECSServiceProjectedUtilizationMetricTypeDef",
+    "ECSServiceRecommendationFilterTypeDef",
+    "ECSServiceRecommendationOptionTypeDef",
+    "ECSServiceRecommendationTypeDef",
+    "ECSServiceRecommendedOptionProjectedMetricTypeDef",
+    "ECSServiceUtilizationMetricTypeDef",
     "EffectiveRecommendationPreferencesTypeDef",
     "EnrollmentFilterTypeDef",
     "EstimatedMonthlySavingsTypeDef",
@@ -82,6 +99,8 @@ __all__ = (
     "ExportEBSVolumeRecommendationsResponseTypeDef",
     "ExportEC2InstanceRecommendationsRequestRequestTypeDef",
     "ExportEC2InstanceRecommendationsResponseTypeDef",
+    "ExportECSServiceRecommendationsRequestRequestTypeDef",
+    "ExportECSServiceRecommendationsResponseTypeDef",
     "ExportLambdaFunctionRecommendationsRequestRequestTypeDef",
     "ExportLambdaFunctionRecommendationsResponseTypeDef",
     "ExternalMetricsPreferenceTypeDef",
@@ -94,6 +113,10 @@ __all__ = (
     "GetEC2InstanceRecommendationsResponseTypeDef",
     "GetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
     "GetEC2RecommendationProjectedMetricsResponseTypeDef",
+    "GetECSServiceRecommendationProjectedMetricsRequestRequestTypeDef",
+    "GetECSServiceRecommendationProjectedMetricsResponseTypeDef",
+    "GetECSServiceRecommendationsRequestRequestTypeDef",
+    "GetECSServiceRecommendationsResponseTypeDef",
     "GetEffectiveRecommendationPreferencesRequestRequestTypeDef",
     "GetEffectiveRecommendationPreferencesResponseTypeDef",
     "GetEnrollmentStatusResponseTypeDef",
@@ -114,6 +137,8 @@ __all__ = (
     "LambdaFunctionRecommendationFilterTypeDef",
     "LambdaFunctionRecommendationTypeDef",
     "LambdaFunctionUtilizationMetricTypeDef",
+    "MemorySizeConfigurationTypeDef",
+    "PaginatorConfigTypeDef",
     "ProjectedMetricTypeDef",
     "PutRecommendationPreferencesRequestRequestTypeDef",
     "ReasonCodeSummaryTypeDef",
@@ -128,6 +153,7 @@ __all__ = (
     "S3DestinationTypeDef",
     "SavingsOpportunityTypeDef",
     "ScopeTypeDef",
+    "ServiceConfigurationTypeDef",
     "SummaryTypeDef",
     "UpdateEnrollmentStatusRequestRequestTypeDef",
     "UpdateEnrollmentStatusResponseTypeDef",
@@ -187,6 +213,26 @@ AutoScalingGroupRecommendationTypeDef = TypedDict(
         "currentPerformanceRisk": CurrentPerformanceRiskType,
         "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
         "inferredWorkloadTypes": List[InferredWorkloadTypeType],
+    },
+    total=False,
+)
+
+ContainerConfigurationTypeDef = TypedDict(
+    "ContainerConfigurationTypeDef",
+    {
+        "containerName": str,
+        "memorySizeConfiguration": "MemorySizeConfigurationTypeDef",
+        "cpu": int,
+    },
+    total=False,
+)
+
+ContainerRecommendationTypeDef = TypedDict(
+    "ContainerRecommendationTypeDef",
+    {
+        "containerName": str,
+        "memorySizeConfiguration": "MemorySizeConfigurationTypeDef",
+        "cpu": int,
     },
     total=False,
 )
@@ -257,6 +303,87 @@ EBSUtilizationMetricTypeDef = TypedDict(
     {
         "name": EBSMetricNameType,
         "statistic": MetricStatisticType,
+        "value": float,
+    },
+    total=False,
+)
+
+ECSServiceProjectedMetricTypeDef = TypedDict(
+    "ECSServiceProjectedMetricTypeDef",
+    {
+        "name": ECSServiceMetricNameType,
+        "timestamps": List[datetime],
+        "upperBoundValues": List[float],
+        "lowerBoundValues": List[float],
+    },
+    total=False,
+)
+
+ECSServiceProjectedUtilizationMetricTypeDef = TypedDict(
+    "ECSServiceProjectedUtilizationMetricTypeDef",
+    {
+        "name": ECSServiceMetricNameType,
+        "statistic": ECSServiceMetricStatisticType,
+        "lowerBoundValue": float,
+        "upperBoundValue": float,
+    },
+    total=False,
+)
+
+ECSServiceRecommendationFilterTypeDef = TypedDict(
+    "ECSServiceRecommendationFilterTypeDef",
+    {
+        "name": ECSServiceRecommendationFilterNameType,
+        "values": List[str],
+    },
+    total=False,
+)
+
+ECSServiceRecommendationOptionTypeDef = TypedDict(
+    "ECSServiceRecommendationOptionTypeDef",
+    {
+        "memory": int,
+        "cpu": int,
+        "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "projectedUtilizationMetrics": List["ECSServiceProjectedUtilizationMetricTypeDef"],
+        "containerRecommendations": List["ContainerRecommendationTypeDef"],
+    },
+    total=False,
+)
+
+ECSServiceRecommendationTypeDef = TypedDict(
+    "ECSServiceRecommendationTypeDef",
+    {
+        "serviceArn": str,
+        "accountId": str,
+        "currentServiceConfiguration": "ServiceConfigurationTypeDef",
+        "utilizationMetrics": List["ECSServiceUtilizationMetricTypeDef"],
+        "lookbackPeriodInDays": float,
+        "launchType": ECSServiceLaunchTypeType,
+        "lastRefreshTimestamp": datetime,
+        "finding": ECSServiceRecommendationFindingType,
+        "findingReasonCodes": List[ECSServiceRecommendationFindingReasonCodeType],
+        "serviceRecommendationOptions": List["ECSServiceRecommendationOptionTypeDef"],
+        "currentPerformanceRisk": CurrentPerformanceRiskType,
+    },
+    total=False,
+)
+
+ECSServiceRecommendedOptionProjectedMetricTypeDef = TypedDict(
+    "ECSServiceRecommendedOptionProjectedMetricTypeDef",
+    {
+        "recommendedCpuUnits": int,
+        "recommendedMemorySize": int,
+        "projectedMetrics": List["ECSServiceProjectedMetricTypeDef"],
+    },
+    total=False,
+)
+
+ECSServiceUtilizationMetricTypeDef = TypedDict(
+    "ECSServiceUtilizationMetricTypeDef",
+    {
+        "name": ECSServiceMetricNameType,
+        "statistic": ECSServiceMetricStatisticType,
         "value": float,
     },
     total=False,
@@ -393,6 +520,39 @@ class ExportEC2InstanceRecommendationsRequestRequestTypeDef(
 
 ExportEC2InstanceRecommendationsResponseTypeDef = TypedDict(
     "ExportEC2InstanceRecommendationsResponseTypeDef",
+    {
+        "jobId": str,
+        "s3Destination": "S3DestinationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredExportECSServiceRecommendationsRequestRequestTypeDef = TypedDict(
+    "_RequiredExportECSServiceRecommendationsRequestRequestTypeDef",
+    {
+        "s3DestinationConfig": "S3DestinationConfigTypeDef",
+    },
+)
+_OptionalExportECSServiceRecommendationsRequestRequestTypeDef = TypedDict(
+    "_OptionalExportECSServiceRecommendationsRequestRequestTypeDef",
+    {
+        "accountIds": List[str],
+        "filters": List["ECSServiceRecommendationFilterTypeDef"],
+        "fieldsToExport": List[ExportableECSServiceFieldType],
+        "fileFormat": Literal["Csv"],
+        "includeMemberAccounts": bool,
+    },
+    total=False,
+)
+
+class ExportECSServiceRecommendationsRequestRequestTypeDef(
+    _RequiredExportECSServiceRecommendationsRequestRequestTypeDef,
+    _OptionalExportECSServiceRecommendationsRequestRequestTypeDef,
+):
+    pass
+
+ExportECSServiceRecommendationsResponseTypeDef = TypedDict(
+    "ExportECSServiceRecommendationsResponseTypeDef",
     {
         "jobId": str,
         "s3Destination": "S3DestinationTypeDef",
@@ -546,6 +706,49 @@ GetEC2RecommendationProjectedMetricsResponseTypeDef = TypedDict(
     "GetEC2RecommendationProjectedMetricsResponseTypeDef",
     {
         "recommendedOptionProjectedMetrics": List["RecommendedOptionProjectedMetricTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetECSServiceRecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
+    "GetECSServiceRecommendationProjectedMetricsRequestRequestTypeDef",
+    {
+        "serviceArn": str,
+        "stat": MetricStatisticType,
+        "period": int,
+        "startTime": Union[datetime, str],
+        "endTime": Union[datetime, str],
+    },
+)
+
+GetECSServiceRecommendationProjectedMetricsResponseTypeDef = TypedDict(
+    "GetECSServiceRecommendationProjectedMetricsResponseTypeDef",
+    {
+        "recommendedOptionProjectedMetrics": List[
+            "ECSServiceRecommendedOptionProjectedMetricTypeDef"
+        ],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetECSServiceRecommendationsRequestRequestTypeDef = TypedDict(
+    "GetECSServiceRecommendationsRequestRequestTypeDef",
+    {
+        "serviceArns": List[str],
+        "nextToken": str,
+        "maxResults": int,
+        "filters": List["ECSServiceRecommendationFilterTypeDef"],
+        "accountIds": List[str],
+    },
+    total=False,
+)
+
+GetECSServiceRecommendationsResponseTypeDef = TypedDict(
+    "GetECSServiceRecommendationsResponseTypeDef",
+    {
+        "nextToken": str,
+        "ecsServiceRecommendations": List["ECSServiceRecommendationTypeDef"],
+        "errors": List["GetRecommendationErrorTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -781,6 +984,25 @@ LambdaFunctionUtilizationMetricTypeDef = TypedDict(
     total=False,
 )
 
+MemorySizeConfigurationTypeDef = TypedDict(
+    "MemorySizeConfigurationTypeDef",
+    {
+        "memory": int,
+        "memoryReservation": int,
+    },
+    total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
 ProjectedMetricTypeDef = TypedDict(
     "ProjectedMetricTypeDef",
     {
@@ -932,6 +1154,18 @@ ScopeTypeDef = TypedDict(
     {
         "name": ScopeNameType,
         "value": str,
+    },
+    total=False,
+)
+
+ServiceConfigurationTypeDef = TypedDict(
+    "ServiceConfigurationTypeDef",
+    {
+        "memory": int,
+        "cpu": int,
+        "containerConfigurations": List["ContainerConfigurationTypeDef"],
+        "autoScalingConfiguration": AutoScalingConfigurationType,
+        "taskDefinitionArn": str,
     },
     total=False,
 )

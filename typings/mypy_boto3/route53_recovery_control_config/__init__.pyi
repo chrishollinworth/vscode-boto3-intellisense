@@ -11,6 +11,11 @@ Usage::
         ClusterDeletedWaiter,
         ControlPanelCreatedWaiter,
         ControlPanelDeletedWaiter,
+        ListAssociatedRoute53HealthChecksPaginator,
+        ListClustersPaginator,
+        ListControlPanelsPaginator,
+        ListRoutingControlsPaginator,
+        ListSafetyRulesPaginator,
         Route53RecoveryControlConfigClient,
         RoutingControlCreatedWaiter,
         RoutingControlDeletedWaiter,
@@ -27,9 +32,22 @@ Usage::
     control_panel_deleted_waiter: ControlPanelDeletedWaiter = client.get_waiter("control_panel_deleted")
     routing_control_created_waiter: RoutingControlCreatedWaiter = client.get_waiter("routing_control_created")
     routing_control_deleted_waiter: RoutingControlDeletedWaiter = client.get_waiter("routing_control_deleted")
+
+    list_associated_route53_health_checks_paginator: ListAssociatedRoute53HealthChecksPaginator = client.get_paginator("list_associated_route53_health_checks")
+    list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
+    list_control_panels_paginator: ListControlPanelsPaginator = client.get_paginator("list_control_panels")
+    list_routing_controls_paginator: ListRoutingControlsPaginator = client.get_paginator("list_routing_controls")
+    list_safety_rules_paginator: ListSafetyRulesPaginator = client.get_paginator("list_safety_rules")
     ```
 """
 from .client import Route53RecoveryControlConfigClient
+from .paginator import (
+    ListAssociatedRoute53HealthChecksPaginator,
+    ListClustersPaginator,
+    ListControlPanelsPaginator,
+    ListRoutingControlsPaginator,
+    ListSafetyRulesPaginator,
+)
 from .waiter import (
     ClusterCreatedWaiter,
     ClusterDeletedWaiter,
@@ -47,6 +65,11 @@ __all__ = (
     "ClusterDeletedWaiter",
     "ControlPanelCreatedWaiter",
     "ControlPanelDeletedWaiter",
+    "ListAssociatedRoute53HealthChecksPaginator",
+    "ListClustersPaginator",
+    "ListControlPanelsPaginator",
+    "ListRoutingControlsPaginator",
+    "ListSafetyRulesPaginator",
     "Route53RecoveryControlConfigClient",
     "RoutingControlCreatedWaiter",
     "RoutingControlDeletedWaiter",

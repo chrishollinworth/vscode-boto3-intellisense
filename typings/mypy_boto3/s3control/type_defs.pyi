@@ -274,6 +274,7 @@ _OptionalAccessPointTypeDef = TypedDict(
         "VpcConfiguration": "VpcConfigurationTypeDef",
         "AccessPointArn": str,
         "Alias": str,
+        "BucketAccountId": str,
     },
     total=False,
 )
@@ -436,6 +437,7 @@ _OptionalCreateAccessPointRequestRequestTypeDef = TypedDict(
     {
         "VpcConfiguration": "VpcConfigurationTypeDef",
         "PublicAccessBlockConfiguration": "PublicAccessBlockConfigurationTypeDef",
+        "BucketAccountId": str,
     },
     total=False,
 )
@@ -875,6 +877,7 @@ GetAccessPointResultTypeDef = TypedDict(
         "Alias": str,
         "AccessPointArn": str,
         "Endpoints": Dict[str, str],
+        "BucketAccountId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

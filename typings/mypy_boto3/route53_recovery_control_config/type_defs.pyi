@@ -63,6 +63,7 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "NewAssertionRuleTypeDef",
     "NewGatingRuleTypeDef",
+    "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "RoutingControlTypeDef",
     "RuleConfigTypeDef",
@@ -515,6 +516,16 @@ NewGatingRuleTypeDef = TypedDict(
         "TargetControls": List[str],
         "WaitPeriodMs": int,
     },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
 
 ResponseMetadataTypeDef = TypedDict(

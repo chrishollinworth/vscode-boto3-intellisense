@@ -29,6 +29,7 @@ __all__ = (
     "ControlStatusType",
     "ControlTypeType",
     "DelegationStatusType",
+    "DeleteResourcesType",
     "EvidenceFinderBackfillStatusType",
     "EvidenceFinderEnablementStatusType",
     "FrameworkTypeType",
@@ -63,6 +64,7 @@ ControlSetStatusType = Literal["ACTIVE", "REVIEWED", "UNDER_REVIEW"]
 ControlStatusType = Literal["INACTIVE", "REVIEWED", "UNDER_REVIEW"]
 ControlTypeType = Literal["Custom", "Standard"]
 DelegationStatusType = Literal["COMPLETE", "IN_PROGRESS", "UNDER_REVIEW"]
+DeleteResourcesType = Literal["ALL", "DEFAULT"]
 EvidenceFinderBackfillStatusType = Literal["COMPLETED", "IN_PROGRESS", "NOT_STARTED"]
 EvidenceFinderEnablementStatusType = Literal[
     "DISABLED", "DISABLE_IN_PROGRESS", "ENABLED", "ENABLE_IN_PROGRESS"
@@ -77,6 +79,7 @@ SettingAttributeType = Literal[
     "ALL",
     "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
     "DEFAULT_PROCESS_OWNERS",
+    "DEREGISTRATION_POLICY",
     "EVIDENCE_FINDER_ENABLEMENT",
     "IS_AWS_ORG_ENABLED",
     "SNS_TOPIC",

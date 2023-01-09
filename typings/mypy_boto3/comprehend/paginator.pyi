@@ -13,9 +13,11 @@ Usage::
         ListDocumentClassificationJobsPaginator,
         ListDocumentClassifiersPaginator,
         ListDominantLanguageDetectionJobsPaginator,
+        ListEndpointsPaginator,
         ListEntitiesDetectionJobsPaginator,
         ListEntityRecognizersPaginator,
         ListKeyPhrasesDetectionJobsPaginator,
+        ListPiiEntitiesDetectionJobsPaginator,
         ListSentimentDetectionJobsPaginator,
         ListTopicsDetectionJobsPaginator,
     )
@@ -25,9 +27,11 @@ Usage::
     list_document_classification_jobs_paginator: ListDocumentClassificationJobsPaginator = client.get_paginator("list_document_classification_jobs")
     list_document_classifiers_paginator: ListDocumentClassifiersPaginator = client.get_paginator("list_document_classifiers")
     list_dominant_language_detection_jobs_paginator: ListDominantLanguageDetectionJobsPaginator = client.get_paginator("list_dominant_language_detection_jobs")
+    list_endpoints_paginator: ListEndpointsPaginator = client.get_paginator("list_endpoints")
     list_entities_detection_jobs_paginator: ListEntitiesDetectionJobsPaginator = client.get_paginator("list_entities_detection_jobs")
     list_entity_recognizers_paginator: ListEntityRecognizersPaginator = client.get_paginator("list_entity_recognizers")
     list_key_phrases_detection_jobs_paginator: ListKeyPhrasesDetectionJobsPaginator = client.get_paginator("list_key_phrases_detection_jobs")
+    list_pii_entities_detection_jobs_paginator: ListPiiEntitiesDetectionJobsPaginator = client.get_paginator("list_pii_entities_detection_jobs")
     list_sentiment_detection_jobs_paginator: ListSentimentDetectionJobsPaginator = client.get_paginator("list_sentiment_detection_jobs")
     list_topics_detection_jobs_paginator: ListTopicsDetectionJobsPaginator = client.get_paginator("list_topics_detection_jobs")
     ```
@@ -40,18 +44,22 @@ from .type_defs import (
     DocumentClassificationJobFilterTypeDef,
     DocumentClassifierFilterTypeDef,
     DominantLanguageDetectionJobFilterTypeDef,
+    EndpointFilterTypeDef,
     EntitiesDetectionJobFilterTypeDef,
     EntityRecognizerFilterTypeDef,
     KeyPhrasesDetectionJobFilterTypeDef,
     ListDocumentClassificationJobsResponseTypeDef,
     ListDocumentClassifiersResponseTypeDef,
     ListDominantLanguageDetectionJobsResponseTypeDef,
+    ListEndpointsResponseTypeDef,
     ListEntitiesDetectionJobsResponseTypeDef,
     ListEntityRecognizersResponseTypeDef,
     ListKeyPhrasesDetectionJobsResponseTypeDef,
+    ListPiiEntitiesDetectionJobsResponseTypeDef,
     ListSentimentDetectionJobsResponseTypeDef,
     ListTopicsDetectionJobsResponseTypeDef,
     PaginatorConfigTypeDef,
+    PiiEntitiesDetectionJobFilterTypeDef,
     SentimentDetectionJobFilterTypeDef,
     TopicsDetectionJobFilterTypeDef,
 )
@@ -60,16 +68,18 @@ __all__ = (
     "ListDocumentClassificationJobsPaginator",
     "ListDocumentClassifiersPaginator",
     "ListDominantLanguageDetectionJobsPaginator",
+    "ListEndpointsPaginator",
     "ListEntitiesDetectionJobsPaginator",
     "ListEntityRecognizersPaginator",
     "ListKeyPhrasesDetectionJobsPaginator",
+    "ListPiiEntitiesDetectionJobsPaginator",
     "ListSentimentDetectionJobsPaginator",
     "ListTopicsDetectionJobsPaginator",
 )
 
 class ListDocumentClassificationJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassificationjobspaginator)
     """
 
@@ -80,13 +90,13 @@ class ListDocumentClassificationJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDocumentClassificationJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassificationjobspaginator)
         """
 
 class ListDocumentClassifiersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassifierspaginator)
     """
 
@@ -97,13 +107,13 @@ class ListDocumentClassifiersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDocumentClassifiersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassifierspaginator)
         """
 
 class ListDominantLanguageDetectionJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdominantlanguagedetectionjobspaginator)
     """
 
@@ -114,13 +124,30 @@ class ListDominantLanguageDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDominantLanguageDetectionJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdominantlanguagedetectionjobspaginator)
+        """
+
+class ListEndpointsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListEndpoints)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listendpointspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Filter: "EndpointFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListEndpointsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListEndpoints.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listendpointspaginator)
         """
 
 class ListEntitiesDetectionJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentitiesdetectionjobspaginator)
     """
 
@@ -131,13 +158,13 @@ class ListEntitiesDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEntitiesDetectionJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentitiesdetectionjobspaginator)
         """
 
 class ListEntityRecognizersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentityrecognizerspaginator)
     """
 
@@ -148,13 +175,13 @@ class ListEntityRecognizersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEntityRecognizersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentityrecognizerspaginator)
         """
 
 class ListKeyPhrasesDetectionJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listkeyphrasesdetectionjobspaginator)
     """
 
@@ -165,13 +192,30 @@ class ListKeyPhrasesDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKeyPhrasesDetectionJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listkeyphrasesdetectionjobspaginator)
+        """
+
+class ListPiiEntitiesDetectionJobsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListPiiEntitiesDetectionJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listpiientitiesdetectionjobspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Filter: "PiiEntitiesDetectionJobFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListPiiEntitiesDetectionJobsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListPiiEntitiesDetectionJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listpiientitiesdetectionjobspaginator)
         """
 
 class ListSentimentDetectionJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listsentimentdetectionjobspaginator)
     """
 
@@ -182,13 +226,13 @@ class ListSentimentDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSentimentDetectionJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listsentimentdetectionjobspaginator)
         """
 
 class ListTopicsDetectionJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listtopicsdetectionjobspaginator)
     """
 
@@ -199,6 +243,6 @@ class ListTopicsDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTopicsDetectionJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listtopicsdetectionjobspaginator)
         """

@@ -23,7 +23,11 @@ from .literals import (
     ConfigurationStatusType,
     FormatType,
     ImageSelectorTypeType,
+    MediaStorageConfigurationStatusType,
+    MediaUriTypeType,
     StatusType,
+    StrategyOnFullSizeType,
+    SyncStatusType,
     UpdateDataRetentionOperationType,
 )
 
@@ -45,14 +49,22 @@ __all__ = (
     "CreateStreamOutputTypeDef",
     "DeleteSignalingChannelInputRequestTypeDef",
     "DeleteStreamInputRequestTypeDef",
+    "DeletionConfigTypeDef",
+    "DescribeEdgeConfigurationInputRequestTypeDef",
+    "DescribeEdgeConfigurationOutputTypeDef",
     "DescribeImageGenerationConfigurationInputRequestTypeDef",
     "DescribeImageGenerationConfigurationOutputTypeDef",
+    "DescribeMappedResourceConfigurationInputRequestTypeDef",
+    "DescribeMappedResourceConfigurationOutputTypeDef",
+    "DescribeMediaStorageConfigurationInputRequestTypeDef",
+    "DescribeMediaStorageConfigurationOutputTypeDef",
     "DescribeNotificationConfigurationInputRequestTypeDef",
     "DescribeNotificationConfigurationOutputTypeDef",
     "DescribeSignalingChannelInputRequestTypeDef",
     "DescribeSignalingChannelOutputTypeDef",
     "DescribeStreamInputRequestTypeDef",
     "DescribeStreamOutputTypeDef",
+    "EdgeConfigTypeDef",
     "GetDataEndpointInputRequestTypeDef",
     "GetDataEndpointOutputTypeDef",
     "GetSignalingChannelEndpointInputRequestTypeDef",
@@ -67,13 +79,21 @@ __all__ = (
     "ListTagsForResourceOutputTypeDef",
     "ListTagsForStreamInputRequestTypeDef",
     "ListTagsForStreamOutputTypeDef",
+    "LocalSizeConfigTypeDef",
+    "MappedResourceConfigurationListItemTypeDef",
+    "MediaSourceConfigTypeDef",
+    "MediaStorageConfigurationTypeDef",
     "NotificationConfigurationTypeDef",
     "NotificationDestinationConfigTypeDef",
     "PaginatorConfigTypeDef",
+    "RecorderConfigTypeDef",
     "ResourceEndpointListItemTypeDef",
     "ResponseMetadataTypeDef",
+    "ScheduleConfigTypeDef",
     "SingleMasterChannelEndpointConfigurationTypeDef",
     "SingleMasterConfigurationTypeDef",
+    "StartEdgeConfigurationUpdateInputRequestTypeDef",
+    "StartEdgeConfigurationUpdateOutputTypeDef",
     "StreamInfoTypeDef",
     "StreamNameConditionTypeDef",
     "TagResourceInputRequestTypeDef",
@@ -83,9 +103,11 @@ __all__ = (
     "UntagStreamInputRequestTypeDef",
     "UpdateDataRetentionInputRequestTypeDef",
     "UpdateImageGenerationConfigurationInputRequestTypeDef",
+    "UpdateMediaStorageConfigurationInputRequestTypeDef",
     "UpdateNotificationConfigurationInputRequestTypeDef",
     "UpdateSignalingChannelInputRequestTypeDef",
     "UpdateStreamInputRequestTypeDef",
+    "UploaderConfigTypeDef",
 )
 
 ChannelInfoTypeDef = TypedDict(
@@ -211,6 +233,39 @@ class DeleteStreamInputRequestTypeDef(
 ):
     pass
 
+DeletionConfigTypeDef = TypedDict(
+    "DeletionConfigTypeDef",
+    {
+        "EdgeRetentionInHours": int,
+        "LocalSizeConfig": "LocalSizeConfigTypeDef",
+        "DeleteAfterUpload": bool,
+    },
+    total=False,
+)
+
+DescribeEdgeConfigurationInputRequestTypeDef = TypedDict(
+    "DescribeEdgeConfigurationInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+DescribeEdgeConfigurationOutputTypeDef = TypedDict(
+    "DescribeEdgeConfigurationOutputTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+        "CreationTime": datetime,
+        "LastUpdatedTime": datetime,
+        "SyncStatus": SyncStatusType,
+        "FailedStatusDetails": str,
+        "EdgeConfig": "EdgeConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeImageGenerationConfigurationInputRequestTypeDef = TypedDict(
     "DescribeImageGenerationConfigurationInputRequestTypeDef",
     {
@@ -224,6 +279,43 @@ DescribeImageGenerationConfigurationOutputTypeDef = TypedDict(
     "DescribeImageGenerationConfigurationOutputTypeDef",
     {
         "ImageGenerationConfiguration": "ImageGenerationConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMappedResourceConfigurationInputRequestTypeDef = TypedDict(
+    "DescribeMappedResourceConfigurationInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeMappedResourceConfigurationOutputTypeDef = TypedDict(
+    "DescribeMappedResourceConfigurationOutputTypeDef",
+    {
+        "MappedResourceConfigurationList": List["MappedResourceConfigurationListItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMediaStorageConfigurationInputRequestTypeDef = TypedDict(
+    "DescribeMediaStorageConfigurationInputRequestTypeDef",
+    {
+        "ChannelName": str,
+        "ChannelARN": str,
+    },
+    total=False,
+)
+
+DescribeMediaStorageConfigurationOutputTypeDef = TypedDict(
+    "DescribeMediaStorageConfigurationOutputTypeDef",
+    {
+        "MediaStorageConfiguration": "MediaStorageConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -278,6 +370,25 @@ DescribeStreamOutputTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredEdgeConfigTypeDef = TypedDict(
+    "_RequiredEdgeConfigTypeDef",
+    {
+        "HubDeviceArn": str,
+        "RecorderConfig": "RecorderConfigTypeDef",
+    },
+)
+_OptionalEdgeConfigTypeDef = TypedDict(
+    "_OptionalEdgeConfigTypeDef",
+    {
+        "UploaderConfig": "UploaderConfigTypeDef",
+        "DeletionConfig": "DeletionConfigTypeDef",
+    },
+    total=False,
+)
+
+class EdgeConfigTypeDef(_RequiredEdgeConfigTypeDef, _OptionalEdgeConfigTypeDef):
+    pass
 
 _RequiredGetDataEndpointInputRequestTypeDef = TypedDict(
     "_RequiredGetDataEndpointInputRequestTypeDef",
@@ -453,6 +564,51 @@ ListTagsForStreamOutputTypeDef = TypedDict(
     },
 )
 
+LocalSizeConfigTypeDef = TypedDict(
+    "LocalSizeConfigTypeDef",
+    {
+        "MaxLocalMediaSizeInMB": int,
+        "StrategyOnFullSize": StrategyOnFullSizeType,
+    },
+    total=False,
+)
+
+MappedResourceConfigurationListItemTypeDef = TypedDict(
+    "MappedResourceConfigurationListItemTypeDef",
+    {
+        "Type": str,
+        "ARN": str,
+    },
+    total=False,
+)
+
+MediaSourceConfigTypeDef = TypedDict(
+    "MediaSourceConfigTypeDef",
+    {
+        "MediaUriSecretArn": str,
+        "MediaUriType": MediaUriTypeType,
+    },
+)
+
+_RequiredMediaStorageConfigurationTypeDef = TypedDict(
+    "_RequiredMediaStorageConfigurationTypeDef",
+    {
+        "Status": MediaStorageConfigurationStatusType,
+    },
+)
+_OptionalMediaStorageConfigurationTypeDef = TypedDict(
+    "_OptionalMediaStorageConfigurationTypeDef",
+    {
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class MediaStorageConfigurationTypeDef(
+    _RequiredMediaStorageConfigurationTypeDef, _OptionalMediaStorageConfigurationTypeDef
+):
+    pass
+
 NotificationConfigurationTypeDef = TypedDict(
     "NotificationConfigurationTypeDef",
     {
@@ -478,6 +634,23 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredRecorderConfigTypeDef = TypedDict(
+    "_RequiredRecorderConfigTypeDef",
+    {
+        "MediaSourceConfig": "MediaSourceConfigTypeDef",
+    },
+)
+_OptionalRecorderConfigTypeDef = TypedDict(
+    "_OptionalRecorderConfigTypeDef",
+    {
+        "ScheduleConfig": "ScheduleConfigTypeDef",
+    },
+    total=False,
+)
+
+class RecorderConfigTypeDef(_RequiredRecorderConfigTypeDef, _OptionalRecorderConfigTypeDef):
+    pass
+
 ResourceEndpointListItemTypeDef = TypedDict(
     "ResourceEndpointListItemTypeDef",
     {
@@ -498,6 +671,14 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+ScheduleConfigTypeDef = TypedDict(
+    "ScheduleConfigTypeDef",
+    {
+        "ScheduleExpression": str,
+        "DurationInSeconds": int,
+    },
+)
+
 SingleMasterChannelEndpointConfigurationTypeDef = TypedDict(
     "SingleMasterChannelEndpointConfigurationTypeDef",
     {
@@ -513,6 +694,41 @@ SingleMasterConfigurationTypeDef = TypedDict(
         "MessageTtlSeconds": int,
     },
     total=False,
+)
+
+_RequiredStartEdgeConfigurationUpdateInputRequestTypeDef = TypedDict(
+    "_RequiredStartEdgeConfigurationUpdateInputRequestTypeDef",
+    {
+        "EdgeConfig": "EdgeConfigTypeDef",
+    },
+)
+_OptionalStartEdgeConfigurationUpdateInputRequestTypeDef = TypedDict(
+    "_OptionalStartEdgeConfigurationUpdateInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+class StartEdgeConfigurationUpdateInputRequestTypeDef(
+    _RequiredStartEdgeConfigurationUpdateInputRequestTypeDef,
+    _OptionalStartEdgeConfigurationUpdateInputRequestTypeDef,
+):
+    pass
+
+StartEdgeConfigurationUpdateOutputTypeDef = TypedDict(
+    "StartEdgeConfigurationUpdateOutputTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+        "CreationTime": datetime,
+        "LastUpdatedTime": datetime,
+        "SyncStatus": SyncStatusType,
+        "FailedStatusDetails": str,
+        "EdgeConfig": "EdgeConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 StreamInfoTypeDef = TypedDict(
@@ -636,6 +852,14 @@ UpdateImageGenerationConfigurationInputRequestTypeDef = TypedDict(
     total=False,
 )
 
+UpdateMediaStorageConfigurationInputRequestTypeDef = TypedDict(
+    "UpdateMediaStorageConfigurationInputRequestTypeDef",
+    {
+        "ChannelARN": str,
+        "MediaStorageConfiguration": "MediaStorageConfigurationTypeDef",
+    },
+)
+
 UpdateNotificationConfigurationInputRequestTypeDef = TypedDict(
     "UpdateNotificationConfigurationInputRequestTypeDef",
     {
@@ -688,3 +912,10 @@ class UpdateStreamInputRequestTypeDef(
     _RequiredUpdateStreamInputRequestTypeDef, _OptionalUpdateStreamInputRequestTypeDef
 ):
     pass
+
+UploaderConfigTypeDef = TypedDict(
+    "UploaderConfigTypeDef",
+    {
+        "ScheduleConfig": "ScheduleConfigTypeDef",
+    },
+)

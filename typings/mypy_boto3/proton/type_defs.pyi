@@ -430,7 +430,6 @@ _RequiredCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
     {
         "environmentName": str,
         "managementAccountId": str,
-        "roleArn": str,
     },
 )
 _OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
@@ -439,6 +438,7 @@ _OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
         "clientToken": str,
         "codebuildRoleArn": str,
         "componentRoleArn": str,
+        "roleArn": str,
         "tags": List["TagTypeDef"],
     },
     total=False,

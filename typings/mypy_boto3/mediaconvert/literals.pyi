@@ -86,12 +86,14 @@ __all__ = (
     "CmafKeyProviderTypeType",
     "CmafManifestCompressionType",
     "CmafManifestDurationFormatType",
+    "CmafMpdManifestBandwidthTypeType",
     "CmafMpdProfileType",
     "CmafPtsOffsetHandlingForBFramesType",
     "CmafSegmentControlType",
     "CmafSegmentLengthControlType",
     "CmafStreamInfResolutionType",
     "CmafTargetDurationCompatibilityModeType",
+    "CmafVideoCompositionOffsetsType",
     "CmafWriteDASHManifestType",
     "CmafWriteHLSManifestType",
     "CmafWriteSegmentTimelineInRepresentationType",
@@ -100,8 +102,10 @@ __all__ = (
     "CmfcDescriptiveVideoServiceFlagType",
     "CmfcIFrameOnlyManifestType",
     "CmfcKlvMetadataType",
+    "CmfcManifestMetadataSignalingType",
     "CmfcScte35EsamType",
     "CmfcScte35SourceType",
+    "CmfcTimedMetadataBoxVersionType",
     "CmfcTimedMetadataType",
     "ColorMetadataType",
     "ColorSpaceConversionType",
@@ -114,11 +118,13 @@ __all__ = (
     "DashIsoHbbtvComplianceType",
     "DashIsoImageBasedTrickPlayType",
     "DashIsoIntervalCadenceType",
+    "DashIsoMpdManifestBandwidthTypeType",
     "DashIsoMpdProfileType",
     "DashIsoPlaybackDeviceCompatibilityType",
     "DashIsoPtsOffsetHandlingForBFramesType",
     "DashIsoSegmentControlType",
     "DashIsoSegmentLengthControlType",
+    "DashIsoVideoCompositionOffsetsType",
     "DashIsoWriteSegmentTimelineInRepresentationType",
     "DecryptionModeType",
     "DeinterlaceAlgorithmType",
@@ -301,8 +307,10 @@ __all__ = (
     "MpdAudioDurationType",
     "MpdCaptionContainerTypeType",
     "MpdKlvMetadataType",
+    "MpdManifestMetadataSignalingType",
     "MpdScte35EsamType",
     "MpdScte35SourceType",
+    "MpdTimedMetadataBoxVersionType",
     "MpdTimedMetadataType",
     "Mpeg2AdaptiveQuantizationType",
     "Mpeg2CodecLevelType",
@@ -545,12 +553,14 @@ CmafIntervalCadenceType = Literal["FOLLOW_CUSTOM", "FOLLOW_IFRAME"]
 CmafKeyProviderTypeType = Literal["SPEKE", "STATIC_KEY"]
 CmafManifestCompressionType = Literal["GZIP", "NONE"]
 CmafManifestDurationFormatType = Literal["FLOATING_POINT", "INTEGER"]
+CmafMpdManifestBandwidthTypeType = Literal["AVERAGE", "MAX"]
 CmafMpdProfileType = Literal["MAIN_PROFILE", "ON_DEMAND_PROFILE"]
 CmafPtsOffsetHandlingForBFramesType = Literal["MATCH_INITIAL_PTS", "ZERO_BASED"]
 CmafSegmentControlType = Literal["SEGMENTED_FILES", "SINGLE_FILE"]
 CmafSegmentLengthControlType = Literal["EXACT", "GOP_MULTIPLE"]
 CmafStreamInfResolutionType = Literal["EXCLUDE", "INCLUDE"]
 CmafTargetDurationCompatibilityModeType = Literal["LEGACY", "SPEC_COMPLIANT"]
+CmafVideoCompositionOffsetsType = Literal["SIGNED", "UNSIGNED"]
 CmafWriteDASHManifestType = Literal["DISABLED", "ENABLED"]
 CmafWriteHLSManifestType = Literal["DISABLED", "ENABLED"]
 CmafWriteSegmentTimelineInRepresentationType = Literal["DISABLED", "ENABLED"]
@@ -563,8 +573,10 @@ CmfcAudioTrackTypeType = Literal[
 CmfcDescriptiveVideoServiceFlagType = Literal["DONT_FLAG", "FLAG"]
 CmfcIFrameOnlyManifestType = Literal["EXCLUDE", "INCLUDE"]
 CmfcKlvMetadataType = Literal["NONE", "PASSTHROUGH"]
+CmfcManifestMetadataSignalingType = Literal["DISABLED", "ENABLED"]
 CmfcScte35EsamType = Literal["INSERT", "NONE"]
 CmfcScte35SourceType = Literal["NONE", "PASSTHROUGH"]
+CmfcTimedMetadataBoxVersionType = Literal["VERSION_0", "VERSION_1"]
 CmfcTimedMetadataType = Literal["NONE", "PASSTHROUGH"]
 ColorMetadataType = Literal["IGNORE", "INSERT"]
 ColorSpaceConversionType = Literal[
@@ -589,11 +601,13 @@ DashIsoGroupAudioChannelConfigSchemeIdUriType = Literal[
 DashIsoHbbtvComplianceType = Literal["HBBTV_1_5", "NONE"]
 DashIsoImageBasedTrickPlayType = Literal["ADVANCED", "NONE", "THUMBNAIL", "THUMBNAIL_AND_FULLFRAME"]
 DashIsoIntervalCadenceType = Literal["FOLLOW_CUSTOM", "FOLLOW_IFRAME"]
+DashIsoMpdManifestBandwidthTypeType = Literal["AVERAGE", "MAX"]
 DashIsoMpdProfileType = Literal["MAIN_PROFILE", "ON_DEMAND_PROFILE"]
 DashIsoPlaybackDeviceCompatibilityType = Literal["CENC_V1", "UNENCRYPTED_SEI"]
 DashIsoPtsOffsetHandlingForBFramesType = Literal["MATCH_INITIAL_PTS", "ZERO_BASED"]
 DashIsoSegmentControlType = Literal["SEGMENTED_FILES", "SINGLE_FILE"]
 DashIsoSegmentLengthControlType = Literal["EXACT", "GOP_MULTIPLE"]
+DashIsoVideoCompositionOffsetsType = Literal["SIGNED", "UNSIGNED"]
 DashIsoWriteSegmentTimelineInRepresentationType = Literal["DISABLED", "ENABLED"]
 DecryptionModeType = Literal["AES_CBC", "AES_CTR", "AES_GCM"]
 DeinterlaceAlgorithmType = Literal["BLEND", "BLEND_TICKER", "INTERPOLATE", "INTERPOLATE_TICKER"]
@@ -1046,8 +1060,10 @@ MpdAccessibilityCaptionHintsType = Literal["EXCLUDE", "INCLUDE"]
 MpdAudioDurationType = Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"]
 MpdCaptionContainerTypeType = Literal["FRAGMENTED_MP4", "RAW"]
 MpdKlvMetadataType = Literal["NONE", "PASSTHROUGH"]
+MpdManifestMetadataSignalingType = Literal["DISABLED", "ENABLED"]
 MpdScte35EsamType = Literal["INSERT", "NONE"]
 MpdScte35SourceType = Literal["NONE", "PASSTHROUGH"]
+MpdTimedMetadataBoxVersionType = Literal["VERSION_0", "VERSION_1"]
 MpdTimedMetadataType = Literal["NONE", "PASSTHROUGH"]
 Mpeg2AdaptiveQuantizationType = Literal["HIGH", "LOW", "MEDIUM", "OFF"]
 Mpeg2CodecLevelType = Literal["AUTO", "HIGH", "HIGH1440", "LOW", "MAIN"]

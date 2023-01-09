@@ -27,6 +27,7 @@ from .literals import (
     CostCategoryStatusType,
     DimensionType,
     FindingReasonCodeType,
+    GenerationStatusType,
     GranularityType,
     GroupDefinitionTypeType,
     LookbackPeriodInDaysType,
@@ -103,6 +104,7 @@ __all__ = (
     "ElastiCacheInstanceDetailsTypeDef",
     "ExpressionTypeDef",
     "ForecastResultTypeDef",
+    "GenerationSummaryTypeDef",
     "GetAnomaliesRequestRequestTypeDef",
     "GetAnomaliesResponseTypeDef",
     "GetAnomalyMonitorsRequestRequestTypeDef",
@@ -147,6 +149,8 @@ __all__ = (
     "ListCostAllocationTagsResponseTypeDef",
     "ListCostCategoryDefinitionsRequestRequestTypeDef",
     "ListCostCategoryDefinitionsResponseTypeDef",
+    "ListSavingsPlansPurchaseRecommendationGenerationRequestRequestTypeDef",
+    "ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MetricValueTypeDef",
@@ -188,6 +192,7 @@ __all__ = (
     "SavingsPlansUtilizationTypeDef",
     "ServiceSpecificationTypeDef",
     "SortDefinitionTypeDef",
+    "StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef",
     "SubscriberTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagValuesTypeDef",
@@ -263,7 +268,6 @@ _RequiredAnomalySubscriptionTypeDef = TypedDict(
     {
         "MonitorArnList": List[str],
         "Subscribers": List["SubscriberTypeDef"],
-        "Threshold": float,
         "Frequency": AnomalySubscriptionFrequencyType,
         "SubscriptionName": str,
     },
@@ -273,6 +277,8 @@ _OptionalAnomalySubscriptionTypeDef = TypedDict(
     {
         "SubscriptionArn": str,
         "AccountId": str,
+        "Threshold": float,
+        "ThresholdExpression": "ExpressionTypeDef",
     },
     total=False,
 )
@@ -792,6 +798,18 @@ ForecastResultTypeDef = TypedDict(
         "MeanValue": str,
         "PredictionIntervalLowerBound": str,
         "PredictionIntervalUpperBound": str,
+    },
+    total=False,
+)
+
+GenerationSummaryTypeDef = TypedDict(
+    "GenerationSummaryTypeDef",
+    {
+        "RecommendationId": str,
+        "GenerationStatus": GenerationStatusType,
+        "GenerationStartedTime": str,
+        "GenerationCompletionTime": str,
+        "EstimatedCompletionTime": str,
     },
     total=False,
 )
@@ -1415,6 +1433,9 @@ _OptionalImpactTypeDef = TypedDict(
     "_OptionalImpactTypeDef",
     {
         "TotalImpact": float,
+        "TotalActualSpend": float,
+        "TotalExpectedSpend": float,
+        "TotalImpactPercentage": float,
     },
     total=False,
 )
@@ -1470,6 +1491,26 @@ ListCostCategoryDefinitionsResponseTypeDef = TypedDict(
     {
         "CostCategoryReferences": List["CostCategoryReferenceTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListSavingsPlansPurchaseRecommendationGenerationRequestRequestTypeDef = TypedDict(
+    "ListSavingsPlansPurchaseRecommendationGenerationRequestRequestTypeDef",
+    {
+        "GenerationStatus": GenerationStatusType,
+        "RecommendationIds": List[str],
+        "PageSize": int,
+        "NextPageToken": str,
+    },
+    total=False,
+)
+
+ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef = TypedDict(
+    "ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef",
+    {
+        "GenerationSummaryList": List["GenerationSummaryTypeDef"],
+        "NextPageToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1760,6 +1801,7 @@ RootCauseTypeDef = TypedDict(
         "Region": str,
         "LinkedAccount": str,
         "UsageType": str,
+        "LinkedAccountName": str,
     },
     total=False,
 )
@@ -1971,6 +2013,16 @@ _OptionalSortDefinitionTypeDef = TypedDict(
 class SortDefinitionTypeDef(_RequiredSortDefinitionTypeDef, _OptionalSortDefinitionTypeDef):
     pass
 
+StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef = TypedDict(
+    "StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef",
+    {
+        "RecommendationId": str,
+        "GenerationStartedTime": str,
+        "EstimatedCompletionTime": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 SubscriberTypeDef = TypedDict(
     "SubscriberTypeDef",
     {
@@ -2092,6 +2144,7 @@ _OptionalUpdateAnomalySubscriptionRequestRequestTypeDef = TypedDict(
         "MonitorArnList": List[str],
         "Subscribers": List["SubscriberTypeDef"],
         "SubscriptionName": str,
+        "ThresholdExpression": "ExpressionTypeDef",
     },
     total=False,
 )

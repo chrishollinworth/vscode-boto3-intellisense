@@ -295,6 +295,7 @@ DocumentTypeType = Literal[
     "Policy",
     "ProblemAnalysis",
     "ProblemAnalysisTemplate",
+    "QuickSetup",
     "Session",
 ]
 ExecutionModeType = Literal["Auto", "Interactive"]

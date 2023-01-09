@@ -760,6 +760,7 @@ GetBackendAPIModelsResponseTypeDef = TypedDict(
     {
         "Models": str,
         "Status": StatusType,
+        "ModelIntrospectionSchema": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

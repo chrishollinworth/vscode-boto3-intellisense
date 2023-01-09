@@ -38,6 +38,7 @@ Usage::
         DescribeHostReservationsPaginator,
         DescribeHostsPaginator,
         DescribeIamInstanceProfileAssociationsPaginator,
+        DescribeImagesPaginator,
         DescribeImportImageTasksPaginator,
         DescribeImportSnapshotTasksPaginator,
         DescribeInstanceCreditSpecificationsPaginator,
@@ -104,6 +105,11 @@ Usage::
         DescribeTransitGatewayVpcAttachmentsPaginator,
         DescribeTransitGatewaysPaginator,
         DescribeTrunkInterfaceAssociationsPaginator,
+        DescribeVerifiedAccessEndpointsPaginator,
+        DescribeVerifiedAccessGroupsPaginator,
+        DescribeVerifiedAccessInstanceLoggingConfigurationsPaginator,
+        DescribeVerifiedAccessInstancesPaginator,
+        DescribeVerifiedAccessTrustProvidersPaginator,
         DescribeVolumeStatusPaginator,
         DescribeVolumesModificationsPaginator,
         DescribeVolumesPaginator,
@@ -241,6 +247,7 @@ Usage::
     describe_host_reservations_paginator: DescribeHostReservationsPaginator = client.get_paginator("describe_host_reservations")
     describe_hosts_paginator: DescribeHostsPaginator = client.get_paginator("describe_hosts")
     describe_iam_instance_profile_associations_paginator: DescribeIamInstanceProfileAssociationsPaginator = client.get_paginator("describe_iam_instance_profile_associations")
+    describe_images_paginator: DescribeImagesPaginator = client.get_paginator("describe_images")
     describe_import_image_tasks_paginator: DescribeImportImageTasksPaginator = client.get_paginator("describe_import_image_tasks")
     describe_import_snapshot_tasks_paginator: DescribeImportSnapshotTasksPaginator = client.get_paginator("describe_import_snapshot_tasks")
     describe_instance_credit_specifications_paginator: DescribeInstanceCreditSpecificationsPaginator = client.get_paginator("describe_instance_credit_specifications")
@@ -307,6 +314,11 @@ Usage::
     describe_transit_gateway_vpc_attachments_paginator: DescribeTransitGatewayVpcAttachmentsPaginator = client.get_paginator("describe_transit_gateway_vpc_attachments")
     describe_transit_gateways_paginator: DescribeTransitGatewaysPaginator = client.get_paginator("describe_transit_gateways")
     describe_trunk_interface_associations_paginator: DescribeTrunkInterfaceAssociationsPaginator = client.get_paginator("describe_trunk_interface_associations")
+    describe_verified_access_endpoints_paginator: DescribeVerifiedAccessEndpointsPaginator = client.get_paginator("describe_verified_access_endpoints")
+    describe_verified_access_groups_paginator: DescribeVerifiedAccessGroupsPaginator = client.get_paginator("describe_verified_access_groups")
+    describe_verified_access_instance_logging_configurations_paginator: DescribeVerifiedAccessInstanceLoggingConfigurationsPaginator = client.get_paginator("describe_verified_access_instance_logging_configurations")
+    describe_verified_access_instances_paginator: DescribeVerifiedAccessInstancesPaginator = client.get_paginator("describe_verified_access_instances")
+    describe_verified_access_trust_providers_paginator: DescribeVerifiedAccessTrustProvidersPaginator = client.get_paginator("describe_verified_access_trust_providers")
     describe_volume_status_paginator: DescribeVolumeStatusPaginator = client.get_paginator("describe_volume_status")
     describe_volumes_paginator: DescribeVolumesPaginator = client.get_paginator("describe_volumes")
     describe_volumes_modifications_paginator: DescribeVolumesModificationsPaginator = client.get_paginator("describe_volumes_modifications")
@@ -371,6 +383,7 @@ from .paginator import (
     DescribeHostReservationsPaginator,
     DescribeHostsPaginator,
     DescribeIamInstanceProfileAssociationsPaginator,
+    DescribeImagesPaginator,
     DescribeImportImageTasksPaginator,
     DescribeImportSnapshotTasksPaginator,
     DescribeInstanceCreditSpecificationsPaginator,
@@ -437,6 +450,11 @@ from .paginator import (
     DescribeTransitGatewaysPaginator,
     DescribeTransitGatewayVpcAttachmentsPaginator,
     DescribeTrunkInterfaceAssociationsPaginator,
+    DescribeVerifiedAccessEndpointsPaginator,
+    DescribeVerifiedAccessGroupsPaginator,
+    DescribeVerifiedAccessInstanceLoggingConfigurationsPaginator,
+    DescribeVerifiedAccessInstancesPaginator,
+    DescribeVerifiedAccessTrustProvidersPaginator,
     DescribeVolumesModificationsPaginator,
     DescribeVolumesPaginator,
     DescribeVolumeStatusPaginator,
@@ -547,6 +565,7 @@ __all__ = (
     "DescribeHostReservationsPaginator",
     "DescribeHostsPaginator",
     "DescribeIamInstanceProfileAssociationsPaginator",
+    "DescribeImagesPaginator",
     "DescribeImportImageTasksPaginator",
     "DescribeImportSnapshotTasksPaginator",
     "DescribeInstanceCreditSpecificationsPaginator",
@@ -613,6 +632,11 @@ __all__ = (
     "DescribeTransitGatewayVpcAttachmentsPaginator",
     "DescribeTransitGatewaysPaginator",
     "DescribeTrunkInterfaceAssociationsPaginator",
+    "DescribeVerifiedAccessEndpointsPaginator",
+    "DescribeVerifiedAccessGroupsPaginator",
+    "DescribeVerifiedAccessInstanceLoggingConfigurationsPaginator",
+    "DescribeVerifiedAccessInstancesPaginator",
+    "DescribeVerifiedAccessTrustProvidersPaginator",
     "DescribeVolumeStatusPaginator",
     "DescribeVolumesModificationsPaginator",
     "DescribeVolumesPaginator",

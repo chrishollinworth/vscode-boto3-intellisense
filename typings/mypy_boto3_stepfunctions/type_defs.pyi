@@ -19,6 +19,7 @@ from .literals import (
     ExecutionStatusType,
     HistoryEventTypeType,
     LogLevelType,
+    MapRunStatusType,
     StateMachineStatusType,
     StateMachineTypeType,
     SyncExecutionStatusType,
@@ -50,6 +51,8 @@ __all__ = (
     "DescribeActivityOutputTypeDef",
     "DescribeExecutionInputRequestTypeDef",
     "DescribeExecutionOutputTypeDef",
+    "DescribeMapRunInputRequestTypeDef",
+    "DescribeMapRunOutputTypeDef",
     "DescribeStateMachineForExecutionInputRequestTypeDef",
     "DescribeStateMachineForExecutionOutputTypeDef",
     "DescribeStateMachineInputRequestTypeDef",
@@ -76,6 +79,8 @@ __all__ = (
     "ListActivitiesOutputTypeDef",
     "ListExecutionsInputRequestTypeDef",
     "ListExecutionsOutputTypeDef",
+    "ListMapRunsInputRequestTypeDef",
+    "ListMapRunsOutputTypeDef",
     "ListStateMachinesInputRequestTypeDef",
     "ListStateMachinesOutputTypeDef",
     "ListTagsForResourceInputRequestTypeDef",
@@ -83,6 +88,11 @@ __all__ = (
     "LogDestinationTypeDef",
     "LoggingConfigurationTypeDef",
     "MapIterationEventDetailsTypeDef",
+    "MapRunExecutionCountsTypeDef",
+    "MapRunFailedEventDetailsTypeDef",
+    "MapRunItemCountsTypeDef",
+    "MapRunListItemTypeDef",
+    "MapRunStartedEventDetailsTypeDef",
     "MapStateStartedEventDetailsTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
@@ -111,6 +121,7 @@ __all__ = (
     "TaskTimedOutEventDetailsTypeDef",
     "TracingConfigurationTypeDef",
     "UntagResourceInputRequestTypeDef",
+    "UpdateMapRunInputRequestTypeDef",
     "UpdateStateMachineInputRequestTypeDef",
     "UpdateStateMachineOutputTypeDef",
 )
@@ -328,6 +339,33 @@ DescribeExecutionOutputTypeDef = TypedDict(
         "output": str,
         "outputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
         "traceHeader": str,
+        "mapRunArn": str,
+        "error": str,
+        "cause": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMapRunInputRequestTypeDef = TypedDict(
+    "DescribeMapRunInputRequestTypeDef",
+    {
+        "mapRunArn": str,
+    },
+)
+
+DescribeMapRunOutputTypeDef = TypedDict(
+    "DescribeMapRunOutputTypeDef",
+    {
+        "mapRunArn": str,
+        "executionArn": str,
+        "status": MapRunStatusType,
+        "startDate": datetime,
+        "stopDate": datetime,
+        "maxConcurrency": int,
+        "toleratedFailurePercentage": float,
+        "toleratedFailureCount": int,
+        "itemCounts": "MapRunItemCountsTypeDef",
+        "executionCounts": "MapRunExecutionCountsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -349,6 +387,8 @@ DescribeStateMachineForExecutionOutputTypeDef = TypedDict(
         "updateDate": datetime,
         "loggingConfiguration": "LoggingConfigurationTypeDef",
         "tracingConfiguration": "TracingConfigurationTypeDef",
+        "mapRunArn": str,
+        "label": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -372,6 +412,7 @@ DescribeStateMachineOutputTypeDef = TypedDict(
         "creationDate": datetime,
         "loggingConfiguration": "LoggingConfigurationTypeDef",
         "tracingConfiguration": "TracingConfigurationTypeDef",
+        "label": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -408,6 +449,8 @@ _OptionalExecutionListItemTypeDef = TypedDict(
     "_OptionalExecutionListItemTypeDef",
     {
         "stopDate": datetime,
+        "mapRunArn": str,
+        "itemCount": int,
     },
     total=False,
 )
@@ -556,6 +599,8 @@ _OptionalHistoryEventTypeDef = TypedDict(
         "lambdaFunctionTimedOutEventDetails": "LambdaFunctionTimedOutEventDetailsTypeDef",
         "stateEnteredEventDetails": "StateEnteredEventDetailsTypeDef",
         "stateExitedEventDetails": "StateExitedEventDetailsTypeDef",
+        "mapRunStartedEventDetails": "MapRunStartedEventDetailsTypeDef",
+        "mapRunFailedEventDetails": "MapRunFailedEventDetailsTypeDef",
     },
     total=False,
 )
@@ -649,31 +694,51 @@ ListActivitiesOutputTypeDef = TypedDict(
     },
 )
 
-_RequiredListExecutionsInputRequestTypeDef = TypedDict(
-    "_RequiredListExecutionsInputRequestTypeDef",
+ListExecutionsInputRequestTypeDef = TypedDict(
+    "ListExecutionsInputRequestTypeDef",
     {
         "stateMachineArn": str,
+        "statusFilter": ExecutionStatusType,
+        "maxResults": int,
+        "nextToken": str,
+        "mapRunArn": str,
+    },
+    total=False,
+)
+
+ListExecutionsOutputTypeDef = TypedDict(
+    "ListExecutionsOutputTypeDef",
+    {
+        "executions": List["ExecutionListItemTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
-_OptionalListExecutionsInputRequestTypeDef = TypedDict(
-    "_OptionalListExecutionsInputRequestTypeDef",
+
+_RequiredListMapRunsInputRequestTypeDef = TypedDict(
+    "_RequiredListMapRunsInputRequestTypeDef",
     {
-        "statusFilter": ExecutionStatusType,
+        "executionArn": str,
+    },
+)
+_OptionalListMapRunsInputRequestTypeDef = TypedDict(
+    "_OptionalListMapRunsInputRequestTypeDef",
+    {
         "maxResults": int,
         "nextToken": str,
     },
     total=False,
 )
 
-class ListExecutionsInputRequestTypeDef(
-    _RequiredListExecutionsInputRequestTypeDef, _OptionalListExecutionsInputRequestTypeDef
+class ListMapRunsInputRequestTypeDef(
+    _RequiredListMapRunsInputRequestTypeDef, _OptionalListMapRunsInputRequestTypeDef
 ):
     pass
 
-ListExecutionsOutputTypeDef = TypedDict(
-    "ListExecutionsOutputTypeDef",
+ListMapRunsOutputTypeDef = TypedDict(
+    "ListMapRunsOutputTypeDef",
     {
-        "executions": List["ExecutionListItemTypeDef"],
+        "mapRuns": List["MapRunListItemTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -735,6 +800,71 @@ MapIterationEventDetailsTypeDef = TypedDict(
     {
         "name": str,
         "index": int,
+    },
+    total=False,
+)
+
+MapRunExecutionCountsTypeDef = TypedDict(
+    "MapRunExecutionCountsTypeDef",
+    {
+        "pending": int,
+        "running": int,
+        "succeeded": int,
+        "failed": int,
+        "timedOut": int,
+        "aborted": int,
+        "total": int,
+        "resultsWritten": int,
+    },
+)
+
+MapRunFailedEventDetailsTypeDef = TypedDict(
+    "MapRunFailedEventDetailsTypeDef",
+    {
+        "error": str,
+        "cause": str,
+    },
+    total=False,
+)
+
+MapRunItemCountsTypeDef = TypedDict(
+    "MapRunItemCountsTypeDef",
+    {
+        "pending": int,
+        "running": int,
+        "succeeded": int,
+        "failed": int,
+        "timedOut": int,
+        "aborted": int,
+        "total": int,
+        "resultsWritten": int,
+    },
+)
+
+_RequiredMapRunListItemTypeDef = TypedDict(
+    "_RequiredMapRunListItemTypeDef",
+    {
+        "executionArn": str,
+        "mapRunArn": str,
+        "stateMachineArn": str,
+        "startDate": datetime,
+    },
+)
+_OptionalMapRunListItemTypeDef = TypedDict(
+    "_OptionalMapRunListItemTypeDef",
+    {
+        "stopDate": datetime,
+    },
+    total=False,
+)
+
+class MapRunListItemTypeDef(_RequiredMapRunListItemTypeDef, _OptionalMapRunListItemTypeDef):
+    pass
+
+MapRunStartedEventDetailsTypeDef = TypedDict(
+    "MapRunStartedEventDetailsTypeDef",
+    {
+        "mapRunArn": str,
     },
     total=False,
 )
@@ -1151,6 +1281,27 @@ UntagResourceInputRequestTypeDef = TypedDict(
         "tagKeys": List[str],
     },
 )
+
+_RequiredUpdateMapRunInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateMapRunInputRequestTypeDef",
+    {
+        "mapRunArn": str,
+    },
+)
+_OptionalUpdateMapRunInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateMapRunInputRequestTypeDef",
+    {
+        "maxConcurrency": int,
+        "toleratedFailurePercentage": float,
+        "toleratedFailureCount": int,
+    },
+    total=False,
+)
+
+class UpdateMapRunInputRequestTypeDef(
+    _RequiredUpdateMapRunInputRequestTypeDef, _OptionalUpdateMapRunInputRequestTypeDef
+):
+    pass
 
 _RequiredUpdateStateMachineInputRequestTypeDef = TypedDict(
     "_RequiredUpdateStateMachineInputRequestTypeDef",

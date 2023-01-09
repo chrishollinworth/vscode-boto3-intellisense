@@ -543,6 +543,7 @@ FindingSourceDetailTypeDef = TypedDict(
     "FindingSourceDetailTypeDef",
     {
         "accessPointArn": str,
+        "accessPointAccount": str,
     },
     total=False,
 )

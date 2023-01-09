@@ -53,7 +53,9 @@ AccessPreviewStatusType = Literal["COMPLETED", "CREATING", "FAILED"]
 AclPermissionType = Literal["FULL_CONTROL", "READ", "READ_ACP", "WRITE", "WRITE_ACP"]
 AnalyzerStatusType = Literal["ACTIVE", "CREATING", "DISABLED", "FAILED"]
 FindingChangeTypeType = Literal["CHANGED", "NEW", "UNCHANGED"]
-FindingSourceTypeType = Literal["BUCKET_ACL", "POLICY", "S3_ACCESS_POINT"]
+FindingSourceTypeType = Literal[
+    "BUCKET_ACL", "POLICY", "S3_ACCESS_POINT", "S3_ACCESS_POINT_ACCOUNT"
+]
 FindingStatusType = Literal["ACTIVE", "ARCHIVED", "RESOLVED"]
 FindingStatusUpdateType = Literal["ACTIVE", "ARCHIVED"]
 JobErrorCodeType = Literal[

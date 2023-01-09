@@ -214,6 +214,7 @@ ResourceTypeType = Literal[
     "AWS_EC2_INSTANCE", "AWS_ECR_CONTAINER_IMAGE", "AWS_ECR_REPOSITORY", "AWS_LAMBDA_FUNCTION"
 ]
 RuntimeType = Literal[
+    "GO_1_X",
     "JAVA_11",
     "JAVA_8",
     "JAVA_8_AL2",
@@ -221,6 +222,7 @@ RuntimeType = Literal[
     "NODEJS_12_X",
     "NODEJS_14_X",
     "NODEJS_16_X",
+    "NODEJS_18_X",
     "PYTHON_3_7",
     "PYTHON_3_8",
     "PYTHON_3_9",

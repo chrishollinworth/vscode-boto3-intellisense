@@ -949,6 +949,8 @@ MetricAlarmTypeDef = TypedDict(
         "EvaluateLowSampleCountPercentile": str,
         "Metrics": List["MetricDataQueryTypeDef"],
         "ThresholdMetricId": str,
+        "EvaluationState": Literal["PARTIAL_DATA"],
+        "StateTransitionedTimestamp": datetime,
     },
     total=False,
 )

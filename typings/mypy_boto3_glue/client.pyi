@@ -64,6 +64,7 @@ from .type_defs import (
     BatchGetBlueprintsResponseTypeDef,
     BatchGetCrawlersResponseTypeDef,
     BatchGetCustomEntityTypesResponseTypeDef,
+    BatchGetDataQualityResultResponseTypeDef,
     BatchGetDevEndpointsResponseTypeDef,
     BatchGetJobsResponseTypeDef,
     BatchGetPartitionResponseTypeDef,
@@ -86,6 +87,7 @@ from .type_defs import (
     CreateBlueprintResponseTypeDef,
     CreateCsvClassifierRequestTypeDef,
     CreateCustomEntityTypeResponseTypeDef,
+    CreateDataQualityRulesetResponseTypeDef,
     CreateDevEndpointResponseTypeDef,
     CreateGrokClassifierRequestTypeDef,
     CreateJobResponseTypeDef,
@@ -101,6 +103,13 @@ from .type_defs import (
     CreateXMLClassifierRequestTypeDef,
     DatabaseInputTypeDef,
     DataCatalogEncryptionSettingsTypeDef,
+    DataQualityEvaluationRunAdditionalRunOptionsTypeDef,
+    DataQualityResultFilterCriteriaTypeDef,
+    DataQualityRuleRecommendationRunFilterTypeDef,
+    DataQualityRulesetEvaluationRunFilterTypeDef,
+    DataQualityRulesetFilterCriteriaTypeDef,
+    DataQualityTargetTableTypeDef,
+    DataSourceTypeDef,
     DeleteBlueprintResponseTypeDef,
     DeleteCustomEntityTypeResponseTypeDef,
     DeleteJobResponseTypeDef,
@@ -134,6 +143,10 @@ from .type_defs import (
     GetDatabasesResponseTypeDef,
     GetDataCatalogEncryptionSettingsResponseTypeDef,
     GetDataflowGraphResponseTypeDef,
+    GetDataQualityResultResponseTypeDef,
+    GetDataQualityRuleRecommendationRunResponseTypeDef,
+    GetDataQualityRulesetEvaluationRunResponseTypeDef,
+    GetDataQualityRulesetResponseTypeDef,
     GetDevEndpointResponseTypeDef,
     GetDevEndpointsResponseTypeDef,
     GetJobBookmarkResponseTypeDef,
@@ -186,6 +199,10 @@ from .type_defs import (
     ListCrawlersResponseTypeDef,
     ListCrawlsResponseTypeDef,
     ListCustomEntityTypesResponseTypeDef,
+    ListDataQualityResultsResponseTypeDef,
+    ListDataQualityRuleRecommendationRunsResponseTypeDef,
+    ListDataQualityRulesetEvaluationRunsResponseTypeDef,
+    ListDataQualityRulesetsResponseTypeDef,
     ListDevEndpointsResponseTypeDef,
     ListJobsResponseTypeDef,
     ListMLTransformsResponseTypeDef,
@@ -224,6 +241,8 @@ from .type_defs import (
     SortCriterionTypeDef,
     SourceControlDetailsTypeDef,
     StartBlueprintRunResponseTypeDef,
+    StartDataQualityRuleRecommendationRunResponseTypeDef,
+    StartDataQualityRulesetEvaluationRunResponseTypeDef,
     StartExportLabelsTaskRunResponseTypeDef,
     StartImportLabelsTaskRunResponseTypeDef,
     StartJobRunResponseTypeDef,
@@ -245,6 +264,7 @@ from .type_defs import (
     UpdateColumnStatisticsForPartitionResponseTypeDef,
     UpdateColumnStatisticsForTableResponseTypeDef,
     UpdateCsvClassifierRequestTypeDef,
+    UpdateDataQualityRulesetResponseTypeDef,
     UpdateGrokClassifierRequestTypeDef,
     UpdateJobFromSourceControlResponseTypeDef,
     UpdateJobResponseTypeDef,
@@ -307,7 +327,7 @@ class Exceptions:
 
 class GlueClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html)
     """
 
@@ -329,7 +349,7 @@ class GlueClient(BaseClient):
         """
         Creates one or more partitions in a batch operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_create_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_create_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_create_partition)
         """
     def batch_delete_connection(
@@ -338,7 +358,7 @@ class GlueClient(BaseClient):
         """
         Deletes a list of connection definitions from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_delete_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_delete_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_delete_connection)
         """
     def batch_delete_partition(
@@ -352,7 +372,7 @@ class GlueClient(BaseClient):
         """
         Deletes one or more partitions in a batch operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_delete_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_delete_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_delete_partition)
         """
     def batch_delete_table(
@@ -366,7 +386,7 @@ class GlueClient(BaseClient):
         """
         Deletes multiple tables at once.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_delete_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_delete_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_delete_table)
         """
     def batch_delete_table_version(
@@ -375,7 +395,7 @@ class GlueClient(BaseClient):
         """
         Deletes a specified batch of versions of a table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_delete_table_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_delete_table_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_delete_table_version)
         """
     def batch_get_blueprints(
@@ -384,14 +404,14 @@ class GlueClient(BaseClient):
         """
         Retrieves information about a list of blueprints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_get_blueprints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_blueprints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_blueprints)
         """
     def batch_get_crawlers(self, *, CrawlerNames: List[str]) -> BatchGetCrawlersResponseTypeDef:
         """
         Returns a list of resource metadata for a given list of crawler names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_get_crawlers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_crawlers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_crawlers)
         """
     def batch_get_custom_entity_types(
@@ -400,8 +420,17 @@ class GlueClient(BaseClient):
         """
         Retrieves the details for the custom patterns specified by a list of names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_get_custom_entity_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_custom_entity_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_custom_entity_types)
+        """
+    def batch_get_data_quality_result(
+        self, *, ResultIds: List[str]
+    ) -> BatchGetDataQualityResultResponseTypeDef:
+        """
+        Retrieves a list of data quality results for the specified result IDs.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_data_quality_result)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_data_quality_result)
         """
     def batch_get_dev_endpoints(
         self, *, DevEndpointNames: List[str]
@@ -410,14 +439,14 @@ class GlueClient(BaseClient):
         Returns a list of resource metadata for a given list of development endpoint
         names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_get_dev_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_dev_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_dev_endpoints)
         """
     def batch_get_jobs(self, *, JobNames: List[str]) -> BatchGetJobsResponseTypeDef:
         """
         Returns a list of resource metadata for a given list of job names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_get_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_jobs)
         """
     def batch_get_partition(
@@ -431,14 +460,14 @@ class GlueClient(BaseClient):
         """
         Retrieves partitions in a batch request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_get_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_partition)
         """
     def batch_get_triggers(self, *, TriggerNames: List[str]) -> BatchGetTriggersResponseTypeDef:
         """
         Returns a list of resource metadata for a given list of trigger names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_get_triggers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_triggers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_triggers)
         """
     def batch_get_workflows(
@@ -447,7 +476,7 @@ class GlueClient(BaseClient):
         """
         Returns a list of resource metadata for a given list of workflow names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_get_workflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_get_workflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_get_workflows)
         """
     def batch_stop_job_run(
@@ -456,7 +485,7 @@ class GlueClient(BaseClient):
         """
         Stops one or more job runs for a specified job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_stop_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_stop_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_stop_job_run)
         """
     def batch_update_partition(
@@ -470,15 +499,29 @@ class GlueClient(BaseClient):
         """
         Updates one or more partitions in a batch operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.batch_update_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.batch_update_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#batch_update_partition)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#can_paginate)
+        """
+    def cancel_data_quality_rule_recommendation_run(self, *, RunId: str) -> Dict[str, Any]:
+        """
+        Cancels the specified recommendation run that was being used to generate rules.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.cancel_data_quality_rule_recommendation_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#cancel_data_quality_rule_recommendation_run)
+        """
+    def cancel_data_quality_ruleset_evaluation_run(self, *, RunId: str) -> Dict[str, Any]:
+        """
+        Cancels a run where a ruleset is being evaluated against a data source.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.cancel_data_quality_ruleset_evaluation_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#cancel_data_quality_ruleset_evaluation_run)
         """
     def cancel_ml_task_run(
         self, *, TransformId: str, TaskRunId: str
@@ -486,7 +529,7 @@ class GlueClient(BaseClient):
         """
         Cancels (stops) a task run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.cancel_ml_task_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.cancel_ml_task_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#cancel_ml_task_run)
         """
     def cancel_statement(
@@ -495,7 +538,7 @@ class GlueClient(BaseClient):
         """
         Cancels the statement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.cancel_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.cancel_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#cancel_statement)
         """
     def check_schema_version_validity(
@@ -504,14 +547,14 @@ class GlueClient(BaseClient):
         """
         Validates the supplied schema.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.check_schema_version_validity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.check_schema_version_validity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#check_schema_version_validity)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#close)
         """
     def create_blueprint(
@@ -525,7 +568,7 @@ class GlueClient(BaseClient):
         """
         Registers a blueprint with Glue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_blueprint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_blueprint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_blueprint)
         """
     def create_classifier(
@@ -539,7 +582,7 @@ class GlueClient(BaseClient):
         """
         Creates a classifier in the user's account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_classifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_classifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_classifier)
         """
     def create_connection(
@@ -552,7 +595,7 @@ class GlueClient(BaseClient):
         """
         Creates a connection definition in the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_connection)
         """
     def create_crawler(
@@ -578,7 +621,7 @@ class GlueClient(BaseClient):
         Creates a new crawler with specified targets, role, configuration, and optional
         schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_crawler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_crawler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_crawler)
         """
     def create_custom_entity_type(
@@ -588,8 +631,25 @@ class GlueClient(BaseClient):
         Creates a custom pattern that is used to detect sensitive data across the
         columns and rows of your structured data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_custom_entity_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_custom_entity_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_custom_entity_type)
+        """
+    def create_data_quality_ruleset(
+        self,
+        *,
+        Name: str,
+        Ruleset: str,
+        Description: str = None,
+        Tags: Dict[str, str] = None,
+        TargetTable: "DataQualityTargetTableTypeDef" = None,
+        ClientToken: str = None
+    ) -> CreateDataQualityRulesetResponseTypeDef:
+        """
+        Creates a data quality ruleset with DQDL rules applied to a specified Glue
+        table.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_data_quality_ruleset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_data_quality_ruleset)
         """
     def create_database(
         self,
@@ -601,7 +661,7 @@ class GlueClient(BaseClient):
         """
         Creates a new database in a Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_database)
         """
     def create_dev_endpoint(
@@ -626,7 +686,7 @@ class GlueClient(BaseClient):
         """
         Creates a new development endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_dev_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_dev_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_dev_endpoint)
         """
     def create_job(
@@ -658,7 +718,7 @@ class GlueClient(BaseClient):
         """
         Creates a new job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_job)
         """
     def create_ml_transform(
@@ -681,7 +741,7 @@ class GlueClient(BaseClient):
         """
         Creates an Glue machine learning transform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_ml_transform)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_ml_transform)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_ml_transform)
         """
     def create_partition(
@@ -695,7 +755,7 @@ class GlueClient(BaseClient):
         """
         Creates a new partition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_partition)
         """
     def create_partition_index(
@@ -709,7 +769,7 @@ class GlueClient(BaseClient):
         """
         Creates a specified partition index in an existing table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_partition_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_partition_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_partition_index)
         """
     def create_registry(
@@ -718,7 +778,7 @@ class GlueClient(BaseClient):
         """
         Creates a new registry which may be used to hold a collection of schemas.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_registry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_registry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_registry)
         """
     def create_schema(
@@ -735,7 +795,7 @@ class GlueClient(BaseClient):
         """
         Creates a new schema set and registers the schema definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_schema)
         """
     def create_script(
@@ -748,7 +808,7 @@ class GlueClient(BaseClient):
         """
         Transforms a directed acyclic graph (DAG) into code.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_script)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_script)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_script)
         """
     def create_security_configuration(
@@ -757,7 +817,7 @@ class GlueClient(BaseClient):
         """
         Creates a new security configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_security_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_security_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_security_configuration)
         """
     def create_session(
@@ -782,7 +842,7 @@ class GlueClient(BaseClient):
         """
         Creates a new session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_session)
         """
     def create_table(
@@ -797,7 +857,7 @@ class GlueClient(BaseClient):
         """
         Creates a new table definition in the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_table)
         """
     def create_trigger(
@@ -817,7 +877,7 @@ class GlueClient(BaseClient):
         """
         Creates a new trigger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_trigger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_trigger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_trigger)
         """
     def create_user_defined_function(
@@ -830,7 +890,7 @@ class GlueClient(BaseClient):
         """
         Creates a new function definition in the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_user_defined_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_user_defined_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_user_defined_function)
         """
     def create_workflow(
@@ -845,21 +905,21 @@ class GlueClient(BaseClient):
         """
         Creates a new workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.create_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.create_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#create_workflow)
         """
     def delete_blueprint(self, *, Name: str) -> DeleteBlueprintResponseTypeDef:
         """
         Deletes an existing blueprint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_blueprint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_blueprint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_blueprint)
         """
     def delete_classifier(self, *, Name: str) -> Dict[str, Any]:
         """
         Removes a classifier from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_classifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_classifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_classifier)
         """
     def delete_column_statistics_for_partition(
@@ -874,7 +934,7 @@ class GlueClient(BaseClient):
         """
         Delete the partition column statistics of a column.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_column_statistics_for_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_column_statistics_for_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_column_statistics_for_partition)
         """
     def delete_column_statistics_for_table(
@@ -883,14 +943,14 @@ class GlueClient(BaseClient):
         """
         Retrieves table statistics of columns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_column_statistics_for_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_column_statistics_for_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_column_statistics_for_table)
         """
     def delete_connection(self, *, ConnectionName: str, CatalogId: str = None) -> Dict[str, Any]:
         """
         Deletes a connection from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_connection)
         """
     def delete_crawler(self, *, Name: str) -> Dict[str, Any]:
@@ -898,42 +958,49 @@ class GlueClient(BaseClient):
         Removes a specified crawler from the Glue Data Catalog, unless the crawler state
         is `RUNNING` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_crawler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_crawler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_crawler)
         """
     def delete_custom_entity_type(self, *, Name: str) -> DeleteCustomEntityTypeResponseTypeDef:
         """
         Deletes a custom pattern by specifying its name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_custom_entity_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_custom_entity_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_custom_entity_type)
+        """
+    def delete_data_quality_ruleset(self, *, Name: str) -> Dict[str, Any]:
+        """
+        Deletes a data quality ruleset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_data_quality_ruleset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_data_quality_ruleset)
         """
     def delete_database(self, *, Name: str, CatalogId: str = None) -> Dict[str, Any]:
         """
         Removes a specified database from a Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_database)
         """
     def delete_dev_endpoint(self, *, EndpointName: str) -> Dict[str, Any]:
         """
         Deletes a specified development endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_dev_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_dev_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_dev_endpoint)
         """
     def delete_job(self, *, JobName: str) -> DeleteJobResponseTypeDef:
         """
         Deletes a specified job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_job)
         """
     def delete_ml_transform(self, *, TransformId: str) -> DeleteMLTransformResponseTypeDef:
         """
         Deletes an Glue machine learning transform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_ml_transform)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_ml_transform)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_ml_transform)
         """
     def delete_partition(
@@ -947,7 +1014,7 @@ class GlueClient(BaseClient):
         """
         Deletes a specified partition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_partition)
         """
     def delete_partition_index(
@@ -956,14 +1023,14 @@ class GlueClient(BaseClient):
         """
         Deletes a specified partition index from an existing table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_partition_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_partition_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_partition_index)
         """
     def delete_registry(self, *, RegistryId: "RegistryIdTypeDef") -> DeleteRegistryResponseTypeDef:
         """
         Delete the entire registry including schema and all of its versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_registry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_registry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_registry)
         """
     def delete_resource_policy(
@@ -972,14 +1039,14 @@ class GlueClient(BaseClient):
         """
         Deletes a specified policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_resource_policy)
         """
     def delete_schema(self, *, SchemaId: "SchemaIdTypeDef") -> DeleteSchemaResponseTypeDef:
         """
         Deletes the entire schema set, including the schema set and all of its versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_schema)
         """
     def delete_schema_versions(
@@ -988,21 +1055,21 @@ class GlueClient(BaseClient):
         """
         Remove versions from the specified schema.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_schema_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_schema_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_schema_versions)
         """
     def delete_security_configuration(self, *, Name: str) -> Dict[str, Any]:
         """
         Deletes a specified security configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_security_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_security_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_security_configuration)
         """
     def delete_session(self, *, Id: str, RequestOrigin: str = None) -> DeleteSessionResponseTypeDef:
         """
         Deletes the session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_session)
         """
     def delete_table(
@@ -1011,7 +1078,7 @@ class GlueClient(BaseClient):
         """
         Removes a table definition from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_table)
         """
     def delete_table_version(
@@ -1020,14 +1087,14 @@ class GlueClient(BaseClient):
         """
         Deletes a specified version of a table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_table_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_table_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_table_version)
         """
     def delete_trigger(self, *, Name: str) -> DeleteTriggerResponseTypeDef:
         """
         Deletes a specified trigger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_trigger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_trigger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_trigger)
         """
     def delete_user_defined_function(
@@ -1036,14 +1103,14 @@ class GlueClient(BaseClient):
         """
         Deletes an existing function definition from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_user_defined_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_user_defined_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_user_defined_function)
         """
     def delete_workflow(self, *, Name: str) -> DeleteWorkflowResponseTypeDef:
         """
         Deletes a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.delete_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.delete_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#delete_workflow)
         """
     def generate_presigned_url(
@@ -1056,7 +1123,7 @@ class GlueClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#generate_presigned_url)
         """
     def get_blueprint(
@@ -1065,7 +1132,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the details of a blueprint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_blueprint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_blueprint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_blueprint)
         """
     def get_blueprint_run(
@@ -1074,7 +1141,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the details of a blueprint run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_blueprint_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_blueprint_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_blueprint_run)
         """
     def get_blueprint_runs(
@@ -1083,7 +1150,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the details of blueprint runs for a specified blueprint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_blueprint_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_blueprint_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_blueprint_runs)
         """
     def get_catalog_import_status(
@@ -1092,14 +1159,14 @@ class GlueClient(BaseClient):
         """
         Retrieves the status of a migration operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_catalog_import_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_catalog_import_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_catalog_import_status)
         """
     def get_classifier(self, *, Name: str) -> GetClassifierResponseTypeDef:
         """
         Retrieve a classifier by name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_classifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_classifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_classifier)
         """
     def get_classifiers(
@@ -1108,7 +1175,7 @@ class GlueClient(BaseClient):
         """
         Lists all classifier objects in the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_classifiers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_classifiers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_classifiers)
         """
     def get_column_statistics_for_partition(
@@ -1123,7 +1190,7 @@ class GlueClient(BaseClient):
         """
         Retrieves partition statistics of columns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_column_statistics_for_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_column_statistics_for_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_column_statistics_for_partition)
         """
     def get_column_statistics_for_table(
@@ -1132,7 +1199,7 @@ class GlueClient(BaseClient):
         """
         Retrieves table statistics of columns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_column_statistics_for_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_column_statistics_for_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_column_statistics_for_table)
         """
     def get_connection(
@@ -1141,7 +1208,7 @@ class GlueClient(BaseClient):
         """
         Retrieves a connection definition from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_connection)
         """
     def get_connections(
@@ -1156,14 +1223,14 @@ class GlueClient(BaseClient):
         """
         Retrieves a list of connection definitions from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_connections)
         """
     def get_crawler(self, *, Name: str) -> GetCrawlerResponseTypeDef:
         """
         Retrieves metadata for a specified crawler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_crawler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_crawler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_crawler)
         """
     def get_crawler_metrics(
@@ -1172,7 +1239,7 @@ class GlueClient(BaseClient):
         """
         Retrieves metrics about specified crawlers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_crawler_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_crawler_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_crawler_metrics)
         """
     def get_crawlers(
@@ -1181,14 +1248,14 @@ class GlueClient(BaseClient):
         """
         Retrieves metadata for all crawlers defined in the customer account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_crawlers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_crawlers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_crawlers)
         """
     def get_custom_entity_type(self, *, Name: str) -> GetCustomEntityTypeResponseTypeDef:
         """
         Retrieves the details of a custom pattern by specifying its name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_custom_entity_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_custom_entity_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_custom_entity_type)
         """
     def get_data_catalog_encryption_settings(
@@ -1197,14 +1264,46 @@ class GlueClient(BaseClient):
         """
         Retrieves the security configuration for a specified catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_data_catalog_encryption_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_data_catalog_encryption_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_data_catalog_encryption_settings)
+        """
+    def get_data_quality_result(self, *, ResultId: str) -> GetDataQualityResultResponseTypeDef:
+        """
+        Retrieves the result of a data quality rule evaluation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_data_quality_result)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_data_quality_result)
+        """
+    def get_data_quality_rule_recommendation_run(
+        self, *, RunId: str
+    ) -> GetDataQualityRuleRecommendationRunResponseTypeDef:
+        """
+        Gets the specified recommendation run that was used to generate rules.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_data_quality_rule_recommendation_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_data_quality_rule_recommendation_run)
+        """
+    def get_data_quality_ruleset(self, *, Name: str) -> GetDataQualityRulesetResponseTypeDef:
+        """
+        Returns an existing ruleset by identifier or name.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_data_quality_ruleset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_data_quality_ruleset)
+        """
+    def get_data_quality_ruleset_evaluation_run(
+        self, *, RunId: str
+    ) -> GetDataQualityRulesetEvaluationRunResponseTypeDef:
+        """
+        Retrieves a specific run where a ruleset is evaluated against a data source.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_data_quality_ruleset_evaluation_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_data_quality_ruleset_evaluation_run)
         """
     def get_database(self, *, Name: str, CatalogId: str = None) -> GetDatabaseResponseTypeDef:
         """
         Retrieves the definition of a specified database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_database)
         """
     def get_databases(
@@ -1218,21 +1317,21 @@ class GlueClient(BaseClient):
         """
         Retrieves all databases defined in a given Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_databases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_databases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_databases)
         """
     def get_dataflow_graph(self, *, PythonScript: str = None) -> GetDataflowGraphResponseTypeDef:
         """
         Transforms a Python script into a directed acyclic graph (DAG).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_dataflow_graph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_dataflow_graph)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_dataflow_graph)
         """
     def get_dev_endpoint(self, *, EndpointName: str) -> GetDevEndpointResponseTypeDef:
         """
         Retrieves information about a specified development endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_dev_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_dev_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_dev_endpoint)
         """
     def get_dev_endpoints(
@@ -1241,21 +1340,21 @@ class GlueClient(BaseClient):
         """
         Retrieves all the development endpoints in this Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_dev_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_dev_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_dev_endpoints)
         """
     def get_job(self, *, JobName: str) -> GetJobResponseTypeDef:
         """
         Retrieves an existing job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_job)
         """
     def get_job_bookmark(self, *, JobName: str, RunId: str = None) -> GetJobBookmarkResponseTypeDef:
         """
         Returns information on a job bookmark entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_job_bookmark)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_job_bookmark)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_job_bookmark)
         """
     def get_job_run(
@@ -1264,7 +1363,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the metadata for a given job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_job_run)
         """
     def get_job_runs(
@@ -1273,14 +1372,14 @@ class GlueClient(BaseClient):
         """
         Retrieves metadata for all runs of a given job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_job_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_job_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_job_runs)
         """
     def get_jobs(self, *, NextToken: str = None, MaxResults: int = None) -> GetJobsResponseTypeDef:
         """
         Retrieves all current job definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_jobs)
         """
     def get_mapping(
@@ -1293,14 +1392,14 @@ class GlueClient(BaseClient):
         """
         Creates mappings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_mapping)
         """
     def get_ml_task_run(self, *, TransformId: str, TaskRunId: str) -> GetMLTaskRunResponseTypeDef:
         """
         Gets details for a specific task run on a machine learning transform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_ml_task_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_ml_task_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_ml_task_run)
         """
     def get_ml_task_runs(
@@ -1315,7 +1414,7 @@ class GlueClient(BaseClient):
         """
         Gets a list of runs for a machine learning transform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_ml_task_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_ml_task_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_ml_task_runs)
         """
     def get_ml_transform(self, *, TransformId: str) -> GetMLTransformResponseTypeDef:
@@ -1323,7 +1422,7 @@ class GlueClient(BaseClient):
         Gets an Glue machine learning transform artifact and all its corresponding
         metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_ml_transform)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_ml_transform)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_ml_transform)
         """
     def get_ml_transforms(
@@ -1337,7 +1436,7 @@ class GlueClient(BaseClient):
         """
         Gets a sortable, filterable list of existing Glue machine learning transforms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_ml_transforms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_ml_transforms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_ml_transforms)
         """
     def get_partition(
@@ -1351,7 +1450,7 @@ class GlueClient(BaseClient):
         """
         Retrieves information about a specified partition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_partition)
         """
     def get_partition_indexes(
@@ -1360,7 +1459,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the partition indexes associated with a table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_partition_indexes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_partition_indexes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_partition_indexes)
         """
     def get_partitions(
@@ -1380,7 +1479,7 @@ class GlueClient(BaseClient):
         """
         Retrieves information about the partitions in a table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_partitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_partitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_partitions)
         """
     def get_plan(
@@ -1396,14 +1495,14 @@ class GlueClient(BaseClient):
         """
         Gets code to perform a specified mapping.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_plan)
         """
     def get_registry(self, *, RegistryId: "RegistryIdTypeDef") -> GetRegistryResponseTypeDef:
         """
         Describes the specified registry in detail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_registry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_registry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_registry)
         """
     def get_resource_policies(
@@ -1413,21 +1512,21 @@ class GlueClient(BaseClient):
         Retrieves the resource policies set on individual resources by Resource Access
         Manager during cross-account permission grants.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_resource_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_resource_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_resource_policies)
         """
     def get_resource_policy(self, *, ResourceArn: str = None) -> GetResourcePolicyResponseTypeDef:
         """
         Retrieves a specified resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_resource_policy)
         """
     def get_schema(self, *, SchemaId: "SchemaIdTypeDef") -> GetSchemaResponseTypeDef:
         """
         Describes the specified schema in detail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_schema)
         """
     def get_schema_by_definition(
@@ -1436,7 +1535,7 @@ class GlueClient(BaseClient):
         """
         Retrieves a schema by the `SchemaDefinition`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_schema_by_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_schema_by_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_schema_by_definition)
         """
     def get_schema_version(
@@ -1450,7 +1549,7 @@ class GlueClient(BaseClient):
         Get the specified schema by its unique ID assigned when a version of the schema
         is created or registered.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_schema_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_schema_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_schema_version)
         """
     def get_schema_versions_diff(
@@ -1465,14 +1564,14 @@ class GlueClient(BaseClient):
         Fetches the schema version difference in the specified difference type between
         two stored schema versions in the Schema Registry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_schema_versions_diff)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_schema_versions_diff)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_schema_versions_diff)
         """
     def get_security_configuration(self, *, Name: str) -> GetSecurityConfigurationResponseTypeDef:
         """
         Retrieves a specified security configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_security_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_security_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_security_configuration)
         """
     def get_security_configurations(
@@ -1481,14 +1580,14 @@ class GlueClient(BaseClient):
         """
         Retrieves a list of all security configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_security_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_security_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_security_configurations)
         """
     def get_session(self, *, Id: str, RequestOrigin: str = None) -> GetSessionResponseTypeDef:
         """
         Retrieves the session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_session)
         """
     def get_statement(
@@ -1497,7 +1596,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the statement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_statement)
         """
     def get_table(
@@ -1512,7 +1611,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the `Table` definition in a Data Catalog for a specified table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_table)
         """
     def get_table_version(
@@ -1521,7 +1620,7 @@ class GlueClient(BaseClient):
         """
         Retrieves a specified version of a table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_table_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_table_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_table_version)
         """
     def get_table_versions(
@@ -1537,7 +1636,7 @@ class GlueClient(BaseClient):
         Retrieves a list of strings that identify available versions of a specified
         table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_table_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_table_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_table_versions)
         """
     def get_tables(
@@ -1554,21 +1653,21 @@ class GlueClient(BaseClient):
         """
         Retrieves the definitions of some or all of the tables in a given `Database` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_tables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_tables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_tables)
         """
     def get_tags(self, *, ResourceArn: str) -> GetTagsResponseTypeDef:
         """
         Retrieves a list of tags associated with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_tags)
         """
     def get_trigger(self, *, Name: str) -> GetTriggerResponseTypeDef:
         """
         Retrieves the definition of a trigger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_trigger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_trigger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_trigger)
         """
     def get_triggers(
@@ -1577,7 +1676,7 @@ class GlueClient(BaseClient):
         """
         Gets all the triggers associated with a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_triggers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_triggers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_triggers)
         """
     def get_unfiltered_partition_metadata(
@@ -1596,7 +1695,7 @@ class GlueClient(BaseClient):
         client.get_unfiltered_partition_metadata( CatalogId='string',
         DatabaseName='string', TableName='string', Parti...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_unfiltered_partition_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_unfiltered_partition_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_unfiltered_partition_metadata)
         """
     def get_unfiltered_partitions_metadata(
@@ -1618,7 +1717,7 @@ class GlueClient(BaseClient):
         client.get_unfiltered_partitions_metadata( CatalogId='string',
         DatabaseName='string', TableName='string', Exp...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_unfiltered_partitions_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_unfiltered_partitions_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_unfiltered_partitions_metadata)
         """
     def get_unfiltered_table_metadata(
@@ -1636,7 +1735,7 @@ class GlueClient(BaseClient):
         client.get_unfiltered_table_metadata( CatalogId='string', DatabaseName='string',
         Name='string', AuditContext={ ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_unfiltered_table_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_unfiltered_table_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_unfiltered_table_metadata)
         """
     def get_user_defined_function(
@@ -1645,7 +1744,7 @@ class GlueClient(BaseClient):
         """
         Retrieves a specified function definition from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_user_defined_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_user_defined_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_user_defined_function)
         """
     def get_user_defined_functions(
@@ -1660,14 +1759,14 @@ class GlueClient(BaseClient):
         """
         Retrieves multiple function definitions from the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_user_defined_functions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_user_defined_functions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_user_defined_functions)
         """
     def get_workflow(self, *, Name: str, IncludeGraph: bool = None) -> GetWorkflowResponseTypeDef:
         """
         Retrieves resource metadata for a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_workflow)
         """
     def get_workflow_run(
@@ -1676,7 +1775,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the metadata for a given workflow run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_workflow_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_workflow_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_workflow_run)
         """
     def get_workflow_run_properties(
@@ -1685,7 +1784,7 @@ class GlueClient(BaseClient):
         """
         Retrieves the workflow run properties which were set during the run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_workflow_run_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_workflow_run_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_workflow_run_properties)
         """
     def get_workflow_runs(
@@ -1694,14 +1793,14 @@ class GlueClient(BaseClient):
         """
         Retrieves metadata for all runs of a given workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.get_workflow_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.get_workflow_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#get_workflow_runs)
         """
     def import_catalog_to_glue(self, *, CatalogId: str = None) -> Dict[str, Any]:
         """
         Imports an existing Amazon Athena Data Catalog to Glue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.import_catalog_to_glue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.import_catalog_to_glue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#import_catalog_to_glue)
         """
     def list_blueprints(
@@ -1710,7 +1809,7 @@ class GlueClient(BaseClient):
         """
         Lists all the blueprint names in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_blueprints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_blueprints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_blueprints)
         """
     def list_crawlers(
@@ -1720,7 +1819,7 @@ class GlueClient(BaseClient):
         Retrieves the names of all crawler resources in this Amazon Web Services
         account, or the resources with the specified tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_crawlers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_crawlers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_crawlers)
         """
     def list_crawls(
@@ -1734,7 +1833,7 @@ class GlueClient(BaseClient):
         """
         Returns all the crawls of a specified crawler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_crawls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_crawls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_crawls)
         """
     def list_custom_entity_types(
@@ -1743,8 +1842,62 @@ class GlueClient(BaseClient):
         """
         Lists all the custom patterns that have been created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_custom_entity_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_custom_entity_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_custom_entity_types)
+        """
+    def list_data_quality_results(
+        self,
+        *,
+        Filter: "DataQualityResultFilterCriteriaTypeDef" = None,
+        NextToken: str = None,
+        MaxResults: int = None
+    ) -> ListDataQualityResultsResponseTypeDef:
+        """
+        Returns all data quality execution results for your account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_data_quality_results)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_data_quality_results)
+        """
+    def list_data_quality_rule_recommendation_runs(
+        self,
+        *,
+        Filter: "DataQualityRuleRecommendationRunFilterTypeDef" = None,
+        NextToken: str = None,
+        MaxResults: int = None
+    ) -> ListDataQualityRuleRecommendationRunsResponseTypeDef:
+        """
+        Lists the recommendation runs meeting the filter criteria.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_data_quality_rule_recommendation_runs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_data_quality_rule_recommendation_runs)
+        """
+    def list_data_quality_ruleset_evaluation_runs(
+        self,
+        *,
+        Filter: "DataQualityRulesetEvaluationRunFilterTypeDef" = None,
+        NextToken: str = None,
+        MaxResults: int = None
+    ) -> ListDataQualityRulesetEvaluationRunsResponseTypeDef:
+        """
+        Lists all the runs meeting the filter criteria, where a ruleset is evaluated
+        against a data source.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_data_quality_ruleset_evaluation_runs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_data_quality_ruleset_evaluation_runs)
+        """
+    def list_data_quality_rulesets(
+        self,
+        *,
+        NextToken: str = None,
+        MaxResults: int = None,
+        Filter: "DataQualityRulesetFilterCriteriaTypeDef" = None,
+        Tags: Dict[str, str] = None
+    ) -> ListDataQualityRulesetsResponseTypeDef:
+        """
+        Returns a paginated list of rulesets for the specified list of Glue tables.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_data_quality_rulesets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_data_quality_rulesets)
         """
     def list_dev_endpoints(
         self, *, NextToken: str = None, MaxResults: int = None, Tags: Dict[str, str] = None
@@ -1753,7 +1906,7 @@ class GlueClient(BaseClient):
         Retrieves the names of all `DevEndpoint` resources in this Amazon Web Services
         account, or the resources with the specified tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_dev_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_dev_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_dev_endpoints)
         """
     def list_jobs(
@@ -1763,7 +1916,7 @@ class GlueClient(BaseClient):
         Retrieves the names of all job resources in this Amazon Web Services account, or
         the resources with the specified tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_jobs)
         """
     def list_ml_transforms(
@@ -1780,7 +1933,7 @@ class GlueClient(BaseClient):
         transforms in this Amazon Web Services account, or the resources with the
         specified tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_ml_transforms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_ml_transforms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_ml_transforms)
         """
     def list_registries(
@@ -1790,7 +1943,7 @@ class GlueClient(BaseClient):
         Returns a list of registries that you have created, with minimal registry
         information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_registries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_registries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_registries)
         """
     def list_schema_versions(
@@ -1800,7 +1953,7 @@ class GlueClient(BaseClient):
         Returns a list of schema versions that you have created, with minimal
         information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_schema_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_schema_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_schema_versions)
         """
     def list_schemas(
@@ -1813,7 +1966,7 @@ class GlueClient(BaseClient):
         """
         Returns a list of schemas with minimal details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_schemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_schemas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_schemas)
         """
     def list_sessions(
@@ -1827,7 +1980,7 @@ class GlueClient(BaseClient):
         """
         Retrieve a list of sessions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_sessions)
         """
     def list_statements(
@@ -1836,7 +1989,7 @@ class GlueClient(BaseClient):
         """
         Lists statements for the session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_statements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_statements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_statements)
         """
     def list_triggers(
@@ -1851,7 +2004,7 @@ class GlueClient(BaseClient):
         Retrieves the names of all trigger resources in this Amazon Web Services
         account, or the resources with the specified tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_triggers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_triggers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_triggers)
         """
     def list_workflows(
@@ -1860,7 +2013,7 @@ class GlueClient(BaseClient):
         """
         Lists names of workflows created in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.list_workflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.list_workflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#list_workflows)
         """
     def put_data_catalog_encryption_settings(
@@ -1872,7 +2025,7 @@ class GlueClient(BaseClient):
         """
         Sets the security configuration for a specified catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.put_data_catalog_encryption_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.put_data_catalog_encryption_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#put_data_catalog_encryption_settings)
         """
     def put_resource_policy(
@@ -1887,7 +2040,7 @@ class GlueClient(BaseClient):
         """
         Sets the Data Catalog resource policy for access control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#put_resource_policy)
         """
     def put_schema_version_metadata(
@@ -1901,7 +2054,7 @@ class GlueClient(BaseClient):
         """
         Puts the metadata key value pair for a specified schema version ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.put_schema_version_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.put_schema_version_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#put_schema_version_metadata)
         """
     def put_workflow_run_properties(
@@ -1910,7 +2063,7 @@ class GlueClient(BaseClient):
         """
         Puts the specified workflow run properties for the given workflow run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.put_workflow_run_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.put_workflow_run_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#put_workflow_run_properties)
         """
     def query_schema_version_metadata(
@@ -1926,7 +2079,7 @@ class GlueClient(BaseClient):
         """
         Queries for the schema version metadata information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.query_schema_version_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.query_schema_version_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#query_schema_version_metadata)
         """
     def register_schema_version(
@@ -1935,7 +2088,7 @@ class GlueClient(BaseClient):
         """
         Adds a new version to the existing schema.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.register_schema_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.register_schema_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#register_schema_version)
         """
     def remove_schema_version_metadata(
@@ -1950,7 +2103,7 @@ class GlueClient(BaseClient):
         Removes a key value pair from the schema version metadata for the specified
         schema version ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.remove_schema_version_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.remove_schema_version_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#remove_schema_version_metadata)
         """
     def reset_job_bookmark(
@@ -1959,7 +2112,7 @@ class GlueClient(BaseClient):
         """
         Resets a bookmark entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.reset_job_bookmark)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.reset_job_bookmark)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#reset_job_bookmark)
         """
     def resume_workflow_run(
@@ -1969,7 +2122,7 @@ class GlueClient(BaseClient):
         Restarts selected nodes of a previous partially completed workflow run and
         resumes the workflow run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.resume_workflow_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.resume_workflow_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#resume_workflow_run)
         """
     def run_statement(
@@ -1978,7 +2131,7 @@ class GlueClient(BaseClient):
         """
         Executes the statement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.run_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.run_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#run_statement)
         """
     def search_tables(
@@ -1996,7 +2149,7 @@ class GlueClient(BaseClient):
         Searches a set of tables based on properties in the table metadata as well as on
         the parent database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.search_tables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.search_tables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#search_tables)
         """
     def start_blueprint_run(
@@ -2005,14 +2158,14 @@ class GlueClient(BaseClient):
         """
         Starts a new run of the specified blueprint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_blueprint_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_blueprint_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_blueprint_run)
         """
     def start_crawler(self, *, Name: str) -> Dict[str, Any]:
         """
         Starts a crawl using the specified crawler, regardless of what is scheduled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_crawler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_crawler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_crawler)
         """
     def start_crawler_schedule(self, *, CrawlerName: str) -> Dict[str, Any]:
@@ -2020,8 +2173,43 @@ class GlueClient(BaseClient):
         Changes the schedule state of the specified crawler to `SCHEDULED` , unless the
         crawler is already running or the schedule state is already `SCHEDULED` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_crawler_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_crawler_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_crawler_schedule)
+        """
+    def start_data_quality_rule_recommendation_run(
+        self,
+        *,
+        DataSource: "DataSourceTypeDef",
+        Role: str,
+        NumberOfWorkers: int = None,
+        Timeout: int = None,
+        CreatedRulesetName: str = None,
+        ClientToken: str = None
+    ) -> StartDataQualityRuleRecommendationRunResponseTypeDef:
+        """
+        Starts a recommendation run that is used to generate rules when you don't know
+        what rules to write.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_data_quality_rule_recommendation_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_data_quality_rule_recommendation_run)
+        """
+    def start_data_quality_ruleset_evaluation_run(
+        self,
+        *,
+        DataSource: "DataSourceTypeDef",
+        Role: str,
+        RulesetNames: List[str],
+        NumberOfWorkers: int = None,
+        Timeout: int = None,
+        ClientToken: str = None,
+        AdditionalRunOptions: "DataQualityEvaluationRunAdditionalRunOptionsTypeDef" = None
+    ) -> StartDataQualityRulesetEvaluationRunResponseTypeDef:
+        """
+        Once you have a ruleset definition (either recommended or your own), you call
+        this operation to evaluate the ruleset against a data source (Glue table).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_data_quality_ruleset_evaluation_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_data_quality_ruleset_evaluation_run)
         """
     def start_export_labels_task_run(
         self, *, TransformId: str, OutputS3Path: str
@@ -2030,7 +2218,7 @@ class GlueClient(BaseClient):
         Begins an asynchronous task to export all labeled data for a particular
         transform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_export_labels_task_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_export_labels_task_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_export_labels_task_run)
         """
     def start_import_labels_task_run(
@@ -2040,7 +2228,7 @@ class GlueClient(BaseClient):
         Enables you to provide additional labels (examples of truth) to be used to teach
         the machine learning transform and improve its quality.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_import_labels_task_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_import_labels_task_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_import_labels_task_run)
         """
     def start_job_run(
@@ -2061,7 +2249,7 @@ class GlueClient(BaseClient):
         """
         Starts a job run using a job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_job_run)
         """
     def start_ml_evaluation_task_run(
@@ -2070,7 +2258,7 @@ class GlueClient(BaseClient):
         """
         Starts a task to estimate the quality of the transform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_ml_evaluation_task_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_ml_evaluation_task_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_ml_evaluation_task_run)
         """
     def start_ml_labeling_set_generation_task_run(
@@ -2080,14 +2268,14 @@ class GlueClient(BaseClient):
         Starts the active learning workflow for your machine learning transform to
         improve the transform's quality by generating label sets and adding labels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_ml_labeling_set_generation_task_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_ml_labeling_set_generation_task_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_ml_labeling_set_generation_task_run)
         """
     def start_trigger(self, *, Name: str) -> StartTriggerResponseTypeDef:
         """
         Starts an existing trigger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_trigger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_trigger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_trigger)
         """
     def start_workflow_run(
@@ -2096,14 +2284,14 @@ class GlueClient(BaseClient):
         """
         Starts a new run of the specified workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.start_workflow_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.start_workflow_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#start_workflow_run)
         """
     def stop_crawler(self, *, Name: str) -> Dict[str, Any]:
         """
         If the specified crawler is running, stops the crawl.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.stop_crawler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.stop_crawler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#stop_crawler)
         """
     def stop_crawler_schedule(self, *, CrawlerName: str) -> Dict[str, Any]:
@@ -2111,42 +2299,42 @@ class GlueClient(BaseClient):
         Sets the schedule state of the specified crawler to `NOT_SCHEDULED` , but does
         not stop the crawler if it is already running.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.stop_crawler_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.stop_crawler_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#stop_crawler_schedule)
         """
     def stop_session(self, *, Id: str, RequestOrigin: str = None) -> StopSessionResponseTypeDef:
         """
         Stops the session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.stop_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.stop_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#stop_session)
         """
     def stop_trigger(self, *, Name: str) -> StopTriggerResponseTypeDef:
         """
         Stops a specified trigger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.stop_trigger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.stop_trigger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#stop_trigger)
         """
     def stop_workflow_run(self, *, Name: str, RunId: str) -> Dict[str, Any]:
         """
         Stops the execution of the specified workflow run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.stop_workflow_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.stop_workflow_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#stop_workflow_run)
         """
     def tag_resource(self, *, ResourceArn: str, TagsToAdd: Dict[str, str]) -> Dict[str, Any]:
         """
         Adds tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagsToRemove: List[str]) -> Dict[str, Any]:
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#untag_resource)
         """
     def update_blueprint(
@@ -2155,7 +2343,7 @@ class GlueClient(BaseClient):
         """
         Updates a registered blueprint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_blueprint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_blueprint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_blueprint)
         """
     def update_classifier(
@@ -2170,7 +2358,7 @@ class GlueClient(BaseClient):
         Modifies an existing classifier (a `GrokClassifier` , an `XMLClassifier` , a
         `JsonClassifier` , or a `CsvClassifier` , depending on which field is present).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_classifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_classifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_classifier)
         """
     def update_column_statistics_for_partition(
@@ -2185,7 +2373,7 @@ class GlueClient(BaseClient):
         """
         Creates or updates partition statistics of columns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_column_statistics_for_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_column_statistics_for_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_column_statistics_for_partition)
         """
     def update_column_statistics_for_table(
@@ -2199,7 +2387,7 @@ class GlueClient(BaseClient):
         """
         Creates or updates table statistics of columns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_column_statistics_for_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_column_statistics_for_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_column_statistics_for_table)
         """
     def update_connection(
@@ -2208,7 +2396,7 @@ class GlueClient(BaseClient):
         """
         Updates a connection definition in the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_connection)
         """
     def update_crawler(
@@ -2232,15 +2420,24 @@ class GlueClient(BaseClient):
         """
         Updates a crawler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_crawler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_crawler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_crawler)
         """
     def update_crawler_schedule(self, *, CrawlerName: str, Schedule: str = None) -> Dict[str, Any]:
         """
         Updates the schedule of a crawler using a `cron` expression.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_crawler_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_crawler_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_crawler_schedule)
+        """
+    def update_data_quality_ruleset(
+        self, *, Name: str, UpdatedName: str = None, Description: str = None, Ruleset: str = None
+    ) -> UpdateDataQualityRulesetResponseTypeDef:
+        """
+        Updates the specified data quality ruleset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_data_quality_ruleset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_data_quality_ruleset)
         """
     def update_database(
         self, *, Name: str, DatabaseInput: "DatabaseInputTypeDef", CatalogId: str = None
@@ -2248,7 +2445,7 @@ class GlueClient(BaseClient):
         """
         Updates an existing database definition in a Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_database)
         """
     def update_dev_endpoint(
@@ -2266,7 +2463,7 @@ class GlueClient(BaseClient):
         """
         Updates a specified development endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_dev_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_dev_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_dev_endpoint)
         """
     def update_job(
@@ -2275,7 +2472,7 @@ class GlueClient(BaseClient):
         """
         Updates an existing job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_job)
         """
     def update_job_from_source_control(
@@ -2294,7 +2491,7 @@ class GlueClient(BaseClient):
         """
         Synchronizes a job from the source control repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_job_from_source_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_job_from_source_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_job_from_source_control)
         """
     def update_ml_transform(
@@ -2315,7 +2512,7 @@ class GlueClient(BaseClient):
         """
         Updates an existing machine learning transform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_ml_transform)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_ml_transform)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_ml_transform)
         """
     def update_partition(
@@ -2330,7 +2527,7 @@ class GlueClient(BaseClient):
         """
         Updates a partition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_partition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_partition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_partition)
         """
     def update_registry(
@@ -2339,7 +2536,7 @@ class GlueClient(BaseClient):
         """
         Updates an existing registry which is used to hold a collection of schemas.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_registry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_registry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_registry)
         """
     def update_schema(
@@ -2354,7 +2551,7 @@ class GlueClient(BaseClient):
         Updates the description, compatibility setting, or version checkpoint for a
         schema set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_schema)
         """
     def update_source_control_from_job(
@@ -2373,7 +2570,7 @@ class GlueClient(BaseClient):
         """
         Synchronizes a job to the source control repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_source_control_from_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_source_control_from_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_source_control_from_job)
         """
     def update_table(
@@ -2389,7 +2586,7 @@ class GlueClient(BaseClient):
         """
         Updates a metadata table in the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_table)
         """
     def update_trigger(
@@ -2398,7 +2595,7 @@ class GlueClient(BaseClient):
         """
         Updates a trigger definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_trigger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_trigger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_trigger)
         """
     def update_user_defined_function(
@@ -2412,7 +2609,7 @@ class GlueClient(BaseClient):
         """
         Updates an existing function definition in the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_user_defined_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_user_defined_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_user_defined_function)
         """
     def update_workflow(
@@ -2426,19 +2623,19 @@ class GlueClient(BaseClient):
         """
         Updates an existing workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Client.update_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Client.update_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/client.html#update_workflow)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_classifiers"]) -> GetClassifiersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetClassifiers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetClassifiers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getclassifierspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_connections"]) -> GetConnectionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetConnections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetConnections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getconnectionspaginator)
         """
     @overload
@@ -2446,19 +2643,19 @@ class GlueClient(BaseClient):
         self, operation_name: Literal["get_crawler_metrics"]
     ) -> GetCrawlerMetricsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getcrawlermetricspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_crawlers"]) -> GetCrawlersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetCrawlers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetCrawlers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getcrawlerspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_databases"]) -> GetDatabasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetDatabases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetDatabases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getdatabasespaginator)
         """
     @overload
@@ -2466,19 +2663,19 @@ class GlueClient(BaseClient):
         self, operation_name: Literal["get_dev_endpoints"]
     ) -> GetDevEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetDevEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetDevEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getdevendpointspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_job_runs"]) -> GetJobRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetJobRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetJobRuns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getjobrunspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_jobs"]) -> GetJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getjobspaginator)
         """
     @overload
@@ -2486,13 +2683,13 @@ class GlueClient(BaseClient):
         self, operation_name: Literal["get_partition_indexes"]
     ) -> GetPartitionIndexesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetPartitionIndexes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetPartitionIndexes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getpartitionindexespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_partitions"]) -> GetPartitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetPartitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetPartitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getpartitionspaginator)
         """
     @overload
@@ -2500,7 +2697,7 @@ class GlueClient(BaseClient):
         self, operation_name: Literal["get_resource_policies"]
     ) -> GetResourcePoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetResourcePolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetResourcePolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getresourcepoliciespaginator)
         """
     @overload
@@ -2508,7 +2705,7 @@ class GlueClient(BaseClient):
         self, operation_name: Literal["get_security_configurations"]
     ) -> GetSecurityConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getsecurityconfigurationspaginator)
         """
     @overload
@@ -2516,19 +2713,19 @@ class GlueClient(BaseClient):
         self, operation_name: Literal["get_table_versions"]
     ) -> GetTableVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetTableVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetTableVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#gettableversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_tables"]) -> GetTablesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetTables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetTables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#gettablespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_triggers"]) -> GetTriggersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetTriggers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetTriggers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#gettriggerspaginator)
         """
     @overload
@@ -2536,13 +2733,13 @@ class GlueClient(BaseClient):
         self, operation_name: Literal["get_user_defined_functions"]
     ) -> GetUserDefinedFunctionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#getuserdefinedfunctionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_registries"]) -> ListRegistriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.ListRegistries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.ListRegistries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#listregistriespaginator)
         """
     @overload
@@ -2550,12 +2747,12 @@ class GlueClient(BaseClient):
         self, operation_name: Literal["list_schema_versions"]
     ) -> ListSchemaVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.ListSchemaVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.ListSchemaVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#listschemaversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_schemas"]) -> ListSchemasPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/glue.html#Glue.Paginator.ListSchemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/glue.html#Glue.Paginator.ListSchemas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glue/paginators.html#listschemaspaginator)
         """

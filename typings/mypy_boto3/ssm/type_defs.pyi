@@ -2658,6 +2658,8 @@ _OptionalDocumentRequiresTypeDef = TypedDict(
     "_OptionalDocumentRequiresTypeDef",
     {
         "Version": str,
+        "RequireType": str,
+        "VersionName": str,
     },
     total=False,
 )

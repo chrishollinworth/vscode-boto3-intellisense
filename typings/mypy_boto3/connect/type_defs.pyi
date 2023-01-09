@@ -6,9 +6,9 @@ Type annotations for connect service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_connect.type_defs import AgentContactReferenceTypeDef
+    from mypy_boto3_connect.type_defs import ActionSummaryTypeDef
 
-    data: AgentContactReferenceTypeDef = {...}
+    data: ActionSummaryTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    ActionTypeType,
     AgentStatusStateType,
     AgentStatusTypeType,
     ChannelType,
@@ -27,6 +28,7 @@ from .literals import (
     ContactStateType,
     CurrentMetricNameType,
     DirectoryTypeType,
+    EventSourceNameType,
     GroupingType,
     HierarchyGroupMatchTypeType,
     HistoricalMetricNameType,
@@ -37,6 +39,7 @@ from .literals import (
     IntegrationTypeType,
     LexVersionType,
     MonitorCapabilityType,
+    ParticipantTimerTypeType,
     PhoneNumberCountryCodeType,
     PhoneNumberTypeType,
     PhoneNumberWorkflowStatusType,
@@ -46,12 +49,15 @@ from .literals import (
     QuickConnectTypeType,
     ReferenceStatusType,
     ReferenceTypeType,
+    RulePublishStatusType,
+    SortOrderType,
     SourceTypeType,
     StatisticType,
     StorageTypeType,
     StringComparisonTypeType,
     TaskTemplateFieldTypeType,
     TaskTemplateStatusType,
+    TimerEligibleParticipantRolesType,
     TrafficDistributionGroupStatusType,
     TrafficTypeType,
     UnitType,
@@ -71,6 +77,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ActionSummaryTypeDef",
     "AgentContactReferenceTypeDef",
     "AgentInfoTypeDef",
     "AgentStatusReferenceTypeDef",
@@ -93,6 +100,7 @@ __all__ = (
     "AttributeTypeDef",
     "AvailableNumberSummaryTypeDef",
     "ChatMessageTypeDef",
+    "ChatParticipantRoleConfigTypeDef",
     "ChatStreamingConfigurationTypeDef",
     "ClaimPhoneNumberRequestRequestTypeDef",
     "ClaimPhoneNumberResponseTypeDef",
@@ -122,6 +130,8 @@ __all__ = (
     "CreateQuickConnectResponseTypeDef",
     "CreateRoutingProfileRequestRequestTypeDef",
     "CreateRoutingProfileResponseTypeDef",
+    "CreateRuleRequestRequestTypeDef",
+    "CreateRuleResponseTypeDef",
     "CreateSecurityProfileRequestRequestTypeDef",
     "CreateSecurityProfileResponseTypeDef",
     "CreateTaskTemplateRequestRequestTypeDef",
@@ -139,6 +149,7 @@ __all__ = (
     "CredentialsTypeDef",
     "CurrentMetricDataTypeDef",
     "CurrentMetricResultTypeDef",
+    "CurrentMetricSortCriteriaTypeDef",
     "CurrentMetricTypeDef",
     "DateReferenceTypeDef",
     "DefaultVocabularyTypeDef",
@@ -148,6 +159,7 @@ __all__ = (
     "DeleteInstanceRequestRequestTypeDef",
     "DeleteIntegrationAssociationRequestRequestTypeDef",
     "DeleteQuickConnectRequestRequestTypeDef",
+    "DeleteRuleRequestRequestTypeDef",
     "DeleteSecurityProfileRequestRequestTypeDef",
     "DeleteTaskTemplateRequestRequestTypeDef",
     "DeleteTrafficDistributionGroupRequestRequestTypeDef",
@@ -180,6 +192,8 @@ __all__ = (
     "DescribeQuickConnectResponseTypeDef",
     "DescribeRoutingProfileRequestRequestTypeDef",
     "DescribeRoutingProfileResponseTypeDef",
+    "DescribeRuleRequestRequestTypeDef",
+    "DescribeRuleResponseTypeDef",
     "DescribeSecurityProfileRequestRequestTypeDef",
     "DescribeSecurityProfileResponseTypeDef",
     "DescribeTrafficDistributionGroupRequestRequestTypeDef",
@@ -206,6 +220,7 @@ __all__ = (
     "DistributionTypeDef",
     "EmailReferenceTypeDef",
     "EncryptionConfigTypeDef",
+    "EventBridgeActionDefinitionTypeDef",
     "FiltersTypeDef",
     "GetContactAttributesRequestRequestTypeDef",
     "GetContactAttributesResponseTypeDef",
@@ -295,6 +310,8 @@ __all__ = (
     "ListRoutingProfileQueuesResponseTypeDef",
     "ListRoutingProfilesRequestRequestTypeDef",
     "ListRoutingProfilesResponseTypeDef",
+    "ListRulesRequestRequestTypeDef",
+    "ListRulesResponseTypeDef",
     "ListSecurityKeysRequestRequestTypeDef",
     "ListSecurityKeysResponseTypeDef",
     "ListSecurityProfilePermissionsRequestRequestTypeDef",
@@ -316,10 +333,13 @@ __all__ = (
     "MediaConcurrencyTypeDef",
     "MonitorContactRequestRequestTypeDef",
     "MonitorContactResponseTypeDef",
+    "NotificationRecipientTypeTypeDef",
     "NumberReferenceTypeDef",
     "OutboundCallerConfigTypeDef",
     "PaginatorConfigTypeDef",
     "ParticipantDetailsTypeDef",
+    "ParticipantTimerConfigurationTypeDef",
+    "ParticipantTimerValueTypeDef",
     "PhoneNumberQuickConnectConfigTypeDef",
     "PhoneNumberStatusTypeDef",
     "PhoneNumberSummaryTypeDef",
@@ -352,6 +372,10 @@ __all__ = (
     "RoutingProfileSearchFilterTypeDef",
     "RoutingProfileSummaryTypeDef",
     "RoutingProfileTypeDef",
+    "RuleActionTypeDef",
+    "RuleSummaryTypeDef",
+    "RuleTriggerEventSourceTypeDef",
+    "RuleTypeDef",
     "S3ConfigTypeDef",
     "SearchAvailablePhoneNumbersRequestRequestTypeDef",
     "SearchAvailablePhoneNumbersResponseTypeDef",
@@ -371,6 +395,7 @@ __all__ = (
     "SecurityProfileSummaryTypeDef",
     "SecurityProfileTypeDef",
     "SecurityProfilesSearchFilterTypeDef",
+    "SendNotificationActionDefinitionTypeDef",
     "StartChatContactRequestRequestTypeDef",
     "StartChatContactResponseTypeDef",
     "StartContactRecordingRequestRequestTypeDef",
@@ -388,6 +413,7 @@ __all__ = (
     "SuspendContactRecordingRequestRequestTypeDef",
     "TagConditionTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TaskActionDefinitionTypeDef",
     "TaskTemplateConstraintsTypeDef",
     "TaskTemplateDefaultFieldValueTypeDef",
     "TaskTemplateDefaultsTypeDef",
@@ -413,6 +439,8 @@ __all__ = (
     "UpdateHoursOfOperationRequestRequestTypeDef",
     "UpdateInstanceAttributeRequestRequestTypeDef",
     "UpdateInstanceStorageConfigRequestRequestTypeDef",
+    "UpdateParticipantRoleConfigChannelInfoTypeDef",
+    "UpdateParticipantRoleConfigRequestRequestTypeDef",
     "UpdatePhoneNumberRequestRequestTypeDef",
     "UpdatePhoneNumberResponseTypeDef",
     "UpdateQueueHoursOfOperationRequestRequestTypeDef",
@@ -426,6 +454,7 @@ __all__ = (
     "UpdateRoutingProfileDefaultOutboundQueueRequestRequestTypeDef",
     "UpdateRoutingProfileNameRequestRequestTypeDef",
     "UpdateRoutingProfileQueuesRequestRequestTypeDef",
+    "UpdateRuleRequestRequestTypeDef",
     "UpdateSecurityProfileRequestRequestTypeDef",
     "UpdateTaskTemplateRequestRequestTypeDef",
     "UpdateTaskTemplateResponseTypeDef",
@@ -456,6 +485,13 @@ __all__ = (
     "VoiceRecordingConfigurationTypeDef",
 )
 
+ActionSummaryTypeDef = TypedDict(
+    "ActionSummaryTypeDef",
+    {
+        "ActionType": ActionTypeType,
+    },
+)
+
 AgentContactReferenceTypeDef = TypedDict(
     "AgentContactReferenceTypeDef",
     {
@@ -484,6 +520,7 @@ AgentStatusReferenceTypeDef = TypedDict(
     {
         "StatusStartTimestamp": datetime,
         "StatusArn": str,
+        "StatusName": str,
     },
     total=False,
 )
@@ -682,6 +719,13 @@ ChatMessageTypeDef = TypedDict(
     {
         "ContentType": str,
         "Content": str,
+    },
+)
+
+ChatParticipantRoleConfigTypeDef = TypedDict(
+    "ChatParticipantRoleConfigTypeDef",
+    {
+        "ParticipantTimerConfigList": List["ParticipantTimerConfigurationTypeDef"],
     },
 )
 
@@ -1127,6 +1171,39 @@ CreateRoutingProfileResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRuleRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "Name": str,
+        "TriggerEventSource": "RuleTriggerEventSourceTypeDef",
+        "Function": str,
+        "Actions": List["RuleActionTypeDef"],
+        "PublishStatus": RulePublishStatusType,
+    },
+)
+_OptionalCreateRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRuleRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateRuleRequestRequestTypeDef(
+    _RequiredCreateRuleRequestRequestTypeDef, _OptionalCreateRuleRequestRequestTypeDef
+):
+    pass
+
+CreateRuleResponseTypeDef = TypedDict(
+    "CreateRuleResponseTypeDef",
+    {
+        "RuleArn": str,
+        "RuleId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateSecurityProfileRequestRequestTypeDef = TypedDict(
     "_RequiredCreateSecurityProfileRequestRequestTypeDef",
     {
@@ -1388,6 +1465,15 @@ CurrentMetricResultTypeDef = TypedDict(
     total=False,
 )
 
+CurrentMetricSortCriteriaTypeDef = TypedDict(
+    "CurrentMetricSortCriteriaTypeDef",
+    {
+        "SortByMetric": CurrentMetricNameType,
+        "SortOrder": SortOrderType,
+    },
+    total=False,
+)
+
 CurrentMetricTypeDef = TypedDict(
     "CurrentMetricTypeDef",
     {
@@ -1460,6 +1546,14 @@ DeleteQuickConnectRequestRequestTypeDef = TypedDict(
     {
         "InstanceId": str,
         "QuickConnectId": str,
+    },
+)
+
+DeleteRuleRequestRequestTypeDef = TypedDict(
+    "DeleteRuleRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "RuleId": str,
     },
 )
 
@@ -1720,6 +1814,22 @@ DescribeRoutingProfileResponseTypeDef = TypedDict(
     },
 )
 
+DescribeRuleRequestRequestTypeDef = TypedDict(
+    "DescribeRuleRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "RuleId": str,
+    },
+)
+
+DescribeRuleResponseTypeDef = TypedDict(
+    "DescribeRuleResponseTypeDef",
+    {
+        "Rule": "RuleTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeSecurityProfileRequestRequestTypeDef = TypedDict(
     "DescribeSecurityProfileRequestRequestTypeDef",
     {
@@ -1819,6 +1929,7 @@ DimensionsTypeDef = TypedDict(
     {
         "Queue": "QueueReferenceTypeDef",
         "Channel": ChannelType,
+        "RoutingProfile": "RoutingProfileReferenceTypeDef",
     },
     total=False,
 )
@@ -1945,11 +2056,19 @@ EncryptionConfigTypeDef = TypedDict(
     },
 )
 
+EventBridgeActionDefinitionTypeDef = TypedDict(
+    "EventBridgeActionDefinitionTypeDef",
+    {
+        "Name": str,
+    },
+)
+
 FiltersTypeDef = TypedDict(
     "FiltersTypeDef",
     {
         "Queues": List[str],
         "Channels": List[ChannelType],
+        "RoutingProfiles": List[str],
     },
     total=False,
 )
@@ -1984,6 +2103,7 @@ _OptionalGetCurrentMetricDataRequestRequestTypeDef = TypedDict(
         "Groupings": List[GroupingType],
         "NextToken": str,
         "MaxResults": int,
+        "SortCriteria": List["CurrentMetricSortCriteriaTypeDef"],
     },
     total=False,
 )
@@ -2000,6 +2120,7 @@ GetCurrentMetricDataResponseTypeDef = TypedDict(
         "NextToken": str,
         "MetricResults": List["CurrentMetricResultTypeDef"],
         "DataSnapshotTime": datetime,
+        "ApproximateTotalCount": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2031,6 +2152,7 @@ GetCurrentUserDataResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "UserDataList": List["UserDataTypeDef"],
+        "ApproximateTotalCount": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3115,6 +3237,37 @@ ListRoutingProfilesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListRulesRequestRequestTypeDef = TypedDict(
+    "_RequiredListRulesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalListRulesRequestRequestTypeDef = TypedDict(
+    "_OptionalListRulesRequestRequestTypeDef",
+    {
+        "PublishStatus": RulePublishStatusType,
+        "EventSourceName": EventSourceNameType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListRulesRequestRequestTypeDef(
+    _RequiredListRulesRequestRequestTypeDef, _OptionalListRulesRequestRequestTypeDef
+):
+    pass
+
+ListRulesResponseTypeDef = TypedDict(
+    "ListRulesResponseTypeDef",
+    {
+        "RuleSummaryList": List["RuleSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListSecurityKeysRequestRequestTypeDef = TypedDict(
     "_RequiredListSecurityKeysRequestRequestTypeDef",
     {
@@ -3398,6 +3551,15 @@ MonitorContactResponseTypeDef = TypedDict(
     },
 )
 
+NotificationRecipientTypeTypeDef = TypedDict(
+    "NotificationRecipientTypeTypeDef",
+    {
+        "UserTags": Dict[str, str],
+        "UserIds": List[str],
+    },
+    total=False,
+)
+
 NumberReferenceTypeDef = TypedDict(
     "NumberReferenceTypeDef",
     {
@@ -3432,6 +3594,24 @@ ParticipantDetailsTypeDef = TypedDict(
     {
         "DisplayName": str,
     },
+)
+
+ParticipantTimerConfigurationTypeDef = TypedDict(
+    "ParticipantTimerConfigurationTypeDef",
+    {
+        "ParticipantRole": TimerEligibleParticipantRolesType,
+        "TimerType": ParticipantTimerTypeType,
+        "TimerValue": "ParticipantTimerValueTypeDef",
+    },
+)
+
+ParticipantTimerValueTypeDef = TypedDict(
+    "ParticipantTimerValueTypeDef",
+    {
+        "ParticipantTimerAction": Literal["Unset"],
+        "ParticipantTimerDurationInMinutes": int,
+    },
+    total=False,
 )
 
 PhoneNumberQuickConnectConfigTypeDef = TypedDict(
@@ -3788,6 +3968,85 @@ RoutingProfileTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredRuleActionTypeDef = TypedDict(
+    "_RequiredRuleActionTypeDef",
+    {
+        "ActionType": ActionTypeType,
+    },
+)
+_OptionalRuleActionTypeDef = TypedDict(
+    "_OptionalRuleActionTypeDef",
+    {
+        "TaskAction": "TaskActionDefinitionTypeDef",
+        "EventBridgeAction": "EventBridgeActionDefinitionTypeDef",
+        "AssignContactCategoryAction": Dict[str, Any],
+        "SendNotificationAction": "SendNotificationActionDefinitionTypeDef",
+    },
+    total=False,
+)
+
+class RuleActionTypeDef(_RequiredRuleActionTypeDef, _OptionalRuleActionTypeDef):
+    pass
+
+RuleSummaryTypeDef = TypedDict(
+    "RuleSummaryTypeDef",
+    {
+        "Name": str,
+        "RuleId": str,
+        "RuleArn": str,
+        "EventSourceName": EventSourceNameType,
+        "PublishStatus": RulePublishStatusType,
+        "ActionSummaries": List["ActionSummaryTypeDef"],
+        "CreatedTime": datetime,
+        "LastUpdatedTime": datetime,
+    },
+)
+
+_RequiredRuleTriggerEventSourceTypeDef = TypedDict(
+    "_RequiredRuleTriggerEventSourceTypeDef",
+    {
+        "EventSourceName": EventSourceNameType,
+    },
+)
+_OptionalRuleTriggerEventSourceTypeDef = TypedDict(
+    "_OptionalRuleTriggerEventSourceTypeDef",
+    {
+        "IntegrationAssociationId": str,
+    },
+    total=False,
+)
+
+class RuleTriggerEventSourceTypeDef(
+    _RequiredRuleTriggerEventSourceTypeDef, _OptionalRuleTriggerEventSourceTypeDef
+):
+    pass
+
+_RequiredRuleTypeDef = TypedDict(
+    "_RequiredRuleTypeDef",
+    {
+        "Name": str,
+        "RuleId": str,
+        "RuleArn": str,
+        "TriggerEventSource": "RuleTriggerEventSourceTypeDef",
+        "Function": str,
+        "Actions": List["RuleActionTypeDef"],
+        "PublishStatus": RulePublishStatusType,
+        "CreatedTime": datetime,
+        "LastUpdatedTime": datetime,
+        "LastUpdatedBy": str,
+    },
+)
+_OptionalRuleTypeDef = TypedDict(
+    "_OptionalRuleTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class RuleTypeDef(_RequiredRuleTypeDef, _OptionalRuleTypeDef):
+    pass
+
 _RequiredS3ConfigTypeDef = TypedDict(
     "_RequiredS3ConfigTypeDef",
     {
@@ -4058,6 +4317,29 @@ SecurityProfilesSearchFilterTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSendNotificationActionDefinitionTypeDef = TypedDict(
+    "_RequiredSendNotificationActionDefinitionTypeDef",
+    {
+        "DeliveryMethod": Literal["EMAIL"],
+        "Content": str,
+        "ContentType": Literal["PLAIN_TEXT"],
+        "Recipient": "NotificationRecipientTypeTypeDef",
+    },
+)
+_OptionalSendNotificationActionDefinitionTypeDef = TypedDict(
+    "_OptionalSendNotificationActionDefinitionTypeDef",
+    {
+        "Subject": str,
+    },
+    total=False,
+)
+
+class SendNotificationActionDefinitionTypeDef(
+    _RequiredSendNotificationActionDefinitionTypeDef,
+    _OptionalSendNotificationActionDefinitionTypeDef,
+):
+    pass
+
 _RequiredStartChatContactRequestRequestTypeDef = TypedDict(
     "_RequiredStartChatContactRequestRequestTypeDef",
     {
@@ -4263,6 +4545,27 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "tags": Dict[str, str],
     },
 )
+
+_RequiredTaskActionDefinitionTypeDef = TypedDict(
+    "_RequiredTaskActionDefinitionTypeDef",
+    {
+        "Name": str,
+        "ContactFlowId": str,
+    },
+)
+_OptionalTaskActionDefinitionTypeDef = TypedDict(
+    "_OptionalTaskActionDefinitionTypeDef",
+    {
+        "Description": str,
+        "References": Dict[str, "ReferenceTypeDef"],
+    },
+    total=False,
+)
+
+class TaskActionDefinitionTypeDef(
+    _RequiredTaskActionDefinitionTypeDef, _OptionalTaskActionDefinitionTypeDef
+):
+    pass
 
 TaskTemplateConstraintsTypeDef = TypedDict(
     "TaskTemplateConstraintsTypeDef",
@@ -4609,6 +4912,23 @@ UpdateInstanceStorageConfigRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateParticipantRoleConfigChannelInfoTypeDef = TypedDict(
+    "UpdateParticipantRoleConfigChannelInfoTypeDef",
+    {
+        "Chat": "ChatParticipantRoleConfigTypeDef",
+    },
+    total=False,
+)
+
+UpdateParticipantRoleConfigRequestRequestTypeDef = TypedDict(
+    "UpdateParticipantRoleConfigRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactId": str,
+        "ChannelConfiguration": "UpdateParticipantRoleConfigChannelInfoTypeDef",
+    },
+)
+
 _RequiredUpdatePhoneNumberRequestRequestTypeDef = TypedDict(
     "_RequiredUpdatePhoneNumberRequestRequestTypeDef",
     {
@@ -4784,6 +5104,18 @@ UpdateRoutingProfileQueuesRequestRequestTypeDef = TypedDict(
         "InstanceId": str,
         "RoutingProfileId": str,
         "QueueConfigs": List["RoutingProfileQueueConfigTypeDef"],
+    },
+)
+
+UpdateRuleRequestRequestTypeDef = TypedDict(
+    "UpdateRuleRequestRequestTypeDef",
+    {
+        "RuleId": str,
+        "InstanceId": str,
+        "Name": str,
+        "Function": str,
+        "Actions": List["RuleActionTypeDef"],
+        "PublishStatus": RulePublishStatusType,
     },
 )
 
@@ -4975,6 +5307,9 @@ UserDataFiltersTypeDef = TypedDict(
     {
         "Queues": List[str],
         "ContactFilter": "ContactFilterTypeDef",
+        "RoutingProfiles": List[str],
+        "Agents": List[str],
+        "UserHierarchyGroups": List[str],
     },
     total=False,
 )
@@ -4990,6 +5325,7 @@ UserDataTypeDef = TypedDict(
         "MaxSlotsByChannel": Dict[ChannelType, int],
         "ActiveSlotsByChannel": Dict[ChannelType, int],
         "Contacts": List["AgentContactReferenceTypeDef"],
+        "NextStatus": str,
     },
     total=False,
 )

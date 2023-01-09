@@ -96,7 +96,7 @@ TargetTypeType = Literal[
 ThirdPartyFirewallAssociationStatusType = Literal[
     "NOT_EXIST", "OFFBOARDING", "OFFBOARD_COMPLETE", "ONBOARDING", "ONBOARD_COMPLETE"
 ]
-ThirdPartyFirewallType = Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"]
+ThirdPartyFirewallType = Literal["FORTIGATE_CLOUD_NATIVE_FIREWALL", "PALO_ALTO_NETWORKS_CLOUD_NGFW"]
 ViolationReasonType = Literal[
     "BLACK_HOLE_ROUTE_DETECTED",
     "BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET",

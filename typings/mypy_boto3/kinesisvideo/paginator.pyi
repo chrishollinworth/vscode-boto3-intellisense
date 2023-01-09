@@ -10,12 +10,14 @@ Usage::
 
     from mypy_boto3_kinesisvideo import KinesisVideoClient
     from mypy_boto3_kinesisvideo.paginator import (
+        DescribeMappedResourceConfigurationPaginator,
         ListSignalingChannelsPaginator,
         ListStreamsPaginator,
     )
 
     client: KinesisVideoClient = boto3.client("kinesisvideo")
 
+    describe_mapped_resource_configuration_paginator: DescribeMappedResourceConfigurationPaginator = client.get_paginator("describe_mapped_resource_configuration")
     list_signaling_channels_paginator: ListSignalingChannelsPaginator = client.get_paginator("list_signaling_channels")
     list_streams_paginator: ListStreamsPaginator = client.get_paginator("list_streams")
     ```
@@ -26,17 +28,40 @@ from botocore.paginate import Paginator as Boto3Paginator
 
 from .type_defs import (
     ChannelNameConditionTypeDef,
+    DescribeMappedResourceConfigurationOutputTypeDef,
     ListSignalingChannelsOutputTypeDef,
     ListStreamsOutputTypeDef,
     PaginatorConfigTypeDef,
     StreamNameConditionTypeDef,
 )
 
-__all__ = ("ListSignalingChannelsPaginator", "ListStreamsPaginator")
+__all__ = (
+    "DescribeMappedResourceConfigurationPaginator",
+    "ListSignalingChannelsPaginator",
+    "ListStreamsPaginator",
+)
+
+class DescribeMappedResourceConfigurationPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kinesisvideo.html#KinesisVideo.Paginator.DescribeMappedResourceConfiguration)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#describemappedresourceconfigurationpaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        StreamName: str = None,
+        StreamARN: str = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[DescribeMappedResourceConfigurationOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kinesisvideo.html#KinesisVideo.Paginator.DescribeMappedResourceConfiguration.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#describemappedresourceconfigurationpaginator)
+        """
 
 class ListSignalingChannelsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#listsignalingchannelspaginator)
     """
 
@@ -47,13 +72,13 @@ class ListSignalingChannelsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSignalingChannelsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#listsignalingchannelspaginator)
         """
 
 class ListStreamsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#liststreamspaginator)
     """
 
@@ -64,6 +89,6 @@ class ListStreamsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#liststreamspaginator)
         """

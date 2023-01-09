@@ -92,6 +92,11 @@ __all__ = (
     "FileSystemTypeType",
     "FlowDefinitionStatusType",
     "FrameworkType",
+    "HubContentSortByType",
+    "HubContentStatusType",
+    "HubContentTypeType",
+    "HubSortByType",
+    "HubStatusType",
     "HumanTaskUiStatusType",
     "HyperParameterScalingTypeType",
     "HyperParameterTuningAllocationStrategyType",
@@ -112,14 +117,19 @@ __all__ = (
     "ImageVersionSortOrderType",
     "ImageVersionStatusType",
     "InferenceExecutionModeType",
+    "InferenceExperimentStatusType",
+    "InferenceExperimentStopDesiredStateType",
+    "InferenceExperimentTypeType",
     "InputModeType",
     "InstanceTypeType",
+    "JobTypeType",
     "JoinSourceType",
     "LabelingJobStatusType",
     "LastUpdateStatusValueType",
     "LineageTypeType",
     "ListActionsPaginatorName",
     "ListAlgorithmsPaginatorName",
+    "ListAliasesPaginatorName",
     "ListAppImageConfigsPaginatorName",
     "ListAppsPaginatorName",
     "ListArtifactsPaginatorName",
@@ -148,6 +158,7 @@ __all__ = (
     "ListHyperParameterTuningJobsPaginatorName",
     "ListImageVersionsPaginatorName",
     "ListImagesPaginatorName",
+    "ListInferenceExperimentsPaginatorName",
     "ListInferenceRecommendationsJobStepsPaginatorName",
     "ListInferenceRecommendationsJobsPaginatorName",
     "ListInferenceRecommendationsJobsSortByType",
@@ -156,12 +167,17 @@ __all__ = (
     "ListLabelingJobsPaginatorName",
     "ListLineageGroupsPaginatorName",
     "ListModelBiasJobDefinitionsPaginatorName",
+    "ListModelCardExportJobsPaginatorName",
+    "ListModelCardVersionsPaginatorName",
+    "ListModelCardsPaginatorName",
     "ListModelExplainabilityJobDefinitionsPaginatorName",
     "ListModelMetadataPaginatorName",
     "ListModelPackageGroupsPaginatorName",
     "ListModelPackagesPaginatorName",
     "ListModelQualityJobDefinitionsPaginatorName",
     "ListModelsPaginatorName",
+    "ListMonitoringAlertHistoryPaginatorName",
+    "ListMonitoringAlertsPaginatorName",
     "ListMonitoringExecutionsPaginatorName",
     "ListMonitoringSchedulesPaginatorName",
     "ListNotebookInstanceLifecycleConfigsPaginatorName",
@@ -171,6 +187,7 @@ __all__ = (
     "ListPipelineParametersForExecutionPaginatorName",
     "ListPipelinesPaginatorName",
     "ListProcessingJobsPaginatorName",
+    "ListSpacesPaginatorName",
     "ListStageDevicesPaginatorName",
     "ListStudioLifecycleConfigsPaginatorName",
     "ListSubscribedWorkteamsPaginatorName",
@@ -188,6 +205,15 @@ __all__ = (
     "MetricSetSourceType",
     "ModelApprovalStatusType",
     "ModelCacheSettingType",
+    "ModelCardExportJobSortByType",
+    "ModelCardExportJobSortOrderType",
+    "ModelCardExportJobStatusType",
+    "ModelCardProcessingStatusType",
+    "ModelCardSortByType",
+    "ModelCardSortOrderType",
+    "ModelCardStatusType",
+    "ModelCardVersionSortByType",
+    "ModelInfrastructureTypeType",
     "ModelMetadataFilterTypeType",
     "ModelPackageGroupSortByType",
     "ModelPackageGroupStatusType",
@@ -195,6 +221,10 @@ __all__ = (
     "ModelPackageStatusType",
     "ModelPackageTypeType",
     "ModelSortKeyType",
+    "ModelVariantActionType",
+    "ModelVariantStatusType",
+    "MonitoringAlertHistorySortKeyType",
+    "MonitoringAlertStatusType",
     "MonitoringExecutionSortKeyType",
     "MonitoringJobDefinitionSortKeyType",
     "MonitoringProblemTypeType",
@@ -226,6 +256,7 @@ __all__ = (
     "ProcessingS3DataTypeType",
     "ProcessingS3InputModeType",
     "ProcessingS3UploadModeType",
+    "ProcessorType",
     "ProductionVariantAcceleratorTypeType",
     "ProductionVariantInstanceTypeType",
     "ProfilingStatusType",
@@ -258,17 +289,21 @@ __all__ = (
     "SortByType",
     "SortContextsByType",
     "SortExperimentsByType",
+    "SortInferenceExperimentsByType",
     "SortLineageGroupsByType",
     "SortOrderType",
     "SortPipelineExecutionsByType",
     "SortPipelinesByType",
     "SortTrialComponentsByType",
     "SortTrialsByType",
+    "SpaceSortKeyType",
+    "SpaceStatusType",
     "SplitTypeType",
     "StageStatusType",
     "StepStatusType",
     "StudioLifecycleConfigAppTypeType",
     "StudioLifecycleConfigSortKeyType",
+    "TableFormatType",
     "TargetDeviceType",
     "TargetPlatformAcceleratorType",
     "TargetPlatformArchType",
@@ -289,6 +324,7 @@ __all__ = (
     "UserProfileStatusType",
     "VariantPropertyTypeType",
     "VariantStatusType",
+    "VendorGuidanceType",
     "WarmPoolResourceStatusType",
     "WorkforceStatusType",
 )
@@ -391,7 +427,21 @@ AutoMLJobSecondaryStatusType = Literal[
     "Stopping",
 ]
 AutoMLJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
-AutoMLMetricEnumType = Literal["AUC", "Accuracy", "F1", "F1macro", "MSE"]
+AutoMLMetricEnumType = Literal[
+    "AUC",
+    "Accuracy",
+    "BalancedAccuracy",
+    "F1",
+    "F1macro",
+    "MAE",
+    "MSE",
+    "Precision",
+    "PrecisionMacro",
+    "R2",
+    "RMSE",
+    "Recall",
+    "RecallMacro",
+]
 AutoMLMetricExtendedEnumType = Literal[
     "AUC",
     "Accuracy",
@@ -546,6 +596,13 @@ FlowDefinitionStatusType = Literal["Active", "Deleting", "Failed", "Initializing
 FrameworkType = Literal[
     "DARKNET", "KERAS", "MXNET", "ONNX", "PYTORCH", "SKLEARN", "TENSORFLOW", "TFLITE", "XGBOOST"
 ]
+HubContentSortByType = Literal["CreationTime", "HubContentName", "HubContentStatus"]
+HubContentStatusType = Literal["Available", "DeleteFailed", "Deleting", "ImportFailed", "Importing"]
+HubContentTypeType = Literal["Model", "Notebook"]
+HubSortByType = Literal["AccountIdOwner", "CreationTime", "HubName", "HubStatus"]
+HubStatusType = Literal[
+    "CreateFailed", "Creating", "DeleteFailed", "Deleting", "InService", "UpdateFailed", "Updating"
+]
 HumanTaskUiStatusType = Literal["Active", "Deleting"]
 HyperParameterScalingTypeType = Literal["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"]
 HyperParameterTuningAllocationStrategyType = Literal["Prioritized"]
@@ -572,6 +629,11 @@ ImageVersionStatusType = Literal[
     "CREATED", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"
 ]
 InferenceExecutionModeType = Literal["Direct", "Serial"]
+InferenceExperimentStatusType = Literal[
+    "Cancelled", "Completed", "Created", "Creating", "Running", "Starting", "Stopping", "Updating"
+]
+InferenceExperimentStopDesiredStateType = Literal["Cancelled", "Completed"]
+InferenceExperimentTypeType = Literal["ShadowMode"]
 InputModeType = Literal["File", "Pipe"]
 InstanceTypeType = Literal[
     "ml.c4.2xlarge",
@@ -644,6 +706,7 @@ InstanceTypeType = Literal[
     "ml.t3.medium",
     "ml.t3.xlarge",
 ]
+JobTypeType = Literal["INFERENCE", "NOTEBOOK_KERNEL", "TRAINING"]
 JoinSourceType = Literal["Input", "None"]
 LabelingJobStatusType = Literal[
     "Completed", "Failed", "InProgress", "Initializing", "Stopped", "Stopping"
@@ -652,6 +715,7 @@ LastUpdateStatusValueType = Literal["Failed", "InProgress", "Successful"]
 LineageTypeType = Literal["Action", "Artifact", "Context", "TrialComponent"]
 ListActionsPaginatorName = Literal["list_actions"]
 ListAlgorithmsPaginatorName = Literal["list_algorithms"]
+ListAliasesPaginatorName = Literal["list_aliases"]
 ListAppImageConfigsPaginatorName = Literal["list_app_image_configs"]
 ListAppsPaginatorName = Literal["list_apps"]
 ListArtifactsPaginatorName = Literal["list_artifacts"]
@@ -684,6 +748,7 @@ ListHumanTaskUisPaginatorName = Literal["list_human_task_uis"]
 ListHyperParameterTuningJobsPaginatorName = Literal["list_hyper_parameter_tuning_jobs"]
 ListImageVersionsPaginatorName = Literal["list_image_versions"]
 ListImagesPaginatorName = Literal["list_images"]
+ListInferenceExperimentsPaginatorName = Literal["list_inference_experiments"]
 ListInferenceRecommendationsJobStepsPaginatorName = Literal[
     "list_inference_recommendations_job_steps"
 ]
@@ -694,6 +759,9 @@ ListLabelingJobsForWorkteamSortByOptionsType = Literal["CreationTime"]
 ListLabelingJobsPaginatorName = Literal["list_labeling_jobs"]
 ListLineageGroupsPaginatorName = Literal["list_lineage_groups"]
 ListModelBiasJobDefinitionsPaginatorName = Literal["list_model_bias_job_definitions"]
+ListModelCardExportJobsPaginatorName = Literal["list_model_card_export_jobs"]
+ListModelCardVersionsPaginatorName = Literal["list_model_card_versions"]
+ListModelCardsPaginatorName = Literal["list_model_cards"]
 ListModelExplainabilityJobDefinitionsPaginatorName = Literal[
     "list_model_explainability_job_definitions"
 ]
@@ -702,6 +770,8 @@ ListModelPackageGroupsPaginatorName = Literal["list_model_package_groups"]
 ListModelPackagesPaginatorName = Literal["list_model_packages"]
 ListModelQualityJobDefinitionsPaginatorName = Literal["list_model_quality_job_definitions"]
 ListModelsPaginatorName = Literal["list_models"]
+ListMonitoringAlertHistoryPaginatorName = Literal["list_monitoring_alert_history"]
+ListMonitoringAlertsPaginatorName = Literal["list_monitoring_alerts"]
 ListMonitoringExecutionsPaginatorName = Literal["list_monitoring_executions"]
 ListMonitoringSchedulesPaginatorName = Literal["list_monitoring_schedules"]
 ListNotebookInstanceLifecycleConfigsPaginatorName = Literal[
@@ -713,6 +783,7 @@ ListPipelineExecutionsPaginatorName = Literal["list_pipeline_executions"]
 ListPipelineParametersForExecutionPaginatorName = Literal["list_pipeline_parameters_for_execution"]
 ListPipelinesPaginatorName = Literal["list_pipelines"]
 ListProcessingJobsPaginatorName = Literal["list_processing_jobs"]
+ListSpacesPaginatorName = Literal["list_spaces"]
 ListStageDevicesPaginatorName = Literal["list_stage_devices"]
 ListStudioLifecycleConfigsPaginatorName = Literal["list_studio_lifecycle_configs"]
 ListSubscribedWorkteamsPaginatorName = Literal["list_subscribed_workteams"]
@@ -732,6 +803,22 @@ ListWorkteamsSortByOptionsType = Literal["CreateDate", "Name"]
 MetricSetSourceType = Literal["Test", "Train", "Validation"]
 ModelApprovalStatusType = Literal["Approved", "PendingManualApproval", "Rejected"]
 ModelCacheSettingType = Literal["Disabled", "Enabled"]
+ModelCardExportJobSortByType = Literal["CreationTime", "Name", "Status"]
+ModelCardExportJobSortOrderType = Literal["Ascending", "Descending"]
+ModelCardExportJobStatusType = Literal["Completed", "Failed", "InProgress"]
+ModelCardProcessingStatusType = Literal[
+    "ContentDeleted",
+    "DeleteCompleted",
+    "DeleteFailed",
+    "DeleteInProgress",
+    "DeletePending",
+    "ExportJobsDeleted",
+]
+ModelCardSortByType = Literal["CreationTime", "Name"]
+ModelCardSortOrderType = Literal["Ascending", "Descending"]
+ModelCardStatusType = Literal["Approved", "Archived", "Draft", "PendingReview"]
+ModelCardVersionSortByType = Literal["Version"]
+ModelInfrastructureTypeType = Literal["RealTimeInference"]
 ModelMetadataFilterTypeType = Literal["Domain", "Framework", "FrameworkVersion", "Task"]
 ModelPackageGroupSortByType = Literal["CreationTime", "Name"]
 ModelPackageGroupStatusType = Literal[
@@ -741,6 +828,10 @@ ModelPackageSortByType = Literal["CreationTime", "Name"]
 ModelPackageStatusType = Literal["Completed", "Deleting", "Failed", "InProgress", "Pending"]
 ModelPackageTypeType = Literal["Both", "Unversioned", "Versioned"]
 ModelSortKeyType = Literal["CreationTime", "Name"]
+ModelVariantActionType = Literal["Promote", "Remove", "Retain"]
+ModelVariantStatusType = Literal["Creating", "Deleted", "Deleting", "InService", "Updating"]
+MonitoringAlertHistorySortKeyType = Literal["CreationTime", "Status"]
+MonitoringAlertStatusType = Literal["InAlert", "OK"]
 MonitoringExecutionSortKeyType = Literal["CreationTime", "ScheduledTime", "Status"]
 MonitoringJobDefinitionSortKeyType = Literal["CreationTime", "Name"]
 MonitoringProblemTypeType = Literal[
@@ -839,6 +930,7 @@ ProcessingS3DataDistributionTypeType = Literal["FullyReplicated", "ShardedByS3Ke
 ProcessingS3DataTypeType = Literal["ManifestFile", "S3Prefix"]
 ProcessingS3InputModeType = Literal["File", "Pipe"]
 ProcessingS3UploadModeType = Literal["Continuous", "EndOfJob"]
+ProcessorType = Literal["CPU", "GPU"]
 ProductionVariantAcceleratorTypeType = Literal[
     "ml.eia1.large",
     "ml.eia1.medium",
@@ -1023,6 +1115,8 @@ ResourceTypeType = Literal[
     "FeatureGroup",
     "FeatureMetadata",
     "HyperParameterTuningJob",
+    "Model",
+    "ModelCard",
     "ModelPackage",
     "ModelPackageGroup",
     "Pipeline",
@@ -1067,12 +1161,17 @@ SortAssociationsByType = Literal[
 SortByType = Literal["CreationTime", "Name", "Status"]
 SortContextsByType = Literal["CreationTime", "Name"]
 SortExperimentsByType = Literal["CreationTime", "Name"]
+SortInferenceExperimentsByType = Literal["CreationTime", "Name", "Status"]
 SortLineageGroupsByType = Literal["CreationTime", "Name"]
 SortOrderType = Literal["Ascending", "Descending"]
 SortPipelineExecutionsByType = Literal["CreationTime", "PipelineExecutionArn"]
 SortPipelinesByType = Literal["CreationTime", "Name"]
 SortTrialComponentsByType = Literal["CreationTime", "Name"]
 SortTrialsByType = Literal["CreationTime", "Name"]
+SpaceSortKeyType = Literal["CreationTime", "LastModifiedTime"]
+SpaceStatusType = Literal[
+    "Delete_Failed", "Deleting", "Failed", "InService", "Pending", "Update_Failed", "Updating"
+]
 SplitTypeType = Literal["Line", "None", "RecordIO", "TFRecord"]
 StageStatusType = Literal[
     "CREATING",
@@ -1087,6 +1186,7 @@ StageStatusType = Literal[
 StepStatusType = Literal["Executing", "Failed", "Starting", "Stopped", "Stopping", "Succeeded"]
 StudioLifecycleConfigAppTypeType = Literal["JupyterServer", "KernelGateway"]
 StudioLifecycleConfigSortKeyType = Literal["CreationTime", "LastModifiedTime", "Name"]
+TableFormatType = Literal["Glue", "Iceberg"]
 TargetDeviceType = Literal[
     "aisage",
     "amba_cv2",
@@ -1229,5 +1329,6 @@ UserProfileStatusType = Literal[
 ]
 VariantPropertyTypeType = Literal["DataCaptureConfig", "DesiredInstanceCount", "DesiredWeight"]
 VariantStatusType = Literal["ActivatingTraffic", "Baking", "Creating", "Deleting", "Updating"]
+VendorGuidanceType = Literal["ARCHIVED", "NOT_PROVIDED", "STABLE", "TO_BE_ARCHIVED"]
 WarmPoolResourceStatusType = Literal["Available", "InUse", "Reused", "Terminated"]
 WorkforceStatusType = Literal["Active", "Deleting", "Failed", "Initializing", "Updating"]

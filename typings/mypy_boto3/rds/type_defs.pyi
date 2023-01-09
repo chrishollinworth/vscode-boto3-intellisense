@@ -22,6 +22,7 @@ from .literals import (
     ApplyMethodType,
     AuditPolicyStateType,
     AutomationModeType,
+    ClientPasswordAuthTypeType,
     CustomEngineVersionStatusType,
     DBProxyEndpointStatusType,
     DBProxyEndpointTargetRoleType,
@@ -66,6 +67,7 @@ __all__ = (
     "BlueGreenDeploymentTaskTypeDef",
     "BlueGreenDeploymentTypeDef",
     "CancelExportTaskMessageRequestTypeDef",
+    "CertificateDetailsTypeDef",
     "CertificateMessageTypeDef",
     "CertificateTypeDef",
     "CharacterSetTypeDef",
@@ -116,6 +118,7 @@ __all__ = (
     "CreateGlobalClusterResultTypeDef",
     "CreateOptionGroupMessageRequestTypeDef",
     "CreateOptionGroupResultTypeDef",
+    "CustomDBEngineVersionAMITypeDef",
     "DBClusterBacktrackMessageTypeDef",
     "DBClusterBacktrackResponseMetadataTypeDef",
     "DBClusterBacktrackTypeDef",
@@ -269,6 +272,7 @@ __all__ = (
     "GlobalClustersMessageTypeDef",
     "IPRangeTypeDef",
     "ListTagsForResourceMessageRequestTypeDef",
+    "MasterUserSecretTypeDef",
     "MinimumEngineVersionPerAllowedValueTypeDef",
     "ModifyActivityStreamRequestRequestTypeDef",
     "ModifyActivityStreamResponseTypeDef",
@@ -603,6 +607,15 @@ CancelExportTaskMessageRequestTypeDef = TypedDict(
     },
 )
 
+CertificateDetailsTypeDef = TypedDict(
+    "CertificateDetailsTypeDef",
+    {
+        "CAIdentifier": str,
+        "ValidTill": datetime,
+    },
+    total=False,
+)
+
 CertificateMessageTypeDef = TypedDict(
     "CertificateMessageTypeDef",
     {
@@ -815,6 +828,7 @@ _OptionalCopyDBSnapshotMessageRequestTypeDef = TypedDict(
         "PreSignedUrl": str,
         "OptionGroupName": str,
         "TargetCustomAvailabilityZone": str,
+        "CopyOptionGroup": bool,
         "SourceRegion": str,
     },
     total=False,
@@ -899,16 +913,17 @@ _RequiredCreateCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
     {
         "Engine": str,
         "EngineVersion": str,
-        "DatabaseInstallationFilesS3BucketName": str,
-        "KMSKeyId": str,
-        "Manifest": str,
     },
 )
 _OptionalCreateCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
     "_OptionalCreateCustomDBEngineVersionMessageRequestTypeDef",
     {
+        "DatabaseInstallationFilesS3BucketName": str,
         "DatabaseInstallationFilesS3Prefix": str,
+        "ImageId": str,
+        "KMSKeyId": str,
         "Description": str,
+        "Manifest": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -999,6 +1014,8 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "NetworkType": str,
         "DBSystemId": str,
+        "ManageMasterUserPassword": bool,
+        "MasterUserSecretKmsKeyId": str,
         "SourceRegion": str,
     },
     total=False,
@@ -1136,6 +1153,9 @@ _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "BackupTarget": str,
         "NetworkType": str,
         "StorageThroughput": int,
+        "ManageMasterUserPassword": bool,
+        "MasterUserSecretKmsKeyId": str,
+        "CACertificateIdentifier": str,
     },
     total=False,
 )
@@ -1188,6 +1208,7 @@ _OptionalCreateDBInstanceReadReplicaMessageRequestTypeDef = TypedDict(
         "CustomIamInstanceProfile": str,
         "NetworkType": str,
         "StorageThroughput": int,
+        "EnableCustomerOwnedIp": bool,
         "SourceRegion": str,
     },
     total=False,
@@ -1482,6 +1503,15 @@ CreateOptionGroupResultTypeDef = TypedDict(
         "OptionGroup": "OptionGroupTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CustomDBEngineVersionAMITypeDef = TypedDict(
+    "CustomDBEngineVersionAMITypeDef",
+    {
+        "ImageId": str,
+        "Status": str,
+    },
+    total=False,
 )
 
 DBClusterBacktrackMessageTypeDef = TypedDict(
@@ -1780,6 +1810,7 @@ DBClusterTypeDef = TypedDict(
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationInfoTypeDef",
         "NetworkType": str,
         "DBSystemId": str,
+        "MasterUserSecret": "MasterUserSecretTypeDef",
     },
     total=False,
 )
@@ -1802,6 +1833,8 @@ DBEngineVersionResponseMetadataTypeDef = TypedDict(
         "DBEngineDescription": str,
         "DBEngineVersionDescription": str,
         "DefaultCharacterSet": "CharacterSetTypeDef",
+        "Image": "CustomDBEngineVersionAMITypeDef",
+        "DBEngineMediaType": str,
         "SupportedCharacterSets": List["CharacterSetTypeDef"],
         "SupportedNcharCharacterSets": List["CharacterSetTypeDef"],
         "ValidUpgradeTarget": List["UpgradeTargetTypeDef"],
@@ -1823,6 +1856,8 @@ DBEngineVersionResponseMetadataTypeDef = TypedDict(
         "TagList": List["TagTypeDef"],
         "SupportsBabelfish": bool,
         "CustomDBEngineVersionManifest": str,
+        "SupportsCertificateRotationWithoutRestart": bool,
+        "SupportedCACertificateIdentifiers": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1836,6 +1871,8 @@ DBEngineVersionTypeDef = TypedDict(
         "DBEngineDescription": str,
         "DBEngineVersionDescription": str,
         "DefaultCharacterSet": "CharacterSetTypeDef",
+        "Image": "CustomDBEngineVersionAMITypeDef",
+        "DBEngineMediaType": str,
         "SupportedCharacterSets": List["CharacterSetTypeDef"],
         "SupportedNcharCharacterSets": List["CharacterSetTypeDef"],
         "ValidUpgradeTarget": List["UpgradeTargetTypeDef"],
@@ -1857,6 +1894,8 @@ DBEngineVersionTypeDef = TypedDict(
         "TagList": List["TagTypeDef"],
         "SupportsBabelfish": bool,
         "CustomDBEngineVersionManifest": str,
+        "SupportsCertificateRotationWithoutRestart": bool,
+        "SupportedCACertificateIdentifiers": List[str],
     },
     total=False,
 )
@@ -2028,6 +2067,8 @@ DBInstanceTypeDef = TypedDict(
         "ActivityStreamPolicyStatus": ActivityStreamPolicyStatusType,
         "StorageThroughput": int,
         "DBSystemId": str,
+        "MasterUserSecret": "MasterUserSecretTypeDef",
+        "CertificateDetails": "CertificateDetailsTypeDef",
     },
     total=False,
 )
@@ -3538,6 +3579,16 @@ class ListTagsForResourceMessageRequestTypeDef(
 ):
     pass
 
+MasterUserSecretTypeDef = TypedDict(
+    "MasterUserSecretTypeDef",
+    {
+        "SecretArn": str,
+        "SecretStatus": str,
+        "KmsKeyId": str,
+    },
+    total=False,
+)
+
 MinimumEngineVersionPerAllowedValueTypeDef = TypedDict(
     "MinimumEngineVersionPerAllowedValueTypeDef",
     {
@@ -3696,6 +3747,9 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "PerformanceInsightsRetentionPeriod": int,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "NetworkType": str,
+        "ManageMasterUserPassword": bool,
+        "RotateMasterUserPassword": bool,
+        "MasterUserSecretKmsKeyId": str,
     },
     total=False,
 )
@@ -3808,6 +3862,9 @@ _OptionalModifyDBInstanceMessageRequestTypeDef = TypedDict(
         "ResumeFullAutomationModeMinutes": int,
         "NetworkType": str,
         "StorageThroughput": int,
+        "ManageMasterUserPassword": bool,
+        "RotateMasterUserPassword": bool,
+        "MasterUserSecretKmsKeyId": str,
     },
     total=False,
 )
@@ -4158,6 +4215,7 @@ OptionGroupOptionTypeDef = TypedDict(
         "SupportsOptionVersionDowngrade": bool,
         "OptionGroupOptionSettings": List["OptionGroupOptionSettingTypeDef"],
         "OptionGroupOptionVersions": List["OptionVersionTypeDef"],
+        "CopyableCrossAccount": bool,
     },
     total=False,
 )
@@ -4182,6 +4240,9 @@ OptionGroupTypeDef = TypedDict(
         "AllowsVpcAndNonVpcInstanceMemberships": bool,
         "VpcId": str,
         "OptionGroupArn": str,
+        "SourceOptionGroup": str,
+        "SourceAccountId": str,
+        "CopyTimestamp": datetime,
     },
     total=False,
 )
@@ -4751,7 +4812,6 @@ _RequiredRestoreDBClusterFromS3MessageRequestTypeDef = TypedDict(
         "DBClusterIdentifier": str,
         "Engine": str,
         "MasterUsername": str,
-        "MasterUserPassword": str,
         "SourceEngine": str,
         "SourceEngineVersion": str,
         "S3BucketName": str,
@@ -4770,6 +4830,7 @@ _OptionalRestoreDBClusterFromS3MessageRequestTypeDef = TypedDict(
         "DBSubnetGroupName": str,
         "EngineVersion": str,
         "Port": int,
+        "MasterUserPassword": str,
         "OptionGroupName": str,
         "PreferredBackupWindow": str,
         "PreferredMaintenanceWindow": str,
@@ -4786,6 +4847,8 @@ _OptionalRestoreDBClusterFromS3MessageRequestTypeDef = TypedDict(
         "DomainIAMRoleName": str,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "NetworkType": str,
+        "ManageMasterUserPassword": bool,
+        "MasterUserSecretKmsKeyId": str,
     },
     total=False,
 )
@@ -5025,6 +5088,8 @@ _OptionalRestoreDBInstanceFromS3MessageRequestTypeDef = TypedDict(
         "MaxAllocatedStorage": int,
         "NetworkType": str,
         "StorageThroughput": int,
+        "ManageMasterUserPassword": bool,
+        "MasterUserSecretKmsKeyId": str,
     },
     total=False,
 )
@@ -5542,6 +5607,7 @@ UserAuthConfigInfoTypeDef = TypedDict(
         "AuthScheme": Literal["SECRETS"],
         "SecretArn": str,
         "IAMAuth": IAMAuthModeType,
+        "ClientPasswordAuthType": ClientPasswordAuthTypeType,
     },
     total=False,
 )
@@ -5554,6 +5620,7 @@ UserAuthConfigTypeDef = TypedDict(
         "AuthScheme": Literal["SECRETS"],
         "SecretArn": str,
         "IAMAuth": IAMAuthModeType,
+        "ClientPasswordAuthType": ClientPasswordAuthTypeType,
     },
     total=False,
 )

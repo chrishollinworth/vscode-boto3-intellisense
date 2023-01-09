@@ -25,6 +25,7 @@ from .literals import (
     ControlStatusType,
     ControlTypeType,
     DelegationStatusType,
+    DeleteResourcesType,
     EvidenceFinderBackfillStatusType,
     EvidenceFinderEnablementStatusType,
     FrameworkTypeType,
@@ -108,6 +109,7 @@ __all__ = (
     "DeleteControlRequestRequestTypeDef",
     "DeregisterAccountResponseTypeDef",
     "DeregisterOrganizationAdminAccountRequestRequestTypeDef",
+    "DeregistrationPolicyTypeDef",
     "DisassociateAssessmentReportEvidenceFolderRequestRequestTypeDef",
     "EvidenceFinderEnablementTypeDef",
     "EvidenceInsightsTypeDef",
@@ -930,6 +932,14 @@ DeregisterOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
     "DeregisterOrganizationAdminAccountRequestRequestTypeDef",
     {
         "adminAccountId": str,
+    },
+    total=False,
+)
+
+DeregistrationPolicyTypeDef = TypedDict(
+    "DeregistrationPolicyTypeDef",
+    {
+        "deleteResources": DeleteResourcesType,
     },
     total=False,
 )
@@ -1759,6 +1769,7 @@ SettingsTypeDef = TypedDict(
         "defaultProcessOwners": List["RoleTypeDef"],
         "kmsKey": str,
         "evidenceFinderEnablement": "EvidenceFinderEnablementTypeDef",
+        "deregistrationPolicy": "DeregistrationPolicyTypeDef",
     },
     total=False,
 )
@@ -2032,6 +2043,7 @@ UpdateSettingsRequestRequestTypeDef = TypedDict(
         "defaultProcessOwners": List["RoleTypeDef"],
         "kmsKey": str,
         "evidenceFinderEnabled": bool,
+        "deregistrationPolicy": "DeregistrationPolicyTypeDef",
     },
     total=False,
 )

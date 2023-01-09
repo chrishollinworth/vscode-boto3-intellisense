@@ -200,6 +200,7 @@ DescribeSecretResponseTypeDef = TypedDict(
         "LastChangedDate": datetime,
         "LastAccessedDate": datetime,
         "DeletedDate": datetime,
+        "NextRotationDate": datetime,
         "Tags": List["TagTypeDef"],
         "VersionIdsToStages": Dict[str, List[str]],
         "OwningService": str,
@@ -329,6 +330,7 @@ ListSecretVersionIdsResponseTypeDef = TypedDict(
 ListSecretsRequestRequestTypeDef = TypedDict(
     "ListSecretsRequestRequestTypeDef",
     {
+        "IncludePlannedDeletion": bool,
         "MaxResults": int,
         "NextToken": str,
         "Filters": List["FilterTypeDef"],
@@ -569,6 +571,7 @@ SecretListEntryTypeDef = TypedDict(
         "LastChangedDate": datetime,
         "LastAccessedDate": datetime,
         "DeletedDate": datetime,
+        "NextRotationDate": datetime,
         "Tags": List["TagTypeDef"],
         "SecretVersionsToStages": Dict[str, List[str]],
         "OwningService": str,

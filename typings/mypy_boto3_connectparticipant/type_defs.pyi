@@ -40,6 +40,8 @@ __all__ = (
     "GetTranscriptRequestRequestTypeDef",
     "GetTranscriptResponseTypeDef",
     "ItemTypeDef",
+    "MessageMetadataTypeDef",
+    "ReceiptTypeDef",
     "ResponseMetadataTypeDef",
     "SendEventRequestRequestTypeDef",
     "SendEventResponseTypeDef",
@@ -84,13 +86,13 @@ ConnectionCredentialsTypeDef = TypedDict(
 _RequiredCreateParticipantConnectionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateParticipantConnectionRequestRequestTypeDef",
     {
-        "Type": List[ConnectionTypeType],
         "ParticipantToken": str,
     },
 )
 _OptionalCreateParticipantConnectionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateParticipantConnectionRequestRequestTypeDef",
     {
+        "Type": List[ConnectionTypeType],
         "ConnectParticipant": bool,
     },
     total=False,
@@ -194,6 +196,26 @@ ItemTypeDef = TypedDict(
         "DisplayName": str,
         "ParticipantRole": ParticipantRoleType,
         "Attachments": List["AttachmentItemTypeDef"],
+        "MessageMetadata": "MessageMetadataTypeDef",
+    },
+    total=False,
+)
+
+MessageMetadataTypeDef = TypedDict(
+    "MessageMetadataTypeDef",
+    {
+        "MessageId": str,
+        "Receipts": List["ReceiptTypeDef"],
+    },
+    total=False,
+)
+
+ReceiptTypeDef = TypedDict(
+    "ReceiptTypeDef",
+    {
+        "DeliveredTimestamp": str,
+        "ReadTimestamp": str,
+        "RecipientParticipantId": str,
     },
     total=False,
 )

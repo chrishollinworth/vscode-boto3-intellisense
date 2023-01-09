@@ -13,15 +13,19 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AugmentedManifestsDocumentTypeFormatType,
+    BlockTypeType,
     DocumentClassifierDataFormatType,
     DocumentClassifierModeType,
     DocumentReadActionType,
     DocumentReadFeatureTypesType,
     DocumentReadModeType,
+    DocumentTypeType,
     EndpointStatusType,
     EntityRecognizerDataFormatType,
     EntityTypeType,
@@ -29,6 +33,7 @@ from .literals import (
     JobStatusType,
     LanguageCodeType,
     ModelStatusType,
+    PageBasedErrorCodeType,
     PartOfSpeechTagTypeType,
     PiiEntitiesDetectionMaskModeType,
     PiiEntitiesDetectionModeType,
@@ -39,6 +44,10 @@ from .literals import (
     TargetedSentimentEntityTypeType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -65,6 +74,10 @@ __all__ = (
     "BatchDetectTargetedSentimentRequestRequestTypeDef",
     "BatchDetectTargetedSentimentResponseTypeDef",
     "BatchItemErrorTypeDef",
+    "BlockReferenceTypeDef",
+    "BlockTypeDef",
+    "BoundingBoxTypeDef",
+    "ChildBlockTypeDef",
     "ClassifierEvaluationMetricsTypeDef",
     "ClassifierMetadataTypeDef",
     "ClassifyDocumentRequestRequestTypeDef",
@@ -130,7 +143,9 @@ __all__ = (
     "DocumentClassifierPropertiesTypeDef",
     "DocumentClassifierSummaryTypeDef",
     "DocumentLabelTypeDef",
+    "DocumentMetadataTypeDef",
     "DocumentReaderConfigTypeDef",
+    "DocumentTypeListItemTypeDef",
     "DominantLanguageDetectionJobFilterTypeDef",
     "DominantLanguageDetectionJobPropertiesTypeDef",
     "DominantLanguageTypeDef",
@@ -152,8 +167,11 @@ __all__ = (
     "EntityTypeDef",
     "EntityTypesEvaluationMetricsTypeDef",
     "EntityTypesListItemTypeDef",
+    "ErrorsListItemTypeDef",
     "EventsDetectionJobFilterTypeDef",
     "EventsDetectionJobPropertiesTypeDef",
+    "ExtractedCharactersListItemTypeDef",
+    "GeometryTypeDef",
     "ImportModelRequestRequestTypeDef",
     "ImportModelResponseTypeDef",
     "InputDataConfigTypeDef",
@@ -198,9 +216,11 @@ __all__ = (
     "PiiEntitiesDetectionJobPropertiesTypeDef",
     "PiiEntityTypeDef",
     "PiiOutputDataConfigTypeDef",
+    "PointTypeDef",
     "PutResourcePolicyRequestRequestTypeDef",
     "PutResourcePolicyResponseTypeDef",
     "RedactionConfigTypeDef",
+    "RelationshipsListItemTypeDef",
     "ResponseMetadataTypeDef",
     "SentimentDetectionJobFilterTypeDef",
     "SentimentDetectionJobPropertiesTypeDef",
@@ -442,6 +462,51 @@ BatchItemErrorTypeDef = TypedDict(
     total=False,
 )
 
+BlockReferenceTypeDef = TypedDict(
+    "BlockReferenceTypeDef",
+    {
+        "BlockId": str,
+        "BeginOffset": int,
+        "EndOffset": int,
+        "ChildBlocks": List["ChildBlockTypeDef"],
+    },
+    total=False,
+)
+
+BlockTypeDef = TypedDict(
+    "BlockTypeDef",
+    {
+        "Id": str,
+        "BlockType": BlockTypeType,
+        "Text": str,
+        "Page": int,
+        "Geometry": "GeometryTypeDef",
+        "Relationships": List["RelationshipsListItemTypeDef"],
+    },
+    total=False,
+)
+
+BoundingBoxTypeDef = TypedDict(
+    "BoundingBoxTypeDef",
+    {
+        "Height": float,
+        "Left": float,
+        "Top": float,
+        "Width": float,
+    },
+    total=False,
+)
+
+ChildBlockTypeDef = TypedDict(
+    "ChildBlockTypeDef",
+    {
+        "ChildBlockId": str,
+        "BeginOffset": int,
+        "EndOffset": int,
+    },
+    total=False,
+)
+
 ClassifierEvaluationMetricsTypeDef = TypedDict(
     "ClassifierEvaluationMetricsTypeDef",
     {
@@ -468,19 +533,35 @@ ClassifierMetadataTypeDef = TypedDict(
     total=False,
 )
 
-ClassifyDocumentRequestRequestTypeDef = TypedDict(
-    "ClassifyDocumentRequestRequestTypeDef",
+_RequiredClassifyDocumentRequestRequestTypeDef = TypedDict(
+    "_RequiredClassifyDocumentRequestRequestTypeDef",
     {
-        "Text": str,
         "EndpointArn": str,
     },
 )
+_OptionalClassifyDocumentRequestRequestTypeDef = TypedDict(
+    "_OptionalClassifyDocumentRequestRequestTypeDef",
+    {
+        "Text": str,
+        "Bytes": Union[bytes, IO[bytes], StreamingBody],
+        "DocumentReaderConfig": "DocumentReaderConfigTypeDef",
+    },
+    total=False,
+)
+
+class ClassifyDocumentRequestRequestTypeDef(
+    _RequiredClassifyDocumentRequestRequestTypeDef, _OptionalClassifyDocumentRequestRequestTypeDef
+):
+    pass
 
 ClassifyDocumentResponseTypeDef = TypedDict(
     "ClassifyDocumentResponseTypeDef",
     {
         "Classes": List["DocumentClassTypeDef"],
         "Labels": List["DocumentLabelTypeDef"],
+        "DocumentMetadata": "DocumentMetadataTypeDef",
+        "DocumentType": List["DocumentTypeListItemTypeDef"],
+        "Errors": List["ErrorsListItemTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -862,30 +943,26 @@ DetectDominantLanguageResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredDetectEntitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredDetectEntitiesRequestRequestTypeDef",
+DetectEntitiesRequestRequestTypeDef = TypedDict(
+    "DetectEntitiesRequestRequestTypeDef",
     {
         "Text": str,
-    },
-)
-_OptionalDetectEntitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalDetectEntitiesRequestRequestTypeDef",
-    {
         "LanguageCode": LanguageCodeType,
         "EndpointArn": str,
+        "Bytes": Union[bytes, IO[bytes], StreamingBody],
+        "DocumentReaderConfig": "DocumentReaderConfigTypeDef",
     },
     total=False,
 )
-
-class DetectEntitiesRequestRequestTypeDef(
-    _RequiredDetectEntitiesRequestRequestTypeDef, _OptionalDetectEntitiesRequestRequestTypeDef
-):
-    pass
 
 DetectEntitiesResponseTypeDef = TypedDict(
     "DetectEntitiesResponseTypeDef",
     {
         "Entities": List["EntityTypeDef"],
+        "DocumentMetadata": "DocumentMetadataTypeDef",
+        "DocumentType": List["DocumentTypeListItemTypeDef"],
+        "Blocks": List["BlockTypeDef"],
+        "Errors": List["ErrorsListItemTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -976,6 +1053,7 @@ DocumentClassTypeDef = TypedDict(
     {
         "Name": str,
         "Score": float,
+        "Page": int,
     },
     total=False,
 )
@@ -1085,6 +1163,16 @@ DocumentLabelTypeDef = TypedDict(
     {
         "Name": str,
         "Score": float,
+        "Page": int,
+    },
+    total=False,
+)
+
+DocumentMetadataTypeDef = TypedDict(
+    "DocumentMetadataTypeDef",
+    {
+        "Pages": int,
+        "ExtractedCharacters": List["ExtractedCharactersListItemTypeDef"],
     },
     total=False,
 )
@@ -1108,6 +1196,15 @@ class DocumentReaderConfigTypeDef(
     _RequiredDocumentReaderConfigTypeDef, _OptionalDocumentReaderConfigTypeDef
 ):
     pass
+
+DocumentTypeListItemTypeDef = TypedDict(
+    "DocumentTypeListItemTypeDef",
+    {
+        "Page": int,
+        "Type": DocumentTypeType,
+    },
+    total=False,
+)
 
 DominantLanguageDetectionJobFilterTypeDef = TypedDict(
     "DominantLanguageDetectionJobFilterTypeDef",
@@ -1372,6 +1469,7 @@ EntityTypeDef = TypedDict(
         "Text": str,
         "BeginOffset": int,
         "EndOffset": int,
+        "BlockReferences": List["BlockReferenceTypeDef"],
     },
     total=False,
 )
@@ -1391,6 +1489,16 @@ EntityTypesListItemTypeDef = TypedDict(
     {
         "Type": str,
     },
+)
+
+ErrorsListItemTypeDef = TypedDict(
+    "ErrorsListItemTypeDef",
+    {
+        "Page": int,
+        "ErrorCode": PageBasedErrorCodeType,
+        "ErrorMessage": str,
+    },
+    total=False,
 )
 
 EventsDetectionJobFilterTypeDef = TypedDict(
@@ -1419,6 +1527,24 @@ EventsDetectionJobPropertiesTypeDef = TypedDict(
         "LanguageCode": LanguageCodeType,
         "DataAccessRoleArn": str,
         "TargetEventTypes": List[str],
+    },
+    total=False,
+)
+
+ExtractedCharactersListItemTypeDef = TypedDict(
+    "ExtractedCharactersListItemTypeDef",
+    {
+        "Page": int,
+        "Count": int,
+    },
+    total=False,
+)
+
+GeometryTypeDef = TypedDict(
+    "GeometryTypeDef",
+    {
+        "BoundingBox": "BoundingBoxTypeDef",
+        "Polygon": List["PointTypeDef"],
     },
     total=False,
 )
@@ -1906,6 +2032,15 @@ class PiiOutputDataConfigTypeDef(
 ):
     pass
 
+PointTypeDef = TypedDict(
+    "PointTypeDef",
+    {
+        "X": float,
+        "Y": float,
+    },
+    total=False,
+)
+
 _RequiredPutResourcePolicyRequestRequestTypeDef = TypedDict(
     "_RequiredPutResourcePolicyRequestRequestTypeDef",
     {
@@ -1940,6 +2075,15 @@ RedactionConfigTypeDef = TypedDict(
         "PiiEntityTypes": List[PiiEntityTypeType],
         "MaskMode": PiiEntitiesDetectionMaskModeType,
         "MaskCharacter": str,
+    },
+    total=False,
+)
+
+RelationshipsListItemTypeDef = TypedDict(
+    "RelationshipsListItemTypeDef",
+    {
+        "Ids": List[str],
+        "Type": Literal["CHILD"],
     },
     total=False,
 )

@@ -80,6 +80,8 @@ __all__ = (
     "DeleteNodegroupResponseTypeDef",
     "DeregisterClusterRequestRequestTypeDef",
     "DeregisterClusterResponseTypeDef",
+    "DescribeAddonConfigurationRequestRequestTypeDef",
+    "DescribeAddonConfigurationResponseTypeDef",
     "DescribeAddonRequestRequestTypeDef",
     "DescribeAddonResponseTypeDef",
     "DescribeAddonVersionsRequestRequestTypeDef",
@@ -209,6 +211,7 @@ AddonTypeDef = TypedDict(
         "publisher": str,
         "owner": str,
         "marketplaceInformation": "MarketplaceInformationTypeDef",
+        "configurationValues": str,
     },
     total=False,
 )
@@ -406,6 +409,7 @@ _OptionalCreateAddonRequestRequestTypeDef = TypedDict(
         "resolveConflicts": ResolveConflictsType,
         "clientRequestToken": str,
         "tags": Dict[str, str],
+        "configurationValues": str,
     },
     total=False,
 )
@@ -620,6 +624,24 @@ DeregisterClusterResponseTypeDef = TypedDict(
     "DeregisterClusterResponseTypeDef",
     {
         "cluster": "ClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAddonConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeAddonConfigurationRequestRequestTypeDef",
+    {
+        "addonName": str,
+        "addonVersion": str,
+    },
+)
+
+DescribeAddonConfigurationResponseTypeDef = TypedDict(
+    "DescribeAddonConfigurationResponseTypeDef",
+    {
+        "addonName": str,
+        "addonVersion": str,
+        "configurationSchema": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1366,6 +1388,7 @@ _OptionalUpdateAddonRequestRequestTypeDef = TypedDict(
         "serviceAccountRoleArn": str,
         "resolveConflicts": ResolveConflictsType,
         "clientRequestToken": str,
+        "configurationValues": str,
     },
     total=False,
 )

@@ -34,6 +34,8 @@ ChatItemTypeType = Literal[
     "CONNECTION_ACK",
     "EVENT",
     "MESSAGE",
+    "MESSAGE_DELIVERED",
+    "MESSAGE_READ",
     "PARTICIPANT_JOINED",
     "PARTICIPANT_LEFT",
     "TRANSFER_FAILED",

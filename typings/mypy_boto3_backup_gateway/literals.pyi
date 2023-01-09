@@ -24,6 +24,7 @@ __all__ = (
     "ListGatewaysPaginatorName",
     "ListHypervisorsPaginatorName",
     "ListVirtualMachinesPaginatorName",
+    "SyncMetadataStatusType",
 )
 
 GatewayTypeType = Literal["BACKUP_VM"]
@@ -31,3 +32,4 @@ HypervisorStateType = Literal["ERROR", "OFFLINE", "ONLINE", "PENDING"]
 ListGatewaysPaginatorName = Literal["list_gateways"]
 ListHypervisorsPaginatorName = Literal["list_hypervisors"]
 ListVirtualMachinesPaginatorName = Literal["list_virtual_machines"]
+SyncMetadataStatusType = Literal["CREATED", "FAILED", "PARTIALLY_FAILED", "RUNNING", "SUCCEEDED"]

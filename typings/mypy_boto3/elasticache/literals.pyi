@@ -64,6 +64,7 @@ __all__ = (
     "ServiceUpdateTypeType",
     "SlaMetType",
     "SourceTypeType",
+    "TransitEncryptionModeType",
     "UpdateActionStatusType",
 )
 
@@ -126,6 +127,7 @@ SourceTypeType = Literal[
     "user",
     "user-group",
 ]
+TransitEncryptionModeType = Literal["preferred", "required"]
 UpdateActionStatusType = Literal[
     "complete",
     "in-progress",

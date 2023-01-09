@@ -28,7 +28,7 @@ __all__ = ("ListBackendJobsPaginator",)
 
 class ListBackendJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplifybackend.html#AmplifyBackend.Paginator.ListBackendJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/amplifybackend.html#AmplifyBackend.Paginator.ListBackendJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/paginators.html#listbackendjobspaginator)
     """
 
@@ -43,6 +43,6 @@ class ListBackendJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBackendJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/amplifybackend.html#AmplifyBackend.Paginator.ListBackendJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/amplifybackend.html#AmplifyBackend.Paginator.ListBackendJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/paginators.html#listbackendjobspaginator)
         """

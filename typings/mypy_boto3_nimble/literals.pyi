@@ -6,9 +6,9 @@ Type annotations for nimble service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_nimble.literals import LaunchProfileDeletedWaiterName
+    from mypy_boto3_nimble.literals import AutomaticTerminationModeType
 
-    data: LaunchProfileDeletedWaiterName = "launch_profile_deleted"
+    data: AutomaticTerminationModeType = "ACTIVATED"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AutomaticTerminationModeType",
     "LaunchProfileDeletedWaiterName",
     "LaunchProfilePersonaType",
     "LaunchProfilePlatformType",
@@ -33,10 +34,13 @@ __all__ = (
     "ListLaunchProfileMembersPaginatorName",
     "ListLaunchProfilesPaginatorName",
     "ListStreamingImagesPaginatorName",
+    "ListStreamingSessionBackupsPaginatorName",
     "ListStreamingSessionsPaginatorName",
     "ListStudioComponentsPaginatorName",
     "ListStudioMembersPaginatorName",
     "ListStudiosPaginatorName",
+    "SessionBackupModeType",
+    "SessionPersistenceModeType",
     "StreamingClipboardModeType",
     "StreamingImageDeletedWaiterName",
     "StreamingImageEncryptionConfigurationKeyTypeType",
@@ -66,8 +70,10 @@ __all__ = (
     "StudioReadyWaiterName",
     "StudioStateType",
     "StudioStatusCodeType",
+    "VolumeRetentionModeType",
 )
 
+AutomaticTerminationModeType = Literal["ACTIVATED", "DEACTIVATED"]
 LaunchProfileDeletedWaiterName = Literal["launch_profile_deleted"]
 LaunchProfilePersonaType = Literal["USER"]
 LaunchProfilePlatformType = Literal["LINUX", "WINDOWS"]
@@ -128,10 +134,13 @@ ListEulasPaginatorName = Literal["list_eulas"]
 ListLaunchProfileMembersPaginatorName = Literal["list_launch_profile_members"]
 ListLaunchProfilesPaginatorName = Literal["list_launch_profiles"]
 ListStreamingImagesPaginatorName = Literal["list_streaming_images"]
+ListStreamingSessionBackupsPaginatorName = Literal["list_streaming_session_backups"]
 ListStreamingSessionsPaginatorName = Literal["list_streaming_sessions"]
 ListStudioComponentsPaginatorName = Literal["list_studio_components"]
 ListStudioMembersPaginatorName = Literal["list_studio_members"]
 ListStudiosPaginatorName = Literal["list_studios"]
+SessionBackupModeType = Literal["AUTOMATIC", "DEACTIVATED"]
+SessionPersistenceModeType = Literal["ACTIVATED", "DEACTIVATED"]
 StreamingClipboardModeType = Literal["DISABLED", "ENABLED"]
 StreamingImageDeletedWaiterName = Literal["streaming_image_deleted"]
 StreamingImageEncryptionConfigurationKeyTypeType = Literal["CUSTOMER_MANAGED_KEY"]
@@ -269,6 +278,7 @@ StudioStatusCodeType = Literal[
     "AWS_SSO_CONFIGURATION_REPAIRED",
     "AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS",
     "AWS_SSO_NOT_ENABLED",
+    "AWS_STS_REGION_DISABLED",
     "ENCRYPTION_KEY_ACCESS_DENIED",
     "ENCRYPTION_KEY_NOT_FOUND",
     "INTERNAL_ERROR",
@@ -284,3 +294,4 @@ StudioStatusCodeType = Literal[
     "STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED",
     "STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED",
 ]
+VolumeRetentionModeType = Literal["DELETE", "RETAIN"]

@@ -158,6 +158,41 @@ __all__ = (
     "AwsEc2InstanceDetailsTypeDef",
     "AwsEc2InstanceMetadataOptionsTypeDef",
     "AwsEc2InstanceNetworkInterfacesDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataPlacementDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDetailsTypeDef",
     "AwsEc2NetworkAclAssociationTypeDef",
     "AwsEc2NetworkAclDetailsTypeDef",
     "AwsEc2NetworkAclEntryTypeDef",
@@ -396,6 +431,8 @@ __all__ = (
     "AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef",
     "AwsS3BucketWebsiteConfigurationTypeDef",
     "AwsS3ObjectDetailsTypeDef",
+    "AwsSageMakerNotebookInstanceDetailsTypeDef",
+    "AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef",
     "AwsSecretsManagerSecretDetailsTypeDef",
     "AwsSecretsManagerSecretRotationRulesTypeDef",
     "AwsSecurityFindingFiltersTypeDef",
@@ -427,6 +464,21 @@ __all__ = (
     "AwsWafRulePredicateListDetailsTypeDef",
     "AwsWafWebAclDetailsTypeDef",
     "AwsWafWebAclRuleTypeDef",
+    "AwsWafv2ActionAllowDetailsTypeDef",
+    "AwsWafv2ActionBlockDetailsTypeDef",
+    "AwsWafv2CustomHttpHeaderTypeDef",
+    "AwsWafv2CustomRequestHandlingDetailsTypeDef",
+    "AwsWafv2CustomResponseDetailsTypeDef",
+    "AwsWafv2RuleGroupDetailsTypeDef",
+    "AwsWafv2RulesActionCaptchaDetailsTypeDef",
+    "AwsWafv2RulesActionCountDetailsTypeDef",
+    "AwsWafv2RulesActionDetailsTypeDef",
+    "AwsWafv2RulesDetailsTypeDef",
+    "AwsWafv2VisibilityConfigDetailsTypeDef",
+    "AwsWafv2WebAclActionDetailsTypeDef",
+    "AwsWafv2WebAclCaptchaConfigDetailsTypeDef",
+    "AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef",
+    "AwsWafv2WebAclDetailsTypeDef",
     "AwsXrayEncryptionConfigDetailsTypeDef",
     "BatchDisableStandardsRequestRequestTypeDef",
     "BatchDisableStandardsResponseTypeDef",
@@ -1892,6 +1944,413 @@ AwsEc2InstanceNetworkInterfacesDetailsTypeDef = TypedDict(
     "AwsEc2InstanceNetworkInterfacesDetailsTypeDef",
     {
         "NetworkInterfaceId": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef",
+    {
+        "DeviceName": str,
+        "Ebs": "AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef",
+        "NoDevice": str,
+        "VirtualName": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef",
+    {
+        "DeleteOnTermination": bool,
+        "Encrypted": bool,
+        "Iops": int,
+        "KmsKeyId": str,
+        "SnapshotId": str,
+        "Throughput": int,
+        "VolumeSize": int,
+        "VolumeType": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef",
+    {
+        "CapacityReservationId": str,
+        "CapacityReservationResourceGroupArn": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef",
+    {
+        "CapacityReservationPreference": str,
+        "CapacityReservationTarget": "AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef",
+    {
+        "CoreCount": int,
+        "ThreadsPerCore": int,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef",
+    {
+        "CpuCredits": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataDetailsTypeDef",
+    {
+        "BlockDeviceMappingSet": List[
+            "AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef"
+        ],
+        "CapacityReservationSpecification": "AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef",
+        "CpuOptions": "AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef",
+        "CreditSpecification": "AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef",
+        "DisableApiStop": bool,
+        "DisableApiTermination": bool,
+        "EbsOptimized": bool,
+        "ElasticGpuSpecificationSet": List[
+            "AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef"
+        ],
+        "ElasticInferenceAcceleratorSet": List[
+            "AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef"
+        ],
+        "EnclaveOptions": "AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef",
+        "HibernationOptions": "AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef",
+        "IamInstanceProfile": "AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef",
+        "ImageId": str,
+        "InstanceInitiatedShutdownBehavior": str,
+        "InstanceMarketOptions": "AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef",
+        "InstanceRequirements": "AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef",
+        "InstanceType": str,
+        "KernelId": str,
+        "KeyName": str,
+        "LicenseSet": List["AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef"],
+        "MaintenanceOptions": "AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef",
+        "MetadataOptions": "AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef",
+        "Monitoring": "AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef",
+        "NetworkInterfaceSet": List["AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef"],
+        "Placement": "AwsEc2LaunchTemplateDataPlacementDetailsTypeDef",
+        "PrivateDnsNameOptions": "AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef",
+        "RamDiskId": str,
+        "SecurityGroupIdSet": List[str],
+        "SecurityGroupSet": List[str],
+        "UserData": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef",
+    {
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef",
+    {
+        "Count": int,
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef",
+    {
+        "Configured": bool,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef",
+    {
+        "Arn": str,
+        "Name": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef",
+    {
+        "MarketType": str,
+        "SpotOptions": "AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef",
+    {
+        "BlockDurationMinutes": int,
+        "InstanceInterruptionBehavior": str,
+        "MaxPrice": str,
+        "SpotInstanceType": str,
+        "ValidUntil": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef",
+    {
+        "Max": int,
+        "Min": int,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef",
+    {
+        "Max": int,
+        "Min": int,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef",
+    {
+        "Max": int,
+        "Min": int,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef",
+    {
+        "AcceleratorCount": "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef",
+        "AcceleratorManufacturers": List[str],
+        "AcceleratorNames": List[str],
+        "AcceleratorTotalMemoryMiB": "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef",
+        "AcceleratorTypes": List[str],
+        "BareMetal": str,
+        "BaselineEbsBandwidthMbps": "AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef",
+        "BurstablePerformance": str,
+        "CpuManufacturers": List[str],
+        "ExcludedInstanceTypes": List[str],
+        "InstanceGenerations": List[str],
+        "LocalStorage": str,
+        "LocalStorageTypes": List[str],
+        "MemoryGiBPerVCpu": "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef",
+        "MemoryMiB": "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef",
+        "NetworkInterfaceCount": "AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef",
+        "OnDemandMaxPricePercentageOverLowestPrice": int,
+        "RequireHibernateSupport": bool,
+        "SpotMaxPricePercentageOverLowestPrice": int,
+        "TotalLocalStorageGB": "AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef",
+        "VCpuCount": "AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef",
+    {
+        "Max": float,
+        "Min": float,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef",
+    {
+        "Max": int,
+        "Min": int,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef",
+    {
+        "Max": int,
+        "Min": int,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef",
+    {
+        "Max": float,
+        "Min": float,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef",
+    {
+        "Max": int,
+        "Min": int,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef",
+    {
+        "LicenseConfigurationArn": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef",
+    {
+        "AutoRecovery": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef",
+    {
+        "HttpEndpoint": str,
+        "HttpProtocolIpv6": str,
+        "HttpTokens": str,
+        "HttpPutResponseHopLimit": int,
+        "InstanceMetadataTags": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef",
+    {
+        "AssociateCarrierIpAddress": bool,
+        "AssociatePublicIpAddress": bool,
+        "DeleteOnTermination": bool,
+        "Description": str,
+        "DeviceIndex": int,
+        "Groups": List[str],
+        "InterfaceType": str,
+        "Ipv4PrefixCount": int,
+        "Ipv4Prefixes": List[
+            "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef"
+        ],
+        "Ipv6AddressCount": int,
+        "Ipv6Addresses": List[
+            "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef"
+        ],
+        "Ipv6PrefixCount": int,
+        "Ipv6Prefixes": List[
+            "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef"
+        ],
+        "NetworkCardIndex": int,
+        "NetworkInterfaceId": str,
+        "PrivateIpAddress": str,
+        "PrivateIpAddresses": List[
+            "AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef"
+        ],
+        "SecondaryPrivateIpAddressCount": int,
+        "SubnetId": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef",
+    {
+        "Ipv4Prefix": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef",
+    {
+        "Ipv6Address": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef",
+    {
+        "Ipv6Prefix": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef",
+    {
+        "Primary": bool,
+        "PrivateIpAddress": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataPlacementDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataPlacementDetailsTypeDef",
+    {
+        "Affinity": str,
+        "AvailabilityZone": str,
+        "GroupName": str,
+        "HostId": str,
+        "HostResourceGroupArn": str,
+        "PartitionNumber": int,
+        "SpreadDomain": str,
+        "Tenancy": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef",
+    {
+        "EnableResourceNameDnsAAAARecord": bool,
+        "EnableResourceNameDnsARecord": bool,
+        "HostnameType": str,
+    },
+    total=False,
+)
+
+AwsEc2LaunchTemplateDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDetailsTypeDef",
+    {
+        "LaunchTemplateName": str,
+        "Id": str,
+        "LaunchTemplateData": "AwsEc2LaunchTemplateDataDetailsTypeDef",
+        "DefaultVersionNumber": int,
+        "LatestVersionNumber": int,
     },
     total=False,
 )
@@ -4757,6 +5216,41 @@ AwsS3ObjectDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsSageMakerNotebookInstanceDetailsTypeDef = TypedDict(
+    "AwsSageMakerNotebookInstanceDetailsTypeDef",
+    {
+        "AcceleratorTypes": List[str],
+        "AdditionalCodeRepositories": List[str],
+        "DefaultCodeRepository": str,
+        "DirectInternetAccess": str,
+        "FailureReason": str,
+        "InstanceMetadataServiceConfiguration": "AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef",
+        "InstanceType": str,
+        "KmsKeyId": str,
+        "NetworkInterfaceId": str,
+        "NotebookInstanceArn": str,
+        "NotebookInstanceLifecycleConfigName": str,
+        "NotebookInstanceName": str,
+        "NotebookInstanceStatus": str,
+        "PlatformIdentifier": str,
+        "RoleArn": str,
+        "RootAccess": str,
+        "SecurityGroups": List[str],
+        "SubnetId": str,
+        "Url": str,
+        "VolumeSizeInGB": int,
+    },
+    total=False,
+)
+
+AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef = TypedDict(
+    "AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef",
+    {
+        "MinimumInstanceMetadataServiceVersion": str,
+    },
+    total=False,
+)
+
 AwsSecretsManagerSecretDetailsTypeDef = TypedDict(
     "AwsSecretsManagerSecretDetailsTypeDef",
     {
@@ -5235,6 +5729,155 @@ AwsWafWebAclRuleTypeDef = TypedDict(
         "Priority": int,
         "RuleId": str,
         "Type": str,
+    },
+    total=False,
+)
+
+AwsWafv2ActionAllowDetailsTypeDef = TypedDict(
+    "AwsWafv2ActionAllowDetailsTypeDef",
+    {
+        "CustomRequestHandling": "AwsWafv2CustomRequestHandlingDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2ActionBlockDetailsTypeDef = TypedDict(
+    "AwsWafv2ActionBlockDetailsTypeDef",
+    {
+        "CustomResponse": "AwsWafv2CustomResponseDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2CustomHttpHeaderTypeDef = TypedDict(
+    "AwsWafv2CustomHttpHeaderTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+    total=False,
+)
+
+AwsWafv2CustomRequestHandlingDetailsTypeDef = TypedDict(
+    "AwsWafv2CustomRequestHandlingDetailsTypeDef",
+    {
+        "InsertHeaders": List["AwsWafv2CustomHttpHeaderTypeDef"],
+    },
+    total=False,
+)
+
+AwsWafv2CustomResponseDetailsTypeDef = TypedDict(
+    "AwsWafv2CustomResponseDetailsTypeDef",
+    {
+        "CustomResponseBodyKey": str,
+        "ResponseCode": int,
+        "ResponseHeaders": List["AwsWafv2CustomHttpHeaderTypeDef"],
+    },
+    total=False,
+)
+
+AwsWafv2RuleGroupDetailsTypeDef = TypedDict(
+    "AwsWafv2RuleGroupDetailsTypeDef",
+    {
+        "Capacity": int,
+        "Description": str,
+        "Id": str,
+        "Name": str,
+        "Arn": str,
+        "Rules": List["AwsWafv2RulesDetailsTypeDef"],
+        "Scope": str,
+        "VisibilityConfig": "AwsWafv2VisibilityConfigDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2RulesActionCaptchaDetailsTypeDef = TypedDict(
+    "AwsWafv2RulesActionCaptchaDetailsTypeDef",
+    {
+        "CustomRequestHandling": "AwsWafv2CustomRequestHandlingDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2RulesActionCountDetailsTypeDef = TypedDict(
+    "AwsWafv2RulesActionCountDetailsTypeDef",
+    {
+        "CustomRequestHandling": "AwsWafv2CustomRequestHandlingDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2RulesActionDetailsTypeDef = TypedDict(
+    "AwsWafv2RulesActionDetailsTypeDef",
+    {
+        "Allow": "AwsWafv2ActionAllowDetailsTypeDef",
+        "Block": "AwsWafv2ActionBlockDetailsTypeDef",
+        "Captcha": "AwsWafv2RulesActionCaptchaDetailsTypeDef",
+        "Count": "AwsWafv2RulesActionCountDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2RulesDetailsTypeDef = TypedDict(
+    "AwsWafv2RulesDetailsTypeDef",
+    {
+        "Action": "AwsWafv2RulesActionDetailsTypeDef",
+        "Name": str,
+        "OverrideAction": str,
+        "Priority": int,
+        "VisibilityConfig": "AwsWafv2VisibilityConfigDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2VisibilityConfigDetailsTypeDef = TypedDict(
+    "AwsWafv2VisibilityConfigDetailsTypeDef",
+    {
+        "CloudWatchMetricsEnabled": bool,
+        "MetricName": str,
+        "SampledRequestsEnabled": bool,
+    },
+    total=False,
+)
+
+AwsWafv2WebAclActionDetailsTypeDef = TypedDict(
+    "AwsWafv2WebAclActionDetailsTypeDef",
+    {
+        "Allow": "AwsWafv2ActionAllowDetailsTypeDef",
+        "Block": "AwsWafv2ActionBlockDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2WebAclCaptchaConfigDetailsTypeDef = TypedDict(
+    "AwsWafv2WebAclCaptchaConfigDetailsTypeDef",
+    {
+        "ImmunityTimeProperty": "AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef = TypedDict(
+    "AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef",
+    {
+        "ImmunityTime": int,
+    },
+    total=False,
+)
+
+AwsWafv2WebAclDetailsTypeDef = TypedDict(
+    "AwsWafv2WebAclDetailsTypeDef",
+    {
+        "Name": str,
+        "Arn": str,
+        "ManagedbyFirewallManager": bool,
+        "Id": str,
+        "Capacity": int,
+        "CaptchaConfig": "AwsWafv2WebAclCaptchaConfigDetailsTypeDef",
+        "DefaultAction": "AwsWafv2WebAclActionDetailsTypeDef",
+        "Description": str,
+        "Rules": List["AwsWafv2RulesDetailsTypeDef"],
+        "VisibilityConfig": "AwsWafv2VisibilityConfigDetailsTypeDef",
     },
     total=False,
 )
@@ -6667,6 +7310,10 @@ ResourceDetailsTypeDef = TypedDict(
         "AwsBackupBackupVault": "AwsBackupBackupVaultDetailsTypeDef",
         "AwsBackupBackupPlan": "AwsBackupBackupPlanDetailsTypeDef",
         "AwsBackupRecoveryPoint": "AwsBackupRecoveryPointDetailsTypeDef",
+        "AwsEc2LaunchTemplate": "AwsEc2LaunchTemplateDetailsTypeDef",
+        "AwsSageMakerNotebookInstance": "AwsSageMakerNotebookInstanceDetailsTypeDef",
+        "AwsWafv2WebAcl": "AwsWafv2WebAclDetailsTypeDef",
+        "AwsWafv2RuleGroup": "AwsWafv2RuleGroupDetailsTypeDef",
     },
     total=False,
 )

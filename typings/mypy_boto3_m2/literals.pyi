@@ -45,6 +45,7 @@ ApplicationLifecycleType = Literal[
     "Created",
     "Creating",
     "Deleting",
+    "Deleting From Environment",
     "Failed",
     "Ready",
     "Running",
@@ -68,7 +69,7 @@ BatchJobTypeType = Literal["JES2", "JES3", "VSE"]
 DataSetTaskLifecycleType = Literal["Completed", "Creating", "Running"]
 DeploymentLifecycleType = Literal["Deploying", "Failed", "Succeeded"]
 EngineTypeType = Literal["bluage", "microfocus"]
-EnvironmentLifecycleType = Literal["Available", "Creating", "Deleting", "Failed"]
+EnvironmentLifecycleType = Literal["Available", "Creating", "Deleting", "Failed", "Updating"]
 ListApplicationVersionsPaginatorName = Literal["list_application_versions"]
 ListApplicationsPaginatorName = Literal["list_applications"]
 ListBatchJobDefinitionsPaginatorName = Literal["list_batch_job_definitions"]

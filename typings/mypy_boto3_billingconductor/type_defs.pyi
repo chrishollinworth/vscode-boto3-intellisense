@@ -49,10 +49,12 @@ __all__ = (
     "CreateBillingGroupOutputTypeDef",
     "CreateCustomLineItemInputRequestTypeDef",
     "CreateCustomLineItemOutputTypeDef",
+    "CreateFreeTierConfigTypeDef",
     "CreatePricingPlanInputRequestTypeDef",
     "CreatePricingPlanOutputTypeDef",
     "CreatePricingRuleInputRequestTypeDef",
     "CreatePricingRuleOutputTypeDef",
+    "CreateTieringInputTypeDef",
     "CustomLineItemBillingPeriodRangeTypeDef",
     "CustomLineItemChargeDetailsTypeDef",
     "CustomLineItemFlatChargeDetailsTypeDef",
@@ -72,6 +74,7 @@ __all__ = (
     "DisassociatePricingRulesInputRequestTypeDef",
     "DisassociatePricingRulesOutputTypeDef",
     "DisassociateResourceResponseElementTypeDef",
+    "FreeTierConfigTypeDef",
     "ListAccountAssociationsFilterTypeDef",
     "ListAccountAssociationsInputRequestTypeDef",
     "ListAccountAssociationsOutputTypeDef",
@@ -112,6 +115,7 @@ __all__ = (
     "PricingRuleListElementTypeDef",
     "ResponseMetadataTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TieringTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateBillingGroupInputRequestTypeDef",
     "UpdateBillingGroupOutputTypeDef",
@@ -120,10 +124,12 @@ __all__ = (
     "UpdateCustomLineItemInputRequestTypeDef",
     "UpdateCustomLineItemOutputTypeDef",
     "UpdateCustomLineItemPercentageChargeDetailsTypeDef",
+    "UpdateFreeTierConfigTypeDef",
     "UpdatePricingPlanInputRequestTypeDef",
     "UpdatePricingPlanOutputTypeDef",
     "UpdatePricingRuleInputRequestTypeDef",
     "UpdatePricingRuleOutputTypeDef",
+    "UpdateTieringInputTypeDef",
 )
 
 AccountAssociationsListElementTypeDef = TypedDict(
@@ -356,6 +362,13 @@ CreateCustomLineItemOutputTypeDef = TypedDict(
     },
 )
 
+CreateFreeTierConfigTypeDef = TypedDict(
+    "CreateFreeTierConfigTypeDef",
+    {
+        "Activated": bool,
+    },
+)
+
 _RequiredCreatePricingPlanInputRequestTypeDef = TypedDict(
     "_RequiredCreatePricingPlanInputRequestTypeDef",
     {
@@ -392,7 +405,6 @@ _RequiredCreatePricingRuleInputRequestTypeDef = TypedDict(
         "Name": str,
         "Scope": PricingRuleScopeType,
         "Type": PricingRuleTypeType,
-        "ModifierPercentage": float,
     },
 )
 _OptionalCreatePricingRuleInputRequestTypeDef = TypedDict(
@@ -400,9 +412,11 @@ _OptionalCreatePricingRuleInputRequestTypeDef = TypedDict(
     {
         "ClientToken": str,
         "Description": str,
+        "ModifierPercentage": float,
         "Service": str,
         "Tags": Dict[str, str],
         "BillingEntity": str,
+        "Tiering": "CreateTieringInputTypeDef",
     },
     total=False,
 )
@@ -417,6 +431,13 @@ CreatePricingRuleOutputTypeDef = TypedDict(
     {
         "Arn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateTieringInputTypeDef = TypedDict(
+    "CreateTieringInputTypeDef",
+    {
+        "FreeTier": "CreateFreeTierConfigTypeDef",
     },
 )
 
@@ -634,6 +655,13 @@ DisassociateResourceResponseElementTypeDef = TypedDict(
         "Error": "AssociateResourceErrorTypeDef",
     },
     total=False,
+)
+
+FreeTierConfigTypeDef = TypedDict(
+    "FreeTierConfigTypeDef",
+    {
+        "Activated": bool,
+    },
 )
 
 ListAccountAssociationsFilterTypeDef = TypedDict(
@@ -1062,6 +1090,7 @@ PricingRuleListElementTypeDef = TypedDict(
         "CreationTime": int,
         "LastModifiedTime": int,
         "BillingEntity": str,
+        "Tiering": "TieringTypeDef",
     },
     total=False,
 )
@@ -1082,6 +1111,13 @@ TagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceArn": str,
         "Tags": Dict[str, str],
+    },
+)
+
+TieringTypeDef = TypedDict(
+    "TieringTypeDef",
+    {
+        "FreeTier": "FreeTierConfigTypeDef",
     },
 )
 
@@ -1191,6 +1227,13 @@ UpdateCustomLineItemPercentageChargeDetailsTypeDef = TypedDict(
     },
 )
 
+UpdateFreeTierConfigTypeDef = TypedDict(
+    "UpdateFreeTierConfigTypeDef",
+    {
+        "Activated": bool,
+    },
+)
+
 _RequiredUpdatePricingPlanInputRequestTypeDef = TypedDict(
     "_RequiredUpdatePricingPlanInputRequestTypeDef",
     {
@@ -1236,6 +1279,7 @@ _OptionalUpdatePricingRuleInputRequestTypeDef = TypedDict(
         "Description": str,
         "Type": PricingRuleTypeType,
         "ModifierPercentage": float,
+        "Tiering": "UpdateTieringInputTypeDef",
     },
     total=False,
 )
@@ -1258,6 +1302,14 @@ UpdatePricingRuleOutputTypeDef = TypedDict(
         "AssociatedPricingPlanCount": int,
         "LastModifiedTime": int,
         "BillingEntity": str,
+        "Tiering": "UpdateTieringInputTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateTieringInputTypeDef = TypedDict(
+    "UpdateTieringInputTypeDef",
+    {
+        "FreeTier": "UpdateFreeTierConfigTypeDef",
     },
 )

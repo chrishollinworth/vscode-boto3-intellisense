@@ -242,6 +242,7 @@ AttachmentTypeDef = TypedDict(
         "SubnetId": str,
         "EndpointId": str,
         "Status": AttachmentStatusType,
+        "StatusMessage": str,
     },
     total=False,
 )

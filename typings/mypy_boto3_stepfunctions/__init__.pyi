@@ -10,6 +10,7 @@ Usage::
         GetExecutionHistoryPaginator,
         ListActivitiesPaginator,
         ListExecutionsPaginator,
+        ListMapRunsPaginator,
         ListStateMachinesPaginator,
         SFNClient,
     )
@@ -22,6 +23,7 @@ Usage::
     get_execution_history_paginator: GetExecutionHistoryPaginator = client.get_paginator("get_execution_history")
     list_activities_paginator: ListActivitiesPaginator = client.get_paginator("list_activities")
     list_executions_paginator: ListExecutionsPaginator = client.get_paginator("list_executions")
+    list_map_runs_paginator: ListMapRunsPaginator = client.get_paginator("list_map_runs")
     list_state_machines_paginator: ListStateMachinesPaginator = client.get_paginator("list_state_machines")
     ```
 """
@@ -30,6 +32,7 @@ from .paginator import (
     GetExecutionHistoryPaginator,
     ListActivitiesPaginator,
     ListExecutionsPaginator,
+    ListMapRunsPaginator,
     ListStateMachinesPaginator,
 )
 
@@ -40,6 +43,7 @@ __all__ = (
     "GetExecutionHistoryPaginator",
     "ListActivitiesPaginator",
     "ListExecutionsPaginator",
+    "ListMapRunsPaginator",
     "ListStateMachinesPaginator",
     "SFNClient",
 )

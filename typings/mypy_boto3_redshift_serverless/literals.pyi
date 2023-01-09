@@ -23,6 +23,7 @@ __all__ = (
     "ListNamespacesPaginatorName",
     "ListRecoveryPointsPaginatorName",
     "ListSnapshotsPaginatorName",
+    "ListTableRestoreStatusPaginatorName",
     "ListUsageLimitsPaginatorName",
     "ListWorkgroupsPaginatorName",
     "LogExportType",
@@ -38,6 +39,7 @@ ListEndpointAccessPaginatorName = Literal["list_endpoint_access"]
 ListNamespacesPaginatorName = Literal["list_namespaces"]
 ListRecoveryPointsPaginatorName = Literal["list_recovery_points"]
 ListSnapshotsPaginatorName = Literal["list_snapshots"]
+ListTableRestoreStatusPaginatorName = Literal["list_table_restore_status"]
 ListUsageLimitsPaginatorName = Literal["list_usage_limits"]
 ListWorkgroupsPaginatorName = Literal["list_workgroups"]
 LogExportType = Literal["connectionlog", "useractivitylog", "userlog"]

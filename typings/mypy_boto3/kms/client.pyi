@@ -22,6 +22,7 @@ from botocore.response import StreamingBody
 from .literals import (
     AlgorithmSpecType,
     CustomerMasterKeySpecType,
+    CustomKeyStoreTypeType,
     DataKeyPairSpecType,
     DataKeySpecType,
     EncryptionAlgorithmSpecType,
@@ -33,6 +34,7 @@ from .literals import (
     MessageTypeType,
     OriginTypeType,
     SigningAlgorithmSpecType,
+    XksProxyConnectivityTypeType,
 )
 from .paginator import (
     DescribeCustomKeyStoresPaginator,
@@ -75,6 +77,7 @@ from .type_defs import (
     TagTypeDef,
     VerifyMacResponseTypeDef,
     VerifyResponseTypeDef,
+    XksProxyAuthenticationCredentialTypeTypeDef,
 )
 
 if sys.version_info >= (3, 8):
@@ -127,10 +130,22 @@ class Exceptions:
     NotFoundException: Type[BotocoreClientError]
     TagException: Type[BotocoreClientError]
     UnsupportedOperationException: Type[BotocoreClientError]
+    XksKeyAlreadyInUseException: Type[BotocoreClientError]
+    XksKeyInvalidConfigurationException: Type[BotocoreClientError]
+    XksKeyNotFoundException: Type[BotocoreClientError]
+    XksProxyIncorrectAuthenticationCredentialException: Type[BotocoreClientError]
+    XksProxyInvalidConfigurationException: Type[BotocoreClientError]
+    XksProxyInvalidResponseException: Type[BotocoreClientError]
+    XksProxyUriEndpointInUseException: Type[BotocoreClientError]
+    XksProxyUriInUseException: Type[BotocoreClientError]
+    XksProxyUriUnreachableException: Type[BotocoreClientError]
+    XksProxyVpcEndpointServiceInUseException: Type[BotocoreClientError]
+    XksProxyVpcEndpointServiceInvalidConfigurationException: Type[BotocoreClientError]
+    XksProxyVpcEndpointServiceNotFoundException: Type[BotocoreClientError]
 
 class KMSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html)
     """
 
@@ -145,37 +160,37 @@ class KMSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#can_paginate)
         """
     def cancel_key_deletion(self, *, KeyId: str) -> CancelKeyDeletionResponseTypeDef:
         """
         Cancels the deletion of a KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.cancel_key_deletion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.cancel_key_deletion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#cancel_key_deletion)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#close)
         """
     def connect_custom_key_store(self, *, CustomKeyStoreId: str) -> Dict[str, Any]:
         """
         Connects or reconnects a `custom key store
         <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-
-        overview.html>`__ to its associated CloudHSM cluster.
+        overview.html>`__ to its backing key store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.connect_custom_key_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.connect_custom_key_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#connect_custom_key_store)
         """
     def create_alias(self, *, AliasName: str, TargetKeyId: str) -> None:
         """
         Creates a friendly name for a KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.create_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.create_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#create_alias)
         """
     def create_custom_key_store(
@@ -184,16 +199,20 @@ class KMSClient(BaseClient):
         CustomKeyStoreName: str,
         CloudHsmClusterId: str = None,
         TrustAnchorCertificate: str = None,
-        KeyStorePassword: str = None
+        KeyStorePassword: str = None,
+        CustomKeyStoreType: CustomKeyStoreTypeType = None,
+        XksProxyUriEndpoint: str = None,
+        XksProxyUriPath: str = None,
+        XksProxyVpcEndpointServiceName: str = None,
+        XksProxyAuthenticationCredential: "XksProxyAuthenticationCredentialTypeTypeDef" = None,
+        XksProxyConnectivity: XksProxyConnectivityTypeType = None
     ) -> CreateCustomKeyStoreResponseTypeDef:
         """
         Creates a `custom key store
         <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-
-        overview.html>`__ that is associated with an `CloudHSM cluster
-        <https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html>`__ that
-        you own and manage.
+        overview.html>`__ backed by a key store that you own and manage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.create_custom_key_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.create_custom_key_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#create_custom_key_store)
         """
     def create_grant(
@@ -210,7 +229,7 @@ class KMSClient(BaseClient):
         """
         Adds a grant to a KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.create_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.create_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#create_grant)
         """
     def create_key(
@@ -225,14 +244,15 @@ class KMSClient(BaseClient):
         CustomKeyStoreId: str = None,
         BypassPolicyLockoutSafetyCheck: bool = None,
         Tags: List["TagTypeDef"] = None,
-        MultiRegion: bool = None
+        MultiRegion: bool = None,
+        XksKeyId: str = None
     ) -> CreateKeyResponseTypeDef:
         """
         Creates a unique customer managed `KMS key
         <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-
         keys>`__ in your Amazon Web Services account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.create_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.create_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#create_key)
         """
     def decrypt(
@@ -250,14 +270,14 @@ class KMSClient(BaseClient):
         GenerateDataKeyWithoutPlaintext *  GenerateDataKeyPairWithoutPlaintext You can
         use this operation to decrypt cipher...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.decrypt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.decrypt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#decrypt)
         """
     def delete_alias(self, *, AliasName: str) -> None:
         """
         Deletes the specified alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.delete_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.delete_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#delete_alias)
         """
     def delete_custom_key_store(self, *, CustomKeyStoreId: str) -> Dict[str, Any]:
@@ -266,14 +286,14 @@ class KMSClient(BaseClient):
         <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-
         overview.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.delete_custom_key_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.delete_custom_key_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#delete_custom_key_store)
         """
     def delete_imported_key_material(self, *, KeyId: str) -> None:
         """
         Deletes key material that you previously imported.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.delete_imported_key_material)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.delete_imported_key_material)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#delete_imported_key_material)
         """
     def describe_custom_key_stores(
@@ -289,7 +309,7 @@ class KMSClient(BaseClient):
         <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-
         overview.html>`__ in the account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.describe_custom_key_stores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.describe_custom_key_stores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#describe_custom_key_stores)
         """
     def describe_key(
@@ -298,14 +318,14 @@ class KMSClient(BaseClient):
         """
         Provides detailed information about a KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.describe_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.describe_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#describe_key)
         """
     def disable_key(self, *, KeyId: str) -> None:
         """
         Sets the state of a KMS key to disabled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.disable_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.disable_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#disable_key)
         """
     def disable_key_rotation(self, *, KeyId: str) -> None:
@@ -314,23 +334,23 @@ class KMSClient(BaseClient):
         <https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html>`__ of
         the specified symmetric encryption KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.disable_key_rotation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.disable_key_rotation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#disable_key_rotation)
         """
     def disconnect_custom_key_store(self, *, CustomKeyStoreId: str) -> Dict[str, Any]:
         """
         Disconnects the `custom key store
         <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-
-        overview.html>`__ from its associated CloudHSM cluster.
+        overview.html>`__ from its backing key store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.disconnect_custom_key_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.disconnect_custom_key_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#disconnect_custom_key_store)
         """
     def enable_key(self, *, KeyId: str) -> None:
         """
         Sets the key state of a KMS key to enabled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.enable_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.enable_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#enable_key)
         """
     def enable_key_rotation(self, *, KeyId: str) -> None:
@@ -339,7 +359,7 @@ class KMSClient(BaseClient):
         <https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html>`__ of
         the specified symmetric encryption KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.enable_key_rotation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.enable_key_rotation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#enable_key_rotation)
         """
     def encrypt(
@@ -354,7 +374,7 @@ class KMSClient(BaseClient):
         """
         Encrypts plaintext of up to 4,096 bytes using a KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.encrypt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.encrypt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#encrypt)
         """
     def generate_data_key(
@@ -369,7 +389,7 @@ class KMSClient(BaseClient):
         """
         Returns a unique symmetric data key for use outside of KMS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.generate_data_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.generate_data_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#generate_data_key)
         """
     def generate_data_key_pair(
@@ -383,7 +403,7 @@ class KMSClient(BaseClient):
         """
         Returns a unique asymmetric data key pair for use outside of KMS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.generate_data_key_pair)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.generate_data_key_pair)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#generate_data_key_pair)
         """
     def generate_data_key_pair_without_plaintext(
@@ -397,7 +417,7 @@ class KMSClient(BaseClient):
         """
         Returns a unique asymmetric data key pair for use outside of KMS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.generate_data_key_pair_without_plaintext)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.generate_data_key_pair_without_plaintext)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#generate_data_key_pair_without_plaintext)
         """
     def generate_data_key_without_plaintext(
@@ -412,7 +432,7 @@ class KMSClient(BaseClient):
         """
         Returns a unique symmetric data key for use outside of KMS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.generate_data_key_without_plaintext)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.generate_data_key_without_plaintext)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#generate_data_key_without_plaintext)
         """
     def generate_mac(
@@ -427,7 +447,7 @@ class KMSClient(BaseClient):
         Generates a hash-based message authentication code (HMAC) for a message using an
         HMAC KMS key and a MAC algorithm that the key supports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.generate_mac)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.generate_mac)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#generate_mac)
         """
     def generate_presigned_url(
@@ -440,7 +460,7 @@ class KMSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#generate_presigned_url)
         """
     def generate_random(
@@ -449,14 +469,14 @@ class KMSClient(BaseClient):
         """
         Returns a random byte string that is cryptographically secure.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.generate_random)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.generate_random)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#generate_random)
         """
     def get_key_policy(self, *, KeyId: str, PolicyName: str) -> GetKeyPolicyResponseTypeDef:
         """
         Gets a key policy attached to the specified KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.get_key_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.get_key_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#get_key_policy)
         """
     def get_key_rotation_status(self, *, KeyId: str) -> GetKeyRotationStatusResponseTypeDef:
@@ -465,7 +485,7 @@ class KMSClient(BaseClient):
         material <https://docs.aws.amazon.com/kms/latest/developerguide/rotate-
         keys.html>`__ is enabled for the specified KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.get_key_rotation_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.get_key_rotation_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#get_key_rotation_status)
         """
     def get_parameters_for_import(
@@ -479,7 +499,7 @@ class KMSClient(BaseClient):
         Returns the items you need to import key material into a symmetric encryption
         KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.get_parameters_for_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.get_parameters_for_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#get_parameters_for_import)
         """
     def get_public_key(
@@ -488,7 +508,7 @@ class KMSClient(BaseClient):
         """
         Returns the public key of an asymmetric KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.get_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.get_public_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#get_public_key)
         """
     def import_key_material(
@@ -504,7 +524,7 @@ class KMSClient(BaseClient):
         Imports key material into an existing symmetric encryption KMS key that was
         created without key material.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.import_key_material)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.import_key_material)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#import_key_material)
         """
     def list_aliases(
@@ -513,7 +533,7 @@ class KMSClient(BaseClient):
         """
         Gets a list of aliases in the caller's Amazon Web Services account and region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.list_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.list_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#list_aliases)
         """
     def list_grants(
@@ -528,7 +548,7 @@ class KMSClient(BaseClient):
         """
         Gets a list of all grants for the specified KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.list_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.list_grants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#list_grants)
         """
     def list_key_policies(
@@ -537,7 +557,7 @@ class KMSClient(BaseClient):
         """
         Gets the names of the key policies that are attached to a KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.list_key_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.list_key_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#list_key_policies)
         """
     def list_keys(self, *, Limit: int = None, Marker: str = None) -> ListKeysResponseTypeDef:
@@ -545,7 +565,7 @@ class KMSClient(BaseClient):
         Gets a list of all KMS keys in the caller's Amazon Web Services account and
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.list_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.list_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#list_keys)
         """
     def list_resource_tags(
@@ -554,7 +574,7 @@ class KMSClient(BaseClient):
         """
         Returns all tags on the specified KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.list_resource_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.list_resource_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#list_resource_tags)
         """
     def list_retirable_grants(
@@ -564,7 +584,7 @@ class KMSClient(BaseClient):
         Returns information about all grants in the Amazon Web Services account and
         Region that have the specified retiring principal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.list_retirable_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.list_retirable_grants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#list_retirable_grants)
         """
     def put_key_policy(
@@ -578,7 +598,7 @@ class KMSClient(BaseClient):
         """
         Attaches a key policy to the specified KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.put_key_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.put_key_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#put_key_policy)
         """
     def re_encrypt(
@@ -596,7 +616,7 @@ class KMSClient(BaseClient):
         """
         Decrypts ciphertext and then reencrypts it entirely within KMS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.re_encrypt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.re_encrypt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#re_encrypt)
         """
     def replicate_key(
@@ -612,7 +632,7 @@ class KMSClient(BaseClient):
         """
         Replicates a multi-Region key into the specified Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.replicate_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.replicate_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#replicate_key)
         """
     def retire_grant(
@@ -621,14 +641,14 @@ class KMSClient(BaseClient):
         """
         Deletes a grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.retire_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.retire_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#retire_grant)
         """
     def revoke_grant(self, *, KeyId: str, GrantId: str) -> None:
         """
         Deletes the specified grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.revoke_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.revoke_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#revoke_grant)
         """
     def schedule_key_deletion(
@@ -637,7 +657,7 @@ class KMSClient(BaseClient):
         """
         Schedules the deletion of a KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.schedule_key_deletion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.schedule_key_deletion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#schedule_key_deletion)
         """
     def sign(
@@ -654,7 +674,7 @@ class KMSClient(BaseClient):
         <https://en.wikipedia.org/wiki/Digital_signature>`__ for a message or message
         digest by using the private key in an asymmetric signing KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.sign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.sign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#sign)
         """
     def tag_resource(self, *, KeyId: str, Tags: List["TagTypeDef"]) -> None:
@@ -663,7 +683,7 @@ class KMSClient(BaseClient):
         <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-
         cmk>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#tag_resource)
         """
     def untag_resource(self, *, KeyId: str, TagKeys: List[str]) -> None:
@@ -672,14 +692,14 @@ class KMSClient(BaseClient):
         <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-
         cmk>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#untag_resource)
         """
     def update_alias(self, *, AliasName: str, TargetKeyId: str) -> None:
         """
         Associates an existing KMS alias with a different KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.update_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.update_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#update_alias)
         """
     def update_custom_key_store(
@@ -688,26 +708,31 @@ class KMSClient(BaseClient):
         CustomKeyStoreId: str,
         NewCustomKeyStoreName: str = None,
         KeyStorePassword: str = None,
-        CloudHsmClusterId: str = None
+        CloudHsmClusterId: str = None,
+        XksProxyUriEndpoint: str = None,
+        XksProxyUriPath: str = None,
+        XksProxyVpcEndpointServiceName: str = None,
+        XksProxyAuthenticationCredential: "XksProxyAuthenticationCredentialTypeTypeDef" = None,
+        XksProxyConnectivity: XksProxyConnectivityTypeType = None
     ) -> Dict[str, Any]:
         """
         Changes the properties of a custom key store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.update_custom_key_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.update_custom_key_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#update_custom_key_store)
         """
     def update_key_description(self, *, KeyId: str, Description: str) -> None:
         """
         Updates the description of a KMS key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.update_key_description)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.update_key_description)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#update_key_description)
         """
     def update_primary_region(self, *, KeyId: str, PrimaryRegion: str) -> None:
         """
         Changes the primary key of a multi-Region key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.update_primary_region)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.update_primary_region)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#update_primary_region)
         """
     def verify(
@@ -723,7 +748,7 @@ class KMSClient(BaseClient):
         """
         Verifies a digital signature that was generated by the  Sign operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.verify)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.verify)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#verify)
         """
     def verify_mac(
@@ -739,7 +764,7 @@ class KMSClient(BaseClient):
         Verifies the hash-based message authentication code (HMAC) for a specified
         message, HMAC KMS key, and MAC algorithm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Client.verify_mac)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Client.verify_mac)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/client.html#verify_mac)
         """
     @overload
@@ -747,19 +772,19 @@ class KMSClient(BaseClient):
         self, operation_name: Literal["describe_custom_key_stores"]
     ) -> DescribeCustomKeyStoresPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Paginator.DescribeCustomKeyStores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Paginator.DescribeCustomKeyStores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#describecustomkeystorespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Paginator.ListAliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Paginator.ListAliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listaliasespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_grants"]) -> ListGrantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Paginator.ListGrants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Paginator.ListGrants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listgrantspaginator)
         """
     @overload
@@ -767,13 +792,13 @@ class KMSClient(BaseClient):
         self, operation_name: Literal["list_key_policies"]
     ) -> ListKeyPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listkeypoliciespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_keys"]) -> ListKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Paginator.ListKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Paginator.ListKeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listkeyspaginator)
         """
     @overload
@@ -781,7 +806,7 @@ class KMSClient(BaseClient):
         self, operation_name: Literal["list_resource_tags"]
     ) -> ListResourceTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Paginator.ListResourceTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Paginator.ListResourceTags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listresourcetagspaginator)
         """
     @overload
@@ -789,6 +814,6 @@ class KMSClient(BaseClient):
         self, operation_name: Literal["list_retirable_grants"]
     ) -> ListRetirableGrantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/kms.html#KMS.Paginator.ListRetirableGrants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/kms.html#KMS.Paginator.ListRetirableGrants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listretirablegrantspaginator)
         """

@@ -14,6 +14,8 @@ Usage::
 import sys
 from typing import Any, Dict, List
 
+from .literals import TargetStoreType
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -89,14 +91,26 @@ BatchGetRecordResultDetailTypeDef = TypedDict(
     },
 )
 
-DeleteRecordRequestRequestTypeDef = TypedDict(
-    "DeleteRecordRequestRequestTypeDef",
+_RequiredDeleteRecordRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteRecordRequestRequestTypeDef",
     {
         "FeatureGroupName": str,
         "RecordIdentifierValueAsString": str,
         "EventTime": str,
     },
 )
+_OptionalDeleteRecordRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteRecordRequestRequestTypeDef",
+    {
+        "TargetStores": List[TargetStoreType],
+    },
+    total=False,
+)
+
+class DeleteRecordRequestRequestTypeDef(
+    _RequiredDeleteRecordRequestRequestTypeDef, _OptionalDeleteRecordRequestRequestTypeDef
+):
+    pass
 
 FeatureValueTypeDef = TypedDict(
     "FeatureValueTypeDef",
@@ -134,13 +148,25 @@ GetRecordResponseTypeDef = TypedDict(
     },
 )
 
-PutRecordRequestRequestTypeDef = TypedDict(
-    "PutRecordRequestRequestTypeDef",
+_RequiredPutRecordRequestRequestTypeDef = TypedDict(
+    "_RequiredPutRecordRequestRequestTypeDef",
     {
         "FeatureGroupName": str,
         "Record": List["FeatureValueTypeDef"],
     },
 )
+_OptionalPutRecordRequestRequestTypeDef = TypedDict(
+    "_OptionalPutRecordRequestRequestTypeDef",
+    {
+        "TargetStores": List[TargetStoreType],
+    },
+    total=False,
+)
+
+class PutRecordRequestRequestTypeDef(
+    _RequiredPutRecordRequestRequestTypeDef, _OptionalPutRecordRequestRequestTypeDef
+):
+    pass
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",

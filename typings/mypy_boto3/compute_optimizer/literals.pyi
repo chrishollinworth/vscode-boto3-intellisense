@@ -6,9 +6,9 @@ Type annotations for compute-optimizer service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_compute_optimizer.literals import CpuVendorArchitectureType
+    from mypy_boto3_compute_optimizer.literals import AutoScalingConfigurationType
 
-    data: CpuVendorArchitectureType = "AWS_ARM64"
+    data: AutoScalingConfigurationType = "TargetTrackingScalingCpu"
     ```
 """
 import sys
@@ -19,15 +19,24 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AutoScalingConfigurationType",
     "CpuVendorArchitectureType",
     "CurrencyType",
     "CurrentPerformanceRiskType",
+    "DescribeRecommendationExportJobsPaginatorName",
     "EBSFilterNameType",
     "EBSFindingType",
     "EBSMetricNameType",
+    "ECSServiceLaunchTypeType",
+    "ECSServiceMetricNameType",
+    "ECSServiceMetricStatisticType",
+    "ECSServiceRecommendationFilterNameType",
+    "ECSServiceRecommendationFindingReasonCodeType",
+    "ECSServiceRecommendationFindingType",
     "EnhancedInfrastructureMetricsType",
     "EnrollmentFilterNameType",
     "ExportableAutoScalingGroupFieldType",
+    "ExportableECSServiceFieldType",
     "ExportableInstanceFieldType",
     "ExportableLambdaFunctionFieldType",
     "ExportableVolumeFieldType",
@@ -36,6 +45,10 @@ __all__ = (
     "FilterNameType",
     "FindingReasonCodeType",
     "FindingType",
+    "GetEnrollmentStatusesForOrganizationPaginatorName",
+    "GetLambdaFunctionRecommendationsPaginatorName",
+    "GetRecommendationPreferencesPaginatorName",
+    "GetRecommendationSummariesPaginatorName",
     "InferredWorkloadTypeType",
     "InferredWorkloadTypesPreferenceType",
     "InstanceRecommendationFindingReasonCodeType",
@@ -59,9 +72,11 @@ __all__ = (
     "StatusType",
 )
 
+AutoScalingConfigurationType = Literal["TargetTrackingScalingCpu", "TargetTrackingScalingMemory"]
 CpuVendorArchitectureType = Literal["AWS_ARM64", "CURRENT"]
 CurrencyType = Literal["CNY", "USD"]
 CurrentPerformanceRiskType = Literal["High", "Low", "Medium", "VeryLow"]
+DescribeRecommendationExportJobsPaginatorName = Literal["describe_recommendation_export_jobs"]
 EBSFilterNameType = Literal["Finding"]
 EBSFindingType = Literal["NotOptimized", "Optimized"]
 EBSMetricNameType = Literal[
@@ -70,6 +85,14 @@ EBSMetricNameType = Literal[
     "VolumeWriteBytesPerSecond",
     "VolumeWriteOpsPerSecond",
 ]
+ECSServiceLaunchTypeType = Literal["EC2", "Fargate"]
+ECSServiceMetricNameType = Literal["Cpu", "Memory"]
+ECSServiceMetricStatisticType = Literal["Average", "Maximum"]
+ECSServiceRecommendationFilterNameType = Literal["Finding", "FindingReasonCode"]
+ECSServiceRecommendationFindingReasonCodeType = Literal[
+    "CPUOverprovisioned", "CPUUnderprovisioned", "MemoryOverprovisioned", "MemoryUnderprovisioned"
+]
+ECSServiceRecommendationFindingType = Literal["Optimized", "Overprovisioned", "Underprovisioned"]
 EnhancedInfrastructureMetricsType = Literal["Active", "Inactive"]
 EnrollmentFilterNameType = Literal["Status"]
 ExportableAutoScalingGroupFieldType = Literal[
@@ -127,6 +150,31 @@ ExportableAutoScalingGroupFieldType = Literal[
     "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
     "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
     "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
+]
+ExportableECSServiceFieldType = Literal[
+    "AccountId",
+    "CurrentPerformanceRisk",
+    "CurrentServiceConfigurationAutoScalingConfiguration",
+    "CurrentServiceConfigurationCpu",
+    "CurrentServiceConfigurationMemory",
+    "CurrentServiceConfigurationTaskDefinitionArn",
+    "CurrentServiceContainerConfigurations",
+    "Finding",
+    "FindingReasonCodes",
+    "LastRefreshTimestamp",
+    "LaunchType",
+    "LookbackPeriodInDays",
+    "RecommendationOptionsContainerRecommendations",
+    "RecommendationOptionsCpu",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsValue",
+    "RecommendationOptionsMemory",
+    "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+    "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+    "RecommendationOptionsSavingsOpportunityPercentage",
+    "ServiceArn",
+    "UtilizationMetricsCpuMaximum",
+    "UtilizationMetricsMemoryMaximum",
 ]
 ExportableInstanceFieldType = Literal[
     "AccountId",
@@ -246,6 +294,12 @@ FileFormatType = Literal["Csv"]
 FilterNameType = Literal["Finding", "FindingReasonCodes", "RecommendationSourceType"]
 FindingReasonCodeType = Literal["MemoryOverprovisioned", "MemoryUnderprovisioned"]
 FindingType = Literal["NotOptimized", "Optimized", "Overprovisioned", "Underprovisioned"]
+GetEnrollmentStatusesForOrganizationPaginatorName = Literal[
+    "get_enrollment_statuses_for_organization"
+]
+GetLambdaFunctionRecommendationsPaginatorName = Literal["get_lambda_function_recommendations"]
+GetRecommendationPreferencesPaginatorName = Literal["get_recommendation_preferences"]
+GetRecommendationSummariesPaginatorName = Literal["get_recommendation_summaries"]
 InferredWorkloadTypeType = Literal[
     "AmazonEmr", "ApacheCassandra", "ApacheHadoop", "Memcached", "Nginx", "PostgreSql", "Redis"
 ]
@@ -309,10 +363,10 @@ RecommendationPreferenceNameType = Literal[
     "EnhancedInfrastructureMetrics", "ExternalMetricsPreference", "InferredWorkloadTypes"
 ]
 RecommendationSourceTypeType = Literal[
-    "AutoScalingGroup", "EbsVolume", "Ec2Instance", "LambdaFunction"
+    "AutoScalingGroup", "EbsVolume", "Ec2Instance", "EcsService", "LambdaFunction"
 ]
 ResourceTypeType = Literal[
-    "AutoScalingGroup", "EbsVolume", "Ec2Instance", "LambdaFunction", "NotApplicable"
+    "AutoScalingGroup", "EbsVolume", "Ec2Instance", "EcsService", "LambdaFunction", "NotApplicable"
 ]
 ScopeNameType = Literal["AccountId", "Organization", "ResourceArn"]
 StatusType = Literal["Active", "Failed", "Inactive", "Pending"]

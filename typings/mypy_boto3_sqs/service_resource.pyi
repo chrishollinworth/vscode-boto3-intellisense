@@ -53,7 +53,7 @@ __all__ = (
 
 class ServiceResourceQueuesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource.queues)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource.queues)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#serviceresourcequeuescollection)
     """
 
@@ -86,7 +86,7 @@ class ServiceResourceQueuesCollection(ResourceCollection):
 
 class QueueDeadLetterSourceQueuesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.dead_letter_source_queues)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.dead_letter_source_queues)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuedeadlettersourcequeuescollection)
     """
 
@@ -119,7 +119,7 @@ class QueueDeadLetterSourceQueuesCollection(ResourceCollection):
 
 class Message(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource.Message)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource.Message)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#message)
     """
 
@@ -136,28 +136,28 @@ class Message(Boto3ServiceResource):
         """
         Creates a Queue resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Message.Queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Message.Queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#messagequeue-method)
         """
     def change_visibility(self, *, VisibilityTimeout: int) -> None:
         """
         Changes the visibility timeout of a specified message in a queue to a new value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Message.change_visibility)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Message.change_visibility)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#messagechange_visibility-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified message from the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Message.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Message.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#messagedelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Message.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Message.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#messageget_available_subresources-method)
         """
 
@@ -165,7 +165,7 @@ _Message = Message
 
 class Queue(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource.Queue)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource.Queue)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queue)
     """
 
@@ -177,7 +177,7 @@ class Queue(Boto3ServiceResource):
         """
         Creates a Message resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.Message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.Message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuemessage-method)
         """
     def add_permission(self, *, Label: str, AWSAccountIds: List[str], Actions: List[str]) -> None:
@@ -185,7 +185,7 @@ class Queue(Boto3ServiceResource):
         Adds a permission to a queue for a specific `principal
         <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.add_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.add_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queueadd_permission-method)
         """
     def change_message_visibility_batch(
@@ -194,7 +194,7 @@ class Queue(Boto3ServiceResource):
         """
         Changes the visibility timeout of multiple messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.change_message_visibility_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.change_message_visibility_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuechange_message_visibility_batch-method)
         """
     def delete(self) -> None:
@@ -202,7 +202,7 @@ class Queue(Boto3ServiceResource):
         Deletes the queue specified by the `QueueUrl` , regardless of the queue's
         contents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuedelete-method)
         """
     def delete_messages(
@@ -211,14 +211,14 @@ class Queue(Boto3ServiceResource):
         """
         Deletes up to ten messages from the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.delete_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.delete_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuedelete_messages-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queueget_available_subresources-method)
         """
     def load(self) -> None:
@@ -226,14 +226,14 @@ class Queue(Boto3ServiceResource):
         Calls :py:meth:`SQS.Client.get_queue_attributes` to update the attributes of the
         Queue resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queueload-method)
         """
     def purge(self) -> None:
         """
         Deletes the messages in a queue specified by the `QueueURL` parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.purge)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.purge)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuepurge-method)
         """
     def receive_messages(
@@ -249,7 +249,7 @@ class Queue(Boto3ServiceResource):
         """
         Retrieves one or more messages (up to 10), from the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.receive_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.receive_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuereceive_messages-method)
         """
     def reload(self) -> None:
@@ -257,7 +257,7 @@ class Queue(Boto3ServiceResource):
         Calls :py:meth:`SQS.Client.get_queue_attributes` to update the attributes of the
         Queue resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuereload-method)
         """
     def remove_permission(self, *, Label: str) -> None:
@@ -265,7 +265,7 @@ class Queue(Boto3ServiceResource):
         Revokes any permissions in the queue policy that matches the specified `Label`
         parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.remove_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.remove_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queueremove_permission-method)
         """
     def send_message(
@@ -283,7 +283,7 @@ class Queue(Boto3ServiceResource):
         """
         Delivers a message to the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.send_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.send_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuesend_message-method)
         """
     def send_messages(
@@ -292,14 +292,14 @@ class Queue(Boto3ServiceResource):
         """
         Delivers up to ten messages to the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.send_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.send_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queuesend_messages-method)
         """
     def set_attributes(self, *, Attributes: Dict[QueueAttributeNameType, str]) -> None:
         """
         Sets the value of one or more queue attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.Queue.set_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.Queue.set_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#queueset_attributes-method)
         """
 
@@ -310,7 +310,7 @@ class SQSResourceMeta(ResourceMeta):
 
 class SQSServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html)
     """
 
@@ -321,14 +321,14 @@ class SQSServiceResource(Boto3ServiceResource):
         """
         Creates a Message resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource.Message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource.Message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#sqsserviceresourcemessage-method)
         """
     def Queue(self, url: str) -> _Queue:
         """
         Creates a Queue resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource.Queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource.Queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#sqsserviceresourcequeue-method)
         """
     def create_queue(
@@ -341,20 +341,20 @@ class SQSServiceResource(Boto3ServiceResource):
         """
         Creates a new standard or FIFO queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource.create_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource.create_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#sqsserviceresourcecreate_queue-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#sqsserviceresourceget_available_subresources-method)
         """
     def get_queue_by_name(self, *, QueueName: str, QueueOwnerAWSAccountId: str = None) -> _Queue:
         """
         Returns the URL of an existing Amazon SQS queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/sqs.html#SQS.ServiceResource.get_queue_by_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sqs.html#SQS.ServiceResource.get_queue_by_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/service_resource.html#sqsserviceresourceget_queue_by_name-method)
         """

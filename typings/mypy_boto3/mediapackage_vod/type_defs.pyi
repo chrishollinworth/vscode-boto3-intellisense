@@ -412,6 +412,7 @@ DescribePackagingGroupRequestRequestTypeDef = TypedDict(
 DescribePackagingGroupResponseTypeDef = TypedDict(
     "DescribePackagingGroupResponseTypeDef",
     {
+        "ApproximateAssetCount": int,
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
         "DomainName": str,
@@ -622,6 +623,7 @@ PackagingConfigurationTypeDef = TypedDict(
 PackagingGroupTypeDef = TypedDict(
     "PackagingGroupTypeDef",
     {
+        "ApproximateAssetCount": int,
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
         "DomainName": str,
@@ -721,6 +723,7 @@ class UpdatePackagingGroupRequestRequestTypeDef(
 UpdatePackagingGroupResponseTypeDef = TypedDict(
     "UpdatePackagingGroupResponseTypeDef",
     {
+        "ApproximateAssetCount": int,
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
         "DomainName": str,

@@ -24,8 +24,10 @@ __all__ = (
     "HistoryEventTypeType",
     "ListActivitiesPaginatorName",
     "ListExecutionsPaginatorName",
+    "ListMapRunsPaginatorName",
     "ListStateMachinesPaginatorName",
     "LogLevelType",
+    "MapRunStatusType",
     "StateMachineStatusType",
     "StateMachineTypeType",
     "SyncExecutionStatusType",
@@ -59,6 +61,10 @@ HistoryEventTypeType = Literal[
     "MapIterationFailed",
     "MapIterationStarted",
     "MapIterationSucceeded",
+    "MapRunAborted",
+    "MapRunFailed",
+    "MapRunStarted",
+    "MapRunSucceeded",
     "MapStateAborted",
     "MapStateEntered",
     "MapStateExited",
@@ -92,8 +98,10 @@ HistoryEventTypeType = Literal[
 ]
 ListActivitiesPaginatorName = Literal["list_activities"]
 ListExecutionsPaginatorName = Literal["list_executions"]
+ListMapRunsPaginatorName = Literal["list_map_runs"]
 ListStateMachinesPaginatorName = Literal["list_state_machines"]
 LogLevelType = Literal["ALL", "ERROR", "FATAL", "OFF"]
+MapRunStatusType = Literal["ABORTED", "FAILED", "RUNNING", "SUCCEEDED"]
 StateMachineStatusType = Literal["ACTIVE", "DELETING"]
 StateMachineTypeType = Literal["EXPRESS", "STANDARD"]
 SyncExecutionStatusType = Literal["FAILED", "SUCCEEDED", "TIMED_OUT"]

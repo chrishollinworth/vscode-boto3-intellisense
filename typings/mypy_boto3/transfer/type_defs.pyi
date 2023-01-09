@@ -68,6 +68,7 @@ __all__ = (
     "CreateWorkflowRequestRequestTypeDef",
     "CreateWorkflowResponseTypeDef",
     "CustomStepDetailsTypeDef",
+    "DecryptStepDetailsTypeDef",
     "DeleteAccessRequestRequestTypeDef",
     "DeleteAgreementRequestRequestTypeDef",
     "DeleteCertificateRequestRequestTypeDef",
@@ -462,6 +463,28 @@ CustomStepDetailsTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDecryptStepDetailsTypeDef = TypedDict(
+    "_RequiredDecryptStepDetailsTypeDef",
+    {
+        "Type": Literal["PGP"],
+        "DestinationFileLocation": "InputFileLocationTypeDef",
+    },
+)
+_OptionalDecryptStepDetailsTypeDef = TypedDict(
+    "_OptionalDecryptStepDetailsTypeDef",
+    {
+        "Name": str,
+        "SourceFileLocation": str,
+        "OverwriteExisting": OverwriteExistingType,
+    },
+    total=False,
+)
+
+class DecryptStepDetailsTypeDef(
+    _RequiredDecryptStepDetailsTypeDef, _OptionalDecryptStepDetailsTypeDef
+):
+    pass
 
 DeleteAccessRequestRequestTypeDef = TypedDict(
     "DeleteAccessRequestRequestTypeDef",
@@ -2089,6 +2112,7 @@ WorkflowStepTypeDef = TypedDict(
         "CustomStepDetails": "CustomStepDetailsTypeDef",
         "DeleteStepDetails": "DeleteStepDetailsTypeDef",
         "TagStepDetails": "TagStepDetailsTypeDef",
+        "DecryptStepDetails": "DecryptStepDetailsTypeDef",
     },
     total=False,
 )

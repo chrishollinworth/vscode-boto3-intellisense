@@ -20,9 +20,12 @@ from .literals import (
     CodeType,
     JobErrorLimitNameType,
     JobErrorResourceTypesType,
+    LFPermissionType,
+    LFResourceTypeType,
     OriginType,
     ServerSideEncryptionTypesType,
     StateType,
+    TableTagPolicyLFPermissionType,
     TypeType,
 )
 
@@ -53,7 +56,11 @@ __all__ = (
     "CreateJobResponseTypeDef",
     "CreateRevisionRequestRequestTypeDef",
     "CreateRevisionResponseTypeDef",
+    "CreateS3DataAccessFromS3BucketRequestDetailsTypeDef",
+    "CreateS3DataAccessFromS3BucketResponseDetailsTypeDef",
     "DataSetEntryTypeDef",
+    "DatabaseLFTagPolicyAndPermissionsTypeDef",
+    "DatabaseLFTagPolicyTypeDef",
     "DeleteAssetRequestRequestTypeDef",
     "DeleteDataSetRequestRequestTypeDef",
     "DeleteEventActionRequestRequestTypeDef",
@@ -83,12 +90,19 @@ __all__ = (
     "ImportAssetFromSignedUrlJobErrorDetailsTypeDef",
     "ImportAssetFromSignedUrlRequestDetailsTypeDef",
     "ImportAssetFromSignedUrlResponseDetailsTypeDef",
+    "ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef",
+    "ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef",
     "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
     "ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef",
     "ImportAssetsFromS3RequestDetailsTypeDef",
     "ImportAssetsFromS3ResponseDetailsTypeDef",
     "JobEntryTypeDef",
     "JobErrorTypeDef",
+    "LFResourceDetailsTypeDef",
+    "LFTagPolicyDetailsTypeDef",
+    "LFTagTypeDef",
+    "LakeFormationDataPermissionAssetTypeDef",
+    "LakeFormationDataPermissionDetailsTypeDef",
     "ListDataSetRevisionsRequestRequestTypeDef",
     "ListDataSetRevisionsResponseTypeDef",
     "ListDataSetsRequestRequestTypeDef",
@@ -113,10 +127,14 @@ __all__ = (
     "RevisionPublishedTypeDef",
     "RevokeRevisionRequestRequestTypeDef",
     "RevokeRevisionResponseTypeDef",
+    "S3DataAccessAssetSourceEntryTypeDef",
+    "S3DataAccessAssetTypeDef",
     "S3SnapshotAssetTypeDef",
     "SendApiAssetRequestRequestTypeDef",
     "SendApiAssetResponseTypeDef",
     "StartJobRequestRequestTypeDef",
+    "TableLFTagPolicyAndPermissionsTypeDef",
+    "TableLFTagPolicyTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateAssetRequestRequestTypeDef",
@@ -179,6 +197,8 @@ AssetDetailsTypeDef = TypedDict(
         "S3SnapshotAsset": "S3SnapshotAssetTypeDef",
         "RedshiftDataShareAsset": "RedshiftDataShareAssetTypeDef",
         "ApiGatewayApiAsset": "ApiGatewayApiAssetTypeDef",
+        "S3DataAccessAsset": "S3DataAccessAssetTypeDef",
+        "LakeFormationDataPermissionAsset": "LakeFormationDataPermissionAssetTypeDef",
     },
     total=False,
 )
@@ -385,6 +405,24 @@ CreateRevisionResponseTypeDef = TypedDict(
     },
 )
 
+CreateS3DataAccessFromS3BucketRequestDetailsTypeDef = TypedDict(
+    "CreateS3DataAccessFromS3BucketRequestDetailsTypeDef",
+    {
+        "AssetSource": "S3DataAccessAssetSourceEntryTypeDef",
+        "DataSetId": str,
+        "RevisionId": str,
+    },
+)
+
+CreateS3DataAccessFromS3BucketResponseDetailsTypeDef = TypedDict(
+    "CreateS3DataAccessFromS3BucketResponseDetailsTypeDef",
+    {
+        "AssetSource": "S3DataAccessAssetSourceEntryTypeDef",
+        "DataSetId": str,
+        "RevisionId": str,
+    },
+)
+
 _RequiredDataSetEntryTypeDef = TypedDict(
     "_RequiredDataSetEntryTypeDef",
     {
@@ -409,6 +447,21 @@ _OptionalDataSetEntryTypeDef = TypedDict(
 
 class DataSetEntryTypeDef(_RequiredDataSetEntryTypeDef, _OptionalDataSetEntryTypeDef):
     pass
+
+DatabaseLFTagPolicyAndPermissionsTypeDef = TypedDict(
+    "DatabaseLFTagPolicyAndPermissionsTypeDef",
+    {
+        "Expression": List["LFTagTypeDef"],
+        "Permissions": List[Literal["DESCRIBE"]],
+    },
+)
+
+DatabaseLFTagPolicyTypeDef = TypedDict(
+    "DatabaseLFTagPolicyTypeDef",
+    {
+        "Expression": List["LFTagTypeDef"],
+    },
+)
 
 DeleteAssetRequestRequestTypeDef = TypedDict(
     "DeleteAssetRequestRequestTypeDef",
@@ -823,6 +876,54 @@ class ImportAssetFromSignedUrlResponseDetailsTypeDef(
 ):
     pass
 
+_RequiredImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef = TypedDict(
+    "_RequiredImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef",
+    {
+        "CatalogId": str,
+        "RoleArn": str,
+        "DataSetId": str,
+        "RevisionId": str,
+    },
+)
+_OptionalImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef = TypedDict(
+    "_OptionalImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef",
+    {
+        "Database": "DatabaseLFTagPolicyAndPermissionsTypeDef",
+        "Table": "TableLFTagPolicyAndPermissionsTypeDef",
+    },
+    total=False,
+)
+
+class ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef(
+    _RequiredImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef,
+    _OptionalImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef,
+):
+    pass
+
+_RequiredImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef = TypedDict(
+    "_RequiredImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef",
+    {
+        "CatalogId": str,
+        "RoleArn": str,
+        "DataSetId": str,
+        "RevisionId": str,
+    },
+)
+_OptionalImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef = TypedDict(
+    "_OptionalImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef",
+    {
+        "Database": "DatabaseLFTagPolicyAndPermissionsTypeDef",
+        "Table": "TableLFTagPolicyAndPermissionsTypeDef",
+    },
+    total=False,
+)
+
+class ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef(
+    _RequiredImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef,
+    _OptionalImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef,
+):
+    pass
+
 ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef = TypedDict(
     "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
     {
@@ -903,6 +1004,62 @@ _OptionalJobErrorTypeDef = TypedDict(
 
 class JobErrorTypeDef(_RequiredJobErrorTypeDef, _OptionalJobErrorTypeDef):
     pass
+
+LFResourceDetailsTypeDef = TypedDict(
+    "LFResourceDetailsTypeDef",
+    {
+        "Database": "DatabaseLFTagPolicyTypeDef",
+        "Table": "TableLFTagPolicyTypeDef",
+    },
+    total=False,
+)
+
+LFTagPolicyDetailsTypeDef = TypedDict(
+    "LFTagPolicyDetailsTypeDef",
+    {
+        "CatalogId": str,
+        "ResourceType": LFResourceTypeType,
+        "ResourceDetails": "LFResourceDetailsTypeDef",
+    },
+)
+
+LFTagTypeDef = TypedDict(
+    "LFTagTypeDef",
+    {
+        "TagKey": str,
+        "TagValues": List[str],
+    },
+)
+
+_RequiredLakeFormationDataPermissionAssetTypeDef = TypedDict(
+    "_RequiredLakeFormationDataPermissionAssetTypeDef",
+    {
+        "LakeFormationDataPermissionDetails": "LakeFormationDataPermissionDetailsTypeDef",
+        "LakeFormationDataPermissionType": Literal["LFTagPolicy"],
+        "Permissions": List[LFPermissionType],
+    },
+)
+_OptionalLakeFormationDataPermissionAssetTypeDef = TypedDict(
+    "_OptionalLakeFormationDataPermissionAssetTypeDef",
+    {
+        "RoleArn": str,
+    },
+    total=False,
+)
+
+class LakeFormationDataPermissionAssetTypeDef(
+    _RequiredLakeFormationDataPermissionAssetTypeDef,
+    _OptionalLakeFormationDataPermissionAssetTypeDef,
+):
+    pass
+
+LakeFormationDataPermissionDetailsTypeDef = TypedDict(
+    "LakeFormationDataPermissionDetailsTypeDef",
+    {
+        "LFTagPolicy": "LFTagPolicyDetailsTypeDef",
+    },
+    total=False,
+)
 
 _RequiredListDataSetRevisionsRequestRequestTypeDef = TypedDict(
     "_RequiredListDataSetRevisionsRequestRequestTypeDef",
@@ -1079,6 +1236,8 @@ RequestDetailsTypeDef = TypedDict(
         "ImportAssetsFromS3": "ImportAssetsFromS3RequestDetailsTypeDef",
         "ImportAssetsFromRedshiftDataShares": "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
         "ImportAssetFromApiGatewayApi": "ImportAssetFromApiGatewayApiRequestDetailsTypeDef",
+        "CreateS3DataAccessFromS3Bucket": "CreateS3DataAccessFromS3BucketRequestDetailsTypeDef",
+        "ImportAssetsFromLakeFormationTagPolicy": "ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef",
     },
     total=False,
 )
@@ -1093,6 +1252,8 @@ ResponseDetailsTypeDef = TypedDict(
         "ImportAssetsFromS3": "ImportAssetsFromS3ResponseDetailsTypeDef",
         "ImportAssetsFromRedshiftDataShares": "ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef",
         "ImportAssetFromApiGatewayApi": "ImportAssetFromApiGatewayApiResponseDetailsTypeDef",
+        "CreateS3DataAccessFromS3Bucket": "CreateS3DataAccessFromS3BucketResponseDetailsTypeDef",
+        "ImportAssetsFromLakeFormationTagPolicy": "ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef",
     },
     total=False,
 )
@@ -1188,6 +1349,48 @@ RevokeRevisionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredS3DataAccessAssetSourceEntryTypeDef = TypedDict(
+    "_RequiredS3DataAccessAssetSourceEntryTypeDef",
+    {
+        "Bucket": str,
+    },
+)
+_OptionalS3DataAccessAssetSourceEntryTypeDef = TypedDict(
+    "_OptionalS3DataAccessAssetSourceEntryTypeDef",
+    {
+        "KeyPrefixes": List[str],
+        "Keys": List[str],
+    },
+    total=False,
+)
+
+class S3DataAccessAssetSourceEntryTypeDef(
+    _RequiredS3DataAccessAssetSourceEntryTypeDef, _OptionalS3DataAccessAssetSourceEntryTypeDef
+):
+    pass
+
+_RequiredS3DataAccessAssetTypeDef = TypedDict(
+    "_RequiredS3DataAccessAssetTypeDef",
+    {
+        "Bucket": str,
+    },
+)
+_OptionalS3DataAccessAssetTypeDef = TypedDict(
+    "_OptionalS3DataAccessAssetTypeDef",
+    {
+        "KeyPrefixes": List[str],
+        "Keys": List[str],
+        "S3AccessPointAlias": str,
+        "S3AccessPointArn": str,
+    },
+    total=False,
+)
+
+class S3DataAccessAssetTypeDef(
+    _RequiredS3DataAccessAssetTypeDef, _OptionalS3DataAccessAssetTypeDef
+):
+    pass
+
 S3SnapshotAssetTypeDef = TypedDict(
     "S3SnapshotAssetTypeDef",
     {
@@ -1233,6 +1436,21 @@ StartJobRequestRequestTypeDef = TypedDict(
     "StartJobRequestRequestTypeDef",
     {
         "JobId": str,
+    },
+)
+
+TableLFTagPolicyAndPermissionsTypeDef = TypedDict(
+    "TableLFTagPolicyAndPermissionsTypeDef",
+    {
+        "Expression": List["LFTagTypeDef"],
+        "Permissions": List[TableTagPolicyLFPermissionType],
+    },
+)
+
+TableLFTagPolicyTypeDef = TypedDict(
+    "TableLFTagPolicyTypeDef",
+    {
+        "Expression": List["LFTagTypeDef"],
     },
 )
 

@@ -347,6 +347,8 @@ __all__ = (
     "ResponseHeadersPolicyFrameOptionsTypeDef",
     "ResponseHeadersPolicyListTypeDef",
     "ResponseHeadersPolicyReferrerPolicyTypeDef",
+    "ResponseHeadersPolicyRemoveHeaderTypeDef",
+    "ResponseHeadersPolicyRemoveHeadersConfigTypeDef",
     "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
     "ResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
     "ResponseHeadersPolicyStrictTransportSecurityTypeDef",
@@ -386,6 +388,8 @@ __all__ = (
     "UpdateContinuousDeploymentPolicyResultTypeDef",
     "UpdateDistributionRequestRequestTypeDef",
     "UpdateDistributionResultTypeDef",
+    "UpdateDistributionWithStagingConfigRequestRequestTypeDef",
+    "UpdateDistributionWithStagingConfigResultTypeDef",
     "UpdateFieldLevelEncryptionConfigRequestRequestTypeDef",
     "UpdateFieldLevelEncryptionConfigResultTypeDef",
     "UpdateFieldLevelEncryptionProfileRequestRequestTypeDef",
@@ -1705,6 +1709,8 @@ _OptionalDistributionConfigTypeDef = TypedDict(
         "WebACLId": str,
         "HttpVersion": HttpVersionType,
         "IsIPV6Enabled": bool,
+        "ContinuousDeploymentPolicyId": str,
+        "Staging": bool,
     },
     total=False,
 )
@@ -1787,6 +1793,7 @@ _RequiredDistributionSummaryTypeDef = TypedDict(
         "WebACLId": str,
         "HttpVersion": HttpVersionType,
         "IsIPV6Enabled": bool,
+        "Staging": bool,
     },
 )
 _OptionalDistributionSummaryTypeDef = TypedDict(
@@ -3937,6 +3944,7 @@ _OptionalResponseHeadersPolicyConfigTypeDef = TypedDict(
         "SecurityHeadersConfig": "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
         "ServerTimingHeadersConfig": "ResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
         "CustomHeadersConfig": "ResponseHeadersPolicyCustomHeadersConfigTypeDef",
+        "RemoveHeadersConfig": "ResponseHeadersPolicyRemoveHeadersConfigTypeDef",
     },
     total=False,
 )
@@ -4050,6 +4058,33 @@ ResponseHeadersPolicyReferrerPolicyTypeDef = TypedDict(
         "ReferrerPolicy": ReferrerPolicyListType,
     },
 )
+
+ResponseHeadersPolicyRemoveHeaderTypeDef = TypedDict(
+    "ResponseHeadersPolicyRemoveHeaderTypeDef",
+    {
+        "Header": str,
+    },
+)
+
+_RequiredResponseHeadersPolicyRemoveHeadersConfigTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyRemoveHeadersConfigTypeDef",
+    {
+        "Quantity": int,
+    },
+)
+_OptionalResponseHeadersPolicyRemoveHeadersConfigTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyRemoveHeadersConfigTypeDef",
+    {
+        "Items": List["ResponseHeadersPolicyRemoveHeaderTypeDef"],
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyRemoveHeadersConfigTypeDef(
+    _RequiredResponseHeadersPolicyRemoveHeadersConfigTypeDef,
+    _OptionalResponseHeadersPolicyRemoveHeadersConfigTypeDef,
+):
+    pass
 
 ResponseHeadersPolicySecurityHeadersConfigTypeDef = TypedDict(
     "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
@@ -4584,6 +4619,36 @@ class UpdateDistributionRequestRequestTypeDef(
 
 UpdateDistributionResultTypeDef = TypedDict(
     "UpdateDistributionResultTypeDef",
+    {
+        "Distribution": "DistributionTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateDistributionWithStagingConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDistributionWithStagingConfigRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalUpdateDistributionWithStagingConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDistributionWithStagingConfigRequestRequestTypeDef",
+    {
+        "StagingDistributionId": str,
+        "IfMatch": str,
+    },
+    total=False,
+)
+
+class UpdateDistributionWithStagingConfigRequestRequestTypeDef(
+    _RequiredUpdateDistributionWithStagingConfigRequestRequestTypeDef,
+    _OptionalUpdateDistributionWithStagingConfigRequestRequestTypeDef,
+):
+    pass
+
+UpdateDistributionWithStagingConfigResultTypeDef = TypedDict(
+    "UpdateDistributionWithStagingConfigResultTypeDef",
     {
         "Distribution": "DistributionTypeDef",
         "ETag": str,

@@ -332,7 +332,7 @@ SqlStatementResultTypeDef = TypedDict(
 StructValueTypeDef = TypedDict(
     "StructValueTypeDef",
     {
-        "attributes": List[Dict[str, Any]],
+        "attributes": List["ValueTypeDef"],
     },
     total=False,
 )

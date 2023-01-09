@@ -20,11 +20,13 @@ else:
 
 __all__ = (
     "AugmentedManifestsDocumentTypeFormatType",
+    "BlockTypeType",
     "DocumentClassifierDataFormatType",
     "DocumentClassifierModeType",
     "DocumentReadActionType",
     "DocumentReadFeatureTypesType",
     "DocumentReadModeType",
+    "DocumentTypeType",
     "EndpointStatusType",
     "EntityRecognizerDataFormatType",
     "EntityTypeType",
@@ -34,16 +36,20 @@ __all__ = (
     "ListDocumentClassificationJobsPaginatorName",
     "ListDocumentClassifiersPaginatorName",
     "ListDominantLanguageDetectionJobsPaginatorName",
+    "ListEndpointsPaginatorName",
     "ListEntitiesDetectionJobsPaginatorName",
     "ListEntityRecognizersPaginatorName",
     "ListKeyPhrasesDetectionJobsPaginatorName",
+    "ListPiiEntitiesDetectionJobsPaginatorName",
     "ListSentimentDetectionJobsPaginatorName",
     "ListTopicsDetectionJobsPaginatorName",
     "ModelStatusType",
+    "PageBasedErrorCodeType",
     "PartOfSpeechTagTypeType",
     "PiiEntitiesDetectionMaskModeType",
     "PiiEntitiesDetectionModeType",
     "PiiEntityTypeType",
+    "RelationshipTypeType",
     "SentimentTypeType",
     "SplitType",
     "SyntaxLanguageCodeType",
@@ -53,11 +59,21 @@ __all__ = (
 AugmentedManifestsDocumentTypeFormatType = Literal[
     "PLAIN_TEXT_DOCUMENT", "SEMI_STRUCTURED_DOCUMENT"
 ]
+BlockTypeType = Literal["LINE", "WORD"]
 DocumentClassifierDataFormatType = Literal["AUGMENTED_MANIFEST", "COMPREHEND_CSV"]
 DocumentClassifierModeType = Literal["MULTI_CLASS", "MULTI_LABEL"]
 DocumentReadActionType = Literal["TEXTRACT_ANALYZE_DOCUMENT", "TEXTRACT_DETECT_DOCUMENT_TEXT"]
 DocumentReadFeatureTypesType = Literal["FORMS", "TABLES"]
 DocumentReadModeType = Literal["FORCE_DOCUMENT_READ_ACTION", "SERVICE_DEFAULT"]
+DocumentTypeType = Literal[
+    "IMAGE",
+    "MS_WORD",
+    "NATIVE_PDF",
+    "PLAIN_TEXT",
+    "SCANNED_PDF",
+    "TEXTRACT_ANALYZE_DOCUMENT_JSON",
+    "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON",
+]
 EndpointStatusType = Literal["CREATING", "DELETING", "FAILED", "IN_SERVICE", "UPDATING"]
 EntityRecognizerDataFormatType = Literal["AUGMENTED_MANIFEST", "COMPREHEND_CSV"]
 EntityTypeType = Literal[
@@ -81,13 +97,22 @@ LanguageCodeType = Literal[
 ListDocumentClassificationJobsPaginatorName = Literal["list_document_classification_jobs"]
 ListDocumentClassifiersPaginatorName = Literal["list_document_classifiers"]
 ListDominantLanguageDetectionJobsPaginatorName = Literal["list_dominant_language_detection_jobs"]
+ListEndpointsPaginatorName = Literal["list_endpoints"]
 ListEntitiesDetectionJobsPaginatorName = Literal["list_entities_detection_jobs"]
 ListEntityRecognizersPaginatorName = Literal["list_entity_recognizers"]
 ListKeyPhrasesDetectionJobsPaginatorName = Literal["list_key_phrases_detection_jobs"]
+ListPiiEntitiesDetectionJobsPaginatorName = Literal["list_pii_entities_detection_jobs"]
 ListSentimentDetectionJobsPaginatorName = Literal["list_sentiment_detection_jobs"]
 ListTopicsDetectionJobsPaginatorName = Literal["list_topics_detection_jobs"]
 ModelStatusType = Literal[
     "DELETING", "IN_ERROR", "STOPPED", "STOP_REQUESTED", "SUBMITTED", "TRAINED", "TRAINING"
+]
+PageBasedErrorCodeType = Literal[
+    "INTERNAL_SERVER_ERROR",
+    "PAGE_CHARACTERS_EXCEEDED",
+    "PAGE_SIZE_EXCEEDED",
+    "TEXTRACT_BAD_PAGE",
+    "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED",
 ]
 PartOfSpeechTagTypeType = Literal[
     "ADJ",
@@ -150,6 +175,7 @@ PiiEntityTypeType = Literal[
     "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
     "VEHICLE_IDENTIFICATION_NUMBER",
 ]
+RelationshipTypeType = Literal["CHILD"]
 SentimentTypeType = Literal["MIXED", "NEGATIVE", "NEUTRAL", "POSITIVE"]
 SplitType = Literal["TEST", "TRAIN"]
 SyntaxLanguageCodeType = Literal["de", "en", "es", "fr", "it", "pt"]

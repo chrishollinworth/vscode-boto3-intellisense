@@ -26,7 +26,7 @@ __all__ = (
 )
 
 FilterNameStringTypeType = Literal[
-    "all", "description", "name", "primary-region", "tag-key", "tag-value"
+    "all", "description", "name", "owning-service", "primary-region", "tag-key", "tag-value"
 ]
 ListSecretsPaginatorName = Literal["list_secrets"]
 SortOrderTypeType = Literal["asc", "desc"]

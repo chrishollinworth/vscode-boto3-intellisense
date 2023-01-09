@@ -112,6 +112,7 @@ __all__ = (
     "DescribeHostReservationsPaginatorName",
     "DescribeHostsPaginatorName",
     "DescribeIamInstanceProfileAssociationsPaginatorName",
+    "DescribeImagesPaginatorName",
     "DescribeImportImageTasksPaginatorName",
     "DescribeImportSnapshotTasksPaginatorName",
     "DescribeInstanceCreditSpecificationsPaginatorName",
@@ -178,6 +179,11 @@ __all__ = (
     "DescribeTransitGatewayVpcAttachmentsPaginatorName",
     "DescribeTransitGatewaysPaginatorName",
     "DescribeTrunkInterfaceAssociationsPaginatorName",
+    "DescribeVerifiedAccessEndpointsPaginatorName",
+    "DescribeVerifiedAccessGroupsPaginatorName",
+    "DescribeVerifiedAccessInstanceLoggingConfigurationsPaginatorName",
+    "DescribeVerifiedAccessInstancesPaginatorName",
+    "DescribeVerifiedAccessTrustProvidersPaginatorName",
     "DescribeVolumeStatusPaginatorName",
     "DescribeVolumesModificationsPaginatorName",
     "DescribeVolumesPaginatorName",
@@ -191,6 +197,7 @@ __all__ = (
     "DescribeVpcPeeringConnectionsPaginatorName",
     "DescribeVpcsPaginatorName",
     "DestinationFileFormatType",
+    "DeviceTrustProviderTypeType",
     "DeviceTypeType",
     "DiskImageFormatType",
     "DiskTypeType",
@@ -435,10 +442,17 @@ __all__ = (
     "TransitGatewayRouteTypeType",
     "TransitGatewayStateType",
     "TransportProtocolType",
+    "TrustProviderTypeType",
     "TunnelInsideIpVersionType",
     "UnlimitedSupportedInstanceFamilyType",
     "UnsuccessfulInstanceCreditSpecificationErrorCodeType",
     "UsageClassTypeType",
+    "UserTrustProviderTypeType",
+    "VerifiedAccessEndpointAttachmentTypeType",
+    "VerifiedAccessEndpointProtocolType",
+    "VerifiedAccessEndpointStatusCodeType",
+    "VerifiedAccessEndpointTypeType",
+    "VerifiedAccessLogDeliveryStatusCodeType",
     "VirtualizationTypeType",
     "VolumeAttachmentStateType",
     "VolumeAttributeNameType",
@@ -646,6 +660,7 @@ DescribeHostsPaginatorName = Literal["describe_hosts"]
 DescribeIamInstanceProfileAssociationsPaginatorName = Literal[
     "describe_iam_instance_profile_associations"
 ]
+DescribeImagesPaginatorName = Literal["describe_images"]
 DescribeImportImageTasksPaginatorName = Literal["describe_import_image_tasks"]
 DescribeImportSnapshotTasksPaginatorName = Literal["describe_import_snapshot_tasks"]
 DescribeInstanceCreditSpecificationsPaginatorName = Literal[
@@ -738,6 +753,15 @@ DescribeTransitGatewayVpcAttachmentsPaginatorName = Literal[
 ]
 DescribeTransitGatewaysPaginatorName = Literal["describe_transit_gateways"]
 DescribeTrunkInterfaceAssociationsPaginatorName = Literal["describe_trunk_interface_associations"]
+DescribeVerifiedAccessEndpointsPaginatorName = Literal["describe_verified_access_endpoints"]
+DescribeVerifiedAccessGroupsPaginatorName = Literal["describe_verified_access_groups"]
+DescribeVerifiedAccessInstanceLoggingConfigurationsPaginatorName = Literal[
+    "describe_verified_access_instance_logging_configurations"
+]
+DescribeVerifiedAccessInstancesPaginatorName = Literal["describe_verified_access_instances"]
+DescribeVerifiedAccessTrustProvidersPaginatorName = Literal[
+    "describe_verified_access_trust_providers"
+]
 DescribeVolumeStatusPaginatorName = Literal["describe_volume_status"]
 DescribeVolumesModificationsPaginatorName = Literal["describe_volumes_modifications"]
 DescribeVolumesPaginatorName = Literal["describe_volumes"]
@@ -757,6 +781,7 @@ DescribeVpcEndpointsPaginatorName = Literal["describe_vpc_endpoints"]
 DescribeVpcPeeringConnectionsPaginatorName = Literal["describe_vpc_peering_connections"]
 DescribeVpcsPaginatorName = Literal["describe_vpcs"]
 DestinationFileFormatType = Literal["parquet", "plain-text"]
+DeviceTrustProviderTypeType = Literal["crowdstrike", "jamf"]
 DeviceTypeType = Literal["ebs", "instance-store"]
 DiskImageFormatType = Literal["RAW", "VHD", "VMDK"]
 DiskTypeType = Literal["hdd", "ssd"]
@@ -1106,6 +1131,7 @@ InstanceTypeType = Literal[
     "h1.8xlarge",
     "hi1.4xlarge",
     "hpc6a.48xlarge",
+    "hpc6id.32xlarge",
     "hs1.8xlarge",
     "i2.2xlarge",
     "i2.4xlarge",
@@ -1759,8 +1785,14 @@ ResourceTypeType = Literal[
     "transit-gateway-policy-table",
     "transit-gateway-route-table",
     "transit-gateway-route-table-announcement",
+    "verified-access-endpoint",
+    "verified-access-group",
+    "verified-access-instance",
+    "verified-access-policy",
+    "verified-access-trust-provider",
     "volume",
     "vpc",
+    "vpc-block-public-access-exclusion",
     "vpc-endpoint",
     "vpc-endpoint-connection",
     "vpc-endpoint-connection-device-type",
@@ -1901,6 +1933,7 @@ TransitGatewayRouteTableStateType = Literal["available", "deleted", "deleting", 
 TransitGatewayRouteTypeType = Literal["propagated", "static"]
 TransitGatewayStateType = Literal["available", "deleted", "deleting", "modifying", "pending"]
 TransportProtocolType = Literal["tcp", "udp"]
+TrustProviderTypeType = Literal["device", "user"]
 TunnelInsideIpVersionType = Literal["ipv4", "ipv6"]
 UnlimitedSupportedInstanceFamilyType = Literal["t2", "t3", "t3a", "t4g"]
 UnsuccessfulInstanceCreditSpecificationErrorCodeType = Literal[
@@ -1910,6 +1943,14 @@ UnsuccessfulInstanceCreditSpecificationErrorCodeType = Literal[
     "InvalidInstanceID.NotFound",
 ]
 UsageClassTypeType = Literal["on-demand", "spot"]
+UserTrustProviderTypeType = Literal["iam-identity-center", "oidc"]
+VerifiedAccessEndpointAttachmentTypeType = Literal["vpc"]
+VerifiedAccessEndpointProtocolType = Literal["http", "https"]
+VerifiedAccessEndpointStatusCodeType = Literal[
+    "active", "deleted", "deleting", "pending", "updating"
+]
+VerifiedAccessEndpointTypeType = Literal["load-balancer", "network-interface"]
+VerifiedAccessLogDeliveryStatusCodeType = Literal["failed", "success"]
 VirtualizationTypeType = Literal["hvm", "paravirtual"]
 VolumeAttachmentStateType = Literal["attached", "attaching", "busy", "detached", "detaching"]
 VolumeAttributeNameType = Literal["autoEnableIO", "productCodes"]

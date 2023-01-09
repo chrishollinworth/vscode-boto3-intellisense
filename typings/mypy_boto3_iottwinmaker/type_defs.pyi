@@ -28,6 +28,9 @@ from .literals import (
     PropertyUpdateTypeType,
     ScopeType,
     StateType,
+    SyncJobStateType,
+    SyncResourceStateType,
+    SyncResourceTypeType,
     TypeType,
     UpdateReasonType,
 )
@@ -60,6 +63,8 @@ __all__ = (
     "CreateEntityResponseTypeDef",
     "CreateSceneRequestRequestTypeDef",
     "CreateSceneResponseTypeDef",
+    "CreateSyncJobRequestRequestTypeDef",
+    "CreateSyncJobResponseTypeDef",
     "CreateWorkspaceRequestRequestTypeDef",
     "CreateWorkspaceResponseTypeDef",
     "DataConnectorTypeDef",
@@ -70,6 +75,8 @@ __all__ = (
     "DeleteEntityRequestRequestTypeDef",
     "DeleteEntityResponseTypeDef",
     "DeleteSceneRequestRequestTypeDef",
+    "DeleteSyncJobRequestRequestTypeDef",
+    "DeleteSyncJobResponseTypeDef",
     "DeleteWorkspaceRequestRequestTypeDef",
     "EntityPropertyReferenceTypeDef",
     "EntitySummaryTypeDef",
@@ -89,6 +96,8 @@ __all__ = (
     "GetPropertyValueResponseTypeDef",
     "GetSceneRequestRequestTypeDef",
     "GetSceneResponseTypeDef",
+    "GetSyncJobRequestRequestTypeDef",
+    "GetSyncJobResponseTypeDef",
     "GetWorkspaceRequestRequestTypeDef",
     "GetWorkspaceResponseTypeDef",
     "InterpolationParametersTypeDef",
@@ -101,6 +110,10 @@ __all__ = (
     "ListEntitiesResponseTypeDef",
     "ListScenesRequestRequestTypeDef",
     "ListScenesResponseTypeDef",
+    "ListSyncJobsRequestRequestTypeDef",
+    "ListSyncJobsResponseTypeDef",
+    "ListSyncResourcesRequestRequestTypeDef",
+    "ListSyncResourcesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListWorkspacesRequestRequestTypeDef",
@@ -125,6 +138,11 @@ __all__ = (
     "RowTypeDef",
     "SceneSummaryTypeDef",
     "StatusTypeDef",
+    "SyncJobStatusTypeDef",
+    "SyncJobSummaryTypeDef",
+    "SyncResourceFilterTypeDef",
+    "SyncResourceStatusTypeDef",
+    "SyncResourceSummaryTypeDef",
     "TabularConditionsTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -241,6 +259,7 @@ ComponentResponseTypeDef = TypedDict(
         "definedIn": str,
         "properties": Dict[str, "PropertyResponseTypeDef"],
         "propertyGroups": Dict[str, "ComponentPropertyGroupResponseTypeDef"],
+        "syncSource": str,
     },
     total=False,
 )
@@ -259,6 +278,7 @@ _OptionalComponentTypeSummaryTypeDef = TypedDict(
     {
         "description": str,
         "status": "StatusTypeDef",
+        "componentTypeName": str,
     },
     total=False,
 )
@@ -297,6 +317,7 @@ _OptionalCreateComponentTypeRequestRequestTypeDef = TypedDict(
         "functions": Dict[str, "FunctionRequestTypeDef"],
         "tags": Dict[str, str],
         "propertyGroups": Dict[str, "PropertyGroupRequestTypeDef"],
+        "componentTypeName": str,
     },
     total=False,
 )
@@ -380,6 +401,37 @@ CreateSceneResponseTypeDef = TypedDict(
     {
         "arn": str,
         "creationDateTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSyncJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSyncJobRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+        "syncSource": str,
+        "syncRole": str,
+    },
+)
+_OptionalCreateSyncJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSyncJobRequestRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateSyncJobRequestRequestTypeDef(
+    _RequiredCreateSyncJobRequestRequestTypeDef, _OptionalCreateSyncJobRequestRequestTypeDef
+):
+    pass
+
+CreateSyncJobResponseTypeDef = TypedDict(
+    "CreateSyncJobResponseTypeDef",
+    {
+        "arn": str,
+        "creationDateTime": datetime,
+        "state": SyncJobStateType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -509,6 +561,22 @@ DeleteSceneRequestRequestTypeDef = TypedDict(
     {
         "workspaceId": str,
         "sceneId": str,
+    },
+)
+
+DeleteSyncJobRequestRequestTypeDef = TypedDict(
+    "DeleteSyncJobRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+        "syncSource": str,
+    },
+)
+
+DeleteSyncJobResponseTypeDef = TypedDict(
+    "DeleteSyncJobResponseTypeDef",
+    {
+        "state": SyncJobStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -650,6 +718,8 @@ GetComponentTypeResponseTypeDef = TypedDict(
         "isSchemaInitialized": bool,
         "status": "StatusTypeDef",
         "propertyGroups": Dict[str, "PropertyGroupResponseTypeDef"],
+        "syncSource": str,
+        "componentTypeName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -676,6 +746,7 @@ GetEntityResponseTypeDef = TypedDict(
         "hasChildEntities": bool,
         "creationDateTime": datetime,
         "updateDateTime": datetime,
+        "syncSource": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -785,6 +856,39 @@ GetSceneResponseTypeDef = TypedDict(
         "updateDateTime": datetime,
         "description": str,
         "capabilities": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetSyncJobRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSyncJobRequestRequestTypeDef",
+    {
+        "syncSource": str,
+    },
+)
+_OptionalGetSyncJobRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSyncJobRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+    },
+    total=False,
+)
+
+class GetSyncJobRequestRequestTypeDef(
+    _RequiredGetSyncJobRequestRequestTypeDef, _OptionalGetSyncJobRequestRequestTypeDef
+):
+    pass
+
+GetSyncJobResponseTypeDef = TypedDict(
+    "GetSyncJobResponseTypeDef",
+    {
+        "arn": str,
+        "workspaceId": str,
+        "syncSource": str,
+        "syncRole": str,
+        "status": "SyncJobStatusTypeDef",
+        "creationDateTime": datetime,
+        "updateDateTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -938,6 +1042,66 @@ ListScenesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListSyncJobsRequestRequestTypeDef = TypedDict(
+    "_RequiredListSyncJobsRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+    },
+)
+_OptionalListSyncJobsRequestRequestTypeDef = TypedDict(
+    "_OptionalListSyncJobsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListSyncJobsRequestRequestTypeDef(
+    _RequiredListSyncJobsRequestRequestTypeDef, _OptionalListSyncJobsRequestRequestTypeDef
+):
+    pass
+
+ListSyncJobsResponseTypeDef = TypedDict(
+    "ListSyncJobsResponseTypeDef",
+    {
+        "syncJobSummaries": List["SyncJobSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListSyncResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListSyncResourcesRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+        "syncSource": str,
+    },
+)
+_OptionalListSyncResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListSyncResourcesRequestRequestTypeDef",
+    {
+        "filters": List["SyncResourceFilterTypeDef"],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListSyncResourcesRequestRequestTypeDef(
+    _RequiredListSyncResourcesRequestRequestTypeDef, _OptionalListSyncResourcesRequestRequestTypeDef
+):
+    pass
+
+ListSyncResourcesResponseTypeDef = TypedDict(
+    "ListSyncResourcesResponseTypeDef",
+    {
+        "syncResources": List["SyncResourceSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
     "_RequiredListTagsForResourceRequestRequestTypeDef",
     {
@@ -1053,6 +1217,7 @@ PropertyDefinitionRequestTypeDef = TypedDict(
         "isTimeSeries": bool,
         "defaultValue": "DataValueTypeDef",
         "configuration": Dict[str, str],
+        "displayName": str,
     },
     total=False,
 )
@@ -1075,6 +1240,7 @@ _OptionalPropertyDefinitionResponseTypeDef = TypedDict(
     {
         "defaultValue": "DataValueTypeDef",
         "configuration": Dict[str, str],
+        "displayName": str,
     },
     total=False,
 )
@@ -1273,6 +1439,60 @@ StatusTypeDef = TypedDict(
     total=False,
 )
 
+SyncJobStatusTypeDef = TypedDict(
+    "SyncJobStatusTypeDef",
+    {
+        "state": SyncJobStateType,
+        "error": "ErrorDetailsTypeDef",
+    },
+    total=False,
+)
+
+SyncJobSummaryTypeDef = TypedDict(
+    "SyncJobSummaryTypeDef",
+    {
+        "arn": str,
+        "workspaceId": str,
+        "syncSource": str,
+        "status": "SyncJobStatusTypeDef",
+        "creationDateTime": datetime,
+        "updateDateTime": datetime,
+    },
+    total=False,
+)
+
+SyncResourceFilterTypeDef = TypedDict(
+    "SyncResourceFilterTypeDef",
+    {
+        "state": SyncResourceStateType,
+        "resourceType": SyncResourceTypeType,
+        "resourceId": str,
+        "externalId": str,
+    },
+    total=False,
+)
+
+SyncResourceStatusTypeDef = TypedDict(
+    "SyncResourceStatusTypeDef",
+    {
+        "state": SyncResourceStateType,
+        "error": "ErrorDetailsTypeDef",
+    },
+    total=False,
+)
+
+SyncResourceSummaryTypeDef = TypedDict(
+    "SyncResourceSummaryTypeDef",
+    {
+        "resourceType": SyncResourceTypeType,
+        "externalId": str,
+        "resourceId": str,
+        "status": "SyncResourceStatusTypeDef",
+        "updateDateTime": datetime,
+    },
+    total=False,
+)
+
 TabularConditionsTypeDef = TypedDict(
     "TabularConditionsTypeDef",
     {
@@ -1314,6 +1534,7 @@ _OptionalUpdateComponentTypeRequestRequestTypeDef = TypedDict(
         "extendsFrom": List[str],
         "functions": Dict[str, "FunctionRequestTypeDef"],
         "propertyGroups": Dict[str, "PropertyGroupRequestTypeDef"],
+        "componentTypeName": str,
     },
     total=False,
 )

@@ -60,6 +60,7 @@ __all__ = (
     "AttachInstancesQueryRequestTypeDef",
     "AttachLoadBalancerTargetGroupsTypeRequestTypeDef",
     "AttachLoadBalancersTypeRequestTypeDef",
+    "AttachTrafficSourcesTypeRequestTypeDef",
     "AutoScalingGroupNamesTypeRequestTypeDef",
     "AutoScalingGroupTypeDef",
     "AutoScalingGroupsTypeTypeDef",
@@ -107,6 +108,8 @@ __all__ = (
     "DescribeScheduledActionsTypeRequestTypeDef",
     "DescribeTagsTypeRequestTypeDef",
     "DescribeTerminationPolicyTypesAnswerTypeDef",
+    "DescribeTrafficSourcesRequestRequestTypeDef",
+    "DescribeTrafficSourcesResponseTypeDef",
     "DescribeWarmPoolAnswerTypeDef",
     "DescribeWarmPoolTypeRequestTypeDef",
     "DesiredConfigurationTypeDef",
@@ -114,6 +117,7 @@ __all__ = (
     "DetachInstancesQueryRequestTypeDef",
     "DetachLoadBalancerTargetGroupsTypeRequestTypeDef",
     "DetachLoadBalancersTypeRequestTypeDef",
+    "DetachTrafficSourcesTypeRequestTypeDef",
     "DisableMetricsCollectionQueryRequestTypeDef",
     "EbsTypeDef",
     "EnableMetricsCollectionQueryRequestTypeDef",
@@ -199,8 +203,12 @@ __all__ = (
     "TagTypeDef",
     "TagsTypeTypeDef",
     "TargetTrackingConfigurationTypeDef",
+    "TargetTrackingMetricDataQueryTypeDef",
+    "TargetTrackingMetricStatTypeDef",
     "TerminateInstanceInAutoScalingGroupTypeRequestTypeDef",
     "TotalLocalStorageGBRequestTypeDef",
+    "TrafficSourceIdentifierTypeDef",
+    "TrafficSourceStateTypeDef",
     "UpdateAutoScalingGroupTypeRequestTypeDef",
     "VCpuCountRequestTypeDef",
     "WarmPoolConfigurationTypeDef",
@@ -320,6 +328,14 @@ AttachLoadBalancersTypeRequestTypeDef = TypedDict(
     },
 )
 
+AttachTrafficSourcesTypeRequestTypeDef = TypedDict(
+    "AttachTrafficSourcesTypeRequestTypeDef",
+    {
+        "AutoScalingGroupName": str,
+        "TrafficSources": List["TrafficSourceIdentifierTypeDef"],
+    },
+)
+
 AutoScalingGroupNamesTypeRequestTypeDef = TypedDict(
     "AutoScalingGroupNamesTypeRequestTypeDef",
     {
@@ -372,6 +388,7 @@ _OptionalAutoScalingGroupTypeDef = TypedDict(
         "Context": str,
         "DesiredCapacityType": str,
         "DefaultInstanceWarmup": int,
+        "TrafficSources": List["TrafficSourceIdentifierTypeDef"],
     },
     total=False,
 )
@@ -566,6 +583,7 @@ _OptionalCreateAutoScalingGroupTypeRequestTypeDef = TypedDict(
         "Context": str,
         "DesiredCapacityType": str,
         "DefaultInstanceWarmup": int,
+        "TrafficSources": List["TrafficSourceIdentifierTypeDef"],
     },
     total=False,
 )
@@ -620,27 +638,18 @@ CreateOrUpdateTagsTypeRequestTypeDef = TypedDict(
     },
 )
 
-_RequiredCustomizedMetricSpecificationTypeDef = TypedDict(
-    "_RequiredCustomizedMetricSpecificationTypeDef",
+CustomizedMetricSpecificationTypeDef = TypedDict(
+    "CustomizedMetricSpecificationTypeDef",
     {
         "MetricName": str,
         "Namespace": str,
-        "Statistic": MetricStatisticType,
-    },
-)
-_OptionalCustomizedMetricSpecificationTypeDef = TypedDict(
-    "_OptionalCustomizedMetricSpecificationTypeDef",
-    {
         "Dimensions": List["MetricDimensionTypeDef"],
+        "Statistic": MetricStatisticType,
         "Unit": str,
+        "Metrics": List["TargetTrackingMetricDataQueryTypeDef"],
     },
     total=False,
 )
-
-class CustomizedMetricSpecificationTypeDef(
-    _RequiredCustomizedMetricSpecificationTypeDef, _OptionalCustomizedMetricSpecificationTypeDef
-):
-    pass
 
 _RequiredDeleteAutoScalingGroupTypeRequestTypeDef = TypedDict(
     "_RequiredDeleteAutoScalingGroupTypeRequestTypeDef",
@@ -978,6 +987,37 @@ DescribeTerminationPolicyTypesAnswerTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribeTrafficSourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeTrafficSourcesRequestRequestTypeDef",
+    {
+        "AutoScalingGroupName": str,
+        "TrafficSourceType": str,
+    },
+)
+_OptionalDescribeTrafficSourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeTrafficSourcesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxRecords": int,
+    },
+    total=False,
+)
+
+class DescribeTrafficSourcesRequestRequestTypeDef(
+    _RequiredDescribeTrafficSourcesRequestRequestTypeDef,
+    _OptionalDescribeTrafficSourcesRequestRequestTypeDef,
+):
+    pass
+
+DescribeTrafficSourcesResponseTypeDef = TypedDict(
+    "DescribeTrafficSourcesResponseTypeDef",
+    {
+        "TrafficSources": List["TrafficSourceStateTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeWarmPoolAnswerTypeDef = TypedDict(
     "DescribeWarmPoolAnswerTypeDef",
     {
@@ -1058,6 +1098,14 @@ DetachLoadBalancersTypeRequestTypeDef = TypedDict(
     {
         "AutoScalingGroupName": str,
         "LoadBalancerNames": List[str],
+    },
+)
+
+DetachTrafficSourcesTypeRequestTypeDef = TypedDict(
+    "DetachTrafficSourcesTypeRequestTypeDef",
+    {
+        "AutoScalingGroupName": str,
+        "TrafficSources": List["TrafficSourceIdentifierTypeDef"],
     },
 )
 
@@ -2315,6 +2363,48 @@ class TargetTrackingConfigurationTypeDef(
 ):
     pass
 
+_RequiredTargetTrackingMetricDataQueryTypeDef = TypedDict(
+    "_RequiredTargetTrackingMetricDataQueryTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalTargetTrackingMetricDataQueryTypeDef = TypedDict(
+    "_OptionalTargetTrackingMetricDataQueryTypeDef",
+    {
+        "Expression": str,
+        "MetricStat": "TargetTrackingMetricStatTypeDef",
+        "Label": str,
+        "ReturnData": bool,
+    },
+    total=False,
+)
+
+class TargetTrackingMetricDataQueryTypeDef(
+    _RequiredTargetTrackingMetricDataQueryTypeDef, _OptionalTargetTrackingMetricDataQueryTypeDef
+):
+    pass
+
+_RequiredTargetTrackingMetricStatTypeDef = TypedDict(
+    "_RequiredTargetTrackingMetricStatTypeDef",
+    {
+        "Metric": "MetricTypeDef",
+        "Stat": str,
+    },
+)
+_OptionalTargetTrackingMetricStatTypeDef = TypedDict(
+    "_OptionalTargetTrackingMetricStatTypeDef",
+    {
+        "Unit": str,
+    },
+    total=False,
+)
+
+class TargetTrackingMetricStatTypeDef(
+    _RequiredTargetTrackingMetricStatTypeDef, _OptionalTargetTrackingMetricStatTypeDef
+):
+    pass
+
 TerminateInstanceInAutoScalingGroupTypeRequestTypeDef = TypedDict(
     "TerminateInstanceInAutoScalingGroupTypeRequestTypeDef",
     {
@@ -2328,6 +2418,23 @@ TotalLocalStorageGBRequestTypeDef = TypedDict(
     {
         "Min": float,
         "Max": float,
+    },
+    total=False,
+)
+
+TrafficSourceIdentifierTypeDef = TypedDict(
+    "TrafficSourceIdentifierTypeDef",
+    {
+        "Identifier": str,
+    },
+    total=False,
+)
+
+TrafficSourceStateTypeDef = TypedDict(
+    "TrafficSourceStateTypeDef",
+    {
+        "TrafficSource": str,
+        "State": str,
     },
     total=False,
 )

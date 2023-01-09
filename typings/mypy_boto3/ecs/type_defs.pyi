@@ -112,6 +112,7 @@ __all__ = (
     "DeleteServiceResponseTypeDef",
     "DeleteTaskSetRequestRequestTypeDef",
     "DeleteTaskSetResponseTypeDef",
+    "DeploymentAlarmsTypeDef",
     "DeploymentCircuitBreakerTypeDef",
     "DeploymentConfigurationTypeDef",
     "DeploymentControllerTypeDef",
@@ -868,6 +869,15 @@ DeleteTaskSetResponseTypeDef = TypedDict(
     },
 )
 
+DeploymentAlarmsTypeDef = TypedDict(
+    "DeploymentAlarmsTypeDef",
+    {
+        "alarmNames": List[str],
+        "enable": bool,
+        "rollback": bool,
+    },
+)
+
 DeploymentCircuitBreakerTypeDef = TypedDict(
     "DeploymentCircuitBreakerTypeDef",
     {
@@ -882,6 +892,7 @@ DeploymentConfigurationTypeDef = TypedDict(
         "deploymentCircuitBreaker": "DeploymentCircuitBreakerTypeDef",
         "maximumPercent": int,
         "minimumHealthyPercent": int,
+        "alarms": "DeploymentAlarmsTypeDef",
     },
     total=False,
 )
@@ -1785,6 +1796,8 @@ NetworkBindingTypeDef = TypedDict(
         "containerPort": int,
         "hostPort": int,
         "protocol": TransportProtocolType,
+        "containerPortRange": str,
+        "hostPortRange": str,
     },
     total=False,
 )
@@ -1851,6 +1864,7 @@ PortMappingTypeDef = TypedDict(
         "protocol": TransportProtocolType,
         "name": str,
         "appProtocol": ApplicationProtocolType,
+        "containerPortRange": str,
     },
     total=False,
 )

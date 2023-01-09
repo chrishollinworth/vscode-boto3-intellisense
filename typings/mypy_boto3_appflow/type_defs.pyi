@@ -1309,6 +1309,8 @@ ListConnectorEntitiesRequestRequestTypeDef = TypedDict(
         "connectorType": ConnectorTypeType,
         "entitiesPath": str,
         "apiVersion": str,
+        "maxResults": int,
+        "nextToken": str,
     },
     total=False,
 )
@@ -1317,6 +1319,7 @@ ListConnectorEntitiesResponseTypeDef = TypedDict(
     "ListConnectorEntitiesResponseTypeDef",
     {
         "connectorEntityMap": Dict[str, List["ConnectorEntityTypeDef"]],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -46,6 +46,7 @@ __all__ = (
     "DescribeScheduledActionsRequestRequestTypeDef",
     "DescribeScheduledActionsResponseTypeDef",
     "MetricDimensionTypeDef",
+    "NotScaledReasonTypeDef",
     "PaginatorConfigTypeDef",
     "PredefinedMetricSpecificationTypeDef",
     "PutScalingPolicyRequestRequestTypeDef",
@@ -168,6 +169,7 @@ _OptionalDescribeScalingActivitiesRequestRequestTypeDef = TypedDict(
         "ScalableDimension": ScalableDimensionType,
         "MaxResults": int,
         "NextToken": str,
+        "IncludeNotScaledActivities": bool,
     },
     total=False,
 )
@@ -260,6 +262,25 @@ MetricDimensionTypeDef = TypedDict(
         "Value": str,
     },
 )
+
+_RequiredNotScaledReasonTypeDef = TypedDict(
+    "_RequiredNotScaledReasonTypeDef",
+    {
+        "Code": str,
+    },
+)
+_OptionalNotScaledReasonTypeDef = TypedDict(
+    "_OptionalNotScaledReasonTypeDef",
+    {
+        "MaxCapacity": int,
+        "MinCapacity": int,
+        "CurrentCapacity": int,
+    },
+    total=False,
+)
+
+class NotScaledReasonTypeDef(_RequiredNotScaledReasonTypeDef, _OptionalNotScaledReasonTypeDef):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
@@ -437,6 +458,7 @@ _OptionalScalingActivityTypeDef = TypedDict(
         "EndTime": datetime,
         "StatusMessage": str,
         "Details": str,
+        "NotScaledReasons": List["NotScaledReasonTypeDef"],
     },
     total=False,
 )

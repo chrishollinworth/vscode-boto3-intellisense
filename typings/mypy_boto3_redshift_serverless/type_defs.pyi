@@ -69,6 +69,8 @@ __all__ = (
     "GetResourcePolicyResponseTypeDef",
     "GetSnapshotRequestRequestTypeDef",
     "GetSnapshotResponseTypeDef",
+    "GetTableRestoreStatusRequestRequestTypeDef",
+    "GetTableRestoreStatusResponseTypeDef",
     "GetUsageLimitRequestRequestTypeDef",
     "GetUsageLimitResponseTypeDef",
     "GetWorkgroupRequestRequestTypeDef",
@@ -81,6 +83,8 @@ __all__ = (
     "ListRecoveryPointsResponseTypeDef",
     "ListSnapshotsRequestRequestTypeDef",
     "ListSnapshotsResponseTypeDef",
+    "ListTableRestoreStatusRequestRequestTypeDef",
+    "ListTableRestoreStatusResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListUsageLimitsRequestRequestTypeDef",
@@ -99,7 +103,10 @@ __all__ = (
     "RestoreFromRecoveryPointResponseTypeDef",
     "RestoreFromSnapshotRequestRequestTypeDef",
     "RestoreFromSnapshotResponseTypeDef",
+    "RestoreTableFromSnapshotRequestRequestTypeDef",
+    "RestoreTableFromSnapshotResponseTypeDef",
     "SnapshotTypeDef",
+    "TableRestoreStatusTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -139,6 +146,7 @@ _OptionalConvertRecoveryPointToSnapshotRequestRequestTypeDef = TypedDict(
     "_OptionalConvertRecoveryPointToSnapshotRequestRequestTypeDef",
     {
         "retentionPeriod": int,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -232,6 +240,7 @@ _OptionalCreateSnapshotRequestRequestTypeDef = TypedDict(
     "_OptionalCreateSnapshotRequestRequestTypeDef",
     {
         "retentionPeriod": int,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -292,6 +301,7 @@ _OptionalCreateWorkgroupRequestRequestTypeDef = TypedDict(
         "baseCapacity": int,
         "configParameters": List["ConfigParameterTypeDef"],
         "enhancedVpcRouting": bool,
+        "port": int,
         "publiclyAccessible": bool,
         "securityGroupIds": List[str],
         "subnetIds": List[str],
@@ -544,6 +554,21 @@ GetSnapshotResponseTypeDef = TypedDict(
     },
 )
 
+GetTableRestoreStatusRequestRequestTypeDef = TypedDict(
+    "GetTableRestoreStatusRequestRequestTypeDef",
+    {
+        "tableRestoreRequestId": str,
+    },
+)
+
+GetTableRestoreStatusResponseTypeDef = TypedDict(
+    "GetTableRestoreStatusResponseTypeDef",
+    {
+        "tableRestoreStatus": "TableRestoreStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetUsageLimitRequestRequestTypeDef = TypedDict(
     "GetUsageLimitRequestRequestTypeDef",
     {
@@ -617,6 +642,7 @@ ListRecoveryPointsRequestRequestTypeDef = TypedDict(
     {
         "endTime": Union[datetime, str],
         "maxResults": int,
+        "namespaceArn": str,
         "namespaceName": str,
         "nextToken": str,
         "startTime": Union[datetime, str],
@@ -652,6 +678,26 @@ ListSnapshotsResponseTypeDef = TypedDict(
     {
         "nextToken": str,
         "snapshots": List["SnapshotTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTableRestoreStatusRequestRequestTypeDef = TypedDict(
+    "ListTableRestoreStatusRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "namespaceName": str,
+        "nextToken": str,
+        "workgroupName": str,
+    },
+    total=False,
+)
+
+ListTableRestoreStatusResponseTypeDef = TypedDict(
+    "ListTableRestoreStatusResponseTypeDef",
+    {
+        "nextToken": str,
+        "tableRestoreStatuses": List["TableRestoreStatusTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -767,6 +813,7 @@ PutResourcePolicyResponseTypeDef = TypedDict(
 RecoveryPointTypeDef = TypedDict(
     "RecoveryPointTypeDef",
     {
+        "namespaceArn": str,
         "namespaceName": str,
         "recoveryPointCreateTime": datetime,
         "recoveryPointId": str,
@@ -847,6 +894,42 @@ RestoreFromSnapshotResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredRestoreTableFromSnapshotRequestRequestTypeDef = TypedDict(
+    "_RequiredRestoreTableFromSnapshotRequestRequestTypeDef",
+    {
+        "namespaceName": str,
+        "newTableName": str,
+        "snapshotName": str,
+        "sourceDatabaseName": str,
+        "sourceTableName": str,
+        "workgroupName": str,
+    },
+)
+_OptionalRestoreTableFromSnapshotRequestRequestTypeDef = TypedDict(
+    "_OptionalRestoreTableFromSnapshotRequestRequestTypeDef",
+    {
+        "activateCaseSensitiveIdentifier": bool,
+        "sourceSchemaName": str,
+        "targetDatabaseName": str,
+        "targetSchemaName": str,
+    },
+    total=False,
+)
+
+class RestoreTableFromSnapshotRequestRequestTypeDef(
+    _RequiredRestoreTableFromSnapshotRequestRequestTypeDef,
+    _OptionalRestoreTableFromSnapshotRequestRequestTypeDef,
+):
+    pass
+
+RestoreTableFromSnapshotResponseTypeDef = TypedDict(
+    "RestoreTableFromSnapshotResponseTypeDef",
+    {
+        "tableRestoreStatus": "TableRestoreStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 SnapshotTypeDef = TypedDict(
     "SnapshotTypeDef",
     {
@@ -870,6 +953,28 @@ SnapshotTypeDef = TypedDict(
         "snapshotRetentionStartTime": datetime,
         "status": SnapshotStatusType,
         "totalBackupSizeInMegaBytes": float,
+    },
+    total=False,
+)
+
+TableRestoreStatusTypeDef = TypedDict(
+    "TableRestoreStatusTypeDef",
+    {
+        "message": str,
+        "namespaceName": str,
+        "newTableName": str,
+        "progressInMegaBytes": int,
+        "requestTime": datetime,
+        "snapshotName": str,
+        "sourceDatabaseName": str,
+        "sourceSchemaName": str,
+        "sourceTableName": str,
+        "status": str,
+        "tableRestoreRequestId": str,
+        "targetDatabaseName": str,
+        "targetSchemaName": str,
+        "totalDataInMegaBytes": int,
+        "workgroupName": str,
     },
     total=False,
 )
@@ -1025,6 +1130,7 @@ _OptionalUpdateWorkgroupRequestRequestTypeDef = TypedDict(
         "baseCapacity": int,
         "configParameters": List["ConfigParameterTypeDef"],
         "enhancedVpcRouting": bool,
+        "port": int,
         "publiclyAccessible": bool,
         "securityGroupIds": List[str],
         "subnetIds": List[str],
@@ -1087,6 +1193,7 @@ WorkgroupTypeDef = TypedDict(
         "endpoint": "EndpointTypeDef",
         "enhancedVpcRouting": bool,
         "namespaceName": str,
+        "port": int,
         "publiclyAccessible": bool,
         "securityGroupIds": List[str],
         "status": WorkgroupStatusType,

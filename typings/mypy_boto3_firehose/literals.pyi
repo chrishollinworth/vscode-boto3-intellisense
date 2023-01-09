@@ -6,9 +6,9 @@ Type annotations for firehose service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_firehose.literals import AmazonopensearchserviceIndexRotationPeriodType
+    from mypy_boto3_firehose.literals import AmazonOpenSearchServerlessS3BackupModeType
 
-    data: AmazonopensearchserviceIndexRotationPeriodType = "NoRotation"
+    data: AmazonOpenSearchServerlessS3BackupModeType = "AllDocuments"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AmazonOpenSearchServerlessS3BackupModeType",
     "AmazonopensearchserviceIndexRotationPeriodType",
     "AmazonopensearchserviceS3BackupModeType",
     "CompressionFormatType",
@@ -44,6 +45,7 @@ __all__ = (
     "SplunkS3BackupModeType",
 )
 
+AmazonOpenSearchServerlessS3BackupModeType = Literal["AllDocuments", "FailedDocumentsOnly"]
 AmazonopensearchserviceIndexRotationPeriodType = Literal[
     "NoRotation", "OneDay", "OneHour", "OneMonth", "OneWeek"
 ]

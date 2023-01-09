@@ -54,6 +54,7 @@ LanguageCodeType = Literal[
     "es-ES",
     "es-MX",
     "es-US",
+    "fi-FI",
     "fr-CA",
     "fr-FR",
     "hi-IN",

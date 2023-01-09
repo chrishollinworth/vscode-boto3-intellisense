@@ -32,6 +32,7 @@ from .literals import (
     FaceSearchSortByType,
     GenderTypeType,
     KnownGenderTypeType,
+    LabelDetectionAggregateByType,
     LabelDetectionSortByType,
     LandmarkTypeType,
     OrientationCorrectionType,
@@ -50,6 +51,10 @@ from .literals import (
     VideoJobStatusType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -185,6 +190,7 @@ __all__ = (
     "KnownGenderTypeDef",
     "LabelAliasTypeDef",
     "LabelCategoryTypeDef",
+    "LabelDetectionSettingsTypeDef",
     "LabelDetectionTypeDef",
     "LabelTypeDef",
     "LandmarkTypeDef",
@@ -1552,6 +1558,7 @@ _OptionalGetLabelDetectionRequestRequestTypeDef = TypedDict(
         "MaxResults": int,
         "NextToken": str,
         "SortBy": LabelDetectionSortByType,
+        "AggregateBy": LabelDetectionAggregateByType,
     },
     total=False,
 )
@@ -1830,11 +1837,22 @@ LabelCategoryTypeDef = TypedDict(
     total=False,
 )
 
+LabelDetectionSettingsTypeDef = TypedDict(
+    "LabelDetectionSettingsTypeDef",
+    {
+        "GeneralLabels": "GeneralLabelsSettingsTypeDef",
+    },
+    total=False,
+)
+
 LabelDetectionTypeDef = TypedDict(
     "LabelDetectionTypeDef",
     {
         "Timestamp": int,
         "Label": "LabelTypeDef",
+        "StartTimestampMillis": int,
+        "EndTimestampMillis": int,
+        "DurationMillis": int,
     },
     total=False,
 )
@@ -2565,6 +2583,8 @@ _OptionalStartLabelDetectionRequestRequestTypeDef = TypedDict(
         "MinConfidence": float,
         "NotificationChannel": "NotificationChannelTypeDef",
         "JobTag": str,
+        "Features": List[Literal["GENERAL_LABELS"]],
+        "Settings": "LabelDetectionSettingsTypeDef",
     },
     total=False,
 )

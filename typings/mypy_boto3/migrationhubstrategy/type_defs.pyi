@@ -18,10 +18,14 @@ from typing import Any, Dict, List
 from .literals import (
     AntipatternReportStatusType,
     ApplicationComponentCriteriaType,
+    ApplicationModeType,
     AppTypeType,
+    AppUnitErrorCategoryType,
     AssessmentStatusType,
+    AuthTypeType,
     AwsManagedTargetDestinationType,
     CollectorHealthType,
+    ConditionType,
     DatabaseManagementPreferenceType,
     DataSourceTypeType,
     HeterogeneousTargetDatabaseEngineType,
@@ -32,9 +36,11 @@ from .literals import (
     OutputFormatType,
     RecommendationReportStatusType,
     ResourceSubTypeType,
+    RuntimeAnalysisStatusType,
     RunTimeAssessmentStatusType,
     SelfManageTargetDestinationType,
     ServerCriteriaType,
+    ServerErrorCategoryType,
     ServerOsTypeType,
     SeverityType,
     SortOrderType,
@@ -45,6 +51,7 @@ from .literals import (
     TargetDestinationType,
     TransformationToolNameType,
     VersionControlType,
+    VersionControlTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -58,15 +65,19 @@ else:
 
 __all__ = (
     "AntipatternSeveritySummaryTypeDef",
+    "AppUnitErrorTypeDef",
     "ApplicationComponentDetailTypeDef",
+    "ApplicationComponentStatusSummaryTypeDef",
     "ApplicationComponentStrategyTypeDef",
     "ApplicationComponentSummaryTypeDef",
     "ApplicationPreferencesTypeDef",
     "AssessmentSummaryTypeDef",
+    "AssessmentTargetTypeDef",
     "AssociatedApplicationTypeDef",
     "AwsManagedResourcesTypeDef",
     "BusinessGoalsTypeDef",
     "CollectorTypeDef",
+    "ConfigurationSummaryTypeDef",
     "DataCollectionDetailsTypeDef",
     "DatabaseConfigDetailTypeDef",
     "DatabaseMigrationPreferenceTypeDef",
@@ -79,6 +90,7 @@ __all__ = (
     "GetAssessmentResponseTypeDef",
     "GetImportFileTaskRequestRequestTypeDef",
     "GetImportFileTaskResponseTypeDef",
+    "GetLatestAssessmentIdResponseTypeDef",
     "GetPortfolioPreferencesResponseTypeDef",
     "GetPortfolioSummaryResponseTypeDef",
     "GetRecommendationReportDetailsRequestRequestTypeDef",
@@ -90,6 +102,7 @@ __all__ = (
     "GroupTypeDef",
     "HeterogeneousTypeDef",
     "HomogeneousTypeDef",
+    "IPAddressBasedRemoteInfoTypeDef",
     "ImportFileTaskInformationTypeDef",
     "ListApplicationComponentsRequestRequestTypeDef",
     "ListApplicationComponentsResponseTypeDef",
@@ -105,14 +118,18 @@ __all__ = (
     "NoManagementPreferenceTypeDef",
     "OSInfoTypeDef",
     "PaginatorConfigTypeDef",
+    "PipelineInfoTypeDef",
     "PrioritizeBusinessGoalsTypeDef",
     "PutPortfolioPreferencesRequestRequestTypeDef",
     "RecommendationReportDetailsTypeDef",
     "RecommendationSetTypeDef",
+    "RemoteSourceCodeAnalysisServerInfoTypeDef",
     "ResponseMetadataTypeDef",
     "S3ObjectTypeDef",
     "SelfManageResourcesTypeDef",
     "ServerDetailTypeDef",
+    "ServerErrorTypeDef",
+    "ServerStatusSummaryTypeDef",
     "ServerStrategyTypeDef",
     "ServerSummaryTypeDef",
     "SourceCodeRepositoryTypeDef",
@@ -130,6 +147,8 @@ __all__ = (
     "TransformationToolTypeDef",
     "UpdateApplicationComponentConfigRequestRequestTypeDef",
     "UpdateServerConfigRequestRequestTypeDef",
+    "VcenterBasedRemoteInfoTypeDef",
+    "VersionControlInfoTypeDef",
 )
 
 AntipatternSeveritySummaryTypeDef = TypedDict(
@@ -137,6 +156,14 @@ AntipatternSeveritySummaryTypeDef = TypedDict(
     {
         "count": int,
         "severity": SeverityType,
+    },
+    total=False,
+)
+
+AppUnitErrorTypeDef = TypedDict(
+    "AppUnitErrorTypeDef",
+    {
+        "appUnitErrorCategory": AppUnitErrorCategoryType,
     },
     total=False,
 )
@@ -149,6 +176,7 @@ ApplicationComponentDetailTypeDef = TypedDict(
         "antipatternReportStatus": AntipatternReportStatusType,
         "antipatternReportStatusMessage": str,
         "appType": AppTypeType,
+        "appUnitError": "AppUnitErrorTypeDef",
         "associatedServerId": str,
         "databaseConfigDetail": "DatabaseConfigDetailTypeDef",
         "id": str,
@@ -161,8 +189,19 @@ ApplicationComponentDetailTypeDef = TypedDict(
         "osVersion": str,
         "recommendationSet": "RecommendationSetTypeDef",
         "resourceSubType": ResourceSubTypeType,
+        "runtimeStatus": RuntimeAnalysisStatusType,
+        "runtimeStatusMessage": str,
         "sourceCodeRepositories": List["SourceCodeRepositoryTypeDef"],
         "statusMessage": str,
+    },
+    total=False,
+)
+
+ApplicationComponentStatusSummaryTypeDef = TypedDict(
+    "ApplicationComponentStatusSummaryTypeDef",
+    {
+        "count": int,
+        "srcCodeOrDbAnalysisStatus": SrcCodeOrDbAnalysisStatusType,
     },
     total=False,
 )
@@ -202,12 +241,23 @@ AssessmentSummaryTypeDef = TypedDict(
         "antipatternReportStatusMessage": str,
         "lastAnalyzedTimestamp": datetime,
         "listAntipatternSeveritySummary": List["AntipatternSeveritySummaryTypeDef"],
+        "listApplicationComponentStatusSummary": List["ApplicationComponentStatusSummaryTypeDef"],
         "listApplicationComponentStrategySummary": List["StrategySummaryTypeDef"],
         "listApplicationComponentSummary": List["ApplicationComponentSummaryTypeDef"],
+        "listServerStatusSummary": List["ServerStatusSummaryTypeDef"],
         "listServerStrategySummary": List["StrategySummaryTypeDef"],
         "listServerSummary": List["ServerSummaryTypeDef"],
     },
     total=False,
+)
+
+AssessmentTargetTypeDef = TypedDict(
+    "AssessmentTargetTypeDef",
+    {
+        "condition": ConditionType,
+        "name": str,
+        "values": List[str],
+    },
 )
 
 AssociatedApplicationTypeDef = TypedDict(
@@ -243,10 +293,23 @@ CollectorTypeDef = TypedDict(
         "collectorHealth": CollectorHealthType,
         "collectorId": str,
         "collectorVersion": str,
+        "configurationSummary": "ConfigurationSummaryTypeDef",
         "hostName": str,
         "ipAddress": str,
         "lastActivityTimeStamp": str,
         "registeredTimeStamp": str,
+    },
+    total=False,
+)
+
+ConfigurationSummaryTypeDef = TypedDict(
+    "ConfigurationSummaryTypeDef",
+    {
+        "ipAddressBasedRemoteInfoList": List["IPAddressBasedRemoteInfoTypeDef"],
+        "pipelineInfoList": List["PipelineInfoTypeDef"],
+        "remoteSourceCodeAnalysisServerInfo": "RemoteSourceCodeAnalysisServerInfoTypeDef",
+        "vcenterBasedRemoteInfoList": List["VcenterBasedRemoteInfoTypeDef"],
+        "versionControlInfoList": List["VersionControlInfoTypeDef"],
     },
     total=False,
 )
@@ -260,6 +323,7 @@ DataCollectionDetailsTypeDef = TypedDict(
         "servers": int,
         "startTime": datetime,
         "status": AssessmentStatusType,
+        "statusMessage": str,
         "success": int,
     },
     total=False,
@@ -335,6 +399,7 @@ GetAssessmentRequestRequestTypeDef = TypedDict(
 GetAssessmentResponseTypeDef = TypedDict(
     "GetAssessmentResponseTypeDef",
     {
+        "assessmentTargets": List["AssessmentTargetTypeDef"],
         "dataCollectionDetails": "DataCollectionDetailsTypeDef",
         "id": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -366,9 +431,18 @@ GetImportFileTaskResponseTypeDef = TypedDict(
     },
 )
 
+GetLatestAssessmentIdResponseTypeDef = TypedDict(
+    "GetLatestAssessmentIdResponseTypeDef",
+    {
+        "id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetPortfolioPreferencesResponseTypeDef = TypedDict(
     "GetPortfolioPreferencesResponseTypeDef",
     {
+        "applicationMode": ApplicationModeType,
         "applicationPreferences": "ApplicationPreferencesTypeDef",
         "databasePreferences": "DatabasePreferencesTypeDef",
         "prioritizeBusinessGoals": "PrioritizeBusinessGoalsTypeDef",
@@ -465,6 +539,16 @@ HomogeneousTypeDef = TypedDict(
     "HomogeneousTypeDef",
     {
         "targetDatabaseEngine": List[Literal["None specified"]],
+    },
+    total=False,
+)
+
+IPAddressBasedRemoteInfoTypeDef = TypedDict(
+    "IPAddressBasedRemoteInfoTypeDef",
+    {
+        "authType": AuthTypeType,
+        "ipAddressConfigurationTimeStamp": str,
+        "osType": OSTypeType,
     },
     total=False,
 )
@@ -620,6 +704,15 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PipelineInfoTypeDef = TypedDict(
+    "PipelineInfoTypeDef",
+    {
+        "pipelineConfigurationTimeStamp": str,
+        "pipelineType": Literal["AZURE_DEVOPS"],
+    },
+    total=False,
+)
+
 PrioritizeBusinessGoalsTypeDef = TypedDict(
     "PrioritizeBusinessGoalsTypeDef",
     {
@@ -631,6 +724,7 @@ PrioritizeBusinessGoalsTypeDef = TypedDict(
 PutPortfolioPreferencesRequestRequestTypeDef = TypedDict(
     "PutPortfolioPreferencesRequestRequestTypeDef",
     {
+        "applicationMode": ApplicationModeType,
         "applicationPreferences": "ApplicationPreferencesTypeDef",
         "databasePreferences": "DatabasePreferencesTypeDef",
         "prioritizeBusinessGoals": "PrioritizeBusinessGoalsTypeDef",
@@ -657,6 +751,14 @@ RecommendationSetTypeDef = TypedDict(
         "strategy": StrategyType,
         "targetDestination": TargetDestinationType,
         "transformationTool": "TransformationToolTypeDef",
+    },
+    total=False,
+)
+
+RemoteSourceCodeAnalysisServerInfoTypeDef = TypedDict(
+    "RemoteSourceCodeAnalysisServerInfoTypeDef",
+    {
+        "remoteSourceCodeAnalysisServerConfigurationTimestamp": str,
     },
     total=False,
 )
@@ -701,9 +803,27 @@ ServerDetailTypeDef = TypedDict(
         "listAntipatternSeveritySummary": List["AntipatternSeveritySummaryTypeDef"],
         "name": str,
         "recommendationSet": "RecommendationSetTypeDef",
+        "serverError": "ServerErrorTypeDef",
         "serverType": str,
         "statusMessage": str,
         "systemInfo": "SystemInfoTypeDef",
+    },
+    total=False,
+)
+
+ServerErrorTypeDef = TypedDict(
+    "ServerErrorTypeDef",
+    {
+        "serverErrorCategory": ServerErrorCategoryType,
+    },
+    total=False,
+)
+
+ServerStatusSummaryTypeDef = TypedDict(
+    "ServerStatusSummaryTypeDef",
+    {
+        "count": int,
+        "runTimeAssessmentStatus": RunTimeAssessmentStatusType,
     },
     total=False,
 )
@@ -732,6 +852,7 @@ SourceCodeRepositoryTypeDef = TypedDict(
     "SourceCodeRepositoryTypeDef",
     {
         "branch": str,
+        "projectName": str,
         "repository": str,
         "versionControlType": str,
     },
@@ -742,6 +863,7 @@ SourceCodeTypeDef = TypedDict(
     "SourceCodeTypeDef",
     {
         "location": str,
+        "projectName": str,
         "sourceVersion": str,
         "versionControl": VersionControlType,
     },
@@ -751,6 +873,7 @@ SourceCodeTypeDef = TypedDict(
 StartAssessmentRequestRequestTypeDef = TypedDict(
     "StartAssessmentRequestRequestTypeDef",
     {
+        "assessmentTargets": List["AssessmentTargetTypeDef"],
         "s3bucketForAnalysisData": str,
         "s3bucketForReportData": str,
     },
@@ -871,6 +994,8 @@ _RequiredUpdateApplicationComponentConfigRequestRequestTypeDef = TypedDict(
 _OptionalUpdateApplicationComponentConfigRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateApplicationComponentConfigRequestRequestTypeDef",
     {
+        "appType": AppTypeType,
+        "configureOnly": bool,
         "inclusionStatus": InclusionStatusType,
         "secretsManagerKey": str,
         "sourceCodeList": List["SourceCodeTypeDef"],
@@ -904,3 +1029,21 @@ class UpdateServerConfigRequestRequestTypeDef(
     _OptionalUpdateServerConfigRequestRequestTypeDef,
 ):
     pass
+
+VcenterBasedRemoteInfoTypeDef = TypedDict(
+    "VcenterBasedRemoteInfoTypeDef",
+    {
+        "osType": OSTypeType,
+        "vcenterConfigurationTimeStamp": str,
+    },
+    total=False,
+)
+
+VersionControlInfoTypeDef = TypedDict(
+    "VersionControlInfoTypeDef",
+    {
+        "versionControlConfigurationTimeStamp": str,
+        "versionControlType": VersionControlTypeType,
+    },
+    total=False,
+)

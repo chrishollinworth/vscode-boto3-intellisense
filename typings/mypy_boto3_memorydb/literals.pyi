@@ -22,6 +22,18 @@ __all__ = (
     "AZStatusType",
     "AuthenticationTypeType",
     "DataTieringStatusType",
+    "DescribeACLsPaginatorName",
+    "DescribeClustersPaginatorName",
+    "DescribeEngineVersionsPaginatorName",
+    "DescribeEventsPaginatorName",
+    "DescribeParameterGroupsPaginatorName",
+    "DescribeParametersPaginatorName",
+    "DescribeReservedNodesOfferingsPaginatorName",
+    "DescribeReservedNodesPaginatorName",
+    "DescribeServiceUpdatesPaginatorName",
+    "DescribeSnapshotsPaginatorName",
+    "DescribeSubnetGroupsPaginatorName",
+    "DescribeUsersPaginatorName",
     "InputAuthenticationTypeType",
     "ServiceUpdateStatusType",
     "ServiceUpdateTypeType",
@@ -31,6 +43,18 @@ __all__ = (
 AZStatusType = Literal["multiaz", "singleaz"]
 AuthenticationTypeType = Literal["no-password", "password"]
 DataTieringStatusType = Literal["false", "true"]
+DescribeACLsPaginatorName = Literal["describe_acls"]
+DescribeClustersPaginatorName = Literal["describe_clusters"]
+DescribeEngineVersionsPaginatorName = Literal["describe_engine_versions"]
+DescribeEventsPaginatorName = Literal["describe_events"]
+DescribeParameterGroupsPaginatorName = Literal["describe_parameter_groups"]
+DescribeParametersPaginatorName = Literal["describe_parameters"]
+DescribeReservedNodesOfferingsPaginatorName = Literal["describe_reserved_nodes_offerings"]
+DescribeReservedNodesPaginatorName = Literal["describe_reserved_nodes"]
+DescribeServiceUpdatesPaginatorName = Literal["describe_service_updates"]
+DescribeSnapshotsPaginatorName = Literal["describe_snapshots"]
+DescribeSubnetGroupsPaginatorName = Literal["describe_subnet_groups"]
+DescribeUsersPaginatorName = Literal["describe_users"]
 InputAuthenticationTypeType = Literal["password"]
 ServiceUpdateStatusType = Literal["available", "complete", "in-progress", "scheduled"]
 ServiceUpdateTypeType = Literal["security-update"]

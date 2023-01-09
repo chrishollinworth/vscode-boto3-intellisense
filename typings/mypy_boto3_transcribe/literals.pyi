@@ -43,7 +43,7 @@ __all__ = (
 )
 
 BaseModelNameType = Literal["NarrowBand", "WideBand"]
-CLMLanguageCodeType = Literal["en-AU", "en-GB", "en-US", "es-US", "hi-IN"]
+CLMLanguageCodeType = Literal["de-DE", "en-AU", "en-GB", "en-US", "es-US", "hi-IN", "ja-JP"]
 CallAnalyticsJobStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED"]
 InputTypeType = Literal["POST_CALL", "REAL_TIME"]
 LanguageCodeType = Literal[
@@ -78,10 +78,12 @@ LanguageCodeType = Literal[
     "pt-BR",
     "pt-PT",
     "ru-RU",
+    "sv-SE",
     "ta-IN",
     "te-IN",
     "th-TH",
     "tr-TR",
+    "vi-VN",
     "zh-CN",
     "zh-TW",
 ]

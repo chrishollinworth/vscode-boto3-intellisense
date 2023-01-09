@@ -43,7 +43,7 @@ class Exceptions:
 
 class MigrationHubConfigClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/migrationhub-config.html#MigrationHubConfig.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/migrationhub-config.html#MigrationHubConfig.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/client.html)
     """
 
@@ -58,14 +58,14 @@ class MigrationHubConfigClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/migrationhub-config.html#MigrationHubConfig.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/migrationhub-config.html#MigrationHubConfig.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/migrationhub-config.html#MigrationHubConfig.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/migrationhub-config.html#MigrationHubConfig.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/client.html#close)
         """
     def create_home_region_control(
@@ -74,7 +74,7 @@ class MigrationHubConfigClient(BaseClient):
         """
         This API sets up the home region for the calling account only.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/migrationhub-config.html#MigrationHubConfig.Client.create_home_region_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/migrationhub-config.html#MigrationHubConfig.Client.create_home_region_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/client.html#create_home_region_control)
         """
     def describe_home_region_controls(
@@ -89,7 +89,7 @@ class MigrationHubConfigClient(BaseClient):
         """
         This API permits filtering on the `ControlId` and `HomeRegion` fields.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/migrationhub-config.html#MigrationHubConfig.Client.describe_home_region_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/migrationhub-config.html#MigrationHubConfig.Client.describe_home_region_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/client.html#describe_home_region_controls)
         """
     def generate_presigned_url(
@@ -102,13 +102,13 @@ class MigrationHubConfigClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/migrationhub-config.html#MigrationHubConfig.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/migrationhub-config.html#MigrationHubConfig.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/client.html#generate_presigned_url)
         """
     def get_home_region(self) -> GetHomeRegionResultTypeDef:
         """
         Returns the calling account’s home region, if configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.18/reference/services/migrationhub-config.html#MigrationHubConfig.Client.get_home_region)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/migrationhub-config.html#MigrationHubConfig.Client.get_home_region)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/client.html#get_home_region)
         """

@@ -22,6 +22,7 @@ from .literals import (
     ConnectionErrorCodeTypeType,
     ConnectionStateTypeType,
     CustomerMasterKeySpecType,
+    CustomKeyStoreTypeType,
     DataKeyPairSpecType,
     DataKeySpecType,
     EncryptionAlgorithmSpecType,
@@ -36,6 +37,7 @@ from .literals import (
     MultiRegionKeyTypeType,
     OriginTypeType,
     SigningAlgorithmSpecType,
+    XksProxyConnectivityTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -138,6 +140,9 @@ __all__ = (
     "VerifyMacResponseTypeDef",
     "VerifyRequestRequestTypeDef",
     "VerifyResponseTypeDef",
+    "XksKeyConfigurationTypeTypeDef",
+    "XksProxyAuthenticationCredentialTypeTypeDef",
+    "XksProxyConfigurationTypeTypeDef",
 )
 
 AliasListEntryTypeDef = TypedDict(
@@ -194,6 +199,12 @@ _OptionalCreateCustomKeyStoreRequestRequestTypeDef = TypedDict(
         "CloudHsmClusterId": str,
         "TrustAnchorCertificate": str,
         "KeyStorePassword": str,
+        "CustomKeyStoreType": CustomKeyStoreTypeType,
+        "XksProxyUriEndpoint": str,
+        "XksProxyUriPath": str,
+        "XksProxyVpcEndpointServiceName": str,
+        "XksProxyAuthenticationCredential": "XksProxyAuthenticationCredentialTypeTypeDef",
+        "XksProxyConnectivity": XksProxyConnectivityTypeType,
     },
     total=False,
 )
@@ -258,6 +269,7 @@ CreateKeyRequestRequestTypeDef = TypedDict(
         "BypassPolicyLockoutSafetyCheck": bool,
         "Tags": List["TagTypeDef"],
         "MultiRegion": bool,
+        "XksKeyId": str,
     },
     total=False,
 )
@@ -280,6 +292,8 @@ CustomKeyStoresListEntryTypeDef = TypedDict(
         "ConnectionState": ConnectionStateTypeType,
         "ConnectionErrorCode": ConnectionErrorCodeTypeType,
         "CreationDate": datetime,
+        "CustomKeyStoreType": CustomKeyStoreTypeType,
+        "XksProxyConfiguration": "XksProxyConfigurationTypeTypeDef",
     },
     total=False,
 )
@@ -802,6 +816,7 @@ _OptionalKeyMetadataTypeDef = TypedDict(
         "MultiRegionConfiguration": "MultiRegionConfigurationTypeDef",
         "PendingDeletionWindowInDays": int,
         "MacAlgorithms": List[MacAlgorithmSpecType],
+        "XksKeyConfiguration": "XksKeyConfigurationTypeTypeDef",
     },
     total=False,
 )
@@ -1217,6 +1232,11 @@ _OptionalUpdateCustomKeyStoreRequestRequestTypeDef = TypedDict(
         "NewCustomKeyStoreName": str,
         "KeyStorePassword": str,
         "CloudHsmClusterId": str,
+        "XksProxyUriEndpoint": str,
+        "XksProxyUriPath": str,
+        "XksProxyVpcEndpointServiceName": str,
+        "XksProxyAuthenticationCredential": "XksProxyAuthenticationCredentialTypeTypeDef",
+        "XksProxyConnectivity": XksProxyConnectivityTypeType,
     },
     total=False,
 )
@@ -1306,4 +1326,32 @@ VerifyResponseTypeDef = TypedDict(
         "SigningAlgorithm": SigningAlgorithmSpecType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+XksKeyConfigurationTypeTypeDef = TypedDict(
+    "XksKeyConfigurationTypeTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
+)
+
+XksProxyAuthenticationCredentialTypeTypeDef = TypedDict(
+    "XksProxyAuthenticationCredentialTypeTypeDef",
+    {
+        "AccessKeyId": str,
+        "RawSecretAccessKey": str,
+    },
+)
+
+XksProxyConfigurationTypeTypeDef = TypedDict(
+    "XksProxyConfigurationTypeTypeDef",
+    {
+        "Connectivity": XksProxyConnectivityTypeType,
+        "AccessKeyId": str,
+        "UriEndpoint": str,
+        "UriPath": str,
+        "VpcEndpointServiceName": str,
+    },
+    total=False,
 )

@@ -31,6 +31,7 @@ Usage::
         ListQuickConnectsPaginator,
         ListRoutingProfileQueuesPaginator,
         ListRoutingProfilesPaginator,
+        ListRulesPaginator,
         ListSecurityKeysPaginator,
         ListSecurityProfilePermissionsPaginator,
         ListSecurityProfilesPaginator,
@@ -75,6 +76,7 @@ Usage::
     list_quick_connects_paginator: ListQuickConnectsPaginator = client.get_paginator("list_quick_connects")
     list_routing_profile_queues_paginator: ListRoutingProfileQueuesPaginator = client.get_paginator("list_routing_profile_queues")
     list_routing_profiles_paginator: ListRoutingProfilesPaginator = client.get_paginator("list_routing_profiles")
+    list_rules_paginator: ListRulesPaginator = client.get_paginator("list_rules")
     list_security_keys_paginator: ListSecurityKeysPaginator = client.get_paginator("list_security_keys")
     list_security_profile_permissions_paginator: ListSecurityProfilePermissionsPaginator = client.get_paginator("list_security_profile_permissions")
     list_security_profiles_paginator: ListSecurityProfilesPaginator = client.get_paginator("list_security_profiles")
@@ -116,6 +118,7 @@ from .paginator import (
     ListQuickConnectsPaginator,
     ListRoutingProfileQueuesPaginator,
     ListRoutingProfilesPaginator,
+    ListRulesPaginator,
     ListSecurityKeysPaginator,
     ListSecurityProfilePermissionsPaginator,
     ListSecurityProfilesPaginator,
@@ -160,6 +163,7 @@ __all__ = (
     "ListQuickConnectsPaginator",
     "ListRoutingProfileQueuesPaginator",
     "ListRoutingProfilesPaginator",
+    "ListRulesPaginator",
     "ListSecurityKeysPaginator",
     "ListSecurityProfilePermissionsPaginator",
     "ListSecurityProfilesPaginator",

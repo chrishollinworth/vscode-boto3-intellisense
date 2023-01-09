@@ -16,12 +16,15 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AutomaticTerminationModeType,
     LaunchProfilePlatformType,
     LaunchProfileStateType,
     LaunchProfileStatusCodeType,
     LaunchProfileValidationStateType,
     LaunchProfileValidationStatusCodeType,
     LaunchProfileValidationTypeType,
+    SessionBackupModeType,
+    SessionPersistenceModeType,
     StreamingClipboardModeType,
     StreamingImageStateType,
     StreamingImageStatusCodeType,
@@ -38,6 +41,7 @@ from .literals import (
     StudioEncryptionConfigurationKeyTypeType,
     StudioStateType,
     StudioStatusCodeType,
+    VolumeRetentionModeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -93,6 +97,8 @@ __all__ = (
     "GetLaunchProfileResponseTypeDef",
     "GetStreamingImageRequestRequestTypeDef",
     "GetStreamingImageResponseTypeDef",
+    "GetStreamingSessionBackupRequestRequestTypeDef",
+    "GetStreamingSessionBackupResponseTypeDef",
     "GetStreamingSessionRequestRequestTypeDef",
     "GetStreamingSessionResponseTypeDef",
     "GetStreamingSessionStreamRequestRequestTypeDef",
@@ -119,6 +125,8 @@ __all__ = (
     "ListLaunchProfilesResponseTypeDef",
     "ListStreamingImagesRequestRequestTypeDef",
     "ListStreamingImagesResponseTypeDef",
+    "ListStreamingSessionBackupsRequestRequestTypeDef",
+    "ListStreamingSessionBackupsResponseTypeDef",
     "ListStreamingSessionsRequestRequestTypeDef",
     "ListStreamingSessionsResponseTypeDef",
     "ListStudioComponentsRequestRequestTypeDef",
@@ -144,10 +152,12 @@ __all__ = (
     "StopStreamingSessionRequestRequestTypeDef",
     "StopStreamingSessionResponseTypeDef",
     "StreamConfigurationCreateTypeDef",
+    "StreamConfigurationSessionBackupTypeDef",
     "StreamConfigurationSessionStorageTypeDef",
     "StreamConfigurationTypeDef",
     "StreamingImageEncryptionConfigurationTypeDef",
     "StreamingImageTypeDef",
+    "StreamingSessionBackupTypeDef",
     "StreamingSessionStorageRootTypeDef",
     "StreamingSessionStreamTypeDef",
     "StreamingSessionTypeDef",
@@ -171,6 +181,7 @@ __all__ = (
     "UpdateStudioRequestRequestTypeDef",
     "UpdateStudioResponseTypeDef",
     "ValidationResultTypeDef",
+    "VolumeConfigurationTypeDef",
     "WaiterConfigTypeDef",
 )
 
@@ -300,6 +311,7 @@ CreateStreamingImageResponseTypeDef = TypedDict(
 _RequiredCreateStreamingSessionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateStreamingSessionRequestRequestTypeDef",
     {
+        "launchProfileId": str,
         "studioId": str,
     },
 )
@@ -308,7 +320,6 @@ _OptionalCreateStreamingSessionRequestRequestTypeDef = TypedDict(
     {
         "clientToken": str,
         "ec2InstanceType": StreamingInstanceTypeType,
-        "launchProfileId": str,
         "ownedBy": str,
         "streamingImageId": str,
         "tags": Dict[str, str],
@@ -742,6 +753,22 @@ GetStreamingImageResponseTypeDef = TypedDict(
     },
 )
 
+GetStreamingSessionBackupRequestRequestTypeDef = TypedDict(
+    "GetStreamingSessionBackupRequestRequestTypeDef",
+    {
+        "backupId": str,
+        "studioId": str,
+    },
+)
+
+GetStreamingSessionBackupResponseTypeDef = TypedDict(
+    "GetStreamingSessionBackupResponseTypeDef",
+    {
+        "streamingSessionBackup": "StreamingSessionBackupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetStreamingSessionRequestRequestTypeDef = TypedDict(
     "GetStreamingSessionRequestRequestTypeDef",
     {
@@ -1048,6 +1075,36 @@ ListStreamingImagesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListStreamingSessionBackupsRequestRequestTypeDef = TypedDict(
+    "_RequiredListStreamingSessionBackupsRequestRequestTypeDef",
+    {
+        "studioId": str,
+    },
+)
+_OptionalListStreamingSessionBackupsRequestRequestTypeDef = TypedDict(
+    "_OptionalListStreamingSessionBackupsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "ownedBy": str,
+    },
+    total=False,
+)
+
+class ListStreamingSessionBackupsRequestRequestTypeDef(
+    _RequiredListStreamingSessionBackupsRequestRequestTypeDef,
+    _OptionalListStreamingSessionBackupsRequestRequestTypeDef,
+):
+    pass
+
+ListStreamingSessionBackupsResponseTypeDef = TypedDict(
+    "ListStreamingSessionBackupsResponseTypeDef",
+    {
+        "nextToken": str,
+        "streamingSessionBackups": List["StreamingSessionBackupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListStreamingSessionsRequestRequestTypeDef = TypedDict(
     "_RequiredListStreamingSessionsRequestRequestTypeDef",
     {
@@ -1285,6 +1342,7 @@ _RequiredStartStreamingSessionRequestRequestTypeDef = TypedDict(
 _OptionalStartStreamingSessionRequestRequestTypeDef = TypedDict(
     "_OptionalStartStreamingSessionRequestRequestTypeDef",
     {
+        "backupId": str,
         "clientToken": str,
     },
     total=False,
@@ -1343,6 +1401,7 @@ _OptionalStopStreamingSessionRequestRequestTypeDef = TypedDict(
     "_OptionalStopStreamingSessionRequestRequestTypeDef",
     {
         "clientToken": str,
+        "volumeRetentionMode": VolumeRetentionModeType,
     },
     total=False,
 )
@@ -1372,9 +1431,13 @@ _RequiredStreamConfigurationCreateTypeDef = TypedDict(
 _OptionalStreamConfigurationCreateTypeDef = TypedDict(
     "_OptionalStreamConfigurationCreateTypeDef",
     {
+        "automaticTerminationMode": AutomaticTerminationModeType,
         "maxSessionLengthInMinutes": int,
         "maxStoppedSessionLengthInMinutes": int,
+        "sessionBackup": "StreamConfigurationSessionBackupTypeDef",
+        "sessionPersistenceMode": SessionPersistenceModeType,
         "sessionStorage": "StreamConfigurationSessionStorageTypeDef",
+        "volumeConfiguration": "VolumeConfigurationTypeDef",
     },
     total=False,
 )
@@ -1383,6 +1446,15 @@ class StreamConfigurationCreateTypeDef(
     _RequiredStreamConfigurationCreateTypeDef, _OptionalStreamConfigurationCreateTypeDef
 ):
     pass
+
+StreamConfigurationSessionBackupTypeDef = TypedDict(
+    "StreamConfigurationSessionBackupTypeDef",
+    {
+        "maxBackupsToRetain": int,
+        "mode": SessionBackupModeType,
+    },
+    total=False,
+)
 
 _RequiredStreamConfigurationSessionStorageTypeDef = TypedDict(
     "_RequiredStreamConfigurationSessionStorageTypeDef",
@@ -1415,9 +1487,13 @@ _RequiredStreamConfigurationTypeDef = TypedDict(
 _OptionalStreamConfigurationTypeDef = TypedDict(
     "_OptionalStreamConfigurationTypeDef",
     {
+        "automaticTerminationMode": AutomaticTerminationModeType,
         "maxSessionLengthInMinutes": int,
         "maxStoppedSessionLengthInMinutes": int,
+        "sessionBackup": "StreamConfigurationSessionBackupTypeDef",
+        "sessionPersistenceMode": SessionPersistenceModeType,
         "sessionStorage": "StreamConfigurationSessionStorageTypeDef",
+        "volumeConfiguration": "VolumeConfigurationTypeDef",
     },
     total=False,
 )
@@ -1467,6 +1543,23 @@ StreamingImageTypeDef = TypedDict(
     total=False,
 )
 
+StreamingSessionBackupTypeDef = TypedDict(
+    "StreamingSessionBackupTypeDef",
+    {
+        "arn": str,
+        "backupId": str,
+        "createdAt": datetime,
+        "launchProfileId": str,
+        "ownedBy": str,
+        "sessionId": str,
+        "state": StreamingSessionStateType,
+        "statusCode": StreamingSessionStatusCodeType,
+        "statusMessage": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
 StreamingSessionStorageRootTypeDef = TypedDict(
     "StreamingSessionStorageRootTypeDef",
     {
@@ -1495,14 +1588,19 @@ StreamingSessionTypeDef = TypedDict(
     "StreamingSessionTypeDef",
     {
         "arn": str,
+        "automaticTerminationMode": AutomaticTerminationModeType,
+        "backupMode": SessionBackupModeType,
         "createdAt": datetime,
         "createdBy": str,
         "ec2InstanceType": str,
         "launchProfileId": str,
+        "maxBackupsToRetain": int,
         "ownedBy": str,
         "sessionId": str,
+        "sessionPersistenceMode": SessionPersistenceModeType,
         "startedAt": datetime,
         "startedBy": str,
+        "startedFromBackupId": str,
         "state": StreamingSessionStateType,
         "statusCode": StreamingSessionStatusCodeType,
         "statusMessage": str,
@@ -1514,6 +1612,8 @@ StreamingSessionTypeDef = TypedDict(
         "terminateAt": datetime,
         "updatedAt": datetime,
         "updatedBy": str,
+        "volumeConfiguration": "VolumeConfigurationTypeDef",
+        "volumeRetentionMode": VolumeRetentionModeType,
     },
     total=False,
 )
@@ -1836,6 +1936,16 @@ ValidationResultTypeDef = TypedDict(
         "statusMessage": str,
         "type": LaunchProfileValidationTypeType,
     },
+)
+
+VolumeConfigurationTypeDef = TypedDict(
+    "VolumeConfigurationTypeDef",
+    {
+        "iops": int,
+        "size": int,
+        "throughput": int,
+    },
+    total=False,
 )
 
 WaiterConfigTypeDef = TypedDict(
