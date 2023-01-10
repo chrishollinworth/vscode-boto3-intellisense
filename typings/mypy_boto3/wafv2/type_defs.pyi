@@ -252,7 +252,7 @@ AllowActionTypeDef = TypedDict(
 AndStatementTypeDef = TypedDict(
     "AndStatementTypeDef",
     {
-        "Statements": List["StatementTypeDef"],
+        "Statements": List[Dict[str, Any]],
     },
 )
 
@@ -1624,7 +1624,7 @@ MobileSdkReleaseTypeDef = TypedDict(
 NotStatementTypeDef = TypedDict(
     "NotStatementTypeDef",
     {
-        "Statement": Dict[str, Any],
+        "Statement": "StatementTypeDef",
     },
 )
 

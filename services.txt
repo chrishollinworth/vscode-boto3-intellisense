@@ -276,7 +276,7 @@ sagemaker_a2i_runtime
 sagemaker_edge
 sagemaker_featurestore_runtime
 sagemaker_geospatial
-safemaker_metrics
+sagemaker_metrics
 sagemaker_runtime
 savingsplans
 scheduler

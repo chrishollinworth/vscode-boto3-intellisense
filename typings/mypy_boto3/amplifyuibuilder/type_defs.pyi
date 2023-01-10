@@ -185,13 +185,13 @@ class ComponentChildTypeDef(_RequiredComponentChildTypeDef, _OptionalComponentCh
 ComponentConditionPropertyTypeDef = TypedDict(
     "ComponentConditionPropertyTypeDef",
     {
-        "else": Dict[str, Any],
+        "else": "ComponentPropertyTypeDef",
         "field": str,
         "operand": str,
         "operandType": str,
         "operator": str,
         "property": str,
-        "then": Dict[str, Any],
+        "then": "ComponentPropertyTypeDef",
     },
     total=False,
 )
