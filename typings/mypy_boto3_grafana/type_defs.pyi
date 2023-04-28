@@ -67,6 +67,7 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListWorkspacesRequestRequestTypeDef",
     "ListWorkspacesResponseTypeDef",
+    "NetworkAccessConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "PermissionEntryTypeDef",
     "ResponseMetadataTypeDef",
@@ -199,6 +200,7 @@ _OptionalCreateWorkspaceRequestRequestTypeDef = TypedDict(
     {
         "clientToken": str,
         "configuration": str,
+        "networkAccessControl": "NetworkAccessConfigurationTypeDef",
         "organizationRoleName": str,
         "stackSetName": str,
         "tags": Dict[str, str],
@@ -393,6 +395,14 @@ ListWorkspacesResponseTypeDef = TypedDict(
     },
 )
 
+NetworkAccessConfigurationTypeDef = TypedDict(
+    "NetworkAccessConfigurationTypeDef",
+    {
+        "prefixListIds": List[str],
+        "vpceIds": List[str],
+    },
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -569,8 +579,10 @@ _OptionalUpdateWorkspaceRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateWorkspaceRequestRequestTypeDef",
     {
         "accountAccessType": AccountAccessTypeType,
+        "networkAccessControl": "NetworkAccessConfigurationTypeDef",
         "organizationRoleName": str,
         "permissionType": PermissionTypeType,
+        "removeNetworkAccessConfiguration": bool,
         "removeVpcConfiguration": bool,
         "stackSetName": str,
         "vpcConfiguration": "VpcConfigurationTypeDef",
@@ -636,6 +648,7 @@ _OptionalWorkspaceDescriptionTypeDef = TypedDict(
         "licenseExpiration": datetime,
         "licenseType": LicenseTypeType,
         "name": str,
+        "networkAccessControl": "NetworkAccessConfigurationTypeDef",
         "notificationDestinations": List[Literal["SNS"]],
         "organizationRoleName": str,
         "organizationalUnits": List[str],

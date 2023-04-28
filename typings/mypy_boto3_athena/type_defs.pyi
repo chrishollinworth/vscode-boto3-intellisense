@@ -1508,6 +1508,7 @@ QueryExecutionTypeDef = TypedDict(
         "WorkGroup": str,
         "EngineVersion": "EngineVersionTypeDef",
         "ExecutionParameters": List[str],
+        "SubstatementType": str,
     },
     total=False,
 )
@@ -2062,6 +2063,7 @@ WorkGroupConfigurationTypeDef = TypedDict(
         "AdditionalConfiguration": str,
         "ExecutionRole": str,
         "CustomerContentEncryptionConfiguration": "CustomerContentEncryptionConfigurationTypeDef",
+        "EnableMinimumEncryptionConfiguration": bool,
     },
     total=False,
 )
@@ -2080,6 +2082,7 @@ WorkGroupConfigurationUpdatesTypeDef = TypedDict(
         "AdditionalConfiguration": str,
         "ExecutionRole": str,
         "CustomerContentEncryptionConfiguration": "CustomerContentEncryptionConfigurationTypeDef",
+        "EnableMinimumEncryptionConfiguration": bool,
     },
     total=False,
 )

@@ -50,7 +50,9 @@ __all__ = (
     "PredictiveScalingMaxCapacityBreachBehaviorType",
     "PredictiveScalingModeType",
     "RefreshStrategyType",
+    "ScaleInProtectedInstancesType",
     "ScalingActivityStatusCodeType",
+    "StandbyInstancesType",
     "WarmPoolStateType",
     "WarmPoolStatusType",
 )
@@ -75,7 +77,15 @@ InstanceGenerationType = Literal["current", "previous"]
 InstanceMetadataEndpointStateType = Literal["disabled", "enabled"]
 InstanceMetadataHttpTokensStateType = Literal["optional", "required"]
 InstanceRefreshStatusType = Literal[
-    "Cancelled", "Cancelling", "Failed", "InProgress", "Pending", "Successful"
+    "Cancelled",
+    "Cancelling",
+    "Failed",
+    "InProgress",
+    "Pending",
+    "RollbackFailed",
+    "RollbackInProgress",
+    "RollbackSuccessful",
+    "Successful",
 ]
 LifecycleStateType = Literal[
     "Detached",
@@ -129,6 +139,7 @@ PredefinedScalingMetricTypeType = Literal[
 PredictiveScalingMaxCapacityBreachBehaviorType = Literal["HonorMaxCapacity", "IncreaseMaxCapacity"]
 PredictiveScalingModeType = Literal["ForecastAndScale", "ForecastOnly"]
 RefreshStrategyType = Literal["Rolling"]
+ScaleInProtectedInstancesType = Literal["Ignore", "Refresh", "Wait"]
 ScalingActivityStatusCodeType = Literal[
     "Cancelled",
     "Failed",
@@ -137,11 +148,13 @@ ScalingActivityStatusCodeType = Literal[
     "PendingSpotBidPlacement",
     "PreInService",
     "Successful",
+    "WaitingForConnectionDraining",
     "WaitingForELBConnectionDraining",
     "WaitingForInstanceId",
     "WaitingForInstanceWarmup",
     "WaitingForSpotInstanceId",
     "WaitingForSpotInstanceRequestId",
 ]
+StandbyInstancesType = Literal["Ignore", "Terminate", "Wait"]
 WarmPoolStateType = Literal["Hibernated", "Running", "Stopped"]
 WarmPoolStatusType = Literal["PendingDelete"]

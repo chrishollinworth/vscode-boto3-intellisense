@@ -6,9 +6,9 @@ Type annotations for migrationhubstrategy service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_migrationhubstrategy.type_defs import AntipatternSeveritySummaryTypeDef
+    from mypy_boto3_migrationhubstrategy.type_defs import AnalysisStatusUnionTypeDef
 
-    data: AntipatternSeveritySummaryTypeDef = {...}
+    data: AnalysisStatusUnionTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AnalysisTypeType,
     AntipatternReportStatusType,
     ApplicationComponentCriteriaType,
     ApplicationModeType,
@@ -24,10 +25,12 @@ from .literals import (
     AssessmentStatusType,
     AuthTypeType,
     AwsManagedTargetDestinationType,
+    BinaryAnalyzerNameType,
     CollectorHealthType,
     ConditionType,
     DatabaseManagementPreferenceType,
     DataSourceTypeType,
+    GroupNameType,
     HeterogeneousTargetDatabaseEngineType,
     ImportFileTaskStatusType,
     InclusionStatusType,
@@ -37,6 +40,7 @@ from .literals import (
     RecommendationReportStatusType,
     ResourceSubTypeType,
     RuntimeAnalysisStatusType,
+    RunTimeAnalyzerNameType,
     RunTimeAssessmentStatusType,
     SelfManageTargetDestinationType,
     ServerCriteriaType,
@@ -44,6 +48,7 @@ from .literals import (
     ServerOsTypeType,
     SeverityType,
     SortOrderType,
+    SourceCodeAnalyzerNameType,
     SrcCodeOrDbAnalysisStatusType,
     StrategyRecommendationType,
     StrategyType,
@@ -64,6 +69,9 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AnalysisStatusUnionTypeDef",
+    "AnalyzerNameUnionTypeDef",
+    "AntipatternReportResultTypeDef",
     "AntipatternSeveritySummaryTypeDef",
     "AppUnitErrorTypeDef",
     "ApplicationComponentDetailTypeDef",
@@ -125,6 +133,7 @@ __all__ = (
     "RecommendationSetTypeDef",
     "RemoteSourceCodeAnalysisServerInfoTypeDef",
     "ResponseMetadataTypeDef",
+    "ResultTypeDef",
     "S3ObjectTypeDef",
     "SelfManageResourcesTypeDef",
     "ServerDetailTypeDef",
@@ -149,6 +158,36 @@ __all__ = (
     "UpdateServerConfigRequestRequestTypeDef",
     "VcenterBasedRemoteInfoTypeDef",
     "VersionControlInfoTypeDef",
+)
+
+AnalysisStatusUnionTypeDef = TypedDict(
+    "AnalysisStatusUnionTypeDef",
+    {
+        "runtimeAnalysisStatus": RuntimeAnalysisStatusType,
+        "srcCodeOrDbAnalysisStatus": SrcCodeOrDbAnalysisStatusType,
+    },
+    total=False,
+)
+
+AnalyzerNameUnionTypeDef = TypedDict(
+    "AnalyzerNameUnionTypeDef",
+    {
+        "binaryAnalyzerName": BinaryAnalyzerNameType,
+        "runTimeAnalyzerName": RunTimeAnalyzerNameType,
+        "sourceCodeAnalyzerName": SourceCodeAnalyzerNameType,
+    },
+    total=False,
+)
+
+AntipatternReportResultTypeDef = TypedDict(
+    "AntipatternReportResultTypeDef",
+    {
+        "analyzerName": "AnalyzerNameUnionTypeDef",
+        "antiPatternReportS3Object": "S3ObjectTypeDef",
+        "antipatternReportStatus": AntipatternReportStatusType,
+        "antipatternReportStatusMessage": str,
+    },
+    total=False,
 )
 
 AntipatternSeveritySummaryTypeDef = TypedDict(
@@ -189,6 +228,7 @@ ApplicationComponentDetailTypeDef = TypedDict(
         "osVersion": str,
         "recommendationSet": "RecommendationSetTypeDef",
         "resourceSubType": ResourceSubTypeType,
+        "resultList": List["ResultTypeDef"],
         "runtimeStatus": RuntimeAnalysisStatusType,
         "runtimeStatusMessage": str,
         "sourceCodeRepositories": List["SourceCodeRepositoryTypeDef"],
@@ -522,7 +562,7 @@ GetServerStrategiesResponseTypeDef = TypedDict(
 GroupTypeDef = TypedDict(
     "GroupTypeDef",
     {
-        "name": Literal["ExternalId"],
+        "name": GroupNameType,
         "value": str,
     },
     total=False,
@@ -772,6 +812,17 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+ResultTypeDef = TypedDict(
+    "ResultTypeDef",
+    {
+        "analysisStatus": "AnalysisStatusUnionTypeDef",
+        "analysisType": AnalysisTypeType,
+        "antipatternReportResultList": List["AntipatternReportResultTypeDef"],
+        "statusMessage": str,
+    },
+    total=False,
 )
 
 S3ObjectTypeDef = TypedDict(

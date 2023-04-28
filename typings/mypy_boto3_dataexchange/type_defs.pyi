@@ -98,6 +98,7 @@ __all__ = (
     "ImportAssetsFromS3ResponseDetailsTypeDef",
     "JobEntryTypeDef",
     "JobErrorTypeDef",
+    "KmsKeyToGrantTypeDef",
     "LFResourceDetailsTypeDef",
     "LFTagPolicyDetailsTypeDef",
     "LFTagTypeDef",
@@ -1005,6 +1006,13 @@ _OptionalJobErrorTypeDef = TypedDict(
 class JobErrorTypeDef(_RequiredJobErrorTypeDef, _OptionalJobErrorTypeDef):
     pass
 
+KmsKeyToGrantTypeDef = TypedDict(
+    "KmsKeyToGrantTypeDef",
+    {
+        "KmsKeyArn": str,
+    },
+)
+
 LFResourceDetailsTypeDef = TypedDict(
     "LFResourceDetailsTypeDef",
     {
@@ -1360,6 +1368,7 @@ _OptionalS3DataAccessAssetSourceEntryTypeDef = TypedDict(
     {
         "KeyPrefixes": List[str],
         "Keys": List[str],
+        "KmsKeysToGrant": List["KmsKeyToGrantTypeDef"],
     },
     total=False,
 )
@@ -1382,6 +1391,7 @@ _OptionalS3DataAccessAssetTypeDef = TypedDict(
         "Keys": List[str],
         "S3AccessPointAlias": str,
         "S3AccessPointArn": str,
+        "KmsKeysToGrant": List["KmsKeyToGrantTypeDef"],
     },
     total=False,
 )

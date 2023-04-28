@@ -231,6 +231,7 @@ BackupJobTypeDef = TypedDict(
         "BackupType": str,
         "ParentJobId": str,
         "IsParent": bool,
+        "ResourceName": str,
     },
     total=False,
 )
@@ -513,6 +514,7 @@ CopyJobTypeDef = TypedDict(
         "CompositeMemberIdentifier": str,
         "NumberOfChildJobs": int,
         "ChildJobsInState": Dict[CopyJobStateType, int],
+        "ResourceName": str,
     },
     total=False,
 )
@@ -829,6 +831,7 @@ DescribeBackupJobOutputTypeDef = TypedDict(
         "IsParent": bool,
         "NumberOfChildJobs": int,
         "ChildJobsInState": Dict[BackupJobStateType, int],
+        "ResourceName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -916,6 +919,7 @@ DescribeProtectedResourceOutputTypeDef = TypedDict(
         "ResourceArn": str,
         "ResourceType": str,
         "LastBackupTime": datetime,
+        "ResourceName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -953,6 +957,7 @@ DescribeRecoveryPointOutputTypeDef = TypedDict(
         "ParentRecoveryPointArn": str,
         "CompositeMemberIdentifier": str,
         "IsParent": bool,
+        "ResourceName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1708,6 +1713,7 @@ ProtectedResourceTypeDef = TypedDict(
         "ResourceArn": str,
         "ResourceType": str,
         "LastBackupTime": datetime,
+        "ResourceName": str,
     },
     total=False,
 )
@@ -1787,6 +1793,7 @@ RecoveryPointByBackupVaultTypeDef = TypedDict(
         "ParentRecoveryPointArn": str,
         "CompositeMemberIdentifier": str,
         "IsParent": bool,
+        "ResourceName": str,
     },
     total=False,
 )
@@ -1803,6 +1810,7 @@ RecoveryPointByResourceTypeDef = TypedDict(
         "BackupVaultName": str,
         "IsParent": bool,
         "ParentRecoveryPointArn": str,
+        "ResourceName": str,
     },
     total=False,
 )

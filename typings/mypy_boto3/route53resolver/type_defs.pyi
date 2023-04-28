@@ -29,6 +29,7 @@ from .literals import (
     ResolverDNSSECValidationStatusType,
     ResolverEndpointDirectionType,
     ResolverEndpointStatusType,
+    ResolverEndpointTypeType,
     ResolverQueryLogConfigAssociationErrorType,
     ResolverQueryLogConfigAssociationStatusType,
     ResolverQueryLogConfigStatusType,
@@ -189,6 +190,7 @@ __all__ = (
     "UpdateFirewallRuleGroupAssociationResponseTypeDef",
     "UpdateFirewallRuleRequestRequestTypeDef",
     "UpdateFirewallRuleResponseTypeDef",
+    "UpdateIpAddressTypeDef",
     "UpdateResolverConfigRequestRequestTypeDef",
     "UpdateResolverConfigResponseTypeDef",
     "UpdateResolverDnssecConfigRequestRequestTypeDef",
@@ -401,6 +403,7 @@ _OptionalCreateResolverEndpointRequestRequestTypeDef = TypedDict(
     {
         "Name": str,
         "Tags": List["TagTypeDef"],
+        "ResolverEndpointType": ResolverEndpointTypeType,
     },
     total=False,
 )
@@ -995,6 +998,7 @@ _OptionalIpAddressRequestTypeDef = TypedDict(
     "_OptionalIpAddressRequestTypeDef",
     {
         "Ip": str,
+        "Ipv6": str,
     },
     total=False,
 )
@@ -1008,6 +1012,7 @@ IpAddressResponseTypeDef = TypedDict(
         "IpId": str,
         "SubnetId": str,
         "Ip": str,
+        "Ipv6": str,
         "Status": IpAddressStatusType,
         "StatusMessage": str,
         "CreationTime": str,
@@ -1022,6 +1027,7 @@ IpAddressUpdateTypeDef = TypedDict(
         "IpId": str,
         "SubnetId": str,
         "Ip": str,
+        "Ipv6": str,
     },
     total=False,
 )
@@ -1462,6 +1468,7 @@ ResolverEndpointTypeDef = TypedDict(
         "StatusMessage": str,
         "CreationTime": str,
         "ModificationTime": str,
+        "ResolverEndpointType": ResolverEndpointTypeType,
     },
     total=False,
 )
@@ -1568,22 +1575,15 @@ TagTypeDef = TypedDict(
     },
 )
 
-_RequiredTargetAddressTypeDef = TypedDict(
-    "_RequiredTargetAddressTypeDef",
+TargetAddressTypeDef = TypedDict(
+    "TargetAddressTypeDef",
     {
         "Ip": str,
-    },
-)
-_OptionalTargetAddressTypeDef = TypedDict(
-    "_OptionalTargetAddressTypeDef",
-    {
         "Port": int,
+        "Ipv6": str,
     },
     total=False,
 )
-
-class TargetAddressTypeDef(_RequiredTargetAddressTypeDef, _OptionalTargetAddressTypeDef):
-    pass
 
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
@@ -1694,6 +1694,14 @@ UpdateFirewallRuleResponseTypeDef = TypedDict(
     },
 )
 
+UpdateIpAddressTypeDef = TypedDict(
+    "UpdateIpAddressTypeDef",
+    {
+        "IpId": str,
+        "Ipv6": str,
+    },
+)
+
 UpdateResolverConfigRequestRequestTypeDef = TypedDict(
     "UpdateResolverConfigRequestRequestTypeDef",
     {
@@ -1736,6 +1744,8 @@ _OptionalUpdateResolverEndpointRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateResolverEndpointRequestRequestTypeDef",
     {
         "Name": str,
+        "ResolverEndpointType": ResolverEndpointTypeType,
+        "UpdateIpAddresses": List["UpdateIpAddressTypeDef"],
     },
     total=False,
 )

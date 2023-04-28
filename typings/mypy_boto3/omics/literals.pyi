@@ -95,7 +95,9 @@ AnnotationTypeType = Literal[
 EncryptionTypeType = Literal["KMS"]
 FileTypeType = Literal["BAM", "CRAM", "FASTQ"]
 FormatToHeaderKeyType = Literal["ALT", "CHR", "END", "POS", "REF", "START"]
-JobStatusType = Literal["CANCELLED", "COMPLETED", "FAILED", "IN_PROGRESS", "SUBMITTED"]
+JobStatusType = Literal[
+    "CANCELLED", "COMPLETED", "COMPLETED_WITH_FAILURES", "FAILED", "IN_PROGRESS", "SUBMITTED"
+]
 ListAnnotationImportJobsPaginatorName = Literal["list_annotation_import_jobs"]
 ListAnnotationStoresPaginatorName = Literal["list_annotation_stores"]
 ListReadSetActivationJobsPaginatorName = Literal["list_read_set_activation_jobs"]

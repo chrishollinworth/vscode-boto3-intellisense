@@ -58,6 +58,7 @@ __all__ = (
     "CreateRelatedItemResponseTypeDef",
     "CreateTemplateRequestRequestTypeDef",
     "CreateTemplateResponseTypeDef",
+    "DeleteDomainRequestRequestTypeDef",
     "DomainSummaryTypeDef",
     "EventBridgeConfigurationTypeDef",
     "EventIncludedDataTypeDef",
@@ -369,6 +370,13 @@ CreateTemplateResponseTypeDef = TypedDict(
         "templateArn": str,
         "templateId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteDomainRequestRequestTypeDef = TypedDict(
+    "DeleteDomainRequestRequestTypeDef",
+    {
+        "domainId": str,
     },
 )
 

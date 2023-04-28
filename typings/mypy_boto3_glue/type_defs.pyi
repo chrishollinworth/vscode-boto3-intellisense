@@ -36,6 +36,7 @@ from .literals import (
     DataFormatType,
     DataQualityRuleResultStatusType,
     DeleteBehaviorType,
+    DeltaTargetCompressionTypeType,
     DQStopJobOnFailureTimingType,
     DQTransformOutputType,
     EnableHybridValuesType,
@@ -47,6 +48,8 @@ from .literals import (
     FilterOperatorType,
     FilterValueTypeType,
     GlueRecordTypeType,
+    HudiTargetCompressionTypeType,
+    JDBCConnectionTypeType,
     JDBCDataTypeType,
     JdbcMetadataEntryType,
     JobBookmarksEncryptionModeType,
@@ -160,7 +163,9 @@ __all__ = (
     "CancelMLTaskRunRequestRequestTypeDef",
     "CancelMLTaskRunResponseTypeDef",
     "CancelStatementRequestRequestTypeDef",
+    "CatalogDeltaSourceTypeDef",
     "CatalogEntryTypeDef",
+    "CatalogHudiSourceTypeDef",
     "CatalogImportStatusTypeDef",
     "CatalogKafkaSourceTypeDef",
     "CatalogKinesisSourceTypeDef",
@@ -298,6 +303,7 @@ __all__ = (
     "DeltaTargetTypeDef",
     "DevEndpointCustomLibrariesTypeDef",
     "DevEndpointTypeDef",
+    "DirectJDBCSourceTypeDef",
     "DirectKafkaSourceTypeDef",
     "DirectKinesisSourceTypeDef",
     "DirectSchemaChangePolicyTypeDef",
@@ -318,6 +324,8 @@ __all__ = (
     "EventBatchingConditionTypeDef",
     "ExecutionPropertyTypeDef",
     "ExportLabelsTaskRunPropertiesTypeDef",
+    "FederatedDatabaseTypeDef",
+    "FederatedTableTypeDef",
     "FillMissingValuesTypeDef",
     "FilterExpressionTypeDef",
     "FilterTypeDef",
@@ -587,13 +595,21 @@ __all__ = (
     "ResumeWorkflowRunResponseTypeDef",
     "RunStatementRequestRequestTypeDef",
     "RunStatementResponseTypeDef",
+    "S3CatalogDeltaSourceTypeDef",
+    "S3CatalogHudiSourceTypeDef",
     "S3CatalogSourceTypeDef",
     "S3CatalogTargetTypeDef",
     "S3CsvSourceTypeDef",
+    "S3DeltaCatalogTargetTypeDef",
+    "S3DeltaDirectTargetTypeDef",
+    "S3DeltaSourceTypeDef",
     "S3DirectSourceAdditionalOptionsTypeDef",
     "S3DirectTargetTypeDef",
     "S3EncryptionTypeDef",
     "S3GlueParquetTargetTypeDef",
+    "S3HudiCatalogTargetTypeDef",
+    "S3HudiDirectTargetTypeDef",
+    "S3HudiSourceTypeDef",
     "S3JsonSourceTypeDef",
     "S3ParquetSourceTypeDef",
     "S3SourceAdditionalOptionsTypeDef",
@@ -1351,6 +1367,28 @@ class CancelStatementRequestRequestTypeDef(
 ):
     pass
 
+_RequiredCatalogDeltaSourceTypeDef = TypedDict(
+    "_RequiredCatalogDeltaSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+_OptionalCatalogDeltaSourceTypeDef = TypedDict(
+    "_OptionalCatalogDeltaSourceTypeDef",
+    {
+        "AdditionalDeltaOptions": Dict[str, str],
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class CatalogDeltaSourceTypeDef(
+    _RequiredCatalogDeltaSourceTypeDef, _OptionalCatalogDeltaSourceTypeDef
+):
+    pass
+
 CatalogEntryTypeDef = TypedDict(
     "CatalogEntryTypeDef",
     {
@@ -1358,6 +1396,28 @@ CatalogEntryTypeDef = TypedDict(
         "TableName": str,
     },
 )
+
+_RequiredCatalogHudiSourceTypeDef = TypedDict(
+    "_RequiredCatalogHudiSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+_OptionalCatalogHudiSourceTypeDef = TypedDict(
+    "_OptionalCatalogHudiSourceTypeDef",
+    {
+        "AdditionalHudiOptions": Dict[str, str],
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class CatalogHudiSourceTypeDef(
+    _RequiredCatalogHudiSourceTypeDef, _OptionalCatalogHudiSourceTypeDef
+):
+    pass
 
 CatalogImportStatusTypeDef = TypedDict(
     "CatalogImportStatusTypeDef",
@@ -1547,6 +1607,17 @@ CodeGenConfigurationNodeTypeDef = TypedDict(
         "PostgreSQLCatalogTarget": "PostgreSQLCatalogTargetTypeDef",
         "DynamicTransform": "DynamicTransformTypeDef",
         "EvaluateDataQuality": "EvaluateDataQualityTypeDef",
+        "S3CatalogHudiSource": "S3CatalogHudiSourceTypeDef",
+        "CatalogHudiSource": "CatalogHudiSourceTypeDef",
+        "S3HudiSource": "S3HudiSourceTypeDef",
+        "S3HudiCatalogTarget": "S3HudiCatalogTargetTypeDef",
+        "S3HudiDirectTarget": "S3HudiDirectTargetTypeDef",
+        "DirectJDBCSource": "DirectJDBCSourceTypeDef",
+        "S3CatalogDeltaSource": "S3CatalogDeltaSourceTypeDef",
+        "CatalogDeltaSource": "CatalogDeltaSourceTypeDef",
+        "S3DeltaSource": "S3DeltaSourceTypeDef",
+        "S3DeltaCatalogTarget": "S3DeltaCatalogTargetTypeDef",
+        "S3DeltaDirectTarget": "S3DeltaDirectTargetTypeDef",
     },
     total=False,
 )
@@ -2873,6 +2944,7 @@ _OptionalDatabaseInputTypeDef = TypedDict(
         "Parameters": Dict[str, str],
         "CreateTableDefaultPermissions": List["PrincipalPermissionsTypeDef"],
         "TargetDatabase": "DatabaseIdentifierTypeDef",
+        "FederatedDatabase": "FederatedDatabaseTypeDef",
     },
     total=False,
 )
@@ -2896,6 +2968,7 @@ _OptionalDatabaseTypeDef = TypedDict(
         "CreateTableDefaultPermissions": List["PrincipalPermissionsTypeDef"],
         "TargetDatabase": "DatabaseIdentifierTypeDef",
         "CatalogId": str,
+        "FederatedDatabase": "FederatedDatabaseTypeDef",
     },
     total=False,
 )
@@ -3414,6 +3487,27 @@ DevEndpointTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDirectJDBCSourceTypeDef = TypedDict(
+    "_RequiredDirectJDBCSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+        "ConnectionName": str,
+        "ConnectionType": JDBCConnectionTypeType,
+    },
+)
+_OptionalDirectJDBCSourceTypeDef = TypedDict(
+    "_OptionalDirectJDBCSourceTypeDef",
+    {
+        "RedshiftTmpDir": str,
+    },
+    total=False,
+)
+
+class DirectJDBCSourceTypeDef(_RequiredDirectJDBCSourceTypeDef, _OptionalDirectJDBCSourceTypeDef):
+    pass
+
 _RequiredDirectKafkaSourceTypeDef = TypedDict(
     "_RequiredDirectKafkaSourceTypeDef",
     {
@@ -3704,6 +3798,25 @@ ExportLabelsTaskRunPropertiesTypeDef = TypedDict(
     "ExportLabelsTaskRunPropertiesTypeDef",
     {
         "OutputS3Path": str,
+    },
+    total=False,
+)
+
+FederatedDatabaseTypeDef = TypedDict(
+    "FederatedDatabaseTypeDef",
+    {
+        "Identifier": str,
+        "ConnectionName": str,
+    },
+    total=False,
+)
+
+FederatedTableTypeDef = TypedDict(
+    "FederatedTableTypeDef",
+    {
+        "Identifier": str,
+        "DatabaseIdentifier": str,
+        "ConnectionName": str,
     },
     total=False,
 )
@@ -5782,6 +5895,9 @@ KafkaStreamingSourceOptionsTypeDef = TypedDict(
         "RetryIntervalMs": int,
         "MaxOffsetsPerTrigger": int,
         "MinPartitions": int,
+        "IncludeHeaders": bool,
+        "AddRecordTimestamp": str,
+        "EmitConsumerLagMetrics": str,
     },
     total=False,
 )
@@ -5815,6 +5931,8 @@ KinesisStreamingSourceOptionsTypeDef = TypedDict(
         "StreamArn": str,
         "RoleArn": str,
         "RoleSessionName": str,
+        "AddRecordTimestamp": str,
+        "EmitConsumerLagMetrics": str,
     },
     total=False,
 )
@@ -7029,6 +7147,50 @@ RunStatementResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredS3CatalogDeltaSourceTypeDef = TypedDict(
+    "_RequiredS3CatalogDeltaSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+_OptionalS3CatalogDeltaSourceTypeDef = TypedDict(
+    "_OptionalS3CatalogDeltaSourceTypeDef",
+    {
+        "AdditionalDeltaOptions": Dict[str, str],
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class S3CatalogDeltaSourceTypeDef(
+    _RequiredS3CatalogDeltaSourceTypeDef, _OptionalS3CatalogDeltaSourceTypeDef
+):
+    pass
+
+_RequiredS3CatalogHudiSourceTypeDef = TypedDict(
+    "_RequiredS3CatalogHudiSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+_OptionalS3CatalogHudiSourceTypeDef = TypedDict(
+    "_OptionalS3CatalogHudiSourceTypeDef",
+    {
+        "AdditionalHudiOptions": Dict[str, str],
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class S3CatalogHudiSourceTypeDef(
+    _RequiredS3CatalogHudiSourceTypeDef, _OptionalS3CatalogHudiSourceTypeDef
+):
+    pass
+
 _RequiredS3CatalogSourceTypeDef = TypedDict(
     "_RequiredS3CatalogSourceTypeDef",
     {
@@ -7104,6 +7266,75 @@ _OptionalS3CsvSourceTypeDef = TypedDict(
 class S3CsvSourceTypeDef(_RequiredS3CsvSourceTypeDef, _OptionalS3CsvSourceTypeDef):
     pass
 
+_RequiredS3DeltaCatalogTargetTypeDef = TypedDict(
+    "_RequiredS3DeltaCatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Table": str,
+        "Database": str,
+    },
+)
+_OptionalS3DeltaCatalogTargetTypeDef = TypedDict(
+    "_OptionalS3DeltaCatalogTargetTypeDef",
+    {
+        "PartitionKeys": List[List[str]],
+        "AdditionalOptions": Dict[str, str],
+        "SchemaChangePolicy": "CatalogSchemaChangePolicyTypeDef",
+    },
+    total=False,
+)
+
+class S3DeltaCatalogTargetTypeDef(
+    _RequiredS3DeltaCatalogTargetTypeDef, _OptionalS3DeltaCatalogTargetTypeDef
+):
+    pass
+
+_RequiredS3DeltaDirectTargetTypeDef = TypedDict(
+    "_RequiredS3DeltaDirectTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Path": str,
+        "Compression": DeltaTargetCompressionTypeType,
+        "Format": TargetFormatType,
+    },
+)
+_OptionalS3DeltaDirectTargetTypeDef = TypedDict(
+    "_OptionalS3DeltaDirectTargetTypeDef",
+    {
+        "PartitionKeys": List[List[str]],
+        "AdditionalOptions": Dict[str, str],
+        "SchemaChangePolicy": "DirectSchemaChangePolicyTypeDef",
+    },
+    total=False,
+)
+
+class S3DeltaDirectTargetTypeDef(
+    _RequiredS3DeltaDirectTargetTypeDef, _OptionalS3DeltaDirectTargetTypeDef
+):
+    pass
+
+_RequiredS3DeltaSourceTypeDef = TypedDict(
+    "_RequiredS3DeltaSourceTypeDef",
+    {
+        "Name": str,
+        "Paths": List[str],
+    },
+)
+_OptionalS3DeltaSourceTypeDef = TypedDict(
+    "_OptionalS3DeltaSourceTypeDef",
+    {
+        "AdditionalDeltaOptions": Dict[str, str],
+        "AdditionalOptions": "S3DirectSourceAdditionalOptionsTypeDef",
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class S3DeltaSourceTypeDef(_RequiredS3DeltaSourceTypeDef, _OptionalS3DeltaSourceTypeDef):
+    pass
+
 S3DirectSourceAdditionalOptionsTypeDef = TypedDict(
     "S3DirectSourceAdditionalOptionsTypeDef",
     {
@@ -7167,6 +7398,75 @@ _OptionalS3GlueParquetTargetTypeDef = TypedDict(
 class S3GlueParquetTargetTypeDef(
     _RequiredS3GlueParquetTargetTypeDef, _OptionalS3GlueParquetTargetTypeDef
 ):
+    pass
+
+_RequiredS3HudiCatalogTargetTypeDef = TypedDict(
+    "_RequiredS3HudiCatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Table": str,
+        "Database": str,
+        "AdditionalOptions": Dict[str, str],
+    },
+)
+_OptionalS3HudiCatalogTargetTypeDef = TypedDict(
+    "_OptionalS3HudiCatalogTargetTypeDef",
+    {
+        "PartitionKeys": List[List[str]],
+        "SchemaChangePolicy": "CatalogSchemaChangePolicyTypeDef",
+    },
+    total=False,
+)
+
+class S3HudiCatalogTargetTypeDef(
+    _RequiredS3HudiCatalogTargetTypeDef, _OptionalS3HudiCatalogTargetTypeDef
+):
+    pass
+
+_RequiredS3HudiDirectTargetTypeDef = TypedDict(
+    "_RequiredS3HudiDirectTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Path": str,
+        "Compression": HudiTargetCompressionTypeType,
+        "Format": TargetFormatType,
+        "AdditionalOptions": Dict[str, str],
+    },
+)
+_OptionalS3HudiDirectTargetTypeDef = TypedDict(
+    "_OptionalS3HudiDirectTargetTypeDef",
+    {
+        "PartitionKeys": List[List[str]],
+        "SchemaChangePolicy": "DirectSchemaChangePolicyTypeDef",
+    },
+    total=False,
+)
+
+class S3HudiDirectTargetTypeDef(
+    _RequiredS3HudiDirectTargetTypeDef, _OptionalS3HudiDirectTargetTypeDef
+):
+    pass
+
+_RequiredS3HudiSourceTypeDef = TypedDict(
+    "_RequiredS3HudiSourceTypeDef",
+    {
+        "Name": str,
+        "Paths": List[str],
+    },
+)
+_OptionalS3HudiSourceTypeDef = TypedDict(
+    "_OptionalS3HudiSourceTypeDef",
+    {
+        "AdditionalHudiOptions": Dict[str, str],
+        "AdditionalOptions": "S3DirectSourceAdditionalOptionsTypeDef",
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class S3HudiSourceTypeDef(_RequiredS3HudiSourceTypeDef, _OptionalS3HudiSourceTypeDef):
     pass
 
 _RequiredS3JsonSourceTypeDef = TypedDict(
@@ -8056,6 +8356,7 @@ _OptionalTableTypeDef = TypedDict(
         "TargetTable": "TableIdentifierTypeDef",
         "CatalogId": str,
         "VersionId": str,
+        "FederatedTable": "FederatedTableTypeDef",
     },
     total=False,
 )
@@ -8485,7 +8786,6 @@ _RequiredUpdateDataQualityRulesetRequestRequestTypeDef = TypedDict(
 _OptionalUpdateDataQualityRulesetRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateDataQualityRulesetRequestRequestTypeDef",
     {
-        "UpdatedName": str,
         "Description": str,
         "Ruleset": str,
     },

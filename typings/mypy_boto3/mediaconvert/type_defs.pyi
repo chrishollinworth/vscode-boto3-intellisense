@@ -32,6 +32,9 @@ from .literals import (
     Ac3MetadataControlType,
     AccelerationModeType,
     AccelerationStatusType,
+    AdvancedInputFilterAddTextureType,
+    AdvancedInputFilterSharpenType,
+    AdvancedInputFilterType,
     AfdSignalingType,
     AlphaBehaviorType,
     AncillaryConvert608To708Type,
@@ -61,6 +64,8 @@ from .literals import (
     AvcIntraSlowPalType,
     AvcIntraTelecineType,
     AvcIntraUhdQualityTuningLevelType,
+    BandwidthReductionFilterSharpeningType,
+    BandwidthReductionFilterStrengthType,
     BillingTagsSourceType,
     BurninSubtitleAlignmentType,
     BurninSubtitleApplyFontColorType,
@@ -72,6 +77,7 @@ from .literals import (
     BurnInSubtitleStylePassthroughType,
     BurninSubtitleTeletextSpacingType,
     CaptionDestinationTypeType,
+    CaptionSourceConvertPaintOnToPopOnType,
     CaptionSourceTypeType,
     CmafClientCacheType,
     CmafCodecSpecificationType,
@@ -121,6 +127,7 @@ from .literals import (
     DashIsoSegmentLengthControlType,
     DashIsoVideoCompositionOffsetsType,
     DashIsoWriteSegmentTimelineInRepresentationType,
+    DashManifestStyleType,
     DecryptionModeType,
     DeinterlaceAlgorithmType,
     DeinterlacerControlType,
@@ -220,6 +227,7 @@ from .literals import (
     H265TilesType,
     H265UnregisteredSeiTimecodeType,
     H265WriteMp4PackagingTypeType,
+    HDRToSDRToneMapperType,
     HlsAdMarkersType,
     HlsAudioOnlyContainerType,
     HlsAudioOnlyHeaderType,
@@ -425,6 +433,7 @@ __all__ = (
     "AacSettingsTypeDef",
     "Ac3SettingsTypeDef",
     "AccelerationSettingsTypeDef",
+    "AdvancedInputFilterSettingsTypeDef",
     "AiffSettingsTypeDef",
     "AllowedRenditionSizeTypeDef",
     "AncillarySourceSettingsTypeDef",
@@ -443,6 +452,7 @@ __all__ = (
     "AvailBlankingTypeDef",
     "AvcIntraSettingsTypeDef",
     "AvcIntraUhdSettingsTypeDef",
+    "BandwidthReductionFilterTypeDef",
     "BurninDestinationSettingsTypeDef",
     "CancelJobRequestRequestTypeDef",
     "CaptionDescriptionPresetTypeDef",
@@ -452,6 +462,7 @@ __all__ = (
     "CaptionSourceFramerateTypeDef",
     "CaptionSourceSettingsTypeDef",
     "ChannelMappingTypeDef",
+    "ClipLimitsTypeDef",
     "CmafAdditionalManifestTypeDef",
     "CmafEncryptionSettingsTypeDef",
     "CmafGroupSettingsTypeDef",
@@ -631,6 +642,7 @@ __all__ = (
     "VorbisSettingsTypeDef",
     "Vp8SettingsTypeDef",
     "Vp9SettingsTypeDef",
+    "WarningGroupTypeDef",
     "WavSettingsTypeDef",
     "WebvttDestinationSettingsTypeDef",
     "WebvttHlsSourceSettingsTypeDef",
@@ -680,6 +692,15 @@ AccelerationSettingsTypeDef = TypedDict(
     {
         "Mode": AccelerationModeType,
     },
+)
+
+AdvancedInputFilterSettingsTypeDef = TypedDict(
+    "AdvancedInputFilterSettingsTypeDef",
+    {
+        "AddTexture": AdvancedInputFilterAddTextureType,
+        "Sharpening": AdvancedInputFilterSharpenType,
+    },
+    total=False,
 )
 
 AiffSettingsTypeDef = TypedDict(
@@ -772,6 +793,7 @@ AudioNormalizationSettingsTypeDef = TypedDict(
         "LoudnessLogging": AudioNormalizationLoudnessLoggingType,
         "PeakCalculation": AudioNormalizationPeakCalculationType,
         "TargetLkfs": float,
+        "TruePeakLimiterThreshold": float,
     },
     total=False,
 )
@@ -896,6 +918,15 @@ AvcIntraUhdSettingsTypeDef = TypedDict(
     total=False,
 )
 
+BandwidthReductionFilterTypeDef = TypedDict(
+    "BandwidthReductionFilterTypeDef",
+    {
+        "Sharpening": BandwidthReductionFilterSharpeningType,
+        "Strength": BandwidthReductionFilterStrengthType,
+    },
+    total=False,
+)
+
 BurninDestinationSettingsTypeDef = TypedDict(
     "BurninDestinationSettingsTypeDef",
     {
@@ -1013,6 +1044,17 @@ ChannelMappingTypeDef = TypedDict(
     total=False,
 )
 
+ClipLimitsTypeDef = TypedDict(
+    "ClipLimitsTypeDef",
+    {
+        "MaximumRGBTolerance": int,
+        "MaximumYUV": int,
+        "MinimumRGBTolerance": int,
+        "MinimumYUV": int,
+    },
+    total=False,
+)
+
 CmafAdditionalManifestTypeDef = TypedDict(
     "CmafAdditionalManifestTypeDef",
     {
@@ -1042,6 +1084,7 @@ CmafGroupSettingsTypeDef = TypedDict(
         "BaseUrl": str,
         "ClientCache": CmafClientCacheType,
         "CodecSpecification": CmafCodecSpecificationType,
+        "DashManifestStyle": DashManifestStyleType,
         "Destination": str,
         "DestinationSettings": "DestinationSettingsTypeDef",
         "Encryption": "CmafEncryptionSettingsTypeDef",
@@ -1106,9 +1149,11 @@ ColorCorrectorTypeDef = TypedDict(
     "ColorCorrectorTypeDef",
     {
         "Brightness": int,
+        "ClipLimits": "ClipLimitsTypeDef",
         "ColorSpaceConversion": ColorSpaceConversionType,
         "Contrast": int,
         "Hdr10Metadata": "Hdr10MetadataTypeDef",
+        "HdrToSdrToneMapper": HDRToSDRToneMapperType,
         "Hue": int,
         "SampleRangeConversion": SampleRangeConversionType,
         "Saturation": int,
@@ -1291,6 +1336,7 @@ DashIsoGroupSettingsTypeDef = TypedDict(
         "AdditionalManifests": List["DashAdditionalManifestTypeDef"],
         "AudioChannelConfigSchemeIdUri": DashIsoGroupAudioChannelConfigSchemeIdUriType,
         "BaseUrl": str,
+        "DashManifestStyle": DashManifestStyleType,
         "Destination": str,
         "DestinationSettings": "DestinationSettingsTypeDef",
         "Encryption": "DashIsoEncryptionSettingsTypeDef",
@@ -1617,6 +1663,7 @@ FileSourceSettingsTypeDef = TypedDict(
     "FileSourceSettingsTypeDef",
     {
         "Convert608To708": FileSourceConvert608To708Type,
+        "ConvertPaintToPop": CaptionSourceConvertPaintOnToPopOnType,
         "Framerate": "CaptionSourceFramerateTypeDef",
         "SourceFile": str,
         "TimeDelta": int,
@@ -1727,6 +1774,7 @@ H264SettingsTypeDef = TypedDict(
     "H264SettingsTypeDef",
     {
         "AdaptiveQuantization": H264AdaptiveQuantizationType,
+        "BandwidthReductionFilter": "BandwidthReductionFilterTypeDef",
         "Bitrate": int,
         "CodecLevel": H264CodecLevelType,
         "CodecProfile": H264CodecProfileType,
@@ -2026,6 +2074,8 @@ InputDecryptionSettingsTypeDef = TypedDict(
 InputTemplateTypeDef = TypedDict(
     "InputTemplateTypeDef",
     {
+        "AdvancedInputFilter": AdvancedInputFilterType,
+        "AdvancedInputFilterSettings": "AdvancedInputFilterSettingsTypeDef",
         "AudioSelectorGroups": Dict[str, "AudioSelectorGroupTypeDef"],
         "AudioSelectors": Dict[str, "AudioSelectorTypeDef"],
         "CaptionSelectors": Dict[str, "CaptionSelectorTypeDef"],
@@ -2051,6 +2101,8 @@ InputTemplateTypeDef = TypedDict(
 InputTypeDef = TypedDict(
     "InputTypeDef",
     {
+        "AdvancedInputFilter": AdvancedInputFilterType,
+        "AdvancedInputFilterSettings": "AdvancedInputFilterSettingsTypeDef",
         "AudioSelectorGroups": Dict[str, "AudioSelectorGroupTypeDef"],
         "AudioSelectors": Dict[str, "AudioSelectorTypeDef"],
         "CaptionSelectors": Dict[str, "CaptionSelectorTypeDef"],
@@ -2192,6 +2244,7 @@ _OptionalJobTypeDef = TypedDict(
         "AccelerationStatus": AccelerationStatusType,
         "Arn": str,
         "BillingTagsSource": BillingTagsSourceType,
+        "ClientRequestToken": str,
         "CreatedAt": datetime,
         "CurrentPhase": JobPhaseType,
         "ErrorCode": int,
@@ -2211,6 +2264,7 @@ _OptionalJobTypeDef = TypedDict(
         "StatusUpdateInterval": StatusUpdateIntervalType,
         "Timing": "TimingTypeDef",
         "UserMetadata": Dict[str, str],
+        "Warnings": List["WarningGroupTypeDef"],
     },
     total=False,
 )
@@ -3394,6 +3448,14 @@ Vp9SettingsTypeDef = TypedDict(
         "RateControlMode": Literal["VBR"],
     },
     total=False,
+)
+
+WarningGroupTypeDef = TypedDict(
+    "WarningGroupTypeDef",
+    {
+        "Code": int,
+        "Count": int,
+    },
 )
 
 WavSettingsTypeDef = TypedDict(

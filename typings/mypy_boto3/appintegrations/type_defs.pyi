@@ -31,6 +31,7 @@ __all__ = (
     "EventFilterTypeDef",
     "EventIntegrationAssociationTypeDef",
     "EventIntegrationTypeDef",
+    "FileConfigurationTypeDef",
     "GetDataIntegrationRequestRequestTypeDef",
     "GetDataIntegrationResponseTypeDef",
     "GetEventIntegrationRequestRequestTypeDef",
@@ -57,17 +58,19 @@ _RequiredCreateDataIntegrationRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDataIntegrationRequestRequestTypeDef",
     {
         "Name": str,
+        "KmsKey": str,
+        "SourceURI": str,
+        "ScheduleConfig": "ScheduleConfigurationTypeDef",
     },
 )
 _OptionalCreateDataIntegrationRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDataIntegrationRequestRequestTypeDef",
     {
         "Description": str,
-        "KmsKey": str,
-        "SourceURI": str,
-        "ScheduleConfig": "ScheduleConfigurationTypeDef",
         "Tags": Dict[str, str],
         "ClientToken": str,
+        "FileConfiguration": "FileConfigurationTypeDef",
+        "ObjectConfiguration": Dict[str, Dict[str, List[str]]],
     },
     total=False,
 )
@@ -90,6 +93,8 @@ CreateDataIntegrationResponseTypeDef = TypedDict(
         "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
         "Tags": Dict[str, str],
         "ClientToken": str,
+        "FileConfiguration": "FileConfigurationTypeDef",
+        "ObjectConfiguration": Dict[str, Dict[str, List[str]]],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -193,6 +198,25 @@ EventIntegrationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredFileConfigurationTypeDef = TypedDict(
+    "_RequiredFileConfigurationTypeDef",
+    {
+        "Folders": List[str],
+    },
+)
+_OptionalFileConfigurationTypeDef = TypedDict(
+    "_OptionalFileConfigurationTypeDef",
+    {
+        "Filters": Dict[str, List[str]],
+    },
+    total=False,
+)
+
+class FileConfigurationTypeDef(
+    _RequiredFileConfigurationTypeDef, _OptionalFileConfigurationTypeDef
+):
+    pass
+
 GetDataIntegrationRequestRequestTypeDef = TypedDict(
     "GetDataIntegrationRequestRequestTypeDef",
     {
@@ -211,6 +235,8 @@ GetDataIntegrationResponseTypeDef = TypedDict(
         "SourceURI": str,
         "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
         "Tags": Dict[str, str],
+        "FileConfiguration": "FileConfigurationTypeDef",
+        "ObjectConfiguration": Dict[str, Dict[str, List[str]]],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -357,15 +383,25 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
-ScheduleConfigurationTypeDef = TypedDict(
-    "ScheduleConfigurationTypeDef",
+_RequiredScheduleConfigurationTypeDef = TypedDict(
+    "_RequiredScheduleConfigurationTypeDef",
+    {
+        "ScheduleExpression": str,
+    },
+)
+_OptionalScheduleConfigurationTypeDef = TypedDict(
+    "_OptionalScheduleConfigurationTypeDef",
     {
         "FirstExecutionFrom": str,
         "Object": str,
-        "ScheduleExpression": str,
     },
     total=False,
 )
+
+class ScheduleConfigurationTypeDef(
+    _RequiredScheduleConfigurationTypeDef, _OptionalScheduleConfigurationTypeDef
+):
+    pass
 
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",

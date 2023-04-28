@@ -123,6 +123,8 @@ __all__ = (
     "DescribeInstancesPaginatorName",
     "DescribeInternetGatewaysPaginatorName",
     "DescribeIpamPoolsPaginatorName",
+    "DescribeIpamResourceDiscoveriesPaginatorName",
+    "DescribeIpamResourceDiscoveryAssociationsPaginatorName",
     "DescribeIpamScopesPaginatorName",
     "DescribeIpamsPaginatorName",
     "DescribeIpv6PoolsPaginatorName",
@@ -245,6 +247,8 @@ __all__ = (
     "GetGroupsForCapacityReservationPaginatorName",
     "GetInstanceTypesFromInstanceRequirementsPaginatorName",
     "GetIpamAddressHistoryPaginatorName",
+    "GetIpamDiscoveredAccountsPaginatorName",
+    "GetIpamDiscoveredResourceCidrsPaginatorName",
     "GetIpamPoolAllocationsPaginatorName",
     "GetIpamPoolCidrsPaginatorName",
     "GetIpamResourceCidrsPaginatorName",
@@ -258,6 +262,7 @@ __all__ = (
     "GetTransitGatewayRouteTableAssociationsPaginatorName",
     "GetTransitGatewayRouteTablePropagationsPaginatorName",
     "GetVpnConnectionDeviceTypesPaginatorName",
+    "HostMaintenanceType",
     "HostRecoveryType",
     "HostTenancyType",
     "HostnameTypeType",
@@ -273,6 +278,7 @@ __all__ = (
     "ImdsSupportValuesType",
     "InstanceAttributeNameType",
     "InstanceAutoRecoveryStateType",
+    "InstanceBootModeValuesType",
     "InstanceEventWindowStateType",
     "InstanceExistsWaiterName",
     "InstanceGenerationType",
@@ -298,14 +304,19 @@ __all__ = (
     "InternetGatewayExistsWaiterName",
     "IpAddressTypeType",
     "IpamAddressHistoryResourceTypeType",
+    "IpamAssociatedResourceDiscoveryStatusType",
     "IpamComplianceStatusType",
+    "IpamDiscoveryFailureCodeType",
     "IpamManagementStateType",
     "IpamOverlapStatusType",
     "IpamPoolAllocationResourceTypeType",
     "IpamPoolAwsServiceType",
     "IpamPoolCidrFailureCodeType",
     "IpamPoolCidrStateType",
+    "IpamPoolPublicIpSourceType",
     "IpamPoolStateType",
+    "IpamResourceDiscoveryAssociationStateType",
+    "IpamResourceDiscoveryStateType",
     "IpamResourceTypeType",
     "IpamScopeStateType",
     "IpamScopeTypeType",
@@ -339,6 +350,7 @@ __all__ = (
     "MonitoringStateType",
     "MoveStatusType",
     "MulticastSupportValueType",
+    "NatGatewayAddressStatusType",
     "NatGatewayAvailableWaiterName",
     "NatGatewayDeletedWaiterName",
     "NatGatewayStateType",
@@ -393,6 +405,7 @@ __all__ = (
     "ShutdownBehaviorType",
     "SnapshotAttributeNameType",
     "SnapshotCompletedWaiterName",
+    "SnapshotImportedWaiterName",
     "SnapshotStateType",
     "SpotAllocationStrategyType",
     "SpotInstanceInterruptionBehaviorType",
@@ -538,7 +551,7 @@ BatchStateType = Literal[
 ]
 BgpStatusType = Literal["down", "up"]
 BootModeTypeType = Literal["legacy-bios", "uefi"]
-BootModeValuesType = Literal["legacy-bios", "uefi"]
+BootModeValuesType = Literal["legacy-bios", "uefi", "uefi-preferred"]
 BundleTaskCompleteWaiterName = Literal["bundle_task_complete"]
 BundleTaskStateType = Literal[
     "bundling", "cancelling", "complete", "failed", "pending", "storing", "waiting-for-shutdown"
@@ -673,6 +686,10 @@ DescribeInstanceTypesPaginatorName = Literal["describe_instance_types"]
 DescribeInstancesPaginatorName = Literal["describe_instances"]
 DescribeInternetGatewaysPaginatorName = Literal["describe_internet_gateways"]
 DescribeIpamPoolsPaginatorName = Literal["describe_ipam_pools"]
+DescribeIpamResourceDiscoveriesPaginatorName = Literal["describe_ipam_resource_discoveries"]
+DescribeIpamResourceDiscoveryAssociationsPaginatorName = Literal[
+    "describe_ipam_resource_discovery_associations"
+]
 DescribeIpamScopesPaginatorName = Literal["describe_ipam_scopes"]
 DescribeIpamsPaginatorName = Literal["describe_ipams"]
 DescribeIpv6PoolsPaginatorName = Literal["describe_ipv6_pools"]
@@ -851,6 +868,8 @@ GetInstanceTypesFromInstanceRequirementsPaginatorName = Literal[
     "get_instance_types_from_instance_requirements"
 ]
 GetIpamAddressHistoryPaginatorName = Literal["get_ipam_address_history"]
+GetIpamDiscoveredAccountsPaginatorName = Literal["get_ipam_discovered_accounts"]
+GetIpamDiscoveredResourceCidrsPaginatorName = Literal["get_ipam_discovered_resource_cidrs"]
 GetIpamPoolAllocationsPaginatorName = Literal["get_ipam_pool_allocations"]
 GetIpamPoolCidrsPaginatorName = Literal["get_ipam_pool_cidrs"]
 GetIpamResourceCidrsPaginatorName = Literal["get_ipam_resource_cidrs"]
@@ -876,6 +895,7 @@ GetTransitGatewayRouteTablePropagationsPaginatorName = Literal[
     "get_transit_gateway_route_table_propagations"
 ]
 GetVpnConnectionDeviceTypesPaginatorName = Literal["get_vpn_connection_device_types"]
+HostMaintenanceType = Literal["off", "on"]
 HostRecoveryType = Literal["off", "on"]
 HostTenancyType = Literal["dedicated", "host"]
 HostnameTypeType = Literal["ip-name", "resource-name"]
@@ -925,6 +945,7 @@ InstanceAttributeNameType = Literal[
     "userData",
 ]
 InstanceAutoRecoveryStateType = Literal["default", "disabled"]
+InstanceBootModeValuesType = Literal["legacy-bios", "uefi"]
 InstanceEventWindowStateType = Literal["active", "creating", "deleted", "deleting"]
 InstanceExistsWaiterName = Literal["instance_exists"]
 InstanceGenerationType = Literal["current", "previous"]
@@ -1063,6 +1084,16 @@ InstanceTypeType = Literal[
     "c6id.large",
     "c6id.metal",
     "c6id.xlarge",
+    "c6in.12xlarge",
+    "c6in.16xlarge",
+    "c6in.24xlarge",
+    "c6in.2xlarge",
+    "c6in.32xlarge",
+    "c6in.4xlarge",
+    "c6in.8xlarge",
+    "c6in.large",
+    "c6in.metal",
+    "c6in.xlarge",
     "c7g.12xlarge",
     "c7g.16xlarge",
     "c7g.2xlarge",
@@ -1070,6 +1101,7 @@ InstanceTypeType = Literal[
     "c7g.8xlarge",
     "c7g.large",
     "c7g.medium",
+    "c7g.metal",
     "c7g.xlarge",
     "cc1.4xlarge",
     "cc2.8xlarge",
@@ -1301,6 +1333,35 @@ InstanceTypeType = Literal[
     "m6id.large",
     "m6id.metal",
     "m6id.xlarge",
+    "m6idn.12xlarge",
+    "m6idn.16xlarge",
+    "m6idn.24xlarge",
+    "m6idn.2xlarge",
+    "m6idn.32xlarge",
+    "m6idn.4xlarge",
+    "m6idn.8xlarge",
+    "m6idn.large",
+    "m6idn.metal",
+    "m6idn.xlarge",
+    "m6in.12xlarge",
+    "m6in.16xlarge",
+    "m6in.24xlarge",
+    "m6in.2xlarge",
+    "m6in.32xlarge",
+    "m6in.4xlarge",
+    "m6in.8xlarge",
+    "m6in.large",
+    "m6in.metal",
+    "m6in.xlarge",
+    "m7g.12xlarge",
+    "m7g.16xlarge",
+    "m7g.2xlarge",
+    "m7g.4xlarge",
+    "m7g.8xlarge",
+    "m7g.large",
+    "m7g.medium",
+    "m7g.metal",
+    "m7g.xlarge",
     "mac1.metal",
     "mac2.metal",
     "p2.16xlarge",
@@ -1433,6 +1494,35 @@ InstanceTypeType = Literal[
     "r6id.large",
     "r6id.metal",
     "r6id.xlarge",
+    "r6idn.12xlarge",
+    "r6idn.16xlarge",
+    "r6idn.24xlarge",
+    "r6idn.2xlarge",
+    "r6idn.32xlarge",
+    "r6idn.4xlarge",
+    "r6idn.8xlarge",
+    "r6idn.large",
+    "r6idn.metal",
+    "r6idn.xlarge",
+    "r6in.12xlarge",
+    "r6in.16xlarge",
+    "r6in.24xlarge",
+    "r6in.2xlarge",
+    "r6in.32xlarge",
+    "r6in.4xlarge",
+    "r6in.8xlarge",
+    "r6in.large",
+    "r6in.metal",
+    "r6in.xlarge",
+    "r7g.12xlarge",
+    "r7g.16xlarge",
+    "r7g.2xlarge",
+    "r7g.4xlarge",
+    "r7g.8xlarge",
+    "r7g.large",
+    "r7g.medium",
+    "r7g.metal",
+    "r7g.xlarge",
     "t1.micro",
     "t2.2xlarge",
     "t2.large",
@@ -1529,12 +1619,16 @@ IpAddressTypeType = Literal["dualstack", "ipv4", "ipv6"]
 IpamAddressHistoryResourceTypeType = Literal[
     "eip", "instance", "network-interface", "subnet", "vpc"
 ]
+IpamAssociatedResourceDiscoveryStatusType = Literal["active", "not-found"]
 IpamComplianceStatusType = Literal["compliant", "ignored", "noncompliant", "unmanaged"]
+IpamDiscoveryFailureCodeType = Literal[
+    "assume-role-failure", "throttling-failure", "unauthorized-failure"
+]
 IpamManagementStateType = Literal["ignored", "managed", "unmanaged"]
 IpamOverlapStatusType = Literal["ignored", "nonoverlapping", "overlapping"]
 IpamPoolAllocationResourceTypeType = Literal["custom", "ec2-public-ipv4-pool", "ipam-pool", "vpc"]
 IpamPoolAwsServiceType = Literal["ec2"]
-IpamPoolCidrFailureCodeType = Literal["cidr-not-available"]
+IpamPoolCidrFailureCodeType = Literal["cidr-not-available", "limit-exceeded"]
 IpamPoolCidrStateType = Literal[
     "deprovisioned",
     "failed-deprovision",
@@ -1545,7 +1639,33 @@ IpamPoolCidrStateType = Literal[
     "pending-provision",
     "provisioned",
 ]
+IpamPoolPublicIpSourceType = Literal["amazon", "byoip"]
 IpamPoolStateType = Literal[
+    "create-complete",
+    "create-failed",
+    "create-in-progress",
+    "delete-complete",
+    "delete-failed",
+    "delete-in-progress",
+    "isolate-complete",
+    "isolate-in-progress",
+    "modify-complete",
+    "modify-failed",
+    "modify-in-progress",
+    "restore-in-progress",
+]
+IpamResourceDiscoveryAssociationStateType = Literal[
+    "associate-complete",
+    "associate-failed",
+    "associate-in-progress",
+    "disassociate-complete",
+    "disassociate-failed",
+    "disassociate-in-progress",
+    "isolate-complete",
+    "isolate-in-progress",
+    "restore-in-progress",
+]
+IpamResourceDiscoveryStateType = Literal[
     "create-complete",
     "create-failed",
     "create-in-progress",
@@ -1625,6 +1745,9 @@ ModifyAvailabilityZoneOptInStatusType = Literal["not-opted-in", "opted-in"]
 MonitoringStateType = Literal["disabled", "disabling", "enabled", "pending"]
 MoveStatusType = Literal["movingToVpc", "restoringToClassic"]
 MulticastSupportValueType = Literal["disable", "enable"]
+NatGatewayAddressStatusType = Literal[
+    "assigning", "associating", "disassociating", "failed", "succeeded", "unassigning"
+]
 NatGatewayAvailableWaiterName = Literal["nat_gateway_available"]
 NatGatewayDeletedWaiterName = Literal["nat_gateway_deleted"]
 NatGatewayStateType = Literal["available", "deleted", "deleting", "failed", "pending"]
@@ -1744,6 +1867,8 @@ ResourceTypeType = Literal[
     "internet-gateway",
     "ipam",
     "ipam-pool",
+    "ipam-resource-discovery",
+    "ipam-resource-discovery-association",
     "ipam-scope",
     "ipv4pool-ec2",
     "ipv6pool-ec2",
@@ -1823,6 +1948,7 @@ ServiceTypeType = Literal["Gateway", "GatewayLoadBalancer", "Interface"]
 ShutdownBehaviorType = Literal["stop", "terminate"]
 SnapshotAttributeNameType = Literal["createVolumePermission", "productCodes"]
 SnapshotCompletedWaiterName = Literal["snapshot_completed"]
+SnapshotImportedWaiterName = Literal["snapshot_imported"]
 SnapshotStateType = Literal["completed", "error", "pending", "recoverable", "recovering"]
 SpotAllocationStrategyType = Literal[
     "capacity-optimized",

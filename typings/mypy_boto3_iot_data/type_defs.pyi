@@ -83,6 +83,7 @@ GetRetainedMessageResponseTypeDef = TypedDict(
         "payload": bytes,
         "qos": int,
         "lastModifiedTime": int,
+        "userProperties": bytes,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

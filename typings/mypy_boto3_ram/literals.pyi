@@ -25,6 +25,11 @@ __all__ = (
     "GetResourceSharesPaginatorName",
     "ListPrincipalsPaginatorName",
     "ListResourcesPaginatorName",
+    "PermissionFeatureSetType",
+    "PermissionStatusType",
+    "PermissionTypeFilterType",
+    "PermissionTypeType",
+    "ReplacePermissionAssociationsWorkStatusType",
     "ResourceOwnerType",
     "ResourceRegionScopeFilterType",
     "ResourceRegionScopeType",
@@ -42,6 +47,11 @@ GetResourceShareInvitationsPaginatorName = Literal["get_resource_share_invitatio
 GetResourceSharesPaginatorName = Literal["get_resource_shares"]
 ListPrincipalsPaginatorName = Literal["list_principals"]
 ListResourcesPaginatorName = Literal["list_resources"]
+PermissionFeatureSetType = Literal["CREATED_FROM_POLICY", "PROMOTING_TO_STANDARD", "STANDARD"]
+PermissionStatusType = Literal["ATTACHABLE", "DELETED", "DELETING", "UNATTACHABLE"]
+PermissionTypeFilterType = Literal["ALL", "AWS_MANAGED", "CUSTOMER_MANAGED"]
+PermissionTypeType = Literal["AWS_MANAGED", "CUSTOMER_MANAGED"]
+ReplacePermissionAssociationsWorkStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 ResourceOwnerType = Literal["OTHER-ACCOUNTS", "SELF"]
 ResourceRegionScopeFilterType = Literal["ALL", "GLOBAL", "REGIONAL"]
 ResourceRegionScopeType = Literal["GLOBAL", "REGIONAL"]

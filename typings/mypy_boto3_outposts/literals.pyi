@@ -52,7 +52,15 @@ CatalogItemStatusType = Literal["AVAILABLE", "DISCONTINUED"]
 ComputeAssetStateType = Literal["ACTIVE", "ISOLATED", "RETIRING"]
 FiberOpticCableTypeType = Literal["MULTI_MODE", "SINGLE_MODE"]
 LineItemStatusType = Literal[
-    "BUILDING", "CANCELLED", "DELIVERED", "ERROR", "INSTALLED", "INSTALLING", "PREPARING", "SHIPPED"
+    "BUILDING",
+    "CANCELLED",
+    "DELIVERED",
+    "ERROR",
+    "INSTALLED",
+    "INSTALLING",
+    "PREPARING",
+    "REPLACED",
+    "SHIPPED",
 ]
 MaximumSupportedWeightLbsType = Literal[
     "MAX_1400_LBS", "MAX_1600_LBS", "MAX_1800_LBS", "MAX_2000_LBS", "NO_LIMIT"
@@ -88,7 +96,7 @@ OrderTypeType = Literal["OUTPOST", "REPLACEMENT"]
 PaymentOptionType = Literal["ALL_UPFRONT", "NO_UPFRONT", "PARTIAL_UPFRONT"]
 PaymentTermType = Literal["ONE_YEAR", "THREE_YEARS"]
 PowerConnectorType = Literal["AH530P7W", "AH532P6W", "IEC309", "L6_30P"]
-PowerDrawKvaType = Literal["POWER_10_KVA", "POWER_15_KVA", "POWER_5_KVA"]
+PowerDrawKvaType = Literal["POWER_10_KVA", "POWER_15_KVA", "POWER_30_KVA", "POWER_5_KVA"]
 PowerFeedDropType = Literal["ABOVE_RACK", "BELOW_RACK"]
 PowerPhaseType = Literal["SINGLE_PHASE", "THREE_PHASE"]
 ShipmentCarrierType = Literal["DBS", "DHL", "FEDEX", "UPS"]

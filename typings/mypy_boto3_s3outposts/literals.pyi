@@ -22,10 +22,12 @@ __all__ = (
     "EndpointAccessTypeType",
     "EndpointStatusType",
     "ListEndpointsPaginatorName",
+    "ListOutpostsWithS3PaginatorName",
     "ListSharedEndpointsPaginatorName",
 )
 
 EndpointAccessTypeType = Literal["CustomerOwnedIp", "Private"]
-EndpointStatusType = Literal["Available", "Deleting", "Pending"]
+EndpointStatusType = Literal["Available", "Create_Failed", "Delete_Failed", "Deleting", "Pending"]
 ListEndpointsPaginatorName = Literal["list_endpoints"]
+ListOutpostsWithS3PaginatorName = Literal["list_outposts_with_s3"]
 ListSharedEndpointsPaginatorName = Literal["list_shared_endpoints"]

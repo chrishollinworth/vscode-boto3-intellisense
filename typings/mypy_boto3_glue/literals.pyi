@@ -41,6 +41,7 @@ __all__ = (
     "DataFormatType",
     "DataQualityRuleResultStatusType",
     "DeleteBehaviorType",
+    "DeltaTargetCompressionTypeType",
     "EnableHybridValuesType",
     "ExecutionClassType",
     "ExistConditionType",
@@ -66,6 +67,8 @@ __all__ = (
     "GetTriggersPaginatorName",
     "GetUserDefinedFunctionsPaginatorName",
     "GlueRecordTypeType",
+    "HudiTargetCompressionTypeType",
+    "JDBCConnectionTypeType",
     "JDBCDataTypeType",
     "JdbcMetadataEntryType",
     "JobBookmarksEncryptionModeType",
@@ -202,6 +205,7 @@ DQTransformOutputType = Literal["EvaluationResults", "PrimaryInput"]
 DataFormatType = Literal["AVRO", "JSON", "PROTOBUF"]
 DataQualityRuleResultStatusType = Literal["ERROR", "FAIL", "PASS"]
 DeleteBehaviorType = Literal["DELETE_FROM_DATABASE", "DEPRECATE_IN_DATABASE", "LOG"]
+DeltaTargetCompressionTypeType = Literal["snappy", "uncompressed"]
 EnableHybridValuesType = Literal["FALSE", "TRUE"]
 ExecutionClassType = Literal["FLEX", "STANDARD"]
 ExistConditionType = Literal["MUST_EXIST", "NONE", "NOT_EXIST"]
@@ -229,6 +233,8 @@ GetUserDefinedFunctionsPaginatorName = Literal["get_user_defined_functions"]
 GlueRecordTypeType = Literal[
     "BIGDECIMAL", "BYTE", "DATE", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP"
 ]
+HudiTargetCompressionTypeType = Literal["gzip", "lzo", "snappy", "uncompressed"]
+JDBCConnectionTypeType = Literal["mysql", "oracle", "postgresql", "redshift", "sqlserver"]
 JDBCDataTypeType = Literal[
     "ARRAY",
     "BIGINT",
@@ -313,7 +319,7 @@ PrincipalTypeType = Literal["GROUP", "ROLE", "USER"]
 QuoteCharType = Literal["disabled", "quillemet", "quote", "single_quote"]
 RecrawlBehaviorType = Literal["CRAWL_EVENT_MODE", "CRAWL_EVERYTHING", "CRAWL_NEW_FOLDERS_ONLY"]
 RegistryStatusType = Literal["AVAILABLE", "DELETING"]
-ResourceShareTypeType = Literal["ALL", "FOREIGN"]
+ResourceShareTypeType = Literal["ALL", "FEDERATED", "FOREIGN"]
 ResourceTypeType = Literal["ARCHIVE", "FILE", "JAR"]
 S3EncryptionModeType = Literal["DISABLED", "SSE-KMS", "SSE-S3"]
 ScheduleStateType = Literal["NOT_SCHEDULED", "SCHEDULED", "TRANSITIONING"]
@@ -328,7 +334,7 @@ SourceControlAuthStrategyType = Literal["AWS_SECRETS_MANAGER", "PERSONAL_ACCESS_
 SourceControlProviderType = Literal["AWS_CODE_COMMIT", "GITHUB"]
 StartingPositionType = Literal["earliest", "latest", "trim_horizon"]
 StatementStateType = Literal["AVAILABLE", "CANCELLED", "CANCELLING", "ERROR", "RUNNING", "WAITING"]
-TargetFormatType = Literal["avro", "csv", "json", "orc", "parquet"]
+TargetFormatType = Literal["avro", "csv", "delta", "hudi", "json", "orc", "parquet"]
 TaskRunSortColumnTypeType = Literal["STARTED", "STATUS", "TASK_RUN_TYPE"]
 TaskStatusTypeType = Literal[
     "FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING", "SUCCEEDED", "TIMEOUT"

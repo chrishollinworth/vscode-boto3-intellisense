@@ -34,6 +34,7 @@ from .literals import (
     OperatorPropertiesKeysType,
     OperatorsType,
     OperatorType,
+    PardotConnectorOperatorType,
     PathPrefixType,
     PrefixFormatType,
     PrefixTypeType,
@@ -160,6 +161,9 @@ __all__ = (
     "OAuth2PropertiesTypeDef",
     "OAuthCredentialsTypeDef",
     "OAuthPropertiesTypeDef",
+    "PardotConnectorProfileCredentialsTypeDef",
+    "PardotConnectorProfilePropertiesTypeDef",
+    "PardotSourcePropertiesTypeDef",
     "PrefixConfigTypeDef",
     "PrivateConnectionProvisioningStateTypeDef",
     "RangeTypeDef",
@@ -430,6 +434,7 @@ ConnectorMetadataTypeDef = TypedDict(
         "CustomerProfiles": Dict[str, Any],
         "Honeycode": "HoneycodeMetadataTypeDef",
         "SAPOData": Dict[str, Any],
+        "Pardot": Dict[str, Any],
     },
     total=False,
 )
@@ -462,6 +467,7 @@ ConnectorOperatorTypeDef = TypedDict(
         "Zendesk": ZendeskConnectorOperatorType,
         "SAPOData": SAPODataConnectorOperatorType,
         "CustomConnector": OperatorType,
+        "Pardot": PardotConnectorOperatorType,
     },
     total=False,
 )
@@ -506,6 +512,7 @@ ConnectorProfileCredentialsTypeDef = TypedDict(
         "Zendesk": "ZendeskConnectorProfileCredentialsTypeDef",
         "SAPOData": "SAPODataConnectorProfileCredentialsTypeDef",
         "CustomConnector": "CustomConnectorProfileCredentialsTypeDef",
+        "Pardot": "PardotConnectorProfileCredentialsTypeDef",
     },
     total=False,
 )
@@ -531,6 +538,7 @@ ConnectorProfilePropertiesTypeDef = TypedDict(
         "Zendesk": "ZendeskConnectorProfilePropertiesTypeDef",
         "SAPOData": "SAPODataConnectorProfilePropertiesTypeDef",
         "CustomConnector": "CustomConnectorProfilePropertiesTypeDef",
+        "Pardot": "PardotConnectorProfilePropertiesTypeDef",
     },
     total=False,
 )
@@ -588,6 +596,7 @@ _OptionalCreateConnectorProfileRequestRequestTypeDef = TypedDict(
     {
         "kmsArn": str,
         "connectorLabel": str,
+        "clientToken": str,
     },
     total=False,
 )
@@ -623,6 +632,7 @@ _OptionalCreateFlowRequestRequestTypeDef = TypedDict(
         "kmsArn": str,
         "tags": Dict[str, str],
         "metadataCatalogConfig": "MetadataCatalogConfigTypeDef",
+        "clientToken": str,
     },
     total=False,
 )
@@ -1534,6 +1544,34 @@ OAuthPropertiesTypeDef = TypedDict(
     },
 )
 
+PardotConnectorProfileCredentialsTypeDef = TypedDict(
+    "PardotConnectorProfileCredentialsTypeDef",
+    {
+        "accessToken": str,
+        "refreshToken": str,
+        "oAuthRequest": "ConnectorOAuthRequestTypeDef",
+        "clientCredentialsArn": str,
+    },
+    total=False,
+)
+
+PardotConnectorProfilePropertiesTypeDef = TypedDict(
+    "PardotConnectorProfilePropertiesTypeDef",
+    {
+        "instanceUrl": str,
+        "isSandboxEnvironment": bool,
+        "businessUnitId": str,
+    },
+    total=False,
+)
+
+PardotSourcePropertiesTypeDef = TypedDict(
+    "PardotSourcePropertiesTypeDef",
+    {
+        "object": str,
+    },
+)
+
 PrefixConfigTypeDef = TypedDict(
     "PrefixConfigTypeDef",
     {
@@ -1627,6 +1665,7 @@ RegisterConnectorRequestRequestTypeDef = TypedDict(
         "description": str,
         "connectorProvisioningType": Literal["LAMBDA"],
         "connectorProvisioningConfig": "ConnectorProvisioningConfigTypeDef",
+        "clientToken": str,
     },
     total=False,
 )
@@ -1799,6 +1838,7 @@ SalesforceConnectorProfilePropertiesTypeDef = TypedDict(
     {
         "instanceUrl": str,
         "isSandboxEnvironment": bool,
+        "usePrivateLinkForMetadataAndAuthorization": bool,
     },
     total=False,
 )
@@ -2041,6 +2081,7 @@ SourceConnectorPropertiesTypeDef = TypedDict(
         "Zendesk": "ZendeskSourcePropertiesTypeDef",
         "SAPOData": "SAPODataSourcePropertiesTypeDef",
         "CustomConnector": "CustomConnectorSourcePropertiesTypeDef",
+        "Pardot": "PardotSourcePropertiesTypeDef",
     },
     total=False,
 )
@@ -2075,12 +2116,24 @@ _OptionalSourceFlowConfigTypeDef = TypedDict(
 class SourceFlowConfigTypeDef(_RequiredSourceFlowConfigTypeDef, _OptionalSourceFlowConfigTypeDef):
     pass
 
-StartFlowRequestRequestTypeDef = TypedDict(
-    "StartFlowRequestRequestTypeDef",
+_RequiredStartFlowRequestRequestTypeDef = TypedDict(
+    "_RequiredStartFlowRequestRequestTypeDef",
     {
         "flowName": str,
     },
 )
+_OptionalStartFlowRequestRequestTypeDef = TypedDict(
+    "_OptionalStartFlowRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class StartFlowRequestRequestTypeDef(
+    _RequiredStartFlowRequestRequestTypeDef, _OptionalStartFlowRequestRequestTypeDef
+):
+    pass
 
 StartFlowResponseTypeDef = TypedDict(
     "StartFlowResponseTypeDef",
@@ -2219,14 +2272,27 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-UpdateConnectorProfileRequestRequestTypeDef = TypedDict(
-    "UpdateConnectorProfileRequestRequestTypeDef",
+_RequiredUpdateConnectorProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateConnectorProfileRequestRequestTypeDef",
     {
         "connectorProfileName": str,
         "connectionMode": ConnectionModeType,
         "connectorProfileConfig": "ConnectorProfileConfigTypeDef",
     },
 )
+_OptionalUpdateConnectorProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateConnectorProfileRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class UpdateConnectorProfileRequestRequestTypeDef(
+    _RequiredUpdateConnectorProfileRequestRequestTypeDef,
+    _OptionalUpdateConnectorProfileRequestRequestTypeDef,
+):
+    pass
 
 UpdateConnectorProfileResponseTypeDef = TypedDict(
     "UpdateConnectorProfileResponseTypeDef",
@@ -2247,6 +2313,7 @@ _OptionalUpdateConnectorRegistrationRequestRequestTypeDef = TypedDict(
     {
         "description": str,
         "connectorProvisioningConfig": "ConnectorProvisioningConfigTypeDef",
+        "clientToken": str,
     },
     total=False,
 )
@@ -2280,6 +2347,7 @@ _OptionalUpdateFlowRequestRequestTypeDef = TypedDict(
     {
         "description": str,
         "metadataCatalogConfig": "MetadataCatalogConfigTypeDef",
+        "clientToken": str,
     },
     total=False,
 )

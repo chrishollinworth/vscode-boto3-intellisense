@@ -110,6 +110,8 @@ __all__ = (
     "DeleteClusterResponseTypeDef",
     "DeleteServiceRequestRequestTypeDef",
     "DeleteServiceResponseTypeDef",
+    "DeleteTaskDefinitionsRequestRequestTypeDef",
+    "DeleteTaskDefinitionsResponseTypeDef",
     "DeleteTaskSetRequestRequestTypeDef",
     "DeleteTaskSetResponseTypeDef",
     "DeploymentAlarmsTypeDef",
@@ -836,6 +838,22 @@ DeleteServiceResponseTypeDef = TypedDict(
     "DeleteServiceResponseTypeDef",
     {
         "service": "ServiceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteTaskDefinitionsRequestRequestTypeDef = TypedDict(
+    "DeleteTaskDefinitionsRequestRequestTypeDef",
+    {
+        "taskDefinitions": List[str],
+    },
+)
+
+DeleteTaskDefinitionsResponseTypeDef = TypedDict(
+    "DeleteTaskDefinitionsResponseTypeDef",
+    {
+        "taskDefinitions": List["TaskDefinitionTypeDef"],
+        "failures": List["FailureTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

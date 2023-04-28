@@ -33,6 +33,7 @@ from .literals import (
     FrequencyType,
     IncludeType,
     JobStatusType,
+    JourneyRunStatusType,
     LayoutType,
     MessageTypeType,
     ModeType,
@@ -278,6 +279,12 @@ __all__ = (
     "GetJourneyExecutionMetricsResponseTypeDef",
     "GetJourneyRequestRequestTypeDef",
     "GetJourneyResponseTypeDef",
+    "GetJourneyRunExecutionActivityMetricsRequestRequestTypeDef",
+    "GetJourneyRunExecutionActivityMetricsResponseTypeDef",
+    "GetJourneyRunExecutionMetricsRequestRequestTypeDef",
+    "GetJourneyRunExecutionMetricsResponseTypeDef",
+    "GetJourneyRunsRequestRequestTypeDef",
+    "GetJourneyRunsResponseTypeDef",
     "GetPushTemplateRequestRequestTypeDef",
     "GetPushTemplateResponseTypeDef",
     "GetRecommenderConfigurationRequestRequestTypeDef",
@@ -331,6 +338,10 @@ __all__ = (
     "JourneyLimitsTypeDef",
     "JourneyPushMessageTypeDef",
     "JourneyResponseTypeDef",
+    "JourneyRunExecutionActivityMetricsResponseTypeDef",
+    "JourneyRunExecutionMetricsResponseTypeDef",
+    "JourneyRunResponseTypeDef",
+    "JourneyRunsResponseTypeDef",
     "JourneySMSMessageTypeDef",
     "JourneyScheduleTypeDef",
     "JourneyStateRequestTypeDef",
@@ -818,6 +829,7 @@ _OptionalActivityResponseTypeDef = TypedDict(
         "TimezonesTotalCount": int,
         "TotalEndpointCount": int,
         "TreatmentId": str,
+        "ExecutionMetrics": Dict[str, str],
     },
     total=False,
 )
@@ -3310,6 +3322,98 @@ GetJourneyResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef",
+    {
+        "ApplicationId": str,
+        "JourneyActivityId": str,
+        "JourneyId": str,
+        "RunId": str,
+    },
+)
+_OptionalGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "PageSize": str,
+    },
+    total=False,
+)
+
+class GetJourneyRunExecutionActivityMetricsRequestRequestTypeDef(
+    _RequiredGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef,
+    _OptionalGetJourneyRunExecutionActivityMetricsRequestRequestTypeDef,
+):
+    pass
+
+GetJourneyRunExecutionActivityMetricsResponseTypeDef = TypedDict(
+    "GetJourneyRunExecutionActivityMetricsResponseTypeDef",
+    {
+        "JourneyRunExecutionActivityMetricsResponse": "JourneyRunExecutionActivityMetricsResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetJourneyRunExecutionMetricsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetJourneyRunExecutionMetricsRequestRequestTypeDef",
+    {
+        "ApplicationId": str,
+        "JourneyId": str,
+        "RunId": str,
+    },
+)
+_OptionalGetJourneyRunExecutionMetricsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetJourneyRunExecutionMetricsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "PageSize": str,
+    },
+    total=False,
+)
+
+class GetJourneyRunExecutionMetricsRequestRequestTypeDef(
+    _RequiredGetJourneyRunExecutionMetricsRequestRequestTypeDef,
+    _OptionalGetJourneyRunExecutionMetricsRequestRequestTypeDef,
+):
+    pass
+
+GetJourneyRunExecutionMetricsResponseTypeDef = TypedDict(
+    "GetJourneyRunExecutionMetricsResponseTypeDef",
+    {
+        "JourneyRunExecutionMetricsResponse": "JourneyRunExecutionMetricsResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetJourneyRunsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetJourneyRunsRequestRequestTypeDef",
+    {
+        "ApplicationId": str,
+        "JourneyId": str,
+    },
+)
+_OptionalGetJourneyRunsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetJourneyRunsRequestRequestTypeDef",
+    {
+        "PageSize": str,
+        "Token": str,
+    },
+    total=False,
+)
+
+class GetJourneyRunsRequestRequestTypeDef(
+    _RequiredGetJourneyRunsRequestRequestTypeDef, _OptionalGetJourneyRunsRequestRequestTypeDef
+):
+    pass
+
+GetJourneyRunsResponseTypeDef = TypedDict(
+    "GetJourneyRunsResponseTypeDef",
+    {
+        "JourneyRunsResponse": "JourneyRunsResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetPushTemplateRequestRequestTypeDef = TypedDict(
     "_RequiredGetPushTemplateRequestRequestTypeDef",
     {
@@ -3992,6 +4096,59 @@ _OptionalJourneyResponseTypeDef = TypedDict(
 )
 
 class JourneyResponseTypeDef(_RequiredJourneyResponseTypeDef, _OptionalJourneyResponseTypeDef):
+    pass
+
+JourneyRunExecutionActivityMetricsResponseTypeDef = TypedDict(
+    "JourneyRunExecutionActivityMetricsResponseTypeDef",
+    {
+        "ActivityType": str,
+        "ApplicationId": str,
+        "JourneyActivityId": str,
+        "JourneyId": str,
+        "LastEvaluatedTime": str,
+        "Metrics": Dict[str, str],
+        "RunId": str,
+    },
+)
+
+JourneyRunExecutionMetricsResponseTypeDef = TypedDict(
+    "JourneyRunExecutionMetricsResponseTypeDef",
+    {
+        "ApplicationId": str,
+        "JourneyId": str,
+        "LastEvaluatedTime": str,
+        "Metrics": Dict[str, str],
+        "RunId": str,
+    },
+)
+
+JourneyRunResponseTypeDef = TypedDict(
+    "JourneyRunResponseTypeDef",
+    {
+        "CreationTime": str,
+        "LastUpdateTime": str,
+        "RunId": str,
+        "Status": JourneyRunStatusType,
+    },
+)
+
+_RequiredJourneyRunsResponseTypeDef = TypedDict(
+    "_RequiredJourneyRunsResponseTypeDef",
+    {
+        "Item": List["JourneyRunResponseTypeDef"],
+    },
+)
+_OptionalJourneyRunsResponseTypeDef = TypedDict(
+    "_OptionalJourneyRunsResponseTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class JourneyRunsResponseTypeDef(
+    _RequiredJourneyRunsResponseTypeDef, _OptionalJourneyRunsResponseTypeDef
+):
     pass
 
 JourneySMSMessageTypeDef = TypedDict(

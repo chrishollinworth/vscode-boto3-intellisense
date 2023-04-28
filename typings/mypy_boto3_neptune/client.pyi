@@ -192,7 +192,7 @@ class Exceptions:
 
 class NeptuneClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html)
     """
 
@@ -210,7 +210,7 @@ class NeptuneClient(BaseClient):
         Associates an Identity and Access Management (IAM) role with an Neptune DB
         cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.add_role_to_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.add_role_to_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#add_role_to_db_cluster)
         """
     def add_source_identifier_to_subscription(
@@ -219,14 +219,14 @@ class NeptuneClient(BaseClient):
         """
         Adds a source identifier to an existing event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.add_source_identifier_to_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.add_source_identifier_to_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#add_source_identifier_to_subscription)
         """
     def add_tags_to_resource(self, *, ResourceName: str, Tags: List["TagTypeDef"]) -> None:
         """
         Adds metadata tags to an Amazon Neptune resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.add_tags_to_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.add_tags_to_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#add_tags_to_resource)
         """
     def apply_pending_maintenance_action(
@@ -236,21 +236,21 @@ class NeptuneClient(BaseClient):
         Applies a pending maintenance action to a resource (for example, to a DB
         instance).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.apply_pending_maintenance_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.apply_pending_maintenance_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#apply_pending_maintenance_action)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#close)
         """
     def copy_db_cluster_parameter_group(
@@ -264,7 +264,7 @@ class NeptuneClient(BaseClient):
         """
         Copies the specified DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.copy_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.copy_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#copy_db_cluster_parameter_group)
         """
     def copy_db_cluster_snapshot(
@@ -281,7 +281,7 @@ class NeptuneClient(BaseClient):
         """
         Copies a snapshot of a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.copy_db_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.copy_db_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#copy_db_cluster_snapshot)
         """
     def copy_db_parameter_group(
@@ -295,7 +295,7 @@ class NeptuneClient(BaseClient):
         """
         Copies the specified DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.copy_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.copy_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#copy_db_parameter_group)
         """
     def create_db_cluster(
@@ -333,7 +333,7 @@ class NeptuneClient(BaseClient):
         """
         Creates a new Amazon Neptune DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_db_cluster)
         """
     def create_db_cluster_endpoint(
@@ -350,7 +350,7 @@ class NeptuneClient(BaseClient):
         Creates a new custom endpoint and associates it with an Amazon Neptune DB
         cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_db_cluster_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_db_cluster_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_db_cluster_endpoint)
         """
     def create_db_cluster_parameter_group(
@@ -364,7 +364,7 @@ class NeptuneClient(BaseClient):
         """
         Creates a new DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_db_cluster_parameter_group)
         """
     def create_db_cluster_snapshot(
@@ -377,7 +377,7 @@ class NeptuneClient(BaseClient):
         """
         Creates a snapshot of a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_db_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_db_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_db_cluster_snapshot)
         """
     def create_db_instance(
@@ -386,6 +386,7 @@ class NeptuneClient(BaseClient):
         DBInstanceIdentifier: str,
         DBInstanceClass: str,
         Engine: str,
+        DBClusterIdentifier: str,
         DBName: str = None,
         AllocatedStorage: int = None,
         MasterUsername: str = None,
@@ -408,7 +409,6 @@ class NeptuneClient(BaseClient):
         CharacterSetName: str = None,
         PubliclyAccessible: bool = None,
         Tags: List["TagTypeDef"] = None,
-        DBClusterIdentifier: str = None,
         StorageType: str = None,
         TdeCredentialArn: str = None,
         TdeCredentialPassword: str = None,
@@ -430,7 +430,7 @@ class NeptuneClient(BaseClient):
         """
         Creates a new DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_db_instance)
         """
     def create_db_parameter_group(
@@ -444,7 +444,7 @@ class NeptuneClient(BaseClient):
         """
         Creates a new DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_db_parameter_group)
         """
     def create_db_subnet_group(
@@ -458,7 +458,7 @@ class NeptuneClient(BaseClient):
         """
         Creates a new DB subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_db_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_db_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_db_subnet_group)
         """
     def create_event_subscription(
@@ -475,7 +475,7 @@ class NeptuneClient(BaseClient):
         """
         Creates an event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_event_subscription)
         """
     def create_global_cluster(
@@ -491,7 +491,7 @@ class NeptuneClient(BaseClient):
         """
         Creates a Neptune global database spread across multiple Amazon Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.create_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.create_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#create_global_cluster)
         """
     def delete_db_cluster(
@@ -504,7 +504,7 @@ class NeptuneClient(BaseClient):
         """
         The DeleteDBCluster action deletes a previously provisioned DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_db_cluster)
         """
     def delete_db_cluster_endpoint(
@@ -513,14 +513,14 @@ class NeptuneClient(BaseClient):
         """
         Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_db_cluster_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_db_cluster_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_db_cluster_endpoint)
         """
     def delete_db_cluster_parameter_group(self, *, DBClusterParameterGroupName: str) -> None:
         """
         Deletes a specified DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_db_cluster_parameter_group)
         """
     def delete_db_cluster_snapshot(
@@ -529,7 +529,7 @@ class NeptuneClient(BaseClient):
         """
         Deletes a DB cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_db_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_db_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_db_cluster_snapshot)
         """
     def delete_db_instance(
@@ -542,21 +542,21 @@ class NeptuneClient(BaseClient):
         """
         The DeleteDBInstance action deletes a previously provisioned DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_db_instance)
         """
     def delete_db_parameter_group(self, *, DBParameterGroupName: str) -> None:
         """
         Deletes a specified DBParameterGroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_db_parameter_group)
         """
     def delete_db_subnet_group(self, *, DBSubnetGroupName: str) -> None:
         """
         Deletes a DB subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_db_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_db_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_db_subnet_group)
         """
     def delete_event_subscription(
@@ -565,7 +565,7 @@ class NeptuneClient(BaseClient):
         """
         Deletes an event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_event_subscription)
         """
     def delete_global_cluster(
@@ -574,7 +574,7 @@ class NeptuneClient(BaseClient):
         """
         Deletes a global database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.delete_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.delete_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#delete_global_cluster)
         """
     def describe_db_cluster_endpoints(
@@ -589,7 +589,7 @@ class NeptuneClient(BaseClient):
         """
         Returns information about endpoints for an Amazon Neptune DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_cluster_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_cluster_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_cluster_endpoints)
         """
     def describe_db_cluster_parameter_groups(
@@ -603,7 +603,7 @@ class NeptuneClient(BaseClient):
         """
         Returns a list of `DBClusterParameterGroup` descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_cluster_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_cluster_parameter_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_cluster_parameter_groups)
         """
     def describe_db_cluster_parameters(
@@ -618,7 +618,7 @@ class NeptuneClient(BaseClient):
         """
         Returns the detailed parameter list for a particular DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_cluster_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_cluster_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_cluster_parameters)
         """
     def describe_db_cluster_snapshot_attributes(
@@ -628,7 +628,7 @@ class NeptuneClient(BaseClient):
         Returns a list of DB cluster snapshot attribute names and values for a manual DB
         cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_cluster_snapshot_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_cluster_snapshot_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_cluster_snapshot_attributes)
         """
     def describe_db_cluster_snapshots(
@@ -646,7 +646,7 @@ class NeptuneClient(BaseClient):
         """
         Returns information about DB cluster snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_cluster_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_cluster_snapshots)
         """
     def describe_db_clusters(
@@ -660,7 +660,7 @@ class NeptuneClient(BaseClient):
         """
         Returns information about provisioned DB clusters, and supports pagination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_clusters)
         """
     def describe_db_engine_versions(
@@ -679,7 +679,7 @@ class NeptuneClient(BaseClient):
         """
         Returns a list of the available DB engines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_engine_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_engine_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_engine_versions)
         """
     def describe_db_instances(
@@ -693,7 +693,7 @@ class NeptuneClient(BaseClient):
         """
         Returns information about provisioned instances, and supports pagination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_instances)
         """
     def describe_db_parameter_groups(
@@ -707,7 +707,7 @@ class NeptuneClient(BaseClient):
         """
         Returns a list of `DBParameterGroup` descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_parameter_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_parameter_groups)
         """
     def describe_db_parameters(
@@ -722,7 +722,7 @@ class NeptuneClient(BaseClient):
         """
         Returns the detailed parameter list for a particular DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_parameters)
         """
     def describe_db_subnet_groups(
@@ -736,7 +736,7 @@ class NeptuneClient(BaseClient):
         """
         Returns a list of DBSubnetGroup descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_db_subnet_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_db_subnet_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_db_subnet_groups)
         """
     def describe_engine_default_cluster_parameters(
@@ -751,7 +751,7 @@ class NeptuneClient(BaseClient):
         Returns the default engine and system parameter information for the cluster
         database engine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_engine_default_cluster_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_engine_default_cluster_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_engine_default_cluster_parameters)
         """
     def describe_engine_default_parameters(
@@ -766,7 +766,7 @@ class NeptuneClient(BaseClient):
         Returns the default engine and system parameter information for the specified
         database engine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_engine_default_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_engine_default_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_engine_default_parameters)
         """
     def describe_event_categories(
@@ -776,7 +776,7 @@ class NeptuneClient(BaseClient):
         Displays a list of categories for all event source types, or, if specified, for
         a specified source type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_event_categories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_event_categories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_event_categories)
         """
     def describe_event_subscriptions(
@@ -790,7 +790,7 @@ class NeptuneClient(BaseClient):
         """
         Lists all the subscription descriptions for a customer account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_event_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_event_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_event_subscriptions)
         """
     def describe_events(
@@ -810,7 +810,7 @@ class NeptuneClient(BaseClient):
         Returns events related to DB instances, DB security groups, DB snapshots, and DB
         parameter groups for the past 14 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_events)
         """
     def describe_global_clusters(
@@ -819,7 +819,7 @@ class NeptuneClient(BaseClient):
         """
         Returns information about Neptune global database clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_global_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_global_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_global_clusters)
         """
     def describe_orderable_db_instance_options(
@@ -837,7 +837,7 @@ class NeptuneClient(BaseClient):
         """
         Returns a list of orderable DB instance options for the specified engine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_orderable_db_instance_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_orderable_db_instance_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_orderable_db_instance_options)
         """
     def describe_pending_maintenance_actions(
@@ -852,7 +852,7 @@ class NeptuneClient(BaseClient):
         Returns a list of resources (for example, DB instances) that have at least one
         pending maintenance action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_pending_maintenance_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_pending_maintenance_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_pending_maintenance_actions)
         """
     def describe_valid_db_instance_modifications(
@@ -862,7 +862,7 @@ class NeptuneClient(BaseClient):
         You can call  DescribeValidDBInstanceModifications to learn what modifications
         you can make to your DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.describe_valid_db_instance_modifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.describe_valid_db_instance_modifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#describe_valid_db_instance_modifications)
         """
     def failover_db_cluster(
@@ -871,7 +871,7 @@ class NeptuneClient(BaseClient):
         """
         Forces a failover for a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.failover_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.failover_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#failover_db_cluster)
         """
     def failover_global_cluster(
@@ -880,7 +880,7 @@ class NeptuneClient(BaseClient):
         """
         Initiates the failover process for a Neptune global database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.failover_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.failover_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#failover_global_cluster)
         """
     def generate_presigned_url(
@@ -893,7 +893,7 @@ class NeptuneClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#generate_presigned_url)
         """
     def list_tags_for_resource(
@@ -902,7 +902,7 @@ class NeptuneClient(BaseClient):
         """
         Lists all tags on an Amazon Neptune resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#list_tags_for_resource)
         """
     def modify_db_cluster(
@@ -931,7 +931,7 @@ class NeptuneClient(BaseClient):
         """
         Modify a setting for a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_db_cluster)
         """
     def modify_db_cluster_endpoint(
@@ -945,7 +945,7 @@ class NeptuneClient(BaseClient):
         """
         Modifies the properties of an endpoint in an Amazon Neptune DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_db_cluster_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_db_cluster_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_db_cluster_endpoint)
         """
     def modify_db_cluster_parameter_group(
@@ -954,7 +954,7 @@ class NeptuneClient(BaseClient):
         """
         Modifies the parameters of a DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_db_cluster_parameter_group)
         """
     def modify_db_cluster_snapshot_attribute(
@@ -969,7 +969,7 @@ class NeptuneClient(BaseClient):
         Adds an attribute and values to, or removes an attribute and values from, a
         manual DB cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_db_cluster_snapshot_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_db_cluster_snapshot_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_db_cluster_snapshot_attribute)
         """
     def modify_db_instance(
@@ -1016,7 +1016,7 @@ class NeptuneClient(BaseClient):
         """
         Modifies settings for a DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_db_instance)
         """
     def modify_db_parameter_group(
@@ -1025,7 +1025,7 @@ class NeptuneClient(BaseClient):
         """
         Modifies the parameters of a DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_db_parameter_group)
         """
     def modify_db_subnet_group(
@@ -1034,7 +1034,7 @@ class NeptuneClient(BaseClient):
         """
         Modifies an existing DB subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_db_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_db_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_db_subnet_group)
         """
     def modify_event_subscription(
@@ -1049,7 +1049,7 @@ class NeptuneClient(BaseClient):
         """
         Modifies an existing event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_event_subscription)
         """
     def modify_global_cluster(
@@ -1064,7 +1064,7 @@ class NeptuneClient(BaseClient):
         """
         Modify a setting for an Amazon Neptune global cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.modify_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.modify_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#modify_global_cluster)
         """
     def promote_read_replica_db_cluster(
@@ -1073,7 +1073,7 @@ class NeptuneClient(BaseClient):
         """
         Not supported.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.promote_read_replica_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.promote_read_replica_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#promote_read_replica_db_cluster)
         """
     def reboot_db_instance(
@@ -1082,7 +1082,7 @@ class NeptuneClient(BaseClient):
         """
         You might need to reboot your DB instance, usually for maintenance reasons.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.reboot_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.reboot_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#reboot_db_instance)
         """
     def remove_from_global_cluster(
@@ -1091,7 +1091,7 @@ class NeptuneClient(BaseClient):
         """
         Detaches a Neptune DB cluster from a Neptune global database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.remove_from_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.remove_from_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#remove_from_global_cluster)
         """
     def remove_role_from_db_cluster(
@@ -1100,7 +1100,7 @@ class NeptuneClient(BaseClient):
         """
         Disassociates an Identity and Access Management (IAM) role from a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.remove_role_from_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.remove_role_from_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#remove_role_from_db_cluster)
         """
     def remove_source_identifier_from_subscription(
@@ -1109,14 +1109,14 @@ class NeptuneClient(BaseClient):
         """
         Removes a source identifier from an existing event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.remove_source_identifier_from_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.remove_source_identifier_from_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#remove_source_identifier_from_subscription)
         """
     def remove_tags_from_resource(self, *, ResourceName: str, TagKeys: List[str]) -> None:
         """
         Removes metadata tags from an Amazon Neptune resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.remove_tags_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.remove_tags_from_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#remove_tags_from_resource)
         """
     def reset_db_cluster_parameter_group(
@@ -1129,7 +1129,7 @@ class NeptuneClient(BaseClient):
         """
         Modifies the parameters of a DB cluster parameter group to the default value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.reset_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.reset_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#reset_db_cluster_parameter_group)
         """
     def reset_db_parameter_group(
@@ -1143,7 +1143,7 @@ class NeptuneClient(BaseClient):
         Modifies the parameters of a DB parameter group to the engine/system default
         value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.reset_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.reset_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#reset_db_parameter_group)
         """
     def restore_db_cluster_from_snapshot(
@@ -1171,7 +1171,7 @@ class NeptuneClient(BaseClient):
         """
         Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.restore_db_cluster_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.restore_db_cluster_from_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#restore_db_cluster_from_snapshot)
         """
     def restore_db_cluster_to_point_in_time(
@@ -1197,7 +1197,7 @@ class NeptuneClient(BaseClient):
         """
         Restores a DB cluster to an arbitrary point in time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.restore_db_cluster_to_point_in_time)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.restore_db_cluster_to_point_in_time)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#restore_db_cluster_to_point_in_time)
         """
     def start_db_cluster(self, *, DBClusterIdentifier: str) -> StartDBClusterResultTypeDef:
@@ -1205,14 +1205,14 @@ class NeptuneClient(BaseClient):
         Starts an Amazon Neptune DB cluster that was stopped using the Amazon console,
         the Amazon CLI stop-db-cluster command, or the StopDBCluster API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.start_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.start_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#start_db_cluster)
         """
     def stop_db_cluster(self, *, DBClusterIdentifier: str) -> StopDBClusterResultTypeDef:
         """
         Stops an Amazon Neptune DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Client.stop_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Client.stop_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/client.html#stop_db_cluster)
         """
     @overload
@@ -1220,7 +1220,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_endpoints"]
     ) -> DescribeDBClusterEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterendpointspaginator)
         """
     @overload
@@ -1228,7 +1228,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_parameter_groups"]
     ) -> DescribeDBClusterParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterparametergroupspaginator)
         """
     @overload
@@ -1236,7 +1236,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_parameters"]
     ) -> DescribeDBClusterParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterparameterspaginator)
         """
     @overload
@@ -1244,7 +1244,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_snapshots"]
     ) -> DescribeDBClusterSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclustersnapshotspaginator)
         """
     @overload
@@ -1252,7 +1252,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_clusters"]
     ) -> DescribeDBClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterspaginator)
         """
     @overload
@@ -1260,7 +1260,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_engine_versions"]
     ) -> DescribeDBEngineVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbengineversionspaginator)
         """
     @overload
@@ -1268,7 +1268,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_instances"]
     ) -> DescribeDBInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbinstancespaginator)
         """
     @overload
@@ -1276,7 +1276,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_parameter_groups"]
     ) -> DescribeDBParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbparametergroupspaginator)
         """
     @overload
@@ -1284,7 +1284,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_parameters"]
     ) -> DescribeDBParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbparameterspaginator)
         """
     @overload
@@ -1292,7 +1292,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_db_subnet_groups"]
     ) -> DescribeDBSubnetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbsubnetgroupspaginator)
         """
     @overload
@@ -1300,7 +1300,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_engine_default_parameters"]
     ) -> DescribeEngineDefaultParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeenginedefaultparameterspaginator)
         """
     @overload
@@ -1308,13 +1308,13 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_event_subscriptions"]
     ) -> DescribeEventSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeeventsubscriptionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeeventspaginator)
         """
     @overload
@@ -1322,7 +1322,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_global_clusters"]
     ) -> DescribeGlobalClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeGlobalClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeGlobalClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeglobalclusterspaginator)
         """
     @overload
@@ -1330,7 +1330,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_orderable_db_instance_options"]
     ) -> DescribeOrderableDBInstanceOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeorderabledbinstanceoptionspaginator)
         """
     @overload
@@ -1338,7 +1338,7 @@ class NeptuneClient(BaseClient):
         self, operation_name: Literal["describe_pending_maintenance_actions"]
     ) -> DescribePendingMaintenanceActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describependingmaintenanceactionspaginator)
         """
     @overload
@@ -1346,12 +1346,12 @@ class NeptuneClient(BaseClient):
         self, waiter_name: Literal["db_instance_available"]
     ) -> DBInstanceAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstanceavailablewaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["db_instance_deleted"]) -> DBInstanceDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstancedeletedwaiter)
         """

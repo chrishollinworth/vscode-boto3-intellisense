@@ -49,6 +49,8 @@ Usage::
         DescribeInstancesPaginator,
         DescribeInternetGatewaysPaginator,
         DescribeIpamPoolsPaginator,
+        DescribeIpamResourceDiscoveriesPaginator,
+        DescribeIpamResourceDiscoveryAssociationsPaginator,
         DescribeIpamScopesPaginator,
         DescribeIpamsPaginator,
         DescribeIpv6PoolsPaginator,
@@ -131,6 +133,8 @@ Usage::
         GetGroupsForCapacityReservationPaginator,
         GetInstanceTypesFromInstanceRequirementsPaginator,
         GetIpamAddressHistoryPaginator,
+        GetIpamDiscoveredAccountsPaginator,
+        GetIpamDiscoveredResourceCidrsPaginator,
         GetIpamPoolAllocationsPaginator,
         GetIpamPoolCidrsPaginator,
         GetIpamResourceCidrsPaginator,
@@ -164,6 +168,7 @@ Usage::
         SecurityGroupExistsWaiter,
         ServiceResource,
         SnapshotCompletedWaiter,
+        SnapshotImportedWaiter,
         SpotInstanceRequestFulfilledWaiter,
         SubnetAvailableWaiter,
         SystemStatusOkWaiter,
@@ -208,6 +213,7 @@ Usage::
     password_data_available_waiter: PasswordDataAvailableWaiter = client.get_waiter("password_data_available")
     security_group_exists_waiter: SecurityGroupExistsWaiter = client.get_waiter("security_group_exists")
     snapshot_completed_waiter: SnapshotCompletedWaiter = client.get_waiter("snapshot_completed")
+    snapshot_imported_waiter: SnapshotImportedWaiter = client.get_waiter("snapshot_imported")
     spot_instance_request_fulfilled_waiter: SpotInstanceRequestFulfilledWaiter = client.get_waiter("spot_instance_request_fulfilled")
     subnet_available_waiter: SubnetAvailableWaiter = client.get_waiter("subnet_available")
     system_status_ok_waiter: SystemStatusOkWaiter = client.get_waiter("system_status_ok")
@@ -258,6 +264,8 @@ Usage::
     describe_instances_paginator: DescribeInstancesPaginator = client.get_paginator("describe_instances")
     describe_internet_gateways_paginator: DescribeInternetGatewaysPaginator = client.get_paginator("describe_internet_gateways")
     describe_ipam_pools_paginator: DescribeIpamPoolsPaginator = client.get_paginator("describe_ipam_pools")
+    describe_ipam_resource_discoveries_paginator: DescribeIpamResourceDiscoveriesPaginator = client.get_paginator("describe_ipam_resource_discoveries")
+    describe_ipam_resource_discovery_associations_paginator: DescribeIpamResourceDiscoveryAssociationsPaginator = client.get_paginator("describe_ipam_resource_discovery_associations")
     describe_ipam_scopes_paginator: DescribeIpamScopesPaginator = client.get_paginator("describe_ipam_scopes")
     describe_ipams_paginator: DescribeIpamsPaginator = client.get_paginator("describe_ipams")
     describe_ipv6_pools_paginator: DescribeIpv6PoolsPaginator = client.get_paginator("describe_ipv6_pools")
@@ -336,6 +344,8 @@ Usage::
     get_groups_for_capacity_reservation_paginator: GetGroupsForCapacityReservationPaginator = client.get_paginator("get_groups_for_capacity_reservation")
     get_instance_types_from_instance_requirements_paginator: GetInstanceTypesFromInstanceRequirementsPaginator = client.get_paginator("get_instance_types_from_instance_requirements")
     get_ipam_address_history_paginator: GetIpamAddressHistoryPaginator = client.get_paginator("get_ipam_address_history")
+    get_ipam_discovered_accounts_paginator: GetIpamDiscoveredAccountsPaginator = client.get_paginator("get_ipam_discovered_accounts")
+    get_ipam_discovered_resource_cidrs_paginator: GetIpamDiscoveredResourceCidrsPaginator = client.get_paginator("get_ipam_discovered_resource_cidrs")
     get_ipam_pool_allocations_paginator: GetIpamPoolAllocationsPaginator = client.get_paginator("get_ipam_pool_allocations")
     get_ipam_pool_cidrs_paginator: GetIpamPoolCidrsPaginator = client.get_paginator("get_ipam_pool_cidrs")
     get_ipam_resource_cidrs_paginator: GetIpamResourceCidrsPaginator = client.get_paginator("get_ipam_resource_cidrs")
@@ -394,6 +404,8 @@ from .paginator import (
     DescribeInstanceTypesPaginator,
     DescribeInternetGatewaysPaginator,
     DescribeIpamPoolsPaginator,
+    DescribeIpamResourceDiscoveriesPaginator,
+    DescribeIpamResourceDiscoveryAssociationsPaginator,
     DescribeIpamScopesPaginator,
     DescribeIpamsPaginator,
     DescribeIpv6PoolsPaginator,
@@ -472,6 +484,8 @@ from .paginator import (
     GetGroupsForCapacityReservationPaginator,
     GetInstanceTypesFromInstanceRequirementsPaginator,
     GetIpamAddressHistoryPaginator,
+    GetIpamDiscoveredAccountsPaginator,
+    GetIpamDiscoveredResourceCidrsPaginator,
     GetIpamPoolAllocationsPaginator,
     GetIpamPoolCidrsPaginator,
     GetIpamResourceCidrsPaginator,
@@ -514,6 +528,7 @@ from .waiter import (
     PasswordDataAvailableWaiter,
     SecurityGroupExistsWaiter,
     SnapshotCompletedWaiter,
+    SnapshotImportedWaiter,
     SpotInstanceRequestFulfilledWaiter,
     SubnetAvailableWaiter,
     SystemStatusOkWaiter,
@@ -576,6 +591,8 @@ __all__ = (
     "DescribeInstancesPaginator",
     "DescribeInternetGatewaysPaginator",
     "DescribeIpamPoolsPaginator",
+    "DescribeIpamResourceDiscoveriesPaginator",
+    "DescribeIpamResourceDiscoveryAssociationsPaginator",
     "DescribeIpamScopesPaginator",
     "DescribeIpamsPaginator",
     "DescribeIpv6PoolsPaginator",
@@ -658,6 +675,8 @@ __all__ = (
     "GetGroupsForCapacityReservationPaginator",
     "GetInstanceTypesFromInstanceRequirementsPaginator",
     "GetIpamAddressHistoryPaginator",
+    "GetIpamDiscoveredAccountsPaginator",
+    "GetIpamDiscoveredResourceCidrsPaginator",
     "GetIpamPoolAllocationsPaginator",
     "GetIpamPoolCidrsPaginator",
     "GetIpamResourceCidrsPaginator",
@@ -691,6 +710,7 @@ __all__ = (
     "SecurityGroupExistsWaiter",
     "ServiceResource",
     "SnapshotCompletedWaiter",
+    "SnapshotImportedWaiter",
     "SpotInstanceRequestFulfilledWaiter",
     "SubnetAvailableWaiter",
     "SystemStatusOkWaiter",

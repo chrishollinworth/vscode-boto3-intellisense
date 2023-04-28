@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import DetailStatusType, FeatureStatusType, ServiceTypeType
+from .literals import DetailStatusType, FeatureStatusType, PeriodAlignmentType, ServiceTypeType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -229,6 +229,7 @@ _OptionalGetResourceMetricsRequestRequestTypeDef = TypedDict(
         "PeriodInSeconds": int,
         "MaxResults": int,
         "NextToken": str,
+        "PeriodAlignment": PeriodAlignmentType,
     },
     total=False,
 )

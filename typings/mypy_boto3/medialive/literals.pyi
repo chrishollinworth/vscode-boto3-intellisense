@@ -249,6 +249,7 @@ __all__ = (
     "MultiplexStoppedWaiterName",
     "NetworkInputServerValidationType",
     "NielsenPcmToId3TaggingStateType",
+    "NielsenWatermarkTimezonesType",
     "NielsenWatermarksCbetStepasideType",
     "NielsenWatermarksDistributionTypesType",
     "OfferingDurationUnitsType",
@@ -664,6 +665,18 @@ NetworkInputServerValidationType = Literal[
     "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME", "CHECK_CRYPTOGRAPHY_ONLY"
 ]
 NielsenPcmToId3TaggingStateType = Literal["DISABLED", "ENABLED"]
+NielsenWatermarkTimezonesType = Literal[
+    "AMERICA_PUERTO_RICO",
+    "US_ALASKA",
+    "US_ARIZONA",
+    "US_CENTRAL",
+    "US_EASTERN",
+    "US_HAWAII",
+    "US_MOUNTAIN",
+    "US_PACIFIC",
+    "US_SAMOA",
+    "UTC",
+]
 NielsenWatermarksCbetStepasideType = Literal["DISABLED", "ENABLED"]
 NielsenWatermarksDistributionTypesType = Literal["FINAL_DISTRIBUTOR", "PROGRAM_CONTENT"]
 OfferingDurationUnitsType = Literal["MONTHS"]

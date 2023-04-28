@@ -46,6 +46,7 @@ __all__ = (
     "EncryptionModeValueType",
     "EndpointDeletedWaiterName",
     "EndpointSettingTypeValueType",
+    "KafkaSaslMechanismType",
     "KafkaSecurityProtocolType",
     "MessageFormatValueType",
     "MigrationTypeValueType",
@@ -69,6 +70,7 @@ __all__ = (
     "StartReplicationTaskTypeValueType",
     "TargetDbTypeType",
     "TestConnectionSucceedsWaiterName",
+    "TlogAccessModeType",
     "VersionStatusType",
 )
 
@@ -112,6 +114,7 @@ EncodingTypeValueType = Literal["plain", "plain-dictionary", "rle-dictionary"]
 EncryptionModeValueType = Literal["sse-kms", "sse-s3"]
 EndpointDeletedWaiterName = Literal["endpoint_deleted"]
 EndpointSettingTypeValueType = Literal["boolean", "enum", "integer", "string"]
+KafkaSaslMechanismType = Literal["plain", "scram-sha-512"]
 KafkaSecurityProtocolType = Literal["plaintext", "sasl-ssl", "ssl-authentication", "ssl-encryption"]
 MessageFormatValueType = Literal["json", "json-unformatted"]
 MigrationTypeValueType = Literal["cdc", "full-load", "full-load-and-cdc"]
@@ -120,7 +123,7 @@ ParquetVersionValueType = Literal["parquet-1-0", "parquet-2-0"]
 PluginNameValueType = Literal["no-preference", "pglogical", "test-decoding"]
 RedisAuthTypeValueType = Literal["auth-role", "auth-token", "none"]
 RefreshSchemasStatusTypeValueType = Literal["failed", "refreshing", "successful"]
-ReleaseStatusValuesType = Literal["beta"]
+ReleaseStatusValuesType = Literal["beta", "prod"]
 ReloadOptionValueType = Literal["data-reload", "validate-only"]
 ReplicationEndpointTypeValueType = Literal["source", "target"]
 ReplicationInstanceAvailableWaiterName = Literal["replication_instance_available"]
@@ -141,4 +144,5 @@ StartReplicationTaskTypeValueType = Literal[
 ]
 TargetDbTypeType = Literal["multiple-databases", "specific-database"]
 TestConnectionSucceedsWaiterName = Literal["test_connection_succeeds"]
+TlogAccessModeType = Literal["BackupOnly", "PreferBackup", "PreferTlog", "TlogOnly"]
 VersionStatusType = Literal["OUTDATED", "UNSUPPORTED", "UP_TO_DATE"]

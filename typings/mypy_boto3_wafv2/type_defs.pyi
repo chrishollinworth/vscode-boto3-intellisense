@@ -6,9 +6,9 @@ Type annotations for wafv2 service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_wafv2.type_defs import AWSManagedRulesBotControlRuleSetTypeDef
+    from mypy_boto3_wafv2.type_defs import APIKeySummaryTypeDef
 
-    data: AWSManagedRulesBotControlRuleSetTypeDef = {...}
+    data: APIKeySummaryTypeDef = {...}
     ```
 """
 import sys
@@ -41,20 +41,28 @@ from .literals import (
     ResponseContentTypeType,
     ScopeType,
     SensitivityLevelType,
+    SizeInspectionLimitType,
     TextTransformationTypeType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "APIKeySummaryTypeDef",
+    "AWSManagedRulesATPRuleSetTypeDef",
     "AWSManagedRulesBotControlRuleSetTypeDef",
     "ActionConditionTypeDef",
     "AllowActionTypeDef",
     "AndStatementTypeDef",
     "AssociateWebACLRequestRequestTypeDef",
+    "AssociationConfigTypeDef",
     "BlockActionTypeDef",
     "BodyTypeDef",
     "ByteMatchStatementTypeDef",
@@ -70,6 +78,8 @@ __all__ = (
     "CookieMatchPatternTypeDef",
     "CookiesTypeDef",
     "CountActionTypeDef",
+    "CreateAPIKeyRequestRequestTypeDef",
+    "CreateAPIKeyResponseTypeDef",
     "CreateIPSetRequestRequestTypeDef",
     "CreateIPSetResponseTypeDef",
     "CreateRegexPatternSetRequestRequestTypeDef",
@@ -103,6 +113,8 @@ __all__ = (
     "GenerateMobileSdkReleaseUrlRequestRequestTypeDef",
     "GenerateMobileSdkReleaseUrlResponseTypeDef",
     "GeoMatchStatementTypeDef",
+    "GetDecryptedAPIKeyRequestRequestTypeDef",
+    "GetDecryptedAPIKeyResponseTypeDef",
     "GetIPSetRequestRequestTypeDef",
     "GetIPSetResponseTypeDef",
     "GetLoggingConfigurationRequestRequestTypeDef",
@@ -140,6 +152,8 @@ __all__ = (
     "LabelNameConditionTypeDef",
     "LabelSummaryTypeDef",
     "LabelTypeDef",
+    "ListAPIKeysRequestRequestTypeDef",
+    "ListAPIKeysResponseTypeDef",
     "ListAvailableManagedRuleGroupVersionsRequestRequestTypeDef",
     "ListAvailableManagedRuleGroupVersionsResponseTypeDef",
     "ListAvailableManagedRuleGroupsRequestRequestTypeDef",
@@ -189,6 +203,13 @@ __all__ = (
     "RegexPatternSetTypeDef",
     "RegexTypeDef",
     "ReleaseSummaryTypeDef",
+    "RequestBodyAssociatedResourceTypeConfigTypeDef",
+    "RequestInspectionTypeDef",
+    "ResponseInspectionBodyContainsTypeDef",
+    "ResponseInspectionHeaderTypeDef",
+    "ResponseInspectionJsonTypeDef",
+    "ResponseInspectionStatusCodeTypeDef",
+    "ResponseInspectionTypeDef",
     "ResponseMetadataTypeDef",
     "RuleActionOverrideTypeDef",
     "RuleActionTypeDef",
@@ -227,6 +248,37 @@ __all__ = (
     "XssMatchStatementTypeDef",
 )
 
+APIKeySummaryTypeDef = TypedDict(
+    "APIKeySummaryTypeDef",
+    {
+        "TokenDomains": List[str],
+        "APIKey": str,
+        "CreationTimestamp": datetime,
+        "Version": int,
+    },
+    total=False,
+)
+
+_RequiredAWSManagedRulesATPRuleSetTypeDef = TypedDict(
+    "_RequiredAWSManagedRulesATPRuleSetTypeDef",
+    {
+        "LoginPath": str,
+    },
+)
+_OptionalAWSManagedRulesATPRuleSetTypeDef = TypedDict(
+    "_OptionalAWSManagedRulesATPRuleSetTypeDef",
+    {
+        "RequestInspection": "RequestInspectionTypeDef",
+        "ResponseInspection": "ResponseInspectionTypeDef",
+    },
+    total=False,
+)
+
+class AWSManagedRulesATPRuleSetTypeDef(
+    _RequiredAWSManagedRulesATPRuleSetTypeDef, _OptionalAWSManagedRulesATPRuleSetTypeDef
+):
+    pass
+
 AWSManagedRulesBotControlRuleSetTypeDef = TypedDict(
     "AWSManagedRulesBotControlRuleSetTypeDef",
     {
@@ -252,7 +304,7 @@ AllowActionTypeDef = TypedDict(
 AndStatementTypeDef = TypedDict(
     "AndStatementTypeDef",
     {
-        "Statements": List[Dict[str, Any]],
+        "Statements": List["StatementTypeDef"],
     },
 )
 
@@ -262,6 +314,16 @@ AssociateWebACLRequestRequestTypeDef = TypedDict(
         "WebACLArn": str,
         "ResourceArn": str,
     },
+)
+
+AssociationConfigTypeDef = TypedDict(
+    "AssociationConfigTypeDef",
+    {
+        "RequestBody": Dict[
+            Literal["CLOUDFRONT"], "RequestBodyAssociatedResourceTypeConfigTypeDef"
+        ],
+    },
+    total=False,
 )
 
 BlockActionTypeDef = TypedDict(
@@ -394,6 +456,22 @@ CountActionTypeDef = TypedDict(
     total=False,
 )
 
+CreateAPIKeyRequestRequestTypeDef = TypedDict(
+    "CreateAPIKeyRequestRequestTypeDef",
+    {
+        "Scope": ScopeType,
+        "TokenDomains": List[str],
+    },
+)
+
+CreateAPIKeyResponseTypeDef = TypedDict(
+    "CreateAPIKeyResponseTypeDef",
+    {
+        "APIKey": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateIPSetRequestRequestTypeDef = TypedDict(
     "_RequiredCreateIPSetRequestRequestTypeDef",
     {
@@ -508,6 +586,7 @@ _OptionalCreateWebACLRequestRequestTypeDef = TypedDict(
         "CaptchaConfig": "CaptchaConfigTypeDef",
         "ChallengeConfig": "ChallengeConfigTypeDef",
         "TokenDomains": List[str],
+        "AssociationConfig": "AssociationConfigTypeDef",
     },
     total=False,
 )
@@ -772,6 +851,23 @@ GeoMatchStatementTypeDef = TypedDict(
         "ForwardedIPConfig": "ForwardedIPConfigTypeDef",
     },
     total=False,
+)
+
+GetDecryptedAPIKeyRequestRequestTypeDef = TypedDict(
+    "GetDecryptedAPIKeyRequestRequestTypeDef",
+    {
+        "Scope": ScopeType,
+        "APIKey": str,
+    },
+)
+
+GetDecryptedAPIKeyResponseTypeDef = TypedDict(
+    "GetDecryptedAPIKeyResponseTypeDef",
+    {
+        "TokenDomains": List[str],
+        "CreationTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetIPSetRequestRequestTypeDef = TypedDict(
@@ -1148,6 +1244,36 @@ LabelTypeDef = TypedDict(
     },
 )
 
+_RequiredListAPIKeysRequestRequestTypeDef = TypedDict(
+    "_RequiredListAPIKeysRequestRequestTypeDef",
+    {
+        "Scope": ScopeType,
+    },
+)
+_OptionalListAPIKeysRequestRequestTypeDef = TypedDict(
+    "_OptionalListAPIKeysRequestRequestTypeDef",
+    {
+        "NextMarker": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+class ListAPIKeysRequestRequestTypeDef(
+    _RequiredListAPIKeysRequestRequestTypeDef, _OptionalListAPIKeysRequestRequestTypeDef
+):
+    pass
+
+ListAPIKeysResponseTypeDef = TypedDict(
+    "ListAPIKeysResponseTypeDef",
+    {
+        "NextMarker": str,
+        "APIKeySummaries": List["APIKeySummaryTypeDef"],
+        "ApplicationIntegrationURL": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListAvailableManagedRuleGroupVersionsRequestRequestTypeDef = TypedDict(
     "_RequiredListAvailableManagedRuleGroupVersionsRequestRequestTypeDef",
     {
@@ -1514,6 +1640,7 @@ ManagedRuleGroupConfigTypeDef = TypedDict(
         "UsernameField": "UsernameFieldTypeDef",
         "PasswordField": "PasswordFieldTypeDef",
         "AWSManagedRulesBotControlRuleSet": "AWSManagedRulesBotControlRuleSetTypeDef",
+        "AWSManagedRulesATPRuleSet": "AWSManagedRulesATPRuleSetTypeDef",
     },
     total=False,
 )
@@ -1624,7 +1751,7 @@ MobileSdkReleaseTypeDef = TypedDict(
 NotStatementTypeDef = TypedDict(
     "NotStatementTypeDef",
     {
-        "Statement": "StatementTypeDef",
+        "Statement": Dict[str, Any],
     },
 )
 
@@ -1791,6 +1918,67 @@ ReleaseSummaryTypeDef = TypedDict(
     {
         "ReleaseVersion": str,
         "Timestamp": datetime,
+    },
+    total=False,
+)
+
+RequestBodyAssociatedResourceTypeConfigTypeDef = TypedDict(
+    "RequestBodyAssociatedResourceTypeConfigTypeDef",
+    {
+        "DefaultSizeInspectionLimit": SizeInspectionLimitType,
+    },
+)
+
+RequestInspectionTypeDef = TypedDict(
+    "RequestInspectionTypeDef",
+    {
+        "PayloadType": PayloadTypeType,
+        "UsernameField": "UsernameFieldTypeDef",
+        "PasswordField": "PasswordFieldTypeDef",
+    },
+)
+
+ResponseInspectionBodyContainsTypeDef = TypedDict(
+    "ResponseInspectionBodyContainsTypeDef",
+    {
+        "SuccessStrings": List[str],
+        "FailureStrings": List[str],
+    },
+)
+
+ResponseInspectionHeaderTypeDef = TypedDict(
+    "ResponseInspectionHeaderTypeDef",
+    {
+        "Name": str,
+        "SuccessValues": List[str],
+        "FailureValues": List[str],
+    },
+)
+
+ResponseInspectionJsonTypeDef = TypedDict(
+    "ResponseInspectionJsonTypeDef",
+    {
+        "Identifier": str,
+        "SuccessValues": List[str],
+        "FailureValues": List[str],
+    },
+)
+
+ResponseInspectionStatusCodeTypeDef = TypedDict(
+    "ResponseInspectionStatusCodeTypeDef",
+    {
+        "SuccessCodes": List[int],
+        "FailureCodes": List[int],
+    },
+)
+
+ResponseInspectionTypeDef = TypedDict(
+    "ResponseInspectionTypeDef",
+    {
+        "StatusCode": "ResponseInspectionStatusCodeTypeDef",
+        "Header": "ResponseInspectionHeaderTypeDef",
+        "BodyContains": "ResponseInspectionBodyContainsTypeDef",
+        "Json": "ResponseInspectionJsonTypeDef",
     },
     total=False,
 )
@@ -2198,6 +2386,7 @@ _OptionalUpdateWebACLRequestRequestTypeDef = TypedDict(
         "CaptchaConfig": "CaptchaConfigTypeDef",
         "ChallengeConfig": "ChallengeConfigTypeDef",
         "TokenDomains": List[str],
+        "AssociationConfig": "AssociationConfigTypeDef",
     },
     total=False,
 )
@@ -2276,6 +2465,7 @@ _OptionalWebACLTypeDef = TypedDict(
         "CaptchaConfig": "CaptchaConfigTypeDef",
         "ChallengeConfig": "ChallengeConfigTypeDef",
         "TokenDomains": List[str],
+        "AssociationConfig": "AssociationConfigTypeDef",
     },
     total=False,
 )

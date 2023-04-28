@@ -25,6 +25,7 @@ __all__ = (
     "CopyOptionType",
     "CopyProductStatusType",
     "DescribePortfolioShareTypeType",
+    "EngineWorkflowStatusType",
     "EvaluationTypeType",
     "LastSyncStatusType",
     "ListAcceptedPortfolioSharesPaginatorName",
@@ -81,6 +82,7 @@ CopyProductStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
 DescribePortfolioShareTypeType = Literal[
     "ACCOUNT", "ORGANIZATION", "ORGANIZATIONAL_UNIT", "ORGANIZATION_MEMBER_ACCOUNT"
 ]
+EngineWorkflowStatusType = Literal["FAILED", "SUCCEEDED"]
 EvaluationTypeType = Literal["DYNAMIC", "STATIC"]
 LastSyncStatusType = Literal["FAILED", "SUCCEEDED"]
 ListAcceptedPortfolioSharesPaginatorName = Literal["list_accepted_portfolio_shares"]
@@ -105,7 +107,7 @@ OrganizationNodeTypeType = Literal["ACCOUNT", "ORGANIZATION", "ORGANIZATIONAL_UN
 PortfolioShareTypeType = Literal["AWS_ORGANIZATIONS", "AWS_SERVICECATALOG", "IMPORTED"]
 PrincipalTypeType = Literal["IAM", "IAM_PATTERN"]
 ProductSourceType = Literal["ACCOUNT"]
-ProductTypeType = Literal["CLOUD_FORMATION_TEMPLATE", "MARKETPLACE"]
+ProductTypeType = Literal["CLOUD_FORMATION_TEMPLATE", "MARKETPLACE", "TERRAFORM_OPEN_SOURCE"]
 ProductViewFilterByType = Literal["FullTextSearch", "Owner", "ProductType", "SourceProductId"]
 ProductViewSortByType = Literal["CreationDate", "Title", "VersionCount"]
 PropertyKeyType = Literal["LAUNCH_ROLE", "OWNER"]
@@ -125,7 +127,7 @@ ProvisionedProductViewFilterByType = Literal["SearchQuery"]
 ProvisioningArtifactGuidanceType = Literal["DEFAULT", "DEPRECATED"]
 ProvisioningArtifactPropertyNameType = Literal["Id"]
 ProvisioningArtifactTypeType = Literal[
-    "CLOUD_FORMATION_TEMPLATE", "MARKETPLACE_AMI", "MARKETPLACE_CAR"
+    "CLOUD_FORMATION_TEMPLATE", "MARKETPLACE_AMI", "MARKETPLACE_CAR", "TERRAFORM_OPEN_SOURCE"
 ]
 RecordStatusType = Literal["CREATED", "FAILED", "IN_PROGRESS", "IN_PROGRESS_IN_ERROR", "SUCCEEDED"]
 ReplacementType = Literal["CONDITIONAL", "FALSE", "TRUE"]
@@ -136,7 +138,12 @@ ResourceAttributeType = Literal[
 ScanProvisionedProductsPaginatorName = Literal["scan_provisioned_products"]
 SearchProductsAsAdminPaginatorName = Literal["search_products_as_admin"]
 ServiceActionAssociationErrorCodeType = Literal[
-    "DUPLICATE_RESOURCE", "INTERNAL_FAILURE", "LIMIT_EXCEEDED", "RESOURCE_NOT_FOUND", "THROTTLING"
+    "DUPLICATE_RESOURCE",
+    "INTERNAL_FAILURE",
+    "INVALID_PARAMETER",
+    "LIMIT_EXCEEDED",
+    "RESOURCE_NOT_FOUND",
+    "THROTTLING",
 ]
 ServiceActionDefinitionKeyType = Literal["AssumeRole", "Name", "Parameters", "Version"]
 ServiceActionDefinitionTypeType = Literal["SSM_AUTOMATION"]

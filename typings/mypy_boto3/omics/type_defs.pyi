@@ -2568,13 +2568,25 @@ class UpdateWorkflowRequestRequestTypeDef(
 ):
     pass
 
-VariantImportItemDetailTypeDef = TypedDict(
-    "VariantImportItemDetailTypeDef",
+_RequiredVariantImportItemDetailTypeDef = TypedDict(
+    "_RequiredVariantImportItemDetailTypeDef",
     {
         "jobStatus": JobStatusType,
         "source": str,
     },
 )
+_OptionalVariantImportItemDetailTypeDef = TypedDict(
+    "_OptionalVariantImportItemDetailTypeDef",
+    {
+        "statusMessage": str,
+    },
+    total=False,
+)
+
+class VariantImportItemDetailTypeDef(
+    _RequiredVariantImportItemDetailTypeDef, _OptionalVariantImportItemDetailTypeDef
+):
+    pass
 
 VariantImportItemSourceTypeDef = TypedDict(
     "VariantImportItemSourceTypeDef",

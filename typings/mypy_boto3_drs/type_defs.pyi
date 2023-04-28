@@ -57,6 +57,8 @@ __all__ = (
     "ConversionPropertiesTypeDef",
     "CreateExtendedSourceServerRequestRequestTypeDef",
     "CreateExtendedSourceServerResponseTypeDef",
+    "CreateLaunchConfigurationTemplateRequestRequestTypeDef",
+    "CreateLaunchConfigurationTemplateResponseTypeDef",
     "CreateReplicationConfigurationTemplateRequestRequestTypeDef",
     "DataReplicationErrorTypeDef",
     "DataReplicationInfoReplicatedDiskTypeDef",
@@ -64,6 +66,7 @@ __all__ = (
     "DataReplicationInitiationStepTypeDef",
     "DataReplicationInitiationTypeDef",
     "DeleteJobRequestRequestTypeDef",
+    "DeleteLaunchConfigurationTemplateRequestRequestTypeDef",
     "DeleteRecoveryInstanceRequestRequestTypeDef",
     "DeleteReplicationConfigurationTemplateRequestRequestTypeDef",
     "DeleteSourceServerRequestRequestTypeDef",
@@ -72,6 +75,8 @@ __all__ = (
     "DescribeJobsRequestFiltersTypeDef",
     "DescribeJobsRequestRequestTypeDef",
     "DescribeJobsResponseTypeDef",
+    "DescribeLaunchConfigurationTemplatesRequestRequestTypeDef",
+    "DescribeLaunchConfigurationTemplatesResponseTypeDef",
     "DescribeRecoveryInstancesRequestFiltersTypeDef",
     "DescribeRecoveryInstancesRequestRequestTypeDef",
     "DescribeRecoveryInstancesResponseTypeDef",
@@ -94,6 +99,7 @@ __all__ = (
     "JobLogEventDataTypeDef",
     "JobLogTypeDef",
     "JobTypeDef",
+    "LaunchConfigurationTemplateTypeDef",
     "LaunchConfigurationTypeDef",
     "LicensingTypeDef",
     "LifeCycleLastLaunchInitiatedTypeDef",
@@ -150,6 +156,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateFailbackReplicationConfigurationRequestRequestTypeDef",
     "UpdateLaunchConfigurationRequestRequestTypeDef",
+    "UpdateLaunchConfigurationTemplateRequestRequestTypeDef",
+    "UpdateLaunchConfigurationTemplateResponseTypeDef",
     "UpdateReplicationConfigurationRequestRequestTypeDef",
     "UpdateReplicationConfigurationTemplateRequestRequestTypeDef",
 )
@@ -211,6 +219,27 @@ CreateExtendedSourceServerResponseTypeDef = TypedDict(
     },
 )
 
+CreateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
+    "CreateLaunchConfigurationTemplateRequestRequestTypeDef",
+    {
+        "copyPrivateIp": bool,
+        "copyTags": bool,
+        "launchDisposition": LaunchDispositionType,
+        "licensing": "LicensingTypeDef",
+        "tags": Dict[str, str],
+        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
+    },
+    total=False,
+)
+
+CreateLaunchConfigurationTemplateResponseTypeDef = TypedDict(
+    "CreateLaunchConfigurationTemplateResponseTypeDef",
+    {
+        "launchConfigurationTemplate": "LaunchConfigurationTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
     "_RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef",
     {
@@ -231,6 +260,7 @@ _RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict
 _OptionalCreateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
     "_OptionalCreateReplicationConfigurationTemplateRequestRequestTypeDef",
     {
+        "autoReplicateNewDisks": bool,
         "ebsEncryptionKeyArn": str,
         "tags": Dict[str, str],
     },
@@ -273,6 +303,7 @@ DataReplicationInfoTypeDef = TypedDict(
         "etaDateTime": str,
         "lagDuration": str,
         "replicatedDisks": List["DataReplicationInfoReplicatedDiskTypeDef"],
+        "stagingAvailabilityZone": str,
     },
     total=False,
 )
@@ -300,6 +331,13 @@ DeleteJobRequestRequestTypeDef = TypedDict(
     "DeleteJobRequestRequestTypeDef",
     {
         "jobID": str,
+    },
+)
+
+DeleteLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteLaunchConfigurationTemplateRequestRequestTypeDef",
+    {
+        "launchConfigurationTemplateID": str,
     },
 )
 
@@ -378,6 +416,25 @@ DescribeJobsResponseTypeDef = TypedDict(
     "DescribeJobsResponseTypeDef",
     {
         "items": List["JobTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLaunchConfigurationTemplatesRequestRequestTypeDef = TypedDict(
+    "DescribeLaunchConfigurationTemplatesRequestRequestTypeDef",
+    {
+        "launchConfigurationTemplateIDs": List[str],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+DescribeLaunchConfigurationTemplatesResponseTypeDef = TypedDict(
+    "DescribeLaunchConfigurationTemplatesResponseTypeDef",
+    {
+        "items": List["LaunchConfigurationTemplateTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -612,6 +669,21 @@ _OptionalJobTypeDef = TypedDict(
 class JobTypeDef(_RequiredJobTypeDef, _OptionalJobTypeDef):
     pass
 
+LaunchConfigurationTemplateTypeDef = TypedDict(
+    "LaunchConfigurationTemplateTypeDef",
+    {
+        "arn": str,
+        "copyPrivateIp": bool,
+        "copyTags": bool,
+        "launchConfigurationTemplateID": str,
+        "launchDisposition": LaunchDispositionType,
+        "licensing": "LicensingTypeDef",
+        "tags": Dict[str, str],
+        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
+    },
+    total=False,
+)
+
 LaunchConfigurationTypeDef = TypedDict(
     "LaunchConfigurationTypeDef",
     {
@@ -649,6 +721,7 @@ LifeCycleLastLaunchTypeDef = TypedDict(
     "LifeCycleLastLaunchTypeDef",
     {
         "initiated": "LifeCycleLastLaunchInitiatedTypeDef",
+        "status": LaunchStatusType,
     },
     total=False,
 )
@@ -816,6 +889,7 @@ RecoveryInstanceDataReplicationInfoTypeDef = TypedDict(
         "etaDateTime": str,
         "lagDuration": str,
         "replicatedDisks": List["RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef"],
+        "stagingAvailabilityZone": str,
     },
     total=False,
 )
@@ -889,6 +963,7 @@ RecoveryInstanceTypeDef = TypedDict(
         "failback": "RecoveryInstanceFailbackTypeDef",
         "isDrill": bool,
         "jobID": str,
+        "originAvailabilityZone": str,
         "originEnvironment": OriginEnvironmentType,
         "pointInTimeSnapshotDateTime": str,
         "recoveryInstanceID": str,
@@ -937,6 +1012,7 @@ ReplicationConfigurationTemplateResponseMetadataTypeDef = TypedDict(
     {
         "arn": str,
         "associateDefaultSecurityGroup": bool,
+        "autoReplicateNewDisks": bool,
         "bandwidthThrottling": int,
         "createPublicIP": bool,
         "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
@@ -966,6 +1042,7 @@ _OptionalReplicationConfigurationTemplateTypeDef = TypedDict(
     {
         "arn": str,
         "associateDefaultSecurityGroup": bool,
+        "autoReplicateNewDisks": bool,
         "bandwidthThrottling": int,
         "createPublicIP": bool,
         "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
@@ -993,6 +1070,7 @@ ReplicationConfigurationTypeDef = TypedDict(
     "ReplicationConfigurationTypeDef",
     {
         "associateDefaultSecurityGroup": bool,
+        "autoReplicateNewDisks": bool,
         "bandwidthThrottling": int,
         "createPublicIP": bool,
         "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
@@ -1066,6 +1144,7 @@ SourcePropertiesTypeDef = TypedDict(
         "os": "OSTypeDef",
         "ramBytes": int,
         "recommendedInstanceType": str,
+        "supportsNitroInstances": bool,
     },
     total=False,
 )
@@ -1320,6 +1399,38 @@ class UpdateLaunchConfigurationRequestRequestTypeDef(
 ):
     pass
 
+_RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef",
+    {
+        "launchConfigurationTemplateID": str,
+    },
+)
+_OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef",
+    {
+        "copyPrivateIp": bool,
+        "copyTags": bool,
+        "launchDisposition": LaunchDispositionType,
+        "licensing": "LicensingTypeDef",
+        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
+    },
+    total=False,
+)
+
+class UpdateLaunchConfigurationTemplateRequestRequestTypeDef(
+    _RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef,
+    _OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef,
+):
+    pass
+
+UpdateLaunchConfigurationTemplateResponseTypeDef = TypedDict(
+    "UpdateLaunchConfigurationTemplateResponseTypeDef",
+    {
+        "launchConfigurationTemplate": "LaunchConfigurationTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateReplicationConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateReplicationConfigurationRequestRequestTypeDef",
     {
@@ -1330,6 +1441,7 @@ _OptionalUpdateReplicationConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateReplicationConfigurationRequestRequestTypeDef",
     {
         "associateDefaultSecurityGroup": bool,
+        "autoReplicateNewDisks": bool,
         "bandwidthThrottling": int,
         "createPublicIP": bool,
         "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
@@ -1365,6 +1477,7 @@ _OptionalUpdateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict
     {
         "arn": str,
         "associateDefaultSecurityGroup": bool,
+        "autoReplicateNewDisks": bool,
         "bandwidthThrottling": int,
         "createPublicIP": bool,
         "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,

@@ -1114,12 +1114,22 @@ NtpStatusTypeDef = TypedDict(
     total=False,
 )
 
-OTAJobConfigTypeDef = TypedDict(
-    "OTAJobConfigTypeDef",
+_RequiredOTAJobConfigTypeDef = TypedDict(
+    "_RequiredOTAJobConfigTypeDef",
     {
         "ImageVersion": str,
     },
 )
+_OptionalOTAJobConfigTypeDef = TypedDict(
+    "_OptionalOTAJobConfigTypeDef",
+    {
+        "AllowMajorVersionUpdate": bool,
+    },
+    total=False,
+)
+
+class OTAJobConfigTypeDef(_RequiredOTAJobConfigTypeDef, _OptionalOTAJobConfigTypeDef):
+    pass
 
 OutPutS3LocationTypeDef = TypedDict(
     "OutPutS3LocationTypeDef",

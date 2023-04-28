@@ -66,7 +66,7 @@ class Exceptions:
 
 class ServerlessApplicationRepositoryClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html)
     """
 
@@ -81,14 +81,14 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#close)
         """
     def create_application(
@@ -114,7 +114,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         Creates an application, optionally including an AWS SAM file to create the first
         application version in the same call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#create_application)
         """
     def create_application_version(
@@ -130,7 +130,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Creates an application version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_application_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_application_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#create_application_version)
         """
     def create_cloud_formation_change_set(
@@ -153,7 +153,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Creates an AWS CloudFormation change set for the given application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_cloud_formation_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_cloud_formation_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#create_cloud_formation_change_set)
         """
     def create_cloud_formation_template(
@@ -162,14 +162,14 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Creates an AWS CloudFormation template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_cloud_formation_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_cloud_formation_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#create_cloud_formation_template)
         """
     def delete_application(self, *, ApplicationId: str) -> None:
         """
         Deletes the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#delete_application)
         """
     def generate_presigned_url(
@@ -182,7 +182,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#generate_presigned_url)
         """
     def get_application(
@@ -191,14 +191,14 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Gets the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#get_application)
         """
     def get_application_policy(self, *, ApplicationId: str) -> GetApplicationPolicyResponseTypeDef:
         """
         Retrieves the policy for the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_application_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_application_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#get_application_policy)
         """
     def get_cloud_formation_template(
@@ -207,7 +207,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Gets the specified AWS CloudFormation template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_cloud_formation_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_cloud_formation_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#get_cloud_formation_template)
         """
     def list_application_dependencies(
@@ -221,7 +221,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Retrieves the list of applications nested in the containing application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_application_dependencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_application_dependencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#list_application_dependencies)
         """
     def list_application_versions(
@@ -230,7 +230,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Lists versions for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_application_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_application_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#list_application_versions)
         """
     def list_applications(
@@ -239,7 +239,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Lists applications owned by the requester.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#list_applications)
         """
     def put_application_policy(
@@ -248,14 +248,14 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Sets the permission policy for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.put_application_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.put_application_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#put_application_policy)
         """
     def unshare_application(self, *, ApplicationId: str, OrganizationId: str) -> None:
         """
         Unshares an application from an AWS Organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.unshare_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.unshare_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#unshare_application)
         """
     def update_application(
@@ -272,7 +272,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         """
         Updates the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#update_application)
         """
     @overload
@@ -280,7 +280,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         self, operation_name: Literal["list_application_dependencies"]
     ) -> ListApplicationDependenciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/paginators.html#listapplicationdependenciespaginator)
         """
     @overload
@@ -288,7 +288,7 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         self, operation_name: Literal["list_application_versions"]
     ) -> ListApplicationVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/paginators.html#listapplicationversionspaginator)
         """
     @overload
@@ -296,6 +296,6 @@ class ServerlessApplicationRepositoryClient(BaseClient):
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/paginators.html#listapplicationspaginator)
         """

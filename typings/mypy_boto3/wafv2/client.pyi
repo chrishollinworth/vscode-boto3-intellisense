@@ -19,9 +19,11 @@ from botocore.client import BaseClient, ClientMeta
 
 from .literals import IPAddressVersionType, PlatformType, ResourceTypeType, ScopeType
 from .type_defs import (
+    AssociationConfigTypeDef,
     CaptchaConfigTypeDef,
     ChallengeConfigTypeDef,
     CheckCapacityResponseTypeDef,
+    CreateAPIKeyResponseTypeDef,
     CreateIPSetResponseTypeDef,
     CreateRegexPatternSetResponseTypeDef,
     CreateRuleGroupResponseTypeDef,
@@ -31,6 +33,7 @@ from .type_defs import (
     DeleteFirewallManagerRuleGroupsResponseTypeDef,
     DescribeManagedRuleGroupResponseTypeDef,
     GenerateMobileSdkReleaseUrlResponseTypeDef,
+    GetDecryptedAPIKeyResponseTypeDef,
     GetIPSetResponseTypeDef,
     GetLoggingConfigurationResponseTypeDef,
     GetManagedRuleSetResponseTypeDef,
@@ -42,6 +45,7 @@ from .type_defs import (
     GetSampledRequestsResponseTypeDef,
     GetWebACLForResourceResponseTypeDef,
     GetWebACLResponseTypeDef,
+    ListAPIKeysResponseTypeDef,
     ListAvailableManagedRuleGroupsResponseTypeDef,
     ListAvailableManagedRuleGroupVersionsResponseTypeDef,
     ListIPSetsResponseTypeDef,
@@ -101,7 +105,7 @@ class Exceptions:
 
 class WAFV2Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html)
     """
 
@@ -117,14 +121,14 @@ class WAFV2Client(BaseClient):
         Associates a web ACL with a regional application resource, to protect the
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.associate_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.associate_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#associate_web_acl)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#can_paginate)
         """
     def check_capacity(
@@ -134,15 +138,25 @@ class WAFV2Client(BaseClient):
         Returns the web ACL capacity unit (WCU) requirements for a specified scope and
         set of rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.check_capacity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.check_capacity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#check_capacity)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#close)
+        """
+    def create_api_key(
+        self, *, Scope: ScopeType, TokenDomains: List[str]
+    ) -> CreateAPIKeyResponseTypeDef:
+        """
+        Creates an API key for use in the integration of the CAPTCHA API in your
+        JavaScript client applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.create_api_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#create_api_key)
         """
     def create_ip_set(
         self,
@@ -158,7 +172,7 @@ class WAFV2Client(BaseClient):
         Creates an  IPSet, which you use to identify web requests that originate from
         specific IP addresses or ranges of IP addresses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.create_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.create_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#create_ip_set)
         """
     def create_regex_pattern_set(
@@ -175,7 +189,7 @@ class WAFV2Client(BaseClient):
         RegexPatternSetReferenceStatement, to have WAF inspect a web request component
         for the specified patterns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.create_regex_pattern_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.create_regex_pattern_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#create_regex_pattern_set)
         """
     def create_rule_group(
@@ -193,7 +207,7 @@ class WAFV2Client(BaseClient):
         """
         Creates a  RuleGroup per the specifications provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.create_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.create_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#create_rule_group)
         """
     def create_web_acl(
@@ -209,12 +223,13 @@ class WAFV2Client(BaseClient):
         CustomResponseBodies: Dict[str, "CustomResponseBodyTypeDef"] = None,
         CaptchaConfig: "CaptchaConfigTypeDef" = None,
         ChallengeConfig: "ChallengeConfigTypeDef" = None,
-        TokenDomains: List[str] = None
+        TokenDomains: List[str] = None,
+        AssociationConfig: "AssociationConfigTypeDef" = None
     ) -> CreateWebACLResponseTypeDef:
         """
         Creates a  WebACL per the specifications provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.create_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.create_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#create_web_acl)
         """
     def delete_firewall_manager_rule_groups(
@@ -224,7 +239,7 @@ class WAFV2Client(BaseClient):
         Deletes all rule groups that are managed by Firewall Manager for the specified
         web ACL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.delete_firewall_manager_rule_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.delete_firewall_manager_rule_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#delete_firewall_manager_rule_groups)
         """
     def delete_ip_set(
@@ -233,21 +248,21 @@ class WAFV2Client(BaseClient):
         """
         Deletes the specified  IPSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.delete_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.delete_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#delete_ip_set)
         """
     def delete_logging_configuration(self, *, ResourceArn: str) -> Dict[str, Any]:
         """
         Deletes the  LoggingConfiguration from the specified web ACL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.delete_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.delete_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#delete_logging_configuration)
         """
     def delete_permission_policy(self, *, ResourceArn: str) -> Dict[str, Any]:
         """
         Permanently deletes an IAM policy from the specified rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.delete_permission_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.delete_permission_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#delete_permission_policy)
         """
     def delete_regex_pattern_set(
@@ -256,7 +271,7 @@ class WAFV2Client(BaseClient):
         """
         Deletes the specified  RegexPatternSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.delete_regex_pattern_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.delete_regex_pattern_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#delete_regex_pattern_set)
         """
     def delete_rule_group(
@@ -265,7 +280,7 @@ class WAFV2Client(BaseClient):
         """
         Deletes the specified  RuleGroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.delete_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.delete_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#delete_rule_group)
         """
     def delete_web_acl(
@@ -274,7 +289,7 @@ class WAFV2Client(BaseClient):
         """
         Deletes the specified  WebACL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.delete_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.delete_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#delete_web_acl)
         """
     def describe_managed_rule_group(
@@ -284,7 +299,7 @@ class WAFV2Client(BaseClient):
         Provides high-level information for a managed rule group, including descriptions
         of the rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.describe_managed_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.describe_managed_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#describe_managed_rule_group)
         """
     def disassociate_web_acl(self, *, ResourceArn: str) -> Dict[str, Any]:
@@ -292,7 +307,7 @@ class WAFV2Client(BaseClient):
         Disassociates the specified regional application resource from any existing web
         ACL association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.disassociate_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.disassociate_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#disassociate_web_acl)
         """
     def generate_mobile_sdk_release_url(
@@ -301,7 +316,7 @@ class WAFV2Client(BaseClient):
         """
         Generates a presigned download URL for the specified release of the mobile SDK.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.generate_mobile_sdk_release_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.generate_mobile_sdk_release_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#generate_mobile_sdk_release_url)
         """
     def generate_presigned_url(
@@ -314,14 +329,23 @@ class WAFV2Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#generate_presigned_url)
+        """
+    def get_decrypted_api_key(
+        self, *, Scope: ScopeType, APIKey: str
+    ) -> GetDecryptedAPIKeyResponseTypeDef:
+        """
+        Returns your API key in decrypted form.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_decrypted_api_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_decrypted_api_key)
         """
     def get_ip_set(self, *, Name: str, Scope: ScopeType, Id: str) -> GetIPSetResponseTypeDef:
         """
         Retrieves the specified  IPSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_ip_set)
         """
     def get_logging_configuration(
@@ -330,7 +354,7 @@ class WAFV2Client(BaseClient):
         """
         Returns the  LoggingConfiguration for the specified web ACL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_logging_configuration)
         """
     def get_managed_rule_set(
@@ -339,7 +363,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves the specified managed rule set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_managed_rule_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_managed_rule_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_managed_rule_set)
         """
     def get_mobile_sdk_release(
@@ -349,14 +373,14 @@ class WAFV2Client(BaseClient):
         Retrieves information for the specified mobile SDK release, including release
         notes and tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_mobile_sdk_release)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_mobile_sdk_release)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_mobile_sdk_release)
         """
     def get_permission_policy(self, *, ResourceArn: str) -> GetPermissionPolicyResponseTypeDef:
         """
         Returns the IAM policy that is attached to the specified rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_permission_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_permission_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_permission_policy)
         """
     def get_rate_based_statement_managed_keys(
@@ -371,7 +395,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves the keys that are currently blocked by a rate-based rule instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_rate_based_statement_managed_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_rate_based_statement_managed_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_rate_based_statement_managed_keys)
         """
     def get_regex_pattern_set(
@@ -380,7 +404,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves the specified  RegexPatternSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_regex_pattern_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_regex_pattern_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_regex_pattern_set)
         """
     def get_rule_group(
@@ -389,7 +413,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves the specified  RuleGroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_rule_group)
         """
     def get_sampled_requests(
@@ -406,22 +430,31 @@ class WAFV2Client(BaseClient):
         WAF randomly selects from among the first 5,000 requests that your Amazon Web
         Services resource received during a time range that you choose.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_sampled_requests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_sampled_requests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_sampled_requests)
         """
     def get_web_acl(self, *, Name: str, Scope: ScopeType, Id: str) -> GetWebACLResponseTypeDef:
         """
         Retrieves the specified  WebACL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_web_acl)
         """
     def get_web_acl_for_resource(self, *, ResourceArn: str) -> GetWebACLForResourceResponseTypeDef:
         """
         Retrieves the  WebACL for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.get_web_acl_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.get_web_acl_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#get_web_acl_for_resource)
+        """
+    def list_api_keys(
+        self, *, Scope: ScopeType, NextMarker: str = None, Limit: int = None
+    ) -> ListAPIKeysResponseTypeDef:
+        """
+        Retrieves a list of the API keys that you've defined for the specified scope.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_api_keys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_api_keys)
         """
     def list_available_managed_rule_group_versions(
         self,
@@ -435,7 +468,7 @@ class WAFV2Client(BaseClient):
         """
         Returns a list of the available versions for the specified managed rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_available_managed_rule_group_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_available_managed_rule_group_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_available_managed_rule_group_versions)
         """
     def list_available_managed_rule_groups(
@@ -444,7 +477,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves an array of managed rule groups that are available for you to use.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_available_managed_rule_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_available_managed_rule_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_available_managed_rule_groups)
         """
     def list_ip_sets(
@@ -453,7 +486,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves an array of  IPSetSummary objects for the IP sets that you manage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_ip_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_ip_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_ip_sets)
         """
     def list_logging_configurations(
@@ -462,7 +495,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves an array of your  LoggingConfiguration objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_logging_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_logging_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_logging_configurations)
         """
     def list_managed_rule_sets(
@@ -471,7 +504,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves the managed rule sets that you own.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_managed_rule_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_managed_rule_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_managed_rule_sets)
         """
     def list_mobile_sdk_releases(
@@ -481,7 +514,7 @@ class WAFV2Client(BaseClient):
         Retrieves a list of the available releases for the mobile SDK and the specified
         device platform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_mobile_sdk_releases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_mobile_sdk_releases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_mobile_sdk_releases)
         """
     def list_regex_pattern_sets(
@@ -491,7 +524,7 @@ class WAFV2Client(BaseClient):
         Retrieves an array of  RegexPatternSetSummary objects for the regex pattern sets
         that you manage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_regex_pattern_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_regex_pattern_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_regex_pattern_sets)
         """
     def list_resources_for_web_acl(
@@ -501,7 +534,7 @@ class WAFV2Client(BaseClient):
         Retrieves an array of the Amazon Resource Names (ARNs) for the regional
         resources that are associated with the specified web ACL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_resources_for_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_resources_for_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_resources_for_web_acl)
         """
     def list_rule_groups(
@@ -511,7 +544,7 @@ class WAFV2Client(BaseClient):
         Retrieves an array of  RuleGroupSummary objects for the rule groups that you
         manage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_rule_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_rule_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_rule_groups)
         """
     def list_tags_for_resource(
@@ -520,7 +553,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves the  TagInfoForResource for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_tags_for_resource)
         """
     def list_web_acls(
@@ -529,7 +562,7 @@ class WAFV2Client(BaseClient):
         """
         Retrieves an array of  WebACLSummary objects for the web ACLs that you manage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.list_web_acls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.list_web_acls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#list_web_acls)
         """
     def put_logging_configuration(
@@ -539,7 +572,7 @@ class WAFV2Client(BaseClient):
         Enables the specified  LoggingConfiguration, to start logging from a web ACL,
         according to the configuration provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.put_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.put_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#put_logging_configuration)
         """
     def put_managed_rule_set_versions(
@@ -556,28 +589,28 @@ class WAFV2Client(BaseClient):
         Defines the versions of your managed rule set that you are offering to the
         customers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.put_managed_rule_set_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.put_managed_rule_set_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#put_managed_rule_set_versions)
         """
     def put_permission_policy(self, *, ResourceArn: str, Policy: str) -> Dict[str, Any]:
         """
         Attaches an IAM policy to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.put_permission_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.put_permission_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#put_permission_policy)
         """
     def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Associates tags with the specified Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Disassociates tags from an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#untag_resource)
         """
     def update_ip_set(
@@ -593,7 +626,7 @@ class WAFV2Client(BaseClient):
         """
         Updates the specified  IPSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.update_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.update_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#update_ip_set)
         """
     def update_managed_rule_set_version_expiry_date(
@@ -609,7 +642,7 @@ class WAFV2Client(BaseClient):
         """
         Updates the expiration information for your managed rule set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.update_managed_rule_set_version_expiry_date)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.update_managed_rule_set_version_expiry_date)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#update_managed_rule_set_version_expiry_date)
         """
     def update_regex_pattern_set(
@@ -625,7 +658,7 @@ class WAFV2Client(BaseClient):
         """
         Updates the specified  RegexPatternSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.update_regex_pattern_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.update_regex_pattern_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#update_regex_pattern_set)
         """
     def update_rule_group(
@@ -643,7 +676,7 @@ class WAFV2Client(BaseClient):
         """
         Updates the specified  RuleGroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.update_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.update_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#update_rule_group)
         """
     def update_web_acl(
@@ -660,11 +693,12 @@ class WAFV2Client(BaseClient):
         CustomResponseBodies: Dict[str, "CustomResponseBodyTypeDef"] = None,
         CaptchaConfig: "CaptchaConfigTypeDef" = None,
         ChallengeConfig: "ChallengeConfigTypeDef" = None,
-        TokenDomains: List[str] = None
+        TokenDomains: List[str] = None,
+        AssociationConfig: "AssociationConfigTypeDef" = None
     ) -> UpdateWebACLResponseTypeDef:
         """
         Updates the specified  WebACL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/wafv2.html#WAFV2.Client.update_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/wafv2.html#WAFV2.Client.update_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wafv2/client.html#update_web_acl)
         """

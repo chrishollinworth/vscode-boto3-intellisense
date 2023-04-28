@@ -26,10 +26,12 @@ __all__ = (
     "CredentialTypeType",
     "DatabaseStatusType",
     "DatabaseTypeType",
+    "FilterOperatorType",
     "HostRoleType",
     "ListApplicationsPaginatorName",
     "ListComponentsPaginatorName",
     "ListDatabasesPaginatorName",
+    "ListOperationsPaginatorName",
     "OperationStatusType",
     "PermissionActionTypeType",
 )
@@ -43,9 +45,11 @@ ComponentTypeType = Literal["HANA"]
 CredentialTypeType = Literal["ADMIN"]
 DatabaseStatusType = Literal["RUNNING", "STARTING", "STOPPED", "UNKNOWN", "WARNING"]
 DatabaseTypeType = Literal["SYSTEM", "TENANT"]
+FilterOperatorType = Literal["Equals", "GreaterThanOrEquals", "LessThanOrEquals"]
 HostRoleType = Literal["LEADER", "STANDBY", "UNKNOWN", "WORKER"]
 ListApplicationsPaginatorName = Literal["list_applications"]
 ListComponentsPaginatorName = Literal["list_components"]
 ListDatabasesPaginatorName = Literal["list_databases"]
+ListOperationsPaginatorName = Literal["list_operations"]
 OperationStatusType = Literal["ERROR", "INPROGRESS", "SUCCESS"]
 PermissionActionTypeType = Literal["RESTORE"]

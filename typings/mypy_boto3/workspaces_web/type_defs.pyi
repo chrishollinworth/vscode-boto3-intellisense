@@ -17,7 +17,12 @@ from typing import IO, Any, Dict, List, Union
 
 from botocore.response import StreamingBody
 
-from .literals import EnabledTypeType, IdentityProviderTypeType, PortalStatusType
+from .literals import (
+    AuthenticationTypeType,
+    EnabledTypeType,
+    IdentityProviderTypeType,
+    PortalStatusType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -370,6 +375,7 @@ CreatePortalRequestRequestTypeDef = TypedDict(
     "CreatePortalRequestRequestTypeDef",
     {
         "additionalEncryptionContext": Dict[str, str],
+        "authenticationType": AuthenticationTypeType,
         "clientToken": str,
         "customerManagedKey": str,
         "displayName": str,
@@ -946,6 +952,7 @@ class NetworkSettingsTypeDef(_RequiredNetworkSettingsTypeDef, _OptionalNetworkSe
 PortalSummaryTypeDef = TypedDict(
     "PortalSummaryTypeDef",
     {
+        "authenticationType": AuthenticationTypeType,
         "browserSettingsArn": str,
         "browserType": Literal["Chrome"],
         "creationDate": datetime,
@@ -965,6 +972,7 @@ PortalSummaryTypeDef = TypedDict(
 PortalTypeDef = TypedDict(
     "PortalTypeDef",
     {
+        "authenticationType": AuthenticationTypeType,
         "browserSettingsArn": str,
         "browserType": Literal["Chrome"],
         "creationDate": datetime,
@@ -1146,6 +1154,7 @@ _RequiredUpdatePortalRequestRequestTypeDef = TypedDict(
 _OptionalUpdatePortalRequestRequestTypeDef = TypedDict(
     "_OptionalUpdatePortalRequestRequestTypeDef",
     {
+        "authenticationType": AuthenticationTypeType,
         "displayName": str,
     },
     total=False,

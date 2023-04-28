@@ -6,9 +6,9 @@ Type annotations for timestream-write service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_timestream_write.literals import DimensionValueTypeType
+    from mypy_boto3_timestream_write.literals import BatchLoadDataFormatType
 
-    data: DimensionValueTypeType = "VARCHAR"
+    data: BatchLoadDataFormatType = "CSV"
     ```
 """
 import sys
@@ -19,15 +19,23 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "BatchLoadDataFormatType",
+    "BatchLoadStatusType",
     "DimensionValueTypeType",
     "MeasureValueTypeType",
     "S3EncryptionOptionType",
+    "ScalarMeasureValueTypeType",
     "TableStatusType",
     "TimeUnitType",
 )
 
+BatchLoadDataFormatType = Literal["CSV"]
+BatchLoadStatusType = Literal[
+    "CREATED", "FAILED", "IN_PROGRESS", "PENDING_RESUME", "PROGRESS_STOPPED", "SUCCEEDED"
+]
 DimensionValueTypeType = Literal["VARCHAR"]
 MeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "MULTI", "TIMESTAMP", "VARCHAR"]
 S3EncryptionOptionType = Literal["SSE_KMS", "SSE_S3"]
-TableStatusType = Literal["ACTIVE", "DELETING"]
+ScalarMeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "TIMESTAMP", "VARCHAR"]
+TableStatusType = Literal["ACTIVE", "DELETING", "RESTORING"]
 TimeUnitType = Literal["MICROSECONDS", "MILLISECONDS", "NANOSECONDS", "SECONDS"]

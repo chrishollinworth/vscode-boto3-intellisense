@@ -113,7 +113,7 @@ class Exceptions:
 
 class AthenaClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html)
     """
 
@@ -129,7 +129,7 @@ class AthenaClient(BaseClient):
         Returns the details of a single named query or a list of up to 50 queries, which
         you provide as an array of query ID strings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.batch_get_named_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.batch_get_named_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#batch_get_named_query)
         """
     def batch_get_prepared_statement(
@@ -139,7 +139,7 @@ class AthenaClient(BaseClient):
         Returns the details of a single prepared statement or a list of up to 256
         prepared statements for the array of prepared statement names that you provide.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.batch_get_prepared_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.batch_get_prepared_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#batch_get_prepared_statement)
         """
     def batch_get_query_execution(
@@ -149,21 +149,21 @@ class AthenaClient(BaseClient):
         Returns the details of a single query execution or a list of up to 50 query
         executions, which you provide as an array of query execution ID strings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.batch_get_query_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.batch_get_query_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#batch_get_query_execution)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#close)
         """
     def create_data_catalog(
@@ -178,7 +178,7 @@ class AthenaClient(BaseClient):
         """
         Creates (registers) a data catalog with the specified name and properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.create_data_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.create_data_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#create_data_catalog)
         """
     def create_named_query(
@@ -194,7 +194,7 @@ class AthenaClient(BaseClient):
         """
         Creates a named query in the specified workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.create_named_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.create_named_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#create_named_query)
         """
     def create_notebook(
@@ -203,7 +203,7 @@ class AthenaClient(BaseClient):
         """
         Creates an empty `ipynb` file in the specified Apache Spark enabled workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.create_notebook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.create_notebook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#create_notebook)
         """
     def create_prepared_statement(
@@ -212,7 +212,7 @@ class AthenaClient(BaseClient):
         """
         Creates a prepared statement for use with SQL queries in Athena.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.create_prepared_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.create_prepared_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#create_prepared_statement)
         """
     def create_presigned_notebook_url(
@@ -221,7 +221,7 @@ class AthenaClient(BaseClient):
         """
         Gets an authentication token and the URL at which the notebook can be accessed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.create_presigned_notebook_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.create_presigned_notebook_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#create_presigned_notebook_url)
         """
     def create_work_group(
@@ -235,14 +235,14 @@ class AthenaClient(BaseClient):
         """
         Creates a workgroup with the specified name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.create_work_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.create_work_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#create_work_group)
         """
     def delete_data_catalog(self, *, Name: str) -> Dict[str, Any]:
         """
         Deletes a data catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.delete_data_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.delete_data_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#delete_data_catalog)
         """
     def delete_named_query(self, *, NamedQueryId: str) -> Dict[str, Any]:
@@ -250,14 +250,14 @@ class AthenaClient(BaseClient):
         Deletes the named query if you have access to the workgroup in which the query
         was saved.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.delete_named_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.delete_named_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#delete_named_query)
         """
     def delete_notebook(self, *, NotebookId: str) -> Dict[str, Any]:
         """
         Deletes the specified notebook.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.delete_notebook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.delete_notebook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#delete_notebook)
         """
     def delete_prepared_statement(self, *, StatementName: str, WorkGroup: str) -> Dict[str, Any]:
@@ -265,7 +265,7 @@ class AthenaClient(BaseClient):
         Deletes the prepared statement with the specified name from the specified
         workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.delete_prepared_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.delete_prepared_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#delete_prepared_statement)
         """
     def delete_work_group(
@@ -274,14 +274,14 @@ class AthenaClient(BaseClient):
         """
         Deletes the workgroup with the specified name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.delete_work_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.delete_work_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#delete_work_group)
         """
     def export_notebook(self, *, NotebookId: str) -> ExportNotebookOutputTypeDef:
         """
         Exports the specified notebook and its metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.export_notebook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.export_notebook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#export_notebook)
         """
     def generate_presigned_url(
@@ -294,7 +294,7 @@ class AthenaClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#generate_presigned_url)
         """
     def get_calculation_execution(
@@ -303,17 +303,16 @@ class AthenaClient(BaseClient):
         """
         Describes a previously submitted calculation execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_calculation_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_calculation_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_calculation_execution)
         """
     def get_calculation_execution_code(
         self, *, CalculationExecutionId: str
     ) -> GetCalculationExecutionCodeResponseTypeDef:
         """
-        Retrieves a pre-signed URL to a copy of the code that was executed for the
-        calculation.
+        Retrieves the unencrypted code that was executed for the calculation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_calculation_execution_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_calculation_execution_code)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_calculation_execution_code)
         """
     def get_calculation_execution_status(
@@ -322,35 +321,35 @@ class AthenaClient(BaseClient):
         """
         Gets the status of a current calculation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_calculation_execution_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_calculation_execution_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_calculation_execution_status)
         """
     def get_data_catalog(self, *, Name: str) -> GetDataCatalogOutputTypeDef:
         """
         Returns the specified data catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_data_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_data_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_data_catalog)
         """
     def get_database(self, *, CatalogName: str, DatabaseName: str) -> GetDatabaseOutputTypeDef:
         """
         Returns a database object for the specified database and data catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_database)
         """
     def get_named_query(self, *, NamedQueryId: str) -> GetNamedQueryOutputTypeDef:
         """
         Returns information about a single query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_named_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_named_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_named_query)
         """
     def get_notebook_metadata(self, *, NotebookId: str) -> GetNotebookMetadataOutputTypeDef:
         """
         Retrieves notebook metadata for the specified notebook ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_notebook_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_notebook_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_notebook_metadata)
         """
     def get_prepared_statement(
@@ -360,7 +359,7 @@ class AthenaClient(BaseClient):
         Retrieves the prepared statement with the specified name from the specified
         workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_prepared_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_prepared_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_prepared_statement)
         """
     def get_query_execution(self, *, QueryExecutionId: str) -> GetQueryExecutionOutputTypeDef:
@@ -368,7 +367,7 @@ class AthenaClient(BaseClient):
         Returns information about a single execution of a query if you have access to
         the workgroup in which the query ran.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_query_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_query_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_query_execution)
         """
     def get_query_results(
@@ -378,7 +377,7 @@ class AthenaClient(BaseClient):
         Streams the results of a single query execution specified by `QueryExecutionId`
         from the Athena query results location in Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_query_results)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_query_results)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_query_results)
         """
     def get_query_runtime_statistics(
@@ -388,7 +387,7 @@ class AthenaClient(BaseClient):
         Returns query execution runtime statistics related to a single execution of a
         query if you have access to the workgroup in which the query ran.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_query_runtime_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_query_runtime_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_query_runtime_statistics)
         """
     def get_session(self, *, SessionId: str) -> GetSessionResponseTypeDef:
@@ -396,14 +395,14 @@ class AthenaClient(BaseClient):
         Gets the full details of a previously created session, including the session
         status and configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_session)
         """
     def get_session_status(self, *, SessionId: str) -> GetSessionStatusResponseTypeDef:
         """
         Gets the current status of a session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_session_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_session_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_session_status)
         """
     def get_table_metadata(
@@ -412,14 +411,14 @@ class AthenaClient(BaseClient):
         """
         Returns table metadata for the specified catalog, database, and table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_table_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_table_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_table_metadata)
         """
     def get_work_group(self, *, WorkGroup: str) -> GetWorkGroupOutputTypeDef:
         """
         Returns information about the workgroup with the specified name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.get_work_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.get_work_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#get_work_group)
         """
     def import_notebook(
@@ -434,7 +433,7 @@ class AthenaClient(BaseClient):
         """
         Imports a single `ipynb` file to a Spark enabled workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.import_notebook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.import_notebook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#import_notebook)
         """
     def list_application_dpu_sizes(
@@ -442,9 +441,9 @@ class AthenaClient(BaseClient):
     ) -> ListApplicationDPUSizesOutputTypeDef:
         """
         Returns the supported DPU sizes for the supported application runtimes (for
-        example, `Jupyter 1.0` ).
+        example, `Athena notebook version 1`).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_application_dpu_sizes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_application_dpu_sizes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_application_dpu_sizes)
         """
     def list_calculation_executions(
@@ -459,7 +458,7 @@ class AthenaClient(BaseClient):
         Lists the calculations that have been submitted to a session in descending
         order.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_calculation_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_calculation_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_calculation_executions)
         """
     def list_data_catalogs(
@@ -468,7 +467,7 @@ class AthenaClient(BaseClient):
         """
         Lists the data catalogs in the current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_data_catalogs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_data_catalogs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_data_catalogs)
         """
     def list_databases(
@@ -477,7 +476,7 @@ class AthenaClient(BaseClient):
         """
         Lists the databases in the specified data catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_databases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_databases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_databases)
         """
     def list_engine_versions(
@@ -487,7 +486,7 @@ class AthenaClient(BaseClient):
         Returns a list of engine versions that are available to choose from, including
         the Auto option.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_engine_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_engine_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_engine_versions)
         """
     def list_executors(
@@ -499,9 +498,9 @@ class AthenaClient(BaseClient):
         NextToken: str = None
     ) -> ListExecutorsResponseTypeDef:
         """
-        Lists, in descending order, the executors that have been submitted to a session.
+        Lists, in descending order, the executors that joined a session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_executors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_executors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_executors)
         """
     def list_named_queries(
@@ -511,7 +510,7 @@ class AthenaClient(BaseClient):
         Provides a list of available query IDs only for queries saved in the specified
         workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_named_queries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_named_queries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_named_queries)
         """
     def list_notebook_metadata(
@@ -525,7 +524,7 @@ class AthenaClient(BaseClient):
         """
         Displays the notebook files for the specified workgroup in paginated format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_notebook_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_notebook_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_notebook_metadata)
         """
     def list_notebook_sessions(
@@ -533,9 +532,9 @@ class AthenaClient(BaseClient):
     ) -> ListNotebookSessionsResponseTypeDef:
         """
         Lists, in descending order, the sessions that have been created in a notebook
-        that are in an active state like `CREATING` , `CREATED` , `IDLE` or `BUSY`.
+        that are in an active state like `CREATING`, `CREATED`, `IDLE` or `BUSY`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_notebook_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_notebook_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_notebook_sessions)
         """
     def list_prepared_statements(
@@ -544,7 +543,7 @@ class AthenaClient(BaseClient):
         """
         Lists the prepared statements in the specified workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_prepared_statements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_prepared_statements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_prepared_statements)
         """
     def list_query_executions(
@@ -554,7 +553,7 @@ class AthenaClient(BaseClient):
         Provides a list of available query execution IDs for the queries in the
         specified workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_query_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_query_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_query_executions)
         """
     def list_sessions(
@@ -566,10 +565,10 @@ class AthenaClient(BaseClient):
         NextToken: str = None
     ) -> ListSessionsResponseTypeDef:
         """
-        Lists the sessions in a workgroup that are in an active state like `CREATING` ,
-        `CREATED` , `IDLE` , or `BUSY`.
+        Lists the sessions in a workgroup that are in an active state like `CREATING`,
+        `CREATED`, `IDLE`, or `BUSY`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_sessions)
         """
     def list_table_metadata(
@@ -584,7 +583,7 @@ class AthenaClient(BaseClient):
         """
         Lists the metadata for the tables in the specified data catalog database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_table_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_table_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_table_metadata)
         """
     def list_tags_for_resource(
@@ -593,7 +592,7 @@ class AthenaClient(BaseClient):
         """
         Lists the tags associated with an Athena workgroup or data catalog resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_tags_for_resource)
         """
     def list_work_groups(
@@ -602,7 +601,7 @@ class AthenaClient(BaseClient):
         """
         Lists available workgroups for the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.list_work_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.list_work_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#list_work_groups)
         """
     def start_calculation_execution(
@@ -617,7 +616,7 @@ class AthenaClient(BaseClient):
         """
         Submits calculations for execution within a session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.start_calculation_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.start_calculation_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#start_calculation_execution)
         """
     def start_query_execution(
@@ -634,7 +633,7 @@ class AthenaClient(BaseClient):
         """
         Runs the SQL query statements contained in the `Query`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.start_query_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.start_query_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#start_query_execution)
         """
     def start_session(
@@ -650,7 +649,7 @@ class AthenaClient(BaseClient):
         """
         Creates a session for running calculations within a workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.start_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.start_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#start_session)
         """
     def stop_calculation_execution(
@@ -659,35 +658,35 @@ class AthenaClient(BaseClient):
         """
         Requests the cancellation of a calculation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.stop_calculation_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.stop_calculation_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#stop_calculation_execution)
         """
     def stop_query_execution(self, *, QueryExecutionId: str) -> Dict[str, Any]:
         """
         Stops a query execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.stop_query_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.stop_query_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#stop_query_execution)
         """
     def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds one or more tags to an Athena resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#tag_resource)
         """
     def terminate_session(self, *, SessionId: str) -> TerminateSessionResponseTypeDef:
         """
         Terminates an active session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.terminate_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.terminate_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#terminate_session)
         """
     def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes one or more tags from a data catalog or workgroup resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#untag_resource)
         """
     def update_data_catalog(
@@ -701,7 +700,7 @@ class AthenaClient(BaseClient):
         """
         Updates the data catalog that has the specified name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.update_data_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.update_data_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#update_data_catalog)
         """
     def update_named_query(
@@ -710,7 +709,7 @@ class AthenaClient(BaseClient):
         """
         Updates a  NamedQuery object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.update_named_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.update_named_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#update_named_query)
         """
     def update_notebook(
@@ -725,7 +724,7 @@ class AthenaClient(BaseClient):
         """
         Updates the contents of a Spark notebook.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.update_notebook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.update_notebook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#update_notebook)
         """
     def update_notebook_metadata(
@@ -734,7 +733,7 @@ class AthenaClient(BaseClient):
         """
         Updates the metadata for a notebook.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.update_notebook_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.update_notebook_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#update_notebook_metadata)
         """
     def update_prepared_statement(
@@ -743,7 +742,7 @@ class AthenaClient(BaseClient):
         """
         Updates a prepared statement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.update_prepared_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.update_prepared_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#update_prepared_statement)
         """
     def update_work_group(
@@ -757,7 +756,7 @@ class AthenaClient(BaseClient):
         """
         Updates the workgroup with the specified name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Client.update_work_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Client.update_work_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/client.html#update_work_group)
         """
     @overload
@@ -765,7 +764,7 @@ class AthenaClient(BaseClient):
         self, operation_name: Literal["get_query_results"]
     ) -> GetQueryResultsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Paginator.GetQueryResults)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Paginator.GetQueryResults)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#getqueryresultspaginator)
         """
     @overload
@@ -773,13 +772,13 @@ class AthenaClient(BaseClient):
         self, operation_name: Literal["list_data_catalogs"]
     ) -> ListDataCatalogsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Paginator.ListDataCatalogs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Paginator.ListDataCatalogs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listdatacatalogspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_databases"]) -> ListDatabasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Paginator.ListDatabases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Paginator.ListDatabases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listdatabasespaginator)
         """
     @overload
@@ -787,7 +786,7 @@ class AthenaClient(BaseClient):
         self, operation_name: Literal["list_named_queries"]
     ) -> ListNamedQueriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Paginator.ListNamedQueries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Paginator.ListNamedQueries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listnamedqueriespaginator)
         """
     @overload
@@ -795,7 +794,7 @@ class AthenaClient(BaseClient):
         self, operation_name: Literal["list_query_executions"]
     ) -> ListQueryExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Paginator.ListQueryExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Paginator.ListQueryExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listqueryexecutionspaginator)
         """
     @overload
@@ -803,7 +802,7 @@ class AthenaClient(BaseClient):
         self, operation_name: Literal["list_table_metadata"]
     ) -> ListTableMetadataPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Paginator.ListTableMetadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Paginator.ListTableMetadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listtablemetadatapaginator)
         """
     @overload
@@ -811,6 +810,6 @@ class AthenaClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/athena.html#Athena.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/athena.html#Athena.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listtagsforresourcepaginator)
         """

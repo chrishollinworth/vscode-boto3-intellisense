@@ -33,6 +33,7 @@ from .literals import (
     ItemSelectionType,
     MethodType,
     MinimumProtocolVersionType,
+    OriginAccessControlOriginTypesType,
     OriginAccessControlSigningBehaviorsType,
     OriginProtocolPolicyType,
     OriginRequestPolicyCookieBehaviorType,
@@ -3329,7 +3330,7 @@ _RequiredOriginAccessControlConfigTypeDef = TypedDict(
         "Name": str,
         "SigningProtocol": Literal["sigv4"],
         "SigningBehavior": OriginAccessControlSigningBehaviorsType,
-        "OriginAccessControlOriginType": Literal["s3"],
+        "OriginAccessControlOriginType": OriginAccessControlOriginTypesType,
     },
 )
 _OptionalOriginAccessControlConfigTypeDef = TypedDict(
@@ -3376,7 +3377,7 @@ OriginAccessControlSummaryTypeDef = TypedDict(
         "Name": str,
         "SigningProtocol": Literal["sigv4"],
         "SigningBehavior": OriginAccessControlSigningBehaviorsType,
-        "OriginAccessControlOriginType": Literal["s3"],
+        "OriginAccessControlOriginType": OriginAccessControlOriginTypesType,
     },
 )
 

@@ -28,9 +28,11 @@ from .literals import (
     ArtifactSourceIdTypeType,
     AssemblyTypeType,
     AssociationEdgeTypeType,
+    AsyncNotificationTopicTypesType,
     AthenaResultCompressionTypeType,
     AthenaResultFormatType,
     AuthModeType,
+    AutoMLAlgorithmType,
     AutoMLChannelTypeType,
     AutoMLJobObjectiveTypeType,
     AutoMLJobSecondaryStatusType,
@@ -38,6 +40,7 @@ from .literals import (
     AutoMLMetricEnumType,
     AutoMLMetricExtendedEnumType,
     AutoMLModeType,
+    AutoMLProcessingUnitType,
     AutoMLS3DataTypeType,
     AutoMLSortByType,
     AutoMLSortOrderType,
@@ -56,6 +59,7 @@ from .literals import (
     CodeRepositorySortByType,
     CodeRepositorySortOrderType,
     CompilationJobStatusType,
+    CompleteOnConvergenceType,
     CompressionTypeType,
     ConditionOutcomeType,
     ContainerModeType,
@@ -222,6 +226,7 @@ from .literals import (
     TrainingJobEarlyStoppingTypeType,
     TrainingJobSortByOptionsType,
     TrainingJobStatusType,
+    TrainingRepositoryAccessModeType,
     TransformInstanceTypeType,
     TransformJobStatusType,
     TrialComponentPrimaryStatusType,
@@ -274,6 +279,7 @@ __all__ = (
     "AsyncInferenceNotificationConfigTypeDef",
     "AsyncInferenceOutputConfigTypeDef",
     "AthenaDatasetDefinitionTypeDef",
+    "AutoMLAlgorithmConfigTypeDef",
     "AutoMLCandidateGenerationConfigTypeDef",
     "AutoMLCandidateStepTypeDef",
     "AutoMLCandidateTypeDef",
@@ -282,6 +288,7 @@ __all__ = (
     "AutoMLDataSourceTypeDef",
     "AutoMLDataSplitConfigTypeDef",
     "AutoMLJobArtifactsTypeDef",
+    "AutoMLJobChannelTypeDef",
     "AutoMLJobCompletionCriteriaTypeDef",
     "AutoMLJobConfigTypeDef",
     "AutoMLJobObjectiveTypeDef",
@@ -289,6 +296,7 @@ __all__ = (
     "AutoMLJobSummaryTypeDef",
     "AutoMLOutputDataConfigTypeDef",
     "AutoMLPartialFailureReasonTypeDef",
+    "AutoMLProblemTypeConfigTypeDef",
     "AutoMLS3DataSourceTypeDef",
     "AutoMLSecurityConfigTypeDef",
     "AutoRollbackConfigTypeDef",
@@ -298,6 +306,7 @@ __all__ = (
     "BatchDescribeModelPackageOutputTypeDef",
     "BatchDescribeModelPackageSummaryTypeDef",
     "BatchTransformInputTypeDef",
+    "BestObjectiveNotImprovingTypeDef",
     "BiasTypeDef",
     "BlueGreenUpdatePolicyTypeDef",
     "CacheHitResultTypeDef",
@@ -332,6 +341,7 @@ __all__ = (
     "ContextSummaryTypeDef",
     "ContinuousParameterRangeSpecificationTypeDef",
     "ContinuousParameterRangeTypeDef",
+    "ConvergenceDetectedTypeDef",
     "CreateActionRequestRequestTypeDef",
     "CreateActionResponseTypeDef",
     "CreateAlgorithmInputRequestTypeDef",
@@ -344,6 +354,8 @@ __all__ = (
     "CreateArtifactResponseTypeDef",
     "CreateAutoMLJobRequestRequestTypeDef",
     "CreateAutoMLJobResponseTypeDef",
+    "CreateAutoMLJobV2RequestRequestTypeDef",
+    "CreateAutoMLJobV2ResponseTypeDef",
     "CreateCodeRepositoryInputRequestTypeDef",
     "CreateCodeRepositoryOutputTypeDef",
     "CreateCompilationJobRequestRequestTypeDef",
@@ -521,6 +533,8 @@ __all__ = (
     "DescribeArtifactResponseTypeDef",
     "DescribeAutoMLJobRequestRequestTypeDef",
     "DescribeAutoMLJobResponseTypeDef",
+    "DescribeAutoMLJobV2RequestRequestTypeDef",
+    "DescribeAutoMLJobV2ResponseTypeDef",
     "DescribeCodeRepositoryInputRequestTypeDef",
     "DescribeCodeRepositoryOutputTypeDef",
     "DescribeCompilationJobRequestRequestTypeDef",
@@ -709,7 +723,9 @@ __all__ = (
     "HyperParameterTrainingJobDefinitionTypeDef",
     "HyperParameterTrainingJobSummaryTypeDef",
     "HyperParameterTuningInstanceConfigTypeDef",
+    "HyperParameterTuningJobCompletionDetailsTypeDef",
     "HyperParameterTuningJobConfigTypeDef",
+    "HyperParameterTuningJobConsumedResourcesTypeDef",
     "HyperParameterTuningJobObjectiveTypeDef",
     "HyperParameterTuningJobSearchEntityTypeDef",
     "HyperParameterTuningJobStrategyConfigTypeDef",
@@ -717,6 +733,8 @@ __all__ = (
     "HyperParameterTuningJobWarmStartConfigTypeDef",
     "HyperParameterTuningResourceConfigTypeDef",
     "HyperbandStrategyConfigTypeDef",
+    "IamIdentityTypeDef",
+    "ImageClassificationJobConfigTypeDef",
     "ImageConfigTypeDef",
     "ImageTypeDef",
     "ImageVersionTypeDef",
@@ -950,6 +968,7 @@ __all__ = (
     "ModelQualityBaselineConfigTypeDef",
     "ModelQualityJobInputTypeDef",
     "ModelQualityTypeDef",
+    "ModelRegisterSettingsTypeDef",
     "ModelStepMetadataTypeDef",
     "ModelSummaryTypeDef",
     "ModelTypeDef",
@@ -1138,14 +1157,17 @@ __all__ = (
     "TargetPlatformTypeDef",
     "TensorBoardAppSettingsTypeDef",
     "TensorBoardOutputConfigTypeDef",
+    "TextClassificationJobConfigTypeDef",
     "TimeSeriesForecastingSettingsTypeDef",
     "TrafficPatternTypeDef",
     "TrafficRoutingConfigTypeDef",
+    "TrainingImageConfigTypeDef",
     "TrainingJobDefinitionTypeDef",
     "TrainingJobStatusCountersTypeDef",
     "TrainingJobStepMetadataTypeDef",
     "TrainingJobSummaryTypeDef",
     "TrainingJobTypeDef",
+    "TrainingRepositoryAuthConfigTypeDef",
     "TrainingSpecificationTypeDef",
     "TransformDataSourceTypeDef",
     "TransformInputTypeDef",
@@ -1382,6 +1404,7 @@ _OptionalAlgorithmSpecificationTypeDef = TypedDict(
         "EnableSageMakerMetricsTimeSeries": bool,
         "ContainerEntrypoint": List[str],
         "ContainerArguments": List[str],
+        "TrainingImageConfig": "TrainingImageConfigTypeDef",
     },
     total=False,
 )
@@ -1622,29 +1645,21 @@ AsyncInferenceNotificationConfigTypeDef = TypedDict(
     {
         "SuccessTopic": str,
         "ErrorTopic": str,
+        "IncludeInferenceResponseIn": List[AsyncNotificationTopicTypesType],
     },
     total=False,
 )
 
-_RequiredAsyncInferenceOutputConfigTypeDef = TypedDict(
-    "_RequiredAsyncInferenceOutputConfigTypeDef",
-    {
-        "S3OutputPath": str,
-    },
-)
-_OptionalAsyncInferenceOutputConfigTypeDef = TypedDict(
-    "_OptionalAsyncInferenceOutputConfigTypeDef",
+AsyncInferenceOutputConfigTypeDef = TypedDict(
+    "AsyncInferenceOutputConfigTypeDef",
     {
         "KmsKeyId": str,
+        "S3OutputPath": str,
         "NotificationConfig": "AsyncInferenceNotificationConfigTypeDef",
+        "S3FailurePath": str,
     },
     total=False,
 )
-
-class AsyncInferenceOutputConfigTypeDef(
-    _RequiredAsyncInferenceOutputConfigTypeDef, _OptionalAsyncInferenceOutputConfigTypeDef
-):
-    pass
 
 _RequiredAthenaDatasetDefinitionTypeDef = TypedDict(
     "_RequiredAthenaDatasetDefinitionTypeDef",
@@ -1671,10 +1686,18 @@ class AthenaDatasetDefinitionTypeDef(
 ):
     pass
 
+AutoMLAlgorithmConfigTypeDef = TypedDict(
+    "AutoMLAlgorithmConfigTypeDef",
+    {
+        "AutoMLAlgorithms": List[AutoMLAlgorithmType],
+    },
+)
+
 AutoMLCandidateGenerationConfigTypeDef = TypedDict(
     "AutoMLCandidateGenerationConfigTypeDef",
     {
         "FeatureSpecificationS3Uri": str,
+        "AlgorithmsConfig": List["AutoMLAlgorithmConfigTypeDef"],
     },
     total=False,
 )
@@ -1707,6 +1730,9 @@ _OptionalAutoMLCandidateTypeDef = TypedDict(
         "EndTime": datetime,
         "FailureReason": str,
         "CandidateProperties": "CandidatePropertiesTypeDef",
+        "InferenceContainerDefinitions": Dict[
+            AutoMLProcessingUnitType, List["AutoMLContainerDefinitionTypeDef"]
+        ],
     },
     total=False,
 )
@@ -1774,6 +1800,17 @@ AutoMLJobArtifactsTypeDef = TypedDict(
     {
         "CandidateDefinitionNotebookLocation": str,
         "DataExplorationNotebookLocation": str,
+    },
+    total=False,
+)
+
+AutoMLJobChannelTypeDef = TypedDict(
+    "AutoMLJobChannelTypeDef",
+    {
+        "ChannelType": AutoMLChannelTypeType,
+        "ContentType": str,
+        "CompressionType": CompressionTypeType,
+        "DataSource": "AutoMLDataSourceTypeDef",
     },
     total=False,
 )
@@ -1862,6 +1899,15 @@ AutoMLPartialFailureReasonTypeDef = TypedDict(
     "AutoMLPartialFailureReasonTypeDef",
     {
         "PartialFailureMessage": str,
+    },
+    total=False,
+)
+
+AutoMLProblemTypeConfigTypeDef = TypedDict(
+    "AutoMLProblemTypeConfigTypeDef",
+    {
+        "ImageClassificationJobConfig": "ImageClassificationJobConfigTypeDef",
+        "TextClassificationJobConfig": "TextClassificationJobConfigTypeDef",
     },
     total=False,
 )
@@ -1990,6 +2036,14 @@ class BatchTransformInputTypeDef(
 ):
     pass
 
+BestObjectiveNotImprovingTypeDef = TypedDict(
+    "BestObjectiveNotImprovingTypeDef",
+    {
+        "MaxNumberOfTrainingJobsNotImproving": int,
+    },
+    total=False,
+)
+
 BiasTypeDef = TypedDict(
     "BiasTypeDef",
     {
@@ -2070,6 +2124,7 @@ CanvasAppSettingsTypeDef = TypedDict(
     "CanvasAppSettingsTypeDef",
     {
         "TimeSeriesForecastingSettings": "TimeSeriesForecastingSettingsTypeDef",
+        "ModelRegisterSettings": "ModelRegisterSettingsTypeDef",
     },
     total=False,
 )
@@ -2443,6 +2498,14 @@ class ContinuousParameterRangeTypeDef(
 ):
     pass
 
+ConvergenceDetectedTypeDef = TypedDict(
+    "ConvergenceDetectedTypeDef",
+    {
+        "CompleteOnConvergence": CompleteOnConvergenceType,
+    },
+    total=False,
+)
+
 _RequiredCreateActionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateActionRequestRequestTypeDef",
     {
@@ -2629,6 +2692,41 @@ class CreateAutoMLJobRequestRequestTypeDef(
 
 CreateAutoMLJobResponseTypeDef = TypedDict(
     "CreateAutoMLJobResponseTypeDef",
+    {
+        "AutoMLJobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAutoMLJobV2RequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAutoMLJobV2RequestRequestTypeDef",
+    {
+        "AutoMLJobName": str,
+        "AutoMLJobInputDataConfig": List["AutoMLJobChannelTypeDef"],
+        "OutputDataConfig": "AutoMLOutputDataConfigTypeDef",
+        "AutoMLProblemTypeConfig": "AutoMLProblemTypeConfigTypeDef",
+        "RoleArn": str,
+    },
+)
+_OptionalCreateAutoMLJobV2RequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAutoMLJobV2RequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "SecurityConfig": "AutoMLSecurityConfigTypeDef",
+        "AutoMLJobObjective": "AutoMLJobObjectiveTypeDef",
+        "ModelDeployConfig": "ModelDeployConfigTypeDef",
+        "DataSplitConfig": "AutoMLDataSplitConfigTypeDef",
+    },
+    total=False,
+)
+
+class CreateAutoMLJobV2RequestRequestTypeDef(
+    _RequiredCreateAutoMLJobV2RequestRequestTypeDef, _OptionalCreateAutoMLJobV2RequestRequestTypeDef
+):
+    pass
+
+CreateAutoMLJobV2ResponseTypeDef = TypedDict(
+    "CreateAutoMLJobV2ResponseTypeDef",
     {
         "AutoMLJobArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -5028,6 +5126,39 @@ DescribeAutoMLJobResponseTypeDef = TypedDict(
     },
 )
 
+DescribeAutoMLJobV2RequestRequestTypeDef = TypedDict(
+    "DescribeAutoMLJobV2RequestRequestTypeDef",
+    {
+        "AutoMLJobName": str,
+    },
+)
+
+DescribeAutoMLJobV2ResponseTypeDef = TypedDict(
+    "DescribeAutoMLJobV2ResponseTypeDef",
+    {
+        "AutoMLJobName": str,
+        "AutoMLJobArn": str,
+        "AutoMLJobInputDataConfig": List["AutoMLJobChannelTypeDef"],
+        "OutputDataConfig": "AutoMLOutputDataConfigTypeDef",
+        "RoleArn": str,
+        "AutoMLJobObjective": "AutoMLJobObjectiveTypeDef",
+        "AutoMLProblemTypeConfig": "AutoMLProblemTypeConfigTypeDef",
+        "CreationTime": datetime,
+        "EndTime": datetime,
+        "LastModifiedTime": datetime,
+        "FailureReason": str,
+        "PartialFailureReasons": List["AutoMLPartialFailureReasonTypeDef"],
+        "BestCandidate": "AutoMLCandidateTypeDef",
+        "AutoMLJobStatus": AutoMLJobStatusType,
+        "AutoMLJobSecondaryStatus": AutoMLJobSecondaryStatusType,
+        "ModelDeployConfig": "ModelDeployConfigTypeDef",
+        "ModelDeployResult": "ModelDeployResultTypeDef",
+        "DataSplitConfig": "AutoMLDataSplitConfigTypeDef",
+        "SecurityConfig": "AutoMLSecurityConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeCodeRepositoryInputRequestTypeDef = TypedDict(
     "DescribeCodeRepositoryInputRequestTypeDef",
     {
@@ -5569,6 +5700,8 @@ DescribeHyperParameterTuningJobResponseTypeDef = TypedDict(
         "OverallBestTrainingJob": "HyperParameterTrainingJobSummaryTypeDef",
         "WarmStartConfig": "HyperParameterTuningJobWarmStartConfigTypeDef",
         "FailureReason": str,
+        "TuningJobCompletionDetails": "HyperParameterTuningJobCompletionDetailsTypeDef",
+        "ConsumedResources": "HyperParameterTuningJobConsumedResourcesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7249,6 +7382,7 @@ _OptionalFinalAutoMLJobObjectiveMetricTypeDef = TypedDict(
     "_OptionalFinalAutoMLJobObjectiveMetricTypeDef",
     {
         "Type": AutoMLJobObjectiveTypeType,
+        "StandardMetricName": AutoMLMetricEnumType,
     },
     total=False,
 )
@@ -7652,6 +7786,7 @@ _OptionalHyperParameterTrainingJobDefinitionTypeDef = TypedDict(
         "CheckpointConfig": "CheckpointConfigTypeDef",
         "RetryStrategy": "RetryStrategyTypeDef",
         "HyperParameterTuningResourceConfig": "HyperParameterTuningResourceConfigTypeDef",
+        "Environment": Dict[str, str],
     },
     total=False,
 )
@@ -7701,6 +7836,15 @@ HyperParameterTuningInstanceConfigTypeDef = TypedDict(
     },
 )
 
+HyperParameterTuningJobCompletionDetailsTypeDef = TypedDict(
+    "HyperParameterTuningJobCompletionDetailsTypeDef",
+    {
+        "NumberOfTrainingJobsObjectiveNotImproving": int,
+        "ConvergenceDetectedTime": datetime,
+    },
+    total=False,
+)
+
 _RequiredHyperParameterTuningJobConfigTypeDef = TypedDict(
     "_RequiredHyperParameterTuningJobConfigTypeDef",
     {
@@ -7725,6 +7869,14 @@ class HyperParameterTuningJobConfigTypeDef(
     _RequiredHyperParameterTuningJobConfigTypeDef, _OptionalHyperParameterTuningJobConfigTypeDef
 ):
     pass
+
+HyperParameterTuningJobConsumedResourcesTypeDef = TypedDict(
+    "HyperParameterTuningJobConsumedResourcesTypeDef",
+    {
+        "RuntimeInSeconds": int,
+    },
+    total=False,
+)
 
 HyperParameterTuningJobObjectiveTypeDef = TypedDict(
     "HyperParameterTuningJobObjectiveTypeDef",
@@ -7753,6 +7905,8 @@ HyperParameterTuningJobSearchEntityTypeDef = TypedDict(
         "WarmStartConfig": "HyperParameterTuningJobWarmStartConfigTypeDef",
         "FailureReason": str,
         "Tags": List["TagTypeDef"],
+        "TuningJobCompletionDetails": "HyperParameterTuningJobCompletionDetailsTypeDef",
+        "ConsumedResources": "HyperParameterTuningJobConsumedResourcesTypeDef",
     },
     total=False,
 )
@@ -7818,6 +7972,24 @@ HyperbandStrategyConfigTypeDef = TypedDict(
     {
         "MinResource": int,
         "MaxResource": int,
+    },
+    total=False,
+)
+
+IamIdentityTypeDef = TypedDict(
+    "IamIdentityTypeDef",
+    {
+        "Arn": str,
+        "PrincipalId": str,
+        "SourceIdentity": str,
+    },
+    total=False,
+)
+
+ImageClassificationJobConfigTypeDef = TypedDict(
+    "ImageClassificationJobConfigTypeDef",
+    {
+        "CompletionCriteria": "AutoMLJobCompletionCriteriaTypeDef",
     },
     total=False,
 )
@@ -7993,14 +8165,26 @@ InferenceMetricsTypeDef = TypedDict(
     },
 )
 
-InferenceRecommendationTypeDef = TypedDict(
-    "InferenceRecommendationTypeDef",
+_RequiredInferenceRecommendationTypeDef = TypedDict(
+    "_RequiredInferenceRecommendationTypeDef",
     {
         "Metrics": "RecommendationMetricsTypeDef",
         "EndpointConfiguration": "EndpointOutputConfigurationTypeDef",
         "ModelConfiguration": "ModelConfigurationTypeDef",
     },
 )
+_OptionalInferenceRecommendationTypeDef = TypedDict(
+    "_OptionalInferenceRecommendationTypeDef",
+    {
+        "RecommendationId": str,
+    },
+    total=False,
+)
+
+class InferenceRecommendationTypeDef(
+    _RequiredInferenceRecommendationTypeDef, _OptionalInferenceRecommendationTypeDef
+):
+    pass
 
 _RequiredInferenceRecommendationsJobStepTypeDef = TypedDict(
     "_RequiredInferenceRecommendationsJobStepTypeDef",
@@ -10520,6 +10704,7 @@ ModelConfigurationTypeDef = TypedDict(
     {
         "InferenceSpecificationName": str,
         "EnvironmentParameters": List["EnvironmentParameterTypeDef"],
+        "CompilationJobName": str,
     },
     total=False,
 )
@@ -10963,6 +11148,15 @@ ModelQualityTypeDef = TypedDict(
     {
         "Statistics": "MetricsSourceTypeDef",
         "Constraints": "MetricsSourceTypeDef",
+    },
+    total=False,
+)
+
+ModelRegisterSettingsTypeDef = TypedDict(
+    "ModelRegisterSettingsTypeDef",
+    {
+        "Status": FeatureStatusType,
+        "CrossAccountModelRegisterRoleArn": str,
     },
     total=False,
 )
@@ -12137,6 +12331,7 @@ _OptionalProductionVariantTypeDef = TypedDict(
         "VolumeSizeInGB": int,
         "ModelDataDownloadTimeoutInSeconds": int,
         "ContainerStartupHealthCheckTimeoutInSeconds": int,
+        "EnableSSMAccess": bool,
     },
     total=False,
 )
@@ -12434,6 +12629,7 @@ RecommendationJobContainerConfigTypeDef = TypedDict(
         "PayloadConfig": "RecommendationJobPayloadConfigTypeDef",
         "NearestModelName": str,
         "SupportedInstanceTypes": List[str],
+        "DataInputConfig": str,
     },
     total=False,
 )
@@ -12450,6 +12646,7 @@ _OptionalRecommendationJobInferenceBenchmarkTypeDef = TypedDict(
         "Metrics": "RecommendationMetricsTypeDef",
         "EndpointConfiguration": "EndpointOutputConfigurationTypeDef",
         "FailureReason": str,
+        "EndpointMetrics": "InferenceMetricsTypeDef",
     },
     total=False,
 )
@@ -12460,15 +12657,10 @@ class RecommendationJobInferenceBenchmarkTypeDef(
 ):
     pass
 
-_RequiredRecommendationJobInputConfigTypeDef = TypedDict(
-    "_RequiredRecommendationJobInputConfigTypeDef",
+RecommendationJobInputConfigTypeDef = TypedDict(
+    "RecommendationJobInputConfigTypeDef",
     {
         "ModelPackageVersionArn": str,
-    },
-)
-_OptionalRecommendationJobInputConfigTypeDef = TypedDict(
-    "_OptionalRecommendationJobInputConfigTypeDef",
-    {
         "JobDurationInSeconds": int,
         "TrafficPattern": "TrafficPatternTypeDef",
         "ResourceLimit": "RecommendationJobResourceLimitTypeDef",
@@ -12477,14 +12669,10 @@ _OptionalRecommendationJobInputConfigTypeDef = TypedDict(
         "ContainerConfig": "RecommendationJobContainerConfigTypeDef",
         "Endpoints": List["EndpointInfoTypeDef"],
         "VpcConfig": "RecommendationJobVpcConfigTypeDef",
+        "ModelName": str,
     },
     total=False,
 )
-
-class RecommendationJobInputConfigTypeDef(
-    _RequiredRecommendationJobInputConfigTypeDef, _OptionalRecommendationJobInputConfigTypeDef
-):
-    pass
 
 RecommendationJobOutputConfigTypeDef = TypedDict(
     "RecommendationJobOutputConfigTypeDef",
@@ -12530,8 +12718,8 @@ RecommendationJobVpcConfigTypeDef = TypedDict(
     },
 )
 
-RecommendationMetricsTypeDef = TypedDict(
-    "RecommendationMetricsTypeDef",
+_RequiredRecommendationMetricsTypeDef = TypedDict(
+    "_RequiredRecommendationMetricsTypeDef",
     {
         "CostPerHour": float,
         "CostPerInference": float,
@@ -12539,6 +12727,19 @@ RecommendationMetricsTypeDef = TypedDict(
         "ModelLatency": int,
     },
 )
+_OptionalRecommendationMetricsTypeDef = TypedDict(
+    "_OptionalRecommendationMetricsTypeDef",
+    {
+        "CpuUtilization": float,
+        "MemoryUtilization": float,
+    },
+    total=False,
+)
+
+class RecommendationMetricsTypeDef(
+    _RequiredRecommendationMetricsTypeDef, _OptionalRecommendationMetricsTypeDef
+):
+    pass
 
 _RequiredRedshiftDatasetDefinitionTypeDef = TypedDict(
     "_RequiredRedshiftDatasetDefinitionTypeDef",
@@ -12694,6 +12895,7 @@ _OptionalResourceLimitsTypeDef = TypedDict(
     "_OptionalResourceLimitsTypeDef",
     {
         "MaxNumberOfTrainingJobs": int,
+        "MaxRuntimeInSeconds": int,
     },
     total=False,
 )
@@ -13386,6 +13588,16 @@ class TensorBoardOutputConfigTypeDef(
 ):
     pass
 
+TextClassificationJobConfigTypeDef = TypedDict(
+    "TextClassificationJobConfigTypeDef",
+    {
+        "CompletionCriteria": "AutoMLJobCompletionCriteriaTypeDef",
+        "ContentColumn": str,
+        "TargetLabelColumn": str,
+    },
+    total=False,
+)
+
 TimeSeriesForecastingSettingsTypeDef = TypedDict(
     "TimeSeriesForecastingSettingsTypeDef",
     {
@@ -13422,6 +13634,25 @@ _OptionalTrafficRoutingConfigTypeDef = TypedDict(
 
 class TrafficRoutingConfigTypeDef(
     _RequiredTrafficRoutingConfigTypeDef, _OptionalTrafficRoutingConfigTypeDef
+):
+    pass
+
+_RequiredTrainingImageConfigTypeDef = TypedDict(
+    "_RequiredTrainingImageConfigTypeDef",
+    {
+        "TrainingRepositoryAccessMode": TrainingRepositoryAccessModeType,
+    },
+)
+_OptionalTrainingImageConfigTypeDef = TypedDict(
+    "_OptionalTrainingImageConfigTypeDef",
+    {
+        "TrainingRepositoryAuthConfig": "TrainingRepositoryAuthConfigTypeDef",
+    },
+    total=False,
+)
+
+class TrainingImageConfigTypeDef(
+    _RequiredTrainingImageConfigTypeDef, _OptionalTrainingImageConfigTypeDef
 ):
     pass
 
@@ -13534,6 +13765,13 @@ TrainingJobTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
     },
     total=False,
+)
+
+TrainingRepositoryAuthConfigTypeDef = TypedDict(
+    "TrainingRepositoryAuthConfigTypeDef",
+    {
+        "TrainingRepositoryCredentialsProviderArn": str,
+    },
 )
 
 _RequiredTrainingSpecificationTypeDef = TypedDict(
@@ -13912,7 +14150,10 @@ TuningJobCompletionCriteriaTypeDef = TypedDict(
     "TuningJobCompletionCriteriaTypeDef",
     {
         "TargetObjectiveMetricValue": float,
+        "BestObjectiveNotImproving": "BestObjectiveNotImprovingTypeDef",
+        "ConvergenceDetected": "ConvergenceDetectedTypeDef",
     },
+    total=False,
 )
 
 TuningJobStepMetaDataTypeDef = TypedDict(
@@ -14870,6 +15111,7 @@ UserContextTypeDef = TypedDict(
         "UserProfileArn": str,
         "UserProfileName": str,
         "DomainId": str,
+        "IamIdentity": "IamIdentityTypeDef",
     },
     total=False,
 )

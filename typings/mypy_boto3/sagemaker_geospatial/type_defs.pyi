@@ -13,7 +13,7 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 from botocore.response import StreamingBody
 
@@ -129,6 +129,7 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TemporalStatisticsConfigInputTypeDef",
     "TimeRangeFilterInputTypeDef",
+    "TimeRangeFilterOutputTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UserDefinedTypeDef",
     "VectorEnrichmentJobConfigTypeDef",
@@ -245,6 +246,7 @@ _RequiredExportEarthObservationJobInputRequestTypeDef = TypedDict(
 _OptionalExportEarthObservationJobInputRequestTypeDef = TypedDict(
     "_OptionalExportEarthObservationJobInputRequestTypeDef",
     {
+        "ClientToken": str,
         "ExportSourceImages": bool,
     },
     total=False,
@@ -306,14 +308,27 @@ class ExportS3DataInputTypeDef(
 ):
     pass
 
-ExportVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "ExportVectorEnrichmentJobInputRequestTypeDef",
+_RequiredExportVectorEnrichmentJobInputRequestTypeDef = TypedDict(
+    "_RequiredExportVectorEnrichmentJobInputRequestTypeDef",
     {
         "Arn": str,
         "ExecutionRoleArn": str,
         "OutputConfig": "ExportVectorEnrichmentJobOutputConfigTypeDef",
     },
 )
+_OptionalExportVectorEnrichmentJobInputRequestTypeDef = TypedDict(
+    "_OptionalExportVectorEnrichmentJobInputRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ExportVectorEnrichmentJobInputRequestTypeDef(
+    _RequiredExportVectorEnrichmentJobInputRequestTypeDef,
+    _OptionalExportVectorEnrichmentJobInputRequestTypeDef,
+):
+    pass
 
 ExportVectorEnrichmentJobOutputConfigTypeDef = TypedDict(
     "ExportVectorEnrichmentJobOutputConfigTypeDef",
@@ -434,6 +449,7 @@ _RequiredGetTileInputRequestTypeDef = TypedDict(
 _OptionalGetTileInputRequestTypeDef = TypedDict(
     "_OptionalGetTileInputRequestTypeDef",
     {
+        "ExecutionRoleArn": str,
         "ImageMask": bool,
         "OutputDataType": OutputTypeType,
         "OutputFormat": str,
@@ -865,7 +881,7 @@ _RequiredRasterDataCollectionQueryOutputTypeDef = TypedDict(
     {
         "RasterDataCollectionArn": str,
         "RasterDataCollectionName": str,
-        "TimeRangeFilter": "TimeRangeFilterInputTypeDef",
+        "TimeRangeFilter": "TimeRangeFilterOutputTypeDef",
     },
 )
 _OptionalRasterDataCollectionQueryOutputTypeDef = TypedDict(
@@ -1131,6 +1147,14 @@ class TemporalStatisticsConfigInputTypeDef(
 TimeRangeFilterInputTypeDef = TypedDict(
     "TimeRangeFilterInputTypeDef",
     {
+        "EndTime": Union[datetime, str],
+        "StartTime": Union[datetime, str],
+    },
+)
+
+TimeRangeFilterOutputTypeDef = TypedDict(
+    "TimeRangeFilterOutputTypeDef",
+    {
         "EndTime": datetime,
         "StartTime": datetime,
     },
@@ -1249,6 +1273,7 @@ _OptionalZonalStatisticsConfigInputTypeDef = TypedDict(
     "_OptionalZonalStatisticsConfigInputTypeDef",
     {
         "TargetBands": List[str],
+        "ZoneS3PathKmsKeyId": str,
     },
     total=False,
 )

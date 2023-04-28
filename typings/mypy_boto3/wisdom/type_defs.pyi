@@ -122,13 +122,24 @@ __all__ = (
     "UpdateKnowledgeBaseTemplateUriResponseTypeDef",
 )
 
-AppIntegrationsConfigurationTypeDef = TypedDict(
-    "AppIntegrationsConfigurationTypeDef",
+_RequiredAppIntegrationsConfigurationTypeDef = TypedDict(
+    "_RequiredAppIntegrationsConfigurationTypeDef",
     {
         "appIntegrationArn": str,
-        "objectFields": List[str],
     },
 )
+_OptionalAppIntegrationsConfigurationTypeDef = TypedDict(
+    "_OptionalAppIntegrationsConfigurationTypeDef",
+    {
+        "objectFields": List[str],
+    },
+    total=False,
+)
+
+class AppIntegrationsConfigurationTypeDef(
+    _RequiredAppIntegrationsConfigurationTypeDef, _OptionalAppIntegrationsConfigurationTypeDef
+):
+    pass
 
 _RequiredAssistantAssociationDataTypeDef = TypedDict(
     "_RequiredAssistantAssociationDataTypeDef",

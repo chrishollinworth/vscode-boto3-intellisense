@@ -12,7 +12,8 @@ Usage::
     ```
 """
 import sys
-from typing import Any, Dict, List
+from datetime import datetime
+from typing import Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -30,9 +31,14 @@ __all__ = (
     "FilterTypeDef",
     "GetAttributeValuesRequestRequestTypeDef",
     "GetAttributeValuesResponseTypeDef",
+    "GetPriceListFileUrlRequestRequestTypeDef",
+    "GetPriceListFileUrlResponseTypeDef",
     "GetProductsRequestRequestTypeDef",
     "GetProductsResponseTypeDef",
+    "ListPriceListsRequestRequestTypeDef",
+    "ListPriceListsResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PriceListTypeDef",
     "ResponseMetadataTypeDef",
     "ServiceTypeDef",
 )
@@ -106,6 +112,22 @@ GetAttributeValuesResponseTypeDef = TypedDict(
     },
 )
 
+GetPriceListFileUrlRequestRequestTypeDef = TypedDict(
+    "GetPriceListFileUrlRequestRequestTypeDef",
+    {
+        "PriceListArn": str,
+        "FileFormat": str,
+    },
+)
+
+GetPriceListFileUrlResponseTypeDef = TypedDict(
+    "GetPriceListFileUrlResponseTypeDef",
+    {
+        "Url": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetProductsRequestRequestTypeDef = TypedDict(
     "_RequiredGetProductsRequestRequestTypeDef",
     {
@@ -138,12 +160,55 @@ GetProductsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListPriceListsRequestRequestTypeDef = TypedDict(
+    "_RequiredListPriceListsRequestRequestTypeDef",
+    {
+        "ServiceCode": str,
+        "EffectiveDate": Union[datetime, str],
+        "CurrencyCode": str,
+    },
+)
+_OptionalListPriceListsRequestRequestTypeDef = TypedDict(
+    "_OptionalListPriceListsRequestRequestTypeDef",
+    {
+        "RegionCode": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListPriceListsRequestRequestTypeDef(
+    _RequiredListPriceListsRequestRequestTypeDef, _OptionalListPriceListsRequestRequestTypeDef
+):
+    pass
+
+ListPriceListsResponseTypeDef = TypedDict(
+    "ListPriceListsResponseTypeDef",
+    {
+        "PriceLists": List["PriceListTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+PriceListTypeDef = TypedDict(
+    "PriceListTypeDef",
+    {
+        "PriceListArn": str,
+        "RegionCode": str,
+        "CurrencyCode": str,
+        "FileFormats": List[str],
     },
     total=False,
 )

@@ -71,6 +71,7 @@ __all__ = (
     "GetSubscriberResponseTypeDef",
     "LakeConfigurationRequestTypeDef",
     "LakeConfigurationResponseTypeDef",
+    "LastUpdateFailureTypeDef",
     "ListDatalakeExceptionsRequestRequestTypeDef",
     "ListDatalakeExceptionsResponseTypeDef",
     "ListLogSourcesRequestRequestTypeDef",
@@ -87,6 +88,7 @@ __all__ = (
     "UpdateDatalakeExceptionsExpiryRequestRequestTypeDef",
     "UpdateDatalakeExceptionsSubscriptionRequestRequestTypeDef",
     "UpdateDatalakeRequestRequestTypeDef",
+    "UpdateStatusTypeDef",
     "UpdateSubscriberRequestRequestTypeDef",
     "UpdateSubscriberResponseTypeDef",
     "UpdateSubscriptionNotificationConfigurationRequestRequestTypeDef",
@@ -232,6 +234,8 @@ class CreateSubscriberRequestRequestTypeDef(
 CreateSubscriberResponseTypeDef = TypedDict(
     "CreateSubscriberResponseTypeDef",
     {
+        "resourceShareArn": str,
+        "resourceShareName": str,
         "roleArn": str,
         "s3BucketArn": str,
         "snsArn": str,
@@ -461,6 +465,16 @@ LakeConfigurationResponseTypeDef = TypedDict(
         "s3BucketArn": str,
         "status": settingsStatusType,
         "tagsMap": Dict[str, str],
+        "updateStatus": "UpdateStatusTypeDef",
+    },
+    total=False,
+)
+
+LastUpdateFailureTypeDef = TypedDict(
+    "LastUpdateFailureTypeDef",
+    {
+        "code": str,
+        "reason": str,
     },
     total=False,
 )
@@ -594,6 +608,8 @@ _OptionalSubscriberResourceTypeDef = TypedDict(
         "accessTypes": List[AccessTypeType],
         "createdAt": datetime,
         "externalId": str,
+        "resourceShareArn": str,
+        "resourceShareName": str,
         "roleArn": str,
         "s3BucketArn": str,
         "snsArn": str,
@@ -632,6 +648,16 @@ UpdateDatalakeRequestRequestTypeDef = TypedDict(
     {
         "configurations": Dict[RegionType, "LakeConfigurationRequestTypeDef"],
     },
+)
+
+UpdateStatusTypeDef = TypedDict(
+    "UpdateStatusTypeDef",
+    {
+        "lastUpdateFailure": "LastUpdateFailureTypeDef",
+        "lastUpdateRequestId": str,
+        "lastUpdateStatus": settingsStatusType,
+    },
+    total=False,
 )
 
 _RequiredUpdateSubscriberRequestRequestTypeDef = TypedDict(

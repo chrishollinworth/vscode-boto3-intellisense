@@ -19,7 +19,9 @@ from .literals import (
     AccessDirectionType,
     AccessTypeType,
     AccountLevelBpaSyncStatusType,
+    AddOnTypeType,
     AlarmStateType,
+    AutoMountStatusType,
     AutoSnapshotStatusType,
     BehaviorEnumType,
     BlueprintTypeType,
@@ -75,6 +77,7 @@ from .literals import (
     PortAccessTypeType,
     PortInfoSourceTypeType,
     PortStateType,
+    PricingUnitType,
     R53HostedZoneDeletionStateCodeType,
     RecordStateType,
     RegionNameType,
@@ -83,6 +86,7 @@ from .literals import (
     RenewalStatusType,
     ResourceBucketAccessType,
     ResourceTypeType,
+    StatusType,
     StatusTypeType,
     TreatMissingDataType,
 )
@@ -153,6 +157,7 @@ __all__ = (
     "CookieObjectTypeDef",
     "CopySnapshotRequestRequestTypeDef",
     "CopySnapshotResultTypeDef",
+    "CostEstimateTypeDef",
     "CreateBucketAccessKeyRequestRequestTypeDef",
     "CreateBucketAccessKeyResultTypeDef",
     "CreateBucketRequestRequestTypeDef",
@@ -180,6 +185,8 @@ __all__ = (
     "CreateDomainEntryResultTypeDef",
     "CreateDomainRequestRequestTypeDef",
     "CreateDomainResultTypeDef",
+    "CreateGUISessionAccessDetailsRequestRequestTypeDef",
+    "CreateGUISessionAccessDetailsResultTypeDef",
     "CreateInstanceSnapshotRequestRequestTypeDef",
     "CreateInstanceSnapshotResultTypeDef",
     "CreateInstancesFromSnapshotRequestRequestTypeDef",
@@ -263,6 +270,7 @@ __all__ = (
     "EnableAddOnRequestRequestTypeDef",
     "EnableAddOnResultTypeDef",
     "EndpointRequestTypeDef",
+    "EstimateByTimeTypeDef",
     "ExportSnapshotRecordSourceInfoTypeDef",
     "ExportSnapshotRecordTypeDef",
     "ExportSnapshotRequestRequestTypeDef",
@@ -302,6 +310,8 @@ __all__ = (
     "GetContainerServiceMetricDataResultTypeDef",
     "GetContainerServicePowersResultTypeDef",
     "GetContainerServicesRequestRequestTypeDef",
+    "GetCostEstimateRequestRequestTypeDef",
+    "GetCostEstimateResultTypeDef",
     "GetDiskRequestRequestTypeDef",
     "GetDiskResultTypeDef",
     "GetDiskSnapshotRequestRequestTypeDef",
@@ -461,21 +471,28 @@ __all__ = (
     "RenewalSummaryTypeDef",
     "ResetDistributionCacheRequestRequestTypeDef",
     "ResetDistributionCacheResultTypeDef",
+    "ResourceBudgetEstimateTypeDef",
     "ResourceLocationTypeDef",
     "ResourceReceivingAccessTypeDef",
     "ResourceRecordTypeDef",
     "ResponseMetadataTypeDef",
     "SendContactMethodVerificationRequestRequestTypeDef",
     "SendContactMethodVerificationResultTypeDef",
+    "SessionTypeDef",
     "SetIpAddressTypeRequestRequestTypeDef",
     "SetIpAddressTypeResultTypeDef",
     "SetResourceAccessForBucketRequestRequestTypeDef",
     "SetResourceAccessForBucketResultTypeDef",
+    "StartGUISessionRequestRequestTypeDef",
+    "StartGUISessionResultTypeDef",
     "StartInstanceRequestRequestTypeDef",
     "StartInstanceResultTypeDef",
     "StartRelationalDatabaseRequestRequestTypeDef",
     "StartRelationalDatabaseResultTypeDef",
     "StaticIpTypeDef",
+    "StopGUISessionRequestRequestTypeDef",
+    "StopGUISessionResultTypeDef",
+    "StopInstanceOnIdleRequestTypeDef",
     "StopInstanceRequestRequestTypeDef",
     "StopInstanceResultTypeDef",
     "StopRelationalDatabaseRequestRequestTypeDef",
@@ -485,6 +502,7 @@ __all__ = (
     "TagTypeDef",
     "TestAlarmRequestRequestTypeDef",
     "TestAlarmResultTypeDef",
+    "TimePeriodTypeDef",
     "UnpeerVpcResultTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UntagResourceResultTypeDef",
@@ -555,13 +573,14 @@ AccountLevelBpaSyncTypeDef = TypedDict(
 _RequiredAddOnRequestTypeDef = TypedDict(
     "_RequiredAddOnRequestTypeDef",
     {
-        "addOnType": Literal["AutoSnapshot"],
+        "addOnType": AddOnTypeType,
     },
 )
 _OptionalAddOnRequestTypeDef = TypedDict(
     "_OptionalAddOnRequestTypeDef",
     {
         "autoSnapshotAddOnRequest": "AutoSnapshotAddOnRequestTypeDef",
+        "stopInstanceOnIdleRequest": "StopInstanceOnIdleRequestTypeDef",
     },
     total=False,
 )
@@ -576,6 +595,8 @@ AddOnTypeDef = TypedDict(
         "status": str,
         "snapshotTimeOfDay": str,
         "nextSnapshotTimeOfDay": str,
+        "threshold": str,
+        "duration": str,
     },
     total=False,
 )
@@ -638,14 +659,26 @@ AttachCertificateToDistributionResultTypeDef = TypedDict(
     },
 )
 
-AttachDiskRequestRequestTypeDef = TypedDict(
-    "AttachDiskRequestRequestTypeDef",
+_RequiredAttachDiskRequestRequestTypeDef = TypedDict(
+    "_RequiredAttachDiskRequestRequestTypeDef",
     {
         "diskName": str,
         "instanceName": str,
         "diskPath": str,
     },
 )
+_OptionalAttachDiskRequestRequestTypeDef = TypedDict(
+    "_OptionalAttachDiskRequestRequestTypeDef",
+    {
+        "autoMounting": bool,
+    },
+    total=False,
+)
+
+class AttachDiskRequestRequestTypeDef(
+    _RequiredAttachDiskRequestRequestTypeDef, _OptionalAttachDiskRequestRequestTypeDef
+):
+    pass
 
 AttachDiskResultTypeDef = TypedDict(
     "AttachDiskResultTypeDef",
@@ -755,6 +788,7 @@ BlueprintTypeDef = TypedDict(
         "productUrl": str,
         "licenseUrl": str,
         "platform": InstancePlatformType,
+        "appCategory": Literal["LfR"],
     },
     total=False,
 )
@@ -838,6 +872,7 @@ BundleTypeDef = TypedDict(
         "ramSizeInGb": float,
         "transferPerMonthInGb": int,
         "supportedPlatforms": List[InstancePlatformType],
+        "supportedAppCategories": List[Literal["LfR"]],
     },
     total=False,
 )
@@ -1167,6 +1202,15 @@ CopySnapshotResultTypeDef = TypedDict(
         "operations": List["OperationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CostEstimateTypeDef = TypedDict(
+    "CostEstimateTypeDef",
+    {
+        "usageType": str,
+        "resultsByTime": List["EstimateByTimeTypeDef"],
+    },
+    total=False,
 )
 
 CreateBucketAccessKeyRequestRequestTypeDef = TypedDict(
@@ -1515,6 +1559,25 @@ CreateDomainResultTypeDef = TypedDict(
     "CreateDomainResultTypeDef",
     {
         "operation": "OperationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateGUISessionAccessDetailsRequestRequestTypeDef = TypedDict(
+    "CreateGUISessionAccessDetailsRequestRequestTypeDef",
+    {
+        "resourceName": str,
+    },
+)
+
+CreateGUISessionAccessDetailsResultTypeDef = TypedDict(
+    "CreateGUISessionAccessDetailsResultTypeDef",
+    {
+        "resourceName": str,
+        "status": StatusType,
+        "percentageComplete": int,
+        "failureReason": str,
+        "sessions": List["SessionTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2272,7 +2335,7 @@ DetachStaticIpResultTypeDef = TypedDict(
 DisableAddOnRequestRequestTypeDef = TypedDict(
     "DisableAddOnRequestRequestTypeDef",
     {
-        "addOnType": Literal["AutoSnapshot"],
+        "addOnType": AddOnTypeType,
         "resourceName": str,
     },
 )
@@ -2355,6 +2418,7 @@ DiskTypeDef = TypedDict(
         "isAttached": bool,
         "attachmentState": str,
         "gbInUse": int,
+        "autoMountStatus": AutoMountStatusType,
     },
     total=False,
 )
@@ -2464,6 +2528,18 @@ _OptionalEndpointRequestTypeDef = TypedDict(
 class EndpointRequestTypeDef(_RequiredEndpointRequestTypeDef, _OptionalEndpointRequestTypeDef):
     pass
 
+EstimateByTimeTypeDef = TypedDict(
+    "EstimateByTimeTypeDef",
+    {
+        "usageCost": float,
+        "pricingUnit": PricingUnitType,
+        "unit": float,
+        "currency": Literal["USD"],
+        "timePeriod": "TimePeriodTypeDef",
+    },
+    total=False,
+)
+
 ExportSnapshotRecordSourceInfoTypeDef = TypedDict(
     "ExportSnapshotRecordSourceInfoTypeDef",
     {
@@ -2567,6 +2643,7 @@ GetBlueprintsRequestRequestTypeDef = TypedDict(
     {
         "includeInactive": bool,
         "pageToken": str,
+        "appCategory": Literal["LfR"],
     },
     total=False,
 )
@@ -2658,6 +2735,7 @@ GetBundlesRequestRequestTypeDef = TypedDict(
     {
         "includeInactive": bool,
         "pageToken": str,
+        "appCategory": Literal["LfR"],
     },
     total=False,
 )
@@ -2827,6 +2905,23 @@ GetContainerServicesRequestRequestTypeDef = TypedDict(
         "serviceName": str,
     },
     total=False,
+)
+
+GetCostEstimateRequestRequestTypeDef = TypedDict(
+    "GetCostEstimateRequestRequestTypeDef",
+    {
+        "resourceName": str,
+        "startTime": Union[datetime, str],
+        "endTime": Union[datetime, str],
+    },
+)
+
+GetCostEstimateResultTypeDef = TypedDict(
+    "GetCostEstimateResultTypeDef",
+    {
+        "resourcesBudgetEstimate": List["ResourceBudgetEstimateTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetDiskRequestRequestTypeDef = TypedDict(
@@ -4521,6 +4616,18 @@ ResetDistributionCacheResultTypeDef = TypedDict(
     },
 )
 
+ResourceBudgetEstimateTypeDef = TypedDict(
+    "ResourceBudgetEstimateTypeDef",
+    {
+        "resourceName": str,
+        "resourceType": ResourceTypeType,
+        "costEstimates": List["CostEstimateTypeDef"],
+        "startTime": datetime,
+        "endTime": datetime,
+    },
+    total=False,
+)
+
 ResourceLocationTypeDef = TypedDict(
     "ResourceLocationTypeDef",
     {
@@ -4575,6 +4682,16 @@ SendContactMethodVerificationResultTypeDef = TypedDict(
     },
 )
 
+SessionTypeDef = TypedDict(
+    "SessionTypeDef",
+    {
+        "name": str,
+        "url": str,
+        "isPrimary": bool,
+    },
+    total=False,
+)
+
 SetIpAddressTypeRequestRequestTypeDef = TypedDict(
     "SetIpAddressTypeRequestRequestTypeDef",
     {
@@ -4603,6 +4720,21 @@ SetResourceAccessForBucketRequestRequestTypeDef = TypedDict(
 
 SetResourceAccessForBucketResultTypeDef = TypedDict(
     "SetResourceAccessForBucketResultTypeDef",
+    {
+        "operations": List["OperationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartGUISessionRequestRequestTypeDef = TypedDict(
+    "StartGUISessionRequestRequestTypeDef",
+    {
+        "resourceName": str,
+    },
+)
+
+StartGUISessionResultTypeDef = TypedDict(
+    "StartGUISessionResultTypeDef",
     {
         "operations": List["OperationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -4651,6 +4783,30 @@ StaticIpTypeDef = TypedDict(
         "ipAddress": str,
         "attachedTo": str,
         "isAttached": bool,
+    },
+    total=False,
+)
+
+StopGUISessionRequestRequestTypeDef = TypedDict(
+    "StopGUISessionRequestRequestTypeDef",
+    {
+        "resourceName": str,
+    },
+)
+
+StopGUISessionResultTypeDef = TypedDict(
+    "StopGUISessionResultTypeDef",
+    {
+        "operations": List["OperationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopInstanceOnIdleRequestTypeDef = TypedDict(
+    "StopInstanceOnIdleRequestTypeDef",
+    {
+        "threshold": str,
+        "duration": str,
     },
     total=False,
 )
@@ -4761,6 +4917,15 @@ TestAlarmResultTypeDef = TypedDict(
         "operations": List["OperationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+TimePeriodTypeDef = TypedDict(
+    "TimePeriodTypeDef",
+    {
+        "start": datetime,
+        "end": datetime,
+    },
+    total=False,
 )
 
 UnpeerVpcResultTypeDef = TypedDict(

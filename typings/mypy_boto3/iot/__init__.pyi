@@ -32,6 +32,7 @@ Usage::
         ListJobExecutionsForThingPaginator,
         ListJobTemplatesPaginator,
         ListJobsPaginator,
+        ListManagedJobTemplatesPaginator,
         ListMetricValuesPaginator,
         ListMitigationActionsPaginator,
         ListOTAUpdatesPaginator,
@@ -42,6 +43,7 @@ Usage::
         ListPrincipalThingsPaginator,
         ListProvisioningTemplateVersionsPaginator,
         ListProvisioningTemplatesPaginator,
+        ListRelatedResourcesForAuditFindingPaginator,
         ListRoleAliasesPaginator,
         ListScheduledAuditsPaginator,
         ListSecurityProfilesForTargetPaginator,
@@ -94,6 +96,7 @@ Usage::
     list_job_executions_for_thing_paginator: ListJobExecutionsForThingPaginator = client.get_paginator("list_job_executions_for_thing")
     list_job_templates_paginator: ListJobTemplatesPaginator = client.get_paginator("list_job_templates")
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
+    list_managed_job_templates_paginator: ListManagedJobTemplatesPaginator = client.get_paginator("list_managed_job_templates")
     list_metric_values_paginator: ListMetricValuesPaginator = client.get_paginator("list_metric_values")
     list_mitigation_actions_paginator: ListMitigationActionsPaginator = client.get_paginator("list_mitigation_actions")
     list_ota_updates_paginator: ListOTAUpdatesPaginator = client.get_paginator("list_ota_updates")
@@ -104,6 +107,7 @@ Usage::
     list_principal_things_paginator: ListPrincipalThingsPaginator = client.get_paginator("list_principal_things")
     list_provisioning_template_versions_paginator: ListProvisioningTemplateVersionsPaginator = client.get_paginator("list_provisioning_template_versions")
     list_provisioning_templates_paginator: ListProvisioningTemplatesPaginator = client.get_paginator("list_provisioning_templates")
+    list_related_resources_for_audit_finding_paginator: ListRelatedResourcesForAuditFindingPaginator = client.get_paginator("list_related_resources_for_audit_finding")
     list_role_aliases_paginator: ListRoleAliasesPaginator = client.get_paginator("list_role_aliases")
     list_scheduled_audits_paginator: ListScheduledAuditsPaginator = client.get_paginator("list_scheduled_audits")
     list_security_profiles_paginator: ListSecurityProfilesPaginator = client.get_paginator("list_security_profiles")
@@ -153,6 +157,7 @@ from .paginator import (
     ListJobExecutionsForThingPaginator,
     ListJobsPaginator,
     ListJobTemplatesPaginator,
+    ListManagedJobTemplatesPaginator,
     ListMetricValuesPaginator,
     ListMitigationActionsPaginator,
     ListOTAUpdatesPaginator,
@@ -163,6 +168,7 @@ from .paginator import (
     ListPrincipalThingsPaginator,
     ListProvisioningTemplatesPaginator,
     ListProvisioningTemplateVersionsPaginator,
+    ListRelatedResourcesForAuditFindingPaginator,
     ListRoleAliasesPaginator,
     ListScheduledAuditsPaginator,
     ListSecurityProfilesForTargetPaginator,
@@ -215,6 +221,7 @@ __all__ = (
     "ListJobExecutionsForThingPaginator",
     "ListJobTemplatesPaginator",
     "ListJobsPaginator",
+    "ListManagedJobTemplatesPaginator",
     "ListMetricValuesPaginator",
     "ListMitigationActionsPaginator",
     "ListOTAUpdatesPaginator",
@@ -225,6 +232,7 @@ __all__ = (
     "ListPrincipalThingsPaginator",
     "ListProvisioningTemplateVersionsPaginator",
     "ListProvisioningTemplatesPaginator",
+    "ListRelatedResourcesForAuditFindingPaginator",
     "ListRoleAliasesPaginator",
     "ListScheduledAuditsPaginator",
     "ListSecurityProfilesForTargetPaginator",

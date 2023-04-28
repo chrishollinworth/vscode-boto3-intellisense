@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List
 
-from .literals import ChangeStatusType, FailureCodeType, SortOrderType
+from .literals import ChangeStatusType, FailureCodeType, OwnershipTypeType, SortOrderType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -27,6 +27,7 @@ __all__ = (
     "ChangeSetSummaryListItemTypeDef",
     "ChangeSummaryTypeDef",
     "ChangeTypeDef",
+    "DeleteResourcePolicyRequestRequestTypeDef",
     "DescribeChangeSetRequestRequestTypeDef",
     "DescribeChangeSetResponseTypeDef",
     "DescribeEntityRequestRequestTypeDef",
@@ -35,12 +36,15 @@ __all__ = (
     "EntityTypeDef",
     "ErrorDetailTypeDef",
     "FilterTypeDef",
+    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourcePolicyResponseTypeDef",
     "ListChangeSetsRequestRequestTypeDef",
     "ListChangeSetsResponseTypeDef",
     "ListEntitiesRequestRequestTypeDef",
     "ListEntitiesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "PutResourcePolicyRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
     "SortTypeDef",
     "StartChangeSetRequestRequestTypeDef",
@@ -113,6 +117,13 @@ _OptionalChangeTypeDef = TypedDict(
 
 class ChangeTypeDef(_RequiredChangeTypeDef, _OptionalChangeTypeDef):
     pass
+
+DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
+    "DeleteResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
 
 DescribeChangeSetRequestRequestTypeDef = TypedDict(
     "DescribeChangeSetRequestRequestTypeDef",
@@ -206,6 +217,21 @@ FilterTypeDef = TypedDict(
     total=False,
 )
 
+GetResourcePolicyRequestRequestTypeDef = TypedDict(
+    "GetResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+GetResourcePolicyResponseTypeDef = TypedDict(
+    "GetResourcePolicyResponseTypeDef",
+    {
+        "Policy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListChangeSetsRequestRequestTypeDef = TypedDict(
     "_RequiredListChangeSetsRequestRequestTypeDef",
     {
@@ -251,6 +277,7 @@ _OptionalListEntitiesRequestRequestTypeDef = TypedDict(
         "Sort": "SortTypeDef",
         "NextToken": str,
         "MaxResults": int,
+        "OwnershipType": OwnershipTypeType,
     },
     total=False,
 )
@@ -282,6 +309,14 @@ ListTagsForResourceResponseTypeDef = TypedDict(
         "ResourceArn": str,
         "Tags": List["TagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "PutResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Policy": str,
     },
 )
 

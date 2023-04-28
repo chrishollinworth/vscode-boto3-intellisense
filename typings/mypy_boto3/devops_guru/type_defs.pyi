@@ -100,6 +100,7 @@ __all__ = (
     "InsightFeedbackTypeDef",
     "InsightHealthTypeDef",
     "InsightTimeRangeTypeDef",
+    "ListAnomaliesForInsightFiltersTypeDef",
     "ListAnomaliesForInsightRequestRequestTypeDef",
     "ListAnomaliesForInsightResponseTypeDef",
     "ListAnomalousLogGroupsRequestRequestTypeDef",
@@ -783,6 +784,14 @@ _OptionalInsightTimeRangeTypeDef = TypedDict(
 class InsightTimeRangeTypeDef(_RequiredInsightTimeRangeTypeDef, _OptionalInsightTimeRangeTypeDef):
     pass
 
+ListAnomaliesForInsightFiltersTypeDef = TypedDict(
+    "ListAnomaliesForInsightFiltersTypeDef",
+    {
+        "ServiceCollection": "ServiceCollectionTypeDef",
+    },
+    total=False,
+)
+
 _RequiredListAnomaliesForInsightRequestRequestTypeDef = TypedDict(
     "_RequiredListAnomaliesForInsightRequestRequestTypeDef",
     {
@@ -796,6 +805,7 @@ _OptionalListAnomaliesForInsightRequestRequestTypeDef = TypedDict(
         "MaxResults": int,
         "NextToken": str,
         "AccountId": str,
+        "Filters": "ListAnomaliesForInsightFiltersTypeDef",
     },
     total=False,
 )
@@ -1285,6 +1295,7 @@ ProactiveAnomalySummaryTypeDef = TypedDict(
         "Limit": float,
         "SourceMetadata": "AnomalySourceMetadataTypeDef",
         "AnomalyResources": List["AnomalyResourceTypeDef"],
+        "Description": str,
     },
     total=False,
 )
@@ -1305,6 +1316,7 @@ ProactiveAnomalyTypeDef = TypedDict(
         "Limit": float,
         "SourceMetadata": "AnomalySourceMetadataTypeDef",
         "AnomalyResources": List["AnomalyResourceTypeDef"],
+        "Description": str,
     },
     total=False,
 )

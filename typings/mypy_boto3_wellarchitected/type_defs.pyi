@@ -30,6 +30,7 @@ from .literals import (
     NotificationTypeType,
     OrganizationSharingStatusType,
     PermissionTypeType,
+    ReportFormatType,
     RiskType,
     ShareInvitationActionType,
     ShareResourceTypeType,
@@ -53,6 +54,7 @@ __all__ = (
     "AnswerSummaryTypeDef",
     "AnswerTypeDef",
     "AssociateLensesInputRequestTypeDef",
+    "BestPracticeTypeDef",
     "CheckDetailTypeDef",
     "CheckSummaryTypeDef",
     "ChoiceAnswerSummaryTypeDef",
@@ -61,6 +63,7 @@ __all__ = (
     "ChoiceImprovementPlanTypeDef",
     "ChoiceTypeDef",
     "ChoiceUpdateTypeDef",
+    "ConsolidatedReportMetricTypeDef",
     "CreateLensShareInputRequestTypeDef",
     "CreateLensShareOutputTypeDef",
     "CreateLensVersionInputRequestTypeDef",
@@ -80,6 +83,8 @@ __all__ = (
     "ExportLensOutputTypeDef",
     "GetAnswerInputRequestTypeDef",
     "GetAnswerOutputTypeDef",
+    "GetConsolidatedReportInputRequestTypeDef",
+    "GetConsolidatedReportOutputTypeDef",
     "GetLensInputRequestTypeDef",
     "GetLensOutputTypeDef",
     "GetLensReviewInputRequestTypeDef",
@@ -95,6 +100,7 @@ __all__ = (
     "ImportLensInputRequestTypeDef",
     "ImportLensOutputTypeDef",
     "ImprovementSummaryTypeDef",
+    "LensMetricTypeDef",
     "LensReviewReportTypeDef",
     "LensReviewSummaryTypeDef",
     "LensReviewTypeDef",
@@ -132,8 +138,10 @@ __all__ = (
     "MilestoneTypeDef",
     "NotificationSummaryTypeDef",
     "PillarDifferenceTypeDef",
+    "PillarMetricTypeDef",
     "PillarReviewSummaryTypeDef",
     "QuestionDifferenceTypeDef",
+    "QuestionMetricTypeDef",
     "ResponseMetadataTypeDef",
     "ShareInvitationSummaryTypeDef",
     "ShareInvitationTypeDef",
@@ -211,6 +219,15 @@ AssociateLensesInputRequestTypeDef = TypedDict(
         "WorkloadId": str,
         "LensAliases": List[str],
     },
+)
+
+BestPracticeTypeDef = TypedDict(
+    "BestPracticeTypeDef",
+    {
+        "ChoiceId": str,
+        "ChoiceTitle": str,
+    },
+    total=False,
 )
 
 CheckDetailTypeDef = TypedDict(
@@ -321,6 +338,21 @@ _OptionalChoiceUpdateTypeDef = TypedDict(
 
 class ChoiceUpdateTypeDef(_RequiredChoiceUpdateTypeDef, _OptionalChoiceUpdateTypeDef):
     pass
+
+ConsolidatedReportMetricTypeDef = TypedDict(
+    "ConsolidatedReportMetricTypeDef",
+    {
+        "MetricType": Literal["WORKLOAD"],
+        "RiskCounts": Dict[RiskType, int],
+        "WorkloadId": str,
+        "WorkloadName": str,
+        "WorkloadArn": str,
+        "UpdatedAt": datetime,
+        "Lenses": List["LensMetricTypeDef"],
+        "LensesAppliedCount": int,
+    },
+    total=False,
+)
 
 CreateLensShareInputRequestTypeDef = TypedDict(
     "CreateLensShareInputRequestTypeDef",
@@ -552,6 +584,38 @@ GetAnswerOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredGetConsolidatedReportInputRequestTypeDef = TypedDict(
+    "_RequiredGetConsolidatedReportInputRequestTypeDef",
+    {
+        "Format": ReportFormatType,
+    },
+)
+_OptionalGetConsolidatedReportInputRequestTypeDef = TypedDict(
+    "_OptionalGetConsolidatedReportInputRequestTypeDef",
+    {
+        "IncludeSharedResources": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetConsolidatedReportInputRequestTypeDef(
+    _RequiredGetConsolidatedReportInputRequestTypeDef,
+    _OptionalGetConsolidatedReportInputRequestTypeDef,
+):
+    pass
+
+GetConsolidatedReportOutputTypeDef = TypedDict(
+    "GetConsolidatedReportOutputTypeDef",
+    {
+        "Metrics": List["ConsolidatedReportMetricTypeDef"],
+        "NextToken": str,
+        "Base64String": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetLensInputRequestTypeDef = TypedDict(
     "_RequiredGetLensInputRequestTypeDef",
     {
@@ -744,6 +808,16 @@ ImprovementSummaryTypeDef = TypedDict(
         "Risk": RiskType,
         "ImprovementPlanUrl": str,
         "ImprovementPlans": List["ChoiceImprovementPlanTypeDef"],
+    },
+    total=False,
+)
+
+LensMetricTypeDef = TypedDict(
+    "LensMetricTypeDef",
+    {
+        "LensArn": str,
+        "Pillars": List["PillarMetricTypeDef"],
+        "RiskCounts": Dict[RiskType, int],
     },
     total=False,
 )
@@ -1245,6 +1319,16 @@ PillarDifferenceTypeDef = TypedDict(
     total=False,
 )
 
+PillarMetricTypeDef = TypedDict(
+    "PillarMetricTypeDef",
+    {
+        "PillarId": str,
+        "RiskCounts": Dict[RiskType, int],
+        "Questions": List["QuestionMetricTypeDef"],
+    },
+    total=False,
+)
+
 PillarReviewSummaryTypeDef = TypedDict(
     "PillarReviewSummaryTypeDef",
     {
@@ -1262,6 +1346,16 @@ QuestionDifferenceTypeDef = TypedDict(
         "QuestionId": str,
         "QuestionTitle": str,
         "DifferenceStatus": DifferenceStatusType,
+    },
+    total=False,
+)
+
+QuestionMetricTypeDef = TypedDict(
+    "QuestionMetricTypeDef",
+    {
+        "QuestionId": str,
+        "Risk": RiskType,
+        "BestPractices": List["BestPracticeTypeDef"],
     },
     total=False,
 )

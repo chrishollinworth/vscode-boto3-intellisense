@@ -52,6 +52,7 @@ __all__ = (
     "InferredWorkloadTypeType",
     "InferredWorkloadTypesPreferenceType",
     "InstanceRecommendationFindingReasonCodeType",
+    "InstanceStateType",
     "JobFilterNameType",
     "JobStatusType",
     "LambdaFunctionMemoryMetricNameType",
@@ -196,6 +197,7 @@ ExportableInstanceFieldType = Literal[
     "InferredWorkloadTypes",
     "InstanceArn",
     "InstanceName",
+    "InstanceState",
     "LastRefreshTimestamp",
     "LookbackPeriodInDays",
     "RecommendationOptionsEstimatedMonthlySavingsCurrency",
@@ -283,6 +285,7 @@ ExportableVolumeFieldType = Literal[
     "RecommendationOptionsMonthlyPrice",
     "RecommendationOptionsPerformanceRisk",
     "RecommendationOptionsSavingsOpportunityPercentage",
+    "RootVolume",
     "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
     "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
     "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
@@ -301,7 +304,14 @@ GetLambdaFunctionRecommendationsPaginatorName = Literal["get_lambda_function_rec
 GetRecommendationPreferencesPaginatorName = Literal["get_recommendation_preferences"]
 GetRecommendationSummariesPaginatorName = Literal["get_recommendation_summaries"]
 InferredWorkloadTypeType = Literal[
-    "AmazonEmr", "ApacheCassandra", "ApacheHadoop", "Memcached", "Nginx", "PostgreSql", "Redis"
+    "AmazonEmr",
+    "ApacheCassandra",
+    "ApacheHadoop",
+    "Kafka",
+    "Memcached",
+    "Nginx",
+    "PostgreSql",
+    "Redis",
 ]
 InferredWorkloadTypesPreferenceType = Literal["Active", "Inactive"]
 InstanceRecommendationFindingReasonCodeType = Literal[
@@ -321,6 +331,9 @@ InstanceRecommendationFindingReasonCodeType = Literal[
     "NetworkBandwidthUnderprovisioned",
     "NetworkPPSOverprovisioned",
     "NetworkPPSUnderprovisioned",
+]
+InstanceStateType = Literal[
+    "pending", "running", "shutting-down", "stopped", "stopping", "terminated"
 ]
 JobFilterNameType = Literal["JobStatus", "ResourceType"]
 JobStatusType = Literal["Complete", "Failed", "InProgress", "Queued"]

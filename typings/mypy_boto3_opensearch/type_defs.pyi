@@ -16,11 +16,16 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    ActionSeverityType,
+    ActionStatusType,
+    ActionTypeType,
     AutoTuneDesiredStateType,
     AutoTuneStateType,
+    ConnectionModeType,
     DeploymentStatusType,
     DescribePackagesFilterNameType,
     DomainPackageStatusType,
+    DryRunModeType,
     EngineTypeType,
     InboundConnectionStatusCodeType,
     LogTypeType,
@@ -33,8 +38,10 @@ from .literals import (
     PrincipalTypeType,
     ReservedInstancePaymentOptionType,
     RollbackOnDisableType,
+    ScheduleAtType,
     ScheduledAutoTuneActionTypeType,
     ScheduledAutoTuneSeverityTypeType,
+    ScheduledByType,
     TLSSecurityPolicyType,
     UpgradeStatusType,
     UpgradeStepType,
@@ -87,6 +94,7 @@ __all__ = (
     "CognitoOptionsTypeDef",
     "ColdStorageOptionsTypeDef",
     "CompatibleVersionsMapTypeDef",
+    "ConnectionPropertiesTypeDef",
     "CreateDomainRequestRequestTypeDef",
     "CreateDomainResponseTypeDef",
     "CreateOutboundConnectionRequestRequestTypeDef",
@@ -115,6 +123,8 @@ __all__ = (
     "DescribeDomainResponseTypeDef",
     "DescribeDomainsRequestRequestTypeDef",
     "DescribeDomainsResponseTypeDef",
+    "DescribeDryRunProgressRequestRequestTypeDef",
+    "DescribeDryRunProgressResponseTypeDef",
     "DescribeInboundConnectionsRequestRequestTypeDef",
     "DescribeInboundConnectionsResponseTypeDef",
     "DescribeInstanceTypeLimitsRequestRequestTypeDef",
@@ -139,6 +149,7 @@ __all__ = (
     "DomainInformationContainerTypeDef",
     "DomainPackageDetailsTypeDef",
     "DomainStatusTypeDef",
+    "DryRunProgressStatusTypeDef",
     "DryRunResultsTypeDef",
     "DurationTypeDef",
     "EBSOptionsStatusTypeDef",
@@ -169,6 +180,8 @@ __all__ = (
     "ListInstanceTypeDetailsResponseTypeDef",
     "ListPackagesForDomainRequestRequestTypeDef",
     "ListPackagesForDomainResponseTypeDef",
+    "ListScheduledActionsRequestRequestTypeDef",
+    "ListScheduledActionsResponseTypeDef",
     "ListTagsRequestRequestTypeDef",
     "ListTagsResponseTypeDef",
     "ListVersionsRequestRequestTypeDef",
@@ -184,6 +197,9 @@ __all__ = (
     "MasterUserOptionsTypeDef",
     "NodeToNodeEncryptionOptionsStatusTypeDef",
     "NodeToNodeEncryptionOptionsTypeDef",
+    "OffPeakWindowOptionsStatusTypeDef",
+    "OffPeakWindowOptionsTypeDef",
+    "OffPeakWindowTypeDef",
     "OptionStatusTypeDef",
     "OutboundConnectionStatusTypeDef",
     "OutboundConnectionTypeDef",
@@ -203,10 +219,13 @@ __all__ = (
     "SAMLIdpTypeDef",
     "SAMLOptionsInputTypeDef",
     "SAMLOptionsOutputTypeDef",
+    "ScheduledActionTypeDef",
     "ScheduledAutoTuneDetailsTypeDef",
     "ServiceSoftwareOptionsTypeDef",
     "SnapshotOptionsStatusTypeDef",
     "SnapshotOptionsTypeDef",
+    "SoftwareUpdateOptionsStatusTypeDef",
+    "SoftwareUpdateOptionsTypeDef",
     "StartServiceSoftwareUpdateRequestRequestTypeDef",
     "StartServiceSoftwareUpdateResponseTypeDef",
     "StorageTypeLimitTypeDef",
@@ -216,6 +235,8 @@ __all__ = (
     "UpdateDomainConfigResponseTypeDef",
     "UpdatePackageRequestRequestTypeDef",
     "UpdatePackageResponseTypeDef",
+    "UpdateScheduledActionRequestRequestTypeDef",
+    "UpdateScheduledActionResponseTypeDef",
     "UpdateVpcEndpointRequestRequestTypeDef",
     "UpdateVpcEndpointResponseTypeDef",
     "UpgradeDomainRequestRequestTypeDef",
@@ -225,10 +246,12 @@ __all__ = (
     "VPCDerivedInfoStatusTypeDef",
     "VPCDerivedInfoTypeDef",
     "VPCOptionsTypeDef",
+    "ValidationFailureTypeDef",
     "VersionStatusTypeDef",
     "VpcEndpointErrorTypeDef",
     "VpcEndpointSummaryTypeDef",
     "VpcEndpointTypeDef",
+    "WindowStartTimeTypeDef",
     "ZoneAwarenessConfigTypeDef",
 )
 
@@ -396,6 +419,7 @@ AutoTuneOptionsInputTypeDef = TypedDict(
     {
         "DesiredState": AutoTuneDesiredStateType,
         "MaintenanceSchedules": List["AutoTuneMaintenanceScheduleTypeDef"],
+        "UseOffPeakWindow": bool,
     },
     total=False,
 )
@@ -405,6 +429,7 @@ AutoTuneOptionsOutputTypeDef = TypedDict(
     {
         "State": AutoTuneStateType,
         "ErrorMessage": str,
+        "UseOffPeakWindow": bool,
     },
     total=False,
 )
@@ -424,6 +449,7 @@ AutoTuneOptionsTypeDef = TypedDict(
         "DesiredState": AutoTuneDesiredStateType,
         "RollbackOnDisable": RollbackOnDisableType,
         "MaintenanceSchedules": List["AutoTuneMaintenanceScheduleTypeDef"],
+        "UseOffPeakWindow": bool,
     },
     total=False,
 )
@@ -568,6 +594,14 @@ CompatibleVersionsMapTypeDef = TypedDict(
     total=False,
 )
 
+ConnectionPropertiesTypeDef = TypedDict(
+    "ConnectionPropertiesTypeDef",
+    {
+        "Endpoint": str,
+    },
+    total=False,
+)
+
 _RequiredCreateDomainRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDomainRequestRequestTypeDef",
     {
@@ -592,6 +626,8 @@ _OptionalCreateDomainRequestRequestTypeDef = TypedDict(
         "AdvancedSecurityOptions": "AdvancedSecurityOptionsInputTypeDef",
         "TagList": List["TagTypeDef"],
         "AutoTuneOptions": "AutoTuneOptionsInputTypeDef",
+        "OffPeakWindowOptions": "OffPeakWindowOptionsTypeDef",
+        "SoftwareUpdateOptions": "SoftwareUpdateOptionsTypeDef",
     },
     total=False,
 )
@@ -609,14 +645,27 @@ CreateDomainResponseTypeDef = TypedDict(
     },
 )
 
-CreateOutboundConnectionRequestRequestTypeDef = TypedDict(
-    "CreateOutboundConnectionRequestRequestTypeDef",
+_RequiredCreateOutboundConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateOutboundConnectionRequestRequestTypeDef",
     {
         "LocalDomainInfo": "DomainInformationContainerTypeDef",
         "RemoteDomainInfo": "DomainInformationContainerTypeDef",
         "ConnectionAlias": str,
     },
 )
+_OptionalCreateOutboundConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateOutboundConnectionRequestRequestTypeDef",
+    {
+        "ConnectionMode": ConnectionModeType,
+    },
+    total=False,
+)
+
+class CreateOutboundConnectionRequestRequestTypeDef(
+    _RequiredCreateOutboundConnectionRequestRequestTypeDef,
+    _OptionalCreateOutboundConnectionRequestRequestTypeDef,
+):
+    pass
 
 CreateOutboundConnectionResponseTypeDef = TypedDict(
     "CreateOutboundConnectionResponseTypeDef",
@@ -626,6 +675,8 @@ CreateOutboundConnectionResponseTypeDef = TypedDict(
         "ConnectionAlias": str,
         "ConnectionStatus": "OutboundConnectionStatusTypeDef",
         "ConnectionId": str,
+        "ConnectionMode": ConnectionModeType,
+        "ConnectionProperties": "ConnectionPropertiesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -865,6 +916,37 @@ DescribeDomainsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribeDryRunProgressRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeDryRunProgressRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeDryRunProgressRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeDryRunProgressRequestRequestTypeDef",
+    {
+        "DryRunId": str,
+        "LoadDryRunConfig": bool,
+    },
+    total=False,
+)
+
+class DescribeDryRunProgressRequestRequestTypeDef(
+    _RequiredDescribeDryRunProgressRequestRequestTypeDef,
+    _OptionalDescribeDryRunProgressRequestRequestTypeDef,
+):
+    pass
+
+DescribeDryRunProgressResponseTypeDef = TypedDict(
+    "DescribeDryRunProgressResponseTypeDef",
+    {
+        "DryRunProgressStatus": "DryRunProgressStatusTypeDef",
+        "DryRunConfig": "DomainStatusTypeDef",
+        "DryRunResults": "DryRunResultsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeInboundConnectionsRequestRequestTypeDef = TypedDict(
     "DescribeInboundConnectionsRequestRequestTypeDef",
     {
@@ -1048,6 +1130,8 @@ DomainConfigTypeDef = TypedDict(
         "AdvancedSecurityOptions": "AdvancedSecurityOptionsStatusTypeDef",
         "AutoTuneOptions": "AutoTuneOptionsStatusTypeDef",
         "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
+        "OffPeakWindowOptions": "OffPeakWindowOptionsStatusTypeDef",
+        "SoftwareUpdateOptions": "SoftwareUpdateOptionsStatusTypeDef",
     },
     total=False,
 )
@@ -1138,11 +1222,35 @@ _OptionalDomainStatusTypeDef = TypedDict(
         "AdvancedSecurityOptions": "AdvancedSecurityOptionsTypeDef",
         "AutoTuneOptions": "AutoTuneOptionsOutputTypeDef",
         "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
+        "OffPeakWindowOptions": "OffPeakWindowOptionsTypeDef",
+        "SoftwareUpdateOptions": "SoftwareUpdateOptionsTypeDef",
     },
     total=False,
 )
 
 class DomainStatusTypeDef(_RequiredDomainStatusTypeDef, _OptionalDomainStatusTypeDef):
+    pass
+
+_RequiredDryRunProgressStatusTypeDef = TypedDict(
+    "_RequiredDryRunProgressStatusTypeDef",
+    {
+        "DryRunId": str,
+        "DryRunStatus": str,
+        "CreationDate": str,
+        "UpdateDate": str,
+    },
+)
+_OptionalDryRunProgressStatusTypeDef = TypedDict(
+    "_OptionalDryRunProgressStatusTypeDef",
+    {
+        "ValidationFailures": List["ValidationFailureTypeDef"],
+    },
+    total=False,
+)
+
+class DryRunProgressStatusTypeDef(
+    _RequiredDryRunProgressStatusTypeDef, _OptionalDryRunProgressStatusTypeDef
+):
     pass
 
 DryRunResultsTypeDef = TypedDict(
@@ -1327,6 +1435,7 @@ InboundConnectionTypeDef = TypedDict(
         "RemoteDomainInfo": "DomainInformationContainerTypeDef",
         "ConnectionId": str,
         "ConnectionStatus": "InboundConnectionStatusTypeDef",
+        "ConnectionMode": ConnectionModeType,
     },
     total=False,
 )
@@ -1474,6 +1583,36 @@ ListPackagesForDomainResponseTypeDef = TypedDict(
     "ListPackagesForDomainResponseTypeDef",
     {
         "DomainPackageDetailsList": List["DomainPackageDetailsTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListScheduledActionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListScheduledActionsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalListScheduledActionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListScheduledActionsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListScheduledActionsRequestRequestTypeDef(
+    _RequiredListScheduledActionsRequestRequestTypeDef,
+    _OptionalListScheduledActionsRequestRequestTypeDef,
+):
+    pass
+
+ListScheduledActionsResponseTypeDef = TypedDict(
+    "ListScheduledActionsResponseTypeDef",
+    {
+        "ScheduledActions": List["ScheduledActionTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1631,6 +1770,32 @@ NodeToNodeEncryptionOptionsTypeDef = TypedDict(
     total=False,
 )
 
+OffPeakWindowOptionsStatusTypeDef = TypedDict(
+    "OffPeakWindowOptionsStatusTypeDef",
+    {
+        "Options": "OffPeakWindowOptionsTypeDef",
+        "Status": "OptionStatusTypeDef",
+    },
+    total=False,
+)
+
+OffPeakWindowOptionsTypeDef = TypedDict(
+    "OffPeakWindowOptionsTypeDef",
+    {
+        "Enabled": bool,
+        "OffPeakWindow": "OffPeakWindowTypeDef",
+    },
+    total=False,
+)
+
+OffPeakWindowTypeDef = TypedDict(
+    "OffPeakWindowTypeDef",
+    {
+        "WindowStartTime": "WindowStartTimeTypeDef",
+    },
+    total=False,
+)
+
 _RequiredOptionStatusTypeDef = TypedDict(
     "_RequiredOptionStatusTypeDef",
     {
@@ -1668,6 +1833,8 @@ OutboundConnectionTypeDef = TypedDict(
         "ConnectionId": str,
         "ConnectionAlias": str,
         "ConnectionStatus": "OutboundConnectionStatusTypeDef",
+        "ConnectionMode": ConnectionModeType,
+        "ConnectionProperties": "ConnectionPropertiesTypeDef",
     },
     total=False,
 )
@@ -1858,6 +2025,30 @@ SAMLOptionsOutputTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredScheduledActionTypeDef = TypedDict(
+    "_RequiredScheduledActionTypeDef",
+    {
+        "Id": str,
+        "Type": ActionTypeType,
+        "Severity": ActionSeverityType,
+        "ScheduledTime": int,
+    },
+)
+_OptionalScheduledActionTypeDef = TypedDict(
+    "_OptionalScheduledActionTypeDef",
+    {
+        "Description": str,
+        "ScheduledBy": ScheduledByType,
+        "Status": ActionStatusType,
+        "Mandatory": bool,
+        "Cancellable": bool,
+    },
+    total=False,
+)
+
+class ScheduledActionTypeDef(_RequiredScheduledActionTypeDef, _OptionalScheduledActionTypeDef):
+    pass
+
 ScheduledAutoTuneDetailsTypeDef = TypedDict(
     "ScheduledAutoTuneDetailsTypeDef",
     {
@@ -1900,12 +2091,43 @@ SnapshotOptionsTypeDef = TypedDict(
     total=False,
 )
 
-StartServiceSoftwareUpdateRequestRequestTypeDef = TypedDict(
-    "StartServiceSoftwareUpdateRequestRequestTypeDef",
+SoftwareUpdateOptionsStatusTypeDef = TypedDict(
+    "SoftwareUpdateOptionsStatusTypeDef",
+    {
+        "Options": "SoftwareUpdateOptionsTypeDef",
+        "Status": "OptionStatusTypeDef",
+    },
+    total=False,
+)
+
+SoftwareUpdateOptionsTypeDef = TypedDict(
+    "SoftwareUpdateOptionsTypeDef",
+    {
+        "AutoSoftwareUpdateEnabled": bool,
+    },
+    total=False,
+)
+
+_RequiredStartServiceSoftwareUpdateRequestRequestTypeDef = TypedDict(
+    "_RequiredStartServiceSoftwareUpdateRequestRequestTypeDef",
     {
         "DomainName": str,
     },
 )
+_OptionalStartServiceSoftwareUpdateRequestRequestTypeDef = TypedDict(
+    "_OptionalStartServiceSoftwareUpdateRequestRequestTypeDef",
+    {
+        "ScheduleAt": ScheduleAtType,
+        "DesiredStartTime": int,
+    },
+    total=False,
+)
+
+class StartServiceSoftwareUpdateRequestRequestTypeDef(
+    _RequiredStartServiceSoftwareUpdateRequestRequestTypeDef,
+    _OptionalStartServiceSoftwareUpdateRequestRequestTypeDef,
+):
+    pass
 
 StartServiceSoftwareUpdateResponseTypeDef = TypedDict(
     "StartServiceSoftwareUpdateResponseTypeDef",
@@ -1965,6 +2187,9 @@ _OptionalUpdateDomainConfigRequestRequestTypeDef = TypedDict(
         "AdvancedSecurityOptions": "AdvancedSecurityOptionsInputTypeDef",
         "AutoTuneOptions": "AutoTuneOptionsTypeDef",
         "DryRun": bool,
+        "DryRunMode": DryRunModeType,
+        "OffPeakWindowOptions": "OffPeakWindowOptionsTypeDef",
+        "SoftwareUpdateOptions": "SoftwareUpdateOptionsTypeDef",
     },
     total=False,
 )
@@ -1980,6 +2205,7 @@ UpdateDomainConfigResponseTypeDef = TypedDict(
     {
         "DomainConfig": "DomainConfigTypeDef",
         "DryRunResults": "DryRunResultsTypeDef",
+        "DryRunProgressStatus": "DryRunProgressStatusTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2009,6 +2235,37 @@ UpdatePackageResponseTypeDef = TypedDict(
     "UpdatePackageResponseTypeDef",
     {
         "PackageDetails": "PackageDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateScheduledActionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateScheduledActionRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "ActionID": str,
+        "ActionType": ActionTypeType,
+        "ScheduleAt": ScheduleAtType,
+    },
+)
+_OptionalUpdateScheduledActionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateScheduledActionRequestRequestTypeDef",
+    {
+        "DesiredStartTime": int,
+    },
+    total=False,
+)
+
+class UpdateScheduledActionRequestRequestTypeDef(
+    _RequiredUpdateScheduledActionRequestRequestTypeDef,
+    _OptionalUpdateScheduledActionRequestRequestTypeDef,
+):
+    pass
+
+UpdateScheduledActionResponseTypeDef = TypedDict(
+    "UpdateScheduledActionResponseTypeDef",
+    {
+        "ScheduledAction": "ScheduledActionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2113,6 +2370,15 @@ VPCOptionsTypeDef = TypedDict(
     total=False,
 )
 
+ValidationFailureTypeDef = TypedDict(
+    "ValidationFailureTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
+)
+
 VersionStatusTypeDef = TypedDict(
     "VersionStatusTypeDef",
     {
@@ -2153,6 +2419,14 @@ VpcEndpointTypeDef = TypedDict(
         "Endpoint": str,
     },
     total=False,
+)
+
+WindowStartTimeTypeDef = TypedDict(
+    "WindowStartTimeTypeDef",
+    {
+        "Hours": int,
+        "Minutes": int,
+    },
 )
 
 ZoneAwarenessConfigTypeDef = TypedDict(

@@ -35,6 +35,7 @@ from .literals import (
     RenderRecommendationTypeType,
     ResiliencyPolicyTierType,
     ResourceImportStatusTypeType,
+    ResourceImportStrategyTypeType,
     ResourceMappingTypeType,
     ResourceResolutionStatusTypeType,
     TemplateFormatType,
@@ -59,6 +60,7 @@ __all__ = (
     "AppAssessmentTypeDef",
     "AppComponentComplianceTypeDef",
     "AppComponentTypeDef",
+    "AppInputSourceTypeDef",
     "AppSummaryTypeDef",
     "AppTypeDef",
     "AppVersionSummaryTypeDef",
@@ -67,14 +69,24 @@ __all__ = (
     "CostTypeDef",
     "CreateAppRequestRequestTypeDef",
     "CreateAppResponseTypeDef",
+    "CreateAppVersionAppComponentRequestRequestTypeDef",
+    "CreateAppVersionAppComponentResponseTypeDef",
+    "CreateAppVersionResourceRequestRequestTypeDef",
+    "CreateAppVersionResourceResponseTypeDef",
     "CreateRecommendationTemplateRequestRequestTypeDef",
     "CreateRecommendationTemplateResponseTypeDef",
     "CreateResiliencyPolicyRequestRequestTypeDef",
     "CreateResiliencyPolicyResponseTypeDef",
     "DeleteAppAssessmentRequestRequestTypeDef",
     "DeleteAppAssessmentResponseTypeDef",
+    "DeleteAppInputSourceRequestRequestTypeDef",
+    "DeleteAppInputSourceResponseTypeDef",
     "DeleteAppRequestRequestTypeDef",
     "DeleteAppResponseTypeDef",
+    "DeleteAppVersionAppComponentRequestRequestTypeDef",
+    "DeleteAppVersionAppComponentResponseTypeDef",
+    "DeleteAppVersionResourceRequestRequestTypeDef",
+    "DeleteAppVersionResourceResponseTypeDef",
     "DeleteRecommendationTemplateRequestRequestTypeDef",
     "DeleteRecommendationTemplateResponseTypeDef",
     "DeleteResiliencyPolicyRequestRequestTypeDef",
@@ -83,8 +95,14 @@ __all__ = (
     "DescribeAppAssessmentResponseTypeDef",
     "DescribeAppRequestRequestTypeDef",
     "DescribeAppResponseTypeDef",
+    "DescribeAppVersionAppComponentRequestRequestTypeDef",
+    "DescribeAppVersionAppComponentResponseTypeDef",
+    "DescribeAppVersionRequestRequestTypeDef",
+    "DescribeAppVersionResourceRequestRequestTypeDef",
+    "DescribeAppVersionResourceResponseTypeDef",
     "DescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef",
     "DescribeAppVersionResourcesResolutionStatusResponseTypeDef",
+    "DescribeAppVersionResponseTypeDef",
     "DescribeAppVersionTemplateRequestRequestTypeDef",
     "DescribeAppVersionTemplateResponseTypeDef",
     "DescribeDraftAppVersionResourcesImportStatusRequestRequestTypeDef",
@@ -92,6 +110,8 @@ __all__ = (
     "DescribeResiliencyPolicyRequestRequestTypeDef",
     "DescribeResiliencyPolicyResponseTypeDef",
     "DisruptionComplianceTypeDef",
+    "EksSourceClusterNamespaceTypeDef",
+    "EksSourceTypeDef",
     "FailurePolicyTypeDef",
     "ImportResourcesToDraftAppVersionRequestRequestTypeDef",
     "ImportResourcesToDraftAppVersionResponseTypeDef",
@@ -103,6 +123,10 @@ __all__ = (
     "ListAppComponentCompliancesResponseTypeDef",
     "ListAppComponentRecommendationsRequestRequestTypeDef",
     "ListAppComponentRecommendationsResponseTypeDef",
+    "ListAppInputSourcesRequestRequestTypeDef",
+    "ListAppInputSourcesResponseTypeDef",
+    "ListAppVersionAppComponentsRequestRequestTypeDef",
+    "ListAppVersionAppComponentsResponseTypeDef",
     "ListAppVersionResourceMappingsRequestRequestTypeDef",
     "ListAppVersionResourceMappingsResponseTypeDef",
     "ListAppVersionResourcesRequestRequestTypeDef",
@@ -156,6 +180,12 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateAppRequestRequestTypeDef",
     "UpdateAppResponseTypeDef",
+    "UpdateAppVersionAppComponentRequestRequestTypeDef",
+    "UpdateAppVersionAppComponentResponseTypeDef",
+    "UpdateAppVersionRequestRequestTypeDef",
+    "UpdateAppVersionResourceRequestRequestTypeDef",
+    "UpdateAppVersionResourceResponseTypeDef",
+    "UpdateAppVersionResponseTypeDef",
     "UpdateResiliencyPolicyRequestRequestTypeDef",
     "UpdateResiliencyPolicyResponseTypeDef",
 )
@@ -276,13 +306,45 @@ AppComponentComplianceTypeDef = TypedDict(
     total=False,
 )
 
-AppComponentTypeDef = TypedDict(
-    "AppComponentTypeDef",
+_RequiredAppComponentTypeDef = TypedDict(
+    "_RequiredAppComponentTypeDef",
     {
         "name": str,
         "type": str,
     },
 )
+_OptionalAppComponentTypeDef = TypedDict(
+    "_OptionalAppComponentTypeDef",
+    {
+        "additionalInfo": Dict[str, List[str]],
+        "id": str,
+    },
+    total=False,
+)
+
+class AppComponentTypeDef(_RequiredAppComponentTypeDef, _OptionalAppComponentTypeDef):
+    pass
+
+_RequiredAppInputSourceTypeDef = TypedDict(
+    "_RequiredAppInputSourceTypeDef",
+    {
+        "importType": ResourceMappingTypeType,
+    },
+)
+_OptionalAppInputSourceTypeDef = TypedDict(
+    "_OptionalAppInputSourceTypeDef",
+    {
+        "eksSourceClusterNamespace": "EksSourceClusterNamespaceTypeDef",
+        "resourceCount": int,
+        "sourceArn": str,
+        "sourceName": str,
+        "terraformSource": "TerraformSourceTypeDef",
+    },
+    total=False,
+)
+
+class AppInputSourceTypeDef(_RequiredAppInputSourceTypeDef, _OptionalAppInputSourceTypeDef):
+    pass
 
 _RequiredAppSummaryTypeDef = TypedDict(
     "_RequiredAppSummaryTypeDef",
@@ -419,6 +481,78 @@ CreateAppResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateAppVersionAppComponentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAppVersionAppComponentRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "name": str,
+        "type": str,
+    },
+)
+_OptionalCreateAppVersionAppComponentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAppVersionAppComponentRequestRequestTypeDef",
+    {
+        "additionalInfo": Dict[str, List[str]],
+        "clientToken": str,
+        "id": str,
+    },
+    total=False,
+)
+
+class CreateAppVersionAppComponentRequestRequestTypeDef(
+    _RequiredCreateAppVersionAppComponentRequestRequestTypeDef,
+    _OptionalCreateAppVersionAppComponentRequestRequestTypeDef,
+):
+    pass
+
+CreateAppVersionAppComponentResponseTypeDef = TypedDict(
+    "CreateAppVersionAppComponentResponseTypeDef",
+    {
+        "appArn": str,
+        "appComponent": "AppComponentTypeDef",
+        "appVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAppVersionResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAppVersionResourceRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "appComponents": List[str],
+        "logicalResourceId": "LogicalResourceIdTypeDef",
+        "physicalResourceId": str,
+        "resourceName": str,
+        "resourceType": str,
+    },
+)
+_OptionalCreateAppVersionResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAppVersionResourceRequestRequestTypeDef",
+    {
+        "additionalInfo": Dict[str, List[str]],
+        "awsAccountId": str,
+        "awsRegion": str,
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class CreateAppVersionResourceRequestRequestTypeDef(
+    _RequiredCreateAppVersionResourceRequestRequestTypeDef,
+    _OptionalCreateAppVersionResourceRequestRequestTypeDef,
+):
+    pass
+
+CreateAppVersionResourceResponseTypeDef = TypedDict(
+    "CreateAppVersionResourceResponseTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+        "physicalResource": "PhysicalResourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateRecommendationTemplateRequestRequestTypeDef = TypedDict(
     "_RequiredCreateRecommendationTemplateRequestRequestTypeDef",
     {
@@ -515,6 +649,38 @@ DeleteAppAssessmentResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDeleteAppInputSourceRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteAppInputSourceRequestRequestTypeDef",
+    {
+        "appArn": str,
+    },
+)
+_OptionalDeleteAppInputSourceRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteAppInputSourceRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "eksSourceClusterNamespace": "EksSourceClusterNamespaceTypeDef",
+        "sourceArn": str,
+        "terraformSource": "TerraformSourceTypeDef",
+    },
+    total=False,
+)
+
+class DeleteAppInputSourceRequestRequestTypeDef(
+    _RequiredDeleteAppInputSourceRequestRequestTypeDef,
+    _OptionalDeleteAppInputSourceRequestRequestTypeDef,
+):
+    pass
+
+DeleteAppInputSourceResponseTypeDef = TypedDict(
+    "DeleteAppInputSourceResponseTypeDef",
+    {
+        "appArn": str,
+        "appInputSource": "AppInputSourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteAppRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteAppRequestRequestTypeDef",
     {
@@ -539,6 +705,72 @@ DeleteAppResponseTypeDef = TypedDict(
     "DeleteAppResponseTypeDef",
     {
         "appArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteAppVersionAppComponentRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteAppVersionAppComponentRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "id": str,
+    },
+)
+_OptionalDeleteAppVersionAppComponentRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteAppVersionAppComponentRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeleteAppVersionAppComponentRequestRequestTypeDef(
+    _RequiredDeleteAppVersionAppComponentRequestRequestTypeDef,
+    _OptionalDeleteAppVersionAppComponentRequestRequestTypeDef,
+):
+    pass
+
+DeleteAppVersionAppComponentResponseTypeDef = TypedDict(
+    "DeleteAppVersionAppComponentResponseTypeDef",
+    {
+        "appArn": str,
+        "appComponent": "AppComponentTypeDef",
+        "appVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteAppVersionResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteAppVersionResourceRequestRequestTypeDef",
+    {
+        "appArn": str,
+    },
+)
+_OptionalDeleteAppVersionResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteAppVersionResourceRequestRequestTypeDef",
+    {
+        "awsAccountId": str,
+        "awsRegion": str,
+        "clientToken": str,
+        "logicalResourceId": "LogicalResourceIdTypeDef",
+        "physicalResourceId": str,
+        "resourceName": str,
+    },
+    total=False,
+)
+
+class DeleteAppVersionResourceRequestRequestTypeDef(
+    _RequiredDeleteAppVersionResourceRequestRequestTypeDef,
+    _OptionalDeleteAppVersionResourceRequestRequestTypeDef,
+):
+    pass
+
+DeleteAppVersionResourceResponseTypeDef = TypedDict(
+    "DeleteAppVersionResourceResponseTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+        "physicalResource": "PhysicalResourceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -630,6 +862,68 @@ DescribeAppResponseTypeDef = TypedDict(
     },
 )
 
+DescribeAppVersionAppComponentRequestRequestTypeDef = TypedDict(
+    "DescribeAppVersionAppComponentRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+        "id": str,
+    },
+)
+
+DescribeAppVersionAppComponentResponseTypeDef = TypedDict(
+    "DescribeAppVersionAppComponentResponseTypeDef",
+    {
+        "appArn": str,
+        "appComponent": "AppComponentTypeDef",
+        "appVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAppVersionRequestRequestTypeDef = TypedDict(
+    "DescribeAppVersionRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+    },
+)
+
+_RequiredDescribeAppVersionResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeAppVersionResourceRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+    },
+)
+_OptionalDescribeAppVersionResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeAppVersionResourceRequestRequestTypeDef",
+    {
+        "awsAccountId": str,
+        "awsRegion": str,
+        "logicalResourceId": "LogicalResourceIdTypeDef",
+        "physicalResourceId": str,
+        "resourceName": str,
+    },
+    total=False,
+)
+
+class DescribeAppVersionResourceRequestRequestTypeDef(
+    _RequiredDescribeAppVersionResourceRequestRequestTypeDef,
+    _OptionalDescribeAppVersionResourceRequestRequestTypeDef,
+):
+    pass
+
+DescribeAppVersionResourceResponseTypeDef = TypedDict(
+    "DescribeAppVersionResourceResponseTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+        "physicalResource": "PhysicalResourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef",
     {
@@ -659,6 +953,16 @@ DescribeAppVersionResourcesResolutionStatusResponseTypeDef = TypedDict(
         "errorMessage": str,
         "resolutionId": str,
         "status": ResourceResolutionStatusTypeType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAppVersionResponseTypeDef = TypedDict(
+    "DescribeAppVersionResponseTypeDef",
+    {
+        "additionalInfo": Dict[str, List[str]],
+        "appArn": str,
+        "appVersion": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -742,6 +1046,22 @@ class DisruptionComplianceTypeDef(
 ):
     pass
 
+EksSourceClusterNamespaceTypeDef = TypedDict(
+    "EksSourceClusterNamespaceTypeDef",
+    {
+        "eksClusterArn": str,
+        "namespace": str,
+    },
+)
+
+EksSourceTypeDef = TypedDict(
+    "EksSourceTypeDef",
+    {
+        "eksClusterArn": str,
+        "namespaces": List[str],
+    },
+)
+
 FailurePolicyTypeDef = TypedDict(
     "FailurePolicyTypeDef",
     {
@@ -759,6 +1079,8 @@ _RequiredImportResourcesToDraftAppVersionRequestRequestTypeDef = TypedDict(
 _OptionalImportResourcesToDraftAppVersionRequestRequestTypeDef = TypedDict(
     "_OptionalImportResourcesToDraftAppVersionRequestRequestTypeDef",
     {
+        "eksSources": List["EksSourceTypeDef"],
+        "importStrategy": ResourceImportStrategyTypeType,
         "sourceArns": List[str],
         "terraformSources": List["TerraformSourceTypeDef"],
     },
@@ -776,6 +1098,7 @@ ImportResourcesToDraftAppVersionResponseTypeDef = TypedDict(
     {
         "appArn": str,
         "appVersion": str,
+        "eksSources": List["EksSourceTypeDef"],
         "sourceArns": List[str],
         "status": ResourceImportStatusTypeType,
         "terraformSources": List["TerraformSourceTypeDef"],
@@ -892,6 +1215,70 @@ ListAppComponentRecommendationsResponseTypeDef = TypedDict(
     "ListAppComponentRecommendationsResponseTypeDef",
     {
         "componentRecommendations": List["ComponentRecommendationTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAppInputSourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAppInputSourcesRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+    },
+)
+_OptionalListAppInputSourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAppInputSourcesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListAppInputSourcesRequestRequestTypeDef(
+    _RequiredListAppInputSourcesRequestRequestTypeDef,
+    _OptionalListAppInputSourcesRequestRequestTypeDef,
+):
+    pass
+
+ListAppInputSourcesResponseTypeDef = TypedDict(
+    "ListAppInputSourcesResponseTypeDef",
+    {
+        "appInputSources": List["AppInputSourceTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAppVersionAppComponentsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAppVersionAppComponentsRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+    },
+)
+_OptionalListAppVersionAppComponentsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAppVersionAppComponentsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListAppVersionAppComponentsRequestRequestTypeDef(
+    _RequiredListAppVersionAppComponentsRequestRequestTypeDef,
+    _OptionalListAppVersionAppComponentsRequestRequestTypeDef,
+):
+    pass
+
+ListAppVersionAppComponentsResponseTypeDef = TypedDict(
+    "ListAppVersionAppComponentsResponseTypeDef",
+    {
+        "appArn": str,
+        "appComponents": List["AppComponentTypeDef"],
+        "appVersion": str,
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1198,6 +1585,7 @@ _RequiredLogicalResourceIdTypeDef = TypedDict(
 _OptionalLogicalResourceIdTypeDef = TypedDict(
     "_OptionalLogicalResourceIdTypeDef",
     {
+        "eksSourceName": str,
         "logicalStackName": str,
         "resourceGroupName": str,
         "terraformSourceName": str,
@@ -1242,7 +1630,9 @@ _RequiredPhysicalResourceTypeDef = TypedDict(
 _OptionalPhysicalResourceTypeDef = TypedDict(
     "_OptionalPhysicalResourceTypeDef",
     {
+        "additionalInfo": Dict[str, List[str]],
         "appComponents": List["AppComponentTypeDef"],
+        "excluded": bool,
         "resourceName": str,
     },
     total=False,
@@ -1359,6 +1749,7 @@ _OptionalRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef = TypedDict(
     "_OptionalRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef",
     {
         "appRegistryAppNames": List[str],
+        "eksSourceNames": List[str],
         "logicalStackNames": List[str],
         "resourceGroupNames": List[str],
         "resourceNames": List[str],
@@ -1455,6 +1846,7 @@ _OptionalResourceMappingTypeDef = TypedDict(
     "_OptionalResourceMappingTypeDef",
     {
         "appRegistryAppName": str,
+        "eksSourceName": str,
         "logicalStackName": str,
         "resourceGroupName": str,
         "resourceName": str,
@@ -1585,14 +1977,26 @@ class TestRecommendationTypeDef(
 ):
     pass
 
-UnsupportedResourceTypeDef = TypedDict(
-    "UnsupportedResourceTypeDef",
+_RequiredUnsupportedResourceTypeDef = TypedDict(
+    "_RequiredUnsupportedResourceTypeDef",
     {
         "logicalResourceId": "LogicalResourceIdTypeDef",
         "physicalResourceId": "PhysicalResourceIdTypeDef",
         "resourceType": str,
     },
 )
+_OptionalUnsupportedResourceTypeDef = TypedDict(
+    "_OptionalUnsupportedResourceTypeDef",
+    {
+        "unsupportedResourceStatus": str,
+    },
+    total=False,
+)
+
+class UnsupportedResourceTypeDef(
+    _RequiredUnsupportedResourceTypeDef, _OptionalUnsupportedResourceTypeDef
+):
+    pass
 
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
@@ -1628,6 +2032,106 @@ UpdateAppResponseTypeDef = TypedDict(
     "UpdateAppResponseTypeDef",
     {
         "app": "AppTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateAppVersionAppComponentRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAppVersionAppComponentRequestRequestTypeDef",
+    {
+        "appArn": str,
+        "id": str,
+    },
+)
+_OptionalUpdateAppVersionAppComponentRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAppVersionAppComponentRequestRequestTypeDef",
+    {
+        "additionalInfo": Dict[str, List[str]],
+        "name": str,
+        "type": str,
+    },
+    total=False,
+)
+
+class UpdateAppVersionAppComponentRequestRequestTypeDef(
+    _RequiredUpdateAppVersionAppComponentRequestRequestTypeDef,
+    _OptionalUpdateAppVersionAppComponentRequestRequestTypeDef,
+):
+    pass
+
+UpdateAppVersionAppComponentResponseTypeDef = TypedDict(
+    "UpdateAppVersionAppComponentResponseTypeDef",
+    {
+        "appArn": str,
+        "appComponent": "AppComponentTypeDef",
+        "appVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateAppVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAppVersionRequestRequestTypeDef",
+    {
+        "appArn": str,
+    },
+)
+_OptionalUpdateAppVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAppVersionRequestRequestTypeDef",
+    {
+        "additionalInfo": Dict[str, List[str]],
+    },
+    total=False,
+)
+
+class UpdateAppVersionRequestRequestTypeDef(
+    _RequiredUpdateAppVersionRequestRequestTypeDef, _OptionalUpdateAppVersionRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateAppVersionResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAppVersionResourceRequestRequestTypeDef",
+    {
+        "appArn": str,
+    },
+)
+_OptionalUpdateAppVersionResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAppVersionResourceRequestRequestTypeDef",
+    {
+        "additionalInfo": Dict[str, List[str]],
+        "appComponents": List[str],
+        "awsAccountId": str,
+        "awsRegion": str,
+        "excluded": bool,
+        "logicalResourceId": "LogicalResourceIdTypeDef",
+        "physicalResourceId": str,
+        "resourceName": str,
+        "resourceType": str,
+    },
+    total=False,
+)
+
+class UpdateAppVersionResourceRequestRequestTypeDef(
+    _RequiredUpdateAppVersionResourceRequestRequestTypeDef,
+    _OptionalUpdateAppVersionResourceRequestRequestTypeDef,
+):
+    pass
+
+UpdateAppVersionResourceResponseTypeDef = TypedDict(
+    "UpdateAppVersionResourceResponseTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+        "physicalResource": "PhysicalResourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateAppVersionResponseTypeDef = TypedDict(
+    "UpdateAppVersionResponseTypeDef",
+    {
+        "additionalInfo": Dict[str, List[str]],
+        "appArn": str,
+        "appVersion": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

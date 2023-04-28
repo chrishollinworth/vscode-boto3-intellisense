@@ -19,7 +19,9 @@ from .literals import (
     FormActionTypeType,
     FormButtonsPositionType,
     FormDataSourceTypeType,
+    LabelDecoratorType,
     SortDirectionType,
+    StorageAccessLevelType,
 )
 
 if sys.version_info >= (3, 8):
@@ -69,10 +71,14 @@ __all__ = (
     "FieldInputConfigTypeDef",
     "FieldPositionTypeDef",
     "FieldValidationConfigurationTypeDef",
+    "FileUploaderFieldConfigTypeDef",
     "FormBindingElementTypeDef",
     "FormButtonTypeDef",
     "FormCTATypeDef",
     "FormDataTypeConfigTypeDef",
+    "FormInputBindingPropertiesValuePropertiesTypeDef",
+    "FormInputBindingPropertiesValueTypeDef",
+    "FormInputValuePropertyBindingPropertiesTypeDef",
     "FormInputValuePropertyTypeDef",
     "FormStyleConfigTypeDef",
     "FormStyleTypeDef",
@@ -123,15 +129,15 @@ __all__ = (
 ActionParametersTypeDef = TypedDict(
     "ActionParametersTypeDef",
     {
-        "anchor": "ComponentPropertyTypeDef",
-        "fields": Dict[str, "ComponentPropertyTypeDef"],
-        "global": "ComponentPropertyTypeDef",
-        "id": "ComponentPropertyTypeDef",
-        "model": str,
-        "state": "MutationActionSetStateParameterTypeDef",
-        "target": "ComponentPropertyTypeDef",
         "type": "ComponentPropertyTypeDef",
         "url": "ComponentPropertyTypeDef",
+        "anchor": "ComponentPropertyTypeDef",
+        "target": "ComponentPropertyTypeDef",
+        "global": "ComponentPropertyTypeDef",
+        "model": str,
+        "id": "ComponentPropertyTypeDef",
+        "fields": Dict[str, "ComponentPropertyTypeDef"],
+        "state": "MutationActionSetStateParameterTypeDef",
     },
     total=False,
 )
@@ -139,14 +145,14 @@ ActionParametersTypeDef = TypedDict(
 ComponentBindingPropertiesValuePropertiesTypeDef = TypedDict(
     "ComponentBindingPropertiesValuePropertiesTypeDef",
     {
-        "bucket": str,
-        "defaultValue": str,
-        "field": str,
-        "key": str,
         "model": str,
+        "field": str,
         "predicates": List["PredicateTypeDef"],
-        "slotName": str,
         "userAttribute": str,
+        "bucket": str,
+        "key": str,
+        "defaultValue": str,
+        "slotName": str,
     },
     total=False,
 )
@@ -154,9 +160,9 @@ ComponentBindingPropertiesValuePropertiesTypeDef = TypedDict(
 ComponentBindingPropertiesValueTypeDef = TypedDict(
     "ComponentBindingPropertiesValueTypeDef",
     {
+        "type": str,
         "bindingProperties": "ComponentBindingPropertiesValuePropertiesTypeDef",
         "defaultValue": str,
-        "type": str,
     },
     total=False,
 )
@@ -185,13 +191,13 @@ class ComponentChildTypeDef(_RequiredComponentChildTypeDef, _OptionalComponentCh
 ComponentConditionPropertyTypeDef = TypedDict(
     "ComponentConditionPropertyTypeDef",
     {
-        "else": "ComponentPropertyTypeDef",
-        "field": str,
-        "operand": str,
-        "operandType": str,
-        "operator": str,
         "property": str,
-        "then": "ComponentPropertyTypeDef",
+        "field": str,
+        "operator": str,
+        "operand": str,
+        "then": Dict[str, Any],
+        "else": Dict[str, Any],
+        "operandType": str,
     },
     total=False,
 )
@@ -205,9 +211,9 @@ _RequiredComponentDataConfigurationTypeDef = TypedDict(
 _OptionalComponentDataConfigurationTypeDef = TypedDict(
     "_OptionalComponentDataConfigurationTypeDef",
     {
-        "identifiers": List[str],
-        "predicate": "PredicateTypeDef",
         "sort": List["SortPropertyTypeDef"],
+        "predicate": "PredicateTypeDef",
+        "identifiers": List[str],
     },
     total=False,
 )
@@ -221,8 +227,8 @@ ComponentEventTypeDef = TypedDict(
     "ComponentEventTypeDef",
     {
         "action": str,
-        "bindingEvent": str,
         "parameters": "ActionParametersTypeDef",
+        "bindingEvent": str,
     },
     total=False,
 )
@@ -250,21 +256,21 @@ class ComponentPropertyBindingPropertiesTypeDef(
 ComponentPropertyTypeDef = TypedDict(
     "ComponentPropertyTypeDef",
     {
+        "value": str,
         "bindingProperties": "ComponentPropertyBindingPropertiesTypeDef",
-        "bindings": Dict[str, "FormBindingElementTypeDef"],
         "collectionBindingProperties": "ComponentPropertyBindingPropertiesTypeDef",
-        "componentName": str,
+        "defaultValue": str,
+        "model": str,
+        "bindings": Dict[str, "FormBindingElementTypeDef"],
+        "event": str,
+        "userAttribute": str,
         "concat": List[Dict[str, Any]],
         "condition": Dict[str, Any],
         "configured": bool,
-        "defaultValue": str,
-        "event": str,
-        "importedValue": str,
-        "model": str,
-        "property": str,
         "type": str,
-        "userAttribute": str,
-        "value": str,
+        "importedValue": str,
+        "componentName": str,
+        "property": str,
     },
     total=False,
 )
@@ -273,10 +279,10 @@ ComponentSummaryTypeDef = TypedDict(
     "ComponentSummaryTypeDef",
     {
         "appId": str,
-        "componentType": str,
         "environmentName": str,
         "id": str,
         "name": str,
+        "componentType": str,
     },
 )
 
@@ -284,27 +290,27 @@ _RequiredComponentTypeDef = TypedDict(
     "_RequiredComponentTypeDef",
     {
         "appId": str,
-        "bindingProperties": Dict[str, "ComponentBindingPropertiesValueTypeDef"],
-        "componentType": str,
-        "createdAt": datetime,
         "environmentName": str,
         "id": str,
         "name": str,
-        "overrides": Dict[str, Dict[str, str]],
+        "componentType": str,
         "properties": Dict[str, "ComponentPropertyTypeDef"],
         "variants": List["ComponentVariantTypeDef"],
+        "overrides": Dict[str, Dict[str, str]],
+        "bindingProperties": Dict[str, "ComponentBindingPropertiesValueTypeDef"],
+        "createdAt": datetime,
     },
 )
 _OptionalComponentTypeDef = TypedDict(
     "_OptionalComponentTypeDef",
     {
+        "sourceId": str,
         "children": List["ComponentChildTypeDef"],
         "collectionProperties": Dict[str, "ComponentDataConfigurationTypeDef"],
-        "events": Dict[str, "ComponentEventTypeDef"],
         "modifiedAt": datetime,
-        "schemaVersion": str,
-        "sourceId": str,
         "tags": Dict[str, str],
+        "events": Dict[str, "ComponentEventTypeDef"],
+        "schemaVersion": str,
     },
     total=False,
 )
@@ -315,8 +321,8 @@ class ComponentTypeDef(_RequiredComponentTypeDef, _OptionalComponentTypeDef):
 ComponentVariantTypeDef = TypedDict(
     "ComponentVariantTypeDef",
     {
-        "overrides": Dict[str, Dict[str, str]],
         "variantValues": Dict[str, str],
+        "overrides": Dict[str, Dict[str, str]],
     },
     total=False,
 )
@@ -324,23 +330,23 @@ ComponentVariantTypeDef = TypedDict(
 _RequiredCreateComponentDataTypeDef = TypedDict(
     "_RequiredCreateComponentDataTypeDef",
     {
-        "bindingProperties": Dict[str, "ComponentBindingPropertiesValueTypeDef"],
-        "componentType": str,
         "name": str,
-        "overrides": Dict[str, Dict[str, str]],
+        "componentType": str,
         "properties": Dict[str, "ComponentPropertyTypeDef"],
         "variants": List["ComponentVariantTypeDef"],
+        "overrides": Dict[str, Dict[str, str]],
+        "bindingProperties": Dict[str, "ComponentBindingPropertiesValueTypeDef"],
     },
 )
 _OptionalCreateComponentDataTypeDef = TypedDict(
     "_OptionalCreateComponentDataTypeDef",
     {
+        "sourceId": str,
         "children": List["ComponentChildTypeDef"],
         "collectionProperties": Dict[str, "ComponentDataConfigurationTypeDef"],
+        "tags": Dict[str, str],
         "events": Dict[str, "ComponentEventTypeDef"],
         "schemaVersion": str,
-        "sourceId": str,
-        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -354,8 +360,8 @@ _RequiredCreateComponentRequestRequestTypeDef = TypedDict(
     "_RequiredCreateComponentRequestRequestTypeDef",
     {
         "appId": str,
-        "componentToCreate": "CreateComponentDataTypeDef",
         "environmentName": str,
+        "componentToCreate": "CreateComponentDataTypeDef",
     },
 )
 _OptionalCreateComponentRequestRequestTypeDef = TypedDict(
@@ -382,13 +388,13 @@ CreateComponentResponseTypeDef = TypedDict(
 _RequiredCreateFormDataTypeDef = TypedDict(
     "_RequiredCreateFormDataTypeDef",
     {
-        "dataType": "FormDataTypeConfigTypeDef",
-        "fields": Dict[str, "FieldConfigTypeDef"],
-        "formActionType": FormActionTypeType,
         "name": str,
-        "schemaVersion": str,
-        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "dataType": "FormDataTypeConfigTypeDef",
+        "formActionType": FormActionTypeType,
+        "fields": Dict[str, "FieldConfigTypeDef"],
         "style": "FormStyleTypeDef",
+        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "schemaVersion": str,
     },
 )
 _OptionalCreateFormDataTypeDef = TypedDict(
@@ -396,6 +402,7 @@ _OptionalCreateFormDataTypeDef = TypedDict(
     {
         "cta": "FormCTATypeDef",
         "tags": Dict[str, str],
+        "labelDecorator": LabelDecoratorType,
     },
     total=False,
 )
@@ -507,13 +514,25 @@ DeleteThemeRequestRequestTypeDef = TypedDict(
     },
 )
 
-ExchangeCodeForTokenRequestBodyTypeDef = TypedDict(
-    "ExchangeCodeForTokenRequestBodyTypeDef",
+_RequiredExchangeCodeForTokenRequestBodyTypeDef = TypedDict(
+    "_RequiredExchangeCodeForTokenRequestBodyTypeDef",
     {
         "code": str,
         "redirectUri": str,
     },
 )
+_OptionalExchangeCodeForTokenRequestBodyTypeDef = TypedDict(
+    "_OptionalExchangeCodeForTokenRequestBodyTypeDef",
+    {
+        "clientId": str,
+    },
+    total=False,
+)
+
+class ExchangeCodeForTokenRequestBodyTypeDef(
+    _RequiredExchangeCodeForTokenRequestBodyTypeDef, _OptionalExchangeCodeForTokenRequestBodyTypeDef
+):
+    pass
 
 ExchangeCodeForTokenRequestRequestTypeDef = TypedDict(
     "ExchangeCodeForTokenRequestRequestTypeDef",
@@ -623,10 +642,10 @@ ExportThemesResponseTypeDef = TypedDict(
 FieldConfigTypeDef = TypedDict(
     "FieldConfigTypeDef",
     {
-        "excluded": bool,
-        "inputType": "FieldInputConfigTypeDef",
         "label": str,
         "position": "FieldPositionTypeDef",
+        "excluded": bool,
+        "inputType": "FieldInputConfigTypeDef",
         "validations": List["FieldValidationConfigurationTypeDef"],
     },
     total=False,
@@ -641,20 +660,21 @@ _RequiredFieldInputConfigTypeDef = TypedDict(
 _OptionalFieldInputConfigTypeDef = TypedDict(
     "_OptionalFieldInputConfigTypeDef",
     {
-        "defaultChecked": bool,
-        "defaultCountryCode": str,
+        "required": bool,
+        "readOnly": bool,
+        "placeholder": str,
         "defaultValue": str,
         "descriptiveText": str,
-        "isArray": bool,
-        "maxValue": float,
-        "minValue": float,
+        "defaultChecked": bool,
+        "defaultCountryCode": str,
+        "valueMappings": "ValueMappingsTypeDef",
         "name": str,
-        "placeholder": str,
-        "readOnly": bool,
-        "required": bool,
+        "minValue": float,
+        "maxValue": float,
         "step": float,
         "value": str,
-        "valueMappings": "ValueMappingsTypeDef",
+        "isArray": bool,
+        "fileUploaderConfig": "FileUploaderFieldConfigTypeDef",
     },
     total=False,
 )
@@ -665,9 +685,9 @@ class FieldInputConfigTypeDef(_RequiredFieldInputConfigTypeDef, _OptionalFieldIn
 FieldPositionTypeDef = TypedDict(
     "FieldPositionTypeDef",
     {
-        "below": str,
         "fixed": Literal["first"],
         "rightOf": str,
+        "below": str,
     },
     total=False,
 )
@@ -681,8 +701,8 @@ _RequiredFieldValidationConfigurationTypeDef = TypedDict(
 _OptionalFieldValidationConfigurationTypeDef = TypedDict(
     "_OptionalFieldValidationConfigurationTypeDef",
     {
-        "numValues": List[int],
         "strValues": List[str],
+        "numValues": List[int],
         "validationMessage": str,
     },
     total=False,
@@ -690,6 +710,29 @@ _OptionalFieldValidationConfigurationTypeDef = TypedDict(
 
 class FieldValidationConfigurationTypeDef(
     _RequiredFieldValidationConfigurationTypeDef, _OptionalFieldValidationConfigurationTypeDef
+):
+    pass
+
+_RequiredFileUploaderFieldConfigTypeDef = TypedDict(
+    "_RequiredFileUploaderFieldConfigTypeDef",
+    {
+        "accessLevel": StorageAccessLevelType,
+        "acceptedFileTypes": List[str],
+    },
+)
+_OptionalFileUploaderFieldConfigTypeDef = TypedDict(
+    "_OptionalFileUploaderFieldConfigTypeDef",
+    {
+        "showThumbnails": bool,
+        "isResumable": bool,
+        "maxFileCount": int,
+        "maxSize": int,
+    },
+    total=False,
+)
+
+class FileUploaderFieldConfigTypeDef(
+    _RequiredFileUploaderFieldConfigTypeDef, _OptionalFileUploaderFieldConfigTypeDef
 ):
     pass
 
@@ -704,8 +747,8 @@ FormBindingElementTypeDef = TypedDict(
 FormButtonTypeDef = TypedDict(
     "FormButtonTypeDef",
     {
-        "children": str,
         "excluded": bool,
+        "children": str,
         "position": "FieldPositionTypeDef",
     },
     total=False,
@@ -714,9 +757,9 @@ FormButtonTypeDef = TypedDict(
 FormCTATypeDef = TypedDict(
     "FormCTATypeDef",
     {
-        "cancel": "FormButtonTypeDef",
-        "clear": "FormButtonTypeDef",
         "position": FormButtonsPositionType,
+        "clear": "FormButtonTypeDef",
+        "cancel": "FormButtonTypeDef",
         "submit": "FormButtonTypeDef",
     },
     total=False,
@@ -730,10 +773,49 @@ FormDataTypeConfigTypeDef = TypedDict(
     },
 )
 
+FormInputBindingPropertiesValuePropertiesTypeDef = TypedDict(
+    "FormInputBindingPropertiesValuePropertiesTypeDef",
+    {
+        "model": str,
+    },
+    total=False,
+)
+
+FormInputBindingPropertiesValueTypeDef = TypedDict(
+    "FormInputBindingPropertiesValueTypeDef",
+    {
+        "type": str,
+        "bindingProperties": "FormInputBindingPropertiesValuePropertiesTypeDef",
+    },
+    total=False,
+)
+
+_RequiredFormInputValuePropertyBindingPropertiesTypeDef = TypedDict(
+    "_RequiredFormInputValuePropertyBindingPropertiesTypeDef",
+    {
+        "property": str,
+    },
+)
+_OptionalFormInputValuePropertyBindingPropertiesTypeDef = TypedDict(
+    "_OptionalFormInputValuePropertyBindingPropertiesTypeDef",
+    {
+        "field": str,
+    },
+    total=False,
+)
+
+class FormInputValuePropertyBindingPropertiesTypeDef(
+    _RequiredFormInputValuePropertyBindingPropertiesTypeDef,
+    _OptionalFormInputValuePropertyBindingPropertiesTypeDef,
+):
+    pass
+
 FormInputValuePropertyTypeDef = TypedDict(
     "FormInputValuePropertyTypeDef",
     {
         "value": str,
+        "bindingProperties": "FormInputValuePropertyBindingPropertiesTypeDef",
+        "concat": List[Dict[str, Any]],
     },
     total=False,
 )
@@ -751,8 +833,8 @@ FormStyleTypeDef = TypedDict(
     "FormStyleTypeDef",
     {
         "horizontalGap": "FormStyleConfigTypeDef",
-        "outerPadding": "FormStyleConfigTypeDef",
         "verticalGap": "FormStyleConfigTypeDef",
+        "outerPadding": "FormStyleConfigTypeDef",
     },
     total=False,
 )
@@ -773,22 +855,23 @@ _RequiredFormTypeDef = TypedDict(
     "_RequiredFormTypeDef",
     {
         "appId": str,
-        "dataType": "FormDataTypeConfigTypeDef",
         "environmentName": str,
-        "fields": Dict[str, "FieldConfigTypeDef"],
-        "formActionType": FormActionTypeType,
         "id": str,
         "name": str,
-        "schemaVersion": str,
-        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "formActionType": FormActionTypeType,
         "style": "FormStyleTypeDef",
+        "dataType": "FormDataTypeConfigTypeDef",
+        "fields": Dict[str, "FieldConfigTypeDef"],
+        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "schemaVersion": str,
     },
 )
 _OptionalFormTypeDef = TypedDict(
     "_OptionalFormTypeDef",
     {
-        "cta": "FormCTATypeDef",
         "tags": Dict[str, str],
+        "cta": "FormCTATypeDef",
+        "labelDecorator": LabelDecoratorType,
     },
     total=False,
 )
@@ -873,8 +956,8 @@ _RequiredListComponentsRequestRequestTypeDef = TypedDict(
 _OptionalListComponentsRequestRequestTypeDef = TypedDict(
     "_OptionalListComponentsRequestRequestTypeDef",
     {
-        "maxResults": int,
         "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -903,8 +986,8 @@ _RequiredListFormsRequestRequestTypeDef = TypedDict(
 _OptionalListFormsRequestRequestTypeDef = TypedDict(
     "_OptionalListFormsRequestRequestTypeDef",
     {
-        "maxResults": int,
         "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -933,8 +1016,8 @@ _RequiredListThemesRequestRequestTypeDef = TypedDict(
 _OptionalListThemesRequestRequestTypeDef = TypedDict(
     "_OptionalListThemesRequestRequestTypeDef",
     {
-        "maxResults": int,
         "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -975,11 +1058,12 @@ PaginatorConfigTypeDef = TypedDict(
 PredicateTypeDef = TypedDict(
     "PredicateTypeDef",
     {
+        "or": List[Dict[str, Any]],
         "and": List[Dict[str, Any]],
         "field": str,
-        "operand": str,
         "operator": str,
-        "or": List[Dict[str, Any]],
+        "operand": str,
+        "operandType": str,
     },
     total=False,
 )
@@ -995,18 +1079,30 @@ PutMetadataFlagRequestRequestTypeDef = TypedDict(
     "PutMetadataFlagRequestRequestTypeDef",
     {
         "appId": str,
-        "body": "PutMetadataFlagBodyTypeDef",
         "environmentName": str,
         "featureName": str,
+        "body": "PutMetadataFlagBodyTypeDef",
     },
 )
 
-RefreshTokenRequestBodyTypeDef = TypedDict(
-    "RefreshTokenRequestBodyTypeDef",
+_RequiredRefreshTokenRequestBodyTypeDef = TypedDict(
+    "_RequiredRefreshTokenRequestBodyTypeDef",
     {
         "token": str,
     },
 )
+_OptionalRefreshTokenRequestBodyTypeDef = TypedDict(
+    "_OptionalRefreshTokenRequestBodyTypeDef",
+    {
+        "clientId": str,
+    },
+    total=False,
+)
+
+class RefreshTokenRequestBodyTypeDef(
+    _RequiredRefreshTokenRequestBodyTypeDef, _OptionalRefreshTokenRequestBodyTypeDef
+):
+    pass
 
 RefreshTokenRequestRequestTypeDef = TypedDict(
     "RefreshTokenRequestRequestTypeDef",
@@ -1045,10 +1141,11 @@ _RequiredSectionalElementTypeDef = TypedDict(
 _OptionalSectionalElementTypeDef = TypedDict(
     "_OptionalSectionalElementTypeDef",
     {
-        "level": int,
-        "orientation": str,
         "position": "FieldPositionTypeDef",
         "text": str,
+        "level": int,
+        "orientation": str,
+        "excluded": bool,
     },
     total=False,
 )
@@ -1059,8 +1156,8 @@ class SectionalElementTypeDef(_RequiredSectionalElementTypeDef, _OptionalSection
 SortPropertyTypeDef = TypedDict(
     "SortPropertyTypeDef",
     {
-        "direction": SortDirectionType,
         "field": str,
+        "direction": SortDirectionType,
     },
 )
 
@@ -1078,10 +1175,10 @@ _RequiredThemeTypeDef = TypedDict(
     "_RequiredThemeTypeDef",
     {
         "appId": str,
-        "createdAt": datetime,
         "environmentName": str,
         "id": str,
         "name": str,
+        "createdAt": datetime,
         "values": List["ThemeValuesTypeDef"],
     },
 )
@@ -1101,8 +1198,8 @@ class ThemeTypeDef(_RequiredThemeTypeDef, _OptionalThemeTypeDef):
 ThemeValueTypeDef = TypedDict(
     "ThemeValueTypeDef",
     {
-        "children": List[Dict[str, Any]],
         "value": str,
+        "children": List[Dict[str, Any]],
     },
     total=False,
 )
@@ -1119,18 +1216,18 @@ ThemeValuesTypeDef = TypedDict(
 UpdateComponentDataTypeDef = TypedDict(
     "UpdateComponentDataTypeDef",
     {
-        "bindingProperties": Dict[str, "ComponentBindingPropertiesValueTypeDef"],
-        "children": List["ComponentChildTypeDef"],
-        "collectionProperties": Dict[str, "ComponentDataConfigurationTypeDef"],
-        "componentType": str,
-        "events": Dict[str, "ComponentEventTypeDef"],
         "id": str,
         "name": str,
-        "overrides": Dict[str, Dict[str, str]],
-        "properties": Dict[str, "ComponentPropertyTypeDef"],
-        "schemaVersion": str,
         "sourceId": str,
+        "componentType": str,
+        "properties": Dict[str, "ComponentPropertyTypeDef"],
+        "children": List["ComponentChildTypeDef"],
         "variants": List["ComponentVariantTypeDef"],
+        "overrides": Dict[str, Dict[str, str]],
+        "bindingProperties": Dict[str, "ComponentBindingPropertiesValueTypeDef"],
+        "collectionProperties": Dict[str, "ComponentDataConfigurationTypeDef"],
+        "events": Dict[str, "ComponentEventTypeDef"],
+        "schemaVersion": str,
     },
     total=False,
 )
@@ -1168,14 +1265,15 @@ UpdateComponentResponseTypeDef = TypedDict(
 UpdateFormDataTypeDef = TypedDict(
     "UpdateFormDataTypeDef",
     {
-        "cta": "FormCTATypeDef",
-        "dataType": "FormDataTypeConfigTypeDef",
-        "fields": Dict[str, "FieldConfigTypeDef"],
-        "formActionType": FormActionTypeType,
         "name": str,
-        "schemaVersion": str,
-        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "dataType": "FormDataTypeConfigTypeDef",
+        "formActionType": FormActionTypeType,
+        "fields": Dict[str, "FieldConfigTypeDef"],
         "style": "FormStyleTypeDef",
+        "sectionalElements": Dict[str, "SectionalElementTypeDef"],
+        "schemaVersion": str,
+        "cta": "FormCTATypeDef",
+        "labelDecorator": LabelDecoratorType,
     },
     total=False,
 )
@@ -1276,9 +1374,19 @@ _OptionalValueMappingTypeDef = TypedDict(
 class ValueMappingTypeDef(_RequiredValueMappingTypeDef, _OptionalValueMappingTypeDef):
     pass
 
-ValueMappingsTypeDef = TypedDict(
-    "ValueMappingsTypeDef",
+_RequiredValueMappingsTypeDef = TypedDict(
+    "_RequiredValueMappingsTypeDef",
     {
         "values": List["ValueMappingTypeDef"],
     },
 )
+_OptionalValueMappingsTypeDef = TypedDict(
+    "_OptionalValueMappingsTypeDef",
+    {
+        "bindingProperties": Dict[str, "FormInputBindingPropertiesValueTypeDef"],
+    },
+    total=False,
+)
+
+class ValueMappingsTypeDef(_RequiredValueMappingsTypeDef, _OptionalValueMappingsTypeDef):
+    pass

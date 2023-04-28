@@ -20,7 +20,11 @@ from botocore.response import StreamingBody
 from .literals import (
     AugmentedManifestsDocumentTypeFormatType,
     BlockTypeType,
+    DatasetDataFormatType,
+    DatasetStatusType,
+    DatasetTypeType,
     DocumentClassifierDataFormatType,
+    DocumentClassifierDocumentTypeFormatType,
     DocumentClassifierModeType,
     DocumentReadActionType,
     DocumentReadFeatureTypesType,
@@ -29,11 +33,15 @@ from .literals import (
     EndpointStatusType,
     EntityRecognizerDataFormatType,
     EntityTypeType,
+    FlywheelIterationStatusType,
+    FlywheelStatusType,
     InputFormatType,
     JobStatusType,
     LanguageCodeType,
     ModelStatusType,
+    ModelTypeType,
     PageBasedErrorCodeType,
+    PageBasedWarningCodeType,
     PartOfSpeechTagTypeType,
     PiiEntitiesDetectionMaskModeType,
     PiiEntitiesDetectionModeType,
@@ -84,16 +92,33 @@ __all__ = (
     "ClassifyDocumentResponseTypeDef",
     "ContainsPiiEntitiesRequestRequestTypeDef",
     "ContainsPiiEntitiesResponseTypeDef",
+    "CreateDatasetRequestRequestTypeDef",
+    "CreateDatasetResponseTypeDef",
     "CreateDocumentClassifierRequestRequestTypeDef",
     "CreateDocumentClassifierResponseTypeDef",
     "CreateEndpointRequestRequestTypeDef",
     "CreateEndpointResponseTypeDef",
     "CreateEntityRecognizerRequestRequestTypeDef",
     "CreateEntityRecognizerResponseTypeDef",
+    "CreateFlywheelRequestRequestTypeDef",
+    "CreateFlywheelResponseTypeDef",
+    "DataSecurityConfigTypeDef",
+    "DatasetAugmentedManifestsListItemTypeDef",
+    "DatasetDocumentClassifierInputDataConfigTypeDef",
+    "DatasetEntityRecognizerAnnotationsTypeDef",
+    "DatasetEntityRecognizerDocumentsTypeDef",
+    "DatasetEntityRecognizerEntityListTypeDef",
+    "DatasetEntityRecognizerInputDataConfigTypeDef",
+    "DatasetFilterTypeDef",
+    "DatasetInputDataConfigTypeDef",
+    "DatasetPropertiesTypeDef",
     "DeleteDocumentClassifierRequestRequestTypeDef",
     "DeleteEndpointRequestRequestTypeDef",
     "DeleteEntityRecognizerRequestRequestTypeDef",
+    "DeleteFlywheelRequestRequestTypeDef",
     "DeleteResourcePolicyRequestRequestTypeDef",
+    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetResponseTypeDef",
     "DescribeDocumentClassificationJobRequestRequestTypeDef",
     "DescribeDocumentClassificationJobResponseTypeDef",
     "DescribeDocumentClassifierRequestRequestTypeDef",
@@ -108,6 +133,10 @@ __all__ = (
     "DescribeEntityRecognizerResponseTypeDef",
     "DescribeEventsDetectionJobRequestRequestTypeDef",
     "DescribeEventsDetectionJobResponseTypeDef",
+    "DescribeFlywheelIterationRequestRequestTypeDef",
+    "DescribeFlywheelIterationResponseTypeDef",
+    "DescribeFlywheelRequestRequestTypeDef",
+    "DescribeFlywheelResponseTypeDef",
     "DescribeKeyPhrasesDetectionJobRequestRequestTypeDef",
     "DescribeKeyPhrasesDetectionJobResponseTypeDef",
     "DescribePiiEntitiesDetectionJobRequestRequestTypeDef",
@@ -135,8 +164,10 @@ __all__ = (
     "DetectTargetedSentimentRequestRequestTypeDef",
     "DetectTargetedSentimentResponseTypeDef",
     "DocumentClassTypeDef",
+    "DocumentClassificationConfigTypeDef",
     "DocumentClassificationJobFilterTypeDef",
     "DocumentClassificationJobPropertiesTypeDef",
+    "DocumentClassifierDocumentsTypeDef",
     "DocumentClassifierFilterTypeDef",
     "DocumentClassifierInputDataConfigTypeDef",
     "DocumentClassifierOutputDataConfigTypeDef",
@@ -154,6 +185,7 @@ __all__ = (
     "EntitiesDetectionJobFilterTypeDef",
     "EntitiesDetectionJobPropertiesTypeDef",
     "EntityLabelTypeDef",
+    "EntityRecognitionConfigTypeDef",
     "EntityRecognizerAnnotationsTypeDef",
     "EntityRecognizerDocumentsTypeDef",
     "EntityRecognizerEntityListTypeDef",
@@ -162,6 +194,7 @@ __all__ = (
     "EntityRecognizerInputDataConfigTypeDef",
     "EntityRecognizerMetadataEntityTypesListItemTypeDef",
     "EntityRecognizerMetadataTypeDef",
+    "EntityRecognizerOutputDataConfigTypeDef",
     "EntityRecognizerPropertiesTypeDef",
     "EntityRecognizerSummaryTypeDef",
     "EntityTypeDef",
@@ -171,6 +204,12 @@ __all__ = (
     "EventsDetectionJobFilterTypeDef",
     "EventsDetectionJobPropertiesTypeDef",
     "ExtractedCharactersListItemTypeDef",
+    "FlywheelFilterTypeDef",
+    "FlywheelIterationFilterTypeDef",
+    "FlywheelIterationPropertiesTypeDef",
+    "FlywheelModelEvaluationMetricsTypeDef",
+    "FlywheelPropertiesTypeDef",
+    "FlywheelSummaryTypeDef",
     "GeometryTypeDef",
     "ImportModelRequestRequestTypeDef",
     "ImportModelResponseTypeDef",
@@ -178,6 +217,8 @@ __all__ = (
     "KeyPhraseTypeDef",
     "KeyPhrasesDetectionJobFilterTypeDef",
     "KeyPhrasesDetectionJobPropertiesTypeDef",
+    "ListDatasetsRequestRequestTypeDef",
+    "ListDatasetsResponseTypeDef",
     "ListDocumentClassificationJobsRequestRequestTypeDef",
     "ListDocumentClassificationJobsResponseTypeDef",
     "ListDocumentClassifierSummariesRequestRequestTypeDef",
@@ -196,6 +237,10 @@ __all__ = (
     "ListEntityRecognizersResponseTypeDef",
     "ListEventsDetectionJobsRequestRequestTypeDef",
     "ListEventsDetectionJobsResponseTypeDef",
+    "ListFlywheelIterationHistoryRequestRequestTypeDef",
+    "ListFlywheelIterationHistoryResponseTypeDef",
+    "ListFlywheelsRequestRequestTypeDef",
+    "ListFlywheelsResponseTypeDef",
     "ListKeyPhrasesDetectionJobsRequestRequestTypeDef",
     "ListKeyPhrasesDetectionJobsResponseTypeDef",
     "ListPiiEntitiesDetectionJobsRequestRequestTypeDef",
@@ -233,6 +278,8 @@ __all__ = (
     "StartEntitiesDetectionJobResponseTypeDef",
     "StartEventsDetectionJobRequestRequestTypeDef",
     "StartEventsDetectionJobResponseTypeDef",
+    "StartFlywheelIterationRequestRequestTypeDef",
+    "StartFlywheelIterationResponseTypeDef",
     "StartKeyPhrasesDetectionJobRequestRequestTypeDef",
     "StartKeyPhrasesDetectionJobResponseTypeDef",
     "StartPiiEntitiesDetectionJobRequestRequestTypeDef",
@@ -266,11 +313,17 @@ __all__ = (
     "TargetedSentimentDetectionJobPropertiesTypeDef",
     "TargetedSentimentEntityTypeDef",
     "TargetedSentimentMentionTypeDef",
+    "TaskConfigTypeDef",
     "TopicsDetectionJobFilterTypeDef",
     "TopicsDetectionJobPropertiesTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateDataSecurityConfigTypeDef",
     "UpdateEndpointRequestRequestTypeDef",
+    "UpdateEndpointResponseTypeDef",
+    "UpdateFlywheelRequestRequestTypeDef",
+    "UpdateFlywheelResponseTypeDef",
     "VpcConfigTypeDef",
+    "WarningsListItemTypeDef",
 )
 
 _RequiredAugmentedManifestsListItemTypeDef = TypedDict(
@@ -562,6 +615,7 @@ ClassifyDocumentResponseTypeDef = TypedDict(
         "DocumentMetadata": "DocumentMetadataTypeDef",
         "DocumentType": List["DocumentTypeListItemTypeDef"],
         "Errors": List["ErrorsListItemTypeDef"],
+        "Warnings": List["WarningsListItemTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -578,6 +632,38 @@ ContainsPiiEntitiesResponseTypeDef = TypedDict(
     "ContainsPiiEntitiesResponseTypeDef",
     {
         "Labels": List["EntityLabelTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDatasetRequestRequestTypeDef",
+    {
+        "FlywheelArn": str,
+        "DatasetName": str,
+        "InputDataConfig": "DatasetInputDataConfigTypeDef",
+    },
+)
+_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDatasetRequestRequestTypeDef",
+    {
+        "DatasetType": DatasetTypeType,
+        "Description": str,
+        "ClientRequestToken": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDatasetRequestRequestTypeDef(
+    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
+):
+    pass
+
+CreateDatasetResponseTypeDef = TypedDict(
+    "CreateDatasetResponseTypeDef",
+    {
+        "DatasetArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -625,16 +711,17 @@ _RequiredCreateEndpointRequestRequestTypeDef = TypedDict(
     "_RequiredCreateEndpointRequestRequestTypeDef",
     {
         "EndpointName": str,
-        "ModelArn": str,
         "DesiredInferenceUnits": int,
     },
 )
 _OptionalCreateEndpointRequestRequestTypeDef = TypedDict(
     "_OptionalCreateEndpointRequestRequestTypeDef",
     {
+        "ModelArn": str,
         "ClientRequestToken": str,
         "Tags": List["TagTypeDef"],
         "DataAccessRoleArn": str,
+        "FlywheelArn": str,
     },
     total=False,
 )
@@ -648,6 +735,7 @@ CreateEndpointResponseTypeDef = TypedDict(
     "CreateEndpointResponseTypeDef",
     {
         "EndpointArn": str,
+        "ModelArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -689,6 +777,189 @@ CreateEntityRecognizerResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateFlywheelRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFlywheelRequestRequestTypeDef",
+    {
+        "FlywheelName": str,
+        "DataAccessRoleArn": str,
+        "DataLakeS3Uri": str,
+    },
+)
+_OptionalCreateFlywheelRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFlywheelRequestRequestTypeDef",
+    {
+        "ActiveModelArn": str,
+        "TaskConfig": "TaskConfigTypeDef",
+        "ModelType": ModelTypeType,
+        "DataSecurityConfig": "DataSecurityConfigTypeDef",
+        "ClientRequestToken": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFlywheelRequestRequestTypeDef(
+    _RequiredCreateFlywheelRequestRequestTypeDef, _OptionalCreateFlywheelRequestRequestTypeDef
+):
+    pass
+
+CreateFlywheelResponseTypeDef = TypedDict(
+    "CreateFlywheelResponseTypeDef",
+    {
+        "FlywheelArn": str,
+        "ActiveModelArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DataSecurityConfigTypeDef = TypedDict(
+    "DataSecurityConfigTypeDef",
+    {
+        "ModelKmsKeyId": str,
+        "VolumeKmsKeyId": str,
+        "DataLakeKmsKeyId": str,
+        "VpcConfig": "VpcConfigTypeDef",
+    },
+    total=False,
+)
+
+_RequiredDatasetAugmentedManifestsListItemTypeDef = TypedDict(
+    "_RequiredDatasetAugmentedManifestsListItemTypeDef",
+    {
+        "AttributeNames": List[str],
+        "S3Uri": str,
+    },
+)
+_OptionalDatasetAugmentedManifestsListItemTypeDef = TypedDict(
+    "_OptionalDatasetAugmentedManifestsListItemTypeDef",
+    {
+        "AnnotationDataS3Uri": str,
+        "SourceDocumentsS3Uri": str,
+        "DocumentType": AugmentedManifestsDocumentTypeFormatType,
+    },
+    total=False,
+)
+
+class DatasetAugmentedManifestsListItemTypeDef(
+    _RequiredDatasetAugmentedManifestsListItemTypeDef,
+    _OptionalDatasetAugmentedManifestsListItemTypeDef,
+):
+    pass
+
+_RequiredDatasetDocumentClassifierInputDataConfigTypeDef = TypedDict(
+    "_RequiredDatasetDocumentClassifierInputDataConfigTypeDef",
+    {
+        "S3Uri": str,
+    },
+)
+_OptionalDatasetDocumentClassifierInputDataConfigTypeDef = TypedDict(
+    "_OptionalDatasetDocumentClassifierInputDataConfigTypeDef",
+    {
+        "LabelDelimiter": str,
+    },
+    total=False,
+)
+
+class DatasetDocumentClassifierInputDataConfigTypeDef(
+    _RequiredDatasetDocumentClassifierInputDataConfigTypeDef,
+    _OptionalDatasetDocumentClassifierInputDataConfigTypeDef,
+):
+    pass
+
+DatasetEntityRecognizerAnnotationsTypeDef = TypedDict(
+    "DatasetEntityRecognizerAnnotationsTypeDef",
+    {
+        "S3Uri": str,
+    },
+)
+
+_RequiredDatasetEntityRecognizerDocumentsTypeDef = TypedDict(
+    "_RequiredDatasetEntityRecognizerDocumentsTypeDef",
+    {
+        "S3Uri": str,
+    },
+)
+_OptionalDatasetEntityRecognizerDocumentsTypeDef = TypedDict(
+    "_OptionalDatasetEntityRecognizerDocumentsTypeDef",
+    {
+        "InputFormat": InputFormatType,
+    },
+    total=False,
+)
+
+class DatasetEntityRecognizerDocumentsTypeDef(
+    _RequiredDatasetEntityRecognizerDocumentsTypeDef,
+    _OptionalDatasetEntityRecognizerDocumentsTypeDef,
+):
+    pass
+
+DatasetEntityRecognizerEntityListTypeDef = TypedDict(
+    "DatasetEntityRecognizerEntityListTypeDef",
+    {
+        "S3Uri": str,
+    },
+)
+
+_RequiredDatasetEntityRecognizerInputDataConfigTypeDef = TypedDict(
+    "_RequiredDatasetEntityRecognizerInputDataConfigTypeDef",
+    {
+        "Documents": "DatasetEntityRecognizerDocumentsTypeDef",
+    },
+)
+_OptionalDatasetEntityRecognizerInputDataConfigTypeDef = TypedDict(
+    "_OptionalDatasetEntityRecognizerInputDataConfigTypeDef",
+    {
+        "Annotations": "DatasetEntityRecognizerAnnotationsTypeDef",
+        "EntityList": "DatasetEntityRecognizerEntityListTypeDef",
+    },
+    total=False,
+)
+
+class DatasetEntityRecognizerInputDataConfigTypeDef(
+    _RequiredDatasetEntityRecognizerInputDataConfigTypeDef,
+    _OptionalDatasetEntityRecognizerInputDataConfigTypeDef,
+):
+    pass
+
+DatasetFilterTypeDef = TypedDict(
+    "DatasetFilterTypeDef",
+    {
+        "Status": DatasetStatusType,
+        "DatasetType": DatasetTypeType,
+        "CreationTimeAfter": Union[datetime, str],
+        "CreationTimeBefore": Union[datetime, str],
+    },
+    total=False,
+)
+
+DatasetInputDataConfigTypeDef = TypedDict(
+    "DatasetInputDataConfigTypeDef",
+    {
+        "AugmentedManifests": List["DatasetAugmentedManifestsListItemTypeDef"],
+        "DataFormat": DatasetDataFormatType,
+        "DocumentClassifierInputDataConfig": "DatasetDocumentClassifierInputDataConfigTypeDef",
+        "EntityRecognizerInputDataConfig": "DatasetEntityRecognizerInputDataConfigTypeDef",
+    },
+    total=False,
+)
+
+DatasetPropertiesTypeDef = TypedDict(
+    "DatasetPropertiesTypeDef",
+    {
+        "DatasetArn": str,
+        "DatasetName": str,
+        "DatasetType": DatasetTypeType,
+        "DatasetS3Uri": str,
+        "Description": str,
+        "Status": DatasetStatusType,
+        "Message": str,
+        "NumberOfDocuments": int,
+        "CreationTime": datetime,
+        "EndTime": datetime,
+    },
+    total=False,
+)
+
 DeleteDocumentClassifierRequestRequestTypeDef = TypedDict(
     "DeleteDocumentClassifierRequestRequestTypeDef",
     {
@@ -707,6 +978,13 @@ DeleteEntityRecognizerRequestRequestTypeDef = TypedDict(
     "DeleteEntityRecognizerRequestRequestTypeDef",
     {
         "EntityRecognizerArn": str,
+    },
+)
+
+DeleteFlywheelRequestRequestTypeDef = TypedDict(
+    "DeleteFlywheelRequestRequestTypeDef",
+    {
+        "FlywheelArn": str,
     },
 )
 
@@ -729,6 +1007,21 @@ class DeleteResourcePolicyRequestRequestTypeDef(
     _OptionalDeleteResourcePolicyRequestRequestTypeDef,
 ):
     pass
+
+DescribeDatasetRequestRequestTypeDef = TypedDict(
+    "DescribeDatasetRequestRequestTypeDef",
+    {
+        "DatasetArn": str,
+    },
+)
+
+DescribeDatasetResponseTypeDef = TypedDict(
+    "DescribeDatasetResponseTypeDef",
+    {
+        "DatasetProperties": "DatasetPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DescribeDocumentClassificationJobRequestRequestTypeDef = TypedDict(
     "DescribeDocumentClassificationJobRequestRequestTypeDef",
@@ -831,6 +1124,37 @@ DescribeEventsDetectionJobResponseTypeDef = TypedDict(
     "DescribeEventsDetectionJobResponseTypeDef",
     {
         "EventsDetectionJobProperties": "EventsDetectionJobPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFlywheelIterationRequestRequestTypeDef = TypedDict(
+    "DescribeFlywheelIterationRequestRequestTypeDef",
+    {
+        "FlywheelArn": str,
+        "FlywheelIterationId": str,
+    },
+)
+
+DescribeFlywheelIterationResponseTypeDef = TypedDict(
+    "DescribeFlywheelIterationResponseTypeDef",
+    {
+        "FlywheelIterationProperties": "FlywheelIterationPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFlywheelRequestRequestTypeDef = TypedDict(
+    "DescribeFlywheelRequestRequestTypeDef",
+    {
+        "FlywheelArn": str,
+    },
+)
+
+DescribeFlywheelResponseTypeDef = TypedDict(
+    "DescribeFlywheelResponseTypeDef",
+    {
+        "FlywheelProperties": "FlywheelPropertiesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1058,6 +1382,25 @@ DocumentClassTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDocumentClassificationConfigTypeDef = TypedDict(
+    "_RequiredDocumentClassificationConfigTypeDef",
+    {
+        "Mode": DocumentClassifierModeType,
+    },
+)
+_OptionalDocumentClassificationConfigTypeDef = TypedDict(
+    "_OptionalDocumentClassificationConfigTypeDef",
+    {
+        "Labels": List[str],
+    },
+    total=False,
+)
+
+class DocumentClassificationConfigTypeDef(
+    _RequiredDocumentClassificationConfigTypeDef, _OptionalDocumentClassificationConfigTypeDef
+):
+    pass
+
 DocumentClassificationJobFilterTypeDef = TypedDict(
     "DocumentClassificationJobFilterTypeDef",
     {
@@ -1085,9 +1428,29 @@ DocumentClassificationJobPropertiesTypeDef = TypedDict(
         "DataAccessRoleArn": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+        "FlywheelArn": str,
     },
     total=False,
 )
+
+_RequiredDocumentClassifierDocumentsTypeDef = TypedDict(
+    "_RequiredDocumentClassifierDocumentsTypeDef",
+    {
+        "S3Uri": str,
+    },
+)
+_OptionalDocumentClassifierDocumentsTypeDef = TypedDict(
+    "_OptionalDocumentClassifierDocumentsTypeDef",
+    {
+        "TestS3Uri": str,
+    },
+    total=False,
+)
+
+class DocumentClassifierDocumentsTypeDef(
+    _RequiredDocumentClassifierDocumentsTypeDef, _OptionalDocumentClassifierDocumentsTypeDef
+):
+    pass
 
 DocumentClassifierFilterTypeDef = TypedDict(
     "DocumentClassifierFilterTypeDef",
@@ -1108,6 +1471,9 @@ DocumentClassifierInputDataConfigTypeDef = TypedDict(
         "TestS3Uri": str,
         "LabelDelimiter": str,
         "AugmentedManifests": List["AugmentedManifestsListItemTypeDef"],
+        "DocumentType": DocumentClassifierDocumentTypeFormatType,
+        "Documents": "DocumentClassifierDocumentsTypeDef",
+        "DocumentReaderConfig": "DocumentReaderConfigTypeDef",
     },
     total=False,
 )
@@ -1117,6 +1483,7 @@ DocumentClassifierOutputDataConfigTypeDef = TypedDict(
     {
         "S3Uri": str,
         "KmsKeyId": str,
+        "FlywheelStatsS3Prefix": str,
     },
     total=False,
 )
@@ -1142,6 +1509,7 @@ DocumentClassifierPropertiesTypeDef = TypedDict(
         "ModelKmsKeyId": str,
         "VersionName": str,
         "SourceModelArn": str,
+        "FlywheelArn": str,
     },
     total=False,
 )
@@ -1270,6 +1638,7 @@ EndpointPropertiesTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "DataAccessRoleArn": str,
         "DesiredDataAccessRoleArn": str,
+        "FlywheelArn": str,
     },
     total=False,
 )
@@ -1302,6 +1671,7 @@ EntitiesDetectionJobPropertiesTypeDef = TypedDict(
         "DataAccessRoleArn": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+        "FlywheelArn": str,
     },
     total=False,
 )
@@ -1313,6 +1683,13 @@ EntityLabelTypeDef = TypedDict(
         "Score": float,
     },
     total=False,
+)
+
+EntityRecognitionConfigTypeDef = TypedDict(
+    "EntityRecognitionConfigTypeDef",
+    {
+        "EntityTypes": List["EntityTypesListItemTypeDef"],
+    },
 )
 
 _RequiredEntityRecognizerAnnotationsTypeDef = TypedDict(
@@ -1426,6 +1803,14 @@ EntityRecognizerMetadataTypeDef = TypedDict(
     total=False,
 )
 
+EntityRecognizerOutputDataConfigTypeDef = TypedDict(
+    "EntityRecognizerOutputDataConfigTypeDef",
+    {
+        "FlywheelStatsS3Prefix": str,
+    },
+    total=False,
+)
+
 EntityRecognizerPropertiesTypeDef = TypedDict(
     "EntityRecognizerPropertiesTypeDef",
     {
@@ -1445,6 +1830,8 @@ EntityRecognizerPropertiesTypeDef = TypedDict(
         "ModelKmsKeyId": str,
         "VersionName": str,
         "SourceModelArn": str,
+        "FlywheelArn": str,
+        "OutputDataConfig": "EntityRecognizerOutputDataConfigTypeDef",
     },
     total=False,
 )
@@ -1536,6 +1923,89 @@ ExtractedCharactersListItemTypeDef = TypedDict(
     {
         "Page": int,
         "Count": int,
+    },
+    total=False,
+)
+
+FlywheelFilterTypeDef = TypedDict(
+    "FlywheelFilterTypeDef",
+    {
+        "Status": FlywheelStatusType,
+        "CreationTimeAfter": Union[datetime, str],
+        "CreationTimeBefore": Union[datetime, str],
+    },
+    total=False,
+)
+
+FlywheelIterationFilterTypeDef = TypedDict(
+    "FlywheelIterationFilterTypeDef",
+    {
+        "CreationTimeAfter": Union[datetime, str],
+        "CreationTimeBefore": Union[datetime, str],
+    },
+    total=False,
+)
+
+FlywheelIterationPropertiesTypeDef = TypedDict(
+    "FlywheelIterationPropertiesTypeDef",
+    {
+        "FlywheelArn": str,
+        "FlywheelIterationId": str,
+        "CreationTime": datetime,
+        "EndTime": datetime,
+        "Status": FlywheelIterationStatusType,
+        "Message": str,
+        "EvaluatedModelArn": str,
+        "EvaluatedModelMetrics": "FlywheelModelEvaluationMetricsTypeDef",
+        "TrainedModelArn": str,
+        "TrainedModelMetrics": "FlywheelModelEvaluationMetricsTypeDef",
+        "EvaluationManifestS3Prefix": str,
+    },
+    total=False,
+)
+
+FlywheelModelEvaluationMetricsTypeDef = TypedDict(
+    "FlywheelModelEvaluationMetricsTypeDef",
+    {
+        "AverageF1Score": float,
+        "AveragePrecision": float,
+        "AverageRecall": float,
+        "AverageAccuracy": float,
+    },
+    total=False,
+)
+
+FlywheelPropertiesTypeDef = TypedDict(
+    "FlywheelPropertiesTypeDef",
+    {
+        "FlywheelArn": str,
+        "ActiveModelArn": str,
+        "DataAccessRoleArn": str,
+        "TaskConfig": "TaskConfigTypeDef",
+        "DataLakeS3Uri": str,
+        "DataSecurityConfig": "DataSecurityConfigTypeDef",
+        "Status": FlywheelStatusType,
+        "ModelType": ModelTypeType,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "LatestFlywheelIteration": str,
+    },
+    total=False,
+)
+
+FlywheelSummaryTypeDef = TypedDict(
+    "FlywheelSummaryTypeDef",
+    {
+        "FlywheelArn": str,
+        "ActiveModelArn": str,
+        "DataLakeS3Uri": str,
+        "Status": FlywheelStatusType,
+        "ModelType": ModelTypeType,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "LatestFlywheelIteration": str,
     },
     total=False,
 )
@@ -1638,6 +2108,26 @@ KeyPhrasesDetectionJobPropertiesTypeDef = TypedDict(
         "VpcConfig": "VpcConfigTypeDef",
     },
     total=False,
+)
+
+ListDatasetsRequestRequestTypeDef = TypedDict(
+    "ListDatasetsRequestRequestTypeDef",
+    {
+        "FlywheelArn": str,
+        "Filter": "DatasetFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDatasetsResponseTypeDef = TypedDict(
+    "ListDatasetsResponseTypeDef",
+    {
+        "DatasetPropertiesList": List["DatasetPropertiesTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListDocumentClassificationJobsRequestRequestTypeDef = TypedDict(
@@ -1808,6 +2298,56 @@ ListEventsDetectionJobsResponseTypeDef = TypedDict(
     "ListEventsDetectionJobsResponseTypeDef",
     {
         "EventsDetectionJobPropertiesList": List["EventsDetectionJobPropertiesTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListFlywheelIterationHistoryRequestRequestTypeDef = TypedDict(
+    "_RequiredListFlywheelIterationHistoryRequestRequestTypeDef",
+    {
+        "FlywheelArn": str,
+    },
+)
+_OptionalListFlywheelIterationHistoryRequestRequestTypeDef = TypedDict(
+    "_OptionalListFlywheelIterationHistoryRequestRequestTypeDef",
+    {
+        "Filter": "FlywheelIterationFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListFlywheelIterationHistoryRequestRequestTypeDef(
+    _RequiredListFlywheelIterationHistoryRequestRequestTypeDef,
+    _OptionalListFlywheelIterationHistoryRequestRequestTypeDef,
+):
+    pass
+
+ListFlywheelIterationHistoryResponseTypeDef = TypedDict(
+    "ListFlywheelIterationHistoryResponseTypeDef",
+    {
+        "FlywheelIterationPropertiesList": List["FlywheelIterationPropertiesTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListFlywheelsRequestRequestTypeDef = TypedDict(
+    "ListFlywheelsRequestRequestTypeDef",
+    {
+        "Filter": "FlywheelFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListFlywheelsResponseTypeDef = TypedDict(
+    "ListFlywheelsResponseTypeDef",
+    {
+        "FlywheelSummaryList": List["FlywheelSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2144,7 +2684,6 @@ SentimentScoreTypeDef = TypedDict(
 _RequiredStartDocumentClassificationJobRequestRequestTypeDef = TypedDict(
     "_RequiredStartDocumentClassificationJobRequestRequestTypeDef",
     {
-        "DocumentClassifierArn": str,
         "InputDataConfig": "InputDataConfigTypeDef",
         "OutputDataConfig": "OutputDataConfigTypeDef",
         "DataAccessRoleArn": str,
@@ -2154,10 +2693,12 @@ _OptionalStartDocumentClassificationJobRequestRequestTypeDef = TypedDict(
     "_OptionalStartDocumentClassificationJobRequestRequestTypeDef",
     {
         "JobName": str,
+        "DocumentClassifierArn": str,
         "ClientRequestToken": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
         "Tags": List["TagTypeDef"],
+        "FlywheelArn": str,
     },
     total=False,
 )
@@ -2174,6 +2715,7 @@ StartDocumentClassificationJobResponseTypeDef = TypedDict(
         "JobId": str,
         "JobArn": str,
         "JobStatus": JobStatusType,
+        "DocumentClassifierArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2232,6 +2774,7 @@ _OptionalStartEntitiesDetectionJobRequestRequestTypeDef = TypedDict(
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
         "Tags": List["TagTypeDef"],
+        "FlywheelArn": str,
     },
     total=False,
 )
@@ -2248,6 +2791,7 @@ StartEntitiesDetectionJobResponseTypeDef = TypedDict(
         "JobId": str,
         "JobArn": str,
         "JobStatus": JobStatusType,
+        "EntityRecognizerArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2284,6 +2828,35 @@ StartEventsDetectionJobResponseTypeDef = TypedDict(
         "JobId": str,
         "JobArn": str,
         "JobStatus": JobStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartFlywheelIterationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartFlywheelIterationRequestRequestTypeDef",
+    {
+        "FlywheelArn": str,
+    },
+)
+_OptionalStartFlywheelIterationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartFlywheelIterationRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class StartFlywheelIterationRequestRequestTypeDef(
+    _RequiredStartFlywheelIterationRequestRequestTypeDef,
+    _OptionalStartFlywheelIterationRequestRequestTypeDef,
+):
+    pass
+
+StartFlywheelIterationResponseTypeDef = TypedDict(
+    "StartFlywheelIterationResponseTypeDef",
+    {
+        "FlywheelArn": str,
+        "FlywheelIterationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2690,6 +3263,24 @@ TargetedSentimentMentionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredTaskConfigTypeDef = TypedDict(
+    "_RequiredTaskConfigTypeDef",
+    {
+        "LanguageCode": LanguageCodeType,
+    },
+)
+_OptionalTaskConfigTypeDef = TypedDict(
+    "_OptionalTaskConfigTypeDef",
+    {
+        "DocumentClassificationConfig": "DocumentClassificationConfigTypeDef",
+        "EntityRecognitionConfig": "EntityRecognitionConfigTypeDef",
+    },
+    total=False,
+)
+
+class TaskConfigTypeDef(_RequiredTaskConfigTypeDef, _OptionalTaskConfigTypeDef):
+    pass
+
 TopicsDetectionJobFilterTypeDef = TypedDict(
     "TopicsDetectionJobFilterTypeDef",
     {
@@ -2729,6 +3320,16 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateDataSecurityConfigTypeDef = TypedDict(
+    "UpdateDataSecurityConfigTypeDef",
+    {
+        "ModelKmsKeyId": str,
+        "VolumeKmsKeyId": str,
+        "VpcConfig": "VpcConfigTypeDef",
+    },
+    total=False,
+)
+
 _RequiredUpdateEndpointRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateEndpointRequestRequestTypeDef",
     {
@@ -2741,6 +3342,7 @@ _OptionalUpdateEndpointRequestRequestTypeDef = TypedDict(
         "DesiredModelArn": str,
         "DesiredInferenceUnits": int,
         "DesiredDataAccessRoleArn": str,
+        "FlywheelArn": str,
     },
     total=False,
 )
@@ -2750,10 +3352,57 @@ class UpdateEndpointRequestRequestTypeDef(
 ):
     pass
 
+UpdateEndpointResponseTypeDef = TypedDict(
+    "UpdateEndpointResponseTypeDef",
+    {
+        "DesiredModelArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateFlywheelRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFlywheelRequestRequestTypeDef",
+    {
+        "FlywheelArn": str,
+    },
+)
+_OptionalUpdateFlywheelRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFlywheelRequestRequestTypeDef",
+    {
+        "ActiveModelArn": str,
+        "DataAccessRoleArn": str,
+        "DataSecurityConfig": "UpdateDataSecurityConfigTypeDef",
+    },
+    total=False,
+)
+
+class UpdateFlywheelRequestRequestTypeDef(
+    _RequiredUpdateFlywheelRequestRequestTypeDef, _OptionalUpdateFlywheelRequestRequestTypeDef
+):
+    pass
+
+UpdateFlywheelResponseTypeDef = TypedDict(
+    "UpdateFlywheelResponseTypeDef",
+    {
+        "FlywheelProperties": "FlywheelPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 VpcConfigTypeDef = TypedDict(
     "VpcConfigTypeDef",
     {
         "SecurityGroupIds": List[str],
         "Subnets": List[str],
     },
+)
+
+WarningsListItemTypeDef = TypedDict(
+    "WarningsListItemTypeDef",
+    {
+        "Page": int,
+        "WarnCode": PageBasedWarningCodeType,
+        "WarnMessage": str,
+    },
+    total=False,
 )

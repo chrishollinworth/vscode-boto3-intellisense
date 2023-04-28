@@ -41,6 +41,7 @@ __all__ = (
     "ExperienceStatusType",
     "FaqFileFormatType",
     "FaqStatusType",
+    "FeaturedResultsSetStatusType",
     "FsxFileSystemTypeType",
     "HighlightTypeType",
     "IndexEditionType",
@@ -135,7 +136,20 @@ ConfluencePageFieldNameType = Literal[
 ]
 ConfluenceSpaceFieldNameType = Literal["DISPLAY_URL", "ITEM_TYPE", "SPACE_KEY", "URL"]
 ConfluenceVersionType = Literal["CLOUD", "SERVER"]
-ContentTypeType = Literal["HTML", "MS_WORD", "PDF", "PLAIN_TEXT", "PPT"]
+ContentTypeType = Literal[
+    "CSV",
+    "HTML",
+    "JSON",
+    "MD",
+    "MS_EXCEL",
+    "MS_WORD",
+    "PDF",
+    "PLAIN_TEXT",
+    "PPT",
+    "RTF",
+    "XML",
+    "XSLT",
+]
 DataSourceStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 DataSourceSyncJobStatusType = Literal[
     "ABORTED", "FAILED", "INCOMPLETE", "STOPPING", "SUCCEEDED", "SYNCING", "SYNCING_INDEXING"
@@ -176,6 +190,7 @@ ErrorCodeType = Literal["InternalError", "InvalidRequest"]
 ExperienceStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED"]
 FaqFileFormatType = Literal["CSV", "CSV_WITH_HEADER", "JSON"]
 FaqStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
+FeaturedResultsSetStatusType = Literal["ACTIVE", "INACTIVE"]
 FsxFileSystemTypeType = Literal["WINDOWS"]
 HighlightTypeType = Literal["STANDARD", "THESAURUS_SYNONYM"]
 IndexEditionType = Literal["DEVELOPER_EDITION", "ENTERPRISE_EDITION"]

@@ -93,6 +93,7 @@ __all__ = (
     "EksContainerVolumeMountTypeDef",
     "EksEmptyDirTypeDef",
     "EksHostPathTypeDef",
+    "EksMetadataTypeDef",
     "EksPodPropertiesDetailTypeDef",
     "EksPodPropertiesOverrideTypeDef",
     "EksPodPropertiesTypeDef",
@@ -101,6 +102,7 @@ __all__ = (
     "EksPropertiesTypeDef",
     "EksSecretTypeDef",
     "EksVolumeTypeDef",
+    "EphemeralStorageTypeDef",
     "EvaluateOnExitTypeDef",
     "FairsharePolicyTypeDef",
     "FargatePlatformConfigurationTypeDef",
@@ -341,6 +343,7 @@ ContainerDetailTypeDef = TypedDict(
         "secrets": List["SecretTypeDef"],
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "fargatePlatformConfiguration": "FargatePlatformConfigurationTypeDef",
+        "ephemeralStorage": "EphemeralStorageTypeDef",
     },
     total=False,
 )
@@ -381,6 +384,7 @@ ContainerPropertiesTypeDef = TypedDict(
         "secrets": List["SecretTypeDef"],
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "fargatePlatformConfiguration": "FargatePlatformConfigurationTypeDef",
+        "ephemeralStorage": "EphemeralStorageTypeDef",
     },
     total=False,
 )
@@ -826,6 +830,14 @@ EksHostPathTypeDef = TypedDict(
     total=False,
 )
 
+EksMetadataTypeDef = TypedDict(
+    "EksMetadataTypeDef",
+    {
+        "labels": Dict[str, str],
+    },
+    total=False,
+)
+
 EksPodPropertiesDetailTypeDef = TypedDict(
     "EksPodPropertiesDetailTypeDef",
     {
@@ -836,6 +848,7 @@ EksPodPropertiesDetailTypeDef = TypedDict(
         "volumes": List["EksVolumeTypeDef"],
         "podName": str,
         "nodeName": str,
+        "metadata": "EksMetadataTypeDef",
     },
     total=False,
 )
@@ -844,6 +857,7 @@ EksPodPropertiesOverrideTypeDef = TypedDict(
     "EksPodPropertiesOverrideTypeDef",
     {
         "containers": List["EksContainerOverrideTypeDef"],
+        "metadata": "EksMetadataTypeDef",
     },
     total=False,
 )
@@ -856,6 +870,7 @@ EksPodPropertiesTypeDef = TypedDict(
         "dnsPolicy": str,
         "containers": List["EksContainerTypeDef"],
         "volumes": List["EksVolumeTypeDef"],
+        "metadata": "EksMetadataTypeDef",
     },
     total=False,
 )
@@ -919,6 +934,13 @@ _OptionalEksVolumeTypeDef = TypedDict(
 
 class EksVolumeTypeDef(_RequiredEksVolumeTypeDef, _OptionalEksVolumeTypeDef):
     pass
+
+EphemeralStorageTypeDef = TypedDict(
+    "EphemeralStorageTypeDef",
+    {
+        "sizeInGiB": int,
+    },
+)
 
 _RequiredEvaluateOnExitTypeDef = TypedDict(
     "_RequiredEvaluateOnExitTypeDef",

@@ -34,7 +34,7 @@ __all__ = ("ListClusterSnapshotsPaginator", "ListClustersPaginator")
 
 class ListClusterSnapshotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusterSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusterSnapshots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/paginators.html#listclustersnapshotspaginator)
     """
 
@@ -42,13 +42,13 @@ class ListClusterSnapshotsPaginator(Boto3Paginator):
         self, *, clusterArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClusterSnapshotsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusterSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusterSnapshots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/paginators.html#listclustersnapshotspaginator)
         """
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/paginators.html#listclusterspaginator)
     """
 
@@ -56,6 +56,6 @@ class ListClustersPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/paginators.html#listclusterspaginator)
         """

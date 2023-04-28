@@ -27,12 +27,18 @@ __all__ = (
     "ContainerTypeType",
     "DiskImageFormatType",
     "EbsVolumeTypeType",
+    "ImageScanStatusType",
+    "ImageSourceType",
     "ImageStatusType",
     "ImageTypeType",
     "OwnershipType",
     "PipelineExecutionStartConditionType",
     "PipelineStatusType",
     "PlatformType",
+    "WorkflowExecutionStatusType",
+    "WorkflowStepExecutionRollbackStatusType",
+    "WorkflowStepExecutionStatusType",
+    "WorkflowTypeType",
 )
 
 BuildTypeType = Literal["IMPORT", "SCHEDULED", "USER_INITIATED"]
@@ -43,6 +49,10 @@ ContainerRepositoryServiceType = Literal["ECR"]
 ContainerTypeType = Literal["DOCKER"]
 DiskImageFormatType = Literal["RAW", "VHD", "VMDK"]
 EbsVolumeTypeType = Literal["gp2", "gp3", "io1", "io2", "sc1", "st1", "standard"]
+ImageScanStatusType = Literal[
+    "ABANDONED", "COLLECTING", "COMPLETED", "FAILED", "PENDING", "SCANNING", "TIMED_OUT"
+]
+ImageSourceType = Literal["AMAZON_MANAGED", "AWS_MARKETPLACE", "CUSTOM", "IMPORTED"]
 ImageStatusType = Literal[
     "AVAILABLE",
     "BUILDING",
@@ -57,9 +67,21 @@ ImageStatusType = Literal[
     "TESTING",
 ]
 ImageTypeType = Literal["AMI", "DOCKER"]
-OwnershipType = Literal["Amazon", "Self", "Shared"]
+OwnershipType = Literal["Amazon", "Self", "Shared", "ThirdParty"]
 PipelineExecutionStartConditionType = Literal[
     "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE", "EXPRESSION_MATCH_ONLY"
 ]
 PipelineStatusType = Literal["DISABLED", "ENABLED"]
 PlatformType = Literal["Linux", "Windows"]
+WorkflowExecutionStatusType = Literal[
+    "COMPLETED",
+    "FAILED",
+    "PENDING",
+    "ROLLBACK_COMPLETED",
+    "ROLLBACK_IN_PROGRESS",
+    "RUNNING",
+    "SKIPPED",
+]
+WorkflowStepExecutionRollbackStatusType = Literal["COMPLETED", "FAILED", "RUNNING", "SKIPPED"]
+WorkflowStepExecutionStatusType = Literal["COMPLETED", "FAILED", "PENDING", "RUNNING", "SKIPPED"]
+WorkflowTypeType = Literal["BUILD", "DISTRIBUTION", "TEST"]

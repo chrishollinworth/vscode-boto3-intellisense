@@ -18,7 +18,7 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("DetailStatusType", "FeatureStatusType", "ServiceTypeType")
+__all__ = ("DetailStatusType", "FeatureStatusType", "PeriodAlignmentType", "ServiceTypeType")
 
 DetailStatusType = Literal["AVAILABLE", "PROCESSING", "UNAVAILABLE"]
 FeatureStatusType = Literal[
@@ -29,4 +29,5 @@ FeatureStatusType = Literal[
     "UNKNOWN",
     "UNSUPPORTED",
 ]
+PeriodAlignmentType = Literal["END_TIME", "START_TIME"]
 ServiceTypeType = Literal["DOCDB", "RDS"]

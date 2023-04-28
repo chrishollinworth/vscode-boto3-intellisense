@@ -2516,6 +2516,7 @@ StackSetTypeDef = TypedDict(
         "PermissionModel": PermissionModelsType,
         "OrganizationalUnitIds": List[str],
         "ManagedExecution": "ManagedExecutionTypeDef",
+        "Regions": List[str],
     },
     total=False,
 )

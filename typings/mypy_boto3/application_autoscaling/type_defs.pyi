@@ -45,6 +45,8 @@ __all__ = (
     "DescribeScalingPoliciesResponseTypeDef",
     "DescribeScheduledActionsRequestRequestTypeDef",
     "DescribeScheduledActionsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MetricDimensionTypeDef",
     "NotScaledReasonTypeDef",
     "PaginatorConfigTypeDef",
@@ -53,6 +55,7 @@ __all__ = (
     "PutScalingPolicyResponseTypeDef",
     "PutScheduledActionRequestRequestTypeDef",
     "RegisterScalableTargetRequestRequestTypeDef",
+    "RegisterScalableTargetResponseTypeDef",
     "ResponseMetadataTypeDef",
     "ScalableTargetActionTypeDef",
     "ScalableTargetTypeDef",
@@ -62,7 +65,13 @@ __all__ = (
     "StepAdjustmentTypeDef",
     "StepScalingPolicyConfigurationTypeDef",
     "SuspendedStateTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TargetTrackingMetricDataQueryTypeDef",
+    "TargetTrackingMetricDimensionTypeDef",
+    "TargetTrackingMetricStatTypeDef",
+    "TargetTrackingMetricTypeDef",
     "TargetTrackingScalingPolicyConfigurationTypeDef",
+    "UntagResourceRequestRequestTypeDef",
 )
 
 AlarmTypeDef = TypedDict(
@@ -73,27 +82,18 @@ AlarmTypeDef = TypedDict(
     },
 )
 
-_RequiredCustomizedMetricSpecificationTypeDef = TypedDict(
-    "_RequiredCustomizedMetricSpecificationTypeDef",
+CustomizedMetricSpecificationTypeDef = TypedDict(
+    "CustomizedMetricSpecificationTypeDef",
     {
         "MetricName": str,
         "Namespace": str,
-        "Statistic": MetricStatisticType,
-    },
-)
-_OptionalCustomizedMetricSpecificationTypeDef = TypedDict(
-    "_OptionalCustomizedMetricSpecificationTypeDef",
-    {
         "Dimensions": List["MetricDimensionTypeDef"],
+        "Statistic": MetricStatisticType,
         "Unit": str,
+        "Metrics": List["TargetTrackingMetricDataQueryTypeDef"],
     },
     total=False,
 )
-
-class CustomizedMetricSpecificationTypeDef(
-    _RequiredCustomizedMetricSpecificationTypeDef, _OptionalCustomizedMetricSpecificationTypeDef
-):
-    pass
 
 DeleteScalingPolicyRequestRequestTypeDef = TypedDict(
     "DeleteScalingPolicyRequestRequestTypeDef",
@@ -255,6 +255,21 @@ DescribeScheduledActionsResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 MetricDimensionTypeDef = TypedDict(
     "MetricDimensionTypeDef",
     {
@@ -386,6 +401,7 @@ _OptionalRegisterScalableTargetRequestRequestTypeDef = TypedDict(
         "MaxCapacity": int,
         "RoleARN": str,
         "SuspendedState": "SuspendedStateTypeDef",
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -395,6 +411,14 @@ class RegisterScalableTargetRequestRequestTypeDef(
     _OptionalRegisterScalableTargetRequestRequestTypeDef,
 ):
     pass
+
+RegisterScalableTargetResponseTypeDef = TypedDict(
+    "RegisterScalableTargetResponseTypeDef",
+    {
+        "ScalableTargetARN": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
@@ -432,6 +456,7 @@ _OptionalScalableTargetTypeDef = TypedDict(
     "_OptionalScalableTargetTypeDef",
     {
         "SuspendedState": "SuspendedStateTypeDef",
+        "ScalableTargetARN": str,
     },
     total=False,
 )
@@ -557,6 +582,74 @@ SuspendedStateTypeDef = TypedDict(
     total=False,
 )
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "Tags": Dict[str, str],
+    },
+)
+
+_RequiredTargetTrackingMetricDataQueryTypeDef = TypedDict(
+    "_RequiredTargetTrackingMetricDataQueryTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalTargetTrackingMetricDataQueryTypeDef = TypedDict(
+    "_OptionalTargetTrackingMetricDataQueryTypeDef",
+    {
+        "Expression": str,
+        "Label": str,
+        "MetricStat": "TargetTrackingMetricStatTypeDef",
+        "ReturnData": bool,
+    },
+    total=False,
+)
+
+class TargetTrackingMetricDataQueryTypeDef(
+    _RequiredTargetTrackingMetricDataQueryTypeDef, _OptionalTargetTrackingMetricDataQueryTypeDef
+):
+    pass
+
+TargetTrackingMetricDimensionTypeDef = TypedDict(
+    "TargetTrackingMetricDimensionTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+)
+
+_RequiredTargetTrackingMetricStatTypeDef = TypedDict(
+    "_RequiredTargetTrackingMetricStatTypeDef",
+    {
+        "Metric": "TargetTrackingMetricTypeDef",
+        "Stat": str,
+    },
+)
+_OptionalTargetTrackingMetricStatTypeDef = TypedDict(
+    "_OptionalTargetTrackingMetricStatTypeDef",
+    {
+        "Unit": str,
+    },
+    total=False,
+)
+
+class TargetTrackingMetricStatTypeDef(
+    _RequiredTargetTrackingMetricStatTypeDef, _OptionalTargetTrackingMetricStatTypeDef
+):
+    pass
+
+TargetTrackingMetricTypeDef = TypedDict(
+    "TargetTrackingMetricTypeDef",
+    {
+        "Dimensions": List["TargetTrackingMetricDimensionTypeDef"],
+        "MetricName": str,
+        "Namespace": str,
+    },
+    total=False,
+)
+
 _RequiredTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
     "_RequiredTargetTrackingScalingPolicyConfigurationTypeDef",
     {
@@ -580,3 +673,11 @@ class TargetTrackingScalingPolicyConfigurationTypeDef(
     _OptionalTargetTrackingScalingPolicyConfigurationTypeDef,
 ):
     pass
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "TagKeys": List[str],
+    },
+)

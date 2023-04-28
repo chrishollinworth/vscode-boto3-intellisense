@@ -20,9 +20,11 @@ else:
 
 __all__ = (
     "ActivityTypeType",
+    "AdditionalResponseFieldTypeType",
     "BooleanEnumTypeType",
     "CommentStatusTypeType",
     "CommentVisibilityTypeType",
+    "ContentCategoryTypeType",
     "DescribeActivitiesPaginatorName",
     "DescribeCommentsPaginatorName",
     "DescribeDocumentVersionsPaginatorName",
@@ -37,16 +39,25 @@ __all__ = (
     "DocumentThumbnailTypeType",
     "DocumentVersionStatusType",
     "FolderContentTypeType",
+    "LanguageCodeTypeType",
     "LocaleTypeType",
+    "OrderByFieldTypeType",
     "OrderTypeType",
+    "PrincipalRoleTypeType",
     "PrincipalTypeType",
     "ResourceCollectionTypeType",
     "ResourceSortTypeType",
     "ResourceStateTypeType",
     "ResourceTypeType",
+    "ResponseItemTypeType",
     "RolePermissionTypeType",
     "RoleTypeType",
+    "SearchCollectionTypeType",
+    "SearchQueryScopeTypeType",
+    "SearchResourceTypeType",
+    "SearchResourcesPaginatorName",
     "ShareStatusTypeType",
+    "SortOrderType",
     "StorageTypeType",
     "SubscriptionProtocolTypeType",
     "SubscriptionTypeType",
@@ -91,9 +102,21 @@ ActivityTypeType = Literal[
     "FOLDER_SHARE_PERMISSION_CHANGED",
     "FOLDER_UNSHARED",
 ]
+AdditionalResponseFieldTypeType = Literal["WEBURL"]
 BooleanEnumTypeType = Literal["FALSE", "TRUE"]
 CommentStatusTypeType = Literal["DELETED", "DRAFT", "PUBLISHED"]
 CommentVisibilityTypeType = Literal["PRIVATE", "PUBLIC"]
+ContentCategoryTypeType = Literal[
+    "AUDIO",
+    "DOCUMENT",
+    "IMAGE",
+    "OTHER",
+    "PDF",
+    "PRESENTATION",
+    "SOURCE_CODE",
+    "SPREADSHEET",
+    "VIDEO",
+]
 DescribeActivitiesPaginatorName = Literal["describe_activities"]
 DescribeCommentsPaginatorName = Literal["describe_comments"]
 DescribeDocumentVersionsPaginatorName = Literal["describe_document_versions"]
@@ -108,18 +131,61 @@ DocumentStatusTypeType = Literal["ACTIVE", "INITIALIZED"]
 DocumentThumbnailTypeType = Literal["LARGE", "SMALL", "SMALL_HQ"]
 DocumentVersionStatusType = Literal["ACTIVE"]
 FolderContentTypeType = Literal["ALL", "DOCUMENT", "FOLDER"]
+LanguageCodeTypeType = Literal[
+    "AR",
+    "BG",
+    "BN",
+    "CS",
+    "DA",
+    "DE",
+    "DEFAULT",
+    "EL",
+    "EN",
+    "ES",
+    "FA",
+    "FI",
+    "FR",
+    "HI",
+    "HU",
+    "ID",
+    "IT",
+    "JA",
+    "KO",
+    "LT",
+    "LV",
+    "NL",
+    "NO",
+    "PT",
+    "RO",
+    "RU",
+    "SV",
+    "SW",
+    "TH",
+    "TR",
+    "ZH",
+]
 LocaleTypeType = Literal[
     "de", "default", "en", "es", "fr", "ja", "ko", "pt_BR", "ru", "zh_CN", "zh_TW"
 ]
+OrderByFieldTypeType = Literal[
+    "CREATED_TIMESTAMP", "MODIFIED_TIMESTAMP", "NAME", "RELEVANCE", "SIZE"
+]
 OrderTypeType = Literal["ASCENDING", "DESCENDING"]
+PrincipalRoleTypeType = Literal["CONTRIBUTOR", "COOWNER", "OWNER", "VIEWER"]
 PrincipalTypeType = Literal["ANONYMOUS", "GROUP", "INVITE", "ORGANIZATION", "USER"]
 ResourceCollectionTypeType = Literal["SHARED_WITH_ME"]
 ResourceSortTypeType = Literal["DATE", "NAME"]
 ResourceStateTypeType = Literal["ACTIVE", "RECYCLED", "RECYCLING", "RESTORING"]
 ResourceTypeType = Literal["DOCUMENT", "FOLDER"]
+ResponseItemTypeType = Literal["COMMENT", "DOCUMENT", "DOCUMENT_VERSION", "FOLDER"]
 RolePermissionTypeType = Literal["DIRECT", "INHERITED"]
 RoleTypeType = Literal["CONTRIBUTOR", "COOWNER", "OWNER", "VIEWER"]
+SearchCollectionTypeType = Literal["OWNED", "SHARED_WITH_ME"]
+SearchQueryScopeTypeType = Literal["CONTENT", "NAME"]
+SearchResourceTypeType = Literal["COMMENT", "DOCUMENT", "DOCUMENT_VERSION", "FOLDER"]
+SearchResourcesPaginatorName = Literal["search_resources"]
 ShareStatusTypeType = Literal["FAILURE", "SUCCESS"]
+SortOrderType = Literal["ASC", "DESC"]
 StorageTypeType = Literal["QUOTA", "UNLIMITED"]
 SubscriptionProtocolTypeType = Literal["HTTPS", "SQS"]
 SubscriptionTypeType = Literal["ALL"]

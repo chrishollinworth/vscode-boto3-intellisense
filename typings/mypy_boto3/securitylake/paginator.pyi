@@ -46,7 +46,7 @@ __all__ = (
 
 class GetDatalakeStatusPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/securitylake.html#SecurityLake.Paginator.GetDatalakeStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/securitylake.html#SecurityLake.Paginator.GetDatalakeStatus)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#getdatalakestatuspaginator)
     """
 
@@ -54,13 +54,13 @@ class GetDatalakeStatusPaginator(Boto3Paginator):
         self, *, accountSet: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDatalakeStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/securitylake.html#SecurityLake.Paginator.GetDatalakeStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/securitylake.html#SecurityLake.Paginator.GetDatalakeStatus.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#getdatalakestatuspaginator)
         """
 
 class ListDatalakeExceptionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/securitylake.html#SecurityLake.Paginator.ListDatalakeExceptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/securitylake.html#SecurityLake.Paginator.ListDatalakeExceptions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listdatalakeexceptionspaginator)
     """
 
@@ -68,13 +68,13 @@ class ListDatalakeExceptionsPaginator(Boto3Paginator):
         self, *, regionSet: List[RegionType] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatalakeExceptionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/securitylake.html#SecurityLake.Paginator.ListDatalakeExceptions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/securitylake.html#SecurityLake.Paginator.ListDatalakeExceptions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listdatalakeexceptionspaginator)
         """
 
 class ListLogSourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/securitylake.html#SecurityLake.Paginator.ListLogSources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/securitylake.html#SecurityLake.Paginator.ListLogSources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listlogsourcespaginator)
     """
 
@@ -88,13 +88,13 @@ class ListLogSourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLogSourcesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/securitylake.html#SecurityLake.Paginator.ListLogSources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/securitylake.html#SecurityLake.Paginator.ListLogSources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listlogsourcespaginator)
         """
 
 class ListSubscribersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/securitylake.html#SecurityLake.Paginator.ListSubscribers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/securitylake.html#SecurityLake.Paginator.ListSubscribers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listsubscriberspaginator)
     """
 
@@ -102,6 +102,6 @@ class ListSubscribersPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscribersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/securitylake.html#SecurityLake.Paginator.ListSubscribers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/securitylake.html#SecurityLake.Paginator.ListSubscribers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listsubscriberspaginator)
         """

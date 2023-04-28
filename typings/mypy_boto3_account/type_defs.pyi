@@ -12,9 +12,9 @@ Usage::
     ```
 """
 import sys
-from typing import Any, Dict
+from typing import Any, Dict, List
 
-from .literals import AlternateContactTypeType
+from .literals import AlternateContactTypeType, RegionOptStatusType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -25,12 +25,19 @@ __all__ = (
     "AlternateContactTypeDef",
     "ContactInformationTypeDef",
     "DeleteAlternateContactRequestRequestTypeDef",
+    "DisableRegionRequestRequestTypeDef",
+    "EnableRegionRequestRequestTypeDef",
     "GetAlternateContactRequestRequestTypeDef",
     "GetAlternateContactResponseTypeDef",
     "GetContactInformationRequestRequestTypeDef",
     "GetContactInformationResponseTypeDef",
+    "GetRegionOptStatusRequestRequestTypeDef",
+    "GetRegionOptStatusResponseTypeDef",
+    "ListRegionsRequestRequestTypeDef",
+    "ListRegionsResponseTypeDef",
     "PutAlternateContactRequestRequestTypeDef",
     "PutContactInformationRequestRequestTypeDef",
+    "RegionTypeDef",
     "ResponseMetadataTypeDef",
 )
 
@@ -95,6 +102,44 @@ class DeleteAlternateContactRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDisableRegionRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableRegionRequestRequestTypeDef",
+    {
+        "RegionName": str,
+    },
+)
+_OptionalDisableRegionRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableRegionRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+class DisableRegionRequestRequestTypeDef(
+    _RequiredDisableRegionRequestRequestTypeDef, _OptionalDisableRegionRequestRequestTypeDef
+):
+    pass
+
+_RequiredEnableRegionRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableRegionRequestRequestTypeDef",
+    {
+        "RegionName": str,
+    },
+)
+_OptionalEnableRegionRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableRegionRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+class EnableRegionRequestRequestTypeDef(
+    _RequiredEnableRegionRequestRequestTypeDef, _OptionalEnableRegionRequestRequestTypeDef
+):
+    pass
+
 _RequiredGetAlternateContactRequestRequestTypeDef = TypedDict(
     "_RequiredGetAlternateContactRequestRequestTypeDef",
     {
@@ -135,6 +180,55 @@ GetContactInformationResponseTypeDef = TypedDict(
     "GetContactInformationResponseTypeDef",
     {
         "ContactInformation": "ContactInformationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetRegionOptStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredGetRegionOptStatusRequestRequestTypeDef",
+    {
+        "RegionName": str,
+    },
+)
+_OptionalGetRegionOptStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalGetRegionOptStatusRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+class GetRegionOptStatusRequestRequestTypeDef(
+    _RequiredGetRegionOptStatusRequestRequestTypeDef,
+    _OptionalGetRegionOptStatusRequestRequestTypeDef,
+):
+    pass
+
+GetRegionOptStatusResponseTypeDef = TypedDict(
+    "GetRegionOptStatusResponseTypeDef",
+    {
+        "RegionName": str,
+        "RegionOptStatus": RegionOptStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListRegionsRequestRequestTypeDef = TypedDict(
+    "ListRegionsRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "RegionOptStatusContains": List[RegionOptStatusType],
+    },
+    total=False,
+)
+
+ListRegionsResponseTypeDef = TypedDict(
+    "ListRegionsResponseTypeDef",
+    {
+        "NextToken": str,
+        "Regions": List["RegionTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -182,6 +276,15 @@ class PutContactInformationRequestRequestTypeDef(
     _OptionalPutContactInformationRequestRequestTypeDef,
 ):
     pass
+
+RegionTypeDef = TypedDict(
+    "RegionTypeDef",
+    {
+        "RegionName": str,
+        "RegionOptStatus": RegionOptStatusType,
+    },
+    total=False,
+)
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",

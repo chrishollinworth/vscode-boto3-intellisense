@@ -15,6 +15,7 @@ import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    ActionCategoryType,
     ApplicationHealthStatusType,
     ApplicationProgressStatusType,
     BootModeType,
@@ -23,7 +24,10 @@ from .literals import (
     DataReplicationInitiationStepNameType,
     DataReplicationInitiationStepStatusType,
     DataReplicationStateType,
+    ExportStatusType,
     FirstBootType,
+    ImportErrorTypeType,
+    ImportStatusType,
     InitiatedByType,
     JobLogEventType,
     JobStatusType,
@@ -99,10 +103,21 @@ __all__ = (
     "DisassociateSourceServersRequestRequestTypeDef",
     "DisconnectFromServiceRequestRequestTypeDef",
     "DiskTypeDef",
+    "ExportErrorDataTypeDef",
+    "ExportTaskErrorTypeDef",
+    "ExportTaskSummaryTypeDef",
+    "ExportTaskTypeDef",
     "FinalizeCutoverRequestRequestTypeDef",
     "GetLaunchConfigurationRequestRequestTypeDef",
     "GetReplicationConfigurationRequestRequestTypeDef",
     "IdentificationHintsTypeDef",
+    "ImportErrorDataTypeDef",
+    "ImportTaskErrorTypeDef",
+    "ImportTaskSummaryApplicationsTypeDef",
+    "ImportTaskSummaryServersTypeDef",
+    "ImportTaskSummaryTypeDef",
+    "ImportTaskSummaryWavesTypeDef",
+    "ImportTaskTypeDef",
     "JobLogEventDataTypeDef",
     "JobLogTypeDef",
     "JobPostLaunchActionsLaunchStatusTypeDef",
@@ -125,6 +140,16 @@ __all__ = (
     "ListApplicationsRequestFiltersTypeDef",
     "ListApplicationsRequestRequestTypeDef",
     "ListApplicationsResponseTypeDef",
+    "ListExportErrorsRequestRequestTypeDef",
+    "ListExportErrorsResponseTypeDef",
+    "ListExportsRequestFiltersTypeDef",
+    "ListExportsRequestRequestTypeDef",
+    "ListExportsResponseTypeDef",
+    "ListImportErrorsRequestRequestTypeDef",
+    "ListImportErrorsResponseTypeDef",
+    "ListImportsRequestFiltersTypeDef",
+    "ListImportsRequestRequestTypeDef",
+    "ListImportsResponseTypeDef",
     "ListSourceServerActionsRequestRequestTypeDef",
     "ListSourceServerActionsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -151,6 +176,7 @@ __all__ = (
     "ReplicationConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "RetryDataReplicationRequestRequestTypeDef",
+    "S3BucketSourceTypeDef",
     "SourcePropertiesTypeDef",
     "SourceServerActionDocumentResponseMetadataTypeDef",
     "SourceServerActionDocumentTypeDef",
@@ -158,9 +184,14 @@ __all__ = (
     "SourceServerResponseMetadataTypeDef",
     "SourceServerTypeDef",
     "SsmDocumentTypeDef",
+    "SsmExternalParameterTypeDef",
     "SsmParameterStoreParameterTypeDef",
     "StartCutoverRequestRequestTypeDef",
     "StartCutoverResponseTypeDef",
+    "StartExportRequestRequestTypeDef",
+    "StartExportResponseTypeDef",
+    "StartImportRequestRequestTypeDef",
+    "StartImportResponseTypeDef",
     "StartReplicationRequestRequestTypeDef",
     "StartTestRequestRequestTypeDef",
     "StartTestResponseTypeDef",
@@ -658,6 +689,49 @@ DiskTypeDef = TypedDict(
     total=False,
 )
 
+ExportErrorDataTypeDef = TypedDict(
+    "ExportErrorDataTypeDef",
+    {
+        "rawError": str,
+    },
+    total=False,
+)
+
+ExportTaskErrorTypeDef = TypedDict(
+    "ExportTaskErrorTypeDef",
+    {
+        "errorData": "ExportErrorDataTypeDef",
+        "errorDateTime": str,
+    },
+    total=False,
+)
+
+ExportTaskSummaryTypeDef = TypedDict(
+    "ExportTaskSummaryTypeDef",
+    {
+        "applicationsCount": int,
+        "serversCount": int,
+        "wavesCount": int,
+    },
+    total=False,
+)
+
+ExportTaskTypeDef = TypedDict(
+    "ExportTaskTypeDef",
+    {
+        "creationDateTime": str,
+        "endDateTime": str,
+        "exportID": str,
+        "progressPercentage": float,
+        "s3Bucket": str,
+        "s3BucketOwner": str,
+        "s3Key": str,
+        "status": ExportStatusType,
+        "summary": "ExportTaskSummaryTypeDef",
+    },
+    total=False,
+)
+
 FinalizeCutoverRequestRequestTypeDef = TypedDict(
     "FinalizeCutoverRequestRequestTypeDef",
     {
@@ -687,6 +761,80 @@ IdentificationHintsTypeDef = TypedDict(
         "hostname": str,
         "vmPath": str,
         "vmWareUuid": str,
+    },
+    total=False,
+)
+
+ImportErrorDataTypeDef = TypedDict(
+    "ImportErrorDataTypeDef",
+    {
+        "applicationID": str,
+        "ec2LaunchTemplateID": str,
+        "rawError": str,
+        "rowNumber": int,
+        "sourceServerID": str,
+        "waveID": str,
+    },
+    total=False,
+)
+
+ImportTaskErrorTypeDef = TypedDict(
+    "ImportTaskErrorTypeDef",
+    {
+        "errorData": "ImportErrorDataTypeDef",
+        "errorDateTime": str,
+        "errorType": ImportErrorTypeType,
+    },
+    total=False,
+)
+
+ImportTaskSummaryApplicationsTypeDef = TypedDict(
+    "ImportTaskSummaryApplicationsTypeDef",
+    {
+        "createdCount": int,
+        "modifiedCount": int,
+    },
+    total=False,
+)
+
+ImportTaskSummaryServersTypeDef = TypedDict(
+    "ImportTaskSummaryServersTypeDef",
+    {
+        "createdCount": int,
+        "modifiedCount": int,
+    },
+    total=False,
+)
+
+ImportTaskSummaryTypeDef = TypedDict(
+    "ImportTaskSummaryTypeDef",
+    {
+        "applications": "ImportTaskSummaryApplicationsTypeDef",
+        "servers": "ImportTaskSummaryServersTypeDef",
+        "waves": "ImportTaskSummaryWavesTypeDef",
+    },
+    total=False,
+)
+
+ImportTaskSummaryWavesTypeDef = TypedDict(
+    "ImportTaskSummaryWavesTypeDef",
+    {
+        "createdCount": int,
+        "modifiedCount": int,
+    },
+    total=False,
+)
+
+ImportTaskTypeDef = TypedDict(
+    "ImportTaskTypeDef",
+    {
+        "creationDateTime": str,
+        "endDateTime": str,
+        "importID": str,
+        "progressPercentage": float,
+        "s3BucketSource": "S3BucketSourceTypeDef",
+        "status": ImportStatusType,
+        "summary": "ImportTaskSummaryTypeDef",
     },
     total=False,
 )
@@ -966,6 +1114,118 @@ ListApplicationsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListExportErrorsRequestRequestTypeDef = TypedDict(
+    "_RequiredListExportErrorsRequestRequestTypeDef",
+    {
+        "exportID": str,
+    },
+)
+_OptionalListExportErrorsRequestRequestTypeDef = TypedDict(
+    "_OptionalListExportErrorsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListExportErrorsRequestRequestTypeDef(
+    _RequiredListExportErrorsRequestRequestTypeDef, _OptionalListExportErrorsRequestRequestTypeDef
+):
+    pass
+
+ListExportErrorsResponseTypeDef = TypedDict(
+    "ListExportErrorsResponseTypeDef",
+    {
+        "items": List["ExportTaskErrorTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListExportsRequestFiltersTypeDef = TypedDict(
+    "ListExportsRequestFiltersTypeDef",
+    {
+        "exportIDs": List[str],
+    },
+    total=False,
+)
+
+ListExportsRequestRequestTypeDef = TypedDict(
+    "ListExportsRequestRequestTypeDef",
+    {
+        "filters": "ListExportsRequestFiltersTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListExportsResponseTypeDef = TypedDict(
+    "ListExportsResponseTypeDef",
+    {
+        "items": List["ExportTaskTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListImportErrorsRequestRequestTypeDef = TypedDict(
+    "_RequiredListImportErrorsRequestRequestTypeDef",
+    {
+        "importID": str,
+    },
+)
+_OptionalListImportErrorsRequestRequestTypeDef = TypedDict(
+    "_OptionalListImportErrorsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListImportErrorsRequestRequestTypeDef(
+    _RequiredListImportErrorsRequestRequestTypeDef, _OptionalListImportErrorsRequestRequestTypeDef
+):
+    pass
+
+ListImportErrorsResponseTypeDef = TypedDict(
+    "ListImportErrorsResponseTypeDef",
+    {
+        "items": List["ImportTaskErrorTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListImportsRequestFiltersTypeDef = TypedDict(
+    "ListImportsRequestFiltersTypeDef",
+    {
+        "importIDs": List[str],
+    },
+    total=False,
+)
+
+ListImportsRequestRequestTypeDef = TypedDict(
+    "ListImportsRequestRequestTypeDef",
+    {
+        "filters": "ListImportsRequestFiltersTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListImportsResponseTypeDef = TypedDict(
+    "ListImportsResponseTypeDef",
+    {
+        "items": List["ImportTaskTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListSourceServerActionsRequestRequestTypeDef = TypedDict(
     "_RequiredListSourceServerActionsRequestRequestTypeDef",
     {
@@ -1162,7 +1422,10 @@ _OptionalPutSourceServerActionRequestRequestTypeDef = TypedDict(
     "_OptionalPutSourceServerActionRequestRequestTypeDef",
     {
         "active": bool,
+        "category": ActionCategoryType,
+        "description": str,
         "documentVersion": str,
+        "externalParameters": Dict[str, "SsmExternalParameterTypeDef"],
         "mustSucceedForCutover": bool,
         "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
         "timeoutSeconds": int,
@@ -1190,7 +1453,10 @@ _OptionalPutTemplateActionRequestRequestTypeDef = TypedDict(
     "_OptionalPutTemplateActionRequestRequestTypeDef",
     {
         "active": bool,
+        "category": ActionCategoryType,
+        "description": str,
         "documentVersion": str,
+        "externalParameters": Dict[str, "SsmExternalParameterTypeDef"],
         "mustSucceedForCutover": bool,
         "operatingSystem": str,
         "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
@@ -1327,6 +1593,24 @@ RetryDataReplicationRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredS3BucketSourceTypeDef = TypedDict(
+    "_RequiredS3BucketSourceTypeDef",
+    {
+        "s3Bucket": str,
+        "s3Key": str,
+    },
+)
+_OptionalS3BucketSourceTypeDef = TypedDict(
+    "_OptionalS3BucketSourceTypeDef",
+    {
+        "s3BucketOwner": str,
+    },
+    total=False,
+)
+
+class S3BucketSourceTypeDef(_RequiredS3BucketSourceTypeDef, _OptionalS3BucketSourceTypeDef):
+    pass
+
 SourcePropertiesTypeDef = TypedDict(
     "SourcePropertiesTypeDef",
     {
@@ -1348,8 +1632,11 @@ SourceServerActionDocumentResponseMetadataTypeDef = TypedDict(
         "actionID": str,
         "actionName": str,
         "active": bool,
+        "category": ActionCategoryType,
+        "description": str,
         "documentIdentifier": str,
         "documentVersion": str,
+        "externalParameters": Dict[str, "SsmExternalParameterTypeDef"],
         "mustSucceedForCutover": bool,
         "order": int,
         "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
@@ -1364,8 +1651,11 @@ SourceServerActionDocumentTypeDef = TypedDict(
         "actionID": str,
         "actionName": str,
         "active": bool,
+        "category": ActionCategoryType,
+        "description": str,
         "documentIdentifier": str,
         "documentVersion": str,
+        "externalParameters": Dict[str, "SsmExternalParameterTypeDef"],
         "mustSucceedForCutover": bool,
         "order": int,
         "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
@@ -1388,6 +1678,7 @@ SourceServerResponseMetadataTypeDef = TypedDict(
         "applicationID": str,
         "arn": str,
         "dataReplicationInfo": "DataReplicationInfoTypeDef",
+        "fqdnForActionFramework": str,
         "isArchived": bool,
         "launchedInstance": "LaunchedInstanceTypeDef",
         "lifeCycle": "LifeCycleTypeDef",
@@ -1395,6 +1686,7 @@ SourceServerResponseMetadataTypeDef = TypedDict(
         "sourceProperties": "SourcePropertiesTypeDef",
         "sourceServerID": str,
         "tags": Dict[str, str],
+        "userProvidedID": str,
         "vcenterClientID": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1406,6 +1698,7 @@ SourceServerTypeDef = TypedDict(
         "applicationID": str,
         "arn": str,
         "dataReplicationInfo": "DataReplicationInfoTypeDef",
+        "fqdnForActionFramework": str,
         "isArchived": bool,
         "launchedInstance": "LaunchedInstanceTypeDef",
         "lifeCycle": "LifeCycleTypeDef",
@@ -1413,6 +1706,7 @@ SourceServerTypeDef = TypedDict(
         "sourceProperties": "SourcePropertiesTypeDef",
         "sourceServerID": str,
         "tags": Dict[str, str],
+        "userProvidedID": str,
         "vcenterClientID": str,
     },
     total=False,
@@ -1428,6 +1722,7 @@ _RequiredSsmDocumentTypeDef = TypedDict(
 _OptionalSsmDocumentTypeDef = TypedDict(
     "_OptionalSsmDocumentTypeDef",
     {
+        "externalParameters": Dict[str, "SsmExternalParameterTypeDef"],
         "mustSucceedForCutover": bool,
         "parameters": Dict[str, List["SsmParameterStoreParameterTypeDef"]],
         "timeoutSeconds": int,
@@ -1437,6 +1732,14 @@ _OptionalSsmDocumentTypeDef = TypedDict(
 
 class SsmDocumentTypeDef(_RequiredSsmDocumentTypeDef, _OptionalSsmDocumentTypeDef):
     pass
+
+SsmExternalParameterTypeDef = TypedDict(
+    "SsmExternalParameterTypeDef",
+    {
+        "dynamicPath": str,
+    },
+    total=False,
+)
 
 SsmParameterStoreParameterTypeDef = TypedDict(
     "SsmParameterStoreParameterTypeDef",
@@ -1469,6 +1772,61 @@ StartCutoverResponseTypeDef = TypedDict(
     "StartCutoverResponseTypeDef",
     {
         "job": "JobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartExportRequestRequestTypeDef = TypedDict(
+    "_RequiredStartExportRequestRequestTypeDef",
+    {
+        "s3Bucket": str,
+        "s3Key": str,
+    },
+)
+_OptionalStartExportRequestRequestTypeDef = TypedDict(
+    "_OptionalStartExportRequestRequestTypeDef",
+    {
+        "s3BucketOwner": str,
+    },
+    total=False,
+)
+
+class StartExportRequestRequestTypeDef(
+    _RequiredStartExportRequestRequestTypeDef, _OptionalStartExportRequestRequestTypeDef
+):
+    pass
+
+StartExportResponseTypeDef = TypedDict(
+    "StartExportResponseTypeDef",
+    {
+        "exportTask": "ExportTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartImportRequestRequestTypeDef = TypedDict(
+    "_RequiredStartImportRequestRequestTypeDef",
+    {
+        "s3BucketSource": "S3BucketSourceTypeDef",
+    },
+)
+_OptionalStartImportRequestRequestTypeDef = TypedDict(
+    "_OptionalStartImportRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class StartImportRequestRequestTypeDef(
+    _RequiredStartImportRequestRequestTypeDef, _OptionalStartImportRequestRequestTypeDef
+):
+    pass
+
+StartImportResponseTypeDef = TypedDict(
+    "StartImportResponseTypeDef",
+    {
+        "importTask": "ImportTaskTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1521,8 +1879,11 @@ TemplateActionDocumentResponseMetadataTypeDef = TypedDict(
         "actionID": str,
         "actionName": str,
         "active": bool,
+        "category": ActionCategoryType,
+        "description": str,
         "documentIdentifier": str,
         "documentVersion": str,
+        "externalParameters": Dict[str, "SsmExternalParameterTypeDef"],
         "mustSucceedForCutover": bool,
         "operatingSystem": str,
         "order": int,
@@ -1538,8 +1899,11 @@ TemplateActionDocumentTypeDef = TypedDict(
         "actionID": str,
         "actionName": str,
         "active": bool,
+        "category": ActionCategoryType,
+        "description": str,
         "documentIdentifier": str,
         "documentVersion": str,
+        "externalParameters": Dict[str, "SsmExternalParameterTypeDef"],
         "mustSucceedForCutover": bool,
         "operatingSystem": str,
         "order": int,

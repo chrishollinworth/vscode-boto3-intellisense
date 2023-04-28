@@ -34,6 +34,7 @@ __all__ = (
     "FrequencyType",
     "IncludeType",
     "JobStatusType",
+    "JourneyRunStatusType",
     "LayoutType",
     "MessageTypeType",
     "ModeType",
@@ -100,6 +101,7 @@ JobStatusType = Literal[
     "PREPARING_FOR_INITIALIZATION",
     "PROCESSING",
 ]
+JourneyRunStatusType = Literal["CANCELLED", "COMPLETED", "RUNNING", "SCHEDULED"]
 LayoutType = Literal[
     "BOTTOM_BANNER", "CAROUSEL", "MIDDLE_BANNER", "MOBILE_FEED", "OVERLAYS", "TOP_BANNER"
 ]

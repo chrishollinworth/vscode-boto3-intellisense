@@ -120,6 +120,7 @@ __all__ = (
     "EbsConfigurationTypeDef",
     "EbsVolumeTypeDef",
     "Ec2InstanceAttributesTypeDef",
+    "ErrorDetailTypeDef",
     "ExecutionEngineConfigTypeDef",
     "FailureDetailsTypeDef",
     "GetAutoTerminationPolicyInputRequestTypeDef",
@@ -136,6 +137,7 @@ __all__ = (
     "InstanceFleetConfigTypeDef",
     "InstanceFleetModifyConfigTypeDef",
     "InstanceFleetProvisioningSpecificationsTypeDef",
+    "InstanceFleetResizingSpecificationsTypeDef",
     "InstanceFleetStateChangeReasonTypeDef",
     "InstanceFleetStatusTypeDef",
     "InstanceFleetTimelineTypeDef",
@@ -193,6 +195,7 @@ __all__ = (
     "OSReleaseTypeDef",
     "OnDemandCapacityReservationOptionsTypeDef",
     "OnDemandProvisioningSpecificationTypeDef",
+    "OnDemandResizingSpecificationTypeDef",
     "PaginatorConfigTypeDef",
     "PlacementGroupConfigTypeDef",
     "PlacementTypeTypeDef",
@@ -224,6 +227,7 @@ __all__ = (
     "SimpleScalingPolicyConfigurationTypeDef",
     "SimplifiedApplicationTypeDef",
     "SpotProvisioningSpecificationTypeDef",
+    "SpotResizingSpecificationTypeDef",
     "StartNotebookExecutionInputRequestTypeDef",
     "StartNotebookExecutionOutputTypeDef",
     "StepConfigTypeDef",
@@ -496,6 +500,7 @@ ClusterStatusTypeDef = TypedDict(
         "State": ClusterStateType,
         "StateChangeReason": "ClusterStateChangeReasonTypeDef",
         "Timeline": "ClusterTimelineTypeDef",
+        "ErrorDetails": List["ErrorDetailTypeDef"],
     },
     total=False,
 )
@@ -906,6 +911,16 @@ Ec2InstanceAttributesTypeDef = TypedDict(
     total=False,
 )
 
+ErrorDetailTypeDef = TypedDict(
+    "ErrorDetailTypeDef",
+    {
+        "ErrorCode": str,
+        "ErrorData": List[Dict[str, str]],
+        "ErrorMessage": str,
+    },
+    total=False,
+)
+
 _RequiredExecutionEngineConfigTypeDef = TypedDict(
     "_RequiredExecutionEngineConfigTypeDef",
     {
@@ -1068,6 +1083,7 @@ _OptionalInstanceFleetConfigTypeDef = TypedDict(
         "TargetSpotCapacity": int,
         "InstanceTypeConfigs": List["InstanceTypeConfigTypeDef"],
         "LaunchSpecifications": "InstanceFleetProvisioningSpecificationsTypeDef",
+        "ResizeSpecifications": "InstanceFleetResizingSpecificationsTypeDef",
     },
     total=False,
 )
@@ -1088,6 +1104,7 @@ _OptionalInstanceFleetModifyConfigTypeDef = TypedDict(
     {
         "TargetOnDemandCapacity": int,
         "TargetSpotCapacity": int,
+        "ResizeSpecifications": "InstanceFleetResizingSpecificationsTypeDef",
     },
     total=False,
 )
@@ -1102,6 +1119,15 @@ InstanceFleetProvisioningSpecificationsTypeDef = TypedDict(
     {
         "SpotSpecification": "SpotProvisioningSpecificationTypeDef",
         "OnDemandSpecification": "OnDemandProvisioningSpecificationTypeDef",
+    },
+    total=False,
+)
+
+InstanceFleetResizingSpecificationsTypeDef = TypedDict(
+    "InstanceFleetResizingSpecificationsTypeDef",
+    {
+        "SpotResizeSpecification": "SpotResizingSpecificationTypeDef",
+        "OnDemandResizeSpecification": "OnDemandResizingSpecificationTypeDef",
     },
     total=False,
 )
@@ -1148,6 +1174,7 @@ InstanceFleetTypeDef = TypedDict(
         "ProvisionedSpotCapacity": int,
         "InstanceTypeSpecifications": List["InstanceTypeSpecificationTypeDef"],
         "LaunchSpecifications": "InstanceFleetProvisioningSpecificationsTypeDef",
+        "ResizeSpecifications": "InstanceFleetResizingSpecificationsTypeDef",
     },
     total=False,
 )
@@ -1916,6 +1943,13 @@ class OnDemandProvisioningSpecificationTypeDef(
 ):
     pass
 
+OnDemandResizingSpecificationTypeDef = TypedDict(
+    "OnDemandResizingSpecificationTypeDef",
+    {
+        "TimeoutDurationMinutes": int,
+    },
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -2312,6 +2346,13 @@ class SpotProvisioningSpecificationTypeDef(
     _RequiredSpotProvisioningSpecificationTypeDef, _OptionalSpotProvisioningSpecificationTypeDef
 ):
     pass
+
+SpotResizingSpecificationTypeDef = TypedDict(
+    "SpotResizingSpecificationTypeDef",
+    {
+        "TimeoutDurationMinutes": int,
+    },
+)
 
 _RequiredStartNotebookExecutionInputRequestTypeDef = TypedDict(
     "_RequiredStartNotebookExecutionInputRequestTypeDef",

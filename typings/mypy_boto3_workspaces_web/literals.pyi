@@ -6,9 +6,9 @@ Type annotations for workspaces-web service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_workspaces_web.literals import BrowserTypeType
+    from mypy_boto3_workspaces_web.literals import AuthenticationTypeType
 
-    data: BrowserTypeType = "Chrome"
+    data: AuthenticationTypeType = "IAM_Identity_Center"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AuthenticationTypeType",
     "BrowserTypeType",
     "EnabledTypeType",
     "IdentityProviderTypeType",
@@ -26,6 +27,7 @@ __all__ = (
     "RendererTypeType",
 )
 
+AuthenticationTypeType = Literal["IAM_Identity_Center", "Standard"]
 BrowserTypeType = Literal["Chrome"]
 EnabledTypeType = Literal["Disabled", "Enabled"]
 IdentityProviderTypeType = Literal[

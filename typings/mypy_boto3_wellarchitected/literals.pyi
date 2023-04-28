@@ -31,9 +31,11 @@ __all__ = (
     "LensStatusType",
     "LensStatusTypeType",
     "LensTypeType",
+    "MetricTypeType",
     "NotificationTypeType",
     "OrganizationSharingStatusType",
     "PermissionTypeType",
+    "ReportFormatType",
     "RiskType",
     "ShareInvitationActionType",
     "ShareResourceTypeType",
@@ -61,9 +63,11 @@ ImportLensStatusType = Literal["COMPLETE", "ERROR", "IN_PROGRESS"]
 LensStatusType = Literal["CURRENT", "DELETED", "DEPRECATED", "NOT_CURRENT", "UNSHARED"]
 LensStatusTypeType = Literal["ALL", "DRAFT", "PUBLISHED"]
 LensTypeType = Literal["AWS_OFFICIAL", "CUSTOM_SELF", "CUSTOM_SHARED"]
+MetricTypeType = Literal["WORKLOAD"]
 NotificationTypeType = Literal["LENS_VERSION_DEPRECATED", "LENS_VERSION_UPGRADED"]
 OrganizationSharingStatusType = Literal["DISABLED", "ENABLED"]
 PermissionTypeType = Literal["CONTRIBUTOR", "READONLY"]
+ReportFormatType = Literal["JSON", "PDF"]
 RiskType = Literal["HIGH", "MEDIUM", "NONE", "NOT_APPLICABLE", "UNANSWERED"]
 ShareInvitationActionType = Literal["ACCEPT", "REJECT"]
 ShareResourceTypeType = Literal["LENS", "WORKLOAD"]

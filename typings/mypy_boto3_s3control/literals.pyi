@@ -23,6 +23,8 @@ __all__ = (
     "BucketCannedACLType",
     "BucketLocationConstraintType",
     "BucketVersioningStatusType",
+    "DeleteMarkerReplicationStatusType",
+    "ExistingObjectReplicationStatusType",
     "ExpirationStatusType",
     "FormatType",
     "GeneratedManifestFormatType",
@@ -34,13 +36,20 @@ __all__ = (
     "ListAccessPointsForObjectLambdaPaginatorName",
     "MFADeleteStatusType",
     "MFADeleteType",
+    "MetricsStatusType",
     "MultiRegionAccessPointStatusType",
     "NetworkOriginType",
+    "ObjectLambdaAccessPointAliasStatusType",
     "ObjectLambdaAllowedFeatureType",
     "ObjectLambdaTransformationConfigurationActionType",
     "OperationNameType",
     "OutputSchemaVersionType",
+    "OwnerOverrideType",
+    "ReplicaModificationsStatusType",
+    "ReplicationRuleStatusType",
     "ReplicationStatusType",
+    "ReplicationStorageClassType",
+    "ReplicationTimeStatusType",
     "RequestedJobStatusType",
     "S3CannedAccessControlListType",
     "S3ChecksumAlgorithmType",
@@ -53,6 +62,7 @@ __all__ = (
     "S3PermissionType",
     "S3SSEAlgorithmType",
     "S3StorageClassType",
+    "SseKmsEncryptedObjectsStatusType",
     "TransitionStorageClassType",
 )
 
@@ -76,6 +86,8 @@ BucketLocationConstraintType = Literal[
     "us-west-2",
 ]
 BucketVersioningStatusType = Literal["Enabled", "Suspended"]
+DeleteMarkerReplicationStatusType = Literal["Disabled", "Enabled"]
+ExistingObjectReplicationStatusType = Literal["Disabled", "Enabled"]
 ExpirationStatusType = Literal["Disabled", "Enabled"]
 FormatType = Literal["CSV", "Parquet"]
 GeneratedManifestFormatType = Literal["S3InventoryReport_CSV_20211130"]
@@ -101,6 +113,7 @@ JobStatusType = Literal[
 ListAccessPointsForObjectLambdaPaginatorName = Literal["list_access_points_for_object_lambda"]
 MFADeleteStatusType = Literal["Disabled", "Enabled"]
 MFADeleteType = Literal["Disabled", "Enabled"]
+MetricsStatusType = Literal["Disabled", "Enabled"]
 MultiRegionAccessPointStatusType = Literal[
     "CREATING",
     "DELETING",
@@ -110,6 +123,7 @@ MultiRegionAccessPointStatusType = Literal[
     "READY",
 ]
 NetworkOriginType = Literal["Internet", "VPC"]
+ObjectLambdaAccessPointAliasStatusType = Literal["PROVISIONING", "READY"]
 ObjectLambdaAllowedFeatureType = Literal[
     "GetObject-PartNumber", "GetObject-Range", "HeadObject-PartNumber", "HeadObject-Range"
 ]
@@ -128,7 +142,22 @@ OperationNameType = Literal[
     "S3ReplicateObject",
 ]
 OutputSchemaVersionType = Literal["V_1"]
+OwnerOverrideType = Literal["Destination"]
+ReplicaModificationsStatusType = Literal["Disabled", "Enabled"]
+ReplicationRuleStatusType = Literal["Disabled", "Enabled"]
 ReplicationStatusType = Literal["COMPLETED", "FAILED", "NONE", "REPLICA"]
+ReplicationStorageClassType = Literal[
+    "DEEP_ARCHIVE",
+    "GLACIER",
+    "GLACIER_IR",
+    "INTELLIGENT_TIERING",
+    "ONEZONE_IA",
+    "OUTPOSTS",
+    "REDUCED_REDUNDANCY",
+    "STANDARD",
+    "STANDARD_IA",
+]
+ReplicationTimeStatusType = Literal["Disabled", "Enabled"]
 RequestedJobStatusType = Literal["Cancelled", "Ready"]
 S3CannedAccessControlListType = Literal[
     "authenticated-read",
@@ -157,6 +186,7 @@ S3StorageClassType = Literal[
     "STANDARD",
     "STANDARD_IA",
 ]
+SseKmsEncryptedObjectsStatusType = Literal["Disabled", "Enabled"]
 TransitionStorageClassType = Literal[
     "DEEP_ARCHIVE", "GLACIER", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA"
 ]

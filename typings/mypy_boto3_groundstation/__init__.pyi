@@ -7,6 +7,7 @@ Usage::
     import boto3
     from mypy_boto3_groundstation import (
         Client,
+        ContactScheduledWaiter,
         GroundStationClient,
         ListConfigsPaginator,
         ListContactsPaginator,
@@ -21,6 +22,8 @@ Usage::
 
     client: GroundStationClient = boto3.client("groundstation")
     session_client: GroundStationClient = session.client("groundstation")
+
+    contact_scheduled_waiter: ContactScheduledWaiter = client.get_waiter("contact_scheduled")
 
     list_configs_paginator: ListConfigsPaginator = client.get_paginator("list_configs")
     list_contacts_paginator: ListContactsPaginator = client.get_paginator("list_contacts")
@@ -41,11 +44,13 @@ from .paginator import (
     ListMissionProfilesPaginator,
     ListSatellitesPaginator,
 )
+from .waiter import ContactScheduledWaiter
 
 Client = GroundStationClient
 
 __all__ = (
     "Client",
+    "ContactScheduledWaiter",
     "GroundStationClient",
     "ListConfigsPaginator",
     "ListContactsPaginator",

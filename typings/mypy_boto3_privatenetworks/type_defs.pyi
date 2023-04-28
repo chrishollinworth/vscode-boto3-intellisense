@@ -27,6 +27,7 @@ from .literals import (
     NetworkSiteStatusType,
     NetworkStatusType,
     OrderFilterKeysType,
+    UpdateTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -91,7 +92,10 @@ __all__ = (
     "PingResponseTypeDef",
     "PositionTypeDef",
     "ResponseMetadataTypeDef",
+    "ReturnInformationTypeDef",
     "SitePlanTypeDef",
+    "StartNetworkResourceUpdateRequestRequestTypeDef",
+    "StartNetworkResourceUpdateResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TrackingInformationTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -678,6 +682,7 @@ NetworkResourceTypeDef = TypedDict(
         "networkSiteArn": str,
         "orderArn": str,
         "position": "PositionTypeDef",
+        "returnInformation": "ReturnInformationTypeDef",
         "serialNumber": str,
         "status": NetworkResourceStatusType,
         "statusReason": str,
@@ -789,6 +794,17 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+ReturnInformationTypeDef = TypedDict(
+    "ReturnInformationTypeDef",
+    {
+        "replacementOrderArn": str,
+        "returnReason": str,
+        "shippingAddress": "AddressTypeDef",
+        "shippingLabel": str,
+    },
+    total=False,
+)
+
 SitePlanTypeDef = TypedDict(
     "SitePlanTypeDef",
     {
@@ -796,6 +812,36 @@ SitePlanTypeDef = TypedDict(
         "resourceDefinitions": List["NetworkResourceDefinitionTypeDef"],
     },
     total=False,
+)
+
+_RequiredStartNetworkResourceUpdateRequestRequestTypeDef = TypedDict(
+    "_RequiredStartNetworkResourceUpdateRequestRequestTypeDef",
+    {
+        "networkResourceArn": str,
+        "updateType": UpdateTypeType,
+    },
+)
+_OptionalStartNetworkResourceUpdateRequestRequestTypeDef = TypedDict(
+    "_OptionalStartNetworkResourceUpdateRequestRequestTypeDef",
+    {
+        "returnReason": str,
+        "shippingAddress": "AddressTypeDef",
+    },
+    total=False,
+)
+
+class StartNetworkResourceUpdateRequestRequestTypeDef(
+    _RequiredStartNetworkResourceUpdateRequestRequestTypeDef,
+    _OptionalStartNetworkResourceUpdateRequestRequestTypeDef,
+):
+    pass
+
+StartNetworkResourceUpdateResponseTypeDef = TypedDict(
+    "StartNetworkResourceUpdateResponseTypeDef",
+    {
+        "networkResource": "NetworkResourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 TagResourceRequestRequestTypeDef = TypedDict(

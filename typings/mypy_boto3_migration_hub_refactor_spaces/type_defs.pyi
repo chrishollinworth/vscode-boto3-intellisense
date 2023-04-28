@@ -22,6 +22,7 @@ from .literals import (
     ErrorCodeType,
     ErrorResourceTypeType,
     HttpMethodType,
+    NetworkFabricTypeType,
     RouteActivationStateType,
     RouteStateType,
     RouteTypeType,
@@ -210,7 +211,7 @@ _RequiredCreateEnvironmentRequestRequestTypeDef = TypedDict(
     "_RequiredCreateEnvironmentRequestRequestTypeDef",
     {
         "Name": str,
-        "NetworkFabricType": Literal["TRANSIT_GATEWAY"],
+        "NetworkFabricType": NetworkFabricTypeType,
     },
 )
 _OptionalCreateEnvironmentRequestRequestTypeDef = TypedDict(
@@ -237,7 +238,7 @@ CreateEnvironmentResponseTypeDef = TypedDict(
         "EnvironmentId": str,
         "LastUpdatedTime": datetime,
         "Name": str,
-        "NetworkFabricType": Literal["TRANSIT_GATEWAY"],
+        "NetworkFabricType": NetworkFabricTypeType,
         "OwnerAccountId": str,
         "State": EnvironmentStateType,
         "Tags": Dict[str, str],
@@ -449,7 +450,7 @@ EnvironmentSummaryTypeDef = TypedDict(
         "Error": "ErrorResponseTypeDef",
         "LastUpdatedTime": datetime,
         "Name": str,
-        "NetworkFabricType": Literal["TRANSIT_GATEWAY"],
+        "NetworkFabricType": NetworkFabricTypeType,
         "OwnerAccountId": str,
         "State": EnvironmentStateType,
         "Tags": Dict[str, str],
@@ -531,7 +532,7 @@ GetEnvironmentResponseTypeDef = TypedDict(
         "Error": "ErrorResponseTypeDef",
         "LastUpdatedTime": datetime,
         "Name": str,
-        "NetworkFabricType": Literal["TRANSIT_GATEWAY"],
+        "NetworkFabricType": NetworkFabricTypeType,
         "OwnerAccountId": str,
         "State": EnvironmentStateType,
         "Tags": Dict[str, str],

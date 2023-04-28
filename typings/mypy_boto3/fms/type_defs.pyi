@@ -6,9 +6,9 @@ Type annotations for fms service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_fms.type_defs import ActionTargetTypeDef
+    from mypy_boto3_fms.type_defs import AccountScopeTypeDef
 
-    data: ActionTargetTypeDef = {...}
+    data: AccountScopeTypeDef = {...}
     ```
 """
 import sys
@@ -18,13 +18,16 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AccountRoleStatusType,
     CustomerPolicyScopeIdTypeType,
+    CustomerPolicyStatusType,
     DependentServiceNameType,
     DestinationTypeType,
     FailedItemReasonType,
     FirewallDeploymentModelType,
     MarketplaceSubscriptionOnboardingStatusType,
+    OrganizationStatusType,
     PolicyComplianceStatusTypeType,
     RemediationActionTypeType,
+    ResourceSetStatusType,
     RuleOrderType,
     SecurityServiceTypeType,
     TargetTypeType,
@@ -43,7 +46,10 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccountScopeTypeDef",
     "ActionTargetTypeDef",
+    "AdminAccountSummaryTypeDef",
+    "AdminScopeTypeDef",
     "AppTypeDef",
     "AppsListDataSummaryTypeDef",
     "AppsListDataTypeDef",
@@ -82,6 +88,8 @@ __all__ = (
     "FirewallSubnetIsOutOfScopeViolationTypeDef",
     "FirewallSubnetMissingVPCEndpointViolationTypeDef",
     "GetAdminAccountResponseTypeDef",
+    "GetAdminScopeRequestRequestTypeDef",
+    "GetAdminScopeResponseTypeDef",
     "GetAppsListRequestRequestTypeDef",
     "GetAppsListResponseTypeDef",
     "GetComplianceDetailRequestRequestTypeDef",
@@ -99,6 +107,10 @@ __all__ = (
     "GetThirdPartyFirewallAssociationStatusResponseTypeDef",
     "GetViolationDetailsRequestRequestTypeDef",
     "GetViolationDetailsResponseTypeDef",
+    "ListAdminAccountsForOrganizationRequestRequestTypeDef",
+    "ListAdminAccountsForOrganizationResponseTypeDef",
+    "ListAdminsManagingAccountRequestRequestTypeDef",
+    "ListAdminsManagingAccountResponseTypeDef",
     "ListAppsListsRequestRequestTypeDef",
     "ListAppsListsResponseTypeDef",
     "ListComplianceStatusRequestRequestTypeDef",
@@ -132,6 +144,7 @@ __all__ = (
     "NetworkFirewallStatefulRuleGroupOverrideTypeDef",
     "NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef",
     "NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef",
+    "OrganizationalUnitScopeTypeDef",
     "PaginatorConfigTypeDef",
     "PartialMatchTypeDef",
     "PolicyComplianceDetailTypeDef",
@@ -139,10 +152,12 @@ __all__ = (
     "PolicyOptionTypeDef",
     "PolicySummaryTypeDef",
     "PolicyTypeDef",
+    "PolicyTypeScopeTypeDef",
     "PossibleRemediationActionTypeDef",
     "PossibleRemediationActionsTypeDef",
     "ProtocolsListDataSummaryTypeDef",
     "ProtocolsListDataTypeDef",
+    "PutAdminAccountRequestRequestTypeDef",
     "PutAppsListRequestRequestTypeDef",
     "PutAppsListResponseTypeDef",
     "PutNotificationChannelRequestRequestTypeDef",
@@ -152,6 +167,7 @@ __all__ = (
     "PutProtocolsListResponseTypeDef",
     "PutResourceSetRequestRequestTypeDef",
     "PutResourceSetResponseTypeDef",
+    "RegionScopeTypeDef",
     "RemediationActionTypeDef",
     "RemediationActionWithOrderTypeDef",
     "ResourceSetSummaryTypeDef",
@@ -179,11 +195,42 @@ __all__ = (
     "ViolationDetailTypeDef",
 )
 
+AccountScopeTypeDef = TypedDict(
+    "AccountScopeTypeDef",
+    {
+        "Accounts": List[str],
+        "AllAccountsEnabled": bool,
+        "ExcludeSpecifiedAccounts": bool,
+    },
+    total=False,
+)
+
 ActionTargetTypeDef = TypedDict(
     "ActionTargetTypeDef",
     {
         "ResourceId": str,
         "Description": str,
+    },
+    total=False,
+)
+
+AdminAccountSummaryTypeDef = TypedDict(
+    "AdminAccountSummaryTypeDef",
+    {
+        "AdminAccount": str,
+        "DefaultAdmin": bool,
+        "Status": OrganizationStatusType,
+    },
+    total=False,
+)
+
+AdminScopeTypeDef = TypedDict(
+    "AdminScopeTypeDef",
+    {
+        "AccountScope": "AccountScopeTypeDef",
+        "OrganizationalUnitScope": "OrganizationalUnitScopeTypeDef",
+        "RegionScope": "RegionScopeTypeDef",
+        "PolicyTypeScope": "PolicyTypeScopeTypeDef",
     },
     total=False,
 )
@@ -646,6 +693,22 @@ GetAdminAccountResponseTypeDef = TypedDict(
     },
 )
 
+GetAdminScopeRequestRequestTypeDef = TypedDict(
+    "GetAdminScopeRequestRequestTypeDef",
+    {
+        "AdminAccount": str,
+    },
+)
+
+GetAdminScopeResponseTypeDef = TypedDict(
+    "GetAdminScopeResponseTypeDef",
+    {
+        "AdminScope": "AdminScopeTypeDef",
+        "Status": OrganizationStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetAppsListRequestRequestTypeDef = TypedDict(
     "_RequiredGetAppsListRequestRequestTypeDef",
     {
@@ -824,6 +887,42 @@ GetViolationDetailsResponseTypeDef = TypedDict(
     "GetViolationDetailsResponseTypeDef",
     {
         "ViolationDetail": "ViolationDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListAdminAccountsForOrganizationRequestRequestTypeDef = TypedDict(
+    "ListAdminAccountsForOrganizationRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListAdminAccountsForOrganizationResponseTypeDef = TypedDict(
+    "ListAdminAccountsForOrganizationResponseTypeDef",
+    {
+        "AdminAccounts": List["AdminAccountSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListAdminsManagingAccountRequestRequestTypeDef = TypedDict(
+    "ListAdminsManagingAccountRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListAdminsManagingAccountResponseTypeDef = TypedDict(
+    "ListAdminsManagingAccountResponseTypeDef",
+    {
+        "AdminAccounts": List[str],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1240,6 +1339,16 @@ NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef = TypedDict(
     total=False,
 )
 
+OrganizationalUnitScopeTypeDef = TypedDict(
+    "OrganizationalUnitScopeTypeDef",
+    {
+        "OrganizationalUnits": List[str],
+        "AllOrganizationalUnitsEnabled": bool,
+        "ExcludeSpecifiedOrganizationalUnits": bool,
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -1306,6 +1415,7 @@ PolicySummaryTypeDef = TypedDict(
         "SecurityServiceType": SecurityServiceTypeType,
         "RemediationEnabled": bool,
         "DeleteUnusedFMManagedResources": bool,
+        "PolicyStatus": CustomerPolicyStatusType,
     },
     total=False,
 )
@@ -1332,12 +1442,22 @@ _OptionalPolicyTypeDef = TypedDict(
         "ExcludeMap": Dict[CustomerPolicyScopeIdTypeType, List[str]],
         "ResourceSetIds": List[str],
         "PolicyDescription": str,
+        "PolicyStatus": CustomerPolicyStatusType,
     },
     total=False,
 )
 
 class PolicyTypeDef(_RequiredPolicyTypeDef, _OptionalPolicyTypeDef):
     pass
+
+PolicyTypeScopeTypeDef = TypedDict(
+    "PolicyTypeScopeTypeDef",
+    {
+        "PolicyTypes": List[SecurityServiceTypeType],
+        "AllPolicyTypesEnabled": bool,
+    },
+    total=False,
+)
 
 _RequiredPossibleRemediationActionTypeDef = TypedDict(
     "_RequiredPossibleRemediationActionTypeDef",
@@ -1400,6 +1520,25 @@ _OptionalProtocolsListDataTypeDef = TypedDict(
 
 class ProtocolsListDataTypeDef(
     _RequiredProtocolsListDataTypeDef, _OptionalProtocolsListDataTypeDef
+):
+    pass
+
+_RequiredPutAdminAccountRequestRequestTypeDef = TypedDict(
+    "_RequiredPutAdminAccountRequestRequestTypeDef",
+    {
+        "AdminAccount": str,
+    },
+)
+_OptionalPutAdminAccountRequestRequestTypeDef = TypedDict(
+    "_OptionalPutAdminAccountRequestRequestTypeDef",
+    {
+        "AdminScope": "AdminScopeTypeDef",
+    },
+    total=False,
+)
+
+class PutAdminAccountRequestRequestTypeDef(
+    _RequiredPutAdminAccountRequestRequestTypeDef, _OptionalPutAdminAccountRequestRequestTypeDef
 ):
     pass
 
@@ -1523,6 +1662,15 @@ PutResourceSetResponseTypeDef = TypedDict(
     },
 )
 
+RegionScopeTypeDef = TypedDict(
+    "RegionScopeTypeDef",
+    {
+        "Regions": List[str],
+        "AllRegionsEnabled": bool,
+    },
+    total=False,
+)
+
 RemediationActionTypeDef = TypedDict(
     "RemediationActionTypeDef",
     {
@@ -1555,6 +1703,7 @@ ResourceSetSummaryTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "LastUpdateTime": datetime,
+        "ResourceSetStatus": ResourceSetStatusType,
     },
     total=False,
 )
@@ -1573,6 +1722,7 @@ _OptionalResourceSetTypeDef = TypedDict(
         "Description": str,
         "UpdateToken": str,
         "LastUpdateTime": datetime,
+        "ResourceSetStatus": ResourceSetStatusType,
     },
     total=False,
 )

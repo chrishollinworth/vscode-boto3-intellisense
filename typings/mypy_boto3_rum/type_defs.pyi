@@ -441,6 +441,7 @@ _OptionalMetricDefinitionRequestTypeDef = TypedDict(
     {
         "DimensionKeys": Dict[str, str],
         "EventPattern": str,
+        "Namespace": str,
         "UnitLabel": str,
         "ValueKey": str,
     },
@@ -464,6 +465,7 @@ _OptionalMetricDefinitionTypeDef = TypedDict(
     {
         "DimensionKeys": Dict[str, str],
         "EventPattern": str,
+        "Namespace": str,
         "UnitLabel": str,
         "ValueKey": str,
     },

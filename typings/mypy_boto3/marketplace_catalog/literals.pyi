@@ -18,8 +18,9 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("ChangeStatusType", "FailureCodeType", "SortOrderType")
+__all__ = ("ChangeStatusType", "FailureCodeType", "OwnershipTypeType", "SortOrderType")
 
 ChangeStatusType = Literal["APPLYING", "CANCELLED", "FAILED", "PREPARING", "SUCCEEDED"]
 FailureCodeType = Literal["CLIENT_ERROR", "SERVER_FAULT"]
+OwnershipTypeType = Literal["SELF", "SHARED"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]

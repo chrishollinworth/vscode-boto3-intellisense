@@ -27,6 +27,7 @@ __all__ = (
     "ListDevicePositionsPaginatorName",
     "ListGeofenceCollectionsPaginatorName",
     "ListGeofencesPaginatorName",
+    "ListKeysPaginatorName",
     "ListMapsPaginatorName",
     "ListPlaceIndexesPaginatorName",
     "ListRouteCalculatorsPaginatorName",
@@ -35,6 +36,7 @@ __all__ = (
     "PositionFilteringType",
     "PricingPlanType",
     "RouteMatrixErrorCodeType",
+    "StatusType",
     "TravelModeType",
     "VehicleWeightUnitType",
 )
@@ -54,6 +56,7 @@ IntendedUseType = Literal["SingleUse", "Storage"]
 ListDevicePositionsPaginatorName = Literal["list_device_positions"]
 ListGeofenceCollectionsPaginatorName = Literal["list_geofence_collections"]
 ListGeofencesPaginatorName = Literal["list_geofences"]
+ListKeysPaginatorName = Literal["list_keys"]
 ListMapsPaginatorName = Literal["list_maps"]
 ListPlaceIndexesPaginatorName = Literal["list_place_indexes"]
 ListRouteCalculatorsPaginatorName = Literal["list_route_calculators"]
@@ -69,5 +72,6 @@ RouteMatrixErrorCodeType = Literal[
     "RouteNotFound",
     "RouteTooLong",
 ]
-TravelModeType = Literal["Car", "Truck", "Walking"]
+StatusType = Literal["Active", "Expired"]
+TravelModeType = Literal["Bicycle", "Car", "Motorcycle", "Truck", "Walking"]
 VehicleWeightUnitType = Literal["Kilograms", "Pounds"]

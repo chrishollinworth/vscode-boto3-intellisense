@@ -6,25 +6,36 @@ Type annotations for chime-sdk-media-pipelines service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_chime_sdk_media_pipelines.type_defs import ArtifactsConcatenationConfigurationTypeDef
+    from mypy_boto3_chime_sdk_media_pipelines.type_defs import AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef
 
-    data: ArtifactsConcatenationConfigurationTypeDef = {...}
+    data: AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 from .literals import (
     ArtifactsConcatenationStateType,
     ArtifactsStateType,
     AudioChannelsOptionType,
     AudioMuxTypeType,
+    CallAnalyticsLanguageCodeType,
+    ContentRedactionOutputType,
     ContentShareLayoutOptionType,
+    FragmentSelectorTypeType,
     LiveConnectorMuxTypeType,
+    MediaInsightsPipelineConfigurationElementTypeType,
     MediaPipelineStatusType,
+    MediaPipelineStatusUpdateType,
+    PartialResultsStabilityType,
+    ParticipantRoleType,
     PresenterPositionType,
+    RealTimeAlertRuleTypeType,
+    RecordingFileFormatType,
     ResolutionOptionType,
+    VocabularyFilterMethodType,
+    VoiceAnalyticsConfigurationStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -37,10 +48,13 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef",
+    "AmazonTranscribeProcessorConfigurationTypeDef",
     "ArtifactsConcatenationConfigurationTypeDef",
     "ArtifactsConfigurationTypeDef",
     "AudioArtifactsConfigurationTypeDef",
     "AudioConcatenationConfigurationTypeDef",
+    "ChannelDefinitionTypeDef",
     "ChimeSdkMeetingConcatenationConfigurationTypeDef",
     "ChimeSdkMeetingConfigurationTypeDef",
     "ChimeSdkMeetingLiveConnectorConfigurationTypeDef",
@@ -54,18 +68,34 @@ __all__ = (
     "CreateMediaCapturePipelineResponseTypeDef",
     "CreateMediaConcatenationPipelineRequestRequestTypeDef",
     "CreateMediaConcatenationPipelineResponseTypeDef",
+    "CreateMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    "CreateMediaInsightsPipelineConfigurationResponseTypeDef",
+    "CreateMediaInsightsPipelineRequestRequestTypeDef",
+    "CreateMediaInsightsPipelineResponseTypeDef",
     "CreateMediaLiveConnectorPipelineRequestRequestTypeDef",
     "CreateMediaLiveConnectorPipelineResponseTypeDef",
     "DataChannelConcatenationConfigurationTypeDef",
     "DeleteMediaCapturePipelineRequestRequestTypeDef",
+    "DeleteMediaInsightsPipelineConfigurationRequestRequestTypeDef",
     "DeleteMediaPipelineRequestRequestTypeDef",
+    "FragmentSelectorTypeDef",
     "GetMediaCapturePipelineRequestRequestTypeDef",
     "GetMediaCapturePipelineResponseTypeDef",
+    "GetMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    "GetMediaInsightsPipelineConfigurationResponseTypeDef",
     "GetMediaPipelineRequestRequestTypeDef",
     "GetMediaPipelineResponseTypeDef",
     "GridViewConfigurationTypeDef",
+    "IssueDetectionConfigurationTypeDef",
+    "KeywordMatchConfigurationTypeDef",
+    "KinesisDataStreamSinkConfigurationTypeDef",
+    "KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef",
+    "KinesisVideoStreamSourceRuntimeConfigurationTypeDef",
+    "LambdaFunctionSinkConfigurationTypeDef",
     "ListMediaCapturePipelinesRequestRequestTypeDef",
     "ListMediaCapturePipelinesResponseTypeDef",
+    "ListMediaInsightsPipelineConfigurationsRequestRequestTypeDef",
+    "ListMediaInsightsPipelineConfigurationsResponseTypeDef",
     "ListMediaPipelinesRequestRequestTypeDef",
     "ListMediaPipelinesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -77,22 +107,103 @@ __all__ = (
     "MediaCapturePipelineSummaryTypeDef",
     "MediaCapturePipelineTypeDef",
     "MediaConcatenationPipelineTypeDef",
+    "MediaInsightsPipelineConfigurationElementTypeDef",
+    "MediaInsightsPipelineConfigurationSummaryTypeDef",
+    "MediaInsightsPipelineConfigurationTypeDef",
+    "MediaInsightsPipelineTypeDef",
     "MediaLiveConnectorPipelineTypeDef",
     "MediaPipelineSummaryTypeDef",
     "MediaPipelineTypeDef",
     "MeetingEventsConcatenationConfigurationTypeDef",
+    "PostCallAnalyticsSettingsTypeDef",
     "PresenterOnlyConfigurationTypeDef",
+    "RealTimeAlertConfigurationTypeDef",
+    "RealTimeAlertRuleTypeDef",
+    "RecordingStreamConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "S3BucketSinkConfigurationTypeDef",
+    "S3RecordingSinkConfigurationTypeDef",
+    "S3RecordingSinkRuntimeConfigurationTypeDef",
     "SelectedVideoStreamsTypeDef",
+    "SentimentConfigurationTypeDef",
+    "SnsTopicSinkConfigurationTypeDef",
     "SourceConfigurationTypeDef",
+    "SqsQueueSinkConfigurationTypeDef",
+    "StreamChannelDefinitionTypeDef",
+    "StreamConfigurationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TimestampRangeTypeDef",
     "TranscriptionMessagesConcatenationConfigurationTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    "UpdateMediaInsightsPipelineConfigurationResponseTypeDef",
+    "UpdateMediaInsightsPipelineStatusRequestRequestTypeDef",
     "VideoArtifactsConfigurationTypeDef",
     "VideoConcatenationConfigurationTypeDef",
+    "VoiceAnalyticsProcessorConfigurationTypeDef",
 )
+
+_RequiredAmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef = TypedDict(
+    "_RequiredAmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef",
+    {
+        "LanguageCode": CallAnalyticsLanguageCodeType,
+    },
+)
+_OptionalAmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef = TypedDict(
+    "_OptionalAmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef",
+    {
+        "VocabularyName": str,
+        "VocabularyFilterName": str,
+        "VocabularyFilterMethod": VocabularyFilterMethodType,
+        "LanguageModelName": str,
+        "EnablePartialResultsStabilization": bool,
+        "PartialResultsStability": PartialResultsStabilityType,
+        "ContentIdentificationType": Literal["PII"],
+        "ContentRedactionType": Literal["PII"],
+        "PiiEntityTypes": str,
+        "FilterPartialResults": bool,
+        "PostCallAnalyticsSettings": "PostCallAnalyticsSettingsTypeDef",
+        "CallAnalyticsStreamCategories": List[str],
+    },
+    total=False,
+)
+
+class AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef(
+    _RequiredAmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef,
+    _OptionalAmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef,
+):
+    pass
+
+_RequiredAmazonTranscribeProcessorConfigurationTypeDef = TypedDict(
+    "_RequiredAmazonTranscribeProcessorConfigurationTypeDef",
+    {
+        "LanguageCode": CallAnalyticsLanguageCodeType,
+    },
+)
+_OptionalAmazonTranscribeProcessorConfigurationTypeDef = TypedDict(
+    "_OptionalAmazonTranscribeProcessorConfigurationTypeDef",
+    {
+        "VocabularyName": str,
+        "VocabularyFilterName": str,
+        "VocabularyFilterMethod": VocabularyFilterMethodType,
+        "ShowSpeakerLabel": bool,
+        "EnablePartialResultsStabilization": bool,
+        "PartialResultsStability": PartialResultsStabilityType,
+        "ContentIdentificationType": Literal["PII"],
+        "ContentRedactionType": Literal["PII"],
+        "PiiEntityTypes": str,
+        "LanguageModelName": str,
+        "FilterPartialResults": bool,
+    },
+    total=False,
+)
+
+class AmazonTranscribeProcessorConfigurationTypeDef(
+    _RequiredAmazonTranscribeProcessorConfigurationTypeDef,
+    _OptionalAmazonTranscribeProcessorConfigurationTypeDef,
+):
+    pass
 
 ArtifactsConcatenationConfigurationTypeDef = TypedDict(
     "ArtifactsConcatenationConfigurationTypeDef",
@@ -141,6 +252,25 @@ AudioConcatenationConfigurationTypeDef = TypedDict(
         "State": Literal["Enabled"],
     },
 )
+
+_RequiredChannelDefinitionTypeDef = TypedDict(
+    "_RequiredChannelDefinitionTypeDef",
+    {
+        "ChannelId": int,
+    },
+)
+_OptionalChannelDefinitionTypeDef = TypedDict(
+    "_OptionalChannelDefinitionTypeDef",
+    {
+        "ParticipantRole": ParticipantRoleType,
+    },
+    total=False,
+)
+
+class ChannelDefinitionTypeDef(
+    _RequiredChannelDefinitionTypeDef, _OptionalChannelDefinitionTypeDef
+):
+    pass
 
 ChimeSdkMeetingConcatenationConfigurationTypeDef = TypedDict(
     "ChimeSdkMeetingConcatenationConfigurationTypeDef",
@@ -313,6 +443,71 @@ CreateMediaConcatenationPipelineResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateMediaInsightsPipelineConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    {
+        "MediaInsightsPipelineConfigurationName": str,
+        "ResourceAccessRoleArn": str,
+        "Elements": List["MediaInsightsPipelineConfigurationElementTypeDef"],
+    },
+)
+_OptionalCreateMediaInsightsPipelineConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    {
+        "RealTimeAlertConfiguration": "RealTimeAlertConfigurationTypeDef",
+        "Tags": List["TagTypeDef"],
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class CreateMediaInsightsPipelineConfigurationRequestRequestTypeDef(
+    _RequiredCreateMediaInsightsPipelineConfigurationRequestRequestTypeDef,
+    _OptionalCreateMediaInsightsPipelineConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateMediaInsightsPipelineConfigurationResponseTypeDef = TypedDict(
+    "CreateMediaInsightsPipelineConfigurationResponseTypeDef",
+    {
+        "MediaInsightsPipelineConfiguration": "MediaInsightsPipelineConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateMediaInsightsPipelineRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateMediaInsightsPipelineRequestRequestTypeDef",
+    {
+        "MediaInsightsPipelineConfigurationArn": str,
+    },
+)
+_OptionalCreateMediaInsightsPipelineRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateMediaInsightsPipelineRequestRequestTypeDef",
+    {
+        "KinesisVideoStreamSourceRuntimeConfiguration": "KinesisVideoStreamSourceRuntimeConfigurationTypeDef",
+        "MediaInsightsRuntimeMetadata": Dict[str, str],
+        "KinesisVideoStreamRecordingSourceRuntimeConfiguration": "KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef",
+        "S3RecordingSinkRuntimeConfiguration": "S3RecordingSinkRuntimeConfigurationTypeDef",
+        "Tags": List["TagTypeDef"],
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class CreateMediaInsightsPipelineRequestRequestTypeDef(
+    _RequiredCreateMediaInsightsPipelineRequestRequestTypeDef,
+    _OptionalCreateMediaInsightsPipelineRequestRequestTypeDef,
+):
+    pass
+
+CreateMediaInsightsPipelineResponseTypeDef = TypedDict(
+    "CreateMediaInsightsPipelineResponseTypeDef",
+    {
+        "MediaInsightsPipeline": "MediaInsightsPipelineTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateMediaLiveConnectorPipelineRequestRequestTypeDef = TypedDict(
     "_RequiredCreateMediaLiveConnectorPipelineRequestRequestTypeDef",
     {
@@ -357,10 +552,25 @@ DeleteMediaCapturePipelineRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteMediaInsightsPipelineConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
 DeleteMediaPipelineRequestRequestTypeDef = TypedDict(
     "DeleteMediaPipelineRequestRequestTypeDef",
     {
         "MediaPipelineId": str,
+    },
+)
+
+FragmentSelectorTypeDef = TypedDict(
+    "FragmentSelectorTypeDef",
+    {
+        "FragmentSelectorType": FragmentSelectorTypeType,
+        "TimestampRange": "TimestampRangeTypeDef",
     },
 )
 
@@ -375,6 +585,21 @@ GetMediaCapturePipelineResponseTypeDef = TypedDict(
     "GetMediaCapturePipelineResponseTypeDef",
     {
         "MediaCapturePipeline": "MediaCapturePipelineTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMediaInsightsPipelineConfigurationRequestRequestTypeDef = TypedDict(
+    "GetMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetMediaInsightsPipelineConfigurationResponseTypeDef = TypedDict(
+    "GetMediaInsightsPipelineConfigurationResponseTypeDef",
+    {
+        "MediaInsightsPipelineConfiguration": "MediaInsightsPipelineConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -413,6 +638,66 @@ class GridViewConfigurationTypeDef(
 ):
     pass
 
+IssueDetectionConfigurationTypeDef = TypedDict(
+    "IssueDetectionConfigurationTypeDef",
+    {
+        "RuleName": str,
+    },
+)
+
+_RequiredKeywordMatchConfigurationTypeDef = TypedDict(
+    "_RequiredKeywordMatchConfigurationTypeDef",
+    {
+        "RuleName": str,
+        "Keywords": List[str],
+    },
+)
+_OptionalKeywordMatchConfigurationTypeDef = TypedDict(
+    "_OptionalKeywordMatchConfigurationTypeDef",
+    {
+        "Negate": bool,
+    },
+    total=False,
+)
+
+class KeywordMatchConfigurationTypeDef(
+    _RequiredKeywordMatchConfigurationTypeDef, _OptionalKeywordMatchConfigurationTypeDef
+):
+    pass
+
+KinesisDataStreamSinkConfigurationTypeDef = TypedDict(
+    "KinesisDataStreamSinkConfigurationTypeDef",
+    {
+        "InsightsTarget": str,
+    },
+    total=False,
+)
+
+KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef = TypedDict(
+    "KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef",
+    {
+        "Streams": List["RecordingStreamConfigurationTypeDef"],
+        "FragmentSelector": "FragmentSelectorTypeDef",
+    },
+)
+
+KinesisVideoStreamSourceRuntimeConfigurationTypeDef = TypedDict(
+    "KinesisVideoStreamSourceRuntimeConfigurationTypeDef",
+    {
+        "Streams": List["StreamConfigurationTypeDef"],
+        "MediaEncoding": Literal["pcm"],
+        "MediaSampleRate": int,
+    },
+)
+
+LambdaFunctionSinkConfigurationTypeDef = TypedDict(
+    "LambdaFunctionSinkConfigurationTypeDef",
+    {
+        "InsightsTarget": str,
+    },
+    total=False,
+)
+
 ListMediaCapturePipelinesRequestRequestTypeDef = TypedDict(
     "ListMediaCapturePipelinesRequestRequestTypeDef",
     {
@@ -426,6 +711,26 @@ ListMediaCapturePipelinesResponseTypeDef = TypedDict(
     "ListMediaCapturePipelinesResponseTypeDef",
     {
         "MediaCapturePipelines": List["MediaCapturePipelineSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListMediaInsightsPipelineConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListMediaInsightsPipelineConfigurationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListMediaInsightsPipelineConfigurationsResponseTypeDef = TypedDict(
+    "ListMediaInsightsPipelineConfigurationsResponseTypeDef",
+    {
+        "MediaInsightsPipelineConfigurations": List[
+            "MediaInsightsPipelineConfigurationSummaryTypeDef"
+        ],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -548,6 +853,74 @@ MediaConcatenationPipelineTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredMediaInsightsPipelineConfigurationElementTypeDef = TypedDict(
+    "_RequiredMediaInsightsPipelineConfigurationElementTypeDef",
+    {
+        "Type": MediaInsightsPipelineConfigurationElementTypeType,
+    },
+)
+_OptionalMediaInsightsPipelineConfigurationElementTypeDef = TypedDict(
+    "_OptionalMediaInsightsPipelineConfigurationElementTypeDef",
+    {
+        "AmazonTranscribeCallAnalyticsProcessorConfiguration": "AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef",
+        "AmazonTranscribeProcessorConfiguration": "AmazonTranscribeProcessorConfigurationTypeDef",
+        "KinesisDataStreamSinkConfiguration": "KinesisDataStreamSinkConfigurationTypeDef",
+        "S3RecordingSinkConfiguration": "S3RecordingSinkConfigurationTypeDef",
+        "VoiceAnalyticsProcessorConfiguration": "VoiceAnalyticsProcessorConfigurationTypeDef",
+        "LambdaFunctionSinkConfiguration": "LambdaFunctionSinkConfigurationTypeDef",
+        "SqsQueueSinkConfiguration": "SqsQueueSinkConfigurationTypeDef",
+        "SnsTopicSinkConfiguration": "SnsTopicSinkConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class MediaInsightsPipelineConfigurationElementTypeDef(
+    _RequiredMediaInsightsPipelineConfigurationElementTypeDef,
+    _OptionalMediaInsightsPipelineConfigurationElementTypeDef,
+):
+    pass
+
+MediaInsightsPipelineConfigurationSummaryTypeDef = TypedDict(
+    "MediaInsightsPipelineConfigurationSummaryTypeDef",
+    {
+        "MediaInsightsPipelineConfigurationName": str,
+        "MediaInsightsPipelineConfigurationId": str,
+        "MediaInsightsPipelineConfigurationArn": str,
+    },
+    total=False,
+)
+
+MediaInsightsPipelineConfigurationTypeDef = TypedDict(
+    "MediaInsightsPipelineConfigurationTypeDef",
+    {
+        "MediaInsightsPipelineConfigurationName": str,
+        "MediaInsightsPipelineConfigurationArn": str,
+        "ResourceAccessRoleArn": str,
+        "RealTimeAlertConfiguration": "RealTimeAlertConfigurationTypeDef",
+        "Elements": List["MediaInsightsPipelineConfigurationElementTypeDef"],
+        "MediaInsightsPipelineConfigurationId": str,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+MediaInsightsPipelineTypeDef = TypedDict(
+    "MediaInsightsPipelineTypeDef",
+    {
+        "MediaPipelineId": str,
+        "MediaPipelineArn": str,
+        "MediaInsightsPipelineConfigurationArn": str,
+        "Status": MediaPipelineStatusType,
+        "KinesisVideoStreamSourceRuntimeConfiguration": "KinesisVideoStreamSourceRuntimeConfigurationTypeDef",
+        "MediaInsightsRuntimeMetadata": Dict[str, str],
+        "KinesisVideoStreamRecordingSourceRuntimeConfiguration": "KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef",
+        "S3RecordingSinkRuntimeConfiguration": "S3RecordingSinkRuntimeConfigurationTypeDef",
+        "CreatedTimestamp": datetime,
+    },
+    total=False,
+)
+
 MediaLiveConnectorPipelineTypeDef = TypedDict(
     "MediaLiveConnectorPipelineTypeDef",
     {
@@ -577,6 +950,7 @@ MediaPipelineTypeDef = TypedDict(
         "MediaCapturePipeline": "MediaCapturePipelineTypeDef",
         "MediaLiveConnectorPipeline": "MediaLiveConnectorPipelineTypeDef",
         "MediaConcatenationPipeline": "MediaConcatenationPipelineTypeDef",
+        "MediaInsightsPipeline": "MediaInsightsPipelineTypeDef",
     },
     total=False,
 )
@@ -588,10 +962,69 @@ MeetingEventsConcatenationConfigurationTypeDef = TypedDict(
     },
 )
 
+_RequiredPostCallAnalyticsSettingsTypeDef = TypedDict(
+    "_RequiredPostCallAnalyticsSettingsTypeDef",
+    {
+        "OutputLocation": str,
+        "DataAccessRoleArn": str,
+    },
+)
+_OptionalPostCallAnalyticsSettingsTypeDef = TypedDict(
+    "_OptionalPostCallAnalyticsSettingsTypeDef",
+    {
+        "ContentRedactionOutput": ContentRedactionOutputType,
+        "OutputEncryptionKMSKeyId": str,
+    },
+    total=False,
+)
+
+class PostCallAnalyticsSettingsTypeDef(
+    _RequiredPostCallAnalyticsSettingsTypeDef, _OptionalPostCallAnalyticsSettingsTypeDef
+):
+    pass
+
 PresenterOnlyConfigurationTypeDef = TypedDict(
     "PresenterOnlyConfigurationTypeDef",
     {
         "PresenterPosition": PresenterPositionType,
+    },
+    total=False,
+)
+
+RealTimeAlertConfigurationTypeDef = TypedDict(
+    "RealTimeAlertConfigurationTypeDef",
+    {
+        "Disabled": bool,
+        "Rules": List["RealTimeAlertRuleTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredRealTimeAlertRuleTypeDef = TypedDict(
+    "_RequiredRealTimeAlertRuleTypeDef",
+    {
+        "Type": RealTimeAlertRuleTypeType,
+    },
+)
+_OptionalRealTimeAlertRuleTypeDef = TypedDict(
+    "_OptionalRealTimeAlertRuleTypeDef",
+    {
+        "KeywordMatchConfiguration": "KeywordMatchConfigurationTypeDef",
+        "SentimentConfiguration": "SentimentConfigurationTypeDef",
+        "IssueDetectionConfiguration": "IssueDetectionConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class RealTimeAlertRuleTypeDef(
+    _RequiredRealTimeAlertRuleTypeDef, _OptionalRealTimeAlertRuleTypeDef
+):
+    pass
+
+RecordingStreamConfigurationTypeDef = TypedDict(
+    "RecordingStreamConfigurationTypeDef",
+    {
+        "StreamArn": str,
     },
     total=False,
 )
@@ -614,11 +1047,45 @@ S3BucketSinkConfigurationTypeDef = TypedDict(
     },
 )
 
+S3RecordingSinkConfigurationTypeDef = TypedDict(
+    "S3RecordingSinkConfigurationTypeDef",
+    {
+        "Destination": str,
+        "RecordingFileFormat": RecordingFileFormatType,
+    },
+    total=False,
+)
+
+S3RecordingSinkRuntimeConfigurationTypeDef = TypedDict(
+    "S3RecordingSinkRuntimeConfigurationTypeDef",
+    {
+        "Destination": str,
+        "RecordingFileFormat": RecordingFileFormatType,
+    },
+)
+
 SelectedVideoStreamsTypeDef = TypedDict(
     "SelectedVideoStreamsTypeDef",
     {
         "AttendeeIds": List[str],
         "ExternalUserIds": List[str],
+    },
+    total=False,
+)
+
+SentimentConfigurationTypeDef = TypedDict(
+    "SentimentConfigurationTypeDef",
+    {
+        "RuleName": str,
+        "SentimentType": Literal["NEGATIVE"],
+        "TimePeriod": int,
+    },
+)
+
+SnsTopicSinkConfigurationTypeDef = TypedDict(
+    "SnsTopicSinkConfigurationTypeDef",
+    {
+        "InsightsTarget": str,
     },
     total=False,
 )
@@ -630,6 +1097,53 @@ SourceConfigurationTypeDef = TypedDict(
     },
     total=False,
 )
+
+SqsQueueSinkConfigurationTypeDef = TypedDict(
+    "SqsQueueSinkConfigurationTypeDef",
+    {
+        "InsightsTarget": str,
+    },
+    total=False,
+)
+
+_RequiredStreamChannelDefinitionTypeDef = TypedDict(
+    "_RequiredStreamChannelDefinitionTypeDef",
+    {
+        "NumberOfChannels": int,
+    },
+)
+_OptionalStreamChannelDefinitionTypeDef = TypedDict(
+    "_OptionalStreamChannelDefinitionTypeDef",
+    {
+        "ChannelDefinitions": List["ChannelDefinitionTypeDef"],
+    },
+    total=False,
+)
+
+class StreamChannelDefinitionTypeDef(
+    _RequiredStreamChannelDefinitionTypeDef, _OptionalStreamChannelDefinitionTypeDef
+):
+    pass
+
+_RequiredStreamConfigurationTypeDef = TypedDict(
+    "_RequiredStreamConfigurationTypeDef",
+    {
+        "StreamArn": str,
+        "StreamChannelDefinition": "StreamChannelDefinitionTypeDef",
+    },
+)
+_OptionalStreamConfigurationTypeDef = TypedDict(
+    "_OptionalStreamConfigurationTypeDef",
+    {
+        "FragmentNumber": str,
+    },
+    total=False,
+)
+
+class StreamConfigurationTypeDef(
+    _RequiredStreamConfigurationTypeDef, _OptionalStreamConfigurationTypeDef
+):
+    pass
 
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
@@ -647,6 +1161,14 @@ TagTypeDef = TypedDict(
     },
 )
 
+TimestampRangeTypeDef = TypedDict(
+    "TimestampRangeTypeDef",
+    {
+        "StartTimestamp": Union[datetime, str],
+        "EndTimestamp": Union[datetime, str],
+    },
+)
+
 TranscriptionMessagesConcatenationConfigurationTypeDef = TypedDict(
     "TranscriptionMessagesConcatenationConfigurationTypeDef",
     {
@@ -659,6 +1181,44 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceARN": str,
         "TagKeys": List[str],
+    },
+)
+
+_RequiredUpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    {
+        "Identifier": str,
+        "ResourceAccessRoleArn": str,
+        "Elements": List["MediaInsightsPipelineConfigurationElementTypeDef"],
+    },
+)
+_OptionalUpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef",
+    {
+        "RealTimeAlertConfiguration": "RealTimeAlertConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef(
+    _RequiredUpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef,
+    _OptionalUpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef,
+):
+    pass
+
+UpdateMediaInsightsPipelineConfigurationResponseTypeDef = TypedDict(
+    "UpdateMediaInsightsPipelineConfigurationResponseTypeDef",
+    {
+        "MediaInsightsPipelineConfiguration": "MediaInsightsPipelineConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateMediaInsightsPipelineStatusRequestRequestTypeDef = TypedDict(
+    "UpdateMediaInsightsPipelineStatusRequestRequestTypeDef",
+    {
+        "Identifier": str,
+        "UpdateStatus": MediaPipelineStatusUpdateType,
     },
 )
 
@@ -686,4 +1246,13 @@ VideoConcatenationConfigurationTypeDef = TypedDict(
     {
         "State": ArtifactsConcatenationStateType,
     },
+)
+
+VoiceAnalyticsProcessorConfigurationTypeDef = TypedDict(
+    "VoiceAnalyticsProcessorConfigurationTypeDef",
+    {
+        "SpeakerSearchStatus": VoiceAnalyticsConfigurationStatusType,
+        "VoiceToneAnalysisStatus": VoiceAnalyticsConfigurationStatusType,
+    },
+    total=False,
 )

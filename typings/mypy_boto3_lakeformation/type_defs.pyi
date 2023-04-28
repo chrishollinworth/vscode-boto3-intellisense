@@ -77,6 +77,8 @@ __all__ = (
     "ExecutionStatisticsTypeDef",
     "ExtendTransactionRequestRequestTypeDef",
     "FilterConditionTypeDef",
+    "GetDataCellsFilterRequestRequestTypeDef",
+    "GetDataCellsFilterResponseTypeDef",
     "GetDataLakeSettingsRequestRequestTypeDef",
     "GetDataLakeSettingsResponseTypeDef",
     "GetEffectivePermissionsForPathRequestRequestTypeDef",
@@ -148,6 +150,7 @@ __all__ = (
     "TaggedDatabaseTypeDef",
     "TaggedTableTypeDef",
     "TransactionDescriptionTypeDef",
+    "UpdateDataCellsFilterRequestRequestTypeDef",
     "UpdateLFTagRequestRequestTypeDef",
     "UpdateResourceRequestRequestTypeDef",
     "UpdateTableObjectsRequestRequestTypeDef",
@@ -426,6 +429,7 @@ _OptionalDataCellsFilterTypeDef = TypedDict(
         "RowFilter": "RowFilterTypeDef",
         "ColumnNames": List[str],
         "ColumnWildcard": "ColumnWildcardTypeDef",
+        "VersionId": str,
     },
     total=False,
 )
@@ -645,6 +649,24 @@ FilterConditionTypeDef = TypedDict(
         "StringValueList": List[str],
     },
     total=False,
+)
+
+GetDataCellsFilterRequestRequestTypeDef = TypedDict(
+    "GetDataCellsFilterRequestRequestTypeDef",
+    {
+        "TableCatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Name": str,
+    },
+)
+
+GetDataCellsFilterResponseTypeDef = TypedDict(
+    "GetDataCellsFilterResponseTypeDef",
+    {
+        "DataCellsFilter": "DataCellsFilterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetDataLakeSettingsRequestRequestTypeDef = TypedDict(
@@ -1276,6 +1298,7 @@ _OptionalRegisterResourceRequestRequestTypeDef = TypedDict(
     {
         "UseServiceLinkedRole": bool,
         "RoleArn": str,
+        "WithFederation": bool,
     },
     total=False,
 )
@@ -1320,6 +1343,7 @@ ResourceInfoTypeDef = TypedDict(
         "ResourceArn": str,
         "RoleArn": str,
         "LastModified": datetime,
+        "WithFederation": bool,
     },
     total=False,
 )
@@ -1569,6 +1593,13 @@ TransactionDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+UpdateDataCellsFilterRequestRequestTypeDef = TypedDict(
+    "UpdateDataCellsFilterRequestRequestTypeDef",
+    {
+        "TableData": "DataCellsFilterTypeDef",
+    },
+)
+
 _RequiredUpdateLFTagRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateLFTagRequestRequestTypeDef",
     {
@@ -1590,13 +1621,25 @@ class UpdateLFTagRequestRequestTypeDef(
 ):
     pass
 
-UpdateResourceRequestRequestTypeDef = TypedDict(
-    "UpdateResourceRequestRequestTypeDef",
+_RequiredUpdateResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateResourceRequestRequestTypeDef",
     {
         "RoleArn": str,
         "ResourceArn": str,
     },
 )
+_OptionalUpdateResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateResourceRequestRequestTypeDef",
+    {
+        "WithFederation": bool,
+    },
+    total=False,
+)
+
+class UpdateResourceRequestRequestTypeDef(
+    _RequiredUpdateResourceRequestRequestTypeDef, _OptionalUpdateResourceRequestRequestTypeDef
+):
+    pass
 
 _RequiredUpdateTableObjectsRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateTableObjectsRequestRequestTypeDef",

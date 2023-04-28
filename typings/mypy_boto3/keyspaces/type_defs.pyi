@@ -35,6 +35,7 @@ else:
 __all__ = (
     "CapacitySpecificationSummaryTypeDef",
     "CapacitySpecificationTypeDef",
+    "ClientSideTimestampsTypeDef",
     "ClusteringKeyTypeDef",
     "ColumnDefinitionTypeDef",
     "CommentTypeDef",
@@ -115,6 +116,13 @@ class CapacitySpecificationTypeDef(
 ):
     pass
 
+ClientSideTimestampsTypeDef = TypedDict(
+    "ClientSideTimestampsTypeDef",
+    {
+        "status": Literal["ENABLED"],
+    },
+)
+
 ClusteringKeyTypeDef = TypedDict(
     "ClusteringKeyTypeDef",
     {
@@ -183,6 +191,7 @@ _OptionalCreateTableRequestRequestTypeDef = TypedDict(
         "ttl": "TimeToLiveTypeDef",
         "defaultTimeToLive": int,
         "tags": List["TagTypeDef"],
+        "clientSideTimestamps": "ClientSideTimestampsTypeDef",
     },
     total=False,
 )
@@ -273,6 +282,7 @@ GetTableResponseTypeDef = TypedDict(
         "ttl": "TimeToLiveTypeDef",
         "defaultTimeToLive": int,
         "comment": "CommentTypeDef",
+        "clientSideTimestamps": "ClientSideTimestampsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -532,6 +542,7 @@ _OptionalUpdateTableRequestRequestTypeDef = TypedDict(
         "pointInTimeRecovery": "PointInTimeRecoveryTypeDef",
         "ttl": "TimeToLiveTypeDef",
         "defaultTimeToLive": int,
+        "clientSideTimestamps": "ClientSideTimestampsTypeDef",
     },
     total=False,
 )

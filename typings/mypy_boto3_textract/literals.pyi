@@ -41,15 +41,35 @@ BlockTypeType = Literal[
     "SELECTION_ELEMENT",
     "SIGNATURE",
     "TABLE",
+    "TABLE_FOOTER",
+    "TABLE_TITLE",
     "TITLE",
     "WORD",
 ]
 ContentClassifierType = Literal["FreeOfAdultContent", "FreeOfPersonallyIdentifiableInformation"]
-EntityTypeType = Literal["COLUMN_HEADER", "KEY", "VALUE"]
+EntityTypeType = Literal[
+    "COLUMN_HEADER",
+    "KEY",
+    "SEMI_STRUCTURED_TABLE",
+    "STRUCTURED_TABLE",
+    "TABLE_FOOTER",
+    "TABLE_SECTION_TITLE",
+    "TABLE_SUMMARY",
+    "TABLE_TITLE",
+    "VALUE",
+]
 FeatureTypeType = Literal["FORMS", "QUERIES", "SIGNATURES", "TABLES"]
 JobStatusType = Literal["FAILED", "IN_PROGRESS", "PARTIAL_SUCCESS", "SUCCEEDED"]
 RelationshipTypeType = Literal[
-    "ANSWER", "CHILD", "COMPLEX_FEATURES", "MERGED_CELL", "TITLE", "VALUE"
+    "ANSWER",
+    "CHILD",
+    "COMPLEX_FEATURES",
+    "MERGED_CELL",
+    "TABLE",
+    "TABLE_FOOTER",
+    "TABLE_TITLE",
+    "TITLE",
+    "VALUE",
 ]
 SelectionStatusType = Literal["NOT_SELECTED", "SELECTED"]
 TextTypeType = Literal["HANDWRITING", "PRINTED"]

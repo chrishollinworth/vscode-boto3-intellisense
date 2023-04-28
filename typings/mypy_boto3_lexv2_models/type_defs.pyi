@@ -20,11 +20,13 @@ from .literals import (
     AggregatedUtterancesSortAttributeType,
     AssociatedTranscriptFilterNameType,
     BotAliasStatusType,
+    BotFilterNameType,
     BotFilterOperatorType,
     BotLocaleFilterOperatorType,
     BotLocaleStatusType,
     BotRecommendationStatusType,
     BotStatusType,
+    BotTypeType,
     CustomVocabularyStatusType,
     DialogActionTypeType,
     EffectType,
@@ -95,6 +97,7 @@ __all__ = (
     "BotLocaleImportSpecificationTypeDef",
     "BotLocaleSortByTypeDef",
     "BotLocaleSummaryTypeDef",
+    "BotMemberTypeDef",
     "BotRecommendationResultStatisticsTypeDef",
     "BotRecommendationResultsTypeDef",
     "BotRecommendationSummaryTypeDef",
@@ -266,6 +269,7 @@ __all__ = (
     "NewCustomVocabularyItemTypeDef",
     "ObfuscationSettingTypeDef",
     "OutputContextTypeDef",
+    "ParentBotNetworkTypeDef",
     "PathFormatTypeDef",
     "PlainTextMessageTypeDef",
     "PostDialogCodeHookInvocationSpecificationTypeDef",
@@ -569,7 +573,7 @@ BotExportSpecificationTypeDef = TypedDict(
 BotFilterTypeDef = TypedDict(
     "BotFilterTypeDef",
     {
-        "name": Literal["BotName"],
+        "name": BotFilterNameType,
         "values": List[str],
         "operator": BotFilterOperatorType,
     },
@@ -667,6 +671,17 @@ BotLocaleSummaryTypeDef = TypedDict(
     total=False,
 )
 
+BotMemberTypeDef = TypedDict(
+    "BotMemberTypeDef",
+    {
+        "botMemberId": str,
+        "botMemberName": str,
+        "botMemberAliasId": str,
+        "botMemberAliasName": str,
+        "botMemberVersion": str,
+    },
+)
+
 BotRecommendationResultStatisticsTypeDef = TypedDict(
     "BotRecommendationResultStatisticsTypeDef",
     {
@@ -724,6 +739,7 @@ BotSummaryTypeDef = TypedDict(
         "botStatus": BotStatusType,
         "latestBotVersion": str,
         "lastUpdatedDateTime": datetime,
+        "botType": BotTypeType,
     },
     total=False,
 )
@@ -984,6 +1000,8 @@ _OptionalCreateBotRequestRequestTypeDef = TypedDict(
         "description": str,
         "botTags": Dict[str, str],
         "testBotAliasTags": Dict[str, str],
+        "botType": BotTypeType,
+        "botMembers": List["BotMemberTypeDef"],
     },
     total=False,
 )
@@ -1006,6 +1024,8 @@ CreateBotResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "botTags": Dict[str, str],
         "testBotAliasTags": Dict[str, str],
+        "botType": BotTypeType,
+        "botMembers": List["BotMemberTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1677,6 +1697,7 @@ DescribeBotAliasResponseTypeDef = TypedDict(
         "botId": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "parentBotNetworks": List["ParentBotNetworkTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1760,6 +1781,9 @@ DescribeBotResponseTypeDef = TypedDict(
         "botStatus": BotStatusType,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "botType": BotTypeType,
+        "botMembers": List["BotMemberTypeDef"],
+        "failureReasons": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1785,6 +1809,9 @@ DescribeBotVersionResponseTypeDef = TypedDict(
         "botStatus": BotStatusType,
         "failureReasons": List[str],
         "creationDateTime": datetime,
+        "parentBotNetworks": List["ParentBotNetworkTypeDef"],
+        "botType": BotTypeType,
+        "botMembers": List["BotMemberTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3012,6 +3039,14 @@ OutputContextTypeDef = TypedDict(
     },
 )
 
+ParentBotNetworkTypeDef = TypedDict(
+    "ParentBotNetworkTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+    },
+)
+
 PathFormatTypeDef = TypedDict(
     "PathFormatTypeDef",
     {
@@ -3793,6 +3828,8 @@ _OptionalUpdateBotRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateBotRequestRequestTypeDef",
     {
         "description": str,
+        "botType": BotTypeType,
+        "botMembers": List["BotMemberTypeDef"],
     },
     total=False,
 )
@@ -3814,6 +3851,8 @@ UpdateBotResponseTypeDef = TypedDict(
         "botStatus": BotStatusType,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "botType": BotTypeType,
+        "botMembers": List["BotMemberTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

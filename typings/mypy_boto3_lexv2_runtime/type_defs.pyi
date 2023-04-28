@@ -52,6 +52,7 @@ __all__ = (
     "RecognizeTextResponseTypeDef",
     "RecognizeUtteranceRequestRequestTypeDef",
     "RecognizeUtteranceResponseTypeDef",
+    "RecognizedBotMemberTypeDef",
     "ResponseMetadataTypeDef",
     "RuntimeHintDetailsTypeDef",
     "RuntimeHintValueTypeDef",
@@ -312,6 +313,7 @@ RecognizeTextResponseTypeDef = TypedDict(
         "interpretations": List["InterpretationTypeDef"],
         "requestAttributes": Dict[str, str],
         "sessionId": str,
+        "recognizedBotMember": "RecognizedBotMemberTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -355,9 +357,29 @@ RecognizeUtteranceResponseTypeDef = TypedDict(
         "sessionId": str,
         "inputTranscript": str,
         "audioStream": StreamingBody,
+        "recognizedBotMember": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredRecognizedBotMemberTypeDef = TypedDict(
+    "_RequiredRecognizedBotMemberTypeDef",
+    {
+        "botId": str,
+    },
+)
+_OptionalRecognizedBotMemberTypeDef = TypedDict(
+    "_OptionalRecognizedBotMemberTypeDef",
+    {
+        "botName": str,
+    },
+    total=False,
+)
+
+class RecognizedBotMemberTypeDef(
+    _RequiredRecognizedBotMemberTypeDef, _OptionalRecognizedBotMemberTypeDef
+):
+    pass
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",

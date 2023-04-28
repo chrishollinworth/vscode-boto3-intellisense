@@ -172,6 +172,7 @@ ConfigureLogsResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
+        "CreatedAt": str,
         "DomainName": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "Id": str,
@@ -249,6 +250,7 @@ CreatePackagingConfigurationResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "CmafPackage": "CmafPackageTypeDef",
+        "CreatedAt": str,
         "DashPackage": "DashPackageTypeDef",
         "HlsPackage": "HlsPackageTypeDef",
         "Id": str,
@@ -286,6 +288,7 @@ CreatePackagingGroupResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
+        "CreatedAt": str,
         "DomainName": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "Id": str,
@@ -392,6 +395,7 @@ DescribePackagingConfigurationResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "CmafPackage": "CmafPackageTypeDef",
+        "CreatedAt": str,
         "DashPackage": "DashPackageTypeDef",
         "HlsPackage": "HlsPackageTypeDef",
         "Id": str,
@@ -415,6 +419,7 @@ DescribePackagingGroupResponseTypeDef = TypedDict(
         "ApproximateAssetCount": int,
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
+        "CreatedAt": str,
         "DomainName": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "Id": str,
@@ -610,6 +615,7 @@ PackagingConfigurationTypeDef = TypedDict(
     {
         "Arn": str,
         "CmafPackage": "CmafPackageTypeDef",
+        "CreatedAt": str,
         "DashPackage": "DashPackageTypeDef",
         "HlsPackage": "HlsPackageTypeDef",
         "Id": str,
@@ -626,6 +632,7 @@ PackagingGroupTypeDef = TypedDict(
         "ApproximateAssetCount": int,
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
+        "CreatedAt": str,
         "DomainName": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "Id": str,
@@ -726,6 +733,7 @@ UpdatePackagingGroupResponseTypeDef = TypedDict(
         "ApproximateAssetCount": int,
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
+        "CreatedAt": str,
         "DomainName": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "Id": str,

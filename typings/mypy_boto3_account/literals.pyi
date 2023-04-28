@@ -18,6 +18,7 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("AlternateContactTypeType",)
+__all__ = ("AlternateContactTypeType", "RegionOptStatusType")
 
 AlternateContactTypeType = Literal["BILLING", "OPERATIONS", "SECURITY"]
+RegionOptStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLED_BY_DEFAULT", "ENABLING"]

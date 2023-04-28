@@ -169,7 +169,7 @@ class Exceptions:
 
 class S3Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html)
     """
 
@@ -192,21 +192,21 @@ class S3Client(BaseClient):
         """
         This action aborts a multipart upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.abort_multipart_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.abort_multipart_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#abort_multipart_upload)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#close)
         """
     def complete_multipart_upload(
@@ -229,7 +229,7 @@ class S3Client(BaseClient):
         """
         Completes a multipart upload by assembling previously uploaded parts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.complete_multipart_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.complete_multipart_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#complete_multipart_upload)
         """
     def copy(
@@ -246,7 +246,7 @@ class S3Client(BaseClient):
         """
         Copy an object from one S3 location to another.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.copy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.copy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#copy)
         """
     def copy_object(
@@ -297,7 +297,7 @@ class S3Client(BaseClient):
         """
         Creates a copy of an object that is already stored in Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.copy_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.copy_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#copy_object)
         """
     def create_bucket(
@@ -317,7 +317,7 @@ class S3Client(BaseClient):
         """
         Creates a new S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.create_bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.create_bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#create_bucket)
         """
     def create_multipart_upload(
@@ -357,14 +357,14 @@ class S3Client(BaseClient):
         """
         This action initiates a multipart upload and returns an upload ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.create_multipart_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.create_multipart_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#create_multipart_upload)
         """
     def delete_bucket(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
         Deletes the S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket)
         """
     def delete_bucket_analytics_configuration(
@@ -374,14 +374,14 @@ class S3Client(BaseClient):
         Deletes an analytics configuration for the bucket (specified by the analytics
         configuration ID).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_analytics_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_analytics_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_analytics_configuration)
         """
     def delete_bucket_cors(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
         Deletes the `cors` configuration information set for the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_cors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_cors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_cors)
         """
     def delete_bucket_encryption(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
@@ -389,14 +389,14 @@ class S3Client(BaseClient):
         This implementation of the DELETE action removes default encryption from the
         bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_encryption)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_encryption)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_encryption)
         """
     def delete_bucket_intelligent_tiering_configuration(self, *, Bucket: str, Id: str) -> None:
         """
         Deletes the S3 Intelligent-Tiering configuration from the specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_intelligent_tiering_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_intelligent_tiering_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_intelligent_tiering_configuration)
         """
     def delete_bucket_inventory_configuration(
@@ -406,14 +406,14 @@ class S3Client(BaseClient):
         Deletes an inventory configuration (identified by the inventory ID) from the
         bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_inventory_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_inventory_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_inventory_configuration)
         """
     def delete_bucket_lifecycle(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
         Deletes the lifecycle configuration from the specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_lifecycle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_lifecycle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_lifecycle)
         """
     def delete_bucket_metrics_configuration(
@@ -423,7 +423,7 @@ class S3Client(BaseClient):
         Deletes a metrics configuration for the Amazon CloudWatch request metrics
         (specified by the metrics configuration ID) from the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_metrics_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_metrics_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_metrics_configuration)
         """
     def delete_bucket_ownership_controls(
@@ -432,7 +432,7 @@ class S3Client(BaseClient):
         """
         Removes `OwnershipControls` for an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_ownership_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_ownership_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_ownership_controls)
         """
     def delete_bucket_policy(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
@@ -440,28 +440,28 @@ class S3Client(BaseClient):
         This implementation of the DELETE action uses the policy subresource to delete
         the policy of a specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_policy)
         """
     def delete_bucket_replication(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
         Deletes the replication configuration from the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_replication)
         """
     def delete_bucket_tagging(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
         Deletes the tags from the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_tagging)
         """
     def delete_bucket_website(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
         This action removes the website configuration for a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_bucket_website)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_bucket_website)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_bucket_website)
         """
     def delete_object(
@@ -479,7 +479,7 @@ class S3Client(BaseClient):
         Removes the null version (if there is one) of an object and inserts a delete
         marker, which becomes the latest version of the object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_object)
         """
     def delete_object_tagging(
@@ -488,7 +488,7 @@ class S3Client(BaseClient):
         """
         Removes the entire tag set from the specified object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_object_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_object_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_object_tagging)
         """
     def delete_objects(
@@ -506,14 +506,14 @@ class S3Client(BaseClient):
         This action enables you to delete multiple objects from a bucket using a single
         HTTP request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_objects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_objects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_objects)
         """
     def delete_public_access_block(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
         Removes the `PublicAccessBlock` configuration for an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.delete_public_access_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.delete_public_access_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#delete_public_access_block)
         """
     def download_file(
@@ -529,7 +529,7 @@ class S3Client(BaseClient):
         """
         Download an S3 object to a file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.download_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.download_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#download_file)
         """
     def download_fileobj(
@@ -545,7 +545,7 @@ class S3Client(BaseClient):
         """
         Download an object from S3 to a file-like object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.download_fileobj)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.download_fileobj)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#download_fileobj)
         """
     def generate_presigned_post(
@@ -560,7 +560,7 @@ class S3Client(BaseClient):
         """
         Builds the url and the form fields used for a presigned s3 post.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.generate_presigned_post)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.generate_presigned_post)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#generate_presigned_post)
         """
     def generate_presigned_url(
@@ -573,7 +573,7 @@ class S3Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#generate_presigned_url)
         """
     def get_bucket_accelerate_configuration(
@@ -584,7 +584,7 @@ class S3Client(BaseClient):
         return the Transfer Acceleration state of a bucket, which is either `Enabled` or
         `Suspended`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_accelerate_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_accelerate_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_accelerate_configuration)
         """
     def get_bucket_acl(
@@ -594,7 +594,7 @@ class S3Client(BaseClient):
         This implementation of the `GET` action uses the `acl` subresource to return the
         access control list (ACL) of a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_acl)
         """
     def get_bucket_analytics_configuration(
@@ -604,7 +604,7 @@ class S3Client(BaseClient):
         This implementation of the GET action returns an analytics configuration
         (identified by the analytics configuration ID) from the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_analytics_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_analytics_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_analytics_configuration)
         """
     def get_bucket_cors(
@@ -614,7 +614,7 @@ class S3Client(BaseClient):
         Returns the Cross-Origin Resource Sharing (CORS) configuration information set
         for the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_cors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_cors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_cors)
         """
     def get_bucket_encryption(
@@ -623,7 +623,7 @@ class S3Client(BaseClient):
         """
         Returns the default encryption configuration for an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_encryption)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_encryption)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_encryption)
         """
     def get_bucket_intelligent_tiering_configuration(
@@ -632,7 +632,7 @@ class S3Client(BaseClient):
         """
         Gets the S3 Intelligent-Tiering configuration from the specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_intelligent_tiering_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_intelligent_tiering_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_intelligent_tiering_configuration)
         """
     def get_bucket_inventory_configuration(
@@ -642,7 +642,7 @@ class S3Client(BaseClient):
         Returns an inventory configuration (identified by the inventory configuration
         ID) from the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_inventory_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_inventory_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_inventory_configuration)
         """
     def get_bucket_lifecycle(
@@ -651,7 +651,7 @@ class S3Client(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_lifecycle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_lifecycle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_lifecycle)
         """
     def get_bucket_lifecycle_configuration(
@@ -660,7 +660,7 @@ class S3Client(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_lifecycle_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_lifecycle_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_lifecycle_configuration)
         """
     def get_bucket_location(
@@ -669,7 +669,7 @@ class S3Client(BaseClient):
         """
         Returns the Region the bucket resides in.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_location)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_location)
         """
     def get_bucket_logging(
@@ -679,7 +679,7 @@ class S3Client(BaseClient):
         Returns the logging status of a bucket and the permissions users have to view
         and modify that status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_logging)
         """
     def get_bucket_metrics_configuration(
@@ -689,7 +689,7 @@ class S3Client(BaseClient):
         Gets a metrics configuration (specified by the metrics configuration ID) from
         the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_metrics_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_metrics_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_metrics_configuration)
         """
     def get_bucket_notification(
@@ -699,7 +699,7 @@ class S3Client(BaseClient):
         No longer used, see `GetBucketNotificationConfiguration <https://docs.aws.amazon
         .com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_notification)
         """
     def get_bucket_notification_configuration(
@@ -708,7 +708,7 @@ class S3Client(BaseClient):
         """
         Returns the notification configuration of a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_notification_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_notification_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_notification_configuration)
         """
     def get_bucket_ownership_controls(
@@ -717,7 +717,7 @@ class S3Client(BaseClient):
         """
         Retrieves `OwnershipControls` for an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_ownership_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_ownership_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_ownership_controls)
         """
     def get_bucket_policy(
@@ -726,7 +726,7 @@ class S3Client(BaseClient):
         """
         Returns the policy of a specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_policy)
         """
     def get_bucket_policy_status(
@@ -736,7 +736,7 @@ class S3Client(BaseClient):
         Retrieves the policy status for an Amazon S3 bucket, indicating whether the
         bucket is public.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_policy_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_policy_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_policy_status)
         """
     def get_bucket_replication(
@@ -745,7 +745,7 @@ class S3Client(BaseClient):
         """
         Returns the replication configuration of a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_replication)
         """
     def get_bucket_request_payment(
@@ -754,7 +754,7 @@ class S3Client(BaseClient):
         """
         Returns the request payment configuration of a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_request_payment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_request_payment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_request_payment)
         """
     def get_bucket_tagging(
@@ -763,7 +763,7 @@ class S3Client(BaseClient):
         """
         Returns the tag set associated with the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_tagging)
         """
     def get_bucket_versioning(
@@ -772,7 +772,7 @@ class S3Client(BaseClient):
         """
         Returns the versioning state of a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_versioning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_versioning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_versioning)
         """
     def get_bucket_website(
@@ -781,7 +781,7 @@ class S3Client(BaseClient):
         """
         Returns the website configuration for a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_bucket_website)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_bucket_website)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_bucket_website)
         """
     def get_object(
@@ -812,7 +812,7 @@ class S3Client(BaseClient):
         """
         Retrieves objects from Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_object)
         """
     def get_object_acl(
@@ -827,7 +827,7 @@ class S3Client(BaseClient):
         """
         Returns the access control list (ACL) of an object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_object_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_object_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_object_acl)
         """
     def get_object_attributes(
@@ -848,7 +848,7 @@ class S3Client(BaseClient):
         """
         Retrieves all the metadata from an object without returning the object itself.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_object_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_object_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_object_attributes)
         """
     def get_object_legal_hold(
@@ -863,7 +863,7 @@ class S3Client(BaseClient):
         """
         Gets an object's current legal hold status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_object_legal_hold)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_object_legal_hold)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_object_legal_hold)
         """
     def get_object_lock_configuration(
@@ -872,7 +872,7 @@ class S3Client(BaseClient):
         """
         Gets the Object Lock configuration for a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_object_lock_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_object_lock_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_object_lock_configuration)
         """
     def get_object_retention(
@@ -887,7 +887,7 @@ class S3Client(BaseClient):
         """
         Retrieves an object's retention settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_object_retention)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_object_retention)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_object_retention)
         """
     def get_object_tagging(
@@ -902,7 +902,7 @@ class S3Client(BaseClient):
         """
         Returns the tag-set of an object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_object_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_object_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_object_tagging)
         """
     def get_object_torrent(
@@ -916,7 +916,7 @@ class S3Client(BaseClient):
         """
         Returns torrent files from a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_object_torrent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_object_torrent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_object_torrent)
         """
     def get_public_access_block(
@@ -925,7 +925,7 @@ class S3Client(BaseClient):
         """
         Retrieves the `PublicAccessBlock` configuration for an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.get_public_access_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.get_public_access_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#get_public_access_block)
         """
     def head_bucket(self, *, Bucket: str, ExpectedBucketOwner: str = None) -> None:
@@ -933,7 +933,7 @@ class S3Client(BaseClient):
         This action is useful to determine if a bucket exists and you have permission to
         access it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.head_bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.head_bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#head_bucket)
         """
     def head_object(
@@ -959,7 +959,7 @@ class S3Client(BaseClient):
         The HEAD action retrieves metadata from an object without returning the object
         itself.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.head_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.head_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#head_object)
         """
     def list_bucket_analytics_configurations(
@@ -968,7 +968,7 @@ class S3Client(BaseClient):
         """
         Lists the analytics configurations for the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_bucket_analytics_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_bucket_analytics_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_bucket_analytics_configurations)
         """
     def list_bucket_intelligent_tiering_configurations(
@@ -977,7 +977,7 @@ class S3Client(BaseClient):
         """
         Lists the S3 Intelligent-Tiering configuration from the specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_bucket_intelligent_tiering_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_bucket_intelligent_tiering_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_bucket_intelligent_tiering_configurations)
         """
     def list_bucket_inventory_configurations(
@@ -986,7 +986,7 @@ class S3Client(BaseClient):
         """
         Returns a list of inventory configurations for the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_bucket_inventory_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_bucket_inventory_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_bucket_inventory_configurations)
         """
     def list_bucket_metrics_configurations(
@@ -995,14 +995,14 @@ class S3Client(BaseClient):
         """
         Lists the metrics configurations for the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_bucket_metrics_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_bucket_metrics_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_bucket_metrics_configurations)
         """
     def list_buckets(self) -> ListBucketsOutputTypeDef:
         """
         Returns a list of all buckets owned by the authenticated sender of the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_buckets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_buckets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_buckets)
         """
     def list_multipart_uploads(
@@ -1020,7 +1020,7 @@ class S3Client(BaseClient):
         """
         This action lists in-progress multipart uploads.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_multipart_uploads)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_multipart_uploads)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_multipart_uploads)
         """
     def list_object_versions(
@@ -1038,7 +1038,7 @@ class S3Client(BaseClient):
         """
         Returns metadata about all versions of the objects in a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_object_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_object_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_object_versions)
         """
     def list_objects(
@@ -1056,7 +1056,7 @@ class S3Client(BaseClient):
         """
         Returns some or all (up to 1,000) of the objects in a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_objects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_objects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_objects)
         """
     def list_objects_v2(
@@ -1076,7 +1076,7 @@ class S3Client(BaseClient):
         """
         Returns some or all (up to 1,000) of the objects in a bucket with each request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_objects_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_objects_v2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_objects_v2)
         """
     def list_parts(
@@ -1096,7 +1096,7 @@ class S3Client(BaseClient):
         """
         Lists the parts that have been uploaded for a specific multipart upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.list_parts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.list_parts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#list_parts)
         """
     def put_bucket_accelerate_configuration(
@@ -1110,7 +1110,7 @@ class S3Client(BaseClient):
         """
         Sets the accelerate configuration of an existing bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_accelerate_configuration)
         """
     def put_bucket_acl(
@@ -1130,7 +1130,7 @@ class S3Client(BaseClient):
         """
         Sets the permissions on an existing bucket using access control lists (ACL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_acl)
         """
     def put_bucket_analytics_configuration(
@@ -1145,7 +1145,7 @@ class S3Client(BaseClient):
         Sets an analytics configuration for the bucket (specified by the analytics
         configuration ID).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_analytics_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_analytics_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_analytics_configuration)
         """
     def put_bucket_cors(
@@ -1159,7 +1159,7 @@ class S3Client(BaseClient):
         """
         Sets the `cors` configuration for your bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_cors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_cors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_cors)
         """
     def put_bucket_encryption(
@@ -1175,7 +1175,7 @@ class S3Client(BaseClient):
         This action uses the `encryption` subresource to configure default encryption
         and Amazon S3 Bucket Key for an existing bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_encryption)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_encryption)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_encryption)
         """
     def put_bucket_intelligent_tiering_configuration(
@@ -1188,7 +1188,7 @@ class S3Client(BaseClient):
         """
         Puts a S3 Intelligent-Tiering configuration to the specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_intelligent_tiering_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_intelligent_tiering_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_intelligent_tiering_configuration)
         """
     def put_bucket_inventory_configuration(
@@ -1203,7 +1203,7 @@ class S3Client(BaseClient):
         This implementation of the `PUT` action adds an inventory configuration
         (identified by the inventory ID) to the bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_inventory_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_inventory_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_inventory_configuration)
         """
     def put_bucket_lifecycle(
@@ -1217,7 +1217,7 @@ class S3Client(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_lifecycle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_lifecycle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_lifecycle)
         """
     def put_bucket_lifecycle_configuration(
@@ -1232,7 +1232,7 @@ class S3Client(BaseClient):
         Creates a new lifecycle configuration for the bucket or replaces an existing
         lifecycle configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_lifecycle_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_lifecycle_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_lifecycle_configuration)
         """
     def put_bucket_logging(
@@ -1247,7 +1247,7 @@ class S3Client(BaseClient):
         Set the logging parameters for a bucket and to specify permissions for who can
         view and modify the logging parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_logging)
         """
     def put_bucket_metrics_configuration(
@@ -1262,7 +1262,7 @@ class S3Client(BaseClient):
         Sets a metrics configuration (specified by the metrics configuration ID) for the
         bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_metrics_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_metrics_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_metrics_configuration)
         """
     def put_bucket_notification(
@@ -1278,7 +1278,7 @@ class S3Client(BaseClient):
         azon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html>`__
         operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_notification)
         """
     def put_bucket_notification_configuration(
@@ -1292,7 +1292,7 @@ class S3Client(BaseClient):
         """
         Enables notifications of specified events for a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_notification_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_notification_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_notification_configuration)
         """
     def put_bucket_ownership_controls(
@@ -1306,7 +1306,7 @@ class S3Client(BaseClient):
         """
         Creates or modifies `OwnershipControls` for an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_ownership_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_ownership_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_ownership_controls)
         """
     def put_bucket_policy(
@@ -1321,7 +1321,7 @@ class S3Client(BaseClient):
         """
         Applies an Amazon S3 bucket policy to an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_policy)
         """
     def put_bucket_replication(
@@ -1336,7 +1336,7 @@ class S3Client(BaseClient):
         """
         Creates a replication configuration or replaces an existing one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_replication)
         """
     def put_bucket_request_payment(
@@ -1350,7 +1350,7 @@ class S3Client(BaseClient):
         """
         Sets the request payment configuration for a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_request_payment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_request_payment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_request_payment)
         """
     def put_bucket_tagging(
@@ -1364,7 +1364,7 @@ class S3Client(BaseClient):
         """
         Sets the tags for a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_tagging)
         """
     def put_bucket_versioning(
@@ -1379,7 +1379,7 @@ class S3Client(BaseClient):
         """
         Sets the versioning state of an existing bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_versioning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_versioning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_versioning)
         """
     def put_bucket_website(
@@ -1394,7 +1394,7 @@ class S3Client(BaseClient):
         Sets the configuration of the website that is specified in the `website`
         subresource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_bucket_website)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_bucket_website)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_bucket_website)
         """
     def put_object(
@@ -1441,7 +1441,7 @@ class S3Client(BaseClient):
         """
         Adds an object to a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_object)
         """
     def put_object_acl(
@@ -1465,7 +1465,7 @@ class S3Client(BaseClient):
         Uses the `acl` subresource to set the access control list (ACL) permissions for
         a new or existing object in an S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_object_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_object_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_object_acl)
         """
     def put_object_legal_hold(
@@ -1483,7 +1483,7 @@ class S3Client(BaseClient):
         """
         Applies a legal hold configuration to the specified object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_object_legal_hold)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_object_legal_hold)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_object_legal_hold)
         """
     def put_object_lock_configuration(
@@ -1500,7 +1500,7 @@ class S3Client(BaseClient):
         """
         Places an Object Lock configuration on the specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_object_lock_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_object_lock_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_object_lock_configuration)
         """
     def put_object_retention(
@@ -1519,7 +1519,7 @@ class S3Client(BaseClient):
         """
         Places an Object Retention configuration on an object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_object_retention)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_object_retention)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_object_retention)
         """
     def put_object_tagging(
@@ -1537,7 +1537,7 @@ class S3Client(BaseClient):
         """
         Sets the supplied tag-set to an object that already exists in a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_object_tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_object_tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_object_tagging)
         """
     def put_public_access_block(
@@ -1553,7 +1553,7 @@ class S3Client(BaseClient):
         Creates or modifies the `PublicAccessBlock` configuration for an Amazon S3
         bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.put_public_access_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.put_public_access_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#put_public_access_block)
         """
     def restore_object(
@@ -1571,7 +1571,7 @@ class S3Client(BaseClient):
         Restores an archived copy of an object back into Amazon S3 This action is not
         supported by Amazon S3 on Outposts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.restore_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.restore_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#restore_object)
         """
     def select_object_content(
@@ -1594,7 +1594,7 @@ class S3Client(BaseClient):
         This action filters the contents of an Amazon S3 object based on a simple
         structured query language (SQL) statement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.select_object_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.select_object_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#select_object_content)
         """
     def upload_file(
@@ -1610,7 +1610,7 @@ class S3Client(BaseClient):
         """
         Upload a file to an S3 object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.upload_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.upload_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#upload_file)
         """
     def upload_fileobj(
@@ -1626,7 +1626,7 @@ class S3Client(BaseClient):
         """
         Upload a file-like object to S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.upload_fileobj)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.upload_fileobj)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#upload_fileobj)
         """
     def upload_part(
@@ -1653,7 +1653,7 @@ class S3Client(BaseClient):
         """
         Uploads a part in a multipart upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.upload_part)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.upload_part)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#upload_part)
         """
     def upload_part_copy(
@@ -1682,7 +1682,7 @@ class S3Client(BaseClient):
         """
         Uploads a part by copying data from an existing object as data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.upload_part_copy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.upload_part_copy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#upload_part_copy)
         """
     def write_get_object_response(
@@ -1733,7 +1733,7 @@ class S3Client(BaseClient):
         Passes transformed objects to a `GetObject` operation when using Object Lambda
         access points.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Client.write_get_object_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Client.write_get_object_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/client.html#write_get_object_response)
         """
     @overload
@@ -1741,7 +1741,7 @@ class S3Client(BaseClient):
         self, operation_name: Literal["list_multipart_uploads"]
     ) -> ListMultipartUploadsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/paginators.html#listmultipartuploadspaginator)
         """
     @overload
@@ -1749,48 +1749,48 @@ class S3Client(BaseClient):
         self, operation_name: Literal["list_object_versions"]
     ) -> ListObjectVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Paginator.ListObjectVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Paginator.ListObjectVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/paginators.html#listobjectversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_objects"]) -> ListObjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Paginator.ListObjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Paginator.ListObjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/paginators.html#listobjectspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_objects_v2"]) -> ListObjectsV2Paginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Paginator.ListObjectsV2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Paginator.ListObjectsV2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/paginators.html#listobjectsv2paginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_parts"]) -> ListPartsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Paginator.ListParts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Paginator.ListParts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/paginators.html#listpartspaginator)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["bucket_exists"]) -> BucketExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Waiter.BucketExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Waiter.BucketExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketexistswaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["bucket_not_exists"]) -> BucketNotExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Waiter.BucketNotExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Waiter.BucketNotExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketnotexistswaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["object_exists"]) -> ObjectExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Waiter.ObjectExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Waiter.ObjectExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectexistswaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["object_not_exists"]) -> ObjectNotExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/s3.html#S3.Waiter.ObjectNotExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/s3.html#S3.Waiter.ObjectNotExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectnotexistswaiter)
         """

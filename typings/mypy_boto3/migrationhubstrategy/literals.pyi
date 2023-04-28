@@ -6,9 +6,9 @@ Type annotations for migrationhubstrategy service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_migrationhubstrategy.literals import AntipatternReportStatusType
+    from mypy_boto3_migrationhubstrategy.literals import AnalysisTypeType
 
-    data: AntipatternReportStatusType = "FAILED"
+    data: AnalysisTypeType = "BINARY_ANALYSIS"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AnalysisTypeType",
     "AntipatternReportStatusType",
     "AppTypeType",
     "AppUnitErrorCategoryType",
@@ -27,6 +28,7 @@ __all__ = (
     "AssessmentStatusType",
     "AuthTypeType",
     "AwsManagedTargetDestinationType",
+    "BinaryAnalyzerNameType",
     "CollectorHealthType",
     "ConditionType",
     "DataSourceTypeType",
@@ -47,6 +49,7 @@ __all__ = (
     "PipelineTypeType",
     "RecommendationReportStatusType",
     "ResourceSubTypeType",
+    "RunTimeAnalyzerNameType",
     "RunTimeAssessmentStatusType",
     "RuntimeAnalysisStatusType",
     "SelfManageTargetDestinationType",
@@ -55,6 +58,7 @@ __all__ = (
     "ServerOsTypeType",
     "SeverityType",
     "SortOrderType",
+    "SourceCodeAnalyzerNameType",
     "SrcCodeOrDbAnalysisStatusType",
     "StrategyRecommendationType",
     "StrategyType",
@@ -65,6 +69,9 @@ __all__ = (
     "VersionControlTypeType",
 )
 
+AnalysisTypeType = Literal[
+    "BINARY_ANALYSIS", "DATABASE_ANALYSIS", "RUNTIME_ANALYSIS", "SOURCE_CODE_ANALYSIS"
+]
 AntipatternReportStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
 AppTypeType = Literal[
     "Cassandra",
@@ -107,12 +114,13 @@ ApplicationModeType = Literal["ALL", "KNOWN", "UNKNOWN"]
 AssessmentStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS", "STOPPED"]
 AuthTypeType = Literal["CERT", "NTLM", "SSH"]
 AwsManagedTargetDestinationType = Literal["AWS Elastic BeanStalk", "AWS Fargate", "None specified"]
+BinaryAnalyzerNameType = Literal["BYTECODE_ANALYZER", "DLL_ANALYZER"]
 CollectorHealthType = Literal["COLLECTOR_HEALTHY", "COLLECTOR_UNHEALTHY"]
 ConditionType = Literal["CONTAINS", "EQUALS", "NOT_CONTAINS", "NOT_EQUALS"]
-DataSourceTypeType = Literal["ApplicationDiscoveryService", "MPA"]
+DataSourceTypeType = Literal["ApplicationDiscoveryService", "Import", "MPA"]
 DatabaseManagementPreferenceType = Literal["AWS-managed", "No preference", "Self-manage"]
 GetServerDetailsPaginatorName = Literal["get_server_details"]
-GroupNameType = Literal["ExternalId"]
+GroupNameType = Literal["ExternalId", "ExternalSourceType"]
 HeterogeneousTargetDatabaseEngineType = Literal[
     "AWS PostgreSQL",
     "Amazon Aurora",
@@ -154,6 +162,9 @@ OutputFormatType = Literal["Excel", "Json"]
 PipelineTypeType = Literal["AZURE_DEVOPS"]
 RecommendationReportStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
 ResourceSubTypeType = Literal["Database", "DatabaseProcess", "Process"]
+RunTimeAnalyzerNameType = Literal[
+    "A2C_ANALYZER", "DATABASE_ANALYZER", "EMP_PA_ANALYZER", "REHOST_ANALYZER", "SCT_ANALYZER"
+]
 RunTimeAssessmentStatusType = Literal[
     "dataCollectionTaskFailed",
     "dataCollectionTaskPartialSuccess",
@@ -193,6 +204,9 @@ ServerOsTypeType = Literal[
 ]
 SeverityType = Literal["HIGH", "LOW", "MEDIUM"]
 SortOrderType = Literal["ASC", "DESC"]
+SourceCodeAnalyzerNameType = Literal[
+    "BYTECODE_ANALYZER", "CSHARP_ANALYZER", "JAVA_ANALYZER", "PORTING_ASSISTANT"
+]
 SrcCodeOrDbAnalysisStatusType = Literal[
     "ANALYSIS_FAILED",
     "ANALYSIS_PARTIAL_SUCCESS",

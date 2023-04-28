@@ -10,6 +10,7 @@ Usage::
         ListApplicationsPaginator,
         ListComponentsPaginator,
         ListDatabasesPaginator,
+        ListOperationsPaginator,
         SsmSapClient,
     )
 
@@ -21,10 +22,16 @@ Usage::
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     list_components_paginator: ListComponentsPaginator = client.get_paginator("list_components")
     list_databases_paginator: ListDatabasesPaginator = client.get_paginator("list_databases")
+    list_operations_paginator: ListOperationsPaginator = client.get_paginator("list_operations")
     ```
 """
 from .client import SsmSapClient
-from .paginator import ListApplicationsPaginator, ListComponentsPaginator, ListDatabasesPaginator
+from .paginator import (
+    ListApplicationsPaginator,
+    ListComponentsPaginator,
+    ListDatabasesPaginator,
+    ListOperationsPaginator,
+)
 
 Client = SsmSapClient
 
@@ -33,5 +40,6 @@ __all__ = (
     "ListApplicationsPaginator",
     "ListComponentsPaginator",
     "ListDatabasesPaginator",
+    "ListOperationsPaginator",
     "SsmSapClient",
 )

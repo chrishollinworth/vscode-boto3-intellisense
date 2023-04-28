@@ -31,6 +31,7 @@ __all__ = (
     "ListLongTermPricingPaginatorName",
     "LongTermPricingTypeType",
     "RemoteManagementType",
+    "ServiceNameType",
     "ShipmentStateType",
     "ShippingLabelStatusType",
     "ShippingOptionType",
@@ -64,16 +65,17 @@ ListClustersPaginatorName = Literal["list_clusters"]
 ListCompatibleImagesPaginatorName = Literal["list_compatible_images"]
 ListJobsPaginatorName = Literal["list_jobs"]
 ListLongTermPricingPaginatorName = Literal["list_long_term_pricing"]
-LongTermPricingTypeType = Literal["OneYear", "ThreeYear"]
+LongTermPricingTypeType = Literal["OneMonth", "OneYear", "ThreeYear"]
 RemoteManagementType = Literal["INSTALLED_AUTOSTART", "INSTALLED_ONLY"]
+ServiceNameType = Literal["EKS_ANYWHERE", "KUBERNETES"]
 ShipmentStateType = Literal["RECEIVED", "RETURNED"]
 ShippingLabelStatusType = Literal["Failed", "InProgress", "Succeeded", "TimedOut"]
 ShippingOptionType = Literal["EXPRESS", "NEXT_DAY", "SECOND_DAY", "STANDARD"]
 SnowballCapacityType = Literal[
-    "NoPreference", "T100", "T14", "T32", "T42", "T50", "T8", "T80", "T98"
+    "NoPreference", "T100", "T14", "T240", "T32", "T42", "T50", "T8", "T80", "T98"
 ]
 SnowballTypeType = Literal[
-    "EDGE", "EDGE_C", "EDGE_CG", "EDGE_S", "SNC1_HDD", "SNC1_SSD", "STANDARD", "V3_5C"
+    "EDGE", "EDGE_C", "EDGE_CG", "EDGE_S", "SNC1_HDD", "SNC1_SSD", "STANDARD", "V3_5C", "V3_5S"
 ]
 StorageUnitType = Literal["TB"]
 TransferOptionType = Literal["EXPORT", "IMPORT", "LOCAL_USE"]

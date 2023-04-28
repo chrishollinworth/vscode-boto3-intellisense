@@ -174,7 +174,7 @@ class Exceptions:
 
 class CloudFormationClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html)
     """
 
@@ -203,7 +203,7 @@ class CloudFormationClient(BaseClient):
         Activates a public third-party extension, making it available for use in stack
         templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.activate_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.activate_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#activate_type)
         """
     def batch_describe_type_configurations(
@@ -213,28 +213,28 @@ class CloudFormationClient(BaseClient):
         Returns configuration data for the specified CloudFormation extensions, from the
         CloudFormation registry for the account and region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.batch_describe_type_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.batch_describe_type_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#batch_describe_type_configurations)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#can_paginate)
         """
     def cancel_update_stack(self, *, StackName: str, ClientRequestToken: str = None) -> None:
         """
         Cancels an update on the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.cancel_update_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.cancel_update_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#cancel_update_stack)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#close)
         """
     def continue_update_rollback(
@@ -249,7 +249,7 @@ class CloudFormationClient(BaseClient):
         For a specified stack that's in the `UPDATE_ROLLBACK_FAILED` state, continues
         rolling it back to the `UPDATE_ROLLBACK_COMPLETE` state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.continue_update_rollback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.continue_update_rollback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#continue_update_rollback)
         """
     def create_change_set(
@@ -277,7 +277,7 @@ class CloudFormationClient(BaseClient):
         Creates a list of changes that will be applied to a stack so that you can review
         the changes before executing them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.create_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.create_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#create_change_set)
         """
     def create_stack(
@@ -304,7 +304,7 @@ class CloudFormationClient(BaseClient):
         """
         Creates a stack as specified in the template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.create_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.create_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#create_stack)
         """
     def create_stack_instances(
@@ -323,7 +323,7 @@ class CloudFormationClient(BaseClient):
         Creates stack instances for the specified accounts, within the specified Amazon
         Web Services Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.create_stack_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.create_stack_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#create_stack_instances)
         """
     def create_stack_set(
@@ -348,7 +348,7 @@ class CloudFormationClient(BaseClient):
         """
         Creates a stack set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.create_stack_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.create_stack_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#create_stack_set)
         """
     def deactivate_type(
@@ -358,14 +358,14 @@ class CloudFormationClient(BaseClient):
         Deactivates a public extension that was previously activated in this account and
         region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.deactivate_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.deactivate_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#deactivate_type)
         """
     def delete_change_set(self, *, ChangeSetName: str, StackName: str = None) -> Dict[str, Any]:
         """
         Deletes the specified change set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.delete_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.delete_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#delete_change_set)
         """
     def delete_stack(
@@ -379,7 +379,7 @@ class CloudFormationClient(BaseClient):
         """
         Deletes a specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.delete_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.delete_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#delete_stack)
         """
     def delete_stack_instances(
@@ -398,14 +398,14 @@ class CloudFormationClient(BaseClient):
         Deletes stack instances for the specified accounts, in the specified Amazon Web
         Services Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.delete_stack_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.delete_stack_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#delete_stack_instances)
         """
     def delete_stack_set(self, *, StackSetName: str, CallAs: CallAsType = None) -> Dict[str, Any]:
         """
         Deletes a stack set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.delete_stack_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.delete_stack_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#delete_stack_set)
         """
     def deregister_type(
@@ -420,7 +420,7 @@ class CloudFormationClient(BaseClient):
         Marks an extension or extension version as `DEPRECATED` in the CloudFormation
         registry, removing it from active use.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.deregister_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.deregister_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#deregister_type)
         """
     def describe_account_limits(
@@ -430,7 +430,7 @@ class CloudFormationClient(BaseClient):
         Retrieves your account's CloudFormation limits, such as the maximum number of
         stacks that you can create in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_account_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_account_limits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_account_limits)
         """
     def describe_change_set(
@@ -440,7 +440,7 @@ class CloudFormationClient(BaseClient):
         Returns the inputs for the change set and a list of changes that CloudFormation
         will make if you execute the change set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_change_set)
         """
     def describe_change_set_hooks(
@@ -455,14 +455,14 @@ class CloudFormationClient(BaseClient):
         Returns hook-related information for the change set and a list of changes that
         CloudFormation makes when you run the change set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_change_set_hooks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_change_set_hooks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_change_set_hooks)
         """
     def describe_publisher(self, *, PublisherId: str = None) -> DescribePublisherOutputTypeDef:
         """
         Returns information about a CloudFormation extension publisher.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_publisher)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_publisher)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_publisher)
         """
     def describe_stack_drift_detection_status(
@@ -471,7 +471,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns information about a stack drift detection operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_drift_detection_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_drift_detection_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stack_drift_detection_status)
         """
     def describe_stack_events(
@@ -481,7 +481,7 @@ class CloudFormationClient(BaseClient):
         Returns all stack related events for a specified stack in reverse chronological
         order.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stack_events)
         """
     def describe_stack_instance(
@@ -496,7 +496,7 @@ class CloudFormationClient(BaseClient):
         Returns the stack instance that's associated with the specified stack set,
         Amazon Web Services account, and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stack_instance)
         """
     def describe_stack_resource(
@@ -505,7 +505,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns a description of the specified resource in the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stack_resource)
         """
     def describe_stack_resource_drifts(
@@ -520,7 +520,7 @@ class CloudFormationClient(BaseClient):
         Returns drift information for the resources that have been checked for drift in
         the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_resource_drifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_resource_drifts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stack_resource_drifts)
         """
     def describe_stack_resources(
@@ -534,7 +534,7 @@ class CloudFormationClient(BaseClient):
         Returns Amazon Web Services resource descriptions for running and deleted
         stacks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stack_resources)
         """
     def describe_stack_set(
@@ -543,7 +543,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns the description of the specified stack set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stack_set)
         """
     def describe_stack_set_operation(
@@ -552,7 +552,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns the description of the specified stack set operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_set_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stack_set_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stack_set_operation)
         """
     def describe_stacks(
@@ -562,7 +562,7 @@ class CloudFormationClient(BaseClient):
         Returns the description for the specified stack; if no stack name was specified,
         then it returns the description for all the stacks created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_stacks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_stacks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_stacks)
         """
     def describe_type(
@@ -578,7 +578,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns detailed information about an extension that has been registered.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_type)
         """
     def describe_type_registration(
@@ -588,18 +588,18 @@ class CloudFormationClient(BaseClient):
         Returns information about an extension's registration, including its current
         status and type and version identifiers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.describe_type_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.describe_type_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#describe_type_registration)
         """
     def detect_stack_drift(
         self, *, StackName: str, LogicalResourceIds: List[str] = None
     ) -> DetectStackDriftOutputTypeDef:
         """
-        Detects whether a stack's actual configuration differs, or has *drifted* , from
+        Detects whether a stack's actual configuration differs, or has *drifted*, from
         it's expected configuration, as defined in the stack template and any values
         specified as template parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.detect_stack_drift)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.detect_stack_drift)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#detect_stack_drift)
         """
     def detect_stack_resource_drift(
@@ -607,10 +607,10 @@ class CloudFormationClient(BaseClient):
     ) -> DetectStackResourceDriftOutputTypeDef:
         """
         Returns information about whether a resource's actual configuration differs, or
-        has *drifted* , from it's expected configuration, as defined in the stack
+        has *drifted*, from it's expected configuration, as defined in the stack
         template and any values specified as template parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.detect_stack_resource_drift)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.detect_stack_resource_drift)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#detect_stack_resource_drift)
         """
     def detect_stack_set_drift(
@@ -624,7 +624,7 @@ class CloudFormationClient(BaseClient):
         """
         Detect drift on a stack set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.detect_stack_set_drift)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.detect_stack_set_drift)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#detect_stack_set_drift)
         """
     def estimate_template_cost(
@@ -637,7 +637,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns the estimated monthly cost of a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.estimate_template_cost)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.estimate_template_cost)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#estimate_template_cost)
         """
     def execute_change_set(
@@ -652,7 +652,7 @@ class CloudFormationClient(BaseClient):
         Updates a stack using the input information that was provided when the specified
         change set was created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.execute_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.execute_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#execute_change_set)
         """
     def generate_presigned_url(
@@ -665,14 +665,14 @@ class CloudFormationClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#generate_presigned_url)
         """
     def get_stack_policy(self, *, StackName: str) -> GetStackPolicyOutputTypeDef:
         """
         Returns the stack policy for a specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.get_stack_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.get_stack_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#get_stack_policy)
         """
     def get_template(
@@ -685,7 +685,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns the template body for a specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.get_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.get_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#get_template)
         """
     def get_template_summary(
@@ -700,7 +700,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns information about a new or existing template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.get_template_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.get_template_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#get_template_summary)
         """
     def import_stacks_to_stack_set(
@@ -717,7 +717,7 @@ class CloudFormationClient(BaseClient):
         """
         Import existing stacks into a new stack sets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.import_stacks_to_stack_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.import_stacks_to_stack_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#import_stacks_to_stack_set)
         """
     def list_change_sets(
@@ -726,7 +726,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns the ID and status of each active change set for a stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_change_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_change_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_change_sets)
         """
     def list_exports(self, *, NextToken: str = None) -> ListExportsOutputTypeDef:
@@ -734,14 +734,14 @@ class CloudFormationClient(BaseClient):
         Lists all exported output values in the account and Region in which you call
         this action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_exports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_exports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_exports)
         """
     def list_imports(self, *, ExportName: str, NextToken: str = None) -> ListImportsOutputTypeDef:
         """
         Lists all stacks that are importing an exported output value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_imports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_imports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_imports)
         """
     def list_stack_instances(
@@ -759,7 +759,7 @@ class CloudFormationClient(BaseClient):
         Returns summary information about stack instances that are associated with the
         specified stack set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_stack_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_stack_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_stack_instances)
         """
     def list_stack_resources(
@@ -768,7 +768,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns descriptions of all resources of the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_stack_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_stack_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_stack_resources)
         """
     def list_stack_set_operation_results(
@@ -784,7 +784,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns summary information about the results of a stack set operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_stack_set_operation_results)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_stack_set_operation_results)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_stack_set_operation_results)
         """
     def list_stack_set_operations(
@@ -798,7 +798,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns summary information about operations performed on a stack set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_stack_set_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_stack_set_operations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_stack_set_operations)
         """
     def list_stack_sets(
@@ -812,7 +812,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns summary information about stack sets that are associated with the user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_stack_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_stack_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_stack_sets)
         """
     def list_stacks(
@@ -822,7 +822,7 @@ class CloudFormationClient(BaseClient):
         Returns the summary information for stacks whose status matches the specified
         StackStatusFilter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_stacks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_stacks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_stacks)
         """
     def list_type_registrations(
@@ -838,7 +838,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns a list of registration tokens for the specified extension(s).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_type_registrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_type_registrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_type_registrations)
         """
     def list_type_versions(
@@ -855,7 +855,7 @@ class CloudFormationClient(BaseClient):
         """
         Returns summary information about the versions of an extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_type_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_type_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_type_versions)
         """
     def list_types(
@@ -873,7 +873,7 @@ class CloudFormationClient(BaseClient):
         Returns summary information about extension that have been registered with
         CloudFormation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.list_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.list_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#list_types)
         """
     def publish_type(
@@ -888,7 +888,7 @@ class CloudFormationClient(BaseClient):
         Publishes the specified extension to the CloudFormation registry as a public
         extension in this region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.publish_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.publish_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#publish_type)
         """
     def record_handler_progress(
@@ -905,7 +905,7 @@ class CloudFormationClient(BaseClient):
         """
         Reports progress of a resource handler to CloudFormation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.record_handler_progress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.record_handler_progress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#record_handler_progress)
         """
     def register_publisher(
@@ -915,7 +915,7 @@ class CloudFormationClient(BaseClient):
         Registers your account as a publisher of public extensions in the CloudFormation
         registry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.register_publisher)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.register_publisher)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#register_publisher)
         """
     def register_type(
@@ -931,17 +931,17 @@ class CloudFormationClient(BaseClient):
         """
         Registers an extension with the CloudFormation service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.register_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.register_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#register_type)
         """
     def rollback_stack(
         self, *, StackName: str, RoleARN: str = None, ClientRequestToken: str = None
     ) -> RollbackStackOutputTypeDef:
         """
-        When specifying `RollbackStack` , you preserve the state of previously
+        When specifying `RollbackStack`, you preserve the state of previously
         provisioned resources when an operation fails.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.rollback_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.rollback_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#rollback_stack)
         """
     def set_stack_policy(
@@ -950,7 +950,7 @@ class CloudFormationClient(BaseClient):
         """
         Sets a stack policy for a specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.set_stack_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.set_stack_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#set_stack_policy)
         """
     def set_type_configuration(
@@ -966,7 +966,7 @@ class CloudFormationClient(BaseClient):
         Specifies the configuration data for a registered CloudFormation extension, in
         the given account and region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.set_type_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.set_type_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#set_type_configuration)
         """
     def set_type_default_version(
@@ -980,7 +980,7 @@ class CloudFormationClient(BaseClient):
         """
         Specify the default version of an extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.set_type_default_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.set_type_default_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#set_type_default_version)
         """
     def signal_resource(
@@ -994,7 +994,7 @@ class CloudFormationClient(BaseClient):
         """
         Sends a signal to the specified resource with a success or failure status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.signal_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.signal_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#signal_resource)
         """
     def stop_stack_set_operation(
@@ -1004,7 +1004,7 @@ class CloudFormationClient(BaseClient):
         Stops an in-progress operation on a stack set and its associated stack
         instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.stop_stack_set_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.stop_stack_set_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#stop_stack_set_operation)
         """
     def test_type(
@@ -1020,7 +1020,7 @@ class CloudFormationClient(BaseClient):
         Tests a registered extension to make sure it meets all necessary requirements
         for being published in the CloudFormation registry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.test_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.test_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#test_type)
         """
     def update_stack(
@@ -1047,7 +1047,7 @@ class CloudFormationClient(BaseClient):
         """
         Updates a stack as specified in the template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.update_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.update_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#update_stack)
         """
     def update_stack_instances(
@@ -1066,7 +1066,7 @@ class CloudFormationClient(BaseClient):
         Updates the parameter values for stack instances for the specified accounts,
         within the specified Amazon Web Services Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.update_stack_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.update_stack_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#update_stack_instances)
         """
     def update_stack_set(
@@ -1096,7 +1096,7 @@ class CloudFormationClient(BaseClient):
         Updates the stack set, and associated stack instances in the specified accounts
         and Amazon Web Services Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.update_stack_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.update_stack_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#update_stack_set)
         """
     def update_termination_protection(
@@ -1105,7 +1105,7 @@ class CloudFormationClient(BaseClient):
         """
         Updates termination protection for the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.update_termination_protection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.update_termination_protection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#update_termination_protection)
         """
     def validate_template(
@@ -1114,7 +1114,7 @@ class CloudFormationClient(BaseClient):
         """
         Validates a specified template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Client.validate_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Client.validate_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/client.html#validate_template)
         """
     @overload
@@ -1122,7 +1122,7 @@ class CloudFormationClient(BaseClient):
         self, operation_name: Literal["describe_account_limits"]
     ) -> DescribeAccountLimitsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeAccountLimits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeAccountLimits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#describeaccountlimitspaginator)
         """
     @overload
@@ -1130,7 +1130,7 @@ class CloudFormationClient(BaseClient):
         self, operation_name: Literal["describe_change_set"]
     ) -> DescribeChangeSetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeChangeSet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeChangeSet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#describechangesetpaginator)
         """
     @overload
@@ -1138,31 +1138,31 @@ class CloudFormationClient(BaseClient):
         self, operation_name: Literal["describe_stack_events"]
     ) -> DescribeStackEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStackEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStackEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#describestackeventspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_stacks"]) -> DescribeStacksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStacks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStacks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#describestackspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_change_sets"]) -> ListChangeSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListChangeSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListChangeSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#listchangesetspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_exports"]) -> ListExportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListExports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListExports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#listexportspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_imports"]) -> ListImportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListImports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListImports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#listimportspaginator)
         """
     @overload
@@ -1170,7 +1170,7 @@ class CloudFormationClient(BaseClient):
         self, operation_name: Literal["list_stack_instances"]
     ) -> ListStackInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#liststackinstancespaginator)
         """
     @overload
@@ -1178,7 +1178,7 @@ class CloudFormationClient(BaseClient):
         self, operation_name: Literal["list_stack_resources"]
     ) -> ListStackResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#liststackresourcespaginator)
         """
     @overload
@@ -1186,7 +1186,7 @@ class CloudFormationClient(BaseClient):
         self, operation_name: Literal["list_stack_set_operation_results"]
     ) -> ListStackSetOperationResultsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperationResults)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperationResults)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#liststacksetoperationresultspaginator)
         """
     @overload
@@ -1194,25 +1194,25 @@ class CloudFormationClient(BaseClient):
         self, operation_name: Literal["list_stack_set_operations"]
     ) -> ListStackSetOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#liststacksetoperationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_stack_sets"]) -> ListStackSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#liststacksetspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_stacks"]) -> ListStacksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListStacks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListStacks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#liststackspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_types"]) -> ListTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Paginator.ListTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Paginator.ListTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/paginators.html#listtypespaginator)
         """
     @overload
@@ -1220,7 +1220,7 @@ class CloudFormationClient(BaseClient):
         self, waiter_name: Literal["change_set_create_complete"]
     ) -> ChangeSetCreateCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Waiter.ChangeSetCreateComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Waiter.ChangeSetCreateComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#changesetcreatecompletewaiter)
         """
     @overload
@@ -1228,7 +1228,7 @@ class CloudFormationClient(BaseClient):
         self, waiter_name: Literal["stack_create_complete"]
     ) -> StackCreateCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackcreatecompletewaiter)
         """
     @overload
@@ -1236,13 +1236,13 @@ class CloudFormationClient(BaseClient):
         self, waiter_name: Literal["stack_delete_complete"]
     ) -> StackDeleteCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Waiter.StackDeleteComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Waiter.StackDeleteComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackdeletecompletewaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["stack_exists"]) -> StackExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Waiter.StackExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Waiter.StackExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackexistswaiter)
         """
     @overload
@@ -1250,7 +1250,7 @@ class CloudFormationClient(BaseClient):
         self, waiter_name: Literal["stack_import_complete"]
     ) -> StackImportCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Waiter.StackImportComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Waiter.StackImportComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackimportcompletewaiter)
         """
     @overload
@@ -1258,7 +1258,7 @@ class CloudFormationClient(BaseClient):
         self, waiter_name: Literal["stack_rollback_complete"]
     ) -> StackRollbackCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Waiter.StackRollbackComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Waiter.StackRollbackComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackrollbackcompletewaiter)
         """
     @overload
@@ -1266,7 +1266,7 @@ class CloudFormationClient(BaseClient):
         self, waiter_name: Literal["stack_update_complete"]
     ) -> StackUpdateCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Waiter.StackUpdateComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Waiter.StackUpdateComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackupdatecompletewaiter)
         """
     @overload
@@ -1274,6 +1274,6 @@ class CloudFormationClient(BaseClient):
         self, waiter_name: Literal["type_registration_complete"]
     ) -> TypeRegistrationCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cloudformation.html#CloudFormation.Waiter.TypeRegistrationComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cloudformation.html#CloudFormation.Waiter.TypeRegistrationComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#typeregistrationcompletewaiter)
         """

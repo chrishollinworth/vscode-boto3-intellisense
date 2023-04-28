@@ -21,13 +21,16 @@ from .literals import (
     ArchitectureType,
     CodeSigningPolicyType,
     EventSourcePositionType,
+    FullDocumentType,
     FunctionUrlAuthTypeType,
     InvocationTypeType,
+    InvokeModeType,
     LastUpdateStatusReasonCodeType,
     LastUpdateStatusType,
     LogTypeType,
     PackageTypeType,
     ProvisionedConcurrencyStatusEnumType,
+    ResponseStreamingInvocationTypeType,
     RuntimeType,
     SnapStartApplyOnType,
     SnapStartOptimizationStatusType,
@@ -35,6 +38,7 @@ from .literals import (
     StateReasonCodeType,
     StateType,
     TracingModeType,
+    UpdateRuntimeOnType,
 )
 
 if sys.version_info >= (3, 8):
@@ -82,6 +86,7 @@ __all__ = (
     "DeleteLayerVersionRequestRequestTypeDef",
     "DeleteProvisionedConcurrencyConfigRequestRequestTypeDef",
     "DestinationConfigTypeDef",
+    "DocumentDBEventSourceConfigTypeDef",
     "EnvironmentErrorTypeDef",
     "EnvironmentResponseTypeDef",
     "EnvironmentTypeDef",
@@ -122,6 +127,8 @@ __all__ = (
     "GetPolicyResponseTypeDef",
     "GetProvisionedConcurrencyConfigRequestRequestTypeDef",
     "GetProvisionedConcurrencyConfigResponseTypeDef",
+    "GetRuntimeManagementConfigRequestRequestTypeDef",
+    "GetRuntimeManagementConfigResponseTypeDef",
     "ImageConfigErrorTypeDef",
     "ImageConfigResponseTypeDef",
     "ImageConfigTypeDef",
@@ -129,6 +136,11 @@ __all__ = (
     "InvocationResponseTypeDef",
     "InvokeAsyncRequestRequestTypeDef",
     "InvokeAsyncResponseTypeDef",
+    "InvokeResponseStreamUpdateTypeDef",
+    "InvokeWithResponseStreamCompleteEventTypeDef",
+    "InvokeWithResponseStreamRequestRequestTypeDef",
+    "InvokeWithResponseStreamResponseEventTypeDef",
+    "InvokeWithResponseStreamResponseTypeDef",
     "LayerTypeDef",
     "LayerVersionContentInputTypeDef",
     "LayerVersionContentOutputTypeDef",
@@ -171,9 +183,14 @@ __all__ = (
     "PutFunctionEventInvokeConfigRequestRequestTypeDef",
     "PutProvisionedConcurrencyConfigRequestRequestTypeDef",
     "PutProvisionedConcurrencyConfigResponseTypeDef",
+    "PutRuntimeManagementConfigRequestRequestTypeDef",
+    "PutRuntimeManagementConfigResponseTypeDef",
     "RemoveLayerVersionPermissionRequestRequestTypeDef",
     "RemovePermissionRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "RuntimeVersionConfigTypeDef",
+    "RuntimeVersionErrorTypeDef",
+    "ScalingConfigTypeDef",
     "SelfManagedEventSourceTypeDef",
     "SelfManagedKafkaEventSourceConfigTypeDef",
     "SnapStartResponseTypeDef",
@@ -477,6 +494,8 @@ _OptionalCreateEventSourceMappingRequestRequestTypeDef = TypedDict(
         "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
         "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
         "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
+        "ScalingConfig": "ScalingConfigTypeDef",
+        "DocumentDBEventSourceConfig": "DocumentDBEventSourceConfigTypeDef",
     },
     total=False,
 )
@@ -539,6 +558,7 @@ _OptionalCreateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
     {
         "Qualifier": str,
         "Cors": "CorsTypeDef",
+        "InvokeMode": InvokeModeType,
     },
     total=False,
 )
@@ -557,6 +577,7 @@ CreateFunctionUrlConfigResponseTypeDef = TypedDict(
         "AuthType": FunctionUrlAuthTypeType,
         "Cors": "CorsTypeDef",
         "CreationTime": str,
+        "InvokeMode": InvokeModeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -689,6 +710,16 @@ DestinationConfigTypeDef = TypedDict(
     total=False,
 )
 
+DocumentDBEventSourceConfigTypeDef = TypedDict(
+    "DocumentDBEventSourceConfigTypeDef",
+    {
+        "DatabaseName": str,
+        "CollectionName": str,
+        "FullDocument": FullDocumentType,
+    },
+    total=False,
+)
+
 EnvironmentErrorTypeDef = TypedDict(
     "EnvironmentErrorTypeDef",
     {
@@ -750,6 +781,8 @@ EventSourceMappingConfigurationResponseMetadataTypeDef = TypedDict(
         "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
         "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
         "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
+        "ScalingConfig": "ScalingConfigTypeDef",
+        "DocumentDBEventSourceConfig": "DocumentDBEventSourceConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -782,6 +815,8 @@ EventSourceMappingConfigurationTypeDef = TypedDict(
         "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
         "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
         "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
+        "ScalingConfig": "ScalingConfigTypeDef",
+        "DocumentDBEventSourceConfig": "DocumentDBEventSourceConfigTypeDef",
     },
     total=False,
 )
@@ -870,6 +905,7 @@ FunctionConfigurationResponseMetadataTypeDef = TypedDict(
         "Architectures": List[ArchitectureType],
         "EphemeralStorage": "EphemeralStorageTypeDef",
         "SnapStart": "SnapStartResponseTypeDef",
+        "RuntimeVersionConfig": "RuntimeVersionConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -911,6 +947,7 @@ FunctionConfigurationTypeDef = TypedDict(
         "Architectures": List[ArchitectureType],
         "EphemeralStorage": "EphemeralStorageTypeDef",
         "SnapStart": "SnapStartResponseTypeDef",
+        "RuntimeVersionConfig": "RuntimeVersionConfigTypeDef",
     },
     total=False,
 )
@@ -953,6 +990,7 @@ _OptionalFunctionUrlConfigTypeDef = TypedDict(
     "_OptionalFunctionUrlConfigTypeDef",
     {
         "Cors": "CorsTypeDef",
+        "InvokeMode": InvokeModeType,
     },
     total=False,
 )
@@ -1131,6 +1169,7 @@ GetFunctionUrlConfigResponseTypeDef = TypedDict(
         "Cors": "CorsTypeDef",
         "CreationTime": str,
         "LastModifiedTime": str,
+        "InvokeMode": InvokeModeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1232,6 +1271,36 @@ GetProvisionedConcurrencyConfigResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetRuntimeManagementConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredGetRuntimeManagementConfigRequestRequestTypeDef",
+    {
+        "FunctionName": str,
+    },
+)
+_OptionalGetRuntimeManagementConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalGetRuntimeManagementConfigRequestRequestTypeDef",
+    {
+        "Qualifier": str,
+    },
+    total=False,
+)
+
+class GetRuntimeManagementConfigRequestRequestTypeDef(
+    _RequiredGetRuntimeManagementConfigRequestRequestTypeDef,
+    _OptionalGetRuntimeManagementConfigRequestRequestTypeDef,
+):
+    pass
+
+GetRuntimeManagementConfigResponseTypeDef = TypedDict(
+    "GetRuntimeManagementConfigResponseTypeDef",
+    {
+        "UpdateRuntimeOn": UpdateRuntimeOnType,
+        "RuntimeVersionArn": str,
+        "FunctionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ImageConfigErrorTypeDef = TypedDict(
     "ImageConfigErrorTypeDef",
     {
@@ -1307,6 +1376,68 @@ InvokeAsyncResponseTypeDef = TypedDict(
     "InvokeAsyncResponseTypeDef",
     {
         "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InvokeResponseStreamUpdateTypeDef = TypedDict(
+    "InvokeResponseStreamUpdateTypeDef",
+    {
+        "Payload": bytes,
+    },
+    total=False,
+)
+
+InvokeWithResponseStreamCompleteEventTypeDef = TypedDict(
+    "InvokeWithResponseStreamCompleteEventTypeDef",
+    {
+        "ErrorCode": str,
+        "ErrorDetails": str,
+        "LogResult": str,
+    },
+    total=False,
+)
+
+_RequiredInvokeWithResponseStreamRequestRequestTypeDef = TypedDict(
+    "_RequiredInvokeWithResponseStreamRequestRequestTypeDef",
+    {
+        "FunctionName": str,
+    },
+)
+_OptionalInvokeWithResponseStreamRequestRequestTypeDef = TypedDict(
+    "_OptionalInvokeWithResponseStreamRequestRequestTypeDef",
+    {
+        "InvocationType": ResponseStreamingInvocationTypeType,
+        "LogType": LogTypeType,
+        "ClientContext": str,
+        "Qualifier": str,
+        "Payload": Union[bytes, IO[bytes], StreamingBody],
+    },
+    total=False,
+)
+
+class InvokeWithResponseStreamRequestRequestTypeDef(
+    _RequiredInvokeWithResponseStreamRequestRequestTypeDef,
+    _OptionalInvokeWithResponseStreamRequestRequestTypeDef,
+):
+    pass
+
+InvokeWithResponseStreamResponseEventTypeDef = TypedDict(
+    "InvokeWithResponseStreamResponseEventTypeDef",
+    {
+        "PayloadChunk": "InvokeResponseStreamUpdateTypeDef",
+        "InvokeComplete": "InvokeWithResponseStreamCompleteEventTypeDef",
+    },
+    total=False,
+)
+
+InvokeWithResponseStreamResponseTypeDef = TypedDict(
+    "InvokeWithResponseStreamResponseTypeDef",
+    {
+        "StatusCode": int,
+        "ExecutedVersion": str,
+        "EventStream": "InvokeWithResponseStreamResponseEventTypeDef",
+        "ResponseStreamContentType": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1844,6 +1975,38 @@ PutProvisionedConcurrencyConfigResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredPutRuntimeManagementConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredPutRuntimeManagementConfigRequestRequestTypeDef",
+    {
+        "FunctionName": str,
+        "UpdateRuntimeOn": UpdateRuntimeOnType,
+    },
+)
+_OptionalPutRuntimeManagementConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalPutRuntimeManagementConfigRequestRequestTypeDef",
+    {
+        "Qualifier": str,
+        "RuntimeVersionArn": str,
+    },
+    total=False,
+)
+
+class PutRuntimeManagementConfigRequestRequestTypeDef(
+    _RequiredPutRuntimeManagementConfigRequestRequestTypeDef,
+    _OptionalPutRuntimeManagementConfigRequestRequestTypeDef,
+):
+    pass
+
+PutRuntimeManagementConfigResponseTypeDef = TypedDict(
+    "PutRuntimeManagementConfigResponseTypeDef",
+    {
+        "UpdateRuntimeOn": UpdateRuntimeOnType,
+        "FunctionArn": str,
+        "RuntimeVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredRemoveLayerVersionPermissionRequestRequestTypeDef = TypedDict(
     "_RequiredRemoveLayerVersionPermissionRequestRequestTypeDef",
     {
@@ -1896,6 +2059,32 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RuntimeVersionConfigTypeDef = TypedDict(
+    "RuntimeVersionConfigTypeDef",
+    {
+        "RuntimeVersionArn": str,
+        "Error": "RuntimeVersionErrorTypeDef",
+    },
+    total=False,
+)
+
+RuntimeVersionErrorTypeDef = TypedDict(
+    "RuntimeVersionErrorTypeDef",
+    {
+        "ErrorCode": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+ScalingConfigTypeDef = TypedDict(
+    "ScalingConfigTypeDef",
+    {
+        "MaximumConcurrency": int,
+    },
+    total=False,
 )
 
 SelfManagedEventSourceTypeDef = TypedDict(
@@ -2047,6 +2236,8 @@ _OptionalUpdateEventSourceMappingRequestRequestTypeDef = TypedDict(
         "SourceAccessConfigurations": List["SourceAccessConfigurationTypeDef"],
         "TumblingWindowInSeconds": int,
         "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
+        "ScalingConfig": "ScalingConfigTypeDef",
+        "DocumentDBEventSourceConfig": "DocumentDBEventSourceConfigTypeDef",
     },
     total=False,
 )
@@ -2156,6 +2347,7 @@ _OptionalUpdateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
         "Qualifier": str,
         "AuthType": FunctionUrlAuthTypeType,
         "Cors": "CorsTypeDef",
+        "InvokeMode": InvokeModeType,
     },
     total=False,
 )
@@ -2175,6 +2367,7 @@ UpdateFunctionUrlConfigResponseTypeDef = TypedDict(
         "Cors": "CorsTypeDef",
         "CreationTime": str,
         "LastModifiedTime": str,
+        "InvokeMode": InvokeModeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

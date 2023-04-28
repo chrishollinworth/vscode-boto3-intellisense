@@ -29,8 +29,10 @@ __all__ = (
     "FraudsterRegistrationJobStatusType",
     "ListDomainsPaginatorName",
     "ListFraudsterRegistrationJobsPaginatorName",
+    "ListFraudstersPaginatorName",
     "ListSpeakerEnrollmentJobsPaginatorName",
     "ListSpeakersPaginatorName",
+    "ListWatchlistsPaginatorName",
     "ServerSideEncryptionUpdateStatusType",
     "SpeakerEnrollmentJobStatusType",
     "SpeakerStatusType",
@@ -57,8 +59,10 @@ FraudsterRegistrationJobStatusType = Literal[
 ]
 ListDomainsPaginatorName = Literal["list_domains"]
 ListFraudsterRegistrationJobsPaginatorName = Literal["list_fraudster_registration_jobs"]
+ListFraudstersPaginatorName = Literal["list_fraudsters"]
 ListSpeakerEnrollmentJobsPaginatorName = Literal["list_speaker_enrollment_jobs"]
 ListSpeakersPaginatorName = Literal["list_speakers"]
+ListWatchlistsPaginatorName = Literal["list_watchlists"]
 ServerSideEncryptionUpdateStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 SpeakerEnrollmentJobStatusType = Literal[
     "COMPLETED", "COMPLETED_WITH_ERRORS", "FAILED", "IN_PROGRESS", "SUBMITTED"

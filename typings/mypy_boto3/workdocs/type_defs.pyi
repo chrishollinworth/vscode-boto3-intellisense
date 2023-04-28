@@ -20,19 +20,28 @@ from .literals import (
     BooleanEnumTypeType,
     CommentStatusTypeType,
     CommentVisibilityTypeType,
+    ContentCategoryTypeType,
     DocumentSourceTypeType,
     DocumentStatusTypeType,
     DocumentThumbnailTypeType,
     FolderContentTypeType,
+    LanguageCodeTypeType,
     LocaleTypeType,
+    OrderByFieldTypeType,
     OrderTypeType,
+    PrincipalRoleTypeType,
     PrincipalTypeType,
     ResourceSortTypeType,
     ResourceStateTypeType,
     ResourceTypeType,
+    ResponseItemTypeType,
     RolePermissionTypeType,
     RoleTypeType,
+    SearchCollectionTypeType,
+    SearchQueryScopeTypeType,
+    SearchResourceTypeType,
     ShareStatusTypeType,
+    SortOrderType,
     StorageTypeType,
     SubscriptionProtocolTypeType,
     UserFilterTypeType,
@@ -69,6 +78,7 @@ __all__ = (
     "CreateNotificationSubscriptionResponseTypeDef",
     "CreateUserRequestRequestTypeDef",
     "CreateUserResponseTypeDef",
+    "DateRangeTypeTypeDef",
     "DeactivateUserRequestRequestTypeDef",
     "DeleteCommentRequestRequestTypeDef",
     "DeleteCustomMetadataRequestRequestTypeDef",
@@ -99,6 +109,7 @@ __all__ = (
     "DescribeUsersResponseTypeDef",
     "DocumentMetadataTypeDef",
     "DocumentVersionMetadataTypeDef",
+    "FiltersTypeDef",
     "FolderMetadataTypeDef",
     "GetCurrentUserRequestRequestTypeDef",
     "GetCurrentUserResponseTypeDef",
@@ -117,6 +128,7 @@ __all__ = (
     "GroupMetadataTypeDef",
     "InitiateDocumentVersionUploadRequestRequestTypeDef",
     "InitiateDocumentVersionUploadResponseTypeDef",
+    "LongRangeTypeTypeDef",
     "NotificationOptionsTypeDef",
     "PaginatorConfigTypeDef",
     "ParticipantsTypeDef",
@@ -127,8 +139,13 @@ __all__ = (
     "ResourceMetadataTypeDef",
     "ResourcePathComponentTypeDef",
     "ResourcePathTypeDef",
+    "ResponseItemTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreDocumentVersionsRequestRequestTypeDef",
+    "SearchPrincipalTypeTypeDef",
+    "SearchResourcesRequestRequestTypeDef",
+    "SearchResourcesResponseTypeDef",
+    "SearchSortResultTypeDef",
     "SharePrincipalTypeDef",
     "ShareResultTypeDef",
     "StorageRuleTypeTypeDef",
@@ -246,6 +263,7 @@ CommentMetadataTypeDef = TypedDict(
         "CreatedTimestamp": datetime,
         "CommentStatus": CommentStatusTypeType,
         "RecipientId": str,
+        "ContributorId": str,
     },
     total=False,
 )
@@ -427,6 +445,15 @@ CreateUserResponseTypeDef = TypedDict(
         "User": "UserTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DateRangeTypeTypeDef = TypedDict(
+    "DateRangeTypeTypeDef",
+    {
+        "StartValue": Union[datetime, str],
+        "EndValue": Union[datetime, str],
+    },
+    total=False,
 )
 
 _RequiredDeactivateUserRequestRequestTypeDef = TypedDict(
@@ -931,6 +958,23 @@ DocumentVersionMetadataTypeDef = TypedDict(
     total=False,
 )
 
+FiltersTypeDef = TypedDict(
+    "FiltersTypeDef",
+    {
+        "TextLocales": List[LanguageCodeTypeType],
+        "ContentCategories": List[ContentCategoryTypeType],
+        "ResourceTypes": List[SearchResourceTypeType],
+        "Labels": List[str],
+        "Principals": List["SearchPrincipalTypeTypeDef"],
+        "AncestorIds": List[str],
+        "SearchCollectionTypes": List[SearchCollectionTypeType],
+        "SizeRange": "LongRangeTypeTypeDef",
+        "CreatedRange": "DateRangeTypeTypeDef",
+        "ModifiedRange": "DateRangeTypeTypeDef",
+    },
+    total=False,
+)
+
 FolderMetadataTypeDef = TypedDict(
     "FolderMetadataTypeDef",
     {
@@ -1169,6 +1213,15 @@ InitiateDocumentVersionUploadResponseTypeDef = TypedDict(
     },
 )
 
+LongRangeTypeTypeDef = TypedDict(
+    "LongRangeTypeTypeDef",
+    {
+        "StartValue": int,
+        "EndValue": int,
+    },
+    total=False,
+)
+
 NotificationOptionsTypeDef = TypedDict(
     "NotificationOptionsTypeDef",
     {
@@ -1289,6 +1342,19 @@ ResourcePathTypeDef = TypedDict(
     total=False,
 )
 
+ResponseItemTypeDef = TypedDict(
+    "ResponseItemTypeDef",
+    {
+        "ResourceType": ResponseItemTypeType,
+        "WebUrl": str,
+        "DocumentMetadata": "DocumentMetadataTypeDef",
+        "FolderMetadata": "FolderMetadataTypeDef",
+        "CommentMetadata": "CommentMetadataTypeDef",
+        "DocumentVersionMetadata": "DocumentVersionMetadataTypeDef",
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1319,6 +1385,59 @@ class RestoreDocumentVersionsRequestRequestTypeDef(
     _OptionalRestoreDocumentVersionsRequestRequestTypeDef,
 ):
     pass
+
+_RequiredSearchPrincipalTypeTypeDef = TypedDict(
+    "_RequiredSearchPrincipalTypeTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalSearchPrincipalTypeTypeDef = TypedDict(
+    "_OptionalSearchPrincipalTypeTypeDef",
+    {
+        "Roles": List[PrincipalRoleTypeType],
+    },
+    total=False,
+)
+
+class SearchPrincipalTypeTypeDef(
+    _RequiredSearchPrincipalTypeTypeDef, _OptionalSearchPrincipalTypeTypeDef
+):
+    pass
+
+SearchResourcesRequestRequestTypeDef = TypedDict(
+    "SearchResourcesRequestRequestTypeDef",
+    {
+        "AuthenticationToken": str,
+        "QueryText": str,
+        "QueryScopes": List[SearchQueryScopeTypeType],
+        "OrganizationId": str,
+        "AdditionalResponseFields": List[Literal["WEBURL"]],
+        "Filters": "FiltersTypeDef",
+        "OrderBy": List["SearchSortResultTypeDef"],
+        "Limit": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+SearchResourcesResponseTypeDef = TypedDict(
+    "SearchResourcesResponseTypeDef",
+    {
+        "Items": List["ResponseItemTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SearchSortResultTypeDef = TypedDict(
+    "SearchSortResultTypeDef",
+    {
+        "Field": OrderByFieldTypeType,
+        "Order": SortOrderType,
+    },
+    total=False,
+)
 
 SharePrincipalTypeDef = TypedDict(
     "SharePrincipalTypeDef",

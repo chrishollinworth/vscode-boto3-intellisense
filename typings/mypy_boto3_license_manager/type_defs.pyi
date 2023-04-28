@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    ActivationOverrideBehaviorType,
     AllowedOperationType,
     CheckoutTypeType,
     EntitlementDataUnitType,
@@ -150,6 +151,7 @@ __all__ = (
     "ListUsageForLicenseConfigurationResponseTypeDef",
     "ManagedResourceSummaryTypeDef",
     "MetadataTypeDef",
+    "OptionsTypeDef",
     "OrganizationConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ProductInformationFilterTypeDef",
@@ -360,6 +362,7 @@ _OptionalCreateGrantVersionRequestRequestTypeDef = TypedDict(
         "Status": GrantStatusType,
         "StatusReason": str,
         "SourceVersion": str,
+        "Options": "OptionsTypeDef",
     },
     total=False,
 )
@@ -951,6 +954,7 @@ _OptionalGrantTypeDef = TypedDict(
     "_OptionalGrantTypeDef",
     {
         "StatusReason": str,
+        "Options": "OptionsTypeDef",
     },
     total=False,
 )
@@ -1567,6 +1571,14 @@ MetadataTypeDef = TypedDict(
     {
         "Name": str,
         "Value": str,
+    },
+    total=False,
+)
+
+OptionsTypeDef = TypedDict(
+    "OptionsTypeDef",
+    {
+        "ActivationOverrideBehavior": ActivationOverrideBehaviorType,
     },
     total=False,
 )

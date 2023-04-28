@@ -511,6 +511,7 @@ __all__ = (
     "LogTargetTypeDef",
     "LoggingOptionsPayloadTypeDef",
     "MachineLearningDetectionConfigTypeDef",
+    "MaintenanceWindowTypeDef",
     "ManagedJobTemplateSummaryTypeDef",
     "MetricDatumTypeDef",
     "MetricDimensionTypeDef",
@@ -566,6 +567,7 @@ __all__ = (
     "S3LocationTypeDef",
     "SalesforceActionTypeDef",
     "ScheduledAuditMetadataTypeDef",
+    "ScheduledJobRolloutTypeDef",
     "SchedulingConfigTypeDef",
     "SearchIndexRequestRequestTypeDef",
     "SearchIndexResponseTypeDef",
@@ -1451,13 +1453,25 @@ CloudwatchAlarmActionTypeDef = TypedDict(
     },
 )
 
-CloudwatchLogsActionTypeDef = TypedDict(
-    "CloudwatchLogsActionTypeDef",
+_RequiredCloudwatchLogsActionTypeDef = TypedDict(
+    "_RequiredCloudwatchLogsActionTypeDef",
     {
         "roleArn": str,
         "logGroupName": str,
     },
 )
+_OptionalCloudwatchLogsActionTypeDef = TypedDict(
+    "_OptionalCloudwatchLogsActionTypeDef",
+    {
+        "batchMode": bool,
+    },
+    total=False,
+)
+
+class CloudwatchLogsActionTypeDef(
+    _RequiredCloudwatchLogsActionTypeDef, _OptionalCloudwatchLogsActionTypeDef
+):
+    pass
 
 _RequiredCloudwatchMetricActionTypeDef = TypedDict(
     "_RequiredCloudwatchMetricActionTypeDef",
@@ -1875,6 +1889,7 @@ _OptionalCreateJobTemplateRequestRequestTypeDef = TypedDict(
         "timeoutConfig": "TimeoutConfigTypeDef",
         "tags": List["TagTypeDef"],
         "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
+        "maintenanceWindows": List["MaintenanceWindowTypeDef"],
     },
     total=False,
 )
@@ -3150,6 +3165,7 @@ DescribeJobTemplateResponseTypeDef = TypedDict(
         "abortConfig": "AbortConfigTypeDef",
         "timeoutConfig": "TimeoutConfigTypeDef",
         "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
+        "maintenanceWindows": List["MaintenanceWindowTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4262,6 +4278,7 @@ JobTypeDef = TypedDict(
         "documentParameters": Dict[str, str],
         "isConcurrent": bool,
         "schedulingConfig": "SchedulingConfigTypeDef",
+        "scheduledJobRollouts": List["ScheduledJobRolloutTypeDef"],
     },
     total=False,
 )
@@ -5805,6 +5822,14 @@ MachineLearningDetectionConfigTypeDef = TypedDict(
     },
 )
 
+MaintenanceWindowTypeDef = TypedDict(
+    "MaintenanceWindowTypeDef",
+    {
+        "startTime": str,
+        "durationInMinutes": int,
+    },
+)
+
 ManagedJobTemplateSummaryTypeDef = TypedDict(
     "ManagedJobTemplateSummaryTypeDef",
     {
@@ -6499,12 +6524,21 @@ ScheduledAuditMetadataTypeDef = TypedDict(
     total=False,
 )
 
+ScheduledJobRolloutTypeDef = TypedDict(
+    "ScheduledJobRolloutTypeDef",
+    {
+        "startTime": str,
+    },
+    total=False,
+)
+
 SchedulingConfigTypeDef = TypedDict(
     "SchedulingConfigTypeDef",
     {
         "startTime": str,
         "endTime": str,
         "endBehavior": JobEndBehaviorType,
+        "maintenanceWindows": List["MaintenanceWindowTypeDef"],
     },
     total=False,
 )

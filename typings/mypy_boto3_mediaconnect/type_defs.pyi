@@ -6,9 +6,9 @@ Type annotations for mediaconnect service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mediaconnect.type_defs import AddFlowMediaStreamsRequestRequestTypeDef
+    from mypy_boto3_mediaconnect.type_defs import AddBridgeFlowSourceRequestTypeDef
 
-    data: AddFlowMediaStreamsRequestRequestTypeDef = {...}
+    data: AddBridgeFlowSourceRequestTypeDef = {...}
     ```
 """
 import sys
@@ -16,11 +16,17 @@ from typing import Any, Dict, List
 
 from .literals import (
     AlgorithmType,
+    BridgePlacementType,
+    BridgeStateType,
     ColorimetryType,
+    ConnectionStatusType,
+    DesiredStateType,
     EncoderProfileType,
     EncodingNameType,
     EntitlementStatusType,
     FailoverModeType,
+    GatewayStateType,
+    InstanceStateType,
     KeyTypeType,
     MaintenanceDayType,
     MediaStreamTypeType,
@@ -45,6 +51,16 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AddBridgeFlowSourceRequestTypeDef",
+    "AddBridgeNetworkOutputRequestTypeDef",
+    "AddBridgeNetworkSourceRequestTypeDef",
+    "AddBridgeOutputRequestTypeDef",
+    "AddBridgeOutputsRequestRequestTypeDef",
+    "AddBridgeOutputsResponseTypeDef",
+    "AddBridgeSourceRequestTypeDef",
+    "AddBridgeSourcesRequestRequestTypeDef",
+    "AddBridgeSourcesResponseTypeDef",
+    "AddEgressGatewayBridgeRequestTypeDef",
     "AddFlowMediaStreamsRequestRequestTypeDef",
     "AddFlowMediaStreamsResponseTypeDef",
     "AddFlowOutputsRequestRequestTypeDef",
@@ -53,21 +69,46 @@ __all__ = (
     "AddFlowSourcesResponseTypeDef",
     "AddFlowVpcInterfacesRequestRequestTypeDef",
     "AddFlowVpcInterfacesResponseTypeDef",
+    "AddIngressGatewayBridgeRequestTypeDef",
     "AddMaintenanceTypeDef",
     "AddMediaStreamRequestTypeDef",
     "AddOutputRequestTypeDef",
+    "BridgeFlowOutputTypeDef",
+    "BridgeFlowSourceTypeDef",
+    "BridgeNetworkOutputTypeDef",
+    "BridgeNetworkSourceTypeDef",
+    "BridgeOutputTypeDef",
+    "BridgeSourceTypeDef",
+    "BridgeTypeDef",
+    "CreateBridgeRequestRequestTypeDef",
+    "CreateBridgeResponseTypeDef",
     "CreateFlowRequestRequestTypeDef",
     "CreateFlowResponseTypeDef",
+    "CreateGatewayRequestRequestTypeDef",
+    "CreateGatewayResponseTypeDef",
+    "DeleteBridgeRequestRequestTypeDef",
+    "DeleteBridgeResponseTypeDef",
     "DeleteFlowRequestRequestTypeDef",
     "DeleteFlowResponseTypeDef",
+    "DeleteGatewayRequestRequestTypeDef",
+    "DeleteGatewayResponseTypeDef",
+    "DeregisterGatewayInstanceRequestRequestTypeDef",
+    "DeregisterGatewayInstanceResponseTypeDef",
+    "DescribeBridgeRequestRequestTypeDef",
+    "DescribeBridgeResponseTypeDef",
     "DescribeFlowRequestRequestTypeDef",
     "DescribeFlowResponseTypeDef",
+    "DescribeGatewayInstanceRequestRequestTypeDef",
+    "DescribeGatewayInstanceResponseTypeDef",
+    "DescribeGatewayRequestRequestTypeDef",
+    "DescribeGatewayResponseTypeDef",
     "DescribeOfferingRequestRequestTypeDef",
     "DescribeOfferingResponseTypeDef",
     "DescribeReservationRequestRequestTypeDef",
     "DescribeReservationResponseTypeDef",
     "DestinationConfigurationRequestTypeDef",
     "DestinationConfigurationTypeDef",
+    "EgressGatewayBridgeTypeDef",
     "EncodingParametersRequestTypeDef",
     "EncodingParametersTypeDef",
     "EncryptionTypeDef",
@@ -76,25 +117,39 @@ __all__ = (
     "FlowTypeDef",
     "FmtpRequestTypeDef",
     "FmtpTypeDef",
+    "GatewayBridgeSourceTypeDef",
+    "GatewayInstanceTypeDef",
+    "GatewayNetworkTypeDef",
+    "GatewayTypeDef",
     "GrantEntitlementRequestTypeDef",
     "GrantFlowEntitlementsRequestRequestTypeDef",
     "GrantFlowEntitlementsResponseTypeDef",
+    "IngressGatewayBridgeTypeDef",
     "InputConfigurationRequestTypeDef",
     "InputConfigurationTypeDef",
     "InterfaceRequestTypeDef",
     "InterfaceTypeDef",
+    "ListBridgesRequestRequestTypeDef",
+    "ListBridgesResponseTypeDef",
     "ListEntitlementsRequestRequestTypeDef",
     "ListEntitlementsResponseTypeDef",
     "ListFlowsRequestRequestTypeDef",
     "ListFlowsResponseTypeDef",
+    "ListGatewayInstancesRequestRequestTypeDef",
+    "ListGatewayInstancesResponseTypeDef",
+    "ListGatewaysRequestRequestTypeDef",
+    "ListGatewaysResponseTypeDef",
     "ListOfferingsRequestRequestTypeDef",
     "ListOfferingsResponseTypeDef",
     "ListReservationsRequestRequestTypeDef",
     "ListReservationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListedBridgeTypeDef",
     "ListedEntitlementTypeDef",
     "ListedFlowTypeDef",
+    "ListedGatewayInstanceTypeDef",
+    "ListedGatewayTypeDef",
     "MaintenanceTypeDef",
     "MediaStreamAttributesRequestTypeDef",
     "MediaStreamAttributesTypeDef",
@@ -103,12 +158,17 @@ __all__ = (
     "MediaStreamSourceConfigurationRequestTypeDef",
     "MediaStreamSourceConfigurationTypeDef",
     "MediaStreamTypeDef",
+    "MessageDetailTypeDef",
     "MessagesTypeDef",
     "OfferingTypeDef",
     "OutputTypeDef",
     "PaginatorConfigTypeDef",
     "PurchaseOfferingRequestRequestTypeDef",
     "PurchaseOfferingResponseTypeDef",
+    "RemoveBridgeOutputRequestRequestTypeDef",
+    "RemoveBridgeOutputResponseTypeDef",
+    "RemoveBridgeSourceRequestRequestTypeDef",
+    "RemoveBridgeSourceResponseTypeDef",
     "RemoveFlowMediaStreamRequestRequestTypeDef",
     "RemoveFlowMediaStreamResponseTypeDef",
     "RemoveFlowOutputRequestRequestTypeDef",
@@ -122,6 +182,7 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RevokeFlowEntitlementRequestRequestTypeDef",
     "RevokeFlowEntitlementResponseTypeDef",
+    "SetGatewayBridgeSourceRequestTypeDef",
     "SetSourceRequestTypeDef",
     "SourcePriorityTypeDef",
     "SourceTypeDef",
@@ -132,6 +193,18 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TransportTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateBridgeFlowSourceRequestTypeDef",
+    "UpdateBridgeNetworkOutputRequestTypeDef",
+    "UpdateBridgeNetworkSourceRequestTypeDef",
+    "UpdateBridgeOutputRequestRequestTypeDef",
+    "UpdateBridgeOutputResponseTypeDef",
+    "UpdateBridgeRequestRequestTypeDef",
+    "UpdateBridgeResponseTypeDef",
+    "UpdateBridgeSourceRequestRequestTypeDef",
+    "UpdateBridgeSourceResponseTypeDef",
+    "UpdateBridgeStateRequestRequestTypeDef",
+    "UpdateBridgeStateResponseTypeDef",
+    "UpdateEgressGatewayBridgeRequestTypeDef",
     "UpdateEncryptionTypeDef",
     "UpdateFailoverConfigTypeDef",
     "UpdateFlowEntitlementRequestRequestTypeDef",
@@ -144,11 +217,116 @@ __all__ = (
     "UpdateFlowResponseTypeDef",
     "UpdateFlowSourceRequestRequestTypeDef",
     "UpdateFlowSourceResponseTypeDef",
+    "UpdateGatewayBridgeSourceRequestTypeDef",
+    "UpdateGatewayInstanceRequestRequestTypeDef",
+    "UpdateGatewayInstanceResponseTypeDef",
+    "UpdateIngressGatewayBridgeRequestTypeDef",
     "UpdateMaintenanceTypeDef",
     "VpcInterfaceAttachmentTypeDef",
     "VpcInterfaceRequestTypeDef",
     "VpcInterfaceTypeDef",
     "WaiterConfigTypeDef",
+)
+
+_RequiredAddBridgeFlowSourceRequestTypeDef = TypedDict(
+    "_RequiredAddBridgeFlowSourceRequestTypeDef",
+    {
+        "FlowArn": str,
+        "Name": str,
+    },
+)
+_OptionalAddBridgeFlowSourceRequestTypeDef = TypedDict(
+    "_OptionalAddBridgeFlowSourceRequestTypeDef",
+    {
+        "FlowVpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
+    },
+    total=False,
+)
+
+class AddBridgeFlowSourceRequestTypeDef(
+    _RequiredAddBridgeFlowSourceRequestTypeDef, _OptionalAddBridgeFlowSourceRequestTypeDef
+):
+    pass
+
+AddBridgeNetworkOutputRequestTypeDef = TypedDict(
+    "AddBridgeNetworkOutputRequestTypeDef",
+    {
+        "IpAddress": str,
+        "Name": str,
+        "NetworkName": str,
+        "Port": int,
+        "Protocol": ProtocolType,
+        "Ttl": int,
+    },
+)
+
+AddBridgeNetworkSourceRequestTypeDef = TypedDict(
+    "AddBridgeNetworkSourceRequestTypeDef",
+    {
+        "MulticastIp": str,
+        "Name": str,
+        "NetworkName": str,
+        "Port": int,
+        "Protocol": ProtocolType,
+    },
+)
+
+AddBridgeOutputRequestTypeDef = TypedDict(
+    "AddBridgeOutputRequestTypeDef",
+    {
+        "NetworkOutput": "AddBridgeNetworkOutputRequestTypeDef",
+    },
+    total=False,
+)
+
+AddBridgeOutputsRequestRequestTypeDef = TypedDict(
+    "AddBridgeOutputsRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+        "Outputs": List["AddBridgeOutputRequestTypeDef"],
+    },
+)
+
+AddBridgeOutputsResponseTypeDef = TypedDict(
+    "AddBridgeOutputsResponseTypeDef",
+    {
+        "BridgeArn": str,
+        "Outputs": List["BridgeOutputTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AddBridgeSourceRequestTypeDef = TypedDict(
+    "AddBridgeSourceRequestTypeDef",
+    {
+        "FlowSource": "AddBridgeFlowSourceRequestTypeDef",
+        "NetworkSource": "AddBridgeNetworkSourceRequestTypeDef",
+    },
+    total=False,
+)
+
+AddBridgeSourcesRequestRequestTypeDef = TypedDict(
+    "AddBridgeSourcesRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+        "Sources": List["AddBridgeSourceRequestTypeDef"],
+    },
+)
+
+AddBridgeSourcesResponseTypeDef = TypedDict(
+    "AddBridgeSourcesResponseTypeDef",
+    {
+        "BridgeArn": str,
+        "Sources": List["BridgeSourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AddEgressGatewayBridgeRequestTypeDef = TypedDict(
+    "AddEgressGatewayBridgeRequestTypeDef",
+    {
+        "MaxBitrate": int,
+    },
 )
 
 AddFlowMediaStreamsRequestRequestTypeDef = TypedDict(
@@ -219,6 +397,14 @@ AddFlowVpcInterfacesResponseTypeDef = TypedDict(
     },
 )
 
+AddIngressGatewayBridgeRequestTypeDef = TypedDict(
+    "AddIngressGatewayBridgeRequestTypeDef",
+    {
+        "MaxBitrate": int,
+        "MaxOutputs": int,
+    },
+)
+
 AddMaintenanceTypeDef = TypedDict(
     "AddMaintenanceTypeDef",
     {
@@ -281,6 +467,132 @@ _OptionalAddOutputRequestTypeDef = TypedDict(
 class AddOutputRequestTypeDef(_RequiredAddOutputRequestTypeDef, _OptionalAddOutputRequestTypeDef):
     pass
 
+BridgeFlowOutputTypeDef = TypedDict(
+    "BridgeFlowOutputTypeDef",
+    {
+        "FlowArn": str,
+        "FlowSourceArn": str,
+        "Name": str,
+    },
+)
+
+_RequiredBridgeFlowSourceTypeDef = TypedDict(
+    "_RequiredBridgeFlowSourceTypeDef",
+    {
+        "FlowArn": str,
+        "Name": str,
+    },
+)
+_OptionalBridgeFlowSourceTypeDef = TypedDict(
+    "_OptionalBridgeFlowSourceTypeDef",
+    {
+        "FlowVpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
+        "OutputArn": str,
+    },
+    total=False,
+)
+
+class BridgeFlowSourceTypeDef(_RequiredBridgeFlowSourceTypeDef, _OptionalBridgeFlowSourceTypeDef):
+    pass
+
+BridgeNetworkOutputTypeDef = TypedDict(
+    "BridgeNetworkOutputTypeDef",
+    {
+        "IpAddress": str,
+        "Name": str,
+        "NetworkName": str,
+        "Port": int,
+        "Protocol": ProtocolType,
+        "Ttl": int,
+    },
+)
+
+BridgeNetworkSourceTypeDef = TypedDict(
+    "BridgeNetworkSourceTypeDef",
+    {
+        "MulticastIp": str,
+        "Name": str,
+        "NetworkName": str,
+        "Port": int,
+        "Protocol": ProtocolType,
+    },
+)
+
+BridgeOutputTypeDef = TypedDict(
+    "BridgeOutputTypeDef",
+    {
+        "FlowOutput": "BridgeFlowOutputTypeDef",
+        "NetworkOutput": "BridgeNetworkOutputTypeDef",
+    },
+    total=False,
+)
+
+BridgeSourceTypeDef = TypedDict(
+    "BridgeSourceTypeDef",
+    {
+        "FlowSource": "BridgeFlowSourceTypeDef",
+        "NetworkSource": "BridgeNetworkSourceTypeDef",
+    },
+    total=False,
+)
+
+_RequiredBridgeTypeDef = TypedDict(
+    "_RequiredBridgeTypeDef",
+    {
+        "BridgeArn": str,
+        "BridgeState": BridgeStateType,
+        "Name": str,
+        "PlacementArn": str,
+    },
+)
+_OptionalBridgeTypeDef = TypedDict(
+    "_OptionalBridgeTypeDef",
+    {
+        "BridgeMessages": List["MessageDetailTypeDef"],
+        "EgressGatewayBridge": "EgressGatewayBridgeTypeDef",
+        "IngressGatewayBridge": "IngressGatewayBridgeTypeDef",
+        "Outputs": List["BridgeOutputTypeDef"],
+        "SourceFailoverConfig": "FailoverConfigTypeDef",
+        "Sources": List["BridgeSourceTypeDef"],
+    },
+    total=False,
+)
+
+class BridgeTypeDef(_RequiredBridgeTypeDef, _OptionalBridgeTypeDef):
+    pass
+
+_RequiredCreateBridgeRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBridgeRequestRequestTypeDef",
+    {
+        "Name": str,
+        "PlacementArn": str,
+        "Sources": List["AddBridgeSourceRequestTypeDef"],
+    },
+)
+_OptionalCreateBridgeRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBridgeRequestRequestTypeDef",
+    {
+        "EgressGatewayBridge": "AddEgressGatewayBridgeRequestTypeDef",
+        "IngressGatewayBridge": "AddIngressGatewayBridgeRequestTypeDef",
+        "Outputs": List["AddBridgeOutputRequestTypeDef"],
+        "SourceFailoverConfig": "FailoverConfigTypeDef",
+    },
+    total=False,
+)
+
+class CreateBridgeRequestRequestTypeDef(
+    _RequiredCreateBridgeRequestRequestTypeDef, _OptionalCreateBridgeRequestRequestTypeDef
+):
+    pass
+
+CreateBridgeResponseTypeDef = TypedDict(
+    "CreateBridgeResponseTypeDef",
+    {
+        "Bridge": "BridgeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateFlowRequestRequestTypeDef = TypedDict(
     "_RequiredCreateFlowRequestRequestTypeDef",
     {
@@ -316,6 +628,38 @@ CreateFlowResponseTypeDef = TypedDict(
     },
 )
 
+CreateGatewayRequestRequestTypeDef = TypedDict(
+    "CreateGatewayRequestRequestTypeDef",
+    {
+        "EgressCidrBlocks": List[str],
+        "Name": str,
+        "Networks": List["GatewayNetworkTypeDef"],
+    },
+)
+
+CreateGatewayResponseTypeDef = TypedDict(
+    "CreateGatewayResponseTypeDef",
+    {
+        "Gateway": "GatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteBridgeRequestRequestTypeDef = TypedDict(
+    "DeleteBridgeRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+    },
+)
+
+DeleteBridgeResponseTypeDef = TypedDict(
+    "DeleteBridgeResponseTypeDef",
+    {
+        "BridgeArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteFlowRequestRequestTypeDef = TypedDict(
     "DeleteFlowRequestRequestTypeDef",
     {
@@ -332,6 +676,65 @@ DeleteFlowResponseTypeDef = TypedDict(
     },
 )
 
+DeleteGatewayRequestRequestTypeDef = TypedDict(
+    "DeleteGatewayRequestRequestTypeDef",
+    {
+        "GatewayArn": str,
+    },
+)
+
+DeleteGatewayResponseTypeDef = TypedDict(
+    "DeleteGatewayResponseTypeDef",
+    {
+        "GatewayArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeregisterGatewayInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredDeregisterGatewayInstanceRequestRequestTypeDef",
+    {
+        "GatewayInstanceArn": str,
+    },
+)
+_OptionalDeregisterGatewayInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalDeregisterGatewayInstanceRequestRequestTypeDef",
+    {
+        "Force": bool,
+    },
+    total=False,
+)
+
+class DeregisterGatewayInstanceRequestRequestTypeDef(
+    _RequiredDeregisterGatewayInstanceRequestRequestTypeDef,
+    _OptionalDeregisterGatewayInstanceRequestRequestTypeDef,
+):
+    pass
+
+DeregisterGatewayInstanceResponseTypeDef = TypedDict(
+    "DeregisterGatewayInstanceResponseTypeDef",
+    {
+        "GatewayInstanceArn": str,
+        "InstanceState": InstanceStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeBridgeRequestRequestTypeDef = TypedDict(
+    "DescribeBridgeRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+    },
+)
+
+DescribeBridgeResponseTypeDef = TypedDict(
+    "DescribeBridgeResponseTypeDef",
+    {
+        "Bridge": "BridgeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeFlowRequestRequestTypeDef = TypedDict(
     "DescribeFlowRequestRequestTypeDef",
     {
@@ -344,6 +747,36 @@ DescribeFlowResponseTypeDef = TypedDict(
     {
         "Flow": "FlowTypeDef",
         "Messages": "MessagesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGatewayInstanceRequestRequestTypeDef = TypedDict(
+    "DescribeGatewayInstanceRequestRequestTypeDef",
+    {
+        "GatewayInstanceArn": str,
+    },
+)
+
+DescribeGatewayInstanceResponseTypeDef = TypedDict(
+    "DescribeGatewayInstanceResponseTypeDef",
+    {
+        "GatewayInstance": "GatewayInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGatewayRequestRequestTypeDef = TypedDict(
+    "DescribeGatewayRequestRequestTypeDef",
+    {
+        "GatewayArn": str,
+    },
+)
+
+DescribeGatewayResponseTypeDef = TypedDict(
+    "DescribeGatewayResponseTypeDef",
+    {
+        "Gateway": "GatewayTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -396,6 +829,25 @@ DestinationConfigurationTypeDef = TypedDict(
         "OutboundIp": str,
     },
 )
+
+_RequiredEgressGatewayBridgeTypeDef = TypedDict(
+    "_RequiredEgressGatewayBridgeTypeDef",
+    {
+        "MaxBitrate": int,
+    },
+)
+_OptionalEgressGatewayBridgeTypeDef = TypedDict(
+    "_OptionalEgressGatewayBridgeTypeDef",
+    {
+        "InstanceId": str,
+    },
+    total=False,
+)
+
+class EgressGatewayBridgeTypeDef(
+    _RequiredEgressGatewayBridgeTypeDef, _OptionalEgressGatewayBridgeTypeDef
+):
+    pass
 
 EncodingParametersRequestTypeDef = TypedDict(
     "EncodingParametersRequestTypeDef",
@@ -527,6 +979,77 @@ FmtpTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredGatewayBridgeSourceTypeDef = TypedDict(
+    "_RequiredGatewayBridgeSourceTypeDef",
+    {
+        "BridgeArn": str,
+    },
+)
+_OptionalGatewayBridgeSourceTypeDef = TypedDict(
+    "_OptionalGatewayBridgeSourceTypeDef",
+    {
+        "VpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
+    },
+    total=False,
+)
+
+class GatewayBridgeSourceTypeDef(
+    _RequiredGatewayBridgeSourceTypeDef, _OptionalGatewayBridgeSourceTypeDef
+):
+    pass
+
+_RequiredGatewayInstanceTypeDef = TypedDict(
+    "_RequiredGatewayInstanceTypeDef",
+    {
+        "BridgePlacement": BridgePlacementType,
+        "ConnectionStatus": ConnectionStatusType,
+        "GatewayArn": str,
+        "GatewayInstanceArn": str,
+        "InstanceId": str,
+        "InstanceState": InstanceStateType,
+        "RunningBridgeCount": int,
+    },
+)
+_OptionalGatewayInstanceTypeDef = TypedDict(
+    "_OptionalGatewayInstanceTypeDef",
+    {
+        "InstanceMessages": List["MessageDetailTypeDef"],
+    },
+    total=False,
+)
+
+class GatewayInstanceTypeDef(_RequiredGatewayInstanceTypeDef, _OptionalGatewayInstanceTypeDef):
+    pass
+
+GatewayNetworkTypeDef = TypedDict(
+    "GatewayNetworkTypeDef",
+    {
+        "CidrBlock": str,
+        "Name": str,
+    },
+)
+
+_RequiredGatewayTypeDef = TypedDict(
+    "_RequiredGatewayTypeDef",
+    {
+        "EgressCidrBlocks": List[str],
+        "GatewayArn": str,
+        "Name": str,
+        "Networks": List["GatewayNetworkTypeDef"],
+    },
+)
+_OptionalGatewayTypeDef = TypedDict(
+    "_OptionalGatewayTypeDef",
+    {
+        "GatewayMessages": List["MessageDetailTypeDef"],
+        "GatewayState": GatewayStateType,
+    },
+    total=False,
+)
+
+class GatewayTypeDef(_RequiredGatewayTypeDef, _OptionalGatewayTypeDef):
+    pass
+
 _RequiredGrantEntitlementRequestTypeDef = TypedDict(
     "_RequiredGrantEntitlementRequestTypeDef",
     {
@@ -567,6 +1090,26 @@ GrantFlowEntitlementsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredIngressGatewayBridgeTypeDef = TypedDict(
+    "_RequiredIngressGatewayBridgeTypeDef",
+    {
+        "MaxBitrate": int,
+        "MaxOutputs": int,
+    },
+)
+_OptionalIngressGatewayBridgeTypeDef = TypedDict(
+    "_OptionalIngressGatewayBridgeTypeDef",
+    {
+        "InstanceId": str,
+    },
+    total=False,
+)
+
+class IngressGatewayBridgeTypeDef(
+    _RequiredIngressGatewayBridgeTypeDef, _OptionalIngressGatewayBridgeTypeDef
+):
+    pass
+
 InputConfigurationRequestTypeDef = TypedDict(
     "InputConfigurationRequestTypeDef",
     {
@@ -595,6 +1138,25 @@ InterfaceTypeDef = TypedDict(
     "InterfaceTypeDef",
     {
         "Name": str,
+    },
+)
+
+ListBridgesRequestRequestTypeDef = TypedDict(
+    "ListBridgesRequestRequestTypeDef",
+    {
+        "FilterArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListBridgesResponseTypeDef = TypedDict(
+    "ListBridgesResponseTypeDef",
+    {
+        "Bridges": List["ListedBridgeTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -629,6 +1191,43 @@ ListFlowsResponseTypeDef = TypedDict(
     "ListFlowsResponseTypeDef",
     {
         "Flows": List["ListedFlowTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListGatewayInstancesRequestRequestTypeDef = TypedDict(
+    "ListGatewayInstancesRequestRequestTypeDef",
+    {
+        "FilterArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListGatewayInstancesResponseTypeDef = TypedDict(
+    "ListGatewayInstancesResponseTypeDef",
+    {
+        "Instances": List["ListedGatewayInstanceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListGatewaysRequestRequestTypeDef = TypedDict(
+    "ListGatewaysRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListGatewaysResponseTypeDef = TypedDict(
+    "ListGatewaysResponseTypeDef",
+    {
+        "Gateways": List["ListedGatewayTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -685,6 +1284,17 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListedBridgeTypeDef = TypedDict(
+    "ListedBridgeTypeDef",
+    {
+        "BridgeArn": str,
+        "BridgeState": BridgeStateType,
+        "BridgeType": str,
+        "Name": str,
+        "PlacementArn": str,
+    },
+)
+
 _RequiredListedEntitlementTypeDef = TypedDict(
     "_RequiredListedEntitlementTypeDef",
     {
@@ -726,6 +1336,36 @@ _OptionalListedFlowTypeDef = TypedDict(
 
 class ListedFlowTypeDef(_RequiredListedFlowTypeDef, _OptionalListedFlowTypeDef):
     pass
+
+_RequiredListedGatewayInstanceTypeDef = TypedDict(
+    "_RequiredListedGatewayInstanceTypeDef",
+    {
+        "GatewayArn": str,
+        "GatewayInstanceArn": str,
+        "InstanceId": str,
+    },
+)
+_OptionalListedGatewayInstanceTypeDef = TypedDict(
+    "_OptionalListedGatewayInstanceTypeDef",
+    {
+        "InstanceState": InstanceStateType,
+    },
+    total=False,
+)
+
+class ListedGatewayInstanceTypeDef(
+    _RequiredListedGatewayInstanceTypeDef, _OptionalListedGatewayInstanceTypeDef
+):
+    pass
+
+ListedGatewayTypeDef = TypedDict(
+    "ListedGatewayTypeDef",
+    {
+        "GatewayArn": str,
+        "GatewayState": GatewayStateType,
+        "Name": str,
+    },
+)
 
 MaintenanceTypeDef = TypedDict(
     "MaintenanceTypeDef",
@@ -873,6 +1513,24 @@ _OptionalMediaStreamTypeDef = TypedDict(
 class MediaStreamTypeDef(_RequiredMediaStreamTypeDef, _OptionalMediaStreamTypeDef):
     pass
 
+_RequiredMessageDetailTypeDef = TypedDict(
+    "_RequiredMessageDetailTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+)
+_OptionalMessageDetailTypeDef = TypedDict(
+    "_OptionalMessageDetailTypeDef",
+    {
+        "ResourceName": str,
+    },
+    total=False,
+)
+
+class MessageDetailTypeDef(_RequiredMessageDetailTypeDef, _OptionalMessageDetailTypeDef):
+    pass
+
 MessagesTypeDef = TypedDict(
     "MessagesTypeDef",
     {
@@ -915,6 +1573,8 @@ _OptionalOutputTypeDef = TypedDict(
         "Port": int,
         "Transport": "TransportTypeDef",
         "VpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
+        "BridgeArn": str,
+        "BridgePorts": List[int],
     },
     total=False,
 )
@@ -945,6 +1605,40 @@ PurchaseOfferingResponseTypeDef = TypedDict(
     "PurchaseOfferingResponseTypeDef",
     {
         "Reservation": "ReservationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RemoveBridgeOutputRequestRequestTypeDef = TypedDict(
+    "RemoveBridgeOutputRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+        "OutputName": str,
+    },
+)
+
+RemoveBridgeOutputResponseTypeDef = TypedDict(
+    "RemoveBridgeOutputResponseTypeDef",
+    {
+        "BridgeArn": str,
+        "OutputName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RemoveBridgeSourceRequestRequestTypeDef = TypedDict(
+    "RemoveBridgeSourceRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+        "SourceName": str,
+    },
+)
+
+RemoveBridgeSourceResponseTypeDef = TypedDict(
+    "RemoveBridgeSourceResponseTypeDef",
+    {
+        "BridgeArn": str,
+        "SourceName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1084,6 +1778,25 @@ RevokeFlowEntitlementResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredSetGatewayBridgeSourceRequestTypeDef = TypedDict(
+    "_RequiredSetGatewayBridgeSourceRequestTypeDef",
+    {
+        "BridgeArn": str,
+    },
+)
+_OptionalSetGatewayBridgeSourceRequestTypeDef = TypedDict(
+    "_OptionalSetGatewayBridgeSourceRequestTypeDef",
+    {
+        "VpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
+    },
+    total=False,
+)
+
+class SetGatewayBridgeSourceRequestTypeDef(
+    _RequiredSetGatewayBridgeSourceRequestTypeDef, _OptionalSetGatewayBridgeSourceRequestTypeDef
+):
+    pass
+
 SetSourceRequestTypeDef = TypedDict(
     "SetSourceRequestTypeDef",
     {
@@ -1105,6 +1818,7 @@ SetSourceRequestTypeDef = TypedDict(
         "StreamId": str,
         "VpcInterfaceName": str,
         "WhitelistCidr": str,
+        "GatewayBridgeSource": "SetGatewayBridgeSourceRequestTypeDef",
     },
     total=False,
 )
@@ -1139,6 +1853,7 @@ _OptionalSourceTypeDef = TypedDict(
         "Transport": "TransportTypeDef",
         "VpcInterfaceName": str,
         "WhitelistCidr": str,
+        "GatewayBridgeSource": "GatewayBridgeSourceTypeDef",
     },
     total=False,
 )
@@ -1220,6 +1935,153 @@ UntagResourceRequestRequestTypeDef = TypedDict(
         "ResourceArn": str,
         "TagKeys": List[str],
     },
+)
+
+UpdateBridgeFlowSourceRequestTypeDef = TypedDict(
+    "UpdateBridgeFlowSourceRequestTypeDef",
+    {
+        "FlowArn": str,
+        "FlowVpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
+    },
+    total=False,
+)
+
+UpdateBridgeNetworkOutputRequestTypeDef = TypedDict(
+    "UpdateBridgeNetworkOutputRequestTypeDef",
+    {
+        "IpAddress": str,
+        "NetworkName": str,
+        "Port": int,
+        "Protocol": ProtocolType,
+        "Ttl": int,
+    },
+    total=False,
+)
+
+UpdateBridgeNetworkSourceRequestTypeDef = TypedDict(
+    "UpdateBridgeNetworkSourceRequestTypeDef",
+    {
+        "MulticastIp": str,
+        "NetworkName": str,
+        "Port": int,
+        "Protocol": ProtocolType,
+    },
+    total=False,
+)
+
+_RequiredUpdateBridgeOutputRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateBridgeOutputRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+        "OutputName": str,
+    },
+)
+_OptionalUpdateBridgeOutputRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateBridgeOutputRequestRequestTypeDef",
+    {
+        "NetworkOutput": "UpdateBridgeNetworkOutputRequestTypeDef",
+    },
+    total=False,
+)
+
+class UpdateBridgeOutputRequestRequestTypeDef(
+    _RequiredUpdateBridgeOutputRequestRequestTypeDef,
+    _OptionalUpdateBridgeOutputRequestRequestTypeDef,
+):
+    pass
+
+UpdateBridgeOutputResponseTypeDef = TypedDict(
+    "UpdateBridgeOutputResponseTypeDef",
+    {
+        "BridgeArn": str,
+        "Output": "BridgeOutputTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateBridgeRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateBridgeRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+    },
+)
+_OptionalUpdateBridgeRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateBridgeRequestRequestTypeDef",
+    {
+        "EgressGatewayBridge": "UpdateEgressGatewayBridgeRequestTypeDef",
+        "IngressGatewayBridge": "UpdateIngressGatewayBridgeRequestTypeDef",
+        "SourceFailoverConfig": "UpdateFailoverConfigTypeDef",
+    },
+    total=False,
+)
+
+class UpdateBridgeRequestRequestTypeDef(
+    _RequiredUpdateBridgeRequestRequestTypeDef, _OptionalUpdateBridgeRequestRequestTypeDef
+):
+    pass
+
+UpdateBridgeResponseTypeDef = TypedDict(
+    "UpdateBridgeResponseTypeDef",
+    {
+        "Bridge": "BridgeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateBridgeSourceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateBridgeSourceRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+        "SourceName": str,
+    },
+)
+_OptionalUpdateBridgeSourceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateBridgeSourceRequestRequestTypeDef",
+    {
+        "FlowSource": "UpdateBridgeFlowSourceRequestTypeDef",
+        "NetworkSource": "UpdateBridgeNetworkSourceRequestTypeDef",
+    },
+    total=False,
+)
+
+class UpdateBridgeSourceRequestRequestTypeDef(
+    _RequiredUpdateBridgeSourceRequestRequestTypeDef,
+    _OptionalUpdateBridgeSourceRequestRequestTypeDef,
+):
+    pass
+
+UpdateBridgeSourceResponseTypeDef = TypedDict(
+    "UpdateBridgeSourceResponseTypeDef",
+    {
+        "BridgeArn": str,
+        "Source": "BridgeSourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateBridgeStateRequestRequestTypeDef = TypedDict(
+    "UpdateBridgeStateRequestRequestTypeDef",
+    {
+        "BridgeArn": str,
+        "DesiredState": DesiredStateType,
+    },
+)
+
+UpdateBridgeStateResponseTypeDef = TypedDict(
+    "UpdateBridgeStateResponseTypeDef",
+    {
+        "BridgeArn": str,
+        "DesiredState": DesiredStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateEgressGatewayBridgeRequestTypeDef = TypedDict(
+    "UpdateEgressGatewayBridgeRequestTypeDef",
+    {
+        "MaxBitrate": int,
+    },
+    total=False,
 )
 
 UpdateEncryptionTypeDef = TypedDict(
@@ -1414,6 +2276,7 @@ _OptionalUpdateFlowSourceRequestRequestTypeDef = TypedDict(
         "StreamId": str,
         "VpcInterfaceName": str,
         "WhitelistCidr": str,
+        "GatewayBridgeSource": "UpdateGatewayBridgeSourceRequestTypeDef",
     },
     total=False,
 )
@@ -1430,6 +2293,53 @@ UpdateFlowSourceResponseTypeDef = TypedDict(
         "Source": "SourceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+UpdateGatewayBridgeSourceRequestTypeDef = TypedDict(
+    "UpdateGatewayBridgeSourceRequestTypeDef",
+    {
+        "BridgeArn": str,
+        "VpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
+    },
+    total=False,
+)
+
+_RequiredUpdateGatewayInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateGatewayInstanceRequestRequestTypeDef",
+    {
+        "GatewayInstanceArn": str,
+    },
+)
+_OptionalUpdateGatewayInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateGatewayInstanceRequestRequestTypeDef",
+    {
+        "BridgePlacement": BridgePlacementType,
+    },
+    total=False,
+)
+
+class UpdateGatewayInstanceRequestRequestTypeDef(
+    _RequiredUpdateGatewayInstanceRequestRequestTypeDef,
+    _OptionalUpdateGatewayInstanceRequestRequestTypeDef,
+):
+    pass
+
+UpdateGatewayInstanceResponseTypeDef = TypedDict(
+    "UpdateGatewayInstanceResponseTypeDef",
+    {
+        "BridgePlacement": BridgePlacementType,
+        "GatewayInstanceArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateIngressGatewayBridgeRequestTypeDef = TypedDict(
+    "UpdateIngressGatewayBridgeRequestTypeDef",
+    {
+        "MaxBitrate": int,
+        "MaxOutputs": int,
+    },
+    total=False,
 )
 
 UpdateMaintenanceTypeDef = TypedDict(

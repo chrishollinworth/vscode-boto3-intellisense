@@ -417,6 +417,8 @@ _OptionalCreatePricingRuleInputRequestTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "BillingEntity": str,
         "Tiering": "CreateTieringInputTypeDef",
+        "UsageType": str,
+        "Operation": str,
     },
     total=False,
 )
@@ -539,6 +541,8 @@ CustomLineItemVersionListElementTypeDef = TypedDict(
         "AssociationSize": int,
         "StartBillingPeriod": str,
         "EndBillingPeriod": str,
+        "Arn": str,
+        "StartTime": int,
     },
     total=False,
 )
@@ -669,6 +673,7 @@ ListAccountAssociationsFilterTypeDef = TypedDict(
     {
         "Association": str,
         "AccountId": str,
+        "AccountIds": List[str],
     },
     total=False,
 )
@@ -725,6 +730,7 @@ ListBillingGroupsFilterTypeDef = TypedDict(
     {
         "Arns": List[str],
         "PricingPlan": str,
+        "Statuses": List[BillingGroupStatusType],
     },
     total=False,
 )
@@ -1091,6 +1097,8 @@ PricingRuleListElementTypeDef = TypedDict(
         "LastModifiedTime": int,
         "BillingEntity": str,
         "Tiering": "TieringTypeDef",
+        "UsageType": str,
+        "Operation": str,
     },
     total=False,
 )
@@ -1303,6 +1311,8 @@ UpdatePricingRuleOutputTypeDef = TypedDict(
         "LastModifiedTime": int,
         "BillingEntity": str,
         "Tiering": "UpdateTieringInputTypeDef",
+        "UsageType": str,
+        "Operation": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

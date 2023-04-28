@@ -115,6 +115,7 @@ ChannelTypeDef = TypedDict(
     "ChannelTypeDef",
     {
         "Arn": str,
+        "CreatedAt": str,
         "Description": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
@@ -192,6 +193,7 @@ ConfigureLogsResponseTypeDef = TypedDict(
     "ConfigureLogsResponseTypeDef",
     {
         "Arn": str,
+        "CreatedAt": str,
         "Description": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
@@ -226,6 +228,7 @@ CreateChannelResponseTypeDef = TypedDict(
     "CreateChannelResponseTypeDef",
     {
         "Arn": str,
+        "CreatedAt": str,
         "Description": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
@@ -302,6 +305,7 @@ CreateOriginEndpointResponseTypeDef = TypedDict(
         "Authorization": "AuthorizationTypeDef",
         "ChannelId": str,
         "CmafPackage": "CmafPackageTypeDef",
+        "CreatedAt": str,
         "DashPackage": "DashPackageTypeDef",
         "Description": str,
         "HlsPackage": "HlsPackageTypeDef",
@@ -383,6 +387,7 @@ DescribeChannelResponseTypeDef = TypedDict(
     "DescribeChannelResponseTypeDef",
     {
         "Arn": str,
+        "CreatedAt": str,
         "Description": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
@@ -430,6 +435,7 @@ DescribeOriginEndpointResponseTypeDef = TypedDict(
         "Authorization": "AuthorizationTypeDef",
         "ChannelId": str,
         "CmafPackage": "CmafPackageTypeDef",
+        "CreatedAt": str,
         "DashPackage": "DashPackageTypeDef",
         "Description": str,
         "HlsPackage": "HlsPackageTypeDef",
@@ -693,6 +699,7 @@ OriginEndpointTypeDef = TypedDict(
         "Authorization": "AuthorizationTypeDef",
         "ChannelId": str,
         "CmafPackage": "CmafPackageTypeDef",
+        "CreatedAt": str,
         "DashPackage": "DashPackageTypeDef",
         "Description": str,
         "HlsPackage": "HlsPackageTypeDef",
@@ -741,6 +748,7 @@ RotateChannelCredentialsResponseTypeDef = TypedDict(
     "RotateChannelCredentialsResponseTypeDef",
     {
         "Arn": str,
+        "CreatedAt": str,
         "Description": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
@@ -763,6 +771,7 @@ RotateIngestEndpointCredentialsResponseTypeDef = TypedDict(
     "RotateIngestEndpointCredentialsResponseTypeDef",
     {
         "Arn": str,
+        "CreatedAt": str,
         "Description": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
@@ -852,6 +861,7 @@ UpdateChannelResponseTypeDef = TypedDict(
     "UpdateChannelResponseTypeDef",
     {
         "Arn": str,
+        "CreatedAt": str,
         "Description": str,
         "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
@@ -899,6 +909,7 @@ UpdateOriginEndpointResponseTypeDef = TypedDict(
         "Authorization": "AuthorizationTypeDef",
         "ChannelId": str,
         "CmafPackage": "CmafPackageTypeDef",
+        "CreatedAt": str,
         "DashPackage": "DashPackageTypeDef",
         "Description": str,
         "HlsPackage": "HlsPackageTypeDef",

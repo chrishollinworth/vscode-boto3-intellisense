@@ -17,10 +17,12 @@ from typing import Any, Dict, List
 
 from .literals import (
     AdminStatusType,
+    AssociationStatusType,
     AutoEnableStandardsType,
     AwsIamAccessKeyStatusType,
     AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType,
     ComplianceStatusType,
+    ControlFindingGeneratorType,
     ControlStatusType,
     IntegrationTypeType,
     MalwareStateType,
@@ -29,6 +31,7 @@ from .literals import (
     NetworkDirectionType,
     PartitionType,
     RecordStateType,
+    RegionAvailabilityStatusType,
     SeverityLabelType,
     SeverityRatingType,
     SortOrderType,
@@ -37,6 +40,7 @@ from .literals import (
     StringFilterComparisonType,
     ThreatIntelIndicatorCategoryType,
     ThreatIntelIndicatorTypeType,
+    UnprocessedErrorCodeType,
     VerificationStateType,
     VulnerabilityFixAvailableType,
     WorkflowStateType,
@@ -64,6 +68,9 @@ __all__ = (
     "ActionTypeDef",
     "AdjustmentTypeDef",
     "AdminAccountTypeDef",
+    "AssociatedStandardTypeDef",
+    "AssociationSetDetailsTypeDef",
+    "AssociationStateDetailsTypeDef",
     "AvailabilityZoneTypeDef",
     "AwsApiCallActionDomainDetailsTypeDef",
     "AwsApiCallActionTypeDef",
@@ -157,6 +164,7 @@ __all__ = (
     "AwsEc2EipDetailsTypeDef",
     "AwsEc2InstanceDetailsTypeDef",
     "AwsEc2InstanceMetadataOptionsTypeDef",
+    "AwsEc2InstanceMonitoringDetailsTypeDef",
     "AwsEc2InstanceNetworkInterfacesDetailsTypeDef",
     "AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef",
     "AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef",
@@ -201,6 +209,7 @@ __all__ = (
     "AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef",
     "AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef",
     "AwsEc2NetworkInterfaceSecurityGroupTypeDef",
+    "AwsEc2RouteTableDetailsTypeDef",
     "AwsEc2SecurityGroupDetailsTypeDef",
     "AwsEc2SecurityGroupIpPermissionTypeDef",
     "AwsEc2SecurityGroupIpRangeTypeDef",
@@ -422,6 +431,9 @@ __all__ = (
     "AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef",
     "AwsS3BucketNotificationConfigurationS3KeyFilterTypeDef",
     "AwsS3BucketNotificationConfigurationTypeDef",
+    "AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef",
+    "AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef",
+    "AwsS3BucketObjectLockConfigurationTypeDef",
     "AwsS3BucketServerSideEncryptionByDefaultTypeDef",
     "AwsS3BucketServerSideEncryptionConfigurationTypeDef",
     "AwsS3BucketServerSideEncryptionRuleTypeDef",
@@ -484,11 +496,17 @@ __all__ = (
     "BatchDisableStandardsResponseTypeDef",
     "BatchEnableStandardsRequestRequestTypeDef",
     "BatchEnableStandardsResponseTypeDef",
+    "BatchGetSecurityControlsRequestRequestTypeDef",
+    "BatchGetSecurityControlsResponseTypeDef",
+    "BatchGetStandardsControlAssociationsRequestRequestTypeDef",
+    "BatchGetStandardsControlAssociationsResponseTypeDef",
     "BatchImportFindingsRequestRequestTypeDef",
     "BatchImportFindingsResponseTypeDef",
     "BatchUpdateFindingsRequestRequestTypeDef",
     "BatchUpdateFindingsResponseTypeDef",
     "BatchUpdateFindingsUnprocessedFindingTypeDef",
+    "BatchUpdateStandardsControlAssociationsRequestRequestTypeDef",
+    "BatchUpdateStandardsControlAssociationsResponseTypeDef",
     "BooleanFilterTypeDef",
     "CellTypeDef",
     "CidrBlockAssociationTypeDef",
@@ -588,6 +606,10 @@ __all__ = (
     "ListMembersResponseTypeDef",
     "ListOrganizationAdminAccountsRequestRequestTypeDef",
     "ListOrganizationAdminAccountsResponseTypeDef",
+    "ListSecurityControlDefinitionsRequestRequestTypeDef",
+    "ListSecurityControlDefinitionsResponseTypeDef",
+    "ListStandardsControlAssociationsRequestRequestTypeDef",
+    "ListStandardsControlAssociationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LoadBalancerStateTypeDef",
@@ -612,6 +634,7 @@ __all__ = (
     "PortRangeTypeDef",
     "ProcessDetailsTypeDef",
     "ProductTypeDef",
+    "PropagatingVgwSetDetailsTypeDef",
     "RangeTypeDef",
     "RecommendationTypeDef",
     "RecordTypeDef",
@@ -621,6 +644,7 @@ __all__ = (
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "ResultTypeDef",
+    "RouteSetDetailsTypeDef",
     "RuleGroupDetailsTypeDef",
     "RuleGroupSourceCustomActionsDetailsTypeDef",
     "RuleGroupSourceListDetailsTypeDef",
@@ -640,6 +664,8 @@ __all__ = (
     "RuleGroupVariablesIpSetsDetailsTypeDef",
     "RuleGroupVariablesPortSetsDetailsTypeDef",
     "RuleGroupVariablesTypeDef",
+    "SecurityControlDefinitionTypeDef",
+    "SecurityControlTypeDef",
     "SensitiveDataDetectionsTypeDef",
     "SensitiveDataResultTypeDef",
     "SeverityTypeDef",
@@ -647,6 +673,10 @@ __all__ = (
     "SoftwarePackageTypeDef",
     "SortCriterionTypeDef",
     "StandardTypeDef",
+    "StandardsControlAssociationDetailTypeDef",
+    "StandardsControlAssociationIdTypeDef",
+    "StandardsControlAssociationSummaryTypeDef",
+    "StandardsControlAssociationUpdateTypeDef",
     "StandardsControlTypeDef",
     "StandardsManagedByTypeDef",
     "StandardsStatusReasonTypeDef",
@@ -660,6 +690,9 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "ThreatIntelIndicatorTypeDef",
     "ThreatTypeDef",
+    "UnprocessedSecurityControlTypeDef",
+    "UnprocessedStandardsControlAssociationTypeDef",
+    "UnprocessedStandardsControlAssociationUpdateTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateActionTargetRequestRequestTypeDef",
     "UpdateFindingAggregatorRequestRequestTypeDef",
@@ -788,6 +821,36 @@ AdminAccountTypeDef = TypedDict(
     {
         "AccountId": str,
         "Status": AdminStatusType,
+    },
+    total=False,
+)
+
+AssociatedStandardTypeDef = TypedDict(
+    "AssociatedStandardTypeDef",
+    {
+        "StandardsId": str,
+    },
+    total=False,
+)
+
+AssociationSetDetailsTypeDef = TypedDict(
+    "AssociationSetDetailsTypeDef",
+    {
+        "AssociationState": "AssociationStateDetailsTypeDef",
+        "GatewayId": str,
+        "Main": bool,
+        "RouteTableAssociationId": str,
+        "RouteTableId": str,
+        "SubnetId": str,
+    },
+    total=False,
+)
+
+AssociationStateDetailsTypeDef = TypedDict(
+    "AssociationStateDetailsTypeDef",
+    {
+        "State": str,
+        "StatusMessage": str,
     },
     total=False,
 )
@@ -1924,6 +1987,7 @@ AwsEc2InstanceDetailsTypeDef = TypedDict(
         "NetworkInterfaces": List["AwsEc2InstanceNetworkInterfacesDetailsTypeDef"],
         "VirtualizationType": str,
         "MetadataOptions": "AwsEc2InstanceMetadataOptionsTypeDef",
+        "Monitoring": "AwsEc2InstanceMonitoringDetailsTypeDef",
     },
     total=False,
 )
@@ -1936,6 +2000,14 @@ AwsEc2InstanceMetadataOptionsTypeDef = TypedDict(
         "HttpPutResponseHopLimit": int,
         "HttpTokens": str,
         "InstanceMetadataTags": str,
+    },
+    total=False,
+)
+
+AwsEc2InstanceMonitoringDetailsTypeDef = TypedDict(
+    "AwsEc2InstanceMonitoringDetailsTypeDef",
+    {
+        "State": str,
     },
     total=False,
 )
@@ -2444,6 +2516,19 @@ AwsEc2NetworkInterfaceSecurityGroupTypeDef = TypedDict(
     {
         "GroupName": str,
         "GroupId": str,
+    },
+    total=False,
+)
+
+AwsEc2RouteTableDetailsTypeDef = TypedDict(
+    "AwsEc2RouteTableDetailsTypeDef",
+    {
+        "AssociationSet": List["AssociationSetDetailsTypeDef"],
+        "OwnerId": str,
+        "PropagatingVgwSet": List["PropagatingVgwSetDetailsTypeDef"],
+        "RouteTableId": str,
+        "RouteSet": List["RouteSetDetailsTypeDef"],
+        "VpcId": str,
     },
     total=False,
 )
@@ -3444,6 +3529,7 @@ AwsEksClusterResourcesVpcConfigDetailsTypeDef = TypedDict(
     {
         "SecurityGroupIds": List[str],
         "SubnetIds": List[str],
+        "EndpointPublicAccess": bool,
     },
     total=False,
 )
@@ -5071,6 +5157,7 @@ AwsS3BucketDetailsTypeDef = TypedDict(
         "BucketWebsiteConfiguration": "AwsS3BucketWebsiteConfigurationTypeDef",
         "BucketNotificationConfiguration": "AwsS3BucketNotificationConfigurationTypeDef",
         "BucketVersioningConfiguration": "AwsS3BucketBucketVersioningConfigurationTypeDef",
+        "ObjectLockConfiguration": "AwsS3BucketObjectLockConfigurationTypeDef",
     },
     total=False,
 )
@@ -5124,6 +5211,33 @@ AwsS3BucketNotificationConfigurationTypeDef = TypedDict(
     "AwsS3BucketNotificationConfigurationTypeDef",
     {
         "Configurations": List["AwsS3BucketNotificationConfigurationDetailTypeDef"],
+    },
+    total=False,
+)
+
+AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef = TypedDict(
+    "AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef",
+    {
+        "Days": int,
+        "Mode": str,
+        "Years": int,
+    },
+    total=False,
+)
+
+AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef = TypedDict(
+    "AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef",
+    {
+        "DefaultRetention": "AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsS3BucketObjectLockConfigurationTypeDef = TypedDict(
+    "AwsS3BucketObjectLockConfigurationTypeDef",
+    {
+        "ObjectLockEnabled": str,
+        "Rule": "AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef",
     },
     total=False,
 )
@@ -5372,6 +5486,8 @@ AwsSecurityFindingFiltersTypeDef = TypedDict(
         "FindingProviderFieldsSeverityOriginal": List["StringFilterTypeDef"],
         "FindingProviderFieldsTypes": List["StringFilterTypeDef"],
         "Sample": List["BooleanFilterTypeDef"],
+        "ComplianceSecurityControlId": List["StringFilterTypeDef"],
+        "ComplianceAssociatedStandardsId": List["StringFilterTypeDef"],
     },
     total=False,
 )
@@ -5922,6 +6038,38 @@ BatchEnableStandardsResponseTypeDef = TypedDict(
     },
 )
 
+BatchGetSecurityControlsRequestRequestTypeDef = TypedDict(
+    "BatchGetSecurityControlsRequestRequestTypeDef",
+    {
+        "SecurityControlIds": List[str],
+    },
+)
+
+BatchGetSecurityControlsResponseTypeDef = TypedDict(
+    "BatchGetSecurityControlsResponseTypeDef",
+    {
+        "SecurityControls": List["SecurityControlTypeDef"],
+        "UnprocessedIds": List["UnprocessedSecurityControlTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetStandardsControlAssociationsRequestRequestTypeDef = TypedDict(
+    "BatchGetStandardsControlAssociationsRequestRequestTypeDef",
+    {
+        "StandardsControlAssociationIds": List["StandardsControlAssociationIdTypeDef"],
+    },
+)
+
+BatchGetStandardsControlAssociationsResponseTypeDef = TypedDict(
+    "BatchGetStandardsControlAssociationsResponseTypeDef",
+    {
+        "StandardsControlAssociationDetails": List["StandardsControlAssociationDetailTypeDef"],
+        "UnprocessedAssociations": List["UnprocessedStandardsControlAssociationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 BatchImportFindingsRequestRequestTypeDef = TypedDict(
     "BatchImportFindingsRequestRequestTypeDef",
     {
@@ -5982,6 +6130,23 @@ BatchUpdateFindingsUnprocessedFindingTypeDef = TypedDict(
         "FindingIdentifier": "AwsSecurityFindingIdentifierTypeDef",
         "ErrorCode": str,
         "ErrorMessage": str,
+    },
+)
+
+BatchUpdateStandardsControlAssociationsRequestRequestTypeDef = TypedDict(
+    "BatchUpdateStandardsControlAssociationsRequestRequestTypeDef",
+    {
+        "StandardsControlAssociationUpdates": List["StandardsControlAssociationUpdateTypeDef"],
+    },
+)
+
+BatchUpdateStandardsControlAssociationsResponseTypeDef = TypedDict(
+    "BatchUpdateStandardsControlAssociationsResponseTypeDef",
+    {
+        "UnprocessedAssociationUpdates": List[
+            "UnprocessedStandardsControlAssociationUpdateTypeDef"
+        ],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -6050,6 +6215,8 @@ ComplianceTypeDef = TypedDict(
         "Status": ComplianceStatusType,
         "RelatedRequirements": List[str],
         "StatusReasons": List["StatusReasonTypeDef"],
+        "SecurityControlId": str,
+        "AssociatedStandards": List["AssociatedStandardTypeDef"],
     },
     total=False,
 )
@@ -6332,6 +6499,7 @@ DescribeHubResponseTypeDef = TypedDict(
         "HubArn": str,
         "SubscribedAt": str,
         "AutoEnableControls": bool,
+        "ControlFindingGenerator": ControlFindingGeneratorType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6471,6 +6639,7 @@ EnableSecurityHubRequestRequestTypeDef = TypedDict(
     {
         "Tags": Dict[str, str],
         "EnableDefaultStandards": bool,
+        "ControlFindingGenerator": ControlFindingGeneratorType,
     },
     total=False,
 )
@@ -6896,6 +7065,55 @@ ListOrganizationAdminAccountsResponseTypeDef = TypedDict(
     },
 )
 
+ListSecurityControlDefinitionsRequestRequestTypeDef = TypedDict(
+    "ListSecurityControlDefinitionsRequestRequestTypeDef",
+    {
+        "StandardsArn": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListSecurityControlDefinitionsResponseTypeDef = TypedDict(
+    "ListSecurityControlDefinitionsResponseTypeDef",
+    {
+        "SecurityControlDefinitions": List["SecurityControlDefinitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListStandardsControlAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListStandardsControlAssociationsRequestRequestTypeDef",
+    {
+        "SecurityControlId": str,
+    },
+)
+_OptionalListStandardsControlAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListStandardsControlAssociationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListStandardsControlAssociationsRequestRequestTypeDef(
+    _RequiredListStandardsControlAssociationsRequestRequestTypeDef,
+    _OptionalListStandardsControlAssociationsRequestRequestTypeDef,
+):
+    pass
+
+ListStandardsControlAssociationsResponseTypeDef = TypedDict(
+    "ListStandardsControlAssociationsResponseTypeDef",
+    {
+        "StandardsControlAssociationSummaries": List["StandardsControlAssociationSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -7184,6 +7402,14 @@ _OptionalProductTypeDef = TypedDict(
 class ProductTypeDef(_RequiredProductTypeDef, _OptionalProductTypeDef):
     pass
 
+PropagatingVgwSetDetailsTypeDef = TypedDict(
+    "PropagatingVgwSetDetailsTypeDef",
+    {
+        "GatewayId": str,
+    },
+    total=False,
+)
+
 RangeTypeDef = TypedDict(
     "RangeTypeDef",
     {
@@ -7314,6 +7540,7 @@ ResourceDetailsTypeDef = TypedDict(
         "AwsSageMakerNotebookInstance": "AwsSageMakerNotebookInstanceDetailsTypeDef",
         "AwsWafv2WebAcl": "AwsWafv2WebAclDetailsTypeDef",
         "AwsWafv2RuleGroup": "AwsWafv2RuleGroupDetailsTypeDef",
+        "AwsEc2RouteTable": "AwsEc2RouteTableDetailsTypeDef",
     },
     total=False,
 )
@@ -7357,6 +7584,29 @@ ResultTypeDef = TypedDict(
     {
         "AccountId": str,
         "ProcessingResult": str,
+    },
+    total=False,
+)
+
+RouteSetDetailsTypeDef = TypedDict(
+    "RouteSetDetailsTypeDef",
+    {
+        "CarrierGatewayId": str,
+        "CoreNetworkArn": str,
+        "DestinationCidrBlock": str,
+        "DestinationIpv6CidrBlock": str,
+        "DestinationPrefixListId": str,
+        "EgressOnlyInternetGatewayId": str,
+        "GatewayId": str,
+        "InstanceId": str,
+        "InstanceOwnerId": str,
+        "LocalGatewayId": str,
+        "NatGatewayId": str,
+        "NetworkInterfaceId": str,
+        "Origin": str,
+        "State": str,
+        "TransitGatewayId": str,
+        "VpcPeeringConnectionId": str,
     },
     total=False,
 )
@@ -7542,6 +7792,31 @@ RuleGroupVariablesTypeDef = TypedDict(
     total=False,
 )
 
+SecurityControlDefinitionTypeDef = TypedDict(
+    "SecurityControlDefinitionTypeDef",
+    {
+        "SecurityControlId": str,
+        "Title": str,
+        "Description": str,
+        "RemediationUrl": str,
+        "SeverityRating": SeverityRatingType,
+        "CurrentRegionAvailability": RegionAvailabilityStatusType,
+    },
+)
+
+SecurityControlTypeDef = TypedDict(
+    "SecurityControlTypeDef",
+    {
+        "SecurityControlId": str,
+        "SecurityControlArn": str,
+        "Title": str,
+        "Description": str,
+        "RemediationUrl": str,
+        "SeverityRating": SeverityRatingType,
+        "SecurityControlStatus": ControlStatusType,
+    },
+)
+
 SensitiveDataDetectionsTypeDef = TypedDict(
     "SensitiveDataDetectionsTypeDef",
     {
@@ -7621,6 +7896,91 @@ StandardTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredStandardsControlAssociationDetailTypeDef = TypedDict(
+    "_RequiredStandardsControlAssociationDetailTypeDef",
+    {
+        "StandardsArn": str,
+        "SecurityControlId": str,
+        "SecurityControlArn": str,
+        "AssociationStatus": AssociationStatusType,
+    },
+)
+_OptionalStandardsControlAssociationDetailTypeDef = TypedDict(
+    "_OptionalStandardsControlAssociationDetailTypeDef",
+    {
+        "RelatedRequirements": List[str],
+        "UpdatedAt": datetime,
+        "UpdatedReason": str,
+        "StandardsControlTitle": str,
+        "StandardsControlDescription": str,
+        "StandardsControlArns": List[str],
+    },
+    total=False,
+)
+
+class StandardsControlAssociationDetailTypeDef(
+    _RequiredStandardsControlAssociationDetailTypeDef,
+    _OptionalStandardsControlAssociationDetailTypeDef,
+):
+    pass
+
+StandardsControlAssociationIdTypeDef = TypedDict(
+    "StandardsControlAssociationIdTypeDef",
+    {
+        "SecurityControlId": str,
+        "StandardsArn": str,
+    },
+)
+
+_RequiredStandardsControlAssociationSummaryTypeDef = TypedDict(
+    "_RequiredStandardsControlAssociationSummaryTypeDef",
+    {
+        "StandardsArn": str,
+        "SecurityControlId": str,
+        "SecurityControlArn": str,
+        "AssociationStatus": AssociationStatusType,
+    },
+)
+_OptionalStandardsControlAssociationSummaryTypeDef = TypedDict(
+    "_OptionalStandardsControlAssociationSummaryTypeDef",
+    {
+        "RelatedRequirements": List[str],
+        "UpdatedAt": datetime,
+        "UpdatedReason": str,
+        "StandardsControlTitle": str,
+        "StandardsControlDescription": str,
+    },
+    total=False,
+)
+
+class StandardsControlAssociationSummaryTypeDef(
+    _RequiredStandardsControlAssociationSummaryTypeDef,
+    _OptionalStandardsControlAssociationSummaryTypeDef,
+):
+    pass
+
+_RequiredStandardsControlAssociationUpdateTypeDef = TypedDict(
+    "_RequiredStandardsControlAssociationUpdateTypeDef",
+    {
+        "StandardsArn": str,
+        "SecurityControlId": str,
+        "AssociationStatus": AssociationStatusType,
+    },
+)
+_OptionalStandardsControlAssociationUpdateTypeDef = TypedDict(
+    "_OptionalStandardsControlAssociationUpdateTypeDef",
+    {
+        "UpdatedReason": str,
+    },
+    total=False,
+)
+
+class StandardsControlAssociationUpdateTypeDef(
+    _RequiredStandardsControlAssociationUpdateTypeDef,
+    _OptionalStandardsControlAssociationUpdateTypeDef,
+):
+    pass
 
 StandardsControlTypeDef = TypedDict(
     "StandardsControlTypeDef",
@@ -7778,6 +8138,68 @@ ThreatTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredUnprocessedSecurityControlTypeDef = TypedDict(
+    "_RequiredUnprocessedSecurityControlTypeDef",
+    {
+        "SecurityControlId": str,
+        "ErrorCode": UnprocessedErrorCodeType,
+    },
+)
+_OptionalUnprocessedSecurityControlTypeDef = TypedDict(
+    "_OptionalUnprocessedSecurityControlTypeDef",
+    {
+        "ErrorReason": str,
+    },
+    total=False,
+)
+
+class UnprocessedSecurityControlTypeDef(
+    _RequiredUnprocessedSecurityControlTypeDef, _OptionalUnprocessedSecurityControlTypeDef
+):
+    pass
+
+_RequiredUnprocessedStandardsControlAssociationTypeDef = TypedDict(
+    "_RequiredUnprocessedStandardsControlAssociationTypeDef",
+    {
+        "StandardsControlAssociationId": "StandardsControlAssociationIdTypeDef",
+        "ErrorCode": UnprocessedErrorCodeType,
+    },
+)
+_OptionalUnprocessedStandardsControlAssociationTypeDef = TypedDict(
+    "_OptionalUnprocessedStandardsControlAssociationTypeDef",
+    {
+        "ErrorReason": str,
+    },
+    total=False,
+)
+
+class UnprocessedStandardsControlAssociationTypeDef(
+    _RequiredUnprocessedStandardsControlAssociationTypeDef,
+    _OptionalUnprocessedStandardsControlAssociationTypeDef,
+):
+    pass
+
+_RequiredUnprocessedStandardsControlAssociationUpdateTypeDef = TypedDict(
+    "_RequiredUnprocessedStandardsControlAssociationUpdateTypeDef",
+    {
+        "StandardsControlAssociationUpdate": "StandardsControlAssociationUpdateTypeDef",
+        "ErrorCode": UnprocessedErrorCodeType,
+    },
+)
+_OptionalUnprocessedStandardsControlAssociationUpdateTypeDef = TypedDict(
+    "_OptionalUnprocessedStandardsControlAssociationUpdateTypeDef",
+    {
+        "ErrorReason": str,
+    },
+    total=False,
+)
+
+class UnprocessedStandardsControlAssociationUpdateTypeDef(
+    _RequiredUnprocessedStandardsControlAssociationUpdateTypeDef,
+    _OptionalUnprocessedStandardsControlAssociationUpdateTypeDef,
+):
+    pass
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -7904,6 +8326,7 @@ UpdateSecurityHubConfigurationRequestRequestTypeDef = TypedDict(
     "UpdateSecurityHubConfigurationRequestRequestTypeDef",
     {
         "AutoEnableControls": bool,
+        "ControlFindingGenerator": ControlFindingGeneratorType,
     },
     total=False,
 )

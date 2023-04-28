@@ -354,9 +354,11 @@ MaintenanceWindowTaskTypeType = Literal["AUTOMATION", "LAMBDA", "RUN_COMMAND", "
 NotificationEventType = Literal["All", "Cancelled", "Failed", "InProgress", "Success", "TimedOut"]
 NotificationTypeType = Literal["Command", "Invocation"]
 OperatingSystemType = Literal[
+    "ALMA_LINUX",
     "AMAZON_LINUX",
     "AMAZON_LINUX_2",
     "AMAZON_LINUX_2022",
+    "AMAZON_LINUX_2023",
     "CENTOS",
     "DEBIAN",
     "MACOS",

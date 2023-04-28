@@ -23,6 +23,10 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
@@ -30,6 +34,8 @@ else:
 __all__ = (
     "AppInstanceAdminSummaryTypeDef",
     "AppInstanceAdminTypeDef",
+    "AppInstanceBotSummaryTypeDef",
+    "AppInstanceBotTypeDef",
     "AppInstanceRetentionSettingsTypeDef",
     "AppInstanceSummaryTypeDef",
     "AppInstanceTypeDef",
@@ -38,18 +44,24 @@ __all__ = (
     "AppInstanceUserSummaryTypeDef",
     "AppInstanceUserTypeDef",
     "ChannelRetentionSettingsTypeDef",
+    "ConfigurationTypeDef",
     "CreateAppInstanceAdminRequestRequestTypeDef",
     "CreateAppInstanceAdminResponseTypeDef",
+    "CreateAppInstanceBotRequestRequestTypeDef",
+    "CreateAppInstanceBotResponseTypeDef",
     "CreateAppInstanceRequestRequestTypeDef",
     "CreateAppInstanceResponseTypeDef",
     "CreateAppInstanceUserRequestRequestTypeDef",
     "CreateAppInstanceUserResponseTypeDef",
     "DeleteAppInstanceAdminRequestRequestTypeDef",
+    "DeleteAppInstanceBotRequestRequestTypeDef",
     "DeleteAppInstanceRequestRequestTypeDef",
     "DeleteAppInstanceUserRequestRequestTypeDef",
     "DeregisterAppInstanceUserEndpointRequestRequestTypeDef",
     "DescribeAppInstanceAdminRequestRequestTypeDef",
     "DescribeAppInstanceAdminResponseTypeDef",
+    "DescribeAppInstanceBotRequestRequestTypeDef",
+    "DescribeAppInstanceBotResponseTypeDef",
     "DescribeAppInstanceRequestRequestTypeDef",
     "DescribeAppInstanceResponseTypeDef",
     "DescribeAppInstanceUserEndpointRequestRequestTypeDef",
@@ -58,11 +70,15 @@ __all__ = (
     "DescribeAppInstanceUserResponseTypeDef",
     "EndpointAttributesTypeDef",
     "EndpointStateTypeDef",
+    "ExpirationSettingsTypeDef",
     "GetAppInstanceRetentionSettingsRequestRequestTypeDef",
     "GetAppInstanceRetentionSettingsResponseTypeDef",
     "IdentityTypeDef",
+    "LexConfigurationTypeDef",
     "ListAppInstanceAdminsRequestRequestTypeDef",
     "ListAppInstanceAdminsResponseTypeDef",
+    "ListAppInstanceBotsRequestRequestTypeDef",
+    "ListAppInstanceBotsResponseTypeDef",
     "ListAppInstanceUserEndpointsRequestRequestTypeDef",
     "ListAppInstanceUserEndpointsResponseTypeDef",
     "ListAppInstanceUsersRequestRequestTypeDef",
@@ -73,12 +89,16 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "PutAppInstanceRetentionSettingsRequestRequestTypeDef",
     "PutAppInstanceRetentionSettingsResponseTypeDef",
+    "PutAppInstanceUserExpirationSettingsRequestRequestTypeDef",
+    "PutAppInstanceUserExpirationSettingsResponseTypeDef",
     "RegisterAppInstanceUserEndpointRequestRequestTypeDef",
     "RegisterAppInstanceUserEndpointResponseTypeDef",
     "ResponseMetadataTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAppInstanceBotRequestRequestTypeDef",
+    "UpdateAppInstanceBotResponseTypeDef",
     "UpdateAppInstanceRequestRequestTypeDef",
     "UpdateAppInstanceResponseTypeDef",
     "UpdateAppInstanceUserEndpointRequestRequestTypeDef",
@@ -101,6 +121,29 @@ AppInstanceAdminTypeDef = TypedDict(
         "Admin": "IdentityTypeDef",
         "AppInstanceArn": str,
         "CreatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+AppInstanceBotSummaryTypeDef = TypedDict(
+    "AppInstanceBotSummaryTypeDef",
+    {
+        "AppInstanceBotArn": str,
+        "Name": str,
+        "Metadata": str,
+    },
+    total=False,
+)
+
+AppInstanceBotTypeDef = TypedDict(
+    "AppInstanceBotTypeDef",
+    {
+        "AppInstanceBotArn": str,
+        "Name": str,
+        "Configuration": "ConfigurationTypeDef",
+        "CreatedTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+        "Metadata": str,
     },
     total=False,
 )
@@ -183,6 +226,7 @@ AppInstanceUserTypeDef = TypedDict(
         "Metadata": str,
         "CreatedTimestamp": datetime,
         "LastUpdatedTimestamp": datetime,
+        "ExpirationSettings": "ExpirationSettingsTypeDef",
     },
     total=False,
 )
@@ -193,6 +237,13 @@ ChannelRetentionSettingsTypeDef = TypedDict(
         "RetentionDays": int,
     },
     total=False,
+)
+
+ConfigurationTypeDef = TypedDict(
+    "ConfigurationTypeDef",
+    {
+        "Lex": "LexConfigurationTypeDef",
+    },
 )
 
 CreateAppInstanceAdminRequestRequestTypeDef = TypedDict(
@@ -208,6 +259,38 @@ CreateAppInstanceAdminResponseTypeDef = TypedDict(
     {
         "AppInstanceAdmin": "IdentityTypeDef",
         "AppInstanceArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAppInstanceBotRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAppInstanceBotRequestRequestTypeDef",
+    {
+        "AppInstanceArn": str,
+        "ClientRequestToken": str,
+        "Configuration": "ConfigurationTypeDef",
+    },
+)
+_OptionalCreateAppInstanceBotRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAppInstanceBotRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Metadata": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAppInstanceBotRequestRequestTypeDef(
+    _RequiredCreateAppInstanceBotRequestRequestTypeDef,
+    _OptionalCreateAppInstanceBotRequestRequestTypeDef,
+):
+    pass
+
+CreateAppInstanceBotResponseTypeDef = TypedDict(
+    "CreateAppInstanceBotResponseTypeDef",
+    {
+        "AppInstanceBotArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -255,6 +338,7 @@ _OptionalCreateAppInstanceUserRequestRequestTypeDef = TypedDict(
     {
         "Metadata": str,
         "Tags": List["TagTypeDef"],
+        "ExpirationSettings": "ExpirationSettingsTypeDef",
     },
     total=False,
 )
@@ -278,6 +362,13 @@ DeleteAppInstanceAdminRequestRequestTypeDef = TypedDict(
     {
         "AppInstanceAdminArn": str,
         "AppInstanceArn": str,
+    },
+)
+
+DeleteAppInstanceBotRequestRequestTypeDef = TypedDict(
+    "DeleteAppInstanceBotRequestRequestTypeDef",
+    {
+        "AppInstanceBotArn": str,
     },
 )
 
@@ -315,6 +406,21 @@ DescribeAppInstanceAdminResponseTypeDef = TypedDict(
     "DescribeAppInstanceAdminResponseTypeDef",
     {
         "AppInstanceAdmin": "AppInstanceAdminTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAppInstanceBotRequestRequestTypeDef = TypedDict(
+    "DescribeAppInstanceBotRequestRequestTypeDef",
+    {
+        "AppInstanceBotArn": str,
+    },
+)
+
+DescribeAppInstanceBotResponseTypeDef = TypedDict(
+    "DescribeAppInstanceBotResponseTypeDef",
+    {
+        "AppInstanceBot": "AppInstanceBotTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -401,6 +507,14 @@ _OptionalEndpointStateTypeDef = TypedDict(
 class EndpointStateTypeDef(_RequiredEndpointStateTypeDef, _OptionalEndpointStateTypeDef):
     pass
 
+ExpirationSettingsTypeDef = TypedDict(
+    "ExpirationSettingsTypeDef",
+    {
+        "ExpirationDays": int,
+        "ExpirationCriterion": Literal["CREATED_TIMESTAMP"],
+    },
+)
+
 GetAppInstanceRetentionSettingsRequestRequestTypeDef = TypedDict(
     "GetAppInstanceRetentionSettingsRequestRequestTypeDef",
     {
@@ -425,6 +539,25 @@ IdentityTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredLexConfigurationTypeDef = TypedDict(
+    "_RequiredLexConfigurationTypeDef",
+    {
+        "RespondsTo": Literal["STANDARD_MESSAGES"],
+        "LexBotAliasArn": str,
+        "LocaleId": str,
+    },
+)
+_OptionalLexConfigurationTypeDef = TypedDict(
+    "_OptionalLexConfigurationTypeDef",
+    {
+        "WelcomeIntent": str,
+    },
+    total=False,
+)
+
+class LexConfigurationTypeDef(_RequiredLexConfigurationTypeDef, _OptionalLexConfigurationTypeDef):
+    pass
 
 _RequiredListAppInstanceAdminsRequestRequestTypeDef = TypedDict(
     "_RequiredListAppInstanceAdminsRequestRequestTypeDef",
@@ -452,6 +585,37 @@ ListAppInstanceAdminsResponseTypeDef = TypedDict(
     {
         "AppInstanceArn": str,
         "AppInstanceAdmins": List["AppInstanceAdminSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAppInstanceBotsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAppInstanceBotsRequestRequestTypeDef",
+    {
+        "AppInstanceArn": str,
+    },
+)
+_OptionalListAppInstanceBotsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAppInstanceBotsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAppInstanceBotsRequestRequestTypeDef(
+    _RequiredListAppInstanceBotsRequestRequestTypeDef,
+    _OptionalListAppInstanceBotsRequestRequestTypeDef,
+):
+    pass
+
+ListAppInstanceBotsResponseTypeDef = TypedDict(
+    "ListAppInstanceBotsResponseTypeDef",
+    {
+        "AppInstanceArn": str,
+        "AppInstanceBots": List["AppInstanceBotSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -568,6 +732,35 @@ PutAppInstanceRetentionSettingsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredPutAppInstanceUserExpirationSettingsRequestRequestTypeDef = TypedDict(
+    "_RequiredPutAppInstanceUserExpirationSettingsRequestRequestTypeDef",
+    {
+        "AppInstanceUserArn": str,
+    },
+)
+_OptionalPutAppInstanceUserExpirationSettingsRequestRequestTypeDef = TypedDict(
+    "_OptionalPutAppInstanceUserExpirationSettingsRequestRequestTypeDef",
+    {
+        "ExpirationSettings": "ExpirationSettingsTypeDef",
+    },
+    total=False,
+)
+
+class PutAppInstanceUserExpirationSettingsRequestRequestTypeDef(
+    _RequiredPutAppInstanceUserExpirationSettingsRequestRequestTypeDef,
+    _OptionalPutAppInstanceUserExpirationSettingsRequestRequestTypeDef,
+):
+    pass
+
+PutAppInstanceUserExpirationSettingsResponseTypeDef = TypedDict(
+    "PutAppInstanceUserExpirationSettingsResponseTypeDef",
+    {
+        "AppInstanceUserArn": str,
+        "ExpirationSettings": "ExpirationSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredRegisterAppInstanceUserEndpointRequestRequestTypeDef = TypedDict(
     "_RequiredRegisterAppInstanceUserEndpointRequestRequestTypeDef",
     {
@@ -634,6 +827,23 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceARN": str,
         "TagKeys": List[str],
+    },
+)
+
+UpdateAppInstanceBotRequestRequestTypeDef = TypedDict(
+    "UpdateAppInstanceBotRequestRequestTypeDef",
+    {
+        "AppInstanceBotArn": str,
+        "Name": str,
+        "Metadata": str,
+    },
+)
+
+UpdateAppInstanceBotResponseTypeDef = TypedDict(
+    "UpdateAppInstanceBotResponseTypeDef",
+    {
+        "AppInstanceBotArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

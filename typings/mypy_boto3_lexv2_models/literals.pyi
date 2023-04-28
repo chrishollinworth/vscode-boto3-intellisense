@@ -41,6 +41,7 @@ __all__ = (
     "BotRecommendationStatusType",
     "BotSortAttributeType",
     "BotStatusType",
+    "BotTypeType",
     "BotVersionAvailableWaiterName",
     "BotVersionSortAttributeType",
     "BuiltInIntentSortAttributeType",
@@ -92,8 +93,8 @@ BotAliasAvailableWaiterName = Literal["bot_alias_available"]
 BotAliasStatusType = Literal["Available", "Creating", "Deleting", "Failed"]
 BotAvailableWaiterName = Literal["bot_available"]
 BotExportCompletedWaiterName = Literal["bot_export_completed"]
-BotFilterNameType = Literal["BotName"]
-BotFilterOperatorType = Literal["CO", "EQ"]
+BotFilterNameType = Literal["BotName", "BotType"]
+BotFilterOperatorType = Literal["CO", "EQ", "NE"]
 BotImportCompletedWaiterName = Literal["bot_import_completed"]
 BotLocaleBuiltWaiterName = Literal["bot_locale_built"]
 BotLocaleCreatedWaiterName = Literal["bot_locale_created"]
@@ -125,8 +126,9 @@ BotRecommendationStatusType = Literal[
 ]
 BotSortAttributeType = Literal["BotName"]
 BotStatusType = Literal[
-    "Available", "Creating", "Deleting", "Failed", "Importing", "Inactive", "Versioning"
+    "Available", "Creating", "Deleting", "Failed", "Importing", "Inactive", "Updating", "Versioning"
 ]
+BotTypeType = Literal["Bot", "BotNetwork"]
 BotVersionAvailableWaiterName = Literal["bot_version_available"]
 BotVersionSortAttributeType = Literal["BotVersion"]
 BuiltInIntentSortAttributeType = Literal["IntentSignature"]

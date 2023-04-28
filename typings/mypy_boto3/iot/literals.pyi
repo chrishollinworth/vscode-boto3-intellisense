@@ -88,6 +88,7 @@ __all__ = (
     "ListJobExecutionsForThingPaginatorName",
     "ListJobTemplatesPaginatorName",
     "ListJobsPaginatorName",
+    "ListManagedJobTemplatesPaginatorName",
     "ListMetricValuesPaginatorName",
     "ListMitigationActionsPaginatorName",
     "ListOTAUpdatesPaginatorName",
@@ -98,6 +99,7 @@ __all__ = (
     "ListPrincipalThingsPaginatorName",
     "ListProvisioningTemplateVersionsPaginatorName",
     "ListProvisioningTemplatesPaginatorName",
+    "ListRelatedResourcesForAuditFindingPaginatorName",
     "ListRoleAliasesPaginatorName",
     "ListScheduledAuditsPaginatorName",
     "ListSecurityProfilesForTargetPaginatorName",
@@ -292,6 +294,7 @@ ListJobExecutionsForJobPaginatorName = Literal["list_job_executions_for_job"]
 ListJobExecutionsForThingPaginatorName = Literal["list_job_executions_for_thing"]
 ListJobTemplatesPaginatorName = Literal["list_job_templates"]
 ListJobsPaginatorName = Literal["list_jobs"]
+ListManagedJobTemplatesPaginatorName = Literal["list_managed_job_templates"]
 ListMetricValuesPaginatorName = Literal["list_metric_values"]
 ListMitigationActionsPaginatorName = Literal["list_mitigation_actions"]
 ListOTAUpdatesPaginatorName = Literal["list_ota_updates"]
@@ -302,6 +305,9 @@ ListPrincipalPoliciesPaginatorName = Literal["list_principal_policies"]
 ListPrincipalThingsPaginatorName = Literal["list_principal_things"]
 ListProvisioningTemplateVersionsPaginatorName = Literal["list_provisioning_template_versions"]
 ListProvisioningTemplatesPaginatorName = Literal["list_provisioning_templates"]
+ListRelatedResourcesForAuditFindingPaginatorName = Literal[
+    "list_related_resources_for_audit_finding"
+]
 ListRoleAliasesPaginatorName = Literal["list_role_aliases"]
 ListScheduledAuditsPaginatorName = Literal["list_scheduled_audits"]
 ListSecurityProfilesForTargetPaginatorName = Literal["list_security_profiles_for_target"]
@@ -337,7 +343,12 @@ MitigationActionTypeType = Literal[
 ModelStatusType = Literal["ACTIVE", "EXPIRED", "PENDING_BUILD"]
 NamedShadowIndexingModeType = Literal["OFF", "ON"]
 OTAUpdateStatusType = Literal[
-    "CREATE_COMPLETE", "CREATE_FAILED", "CREATE_IN_PROGRESS", "CREATE_PENDING"
+    "CREATE_COMPLETE",
+    "CREATE_FAILED",
+    "CREATE_IN_PROGRESS",
+    "CREATE_PENDING",
+    "DELETE_FAILED",
+    "DELETE_IN_PROGRESS",
 ]
 PolicyTemplateNameType = Literal["BLANK_POLICY"]
 ProtocolType = Literal["HTTP", "MQTT"]

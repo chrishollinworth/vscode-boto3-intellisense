@@ -220,10 +220,12 @@ _RequiredBatchJobExecutionSummaryTypeDef = TypedDict(
 _OptionalBatchJobExecutionSummaryTypeDef = TypedDict(
     "_OptionalBatchJobExecutionSummaryTypeDef",
     {
+        "batchJobIdentifier": "BatchJobIdentifierTypeDef",
         "endTime": datetime,
         "jobId": str,
         "jobName": str,
         "jobType": BatchJobTypeType,
+        "returnCode": str,
     },
     total=False,
 )
@@ -721,12 +723,14 @@ GetBatchJobExecutionResponseTypeDef = TypedDict(
     "GetBatchJobExecutionResponseTypeDef",
     {
         "applicationId": str,
+        "batchJobIdentifier": "BatchJobIdentifierTypeDef",
         "endTime": datetime,
         "executionId": str,
         "jobId": str,
         "jobName": str,
         "jobType": BatchJobTypeType,
         "jobUser": str,
+        "returnCode": str,
         "startTime": datetime,
         "status": BatchJobExecutionStatusType,
         "statusReason": str,

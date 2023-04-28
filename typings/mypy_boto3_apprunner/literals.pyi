@@ -66,7 +66,12 @@ OperationStatusType = Literal[
     "SUCCEEDED",
 ]
 OperationTypeType = Literal[
-    "CREATE_SERVICE", "DELETE_SERVICE", "PAUSE_SERVICE", "RESUME_SERVICE", "START_DEPLOYMENT"
+    "CREATE_SERVICE",
+    "DELETE_SERVICE",
+    "PAUSE_SERVICE",
+    "RESUME_SERVICE",
+    "START_DEPLOYMENT",
+    "UPDATE_SERVICE",
 ]
 ProviderTypeType = Literal["GITHUB"]
 RuntimeType = Literal[

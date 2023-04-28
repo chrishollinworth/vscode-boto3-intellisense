@@ -41,6 +41,7 @@ from .literals import (
     InferredWorkloadTypesPreferenceType,
     InferredWorkloadTypeType,
     InstanceRecommendationFindingReasonCodeType,
+    InstanceStateType,
     JobFilterNameType,
     JobStatusType,
     LambdaFunctionMemoryMetricStatisticType,
@@ -912,6 +913,7 @@ InstanceRecommendationTypeDef = TypedDict(
         "currentPerformanceRisk": CurrentPerformanceRiskType,
         "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
         "inferredWorkloadTypes": List[InferredWorkloadTypeType],
+        "instanceState": InstanceStateType,
     },
     total=False,
 )
@@ -1228,6 +1230,7 @@ VolumeConfigurationTypeDef = TypedDict(
         "volumeBurstIOPS": int,
         "volumeBaselineThroughput": int,
         "volumeBurstThroughput": int,
+        "rootVolume": bool,
     },
     total=False,
 )

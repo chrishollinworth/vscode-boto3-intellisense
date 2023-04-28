@@ -21,6 +21,7 @@ from .literals import (
     ChangeActionType,
     CopyProductStatusType,
     DescribePortfolioShareTypeType,
+    EngineWorkflowStatusType,
     EvaluationTypeType,
     LastSyncStatusType,
     OrganizationNodeTypeType,
@@ -137,6 +138,7 @@ __all__ = (
     "DisassociateProductFromPortfolioInputRequestTypeDef",
     "DisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef",
     "DisassociateTagOptionFromResourceInputRequestTypeDef",
+    "EngineWorkflowResourceIdentifierTypeDef",
     "ExecuteProvisionedProductPlanInputRequestTypeDef",
     "ExecuteProvisionedProductPlanOutputTypeDef",
     "ExecuteProvisionedProductServiceActionInputRequestTypeDef",
@@ -189,6 +191,9 @@ __all__ = (
     "ListTagOptionsFiltersTypeDef",
     "ListTagOptionsInputRequestTypeDef",
     "ListTagOptionsOutputTypeDef",
+    "NotifyProvisionProductEngineWorkflowResultInputRequestTypeDef",
+    "NotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
+    "NotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
     "OrganizationNodeTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterConstraintsTypeDef",
@@ -246,6 +251,7 @@ __all__ = (
     "TagTypeDef",
     "TerminateProvisionedProductInputRequestTypeDef",
     "TerminateProvisionedProductOutputTypeDef",
+    "UniqueTagResourceIdentifierTypeDef",
     "UpdateConstraintInputRequestTypeDef",
     "UpdateConstraintOutputTypeDef",
     "UpdatePortfolioInputRequestTypeDef",
@@ -1427,6 +1433,14 @@ DisassociateTagOptionFromResourceInputRequestTypeDef = TypedDict(
     },
 )
 
+EngineWorkflowResourceIdentifierTypeDef = TypedDict(
+    "EngineWorkflowResourceIdentifierTypeDef",
+    {
+        "UniqueTag": "UniqueTagResourceIdentifierTypeDef",
+    },
+    total=False,
+)
+
 _RequiredExecuteProvisionedProductPlanInputRequestTypeDef = TypedDict(
     "_RequiredExecuteProvisionedProductPlanInputRequestTypeDef",
     {
@@ -2112,6 +2126,78 @@ ListTagOptionsOutputTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
+    "_RequiredNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef",
+    {
+        "WorkflowToken": str,
+        "RecordId": str,
+        "Status": EngineWorkflowStatusType,
+        "IdempotencyToken": str,
+    },
+)
+_OptionalNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
+    "_OptionalNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef",
+    {
+        "FailureReason": str,
+        "ResourceIdentifier": "EngineWorkflowResourceIdentifierTypeDef",
+        "Outputs": List["RecordOutputTypeDef"],
+    },
+    total=False,
+)
+
+class NotifyProvisionProductEngineWorkflowResultInputRequestTypeDef(
+    _RequiredNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef,
+    _OptionalNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef,
+):
+    pass
+
+_RequiredNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
+    "_RequiredNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
+    {
+        "WorkflowToken": str,
+        "RecordId": str,
+        "Status": EngineWorkflowStatusType,
+        "IdempotencyToken": str,
+    },
+)
+_OptionalNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
+    "_OptionalNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
+    {
+        "FailureReason": str,
+    },
+    total=False,
+)
+
+class NotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef(
+    _RequiredNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef,
+    _OptionalNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef,
+):
+    pass
+
+_RequiredNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
+    "_RequiredNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
+    {
+        "WorkflowToken": str,
+        "RecordId": str,
+        "Status": EngineWorkflowStatusType,
+        "IdempotencyToken": str,
+    },
+)
+_OptionalNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
+    "_OptionalNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
+    {
+        "FailureReason": str,
+        "Outputs": List["RecordOutputTypeDef"],
+    },
+    total=False,
+)
+
+class NotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef(
+    _RequiredNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef,
+    _OptionalNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef,
+):
+    pass
 
 OrganizationNodeTypeDef = TypedDict(
     "OrganizationNodeTypeDef",
@@ -2822,6 +2908,15 @@ TerminateProvisionedProductOutputTypeDef = TypedDict(
         "RecordDetail": "RecordDetailTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+UniqueTagResourceIdentifierTypeDef = TypedDict(
+    "UniqueTagResourceIdentifierTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
 )
 
 _RequiredUpdateConstraintInputRequestTypeDef = TypedDict(

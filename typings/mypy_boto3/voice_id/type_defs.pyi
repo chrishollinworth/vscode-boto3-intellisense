@@ -6,9 +6,9 @@ Type annotations for voice-id service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_voice_id.type_defs import AuthenticationConfigurationTypeDef
+    from mypy_boto3_voice_id.type_defs import AssociateFraudsterRequestRequestTypeDef
 
-    data: AuthenticationConfigurationTypeDef = {...}
+    data: AssociateFraudsterRequestRequestTypeDef = {...}
     ```
 """
 import sys
@@ -36,13 +36,18 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AssociateFraudsterRequestRequestTypeDef",
+    "AssociateFraudsterResponseTypeDef",
     "AuthenticationConfigurationTypeDef",
     "AuthenticationResultTypeDef",
     "CreateDomainRequestRequestTypeDef",
     "CreateDomainResponseTypeDef",
+    "CreateWatchlistRequestRequestTypeDef",
+    "CreateWatchlistResponseTypeDef",
     "DeleteDomainRequestRequestTypeDef",
     "DeleteFraudsterRequestRequestTypeDef",
     "DeleteSpeakerRequestRequestTypeDef",
+    "DeleteWatchlistRequestRequestTypeDef",
     "DescribeDomainRequestRequestTypeDef",
     "DescribeDomainResponseTypeDef",
     "DescribeFraudsterRegistrationJobRequestRequestTypeDef",
@@ -53,6 +58,10 @@ __all__ = (
     "DescribeSpeakerEnrollmentJobResponseTypeDef",
     "DescribeSpeakerRequestRequestTypeDef",
     "DescribeSpeakerResponseTypeDef",
+    "DescribeWatchlistRequestRequestTypeDef",
+    "DescribeWatchlistResponseTypeDef",
+    "DisassociateFraudsterRequestRequestTypeDef",
+    "DisassociateFraudsterResponseTypeDef",
     "DomainSummaryTypeDef",
     "DomainTypeDef",
     "EnrollmentConfigTypeDef",
@@ -65,6 +74,7 @@ __all__ = (
     "FraudRiskDetailsTypeDef",
     "FraudsterRegistrationJobSummaryTypeDef",
     "FraudsterRegistrationJobTypeDef",
+    "FraudsterSummaryTypeDef",
     "FraudsterTypeDef",
     "InputDataConfigTypeDef",
     "JobProgressTypeDef",
@@ -73,12 +83,16 @@ __all__ = (
     "ListDomainsResponseTypeDef",
     "ListFraudsterRegistrationJobsRequestRequestTypeDef",
     "ListFraudsterRegistrationJobsResponseTypeDef",
+    "ListFraudstersRequestRequestTypeDef",
+    "ListFraudstersResponseTypeDef",
     "ListSpeakerEnrollmentJobsRequestRequestTypeDef",
     "ListSpeakerEnrollmentJobsResponseTypeDef",
     "ListSpeakersRequestRequestTypeDef",
     "ListSpeakersResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListWatchlistsRequestRequestTypeDef",
+    "ListWatchlistsResponseTypeDef",
     "OptOutSpeakerRequestRequestTypeDef",
     "OptOutSpeakerResponseTypeDef",
     "OutputDataConfigTypeDef",
@@ -100,7 +114,29 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateDomainRequestRequestTypeDef",
     "UpdateDomainResponseTypeDef",
+    "UpdateWatchlistRequestRequestTypeDef",
+    "UpdateWatchlistResponseTypeDef",
     "VoiceSpoofingRiskTypeDef",
+    "WatchlistDetailsTypeDef",
+    "WatchlistSummaryTypeDef",
+    "WatchlistTypeDef",
+)
+
+AssociateFraudsterRequestRequestTypeDef = TypedDict(
+    "AssociateFraudsterRequestRequestTypeDef",
+    {
+        "DomainId": str,
+        "FraudsterId": str,
+        "WatchlistId": str,
+    },
+)
+
+AssociateFraudsterResponseTypeDef = TypedDict(
+    "AssociateFraudsterResponseTypeDef",
+    {
+        "Fraudster": "FraudsterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 AuthenticationConfigurationTypeDef = TypedDict(
@@ -155,6 +191,35 @@ CreateDomainResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateWatchlistRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWatchlistRequestRequestTypeDef",
+    {
+        "DomainId": str,
+        "Name": str,
+    },
+)
+_OptionalCreateWatchlistRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWatchlistRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+class CreateWatchlistRequestRequestTypeDef(
+    _RequiredCreateWatchlistRequestRequestTypeDef, _OptionalCreateWatchlistRequestRequestTypeDef
+):
+    pass
+
+CreateWatchlistResponseTypeDef = TypedDict(
+    "CreateWatchlistResponseTypeDef",
+    {
+        "Watchlist": "WatchlistTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteDomainRequestRequestTypeDef = TypedDict(
     "DeleteDomainRequestRequestTypeDef",
     {
@@ -175,6 +240,14 @@ DeleteSpeakerRequestRequestTypeDef = TypedDict(
     {
         "DomainId": str,
         "SpeakerId": str,
+    },
+)
+
+DeleteWatchlistRequestRequestTypeDef = TypedDict(
+    "DeleteWatchlistRequestRequestTypeDef",
+    {
+        "DomainId": str,
+        "WatchlistId": str,
     },
 )
 
@@ -257,6 +330,39 @@ DescribeSpeakerResponseTypeDef = TypedDict(
     },
 )
 
+DescribeWatchlistRequestRequestTypeDef = TypedDict(
+    "DescribeWatchlistRequestRequestTypeDef",
+    {
+        "DomainId": str,
+        "WatchlistId": str,
+    },
+)
+
+DescribeWatchlistResponseTypeDef = TypedDict(
+    "DescribeWatchlistResponseTypeDef",
+    {
+        "Watchlist": "WatchlistTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateFraudsterRequestRequestTypeDef = TypedDict(
+    "DisassociateFraudsterRequestRequestTypeDef",
+    {
+        "DomainId": str,
+        "FraudsterId": str,
+        "WatchlistId": str,
+    },
+)
+
+DisassociateFraudsterResponseTypeDef = TypedDict(
+    "DisassociateFraudsterResponseTypeDef",
+    {
+        "Fraudster": "FraudsterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DomainSummaryTypeDef = TypedDict(
     "DomainSummaryTypeDef",
     {
@@ -269,6 +375,7 @@ DomainSummaryTypeDef = TypedDict(
         "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
         "ServerSideEncryptionUpdateDetails": "ServerSideEncryptionUpdateDetailsTypeDef",
         "UpdatedAt": datetime,
+        "WatchlistDetails": "WatchlistDetailsTypeDef",
     },
     total=False,
 )
@@ -285,6 +392,7 @@ DomainTypeDef = TypedDict(
         "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
         "ServerSideEncryptionUpdateDetails": "ServerSideEncryptionUpdateDetailsTypeDef",
         "UpdatedAt": datetime,
+        "WatchlistDetails": "WatchlistDetailsTypeDef",
     },
     total=False,
 )
@@ -303,6 +411,7 @@ EnrollmentJobFraudDetectionConfigTypeDef = TypedDict(
     {
         "FraudDetectionAction": FraudDetectionActionType,
         "RiskThreshold": int,
+        "WatchlistIds": List[str],
     },
     total=False,
 )
@@ -341,7 +450,9 @@ FraudDetectionConfigurationTypeDef = TypedDict(
     "FraudDetectionConfigurationTypeDef",
     {
         "RiskThreshold": int,
+        "WatchlistId": str,
     },
+    total=False,
 )
 
 FraudDetectionResultTypeDef = TypedDict(
@@ -400,12 +511,24 @@ FraudsterRegistrationJobTypeDef = TypedDict(
     total=False,
 )
 
+FraudsterSummaryTypeDef = TypedDict(
+    "FraudsterSummaryTypeDef",
+    {
+        "CreatedAt": datetime,
+        "DomainId": str,
+        "GeneratedFraudsterId": str,
+        "WatchlistIds": List[str],
+    },
+    total=False,
+)
+
 FraudsterTypeDef = TypedDict(
     "FraudsterTypeDef",
     {
         "CreatedAt": datetime,
         "DomainId": str,
         "GeneratedFraudsterId": str,
+        "WatchlistIds": List[str],
     },
     total=False,
 )
@@ -493,6 +616,36 @@ ListFraudsterRegistrationJobsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListFraudstersRequestRequestTypeDef = TypedDict(
+    "_RequiredListFraudstersRequestRequestTypeDef",
+    {
+        "DomainId": str,
+    },
+)
+_OptionalListFraudstersRequestRequestTypeDef = TypedDict(
+    "_OptionalListFraudstersRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "WatchlistId": str,
+    },
+    total=False,
+)
+
+class ListFraudstersRequestRequestTypeDef(
+    _RequiredListFraudstersRequestRequestTypeDef, _OptionalListFraudstersRequestRequestTypeDef
+):
+    pass
+
+ListFraudstersResponseTypeDef = TypedDict(
+    "ListFraudstersResponseTypeDef",
+    {
+        "FraudsterSummaries": List["FraudsterSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListSpeakerEnrollmentJobsRequestRequestTypeDef = TypedDict(
     "_RequiredListSpeakerEnrollmentJobsRequestRequestTypeDef",
     {
@@ -568,6 +721,35 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListWatchlistsRequestRequestTypeDef = TypedDict(
+    "_RequiredListWatchlistsRequestRequestTypeDef",
+    {
+        "DomainId": str,
+    },
+)
+_OptionalListWatchlistsRequestRequestTypeDef = TypedDict(
+    "_OptionalListWatchlistsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListWatchlistsRequestRequestTypeDef(
+    _RequiredListWatchlistsRequestRequestTypeDef, _OptionalListWatchlistsRequestRequestTypeDef
+):
+    pass
+
+ListWatchlistsResponseTypeDef = TypedDict(
+    "ListWatchlistsResponseTypeDef",
+    {
+        "NextToken": str,
+        "WatchlistSummaries": List["WatchlistSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 OptOutSpeakerRequestRequestTypeDef = TypedDict(
     "OptOutSpeakerRequestRequestTypeDef",
     {
@@ -616,6 +798,7 @@ RegistrationConfigTypeDef = TypedDict(
     {
         "DuplicateRegistrationAction": DuplicateRegistrationActionType,
         "FraudsterSimilarityThreshold": int,
+        "WatchlistIds": List[str],
     },
     total=False,
 )
@@ -829,9 +1012,73 @@ UpdateDomainResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateWatchlistRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateWatchlistRequestRequestTypeDef",
+    {
+        "DomainId": str,
+        "WatchlistId": str,
+    },
+)
+_OptionalUpdateWatchlistRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateWatchlistRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Name": str,
+    },
+    total=False,
+)
+
+class UpdateWatchlistRequestRequestTypeDef(
+    _RequiredUpdateWatchlistRequestRequestTypeDef, _OptionalUpdateWatchlistRequestRequestTypeDef
+):
+    pass
+
+UpdateWatchlistResponseTypeDef = TypedDict(
+    "UpdateWatchlistResponseTypeDef",
+    {
+        "Watchlist": "WatchlistTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 VoiceSpoofingRiskTypeDef = TypedDict(
     "VoiceSpoofingRiskTypeDef",
     {
         "RiskScore": int,
     },
+)
+
+WatchlistDetailsTypeDef = TypedDict(
+    "WatchlistDetailsTypeDef",
+    {
+        "DefaultWatchlistId": str,
+    },
+)
+
+WatchlistSummaryTypeDef = TypedDict(
+    "WatchlistSummaryTypeDef",
+    {
+        "CreatedAt": datetime,
+        "DefaultWatchlist": bool,
+        "Description": str,
+        "DomainId": str,
+        "Name": str,
+        "UpdatedAt": datetime,
+        "WatchlistId": str,
+    },
+    total=False,
+)
+
+WatchlistTypeDef = TypedDict(
+    "WatchlistTypeDef",
+    {
+        "CreatedAt": datetime,
+        "DefaultWatchlist": bool,
+        "Description": str,
+        "DomainId": str,
+        "Name": str,
+        "UpdatedAt": datetime,
+        "WatchlistId": str,
+    },
+    total=False,
 )

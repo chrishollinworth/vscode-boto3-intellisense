@@ -57,6 +57,7 @@ __all__ = (
     "DataSourceFilterAttributeType",
     "DataSourceTypeType",
     "DateAggregationFunctionType",
+    "DayOfWeekType",
     "EditionType",
     "EmbeddingIdentityTypeType",
     "FileFormatType",
@@ -105,6 +106,7 @@ __all__ = (
     "ListTemplatesPaginatorName",
     "ListThemeVersionsPaginatorName",
     "ListThemesPaginatorName",
+    "LookbackWindowSizeUnitType",
     "MapZoomModeType",
     "MaximumMinimumComputationTypeType",
     "MemberTypeType",
@@ -125,10 +127,12 @@ __all__ = (
     "PivotTableMetricPlacementType",
     "PivotTableSubtotalLevelType",
     "PrimaryValueDisplayTypeType",
+    "RadarChartShapeType",
     "ReferenceLineLabelHorizontalPositionType",
     "ReferenceLineLabelVerticalPositionType",
     "ReferenceLinePatternTypeType",
     "ReferenceLineValueLabelRelativePositionType",
+    "RefreshIntervalType",
     "RelativeDateTypeType",
     "RelativeFontSizeType",
     "ResizeOptionType",
@@ -320,6 +324,9 @@ DataSourceTypeType = Literal[
     "TWITTER",
 ]
 DateAggregationFunctionType = Literal["COUNT", "DISTINCT_COUNT", "MAX", "MIN"]
+DayOfWeekType = Literal[
+    "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
+]
 EditionType = Literal["ENTERPRISE", "ENTERPRISE_AND_Q", "STANDARD"]
 EmbeddingIdentityTypeType = Literal["ANONYMOUS", "IAM", "QUICKSIGHT"]
 FileFormatType = Literal["CLF", "CSV", "ELF", "JSON", "TSV", "XLSX"]
@@ -398,6 +405,7 @@ IngestionErrorTypeType = Literal[
     "DATA_SOURCE_CONNECTION_FAILED",
     "DATA_SOURCE_NOT_FOUND",
     "DATA_TOLERANCE_EXCEPTION",
+    "DUPLICATE_COLUMN_NAMES_FOUND",
     "ELASTICSEARCH_CURSOR_NOT_ENABLED",
     "FAILURE_TO_ASSUME_ROLE",
     "FAILURE_TO_PROCESS_JSON_FILE",
@@ -462,6 +470,7 @@ ListTemplateVersionsPaginatorName = Literal["list_template_versions"]
 ListTemplatesPaginatorName = Literal["list_templates"]
 ListThemeVersionsPaginatorName = Literal["list_theme_versions"]
 ListThemesPaginatorName = Literal["list_themes"]
+LookbackWindowSizeUnitType = Literal["DAY", "HOUR", "WEEK"]
 MapZoomModeType = Literal["AUTO", "MANUAL"]
 MaximumMinimumComputationTypeType = Literal["MAXIMUM", "MINIMUM"]
 MemberTypeType = Literal["ANALYSIS", "DASHBOARD", "DATASET"]
@@ -496,10 +505,12 @@ PivotTableConditionalFormattingScopeRoleType = Literal["FIELD", "FIELD_TOTAL", "
 PivotTableMetricPlacementType = Literal["COLUMN", "ROW"]
 PivotTableSubtotalLevelType = Literal["ALL", "CUSTOM", "LAST"]
 PrimaryValueDisplayTypeType = Literal["ACTUAL", "COMPARISON", "HIDDEN"]
+RadarChartShapeType = Literal["CIRCLE", "POLYGON"]
 ReferenceLineLabelHorizontalPositionType = Literal["CENTER", "LEFT", "RIGHT"]
 ReferenceLineLabelVerticalPositionType = Literal["ABOVE", "BELOW"]
 ReferenceLinePatternTypeType = Literal["DASHED", "DOTTED", "SOLID"]
 ReferenceLineValueLabelRelativePositionType = Literal["AFTER_CUSTOM_LABEL", "BEFORE_CUSTOM_LABEL"]
+RefreshIntervalType = Literal["DAILY", "HOURLY", "MINUTE15", "MINUTE30", "MONTHLY", "WEEKLY"]
 RelativeDateTypeType = Literal["LAST", "NEXT", "NOW", "PREVIOUS", "THIS"]
 RelativeFontSizeType = Literal["EXTRA_LARGE", "EXTRA_SMALL", "LARGE", "MEDIUM", "SMALL"]
 ResizeOptionType = Literal["FIXED", "RESPONSIVE"]

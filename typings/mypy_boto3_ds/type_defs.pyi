@@ -1585,6 +1585,7 @@ SettingEntryTypeDef = TypedDict(
         "RequestStatusMessage": str,
         "LastUpdatedDateTime": datetime,
         "LastRequestedDateTime": datetime,
+        "DataType": str,
     },
     total=False,
 )

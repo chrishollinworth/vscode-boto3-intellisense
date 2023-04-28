@@ -55,6 +55,7 @@ from mypy_boto3_chime_sdk_media_pipelines.client import ChimeSDKMediaPipelinesCl
 from mypy_boto3_chime_sdk_meetings.client import ChimeSDKMeetingsClient
 from mypy_boto3_chime_sdk_messaging.client import ChimeSDKMessagingClient
 from mypy_boto3_chime_sdk_voice.client import ChimeSDKVoiceClient
+from mypy_boto3_cleanrooms.client import CleanRoomsServiceClient
 from mypy_boto3_cloud9.client import Cloud9Client
 from mypy_boto3_cloudcontrol.client import CloudControlApiClient
 from mypy_boto3_clouddirectory.client import CloudDirectoryClient
@@ -66,6 +67,7 @@ from mypy_boto3_cloudhsmv2.client import CloudHSMV2Client
 from mypy_boto3_cloudsearch.client import CloudSearchClient
 from mypy_boto3_cloudsearchdomain.client import CloudSearchDomainClient
 from mypy_boto3_cloudtrail.client import CloudTrailClient
+from mypy_boto3_cloudtrail_data.client import CloudTrailDataServiceClient
 from mypy_boto3_cloudwatch.client import CloudWatchClient
 from mypy_boto3_cloudwatch.service_resource import CloudWatchServiceResource
 from mypy_boto3_codeartifact.client import CodeArtifactClient
@@ -164,6 +166,7 @@ from mypy_boto3_imagebuilder.client import imagebuilderClient
 from mypy_boto3_importexport.client import ImportExportClient
 from mypy_boto3_inspector2.client import Inspector2Client
 from mypy_boto3_inspector.client import InspectorClient
+from mypy_boto3_internetmonitor.client import CloudWatchInternetMonitorClient
 from mypy_boto3_iot1click_devices.client import IoT1ClickDevicesServiceClient
 from mypy_boto3_iot1click_projects.client import IoT1ClickProjectsClient
 from mypy_boto3_iot.client import IoTClient
@@ -182,10 +185,12 @@ from mypy_boto3_iotthingsgraph.client import IoTThingsGraphClient
 from mypy_boto3_iottwinmaker.client import IoTTwinMakerClient
 from mypy_boto3_iotwireless.client import IoTWirelessClient
 from mypy_boto3_ivs.client import IVSClient
+from mypy_boto3_ivs_realtime.client import ivsrealtimeClient
 from mypy_boto3_ivschat.client import ivschatClient
 from mypy_boto3_kafka.client import KafkaClient
 from mypy_boto3_kafkaconnect.client import KafkaConnectClient
 from mypy_boto3_kendra.client import kendraClient
+from mypy_boto3_kendra_ranking.client import KendraRankingClient
 from mypy_boto3_keyspaces.client import KeyspacesClient
 from mypy_boto3_kinesis.client import KinesisClient
 from mypy_boto3_kinesis_video_archived_media.client import KinesisVideoArchivedMediaClient
@@ -255,6 +260,7 @@ from mypy_boto3_opsworks.client import OpsWorksClient
 from mypy_boto3_opsworks.service_resource import OpsWorksServiceResource
 from mypy_boto3_opsworkscm.client import OpsWorksCMClient
 from mypy_boto3_organizations.client import OrganizationsClient
+from mypy_boto3_osis.client import OpenSearchIngestionClient
 from mypy_boto3_outposts.client import OutpostsClient
 from mypy_boto3_panorama.client import PanoramaClient
 from mypy_boto3_personalize.client import PersonalizeClient
@@ -346,10 +352,12 @@ from mypy_boto3_synthetics.client import SyntheticsClient
 from mypy_boto3_textract.client import TextractClient
 from mypy_boto3_timestream_query.client import TimestreamQueryClient
 from mypy_boto3_timestream_write.client import TimestreamWriteClient
+from mypy_boto3_tnb.client import TelcoNetworkBuilderClient
 from mypy_boto3_transcribe.client import TranscribeServiceClient
 from mypy_boto3_transfer.client import TransferClient
 from mypy_boto3_translate.client import TranslateClient
 from mypy_boto3_voice_id.client import VoiceIDClient
+from mypy_boto3_vpc_lattice.client import VPCLatticeClient
 from mypy_boto3_waf.client import WAFClient
 from mypy_boto3_waf_regional.client import WAFRegionalClient
 from mypy_boto3_wafv2.client import WAFV2Client
@@ -993,6 +1001,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["cleanrooms"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> CleanRoomsServiceClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["cloud9"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -1130,6 +1152,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> CloudTrailClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["cloudtrail-data"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> CloudTrailDataServiceClient: ...
     @overload
     def client(
         self,
@@ -2435,6 +2471,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["internetmonitor"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> CloudWatchInternetMonitorClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["iot"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -2687,6 +2737,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["ivs-realtime"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> ivsrealtimeClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["ivschat"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -2740,6 +2804,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> kendraClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["kendra-ranking"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> KendraRankingClient: ...
     @overload
     def client(
         self,
@@ -3636,6 +3714,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> OrganizationsClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["osis"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> OpenSearchIngestionClient: ...
     @overload
     def client(
         self,
@@ -4885,6 +4977,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["tnb"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> TelcoNetworkBuilderClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["transcribe"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -4938,6 +5044,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> VoiceIDClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["vpc-lattice"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> VPCLatticeClient: ...
     @overload
     def client(
         self,

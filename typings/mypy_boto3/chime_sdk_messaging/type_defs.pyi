@@ -24,7 +24,9 @@ from .literals import (
     ChannelModeType,
     ChannelPrivacyType,
     ErrorCodeType,
+    ExpirationCriterionType,
     FallbackActionType,
+    MessagingDataTypeType,
     PushNotificationTypeType,
     SearchFieldOperatorType,
     SortOrderType,
@@ -82,6 +84,7 @@ __all__ = (
     "DeleteChannelMessageRequestRequestTypeDef",
     "DeleteChannelModeratorRequestRequestTypeDef",
     "DeleteChannelRequestRequestTypeDef",
+    "DeleteMessagingStreamingConfigurationsRequestRequestTypeDef",
     "DescribeChannelBanRequestRequestTypeDef",
     "DescribeChannelBanResponseTypeDef",
     "DescribeChannelFlowRequestRequestTypeDef",
@@ -98,6 +101,7 @@ __all__ = (
     "DescribeChannelResponseTypeDef",
     "DisassociateChannelFlowRequestRequestTypeDef",
     "ElasticChannelConfigurationTypeDef",
+    "ExpirationSettingsTypeDef",
     "GetChannelMembershipPreferencesRequestRequestTypeDef",
     "GetChannelMembershipPreferencesResponseTypeDef",
     "GetChannelMessageRequestRequestTypeDef",
@@ -105,6 +109,8 @@ __all__ = (
     "GetChannelMessageStatusRequestRequestTypeDef",
     "GetChannelMessageStatusResponseTypeDef",
     "GetMessagingSessionEndpointResponseTypeDef",
+    "GetMessagingStreamingConfigurationsRequestRequestTypeDef",
+    "GetMessagingStreamingConfigurationsResponseTypeDef",
     "IdentityTypeDef",
     "LambdaConfigurationTypeDef",
     "ListChannelBansRequestRequestTypeDef",
@@ -135,8 +141,12 @@ __all__ = (
     "ProcessorTypeDef",
     "PushNotificationConfigurationTypeDef",
     "PushNotificationPreferencesTypeDef",
+    "PutChannelExpirationSettingsRequestRequestTypeDef",
+    "PutChannelExpirationSettingsResponseTypeDef",
     "PutChannelMembershipPreferencesRequestRequestTypeDef",
     "PutChannelMembershipPreferencesResponseTypeDef",
+    "PutMessagingStreamingConfigurationsRequestRequestTypeDef",
+    "PutMessagingStreamingConfigurationsResponseTypeDef",
     "RedactChannelMessageRequestRequestTypeDef",
     "RedactChannelMessageResponseTypeDef",
     "ResponseMetadataTypeDef",
@@ -145,6 +155,7 @@ __all__ = (
     "SearchFieldTypeDef",
     "SendChannelMessageRequestRequestTypeDef",
     "SendChannelMessageResponseTypeDef",
+    "StreamingConfigurationTypeDef",
     "SubChannelSummaryTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
@@ -369,6 +380,7 @@ _OptionalChannelMessageCallbackTypeDef = TypedDict(
         "PushNotification": "PushNotificationConfigurationTypeDef",
         "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
         "SubChannelId": str,
+        "ContentType": str,
     },
     total=False,
 )
@@ -401,6 +413,7 @@ ChannelMessageSummaryTypeDef = TypedDict(
         "Redacted": bool,
         "Status": "ChannelMessageStatusStructureTypeDef",
         "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
+        "ContentType": str,
     },
     total=False,
 )
@@ -422,6 +435,7 @@ ChannelMessageTypeDef = TypedDict(
         "Status": "ChannelMessageStatusStructureTypeDef",
         "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
         "SubChannelId": str,
+        "ContentType": str,
     },
     total=False,
 )
@@ -480,6 +494,7 @@ ChannelTypeDef = TypedDict(
         "LastUpdatedTimestamp": datetime,
         "ChannelFlowArn": str,
         "ElasticChannelConfiguration": "ElasticChannelConfigurationTypeDef",
+        "ExpirationSettings": "ExpirationSettingsTypeDef",
     },
     total=False,
 )
@@ -603,6 +618,7 @@ _OptionalCreateChannelRequestRequestTypeDef = TypedDict(
         "MemberArns": List[str],
         "ModeratorArns": List[str],
         "ElasticChannelConfiguration": "ElasticChannelConfigurationTypeDef",
+        "ExpirationSettings": "ExpirationSettingsTypeDef",
     },
     total=False,
 )
@@ -689,25 +705,20 @@ DeleteChannelModeratorRequestRequestTypeDef = TypedDict(
     },
 )
 
-_RequiredDeleteChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteChannelRequestRequestTypeDef",
+DeleteChannelRequestRequestTypeDef = TypedDict(
+    "DeleteChannelRequestRequestTypeDef",
     {
         "ChannelArn": str,
         "ChimeBearer": str,
     },
 )
-_OptionalDeleteChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteChannelRequestRequestTypeDef",
-    {
-        "SubChannelId": str,
-    },
-    total=False,
-)
 
-class DeleteChannelRequestRequestTypeDef(
-    _RequiredDeleteChannelRequestRequestTypeDef, _OptionalDeleteChannelRequestRequestTypeDef
-):
-    pass
+DeleteMessagingStreamingConfigurationsRequestRequestTypeDef = TypedDict(
+    "DeleteMessagingStreamingConfigurationsRequestRequestTypeDef",
+    {
+        "AppInstanceArn": str,
+    },
+)
 
 DescribeChannelBanRequestRequestTypeDef = TypedDict(
     "DescribeChannelBanRequestRequestTypeDef",
@@ -856,6 +867,14 @@ ElasticChannelConfigurationTypeDef = TypedDict(
     },
 )
 
+ExpirationSettingsTypeDef = TypedDict(
+    "ExpirationSettingsTypeDef",
+    {
+        "ExpirationDays": int,
+        "ExpirationCriterion": ExpirationCriterionType,
+    },
+)
+
 GetChannelMembershipPreferencesRequestRequestTypeDef = TypedDict(
     "GetChannelMembershipPreferencesRequestRequestTypeDef",
     {
@@ -938,6 +957,21 @@ GetMessagingSessionEndpointResponseTypeDef = TypedDict(
     "GetMessagingSessionEndpointResponseTypeDef",
     {
         "Endpoint": "MessagingSessionEndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMessagingStreamingConfigurationsRequestRequestTypeDef = TypedDict(
+    "GetMessagingStreamingConfigurationsRequestRequestTypeDef",
+    {
+        "AppInstanceArn": str,
+    },
+)
+
+GetMessagingStreamingConfigurationsResponseTypeDef = TypedDict(
+    "GetMessagingStreamingConfigurationsResponseTypeDef",
+    {
+        "StreamingConfigurations": List["StreamingConfigurationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1353,6 +1387,36 @@ class PushNotificationPreferencesTypeDef(
 ):
     pass
 
+_RequiredPutChannelExpirationSettingsRequestRequestTypeDef = TypedDict(
+    "_RequiredPutChannelExpirationSettingsRequestRequestTypeDef",
+    {
+        "ChannelArn": str,
+    },
+)
+_OptionalPutChannelExpirationSettingsRequestRequestTypeDef = TypedDict(
+    "_OptionalPutChannelExpirationSettingsRequestRequestTypeDef",
+    {
+        "ChimeBearer": str,
+        "ExpirationSettings": "ExpirationSettingsTypeDef",
+    },
+    total=False,
+)
+
+class PutChannelExpirationSettingsRequestRequestTypeDef(
+    _RequiredPutChannelExpirationSettingsRequestRequestTypeDef,
+    _OptionalPutChannelExpirationSettingsRequestRequestTypeDef,
+):
+    pass
+
+PutChannelExpirationSettingsResponseTypeDef = TypedDict(
+    "PutChannelExpirationSettingsResponseTypeDef",
+    {
+        "ChannelArn": str,
+        "ExpirationSettings": "ExpirationSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PutChannelMembershipPreferencesRequestRequestTypeDef = TypedDict(
     "PutChannelMembershipPreferencesRequestRequestTypeDef",
     {
@@ -1369,6 +1433,22 @@ PutChannelMembershipPreferencesResponseTypeDef = TypedDict(
         "ChannelArn": str,
         "Member": "IdentityTypeDef",
         "Preferences": "ChannelMembershipPreferencesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutMessagingStreamingConfigurationsRequestRequestTypeDef = TypedDict(
+    "PutMessagingStreamingConfigurationsRequestRequestTypeDef",
+    {
+        "AppInstanceArn": str,
+        "StreamingConfigurations": List["StreamingConfigurationTypeDef"],
+    },
+)
+
+PutMessagingStreamingConfigurationsResponseTypeDef = TypedDict(
+    "PutMessagingStreamingConfigurationsResponseTypeDef",
+    {
+        "StreamingConfigurations": List["StreamingConfigurationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1473,6 +1553,7 @@ _OptionalSendChannelMessageRequestRequestTypeDef = TypedDict(
         "PushNotification": "PushNotificationConfigurationTypeDef",
         "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
         "SubChannelId": str,
+        "ContentType": str,
     },
     total=False,
 )
@@ -1491,6 +1572,14 @@ SendChannelMessageResponseTypeDef = TypedDict(
         "Status": "ChannelMessageStatusStructureTypeDef",
         "SubChannelId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StreamingConfigurationTypeDef = TypedDict(
+    "StreamingConfigurationTypeDef",
+    {
+        "DataType": MessagingDataTypeType,
+        "ResourceArn": str,
     },
 )
 
@@ -1549,15 +1638,16 @@ _RequiredUpdateChannelMessageRequestRequestTypeDef = TypedDict(
     {
         "ChannelArn": str,
         "MessageId": str,
+        "Content": str,
         "ChimeBearer": str,
     },
 )
 _OptionalUpdateChannelMessageRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateChannelMessageRequestRequestTypeDef",
     {
-        "Content": str,
         "Metadata": str,
         "SubChannelId": str,
+        "ContentType": str,
     },
     total=False,
 )
@@ -1579,32 +1669,18 @@ UpdateChannelMessageResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredUpdateChannelReadMarkerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelReadMarkerRequestRequestTypeDef",
+UpdateChannelReadMarkerRequestRequestTypeDef = TypedDict(
+    "UpdateChannelReadMarkerRequestRequestTypeDef",
     {
         "ChannelArn": str,
         "ChimeBearer": str,
     },
 )
-_OptionalUpdateChannelReadMarkerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelReadMarkerRequestRequestTypeDef",
-    {
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class UpdateChannelReadMarkerRequestRequestTypeDef(
-    _RequiredUpdateChannelReadMarkerRequestRequestTypeDef,
-    _OptionalUpdateChannelReadMarkerRequestRequestTypeDef,
-):
-    pass
 
 UpdateChannelReadMarkerResponseTypeDef = TypedDict(
     "UpdateChannelReadMarkerResponseTypeDef",
     {
         "ChannelArn": str,
-        "SubChannelId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

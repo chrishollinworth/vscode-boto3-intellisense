@@ -24,6 +24,7 @@ __all__ = (
     "CapabilityType",
     "ErrorCodeType",
     "GeoMatchLevelType",
+    "LanguageCodeType",
     "ListSipMediaApplicationsPaginatorName",
     "ListSipRulesPaginatorName",
     "NotificationTargetType",
@@ -63,6 +64,7 @@ ErrorCodeType = Literal[
     "VoiceConnectorGroupAssociationsExist",
 ]
 GeoMatchLevelType = Literal["AreaCode", "Country"]
+LanguageCodeType = Literal["en-US"]
 ListSipMediaApplicationsPaginatorName = Literal["list_sip_media_applications"]
 ListSipRulesPaginatorName = Literal["list_sip_rules"]
 NotificationTargetType = Literal["EventBridge", "SNS", "SQS"]

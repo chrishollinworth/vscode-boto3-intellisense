@@ -16,6 +16,7 @@ Usage::
         DescribeResourcePermissionsPaginator,
         DescribeRootFoldersPaginator,
         DescribeUsersPaginator,
+        SearchResourcesPaginator,
         WorkDocsClient,
     )
 
@@ -33,6 +34,7 @@ Usage::
     describe_resource_permissions_paginator: DescribeResourcePermissionsPaginator = client.get_paginator("describe_resource_permissions")
     describe_root_folders_paginator: DescribeRootFoldersPaginator = client.get_paginator("describe_root_folders")
     describe_users_paginator: DescribeUsersPaginator = client.get_paginator("describe_users")
+    search_resources_paginator: SearchResourcesPaginator = client.get_paginator("search_resources")
     ```
 """
 from .client import WorkDocsClient
@@ -46,6 +48,7 @@ from .paginator import (
     DescribeResourcePermissionsPaginator,
     DescribeRootFoldersPaginator,
     DescribeUsersPaginator,
+    SearchResourcesPaginator,
 )
 
 Client = WorkDocsClient
@@ -61,5 +64,6 @@ __all__ = (
     "DescribeResourcePermissionsPaginator",
     "DescribeRootFoldersPaginator",
     "DescribeUsersPaginator",
+    "SearchResourcesPaginator",
     "WorkDocsClient",
 )

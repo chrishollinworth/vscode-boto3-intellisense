@@ -92,6 +92,7 @@ __all__ = (
     "EvaluateCodeResponseTypeDef",
     "EvaluateMappingTemplateRequestRequestTypeDef",
     "EvaluateMappingTemplateResponseTypeDef",
+    "EventBridgeDataSourceConfigTypeDef",
     "FlushApiCacheRequestRequestTypeDef",
     "FunctionConfigurationTypeDef",
     "GetApiAssociationRequestRequestTypeDef",
@@ -404,6 +405,7 @@ _OptionalCreateDataSourceRequestRequestTypeDef = TypedDict(
         "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
+        "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
     },
     total=False,
 )
@@ -588,6 +590,7 @@ DataSourceTypeDef = TypedDict(
         "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
+        "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
     },
     total=False,
 )
@@ -776,6 +779,13 @@ EvaluateMappingTemplateResponseTypeDef = TypedDict(
         "error": "ErrorDetailTypeDef",
         "logs": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EventBridgeDataSourceConfigTypeDef = TypedDict(
+    "EventBridgeDataSourceConfigTypeDef",
+    {
+        "eventBusArn": str,
     },
 )
 
@@ -1506,6 +1516,7 @@ _OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
         "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
+        "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
     },
     total=False,
 )

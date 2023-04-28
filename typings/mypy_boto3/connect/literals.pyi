@@ -22,6 +22,7 @@ __all__ = (
     "ActionTypeType",
     "AgentStatusStateType",
     "AgentStatusTypeType",
+    "BehaviorTypeType",
     "ChannelType",
     "ComparisonType",
     "ContactFlowModuleStateType",
@@ -33,6 +34,12 @@ __all__ = (
     "CurrentMetricNameType",
     "DirectoryTypeType",
     "EncryptionTypeType",
+    "EvaluationFormQuestionTypeType",
+    "EvaluationFormScoringModeType",
+    "EvaluationFormScoringStatusType",
+    "EvaluationFormSingleSelectQuestionDisplayModeType",
+    "EvaluationFormVersionStatusType",
+    "EvaluationStatusType",
     "EventSourceNameType",
     "GetMetricDataPaginatorName",
     "GroupingType",
@@ -47,10 +54,13 @@ __all__ = (
     "ListAgentStatusesPaginatorName",
     "ListApprovedOriginsPaginatorName",
     "ListBotsPaginatorName",
+    "ListContactEvaluationsPaginatorName",
     "ListContactFlowModulesPaginatorName",
     "ListContactFlowsPaginatorName",
     "ListContactReferencesPaginatorName",
     "ListDefaultVocabulariesPaginatorName",
+    "ListEvaluationFormVersionsPaginatorName",
+    "ListEvaluationFormsPaginatorName",
     "ListHoursOfOperationsPaginatorName",
     "ListInstanceAttributesPaginatorName",
     "ListInstanceStorageConfigsPaginatorName",
@@ -78,6 +88,8 @@ __all__ = (
     "MonitorCapabilityType",
     "NotificationContentTypeType",
     "NotificationDeliveryTypeType",
+    "NumericQuestionPropertyAutomationLabelType",
+    "ParticipantRoleType",
     "ParticipantTimerActionType",
     "ParticipantTimerTypeType",
     "PhoneNumberCountryCodeType",
@@ -89,6 +101,7 @@ __all__ = (
     "QuickConnectTypeType",
     "ReferenceStatusType",
     "ReferenceTypeType",
+    "RehydrationTypeType",
     "RulePublishStatusType",
     "SearchAvailablePhoneNumbersPaginatorName",
     "SearchQueuesPaginatorName",
@@ -97,6 +110,7 @@ __all__ = (
     "SearchUsersPaginatorName",
     "SearchVocabulariesPaginatorName",
     "SearchableQueueTypeType",
+    "SingleSelectQuestionRuleCategoryAutomationConditionType",
     "SortOrderType",
     "SourceTypeType",
     "StatisticType",
@@ -119,6 +133,7 @@ ActionTypeType = Literal[
 ]
 AgentStatusStateType = Literal["DISABLED", "ENABLED"]
 AgentStatusTypeType = Literal["CUSTOM", "OFFLINE", "ROUTABLE"]
+BehaviorTypeType = Literal["ROUTE_ANY_CHANNEL", "ROUTE_CURRENT_CHANNEL_ONLY"]
 ChannelType = Literal["CHAT", "TASK", "VOICE"]
 ComparisonType = Literal["LT"]
 ContactFlowModuleStateType = Literal["ACTIVE", "ARCHIVED"]
@@ -166,6 +181,12 @@ CurrentMetricNameType = Literal[
 ]
 DirectoryTypeType = Literal["CONNECT_MANAGED", "EXISTING_DIRECTORY", "SAML"]
 EncryptionTypeType = Literal["KMS"]
+EvaluationFormQuestionTypeType = Literal["NUMERIC", "SINGLESELECT", "TEXT"]
+EvaluationFormScoringModeType = Literal["QUESTION_ONLY", "SECTION_ONLY"]
+EvaluationFormScoringStatusType = Literal["DISABLED", "ENABLED"]
+EvaluationFormSingleSelectQuestionDisplayModeType = Literal["DROPDOWN", "RADIO"]
+EvaluationFormVersionStatusType = Literal["ACTIVE", "DRAFT"]
+EvaluationStatusType = Literal["DRAFT", "SUBMITTED"]
 EventSourceNameType = Literal[
     "OnPostCallAnalysisAvailable",
     "OnPostChatAnalysisAvailable",
@@ -222,8 +243,10 @@ InstanceAttributeTypeType = Literal[
 InstanceStatusType = Literal["ACTIVE", "CREATION_FAILED", "CREATION_IN_PROGRESS"]
 InstanceStorageResourceTypeType = Literal[
     "AGENT_EVENTS",
+    "ATTACHMENTS",
     "CALL_RECORDINGS",
     "CHAT_TRANSCRIPTS",
+    "CONTACT_EVALUATIONS",
     "CONTACT_TRACE_RECORDS",
     "MEDIA_STREAMS",
     "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
@@ -236,10 +259,13 @@ LexVersionType = Literal["V1", "V2"]
 ListAgentStatusesPaginatorName = Literal["list_agent_statuses"]
 ListApprovedOriginsPaginatorName = Literal["list_approved_origins"]
 ListBotsPaginatorName = Literal["list_bots"]
+ListContactEvaluationsPaginatorName = Literal["list_contact_evaluations"]
 ListContactFlowModulesPaginatorName = Literal["list_contact_flow_modules"]
 ListContactFlowsPaginatorName = Literal["list_contact_flows"]
 ListContactReferencesPaginatorName = Literal["list_contact_references"]
 ListDefaultVocabulariesPaginatorName = Literal["list_default_vocabularies"]
+ListEvaluationFormVersionsPaginatorName = Literal["list_evaluation_form_versions"]
+ListEvaluationFormsPaginatorName = Literal["list_evaluation_forms"]
 ListHoursOfOperationsPaginatorName = Literal["list_hours_of_operations"]
 ListInstanceAttributesPaginatorName = Literal["list_instance_attributes"]
 ListInstanceStorageConfigsPaginatorName = Literal["list_instance_storage_configs"]
@@ -267,6 +293,17 @@ ListUsersPaginatorName = Literal["list_users"]
 MonitorCapabilityType = Literal["BARGE", "SILENT_MONITOR"]
 NotificationContentTypeType = Literal["PLAIN_TEXT"]
 NotificationDeliveryTypeType = Literal["EMAIL"]
+NumericQuestionPropertyAutomationLabelType = Literal[
+    "AGENT_INTERACTION_DURATION",
+    "CONTACT_DURATION",
+    "CUSTOMER_HOLD_TIME",
+    "NON_TALK_TIME",
+    "NON_TALK_TIME_PERCENTAGE",
+    "NUMBER_OF_INTERRUPTIONS",
+    "OVERALL_AGENT_SENTIMENT_SCORE",
+    "OVERALL_CUSTOMER_SENTIMENT_SCORE",
+]
+ParticipantRoleType = Literal["AGENT", "CUSTOMER", "CUSTOM_BOT", "SYSTEM"]
 ParticipantTimerActionType = Literal["Unset"]
 ParticipantTimerTypeType = Literal["DISCONNECT_NONCUSTOMER", "IDLE"]
 PhoneNumberCountryCodeType = Literal[
@@ -516,6 +553,7 @@ QueueTypeType = Literal["AGENT", "STANDARD"]
 QuickConnectTypeType = Literal["PHONE_NUMBER", "QUEUE", "USER"]
 ReferenceStatusType = Literal["APPROVED", "REJECTED"]
 ReferenceTypeType = Literal["ATTACHMENT", "DATE", "EMAIL", "NUMBER", "STRING", "URL"]
+RehydrationTypeType = Literal["ENTIRE_PAST_SESSION", "FROM_SEGMENT"]
 RulePublishStatusType = Literal["DRAFT", "PUBLISHED"]
 SearchAvailablePhoneNumbersPaginatorName = Literal["search_available_phone_numbers"]
 SearchQueuesPaginatorName = Literal["search_queues"]
@@ -524,6 +562,7 @@ SearchSecurityProfilesPaginatorName = Literal["search_security_profiles"]
 SearchUsersPaginatorName = Literal["search_users"]
 SearchVocabulariesPaginatorName = Literal["search_vocabularies"]
 SearchableQueueTypeType = Literal["STANDARD"]
+SingleSelectQuestionRuleCategoryAutomationConditionType = Literal["NOT_PRESENT", "PRESENT"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
 SourceTypeType = Literal["SALESFORCE", "ZENDESK"]
 StatisticType = Literal["AVG", "MAX", "SUM"]

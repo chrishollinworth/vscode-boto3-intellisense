@@ -51,6 +51,7 @@ from .literals import (
     DataSourceFilterAttributeType,
     DataSourceTypeType,
     DateAggregationFunctionType,
+    DayOfWeekType,
     EditionType,
     EmbeddingIdentityTypeType,
     FileFormatType,
@@ -82,6 +83,7 @@ from .literals import (
     LineChartMarkerShapeType,
     LineChartTypeType,
     LineInterpolationType,
+    LookbackWindowSizeUnitType,
     MapZoomModeType,
     MaximumMinimumComputationTypeType,
     MemberTypeType,
@@ -101,10 +103,12 @@ from .literals import (
     PivotTableMetricPlacementType,
     PivotTableSubtotalLevelType,
     PrimaryValueDisplayTypeType,
+    RadarChartShapeType,
     ReferenceLineLabelHorizontalPositionType,
     ReferenceLineLabelVerticalPositionType,
     ReferenceLinePatternTypeType,
     ReferenceLineValueLabelRelativePositionType,
+    RefreshIntervalType,
     RelativeDateTypeType,
     RelativeFontSizeType,
     ResizeOptionType,
@@ -287,6 +291,8 @@ __all__ = (
     "CreateIngestionResponseTypeDef",
     "CreateNamespaceRequestRequestTypeDef",
     "CreateNamespaceResponseTypeDef",
+    "CreateRefreshScheduleRequestRequestTypeDef",
+    "CreateRefreshScheduleResponseTypeDef",
     "CreateTemplateAliasRequestRequestTypeDef",
     "CreateTemplateAliasResponseTypeDef",
     "CreateTemplateRequestRequestTypeDef",
@@ -321,6 +327,7 @@ __all__ = (
     "DashboardVersionTypeDef",
     "DashboardVisualIdTypeDef",
     "DashboardVisualPublishOptionsTypeDef",
+    "DataBarsOptionsTypeDef",
     "DataColorPaletteTypeDef",
     "DataColorTypeDef",
     "DataFieldSeriesItemTypeDef",
@@ -330,9 +337,13 @@ __all__ = (
     "DataPathLabelTypeTypeDef",
     "DataPathSortTypeDef",
     "DataPathValueTypeDef",
+    "DataPointDrillUpDownOptionTypeDef",
+    "DataPointMenuLabelOptionTypeDef",
+    "DataPointTooltipOptionTypeDef",
     "DataSetConfigurationTypeDef",
     "DataSetIdentifierDeclarationTypeDef",
     "DataSetReferenceTypeDef",
+    "DataSetRefreshPropertiesTypeDef",
     "DataSetSchemaTypeDef",
     "DataSetSearchFilterTypeDef",
     "DataSetSummaryTypeDef",
@@ -374,6 +385,8 @@ __all__ = (
     "DeleteAnalysisResponseTypeDef",
     "DeleteDashboardRequestRequestTypeDef",
     "DeleteDashboardResponseTypeDef",
+    "DeleteDataSetRefreshPropertiesRequestRequestTypeDef",
+    "DeleteDataSetRefreshPropertiesResponseTypeDef",
     "DeleteDataSetRequestRequestTypeDef",
     "DeleteDataSetResponseTypeDef",
     "DeleteDataSourceRequestRequestTypeDef",
@@ -390,6 +403,8 @@ __all__ = (
     "DeleteIAMPolicyAssignmentResponseTypeDef",
     "DeleteNamespaceRequestRequestTypeDef",
     "DeleteNamespaceResponseTypeDef",
+    "DeleteRefreshScheduleRequestRequestTypeDef",
+    "DeleteRefreshScheduleResponseTypeDef",
     "DeleteTemplateAliasRequestRequestTypeDef",
     "DeleteTemplateAliasResponseTypeDef",
     "DeleteTemplateRequestRequestTypeDef",
@@ -422,6 +437,8 @@ __all__ = (
     "DescribeDashboardResponseTypeDef",
     "DescribeDataSetPermissionsRequestRequestTypeDef",
     "DescribeDataSetPermissionsResponseTypeDef",
+    "DescribeDataSetRefreshPropertiesRequestRequestTypeDef",
+    "DescribeDataSetRefreshPropertiesResponseTypeDef",
     "DescribeDataSetRequestRequestTypeDef",
     "DescribeDataSetResponseTypeDef",
     "DescribeDataSourcePermissionsRequestRequestTypeDef",
@@ -446,6 +463,8 @@ __all__ = (
     "DescribeIpRestrictionResponseTypeDef",
     "DescribeNamespaceRequestRequestTypeDef",
     "DescribeNamespaceResponseTypeDef",
+    "DescribeRefreshScheduleRequestRequestTypeDef",
+    "DescribeRefreshScheduleResponseTypeDef",
     "DescribeTemplateAliasRequestRequestTypeDef",
     "DescribeTemplateAliasResponseTypeDef",
     "DescribeTemplateDefinitionRequestRequestTypeDef",
@@ -477,6 +496,7 @@ __all__ = (
     "ExplicitHierarchyTypeDef",
     "ExportHiddenFieldsOptionTypeDef",
     "ExportToCSVOptionTypeDef",
+    "ExportWithHiddenFieldsOptionTypeDef",
     "FieldBasedTooltipTypeDef",
     "FieldFolderTypeDef",
     "FieldLabelTypeTypeDef",
@@ -583,6 +603,7 @@ __all__ = (
     "HistogramVisualTypeDef",
     "IAMPolicyAssignmentSummaryTypeDef",
     "IAMPolicyAssignmentTypeDef",
+    "IncrementalRefreshTypeDef",
     "IngestionTypeDef",
     "InputColumnTypeDef",
     "InsightConfigurationTypeDef",
@@ -648,6 +669,8 @@ __all__ = (
     "ListIngestionsResponseTypeDef",
     "ListNamespacesRequestRequestTypeDef",
     "ListNamespacesResponseTypeDef",
+    "ListRefreshSchedulesRequestRequestTypeDef",
+    "ListRefreshSchedulesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListTemplateAliasesRequestRequestTypeDef",
@@ -671,6 +694,7 @@ __all__ = (
     "LogicalTableSourceTypeDef",
     "LogicalTableTypeDef",
     "LongFormatTextTypeDef",
+    "LookbackWindowTypeDef",
     "ManifestFileLocationTypeDef",
     "MarginStyleTypeDef",
     "MariaDbParametersTypeDef",
@@ -749,7 +773,16 @@ __all__ = (
     "PrestoParametersTypeDef",
     "ProgressBarOptionsTypeDef",
     "ProjectOperationTypeDef",
+    "PutDataSetRefreshPropertiesRequestRequestTypeDef",
+    "PutDataSetRefreshPropertiesResponseTypeDef",
     "QueueInfoTypeDef",
+    "RadarChartAggregatedFieldWellsTypeDef",
+    "RadarChartAreaStyleSettingsTypeDef",
+    "RadarChartConfigurationTypeDef",
+    "RadarChartFieldWellsTypeDef",
+    "RadarChartSeriesSettingsTypeDef",
+    "RadarChartSortConfigurationTypeDef",
+    "RadarChartVisualTypeDef",
     "RangeEndsLabelTypeTypeDef",
     "RdsParametersTypeDef",
     "RedshiftParametersTypeDef",
@@ -761,9 +794,14 @@ __all__ = (
     "ReferenceLineStyleConfigurationTypeDef",
     "ReferenceLineTypeDef",
     "ReferenceLineValueLabelConfigurationTypeDef",
+    "RefreshConfigurationTypeDef",
+    "RefreshFrequencyTypeDef",
+    "RefreshScheduleTypeDef",
     "RegisterUserRequestRequestTypeDef",
     "RegisterUserResponseTypeDef",
+    "RegisteredUserConsoleFeatureConfigurationsTypeDef",
     "RegisteredUserDashboardEmbeddingConfigurationTypeDef",
+    "RegisteredUserDashboardFeatureConfigurationsTypeDef",
     "RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef",
     "RegisteredUserEmbeddingExperienceConfigurationTypeDef",
     "RegisteredUserQSearchBarEmbeddingConfigurationTypeDef",
@@ -795,6 +833,7 @@ __all__ = (
     "ScatterPlotFieldWellsTypeDef",
     "ScatterPlotUnaggregatedFieldWellsTypeDef",
     "ScatterPlotVisualTypeDef",
+    "ScheduleRefreshOnEntityTypeDef",
     "ScrollBarOptionsTypeDef",
     "SearchAnalysesRequestRequestTypeDef",
     "SearchAnalysesResponseTypeDef",
@@ -828,6 +867,7 @@ __all__ = (
     "SheetDefinitionTypeDef",
     "SheetElementConfigurationOverridesTypeDef",
     "SheetElementRenderingRuleTypeDef",
+    "SheetLayoutElementMaximizationOptionTypeDef",
     "SheetStyleTypeDef",
     "SheetTextBoxTypeDef",
     "SheetTypeDef",
@@ -842,6 +882,7 @@ __all__ = (
     "SparkParametersTypeDef",
     "SqlServerParametersTypeDef",
     "SslPropertiesTypeDef",
+    "StatePersistenceConfigurationsTypeDef",
     "StringDefaultValuesTypeDef",
     "StringFormatConfigurationTypeDef",
     "StringParameterDeclarationTypeDef",
@@ -865,6 +906,7 @@ __all__ = (
     "TableFieldOptionsTypeDef",
     "TableFieldURLConfigurationTypeDef",
     "TableFieldWellsTypeDef",
+    "TableInlineVisualizationTypeDef",
     "TableOptionsTypeDef",
     "TablePaginatedReportOptionsTypeDef",
     "TableRowConditionalFormattingTypeDef",
@@ -962,6 +1004,8 @@ __all__ = (
     "UpdateIpRestrictionResponseTypeDef",
     "UpdatePublicSharingSettingsRequestRequestTypeDef",
     "UpdatePublicSharingSettingsResponseTypeDef",
+    "UpdateRefreshScheduleRequestRequestTypeDef",
+    "UpdateRefreshScheduleResponseTypeDef",
     "UpdateTemplateAliasRequestRequestTypeDef",
     "UpdateTemplateAliasResponseTypeDef",
     "UpdateTemplatePermissionsRequestRequestTypeDef",
@@ -979,8 +1023,10 @@ __all__ = (
     "UploadSettingsTypeDef",
     "UserTypeDef",
     "VisibleRangeOptionsTypeDef",
+    "VisualAxisSortOptionTypeDef",
     "VisualCustomActionOperationTypeDef",
     "VisualCustomActionTypeDef",
+    "VisualMenuOptionTypeDef",
     "VisualPaletteTypeDef",
     "VisualSubtitleLabelOptionsTypeDef",
     "VisualTitleLabelOptionsTypeDef",
@@ -1741,23 +1787,14 @@ CategoryFilterConfigurationTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredCategoryFilterTypeDef = TypedDict(
-    "_RequiredCategoryFilterTypeDef",
+CategoryFilterTypeDef = TypedDict(
+    "CategoryFilterTypeDef",
     {
         "FilterId": str,
         "Column": "ColumnIdentifierTypeDef",
-    },
-)
-_OptionalCategoryFilterTypeDef = TypedDict(
-    "_OptionalCategoryFilterTypeDef",
-    {
         "Configuration": "CategoryFilterConfigurationTypeDef",
     },
-    total=False,
 )
-
-class CategoryFilterTypeDef(_RequiredCategoryFilterTypeDef, _OptionalCategoryFilterTypeDef):
-    pass
 
 ChartAxisLabelOptionsTypeDef = TypedDict(
     "ChartAxisLabelOptionsTypeDef",
@@ -2620,6 +2657,26 @@ CreateNamespaceResponseTypeDef = TypedDict(
     },
 )
 
+CreateRefreshScheduleRequestRequestTypeDef = TypedDict(
+    "CreateRefreshScheduleRequestRequestTypeDef",
+    {
+        "DataSetId": str,
+        "AwsAccountId": str,
+        "Schedule": "RefreshScheduleTypeDef",
+    },
+)
+
+CreateRefreshScheduleResponseTypeDef = TypedDict(
+    "CreateRefreshScheduleResponseTypeDef",
+    {
+        "Status": int,
+        "RequestId": str,
+        "ScheduleId": str,
+        "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateTemplateAliasRequestRequestTypeDef = TypedDict(
     "CreateTemplateAliasRequestRequestTypeDef",
     {
@@ -2949,6 +3006,13 @@ DashboardPublishOptionsTypeDef = TypedDict(
         "ExportToCSVOption": "ExportToCSVOptionTypeDef",
         "SheetControlsOption": "SheetControlsOptionTypeDef",
         "VisualPublishOptions": "DashboardVisualPublishOptionsTypeDef",
+        "SheetLayoutElementMaximizationOption": "SheetLayoutElementMaximizationOptionTypeDef",
+        "VisualMenuOption": "VisualMenuOptionTypeDef",
+        "VisualAxisSortOption": "VisualAxisSortOptionTypeDef",
+        "ExportWithHiddenFieldsOption": "ExportWithHiddenFieldsOptionTypeDef",
+        "DataPointDrillUpDownOption": "DataPointDrillUpDownOptionTypeDef",
+        "DataPointMenuLabelOption": "DataPointMenuLabelOptionTypeDef",
+        "DataPointTooltipOption": "DataPointTooltipOptionTypeDef",
     },
     total=False,
 )
@@ -3088,6 +3152,24 @@ DashboardVisualPublishOptionsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDataBarsOptionsTypeDef = TypedDict(
+    "_RequiredDataBarsOptionsTypeDef",
+    {
+        "FieldId": str,
+    },
+)
+_OptionalDataBarsOptionsTypeDef = TypedDict(
+    "_OptionalDataBarsOptionsTypeDef",
+    {
+        "PositiveColor": str,
+        "NegativeColor": str,
+    },
+    total=False,
+)
+
+class DataBarsOptionsTypeDef(_RequiredDataBarsOptionsTypeDef, _OptionalDataBarsOptionsTypeDef):
+    pass
+
 DataColorPaletteTypeDef = TypedDict(
     "DataColorPaletteTypeDef",
     {
@@ -3200,6 +3282,30 @@ DataPathValueTypeDef = TypedDict(
     },
 )
 
+DataPointDrillUpDownOptionTypeDef = TypedDict(
+    "DataPointDrillUpDownOptionTypeDef",
+    {
+        "AvailabilityStatus": DashboardBehaviorType,
+    },
+    total=False,
+)
+
+DataPointMenuLabelOptionTypeDef = TypedDict(
+    "DataPointMenuLabelOptionTypeDef",
+    {
+        "AvailabilityStatus": DashboardBehaviorType,
+    },
+    total=False,
+)
+
+DataPointTooltipOptionTypeDef = TypedDict(
+    "DataPointTooltipOptionTypeDef",
+    {
+        "AvailabilityStatus": DashboardBehaviorType,
+    },
+    total=False,
+)
+
 DataSetConfigurationTypeDef = TypedDict(
     "DataSetConfigurationTypeDef",
     {
@@ -3223,6 +3329,13 @@ DataSetReferenceTypeDef = TypedDict(
     {
         "DataSetPlaceholder": str,
         "DataSetArn": str,
+    },
+)
+
+DataSetRefreshPropertiesTypeDef = TypedDict(
+    "DataSetRefreshPropertiesTypeDef",
+    {
+        "RefreshConfiguration": "RefreshConfigurationTypeDef",
     },
 )
 
@@ -3737,6 +3850,23 @@ DeleteDashboardResponseTypeDef = TypedDict(
     },
 )
 
+DeleteDataSetRefreshPropertiesRequestRequestTypeDef = TypedDict(
+    "DeleteDataSetRefreshPropertiesRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "DataSetId": str,
+    },
+)
+
+DeleteDataSetRefreshPropertiesResponseTypeDef = TypedDict(
+    "DeleteDataSetRefreshPropertiesResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteDataSetRequestRequestTypeDef = TypedDict(
     "DeleteDataSetRequestRequestTypeDef",
     {
@@ -3882,6 +4012,26 @@ DeleteNamespaceResponseTypeDef = TypedDict(
     {
         "RequestId": str,
         "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteRefreshScheduleRequestRequestTypeDef = TypedDict(
+    "DeleteRefreshScheduleRequestRequestTypeDef",
+    {
+        "DataSetId": str,
+        "AwsAccountId": str,
+        "ScheduleId": str,
+    },
+)
+
+DeleteRefreshScheduleResponseTypeDef = TypedDict(
+    "DeleteRefreshScheduleResponseTypeDef",
+    {
+        "Status": int,
+        "RequestId": str,
+        "ScheduleId": str,
+        "Arn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4188,6 +4338,7 @@ DescribeDashboardDefinitionResponseTypeDef = TypedDict(
         "Definition": "DashboardVersionDefinitionTypeDef",
         "Status": int,
         "RequestId": str,
+        "DashboardPublishOptions": "DashboardPublishOptionsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4260,6 +4411,24 @@ DescribeDataSetPermissionsResponseTypeDef = TypedDict(
         "Permissions": List["ResourcePermissionTypeDef"],
         "RequestId": str,
         "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDataSetRefreshPropertiesRequestRequestTypeDef = TypedDict(
+    "DescribeDataSetRefreshPropertiesRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "DataSetId": str,
+    },
+)
+
+DescribeDataSetRefreshPropertiesResponseTypeDef = TypedDict(
+    "DescribeDataSetRefreshPropertiesResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "DataSetRefreshProperties": "DataSetRefreshPropertiesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4488,6 +4657,26 @@ DescribeNamespaceResponseTypeDef = TypedDict(
         "Namespace": "NamespaceInfoV2TypeDef",
         "RequestId": str,
         "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRefreshScheduleRequestRequestTypeDef = TypedDict(
+    "DescribeRefreshScheduleRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "DataSetId": str,
+        "ScheduleId": str,
+    },
+)
+
+DescribeRefreshScheduleResponseTypeDef = TypedDict(
+    "DescribeRefreshScheduleResponseTypeDef",
+    {
+        "RefreshSchedule": "RefreshScheduleTypeDef",
+        "Status": int,
+        "RequestId": str,
+        "Arn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4858,6 +5047,14 @@ ExportHiddenFieldsOptionTypeDef = TypedDict(
 
 ExportToCSVOptionTypeDef = TypedDict(
     "ExportToCSVOptionTypeDef",
+    {
+        "AvailabilityStatus": DashboardBehaviorType,
+    },
+    total=False,
+)
+
+ExportWithHiddenFieldsOptionTypeDef = TypedDict(
+    "ExportWithHiddenFieldsOptionTypeDef",
     {
         "AvailabilityStatus": DashboardBehaviorType,
     },
@@ -6281,6 +6478,13 @@ IAMPolicyAssignmentTypeDef = TypedDict(
     total=False,
 )
 
+IncrementalRefreshTypeDef = TypedDict(
+    "IncrementalRefreshTypeDef",
+    {
+        "LookbackWindow": "LookbackWindowTypeDef",
+    },
+)
+
 _RequiredIngestionTypeDef = TypedDict(
     "_RequiredIngestionTypeDef",
     {
@@ -7153,6 +7357,24 @@ ListNamespacesResponseTypeDef = TypedDict(
     },
 )
 
+ListRefreshSchedulesRequestRequestTypeDef = TypedDict(
+    "ListRefreshSchedulesRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "DataSetId": str,
+    },
+)
+
+ListRefreshSchedulesResponseTypeDef = TypedDict(
+    "ListRefreshSchedulesResponseTypeDef",
+    {
+        "RefreshSchedules": List["RefreshScheduleTypeDef"],
+        "Status": int,
+        "RequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -7478,6 +7700,15 @@ LongFormatTextTypeDef = TypedDict(
         "RichText": str,
     },
     total=False,
+)
+
+LookbackWindowTypeDef = TypedDict(
+    "LookbackWindowTypeDef",
+    {
+        "ColumnName": str,
+        "Size": int,
+        "SizeUnit": LookbackWindowSizeUnitType,
+    },
 )
 
 ManifestFileLocationTypeDef = TypedDict(
@@ -8353,6 +8584,7 @@ PivotTableOptionsTypeDef = TypedDict(
         "CellStyle": "TableCellStyleTypeDef",
         "RowFieldNamesStyle": "TableCellStyleTypeDef",
         "RowAlternateColorOptions": "RowAlternateColorOptionsTypeDef",
+        "CollapsedRowDimensionsVisibility": VisibilityType,
     },
     total=False,
 )
@@ -8483,6 +8715,24 @@ ProjectOperationTypeDef = TypedDict(
     },
 )
 
+PutDataSetRefreshPropertiesRequestRequestTypeDef = TypedDict(
+    "PutDataSetRefreshPropertiesRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "DataSetId": str,
+        "DataSetRefreshProperties": "DataSetRefreshPropertiesTypeDef",
+    },
+)
+
+PutDataSetRefreshPropertiesResponseTypeDef = TypedDict(
+    "PutDataSetRefreshPropertiesResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 QueueInfoTypeDef = TypedDict(
     "QueueInfoTypeDef",
     {
@@ -8490,6 +8740,93 @@ QueueInfoTypeDef = TypedDict(
         "QueuedIngestion": str,
     },
 )
+
+RadarChartAggregatedFieldWellsTypeDef = TypedDict(
+    "RadarChartAggregatedFieldWellsTypeDef",
+    {
+        "Category": List["DimensionFieldTypeDef"],
+        "Color": List["DimensionFieldTypeDef"],
+        "Values": List["MeasureFieldTypeDef"],
+    },
+    total=False,
+)
+
+RadarChartAreaStyleSettingsTypeDef = TypedDict(
+    "RadarChartAreaStyleSettingsTypeDef",
+    {
+        "Visibility": VisibilityType,
+    },
+    total=False,
+)
+
+RadarChartConfigurationTypeDef = TypedDict(
+    "RadarChartConfigurationTypeDef",
+    {
+        "FieldWells": "RadarChartFieldWellsTypeDef",
+        "SortConfiguration": "RadarChartSortConfigurationTypeDef",
+        "Shape": RadarChartShapeType,
+        "BaseSeriesSettings": "RadarChartSeriesSettingsTypeDef",
+        "StartAngle": float,
+        "VisualPalette": "VisualPaletteTypeDef",
+        "AlternateBandColorsVisibility": VisibilityType,
+        "AlternateBandEvenColor": str,
+        "AlternateBandOddColor": str,
+        "CategoryAxis": "AxisDisplayOptionsTypeDef",
+        "CategoryLabelOptions": "ChartAxisLabelOptionsTypeDef",
+        "ColorAxis": "AxisDisplayOptionsTypeDef",
+        "ColorLabelOptions": "ChartAxisLabelOptionsTypeDef",
+        "Legend": "LegendOptionsTypeDef",
+    },
+    total=False,
+)
+
+RadarChartFieldWellsTypeDef = TypedDict(
+    "RadarChartFieldWellsTypeDef",
+    {
+        "RadarChartAggregatedFieldWells": "RadarChartAggregatedFieldWellsTypeDef",
+    },
+    total=False,
+)
+
+RadarChartSeriesSettingsTypeDef = TypedDict(
+    "RadarChartSeriesSettingsTypeDef",
+    {
+        "AreaStyleSettings": "RadarChartAreaStyleSettingsTypeDef",
+    },
+    total=False,
+)
+
+RadarChartSortConfigurationTypeDef = TypedDict(
+    "RadarChartSortConfigurationTypeDef",
+    {
+        "CategorySort": List["FieldSortOptionsTypeDef"],
+        "CategoryItemsLimit": "ItemsLimitConfigurationTypeDef",
+        "ColorSort": List["FieldSortOptionsTypeDef"],
+        "ColorItemsLimit": "ItemsLimitConfigurationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredRadarChartVisualTypeDef = TypedDict(
+    "_RequiredRadarChartVisualTypeDef",
+    {
+        "VisualId": str,
+    },
+)
+_OptionalRadarChartVisualTypeDef = TypedDict(
+    "_OptionalRadarChartVisualTypeDef",
+    {
+        "Title": "VisualTitleLabelOptionsTypeDef",
+        "Subtitle": "VisualSubtitleLabelOptionsTypeDef",
+        "ChartConfiguration": "RadarChartConfigurationTypeDef",
+        "Actions": List["VisualCustomActionTypeDef"],
+        "ColumnHierarchies": List["ColumnHierarchyTypeDef"],
+    },
+    total=False,
+)
+
+class RadarChartVisualTypeDef(_RequiredRadarChartVisualTypeDef, _OptionalRadarChartVisualTypeDef):
+    pass
 
 RangeEndsLabelTypeTypeDef = TypedDict(
     "RangeEndsLabelTypeTypeDef",
@@ -8611,6 +8948,52 @@ ReferenceLineValueLabelConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+RefreshConfigurationTypeDef = TypedDict(
+    "RefreshConfigurationTypeDef",
+    {
+        "IncrementalRefresh": "IncrementalRefreshTypeDef",
+    },
+)
+
+_RequiredRefreshFrequencyTypeDef = TypedDict(
+    "_RequiredRefreshFrequencyTypeDef",
+    {
+        "Interval": RefreshIntervalType,
+    },
+)
+_OptionalRefreshFrequencyTypeDef = TypedDict(
+    "_OptionalRefreshFrequencyTypeDef",
+    {
+        "RefreshOnDay": "ScheduleRefreshOnEntityTypeDef",
+        "Timezone": str,
+        "TimeOfTheDay": str,
+    },
+    total=False,
+)
+
+class RefreshFrequencyTypeDef(_RequiredRefreshFrequencyTypeDef, _OptionalRefreshFrequencyTypeDef):
+    pass
+
+_RequiredRefreshScheduleTypeDef = TypedDict(
+    "_RequiredRefreshScheduleTypeDef",
+    {
+        "ScheduleId": str,
+        "ScheduleFrequency": "RefreshFrequencyTypeDef",
+        "RefreshType": IngestionTypeType,
+    },
+)
+_OptionalRefreshScheduleTypeDef = TypedDict(
+    "_OptionalRefreshScheduleTypeDef",
+    {
+        "StartAfterDateTime": Union[datetime, str],
+        "Arn": str,
+    },
+    total=False,
+)
+
+class RefreshScheduleTypeDef(_RequiredRefreshScheduleTypeDef, _OptionalRefreshScheduleTypeDef):
+    pass
+
 _RequiredRegisterUserRequestRequestTypeDef = TypedDict(
     "_RequiredRegisterUserRequestRequestTypeDef",
     {
@@ -8651,11 +9034,40 @@ RegisterUserResponseTypeDef = TypedDict(
     },
 )
 
-RegisteredUserDashboardEmbeddingConfigurationTypeDef = TypedDict(
-    "RegisteredUserDashboardEmbeddingConfigurationTypeDef",
+RegisteredUserConsoleFeatureConfigurationsTypeDef = TypedDict(
+    "RegisteredUserConsoleFeatureConfigurationsTypeDef",
+    {
+        "StatePersistence": "StatePersistenceConfigurationsTypeDef",
+    },
+    total=False,
+)
+
+_RequiredRegisteredUserDashboardEmbeddingConfigurationTypeDef = TypedDict(
+    "_RequiredRegisteredUserDashboardEmbeddingConfigurationTypeDef",
     {
         "InitialDashboardId": str,
     },
+)
+_OptionalRegisteredUserDashboardEmbeddingConfigurationTypeDef = TypedDict(
+    "_OptionalRegisteredUserDashboardEmbeddingConfigurationTypeDef",
+    {
+        "FeatureConfigurations": "RegisteredUserDashboardFeatureConfigurationsTypeDef",
+    },
+    total=False,
+)
+
+class RegisteredUserDashboardEmbeddingConfigurationTypeDef(
+    _RequiredRegisteredUserDashboardEmbeddingConfigurationTypeDef,
+    _OptionalRegisteredUserDashboardEmbeddingConfigurationTypeDef,
+):
+    pass
+
+RegisteredUserDashboardFeatureConfigurationsTypeDef = TypedDict(
+    "RegisteredUserDashboardFeatureConfigurationsTypeDef",
+    {
+        "StatePersistence": "StatePersistenceConfigurationsTypeDef",
+    },
+    total=False,
 )
 
 RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef = TypedDict(
@@ -8688,6 +9100,7 @@ RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef = TypedDict(
     "RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef",
     {
         "InitialPath": str,
+        "FeatureConfigurations": "RegisteredUserConsoleFeatureConfigurationsTypeDef",
     },
     total=False,
 )
@@ -8864,6 +9277,7 @@ _OptionalRowLevelPermissionTagConfigurationTypeDef = TypedDict(
     "_OptionalRowLevelPermissionTagConfigurationTypeDef",
     {
         "Status": StatusType,
+        "TagRuleConfigurations": List[List[str]],
     },
     total=False,
 )
@@ -8895,12 +9309,22 @@ class RowLevelPermissionTagRuleTypeDef(
 ):
     pass
 
-S3ParametersTypeDef = TypedDict(
-    "S3ParametersTypeDef",
+_RequiredS3ParametersTypeDef = TypedDict(
+    "_RequiredS3ParametersTypeDef",
     {
         "ManifestFileLocation": "ManifestFileLocationTypeDef",
     },
 )
+_OptionalS3ParametersTypeDef = TypedDict(
+    "_OptionalS3ParametersTypeDef",
+    {
+        "RoleArn": str,
+    },
+    total=False,
+)
+
+class S3ParametersTypeDef(_RequiredS3ParametersTypeDef, _OptionalS3ParametersTypeDef):
+    pass
 
 _RequiredS3SourceTypeDef = TypedDict(
     "_RequiredS3SourceTypeDef",
@@ -9057,6 +9481,15 @@ class ScatterPlotVisualTypeDef(
     _RequiredScatterPlotVisualTypeDef, _OptionalScatterPlotVisualTypeDef
 ):
     pass
+
+ScheduleRefreshOnEntityTypeDef = TypedDict(
+    "ScheduleRefreshOnEntityTypeDef",
+    {
+        "DayOfWeek": DayOfWeekType,
+        "DayOfMonth": str,
+    },
+    total=False,
+)
 
 ScrollBarOptionsTypeDef = TypedDict(
     "ScrollBarOptionsTypeDef",
@@ -9440,6 +9873,14 @@ SheetElementRenderingRuleTypeDef = TypedDict(
     },
 )
 
+SheetLayoutElementMaximizationOptionTypeDef = TypedDict(
+    "SheetLayoutElementMaximizationOptionTypeDef",
+    {
+        "AvailabilityStatus": DashboardBehaviorType,
+    },
+    total=False,
+)
+
 SheetStyleTypeDef = TypedDict(
     "SheetStyleTypeDef",
     {
@@ -9584,6 +10025,13 @@ SslPropertiesTypeDef = TypedDict(
         "DisableSsl": bool,
     },
     total=False,
+)
+
+StatePersistenceConfigurationsTypeDef = TypedDict(
+    "StatePersistenceConfigurationsTypeDef",
+    {
+        "Enabled": bool,
+    },
 )
 
 StringDefaultValuesTypeDef = TypedDict(
@@ -9743,6 +10191,7 @@ TableConfigurationTypeDef = TypedDict(
         "TotalOptions": "TotalOptionsTypeDef",
         "FieldOptions": "TableFieldOptionsTypeDef",
         "PaginatedReportOptions": "TablePaginatedReportOptionsTypeDef",
+        "TableInlineVisualizations": List["TableInlineVisualizationTypeDef"],
     },
     total=False,
 )
@@ -9842,6 +10291,14 @@ TableFieldWellsTypeDef = TypedDict(
     {
         "TableAggregatedFieldWells": "TableAggregatedFieldWellsTypeDef",
         "TableUnaggregatedFieldWells": "TableUnaggregatedFieldWellsTypeDef",
+    },
+    total=False,
+)
+
+TableInlineVisualizationTypeDef = TypedDict(
+    "TableInlineVisualizationTypeDef",
+    {
+        "DataBars": "DataBarsOptionsTypeDef",
     },
     total=False,
 )
@@ -11183,6 +11640,26 @@ UpdatePublicSharingSettingsResponseTypeDef = TypedDict(
     },
 )
 
+UpdateRefreshScheduleRequestRequestTypeDef = TypedDict(
+    "UpdateRefreshScheduleRequestRequestTypeDef",
+    {
+        "DataSetId": str,
+        "AwsAccountId": str,
+        "Schedule": "RefreshScheduleTypeDef",
+    },
+)
+
+UpdateRefreshScheduleResponseTypeDef = TypedDict(
+    "UpdateRefreshScheduleResponseTypeDef",
+    {
+        "Status": int,
+        "RequestId": str,
+        "ScheduleId": str,
+        "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateTemplateAliasRequestRequestTypeDef = TypedDict(
     "UpdateTemplateAliasRequestRequestTypeDef",
     {
@@ -11438,6 +11915,14 @@ VisibleRangeOptionsTypeDef = TypedDict(
     total=False,
 )
 
+VisualAxisSortOptionTypeDef = TypedDict(
+    "VisualAxisSortOptionTypeDef",
+    {
+        "AvailabilityStatus": DashboardBehaviorType,
+    },
+    total=False,
+)
+
 VisualCustomActionOperationTypeDef = TypedDict(
     "VisualCustomActionOperationTypeDef",
     {
@@ -11470,6 +11955,14 @@ class VisualCustomActionTypeDef(
     _RequiredVisualCustomActionTypeDef, _OptionalVisualCustomActionTypeDef
 ):
     pass
+
+VisualMenuOptionTypeDef = TypedDict(
+    "VisualMenuOptionTypeDef",
+    {
+        "AvailabilityStatus": DashboardBehaviorType,
+    },
+    total=False,
+)
 
 VisualPaletteTypeDef = TypedDict(
     "VisualPaletteTypeDef",
@@ -11523,6 +12016,7 @@ VisualTypeDef = TypedDict(
         "SankeyDiagramVisual": "SankeyDiagramVisualTypeDef",
         "CustomContentVisual": "CustomContentVisualTypeDef",
         "EmptyVisual": "EmptyVisualTypeDef",
+        "RadarChartVisual": "RadarChartVisualTypeDef",
     },
     total=False,
 )

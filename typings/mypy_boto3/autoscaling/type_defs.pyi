@@ -36,7 +36,9 @@ from .literals import (
     PredefinedScalingMetricTypeType,
     PredictiveScalingMaxCapacityBreachBehaviorType,
     PredictiveScalingModeType,
+    ScaleInProtectedInstancesType,
     ScalingActivityStatusCodeType,
+    StandbyInstancesType,
     WarmPoolStateType,
 )
 
@@ -187,6 +189,9 @@ __all__ = (
     "RecordLifecycleActionHeartbeatTypeRequestTypeDef",
     "RefreshPreferencesTypeDef",
     "ResponseMetadataTypeDef",
+    "RollbackDetailsTypeDef",
+    "RollbackInstanceRefreshAnswerTypeDef",
+    "RollbackInstanceRefreshTypeRequestTypeDef",
     "ScalingPolicyTypeDef",
     "ScalingProcessQueryRequestTypeDef",
     "ScheduledActionsTypeTypeDef",
@@ -991,12 +996,12 @@ _RequiredDescribeTrafficSourcesRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeTrafficSourcesRequestRequestTypeDef",
     {
         "AutoScalingGroupName": str,
-        "TrafficSourceType": str,
     },
 )
 _OptionalDescribeTrafficSourcesRequestRequestTypeDef = TypedDict(
     "_OptionalDescribeTrafficSourcesRequestRequestTypeDef",
     {
+        "TrafficSourceType": str,
         "NextToken": str,
         "MaxRecords": int,
     },
@@ -1350,6 +1355,7 @@ InstanceRefreshTypeDef = TypedDict(
         "ProgressDetails": "InstanceRefreshProgressDetailsTypeDef",
         "Preferences": "RefreshPreferencesTypeDef",
         "DesiredConfiguration": "DesiredConfigurationTypeDef",
+        "RollbackDetails": "RollbackDetailsTypeDef",
     },
     total=False,
 )
@@ -2086,6 +2092,9 @@ RefreshPreferencesTypeDef = TypedDict(
         "CheckpointPercentages": List[int],
         "CheckpointDelay": int,
         "SkipMatching": bool,
+        "AutoRollback": bool,
+        "ScaleInProtectedInstances": ScaleInProtectedInstancesType,
+        "StandbyInstances": StandbyInstancesType,
     },
     total=False,
 )
@@ -2099,6 +2108,34 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RollbackDetailsTypeDef = TypedDict(
+    "RollbackDetailsTypeDef",
+    {
+        "RollbackReason": str,
+        "RollbackStartTime": datetime,
+        "PercentageCompleteOnRollback": int,
+        "InstancesToUpdateOnRollback": int,
+        "ProgressDetailsOnRollback": "InstanceRefreshProgressDetailsTypeDef",
+    },
+    total=False,
+)
+
+RollbackInstanceRefreshAnswerTypeDef = TypedDict(
+    "RollbackInstanceRefreshAnswerTypeDef",
+    {
+        "InstanceRefreshId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RollbackInstanceRefreshTypeRequestTypeDef = TypedDict(
+    "RollbackInstanceRefreshTypeRequestTypeDef",
+    {
+        "AutoScalingGroupName": str,
+    },
+    total=False,
 )
 
 ScalingPolicyTypeDef = TypedDict(
@@ -2422,19 +2459,32 @@ TotalLocalStorageGBRequestTypeDef = TypedDict(
     total=False,
 )
 
-TrafficSourceIdentifierTypeDef = TypedDict(
-    "TrafficSourceIdentifierTypeDef",
+_RequiredTrafficSourceIdentifierTypeDef = TypedDict(
+    "_RequiredTrafficSourceIdentifierTypeDef",
     {
         "Identifier": str,
     },
+)
+_OptionalTrafficSourceIdentifierTypeDef = TypedDict(
+    "_OptionalTrafficSourceIdentifierTypeDef",
+    {
+        "Type": str,
+    },
     total=False,
 )
+
+class TrafficSourceIdentifierTypeDef(
+    _RequiredTrafficSourceIdentifierTypeDef, _OptionalTrafficSourceIdentifierTypeDef
+):
+    pass
 
 TrafficSourceStateTypeDef = TypedDict(
     "TrafficSourceStateTypeDef",
     {
         "TrafficSource": str,
         "State": str,
+        "Identifier": str,
+        "Type": str,
     },
     total=False,
 )

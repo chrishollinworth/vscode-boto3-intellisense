@@ -41,6 +41,7 @@ GetLatestConfigurationResponseTypeDef = TypedDict(
         "NextPollIntervalInSeconds": int,
         "ContentType": str,
         "Configuration": bytes,
+        "VersionLabel": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

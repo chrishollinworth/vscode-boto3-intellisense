@@ -85,6 +85,8 @@ __all__ = (
     "ParametricMonitoringConfigurationTypeDef",
     "ParametricS3MonitoringConfigurationTypeDef",
     "ResponseMetadataTypeDef",
+    "RetryPolicyConfigurationTypeDef",
+    "RetryPolicyExecutionTypeDef",
     "S3MonitoringConfigurationTypeDef",
     "SparkSqlJobDriverTypeDef",
     "SparkSubmitJobDriverTypeDef",
@@ -470,6 +472,8 @@ JobRunTypeDef = TypedDict(
         "stateDetails": str,
         "failureReason": FailureReasonType,
         "tags": Dict[str, str],
+        "retryPolicyConfiguration": "RetryPolicyConfigurationTypeDef",
+        "retryPolicyExecution": "RetryPolicyExecutionTypeDef",
     },
     total=False,
 )
@@ -711,6 +715,20 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RetryPolicyConfigurationTypeDef = TypedDict(
+    "RetryPolicyConfigurationTypeDef",
+    {
+        "maxAttempts": int,
+    },
+)
+
+RetryPolicyExecutionTypeDef = TypedDict(
+    "RetryPolicyExecutionTypeDef",
+    {
+        "currentAttemptCount": int,
+    },
+)
+
 S3MonitoringConfigurationTypeDef = TypedDict(
     "S3MonitoringConfigurationTypeDef",
     {
@@ -765,6 +783,7 @@ _OptionalStartJobRunRequestRequestTypeDef = TypedDict(
         "tags": Dict[str, str],
         "jobTemplateId": str,
         "jobTemplateParameters": Dict[str, str],
+        "retryPolicyConfiguration": "RetryPolicyConfigurationTypeDef",
     },
     total=False,
 )

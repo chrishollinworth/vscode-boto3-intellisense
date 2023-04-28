@@ -17,6 +17,10 @@ Usage::
         DescribeSourceServersPaginator,
         DescribeVcenterClientsPaginator,
         ListApplicationsPaginator,
+        ListExportErrorsPaginator,
+        ListExportsPaginator,
+        ListImportErrorsPaginator,
+        ListImportsPaginator,
         ListSourceServerActionsPaginator,
         ListTemplateActionsPaginator,
         ListWavesPaginator,
@@ -31,6 +35,10 @@ Usage::
     describe_source_servers_paginator: DescribeSourceServersPaginator = client.get_paginator("describe_source_servers")
     describe_vcenter_clients_paginator: DescribeVcenterClientsPaginator = client.get_paginator("describe_vcenter_clients")
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
+    list_export_errors_paginator: ListExportErrorsPaginator = client.get_paginator("list_export_errors")
+    list_exports_paginator: ListExportsPaginator = client.get_paginator("list_exports")
+    list_import_errors_paginator: ListImportErrorsPaginator = client.get_paginator("list_import_errors")
+    list_imports_paginator: ListImportsPaginator = client.get_paginator("list_imports")
     list_source_server_actions_paginator: ListSourceServerActionsPaginator = client.get_paginator("list_source_server_actions")
     list_template_actions_paginator: ListTemplateActionsPaginator = client.get_paginator("list_template_actions")
     list_waves_paginator: ListWavesPaginator = client.get_paginator("list_waves")
@@ -51,6 +59,12 @@ from .type_defs import (
     DescribeVcenterClientsResponseTypeDef,
     ListApplicationsRequestFiltersTypeDef,
     ListApplicationsResponseTypeDef,
+    ListExportErrorsResponseTypeDef,
+    ListExportsRequestFiltersTypeDef,
+    ListExportsResponseTypeDef,
+    ListImportErrorsResponseTypeDef,
+    ListImportsRequestFiltersTypeDef,
+    ListImportsResponseTypeDef,
     ListSourceServerActionsResponseTypeDef,
     ListTemplateActionsResponseTypeDef,
     ListWavesRequestFiltersTypeDef,
@@ -68,6 +82,10 @@ __all__ = (
     "DescribeSourceServersPaginator",
     "DescribeVcenterClientsPaginator",
     "ListApplicationsPaginator",
+    "ListExportErrorsPaginator",
+    "ListExportsPaginator",
+    "ListImportErrorsPaginator",
+    "ListImportsPaginator",
     "ListSourceServerActionsPaginator",
     "ListTemplateActionsPaginator",
     "ListWavesPaginator",
@@ -75,7 +93,7 @@ __all__ = (
 
 class DescribeJobLogItemsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeJobLogItems)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeJobLogItems)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describejoblogitemspaginator)
     """
 
@@ -83,13 +101,13 @@ class DescribeJobLogItemsPaginator(Boto3Paginator):
         self, *, jobID: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeJobLogItemsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeJobLogItems.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeJobLogItems.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describejoblogitemspaginator)
         """
 
 class DescribeJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describejobspaginator)
     """
 
@@ -100,13 +118,13 @@ class DescribeJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describejobspaginator)
         """
 
 class DescribeLaunchConfigurationTemplatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeLaunchConfigurationTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeLaunchConfigurationTemplates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describelaunchconfigurationtemplatespaginator)
     """
 
@@ -117,13 +135,13 @@ class DescribeLaunchConfigurationTemplatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLaunchConfigurationTemplatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeLaunchConfigurationTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeLaunchConfigurationTemplates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describelaunchconfigurationtemplatespaginator)
         """
 
 class DescribeReplicationConfigurationTemplatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeReplicationConfigurationTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeReplicationConfigurationTemplates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describereplicationconfigurationtemplatespaginator)
     """
 
@@ -134,13 +152,13 @@ class DescribeReplicationConfigurationTemplatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReplicationConfigurationTemplatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeReplicationConfigurationTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeReplicationConfigurationTemplates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describereplicationconfigurationtemplatespaginator)
         """
 
 class DescribeSourceServersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeSourceServers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeSourceServers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describesourceserverspaginator)
     """
 
@@ -151,13 +169,13 @@ class DescribeSourceServersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSourceServersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeSourceServers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeSourceServers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describesourceserverspaginator)
         """
 
 class DescribeVcenterClientsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeVcenterClients)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeVcenterClients)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describevcenterclientspaginator)
     """
 
@@ -165,13 +183,13 @@ class DescribeVcenterClientsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVcenterClientsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.DescribeVcenterClients.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.DescribeVcenterClients.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describevcenterclientspaginator)
         """
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.ListApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListApplications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listapplicationspaginator)
     """
 
@@ -182,13 +200,75 @@ class ListApplicationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.ListApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListApplications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listapplicationspaginator)
+        """
+
+class ListExportErrorsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListExportErrors)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listexporterrorspaginator)
+    """
+
+    def paginate(
+        self, *, exportID: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListExportErrorsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListExportErrors.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listexporterrorspaginator)
+        """
+
+class ListExportsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListExports)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listexportspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        filters: "ListExportsRequestFiltersTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListExportsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListExports.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listexportspaginator)
+        """
+
+class ListImportErrorsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListImportErrors)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listimporterrorspaginator)
+    """
+
+    def paginate(
+        self, *, importID: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListImportErrorsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListImportErrors.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listimporterrorspaginator)
+        """
+
+class ListImportsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListImports)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listimportspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        filters: "ListImportsRequestFiltersTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListImportsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListImports.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listimportspaginator)
         """
 
 class ListSourceServerActionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.ListSourceServerActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListSourceServerActions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listsourceserveractionspaginator)
     """
 
@@ -200,13 +280,13 @@ class ListSourceServerActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSourceServerActionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.ListSourceServerActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListSourceServerActions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listsourceserveractionspaginator)
         """
 
 class ListTemplateActionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.ListTemplateActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListTemplateActions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listtemplateactionspaginator)
     """
 
@@ -218,13 +298,13 @@ class ListTemplateActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTemplateActionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.ListTemplateActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListTemplateActions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listtemplateactionspaginator)
         """
 
 class ListWavesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.ListWaves)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListWaves)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listwavespaginator)
     """
 
@@ -235,6 +315,6 @@ class ListWavesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWavesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mgn.html#mgn.Paginator.ListWaves.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mgn.html#mgn.Paginator.ListWaves.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#listwavespaginator)
         """

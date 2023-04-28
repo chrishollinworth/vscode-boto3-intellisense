@@ -39,6 +39,7 @@ __all__ = (
     "NetworkSiteStatusType",
     "NetworkStatusType",
     "OrderFilterKeysType",
+    "UpdateTypeType",
 )
 
 AcknowledgmentStatusType = Literal["ACKNOWLEDGED", "ACKNOWLEDGING", "UNACKNOWLEDGED"]
@@ -57,6 +58,7 @@ NetworkResourceDefinitionTypeType = Literal["DEVICE_IDENTIFIER", "RADIO_UNIT"]
 NetworkResourceFilterKeysType = Literal["ORDER", "STATUS"]
 NetworkResourceStatusType = Literal[
     "AVAILABLE",
+    "CREATING_SHIPPING_LABEL",
     "DELETED",
     "DELETING",
     "PENDING",
@@ -70,3 +72,4 @@ NetworkSiteFilterKeysType = Literal["STATUS"]
 NetworkSiteStatusType = Literal["AVAILABLE", "CREATED", "DELETED", "DEPROVISIONING", "PROVISIONING"]
 NetworkStatusType = Literal["AVAILABLE", "CREATED", "DELETED", "DEPROVISIONING", "PROVISIONING"]
 OrderFilterKeysType = Literal["NETWORK_SITE", "STATUS"]
+UpdateTypeType = Literal["REPLACE", "RETURN"]

@@ -6,9 +6,9 @@ Type annotations for opensearch service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_opensearch.literals import AutoTuneDesiredStateType
+    from mypy_boto3_opensearch.literals import ActionSeverityType
 
-    data: AutoTuneDesiredStateType = "DISABLED"
+    data: ActionSeverityType = "HIGH"
     ```
 """
 import sys
@@ -19,12 +19,17 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ActionSeverityType",
+    "ActionStatusType",
+    "ActionTypeType",
     "AutoTuneDesiredStateType",
     "AutoTuneStateType",
     "AutoTuneTypeType",
+    "ConnectionModeType",
     "DeploymentStatusType",
     "DescribePackagesFilterNameType",
     "DomainPackageStatusType",
+    "DryRunModeType",
     "EngineTypeType",
     "InboundConnectionStatusCodeType",
     "LogTypeType",
@@ -38,8 +43,10 @@ __all__ = (
     "PrincipalTypeType",
     "ReservedInstancePaymentOptionType",
     "RollbackOnDisableType",
+    "ScheduleAtType",
     "ScheduledAutoTuneActionTypeType",
     "ScheduledAutoTuneSeverityTypeType",
+    "ScheduledByType",
     "TLSSecurityPolicyType",
     "TimeUnitType",
     "UpgradeStatusType",
@@ -49,6 +56,11 @@ __all__ = (
     "VpcEndpointStatusType",
 )
 
+ActionSeverityType = Literal["HIGH", "LOW", "MEDIUM"]
+ActionStatusType = Literal[
+    "COMPLETED", "ELIGIBLE", "FAILED", "IN_PROGRESS", "NOT_ELIGIBLE", "PENDING_UPDATE"
+]
+ActionTypeType = Literal["JVM_HEAP_SIZE_TUNING", "JVM_YOUNG_GEN_TUNING", "SERVICE_SOFTWARE_UPDATE"]
 AutoTuneDesiredStateType = Literal["DISABLED", "ENABLED"]
 AutoTuneStateType = Literal[
     "DISABLED",
@@ -62,6 +74,7 @@ AutoTuneStateType = Literal[
     "ERROR",
 ]
 AutoTuneTypeType = Literal["SCHEDULED_ACTION"]
+ConnectionModeType = Literal["DIRECT", "VPC_ENDPOINT"]
 DeploymentStatusType = Literal[
     "COMPLETED", "ELIGIBLE", "IN_PROGRESS", "NOT_ELIGIBLE", "PENDING_UPDATE"
 ]
@@ -69,6 +82,7 @@ DescribePackagesFilterNameType = Literal["PackageID", "PackageName", "PackageSta
 DomainPackageStatusType = Literal[
     "ACTIVE", "ASSOCIATING", "ASSOCIATION_FAILED", "DISSOCIATING", "DISSOCIATION_FAILED"
 ]
+DryRunModeType = Literal["Basic", "Verbose"]
 EngineTypeType = Literal["Elasticsearch", "OpenSearch"]
 InboundConnectionStatusCodeType = Literal[
     "ACTIVE",
@@ -209,8 +223,10 @@ PackageTypeType = Literal["TXT-DICTIONARY"]
 PrincipalTypeType = Literal["AWS_ACCOUNT", "AWS_SERVICE"]
 ReservedInstancePaymentOptionType = Literal["ALL_UPFRONT", "NO_UPFRONT", "PARTIAL_UPFRONT"]
 RollbackOnDisableType = Literal["DEFAULT_ROLLBACK", "NO_ROLLBACK"]
+ScheduleAtType = Literal["NOW", "OFF_PEAK_WINDOW", "TIMESTAMP"]
 ScheduledAutoTuneActionTypeType = Literal["JVM_HEAP_SIZE_TUNING", "JVM_YOUNG_GEN_TUNING"]
 ScheduledAutoTuneSeverityTypeType = Literal["HIGH", "LOW", "MEDIUM"]
+ScheduledByType = Literal["CUSTOMER", "SYSTEM"]
 TLSSecurityPolicyType = Literal["Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-2-2019-07"]
 TimeUnitType = Literal["HOURS"]
 UpgradeStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED", "SUCCEEDED_WITH_ISSUES"]

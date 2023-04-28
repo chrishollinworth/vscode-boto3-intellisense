@@ -47,7 +47,7 @@ class Exceptions:
 
 class CostandUsageReportServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/client.html)
     """
 
@@ -62,14 +62,14 @@ class CostandUsageReportServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/client.html#close)
         """
     def delete_report_definition(
@@ -78,7 +78,7 @@ class CostandUsageReportServiceClient(BaseClient):
         """
         Deletes the specified report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Client.delete_report_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Client.delete_report_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/client.html#delete_report_definition)
         """
     def describe_report_definitions(
@@ -87,7 +87,7 @@ class CostandUsageReportServiceClient(BaseClient):
         """
         Lists the AWS Cost and Usage reports available to this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Client.describe_report_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Client.describe_report_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/client.html#describe_report_definitions)
         """
     def generate_presigned_url(
@@ -100,7 +100,7 @@ class CostandUsageReportServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/client.html#generate_presigned_url)
         """
     def modify_report_definition(
@@ -109,7 +109,7 @@ class CostandUsageReportServiceClient(BaseClient):
         """
         Allows you to programatically update your report preferences.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Client.modify_report_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Client.modify_report_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/client.html#modify_report_definition)
         """
     def put_report_definition(
@@ -118,13 +118,13 @@ class CostandUsageReportServiceClient(BaseClient):
         """
         Creates a new report using the description that you provide.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Client.put_report_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Client.put_report_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/client.html#put_report_definition)
         """
     def get_paginator(
         self, operation_name: Literal["describe_report_definitions"]
     ) -> DescribeReportDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/paginators.html#describereportdefinitionspaginator)
         """

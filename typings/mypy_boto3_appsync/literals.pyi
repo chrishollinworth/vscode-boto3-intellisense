@@ -74,6 +74,7 @@ ConflictHandlerTypeType = Literal["AUTOMERGE", "LAMBDA", "NONE", "OPTIMISTIC_CON
 DataSourceTypeType = Literal[
     "AMAZON_DYNAMODB",
     "AMAZON_ELASTICSEARCH",
+    "AMAZON_EVENTBRIDGE",
     "AMAZON_OPENSEARCH_SERVICE",
     "AWS_LAMBDA",
     "HTTP",

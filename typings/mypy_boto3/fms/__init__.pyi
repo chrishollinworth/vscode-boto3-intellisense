@@ -8,6 +8,8 @@ Usage::
     from mypy_boto3_fms import (
         Client,
         FMSClient,
+        ListAdminAccountsForOrganizationPaginator,
+        ListAdminsManagingAccountPaginator,
         ListAppsListsPaginator,
         ListComplianceStatusPaginator,
         ListMemberAccountsPaginator,
@@ -21,6 +23,8 @@ Usage::
     client: FMSClient = boto3.client("fms")
     session_client: FMSClient = session.client("fms")
 
+    list_admin_accounts_for_organization_paginator: ListAdminAccountsForOrganizationPaginator = client.get_paginator("list_admin_accounts_for_organization")
+    list_admins_managing_account_paginator: ListAdminsManagingAccountPaginator = client.get_paginator("list_admins_managing_account")
     list_apps_lists_paginator: ListAppsListsPaginator = client.get_paginator("list_apps_lists")
     list_compliance_status_paginator: ListComplianceStatusPaginator = client.get_paginator("list_compliance_status")
     list_member_accounts_paginator: ListMemberAccountsPaginator = client.get_paginator("list_member_accounts")
@@ -31,6 +35,8 @@ Usage::
 """
 from .client import FMSClient
 from .paginator import (
+    ListAdminAccountsForOrganizationPaginator,
+    ListAdminsManagingAccountPaginator,
     ListAppsListsPaginator,
     ListComplianceStatusPaginator,
     ListMemberAccountsPaginator,
@@ -44,6 +50,8 @@ Client = FMSClient
 __all__ = (
     "Client",
     "FMSClient",
+    "ListAdminAccountsForOrganizationPaginator",
+    "ListAdminsManagingAccountPaginator",
     "ListAppsListsPaginator",
     "ListComplianceStatusPaginator",
     "ListMemberAccountsPaginator",

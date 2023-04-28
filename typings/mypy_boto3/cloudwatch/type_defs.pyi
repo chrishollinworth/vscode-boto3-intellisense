@@ -667,6 +667,7 @@ GetMetricStreamOutputTypeDef = TypedDict(
         "LastUpdateDate": datetime,
         "OutputFormat": MetricStreamOutputFormatType,
         "StatisticsConfigurations": List["MetricStreamStatisticsConfigurationTypeDef"],
+        "IncludeLinkedAccountsMetrics": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1304,6 +1305,7 @@ _OptionalPutMetricStreamInputRequestTypeDef = TypedDict(
         "ExcludeFilters": List["MetricStreamFilterTypeDef"],
         "Tags": List["TagTypeDef"],
         "StatisticsConfigurations": List["MetricStreamStatisticsConfigurationTypeDef"],
+        "IncludeLinkedAccountsMetrics": bool,
     },
     total=False,
 )

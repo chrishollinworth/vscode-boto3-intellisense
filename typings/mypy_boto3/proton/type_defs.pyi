@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    BlockerStatusType,
     ComponentDeploymentUpdateTypeType,
     DeploymentStatusType,
     DeploymentUpdateTypeType,
@@ -30,6 +31,7 @@ from .literals import (
     ResourceSyncStatusType,
     ServiceStatusType,
     SortOrderType,
+    SyncTypeType,
     TemplateTypeType,
     TemplateVersionStatusType,
 )
@@ -59,6 +61,7 @@ __all__ = (
     "CompatibleEnvironmentTemplateTypeDef",
     "ComponentSummaryTypeDef",
     "ComponentTypeDef",
+    "CountsSummaryTypeDef",
     "CreateComponentInputRequestTypeDef",
     "CreateComponentOutputTypeDef",
     "CreateEnvironmentAccountConnectionInputRequestTypeDef",
@@ -72,7 +75,11 @@ __all__ = (
     "CreateRepositoryInputRequestTypeDef",
     "CreateRepositoryOutputTypeDef",
     "CreateServiceInputRequestTypeDef",
+    "CreateServiceInstanceInputRequestTypeDef",
+    "CreateServiceInstanceOutputTypeDef",
     "CreateServiceOutputTypeDef",
+    "CreateServiceSyncConfigInputRequestTypeDef",
+    "CreateServiceSyncConfigOutputTypeDef",
     "CreateServiceTemplateInputRequestTypeDef",
     "CreateServiceTemplateOutputTypeDef",
     "CreateServiceTemplateVersionInputRequestTypeDef",
@@ -93,6 +100,8 @@ __all__ = (
     "DeleteRepositoryOutputTypeDef",
     "DeleteServiceInputRequestTypeDef",
     "DeleteServiceOutputTypeDef",
+    "DeleteServiceSyncConfigInputRequestTypeDef",
+    "DeleteServiceSyncConfigOutputTypeDef",
     "DeleteServiceTemplateInputRequestTypeDef",
     "DeleteServiceTemplateOutputTypeDef",
     "DeleteServiceTemplateVersionInputRequestTypeDef",
@@ -123,10 +132,17 @@ __all__ = (
     "GetRepositoryOutputTypeDef",
     "GetRepositorySyncStatusInputRequestTypeDef",
     "GetRepositorySyncStatusOutputTypeDef",
+    "GetResourcesSummaryOutputTypeDef",
     "GetServiceInputRequestTypeDef",
     "GetServiceInstanceInputRequestTypeDef",
     "GetServiceInstanceOutputTypeDef",
+    "GetServiceInstanceSyncStatusInputRequestTypeDef",
+    "GetServiceInstanceSyncStatusOutputTypeDef",
     "GetServiceOutputTypeDef",
+    "GetServiceSyncBlockerSummaryInputRequestTypeDef",
+    "GetServiceSyncBlockerSummaryOutputTypeDef",
+    "GetServiceSyncConfigInputRequestTypeDef",
+    "GetServiceSyncConfigOutputTypeDef",
     "GetServiceTemplateInputRequestTypeDef",
     "GetServiceTemplateOutputTypeDef",
     "GetServiceTemplateVersionInputRequestTypeDef",
@@ -189,6 +205,7 @@ __all__ = (
     "RepositorySyncDefinitionTypeDef",
     "RepositorySyncEventTypeDef",
     "RepositoryTypeDef",
+    "ResourceCountsSummaryTypeDef",
     "ResourceSyncAttemptTypeDef",
     "ResourceSyncEventTypeDef",
     "ResponseMetadataTypeDef",
@@ -198,11 +215,15 @@ __all__ = (
     "ServiceInstanceTypeDef",
     "ServicePipelineTypeDef",
     "ServiceSummaryTypeDef",
+    "ServiceSyncBlockerSummaryTypeDef",
+    "ServiceSyncConfigTypeDef",
     "ServiceTemplateSummaryTypeDef",
     "ServiceTemplateTypeDef",
     "ServiceTemplateVersionSummaryTypeDef",
     "ServiceTemplateVersionTypeDef",
     "ServiceTypeDef",
+    "SyncBlockerContextTypeDef",
+    "SyncBlockerTypeDef",
     "TagResourceInputRequestTypeDef",
     "TagTypeDef",
     "TemplateSyncConfigTypeDef",
@@ -226,6 +247,10 @@ __all__ = (
     "UpdateServiceOutputTypeDef",
     "UpdateServicePipelineInputRequestTypeDef",
     "UpdateServicePipelineOutputTypeDef",
+    "UpdateServiceSyncBlockerInputRequestTypeDef",
+    "UpdateServiceSyncBlockerOutputTypeDef",
+    "UpdateServiceSyncConfigInputRequestTypeDef",
+    "UpdateServiceSyncConfigOutputTypeDef",
     "UpdateServiceTemplateInputRequestTypeDef",
     "UpdateServiceTemplateOutputTypeDef",
     "UpdateServiceTemplateVersionInputRequestTypeDef",
@@ -379,6 +404,7 @@ _OptionalComponentTypeDef = TypedDict(
     {
         "deploymentStatusMessage": str,
         "description": str,
+        "lastClientRequestToken": str,
         "lastDeploymentAttemptedAt": datetime,
         "lastDeploymentSucceededAt": datetime,
         "serviceInstanceName": str,
@@ -391,6 +417,20 @@ _OptionalComponentTypeDef = TypedDict(
 class ComponentTypeDef(_RequiredComponentTypeDef, _OptionalComponentTypeDef):
     pass
 
+CountsSummaryTypeDef = TypedDict(
+    "CountsSummaryTypeDef",
+    {
+        "components": "ResourceCountsSummaryTypeDef",
+        "environmentTemplates": "ResourceCountsSummaryTypeDef",
+        "environments": "ResourceCountsSummaryTypeDef",
+        "pipelines": "ResourceCountsSummaryTypeDef",
+        "serviceInstances": "ResourceCountsSummaryTypeDef",
+        "serviceTemplates": "ResourceCountsSummaryTypeDef",
+        "services": "ResourceCountsSummaryTypeDef",
+    },
+    total=False,
+)
+
 _RequiredCreateComponentInputRequestTypeDef = TypedDict(
     "_RequiredCreateComponentInputRequestTypeDef",
     {
@@ -402,6 +442,7 @@ _RequiredCreateComponentInputRequestTypeDef = TypedDict(
 _OptionalCreateComponentInputRequestTypeDef = TypedDict(
     "_OptionalCreateComponentInputRequestTypeDef",
     {
+        "clientToken": str,
         "description": str,
         "environmentName": str,
         "serviceInstanceName": str,
@@ -616,10 +657,62 @@ class CreateServiceInputRequestTypeDef(
 ):
     pass
 
+_RequiredCreateServiceInstanceInputRequestTypeDef = TypedDict(
+    "_RequiredCreateServiceInstanceInputRequestTypeDef",
+    {
+        "name": str,
+        "serviceName": str,
+        "spec": str,
+    },
+)
+_OptionalCreateServiceInstanceInputRequestTypeDef = TypedDict(
+    "_OptionalCreateServiceInstanceInputRequestTypeDef",
+    {
+        "clientToken": str,
+        "tags": List["TagTypeDef"],
+        "templateMajorVersion": str,
+        "templateMinorVersion": str,
+    },
+    total=False,
+)
+
+class CreateServiceInstanceInputRequestTypeDef(
+    _RequiredCreateServiceInstanceInputRequestTypeDef,
+    _OptionalCreateServiceInstanceInputRequestTypeDef,
+):
+    pass
+
+CreateServiceInstanceOutputTypeDef = TypedDict(
+    "CreateServiceInstanceOutputTypeDef",
+    {
+        "serviceInstance": "ServiceInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateServiceOutputTypeDef = TypedDict(
     "CreateServiceOutputTypeDef",
     {
         "service": "ServiceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateServiceSyncConfigInputRequestTypeDef = TypedDict(
+    "CreateServiceSyncConfigInputRequestTypeDef",
+    {
+        "branch": str,
+        "filePath": str,
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "serviceName": str,
+    },
+)
+
+CreateServiceSyncConfigOutputTypeDef = TypedDict(
+    "CreateServiceSyncConfigOutputTypeDef",
+    {
+        "serviceSyncConfig": "ServiceSyncConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -826,6 +919,21 @@ DeleteServiceOutputTypeDef = TypedDict(
     "DeleteServiceOutputTypeDef",
     {
         "service": "ServiceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteServiceSyncConfigInputRequestTypeDef = TypedDict(
+    "DeleteServiceSyncConfigInputRequestTypeDef",
+    {
+        "serviceName": str,
+    },
+)
+
+DeleteServiceSyncConfigOutputTypeDef = TypedDict(
+    "DeleteServiceSyncConfigOutputTypeDef",
+    {
+        "serviceSyncConfig": "ServiceSyncConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1223,7 +1331,7 @@ GetRepositorySyncStatusInputRequestTypeDef = TypedDict(
         "branch": str,
         "repositoryName": str,
         "repositoryProvider": RepositoryProviderType,
-        "syncType": Literal["TEMPLATE_SYNC"],
+        "syncType": SyncTypeType,
     },
 )
 
@@ -1231,6 +1339,14 @@ GetRepositorySyncStatusOutputTypeDef = TypedDict(
     "GetRepositorySyncStatusOutputTypeDef",
     {
         "latestSync": "RepositorySyncAttemptTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetResourcesSummaryOutputTypeDef = TypedDict(
+    "GetResourcesSummaryOutputTypeDef",
+    {
+        "counts": "CountsSummaryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1258,10 +1374,71 @@ GetServiceInstanceOutputTypeDef = TypedDict(
     },
 )
 
+GetServiceInstanceSyncStatusInputRequestTypeDef = TypedDict(
+    "GetServiceInstanceSyncStatusInputRequestTypeDef",
+    {
+        "serviceInstanceName": str,
+        "serviceName": str,
+    },
+)
+
+GetServiceInstanceSyncStatusOutputTypeDef = TypedDict(
+    "GetServiceInstanceSyncStatusOutputTypeDef",
+    {
+        "desiredState": "RevisionTypeDef",
+        "latestSuccessfulSync": "ResourceSyncAttemptTypeDef",
+        "latestSync": "ResourceSyncAttemptTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetServiceOutputTypeDef = TypedDict(
     "GetServiceOutputTypeDef",
     {
         "service": "ServiceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetServiceSyncBlockerSummaryInputRequestTypeDef = TypedDict(
+    "_RequiredGetServiceSyncBlockerSummaryInputRequestTypeDef",
+    {
+        "serviceName": str,
+    },
+)
+_OptionalGetServiceSyncBlockerSummaryInputRequestTypeDef = TypedDict(
+    "_OptionalGetServiceSyncBlockerSummaryInputRequestTypeDef",
+    {
+        "serviceInstanceName": str,
+    },
+    total=False,
+)
+
+class GetServiceSyncBlockerSummaryInputRequestTypeDef(
+    _RequiredGetServiceSyncBlockerSummaryInputRequestTypeDef,
+    _OptionalGetServiceSyncBlockerSummaryInputRequestTypeDef,
+):
+    pass
+
+GetServiceSyncBlockerSummaryOutputTypeDef = TypedDict(
+    "GetServiceSyncBlockerSummaryOutputTypeDef",
+    {
+        "serviceSyncBlockerSummary": "ServiceSyncBlockerSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetServiceSyncConfigInputRequestTypeDef = TypedDict(
+    "GetServiceSyncConfigInputRequestTypeDef",
+    {
+        "serviceName": str,
+    },
+)
+
+GetServiceSyncConfigOutputTypeDef = TypedDict(
+    "GetServiceSyncConfigOutputTypeDef",
+    {
+        "serviceSyncConfig": "ServiceSyncConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1593,7 +1770,7 @@ _RequiredListRepositorySyncDefinitionsInputRequestTypeDef = TypedDict(
     {
         "repositoryName": str,
         "repositoryProvider": RepositoryProviderType,
-        "syncType": Literal["TEMPLATE_SYNC"],
+        "syncType": SyncTypeType,
     },
 )
 _OptionalListRepositorySyncDefinitionsInputRequestTypeDef = TypedDict(
@@ -1954,6 +2131,7 @@ RepositorySummaryTypeDef = TypedDict(
     "RepositorySummaryTypeDef",
     {
         "arn": str,
+        "connectionArn": str,
         "name": str,
         "provider": RepositoryProviderType,
     },
@@ -2017,6 +2195,28 @@ _OptionalRepositoryTypeDef = TypedDict(
 )
 
 class RepositoryTypeDef(_RequiredRepositoryTypeDef, _OptionalRepositoryTypeDef):
+    pass
+
+_RequiredResourceCountsSummaryTypeDef = TypedDict(
+    "_RequiredResourceCountsSummaryTypeDef",
+    {
+        "total": int,
+    },
+)
+_OptionalResourceCountsSummaryTypeDef = TypedDict(
+    "_OptionalResourceCountsSummaryTypeDef",
+    {
+        "behindMajor": int,
+        "behindMinor": int,
+        "failed": int,
+        "upToDate": int,
+    },
+    total=False,
+)
+
+class ResourceCountsSummaryTypeDef(
+    _RequiredResourceCountsSummaryTypeDef, _OptionalResourceCountsSummaryTypeDef
+):
     pass
 
 ResourceSyncAttemptTypeDef = TypedDict(
@@ -2131,6 +2331,7 @@ _OptionalServiceInstanceTypeDef = TypedDict(
     "_OptionalServiceInstanceTypeDef",
     {
         "deploymentStatusMessage": str,
+        "lastClientRequestToken": str,
         "spec": str,
     },
     total=False,
@@ -2186,6 +2387,37 @@ _OptionalServiceSummaryTypeDef = TypedDict(
 
 class ServiceSummaryTypeDef(_RequiredServiceSummaryTypeDef, _OptionalServiceSummaryTypeDef):
     pass
+
+_RequiredServiceSyncBlockerSummaryTypeDef = TypedDict(
+    "_RequiredServiceSyncBlockerSummaryTypeDef",
+    {
+        "serviceName": str,
+    },
+)
+_OptionalServiceSyncBlockerSummaryTypeDef = TypedDict(
+    "_OptionalServiceSyncBlockerSummaryTypeDef",
+    {
+        "latestBlockers": List["SyncBlockerTypeDef"],
+        "serviceInstanceName": str,
+    },
+    total=False,
+)
+
+class ServiceSyncBlockerSummaryTypeDef(
+    _RequiredServiceSyncBlockerSummaryTypeDef, _OptionalServiceSyncBlockerSummaryTypeDef
+):
+    pass
+
+ServiceSyncConfigTypeDef = TypedDict(
+    "ServiceSyncConfigTypeDef",
+    {
+        "branch": str,
+        "filePath": str,
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "serviceName": str,
+    },
+)
 
 _RequiredServiceTemplateSummaryTypeDef = TypedDict(
     "_RequiredServiceTemplateSummaryTypeDef",
@@ -2321,6 +2553,37 @@ _OptionalServiceTypeDef = TypedDict(
 class ServiceTypeDef(_RequiredServiceTypeDef, _OptionalServiceTypeDef):
     pass
 
+SyncBlockerContextTypeDef = TypedDict(
+    "SyncBlockerContextTypeDef",
+    {
+        "key": str,
+        "value": str,
+    },
+)
+
+_RequiredSyncBlockerTypeDef = TypedDict(
+    "_RequiredSyncBlockerTypeDef",
+    {
+        "createdAt": datetime,
+        "createdReason": str,
+        "id": str,
+        "status": BlockerStatusType,
+        "type": Literal["AUTOMATED"],
+    },
+)
+_OptionalSyncBlockerTypeDef = TypedDict(
+    "_OptionalSyncBlockerTypeDef",
+    {
+        "contexts": List["SyncBlockerContextTypeDef"],
+        "resolvedAt": datetime,
+        "resolvedReason": str,
+    },
+    total=False,
+)
+
+class SyncBlockerTypeDef(_RequiredSyncBlockerTypeDef, _OptionalSyncBlockerTypeDef):
+    pass
+
 TagResourceInputRequestTypeDef = TypedDict(
     "TagResourceInputRequestTypeDef",
     {
@@ -2405,6 +2668,7 @@ _RequiredUpdateComponentInputRequestTypeDef = TypedDict(
 _OptionalUpdateComponentInputRequestTypeDef = TypedDict(
     "_OptionalUpdateComponentInputRequestTypeDef",
     {
+        "clientToken": str,
         "description": str,
         "serviceInstanceName": str,
         "serviceName": str,
@@ -2584,6 +2848,7 @@ _RequiredUpdateServiceInstanceInputRequestTypeDef = TypedDict(
 _OptionalUpdateServiceInstanceInputRequestTypeDef = TypedDict(
     "_OptionalUpdateServiceInstanceInputRequestTypeDef",
     {
+        "clientToken": str,
         "spec": str,
         "templateMajorVersion": str,
         "templateMinorVersion": str,
@@ -2640,6 +2905,43 @@ UpdateServicePipelineOutputTypeDef = TypedDict(
     "UpdateServicePipelineOutputTypeDef",
     {
         "pipeline": "ServicePipelineTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateServiceSyncBlockerInputRequestTypeDef = TypedDict(
+    "UpdateServiceSyncBlockerInputRequestTypeDef",
+    {
+        "id": str,
+        "resolvedReason": str,
+    },
+)
+
+UpdateServiceSyncBlockerOutputTypeDef = TypedDict(
+    "UpdateServiceSyncBlockerOutputTypeDef",
+    {
+        "serviceInstanceName": str,
+        "serviceName": str,
+        "serviceSyncBlocker": "SyncBlockerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateServiceSyncConfigInputRequestTypeDef = TypedDict(
+    "UpdateServiceSyncConfigInputRequestTypeDef",
+    {
+        "branch": str,
+        "filePath": str,
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "serviceName": str,
+    },
+)
+
+UpdateServiceSyncConfigOutputTypeDef = TypedDict(
+    "UpdateServiceSyncConfigOutputTypeDef",
+    {
+        "serviceSyncConfig": "ServiceSyncConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -484,6 +484,8 @@ LineItemTypeDef = TypedDict(
         "Status": LineItemStatusType,
         "ShipmentInformation": "ShipmentInformationTypeDef",
         "AssetInformationList": List["LineItemAssetInformationTypeDef"],
+        "PreviousLineItemId": str,
+        "PreviousOrderId": str,
     },
     total=False,
 )
@@ -640,6 +642,8 @@ OrderTypeDef = TypedDict(
         "PaymentOption": PaymentOptionType,
         "OrderSubmissionDate": datetime,
         "OrderFulfilledDate": datetime,
+        "PaymentTerm": PaymentTermType,
+        "OrderType": OrderTypeType,
     },
     total=False,
 )

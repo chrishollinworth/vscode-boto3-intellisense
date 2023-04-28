@@ -21,6 +21,8 @@ else:
 __all__ = (
     "GroupConfigurationStatusType",
     "GroupFilterNameType",
+    "GroupLifecycleEventsDesiredStatusType",
+    "GroupLifecycleEventsStatusType",
     "ListGroupResourcesPaginatorName",
     "ListGroupsPaginatorName",
     "QueryErrorCodeType",
@@ -32,9 +34,15 @@ __all__ = (
 
 GroupConfigurationStatusType = Literal["UPDATE_COMPLETE", "UPDATE_FAILED", "UPDATING"]
 GroupFilterNameType = Literal["configuration-type", "resource-type"]
+GroupLifecycleEventsDesiredStatusType = Literal["ACTIVE", "INACTIVE"]
+GroupLifecycleEventsStatusType = Literal["ACTIVE", "ERROR", "INACTIVE", "IN_PROGRESS"]
 ListGroupResourcesPaginatorName = Literal["list_group_resources"]
 ListGroupsPaginatorName = Literal["list_groups"]
-QueryErrorCodeType = Literal["CLOUDFORMATION_STACK_INACTIVE", "CLOUDFORMATION_STACK_NOT_EXISTING"]
+QueryErrorCodeType = Literal[
+    "CLOUDFORMATION_STACK_INACTIVE",
+    "CLOUDFORMATION_STACK_NOT_EXISTING",
+    "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
+]
 QueryTypeType = Literal["CLOUDFORMATION_STACK_1_0", "TAG_FILTERS_1_0"]
 ResourceFilterNameType = Literal["resource-type"]
 ResourceStatusValueType = Literal["PENDING"]

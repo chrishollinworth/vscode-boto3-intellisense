@@ -1987,6 +1987,7 @@ DescribeTimeSeriesResponseTypeDef = TypedDict(
         "dataTypeSpec": str,
         "timeSeriesCreationDate": datetime,
         "timeSeriesLastUpdateDate": datetime,
+        "timeSeriesArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3079,6 +3080,7 @@ _RequiredTimeSeriesSummaryTypeDef = TypedDict(
         "dataType": PropertyDataTypeType,
         "timeSeriesCreationDate": datetime,
         "timeSeriesLastUpdateDate": datetime,
+        "timeSeriesArn": str,
     },
 )
 _OptionalTimeSeriesSummaryTypeDef = TypedDict(

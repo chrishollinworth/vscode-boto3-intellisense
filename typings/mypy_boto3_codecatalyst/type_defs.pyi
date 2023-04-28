@@ -100,6 +100,8 @@ __all__ = (
     "StartDevEnvironmentSessionResponseTypeDef",
     "StopDevEnvironmentRequestRequestTypeDef",
     "StopDevEnvironmentResponseTypeDef",
+    "StopDevEnvironmentSessionRequestRequestTypeDef",
+    "StopDevEnvironmentSessionResponseTypeDef",
     "UpdateDevEnvironmentRequestRequestTypeDef",
     "UpdateDevEnvironmentResponseTypeDef",
     "UserIdentityTypeDef",
@@ -151,6 +153,7 @@ CreateAccessTokenResponseTypeDef = TypedDict(
         "secret": str,
         "name": str,
         "expiresTime": datetime,
+        "accessTokenId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1000,6 +1003,27 @@ StopDevEnvironmentResponseTypeDef = TypedDict(
         "projectName": str,
         "id": str,
         "status": DevEnvironmentStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopDevEnvironmentSessionRequestRequestTypeDef = TypedDict(
+    "StopDevEnvironmentSessionRequestRequestTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "sessionId": str,
+    },
+)
+
+StopDevEnvironmentSessionResponseTypeDef = TypedDict(
+    "StopDevEnvironmentSessionResponseTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "sessionId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

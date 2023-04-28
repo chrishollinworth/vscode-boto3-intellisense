@@ -360,6 +360,7 @@ _OptionalCreateVocabularyFilterRequestRequestTypeDef = TypedDict(
         "Words": List[str],
         "VocabularyFilterFileUri": str,
         "Tags": List["TagTypeDef"],
+        "DataAccessRoleArn": str,
     },
     total=False,
 )
@@ -393,6 +394,7 @@ _OptionalCreateVocabularyRequestRequestTypeDef = TypedDict(
         "Phrases": List[str],
         "VocabularyFileUri": str,
         "Tags": List["TagTypeDef"],
+        "DataAccessRoleArn": str,
     },
     total=False,
 )
@@ -1315,6 +1317,7 @@ _OptionalUpdateVocabularyFilterRequestRequestTypeDef = TypedDict(
     {
         "Words": List[str],
         "VocabularyFilterFileUri": str,
+        "DataAccessRoleArn": str,
     },
     total=False,
 )
@@ -1347,6 +1350,7 @@ _OptionalUpdateVocabularyRequestRequestTypeDef = TypedDict(
     {
         "Phrases": List[str],
         "VocabularyFileUri": str,
+        "DataAccessRoleArn": str,
     },
     total=False,
 )

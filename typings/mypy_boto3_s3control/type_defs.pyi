@@ -20,20 +20,28 @@ from .literals import (
     BucketCannedACLType,
     BucketLocationConstraintType,
     BucketVersioningStatusType,
+    DeleteMarkerReplicationStatusType,
+    ExistingObjectReplicationStatusType,
     ExpirationStatusType,
     FormatType,
     JobManifestFieldNameType,
     JobManifestFormatType,
     JobReportScopeType,
     JobStatusType,
+    MetricsStatusType,
     MFADeleteStatusType,
     MFADeleteType,
     MultiRegionAccessPointStatusType,
     NetworkOriginType,
+    ObjectLambdaAccessPointAliasStatusType,
     ObjectLambdaAllowedFeatureType,
     ObjectLambdaTransformationConfigurationActionType,
     OperationNameType,
+    ReplicaModificationsStatusType,
+    ReplicationRuleStatusType,
     ReplicationStatusType,
+    ReplicationStorageClassType,
+    ReplicationTimeStatusType,
     RequestedJobStatusType,
     S3CannedAccessControlListType,
     S3ChecksumAlgorithmType,
@@ -46,6 +54,7 @@ from .literals import (
     S3PermissionType,
     S3SSEAlgorithmType,
     S3StorageClassType,
+    SseKmsEncryptedObjectsStatusType,
     TransitionStorageClassType,
 )
 
@@ -60,6 +69,7 @@ else:
 
 __all__ = (
     "AbortIncompleteMultipartUploadTypeDef",
+    "AccessControlTranslationTypeDef",
     "AccessPointTypeDef",
     "AccountLevelTypeDef",
     "ActivityMetricsTypeDef",
@@ -90,9 +100,11 @@ __all__ = (
     "DeleteAccessPointRequestRequestTypeDef",
     "DeleteBucketLifecycleConfigurationRequestRequestTypeDef",
     "DeleteBucketPolicyRequestRequestTypeDef",
+    "DeleteBucketReplicationRequestRequestTypeDef",
     "DeleteBucketRequestRequestTypeDef",
     "DeleteBucketTaggingRequestRequestTypeDef",
     "DeleteJobTaggingRequestRequestTypeDef",
+    "DeleteMarkerReplicationTypeDef",
     "DeleteMultiRegionAccessPointInputTypeDef",
     "DeleteMultiRegionAccessPointRequestRequestTypeDef",
     "DeleteMultiRegionAccessPointResultTypeDef",
@@ -103,9 +115,12 @@ __all__ = (
     "DescribeJobResultTypeDef",
     "DescribeMultiRegionAccessPointOperationRequestRequestTypeDef",
     "DescribeMultiRegionAccessPointOperationResultTypeDef",
+    "DestinationTypeDef",
     "DetailedStatusCodesMetricsTypeDef",
+    "EncryptionConfigurationTypeDef",
     "EstablishedMultiRegionAccessPointPolicyTypeDef",
     "ExcludeTypeDef",
+    "ExistingObjectReplicationTypeDef",
     "GeneratedManifestEncryptionTypeDef",
     "GetAccessPointConfigurationForObjectLambdaRequestRequestTypeDef",
     "GetAccessPointConfigurationForObjectLambdaResultTypeDef",
@@ -125,6 +140,8 @@ __all__ = (
     "GetBucketLifecycleConfigurationResultTypeDef",
     "GetBucketPolicyRequestRequestTypeDef",
     "GetBucketPolicyResultTypeDef",
+    "GetBucketReplicationRequestRequestTypeDef",
+    "GetBucketReplicationResultTypeDef",
     "GetBucketRequestRequestTypeDef",
     "GetBucketResultTypeDef",
     "GetBucketTaggingRequestRequestTypeDef",
@@ -179,6 +196,7 @@ __all__ = (
     "ListStorageLensConfigurationEntryTypeDef",
     "ListStorageLensConfigurationsRequestRequestTypeDef",
     "ListStorageLensConfigurationsResultTypeDef",
+    "MetricsTypeDef",
     "MultiRegionAccessPointPolicyDocumentTypeDef",
     "MultiRegionAccessPointRegionalResponseTypeDef",
     "MultiRegionAccessPointReportTypeDef",
@@ -186,6 +204,7 @@ __all__ = (
     "MultiRegionAccessPointsAsyncResponseTypeDef",
     "NoncurrentVersionExpirationTypeDef",
     "NoncurrentVersionTransitionTypeDef",
+    "ObjectLambdaAccessPointAliasTypeDef",
     "ObjectLambdaAccessPointTypeDef",
     "ObjectLambdaConfigurationTypeDef",
     "ObjectLambdaContentTransformationTypeDef",
@@ -201,6 +220,7 @@ __all__ = (
     "PutAccessPointPolicyRequestRequestTypeDef",
     "PutBucketLifecycleConfigurationRequestRequestTypeDef",
     "PutBucketPolicyRequestRequestTypeDef",
+    "PutBucketReplicationRequestRequestTypeDef",
     "PutBucketTaggingRequestRequestTypeDef",
     "PutBucketVersioningRequestRequestTypeDef",
     "PutJobTaggingRequestRequestTypeDef",
@@ -213,6 +233,13 @@ __all__ = (
     "RegionReportTypeDef",
     "RegionTypeDef",
     "RegionalBucketTypeDef",
+    "ReplicaModificationsTypeDef",
+    "ReplicationConfigurationTypeDef",
+    "ReplicationRuleAndOperatorTypeDef",
+    "ReplicationRuleFilterTypeDef",
+    "ReplicationRuleTypeDef",
+    "ReplicationTimeTypeDef",
+    "ReplicationTimeValueTypeDef",
     "ResponseMetadataTypeDef",
     "S3AccessControlListTypeDef",
     "S3AccessControlPolicyTypeDef",
@@ -236,6 +263,8 @@ __all__ = (
     "SSEKMSEncryptionTypeDef",
     "SSEKMSTypeDef",
     "SelectionCriteriaTypeDef",
+    "SourceSelectionCriteriaTypeDef",
+    "SseKmsEncryptedObjectsTypeDef",
     "StorageLensAwsOrgTypeDef",
     "StorageLensConfigurationTypeDef",
     "StorageLensDataExportEncryptionTypeDef",
@@ -258,6 +287,13 @@ AbortIncompleteMultipartUploadTypeDef = TypedDict(
         "DaysAfterInitiation": int,
     },
     total=False,
+)
+
+AccessControlTranslationTypeDef = TypedDict(
+    "AccessControlTranslationTypeDef",
+    {
+        "Owner": Literal["Destination"],
+    },
 )
 
 _RequiredAccessPointTypeDef = TypedDict(
@@ -420,6 +456,7 @@ CreateAccessPointForObjectLambdaResultTypeDef = TypedDict(
     "CreateAccessPointForObjectLambdaResultTypeDef",
     {
         "ObjectLambdaAccessPointArn": str,
+        "Alias": "ObjectLambdaAccessPointAliasTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -622,6 +659,14 @@ DeleteBucketPolicyRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteBucketReplicationRequestRequestTypeDef = TypedDict(
+    "DeleteBucketReplicationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Bucket": str,
+    },
+)
+
 DeleteBucketRequestRequestTypeDef = TypedDict(
     "DeleteBucketRequestRequestTypeDef",
     {
@@ -643,6 +688,13 @@ DeleteJobTaggingRequestRequestTypeDef = TypedDict(
     {
         "AccountId": str,
         "JobId": str,
+    },
+)
+
+DeleteMarkerReplicationTypeDef = TypedDict(
+    "DeleteMarkerReplicationTypeDef",
+    {
+        "Status": DeleteMarkerReplicationStatusType,
     },
 )
 
@@ -725,10 +777,40 @@ DescribeMultiRegionAccessPointOperationResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDestinationTypeDef = TypedDict(
+    "_RequiredDestinationTypeDef",
+    {
+        "Bucket": str,
+    },
+)
+_OptionalDestinationTypeDef = TypedDict(
+    "_OptionalDestinationTypeDef",
+    {
+        "Account": str,
+        "ReplicationTime": "ReplicationTimeTypeDef",
+        "AccessControlTranslation": "AccessControlTranslationTypeDef",
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "Metrics": "MetricsTypeDef",
+        "StorageClass": ReplicationStorageClassType,
+    },
+    total=False,
+)
+
+class DestinationTypeDef(_RequiredDestinationTypeDef, _OptionalDestinationTypeDef):
+    pass
+
 DetailedStatusCodesMetricsTypeDef = TypedDict(
     "DetailedStatusCodesMetricsTypeDef",
     {
         "IsEnabled": bool,
+    },
+    total=False,
+)
+
+EncryptionConfigurationTypeDef = TypedDict(
+    "EncryptionConfigurationTypeDef",
+    {
+        "ReplicaKmsKeyID": str,
     },
     total=False,
 )
@@ -748,6 +830,13 @@ ExcludeTypeDef = TypedDict(
         "Regions": List[str],
     },
     total=False,
+)
+
+ExistingObjectReplicationTypeDef = TypedDict(
+    "ExistingObjectReplicationTypeDef",
+    {
+        "Status": ExistingObjectReplicationStatusType,
+    },
 )
 
 GeneratedManifestEncryptionTypeDef = TypedDict(
@@ -789,6 +878,7 @@ GetAccessPointForObjectLambdaResultTypeDef = TypedDict(
         "Name": str,
         "PublicAccessBlockConfiguration": "PublicAccessBlockConfigurationTypeDef",
         "CreationDate": datetime,
+        "Alias": "ObjectLambdaAccessPointAliasTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -910,6 +1000,22 @@ GetBucketPolicyResultTypeDef = TypedDict(
     "GetBucketPolicyResultTypeDef",
     {
         "Policy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetBucketReplicationRequestRequestTypeDef = TypedDict(
+    "GetBucketReplicationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Bucket": str,
+    },
+)
+
+GetBucketReplicationResultTypeDef = TypedDict(
+    "GetBucketReplicationResultTypeDef",
+    {
+        "ReplicationConfiguration": "ReplicationConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1545,6 +1651,23 @@ ListStorageLensConfigurationsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredMetricsTypeDef = TypedDict(
+    "_RequiredMetricsTypeDef",
+    {
+        "Status": MetricsStatusType,
+    },
+)
+_OptionalMetricsTypeDef = TypedDict(
+    "_OptionalMetricsTypeDef",
+    {
+        "EventThreshold": "ReplicationTimeValueTypeDef",
+    },
+    total=False,
+)
+
+class MetricsTypeDef(_RequiredMetricsTypeDef, _OptionalMetricsTypeDef):
+    pass
+
 MultiRegionAccessPointPolicyDocumentTypeDef = TypedDict(
     "MultiRegionAccessPointPolicyDocumentTypeDef",
     {
@@ -1622,6 +1745,15 @@ NoncurrentVersionTransitionTypeDef = TypedDict(
     total=False,
 )
 
+ObjectLambdaAccessPointAliasTypeDef = TypedDict(
+    "ObjectLambdaAccessPointAliasTypeDef",
+    {
+        "Value": str,
+        "Status": ObjectLambdaAccessPointAliasStatusType,
+    },
+    total=False,
+)
+
 _RequiredObjectLambdaAccessPointTypeDef = TypedDict(
     "_RequiredObjectLambdaAccessPointTypeDef",
     {
@@ -1632,6 +1764,7 @@ _OptionalObjectLambdaAccessPointTypeDef = TypedDict(
     "_OptionalObjectLambdaAccessPointTypeDef",
     {
         "ObjectLambdaAccessPointArn": str,
+        "Alias": "ObjectLambdaAccessPointAliasTypeDef",
     },
     total=False,
 )
@@ -1800,6 +1933,15 @@ class PutBucketPolicyRequestRequestTypeDef(
 ):
     pass
 
+PutBucketReplicationRequestRequestTypeDef = TypedDict(
+    "PutBucketReplicationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Bucket": str,
+        "ReplicationConfiguration": "ReplicationConfigurationTypeDef",
+    },
+)
+
 PutBucketTaggingRequestRequestTypeDef = TypedDict(
     "PutBucketTaggingRequestRequestTypeDef",
     {
@@ -1909,16 +2051,27 @@ RegionReportTypeDef = TypedDict(
     {
         "Bucket": str,
         "Region": str,
+        "BucketAccountId": str,
     },
     total=False,
 )
 
-RegionTypeDef = TypedDict(
-    "RegionTypeDef",
+_RequiredRegionTypeDef = TypedDict(
+    "_RequiredRegionTypeDef",
     {
         "Bucket": str,
     },
 )
+_OptionalRegionTypeDef = TypedDict(
+    "_OptionalRegionTypeDef",
+    {
+        "BucketAccountId": str,
+    },
+    total=False,
+)
+
+class RegionTypeDef(_RequiredRegionTypeDef, _OptionalRegionTypeDef):
+    pass
 
 _RequiredRegionalBucketTypeDef = TypedDict(
     "_RequiredRegionalBucketTypeDef",
@@ -1939,6 +2092,81 @@ _OptionalRegionalBucketTypeDef = TypedDict(
 
 class RegionalBucketTypeDef(_RequiredRegionalBucketTypeDef, _OptionalRegionalBucketTypeDef):
     pass
+
+ReplicaModificationsTypeDef = TypedDict(
+    "ReplicaModificationsTypeDef",
+    {
+        "Status": ReplicaModificationsStatusType,
+    },
+)
+
+ReplicationConfigurationTypeDef = TypedDict(
+    "ReplicationConfigurationTypeDef",
+    {
+        "Role": str,
+        "Rules": List["ReplicationRuleTypeDef"],
+    },
+)
+
+ReplicationRuleAndOperatorTypeDef = TypedDict(
+    "ReplicationRuleAndOperatorTypeDef",
+    {
+        "Prefix": str,
+        "Tags": List["S3TagTypeDef"],
+    },
+    total=False,
+)
+
+ReplicationRuleFilterTypeDef = TypedDict(
+    "ReplicationRuleFilterTypeDef",
+    {
+        "Prefix": str,
+        "Tag": "S3TagTypeDef",
+        "And": "ReplicationRuleAndOperatorTypeDef",
+    },
+    total=False,
+)
+
+_RequiredReplicationRuleTypeDef = TypedDict(
+    "_RequiredReplicationRuleTypeDef",
+    {
+        "Status": ReplicationRuleStatusType,
+        "Destination": "DestinationTypeDef",
+        "Bucket": str,
+    },
+)
+_OptionalReplicationRuleTypeDef = TypedDict(
+    "_OptionalReplicationRuleTypeDef",
+    {
+        "ID": str,
+        "Priority": int,
+        "Prefix": str,
+        "Filter": "ReplicationRuleFilterTypeDef",
+        "SourceSelectionCriteria": "SourceSelectionCriteriaTypeDef",
+        "ExistingObjectReplication": "ExistingObjectReplicationTypeDef",
+        "DeleteMarkerReplication": "DeleteMarkerReplicationTypeDef",
+    },
+    total=False,
+)
+
+class ReplicationRuleTypeDef(_RequiredReplicationRuleTypeDef, _OptionalReplicationRuleTypeDef):
+    pass
+
+ReplicationTimeTypeDef = TypedDict(
+    "ReplicationTimeTypeDef",
+    {
+        "Status": ReplicationTimeStatusType,
+        "Time": "ReplicationTimeValueTypeDef",
+    },
+)
+
+ReplicationTimeValueTypeDef = TypedDict(
+    "ReplicationTimeValueTypeDef",
+    {
+        "Minutes": int,
+    },
+    total=False,
+)
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
@@ -2223,6 +2451,22 @@ SelectionCriteriaTypeDef = TypedDict(
         "MinStorageBytesPercentage": float,
     },
     total=False,
+)
+
+SourceSelectionCriteriaTypeDef = TypedDict(
+    "SourceSelectionCriteriaTypeDef",
+    {
+        "SseKmsEncryptedObjects": "SseKmsEncryptedObjectsTypeDef",
+        "ReplicaModifications": "ReplicaModificationsTypeDef",
+    },
+    total=False,
+)
+
+SseKmsEncryptedObjectsTypeDef = TypedDict(
+    "SseKmsEncryptedObjectsTypeDef",
+    {
+        "Status": SseKmsEncryptedObjectsStatusType,
+    },
 )
 
 StorageLensAwsOrgTypeDef = TypedDict(

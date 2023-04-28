@@ -22,6 +22,7 @@ from .literals import (
     JobTypeType,
     LongTermPricingTypeType,
     RemoteManagementType,
+    ServiceNameType,
     ShipmentStateType,
     ShippingLabelStatusType,
     ShippingOptionType,
@@ -57,6 +58,7 @@ __all__ = (
     "CreateReturnShippingLabelRequestRequestTypeDef",
     "CreateReturnShippingLabelResultTypeDef",
     "DataTransferTypeDef",
+    "DependentServiceTypeDef",
     "DescribeAddressRequestRequestTypeDef",
     "DescribeAddressResultTypeDef",
     "DescribeAddressesRequestRequestTypeDef",
@@ -68,6 +70,7 @@ __all__ = (
     "DescribeReturnShippingLabelRequestRequestTypeDef",
     "DescribeReturnShippingLabelResultTypeDef",
     "DeviceConfigurationTypeDef",
+    "EKSOnDeviceServiceConfigurationTypeDef",
     "Ec2AmiResourceTypeDef",
     "EventTriggerDefinitionTypeDef",
     "GetJobManifestRequestRequestTypeDef",
@@ -94,13 +97,17 @@ __all__ = (
     "ListJobsResultTypeDef",
     "ListLongTermPricingRequestRequestTypeDef",
     "ListLongTermPricingResultTypeDef",
+    "ListServiceVersionsRequestRequestTypeDef",
+    "ListServiceVersionsResultTypeDef",
     "LongTermPricingListEntryTypeDef",
     "NFSOnDeviceServiceConfigurationTypeDef",
     "NotificationTypeDef",
     "OnDeviceServiceConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
+    "S3OnDeviceServiceConfigurationTypeDef",
     "S3ResourceTypeDef",
+    "ServiceVersionTypeDef",
     "ShipmentTypeDef",
     "ShippingDetailsTypeDef",
     "SnowconeDeviceConfigurationTypeDef",
@@ -210,9 +217,7 @@ _RequiredCreateClusterRequestRequestTypeDef = TypedDict(
     "_RequiredCreateClusterRequestRequestTypeDef",
     {
         "JobType": JobTypeType,
-        "Resources": "JobResourceTypeDef",
         "AddressId": str,
-        "RoleARN": str,
         "SnowballType": SnowballTypeType,
         "ShippingOption": ShippingOptionType,
     },
@@ -220,13 +225,19 @@ _RequiredCreateClusterRequestRequestTypeDef = TypedDict(
 _OptionalCreateClusterRequestRequestTypeDef = TypedDict(
     "_OptionalCreateClusterRequestRequestTypeDef",
     {
+        "Resources": "JobResourceTypeDef",
         "OnDeviceServiceConfiguration": "OnDeviceServiceConfigurationTypeDef",
         "Description": str,
         "KmsKeyARN": str,
+        "RoleARN": str,
         "Notification": "NotificationTypeDef",
         "ForwardingAddressId": str,
         "TaxDocuments": "TaxDocumentsTypeDef",
         "RemoteManagement": RemoteManagementType,
+        "InitialClusterSize": int,
+        "ForceCreateJobs": bool,
+        "LongTermPricingIds": List[str],
+        "SnowballCapacityPreference": SnowballCapacityType,
     },
     total=False,
 )
@@ -240,6 +251,7 @@ CreateClusterResultTypeDef = TypedDict(
     "CreateClusterResultTypeDef",
     {
         "ClusterId": str,
+        "JobListEntries": List["JobListEntryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -344,6 +356,15 @@ DataTransferTypeDef = TypedDict(
     total=False,
 )
 
+DependentServiceTypeDef = TypedDict(
+    "DependentServiceTypeDef",
+    {
+        "ServiceName": ServiceNameType,
+        "ServiceVersion": "ServiceVersionTypeDef",
+    },
+    total=False,
+)
+
 DescribeAddressRequestRequestTypeDef = TypedDict(
     "DescribeAddressRequestRequestTypeDef",
     {
@@ -429,6 +450,15 @@ DeviceConfigurationTypeDef = TypedDict(
     "DeviceConfigurationTypeDef",
     {
         "SnowconeDeviceConfiguration": "SnowconeDeviceConfigurationTypeDef",
+    },
+    total=False,
+)
+
+EKSOnDeviceServiceConfigurationTypeDef = TypedDict(
+    "EKSOnDeviceServiceConfigurationTypeDef",
+    {
+        "KubernetesVersion": str,
+        "EKSAnywhereVersion": str,
     },
     total=False,
 )
@@ -702,6 +732,39 @@ ListLongTermPricingResultTypeDef = TypedDict(
     },
 )
 
+_RequiredListServiceVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListServiceVersionsRequestRequestTypeDef",
+    {
+        "ServiceName": ServiceNameType,
+    },
+)
+_OptionalListServiceVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListServiceVersionsRequestRequestTypeDef",
+    {
+        "DependentServices": List["DependentServiceTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListServiceVersionsRequestRequestTypeDef(
+    _RequiredListServiceVersionsRequestRequestTypeDef,
+    _OptionalListServiceVersionsRequestRequestTypeDef,
+):
+    pass
+
+ListServiceVersionsResultTypeDef = TypedDict(
+    "ListServiceVersionsResultTypeDef",
+    {
+        "ServiceVersions": List["ServiceVersionTypeDef"],
+        "ServiceName": ServiceNameType,
+        "DependentServices": List["DependentServiceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 LongTermPricingListEntryTypeDef = TypedDict(
     "LongTermPricingListEntryTypeDef",
     {
@@ -743,6 +806,8 @@ OnDeviceServiceConfigurationTypeDef = TypedDict(
     {
         "NFSOnDeviceService": "NFSOnDeviceServiceConfigurationTypeDef",
         "TGWOnDeviceService": "TGWOnDeviceServiceConfigurationTypeDef",
+        "EKSOnDeviceService": "EKSOnDeviceServiceConfigurationTypeDef",
+        "S3OnDeviceService": "S3OnDeviceServiceConfigurationTypeDef",
     },
     total=False,
 )
@@ -768,12 +833,31 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+S3OnDeviceServiceConfigurationTypeDef = TypedDict(
+    "S3OnDeviceServiceConfigurationTypeDef",
+    {
+        "StorageLimit": float,
+        "StorageUnit": Literal["TB"],
+        "ServiceSize": int,
+        "FaultTolerance": int,
+    },
+    total=False,
+)
+
 S3ResourceTypeDef = TypedDict(
     "S3ResourceTypeDef",
     {
         "BucketArn": str,
         "KeyRange": "KeyRangeTypeDef",
         "TargetOnDeviceServices": List["TargetOnDeviceServiceTypeDef"],
+    },
+    total=False,
+)
+
+ServiceVersionTypeDef = TypedDict(
+    "ServiceVersionTypeDef",
+    {
+        "Version": str,
     },
     total=False,
 )

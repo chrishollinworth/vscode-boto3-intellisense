@@ -61,7 +61,7 @@ __all__ = (
 
 class ListEndpointsByPlatformApplicationPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listendpointsbyplatformapplicationpaginator)
     """
 
@@ -69,13 +69,13 @@ class ListEndpointsByPlatformApplicationPaginator(Boto3Paginator):
         self, *, PlatformApplicationArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointsByPlatformApplicationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listendpointsbyplatformapplicationpaginator)
         """
 
 class ListOriginationNumbersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListOriginationNumbers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListOriginationNumbers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listoriginationnumberspaginator)
     """
 
@@ -83,13 +83,13 @@ class ListOriginationNumbersPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOriginationNumbersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListOriginationNumbers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListOriginationNumbers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listoriginationnumberspaginator)
         """
 
 class ListPhoneNumbersOptedOutPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listphonenumbersoptedoutpaginator)
     """
 
@@ -97,13 +97,13 @@ class ListPhoneNumbersOptedOutPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPhoneNumbersOptedOutResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listphonenumbersoptedoutpaginator)
         """
 
 class ListPlatformApplicationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListPlatformApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListPlatformApplications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listplatformapplicationspaginator)
     """
 
@@ -111,13 +111,13 @@ class ListPlatformApplicationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPlatformApplicationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListPlatformApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListPlatformApplications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listplatformapplicationspaginator)
         """
 
 class ListSMSSandboxPhoneNumbersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListSMSSandboxPhoneNumbers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListSMSSandboxPhoneNumbers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listsmssandboxphonenumberspaginator)
     """
 
@@ -125,13 +125,13 @@ class ListSMSSandboxPhoneNumbersPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSMSSandboxPhoneNumbersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListSMSSandboxPhoneNumbers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListSMSSandboxPhoneNumbers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listsmssandboxphonenumberspaginator)
         """
 
 class ListSubscriptionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListSubscriptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListSubscriptions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listsubscriptionspaginator)
     """
 
@@ -139,13 +139,13 @@ class ListSubscriptionsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListSubscriptions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListSubscriptions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listsubscriptionspaginator)
         """
 
 class ListSubscriptionsByTopicPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listsubscriptionsbytopicpaginator)
     """
 
@@ -153,13 +153,13 @@ class ListSubscriptionsByTopicPaginator(Boto3Paginator):
         self, *, TopicArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionsByTopicResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listsubscriptionsbytopicpaginator)
         """
 
 class ListTopicsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListTopics)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListTopics)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listtopicspaginator)
     """
 
@@ -167,6 +167,6 @@ class ListTopicsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTopicsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Paginator.ListTopics.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Paginator.ListTopics.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/paginators.html#listtopicspaginator)
         """

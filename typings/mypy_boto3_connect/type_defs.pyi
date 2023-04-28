@@ -19,6 +19,7 @@ from .literals import (
     ActionTypeType,
     AgentStatusStateType,
     AgentStatusTypeType,
+    BehaviorTypeType,
     ChannelType,
     ContactFlowModuleStateType,
     ContactFlowModuleStatusType,
@@ -28,6 +29,12 @@ from .literals import (
     ContactStateType,
     CurrentMetricNameType,
     DirectoryTypeType,
+    EvaluationFormQuestionTypeType,
+    EvaluationFormScoringModeType,
+    EvaluationFormScoringStatusType,
+    EvaluationFormSingleSelectQuestionDisplayModeType,
+    EvaluationFormVersionStatusType,
+    EvaluationStatusType,
     EventSourceNameType,
     GroupingType,
     HierarchyGroupMatchTypeType,
@@ -39,6 +46,8 @@ from .literals import (
     IntegrationTypeType,
     LexVersionType,
     MonitorCapabilityType,
+    NumericQuestionPropertyAutomationLabelType,
+    ParticipantRoleType,
     ParticipantTimerTypeType,
     PhoneNumberCountryCodeType,
     PhoneNumberTypeType,
@@ -49,7 +58,9 @@ from .literals import (
     QuickConnectTypeType,
     ReferenceStatusType,
     ReferenceTypeType,
+    RehydrationTypeType,
     RulePublishStatusType,
+    SingleSelectQuestionRuleCategoryAutomationConditionType,
     SortOrderType,
     SourceTypeType,
     StatisticType,
@@ -78,6 +89,8 @@ else:
 
 __all__ = (
     "ActionSummaryTypeDef",
+    "ActivateEvaluationFormRequestRequestTypeDef",
+    "ActivateEvaluationFormResponseTypeDef",
     "AgentContactReferenceTypeDef",
     "AgentInfoTypeDef",
     "AgentStatusReferenceTypeDef",
@@ -118,12 +131,16 @@ __all__ = (
     "CreateContactFlowModuleResponseTypeDef",
     "CreateContactFlowRequestRequestTypeDef",
     "CreateContactFlowResponseTypeDef",
+    "CreateEvaluationFormRequestRequestTypeDef",
+    "CreateEvaluationFormResponseTypeDef",
     "CreateHoursOfOperationRequestRequestTypeDef",
     "CreateHoursOfOperationResponseTypeDef",
     "CreateInstanceRequestRequestTypeDef",
     "CreateInstanceResponseTypeDef",
     "CreateIntegrationAssociationRequestRequestTypeDef",
     "CreateIntegrationAssociationResponseTypeDef",
+    "CreateParticipantRequestRequestTypeDef",
+    "CreateParticipantResponseTypeDef",
     "CreateQueueRequestRequestTypeDef",
     "CreateQueueResponseTypeDef",
     "CreateQuickConnectRequestRequestTypeDef",
@@ -147,14 +164,19 @@ __all__ = (
     "CreateVocabularyRequestRequestTypeDef",
     "CreateVocabularyResponseTypeDef",
     "CredentialsTypeDef",
+    "CrossChannelBehaviorTypeDef",
     "CurrentMetricDataTypeDef",
     "CurrentMetricResultTypeDef",
     "CurrentMetricSortCriteriaTypeDef",
     "CurrentMetricTypeDef",
     "DateReferenceTypeDef",
+    "DeactivateEvaluationFormRequestRequestTypeDef",
+    "DeactivateEvaluationFormResponseTypeDef",
     "DefaultVocabularyTypeDef",
+    "DeleteContactEvaluationRequestRequestTypeDef",
     "DeleteContactFlowModuleRequestRequestTypeDef",
     "DeleteContactFlowRequestRequestTypeDef",
+    "DeleteEvaluationFormRequestRequestTypeDef",
     "DeleteHoursOfOperationRequestRequestTypeDef",
     "DeleteInstanceRequestRequestTypeDef",
     "DeleteIntegrationAssociationRequestRequestTypeDef",
@@ -170,12 +192,16 @@ __all__ = (
     "DeleteVocabularyResponseTypeDef",
     "DescribeAgentStatusRequestRequestTypeDef",
     "DescribeAgentStatusResponseTypeDef",
+    "DescribeContactEvaluationRequestRequestTypeDef",
+    "DescribeContactEvaluationResponseTypeDef",
     "DescribeContactFlowModuleRequestRequestTypeDef",
     "DescribeContactFlowModuleResponseTypeDef",
     "DescribeContactFlowRequestRequestTypeDef",
     "DescribeContactFlowResponseTypeDef",
     "DescribeContactRequestRequestTypeDef",
     "DescribeContactResponseTypeDef",
+    "DescribeEvaluationFormRequestRequestTypeDef",
+    "DescribeEvaluationFormResponseTypeDef",
     "DescribeHoursOfOperationRequestRequestTypeDef",
     "DescribeHoursOfOperationResponseTypeDef",
     "DescribeInstanceAttributeRequestRequestTypeDef",
@@ -220,7 +246,32 @@ __all__ = (
     "DistributionTypeDef",
     "EmailReferenceTypeDef",
     "EncryptionConfigTypeDef",
+    "EvaluationAnswerDataTypeDef",
+    "EvaluationAnswerInputTypeDef",
+    "EvaluationAnswerOutputTypeDef",
+    "EvaluationFormContentTypeDef",
+    "EvaluationFormItemTypeDef",
+    "EvaluationFormNumericQuestionAutomationTypeDef",
+    "EvaluationFormNumericQuestionOptionTypeDef",
+    "EvaluationFormNumericQuestionPropertiesTypeDef",
+    "EvaluationFormQuestionTypeDef",
+    "EvaluationFormQuestionTypePropertiesTypeDef",
+    "EvaluationFormScoringStrategyTypeDef",
+    "EvaluationFormSectionTypeDef",
+    "EvaluationFormSingleSelectQuestionAutomationOptionTypeDef",
+    "EvaluationFormSingleSelectQuestionAutomationTypeDef",
+    "EvaluationFormSingleSelectQuestionOptionTypeDef",
+    "EvaluationFormSingleSelectQuestionPropertiesTypeDef",
+    "EvaluationFormSummaryTypeDef",
+    "EvaluationFormTypeDef",
+    "EvaluationFormVersionSummaryTypeDef",
+    "EvaluationMetadataTypeDef",
+    "EvaluationNoteTypeDef",
+    "EvaluationScoreTypeDef",
+    "EvaluationSummaryTypeDef",
+    "EvaluationTypeDef",
     "EventBridgeActionDefinitionTypeDef",
+    "FilterV2TypeDef",
     "FiltersTypeDef",
     "GetContactAttributesRequestRequestTypeDef",
     "GetContactAttributesResponseTypeDef",
@@ -232,6 +283,8 @@ __all__ = (
     "GetFederationTokenResponseTypeDef",
     "GetMetricDataRequestRequestTypeDef",
     "GetMetricDataResponseTypeDef",
+    "GetMetricDataV2RequestRequestTypeDef",
+    "GetMetricDataV2ResponseTypeDef",
     "GetTaskTemplateRequestRequestTypeDef",
     "GetTaskTemplateResponseTypeDef",
     "GetTrafficDistributionRequestRequestTypeDef",
@@ -271,6 +324,8 @@ __all__ = (
     "ListApprovedOriginsResponseTypeDef",
     "ListBotsRequestRequestTypeDef",
     "ListBotsResponseTypeDef",
+    "ListContactEvaluationsRequestRequestTypeDef",
+    "ListContactEvaluationsResponseTypeDef",
     "ListContactFlowModulesRequestRequestTypeDef",
     "ListContactFlowModulesResponseTypeDef",
     "ListContactFlowsRequestRequestTypeDef",
@@ -279,6 +334,10 @@ __all__ = (
     "ListContactReferencesResponseTypeDef",
     "ListDefaultVocabulariesRequestRequestTypeDef",
     "ListDefaultVocabulariesResponseTypeDef",
+    "ListEvaluationFormVersionsRequestRequestTypeDef",
+    "ListEvaluationFormVersionsResponseTypeDef",
+    "ListEvaluationFormsRequestRequestTypeDef",
+    "ListEvaluationFormsResponseTypeDef",
     "ListHoursOfOperationsRequestRequestTypeDef",
     "ListHoursOfOperationsResponseTypeDef",
     "ListInstanceAttributesRequestRequestTypeDef",
@@ -331,15 +390,23 @@ __all__ = (
     "ListUsersRequestRequestTypeDef",
     "ListUsersResponseTypeDef",
     "MediaConcurrencyTypeDef",
+    "MetricDataV2TypeDef",
+    "MetricFilterV2TypeDef",
+    "MetricResultV2TypeDef",
+    "MetricV2TypeDef",
     "MonitorContactRequestRequestTypeDef",
     "MonitorContactResponseTypeDef",
     "NotificationRecipientTypeTypeDef",
     "NumberReferenceTypeDef",
+    "NumericQuestionPropertyValueAutomationTypeDef",
     "OutboundCallerConfigTypeDef",
     "PaginatorConfigTypeDef",
+    "ParticipantDetailsToAddTypeDef",
     "ParticipantDetailsTypeDef",
     "ParticipantTimerConfigurationTypeDef",
     "ParticipantTimerValueTypeDef",
+    "ParticipantTokenCredentialsTypeDef",
+    "PersistentChatTypeDef",
     "PhoneNumberQuickConnectConfigTypeDef",
     "PhoneNumberStatusTypeDef",
     "PhoneNumberSummaryTypeDef",
@@ -396,8 +463,11 @@ __all__ = (
     "SecurityProfileTypeDef",
     "SecurityProfilesSearchFilterTypeDef",
     "SendNotificationActionDefinitionTypeDef",
+    "SingleSelectQuestionRuleCategoryAutomationTypeDef",
     "StartChatContactRequestRequestTypeDef",
     "StartChatContactResponseTypeDef",
+    "StartContactEvaluationRequestRequestTypeDef",
+    "StartContactEvaluationResponseTypeDef",
     "StartContactRecordingRequestRequestTypeDef",
     "StartContactStreamingRequestRequestTypeDef",
     "StartContactStreamingResponseTypeDef",
@@ -410,6 +480,8 @@ __all__ = (
     "StopContactStreamingRequestRequestTypeDef",
     "StringConditionTypeDef",
     "StringReferenceTypeDef",
+    "SubmitContactEvaluationRequestRequestTypeDef",
+    "SubmitContactEvaluationResponseTypeDef",
     "SuspendContactRecordingRequestRequestTypeDef",
     "TagConditionTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -422,6 +494,7 @@ __all__ = (
     "TaskTemplateMetadataTypeDef",
     "TelephonyConfigTypeDef",
     "ThresholdTypeDef",
+    "ThresholdV2TypeDef",
     "TrafficDistributionGroupSummaryTypeDef",
     "TrafficDistributionGroupTypeDef",
     "TransferContactRequestRequestTypeDef",
@@ -429,6 +502,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateAgentStatusRequestRequestTypeDef",
     "UpdateContactAttributesRequestRequestTypeDef",
+    "UpdateContactEvaluationRequestRequestTypeDef",
+    "UpdateContactEvaluationResponseTypeDef",
     "UpdateContactFlowContentRequestRequestTypeDef",
     "UpdateContactFlowMetadataRequestRequestTypeDef",
     "UpdateContactFlowModuleContentRequestRequestTypeDef",
@@ -436,6 +511,8 @@ __all__ = (
     "UpdateContactFlowNameRequestRequestTypeDef",
     "UpdateContactRequestRequestTypeDef",
     "UpdateContactScheduleRequestRequestTypeDef",
+    "UpdateEvaluationFormRequestRequestTypeDef",
+    "UpdateEvaluationFormResponseTypeDef",
     "UpdateHoursOfOperationRequestRequestTypeDef",
     "UpdateInstanceAttributeRequestRequestTypeDef",
     "UpdateInstanceStorageConfigRequestRequestTypeDef",
@@ -483,12 +560,32 @@ __all__ = (
     "VocabularySummaryTypeDef",
     "VocabularyTypeDef",
     "VoiceRecordingConfigurationTypeDef",
+    "WisdomInfoTypeDef",
 )
 
 ActionSummaryTypeDef = TypedDict(
     "ActionSummaryTypeDef",
     {
         "ActionType": ActionTypeType,
+    },
+)
+
+ActivateEvaluationFormRequestRequestTypeDef = TypedDict(
+    "ActivateEvaluationFormRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationFormId": str,
+        "EvaluationFormVersion": int,
+    },
+)
+
+ActivateEvaluationFormResponseTypeDef = TypedDict(
+    "ActivateEvaluationFormResponseTypeDef",
+    {
+        "EvaluationFormId": str,
+        "EvaluationFormArn": str,
+        "EvaluationFormVersion": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -861,6 +958,8 @@ ContactTypeDef = TypedDict(
         "DisconnectTimestamp": datetime,
         "LastUpdateTimestamp": datetime,
         "ScheduledTimestamp": datetime,
+        "RelatedContactId": str,
+        "WisdomInfo": "WisdomInfoTypeDef",
     },
     total=False,
 )
@@ -972,6 +1071,39 @@ CreateContactFlowResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateEvaluationFormRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEvaluationFormRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "Title": str,
+        "Items": List["EvaluationFormItemTypeDef"],
+    },
+)
+_OptionalCreateEvaluationFormRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEvaluationFormRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ScoringStrategy": "EvaluationFormScoringStrategyTypeDef",
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateEvaluationFormRequestRequestTypeDef(
+    _RequiredCreateEvaluationFormRequestRequestTypeDef,
+    _OptionalCreateEvaluationFormRequestRequestTypeDef,
+):
+    pass
+
+CreateEvaluationFormResponseTypeDef = TypedDict(
+    "CreateEvaluationFormResponseTypeDef",
+    {
+        "EvaluationFormId": str,
+        "EvaluationFormArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateHoursOfOperationRequestRequestTypeDef = TypedDict(
     "_RequiredCreateHoursOfOperationRequestRequestTypeDef",
     {
@@ -1067,6 +1199,36 @@ CreateIntegrationAssociationResponseTypeDef = TypedDict(
     {
         "IntegrationAssociationId": str,
         "IntegrationAssociationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateParticipantRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateParticipantRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactId": str,
+        "ParticipantDetails": "ParticipantDetailsToAddTypeDef",
+    },
+)
+_OptionalCreateParticipantRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateParticipantRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateParticipantRequestRequestTypeDef(
+    _RequiredCreateParticipantRequestRequestTypeDef, _OptionalCreateParticipantRequestRequestTypeDef
+):
+    pass
+
+CreateParticipantResponseTypeDef = TypedDict(
+    "CreateParticipantResponseTypeDef",
+    {
+        "ParticipantCredentials": "ParticipantTokenCredentialsTypeDef",
+        "ParticipantId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1447,6 +1609,13 @@ CredentialsTypeDef = TypedDict(
     total=False,
 )
 
+CrossChannelBehaviorTypeDef = TypedDict(
+    "CrossChannelBehaviorTypeDef",
+    {
+        "BehaviorType": BehaviorTypeType,
+    },
+)
+
 CurrentMetricDataTypeDef = TypedDict(
     "CurrentMetricDataTypeDef",
     {
@@ -1492,6 +1661,25 @@ DateReferenceTypeDef = TypedDict(
     total=False,
 )
 
+DeactivateEvaluationFormRequestRequestTypeDef = TypedDict(
+    "DeactivateEvaluationFormRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationFormId": str,
+        "EvaluationFormVersion": int,
+    },
+)
+
+DeactivateEvaluationFormResponseTypeDef = TypedDict(
+    "DeactivateEvaluationFormResponseTypeDef",
+    {
+        "EvaluationFormId": str,
+        "EvaluationFormArn": str,
+        "EvaluationFormVersion": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DefaultVocabularyTypeDef = TypedDict(
     "DefaultVocabularyTypeDef",
     {
@@ -1499,6 +1687,14 @@ DefaultVocabularyTypeDef = TypedDict(
         "LanguageCode": VocabularyLanguageCodeType,
         "VocabularyId": str,
         "VocabularyName": str,
+    },
+)
+
+DeleteContactEvaluationRequestRequestTypeDef = TypedDict(
+    "DeleteContactEvaluationRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationId": str,
     },
 )
 
@@ -1517,6 +1713,27 @@ DeleteContactFlowRequestRequestTypeDef = TypedDict(
         "ContactFlowId": str,
     },
 )
+
+_RequiredDeleteEvaluationFormRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteEvaluationFormRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationFormId": str,
+    },
+)
+_OptionalDeleteEvaluationFormRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteEvaluationFormRequestRequestTypeDef",
+    {
+        "EvaluationFormVersion": int,
+    },
+    total=False,
+)
+
+class DeleteEvaluationFormRequestRequestTypeDef(
+    _RequiredDeleteEvaluationFormRequestRequestTypeDef,
+    _OptionalDeleteEvaluationFormRequestRequestTypeDef,
+):
+    pass
 
 DeleteHoursOfOperationRequestRequestTypeDef = TypedDict(
     "DeleteHoursOfOperationRequestRequestTypeDef",
@@ -1639,6 +1856,23 @@ DescribeAgentStatusResponseTypeDef = TypedDict(
     },
 )
 
+DescribeContactEvaluationRequestRequestTypeDef = TypedDict(
+    "DescribeContactEvaluationRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationId": str,
+    },
+)
+
+DescribeContactEvaluationResponseTypeDef = TypedDict(
+    "DescribeContactEvaluationResponseTypeDef",
+    {
+        "Evaluation": "EvaluationTypeDef",
+        "EvaluationForm": "EvaluationFormContentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeContactFlowModuleRequestRequestTypeDef = TypedDict(
     "DescribeContactFlowModuleRequestRequestTypeDef",
     {
@@ -1683,6 +1917,35 @@ DescribeContactResponseTypeDef = TypedDict(
     "DescribeContactResponseTypeDef",
     {
         "Contact": "ContactTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeEvaluationFormRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeEvaluationFormRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationFormId": str,
+    },
+)
+_OptionalDescribeEvaluationFormRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeEvaluationFormRequestRequestTypeDef",
+    {
+        "EvaluationFormVersion": int,
+    },
+    total=False,
+)
+
+class DescribeEvaluationFormRequestRequestTypeDef(
+    _RequiredDescribeEvaluationFormRequestRequestTypeDef,
+    _OptionalDescribeEvaluationFormRequestRequestTypeDef,
+):
+    pass
+
+DescribeEvaluationFormResponseTypeDef = TypedDict(
+    "DescribeEvaluationFormResponseTypeDef",
+    {
+        "EvaluationForm": "EvaluationFormTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2056,11 +2319,428 @@ EncryptionConfigTypeDef = TypedDict(
     },
 )
 
+EvaluationAnswerDataTypeDef = TypedDict(
+    "EvaluationAnswerDataTypeDef",
+    {
+        "StringValue": str,
+        "NumericValue": float,
+        "NotApplicable": bool,
+    },
+    total=False,
+)
+
+EvaluationAnswerInputTypeDef = TypedDict(
+    "EvaluationAnswerInputTypeDef",
+    {
+        "Value": "EvaluationAnswerDataTypeDef",
+    },
+    total=False,
+)
+
+EvaluationAnswerOutputTypeDef = TypedDict(
+    "EvaluationAnswerOutputTypeDef",
+    {
+        "Value": "EvaluationAnswerDataTypeDef",
+        "SystemSuggestedValue": "EvaluationAnswerDataTypeDef",
+    },
+    total=False,
+)
+
+_RequiredEvaluationFormContentTypeDef = TypedDict(
+    "_RequiredEvaluationFormContentTypeDef",
+    {
+        "EvaluationFormVersion": int,
+        "EvaluationFormId": str,
+        "EvaluationFormArn": str,
+        "Title": str,
+        "Items": List["EvaluationFormItemTypeDef"],
+    },
+)
+_OptionalEvaluationFormContentTypeDef = TypedDict(
+    "_OptionalEvaluationFormContentTypeDef",
+    {
+        "Description": str,
+        "ScoringStrategy": "EvaluationFormScoringStrategyTypeDef",
+    },
+    total=False,
+)
+
+class EvaluationFormContentTypeDef(
+    _RequiredEvaluationFormContentTypeDef, _OptionalEvaluationFormContentTypeDef
+):
+    pass
+
+EvaluationFormItemTypeDef = TypedDict(
+    "EvaluationFormItemTypeDef",
+    {
+        "Section": Dict[str, Any],
+        "Question": "EvaluationFormQuestionTypeDef",
+    },
+    total=False,
+)
+
+EvaluationFormNumericQuestionAutomationTypeDef = TypedDict(
+    "EvaluationFormNumericQuestionAutomationTypeDef",
+    {
+        "PropertyValue": "NumericQuestionPropertyValueAutomationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredEvaluationFormNumericQuestionOptionTypeDef = TypedDict(
+    "_RequiredEvaluationFormNumericQuestionOptionTypeDef",
+    {
+        "MinValue": int,
+        "MaxValue": int,
+    },
+)
+_OptionalEvaluationFormNumericQuestionOptionTypeDef = TypedDict(
+    "_OptionalEvaluationFormNumericQuestionOptionTypeDef",
+    {
+        "Score": int,
+        "AutomaticFail": bool,
+    },
+    total=False,
+)
+
+class EvaluationFormNumericQuestionOptionTypeDef(
+    _RequiredEvaluationFormNumericQuestionOptionTypeDef,
+    _OptionalEvaluationFormNumericQuestionOptionTypeDef,
+):
+    pass
+
+_RequiredEvaluationFormNumericQuestionPropertiesTypeDef = TypedDict(
+    "_RequiredEvaluationFormNumericQuestionPropertiesTypeDef",
+    {
+        "MinValue": int,
+        "MaxValue": int,
+    },
+)
+_OptionalEvaluationFormNumericQuestionPropertiesTypeDef = TypedDict(
+    "_OptionalEvaluationFormNumericQuestionPropertiesTypeDef",
+    {
+        "Options": List["EvaluationFormNumericQuestionOptionTypeDef"],
+        "Automation": "EvaluationFormNumericQuestionAutomationTypeDef",
+    },
+    total=False,
+)
+
+class EvaluationFormNumericQuestionPropertiesTypeDef(
+    _RequiredEvaluationFormNumericQuestionPropertiesTypeDef,
+    _OptionalEvaluationFormNumericQuestionPropertiesTypeDef,
+):
+    pass
+
+_RequiredEvaluationFormQuestionTypeDef = TypedDict(
+    "_RequiredEvaluationFormQuestionTypeDef",
+    {
+        "Title": str,
+        "RefId": str,
+        "QuestionType": EvaluationFormQuestionTypeType,
+    },
+)
+_OptionalEvaluationFormQuestionTypeDef = TypedDict(
+    "_OptionalEvaluationFormQuestionTypeDef",
+    {
+        "Instructions": str,
+        "NotApplicableEnabled": bool,
+        "QuestionTypeProperties": "EvaluationFormQuestionTypePropertiesTypeDef",
+        "Weight": float,
+    },
+    total=False,
+)
+
+class EvaluationFormQuestionTypeDef(
+    _RequiredEvaluationFormQuestionTypeDef, _OptionalEvaluationFormQuestionTypeDef
+):
+    pass
+
+EvaluationFormQuestionTypePropertiesTypeDef = TypedDict(
+    "EvaluationFormQuestionTypePropertiesTypeDef",
+    {
+        "Numeric": "EvaluationFormNumericQuestionPropertiesTypeDef",
+        "SingleSelect": "EvaluationFormSingleSelectQuestionPropertiesTypeDef",
+    },
+    total=False,
+)
+
+EvaluationFormScoringStrategyTypeDef = TypedDict(
+    "EvaluationFormScoringStrategyTypeDef",
+    {
+        "Mode": EvaluationFormScoringModeType,
+        "Status": EvaluationFormScoringStatusType,
+    },
+)
+
+_RequiredEvaluationFormSectionTypeDef = TypedDict(
+    "_RequiredEvaluationFormSectionTypeDef",
+    {
+        "Title": str,
+        "RefId": str,
+    },
+)
+_OptionalEvaluationFormSectionTypeDef = TypedDict(
+    "_OptionalEvaluationFormSectionTypeDef",
+    {
+        "Instructions": str,
+        "Items": List[Dict[str, Any]],
+        "Weight": float,
+    },
+    total=False,
+)
+
+class EvaluationFormSectionTypeDef(
+    _RequiredEvaluationFormSectionTypeDef, _OptionalEvaluationFormSectionTypeDef
+):
+    pass
+
+EvaluationFormSingleSelectQuestionAutomationOptionTypeDef = TypedDict(
+    "EvaluationFormSingleSelectQuestionAutomationOptionTypeDef",
+    {
+        "RuleCategory": "SingleSelectQuestionRuleCategoryAutomationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredEvaluationFormSingleSelectQuestionAutomationTypeDef = TypedDict(
+    "_RequiredEvaluationFormSingleSelectQuestionAutomationTypeDef",
+    {
+        "Options": List["EvaluationFormSingleSelectQuestionAutomationOptionTypeDef"],
+    },
+)
+_OptionalEvaluationFormSingleSelectQuestionAutomationTypeDef = TypedDict(
+    "_OptionalEvaluationFormSingleSelectQuestionAutomationTypeDef",
+    {
+        "DefaultOptionRefId": str,
+    },
+    total=False,
+)
+
+class EvaluationFormSingleSelectQuestionAutomationTypeDef(
+    _RequiredEvaluationFormSingleSelectQuestionAutomationTypeDef,
+    _OptionalEvaluationFormSingleSelectQuestionAutomationTypeDef,
+):
+    pass
+
+_RequiredEvaluationFormSingleSelectQuestionOptionTypeDef = TypedDict(
+    "_RequiredEvaluationFormSingleSelectQuestionOptionTypeDef",
+    {
+        "RefId": str,
+        "Text": str,
+    },
+)
+_OptionalEvaluationFormSingleSelectQuestionOptionTypeDef = TypedDict(
+    "_OptionalEvaluationFormSingleSelectQuestionOptionTypeDef",
+    {
+        "Score": int,
+        "AutomaticFail": bool,
+    },
+    total=False,
+)
+
+class EvaluationFormSingleSelectQuestionOptionTypeDef(
+    _RequiredEvaluationFormSingleSelectQuestionOptionTypeDef,
+    _OptionalEvaluationFormSingleSelectQuestionOptionTypeDef,
+):
+    pass
+
+_RequiredEvaluationFormSingleSelectQuestionPropertiesTypeDef = TypedDict(
+    "_RequiredEvaluationFormSingleSelectQuestionPropertiesTypeDef",
+    {
+        "Options": List["EvaluationFormSingleSelectQuestionOptionTypeDef"],
+    },
+)
+_OptionalEvaluationFormSingleSelectQuestionPropertiesTypeDef = TypedDict(
+    "_OptionalEvaluationFormSingleSelectQuestionPropertiesTypeDef",
+    {
+        "DisplayAs": EvaluationFormSingleSelectQuestionDisplayModeType,
+        "Automation": "EvaluationFormSingleSelectQuestionAutomationTypeDef",
+    },
+    total=False,
+)
+
+class EvaluationFormSingleSelectQuestionPropertiesTypeDef(
+    _RequiredEvaluationFormSingleSelectQuestionPropertiesTypeDef,
+    _OptionalEvaluationFormSingleSelectQuestionPropertiesTypeDef,
+):
+    pass
+
+_RequiredEvaluationFormSummaryTypeDef = TypedDict(
+    "_RequiredEvaluationFormSummaryTypeDef",
+    {
+        "EvaluationFormId": str,
+        "EvaluationFormArn": str,
+        "Title": str,
+        "CreatedTime": datetime,
+        "CreatedBy": str,
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": str,
+        "LatestVersion": int,
+    },
+)
+_OptionalEvaluationFormSummaryTypeDef = TypedDict(
+    "_OptionalEvaluationFormSummaryTypeDef",
+    {
+        "LastActivatedTime": datetime,
+        "LastActivatedBy": str,
+        "ActiveVersion": int,
+    },
+    total=False,
+)
+
+class EvaluationFormSummaryTypeDef(
+    _RequiredEvaluationFormSummaryTypeDef, _OptionalEvaluationFormSummaryTypeDef
+):
+    pass
+
+_RequiredEvaluationFormTypeDef = TypedDict(
+    "_RequiredEvaluationFormTypeDef",
+    {
+        "EvaluationFormId": str,
+        "EvaluationFormVersion": int,
+        "Locked": bool,
+        "EvaluationFormArn": str,
+        "Title": str,
+        "Status": EvaluationFormVersionStatusType,
+        "Items": List["EvaluationFormItemTypeDef"],
+        "CreatedTime": datetime,
+        "CreatedBy": str,
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": str,
+    },
+)
+_OptionalEvaluationFormTypeDef = TypedDict(
+    "_OptionalEvaluationFormTypeDef",
+    {
+        "Description": str,
+        "ScoringStrategy": "EvaluationFormScoringStrategyTypeDef",
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class EvaluationFormTypeDef(_RequiredEvaluationFormTypeDef, _OptionalEvaluationFormTypeDef):
+    pass
+
+EvaluationFormVersionSummaryTypeDef = TypedDict(
+    "EvaluationFormVersionSummaryTypeDef",
+    {
+        "EvaluationFormArn": str,
+        "EvaluationFormId": str,
+        "EvaluationFormVersion": int,
+        "Locked": bool,
+        "Status": EvaluationFormVersionStatusType,
+        "CreatedTime": datetime,
+        "CreatedBy": str,
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": str,
+    },
+)
+
+_RequiredEvaluationMetadataTypeDef = TypedDict(
+    "_RequiredEvaluationMetadataTypeDef",
+    {
+        "ContactId": str,
+        "EvaluatorArn": str,
+    },
+)
+_OptionalEvaluationMetadataTypeDef = TypedDict(
+    "_OptionalEvaluationMetadataTypeDef",
+    {
+        "ContactAgentId": str,
+        "Score": "EvaluationScoreTypeDef",
+    },
+    total=False,
+)
+
+class EvaluationMetadataTypeDef(
+    _RequiredEvaluationMetadataTypeDef, _OptionalEvaluationMetadataTypeDef
+):
+    pass
+
+EvaluationNoteTypeDef = TypedDict(
+    "EvaluationNoteTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
+
+EvaluationScoreTypeDef = TypedDict(
+    "EvaluationScoreTypeDef",
+    {
+        "Percentage": float,
+        "NotApplicable": bool,
+        "AutomaticFail": bool,
+    },
+    total=False,
+)
+
+_RequiredEvaluationSummaryTypeDef = TypedDict(
+    "_RequiredEvaluationSummaryTypeDef",
+    {
+        "EvaluationId": str,
+        "EvaluationArn": str,
+        "EvaluationFormTitle": str,
+        "EvaluationFormId": str,
+        "Status": EvaluationStatusType,
+        "EvaluatorArn": str,
+        "CreatedTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalEvaluationSummaryTypeDef = TypedDict(
+    "_OptionalEvaluationSummaryTypeDef",
+    {
+        "Score": "EvaluationScoreTypeDef",
+    },
+    total=False,
+)
+
+class EvaluationSummaryTypeDef(
+    _RequiredEvaluationSummaryTypeDef, _OptionalEvaluationSummaryTypeDef
+):
+    pass
+
+_RequiredEvaluationTypeDef = TypedDict(
+    "_RequiredEvaluationTypeDef",
+    {
+        "EvaluationId": str,
+        "EvaluationArn": str,
+        "Metadata": "EvaluationMetadataTypeDef",
+        "Answers": Dict[str, "EvaluationAnswerOutputTypeDef"],
+        "Notes": Dict[str, "EvaluationNoteTypeDef"],
+        "Status": EvaluationStatusType,
+        "CreatedTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalEvaluationTypeDef = TypedDict(
+    "_OptionalEvaluationTypeDef",
+    {
+        "Scores": Dict[str, "EvaluationScoreTypeDef"],
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class EvaluationTypeDef(_RequiredEvaluationTypeDef, _OptionalEvaluationTypeDef):
+    pass
+
 EventBridgeActionDefinitionTypeDef = TypedDict(
     "EventBridgeActionDefinitionTypeDef",
     {
         "Name": str,
     },
+)
+
+FilterV2TypeDef = TypedDict(
+    "FilterV2TypeDef",
+    {
+        "FilterKey": str,
+        "FilterValues": List[str],
+    },
+    total=False,
 )
 
 FiltersTypeDef = TypedDict(
@@ -2205,6 +2885,40 @@ GetMetricDataResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "MetricResults": List["HistoricalMetricResultTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetMetricDataV2RequestRequestTypeDef = TypedDict(
+    "_RequiredGetMetricDataV2RequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "Filters": List["FilterV2TypeDef"],
+        "Metrics": List["MetricV2TypeDef"],
+    },
+)
+_OptionalGetMetricDataV2RequestRequestTypeDef = TypedDict(
+    "_OptionalGetMetricDataV2RequestRequestTypeDef",
+    {
+        "Groupings": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetMetricDataV2RequestRequestTypeDef(
+    _RequiredGetMetricDataV2RequestRequestTypeDef, _OptionalGetMetricDataV2RequestRequestTypeDef
+):
+    pass
+
+GetMetricDataV2ResponseTypeDef = TypedDict(
+    "GetMetricDataV2ResponseTypeDef",
+    {
+        "NextToken": str,
+        "MetricResults": List["MetricResultV2TypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2567,7 +3281,6 @@ LexBotTypeDef = TypedDict(
         "Name": str,
         "LexRegion": str,
     },
-    total=False,
 )
 
 LexV2BotTypeDef = TypedDict(
@@ -2663,6 +3376,36 @@ ListBotsResponseTypeDef = TypedDict(
     "ListBotsResponseTypeDef",
     {
         "LexBots": List["LexBotConfigTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListContactEvaluationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListContactEvaluationsRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactId": str,
+    },
+)
+_OptionalListContactEvaluationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListContactEvaluationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListContactEvaluationsRequestRequestTypeDef(
+    _RequiredListContactEvaluationsRequestRequestTypeDef,
+    _OptionalListContactEvaluationsRequestRequestTypeDef,
+):
+    pass
+
+ListContactEvaluationsResponseTypeDef = TypedDict(
+    "ListContactEvaluationsResponseTypeDef",
+    {
+        "EvaluationSummaryList": List["EvaluationSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2786,6 +3529,67 @@ ListDefaultVocabulariesResponseTypeDef = TypedDict(
     "ListDefaultVocabulariesResponseTypeDef",
     {
         "DefaultVocabularyList": List["DefaultVocabularyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListEvaluationFormVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListEvaluationFormVersionsRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationFormId": str,
+    },
+)
+_OptionalListEvaluationFormVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListEvaluationFormVersionsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListEvaluationFormVersionsRequestRequestTypeDef(
+    _RequiredListEvaluationFormVersionsRequestRequestTypeDef,
+    _OptionalListEvaluationFormVersionsRequestRequestTypeDef,
+):
+    pass
+
+ListEvaluationFormVersionsResponseTypeDef = TypedDict(
+    "ListEvaluationFormVersionsResponseTypeDef",
+    {
+        "EvaluationFormVersionSummaryList": List["EvaluationFormVersionSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListEvaluationFormsRequestRequestTypeDef = TypedDict(
+    "_RequiredListEvaluationFormsRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalListEvaluationFormsRequestRequestTypeDef = TypedDict(
+    "_OptionalListEvaluationFormsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListEvaluationFormsRequestRequestTypeDef(
+    _RequiredListEvaluationFormsRequestRequestTypeDef,
+    _OptionalListEvaluationFormsRequestRequestTypeDef,
+):
+    pass
+
+ListEvaluationFormsResponseTypeDef = TypedDict(
+    "ListEvaluationFormsResponseTypeDef",
+    {
+        "EvaluationFormSummaryList": List["EvaluationFormSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -3512,12 +4316,59 @@ ListUsersResponseTypeDef = TypedDict(
     },
 )
 
-MediaConcurrencyTypeDef = TypedDict(
-    "MediaConcurrencyTypeDef",
+_RequiredMediaConcurrencyTypeDef = TypedDict(
+    "_RequiredMediaConcurrencyTypeDef",
     {
         "Channel": ChannelType,
         "Concurrency": int,
     },
+)
+_OptionalMediaConcurrencyTypeDef = TypedDict(
+    "_OptionalMediaConcurrencyTypeDef",
+    {
+        "CrossChannelBehavior": "CrossChannelBehaviorTypeDef",
+    },
+    total=False,
+)
+
+class MediaConcurrencyTypeDef(_RequiredMediaConcurrencyTypeDef, _OptionalMediaConcurrencyTypeDef):
+    pass
+
+MetricDataV2TypeDef = TypedDict(
+    "MetricDataV2TypeDef",
+    {
+        "Metric": "MetricV2TypeDef",
+        "Value": float,
+    },
+    total=False,
+)
+
+MetricFilterV2TypeDef = TypedDict(
+    "MetricFilterV2TypeDef",
+    {
+        "MetricFilterKey": str,
+        "MetricFilterValues": List[str],
+    },
+    total=False,
+)
+
+MetricResultV2TypeDef = TypedDict(
+    "MetricResultV2TypeDef",
+    {
+        "Dimensions": Dict[str, str],
+        "Collections": List["MetricDataV2TypeDef"],
+    },
+    total=False,
+)
+
+MetricV2TypeDef = TypedDict(
+    "MetricV2TypeDef",
+    {
+        "Name": str,
+        "Threshold": List["ThresholdV2TypeDef"],
+        "MetricFilters": List["MetricFilterV2TypeDef"],
+    },
+    total=False,
 )
 
 _RequiredMonitorContactRequestRequestTypeDef = TypedDict(
@@ -3569,6 +4420,13 @@ NumberReferenceTypeDef = TypedDict(
     total=False,
 )
 
+NumericQuestionPropertyValueAutomationTypeDef = TypedDict(
+    "NumericQuestionPropertyValueAutomationTypeDef",
+    {
+        "Label": NumericQuestionPropertyAutomationLabelType,
+    },
+)
+
 OutboundCallerConfigTypeDef = TypedDict(
     "OutboundCallerConfigTypeDef",
     {
@@ -3585,6 +4443,15 @@ PaginatorConfigTypeDef = TypedDict(
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+ParticipantDetailsToAddTypeDef = TypedDict(
+    "ParticipantDetailsToAddTypeDef",
+    {
+        "ParticipantRole": ParticipantRoleType,
+        "DisplayName": str,
     },
     total=False,
 )
@@ -3610,6 +4477,24 @@ ParticipantTimerValueTypeDef = TypedDict(
     {
         "ParticipantTimerAction": Literal["Unset"],
         "ParticipantTimerDurationInMinutes": int,
+    },
+    total=False,
+)
+
+ParticipantTokenCredentialsTypeDef = TypedDict(
+    "ParticipantTokenCredentialsTypeDef",
+    {
+        "ParticipantToken": str,
+        "Expiry": str,
+    },
+    total=False,
+)
+
+PersistentChatTypeDef = TypedDict(
+    "PersistentChatTypeDef",
+    {
+        "RehydrationType": RehydrationTypeType,
+        "SourceContactId": str,
     },
     total=False,
 )
@@ -4340,6 +5225,15 @@ class SendNotificationActionDefinitionTypeDef(
 ):
     pass
 
+SingleSelectQuestionRuleCategoryAutomationTypeDef = TypedDict(
+    "SingleSelectQuestionRuleCategoryAutomationTypeDef",
+    {
+        "Category": str,
+        "Condition": SingleSelectQuestionRuleCategoryAutomationConditionType,
+        "OptionRefId": str,
+    },
+)
+
 _RequiredStartChatContactRequestRequestTypeDef = TypedDict(
     "_RequiredStartChatContactRequestRequestTypeDef",
     {
@@ -4356,6 +5250,8 @@ _OptionalStartChatContactRequestRequestTypeDef = TypedDict(
         "ClientToken": str,
         "ChatDurationInMinutes": int,
         "SupportedMessagingContentTypes": List[str],
+        "PersistentChat": "PersistentChatTypeDef",
+        "RelatedContactId": str,
     },
     total=False,
 )
@@ -4371,6 +5267,38 @@ StartChatContactResponseTypeDef = TypedDict(
         "ContactId": str,
         "ParticipantId": str,
         "ParticipantToken": str,
+        "ContinuedFromContactId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartContactEvaluationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartContactEvaluationRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactId": str,
+        "EvaluationFormId": str,
+    },
+)
+_OptionalStartContactEvaluationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartContactEvaluationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class StartContactEvaluationRequestRequestTypeDef(
+    _RequiredStartContactEvaluationRequestRequestTypeDef,
+    _OptionalStartContactEvaluationRequestRequestTypeDef,
+):
+    pass
+
+StartContactEvaluationResponseTypeDef = TypedDict(
+    "StartContactEvaluationResponseTypeDef",
+    {
+        "EvaluationId": str,
+        "EvaluationArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4458,6 +5386,7 @@ _OptionalStartTaskContactRequestRequestTypeDef = TypedDict(
         "ScheduledTime": Union[datetime, str],
         "TaskTemplateId": str,
         "QuickConnectId": str,
+        "RelatedContactId": str,
     },
     total=False,
 )
@@ -4518,6 +5447,37 @@ StringReferenceTypeDef = TypedDict(
         "Value": str,
     },
     total=False,
+)
+
+_RequiredSubmitContactEvaluationRequestRequestTypeDef = TypedDict(
+    "_RequiredSubmitContactEvaluationRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationId": str,
+    },
+)
+_OptionalSubmitContactEvaluationRequestRequestTypeDef = TypedDict(
+    "_OptionalSubmitContactEvaluationRequestRequestTypeDef",
+    {
+        "Answers": Dict[str, "EvaluationAnswerInputTypeDef"],
+        "Notes": Dict[str, "EvaluationNoteTypeDef"],
+    },
+    total=False,
+)
+
+class SubmitContactEvaluationRequestRequestTypeDef(
+    _RequiredSubmitContactEvaluationRequestRequestTypeDef,
+    _OptionalSubmitContactEvaluationRequestRequestTypeDef,
+):
+    pass
+
+SubmitContactEvaluationResponseTypeDef = TypedDict(
+    "SubmitContactEvaluationResponseTypeDef",
+    {
+        "EvaluationId": str,
+        "EvaluationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 SuspendContactRecordingRequestRequestTypeDef = TypedDict(
@@ -4653,6 +5613,15 @@ ThresholdTypeDef = TypedDict(
     total=False,
 )
 
+ThresholdV2TypeDef = TypedDict(
+    "ThresholdV2TypeDef",
+    {
+        "Comparison": str,
+        "ThresholdValue": float,
+    },
+    total=False,
+)
+
 TrafficDistributionGroupSummaryTypeDef = TypedDict(
     "TrafficDistributionGroupSummaryTypeDef",
     {
@@ -4749,6 +5718,37 @@ UpdateContactAttributesRequestRequestTypeDef = TypedDict(
         "InitialContactId": str,
         "InstanceId": str,
         "Attributes": Dict[str, str],
+    },
+)
+
+_RequiredUpdateContactEvaluationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateContactEvaluationRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationId": str,
+    },
+)
+_OptionalUpdateContactEvaluationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateContactEvaluationRequestRequestTypeDef",
+    {
+        "Answers": Dict[str, "EvaluationAnswerInputTypeDef"],
+        "Notes": Dict[str, "EvaluationNoteTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateContactEvaluationRequestRequestTypeDef(
+    _RequiredUpdateContactEvaluationRequestRequestTypeDef,
+    _OptionalUpdateContactEvaluationRequestRequestTypeDef,
+):
+    pass
+
+UpdateContactEvaluationResponseTypeDef = TypedDict(
+    "UpdateContactEvaluationResponseTypeDef",
+    {
+        "EvaluationId": str,
+        "EvaluationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -4866,6 +5866,43 @@ UpdateContactScheduleRequestRequestTypeDef = TypedDict(
         "InstanceId": str,
         "ContactId": str,
         "ScheduledTime": Union[datetime, str],
+    },
+)
+
+_RequiredUpdateEvaluationFormRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEvaluationFormRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "EvaluationFormId": str,
+        "EvaluationFormVersion": int,
+        "Title": str,
+        "Items": List["EvaluationFormItemTypeDef"],
+    },
+)
+_OptionalUpdateEvaluationFormRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEvaluationFormRequestRequestTypeDef",
+    {
+        "CreateNewVersion": bool,
+        "Description": str,
+        "ScoringStrategy": "EvaluationFormScoringStrategyTypeDef",
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class UpdateEvaluationFormRequestRequestTypeDef(
+    _RequiredUpdateEvaluationFormRequestRequestTypeDef,
+    _OptionalUpdateEvaluationFormRequestRequestTypeDef,
+):
+    pass
+
+UpdateEvaluationFormResponseTypeDef = TypedDict(
+    "UpdateEvaluationFormResponseTypeDef",
+    {
+        "EvaluationFormId": str,
+        "EvaluationFormArn": str,
+        "EvaluationFormVersion": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -5502,6 +6539,14 @@ VoiceRecordingConfigurationTypeDef = TypedDict(
     "VoiceRecordingConfigurationTypeDef",
     {
         "VoiceRecordingTrack": VoiceRecordingTrackType,
+    },
+    total=False,
+)
+
+WisdomInfoTypeDef = TypedDict(
+    "WisdomInfoTypeDef",
+    {
+        "SessionArn": str,
     },
     total=False,
 )

@@ -6,12 +6,13 @@ Type annotations for imagebuilder service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_imagebuilder.type_defs import AdditionalInstanceConfigurationTypeDef
+    from mypy_boto3_imagebuilder.type_defs import AccountAggregationTypeDef
 
-    data: AdditionalInstanceConfigurationTypeDef = {...}
+    data: AccountAggregationTypeDef = {...}
     ```
 """
 import sys
+from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
@@ -19,12 +20,18 @@ from .literals import (
     ComponentTypeType,
     DiskImageFormatType,
     EbsVolumeTypeType,
+    ImageScanStatusType,
+    ImageSourceType,
     ImageStatusType,
     ImageTypeType,
     OwnershipType,
     PipelineExecutionStartConditionType,
     PipelineStatusType,
     PlatformType,
+    WorkflowExecutionStatusType,
+    WorkflowStepExecutionRollbackStatusType,
+    WorkflowStepExecutionStatusType,
+    WorkflowTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -37,6 +44,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccountAggregationTypeDef",
     "AdditionalInstanceConfigurationTypeDef",
     "AmiDistributionConfigurationTypeDef",
     "AmiTypeDef",
@@ -67,6 +75,9 @@ __all__ = (
     "CreateImageResponseTypeDef",
     "CreateInfrastructureConfigurationRequestRequestTypeDef",
     "CreateInfrastructureConfigurationResponseTypeDef",
+    "CvssScoreAdjustmentTypeDef",
+    "CvssScoreDetailsTypeDef",
+    "CvssScoreTypeDef",
     "DeleteComponentRequestRequestTypeDef",
     "DeleteComponentResponseTypeDef",
     "DeleteContainerRecipeRequestRequestTypeDef",
@@ -85,6 +96,7 @@ __all__ = (
     "DistributionConfigurationTypeDef",
     "DistributionTypeDef",
     "EbsInstanceBlockDeviceSpecificationTypeDef",
+    "EcrConfigurationTypeDef",
     "FastLaunchConfigurationTypeDef",
     "FastLaunchLaunchTemplateSpecificationTypeDef",
     "FastLaunchSnapshotConfigurationTypeDef",
@@ -111,10 +123,21 @@ __all__ = (
     "GetImageResponseTypeDef",
     "GetInfrastructureConfigurationRequestRequestTypeDef",
     "GetInfrastructureConfigurationResponseTypeDef",
+    "GetWorkflowExecutionRequestRequestTypeDef",
+    "GetWorkflowExecutionResponseTypeDef",
+    "GetWorkflowStepExecutionRequestRequestTypeDef",
+    "GetWorkflowStepExecutionResponseTypeDef",
+    "ImageAggregationTypeDef",
     "ImagePackageTypeDef",
+    "ImagePipelineAggregationTypeDef",
     "ImagePipelineTypeDef",
     "ImageRecipeSummaryTypeDef",
     "ImageRecipeTypeDef",
+    "ImageScanFindingAggregationTypeDef",
+    "ImageScanFindingTypeDef",
+    "ImageScanFindingsFilterTypeDef",
+    "ImageScanStateTypeDef",
+    "ImageScanningConfigurationTypeDef",
     "ImageStateTypeDef",
     "ImageSummaryTypeDef",
     "ImageTestsConfigurationTypeDef",
@@ -126,6 +149,7 @@ __all__ = (
     "ImportVmImageResponseTypeDef",
     "InfrastructureConfigurationSummaryTypeDef",
     "InfrastructureConfigurationTypeDef",
+    "InspectorScoreDetailsTypeDef",
     "InstanceBlockDeviceMappingTypeDef",
     "InstanceConfigurationTypeDef",
     "InstanceMetadataOptionsTypeDef",
@@ -149,14 +173,23 @@ __all__ = (
     "ListImagePipelinesResponseTypeDef",
     "ListImageRecipesRequestRequestTypeDef",
     "ListImageRecipesResponseTypeDef",
+    "ListImageScanFindingAggregationsRequestRequestTypeDef",
+    "ListImageScanFindingAggregationsResponseTypeDef",
+    "ListImageScanFindingsRequestRequestTypeDef",
+    "ListImageScanFindingsResponseTypeDef",
     "ListImagesRequestRequestTypeDef",
     "ListImagesResponseTypeDef",
     "ListInfrastructureConfigurationsRequestRequestTypeDef",
     "ListInfrastructureConfigurationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListWorkflowExecutionsRequestRequestTypeDef",
+    "ListWorkflowExecutionsResponseTypeDef",
+    "ListWorkflowStepExecutionsRequestRequestTypeDef",
+    "ListWorkflowStepExecutionsResponseTypeDef",
     "LoggingTypeDef",
     "OutputResourcesTypeDef",
+    "PackageVulnerabilityDetailsTypeDef",
     "PutComponentPolicyRequestRequestTypeDef",
     "PutComponentPolicyResponseTypeDef",
     "PutContainerRecipePolicyRequestRequestTypeDef",
@@ -165,10 +198,13 @@ __all__ = (
     "PutImagePolicyResponseTypeDef",
     "PutImageRecipePolicyRequestRequestTypeDef",
     "PutImageRecipePolicyResponseTypeDef",
+    "RemediationRecommendationTypeDef",
+    "RemediationTypeDef",
     "ResponseMetadataTypeDef",
     "S3ExportConfigurationTypeDef",
     "S3LogsTypeDef",
     "ScheduleTypeDef",
+    "SeverityCountsTypeDef",
     "StartImagePipelineExecutionRequestRequestTypeDef",
     "StartImagePipelineExecutionResponseTypeDef",
     "SystemsManagerAgentTypeDef",
@@ -181,6 +217,19 @@ __all__ = (
     "UpdateImagePipelineResponseTypeDef",
     "UpdateInfrastructureConfigurationRequestRequestTypeDef",
     "UpdateInfrastructureConfigurationResponseTypeDef",
+    "VulnerabilityIdAggregationTypeDef",
+    "VulnerablePackageTypeDef",
+    "WorkflowExecutionMetadataTypeDef",
+    "WorkflowStepMetadataTypeDef",
+)
+
+AccountAggregationTypeDef = TypedDict(
+    "AccountAggregationTypeDef",
+    {
+        "accountId": str,
+        "severityCounts": "SeverityCountsTypeDef",
+    },
+    total=False,
 )
 
 AdditionalInstanceConfigurationTypeDef = TypedDict(
@@ -308,6 +357,8 @@ ComponentSummaryTypeDef = TypedDict(
         "changeDescription": str,
         "dateCreated": str,
         "tags": Dict[str, str],
+        "publisher": str,
+        "obfuscate": bool,
     },
     total=False,
 )
@@ -331,6 +382,8 @@ ComponentTypeDef = TypedDict(
         "encrypted": bool,
         "dateCreated": str,
         "tags": Dict[str, str],
+        "publisher": str,
+        "obfuscate": bool,
     },
     total=False,
 )
@@ -555,6 +608,7 @@ _OptionalCreateImagePipelineRequestRequestTypeDef = TypedDict(
         "schedule": "ScheduleTypeDef",
         "status": PipelineStatusType,
         "tags": Dict[str, str],
+        "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
     },
     total=False,
 )
@@ -628,6 +682,7 @@ _OptionalCreateImageRequestRequestTypeDef = TypedDict(
         "imageTestsConfiguration": "ImageTestsConfigurationTypeDef",
         "enhancedImageMetadataEnabled": bool,
         "tags": Dict[str, str],
+        "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
     },
     total=False,
 )
@@ -687,6 +742,39 @@ CreateInfrastructureConfigurationResponseTypeDef = TypedDict(
         "infrastructureConfigurationArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CvssScoreAdjustmentTypeDef = TypedDict(
+    "CvssScoreAdjustmentTypeDef",
+    {
+        "metric": str,
+        "reason": str,
+    },
+    total=False,
+)
+
+CvssScoreDetailsTypeDef = TypedDict(
+    "CvssScoreDetailsTypeDef",
+    {
+        "scoreSource": str,
+        "cvssSource": str,
+        "version": str,
+        "score": float,
+        "scoringVector": str,
+        "adjustments": List["CvssScoreAdjustmentTypeDef"],
+    },
+    total=False,
+)
+
+CvssScoreTypeDef = TypedDict(
+    "CvssScoreTypeDef",
+    {
+        "baseScore": float,
+        "scoringVector": str,
+        "version": str,
+        "source": str,
+    },
+    total=False,
 )
 
 DeleteComponentRequestRequestTypeDef = TypedDict(
@@ -873,6 +961,15 @@ EbsInstanceBlockDeviceSpecificationTypeDef = TypedDict(
         "volumeSize": int,
         "volumeType": EbsVolumeTypeType,
         "throughput": int,
+    },
+    total=False,
+)
+
+EcrConfigurationTypeDef = TypedDict(
+    "EcrConfigurationTypeDef",
+    {
+        "repositoryName": str,
+        "containerTags": List[str],
     },
     total=False,
 )
@@ -1102,11 +1199,87 @@ GetInfrastructureConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+GetWorkflowExecutionRequestRequestTypeDef = TypedDict(
+    "GetWorkflowExecutionRequestRequestTypeDef",
+    {
+        "workflowExecutionId": str,
+    },
+)
+
+GetWorkflowExecutionResponseTypeDef = TypedDict(
+    "GetWorkflowExecutionResponseTypeDef",
+    {
+        "requestId": str,
+        "workflowBuildVersionArn": str,
+        "workflowExecutionId": str,
+        "imageBuildVersionArn": str,
+        "type": WorkflowTypeType,
+        "status": WorkflowExecutionStatusType,
+        "message": str,
+        "totalStepCount": int,
+        "totalStepsSucceeded": int,
+        "totalStepsFailed": int,
+        "totalStepsSkipped": int,
+        "startTime": str,
+        "endTime": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetWorkflowStepExecutionRequestRequestTypeDef = TypedDict(
+    "GetWorkflowStepExecutionRequestRequestTypeDef",
+    {
+        "stepExecutionId": str,
+    },
+)
+
+GetWorkflowStepExecutionResponseTypeDef = TypedDict(
+    "GetWorkflowStepExecutionResponseTypeDef",
+    {
+        "requestId": str,
+        "stepExecutionId": str,
+        "workflowBuildVersionArn": str,
+        "workflowExecutionId": str,
+        "imageBuildVersionArn": str,
+        "name": str,
+        "description": str,
+        "action": str,
+        "status": WorkflowStepExecutionStatusType,
+        "rollbackStatus": WorkflowStepExecutionRollbackStatusType,
+        "message": str,
+        "inputs": str,
+        "outputs": str,
+        "startTime": str,
+        "endTime": str,
+        "onFailure": str,
+        "timeoutSeconds": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ImageAggregationTypeDef = TypedDict(
+    "ImageAggregationTypeDef",
+    {
+        "imageBuildVersionArn": str,
+        "severityCounts": "SeverityCountsTypeDef",
+    },
+    total=False,
+)
+
 ImagePackageTypeDef = TypedDict(
     "ImagePackageTypeDef",
     {
         "packageName": str,
         "packageVersion": str,
+    },
+    total=False,
+)
+
+ImagePipelineAggregationTypeDef = TypedDict(
+    "ImagePipelineAggregationTypeDef",
+    {
+        "imagePipelineArn": str,
+        "severityCounts": "SeverityCountsTypeDef",
     },
     total=False,
 )
@@ -1131,6 +1304,7 @@ ImagePipelineTypeDef = TypedDict(
         "dateLastRun": str,
         "dateNextRun": str,
         "tags": Dict[str, str],
+        "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
     },
     total=False,
 )
@@ -1170,6 +1344,65 @@ ImageRecipeTypeDef = TypedDict(
     total=False,
 )
 
+ImageScanFindingAggregationTypeDef = TypedDict(
+    "ImageScanFindingAggregationTypeDef",
+    {
+        "accountAggregation": "AccountAggregationTypeDef",
+        "imageAggregation": "ImageAggregationTypeDef",
+        "imagePipelineAggregation": "ImagePipelineAggregationTypeDef",
+        "vulnerabilityIdAggregation": "VulnerabilityIdAggregationTypeDef",
+    },
+    total=False,
+)
+
+ImageScanFindingTypeDef = TypedDict(
+    "ImageScanFindingTypeDef",
+    {
+        "awsAccountId": str,
+        "imageBuildVersionArn": str,
+        "imagePipelineArn": str,
+        "type": str,
+        "description": str,
+        "title": str,
+        "remediation": "RemediationTypeDef",
+        "severity": str,
+        "firstObservedAt": datetime,
+        "updatedAt": datetime,
+        "inspectorScore": float,
+        "inspectorScoreDetails": "InspectorScoreDetailsTypeDef",
+        "packageVulnerabilityDetails": "PackageVulnerabilityDetailsTypeDef",
+        "fixAvailable": str,
+    },
+    total=False,
+)
+
+ImageScanFindingsFilterTypeDef = TypedDict(
+    "ImageScanFindingsFilterTypeDef",
+    {
+        "name": str,
+        "values": List[str],
+    },
+    total=False,
+)
+
+ImageScanStateTypeDef = TypedDict(
+    "ImageScanStateTypeDef",
+    {
+        "status": ImageScanStatusType,
+        "reason": str,
+    },
+    total=False,
+)
+
+ImageScanningConfigurationTypeDef = TypedDict(
+    "ImageScanningConfigurationTypeDef",
+    {
+        "imageScanningEnabled": bool,
+        "ecrConfiguration": "EcrConfigurationTypeDef",
+    },
+    total=False,
+)
+
 ImageStateTypeDef = TypedDict(
     "ImageStateTypeDef",
     {
@@ -1194,6 +1427,7 @@ ImageSummaryTypeDef = TypedDict(
         "outputResources": "OutputResourcesTypeDef",
         "tags": Dict[str, str],
         "buildType": BuildTypeType,
+        "imageSource": ImageSourceType,
     },
     total=False,
 )
@@ -1229,6 +1463,9 @@ ImageTypeDef = TypedDict(
         "outputResources": "OutputResourcesTypeDef",
         "tags": Dict[str, str],
         "buildType": BuildTypeType,
+        "imageSource": ImageSourceType,
+        "scanState": "ImageScanStateTypeDef",
+        "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
     },
     total=False,
 )
@@ -1245,6 +1482,7 @@ ImageVersionTypeDef = TypedDict(
         "owner": str,
         "dateCreated": str,
         "buildType": BuildTypeType,
+        "imageSource": ImageSourceType,
     },
     total=False,
 )
@@ -1358,6 +1596,14 @@ InfrastructureConfigurationTypeDef = TypedDict(
         "resourceTags": Dict[str, str],
         "instanceMetadataOptions": "InstanceMetadataOptionsTypeDef",
         "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+InspectorScoreDetailsTypeDef = TypedDict(
+    "InspectorScoreDetailsTypeDef",
+    {
+        "adjustedCvss": "CvssScoreDetailsTypeDef",
     },
     total=False,
 )
@@ -1651,6 +1897,46 @@ ListImageRecipesResponseTypeDef = TypedDict(
     },
 )
 
+ListImageScanFindingAggregationsRequestRequestTypeDef = TypedDict(
+    "ListImageScanFindingAggregationsRequestRequestTypeDef",
+    {
+        "filter": "FilterTypeDef",
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListImageScanFindingAggregationsResponseTypeDef = TypedDict(
+    "ListImageScanFindingAggregationsResponseTypeDef",
+    {
+        "requestId": str,
+        "aggregationType": str,
+        "responses": List["ImageScanFindingAggregationTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListImageScanFindingsRequestRequestTypeDef = TypedDict(
+    "ListImageScanFindingsRequestRequestTypeDef",
+    {
+        "filters": List["ImageScanFindingsFilterTypeDef"],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListImageScanFindingsResponseTypeDef = TypedDict(
+    "ListImageScanFindingsResponseTypeDef",
+    {
+        "requestId": str,
+        "findings": List["ImageScanFindingTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListImagesRequestRequestTypeDef = TypedDict(
     "ListImagesRequestRequestTypeDef",
     {
@@ -1709,6 +1995,74 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListWorkflowExecutionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListWorkflowExecutionsRequestRequestTypeDef",
+    {
+        "imageBuildVersionArn": str,
+    },
+)
+_OptionalListWorkflowExecutionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListWorkflowExecutionsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListWorkflowExecutionsRequestRequestTypeDef(
+    _RequiredListWorkflowExecutionsRequestRequestTypeDef,
+    _OptionalListWorkflowExecutionsRequestRequestTypeDef,
+):
+    pass
+
+ListWorkflowExecutionsResponseTypeDef = TypedDict(
+    "ListWorkflowExecutionsResponseTypeDef",
+    {
+        "requestId": str,
+        "workflowExecutions": List["WorkflowExecutionMetadataTypeDef"],
+        "imageBuildVersionArn": str,
+        "message": str,
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListWorkflowStepExecutionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListWorkflowStepExecutionsRequestRequestTypeDef",
+    {
+        "workflowExecutionId": str,
+    },
+)
+_OptionalListWorkflowStepExecutionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListWorkflowStepExecutionsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListWorkflowStepExecutionsRequestRequestTypeDef(
+    _RequiredListWorkflowStepExecutionsRequestRequestTypeDef,
+    _OptionalListWorkflowStepExecutionsRequestRequestTypeDef,
+):
+    pass
+
+ListWorkflowStepExecutionsResponseTypeDef = TypedDict(
+    "ListWorkflowStepExecutionsResponseTypeDef",
+    {
+        "requestId": str,
+        "steps": List["WorkflowStepMetadataTypeDef"],
+        "workflowBuildVersionArn": str,
+        "workflowExecutionId": str,
+        "imageBuildVersionArn": str,
+        "message": str,
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 LoggingTypeDef = TypedDict(
     "LoggingTypeDef",
     {
@@ -1725,6 +2079,33 @@ OutputResourcesTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredPackageVulnerabilityDetailsTypeDef = TypedDict(
+    "_RequiredPackageVulnerabilityDetailsTypeDef",
+    {
+        "vulnerabilityId": str,
+    },
+)
+_OptionalPackageVulnerabilityDetailsTypeDef = TypedDict(
+    "_OptionalPackageVulnerabilityDetailsTypeDef",
+    {
+        "vulnerablePackages": List["VulnerablePackageTypeDef"],
+        "source": str,
+        "cvss": List["CvssScoreTypeDef"],
+        "relatedVulnerabilities": List[str],
+        "sourceUrl": str,
+        "vendorSeverity": str,
+        "vendorCreatedAt": datetime,
+        "vendorUpdatedAt": datetime,
+        "referenceUrls": List[str],
+    },
+    total=False,
+)
+
+class PackageVulnerabilityDetailsTypeDef(
+    _RequiredPackageVulnerabilityDetailsTypeDef, _OptionalPackageVulnerabilityDetailsTypeDef
+):
+    pass
 
 PutComponentPolicyRequestRequestTypeDef = TypedDict(
     "PutComponentPolicyRequestRequestTypeDef",
@@ -1794,6 +2175,23 @@ PutImageRecipePolicyResponseTypeDef = TypedDict(
     },
 )
 
+RemediationRecommendationTypeDef = TypedDict(
+    "RemediationRecommendationTypeDef",
+    {
+        "text": str,
+        "url": str,
+    },
+    total=False,
+)
+
+RemediationTypeDef = TypedDict(
+    "RemediationTypeDef",
+    {
+        "recommendation": "RemediationRecommendationTypeDef",
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1841,6 +2239,17 @@ ScheduleTypeDef = TypedDict(
         "scheduleExpression": str,
         "timezone": str,
         "pipelineExecutionStartCondition": PipelineExecutionStartConditionType,
+    },
+    total=False,
+)
+
+SeverityCountsTypeDef = TypedDict(
+    "SeverityCountsTypeDef",
+    {
+        "all": int,
+        "critical": int,
+        "high": int,
+        "medium": int,
     },
     total=False,
 )
@@ -1946,6 +2355,7 @@ _OptionalUpdateImagePipelineRequestRequestTypeDef = TypedDict(
         "enhancedImageMetadataEnabled": bool,
         "schedule": "ScheduleTypeDef",
         "status": PipelineStatusType,
+        "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
     },
     total=False,
 )
@@ -2005,4 +2415,66 @@ UpdateInfrastructureConfigurationResponseTypeDef = TypedDict(
         "infrastructureConfigurationArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+VulnerabilityIdAggregationTypeDef = TypedDict(
+    "VulnerabilityIdAggregationTypeDef",
+    {
+        "vulnerabilityId": str,
+        "severityCounts": "SeverityCountsTypeDef",
+    },
+    total=False,
+)
+
+VulnerablePackageTypeDef = TypedDict(
+    "VulnerablePackageTypeDef",
+    {
+        "name": str,
+        "version": str,
+        "sourceLayerHash": str,
+        "epoch": int,
+        "release": str,
+        "arch": str,
+        "packageManager": str,
+        "filePath": str,
+        "fixedInVersion": str,
+        "remediation": str,
+    },
+    total=False,
+)
+
+WorkflowExecutionMetadataTypeDef = TypedDict(
+    "WorkflowExecutionMetadataTypeDef",
+    {
+        "workflowBuildVersionArn": str,
+        "workflowExecutionId": str,
+        "type": WorkflowTypeType,
+        "status": WorkflowExecutionStatusType,
+        "message": str,
+        "totalStepCount": int,
+        "totalStepsSucceeded": int,
+        "totalStepsFailed": int,
+        "totalStepsSkipped": int,
+        "startTime": str,
+        "endTime": str,
+    },
+    total=False,
+)
+
+WorkflowStepMetadataTypeDef = TypedDict(
+    "WorkflowStepMetadataTypeDef",
+    {
+        "stepExecutionId": str,
+        "name": str,
+        "description": str,
+        "action": str,
+        "status": WorkflowStepExecutionStatusType,
+        "rollbackStatus": WorkflowStepExecutionRollbackStatusType,
+        "message": str,
+        "inputs": str,
+        "outputs": str,
+        "startTime": str,
+        "endTime": str,
+    },
+    total=False,
 )

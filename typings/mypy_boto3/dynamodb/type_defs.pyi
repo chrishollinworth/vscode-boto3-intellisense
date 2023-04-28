@@ -948,6 +948,7 @@ _OptionalCreateTableInputRequestTypeDef = TypedDict(
         "SSESpecification": "SSESpecificationTypeDef",
         "Tags": List["TagTypeDef"],
         "TableClass": TableClassType,
+        "DeletionProtectionEnabled": bool,
     },
     total=False,
 )
@@ -976,6 +977,7 @@ _OptionalCreateTableInputServiceResourceTypeDef = TypedDict(
         "SSESpecification": "SSESpecificationTypeDef",
         "Tags": List["TagTypeDef"],
         "TableClass": TableClassType,
+        "DeletionProtectionEnabled": bool,
     },
     total=False,
 )
@@ -3572,6 +3574,7 @@ TableDescriptionTypeDef = TypedDict(
         "SSEDescription": "SSEDescriptionTypeDef",
         "ArchivalSummary": "ArchivalSummaryTypeDef",
         "TableClassSummary": "TableClassSummaryTypeDef",
+        "DeletionProtectionEnabled": bool,
     },
     total=False,
 )
@@ -3996,6 +3999,7 @@ _OptionalUpdateTableInputRequestTypeDef = TypedDict(
         "SSESpecification": "SSESpecificationTypeDef",
         "ReplicaUpdates": List["ReplicationGroupUpdateTypeDef"],
         "TableClass": TableClassType,
+        "DeletionProtectionEnabled": bool,
     },
     total=False,
 )
@@ -4016,6 +4020,7 @@ UpdateTableInputTableTypeDef = TypedDict(
         "SSESpecification": "SSESpecificationTypeDef",
         "ReplicaUpdates": List["ReplicationGroupUpdateTypeDef"],
         "TableClass": TableClassType,
+        "DeletionProtectionEnabled": bool,
     },
     total=False,
 )

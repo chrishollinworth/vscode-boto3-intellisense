@@ -22,6 +22,7 @@ __all__ = (
     "ApplicationConfigTypeType",
     "BatteryLevelType",
     "ConnectionStatusType",
+    "DeviceProfileTypeType",
     "DeviceStateType",
     "DlClassType",
     "DownlinkModeType",
@@ -33,8 +34,10 @@ __all__ = (
     "FuotaDeviceStatusType",
     "FuotaTaskStatusType",
     "IdentifierTypeType",
+    "ImportTaskStatusType",
     "LogLevelType",
     "MessageTypeType",
+    "OnboardStatusType",
     "PartnerTypeType",
     "PositionConfigurationFecType",
     "PositionConfigurationStatusType",
@@ -47,6 +50,7 @@ __all__ = (
     "WirelessDeviceEventType",
     "WirelessDeviceFrameInfoType",
     "WirelessDeviceIdTypeType",
+    "WirelessDeviceSidewalkStatusType",
     "WirelessDeviceTypeType",
     "WirelessGatewayEventType",
     "WirelessGatewayIdTypeType",
@@ -59,6 +63,7 @@ __all__ = (
 ApplicationConfigTypeType = Literal["SemtechGeolocation"]
 BatteryLevelType = Literal["critical", "low", "normal"]
 ConnectionStatusType = Literal["Connected", "Disconnected"]
+DeviceProfileTypeType = Literal["LoRaWAN", "Sidewalk"]
 DeviceStateType = Literal[
     "Provisioned", "RegisteredNotSeen", "RegisteredReachable", "RegisteredUnreachable"
 ]
@@ -88,6 +93,9 @@ FuotaTaskStatusType = Literal[
 IdentifierTypeType = Literal[
     "DevEui", "GatewayEui", "PartnerAccountId", "WirelessDeviceId", "WirelessGatewayId"
 ]
+ImportTaskStatusType = Literal[
+    "COMPLETE", "DELETING", "FAILED", "INITIALIZED", "INITIALIZING", "PENDING"
+]
 LogLevelType = Literal["DISABLED", "ERROR", "INFO"]
 MessageTypeType = Literal[
     "CUSTOM_COMMAND_ID_GET",
@@ -95,6 +103,7 @@ MessageTypeType = Literal[
     "CUSTOM_COMMAND_ID_RESP",
     "CUSTOM_COMMAND_ID_SET",
 ]
+OnboardStatusType = Literal["FAILED", "INITIALIZED", "ONBOARDED", "PENDING"]
 PartnerTypeType = Literal["Sidewalk"]
 PositionConfigurationFecType = Literal["NONE", "ROSE"]
 PositionConfigurationStatusType = Literal["Disabled", "Enabled"]
@@ -103,12 +112,27 @@ PositionSolverProviderType = Literal["Semtech"]
 PositionSolverTypeType = Literal["GNSS"]
 PositioningConfigStatusType = Literal["Disabled", "Enabled"]
 SigningAlgType = Literal["Ed25519", "P256r1"]
-SupportedRfRegionType = Literal["AS923-1", "AU915", "EU868", "US915"]
+SupportedRfRegionType = Literal[
+    "AS923-1",
+    "AS923-2",
+    "AS923-3",
+    "AS923-4",
+    "AU915",
+    "CN470",
+    "CN779",
+    "EU433",
+    "EU868",
+    "IN865",
+    "KR920",
+    "RU864",
+    "US915",
+]
 WirelessDeviceEventType = Literal["Downlink_Data", "Join", "Registration", "Rejoin", "Uplink_Data"]
 WirelessDeviceFrameInfoType = Literal["DISABLED", "ENABLED"]
 WirelessDeviceIdTypeType = Literal[
     "DevEui", "SidewalkManufacturingSn", "ThingName", "WirelessDeviceId"
 ]
+WirelessDeviceSidewalkStatusType = Literal["ACTIVATED", "PROVISIONED", "REGISTERED", "UNKNOWN"]
 WirelessDeviceTypeType = Literal["LoRaWAN", "Sidewalk"]
 WirelessGatewayEventType = Literal["CUPS_Request", "Certificate"]
 WirelessGatewayIdTypeType = Literal["GatewayEui", "ThingName", "WirelessGatewayId"]

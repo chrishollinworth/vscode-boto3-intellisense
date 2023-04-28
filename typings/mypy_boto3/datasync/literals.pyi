@@ -21,6 +21,11 @@ else:
 __all__ = (
     "AgentStatusType",
     "AtimeType",
+    "DescribeStorageSystemResourceMetricsPaginatorName",
+    "DiscoveryJobStatusType",
+    "DiscoveryResourceFilterType",
+    "DiscoveryResourceTypeType",
+    "DiscoverySystemTypeType",
     "EfsInTransitEncryptionType",
     "EndpointTypeType",
     "FilterTypeType",
@@ -29,7 +34,9 @@ __all__ = (
     "HdfsDataTransferProtectionType",
     "HdfsRpcProtectionType",
     "ListAgentsPaginatorName",
+    "ListDiscoveryJobsPaginatorName",
     "ListLocationsPaginatorName",
+    "ListStorageSystemsPaginatorName",
     "ListTagsForResourcePaginatorName",
     "ListTaskExecutionsPaginatorName",
     "ListTasksPaginatorName",
@@ -45,9 +52,11 @@ __all__ = (
     "PosixPermissionsType",
     "PreserveDeletedFilesType",
     "PreserveDevicesType",
+    "RecommendationStatusType",
     "S3StorageClassType",
     "SmbSecurityDescriptorCopyFlagsType",
     "SmbVersionType",
+    "StorageSystemConnectivityStatusType",
     "TaskExecutionStatusType",
     "TaskFilterNameType",
     "TaskQueueingType",
@@ -59,6 +68,15 @@ __all__ = (
 
 AgentStatusType = Literal["OFFLINE", "ONLINE"]
 AtimeType = Literal["BEST_EFFORT", "NONE"]
+DescribeStorageSystemResourceMetricsPaginatorName = Literal[
+    "describe_storage_system_resource_metrics"
+]
+DiscoveryJobStatusType = Literal[
+    "COMPLETED", "COMPLETED_WITH_ISSUES", "FAILED", "RUNNING", "STOPPED", "TERMINATED", "WARNING"
+]
+DiscoveryResourceFilterType = Literal["SVM"]
+DiscoveryResourceTypeType = Literal["CLUSTER", "SVM", "VOLUME"]
+DiscoverySystemTypeType = Literal["NetAppONTAP"]
 EfsInTransitEncryptionType = Literal["NONE", "TLS1_2"]
 EndpointTypeType = Literal["FIPS", "PRIVATE_LINK", "PUBLIC"]
 FilterTypeType = Literal["SIMPLE_PATTERN"]
@@ -67,7 +85,9 @@ HdfsAuthenticationTypeType = Literal["KERBEROS", "SIMPLE"]
 HdfsDataTransferProtectionType = Literal["AUTHENTICATION", "DISABLED", "INTEGRITY", "PRIVACY"]
 HdfsRpcProtectionType = Literal["AUTHENTICATION", "DISABLED", "INTEGRITY", "PRIVACY"]
 ListAgentsPaginatorName = Literal["list_agents"]
+ListDiscoveryJobsPaginatorName = Literal["list_discovery_jobs"]
 ListLocationsPaginatorName = Literal["list_locations"]
+ListStorageSystemsPaginatorName = Literal["list_storage_systems"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 ListTaskExecutionsPaginatorName = Literal["list_task_executions"]
 ListTasksPaginatorName = Literal["list_tasks"]
@@ -94,6 +114,7 @@ PhaseStatusType = Literal["ERROR", "PENDING", "SUCCESS"]
 PosixPermissionsType = Literal["NONE", "PRESERVE"]
 PreserveDeletedFilesType = Literal["PRESERVE", "REMOVE"]
 PreserveDevicesType = Literal["NONE", "PRESERVE"]
+RecommendationStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "NONE"]
 S3StorageClassType = Literal[
     "DEEP_ARCHIVE",
     "GLACIER",
@@ -105,7 +126,8 @@ S3StorageClassType = Literal[
     "STANDARD_IA",
 ]
 SmbSecurityDescriptorCopyFlagsType = Literal["NONE", "OWNER_DACL", "OWNER_DACL_SACL"]
-SmbVersionType = Literal["AUTOMATIC", "SMB2", "SMB3"]
+SmbVersionType = Literal["AUTOMATIC", "SMB1", "SMB2", "SMB2_0", "SMB3"]
+StorageSystemConnectivityStatusType = Literal["FAIL", "PASS", "UNKNOWN"]
 TaskExecutionStatusType = Literal[
     "ERROR", "LAUNCHING", "PREPARING", "QUEUED", "SUCCESS", "TRANSFERRING", "VERIFYING"
 ]

@@ -20,6 +20,7 @@ from botocore.response import StreamingBody
 from .literals import (
     BatteryLevelType,
     ConnectionStatusType,
+    DeviceProfileTypeType,
     DeviceStateType,
     DlClassType,
     DownlinkModeType,
@@ -30,8 +31,10 @@ from .literals import (
     FuotaDeviceStatusType,
     FuotaTaskStatusType,
     IdentifierTypeType,
+    ImportTaskStatusType,
     LogLevelType,
     MessageTypeType,
+    OnboardStatusType,
     PositionConfigurationFecType,
     PositionConfigurationStatusType,
     PositioningConfigStatusType,
@@ -41,6 +44,7 @@ from .literals import (
     WirelessDeviceEventType,
     WirelessDeviceFrameInfoType,
     WirelessDeviceIdTypeType,
+    WirelessDeviceSidewalkStatusType,
     WirelessDeviceTypeType,
     WirelessGatewayEventType,
     WirelessGatewayIdTypeType,
@@ -100,6 +104,7 @@ __all__ = (
     "CreateWirelessGatewayTaskDefinitionResponseTypeDef",
     "CreateWirelessGatewayTaskRequestRequestTypeDef",
     "CreateWirelessGatewayTaskResponseTypeDef",
+    "DakCertificateMetadataTypeDef",
     "DeleteDestinationRequestRequestTypeDef",
     "DeleteDeviceProfileRequestRequestTypeDef",
     "DeleteFuotaTaskRequestRequestTypeDef",
@@ -107,10 +112,12 @@ __all__ = (
     "DeleteNetworkAnalyzerConfigurationRequestRequestTypeDef",
     "DeleteQueuedMessagesRequestRequestTypeDef",
     "DeleteServiceProfileRequestRequestTypeDef",
+    "DeleteWirelessDeviceImportTaskRequestRequestTypeDef",
     "DeleteWirelessDeviceRequestRequestTypeDef",
     "DeleteWirelessGatewayRequestRequestTypeDef",
     "DeleteWirelessGatewayTaskDefinitionRequestRequestTypeDef",
     "DeleteWirelessGatewayTaskRequestRequestTypeDef",
+    "DeregisterWirelessDeviceRequestRequestTypeDef",
     "DestinationsTypeDef",
     "DeviceProfileTypeDef",
     "DeviceRegistrationStateEventConfigurationTypeDef",
@@ -160,6 +167,8 @@ __all__ = (
     "GetServiceEndpointResponseTypeDef",
     "GetServiceProfileRequestRequestTypeDef",
     "GetServiceProfileResponseTypeDef",
+    "GetWirelessDeviceImportTaskRequestRequestTypeDef",
+    "GetWirelessDeviceImportTaskResponseTypeDef",
     "GetWirelessDeviceRequestRequestTypeDef",
     "GetWirelessDeviceResponseTypeDef",
     "GetWirelessDeviceStatisticsRequestRequestTypeDef",
@@ -181,6 +190,8 @@ __all__ = (
     "GsmLocalIdTypeDef",
     "GsmNmrObjTypeDef",
     "GsmObjTypeDef",
+    "ImportedSidewalkDeviceTypeDef",
+    "ImportedWirelessDeviceTypeDef",
     "IpTypeDef",
     "JoinEventConfigurationTypeDef",
     "JoinResourceTypeEventConfigurationTypeDef",
@@ -188,6 +199,8 @@ __all__ = (
     "ListDestinationsResponseTypeDef",
     "ListDeviceProfilesRequestRequestTypeDef",
     "ListDeviceProfilesResponseTypeDef",
+    "ListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef",
+    "ListDevicesForWirelessDeviceImportTaskResponseTypeDef",
     "ListEventConfigurationsRequestRequestTypeDef",
     "ListEventConfigurationsResponseTypeDef",
     "ListFuotaTasksRequestRequestTypeDef",
@@ -208,6 +221,8 @@ __all__ = (
     "ListServiceProfilesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListWirelessDeviceImportTasksRequestRequestTypeDef",
+    "ListWirelessDeviceImportTasksResponseTypeDef",
     "ListWirelessDevicesRequestRequestTypeDef",
     "ListWirelessDevicesResponseTypeDef",
     "ListWirelessGatewayTaskDefinitionsRequestRequestTypeDef",
@@ -272,17 +287,27 @@ __all__ = (
     "SessionKeysAbpV1_1TypeDef",
     "SidewalkAccountInfoTypeDef",
     "SidewalkAccountInfoWithFingerprintTypeDef",
+    "SidewalkCreateWirelessDeviceTypeDef",
     "SidewalkDeviceMetadataTypeDef",
     "SidewalkDeviceTypeDef",
     "SidewalkEventNotificationConfigurationsTypeDef",
+    "SidewalkGetDeviceProfileTypeDef",
+    "SidewalkGetStartImportInfoTypeDef",
     "SidewalkListDeviceTypeDef",
     "SidewalkResourceTypeEventConfigurationTypeDef",
     "SidewalkSendDataToDeviceTypeDef",
+    "SidewalkSingleStartImportInfoTypeDef",
+    "SidewalkStartImportInfoTypeDef",
     "SidewalkUpdateAccountTypeDef",
+    "SidewalkUpdateImportInfoTypeDef",
     "StartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef",
     "StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef",
     "StartFuotaTaskRequestRequestTypeDef",
     "StartMulticastGroupSessionRequestRequestTypeDef",
+    "StartSingleWirelessDeviceImportTaskRequestRequestTypeDef",
+    "StartSingleWirelessDeviceImportTaskResponseTypeDef",
+    "StartWirelessDeviceImportTaskRequestRequestTypeDef",
+    "StartWirelessDeviceImportTaskResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TdscdmaLocalIdTypeDef",
@@ -305,6 +330,7 @@ __all__ = (
     "UpdatePositionRequestRequestTypeDef",
     "UpdateResourceEventConfigurationRequestRequestTypeDef",
     "UpdateResourcePositionRequestRequestTypeDef",
+    "UpdateWirelessDeviceImportTaskRequestRequestTypeDef",
     "UpdateWirelessDeviceRequestRequestTypeDef",
     "UpdateWirelessGatewayRequestRequestTypeDef",
     "UpdateWirelessGatewayTaskCreateTypeDef",
@@ -314,6 +340,7 @@ __all__ = (
     "WcdmaObjTypeDef",
     "WiFiAccessPointTypeDef",
     "WirelessDeviceEventLogOptionTypeDef",
+    "WirelessDeviceImportTaskTypeDef",
     "WirelessDeviceLogOptionTypeDef",
     "WirelessDeviceStatisticsTypeDef",
     "WirelessGatewayEventLogOptionTypeDef",
@@ -591,6 +618,7 @@ CreateDeviceProfileRequestRequestTypeDef = TypedDict(
         "LoRaWAN": "LoRaWANDeviceProfileTypeDef",
         "Tags": List["TagTypeDef"],
         "ClientRequestToken": str,
+        "Sidewalk": Dict[str, Any],
     },
     total=False,
 )
@@ -619,6 +647,9 @@ _OptionalCreateFuotaTaskRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "LoRaWAN": "LoRaWANFuotaTaskTypeDef",
         "Tags": List["TagTypeDef"],
+        "RedundancyPercent": int,
+        "FragmentSizeBytes": int,
+        "FragmentIntervalMS": int,
     },
     total=False,
 )
@@ -739,6 +770,7 @@ _OptionalCreateWirelessDeviceRequestRequestTypeDef = TypedDict(
         "LoRaWAN": "LoRaWANDeviceTypeDef",
         "Tags": List["TagTypeDef"],
         "Positioning": PositioningConfigStatusType,
+        "Sidewalk": "SidewalkCreateWirelessDeviceTypeDef",
     },
     total=False,
 )
@@ -839,6 +871,28 @@ CreateWirelessGatewayTaskResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDakCertificateMetadataTypeDef = TypedDict(
+    "_RequiredDakCertificateMetadataTypeDef",
+    {
+        "CertificateId": str,
+    },
+)
+_OptionalDakCertificateMetadataTypeDef = TypedDict(
+    "_OptionalDakCertificateMetadataTypeDef",
+    {
+        "MaxAllowedSignature": int,
+        "FactorySupport": bool,
+        "ApId": str,
+        "DeviceTypeId": str,
+    },
+    total=False,
+)
+
+class DakCertificateMetadataTypeDef(
+    _RequiredDakCertificateMetadataTypeDef, _OptionalDakCertificateMetadataTypeDef
+):
+    pass
+
 DeleteDestinationRequestRequestTypeDef = TypedDict(
     "DeleteDestinationRequestRequestTypeDef",
     {
@@ -902,6 +956,13 @@ DeleteServiceProfileRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "DeleteWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
 DeleteWirelessDeviceRequestRequestTypeDef = TypedDict(
     "DeleteWirelessDeviceRequestRequestTypeDef",
     {
@@ -929,6 +990,26 @@ DeleteWirelessGatewayTaskRequestRequestTypeDef = TypedDict(
         "Id": str,
     },
 )
+
+_RequiredDeregisterWirelessDeviceRequestRequestTypeDef = TypedDict(
+    "_RequiredDeregisterWirelessDeviceRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalDeregisterWirelessDeviceRequestRequestTypeDef = TypedDict(
+    "_OptionalDeregisterWirelessDeviceRequestRequestTypeDef",
+    {
+        "WirelessDeviceType": WirelessDeviceTypeType,
+    },
+    total=False,
+)
+
+class DeregisterWirelessDeviceRequestRequestTypeDef(
+    _RequiredDeregisterWirelessDeviceRequestRequestTypeDef,
+    _OptionalDeregisterWirelessDeviceRequestRequestTypeDef,
+):
+    pass
 
 DestinationsTypeDef = TypedDict(
     "DestinationsTypeDef",
@@ -1121,6 +1202,7 @@ GetDeviceProfileResponseTypeDef = TypedDict(
         "Name": str,
         "Id": str,
         "LoRaWAN": "LoRaWANDeviceProfileTypeDef",
+        "Sidewalk": "SidewalkGetDeviceProfileTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1156,6 +1238,9 @@ GetFuotaTaskResponseTypeDef = TypedDict(
         "FirmwareUpdateImage": str,
         "FirmwareUpdateRole": str,
         "CreatedAt": datetime,
+        "RedundancyPercent": int,
+        "FragmentSizeBytes": int,
+        "FragmentIntervalMS": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1402,6 +1487,31 @@ GetServiceProfileResponseTypeDef = TypedDict(
     },
 )
 
+GetWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "GetWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetWirelessDeviceImportTaskResponseTypeDef = TypedDict(
+    "GetWirelessDeviceImportTaskResponseTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "DestinationName": str,
+        "Sidewalk": "SidewalkGetStartImportInfoTypeDef",
+        "CreationTime": datetime,
+        "Status": ImportTaskStatusType,
+        "StatusReason": str,
+        "InitializedImportedDeviceCount": int,
+        "PendingImportedDeviceCount": int,
+        "OnboardedImportedDeviceCount": int,
+        "FailedImportedDeviceCount": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetWirelessDeviceRequestRequestTypeDef = TypedDict(
     "GetWirelessDeviceRequestRequestTypeDef",
     {
@@ -1632,6 +1742,25 @@ _OptionalGsmObjTypeDef = TypedDict(
 class GsmObjTypeDef(_RequiredGsmObjTypeDef, _OptionalGsmObjTypeDef):
     pass
 
+ImportedSidewalkDeviceTypeDef = TypedDict(
+    "ImportedSidewalkDeviceTypeDef",
+    {
+        "SidewalkManufacturingSn": str,
+        "OnboardingStatus": OnboardStatusType,
+        "OnboardingStatusReason": str,
+        "LastUpdateTime": datetime,
+    },
+    total=False,
+)
+
+ImportedWirelessDeviceTypeDef = TypedDict(
+    "ImportedWirelessDeviceTypeDef",
+    {
+        "Sidewalk": "ImportedSidewalkDeviceTypeDef",
+    },
+    total=False,
+)
+
 IpTypeDef = TypedDict(
     "IpTypeDef",
     {
@@ -1679,6 +1808,7 @@ ListDeviceProfilesRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "DeviceProfileType": DeviceProfileTypeType,
     },
     total=False,
 )
@@ -1688,6 +1818,38 @@ ListDeviceProfilesResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "DeviceProfileList": List["DeviceProfileTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "Status": OnboardStatusType,
+    },
+    total=False,
+)
+
+class ListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef(
+    _RequiredListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef,
+    _OptionalListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef,
+):
+    pass
+
+ListDevicesForWirelessDeviceImportTaskResponseTypeDef = TypedDict(
+    "ListDevicesForWirelessDeviceImportTaskResponseTypeDef",
+    {
+        "NextToken": str,
+        "DestinationName": str,
+        "ImportedWirelessDeviceList": List["ImportedWirelessDeviceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1907,6 +2069,24 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListWirelessDeviceImportTasksRequestRequestTypeDef = TypedDict(
+    "ListWirelessDeviceImportTasksRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListWirelessDeviceImportTasksResponseTypeDef = TypedDict(
+    "ListWirelessDeviceImportTasksResponseTypeDef",
+    {
+        "NextToken": str,
+        "WirelessDeviceImportTaskList": List["WirelessDeviceImportTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListWirelessDevicesRequestRequestTypeDef = TypedDict(
     "ListWirelessDevicesRequestRequestTypeDef",
     {
@@ -2082,6 +2262,7 @@ LoRaWANGatewayTypeDef = TypedDict(
         "NetIdFilters": List[str],
         "SubBands": List[int],
         "Beaconing": "BeaconingTypeDef",
+        "MaxEirp": float,
     },
     total=False,
 )
@@ -2172,6 +2353,7 @@ LoRaWANMulticastSessionTypeDef = TypedDict(
         "DlFreq": int,
         "SessionStartTime": datetime,
         "SessionTimeout": int,
+        "PingSlotPeriod": int,
     },
     total=False,
 )
@@ -2200,6 +2382,8 @@ LoRaWANServiceProfileTypeDef = TypedDict(
         "AddGwMetadata": bool,
         "DrMin": int,
         "DrMax": int,
+        "PrAllowed": bool,
+        "RaAllowed": bool,
     },
     total=False,
 )
@@ -2597,6 +2781,14 @@ SidewalkAccountInfoWithFingerprintTypeDef = TypedDict(
     total=False,
 )
 
+SidewalkCreateWirelessDeviceTypeDef = TypedDict(
+    "SidewalkCreateWirelessDeviceTypeDef",
+    {
+        "DeviceProfileId": str,
+    },
+    total=False,
+)
+
 SidewalkDeviceMetadataTypeDef = TypedDict(
     "SidewalkDeviceMetadataTypeDef",
     {
@@ -2615,6 +2807,10 @@ SidewalkDeviceTypeDef = TypedDict(
         "SidewalkId": str,
         "SidewalkManufacturingSn": str,
         "DeviceCertificates": List["CertificateListTypeDef"],
+        "PrivateKeys": List["CertificateListTypeDef"],
+        "DeviceProfileId": str,
+        "CertificateId": str,
+        "Status": WirelessDeviceSidewalkStatusType,
     },
     total=False,
 )
@@ -2627,6 +2823,25 @@ SidewalkEventNotificationConfigurationsTypeDef = TypedDict(
     total=False,
 )
 
+SidewalkGetDeviceProfileTypeDef = TypedDict(
+    "SidewalkGetDeviceProfileTypeDef",
+    {
+        "ApplicationServerPublicKey": str,
+        "QualificationStatus": bool,
+        "DakCertificateMetadata": List["DakCertificateMetadataTypeDef"],
+    },
+    total=False,
+)
+
+SidewalkGetStartImportInfoTypeDef = TypedDict(
+    "SidewalkGetStartImportInfoTypeDef",
+    {
+        "DeviceCreationFileList": List[str],
+        "Role": str,
+    },
+    total=False,
+)
+
 SidewalkListDeviceTypeDef = TypedDict(
     "SidewalkListDeviceTypeDef",
     {
@@ -2634,6 +2849,8 @@ SidewalkListDeviceTypeDef = TypedDict(
         "SidewalkId": str,
         "SidewalkManufacturingSn": str,
         "DeviceCertificates": List["CertificateListTypeDef"],
+        "DeviceProfileId": str,
+        "Status": WirelessDeviceSidewalkStatusType,
     },
     total=False,
 )
@@ -2656,10 +2873,35 @@ SidewalkSendDataToDeviceTypeDef = TypedDict(
     total=False,
 )
 
+SidewalkSingleStartImportInfoTypeDef = TypedDict(
+    "SidewalkSingleStartImportInfoTypeDef",
+    {
+        "SidewalkManufacturingSn": str,
+    },
+    total=False,
+)
+
+SidewalkStartImportInfoTypeDef = TypedDict(
+    "SidewalkStartImportInfoTypeDef",
+    {
+        "DeviceCreationFile": str,
+        "Role": str,
+    },
+    total=False,
+)
+
 SidewalkUpdateAccountTypeDef = TypedDict(
     "SidewalkUpdateAccountTypeDef",
     {
         "AppServerPrivateKey": str,
+    },
+    total=False,
+)
+
+SidewalkUpdateImportInfoTypeDef = TypedDict(
+    "SidewalkUpdateImportInfoTypeDef",
+    {
+        "DeviceCreationFile": str,
     },
     total=False,
 )
@@ -2730,6 +2972,69 @@ StartMulticastGroupSessionRequestRequestTypeDef = TypedDict(
     {
         "Id": str,
         "LoRaWAN": "LoRaWANMulticastSessionTypeDef",
+    },
+)
+
+_RequiredStartSingleWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredStartSingleWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "DestinationName": str,
+        "Sidewalk": "SidewalkSingleStartImportInfoTypeDef",
+    },
+)
+_OptionalStartSingleWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalStartSingleWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "DeviceName": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class StartSingleWirelessDeviceImportTaskRequestRequestTypeDef(
+    _RequiredStartSingleWirelessDeviceImportTaskRequestRequestTypeDef,
+    _OptionalStartSingleWirelessDeviceImportTaskRequestRequestTypeDef,
+):
+    pass
+
+StartSingleWirelessDeviceImportTaskResponseTypeDef = TypedDict(
+    "StartSingleWirelessDeviceImportTaskResponseTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredStartWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "DestinationName": str,
+        "Sidewalk": "SidewalkStartImportInfoTypeDef",
+    },
+)
+_OptionalStartWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalStartWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class StartWirelessDeviceImportTaskRequestRequestTypeDef(
+    _RequiredStartWirelessDeviceImportTaskRequestRequestTypeDef,
+    _OptionalStartWirelessDeviceImportTaskRequestRequestTypeDef,
+):
+    pass
+
+StartWirelessDeviceImportTaskResponseTypeDef = TypedDict(
+    "StartWirelessDeviceImportTaskResponseTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -2906,6 +3211,9 @@ _OptionalUpdateFuotaTaskRequestRequestTypeDef = TypedDict(
         "LoRaWAN": "LoRaWANFuotaTaskTypeDef",
         "FirmwareUpdateImage": str,
         "FirmwareUpdateRole": str,
+        "RedundancyPercent": int,
+        "FragmentSizeBytes": int,
+        "FragmentIntervalMS": int,
     },
     total=False,
 )
@@ -3037,6 +3345,14 @@ class UpdateResourcePositionRequestRequestTypeDef(
 ):
     pass
 
+UpdateWirelessDeviceImportTaskRequestRequestTypeDef = TypedDict(
+    "UpdateWirelessDeviceImportTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Sidewalk": "SidewalkUpdateImportInfoTypeDef",
+    },
+)
+
 _RequiredUpdateWirelessDeviceRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateWirelessDeviceRequestRequestTypeDef",
     {
@@ -3074,6 +3390,7 @@ _OptionalUpdateWirelessGatewayRequestRequestTypeDef = TypedDict(
         "Description": str,
         "JoinEuiFilters": List[List[str]],
         "NetIdFilters": List[str],
+        "MaxEirp": float,
     },
     total=False,
 )
@@ -3169,6 +3486,24 @@ WirelessDeviceEventLogOptionTypeDef = TypedDict(
         "Event": WirelessDeviceEventType,
         "LogLevel": LogLevelType,
     },
+)
+
+WirelessDeviceImportTaskTypeDef = TypedDict(
+    "WirelessDeviceImportTaskTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "DestinationName": str,
+        "Sidewalk": "SidewalkGetStartImportInfoTypeDef",
+        "CreationTime": datetime,
+        "Status": ImportTaskStatusType,
+        "StatusReason": str,
+        "InitializedImportedDeviceCount": int,
+        "PendingImportedDeviceCount": int,
+        "OnboardedImportedDeviceCount": int,
+        "FailedImportedDeviceCount": int,
+    },
+    total=False,
 )
 
 _RequiredWirelessDeviceLogOptionTypeDef = TypedDict(

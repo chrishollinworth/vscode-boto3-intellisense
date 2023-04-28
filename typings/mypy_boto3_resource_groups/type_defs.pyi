@@ -6,9 +6,9 @@ Type annotations for resource-groups service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_resource_groups.type_defs import CreateGroupInputRequestTypeDef
+    from mypy_boto3_resource_groups.type_defs import AccountSettingsTypeDef
 
-    data: CreateGroupInputRequestTypeDef = {...}
+    data: AccountSettingsTypeDef = {...}
     ```
 """
 import sys
@@ -17,6 +17,8 @@ from typing import Any, Dict, List
 from .literals import (
     GroupConfigurationStatusType,
     GroupFilterNameType,
+    GroupLifecycleEventsDesiredStatusType,
+    GroupLifecycleEventsStatusType,
     QueryErrorCodeType,
     QueryTypeType,
 )
@@ -31,11 +33,13 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccountSettingsTypeDef",
     "CreateGroupInputRequestTypeDef",
     "CreateGroupOutputTypeDef",
     "DeleteGroupInputRequestTypeDef",
     "DeleteGroupOutputTypeDef",
     "FailedResourceTypeDef",
+    "GetAccountSettingsOutputTypeDef",
     "GetGroupConfigurationInputRequestTypeDef",
     "GetGroupConfigurationOutputTypeDef",
     "GetGroupInputRequestTypeDef",
@@ -75,10 +79,22 @@ __all__ = (
     "UngroupResourcesOutputTypeDef",
     "UntagInputRequestTypeDef",
     "UntagOutputTypeDef",
+    "UpdateAccountSettingsInputRequestTypeDef",
+    "UpdateAccountSettingsOutputTypeDef",
     "UpdateGroupInputRequestTypeDef",
     "UpdateGroupOutputTypeDef",
     "UpdateGroupQueryInputRequestTypeDef",
     "UpdateGroupQueryOutputTypeDef",
+)
+
+AccountSettingsTypeDef = TypedDict(
+    "AccountSettingsTypeDef",
+    {
+        "GroupLifecycleEventsDesiredStatus": GroupLifecycleEventsDesiredStatusType,
+        "GroupLifecycleEventsStatus": GroupLifecycleEventsStatusType,
+        "GroupLifecycleEventsStatusMessage": str,
+    },
+    total=False,
 )
 
 _RequiredCreateGroupInputRequestTypeDef = TypedDict(
@@ -139,6 +155,14 @@ FailedResourceTypeDef = TypedDict(
         "ErrorCode": str,
     },
     total=False,
+)
+
+GetAccountSettingsOutputTypeDef = TypedDict(
+    "GetAccountSettingsOutputTypeDef",
+    {
+        "AccountSettings": "AccountSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetGroupConfigurationInputRequestTypeDef = TypedDict(
@@ -527,6 +551,22 @@ UntagOutputTypeDef = TypedDict(
     {
         "Arn": str,
         "Keys": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateAccountSettingsInputRequestTypeDef = TypedDict(
+    "UpdateAccountSettingsInputRequestTypeDef",
+    {
+        "GroupLifecycleEventsDesiredStatus": GroupLifecycleEventsDesiredStatusType,
+    },
+    total=False,
+)
+
+UpdateAccountSettingsOutputTypeDef = TypedDict(
+    "UpdateAccountSettingsOutputTypeDef",
+    {
+        "AccountSettings": "AccountSettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

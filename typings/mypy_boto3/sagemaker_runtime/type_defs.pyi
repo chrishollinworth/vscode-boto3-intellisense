@@ -44,6 +44,7 @@ _OptionalInvokeEndpointAsyncInputRequestTypeDef = TypedDict(
         "CustomAttributes": str,
         "InferenceId": str,
         "RequestTTLSeconds": int,
+        "InvocationTimeoutSeconds": int,
     },
     total=False,
 )
@@ -58,6 +59,7 @@ InvokeEndpointAsyncOutputTypeDef = TypedDict(
     {
         "InferenceId": str,
         "OutputLocation": str,
+        "FailureLocation": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

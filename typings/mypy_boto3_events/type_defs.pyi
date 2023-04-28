@@ -1723,7 +1723,6 @@ _RequiredRedshiftDataParametersTypeDef = TypedDict(
     "_RequiredRedshiftDataParametersTypeDef",
     {
         "Database": str,
-        "Sql": str,
     },
 )
 _OptionalRedshiftDataParametersTypeDef = TypedDict(
@@ -1731,8 +1730,10 @@ _OptionalRedshiftDataParametersTypeDef = TypedDict(
     {
         "SecretManagerArn": str,
         "DbUser": str,
+        "Sql": str,
         "StatementName": str,
         "WithEvent": bool,
+        "Sqls": List[str],
     },
     total=False,
 )

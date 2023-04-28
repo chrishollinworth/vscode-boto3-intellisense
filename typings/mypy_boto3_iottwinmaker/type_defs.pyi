@@ -387,6 +387,7 @@ _OptionalCreateSceneRequestRequestTypeDef = TypedDict(
         "description": str,
         "capabilities": List[str],
         "tags": Dict[str, str],
+        "sceneMetadata": Dict[str, str],
     },
     total=False,
 )
@@ -856,6 +857,8 @@ GetSceneResponseTypeDef = TypedDict(
         "updateDateTime": datetime,
         "description": str,
         "capabilities": List[str],
+        "sceneMetadata": Dict[str, str],
+        "generatedSceneMetadata": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1629,6 +1632,7 @@ _OptionalUpdateSceneRequestRequestTypeDef = TypedDict(
         "contentLocation": str,
         "description": str,
         "capabilities": List[str],
+        "sceneMetadata": Dict[str, str],
     },
     total=False,
 )

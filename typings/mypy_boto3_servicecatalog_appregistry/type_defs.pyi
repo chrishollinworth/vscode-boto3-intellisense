@@ -160,6 +160,7 @@ AttributeGroupDetailsTypeDef = TypedDict(
         "id": str,
         "arn": str,
         "name": str,
+        "createdBy": str,
     },
     total=False,
 )
@@ -173,6 +174,7 @@ AttributeGroupSummaryTypeDef = TypedDict(
         "description": str,
         "creationTime": datetime,
         "lastUpdateTime": datetime,
+        "createdBy": str,
     },
     total=False,
 )
@@ -374,6 +376,7 @@ GetAttributeGroupResponseTypeDef = TypedDict(
         "creationTime": datetime,
         "lastUpdateTime": datetime,
         "tags": Dict[str, str],
+        "createdBy": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

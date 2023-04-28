@@ -32,6 +32,7 @@ __all__ = (
     "AvailabilityZoneTypeDef",
     "CharacterSetTypeDef",
     "CloudwatchLogsExportConfigurationTypeDef",
+    "ClusterPendingModifiedValuesTypeDef",
     "CopyDBClusterParameterGroupMessageRequestTypeDef",
     "CopyDBClusterParameterGroupResultTypeDef",
     "CopyDBClusterSnapshotMessageRequestTypeDef",
@@ -291,6 +292,20 @@ CloudwatchLogsExportConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+ClusterPendingModifiedValuesTypeDef = TypedDict(
+    "ClusterPendingModifiedValuesTypeDef",
+    {
+        "PendingCloudwatchLogsExports": "PendingCloudwatchLogsExportsTypeDef",
+        "DBClusterIdentifier": str,
+        "IAMDatabaseAuthenticationEnabled": bool,
+        "EngineVersion": str,
+        "BackupRetentionPeriod": int,
+        "AllocatedStorage": int,
+        "Iops": int,
+    },
+    total=False,
+)
+
 _RequiredCopyDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
     "_RequiredCopyDBClusterParameterGroupMessageRequestTypeDef",
     {
@@ -543,6 +558,7 @@ _RequiredCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "DBInstanceIdentifier": str,
         "DBInstanceClass": str,
         "Engine": str,
+        "DBClusterIdentifier": str,
     },
 )
 _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
@@ -570,7 +586,6 @@ _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "CharacterSetName": str,
         "PubliclyAccessible": bool,
         "Tags": List["TagTypeDef"],
-        "DBClusterIdentifier": str,
         "StorageType": str,
         "TdeCredentialArn": str,
         "TdeCredentialPassword": str,
@@ -926,10 +941,12 @@ DBClusterTypeDef = TypedDict(
         "ClusterCreateTime": datetime,
         "CopyTagsToSnapshot": bool,
         "EnabledCloudwatchLogsExports": List[str],
+        "PendingModifiedValues": "ClusterPendingModifiedValuesTypeDef",
         "DeletionProtection": bool,
         "CrossAccountClone": bool,
         "AutomaticRestartTime": datetime,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationInfoTypeDef",
+        "GlobalClusterIdentifier": str,
     },
     total=False,
 )

@@ -24,6 +24,7 @@ from .literals import (
     DomainType,
     EvaluationTypeType,
     FilterConditionStringType,
+    ImportModeType,
     MonthType,
     OperationType,
     OptimizationMetricType,
@@ -385,6 +386,7 @@ _OptionalCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
         "GeolocationFormat": str,
         "Tags": List["TagTypeDef"],
         "Format": str,
+        "ImportMode": ImportModeType,
     },
     total=False,
 )
@@ -806,6 +808,7 @@ DatasetImportJobSummaryTypeDef = TypedDict(
         "Message": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
+        "ImportMode": ImportModeType,
     },
     total=False,
 )
@@ -1001,6 +1004,7 @@ DescribeDatasetImportJobResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModificationTime": datetime,
         "Format": str,
+        "ImportMode": ImportModeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

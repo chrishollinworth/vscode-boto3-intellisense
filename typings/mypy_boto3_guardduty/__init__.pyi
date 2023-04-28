@@ -9,6 +9,7 @@ Usage::
         Client,
         DescribeMalwareScansPaginator,
         GuardDutyClient,
+        ListCoveragePaginator,
         ListDetectorsPaginator,
         ListFiltersPaginator,
         ListFindingsPaginator,
@@ -25,6 +26,7 @@ Usage::
     session_client: GuardDutyClient = session.client("guardduty")
 
     describe_malware_scans_paginator: DescribeMalwareScansPaginator = client.get_paginator("describe_malware_scans")
+    list_coverage_paginator: ListCoveragePaginator = client.get_paginator("list_coverage")
     list_detectors_paginator: ListDetectorsPaginator = client.get_paginator("list_detectors")
     list_filters_paginator: ListFiltersPaginator = client.get_paginator("list_filters")
     list_findings_paginator: ListFindingsPaginator = client.get_paginator("list_findings")
@@ -38,6 +40,7 @@ Usage::
 from .client import GuardDutyClient
 from .paginator import (
     DescribeMalwareScansPaginator,
+    ListCoveragePaginator,
     ListDetectorsPaginator,
     ListFiltersPaginator,
     ListFindingsPaginator,
@@ -54,6 +57,7 @@ __all__ = (
     "Client",
     "DescribeMalwareScansPaginator",
     "GuardDutyClient",
+    "ListCoveragePaginator",
     "ListDetectorsPaginator",
     "ListFiltersPaginator",
     "ListFindingsPaginator",

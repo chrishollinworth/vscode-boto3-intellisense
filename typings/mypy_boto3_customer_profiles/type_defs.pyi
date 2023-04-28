@@ -1414,6 +1414,8 @@ ProfileTypeDef = TypedDict(
         "BillingAddress": "AddressTypeDef",
         "Attributes": Dict[str, str],
         "FoundByItems": List["FoundByKeyValueTypeDef"],
+        "PartyTypeString": str,
+        "GenderString": str,
     },
     total=False,
 )

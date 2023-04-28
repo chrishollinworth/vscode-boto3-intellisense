@@ -56,6 +56,7 @@ Usage::
     get_static_ips_paginator: GetStaticIpsPaginator = client.get_paginator("get_static_ips")
     ```
 """
+import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -84,6 +85,11 @@ from .type_defs import (
     PaginatorConfigTypeDef,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+
 __all__ = (
     "GetActiveNamesPaginator",
     "GetBlueprintsPaginator",
@@ -109,7 +115,7 @@ __all__ = (
 
 class GetActiveNamesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getactivenamespaginator)
     """
 
@@ -117,41 +123,49 @@ class GetActiveNamesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetActiveNamesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getactivenamespaginator)
         """
 
 class GetBlueprintsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getblueprintspaginator)
     """
 
     def paginate(
-        self, *, includeInactive: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        includeInactive: bool = None,
+        appCategory: Literal["LfR"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetBlueprintsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getblueprintspaginator)
         """
 
 class GetBundlesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetBundles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetBundles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getbundlespaginator)
     """
 
     def paginate(
-        self, *, includeInactive: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        includeInactive: bool = None,
+        appCategory: Literal["LfR"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetBundlesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetBundles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetBundles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getbundlespaginator)
         """
 
 class GetCloudFormationStackRecordsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getcloudformationstackrecordspaginator)
     """
 
@@ -159,13 +173,13 @@ class GetCloudFormationStackRecordsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetCloudFormationStackRecordsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getcloudformationstackrecordspaginator)
         """
 
 class GetDiskSnapshotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getdisksnapshotspaginator)
     """
 
@@ -173,13 +187,13 @@ class GetDiskSnapshotsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDiskSnapshotsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getdisksnapshotspaginator)
         """
 
 class GetDisksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetDisks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetDisks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getdiskspaginator)
     """
 
@@ -187,13 +201,13 @@ class GetDisksPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDisksResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetDisks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetDisks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getdiskspaginator)
         """
 
 class GetDomainsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetDomains)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getdomainspaginator)
     """
 
@@ -201,13 +215,13 @@ class GetDomainsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDomainsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetDomains.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getdomainspaginator)
         """
 
 class GetExportSnapshotRecordsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getexportsnapshotrecordspaginator)
     """
 
@@ -215,13 +229,13 @@ class GetExportSnapshotRecordsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetExportSnapshotRecordsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getexportsnapshotrecordspaginator)
         """
 
 class GetInstanceSnapshotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getinstancesnapshotspaginator)
     """
 
@@ -229,13 +243,13 @@ class GetInstanceSnapshotsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetInstanceSnapshotsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getinstancesnapshotspaginator)
         """
 
 class GetInstancesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetInstances)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getinstancespaginator)
     """
 
@@ -243,13 +257,13 @@ class GetInstancesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetInstancesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetInstances.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getinstancespaginator)
         """
 
 class GetKeyPairsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getkeypairspaginator)
     """
 
@@ -257,13 +271,13 @@ class GetKeyPairsPaginator(Boto3Paginator):
         self, *, includeDefaultKeyPair: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetKeyPairsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getkeypairspaginator)
         """
 
 class GetLoadBalancersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getloadbalancerspaginator)
     """
 
@@ -271,13 +285,13 @@ class GetLoadBalancersPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetLoadBalancersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getloadbalancerspaginator)
         """
 
 class GetOperationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetOperations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetOperations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getoperationspaginator)
     """
 
@@ -285,13 +299,13 @@ class GetOperationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetOperationsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetOperations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetOperations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getoperationspaginator)
         """
 
 class GetRelationalDatabaseBlueprintsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabaseblueprintspaginator)
     """
 
@@ -299,13 +313,13 @@ class GetRelationalDatabaseBlueprintsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseBlueprintsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabaseblueprintspaginator)
         """
 
 class GetRelationalDatabaseBundlesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabasebundlespaginator)
     """
 
@@ -313,13 +327,13 @@ class GetRelationalDatabaseBundlesPaginator(Boto3Paginator):
         self, *, includeInactive: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseBundlesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabasebundlespaginator)
         """
 
 class GetRelationalDatabaseEventsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabaseeventspaginator)
     """
 
@@ -331,13 +345,13 @@ class GetRelationalDatabaseEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseEventsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabaseeventspaginator)
         """
 
 class GetRelationalDatabaseParametersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabaseparameterspaginator)
     """
 
@@ -345,13 +359,13 @@ class GetRelationalDatabaseParametersPaginator(Boto3Paginator):
         self, *, relationalDatabaseName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseParametersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabaseparameterspaginator)
         """
 
 class GetRelationalDatabaseSnapshotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabasesnapshotspaginator)
     """
 
@@ -359,13 +373,13 @@ class GetRelationalDatabaseSnapshotsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseSnapshotsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabasesnapshotspaginator)
         """
 
 class GetRelationalDatabasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabasespaginator)
     """
 
@@ -373,13 +387,13 @@ class GetRelationalDatabasesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabasesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getrelationaldatabasespaginator)
         """
 
 class GetStaticIpsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getstaticipspaginator)
     """
 
@@ -387,6 +401,6 @@ class GetStaticIpsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetStaticIpsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/paginators.html#getstaticipspaginator)
         """

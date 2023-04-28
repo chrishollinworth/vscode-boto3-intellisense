@@ -56,7 +56,7 @@ DeploymentFailureHandlingPolicyType = Literal["DO_NOTHING", "ROLLBACK"]
 DeploymentHistoryFilterType = Literal["ALL", "LATEST_ONLY"]
 DeploymentStatusType = Literal["ACTIVE", "CANCELED", "COMPLETED", "FAILED", "INACTIVE"]
 EffectiveDeploymentExecutionStatusType = Literal[
-    "CANCELED", "COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED", "REJECTED", "TIMED_OUT"
+    "CANCELED", "COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED", "REJECTED", "SUCCEEDED", "TIMED_OUT"
 ]
 InstalledComponentLifecycleStateType = Literal[
     "BROKEN", "ERRORED", "FINISHED", "INSTALLED", "NEW", "RUNNING", "STARTING", "STOPPING"

@@ -27,6 +27,7 @@ from .literals import (
     PrincipalTypeType,
     ResourceSortTypeType,
     ResourceStateTypeType,
+    SearchQueryScopeTypeType,
     SubscriptionProtocolTypeType,
     UserFilterTypeType,
     UserSortTypeType,
@@ -42,6 +43,7 @@ from .paginator import (
     DescribeResourcePermissionsPaginator,
     DescribeRootFoldersPaginator,
     DescribeUsersPaginator,
+    SearchResourcesPaginator,
 )
 from .type_defs import (
     ActivateUserResponseTypeDef,
@@ -59,6 +61,7 @@ from .type_defs import (
     DescribeResourcePermissionsResponseTypeDef,
     DescribeRootFoldersResponseTypeDef,
     DescribeUsersResponseTypeDef,
+    FiltersTypeDef,
     GetCurrentUserResponseTypeDef,
     GetDocumentPathResponseTypeDef,
     GetDocumentResponseTypeDef,
@@ -68,6 +71,8 @@ from .type_defs import (
     GetResourcesResponseTypeDef,
     InitiateDocumentVersionUploadResponseTypeDef,
     NotificationOptionsTypeDef,
+    SearchResourcesResponseTypeDef,
+    SearchSortResultTypeDef,
     SharePrincipalTypeDef,
     StorageRuleTypeTypeDef,
     UpdateUserResponseTypeDef,
@@ -117,7 +122,7 @@ class Exceptions:
 
 class WorkDocsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html)
     """
 
@@ -135,7 +140,7 @@ class WorkDocsClient(BaseClient):
         Aborts the upload of the specified document version that was previously
         initiated by  InitiateDocumentVersionUpload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.abort_document_version_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.abort_document_version_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#abort_document_version_upload)
         """
     def activate_user(
@@ -144,7 +149,7 @@ class WorkDocsClient(BaseClient):
         """
         Activates the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.activate_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.activate_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#activate_user)
         """
     def add_resource_permissions(
@@ -158,21 +163,21 @@ class WorkDocsClient(BaseClient):
         """
         Creates a set of permissions for the specified folder or document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.add_resource_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.add_resource_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#add_resource_permissions)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#close)
         """
     def create_comment(
@@ -190,7 +195,7 @@ class WorkDocsClient(BaseClient):
         """
         Adds a new comment to the specified document version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.create_comment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.create_comment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#create_comment)
         """
     def create_custom_metadata(
@@ -205,7 +210,7 @@ class WorkDocsClient(BaseClient):
         Adds one or more custom properties to the specified resource (a folder,
         document, or version).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.create_custom_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.create_custom_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#create_custom_metadata)
         """
     def create_folder(
@@ -214,7 +219,7 @@ class WorkDocsClient(BaseClient):
         """
         Creates a folder with the specified name and parent folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.create_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.create_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#create_folder)
         """
     def create_labels(
@@ -227,7 +232,7 @@ class WorkDocsClient(BaseClient):
         **Request Syntax** response = client.create_labels( ResourceId='string',
         Labels=[ ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.create_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.create_labels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#create_labels)
         """
     def create_notification_subscription(
@@ -241,7 +246,7 @@ class WorkDocsClient(BaseClient):
         """
         Configure Amazon WorkDocs to use Amazon SNS notifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.create_notification_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.create_notification_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#create_notification_subscription)
         """
     def create_user(
@@ -260,7 +265,7 @@ class WorkDocsClient(BaseClient):
         """
         Creates a user in a Simple AD or Microsoft AD directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#create_user)
         """
     def deactivate_user(self, *, UserId: str, AuthenticationToken: str = None) -> None:
@@ -268,7 +273,7 @@ class WorkDocsClient(BaseClient):
         Deactivates the specified user, which revokes the user's access to Amazon
         WorkDocs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.deactivate_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.deactivate_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#deactivate_user)
         """
     def delete_comment(
@@ -277,7 +282,7 @@ class WorkDocsClient(BaseClient):
         """
         Deletes the specified comment from the document version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_comment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_comment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_comment)
         """
     def delete_custom_metadata(
@@ -292,14 +297,14 @@ class WorkDocsClient(BaseClient):
         """
         Deletes custom metadata from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_custom_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_custom_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_custom_metadata)
         """
     def delete_document(self, *, DocumentId: str, AuthenticationToken: str = None) -> None:
         """
         Permanently deletes the specified document and its associated metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_document)
         """
     def delete_document_version(
@@ -311,23 +316,23 @@ class WorkDocsClient(BaseClient):
         AuthenticationToken: str = None
     ) -> None:
         """
-        Deletes a version of an Amazon WorkDocs document.
+        Deletes a specific version of a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_document_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_document_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_document_version)
         """
     def delete_folder(self, *, FolderId: str, AuthenticationToken: str = None) -> None:
         """
         Permanently deletes the specified folder and its contents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_folder)
         """
     def delete_folder_contents(self, *, FolderId: str, AuthenticationToken: str = None) -> None:
         """
         Deletes the contents of the specified folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_folder_contents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_folder_contents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_folder_contents)
         """
     def delete_labels(
@@ -341,21 +346,21 @@ class WorkDocsClient(BaseClient):
         """
         Deletes the specified list of labels from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_labels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_labels)
         """
     def delete_notification_subscription(self, *, SubscriptionId: str, OrganizationId: str) -> None:
         """
         Deletes the specified subscription from the specified organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_notification_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_notification_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_notification_subscription)
         """
     def delete_user(self, *, UserId: str, AuthenticationToken: str = None) -> None:
         """
         Deletes the specified user from a Simple AD or Microsoft AD directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#delete_user)
         """
     def describe_activities(
@@ -375,7 +380,7 @@ class WorkDocsClient(BaseClient):
         """
         Describes the user activities in a specified time period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_activities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_activities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_activities)
         """
     def describe_comments(
@@ -390,7 +395,7 @@ class WorkDocsClient(BaseClient):
         """
         List all the comments for the specified document version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_comments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_comments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_comments)
         """
     def describe_document_versions(
@@ -406,7 +411,7 @@ class WorkDocsClient(BaseClient):
         """
         Retrieves the document versions for the specified document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_document_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_document_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_document_versions)
         """
     def describe_folder_contents(
@@ -425,7 +430,7 @@ class WorkDocsClient(BaseClient):
         Describes the contents of the specified folder, including its documents and
         subfolders.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_folder_contents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_folder_contents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_folder_contents)
         """
     def describe_groups(
@@ -440,7 +445,7 @@ class WorkDocsClient(BaseClient):
         """
         Describes the groups specified by the query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_groups)
         """
     def describe_notification_subscriptions(
@@ -449,7 +454,7 @@ class WorkDocsClient(BaseClient):
         """
         Lists the specified notification subscriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_notification_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_notification_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_notification_subscriptions)
         """
     def describe_resource_permissions(
@@ -464,7 +469,7 @@ class WorkDocsClient(BaseClient):
         """
         Describes the permissions of a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_resource_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_resource_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_resource_permissions)
         """
     def describe_root_folders(
@@ -474,7 +479,7 @@ class WorkDocsClient(BaseClient):
         Describes the current user's special folders; the `RootFolder` and the
         `RecycleBin`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_root_folders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_root_folders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_root_folders)
         """
     def describe_users(
@@ -494,7 +499,7 @@ class WorkDocsClient(BaseClient):
         """
         Describes the specified users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.describe_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.describe_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#describe_users)
         """
     def generate_presigned_url(
@@ -507,7 +512,7 @@ class WorkDocsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#generate_presigned_url)
         """
     def get_current_user(self, *, AuthenticationToken: str) -> GetCurrentUserResponseTypeDef:
@@ -515,7 +520,7 @@ class WorkDocsClient(BaseClient):
         Retrieves details of the current user for whom the authentication token was
         generated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.get_current_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.get_current_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#get_current_user)
         """
     def get_document(
@@ -528,7 +533,7 @@ class WorkDocsClient(BaseClient):
         """
         Retrieves details of a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.get_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.get_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#get_document)
         """
     def get_document_path(
@@ -544,7 +549,7 @@ class WorkDocsClient(BaseClient):
         Retrieves the path information (the hierarchy from the root folder) for the
         requested document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.get_document_path)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.get_document_path)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#get_document_path)
         """
     def get_document_version(
@@ -559,7 +564,7 @@ class WorkDocsClient(BaseClient):
         """
         Retrieves version metadata for the specified document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.get_document_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.get_document_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#get_document_version)
         """
     def get_folder(
@@ -568,7 +573,7 @@ class WorkDocsClient(BaseClient):
         """
         Retrieves the metadata of the specified folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.get_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.get_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#get_folder)
         """
     def get_folder_path(
@@ -584,7 +589,7 @@ class WorkDocsClient(BaseClient):
         Retrieves the path information (the hierarchy from the root folder) for the
         specified folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.get_folder_path)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.get_folder_path)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#get_folder_path)
         """
     def get_resources(
@@ -599,7 +604,7 @@ class WorkDocsClient(BaseClient):
         """
         Retrieves a collection of resources, including folders and documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.get_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.get_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#get_resources)
         """
     def initiate_document_version_upload(
@@ -617,7 +622,7 @@ class WorkDocsClient(BaseClient):
         """
         Creates a new document object and version object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.initiate_document_version_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.initiate_document_version_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#initiate_document_version_upload)
         """
     def remove_all_resource_permissions(
@@ -626,7 +631,7 @@ class WorkDocsClient(BaseClient):
         """
         Removes all the permissions from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.remove_all_resource_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.remove_all_resource_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#remove_all_resource_permissions)
         """
     def remove_resource_permission(
@@ -640,7 +645,7 @@ class WorkDocsClient(BaseClient):
         """
         Removes the permission for the specified principal from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.remove_resource_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.remove_resource_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#remove_resource_permission)
         """
     def restore_document_versions(
@@ -649,8 +654,28 @@ class WorkDocsClient(BaseClient):
         """
         Recovers a deleted version of an Amazon WorkDocs document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.restore_document_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.restore_document_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#restore_document_versions)
+        """
+    def search_resources(
+        self,
+        *,
+        AuthenticationToken: str = None,
+        QueryText: str = None,
+        QueryScopes: List[SearchQueryScopeTypeType] = None,
+        OrganizationId: str = None,
+        AdditionalResponseFields: List[Literal["WEBURL"]] = None,
+        Filters: "FiltersTypeDef" = None,
+        OrderBy: List["SearchSortResultTypeDef"] = None,
+        Limit: int = None,
+        Marker: str = None
+    ) -> SearchResourcesResponseTypeDef:
+        """
+        Searches metadata and the content of folders, documents, document versions, and
+        comments.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.search_resources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#search_resources)
         """
     def update_document(
         self,
@@ -664,7 +689,7 @@ class WorkDocsClient(BaseClient):
         """
         Updates the specified attributes of a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.update_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.update_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#update_document)
         """
     def update_document_version(
@@ -678,7 +703,7 @@ class WorkDocsClient(BaseClient):
         """
         Changes the status of the document version to ACTIVE.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.update_document_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.update_document_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#update_document_version)
         """
     def update_folder(
@@ -693,7 +718,7 @@ class WorkDocsClient(BaseClient):
         """
         Updates the specified attributes of the specified folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.update_folder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.update_folder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#update_folder)
         """
     def update_user(
@@ -713,7 +738,7 @@ class WorkDocsClient(BaseClient):
         Updates the specified attributes of the specified user, and grants or revokes
         administrative privileges to the Amazon WorkDocs site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Client.update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Client.update_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/client.html#update_user)
         """
     @overload
@@ -721,7 +746,7 @@ class WorkDocsClient(BaseClient):
         self, operation_name: Literal["describe_activities"]
     ) -> DescribeActivitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describeactivitiespaginator)
         """
     @overload
@@ -729,7 +754,7 @@ class WorkDocsClient(BaseClient):
         self, operation_name: Literal["describe_comments"]
     ) -> DescribeCommentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describecommentspaginator)
         """
     @overload
@@ -737,7 +762,7 @@ class WorkDocsClient(BaseClient):
         self, operation_name: Literal["describe_document_versions"]
     ) -> DescribeDocumentVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describedocumentversionspaginator)
         """
     @overload
@@ -745,13 +770,13 @@ class WorkDocsClient(BaseClient):
         self, operation_name: Literal["describe_folder_contents"]
     ) -> DescribeFolderContentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describefoldercontentspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_groups"]) -> DescribeGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describegroupspaginator)
         """
     @overload
@@ -759,7 +784,7 @@ class WorkDocsClient(BaseClient):
         self, operation_name: Literal["describe_notification_subscriptions"]
     ) -> DescribeNotificationSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describenotificationsubscriptionspaginator)
         """
     @overload
@@ -767,7 +792,7 @@ class WorkDocsClient(BaseClient):
         self, operation_name: Literal["describe_resource_permissions"]
     ) -> DescribeResourcePermissionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describeresourcepermissionspaginator)
         """
     @overload
@@ -775,12 +800,20 @@ class WorkDocsClient(BaseClient):
         self, operation_name: Literal["describe_root_folders"]
     ) -> DescribeRootFoldersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describerootfolderspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_users"]) -> DescribeUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#describeuserspaginator)
+        """
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["search_resources"]
+    ) -> SearchResourcesPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/workdocs.html#WorkDocs.Paginator.SearchResources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/paginators.html#searchresourcespaginator)
         """

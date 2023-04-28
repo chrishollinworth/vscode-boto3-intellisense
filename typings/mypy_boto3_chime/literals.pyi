@@ -152,10 +152,12 @@ TranscribeLanguageCodeType = Literal[
     "es-US",
     "fr-CA",
     "fr-FR",
+    "hi-IN",
     "it-IT",
     "ja-JP",
     "ko-KR",
     "pt-BR",
+    "th-TH",
     "zh-CN",
 ]
 TranscribeMedicalContentIdentificationTypeType = Literal["PHI"]

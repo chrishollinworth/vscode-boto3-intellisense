@@ -1169,12 +1169,12 @@ _RequiredCreateDBInstanceReadReplicaMessageRequestTypeDef = TypedDict(
     "_RequiredCreateDBInstanceReadReplicaMessageRequestTypeDef",
     {
         "DBInstanceIdentifier": str,
-        "SourceDBInstanceIdentifier": str,
     },
 )
 _OptionalCreateDBInstanceReadReplicaMessageRequestTypeDef = TypedDict(
     "_OptionalCreateDBInstanceReadReplicaMessageRequestTypeDef",
     {
+        "SourceDBInstanceIdentifier": str,
         "DBInstanceClass": str,
         "AvailabilityZone": str,
         "Port": int,
@@ -1209,6 +1209,8 @@ _OptionalCreateDBInstanceReadReplicaMessageRequestTypeDef = TypedDict(
         "NetworkType": str,
         "StorageThroughput": int,
         "EnableCustomerOwnedIp": bool,
+        "AllocatedStorage": int,
+        "SourceDBClusterIdentifier": str,
         "SourceRegion": str,
     },
     total=False,
@@ -2069,6 +2071,7 @@ DBInstanceTypeDef = TypedDict(
         "DBSystemId": str,
         "MasterUserSecret": "MasterUserSecretTypeDef",
         "CertificateDetails": "CertificateDetailsTypeDef",
+        "ReadReplicaSourceDBClusterIdentifier": str,
     },
     total=False,
 )
@@ -3750,6 +3753,8 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "ManageMasterUserPassword": bool,
         "RotateMasterUserPassword": bool,
         "MasterUserSecretKmsKeyId": str,
+        "EngineMode": str,
+        "AllowEngineModeChange": bool,
     },
     total=False,
 )
@@ -5016,6 +5021,7 @@ _OptionalRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef = TypedDict(
         "NetworkType": str,
         "StorageThroughput": int,
         "DBClusterSnapshotIdentifier": str,
+        "AllocatedStorage": int,
     },
     total=False,
 )
@@ -5154,6 +5160,7 @@ _OptionalRestoreDBInstanceToPointInTimeMessageRequestTypeDef = TypedDict(
         "BackupTarget": str,
         "NetworkType": str,
         "StorageThroughput": int,
+        "AllocatedStorage": int,
     },
     total=False,
 )

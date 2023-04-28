@@ -35,6 +35,9 @@ __all__ = (
     "Ac3MetadataControlType",
     "AccelerationModeType",
     "AccelerationStatusType",
+    "AdvancedInputFilterAddTextureType",
+    "AdvancedInputFilterSharpenType",
+    "AdvancedInputFilterType",
     "AfdSignalingType",
     "AlphaBehaviorType",
     "AncillaryConvert608To708Type",
@@ -65,6 +68,8 @@ __all__ = (
     "AvcIntraSlowPalType",
     "AvcIntraTelecineType",
     "AvcIntraUhdQualityTuningLevelType",
+    "BandwidthReductionFilterSharpeningType",
+    "BandwidthReductionFilterStrengthType",
     "BillingTagsSourceType",
     "BurnInSubtitleStylePassthroughType",
     "BurninSubtitleAlignmentType",
@@ -76,6 +81,7 @@ __all__ = (
     "BurninSubtitleShadowColorType",
     "BurninSubtitleTeletextSpacingType",
     "CaptionDestinationTypeType",
+    "CaptionSourceConvertPaintOnToPopOnType",
     "CaptionSourceTypeType",
     "CmafClientCacheType",
     "CmafCodecSpecificationType",
@@ -126,6 +132,7 @@ __all__ = (
     "DashIsoSegmentLengthControlType",
     "DashIsoVideoCompositionOffsetsType",
     "DashIsoWriteSegmentTimelineInRepresentationType",
+    "DashManifestStyleType",
     "DecryptionModeType",
     "DeinterlaceAlgorithmType",
     "DeinterlacerControlType",
@@ -227,6 +234,7 @@ __all__ = (
     "H265TilesType",
     "H265UnregisteredSeiTimecodeType",
     "H265WriteMp4PackagingTypeType",
+    "HDRToSDRToneMapperType",
     "HlsAdMarkersType",
     "HlsAudioOnlyContainerType",
     "HlsAudioOnlyHeaderType",
@@ -458,6 +466,9 @@ Ac3LfeFilterType = Literal["DISABLED", "ENABLED"]
 Ac3MetadataControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AccelerationModeType = Literal["DISABLED", "ENABLED", "PREFERRED"]
 AccelerationStatusType = Literal["ACCELERATED", "IN_PROGRESS", "NOT_ACCELERATED", "NOT_APPLICABLE"]
+AdvancedInputFilterAddTextureType = Literal["DISABLED", "ENABLED"]
+AdvancedInputFilterSharpenType = Literal["HIGH", "LOW", "OFF"]
+AdvancedInputFilterType = Literal["DISABLED", "ENABLED"]
 AfdSignalingType = Literal["AUTO", "FIXED", "NONE"]
 AlphaBehaviorType = Literal["DISCARD", "REMAP_TO_LUMA"]
 AncillaryConvert608To708Type = Literal["DISABLED", "UPCONVERT"]
@@ -496,6 +507,8 @@ AvcIntraScanTypeConversionModeType = Literal["INTERLACED", "INTERLACED_OPTIMIZE"
 AvcIntraSlowPalType = Literal["DISABLED", "ENABLED"]
 AvcIntraTelecineType = Literal["HARD", "NONE"]
 AvcIntraUhdQualityTuningLevelType = Literal["MULTI_PASS", "SINGLE_PASS"]
+BandwidthReductionFilterSharpeningType = Literal["HIGH", "LOW", "MEDIUM", "OFF"]
+BandwidthReductionFilterStrengthType = Literal["AUTO", "HIGH", "LOW", "MEDIUM", "OFF"]
 BillingTagsSourceType = Literal["JOB", "JOB_TEMPLATE", "PRESET", "QUEUE"]
 BurnInSubtitleStylePassthroughType = Literal["DISABLED", "ENABLED"]
 BurninSubtitleAlignmentType = Literal["AUTO", "CENTERED", "LEFT"]
@@ -528,6 +541,7 @@ CaptionDestinationTypeType = Literal[
     "TTML",
     "WEBVTT",
 ]
+CaptionSourceConvertPaintOnToPopOnType = Literal["DISABLED", "ENABLED"]
 CaptionSourceTypeType = Literal[
     "ANCILLARY",
     "DVB_SUB",
@@ -584,11 +598,14 @@ ColorSpaceConversionType = Literal[
     "FORCE_709",
     "FORCE_HDR10",
     "FORCE_HLG_2020",
+    "FORCE_P3D65_HDR",
     "FORCE_P3D65_SDR",
     "FORCE_P3DCI",
     "NONE",
 ]
-ColorSpaceType = Literal["FOLLOW", "HDR10", "HLG_2020", "P3D65_SDR", "P3DCI", "REC_601", "REC_709"]
+ColorSpaceType = Literal[
+    "FOLLOW", "HDR10", "HLG_2020", "P3D65_HDR", "P3D65_SDR", "P3DCI", "REC_601", "REC_709"
+]
 ColorSpaceUsageType = Literal["FALLBACK", "FORCE"]
 CommitmentType = Literal["ONE_YEAR"]
 ContainerTypeType = Literal[
@@ -609,8 +626,11 @@ DashIsoSegmentControlType = Literal["SEGMENTED_FILES", "SINGLE_FILE"]
 DashIsoSegmentLengthControlType = Literal["EXACT", "GOP_MULTIPLE"]
 DashIsoVideoCompositionOffsetsType = Literal["SIGNED", "UNSIGNED"]
 DashIsoWriteSegmentTimelineInRepresentationType = Literal["DISABLED", "ENABLED"]
+DashManifestStyleType = Literal["BASIC", "COMPACT", "DISTINCT"]
 DecryptionModeType = Literal["AES_CBC", "AES_CTR", "AES_GCM"]
-DeinterlaceAlgorithmType = Literal["BLEND", "BLEND_TICKER", "INTERPOLATE", "INTERPOLATE_TICKER"]
+DeinterlaceAlgorithmType = Literal[
+    "BLEND", "BLEND_TICKER", "INTERPOLATE", "INTERPOLATE_TICKER", "LINEAR_INTERPOLATION"
+]
 DeinterlacerControlType = Literal["FORCE_ALL_FRAMES", "NORMAL"]
 DeinterlacerModeType = Literal["ADAPTIVE", "DEINTERLACE", "INVERSE_TELECINE"]
 DescribeEndpointsModeType = Literal["DEFAULT", "GET_ONLY"]
@@ -780,6 +800,7 @@ H265TemporalIdsType = Literal["DISABLED", "ENABLED"]
 H265TilesType = Literal["DISABLED", "ENABLED"]
 H265UnregisteredSeiTimecodeType = Literal["DISABLED", "ENABLED"]
 H265WriteMp4PackagingTypeType = Literal["HEV1", "HVC1"]
+HDRToSDRToneMapperType = Literal["PRESERVE_DETAILS", "VIBRANT"]
 HlsAdMarkersType = Literal["ELEMENTAL", "ELEMENTAL_SCTE35"]
 HlsAudioOnlyContainerType = Literal["AUTOMATIC", "M2TS"]
 HlsAudioOnlyHeaderType = Literal["EXCLUDE", "INCLUDE"]
@@ -1154,7 +1175,7 @@ S3ObjectCannedAclType = Literal[
     "AUTHENTICATED_READ", "BUCKET_OWNER_FULL_CONTROL", "BUCKET_OWNER_READ", "PUBLIC_READ"
 ]
 S3ServerSideEncryptionTypeType = Literal["SERVER_SIDE_ENCRYPTION_KMS", "SERVER_SIDE_ENCRYPTION_S3"]
-SampleRangeConversionType = Literal["LIMITED_RANGE_SQUEEZE", "NONE"]
+SampleRangeConversionType = Literal["LIMITED_RANGE_CLIP", "LIMITED_RANGE_SQUEEZE", "NONE"]
 ScalingBehaviorType = Literal["DEFAULT", "STRETCH_TO_OUTPUT"]
 SccDestinationFramerateType = Literal[
     "FRAMERATE_23_97",
@@ -1219,6 +1240,7 @@ VideoCodecType = Literal[
     "H_264",
     "H_265",
     "MPEG2",
+    "PASSTHROUGH",
     "PRORES",
     "VC3",
     "VP8",

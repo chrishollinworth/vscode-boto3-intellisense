@@ -9,6 +9,7 @@ Usage::
         Client,
         DescribeJobLogItemsPaginator,
         DescribeJobsPaginator,
+        DescribeLaunchConfigurationTemplatesPaginator,
         DescribeRecoveryInstancesPaginator,
         DescribeRecoverySnapshotsPaginator,
         DescribeReplicationConfigurationTemplatesPaginator,
@@ -25,6 +26,7 @@ Usage::
 
     describe_job_log_items_paginator: DescribeJobLogItemsPaginator = client.get_paginator("describe_job_log_items")
     describe_jobs_paginator: DescribeJobsPaginator = client.get_paginator("describe_jobs")
+    describe_launch_configuration_templates_paginator: DescribeLaunchConfigurationTemplatesPaginator = client.get_paginator("describe_launch_configuration_templates")
     describe_recovery_instances_paginator: DescribeRecoveryInstancesPaginator = client.get_paginator("describe_recovery_instances")
     describe_recovery_snapshots_paginator: DescribeRecoverySnapshotsPaginator = client.get_paginator("describe_recovery_snapshots")
     describe_replication_configuration_templates_paginator: DescribeReplicationConfigurationTemplatesPaginator = client.get_paginator("describe_replication_configuration_templates")
@@ -37,6 +39,7 @@ from .client import drsClient
 from .paginator import (
     DescribeJobLogItemsPaginator,
     DescribeJobsPaginator,
+    DescribeLaunchConfigurationTemplatesPaginator,
     DescribeRecoveryInstancesPaginator,
     DescribeRecoverySnapshotsPaginator,
     DescribeReplicationConfigurationTemplatesPaginator,
@@ -51,6 +54,7 @@ __all__ = (
     "Client",
     "DescribeJobLogItemsPaginator",
     "DescribeJobsPaginator",
+    "DescribeLaunchConfigurationTemplatesPaginator",
     "DescribeRecoveryInstancesPaginator",
     "DescribeRecoverySnapshotsPaginator",
     "DescribeReplicationConfigurationTemplatesPaginator",

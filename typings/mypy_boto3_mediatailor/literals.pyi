@@ -29,6 +29,7 @@ __all__ = (
     "ListPrefetchSchedulesPaginatorName",
     "ListSourceLocationsPaginatorName",
     "ListVodSourcesPaginatorName",
+    "LogTypeType",
     "MessageTypeType",
     "ModeType",
     "OperatorType",
@@ -50,6 +51,7 @@ ListPlaybackConfigurationsPaginatorName = Literal["list_playback_configurations"
 ListPrefetchSchedulesPaginatorName = Literal["list_prefetch_schedules"]
 ListSourceLocationsPaginatorName = Literal["list_source_locations"]
 ListVodSourcesPaginatorName = Literal["list_vod_sources"]
+LogTypeType = Literal["AS_RUN"]
 MessageTypeType = Literal["SPLICE_INSERT", "TIME_SIGNAL"]
 ModeType = Literal["BEHIND_LIVE_EDGE", "OFF"]
 OperatorType = Literal["EQUALS"]

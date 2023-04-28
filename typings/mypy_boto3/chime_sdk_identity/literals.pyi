@@ -23,9 +23,13 @@ __all__ = (
     "AppInstanceUserEndpointTypeType",
     "EndpointStatusReasonType",
     "EndpointStatusType",
+    "ExpirationCriterionType",
+    "RespondsToType",
 )
 
 AllowMessagesType = Literal["ALL", "NONE"]
 AppInstanceUserEndpointTypeType = Literal["APNS", "APNS_SANDBOX", "GCM"]
 EndpointStatusReasonType = Literal["INVALID_DEVICE_TOKEN", "INVALID_PINPOINT_ARN"]
 EndpointStatusType = Literal["ACTIVE", "INACTIVE"]
+ExpirationCriterionType = Literal["CREATED_TIMESTAMP"]
+RespondsToType = Literal["STANDARD_MESSAGES"]

@@ -6,9 +6,9 @@ Type annotations for groundstation service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_groundstation.type_defs import AntennaDemodDecodeDetailsTypeDef
+    from mypy_boto3_groundstation.type_defs import AgentDetailsTypeDef
 
-    data: AntennaDemodDecodeDetailsTypeDef = {...}
+    data: AgentDetailsTypeDef = {...}
     ```
 """
 import sys
@@ -16,8 +16,12 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AgentStatusType,
     AngleUnitsType,
+    AuditResultsType,
     BandwidthUnitsType,
+    CapabilityHealthReasonType,
+    CapabilityHealthType,
     ConfigCapabilityTypeType,
     ContactStatusType,
     CriticalityType,
@@ -39,15 +43,21 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AgentDetailsTypeDef",
+    "AggregateStatusTypeDef",
     "AntennaDemodDecodeDetailsTypeDef",
     "AntennaDownlinkConfigTypeDef",
     "AntennaDownlinkDemodDecodeConfigTypeDef",
     "AntennaUplinkConfigTypeDef",
+    "AwsGroundStationAgentEndpointTypeDef",
     "CancelContactRequestRequestTypeDef",
+    "ComponentStatusDataTypeDef",
+    "ComponentVersionTypeDef",
     "ConfigDetailsTypeDef",
     "ConfigIdResponseTypeDef",
     "ConfigListItemTypeDef",
     "ConfigTypeDataTypeDef",
+    "ConnectionDetailsTypeDef",
     "ContactDataTypeDef",
     "ContactIdResponseTypeDef",
     "CreateConfigRequestRequestTypeDef",
@@ -70,6 +80,7 @@ __all__ = (
     "DescribeEphemerisRequestRequestTypeDef",
     "DescribeEphemerisResponseTypeDef",
     "DestinationTypeDef",
+    "DiscoveryDataTypeDef",
     "EirpTypeDef",
     "ElevationTypeDef",
     "EndpointDetailsTypeDef",
@@ -81,6 +92,8 @@ __all__ = (
     "EphemerisTypeDescriptionTypeDef",
     "FrequencyBandwidthTypeDef",
     "FrequencyTypeDef",
+    "GetAgentConfigurationRequestRequestTypeDef",
+    "GetAgentConfigurationResponseTypeDef",
     "GetConfigRequestRequestTypeDef",
     "GetConfigResponseTypeDef",
     "GetDataflowEndpointGroupRequestRequestTypeDef",
@@ -92,6 +105,8 @@ __all__ = (
     "GetSatelliteRequestRequestTypeDef",
     "GetSatelliteResponseTypeDef",
     "GroundStationDataTypeDef",
+    "IntegerRangeTypeDef",
+    "KmsKeyTypeDef",
     "ListConfigsRequestRequestTypeDef",
     "ListConfigsResponseTypeDef",
     "ListContactsRequestRequestTypeDef",
@@ -112,6 +127,10 @@ __all__ = (
     "MissionProfileListItemTypeDef",
     "OEMEphemerisTypeDef",
     "PaginatorConfigTypeDef",
+    "RangedConnectionDetailsTypeDef",
+    "RangedSocketAddressTypeDef",
+    "RegisterAgentRequestRequestTypeDef",
+    "RegisterAgentResponseTypeDef",
     "ReserveContactRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
     "S3ObjectTypeDef",
@@ -128,12 +147,53 @@ __all__ = (
     "TimeRangeTypeDef",
     "TrackingConfigTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAgentStatusRequestRequestTypeDef",
+    "UpdateAgentStatusResponseTypeDef",
     "UpdateConfigRequestRequestTypeDef",
     "UpdateEphemerisRequestRequestTypeDef",
     "UpdateMissionProfileRequestRequestTypeDef",
     "UplinkEchoConfigTypeDef",
     "UplinkSpectrumConfigTypeDef",
+    "WaiterConfigTypeDef",
 )
+
+_RequiredAgentDetailsTypeDef = TypedDict(
+    "_RequiredAgentDetailsTypeDef",
+    {
+        "agentVersion": str,
+        "componentVersions": List["ComponentVersionTypeDef"],
+        "instanceId": str,
+        "instanceType": str,
+    },
+)
+_OptionalAgentDetailsTypeDef = TypedDict(
+    "_OptionalAgentDetailsTypeDef",
+    {
+        "agentCpuCores": List[int],
+        "reservedCpuCores": List[int],
+    },
+    total=False,
+)
+
+class AgentDetailsTypeDef(_RequiredAgentDetailsTypeDef, _OptionalAgentDetailsTypeDef):
+    pass
+
+_RequiredAggregateStatusTypeDef = TypedDict(
+    "_RequiredAggregateStatusTypeDef",
+    {
+        "status": AgentStatusType,
+    },
+)
+_OptionalAggregateStatusTypeDef = TypedDict(
+    "_OptionalAggregateStatusTypeDef",
+    {
+        "signatureMap": Dict[str, bool],
+    },
+    total=False,
+)
+
+class AggregateStatusTypeDef(_RequiredAggregateStatusTypeDef, _OptionalAggregateStatusTypeDef):
+    pass
 
 AntennaDemodDecodeDetailsTypeDef = TypedDict(
     "AntennaDemodDecodeDetailsTypeDef",
@@ -179,10 +239,64 @@ class AntennaUplinkConfigTypeDef(
 ):
     pass
 
+_RequiredAwsGroundStationAgentEndpointTypeDef = TypedDict(
+    "_RequiredAwsGroundStationAgentEndpointTypeDef",
+    {
+        "egressAddress": "ConnectionDetailsTypeDef",
+        "ingressAddress": "RangedConnectionDetailsTypeDef",
+        "name": str,
+    },
+)
+_OptionalAwsGroundStationAgentEndpointTypeDef = TypedDict(
+    "_OptionalAwsGroundStationAgentEndpointTypeDef",
+    {
+        "agentStatus": AgentStatusType,
+        "auditResults": AuditResultsType,
+    },
+    total=False,
+)
+
+class AwsGroundStationAgentEndpointTypeDef(
+    _RequiredAwsGroundStationAgentEndpointTypeDef, _OptionalAwsGroundStationAgentEndpointTypeDef
+):
+    pass
+
 CancelContactRequestRequestTypeDef = TypedDict(
     "CancelContactRequestRequestTypeDef",
     {
         "contactId": str,
+    },
+)
+
+_RequiredComponentStatusDataTypeDef = TypedDict(
+    "_RequiredComponentStatusDataTypeDef",
+    {
+        "capabilityArn": str,
+        "componentType": str,
+        "dataflowId": str,
+        "status": AgentStatusType,
+    },
+)
+_OptionalComponentStatusDataTypeDef = TypedDict(
+    "_OptionalComponentStatusDataTypeDef",
+    {
+        "bytesReceived": int,
+        "bytesSent": int,
+        "packetsDropped": int,
+    },
+    total=False,
+)
+
+class ComponentStatusDataTypeDef(
+    _RequiredComponentStatusDataTypeDef, _OptionalComponentStatusDataTypeDef
+):
+    pass
+
+ComponentVersionTypeDef = TypedDict(
+    "ComponentVersionTypeDef",
+    {
+        "componentType": str,
+        "versions": List[str],
     },
 )
 
@@ -230,6 +344,25 @@ ConfigTypeDataTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredConnectionDetailsTypeDef = TypedDict(
+    "_RequiredConnectionDetailsTypeDef",
+    {
+        "socketAddress": "SocketAddressTypeDef",
+    },
+)
+_OptionalConnectionDetailsTypeDef = TypedDict(
+    "_OptionalConnectionDetailsTypeDef",
+    {
+        "mtu": int,
+    },
+    total=False,
+)
+
+class ConnectionDetailsTypeDef(
+    _RequiredConnectionDetailsTypeDef, _OptionalConnectionDetailsTypeDef
+):
+    pass
 
 ContactDataTypeDef = TypedDict(
     "ContactDataTypeDef",
@@ -288,6 +421,8 @@ _RequiredCreateDataflowEndpointGroupRequestRequestTypeDef = TypedDict(
 _OptionalCreateDataflowEndpointGroupRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDataflowEndpointGroupRequestRequestTypeDef",
     {
+        "contactPostPassDurationSeconds": int,
+        "contactPrePassDurationSeconds": int,
         "tags": Dict[str, str],
     },
     total=False,
@@ -338,6 +473,8 @@ _OptionalCreateMissionProfileRequestRequestTypeDef = TypedDict(
     {
         "contactPostPassDurationSeconds": int,
         "contactPrePassDurationSeconds": int,
+        "streamsKmsKey": "KmsKeyTypeDef",
+        "streamsKmsRole": str,
         "tags": Dict[str, str],
     },
     total=False,
@@ -512,6 +649,15 @@ DestinationTypeDef = TypedDict(
     total=False,
 )
 
+DiscoveryDataTypeDef = TypedDict(
+    "DiscoveryDataTypeDef",
+    {
+        "capabilityArns": List[str],
+        "privateIpAddresses": List[str],
+        "publicIpAddresses": List[str],
+    },
+)
+
 EirpTypeDef = TypedDict(
     "EirpTypeDef",
     {
@@ -531,7 +677,10 @@ ElevationTypeDef = TypedDict(
 EndpointDetailsTypeDef = TypedDict(
     "EndpointDetailsTypeDef",
     {
+        "awsGroundStationAgentEndpoint": "AwsGroundStationAgentEndpointTypeDef",
         "endpoint": "DataflowEndpointTypeDef",
+        "healthReasons": List[CapabilityHealthReasonType],
+        "healthStatus": CapabilityHealthType,
         "securityDetails": "SecurityDetailsTypeDef",
     },
     total=False,
@@ -623,6 +772,22 @@ FrequencyTypeDef = TypedDict(
     },
 )
 
+GetAgentConfigurationRequestRequestTypeDef = TypedDict(
+    "GetAgentConfigurationRequestRequestTypeDef",
+    {
+        "agentId": str,
+    },
+)
+
+GetAgentConfigurationResponseTypeDef = TypedDict(
+    "GetAgentConfigurationResponseTypeDef",
+    {
+        "agentId": str,
+        "taskingDocument": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetConfigRequestRequestTypeDef = TypedDict(
     "GetConfigRequestRequestTypeDef",
     {
@@ -654,6 +819,8 @@ GetDataflowEndpointGroupRequestRequestTypeDef = TypedDict(
 GetDataflowEndpointGroupResponseTypeDef = TypedDict(
     "GetDataflowEndpointGroupResponseTypeDef",
     {
+        "contactPostPassDurationSeconds": int,
+        "contactPrePassDurationSeconds": int,
         "dataflowEndpointGroupArn": str,
         "dataflowEndpointGroupId": str,
         "endpointsDetails": List["EndpointDetailsTypeDef"],
@@ -700,6 +867,8 @@ GetMissionProfileResponseTypeDef = TypedDict(
         "missionProfileId": str,
         "name": str,
         "region": str,
+        "streamsKmsKey": "KmsKeyTypeDef",
+        "streamsKmsRole": str,
         "tags": Dict[str, str],
         "trackingConfigArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -731,6 +900,23 @@ GroundStationDataTypeDef = TypedDict(
         "groundStationId": str,
         "groundStationName": str,
         "region": str,
+    },
+    total=False,
+)
+
+IntegerRangeTypeDef = TypedDict(
+    "IntegerRangeTypeDef",
+    {
+        "maximum": int,
+        "minimum": int,
+    },
+)
+
+KmsKeyTypeDef = TypedDict(
+    "KmsKeyTypeDef",
+    {
+        "kmsAliasArn": str,
+        "kmsKeyArn": str,
     },
     total=False,
 )
@@ -945,6 +1131,49 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredRangedConnectionDetailsTypeDef = TypedDict(
+    "_RequiredRangedConnectionDetailsTypeDef",
+    {
+        "socketAddress": "RangedSocketAddressTypeDef",
+    },
+)
+_OptionalRangedConnectionDetailsTypeDef = TypedDict(
+    "_OptionalRangedConnectionDetailsTypeDef",
+    {
+        "mtu": int,
+    },
+    total=False,
+)
+
+class RangedConnectionDetailsTypeDef(
+    _RequiredRangedConnectionDetailsTypeDef, _OptionalRangedConnectionDetailsTypeDef
+):
+    pass
+
+RangedSocketAddressTypeDef = TypedDict(
+    "RangedSocketAddressTypeDef",
+    {
+        "name": str,
+        "portRange": "IntegerRangeTypeDef",
+    },
+)
+
+RegisterAgentRequestRequestTypeDef = TypedDict(
+    "RegisterAgentRequestRequestTypeDef",
+    {
+        "agentDetails": "AgentDetailsTypeDef",
+        "discoveryData": "DiscoveryDataTypeDef",
+    },
+)
+
+RegisterAgentResponseTypeDef = TypedDict(
+    "RegisterAgentResponseTypeDef",
+    {
+        "agentId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredReserveContactRequestRequestTypeDef = TypedDict(
     "_RequiredReserveContactRequestRequestTypeDef",
     {
@@ -1125,6 +1354,24 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateAgentStatusRequestRequestTypeDef = TypedDict(
+    "UpdateAgentStatusRequestRequestTypeDef",
+    {
+        "agentId": str,
+        "aggregateStatus": "AggregateStatusTypeDef",
+        "componentStatuses": List["ComponentStatusDataTypeDef"],
+        "taskId": str,
+    },
+)
+
+UpdateAgentStatusResponseTypeDef = TypedDict(
+    "UpdateAgentStatusResponseTypeDef",
+    {
+        "agentId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateConfigRequestRequestTypeDef = TypedDict(
     "UpdateConfigRequestRequestTypeDef",
     {
@@ -1170,6 +1417,8 @@ _OptionalUpdateMissionProfileRequestRequestTypeDef = TypedDict(
         "dataflowEdges": List[List[str]],
         "minimumViableContactDurationSeconds": int,
         "name": str,
+        "streamsKmsKey": "KmsKeyTypeDef",
+        "streamsKmsRole": str,
         "trackingConfigArn": str,
     },
     total=False,
@@ -1207,3 +1456,12 @@ class UplinkSpectrumConfigTypeDef(
     _RequiredUplinkSpectrumConfigTypeDef, _OptionalUplinkSpectrumConfigTypeDef
 ):
     pass
+
+WaiterConfigTypeDef = TypedDict(
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
+)

@@ -24,9 +24,11 @@ __all__ = (
     "EncryptionTypeType",
     "FirewallStatusValueType",
     "GeneratedRulesTypeType",
+    "IPAddressTypeType",
     "ListFirewallPoliciesPaginatorName",
     "ListFirewallsPaginatorName",
     "ListRuleGroupsPaginatorName",
+    "ListTLSInspectionConfigurationsPaginatorName",
     "ListTagsForResourcePaginatorName",
     "LogDestinationTypeType",
     "LogTypeType",
@@ -50,9 +52,11 @@ ConfigurationSyncStateType = Literal["CAPACITY_CONSTRAINED", "IN_SYNC", "PENDING
 EncryptionTypeType = Literal["AWS_OWNED_KMS_KEY", "CUSTOMER_KMS"]
 FirewallStatusValueType = Literal["DELETING", "PROVISIONING", "READY"]
 GeneratedRulesTypeType = Literal["ALLOWLIST", "DENYLIST"]
+IPAddressTypeType = Literal["DUALSTACK", "IPV4", "IPV6"]
 ListFirewallPoliciesPaginatorName = Literal["list_firewall_policies"]
 ListFirewallsPaginatorName = Literal["list_firewalls"]
 ListRuleGroupsPaginatorName = Literal["list_rule_groups"]
+ListTLSInspectionConfigurationsPaginatorName = Literal["list_tls_inspection_configurations"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LogDestinationTypeType = Literal["CloudWatchLogs", "KinesisDataFirehose", "S3"]
 LogTypeType = Literal["ALERT", "FLOW"]
@@ -63,7 +67,7 @@ ResourceManagedTypeType = Literal["AWS_MANAGED_DOMAIN_LISTS", "AWS_MANAGED_THREA
 ResourceStatusType = Literal["ACTIVE", "DELETING"]
 RuleGroupTypeType = Literal["STATEFUL", "STATELESS"]
 RuleOrderType = Literal["DEFAULT_ACTION_ORDER", "STRICT_ORDER"]
-StatefulActionType = Literal["ALERT", "DROP", "PASS"]
+StatefulActionType = Literal["ALERT", "DROP", "PASS", "REJECT"]
 StatefulRuleDirectionType = Literal["ANY", "FORWARD"]
 StatefulRuleProtocolType = Literal[
     "DCERPC",

@@ -2422,15 +2422,10 @@ class EngineTranscribeMedicalSettingsTypeDef(
 ):
     pass
 
-_RequiredEngineTranscribeSettingsTypeDef = TypedDict(
-    "_RequiredEngineTranscribeSettingsTypeDef",
+EngineTranscribeSettingsTypeDef = TypedDict(
+    "EngineTranscribeSettingsTypeDef",
     {
         "LanguageCode": TranscribeLanguageCodeType,
-    },
-)
-_OptionalEngineTranscribeSettingsTypeDef = TypedDict(
-    "_OptionalEngineTranscribeSettingsTypeDef",
-    {
         "VocabularyFilterMethod": TranscribeVocabularyFilterMethodType,
         "VocabularyFilterName": str,
         "VocabularyName": str,
@@ -2441,14 +2436,14 @@ _OptionalEngineTranscribeSettingsTypeDef = TypedDict(
         "ContentRedactionType": Literal["PII"],
         "PiiEntityTypes": str,
         "LanguageModelName": str,
+        "IdentifyLanguage": bool,
+        "LanguageOptions": str,
+        "PreferredLanguage": TranscribeLanguageCodeType,
+        "VocabularyNames": str,
+        "VocabularyFilterNames": str,
     },
     total=False,
 )
-
-class EngineTranscribeSettingsTypeDef(
-    _RequiredEngineTranscribeSettingsTypeDef, _OptionalEngineTranscribeSettingsTypeDef
-):
-    pass
 
 EventsConfigurationTypeDef = TypedDict(
     "EventsConfigurationTypeDef",

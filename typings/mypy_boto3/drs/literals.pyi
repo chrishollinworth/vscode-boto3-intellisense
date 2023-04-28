@@ -25,6 +25,7 @@ __all__ = (
     "DataReplicationStateType",
     "DescribeJobLogItemsPaginatorName",
     "DescribeJobsPaginatorName",
+    "DescribeLaunchConfigurationTemplatesPaginatorName",
     "DescribeRecoveryInstancesPaginatorName",
     "DescribeRecoverySnapshotsPaginatorName",
     "DescribeReplicationConfigurationTemplatesPaginatorName",
@@ -104,6 +105,9 @@ DataReplicationStateType = Literal[
 ]
 DescribeJobLogItemsPaginatorName = Literal["describe_job_log_items"]
 DescribeJobsPaginatorName = Literal["describe_jobs"]
+DescribeLaunchConfigurationTemplatesPaginatorName = Literal[
+    "describe_launch_configuration_templates"
+]
 DescribeRecoveryInstancesPaginatorName = Literal["describe_recovery_instances"]
 DescribeRecoverySnapshotsPaginatorName = Literal["describe_recovery_snapshots"]
 DescribeReplicationConfigurationTemplatesPaginatorName = Literal[

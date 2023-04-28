@@ -21,7 +21,9 @@ from .literals import (
     ActivationStatusType,
     ChannelTypeType,
     ContactTypeType,
+    DayOfWeekType,
     ReceiptTypeType,
+    ShiftTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -37,13 +39,20 @@ __all__ = (
     "ContactChannelTypeDef",
     "ContactTargetInfoTypeDef",
     "ContactTypeDef",
+    "CoverageTimeTypeDef",
     "CreateContactChannelRequestRequestTypeDef",
     "CreateContactChannelResultTypeDef",
     "CreateContactRequestRequestTypeDef",
     "CreateContactResultTypeDef",
+    "CreateRotationOverrideRequestRequestTypeDef",
+    "CreateRotationOverrideResultTypeDef",
+    "CreateRotationRequestRequestTypeDef",
+    "CreateRotationResultTypeDef",
     "DeactivateContactChannelRequestRequestTypeDef",
     "DeleteContactChannelRequestRequestTypeDef",
     "DeleteContactRequestRequestTypeDef",
+    "DeleteRotationOverrideRequestRequestTypeDef",
+    "DeleteRotationRequestRequestTypeDef",
     "DescribeEngagementRequestRequestTypeDef",
     "DescribeEngagementResultTypeDef",
     "DescribePageRequestRequestTypeDef",
@@ -55,6 +64,11 @@ __all__ = (
     "GetContactPolicyResultTypeDef",
     "GetContactRequestRequestTypeDef",
     "GetContactResultTypeDef",
+    "GetRotationOverrideRequestRequestTypeDef",
+    "GetRotationOverrideResultTypeDef",
+    "GetRotationRequestRequestTypeDef",
+    "GetRotationResultTypeDef",
+    "HandOffTimeTypeDef",
     "ListContactChannelsRequestRequestTypeDef",
     "ListContactChannelsResultTypeDef",
     "ListContactsRequestRequestTypeDef",
@@ -63,19 +77,37 @@ __all__ = (
     "ListEngagementsResultTypeDef",
     "ListPageReceiptsRequestRequestTypeDef",
     "ListPageReceiptsResultTypeDef",
+    "ListPageResolutionsRequestRequestTypeDef",
+    "ListPageResolutionsResultTypeDef",
     "ListPagesByContactRequestRequestTypeDef",
     "ListPagesByContactResultTypeDef",
     "ListPagesByEngagementRequestRequestTypeDef",
     "ListPagesByEngagementResultTypeDef",
+    "ListPreviewRotationShiftsRequestRequestTypeDef",
+    "ListPreviewRotationShiftsResultTypeDef",
+    "ListRotationOverridesRequestRequestTypeDef",
+    "ListRotationOverridesResultTypeDef",
+    "ListRotationShiftsRequestRequestTypeDef",
+    "ListRotationShiftsResultTypeDef",
+    "ListRotationsRequestRequestTypeDef",
+    "ListRotationsResultTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
+    "MonthlySettingTypeDef",
     "PageTypeDef",
     "PaginatorConfigTypeDef",
     "PlanTypeDef",
+    "PreviewOverrideTypeDef",
     "PutContactPolicyRequestRequestTypeDef",
     "ReceiptTypeDef",
+    "RecurrenceSettingsTypeDef",
+    "ResolutionContactTypeDef",
     "ResponseMetadataTypeDef",
+    "RotationOverrideTypeDef",
+    "RotationShiftTypeDef",
+    "RotationTypeDef",
     "SendActivationCodeRequestRequestTypeDef",
+    "ShiftDetailsTypeDef",
     "StageTypeDef",
     "StartEngagementRequestRequestTypeDef",
     "StartEngagementResultTypeDef",
@@ -87,6 +119,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateContactChannelRequestRequestTypeDef",
     "UpdateContactRequestRequestTypeDef",
+    "UpdateRotationRequestRequestTypeDef",
+    "WeeklySettingTypeDef",
 )
 
 _RequiredAcceptPageRequestRequestTypeDef = TypedDict(
@@ -206,6 +240,15 @@ _OptionalContactTypeDef = TypedDict(
 class ContactTypeDef(_RequiredContactTypeDef, _OptionalContactTypeDef):
     pass
 
+CoverageTimeTypeDef = TypedDict(
+    "CoverageTimeTypeDef",
+    {
+        "Start": "HandOffTimeTypeDef",
+        "End": "HandOffTimeTypeDef",
+    },
+    total=False,
+)
+
 _RequiredCreateContactChannelRequestRequestTypeDef = TypedDict(
     "_RequiredCreateContactChannelRequestRequestTypeDef",
     {
@@ -269,6 +312,69 @@ CreateContactResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateRotationOverrideRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRotationOverrideRequestRequestTypeDef",
+    {
+        "RotationId": str,
+        "NewContactIds": List[str],
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+    },
+)
+_OptionalCreateRotationOverrideRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRotationOverrideRequestRequestTypeDef",
+    {
+        "IdempotencyToken": str,
+    },
+    total=False,
+)
+
+class CreateRotationOverrideRequestRequestTypeDef(
+    _RequiredCreateRotationOverrideRequestRequestTypeDef,
+    _OptionalCreateRotationOverrideRequestRequestTypeDef,
+):
+    pass
+
+CreateRotationOverrideResultTypeDef = TypedDict(
+    "CreateRotationOverrideResultTypeDef",
+    {
+        "RotationOverrideId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateRotationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRotationRequestRequestTypeDef",
+    {
+        "Name": str,
+        "ContactIds": List[str],
+        "TimeZoneId": str,
+        "Recurrence": "RecurrenceSettingsTypeDef",
+    },
+)
+_OptionalCreateRotationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRotationRequestRequestTypeDef",
+    {
+        "StartTime": Union[datetime, str],
+        "Tags": List["TagTypeDef"],
+        "IdempotencyToken": str,
+    },
+    total=False,
+)
+
+class CreateRotationRequestRequestTypeDef(
+    _RequiredCreateRotationRequestRequestTypeDef, _OptionalCreateRotationRequestRequestTypeDef
+):
+    pass
+
+CreateRotationResultTypeDef = TypedDict(
+    "CreateRotationResultTypeDef",
+    {
+        "RotationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeactivateContactChannelRequestRequestTypeDef = TypedDict(
     "DeactivateContactChannelRequestRequestTypeDef",
     {
@@ -287,6 +393,21 @@ DeleteContactRequestRequestTypeDef = TypedDict(
     "DeleteContactRequestRequestTypeDef",
     {
         "ContactId": str,
+    },
+)
+
+DeleteRotationOverrideRequestRequestTypeDef = TypedDict(
+    "DeleteRotationOverrideRequestRequestTypeDef",
+    {
+        "RotationId": str,
+        "RotationOverrideId": str,
+    },
+)
+
+DeleteRotationRequestRequestTypeDef = TypedDict(
+    "DeleteRotationRequestRequestTypeDef",
+    {
+        "RotationId": str,
     },
 )
 
@@ -416,6 +537,55 @@ GetContactResultTypeDef = TypedDict(
     },
 )
 
+GetRotationOverrideRequestRequestTypeDef = TypedDict(
+    "GetRotationOverrideRequestRequestTypeDef",
+    {
+        "RotationId": str,
+        "RotationOverrideId": str,
+    },
+)
+
+GetRotationOverrideResultTypeDef = TypedDict(
+    "GetRotationOverrideResultTypeDef",
+    {
+        "RotationOverrideId": str,
+        "RotationArn": str,
+        "NewContactIds": List[str],
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "CreateTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRotationRequestRequestTypeDef = TypedDict(
+    "GetRotationRequestRequestTypeDef",
+    {
+        "RotationId": str,
+    },
+)
+
+GetRotationResultTypeDef = TypedDict(
+    "GetRotationResultTypeDef",
+    {
+        "RotationArn": str,
+        "Name": str,
+        "ContactIds": List[str],
+        "StartTime": datetime,
+        "TimeZoneId": str,
+        "Recurrence": "RecurrenceSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+HandOffTimeTypeDef = TypedDict(
+    "HandOffTimeTypeDef",
+    {
+        "HourOfDay": int,
+        "MinuteOfHour": int,
+    },
+)
+
 _RequiredListContactChannelsRequestRequestTypeDef = TypedDict(
     "_RequiredListContactChannelsRequestRequestTypeDef",
     {
@@ -515,6 +685,35 @@ ListPageReceiptsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredListPageResolutionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListPageResolutionsRequestRequestTypeDef",
+    {
+        "PageId": str,
+    },
+)
+_OptionalListPageResolutionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListPageResolutionsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListPageResolutionsRequestRequestTypeDef(
+    _RequiredListPageResolutionsRequestRequestTypeDef,
+    _OptionalListPageResolutionsRequestRequestTypeDef,
+):
+    pass
+
+ListPageResolutionsResultTypeDef = TypedDict(
+    "ListPageResolutionsResultTypeDef",
+    {
+        "NextToken": str,
+        "PageResolutions": List["ResolutionContactTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListPagesByContactRequestRequestTypeDef = TypedDict(
     "_RequiredListPagesByContactRequestRequestTypeDef",
     {
@@ -575,6 +774,125 @@ ListPagesByEngagementResultTypeDef = TypedDict(
     },
 )
 
+_RequiredListPreviewRotationShiftsRequestRequestTypeDef = TypedDict(
+    "_RequiredListPreviewRotationShiftsRequestRequestTypeDef",
+    {
+        "EndTime": Union[datetime, str],
+        "Members": List[str],
+        "TimeZoneId": str,
+        "Recurrence": "RecurrenceSettingsTypeDef",
+    },
+)
+_OptionalListPreviewRotationShiftsRequestRequestTypeDef = TypedDict(
+    "_OptionalListPreviewRotationShiftsRequestRequestTypeDef",
+    {
+        "RotationStartTime": Union[datetime, str],
+        "StartTime": Union[datetime, str],
+        "Overrides": List["PreviewOverrideTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListPreviewRotationShiftsRequestRequestTypeDef(
+    _RequiredListPreviewRotationShiftsRequestRequestTypeDef,
+    _OptionalListPreviewRotationShiftsRequestRequestTypeDef,
+):
+    pass
+
+ListPreviewRotationShiftsResultTypeDef = TypedDict(
+    "ListPreviewRotationShiftsResultTypeDef",
+    {
+        "RotationShifts": List["RotationShiftTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListRotationOverridesRequestRequestTypeDef = TypedDict(
+    "_RequiredListRotationOverridesRequestRequestTypeDef",
+    {
+        "RotationId": str,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+    },
+)
+_OptionalListRotationOverridesRequestRequestTypeDef = TypedDict(
+    "_OptionalListRotationOverridesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListRotationOverridesRequestRequestTypeDef(
+    _RequiredListRotationOverridesRequestRequestTypeDef,
+    _OptionalListRotationOverridesRequestRequestTypeDef,
+):
+    pass
+
+ListRotationOverridesResultTypeDef = TypedDict(
+    "ListRotationOverridesResultTypeDef",
+    {
+        "RotationOverrides": List["RotationOverrideTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListRotationShiftsRequestRequestTypeDef = TypedDict(
+    "_RequiredListRotationShiftsRequestRequestTypeDef",
+    {
+        "RotationId": str,
+        "EndTime": Union[datetime, str],
+    },
+)
+_OptionalListRotationShiftsRequestRequestTypeDef = TypedDict(
+    "_OptionalListRotationShiftsRequestRequestTypeDef",
+    {
+        "StartTime": Union[datetime, str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListRotationShiftsRequestRequestTypeDef(
+    _RequiredListRotationShiftsRequestRequestTypeDef,
+    _OptionalListRotationShiftsRequestRequestTypeDef,
+):
+    pass
+
+ListRotationShiftsResultTypeDef = TypedDict(
+    "ListRotationShiftsResultTypeDef",
+    {
+        "RotationShifts": List["RotationShiftTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListRotationsRequestRequestTypeDef = TypedDict(
+    "ListRotationsRequestRequestTypeDef",
+    {
+        "RotationNamePrefix": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListRotationsResultTypeDef = TypedDict(
+    "ListRotationsResultTypeDef",
+    {
+        "NextToken": str,
+        "Rotations": List["RotationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -587,6 +905,14 @@ ListTagsForResourceResultTypeDef = TypedDict(
     {
         "Tags": List["TagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+MonthlySettingTypeDef = TypedDict(
+    "MonthlySettingTypeDef",
+    {
+        "DayOfMonth": int,
+        "HandOffTime": "HandOffTimeTypeDef",
     },
 )
 
@@ -627,7 +953,19 @@ PlanTypeDef = TypedDict(
     "PlanTypeDef",
     {
         "Stages": List["StageTypeDef"],
+        "RotationIds": List[str],
     },
+    total=False,
+)
+
+PreviewOverrideTypeDef = TypedDict(
+    "PreviewOverrideTypeDef",
+    {
+        "NewMembers": List[str],
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+    },
+    total=False,
 )
 
 PutContactPolicyRequestRequestTypeDef = TypedDict(
@@ -657,6 +995,49 @@ _OptionalReceiptTypeDef = TypedDict(
 class ReceiptTypeDef(_RequiredReceiptTypeDef, _OptionalReceiptTypeDef):
     pass
 
+_RequiredRecurrenceSettingsTypeDef = TypedDict(
+    "_RequiredRecurrenceSettingsTypeDef",
+    {
+        "NumberOfOnCalls": int,
+        "RecurrenceMultiplier": int,
+    },
+)
+_OptionalRecurrenceSettingsTypeDef = TypedDict(
+    "_OptionalRecurrenceSettingsTypeDef",
+    {
+        "MonthlySettings": List["MonthlySettingTypeDef"],
+        "WeeklySettings": List["WeeklySettingTypeDef"],
+        "DailySettings": List["HandOffTimeTypeDef"],
+        "ShiftCoverages": Dict[DayOfWeekType, List["CoverageTimeTypeDef"]],
+    },
+    total=False,
+)
+
+class RecurrenceSettingsTypeDef(
+    _RequiredRecurrenceSettingsTypeDef, _OptionalRecurrenceSettingsTypeDef
+):
+    pass
+
+_RequiredResolutionContactTypeDef = TypedDict(
+    "_RequiredResolutionContactTypeDef",
+    {
+        "ContactArn": str,
+        "Type": ContactTypeType,
+    },
+)
+_OptionalResolutionContactTypeDef = TypedDict(
+    "_OptionalResolutionContactTypeDef",
+    {
+        "StageIndex": int,
+    },
+    total=False,
+)
+
+class ResolutionContactTypeDef(
+    _RequiredResolutionContactTypeDef, _OptionalResolutionContactTypeDef
+):
+    pass
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -668,10 +1049,69 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RotationOverrideTypeDef = TypedDict(
+    "RotationOverrideTypeDef",
+    {
+        "RotationOverrideId": str,
+        "NewContactIds": List[str],
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "CreateTime": datetime,
+    },
+)
+
+_RequiredRotationShiftTypeDef = TypedDict(
+    "_RequiredRotationShiftTypeDef",
+    {
+        "StartTime": datetime,
+        "EndTime": datetime,
+    },
+)
+_OptionalRotationShiftTypeDef = TypedDict(
+    "_OptionalRotationShiftTypeDef",
+    {
+        "ContactIds": List[str],
+        "Type": ShiftTypeType,
+        "ShiftDetails": "ShiftDetailsTypeDef",
+    },
+    total=False,
+)
+
+class RotationShiftTypeDef(_RequiredRotationShiftTypeDef, _OptionalRotationShiftTypeDef):
+    pass
+
+_RequiredRotationTypeDef = TypedDict(
+    "_RequiredRotationTypeDef",
+    {
+        "RotationArn": str,
+        "Name": str,
+    },
+)
+_OptionalRotationTypeDef = TypedDict(
+    "_OptionalRotationTypeDef",
+    {
+        "ContactIds": List[str],
+        "StartTime": datetime,
+        "TimeZoneId": str,
+        "Recurrence": "RecurrenceSettingsTypeDef",
+    },
+    total=False,
+)
+
+class RotationTypeDef(_RequiredRotationTypeDef, _OptionalRotationTypeDef):
+    pass
+
 SendActivationCodeRequestRequestTypeDef = TypedDict(
     "SendActivationCodeRequestRequestTypeDef",
     {
         "ContactChannelId": str,
+    },
+)
+
+ShiftDetailsTypeDef = TypedDict(
+    "ShiftDetailsTypeDef",
+    {
+        "OverriddenContactIds": List[str],
     },
 )
 
@@ -818,3 +1258,33 @@ class UpdateContactRequestRequestTypeDef(
     _RequiredUpdateContactRequestRequestTypeDef, _OptionalUpdateContactRequestRequestTypeDef
 ):
     pass
+
+_RequiredUpdateRotationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateRotationRequestRequestTypeDef",
+    {
+        "RotationId": str,
+        "Recurrence": "RecurrenceSettingsTypeDef",
+    },
+)
+_OptionalUpdateRotationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateRotationRequestRequestTypeDef",
+    {
+        "ContactIds": List[str],
+        "StartTime": Union[datetime, str],
+        "TimeZoneId": str,
+    },
+    total=False,
+)
+
+class UpdateRotationRequestRequestTypeDef(
+    _RequiredUpdateRotationRequestRequestTypeDef, _OptionalUpdateRotationRequestRequestTypeDef
+):
+    pass
+
+WeeklySettingTypeDef = TypedDict(
+    "WeeklySettingTypeDef",
+    {
+        "DayOfWeek": DayOfWeekType,
+        "HandOffTime": "HandOffTimeTypeDef",
+    },
+)

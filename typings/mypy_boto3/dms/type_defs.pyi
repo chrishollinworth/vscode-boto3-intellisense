@@ -31,6 +31,7 @@ from .literals import (
     EncodingTypeValueType,
     EncryptionModeValueType,
     EndpointSettingTypeValueType,
+    KafkaSaslMechanismType,
     KafkaSecurityProtocolType,
     MessageFormatValueType,
     MigrationTypeValueType,
@@ -39,12 +40,14 @@ from .literals import (
     PluginNameValueType,
     RedisAuthTypeValueType,
     RefreshSchemasStatusTypeValueType,
+    ReleaseStatusValuesType,
     ReloadOptionValueType,
     ReplicationEndpointTypeValueType,
     SafeguardPolicyType,
     SslSecurityProtocolValueType,
     StartReplicationTaskTypeValueType,
     TargetDbTypeType,
+    TlogAccessModeType,
     VersionStatusType,
 )
 
@@ -63,6 +66,9 @@ __all__ = (
     "ApplyPendingMaintenanceActionMessageRequestTypeDef",
     "ApplyPendingMaintenanceActionResponseTypeDef",
     "AvailabilityZoneTypeDef",
+    "BatchStartRecommendationsErrorEntryTypeDef",
+    "BatchStartRecommendationsRequestRequestTypeDef",
+    "BatchStartRecommendationsResponseTypeDef",
     "CancelReplicationTaskAssessmentRunMessageRequestTypeDef",
     "CancelReplicationTaskAssessmentRunResponseTypeDef",
     "CertificateTypeDef",
@@ -136,6 +142,10 @@ __all__ = (
     "DescribeOrderableReplicationInstancesResponseTypeDef",
     "DescribePendingMaintenanceActionsMessageRequestTypeDef",
     "DescribePendingMaintenanceActionsResponseTypeDef",
+    "DescribeRecommendationLimitationsRequestRequestTypeDef",
+    "DescribeRecommendationLimitationsResponseTypeDef",
+    "DescribeRecommendationsRequestRequestTypeDef",
+    "DescribeRecommendationsResponseTypeDef",
     "DescribeRefreshSchemasStatusMessageRequestTypeDef",
     "DescribeRefreshSchemasStatusResponseTypeDef",
     "DescribeReplicationInstanceTaskLogsMessageRequestTypeDef",
@@ -175,6 +185,7 @@ __all__ = (
     "InventoryDataTypeDef",
     "KafkaSettingsTypeDef",
     "KinesisSettingsTypeDef",
+    "LimitationTypeDef",
     "ListTagsForResourceMessageRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MicrosoftSQLServerSettingsTypeDef",
@@ -198,8 +209,14 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PendingMaintenanceActionTypeDef",
     "PostgreSQLSettingsTypeDef",
+    "RdsConfigurationTypeDef",
+    "RdsRecommendationTypeDef",
+    "RdsRequirementsTypeDef",
     "RebootReplicationInstanceMessageRequestTypeDef",
     "RebootReplicationInstanceResponseTypeDef",
+    "RecommendationDataTypeDef",
+    "RecommendationSettingsTypeDef",
+    "RecommendationTypeDef",
     "RedisSettingsTypeDef",
     "RedshiftSettingsTypeDef",
     "RefreshSchemasMessageRequestTypeDef",
@@ -225,6 +242,8 @@ __all__ = (
     "SchemaResponseTypeDef",
     "SchemaShortInfoResponseTypeDef",
     "ServerShortInfoResponseTypeDef",
+    "StartRecommendationsRequestEntryTypeDef",
+    "StartRecommendationsRequestRequestTypeDef",
     "StartReplicationTaskAssessmentMessageRequestTypeDef",
     "StartReplicationTaskAssessmentResponseTypeDef",
     "StartReplicationTaskAssessmentRunMessageRequestTypeDef",
@@ -288,6 +307,32 @@ AvailabilityZoneTypeDef = TypedDict(
         "Name": str,
     },
     total=False,
+)
+
+BatchStartRecommendationsErrorEntryTypeDef = TypedDict(
+    "BatchStartRecommendationsErrorEntryTypeDef",
+    {
+        "DatabaseId": str,
+        "Message": str,
+        "Code": str,
+    },
+    total=False,
+)
+
+BatchStartRecommendationsRequestRequestTypeDef = TypedDict(
+    "BatchStartRecommendationsRequestRequestTypeDef",
+    {
+        "Data": List["StartRecommendationsRequestEntryTypeDef"],
+    },
+    total=False,
+)
+
+BatchStartRecommendationsResponseTypeDef = TypedDict(
+    "BatchStartRecommendationsResponseTypeDef",
+    {
+        "ErrorEntries": List["BatchStartRecommendationsErrorEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CancelReplicationTaskAssessmentRunMessageRequestTypeDef = TypedDict(
@@ -1118,6 +1163,44 @@ DescribePendingMaintenanceActionsResponseTypeDef = TypedDict(
     },
 )
 
+DescribeRecommendationLimitationsRequestRequestTypeDef = TypedDict(
+    "DescribeRecommendationLimitationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeRecommendationLimitationsResponseTypeDef = TypedDict(
+    "DescribeRecommendationLimitationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "Limitations": List["LimitationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRecommendationsRequestRequestTypeDef = TypedDict(
+    "DescribeRecommendationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeRecommendationsResponseTypeDef = TypedDict(
+    "DescribeRecommendationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "Recommendations": List["RecommendationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeRefreshSchemasStatusMessageRequestTypeDef = TypedDict(
     "DescribeRefreshSchemasStatusMessageRequestTypeDef",
     {
@@ -1618,6 +1701,7 @@ KafkaSettingsTypeDef = TypedDict(
         "SaslUsername": str,
         "SaslPassword": str,
         "NoHexPrefix": bool,
+        "SaslMechanism": KafkaSaslMechanismType,
     },
     total=False,
 )
@@ -1635,6 +1719,19 @@ KinesisSettingsTypeDef = TypedDict(
         "IncludeControlDetails": bool,
         "IncludeNullAndEmpty": bool,
         "NoHexPrefix": bool,
+    },
+    total=False,
+)
+
+LimitationTypeDef = TypedDict(
+    "LimitationTypeDef",
+    {
+        "DatabaseId": str,
+        "EngineName": str,
+        "Name": str,
+        "Description": str,
+        "Impact": str,
+        "Type": str,
     },
     total=False,
 )
@@ -1674,6 +1771,8 @@ MicrosoftSQLServerSettingsTypeDef = TypedDict(
         "SecretsManagerAccessRoleArn": str,
         "SecretsManagerSecretId": str,
         "TrimSpaceInChar": bool,
+        "TlogAccessMode": TlogAccessModeType,
+        "ForceLobLookup": bool,
     },
     total=False,
 )
@@ -1993,6 +2092,7 @@ OracleSettingsTypeDef = TypedDict(
         "SecretsManagerOracleAsmAccessRoleArn": str,
         "SecretsManagerOracleAsmSecretId": str,
         "TrimSpaceInChar": bool,
+        "ConvertTimestampWithZoneToUTC": bool,
     },
     total=False,
 )
@@ -2008,7 +2108,7 @@ OrderableReplicationInstanceTypeDef = TypedDict(
         "DefaultAllocatedStorage": int,
         "IncludedAllocatedStorage": int,
         "AvailabilityZones": List[str],
-        "ReleaseStatus": Literal["beta"],
+        "ReleaseStatus": ReleaseStatusValuesType,
     },
     total=False,
 )
@@ -2058,6 +2158,44 @@ PostgreSQLSettingsTypeDef = TypedDict(
         "SecretsManagerAccessRoleArn": str,
         "SecretsManagerSecretId": str,
         "TrimSpaceInChar": bool,
+        "MapBooleanAsBoolean": bool,
+    },
+    total=False,
+)
+
+RdsConfigurationTypeDef = TypedDict(
+    "RdsConfigurationTypeDef",
+    {
+        "EngineEdition": str,
+        "InstanceType": str,
+        "InstanceVcpu": float,
+        "InstanceMemory": float,
+        "StorageType": str,
+        "StorageSize": int,
+        "StorageIops": int,
+        "DeploymentOption": str,
+    },
+    total=False,
+)
+
+RdsRecommendationTypeDef = TypedDict(
+    "RdsRecommendationTypeDef",
+    {
+        "RequirementsToTarget": "RdsRequirementsTypeDef",
+        "TargetConfiguration": "RdsConfigurationTypeDef",
+    },
+    total=False,
+)
+
+RdsRequirementsTypeDef = TypedDict(
+    "RdsRequirementsTypeDef",
+    {
+        "EngineEdition": str,
+        "InstanceVcpu": float,
+        "InstanceMemory": float,
+        "StorageSize": int,
+        "StorageIops": int,
+        "DeploymentOption": str,
     },
     total=False,
 )
@@ -2089,6 +2227,36 @@ RebootReplicationInstanceResponseTypeDef = TypedDict(
         "ReplicationInstance": "ReplicationInstanceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+RecommendationDataTypeDef = TypedDict(
+    "RecommendationDataTypeDef",
+    {
+        "RdsEngine": "RdsRecommendationTypeDef",
+    },
+    total=False,
+)
+
+RecommendationSettingsTypeDef = TypedDict(
+    "RecommendationSettingsTypeDef",
+    {
+        "InstanceSizingType": str,
+        "WorkloadType": str,
+    },
+)
+
+RecommendationTypeDef = TypedDict(
+    "RecommendationTypeDef",
+    {
+        "DatabaseId": str,
+        "EngineName": str,
+        "CreatedDate": str,
+        "Status": str,
+        "Preferred": bool,
+        "Settings": "RecommendationSettingsTypeDef",
+        "Data": "RecommendationDataTypeDef",
+    },
+    total=False,
 )
 
 _RequiredRedisSettingsTypeDef = TypedDict(
@@ -2146,6 +2314,7 @@ RedshiftSettingsTypeDef = TypedDict(
         "WriteBufferSize": int,
         "SecretsManagerAccessRoleArn": str,
         "SecretsManagerSecretId": str,
+        "MapBooleanAsBoolean": bool,
     },
     total=False,
 )
@@ -2451,6 +2620,7 @@ S3SettingsTypeDef = TypedDict(
         "DatePartitionTimezone": str,
         "AddTrailingPaddingCharacter": bool,
         "ExpectedBucketOwner": str,
+        "GlueCatalogGeneration": bool,
     },
     total=False,
 )
@@ -2491,6 +2661,22 @@ ServerShortInfoResponseTypeDef = TypedDict(
         "ServerName": str,
     },
     total=False,
+)
+
+StartRecommendationsRequestEntryTypeDef = TypedDict(
+    "StartRecommendationsRequestEntryTypeDef",
+    {
+        "DatabaseId": str,
+        "Settings": "RecommendationSettingsTypeDef",
+    },
+)
+
+StartRecommendationsRequestRequestTypeDef = TypedDict(
+    "StartRecommendationsRequestRequestTypeDef",
+    {
+        "DatabaseId": str,
+        "Settings": "RecommendationSettingsTypeDef",
+    },
 )
 
 StartReplicationTaskAssessmentMessageRequestTypeDef = TypedDict(

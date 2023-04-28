@@ -340,15 +340,10 @@ DescribeLogGroupsResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredDescribeLogStreamsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeLogStreamsRequestRequestTypeDef",
+DescribeLogStreamsRequestRequestTypeDef = TypedDict(
+    "DescribeLogStreamsRequestRequestTypeDef",
     {
         "logGroupName": str,
-    },
-)
-_OptionalDescribeLogStreamsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeLogStreamsRequestRequestTypeDef",
-    {
         "logGroupIdentifier": str,
         "logStreamNamePrefix": str,
         "orderBy": OrderByType,
@@ -358,12 +353,6 @@ _OptionalDescribeLogStreamsRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
-
-class DescribeLogStreamsRequestRequestTypeDef(
-    _RequiredDescribeLogStreamsRequestRequestTypeDef,
-    _OptionalDescribeLogStreamsRequestRequestTypeDef,
-):
-    pass
 
 DescribeLogStreamsResponseTypeDef = TypedDict(
     "DescribeLogStreamsResponseTypeDef",
@@ -538,15 +527,10 @@ ExportTaskTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredFilterLogEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredFilterLogEventsRequestRequestTypeDef",
+FilterLogEventsRequestRequestTypeDef = TypedDict(
+    "FilterLogEventsRequestRequestTypeDef",
     {
         "logGroupName": str,
-    },
-)
-_OptionalFilterLogEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalFilterLogEventsRequestRequestTypeDef",
-    {
         "logGroupIdentifier": str,
         "logStreamNames": List[str],
         "logStreamNamePrefix": str,
@@ -560,11 +544,6 @@ _OptionalFilterLogEventsRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
-
-class FilterLogEventsRequestRequestTypeDef(
-    _RequiredFilterLogEventsRequestRequestTypeDef, _OptionalFilterLogEventsRequestRequestTypeDef
-):
-    pass
 
 FilterLogEventsResponseTypeDef = TypedDict(
     "FilterLogEventsResponseTypeDef",
@@ -608,13 +587,13 @@ GetDataProtectionPolicyResponseTypeDef = TypedDict(
 _RequiredGetLogEventsRequestRequestTypeDef = TypedDict(
     "_RequiredGetLogEventsRequestRequestTypeDef",
     {
-        "logGroupName": str,
         "logStreamName": str,
     },
 )
 _OptionalGetLogEventsRequestRequestTypeDef = TypedDict(
     "_OptionalGetLogEventsRequestRequestTypeDef",
     {
+        "logGroupName": str,
         "logGroupIdentifier": str,
         "startTime": int,
         "endTime": int,
@@ -641,25 +620,15 @@ GetLogEventsResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredGetLogGroupFieldsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetLogGroupFieldsRequestRequestTypeDef",
+GetLogGroupFieldsRequestRequestTypeDef = TypedDict(
+    "GetLogGroupFieldsRequestRequestTypeDef",
     {
         "logGroupName": str,
-    },
-)
-_OptionalGetLogGroupFieldsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetLogGroupFieldsRequestRequestTypeDef",
-    {
         "time": int,
         "logGroupIdentifier": str,
     },
     total=False,
 )
-
-class GetLogGroupFieldsRequestRequestTypeDef(
-    _RequiredGetLogGroupFieldsRequestRequestTypeDef, _OptionalGetLogGroupFieldsRequestRequestTypeDef
-):
-    pass
 
 GetLogGroupFieldsResponseTypeDef = TypedDict(
     "GetLogGroupFieldsResponseTypeDef",

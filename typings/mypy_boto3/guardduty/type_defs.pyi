@@ -17,22 +17,34 @@ from typing import Any, Dict, List
 
 from .literals import (
     AdminStatusType,
+    AutoEnableMembersType,
+    CoverageFilterCriterionKeyType,
+    CoverageSortKeyType,
+    CoverageStatisticsTypeType,
+    CoverageStatusType,
     CriterionKeyType,
     DataSourceStatusType,
     DataSourceType,
+    DetectorFeatureResultType,
+    DetectorFeatureType,
     DetectorStatusType,
     EbsSnapshotPreservationType,
+    FeatureStatusType,
     FeedbackType,
     FilterActionType,
     FindingPublishingFrequencyType,
+    FreeTrialFeatureResultType,
     IpSetFormatType,
     IpSetStatusType,
     OrderByType,
+    OrgFeatureStatusType,
+    OrgFeatureType,
     PublishingStatusType,
     ScanResultType,
     ScanStatusType,
     ThreatIntelSetFormatType,
     ThreatIntelSetStatusType,
+    UsageFeatureType,
     UsageStatisticTypeType,
 )
 
@@ -54,6 +66,7 @@ __all__ = (
     "AccountFreeTrialInfoTypeDef",
     "AccountLevelPermissionsTypeDef",
     "ActionTypeDef",
+    "AddonDetailsTypeDef",
     "AdminAccountTypeDef",
     "AdministratorTypeDef",
     "ArchiveFindingsRequestRequestTypeDef",
@@ -66,6 +79,14 @@ __all__ = (
     "ConditionTypeDef",
     "ContainerTypeDef",
     "CountryTypeDef",
+    "CoverageEksClusterDetailsTypeDef",
+    "CoverageFilterConditionTypeDef",
+    "CoverageFilterCriteriaTypeDef",
+    "CoverageFilterCriterionTypeDef",
+    "CoverageResourceDetailsTypeDef",
+    "CoverageResourceTypeDef",
+    "CoverageSortCriteriaTypeDef",
+    "CoverageStatisticsTypeDef",
     "CreateDetectorRequestRequestTypeDef",
     "CreateDetectorResponseTypeDef",
     "CreateFilterRequestRequestTypeDef",
@@ -104,6 +125,10 @@ __all__ = (
     "DescribePublishingDestinationResponseTypeDef",
     "DestinationPropertiesTypeDef",
     "DestinationTypeDef",
+    "DetectorAdditionalConfigurationResultTypeDef",
+    "DetectorAdditionalConfigurationTypeDef",
+    "DetectorFeatureConfigurationResultTypeDef",
+    "DetectorFeatureConfigurationTypeDef",
     "DisableOrganizationAdminAccountRequestRequestTypeDef",
     "DisassociateFromAdministratorAccountRequestRequestTypeDef",
     "DisassociateFromMasterAccountRequestRequestTypeDef",
@@ -126,9 +151,12 @@ __all__ = (
     "FindingStatisticsTypeDef",
     "FindingTypeDef",
     "FlowLogsConfigurationResultTypeDef",
+    "FreeTrialFeatureConfigurationResultTypeDef",
     "GeoLocationTypeDef",
     "GetAdministratorAccountRequestRequestTypeDef",
     "GetAdministratorAccountResponseTypeDef",
+    "GetCoverageStatisticsRequestRequestTypeDef",
+    "GetCoverageStatisticsResponseTypeDef",
     "GetDetectorRequestRequestTypeDef",
     "GetDetectorResponseTypeDef",
     "GetFilterRequestRequestTypeDef",
@@ -170,6 +198,10 @@ __all__ = (
     "KubernetesDetailsTypeDef",
     "KubernetesUserDetailsTypeDef",
     "KubernetesWorkloadDetailsTypeDef",
+    "LambdaDetailsTypeDef",
+    "LineageObjectTypeDef",
+    "ListCoverageRequestRequestTypeDef",
+    "ListCoverageResponseTypeDef",
     "ListDetectorsRequestRequestTypeDef",
     "ListDetectorsResponseTypeDef",
     "ListFiltersRequestRequestTypeDef",
@@ -192,18 +224,27 @@ __all__ = (
     "ListThreatIntelSetsResponseTypeDef",
     "LocalIpDetailsTypeDef",
     "LocalPortDetailsTypeDef",
+    "LoginAttributeTypeDef",
     "MalwareProtectionConfigurationResultTypeDef",
     "MalwareProtectionConfigurationTypeDef",
     "MalwareProtectionDataSourceFreeTrialTypeDef",
     "MasterTypeDef",
+    "MemberAdditionalConfigurationResultTypeDef",
+    "MemberAdditionalConfigurationTypeDef",
     "MemberDataSourceConfigurationTypeDef",
+    "MemberFeaturesConfigurationResultTypeDef",
+    "MemberFeaturesConfigurationTypeDef",
     "MemberTypeDef",
     "NetworkConnectionActionTypeDef",
     "NetworkInterfaceTypeDef",
+    "OrganizationAdditionalConfigurationResultTypeDef",
+    "OrganizationAdditionalConfigurationTypeDef",
     "OrganizationDataSourceConfigurationsResultTypeDef",
     "OrganizationDataSourceConfigurationsTypeDef",
     "OrganizationEbsVolumesResultTypeDef",
     "OrganizationEbsVolumesTypeDef",
+    "OrganizationFeatureConfigurationResultTypeDef",
+    "OrganizationFeatureConfigurationTypeDef",
     "OrganizationKubernetesAuditLogsConfigurationResultTypeDef",
     "OrganizationKubernetesAuditLogsConfigurationTypeDef",
     "OrganizationKubernetesConfigurationResultTypeDef",
@@ -221,14 +262,20 @@ __all__ = (
     "PortProbeActionTypeDef",
     "PortProbeDetailTypeDef",
     "PrivateIpAddressDetailsTypeDef",
+    "ProcessDetailsTypeDef",
     "ProductCodeTypeDef",
     "PublicAccessTypeDef",
+    "RdsDbInstanceDetailsTypeDef",
+    "RdsDbUserDetailsTypeDef",
+    "RdsLoginAttemptActionTypeDef",
     "RemoteAccountDetailsTypeDef",
     "RemoteIpDetailsTypeDef",
     "RemotePortDetailsTypeDef",
     "ResourceDetailsTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
+    "RuntimeContextTypeDef",
+    "RuntimeDetailsTypeDef",
     "S3BucketDetailTypeDef",
     "S3LogsConfigurationResultTypeDef",
     "S3LogsConfigurationTypeDef",
@@ -277,11 +324,13 @@ __all__ = (
     "UsageAccountResultTypeDef",
     "UsageCriteriaTypeDef",
     "UsageDataSourceResultTypeDef",
+    "UsageFeatureResultTypeDef",
     "UsageResourceResultTypeDef",
     "UsageStatisticsTypeDef",
     "VolumeDetailTypeDef",
     "VolumeMountTypeDef",
     "VolumeTypeDef",
+    "VpcConfigTypeDef",
 )
 
 AcceptAdministratorInvitationRequestRequestTypeDef = TypedDict(
@@ -335,6 +384,7 @@ AccountFreeTrialInfoTypeDef = TypedDict(
     {
         "AccountId": str,
         "DataSources": "DataSourcesFreeTrialTypeDef",
+        "Features": List["FreeTrialFeatureConfigurationResultTypeDef"],
     },
     total=False,
 )
@@ -356,6 +406,16 @@ ActionTypeDef = TypedDict(
         "NetworkConnectionAction": "NetworkConnectionActionTypeDef",
         "PortProbeAction": "PortProbeActionTypeDef",
         "KubernetesApiCallAction": "KubernetesApiCallActionTypeDef",
+        "RdsLoginAttemptAction": "RdsLoginAttemptActionTypeDef",
+    },
+    total=False,
+)
+
+AddonDetailsTypeDef = TypedDict(
+    "AddonDetailsTypeDef",
+    {
+        "AddonVersion": str,
+        "AddonStatus": str,
     },
     total=False,
 )
@@ -491,6 +551,84 @@ CountryTypeDef = TypedDict(
     total=False,
 )
 
+CoverageEksClusterDetailsTypeDef = TypedDict(
+    "CoverageEksClusterDetailsTypeDef",
+    {
+        "ClusterName": str,
+        "CoveredNodes": int,
+        "CompatibleNodes": int,
+        "AddonDetails": "AddonDetailsTypeDef",
+    },
+    total=False,
+)
+
+CoverageFilterConditionTypeDef = TypedDict(
+    "CoverageFilterConditionTypeDef",
+    {
+        "Equals": List[str],
+        "NotEquals": List[str],
+    },
+    total=False,
+)
+
+CoverageFilterCriteriaTypeDef = TypedDict(
+    "CoverageFilterCriteriaTypeDef",
+    {
+        "FilterCriterion": List["CoverageFilterCriterionTypeDef"],
+    },
+    total=False,
+)
+
+CoverageFilterCriterionTypeDef = TypedDict(
+    "CoverageFilterCriterionTypeDef",
+    {
+        "CriterionKey": CoverageFilterCriterionKeyType,
+        "FilterCondition": "CoverageFilterConditionTypeDef",
+    },
+    total=False,
+)
+
+CoverageResourceDetailsTypeDef = TypedDict(
+    "CoverageResourceDetailsTypeDef",
+    {
+        "EksClusterDetails": "CoverageEksClusterDetailsTypeDef",
+        "ResourceType": Literal["EKS"],
+    },
+    total=False,
+)
+
+CoverageResourceTypeDef = TypedDict(
+    "CoverageResourceTypeDef",
+    {
+        "ResourceId": str,
+        "DetectorId": str,
+        "AccountId": str,
+        "ResourceDetails": "CoverageResourceDetailsTypeDef",
+        "CoverageStatus": CoverageStatusType,
+        "Issue": str,
+        "UpdatedAt": datetime,
+    },
+    total=False,
+)
+
+CoverageSortCriteriaTypeDef = TypedDict(
+    "CoverageSortCriteriaTypeDef",
+    {
+        "AttributeName": CoverageSortKeyType,
+        "OrderBy": OrderByType,
+    },
+    total=False,
+)
+
+CoverageStatisticsTypeDef = TypedDict(
+    "CoverageStatisticsTypeDef",
+    {
+        "CountByResourceType": Dict[Literal["EKS"], int],
+        "CountByCoverageStatus": Dict[CoverageStatusType, int],
+    },
+    total=False,
+)
+
 _RequiredCreateDetectorRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDetectorRequestRequestTypeDef",
     {
@@ -504,6 +642,7 @@ _OptionalCreateDetectorRequestRequestTypeDef = TypedDict(
         "FindingPublishingFrequency": FindingPublishingFrequencyType,
         "DataSources": "DataSourceConfigurationsTypeDef",
         "Tags": Dict[str, str],
+        "Features": List["DetectorFeatureConfigurationTypeDef"],
     },
     total=False,
 )
@@ -873,12 +1012,26 @@ DescribeMalwareScansResponseTypeDef = TypedDict(
     },
 )
 
-DescribeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeOrganizationConfigurationRequestRequestTypeDef",
+_RequiredDescribeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeOrganizationConfigurationRequestRequestTypeDef",
     {
         "DetectorId": str,
     },
 )
+_OptionalDescribeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeOrganizationConfigurationRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeOrganizationConfigurationRequestRequestTypeDef(
+    _RequiredDescribeOrganizationConfigurationRequestRequestTypeDef,
+    _OptionalDescribeOrganizationConfigurationRequestRequestTypeDef,
+):
+    pass
 
 DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
     "DescribeOrganizationConfigurationResponseTypeDef",
@@ -886,6 +1039,9 @@ DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
         "AutoEnable": bool,
         "MemberAccountLimitReached": bool,
         "DataSources": "OrganizationDataSourceConfigurationsResultTypeDef",
+        "Features": List["OrganizationFeatureConfigurationResultTypeDef"],
+        "NextToken": str,
+        "AutoEnableOrganizationMembers": AutoEnableMembersType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -926,6 +1082,46 @@ DestinationTypeDef = TypedDict(
         "DestinationType": Literal["S3"],
         "Status": PublishingStatusType,
     },
+)
+
+DetectorAdditionalConfigurationResultTypeDef = TypedDict(
+    "DetectorAdditionalConfigurationResultTypeDef",
+    {
+        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Status": FeatureStatusType,
+        "UpdatedAt": datetime,
+    },
+    total=False,
+)
+
+DetectorAdditionalConfigurationTypeDef = TypedDict(
+    "DetectorAdditionalConfigurationTypeDef",
+    {
+        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Status": FeatureStatusType,
+    },
+    total=False,
+)
+
+DetectorFeatureConfigurationResultTypeDef = TypedDict(
+    "DetectorFeatureConfigurationResultTypeDef",
+    {
+        "Name": DetectorFeatureResultType,
+        "Status": FeatureStatusType,
+        "UpdatedAt": datetime,
+        "AdditionalConfiguration": List["DetectorAdditionalConfigurationResultTypeDef"],
+    },
+    total=False,
+)
+
+DetectorFeatureConfigurationTypeDef = TypedDict(
+    "DetectorFeatureConfigurationTypeDef",
+    {
+        "Name": DetectorFeatureType,
+        "Status": FeatureStatusType,
+        "AdditionalConfiguration": List["DetectorAdditionalConfigurationTypeDef"],
+    },
+    total=False,
 )
 
 DisableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
@@ -1154,6 +1350,15 @@ FlowLogsConfigurationResultTypeDef = TypedDict(
     },
 )
 
+FreeTrialFeatureConfigurationResultTypeDef = TypedDict(
+    "FreeTrialFeatureConfigurationResultTypeDef",
+    {
+        "Name": FreeTrialFeatureResultType,
+        "FreeTrialDaysRemaining": int,
+    },
+    total=False,
+)
+
 GeoLocationTypeDef = TypedDict(
     "GeoLocationTypeDef",
     {
@@ -1178,6 +1383,35 @@ GetAdministratorAccountResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetCoverageStatisticsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCoverageStatisticsRequestRequestTypeDef",
+    {
+        "DetectorId": str,
+        "StatisticsType": List[CoverageStatisticsTypeType],
+    },
+)
+_OptionalGetCoverageStatisticsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCoverageStatisticsRequestRequestTypeDef",
+    {
+        "FilterCriteria": "CoverageFilterCriteriaTypeDef",
+    },
+    total=False,
+)
+
+class GetCoverageStatisticsRequestRequestTypeDef(
+    _RequiredGetCoverageStatisticsRequestRequestTypeDef,
+    _OptionalGetCoverageStatisticsRequestRequestTypeDef,
+):
+    pass
+
+GetCoverageStatisticsResponseTypeDef = TypedDict(
+    "GetCoverageStatisticsResponseTypeDef",
+    {
+        "CoverageStatistics": "CoverageStatisticsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetDetectorRequestRequestTypeDef = TypedDict(
     "GetDetectorRequestRequestTypeDef",
     {
@@ -1195,6 +1429,7 @@ GetDetectorResponseTypeDef = TypedDict(
         "UpdatedAt": str,
         "DataSources": "DataSourceConfigurationsResultTypeDef",
         "Tags": Dict[str, str],
+        "Features": List["DetectorFeatureConfigurationResultTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1622,6 +1857,69 @@ KubernetesWorkloadDetailsTypeDef = TypedDict(
     total=False,
 )
 
+LambdaDetailsTypeDef = TypedDict(
+    "LambdaDetailsTypeDef",
+    {
+        "FunctionArn": str,
+        "FunctionName": str,
+        "Description": str,
+        "LastModifiedAt": datetime,
+        "RevisionId": str,
+        "FunctionVersion": str,
+        "Role": str,
+        "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+LineageObjectTypeDef = TypedDict(
+    "LineageObjectTypeDef",
+    {
+        "StartTime": datetime,
+        "NamespacePid": int,
+        "UserId": int,
+        "Name": str,
+        "Pid": int,
+        "Uuid": str,
+        "ExecutablePath": str,
+        "Euid": int,
+        "ParentUuid": str,
+    },
+    total=False,
+)
+
+_RequiredListCoverageRequestRequestTypeDef = TypedDict(
+    "_RequiredListCoverageRequestRequestTypeDef",
+    {
+        "DetectorId": str,
+    },
+)
+_OptionalListCoverageRequestRequestTypeDef = TypedDict(
+    "_OptionalListCoverageRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "FilterCriteria": "CoverageFilterCriteriaTypeDef",
+        "SortCriteria": "CoverageSortCriteriaTypeDef",
+    },
+    total=False,
+)
+
+class ListCoverageRequestRequestTypeDef(
+    _RequiredListCoverageRequestRequestTypeDef, _OptionalListCoverageRequestRequestTypeDef
+):
+    pass
+
+ListCoverageResponseTypeDef = TypedDict(
+    "ListCoverageResponseTypeDef",
+    {
+        "Resources": List["CoverageResourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListDetectorsRequestRequestTypeDef = TypedDict(
     "ListDetectorsRequestRequestTypeDef",
     {
@@ -1887,6 +2185,17 @@ LocalPortDetailsTypeDef = TypedDict(
     total=False,
 )
 
+LoginAttributeTypeDef = TypedDict(
+    "LoginAttributeTypeDef",
+    {
+        "User": str,
+        "Application": str,
+        "FailedLoginAttempts": int,
+        "SuccessfulLoginAttempts": int,
+    },
+    total=False,
+)
+
 MalwareProtectionConfigurationResultTypeDef = TypedDict(
     "MalwareProtectionConfigurationResultTypeDef",
     {
@@ -1923,12 +2232,64 @@ MasterTypeDef = TypedDict(
     total=False,
 )
 
-MemberDataSourceConfigurationTypeDef = TypedDict(
-    "MemberDataSourceConfigurationTypeDef",
+MemberAdditionalConfigurationResultTypeDef = TypedDict(
+    "MemberAdditionalConfigurationResultTypeDef",
+    {
+        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Status": FeatureStatusType,
+        "UpdatedAt": datetime,
+    },
+    total=False,
+)
+
+MemberAdditionalConfigurationTypeDef = TypedDict(
+    "MemberAdditionalConfigurationTypeDef",
+    {
+        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Status": FeatureStatusType,
+    },
+    total=False,
+)
+
+_RequiredMemberDataSourceConfigurationTypeDef = TypedDict(
+    "_RequiredMemberDataSourceConfigurationTypeDef",
     {
         "AccountId": str,
-        "DataSources": "DataSourceConfigurationsResultTypeDef",
     },
+)
+_OptionalMemberDataSourceConfigurationTypeDef = TypedDict(
+    "_OptionalMemberDataSourceConfigurationTypeDef",
+    {
+        "DataSources": "DataSourceConfigurationsResultTypeDef",
+        "Features": List["MemberFeaturesConfigurationResultTypeDef"],
+    },
+    total=False,
+)
+
+class MemberDataSourceConfigurationTypeDef(
+    _RequiredMemberDataSourceConfigurationTypeDef, _OptionalMemberDataSourceConfigurationTypeDef
+):
+    pass
+
+MemberFeaturesConfigurationResultTypeDef = TypedDict(
+    "MemberFeaturesConfigurationResultTypeDef",
+    {
+        "Name": OrgFeatureType,
+        "Status": FeatureStatusType,
+        "UpdatedAt": datetime,
+        "AdditionalConfiguration": List["MemberAdditionalConfigurationResultTypeDef"],
+    },
+    total=False,
+)
+
+MemberFeaturesConfigurationTypeDef = TypedDict(
+    "MemberFeaturesConfigurationTypeDef",
+    {
+        "Name": OrgFeatureType,
+        "Status": FeatureStatusType,
+        "AdditionalConfiguration": List["MemberAdditionalConfigurationTypeDef"],
+    },
+    total=False,
 )
 
 _RequiredMemberTypeDef = TypedDict(
@@ -1985,6 +2346,24 @@ NetworkInterfaceTypeDef = TypedDict(
     total=False,
 )
 
+OrganizationAdditionalConfigurationResultTypeDef = TypedDict(
+    "OrganizationAdditionalConfigurationResultTypeDef",
+    {
+        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "AutoEnable": OrgFeatureStatusType,
+    },
+    total=False,
+)
+
+OrganizationAdditionalConfigurationTypeDef = TypedDict(
+    "OrganizationAdditionalConfigurationTypeDef",
+    {
+        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "AutoEnable": OrgFeatureStatusType,
+    },
+    total=False,
+)
+
 _RequiredOrganizationDataSourceConfigurationsResultTypeDef = TypedDict(
     "_RequiredOrganizationDataSourceConfigurationsResultTypeDef",
     {
@@ -2028,6 +2407,26 @@ OrganizationEbsVolumesTypeDef = TypedDict(
     "OrganizationEbsVolumesTypeDef",
     {
         "AutoEnable": bool,
+    },
+    total=False,
+)
+
+OrganizationFeatureConfigurationResultTypeDef = TypedDict(
+    "OrganizationFeatureConfigurationResultTypeDef",
+    {
+        "Name": OrgFeatureType,
+        "AutoEnable": OrgFeatureStatusType,
+        "AdditionalConfiguration": List["OrganizationAdditionalConfigurationResultTypeDef"],
+    },
+    total=False,
+)
+
+OrganizationFeatureConfigurationTypeDef = TypedDict(
+    "OrganizationFeatureConfigurationTypeDef",
+    {
+        "Name": OrgFeatureType,
+        "AutoEnable": OrgFeatureStatusType,
+        "AdditionalConfiguration": List["OrganizationAdditionalConfigurationTypeDef"],
     },
     total=False,
 )
@@ -2172,6 +2571,26 @@ PrivateIpAddressDetailsTypeDef = TypedDict(
     total=False,
 )
 
+ProcessDetailsTypeDef = TypedDict(
+    "ProcessDetailsTypeDef",
+    {
+        "Name": str,
+        "ExecutablePath": str,
+        "ExecutableSha256": str,
+        "NamespacePid": int,
+        "Pwd": str,
+        "Pid": int,
+        "StartTime": datetime,
+        "Uuid": str,
+        "ParentUuid": str,
+        "User": str,
+        "UserId": int,
+        "Euid": int,
+        "Lineage": List["LineageObjectTypeDef"],
+    },
+    total=False,
+)
+
 ProductCodeTypeDef = TypedDict(
     "ProductCodeTypeDef",
     {
@@ -2186,6 +2605,40 @@ PublicAccessTypeDef = TypedDict(
     {
         "PermissionConfiguration": "PermissionConfigurationTypeDef",
         "EffectivePermission": str,
+    },
+    total=False,
+)
+
+RdsDbInstanceDetailsTypeDef = TypedDict(
+    "RdsDbInstanceDetailsTypeDef",
+    {
+        "DbInstanceIdentifier": str,
+        "Engine": str,
+        "EngineVersion": str,
+        "DbClusterIdentifier": str,
+        "DbInstanceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+RdsDbUserDetailsTypeDef = TypedDict(
+    "RdsDbUserDetailsTypeDef",
+    {
+        "User": str,
+        "Application": str,
+        "Database": str,
+        "Ssl": str,
+        "AuthMethod": str,
+    },
+    total=False,
+)
+
+RdsLoginAttemptActionTypeDef = TypedDict(
+    "RdsLoginAttemptActionTypeDef",
+    {
+        "RemoteIpDetails": "RemoteIpDetailsTypeDef",
+        "LoginAttributes": List["LoginAttributeTypeDef"],
     },
     total=False,
 )
@@ -2240,6 +2693,9 @@ ResourceTypeDef = TypedDict(
         "EbsVolumeDetails": "EbsVolumeDetailsTypeDef",
         "EcsClusterDetails": "EcsClusterDetailsTypeDef",
         "ContainerDetails": "ContainerTypeDef",
+        "RdsDbInstanceDetails": "RdsDbInstanceDetailsTypeDef",
+        "RdsDbUserDetails": "RdsDbUserDetailsTypeDef",
+        "LambdaDetails": "LambdaDetailsTypeDef",
     },
     total=False,
 )
@@ -2253,6 +2709,42 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RuntimeContextTypeDef = TypedDict(
+    "RuntimeContextTypeDef",
+    {
+        "ModifyingProcess": "ProcessDetailsTypeDef",
+        "ModifiedAt": datetime,
+        "ScriptPath": str,
+        "LibraryPath": str,
+        "LdPreloadValue": str,
+        "SocketPath": str,
+        "RuncBinaryPath": str,
+        "ReleaseAgentPath": str,
+        "MountSource": str,
+        "MountTarget": str,
+        "FileSystemType": str,
+        "Flags": List[str],
+        "ModuleName": str,
+        "ModuleFilePath": str,
+        "ModuleSha256": str,
+        "ShellHistoryFilePath": str,
+        "TargetProcess": "ProcessDetailsTypeDef",
+        "AddressFamily": str,
+        "IanaProtocolNumber": int,
+        "MemoryRegions": List[str],
+    },
+    total=False,
+)
+
+RuntimeDetailsTypeDef = TypedDict(
+    "RuntimeDetailsTypeDef",
+    {
+        "Process": "ProcessDetailsTypeDef",
+        "Context": "RuntimeContextTypeDef",
+    },
+    total=False,
 )
 
 S3BucketDetailTypeDef = TypedDict(
@@ -2449,6 +2941,7 @@ ServiceTypeDef = TypedDict(
         "AdditionalInfo": "ServiceAdditionalInfoTypeDef",
         "FeatureName": str,
         "EbsVolumeScanDetails": "EbsVolumeScanDetailsTypeDef",
+        "RuntimeDetails": "RuntimeDetailsTypeDef",
     },
     total=False,
 )
@@ -2601,6 +3094,7 @@ _OptionalUpdateDetectorRequestRequestTypeDef = TypedDict(
         "Enable": bool,
         "FindingPublishingFrequency": FindingPublishingFrequencyType,
         "DataSources": "DataSourceConfigurationsTypeDef",
+        "Features": List["DetectorFeatureConfigurationTypeDef"],
     },
     total=False,
 )
@@ -2717,6 +3211,7 @@ _OptionalUpdateMemberDetectorsRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateMemberDetectorsRequestRequestTypeDef",
     {
         "DataSources": "DataSourceConfigurationsTypeDef",
+        "Features": List["MemberFeaturesConfigurationTypeDef"],
     },
     total=False,
 )
@@ -2739,13 +3234,15 @@ _RequiredUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef",
     {
         "DetectorId": str,
-        "AutoEnable": bool,
     },
 )
 _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef",
     {
+        "AutoEnable": bool,
         "DataSources": "OrganizationDataSourceConfigurationsTypeDef",
+        "Features": List["OrganizationFeatureConfigurationTypeDef"],
+        "AutoEnableOrganizationMembers": AutoEnableMembersType,
     },
     total=False,
 )
@@ -2809,28 +3306,30 @@ UsageAccountResultTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredUsageCriteriaTypeDef = TypedDict(
-    "_RequiredUsageCriteriaTypeDef",
-    {
-        "DataSources": List[DataSourceType],
-    },
-)
-_OptionalUsageCriteriaTypeDef = TypedDict(
-    "_OptionalUsageCriteriaTypeDef",
+UsageCriteriaTypeDef = TypedDict(
+    "UsageCriteriaTypeDef",
     {
         "AccountIds": List[str],
+        "DataSources": List[DataSourceType],
         "Resources": List[str],
+        "Features": List[UsageFeatureType],
     },
     total=False,
 )
-
-class UsageCriteriaTypeDef(_RequiredUsageCriteriaTypeDef, _OptionalUsageCriteriaTypeDef):
-    pass
 
 UsageDataSourceResultTypeDef = TypedDict(
     "UsageDataSourceResultTypeDef",
     {
         "DataSource": DataSourceType,
+        "Total": "TotalTypeDef",
+    },
+    total=False,
+)
+
+UsageFeatureResultTypeDef = TypedDict(
+    "UsageFeatureResultTypeDef",
+    {
+        "Feature": UsageFeatureType,
         "Total": "TotalTypeDef",
     },
     total=False,
@@ -2852,6 +3351,7 @@ UsageStatisticsTypeDef = TypedDict(
         "SumByDataSource": List["UsageDataSourceResultTypeDef"],
         "SumByResource": List["UsageResourceResultTypeDef"],
         "TopResources": List["UsageResourceResultTypeDef"],
+        "SumByFeature": List["UsageFeatureResultTypeDef"],
     },
     total=False,
 )
@@ -2884,6 +3384,16 @@ VolumeTypeDef = TypedDict(
     {
         "Name": str,
         "HostPath": "HostPathTypeDef",
+    },
+    total=False,
+)
+
+VpcConfigTypeDef = TypedDict(
+    "VpcConfigTypeDef",
+    {
+        "SubnetIds": List[str],
+        "VpcId": str,
+        "SecurityGroups": List["SecurityGroupTypeDef"],
     },
     total=False,
 )

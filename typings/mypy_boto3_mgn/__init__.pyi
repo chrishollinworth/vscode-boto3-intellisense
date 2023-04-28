@@ -14,6 +14,10 @@ Usage::
         DescribeSourceServersPaginator,
         DescribeVcenterClientsPaginator,
         ListApplicationsPaginator,
+        ListExportErrorsPaginator,
+        ListExportsPaginator,
+        ListImportErrorsPaginator,
+        ListImportsPaginator,
         ListSourceServerActionsPaginator,
         ListTemplateActionsPaginator,
         ListWavesPaginator,
@@ -32,6 +36,10 @@ Usage::
     describe_source_servers_paginator: DescribeSourceServersPaginator = client.get_paginator("describe_source_servers")
     describe_vcenter_clients_paginator: DescribeVcenterClientsPaginator = client.get_paginator("describe_vcenter_clients")
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
+    list_export_errors_paginator: ListExportErrorsPaginator = client.get_paginator("list_export_errors")
+    list_exports_paginator: ListExportsPaginator = client.get_paginator("list_exports")
+    list_import_errors_paginator: ListImportErrorsPaginator = client.get_paginator("list_import_errors")
+    list_imports_paginator: ListImportsPaginator = client.get_paginator("list_imports")
     list_source_server_actions_paginator: ListSourceServerActionsPaginator = client.get_paginator("list_source_server_actions")
     list_template_actions_paginator: ListTemplateActionsPaginator = client.get_paginator("list_template_actions")
     list_waves_paginator: ListWavesPaginator = client.get_paginator("list_waves")
@@ -46,6 +54,10 @@ from .paginator import (
     DescribeSourceServersPaginator,
     DescribeVcenterClientsPaginator,
     ListApplicationsPaginator,
+    ListExportErrorsPaginator,
+    ListExportsPaginator,
+    ListImportErrorsPaginator,
+    ListImportsPaginator,
     ListSourceServerActionsPaginator,
     ListTemplateActionsPaginator,
     ListWavesPaginator,
@@ -62,6 +74,10 @@ __all__ = (
     "DescribeSourceServersPaginator",
     "DescribeVcenterClientsPaginator",
     "ListApplicationsPaginator",
+    "ListExportErrorsPaginator",
+    "ListExportsPaginator",
+    "ListImportErrorsPaginator",
+    "ListImportsPaginator",
     "ListSourceServerActionsPaginator",
     "ListTemplateActionsPaginator",
     "ListWavesPaginator",

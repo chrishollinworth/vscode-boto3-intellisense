@@ -26,12 +26,12 @@ __all__ = ("CertificateValidatedWaiter",)
 
 class CertificateValidatedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/acm.html#ACM.Waiter.CertificateValidated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/acm.html#ACM.Waiter.CertificateValidated)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm/waiters.html#certificatevalidatedwaiter)
     """
 
     def wait(self, *, CertificateArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/acm.html#ACM.Waiter.CertificateValidated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/acm.html#ACM.Waiter.CertificateValidated.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm/waiters.html#certificatevalidatedwaiter)
         """

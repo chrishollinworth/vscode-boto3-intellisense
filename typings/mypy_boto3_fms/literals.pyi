@@ -21,10 +21,13 @@ else:
 __all__ = (
     "AccountRoleStatusType",
     "CustomerPolicyScopeIdTypeType",
+    "CustomerPolicyStatusType",
     "DependentServiceNameType",
     "DestinationTypeType",
     "FailedItemReasonType",
     "FirewallDeploymentModelType",
+    "ListAdminAccountsForOrganizationPaginatorName",
+    "ListAdminsManagingAccountPaginatorName",
     "ListAppsListsPaginatorName",
     "ListComplianceStatusPaginatorName",
     "ListMemberAccountsPaginatorName",
@@ -33,8 +36,10 @@ __all__ = (
     "ListThirdPartyFirewallFirewallPoliciesPaginatorName",
     "MarketplaceSubscriptionOnboardingStatusType",
     "NetworkFirewallOverrideActionType",
+    "OrganizationStatusType",
     "PolicyComplianceStatusTypeType",
     "RemediationActionTypeType",
+    "ResourceSetStatusType",
     "RuleOrderType",
     "SecurityServiceTypeType",
     "TargetTypeType",
@@ -45,6 +50,7 @@ __all__ = (
 
 AccountRoleStatusType = Literal["CREATING", "DELETED", "DELETING", "PENDING_DELETION", "READY"]
 CustomerPolicyScopeIdTypeType = Literal["ACCOUNT", "ORG_UNIT"]
+CustomerPolicyStatusType = Literal["ACTIVE", "OUT_OF_ADMIN_SCOPE"]
 DependentServiceNameType = Literal["AWSCONFIG", "AWSSHIELD_ADVANCED", "AWSVPC", "AWSWAF"]
 DestinationTypeType = Literal["IPV4", "IPV6", "PREFIX_LIST"]
 FailedItemReasonType = Literal[
@@ -56,6 +62,8 @@ FailedItemReasonType = Literal[
     "NOT_VALID_SERVICE",
 ]
 FirewallDeploymentModelType = Literal["CENTRALIZED", "DISTRIBUTED"]
+ListAdminAccountsForOrganizationPaginatorName = Literal["list_admin_accounts_for_organization"]
+ListAdminsManagingAccountPaginatorName = Literal["list_admins_managing_account"]
 ListAppsListsPaginatorName = Literal["list_apps_lists"]
 ListComplianceStatusPaginatorName = Literal["list_compliance_status"]
 ListMemberAccountsPaginatorName = Literal["list_member_accounts"]
@@ -66,8 +74,12 @@ ListThirdPartyFirewallFirewallPoliciesPaginatorName = Literal[
 ]
 MarketplaceSubscriptionOnboardingStatusType = Literal["COMPLETE", "NOT_COMPLETE", "NO_SUBSCRIPTION"]
 NetworkFirewallOverrideActionType = Literal["DROP_TO_ALERT"]
+OrganizationStatusType = Literal[
+    "OFFBOARDING", "OFFBOARDING_COMPLETE", "ONBOARDING", "ONBOARDING_COMPLETE"
+]
 PolicyComplianceStatusTypeType = Literal["COMPLIANT", "NON_COMPLIANT"]
 RemediationActionTypeType = Literal["MODIFY", "REMOVE"]
+ResourceSetStatusType = Literal["ACTIVE", "OUT_OF_ADMIN_SCOPE"]
 RuleOrderType = Literal["DEFAULT_ACTION_ORDER", "STRICT_ORDER"]
 SecurityServiceTypeType = Literal[
     "DNS_FIREWALL",

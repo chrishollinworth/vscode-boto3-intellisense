@@ -20,10 +20,12 @@ else:
 
 __all__ = (
     "AdminStatusType",
+    "AssociationStatusType",
     "AutoEnableStandardsType",
     "AwsIamAccessKeyStatusType",
     "AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType",
     "ComplianceStatusType",
+    "ControlFindingGeneratorType",
     "ControlStatusType",
     "DateRangeUnitType",
     "DescribeActionTargetsPaginatorName",
@@ -39,12 +41,15 @@ __all__ = (
     "ListInvitationsPaginatorName",
     "ListMembersPaginatorName",
     "ListOrganizationAdminAccountsPaginatorName",
+    "ListSecurityControlDefinitionsPaginatorName",
+    "ListStandardsControlAssociationsPaginatorName",
     "MalwareStateType",
     "MalwareTypeType",
     "MapFilterComparisonType",
     "NetworkDirectionType",
     "PartitionType",
     "RecordStateType",
+    "RegionAvailabilityStatusType",
     "SeverityLabelType",
     "SeverityRatingType",
     "SortOrderType",
@@ -53,6 +58,7 @@ __all__ = (
     "StringFilterComparisonType",
     "ThreatIntelIndicatorCategoryType",
     "ThreatIntelIndicatorTypeType",
+    "UnprocessedErrorCodeType",
     "VerificationStateType",
     "VulnerabilityFixAvailableType",
     "WorkflowStateType",
@@ -60,10 +66,12 @@ __all__ = (
 )
 
 AdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
+AssociationStatusType = Literal["DISABLED", "ENABLED"]
 AutoEnableStandardsType = Literal["DEFAULT", "NONE"]
 AwsIamAccessKeyStatusType = Literal["Active", "Inactive"]
 AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType = Literal["Prefix", "Suffix"]
 ComplianceStatusType = Literal["FAILED", "NOT_AVAILABLE", "PASSED", "WARNING"]
+ControlFindingGeneratorType = Literal["SECURITY_CONTROL", "STANDARD_CONTROL"]
 ControlStatusType = Literal["DISABLED", "ENABLED"]
 DateRangeUnitType = Literal["DAYS"]
 DescribeActionTargetsPaginatorName = Literal["describe_action_targets"]
@@ -83,6 +91,8 @@ ListFindingAggregatorsPaginatorName = Literal["list_finding_aggregators"]
 ListInvitationsPaginatorName = Literal["list_invitations"]
 ListMembersPaginatorName = Literal["list_members"]
 ListOrganizationAdminAccountsPaginatorName = Literal["list_organization_admin_accounts"]
+ListSecurityControlDefinitionsPaginatorName = Literal["list_security_control_definitions"]
+ListStandardsControlAssociationsPaginatorName = Literal["list_standards_control_associations"]
 MalwareStateType = Literal["OBSERVED", "REMOVAL_FAILED", "REMOVED"]
 MalwareTypeType = Literal[
     "ADWARE",
@@ -105,6 +115,7 @@ MapFilterComparisonType = Literal["EQUALS", "NOT_EQUALS"]
 NetworkDirectionType = Literal["IN", "OUT"]
 PartitionType = Literal["aws", "aws-cn", "aws-us-gov"]
 RecordStateType = Literal["ACTIVE", "ARCHIVED"]
+RegionAvailabilityStatusType = Literal["AVAILABLE", "UNAVAILABLE"]
 SeverityLabelType = Literal["CRITICAL", "HIGH", "INFORMATIONAL", "LOW", "MEDIUM"]
 SeverityRatingType = Literal["CRITICAL", "HIGH", "LOW", "MEDIUM"]
 SortOrderType = Literal["asc", "desc"]
@@ -127,6 +138,7 @@ ThreatIntelIndicatorTypeType = Literal[
     "PROCESS",
     "URL",
 ]
+UnprocessedErrorCodeType = Literal["ACCESS_DENIED", "INVALID_INPUT", "LIMIT_EXCEEDED", "NOT_FOUND"]
 VerificationStateType = Literal["BENIGN_POSITIVE", "FALSE_POSITIVE", "TRUE_POSITIVE", "UNKNOWN"]
 VulnerabilityFixAvailableType = Literal["NO", "PARTIAL", "YES"]
 WorkflowStateType = Literal["ASSIGNED", "DEFERRED", "IN_PROGRESS", "NEW", "RESOLVED"]

@@ -6,9 +6,9 @@ Type annotations for datasync service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_datasync.type_defs import AgentListEntryTypeDef
+    from mypy_boto3_datasync.type_defs import AddStorageSystemRequestRequestTypeDef
 
-    data: AgentListEntryTypeDef = {...}
+    data: AddStorageSystemRequestRequestTypeDef = {...}
     ```
 """
 import sys
@@ -20,6 +20,8 @@ from botocore.response import StreamingBody
 from .literals import (
     AgentStatusType,
     AtimeType,
+    DiscoveryJobStatusType,
+    DiscoveryResourceTypeType,
     EfsInTransitEncryptionType,
     EndpointTypeType,
     GidType,
@@ -38,9 +40,11 @@ from .literals import (
     PosixPermissionsType,
     PreserveDeletedFilesType,
     PreserveDevicesType,
+    RecommendationStatusType,
     S3StorageClassType,
     SmbSecurityDescriptorCopyFlagsType,
     SmbVersionType,
+    StorageSystemConnectivityStatusType,
     TaskExecutionStatusType,
     TaskFilterNameType,
     TaskQueueingType,
@@ -60,8 +64,11 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AddStorageSystemRequestRequestTypeDef",
+    "AddStorageSystemResponseTypeDef",
     "AgentListEntryTypeDef",
     "CancelTaskExecutionRequestRequestTypeDef",
+    "CapacityTypeDef",
     "CreateAgentRequestRequestTypeDef",
     "CreateAgentResponseTypeDef",
     "CreateLocationEfsRequestRequestTypeDef",
@@ -86,11 +93,14 @@ __all__ = (
     "CreateLocationSmbResponseTypeDef",
     "CreateTaskRequestRequestTypeDef",
     "CreateTaskResponseTypeDef",
+    "CredentialsTypeDef",
     "DeleteAgentRequestRequestTypeDef",
     "DeleteLocationRequestRequestTypeDef",
     "DeleteTaskRequestRequestTypeDef",
     "DescribeAgentRequestRequestTypeDef",
     "DescribeAgentResponseTypeDef",
+    "DescribeDiscoveryJobRequestRequestTypeDef",
+    "DescribeDiscoveryJobResponseTypeDef",
     "DescribeLocationEfsRequestRequestTypeDef",
     "DescribeLocationEfsResponseTypeDef",
     "DescribeLocationFsxLustreRequestRequestTypeDef",
@@ -111,20 +121,35 @@ __all__ = (
     "DescribeLocationS3ResponseTypeDef",
     "DescribeLocationSmbRequestRequestTypeDef",
     "DescribeLocationSmbResponseTypeDef",
+    "DescribeStorageSystemRequestRequestTypeDef",
+    "DescribeStorageSystemResourceMetricsRequestRequestTypeDef",
+    "DescribeStorageSystemResourceMetricsResponseTypeDef",
+    "DescribeStorageSystemResourcesRequestRequestTypeDef",
+    "DescribeStorageSystemResourcesResponseTypeDef",
+    "DescribeStorageSystemResponseTypeDef",
     "DescribeTaskExecutionRequestRequestTypeDef",
     "DescribeTaskExecutionResponseTypeDef",
     "DescribeTaskRequestRequestTypeDef",
     "DescribeTaskResponseTypeDef",
+    "DiscoveryJobListEntryTypeDef",
+    "DiscoveryServerConfigurationTypeDef",
     "Ec2ConfigTypeDef",
     "FilterRuleTypeDef",
     "FsxProtocolNfsTypeDef",
     "FsxProtocolSmbTypeDef",
     "FsxProtocolTypeDef",
+    "GenerateRecommendationsRequestRequestTypeDef",
     "HdfsNameNodeTypeDef",
+    "IOPSTypeDef",
+    "LatencyTypeDef",
     "ListAgentsRequestRequestTypeDef",
     "ListAgentsResponseTypeDef",
+    "ListDiscoveryJobsRequestRequestTypeDef",
+    "ListDiscoveryJobsResponseTypeDef",
     "ListLocationsRequestRequestTypeDef",
     "ListLocationsResponseTypeDef",
+    "ListStorageSystemsRequestRequestTypeDef",
+    "ListStorageSystemsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListTaskExecutionsRequestRequestTypeDef",
@@ -133,17 +158,30 @@ __all__ = (
     "ListTasksResponseTypeDef",
     "LocationFilterTypeDef",
     "LocationListEntryTypeDef",
+    "MaxP95PerformanceTypeDef",
+    "NetAppONTAPClusterTypeDef",
+    "NetAppONTAPSVMTypeDef",
+    "NetAppONTAPVolumeTypeDef",
     "NfsMountOptionsTypeDef",
     "OnPremConfigTypeDef",
     "OptionsTypeDef",
+    "P95MetricsTypeDef",
     "PaginatorConfigTypeDef",
     "PrivateLinkConfigTypeDef",
     "QopConfigurationTypeDef",
+    "RecommendationTypeDef",
+    "RemoveStorageSystemRequestRequestTypeDef",
+    "ResourceDetailsTypeDef",
+    "ResourceMetricsTypeDef",
     "ResponseMetadataTypeDef",
     "S3ConfigTypeDef",
     "SmbMountOptionsTypeDef",
+    "StartDiscoveryJobRequestRequestTypeDef",
+    "StartDiscoveryJobResponseTypeDef",
     "StartTaskExecutionRequestRequestTypeDef",
     "StartTaskExecutionResponseTypeDef",
+    "StopDiscoveryJobRequestRequestTypeDef",
+    "StorageSystemListEntryTypeDef",
     "TagListEntryTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TaskExecutionListEntryTypeDef",
@@ -151,14 +189,50 @@ __all__ = (
     "TaskFilterTypeDef",
     "TaskListEntryTypeDef",
     "TaskScheduleTypeDef",
+    "ThroughputTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateAgentRequestRequestTypeDef",
+    "UpdateDiscoveryJobRequestRequestTypeDef",
     "UpdateLocationHdfsRequestRequestTypeDef",
     "UpdateLocationNfsRequestRequestTypeDef",
     "UpdateLocationObjectStorageRequestRequestTypeDef",
     "UpdateLocationSmbRequestRequestTypeDef",
+    "UpdateStorageSystemRequestRequestTypeDef",
     "UpdateTaskExecutionRequestRequestTypeDef",
     "UpdateTaskRequestRequestTypeDef",
+)
+
+_RequiredAddStorageSystemRequestRequestTypeDef = TypedDict(
+    "_RequiredAddStorageSystemRequestRequestTypeDef",
+    {
+        "ServerConfiguration": "DiscoveryServerConfigurationTypeDef",
+        "SystemType": Literal["NetAppONTAP"],
+        "AgentArns": List[str],
+        "ClientToken": str,
+        "Credentials": "CredentialsTypeDef",
+    },
+)
+_OptionalAddStorageSystemRequestRequestTypeDef = TypedDict(
+    "_OptionalAddStorageSystemRequestRequestTypeDef",
+    {
+        "CloudWatchLogGroupArn": str,
+        "Tags": List["TagListEntryTypeDef"],
+        "Name": str,
+    },
+    total=False,
+)
+
+class AddStorageSystemRequestRequestTypeDef(
+    _RequiredAddStorageSystemRequestRequestTypeDef, _OptionalAddStorageSystemRequestRequestTypeDef
+):
+    pass
+
+AddStorageSystemResponseTypeDef = TypedDict(
+    "AddStorageSystemResponseTypeDef",
+    {
+        "StorageSystemArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 AgentListEntryTypeDef = TypedDict(
@@ -176,6 +250,16 @@ CancelTaskExecutionRequestRequestTypeDef = TypedDict(
     {
         "TaskExecutionArn": str,
     },
+)
+
+CapacityTypeDef = TypedDict(
+    "CapacityTypeDef",
+    {
+        "Used": int,
+        "Provisioned": int,
+        "LogicalUsed": int,
+    },
+    total=False,
 )
 
 _RequiredCreateAgentRequestRequestTypeDef = TypedDict(
@@ -569,6 +653,14 @@ CreateTaskResponseTypeDef = TypedDict(
     },
 )
 
+CredentialsTypeDef = TypedDict(
+    "CredentialsTypeDef",
+    {
+        "Username": str,
+        "Password": str,
+    },
+)
+
 DeleteAgentRequestRequestTypeDef = TypedDict(
     "DeleteAgentRequestRequestTypeDef",
     {
@@ -607,6 +699,26 @@ DescribeAgentResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "EndpointType": EndpointTypeType,
         "PrivateLinkConfig": "PrivateLinkConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDiscoveryJobRequestRequestTypeDef = TypedDict(
+    "DescribeDiscoveryJobRequestRequestTypeDef",
+    {
+        "DiscoveryJobArn": str,
+    },
+)
+
+DescribeDiscoveryJobResponseTypeDef = TypedDict(
+    "DescribeDiscoveryJobResponseTypeDef",
+    {
+        "StorageSystemArn": str,
+        "DiscoveryJobArn": str,
+        "CollectionDurationMinutes": int,
+        "Status": DiscoveryJobStatusType,
+        "JobStartTime": datetime,
+        "JobEndTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -818,6 +930,97 @@ DescribeLocationSmbResponseTypeDef = TypedDict(
     },
 )
 
+DescribeStorageSystemRequestRequestTypeDef = TypedDict(
+    "DescribeStorageSystemRequestRequestTypeDef",
+    {
+        "StorageSystemArn": str,
+    },
+)
+
+_RequiredDescribeStorageSystemResourceMetricsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeStorageSystemResourceMetricsRequestRequestTypeDef",
+    {
+        "DiscoveryJobArn": str,
+        "ResourceType": DiscoveryResourceTypeType,
+        "ResourceId": str,
+    },
+)
+_OptionalDescribeStorageSystemResourceMetricsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeStorageSystemResourceMetricsRequestRequestTypeDef",
+    {
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeStorageSystemResourceMetricsRequestRequestTypeDef(
+    _RequiredDescribeStorageSystemResourceMetricsRequestRequestTypeDef,
+    _OptionalDescribeStorageSystemResourceMetricsRequestRequestTypeDef,
+):
+    pass
+
+DescribeStorageSystemResourceMetricsResponseTypeDef = TypedDict(
+    "DescribeStorageSystemResourceMetricsResponseTypeDef",
+    {
+        "Metrics": List["ResourceMetricsTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeStorageSystemResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeStorageSystemResourcesRequestRequestTypeDef",
+    {
+        "DiscoveryJobArn": str,
+        "ResourceType": DiscoveryResourceTypeType,
+    },
+)
+_OptionalDescribeStorageSystemResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeStorageSystemResourcesRequestRequestTypeDef",
+    {
+        "ResourceIds": List[str],
+        "Filter": Dict[Literal["SVM"], List[str]],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeStorageSystemResourcesRequestRequestTypeDef(
+    _RequiredDescribeStorageSystemResourcesRequestRequestTypeDef,
+    _OptionalDescribeStorageSystemResourcesRequestRequestTypeDef,
+):
+    pass
+
+DescribeStorageSystemResourcesResponseTypeDef = TypedDict(
+    "DescribeStorageSystemResourcesResponseTypeDef",
+    {
+        "ResourceDetails": "ResourceDetailsTypeDef",
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeStorageSystemResponseTypeDef = TypedDict(
+    "DescribeStorageSystemResponseTypeDef",
+    {
+        "StorageSystemArn": str,
+        "ServerConfiguration": "DiscoveryServerConfigurationTypeDef",
+        "SystemType": Literal["NetAppONTAP"],
+        "AgentArns": List[str],
+        "Name": str,
+        "ErrorMessage": str,
+        "ConnectivityStatus": StorageSystemConnectivityStatusType,
+        "CloudWatchLogGroupArn": str,
+        "CreationTime": datetime,
+        "SecretsManagerArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeTaskExecutionRequestRequestTypeDef = TypedDict(
     "DescribeTaskExecutionRequestRequestTypeDef",
     {
@@ -875,6 +1078,34 @@ DescribeTaskResponseTypeDef = TypedDict(
     },
 )
 
+DiscoveryJobListEntryTypeDef = TypedDict(
+    "DiscoveryJobListEntryTypeDef",
+    {
+        "DiscoveryJobArn": str,
+        "Status": DiscoveryJobStatusType,
+    },
+    total=False,
+)
+
+_RequiredDiscoveryServerConfigurationTypeDef = TypedDict(
+    "_RequiredDiscoveryServerConfigurationTypeDef",
+    {
+        "ServerHostname": str,
+    },
+)
+_OptionalDiscoveryServerConfigurationTypeDef = TypedDict(
+    "_OptionalDiscoveryServerConfigurationTypeDef",
+    {
+        "ServerPort": int,
+    },
+    total=False,
+)
+
+class DiscoveryServerConfigurationTypeDef(
+    _RequiredDiscoveryServerConfigurationTypeDef, _OptionalDiscoveryServerConfigurationTypeDef
+):
+    pass
+
 Ec2ConfigTypeDef = TypedDict(
     "Ec2ConfigTypeDef",
     {
@@ -928,12 +1159,42 @@ FsxProtocolTypeDef = TypedDict(
     total=False,
 )
 
+GenerateRecommendationsRequestRequestTypeDef = TypedDict(
+    "GenerateRecommendationsRequestRequestTypeDef",
+    {
+        "DiscoveryJobArn": str,
+        "ResourceIds": List[str],
+        "ResourceType": DiscoveryResourceTypeType,
+    },
+)
+
 HdfsNameNodeTypeDef = TypedDict(
     "HdfsNameNodeTypeDef",
     {
         "Hostname": str,
         "Port": int,
     },
+)
+
+IOPSTypeDef = TypedDict(
+    "IOPSTypeDef",
+    {
+        "Read": float,
+        "Write": float,
+        "Other": float,
+        "Total": float,
+    },
+    total=False,
+)
+
+LatencyTypeDef = TypedDict(
+    "LatencyTypeDef",
+    {
+        "Read": float,
+        "Write": float,
+        "Other": float,
+    },
+    total=False,
 )
 
 ListAgentsRequestRequestTypeDef = TypedDict(
@@ -954,6 +1215,25 @@ ListAgentsResponseTypeDef = TypedDict(
     },
 )
 
+ListDiscoveryJobsRequestRequestTypeDef = TypedDict(
+    "ListDiscoveryJobsRequestRequestTypeDef",
+    {
+        "StorageSystemArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListDiscoveryJobsResponseTypeDef = TypedDict(
+    "ListDiscoveryJobsResponseTypeDef",
+    {
+        "DiscoveryJobs": List["DiscoveryJobListEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListLocationsRequestRequestTypeDef = TypedDict(
     "ListLocationsRequestRequestTypeDef",
     {
@@ -968,6 +1248,24 @@ ListLocationsResponseTypeDef = TypedDict(
     "ListLocationsResponseTypeDef",
     {
         "Locations": List["LocationListEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListStorageSystemsRequestRequestTypeDef = TypedDict(
+    "ListStorageSystemsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListStorageSystemsResponseTypeDef = TypedDict(
+    "ListStorageSystemsResponseTypeDef",
+    {
+        "StorageSystems": List["StorageSystemListEntryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1059,6 +1357,82 @@ LocationListEntryTypeDef = TypedDict(
     total=False,
 )
 
+MaxP95PerformanceTypeDef = TypedDict(
+    "MaxP95PerformanceTypeDef",
+    {
+        "IopsRead": float,
+        "IopsWrite": float,
+        "IopsOther": float,
+        "IopsTotal": float,
+        "ThroughputRead": float,
+        "ThroughputWrite": float,
+        "ThroughputOther": float,
+        "ThroughputTotal": float,
+        "LatencyRead": float,
+        "LatencyWrite": float,
+        "LatencyOther": float,
+    },
+    total=False,
+)
+
+NetAppONTAPClusterTypeDef = TypedDict(
+    "NetAppONTAPClusterTypeDef",
+    {
+        "CifsShareCount": int,
+        "NfsExportedVolumes": int,
+        "ResourceId": str,
+        "ClusterName": str,
+        "MaxP95Performance": "MaxP95PerformanceTypeDef",
+        "ClusterBlockStorageSize": int,
+        "ClusterBlockStorageUsed": int,
+        "ClusterBlockStorageLogicalUsed": int,
+        "Recommendations": List["RecommendationTypeDef"],
+        "RecommendationStatus": RecommendationStatusType,
+    },
+    total=False,
+)
+
+NetAppONTAPSVMTypeDef = TypedDict(
+    "NetAppONTAPSVMTypeDef",
+    {
+        "ClusterUuid": str,
+        "ResourceId": str,
+        "SvmName": str,
+        "CifsShareCount": int,
+        "EnabledProtocols": List[str],
+        "TotalCapacityUsed": int,
+        "TotalCapacityProvisioned": int,
+        "TotalLogicalCapacityUsed": int,
+        "MaxP95Performance": "MaxP95PerformanceTypeDef",
+        "Recommendations": List["RecommendationTypeDef"],
+        "NfsExportedVolumes": int,
+        "RecommendationStatus": RecommendationStatusType,
+        "TotalSnapshotCapacityUsed": int,
+    },
+    total=False,
+)
+
+NetAppONTAPVolumeTypeDef = TypedDict(
+    "NetAppONTAPVolumeTypeDef",
+    {
+        "VolumeName": str,
+        "ResourceId": str,
+        "CifsShareCount": int,
+        "SecurityStyle": str,
+        "SvmUuid": str,
+        "SvmName": str,
+        "CapacityUsed": int,
+        "CapacityProvisioned": int,
+        "LogicalCapacityUsed": int,
+        "NfsExported": bool,
+        "SnapshotCapacityUsed": int,
+        "MaxP95Performance": "MaxP95PerformanceTypeDef",
+        "Recommendations": List["RecommendationTypeDef"],
+        "RecommendationStatus": RecommendationStatusType,
+    },
+    total=False,
+)
+
 NfsMountOptionsTypeDef = TypedDict(
     "NfsMountOptionsTypeDef",
     {
@@ -1096,6 +1470,16 @@ OptionsTypeDef = TypedDict(
     total=False,
 )
 
+P95MetricsTypeDef = TypedDict(
+    "P95MetricsTypeDef",
+    {
+        "IOPS": "IOPSTypeDef",
+        "Throughput": "ThroughputTypeDef",
+        "Latency": "LatencyTypeDef",
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -1126,6 +1510,45 @@ QopConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+RecommendationTypeDef = TypedDict(
+    "RecommendationTypeDef",
+    {
+        "StorageType": str,
+        "StorageConfiguration": Dict[str, str],
+        "EstimatedMonthlyStorageCost": str,
+    },
+    total=False,
+)
+
+RemoveStorageSystemRequestRequestTypeDef = TypedDict(
+    "RemoveStorageSystemRequestRequestTypeDef",
+    {
+        "StorageSystemArn": str,
+    },
+)
+
+ResourceDetailsTypeDef = TypedDict(
+    "ResourceDetailsTypeDef",
+    {
+        "NetAppONTAPSVMs": List["NetAppONTAPSVMTypeDef"],
+        "NetAppONTAPVolumes": List["NetAppONTAPVolumeTypeDef"],
+        "NetAppONTAPClusters": List["NetAppONTAPClusterTypeDef"],
+    },
+    total=False,
+)
+
+ResourceMetricsTypeDef = TypedDict(
+    "ResourceMetricsTypeDef",
+    {
+        "Timestamp": datetime,
+        "P95Metrics": "P95MetricsTypeDef",
+        "Capacity": "CapacityTypeDef",
+        "ResourceId": str,
+        "ResourceType": DiscoveryResourceTypeType,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1150,6 +1573,35 @@ SmbMountOptionsTypeDef = TypedDict(
         "Version": SmbVersionType,
     },
     total=False,
+)
+
+_RequiredStartDiscoveryJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartDiscoveryJobRequestRequestTypeDef",
+    {
+        "StorageSystemArn": str,
+        "CollectionDurationMinutes": int,
+        "ClientToken": str,
+    },
+)
+_OptionalStartDiscoveryJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartDiscoveryJobRequestRequestTypeDef",
+    {
+        "Tags": List["TagListEntryTypeDef"],
+    },
+    total=False,
+)
+
+class StartDiscoveryJobRequestRequestTypeDef(
+    _RequiredStartDiscoveryJobRequestRequestTypeDef, _OptionalStartDiscoveryJobRequestRequestTypeDef
+):
+    pass
+
+StartDiscoveryJobResponseTypeDef = TypedDict(
+    "StartDiscoveryJobResponseTypeDef",
+    {
+        "DiscoveryJobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredStartTaskExecutionRequestRequestTypeDef = TypedDict(
@@ -1181,6 +1633,22 @@ StartTaskExecutionResponseTypeDef = TypedDict(
         "TaskExecutionArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+StopDiscoveryJobRequestRequestTypeDef = TypedDict(
+    "StopDiscoveryJobRequestRequestTypeDef",
+    {
+        "DiscoveryJobArn": str,
+    },
+)
+
+StorageSystemListEntryTypeDef = TypedDict(
+    "StorageSystemListEntryTypeDef",
+    {
+        "StorageSystemArn": str,
+        "Name": str,
+    },
+    total=False,
 )
 
 _RequiredTagListEntryTypeDef = TypedDict(
@@ -1259,6 +1727,17 @@ TaskScheduleTypeDef = TypedDict(
     },
 )
 
+ThroughputTypeDef = TypedDict(
+    "ThroughputTypeDef",
+    {
+        "Read": float,
+        "Write": float,
+        "Other": float,
+        "Total": float,
+    },
+    total=False,
+)
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -1285,6 +1764,14 @@ class UpdateAgentRequestRequestTypeDef(
     _RequiredUpdateAgentRequestRequestTypeDef, _OptionalUpdateAgentRequestRequestTypeDef
 ):
     pass
+
+UpdateDiscoveryJobRequestRequestTypeDef = TypedDict(
+    "UpdateDiscoveryJobRequestRequestTypeDef",
+    {
+        "DiscoveryJobArn": str,
+        "CollectionDurationMinutes": int,
+    },
+)
 
 _RequiredUpdateLocationHdfsRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateLocationHdfsRequestRequestTypeDef",
@@ -1385,6 +1872,30 @@ _OptionalUpdateLocationSmbRequestRequestTypeDef = TypedDict(
 
 class UpdateLocationSmbRequestRequestTypeDef(
     _RequiredUpdateLocationSmbRequestRequestTypeDef, _OptionalUpdateLocationSmbRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateStorageSystemRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateStorageSystemRequestRequestTypeDef",
+    {
+        "StorageSystemArn": str,
+    },
+)
+_OptionalUpdateStorageSystemRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateStorageSystemRequestRequestTypeDef",
+    {
+        "ServerConfiguration": "DiscoveryServerConfigurationTypeDef",
+        "AgentArns": List[str],
+        "Name": str,
+        "CloudWatchLogGroupArn": str,
+        "Credentials": "CredentialsTypeDef",
+    },
+    total=False,
+)
+
+class UpdateStorageSystemRequestRequestTypeDef(
+    _RequiredUpdateStorageSystemRequestRequestTypeDef,
+    _OptionalUpdateStorageSystemRequestRequestTypeDef,
 ):
     pass
 

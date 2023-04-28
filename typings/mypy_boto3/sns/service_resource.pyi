@@ -43,7 +43,7 @@ __all__ = (
 
 class ServiceResourcePlatformApplicationsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.platform_applications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.platform_applications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#serviceresourceplatformapplicationscollection)
     """
 
@@ -76,7 +76,7 @@ class ServiceResourcePlatformApplicationsCollection(ResourceCollection):
 
 class ServiceResourceSubscriptionsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.subscriptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.subscriptions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#serviceresourcesubscriptionscollection)
     """
 
@@ -109,7 +109,7 @@ class ServiceResourceSubscriptionsCollection(ResourceCollection):
 
 class ServiceResourceTopicsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.topics)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.topics)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#serviceresourcetopicscollection)
     """
 
@@ -140,7 +140,7 @@ class ServiceResourceTopicsCollection(ResourceCollection):
 
 class PlatformApplicationEndpointsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformApplication.endpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformApplication.endpoints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformapplicationendpointscollection)
     """
 
@@ -173,7 +173,7 @@ class PlatformApplicationEndpointsCollection(ResourceCollection):
 
 class TopicSubscriptionsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.subscriptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.subscriptions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicsubscriptionscollection)
     """
 
@@ -204,7 +204,7 @@ class TopicSubscriptionsCollection(ResourceCollection):
 
 class PlatformEndpoint(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.PlatformEndpoint)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.PlatformEndpoint)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformendpoint)
     """
 
@@ -215,14 +215,14 @@ class PlatformEndpoint(Boto3ServiceResource):
         """
         Deletes the endpoint for a device and mobile app from Amazon SNS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformEndpoint.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformEndpoint.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformendpointdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformEndpoint.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformEndpoint.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformendpointget_available_subresources-method)
         """
     def load(self) -> None:
@@ -230,7 +230,7 @@ class PlatformEndpoint(Boto3ServiceResource):
         Calls :py:meth:`SNS.Client.get_endpoint_attributes` to update the attributes of
         the PlatformEndpoint resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformEndpoint.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformEndpoint.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformendpointload-method)
         """
     def publish(
@@ -248,9 +248,9 @@ class PlatformEndpoint(Boto3ServiceResource):
         """
         Sends a message to an Amazon SNS topic, a text message (SMS message) directly to
         a phone number, or a message to a mobile platform endpoint (when you specify the
-        `TargetArn` ).
+        `TargetArn`).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformEndpoint.publish)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformEndpoint.publish)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformendpointpublish-method)
         """
     def reload(self) -> None:
@@ -258,7 +258,7 @@ class PlatformEndpoint(Boto3ServiceResource):
         Calls :py:meth:`SNS.Client.get_endpoint_attributes` to update the attributes of
         the PlatformEndpoint resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformEndpoint.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformEndpoint.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformendpointreload-method)
         """
     def set_attributes(self, *, Attributes: Dict[str, str]) -> None:
@@ -266,7 +266,7 @@ class PlatformEndpoint(Boto3ServiceResource):
         Sets the attributes for an endpoint for a device on one of the supported push
         notification services, such as GCM (Firebase Cloud Messaging) and APNS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformEndpoint.set_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformEndpoint.set_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformendpointset_attributes-method)
         """
 
@@ -274,7 +274,7 @@ _PlatformEndpoint = PlatformEndpoint
 
 class Subscription(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.Subscription)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.Subscription)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#subscription)
     """
 
@@ -285,14 +285,14 @@ class Subscription(Boto3ServiceResource):
         """
         Deletes a subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Subscription.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Subscription.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#subscriptiondelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Subscription.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Subscription.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#subscriptionget_available_subresources-method)
         """
     def load(self) -> None:
@@ -300,7 +300,7 @@ class Subscription(Boto3ServiceResource):
         Calls :py:meth:`SNS.Client.get_subscription_attributes` to update the attributes
         of the Subscription resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Subscription.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Subscription.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#subscriptionload-method)
         """
     def reload(self) -> None:
@@ -308,7 +308,7 @@ class Subscription(Boto3ServiceResource):
         Calls :py:meth:`SNS.Client.get_subscription_attributes` to update the attributes
         of the Subscription resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Subscription.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Subscription.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#subscriptionreload-method)
         """
     def set_attributes(self, *, AttributeName: str, AttributeValue: str = None) -> None:
@@ -316,7 +316,7 @@ class Subscription(Boto3ServiceResource):
         Allows a subscription owner to set an attribute of the subscription to a new
         value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Subscription.set_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Subscription.set_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#subscriptionset_attributes-method)
         """
 
@@ -324,7 +324,7 @@ _Subscription = Subscription
 
 class PlatformApplication(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.PlatformApplication)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.PlatformApplication)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformapplication)
     """
 
@@ -339,7 +339,7 @@ class PlatformApplication(Boto3ServiceResource):
         Creates an endpoint for a device and mobile app on one of the supported push
         notification services, such as GCM (Firebase Cloud Messaging) and APNS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformApplication.create_platform_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformApplication.create_platform_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformapplicationcreate_platform_endpoint-method)
         """
     def delete(self) -> None:
@@ -347,14 +347,14 @@ class PlatformApplication(Boto3ServiceResource):
         Deletes a platform application object for one of the supported push notification
         services, such as APNS and GCM (Firebase Cloud Messaging).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformApplication.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformApplication.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformapplicationdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformApplication.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformApplication.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformapplicationget_available_subresources-method)
         """
     def load(self) -> None:
@@ -362,7 +362,7 @@ class PlatformApplication(Boto3ServiceResource):
         Calls :py:meth:`SNS.Client.get_platform_application_attributes` to update the
         attributes of the PlatformApplication resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformApplication.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformApplication.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformapplicationload-method)
         """
     def reload(self) -> None:
@@ -370,7 +370,7 @@ class PlatformApplication(Boto3ServiceResource):
         Calls :py:meth:`SNS.Client.get_platform_application_attributes` to update the
         attributes of the PlatformApplication resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformApplication.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformApplication.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformapplicationreload-method)
         """
     def set_attributes(self, *, Attributes: Dict[str, str]) -> None:
@@ -378,7 +378,7 @@ class PlatformApplication(Boto3ServiceResource):
         Sets the attributes of the platform application object for the supported push
         notification services, such as APNS and GCM (Firebase Cloud Messaging).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.PlatformApplication.set_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.PlatformApplication.set_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#platformapplicationset_attributes-method)
         """
 
@@ -386,7 +386,7 @@ _PlatformApplication = PlatformApplication
 
 class Topic(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.Topic)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.Topic)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topic)
     """
 
@@ -399,7 +399,7 @@ class Topic(Boto3ServiceResource):
         Adds a statement to a topic's access control policy, granting access for the
         specified Amazon Web Services accounts to the specified actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.add_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.add_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicadd_permission-method)
         """
     def confirm_subscription(
@@ -409,21 +409,21 @@ class Topic(Boto3ServiceResource):
         Verifies an endpoint owner's intent to receive messages by validating the token
         sent to the endpoint by an earlier `Subscribe` action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.confirm_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.confirm_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicconfirm_subscription-method)
         """
     def delete(self) -> None:
         """
         Deletes a topic and all its subscriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicget_available_subresources-method)
         """
     def load(self) -> None:
@@ -431,7 +431,7 @@ class Topic(Boto3ServiceResource):
         Calls :py:meth:`SNS.Client.get_topic_attributes` to update the attributes of the
         Topic resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicload-method)
         """
     def publish(
@@ -449,9 +449,9 @@ class Topic(Boto3ServiceResource):
         """
         Sends a message to an Amazon SNS topic, a text message (SMS message) directly to
         a phone number, or a message to a mobile platform endpoint (when you specify the
-        `TargetArn` ).
+        `TargetArn`).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.publish)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.publish)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicpublish-method)
         """
     def reload(self) -> None:
@@ -459,21 +459,21 @@ class Topic(Boto3ServiceResource):
         Calls :py:meth:`SNS.Client.get_topic_attributes` to update the attributes of the
         Topic resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicreload-method)
         """
     def remove_permission(self, *, Label: str) -> None:
         """
         Removes a statement from a topic's access control policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.remove_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.remove_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicremove_permission-method)
         """
     def set_attributes(self, *, AttributeName: str, AttributeValue: str = None) -> None:
         """
         Allows a topic owner to set an attribute of the topic to a new value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.set_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.set_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicset_attributes-method)
         """
     def subscribe(
@@ -487,7 +487,7 @@ class Topic(Boto3ServiceResource):
         """
         Subscribes an endpoint to an Amazon SNS topic.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.Topic.subscribe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.Topic.subscribe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#topicsubscribe-method)
         """
 
@@ -498,7 +498,7 @@ class SNSResourceMeta(ResourceMeta):
 
 class SNSServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html)
     """
 
@@ -511,28 +511,28 @@ class SNSServiceResource(Boto3ServiceResource):
         """
         Creates a PlatformApplication resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.PlatformApplication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.PlatformApplication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#snsserviceresourceplatformapplication-method)
         """
     def PlatformEndpoint(self, arn: str) -> _PlatformEndpoint:
         """
         Creates a PlatformEndpoint resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.PlatformEndpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.PlatformEndpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#snsserviceresourceplatformendpoint-method)
         """
     def Subscription(self, arn: str) -> _Subscription:
         """
         Creates a Subscription resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.Subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.Subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#snsserviceresourcesubscription-method)
         """
     def Topic(self, arn: str) -> _Topic:
         """
         Creates a Topic resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.Topic)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.Topic)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#snsserviceresourcetopic-method)
         """
     def create_platform_application(
@@ -543,7 +543,7 @@ class SNSServiceResource(Boto3ServiceResource):
         services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and
         mobile apps may register.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.create_platform_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.create_platform_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#snsserviceresourcecreate_platform_application-method)
         """
     def create_topic(
@@ -557,13 +557,13 @@ class SNSServiceResource(Boto3ServiceResource):
         """
         Creates a topic to which notifications can be published.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.create_topic)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.create_topic)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#snsserviceresourcecreate_topic-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/sns.html#SNS.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/sns.html#SNS.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/service_resource.html#snsserviceresourceget_available_subresources-method)
         """

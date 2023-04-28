@@ -43,12 +43,16 @@ __all__ = (
     "CancelQueryRequestRequestTypeDef",
     "CancelQueryResponseTypeDef",
     "ChannelTypeDef",
+    "CreateChannelRequestRequestTypeDef",
+    "CreateChannelResponseTypeDef",
     "CreateEventDataStoreRequestRequestTypeDef",
     "CreateEventDataStoreResponseTypeDef",
     "CreateTrailRequestRequestTypeDef",
     "CreateTrailResponseTypeDef",
     "DataResourceTypeDef",
+    "DeleteChannelRequestRequestTypeDef",
     "DeleteEventDataStoreRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestRequestTypeDef",
     "DeleteTrailRequestRequestTypeDef",
     "DeregisterOrganizationDelegatedAdminRequestRequestTypeDef",
     "DescribeQueryRequestRequestTypeDef",
@@ -71,6 +75,8 @@ __all__ = (
     "GetInsightSelectorsResponseTypeDef",
     "GetQueryResultsRequestRequestTypeDef",
     "GetQueryResultsResponseTypeDef",
+    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourcePolicyResponseTypeDef",
     "GetTrailRequestRequestTypeDef",
     "GetTrailResponseTypeDef",
     "GetTrailStatusRequestRequestTypeDef",
@@ -79,6 +85,7 @@ __all__ = (
     "ImportSourceTypeDef",
     "ImportStatisticsTypeDef",
     "ImportsListItemTypeDef",
+    "IngestionStatusTypeDef",
     "InsightSelectorTypeDef",
     "ListChannelsRequestRequestTypeDef",
     "ListChannelsResponseTypeDef",
@@ -105,6 +112,8 @@ __all__ = (
     "PutEventSelectorsResponseTypeDef",
     "PutInsightSelectorsRequestRequestTypeDef",
     "PutInsightSelectorsResponseTypeDef",
+    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyResponseTypeDef",
     "QueryStatisticsForDescribeQueryTypeDef",
     "QueryStatisticsTypeDef",
     "QueryTypeDef",
@@ -128,6 +137,8 @@ __all__ = (
     "TagTypeDef",
     "TrailInfoTypeDef",
     "TrailTypeDef",
+    "UpdateChannelRequestRequestTypeDef",
+    "UpdateChannelResponseTypeDef",
     "UpdateEventDataStoreRequestRequestTypeDef",
     "UpdateEventDataStoreResponseTypeDef",
     "UpdateTrailRequestRequestTypeDef",
@@ -220,6 +231,39 @@ ChannelTypeDef = TypedDict(
         "Name": str,
     },
     total=False,
+)
+
+_RequiredCreateChannelRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateChannelRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Source": str,
+        "Destinations": List["DestinationTypeDef"],
+    },
+)
+_OptionalCreateChannelRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateChannelRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateChannelRequestRequestTypeDef(
+    _RequiredCreateChannelRequestRequestTypeDef, _OptionalCreateChannelRequestRequestTypeDef
+):
+    pass
+
+CreateChannelResponseTypeDef = TypedDict(
+    "CreateChannelResponseTypeDef",
+    {
+        "ChannelArn": str,
+        "Name": str,
+        "Source": str,
+        "Destinations": List["DestinationTypeDef"],
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredCreateEventDataStoreRequestRequestTypeDef = TypedDict(
@@ -325,10 +369,24 @@ DataResourceTypeDef = TypedDict(
     total=False,
 )
 
+DeleteChannelRequestRequestTypeDef = TypedDict(
+    "DeleteChannelRequestRequestTypeDef",
+    {
+        "Channel": str,
+    },
+)
+
 DeleteEventDataStoreRequestRequestTypeDef = TypedDict(
     "DeleteEventDataStoreRequestRequestTypeDef",
     {
         "EventDataStore": str,
+    },
+)
+
+DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
+    "DeleteResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
     },
 )
 
@@ -463,6 +521,7 @@ GetChannelResponseTypeDef = TypedDict(
         "Source": str,
         "SourceConfig": "SourceConfigTypeDef",
         "Destinations": List["DestinationTypeDef"],
+        "IngestionStatus": "IngestionStatusTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -581,6 +640,22 @@ GetQueryResultsResponseTypeDef = TypedDict(
     },
 )
 
+GetResourcePolicyRequestRequestTypeDef = TypedDict(
+    "GetResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+GetResourcePolicyResponseTypeDef = TypedDict(
+    "GetResourcePolicyResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourcePolicy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetTrailRequestRequestTypeDef = TypedDict(
     "GetTrailRequestRequestTypeDef",
     {
@@ -666,6 +741,18 @@ ImportsListItemTypeDef = TypedDict(
         "Destinations": List[str],
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+IngestionStatusTypeDef = TypedDict(
+    "IngestionStatusTypeDef",
+    {
+        "LatestIngestionSuccessTime": datetime,
+        "LatestIngestionSuccessEventID": str,
+        "LatestIngestionErrorCode": str,
+        "LatestIngestionAttemptTime": datetime,
+        "LatestIngestionAttemptEventID": str,
     },
     total=False,
 )
@@ -958,6 +1045,23 @@ PutInsightSelectorsResponseTypeDef = TypedDict(
     },
 )
 
+PutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "PutResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourcePolicy": str,
+    },
+)
+
+PutResourcePolicyResponseTypeDef = TypedDict(
+    "PutResourcePolicyResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourcePolicy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 QueryStatisticsForDescribeQueryTypeDef = TypedDict(
     "QueryStatisticsForDescribeQueryTypeDef",
     {
@@ -1216,6 +1320,37 @@ TrailTypeDef = TypedDict(
         "IsOrganizationTrail": bool,
     },
     total=False,
+)
+
+_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateChannelRequestRequestTypeDef",
+    {
+        "Channel": str,
+    },
+)
+_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateChannelRequestRequestTypeDef",
+    {
+        "Destinations": List["DestinationTypeDef"],
+        "Name": str,
+    },
+    total=False,
+)
+
+class UpdateChannelRequestRequestTypeDef(
+    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
+):
+    pass
+
+UpdateChannelResponseTypeDef = TypedDict(
+    "UpdateChannelResponseTypeDef",
+    {
+        "ChannelArn": str,
+        "Name": str,
+        "Source": str,
+        "Destinations": List["DestinationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredUpdateEventDataStoreRequestRequestTypeDef = TypedDict(

@@ -132,7 +132,7 @@ class Exceptions:
 
 class IoTFleetWiseClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html)
     """
 
@@ -147,7 +147,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Adds, or associates, a vehicle with a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.associate_vehicle_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.associate_vehicle_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#associate_vehicle_fleet)
         """
     def batch_create_vehicle(
@@ -156,7 +156,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Creates a group, or batch, of vehicles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.batch_create_vehicle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.batch_create_vehicle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#batch_create_vehicle)
         """
     def batch_update_vehicle(
@@ -165,21 +165,21 @@ class IoTFleetWiseClient(BaseClient):
         """
         Updates a group, or batch, of vehicles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.batch_update_vehicle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.batch_update_vehicle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#batch_update_vehicle)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#close)
         """
     def create_campaign(
@@ -204,7 +204,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Creates an orchestration of data collection rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#create_campaign)
         """
     def create_decoder_manifest(
@@ -220,7 +220,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Creates the decoder manifest associated with a model manifest.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_decoder_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_decoder_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#create_decoder_manifest)
         """
     def create_fleet(
@@ -234,7 +234,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Creates a fleet that represents a group of vehicles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#create_fleet)
         """
     def create_model_manifest(
@@ -250,7 +250,7 @@ class IoTFleetWiseClient(BaseClient):
         Creates a vehicle model (model manifest) that specifies signals (attributes,
         branches, sensors, and actuators).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_model_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_model_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#create_model_manifest)
         """
     def create_signal_catalog(
@@ -265,7 +265,7 @@ class IoTFleetWiseClient(BaseClient):
         Creates a collection of standardized signals that can be reused to create
         vehicle models.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_signal_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_signal_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#create_signal_catalog)
         """
     def create_vehicle(
@@ -281,56 +281,56 @@ class IoTFleetWiseClient(BaseClient):
         """
         Creates a vehicle, which is an instance of a vehicle model (model manifest).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_vehicle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.create_vehicle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#create_vehicle)
         """
     def delete_campaign(self, *, name: str) -> DeleteCampaignResponseTypeDef:
         """
         Deletes a data collection campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#delete_campaign)
         """
     def delete_decoder_manifest(self, *, name: str) -> DeleteDecoderManifestResponseTypeDef:
         """
         Deletes a decoder manifest.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_decoder_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_decoder_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#delete_decoder_manifest)
         """
     def delete_fleet(self, *, fleetId: str) -> DeleteFleetResponseTypeDef:
         """
         Deletes a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#delete_fleet)
         """
     def delete_model_manifest(self, *, name: str) -> DeleteModelManifestResponseTypeDef:
         """
         Deletes a vehicle model (model manifest).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_model_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_model_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#delete_model_manifest)
         """
     def delete_signal_catalog(self, *, name: str) -> DeleteSignalCatalogResponseTypeDef:
         """
         Deletes a signal catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_signal_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_signal_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#delete_signal_catalog)
         """
     def delete_vehicle(self, *, vehicleName: str) -> DeleteVehicleResponseTypeDef:
         """
         Deletes a vehicle and removes it from any campaigns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_vehicle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.delete_vehicle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#delete_vehicle)
         """
     def disassociate_vehicle_fleet(self, *, vehicleName: str, fleetId: str) -> Dict[str, Any]:
         """
         Removes, or disassociates, a vehicle from a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.disassociate_vehicle_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.disassociate_vehicle_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#disassociate_vehicle_fleet)
         """
     def generate_presigned_url(
@@ -343,42 +343,42 @@ class IoTFleetWiseClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#generate_presigned_url)
         """
     def get_campaign(self, *, name: str) -> GetCampaignResponseTypeDef:
         """
         Retrieves information about a campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_campaign)
         """
     def get_decoder_manifest(self, *, name: str) -> GetDecoderManifestResponseTypeDef:
         """
         Retrieves information about a created decoder manifest.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_decoder_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_decoder_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_decoder_manifest)
         """
     def get_fleet(self, *, fleetId: str) -> GetFleetResponseTypeDef:
         """
         Retrieves information about a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_fleet)
         """
     def get_logging_options(self) -> GetLoggingOptionsResponseTypeDef:
         """
         Retrieves the logging options.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_logging_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_logging_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_logging_options)
         """
     def get_model_manifest(self, *, name: str) -> GetModelManifestResponseTypeDef:
         """
         Retrieves information about a vehicle model (model manifest).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_model_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_model_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_model_manifest)
         """
     def get_register_account_status(self) -> GetRegisterAccountStatusResponseTypeDef:
@@ -387,21 +387,21 @@ class IoTFleetWiseClient(BaseClient):
         account, IAM, and Amazon Timestream resources so that Amazon Web Services IoT
         FleetWise can transfer your vehicle data to the Amazon Web Services Cloud.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_register_account_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_register_account_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_register_account_status)
         """
     def get_signal_catalog(self, *, name: str) -> GetSignalCatalogResponseTypeDef:
         """
         Retrieves information about a signal catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_signal_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_signal_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_signal_catalog)
         """
     def get_vehicle(self, *, vehicleName: str) -> GetVehicleResponseTypeDef:
         """
         Retrieves information about a vehicle.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_vehicle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_vehicle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_vehicle)
         """
     def get_vehicle_status(
@@ -411,7 +411,7 @@ class IoTFleetWiseClient(BaseClient):
         Retrieves information about the status of a vehicle with any associated
         campaigns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_vehicle_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.get_vehicle_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#get_vehicle_status)
         """
     def import_decoder_manifest(
@@ -421,7 +421,7 @@ class IoTFleetWiseClient(BaseClient):
         Creates a decoder manifest using your existing CAN DBC file from your local
         device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.import_decoder_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.import_decoder_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#import_decoder_manifest)
         """
     def import_signal_catalog(
@@ -436,7 +436,7 @@ class IoTFleetWiseClient(BaseClient):
         Creates a signal catalog using your existing VSS formatted content from your
         local device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.import_signal_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.import_signal_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#import_signal_catalog)
         """
     def list_campaigns(
@@ -445,7 +445,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Lists information about created campaigns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_campaigns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_campaigns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_campaigns)
         """
     def list_decoder_manifest_network_interfaces(
@@ -454,7 +454,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Lists the network interfaces specified in a decoder manifest.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_decoder_manifest_network_interfaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_decoder_manifest_network_interfaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_decoder_manifest_network_interfaces)
         """
     def list_decoder_manifest_signals(
@@ -463,7 +463,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         A list of information about signal decoders specified in a decoder manifest.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_decoder_manifest_signals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_decoder_manifest_signals)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_decoder_manifest_signals)
         """
     def list_decoder_manifests(
@@ -472,7 +472,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Lists decoder manifests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_decoder_manifests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_decoder_manifests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_decoder_manifests)
         """
     def list_fleets(
@@ -481,7 +481,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Retrieves information for each created fleet in an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_fleets)
         """
     def list_fleets_for_vehicle(
@@ -490,7 +490,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Retrieves a list of IDs for all fleets that the vehicle is associated with.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_fleets_for_vehicle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_fleets_for_vehicle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_fleets_for_vehicle)
         """
     def list_model_manifest_nodes(
@@ -499,7 +499,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Lists information about nodes specified in a vehicle model (model manifest).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_model_manifest_nodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_model_manifest_nodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_model_manifest_nodes)
         """
     def list_model_manifests(
@@ -508,7 +508,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Retrieves a list of vehicle models (model manifests).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_model_manifests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_model_manifests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_model_manifests)
         """
     def list_signal_catalog_nodes(
@@ -517,7 +517,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Lists of information about the signals (nodes) specified in a signal catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_signal_catalog_nodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_signal_catalog_nodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_signal_catalog_nodes)
         """
     def list_signal_catalogs(
@@ -526,14 +526,14 @@ class IoTFleetWiseClient(BaseClient):
         """
         Lists all the created signal catalogs in an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_signal_catalogs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_signal_catalogs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_signal_catalogs)
         """
     def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags (metadata) you have assigned to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_tags_for_resource)
         """
     def list_vehicles(
@@ -542,7 +542,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Retrieves a list of summaries of created vehicles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_vehicles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_vehicles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_vehicles)
         """
     def list_vehicles_in_fleet(
@@ -551,7 +551,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Retrieves a list of summaries of all vehicles associated with a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_vehicles_in_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.list_vehicles_in_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#list_vehicles_in_fleet)
         """
     def put_logging_options(
@@ -560,7 +560,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Creates or updates the logging option.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.put_logging_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.put_logging_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#put_logging_options)
         """
     def register_account(
@@ -574,21 +574,21 @@ class IoTFleetWiseClient(BaseClient):
         so Amazon Web Services IoT FleetWise can transfer your vehicle data to the
         Amazon Web Services Cloud.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.register_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.register_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#register_account)
         """
     def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds to or modifies the tags of the given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes the given tags (metadata) from the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#untag_resource)
         """
     def update_campaign(
@@ -602,7 +602,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Updates a campaign.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#update_campaign)
         """
     def update_decoder_manifest(
@@ -621,14 +621,14 @@ class IoTFleetWiseClient(BaseClient):
         """
         Updates a decoder manifest.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_decoder_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_decoder_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#update_decoder_manifest)
         """
     def update_fleet(self, *, fleetId: str, description: str = None) -> UpdateFleetResponseTypeDef:
         """
         Updates the description of an existing fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#update_fleet)
         """
     def update_model_manifest(
@@ -643,7 +643,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Updates a vehicle model (model manifest).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_model_manifest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_model_manifest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#update_model_manifest)
         """
     def update_signal_catalog(
@@ -658,7 +658,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Updates a signal catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_signal_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_signal_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#update_signal_catalog)
         """
     def update_vehicle(
@@ -673,7 +673,7 @@ class IoTFleetWiseClient(BaseClient):
         """
         Updates a vehicle.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_vehicle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Client.update_vehicle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/client.html#update_vehicle)
         """
     @overload
@@ -681,13 +681,13 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["get_vehicle_status"]
     ) -> GetVehicleStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.GetVehicleStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.GetVehicleStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#getvehiclestatuspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_campaigns"]) -> ListCampaignsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListCampaigns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListCampaigns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listcampaignspaginator)
         """
     @overload
@@ -695,7 +695,7 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_decoder_manifest_network_interfaces"]
     ) -> ListDecoderManifestNetworkInterfacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestNetworkInterfaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestNetworkInterfaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestnetworkinterfacespaginator)
         """
     @overload
@@ -703,7 +703,7 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_decoder_manifest_signals"]
     ) -> ListDecoderManifestSignalsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestSignals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestSignals)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestsignalspaginator)
         """
     @overload
@@ -711,13 +711,13 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_decoder_manifests"]
     ) -> ListDecoderManifestsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_fleets"]) -> ListFleetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listfleetspaginator)
         """
     @overload
@@ -725,7 +725,7 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_fleets_for_vehicle"]
     ) -> ListFleetsForVehiclePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleetsForVehicle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleetsForVehicle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listfleetsforvehiclepaginator)
         """
     @overload
@@ -733,7 +733,7 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_model_manifest_nodes"]
     ) -> ListModelManifestNodesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifestNodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifestNodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listmodelmanifestnodespaginator)
         """
     @overload
@@ -741,7 +741,7 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_model_manifests"]
     ) -> ListModelManifestsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listmodelmanifestspaginator)
         """
     @overload
@@ -749,7 +749,7 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_signal_catalog_nodes"]
     ) -> ListSignalCatalogNodesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogNodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogNodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listsignalcatalognodespaginator)
         """
     @overload
@@ -757,13 +757,13 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_signal_catalogs"]
     ) -> ListSignalCatalogsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listsignalcatalogspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_vehicles"]) -> ListVehiclesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehicles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehicles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listvehiclespaginator)
         """
     @overload
@@ -771,6 +771,6 @@ class IoTFleetWiseClient(BaseClient):
         self, operation_name: Literal["list_vehicles_in_fleet"]
     ) -> ListVehiclesInFleetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehiclesInFleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehiclesInFleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listvehiclesinfleetpaginator)
         """

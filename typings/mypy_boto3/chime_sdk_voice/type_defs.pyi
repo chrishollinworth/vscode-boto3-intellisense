@@ -37,6 +37,10 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
@@ -51,6 +55,7 @@ __all__ = (
     "BatchDeletePhoneNumberResponseTypeDef",
     "BatchUpdatePhoneNumberRequestRequestTypeDef",
     "BatchUpdatePhoneNumberResponseTypeDef",
+    "CallDetailsTypeDef",
     "CandidateAddressTypeDef",
     "CreatePhoneNumberOrderRequestRequestTypeDef",
     "CreatePhoneNumberOrderResponseTypeDef",
@@ -66,6 +71,10 @@ __all__ = (
     "CreateVoiceConnectorGroupResponseTypeDef",
     "CreateVoiceConnectorRequestRequestTypeDef",
     "CreateVoiceConnectorResponseTypeDef",
+    "CreateVoiceProfileDomainRequestRequestTypeDef",
+    "CreateVoiceProfileDomainResponseTypeDef",
+    "CreateVoiceProfileRequestRequestTypeDef",
+    "CreateVoiceProfileResponseTypeDef",
     "CredentialTypeDef",
     "DNISEmergencyCallingConfigurationTypeDef",
     "DeletePhoneNumberRequestRequestTypeDef",
@@ -80,6 +89,8 @@ __all__ = (
     "DeleteVoiceConnectorStreamingConfigurationRequestRequestTypeDef",
     "DeleteVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
     "DeleteVoiceConnectorTerminationRequestRequestTypeDef",
+    "DeleteVoiceProfileDomainRequestRequestTypeDef",
+    "DeleteVoiceProfileRequestRequestTypeDef",
     "DisassociatePhoneNumbersFromVoiceConnectorGroupRequestRequestTypeDef",
     "DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef",
     "DisassociatePhoneNumbersFromVoiceConnectorRequestRequestTypeDef",
@@ -102,6 +113,8 @@ __all__ = (
     "GetSipMediaApplicationResponseTypeDef",
     "GetSipRuleRequestRequestTypeDef",
     "GetSipRuleResponseTypeDef",
+    "GetSpeakerSearchTaskRequestRequestTypeDef",
+    "GetSpeakerSearchTaskResponseTypeDef",
     "GetVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef",
     "GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef",
     "GetVoiceConnectorGroupRequestRequestTypeDef",
@@ -120,6 +133,12 @@ __all__ = (
     "GetVoiceConnectorTerminationHealthResponseTypeDef",
     "GetVoiceConnectorTerminationRequestRequestTypeDef",
     "GetVoiceConnectorTerminationResponseTypeDef",
+    "GetVoiceProfileDomainRequestRequestTypeDef",
+    "GetVoiceProfileDomainResponseTypeDef",
+    "GetVoiceProfileRequestRequestTypeDef",
+    "GetVoiceProfileResponseTypeDef",
+    "GetVoiceToneAnalysisTaskRequestRequestTypeDef",
+    "GetVoiceToneAnalysisTaskResponseTypeDef",
     "ListAvailableVoiceConnectorRegionsResponseTypeDef",
     "ListPhoneNumberOrdersRequestRequestTypeDef",
     "ListPhoneNumberOrdersResponseTypeDef",
@@ -133,13 +152,20 @@ __all__ = (
     "ListSipRulesResponseTypeDef",
     "ListSupportedPhoneNumberCountriesRequestRequestTypeDef",
     "ListSupportedPhoneNumberCountriesResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ListVoiceConnectorGroupsRequestRequestTypeDef",
     "ListVoiceConnectorGroupsResponseTypeDef",
     "ListVoiceConnectorTerminationCredentialsRequestRequestTypeDef",
     "ListVoiceConnectorTerminationCredentialsResponseTypeDef",
     "ListVoiceConnectorsRequestRequestTypeDef",
     "ListVoiceConnectorsResponseTypeDef",
+    "ListVoiceProfileDomainsRequestRequestTypeDef",
+    "ListVoiceProfileDomainsResponseTypeDef",
+    "ListVoiceProfilesRequestRequestTypeDef",
+    "ListVoiceProfilesResponseTypeDef",
     "LoggingConfigurationTypeDef",
+    "MediaInsightsConfigurationTypeDef",
     "OrderedPhoneNumberTypeDef",
     "OriginationRouteTypeDef",
     "OriginationTypeDef",
@@ -175,6 +201,7 @@ __all__ = (
     "RestorePhoneNumberResponseTypeDef",
     "SearchAvailablePhoneNumbersRequestRequestTypeDef",
     "SearchAvailablePhoneNumbersResponseTypeDef",
+    "ServerSideEncryptionConfigurationTypeDef",
     "SipMediaApplicationAlexaSkillConfigurationTypeDef",
     "SipMediaApplicationCallTypeDef",
     "SipMediaApplicationEndpointTypeDef",
@@ -182,10 +209,22 @@ __all__ = (
     "SipMediaApplicationTypeDef",
     "SipRuleTargetApplicationTypeDef",
     "SipRuleTypeDef",
+    "SpeakerSearchDetailsTypeDef",
+    "SpeakerSearchResultTypeDef",
+    "SpeakerSearchTaskTypeDef",
+    "StartSpeakerSearchTaskRequestRequestTypeDef",
+    "StartSpeakerSearchTaskResponseTypeDef",
+    "StartVoiceToneAnalysisTaskRequestRequestTypeDef",
+    "StartVoiceToneAnalysisTaskResponseTypeDef",
+    "StopSpeakerSearchTaskRequestRequestTypeDef",
+    "StopVoiceToneAnalysisTaskRequestRequestTypeDef",
     "StreamingConfigurationTypeDef",
     "StreamingNotificationTargetTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TagTypeDef",
     "TerminationHealthTypeDef",
     "TerminationTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateGlobalSettingsRequestRequestTypeDef",
     "UpdatePhoneNumberRequestItemTypeDef",
     "UpdatePhoneNumberRequestRequestTypeDef",
@@ -203,12 +242,21 @@ __all__ = (
     "UpdateVoiceConnectorGroupResponseTypeDef",
     "UpdateVoiceConnectorRequestRequestTypeDef",
     "UpdateVoiceConnectorResponseTypeDef",
+    "UpdateVoiceProfileDomainRequestRequestTypeDef",
+    "UpdateVoiceProfileDomainResponseTypeDef",
+    "UpdateVoiceProfileRequestRequestTypeDef",
+    "UpdateVoiceProfileResponseTypeDef",
     "ValidateE911AddressRequestRequestTypeDef",
     "ValidateE911AddressResponseTypeDef",
     "VoiceConnectorGroupTypeDef",
     "VoiceConnectorItemTypeDef",
     "VoiceConnectorSettingsTypeDef",
     "VoiceConnectorTypeDef",
+    "VoiceProfileDomainSummaryTypeDef",
+    "VoiceProfileDomainTypeDef",
+    "VoiceProfileSummaryTypeDef",
+    "VoiceProfileTypeDef",
+    "VoiceToneAnalysisTaskTypeDef",
 )
 
 AddressTypeDef = TypedDict(
@@ -316,6 +364,16 @@ BatchUpdatePhoneNumberResponseTypeDef = TypedDict(
     },
 )
 
+CallDetailsTypeDef = TypedDict(
+    "CallDetailsTypeDef",
+    {
+        "VoiceConnectorId": str,
+        "TransactionId": str,
+        "IsCaller": bool,
+    },
+    total=False,
+)
+
 CandidateAddressTypeDef = TypedDict(
     "CandidateAddressTypeDef",
     {
@@ -411,14 +469,27 @@ CreateSipMediaApplicationCallResponseTypeDef = TypedDict(
     },
 )
 
-CreateSipMediaApplicationRequestRequestTypeDef = TypedDict(
-    "CreateSipMediaApplicationRequestRequestTypeDef",
+_RequiredCreateSipMediaApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSipMediaApplicationRequestRequestTypeDef",
     {
         "AwsRegion": str,
         "Name": str,
         "Endpoints": List["SipMediaApplicationEndpointTypeDef"],
     },
 )
+_OptionalCreateSipMediaApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSipMediaApplicationRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateSipMediaApplicationRequestRequestTypeDef(
+    _RequiredCreateSipMediaApplicationRequestRequestTypeDef,
+    _OptionalCreateSipMediaApplicationRequestRequestTypeDef,
+):
+    pass
 
 CreateSipMediaApplicationResponseTypeDef = TypedDict(
     "CreateSipMediaApplicationResponseTypeDef",
@@ -497,6 +568,7 @@ _OptionalCreateVoiceConnectorRequestRequestTypeDef = TypedDict(
     "_OptionalCreateVoiceConnectorRequestRequestTypeDef",
     {
         "AwsRegion": VoiceConnectorAwsRegionType,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -511,6 +583,52 @@ CreateVoiceConnectorResponseTypeDef = TypedDict(
     "CreateVoiceConnectorResponseTypeDef",
     {
         "VoiceConnector": "VoiceConnectorTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateVoiceProfileDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVoiceProfileDomainRequestRequestTypeDef",
+    {
+        "Name": str,
+        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
+    },
+)
+_OptionalCreateVoiceProfileDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVoiceProfileDomainRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ClientRequestToken": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVoiceProfileDomainRequestRequestTypeDef(
+    _RequiredCreateVoiceProfileDomainRequestRequestTypeDef,
+    _OptionalCreateVoiceProfileDomainRequestRequestTypeDef,
+):
+    pass
+
+CreateVoiceProfileDomainResponseTypeDef = TypedDict(
+    "CreateVoiceProfileDomainResponseTypeDef",
+    {
+        "VoiceProfileDomain": "VoiceProfileDomainTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVoiceProfileRequestRequestTypeDef = TypedDict(
+    "CreateVoiceProfileRequestRequestTypeDef",
+    {
+        "SpeakerSearchTaskId": str,
+    },
+)
+
+CreateVoiceProfileResponseTypeDef = TypedDict(
+    "CreateVoiceProfileResponseTypeDef",
+    {
+        "VoiceProfile": "VoiceProfileTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -628,6 +746,20 @@ DeleteVoiceConnectorTerminationRequestRequestTypeDef = TypedDict(
     "DeleteVoiceConnectorTerminationRequestRequestTypeDef",
     {
         "VoiceConnectorId": str,
+    },
+)
+
+DeleteVoiceProfileDomainRequestRequestTypeDef = TypedDict(
+    "DeleteVoiceProfileDomainRequestRequestTypeDef",
+    {
+        "VoiceProfileDomainId": str,
+    },
+)
+
+DeleteVoiceProfileRequestRequestTypeDef = TypedDict(
+    "DeleteVoiceProfileRequestRequestTypeDef",
+    {
+        "VoiceProfileId": str,
     },
 )
 
@@ -802,6 +934,22 @@ GetSipRuleResponseTypeDef = TypedDict(
     },
 )
 
+GetSpeakerSearchTaskRequestRequestTypeDef = TypedDict(
+    "GetSpeakerSearchTaskRequestRequestTypeDef",
+    {
+        "VoiceConnectorId": str,
+        "SpeakerSearchTaskId": str,
+    },
+)
+
+GetSpeakerSearchTaskResponseTypeDef = TypedDict(
+    "GetSpeakerSearchTaskResponseTypeDef",
+    {
+        "SpeakerSearchTask": "SpeakerSearchTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef = TypedDict(
     "GetVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef",
     {
@@ -937,6 +1085,53 @@ GetVoiceConnectorTerminationResponseTypeDef = TypedDict(
     },
 )
 
+GetVoiceProfileDomainRequestRequestTypeDef = TypedDict(
+    "GetVoiceProfileDomainRequestRequestTypeDef",
+    {
+        "VoiceProfileDomainId": str,
+    },
+)
+
+GetVoiceProfileDomainResponseTypeDef = TypedDict(
+    "GetVoiceProfileDomainResponseTypeDef",
+    {
+        "VoiceProfileDomain": "VoiceProfileDomainTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetVoiceProfileRequestRequestTypeDef = TypedDict(
+    "GetVoiceProfileRequestRequestTypeDef",
+    {
+        "VoiceProfileId": str,
+    },
+)
+
+GetVoiceProfileResponseTypeDef = TypedDict(
+    "GetVoiceProfileResponseTypeDef",
+    {
+        "VoiceProfile": "VoiceProfileTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetVoiceToneAnalysisTaskRequestRequestTypeDef = TypedDict(
+    "GetVoiceToneAnalysisTaskRequestRequestTypeDef",
+    {
+        "VoiceConnectorId": str,
+        "VoiceToneAnalysisTaskId": str,
+        "IsCaller": bool,
+    },
+)
+
+GetVoiceToneAnalysisTaskResponseTypeDef = TypedDict(
+    "GetVoiceToneAnalysisTaskResponseTypeDef",
+    {
+        "VoiceToneAnalysisTask": "VoiceToneAnalysisTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListAvailableVoiceConnectorRegionsResponseTypeDef = TypedDict(
     "ListAvailableVoiceConnectorRegionsResponseTypeDef",
     {
@@ -1067,6 +1262,21 @@ ListSupportedPhoneNumberCountriesResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListVoiceConnectorGroupsRequestRequestTypeDef = TypedDict(
     "ListVoiceConnectorGroupsRequestRequestTypeDef",
     {
@@ -1118,10 +1328,67 @@ ListVoiceConnectorsResponseTypeDef = TypedDict(
     },
 )
 
+ListVoiceProfileDomainsRequestRequestTypeDef = TypedDict(
+    "ListVoiceProfileDomainsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListVoiceProfileDomainsResponseTypeDef = TypedDict(
+    "ListVoiceProfileDomainsResponseTypeDef",
+    {
+        "VoiceProfileDomains": List["VoiceProfileDomainSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListVoiceProfilesRequestRequestTypeDef = TypedDict(
+    "_RequiredListVoiceProfilesRequestRequestTypeDef",
+    {
+        "VoiceProfileDomainId": str,
+    },
+)
+_OptionalListVoiceProfilesRequestRequestTypeDef = TypedDict(
+    "_OptionalListVoiceProfilesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListVoiceProfilesRequestRequestTypeDef(
+    _RequiredListVoiceProfilesRequestRequestTypeDef, _OptionalListVoiceProfilesRequestRequestTypeDef
+):
+    pass
+
+ListVoiceProfilesResponseTypeDef = TypedDict(
+    "ListVoiceProfilesResponseTypeDef",
+    {
+        "VoiceProfiles": List["VoiceProfileSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 LoggingConfigurationTypeDef = TypedDict(
     "LoggingConfigurationTypeDef",
     {
         "EnableSIPLogs": bool,
+        "EnableMediaMetricLogs": bool,
+    },
+    total=False,
+)
+
+MediaInsightsConfigurationTypeDef = TypedDict(
+    "MediaInsightsConfigurationTypeDef",
+    {
+        "Disabled": bool,
+        "ConfigurationArn": str,
     },
     total=False,
 )
@@ -1520,6 +1787,13 @@ SearchAvailablePhoneNumbersResponseTypeDef = TypedDict(
     },
 )
 
+ServerSideEncryptionConfigurationTypeDef = TypedDict(
+    "ServerSideEncryptionConfigurationTypeDef",
+    {
+        "KmsKeyArn": str,
+    },
+)
+
 SipMediaApplicationAlexaSkillConfigurationTypeDef = TypedDict(
     "SipMediaApplicationAlexaSkillConfigurationTypeDef",
     {
@@ -1561,6 +1835,7 @@ SipMediaApplicationTypeDef = TypedDict(
         "Endpoints": List["SipMediaApplicationEndpointTypeDef"],
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+        "SipMediaApplicationArn": str,
     },
     total=False,
 )
@@ -1590,6 +1865,115 @@ SipRuleTypeDef = TypedDict(
     total=False,
 )
 
+SpeakerSearchDetailsTypeDef = TypedDict(
+    "SpeakerSearchDetailsTypeDef",
+    {
+        "Results": List["SpeakerSearchResultTypeDef"],
+        "VoiceprintGenerationStatus": str,
+    },
+    total=False,
+)
+
+SpeakerSearchResultTypeDef = TypedDict(
+    "SpeakerSearchResultTypeDef",
+    {
+        "ConfidenceScore": float,
+        "VoiceProfileId": str,
+    },
+    total=False,
+)
+
+SpeakerSearchTaskTypeDef = TypedDict(
+    "SpeakerSearchTaskTypeDef",
+    {
+        "SpeakerSearchTaskId": str,
+        "SpeakerSearchTaskStatus": str,
+        "CallDetails": "CallDetailsTypeDef",
+        "SpeakerSearchDetails": "SpeakerSearchDetailsTypeDef",
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "StartedTimestamp": datetime,
+        "StatusMessage": str,
+    },
+    total=False,
+)
+
+_RequiredStartSpeakerSearchTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredStartSpeakerSearchTaskRequestRequestTypeDef",
+    {
+        "VoiceConnectorId": str,
+        "TransactionId": str,
+        "VoiceProfileDomainId": str,
+    },
+)
+_OptionalStartSpeakerSearchTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalStartSpeakerSearchTaskRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class StartSpeakerSearchTaskRequestRequestTypeDef(
+    _RequiredStartSpeakerSearchTaskRequestRequestTypeDef,
+    _OptionalStartSpeakerSearchTaskRequestRequestTypeDef,
+):
+    pass
+
+StartSpeakerSearchTaskResponseTypeDef = TypedDict(
+    "StartSpeakerSearchTaskResponseTypeDef",
+    {
+        "SpeakerSearchTask": "SpeakerSearchTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartVoiceToneAnalysisTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredStartVoiceToneAnalysisTaskRequestRequestTypeDef",
+    {
+        "VoiceConnectorId": str,
+        "TransactionId": str,
+        "LanguageCode": Literal["en-US"],
+    },
+)
+_OptionalStartVoiceToneAnalysisTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalStartVoiceToneAnalysisTaskRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class StartVoiceToneAnalysisTaskRequestRequestTypeDef(
+    _RequiredStartVoiceToneAnalysisTaskRequestRequestTypeDef,
+    _OptionalStartVoiceToneAnalysisTaskRequestRequestTypeDef,
+):
+    pass
+
+StartVoiceToneAnalysisTaskResponseTypeDef = TypedDict(
+    "StartVoiceToneAnalysisTaskResponseTypeDef",
+    {
+        "VoiceToneAnalysisTask": "VoiceToneAnalysisTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopSpeakerSearchTaskRequestRequestTypeDef = TypedDict(
+    "StopSpeakerSearchTaskRequestRequestTypeDef",
+    {
+        "VoiceConnectorId": str,
+        "SpeakerSearchTaskId": str,
+    },
+)
+
+StopVoiceToneAnalysisTaskRequestRequestTypeDef = TypedDict(
+    "StopVoiceToneAnalysisTaskRequestRequestTypeDef",
+    {
+        "VoiceConnectorId": str,
+        "VoiceToneAnalysisTaskId": str,
+    },
+)
+
 _RequiredStreamingConfigurationTypeDef = TypedDict(
     "_RequiredStreamingConfigurationTypeDef",
     {
@@ -1601,6 +1985,7 @@ _OptionalStreamingConfigurationTypeDef = TypedDict(
     "_OptionalStreamingConfigurationTypeDef",
     {
         "StreamingNotificationTargets": List["StreamingNotificationTargetTypeDef"],
+        "MediaInsightsConfiguration": "MediaInsightsConfigurationTypeDef",
     },
     total=False,
 )
@@ -1616,6 +2001,22 @@ StreamingNotificationTargetTypeDef = TypedDict(
         "NotificationTarget": NotificationTargetType,
     },
     total=False,
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
 )
 
 TerminationHealthTypeDef = TypedDict(
@@ -1637,6 +2038,14 @@ TerminationTypeDef = TypedDict(
         "Disabled": bool,
     },
     total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "TagKeys": List[str],
+    },
 )
 
 UpdateGlobalSettingsRequestRequestTypeDef = TypedDict(
@@ -1841,6 +2250,51 @@ UpdateVoiceConnectorResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateVoiceProfileDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateVoiceProfileDomainRequestRequestTypeDef",
+    {
+        "VoiceProfileDomainId": str,
+    },
+)
+_OptionalUpdateVoiceProfileDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateVoiceProfileDomainRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateVoiceProfileDomainRequestRequestTypeDef(
+    _RequiredUpdateVoiceProfileDomainRequestRequestTypeDef,
+    _OptionalUpdateVoiceProfileDomainRequestRequestTypeDef,
+):
+    pass
+
+UpdateVoiceProfileDomainResponseTypeDef = TypedDict(
+    "UpdateVoiceProfileDomainResponseTypeDef",
+    {
+        "VoiceProfileDomain": "VoiceProfileDomainTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateVoiceProfileRequestRequestTypeDef = TypedDict(
+    "UpdateVoiceProfileRequestRequestTypeDef",
+    {
+        "VoiceProfileId": str,
+        "SpeakerSearchTaskId": str,
+    },
+)
+
+UpdateVoiceProfileResponseTypeDef = TypedDict(
+    "UpdateVoiceProfileResponseTypeDef",
+    {
+        "VoiceProfile": "VoiceProfileTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ValidateE911AddressRequestRequestTypeDef = TypedDict(
     "ValidateE911AddressRequestRequestTypeDef",
     {
@@ -1905,6 +2359,73 @@ VoiceConnectorTypeDef = TypedDict(
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
         "VoiceConnectorArn": str,
+    },
+    total=False,
+)
+
+VoiceProfileDomainSummaryTypeDef = TypedDict(
+    "VoiceProfileDomainSummaryTypeDef",
+    {
+        "VoiceProfileDomainId": str,
+        "VoiceProfileDomainArn": str,
+        "Name": str,
+        "Description": str,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+VoiceProfileDomainTypeDef = TypedDict(
+    "VoiceProfileDomainTypeDef",
+    {
+        "VoiceProfileDomainId": str,
+        "VoiceProfileDomainArn": str,
+        "Name": str,
+        "Description": str,
+        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+VoiceProfileSummaryTypeDef = TypedDict(
+    "VoiceProfileSummaryTypeDef",
+    {
+        "VoiceProfileId": str,
+        "VoiceProfileArn": str,
+        "VoiceProfileDomainId": str,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "ExpirationTimestamp": datetime,
+    },
+    total=False,
+)
+
+VoiceProfileTypeDef = TypedDict(
+    "VoiceProfileTypeDef",
+    {
+        "VoiceProfileId": str,
+        "VoiceProfileArn": str,
+        "VoiceProfileDomainId": str,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "ExpirationTimestamp": datetime,
+    },
+    total=False,
+)
+
+VoiceToneAnalysisTaskTypeDef = TypedDict(
+    "VoiceToneAnalysisTaskTypeDef",
+    {
+        "VoiceToneAnalysisTaskId": str,
+        "VoiceToneAnalysisTaskStatus": str,
+        "CallDetails": "CallDetailsTypeDef",
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "StartedTimestamp": datetime,
+        "StatusMessage": str,
     },
     total=False,
 )

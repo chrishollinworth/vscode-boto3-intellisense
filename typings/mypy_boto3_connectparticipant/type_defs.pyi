@@ -197,6 +197,8 @@ ItemTypeDef = TypedDict(
         "ParticipantRole": ParticipantRoleType,
         "Attachments": List["AttachmentItemTypeDef"],
         "MessageMetadata": "MessageMetadataTypeDef",
+        "RelatedContactId": str,
+        "ContactId": str,
     },
     total=False,
 )

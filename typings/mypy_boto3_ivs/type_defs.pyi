@@ -161,6 +161,7 @@ ChannelSummaryTypeDef = TypedDict(
     {
         "arn": str,
         "authorized": bool,
+        "insecureIngest": bool,
         "latencyMode": ChannelLatencyModeType,
         "name": str,
         "recordingConfigurationArn": str,
@@ -175,6 +176,7 @@ ChannelTypeDef = TypedDict(
         "arn": str,
         "authorized": bool,
         "ingestEndpoint": str,
+        "insecureIngest": bool,
         "latencyMode": ChannelLatencyModeType,
         "name": str,
         "playbackUrl": str,
@@ -189,6 +191,7 @@ CreateChannelRequestRequestTypeDef = TypedDict(
     "CreateChannelRequestRequestTypeDef",
     {
         "authorized": bool,
+        "insecureIngest": bool,
         "latencyMode": ChannelLatencyModeType,
         "name": str,
         "recordingConfigurationArn": str,
@@ -826,6 +829,7 @@ _OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateChannelRequestRequestTypeDef",
     {
         "authorized": bool,
+        "insecureIngest": bool,
         "latencyMode": ChannelLatencyModeType,
         "name": str,
         "recordingConfigurationArn": str,

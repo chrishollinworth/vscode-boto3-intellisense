@@ -66,7 +66,7 @@ class Exceptions:
 
 class EMRServerlessClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html)
     """
 
@@ -81,21 +81,21 @@ class EMRServerlessClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#can_paginate)
         """
     def cancel_job_run(self, *, applicationId: str, jobRunId: str) -> CancelJobRunResponseTypeDef:
         """
         Cancels a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.cancel_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.cancel_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#cancel_job_run)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#close)
         """
     def create_application(
@@ -118,14 +118,14 @@ class EMRServerlessClient(BaseClient):
         """
         Creates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#create_application)
         """
     def delete_application(self, *, applicationId: str) -> Dict[str, Any]:
         """
         Deletes an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#delete_application)
         """
     def generate_presigned_url(
@@ -138,14 +138,14 @@ class EMRServerlessClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#generate_presigned_url)
         """
     def get_application(self, *, applicationId: str) -> GetApplicationResponseTypeDef:
         """
         Displays detailed information about a specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.get_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#get_application)
         """
     def get_dashboard_for_job_run(
@@ -154,14 +154,14 @@ class EMRServerlessClient(BaseClient):
         """
         Returns a URL to access the job run dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.get_dashboard_for_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.get_dashboard_for_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#get_dashboard_for_job_run)
         """
     def get_job_run(self, *, applicationId: str, jobRunId: str) -> GetJobRunResponseTypeDef:
         """
         Displays detailed information about a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.get_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.get_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#get_job_run)
         """
     def list_applications(
@@ -174,7 +174,7 @@ class EMRServerlessClient(BaseClient):
         """
         Lists applications based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#list_applications)
         """
     def list_job_runs(
@@ -190,21 +190,21 @@ class EMRServerlessClient(BaseClient):
         """
         Lists job runs based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.list_job_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.list_job_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#list_job_runs)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags assigned to the resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#list_tags_for_resource)
         """
     def start_application(self, *, applicationId: str) -> Dict[str, Any]:
         """
         Starts a specified application and initializes initial capacity if configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.start_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.start_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#start_application)
         """
     def start_job_run(
@@ -222,28 +222,28 @@ class EMRServerlessClient(BaseClient):
         """
         Starts a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.start_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.start_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#start_job_run)
         """
     def stop_application(self, *, applicationId: str) -> Dict[str, Any]:
         """
         Stops a specified application and releases initial capacity if configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.stop_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.stop_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#stop_application)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Assigns tags to resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#untag_resource)
         """
     def update_application(
@@ -263,7 +263,7 @@ class EMRServerlessClient(BaseClient):
         """
         Updates a specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#update_application)
         """
     @overload
@@ -271,12 +271,12 @@ class EMRServerlessClient(BaseClient):
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Paginator.ListApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listapplicationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_job_runs"]) -> ListJobRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/emr-serverless.html#EMRServerless.Paginator.ListJobRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/emr-serverless.html#EMRServerless.Paginator.ListJobRuns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listjobrunspaginator)
         """

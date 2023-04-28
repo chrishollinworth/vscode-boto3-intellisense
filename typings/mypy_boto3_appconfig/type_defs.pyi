@@ -379,6 +379,7 @@ _OptionalCreateHostedConfigurationVersionRequestRequestTypeDef = TypedDict(
     {
         "Description": str,
         "LatestVersionNumber": int,
+        "VersionLabel": str,
     },
     total=False,
 )
@@ -545,6 +546,8 @@ DeploymentTypeDef = TypedDict(
         "StartedAt": datetime,
         "CompletedAt": datetime,
         "AppliedExtensions": List["AppliedExtensionTypeDef"],
+        "KmsKeyArn": str,
+        "KmsKeyIdentifier": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -764,6 +767,7 @@ HostedConfigurationVersionSummaryTypeDef = TypedDict(
         "VersionNumber": int,
         "Description": str,
         "ContentType": str,
+        "VersionLabel": str,
     },
     total=False,
 )
@@ -777,6 +781,7 @@ HostedConfigurationVersionTypeDef = TypedDict(
         "Description": str,
         "Content": bytes,
         "ContentType": str,
+        "VersionLabel": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -905,6 +910,7 @@ _OptionalListHostedConfigurationVersionsRequestRequestTypeDef = TypedDict(
     {
         "MaxResults": int,
         "NextToken": str,
+        "VersionLabel": str,
     },
     total=False,
 )
@@ -982,6 +988,7 @@ _OptionalStartDeploymentRequestRequestTypeDef = TypedDict(
     {
         "Description": str,
         "Tags": Dict[str, str],
+        "KmsKeyIdentifier": str,
     },
     total=False,
 )

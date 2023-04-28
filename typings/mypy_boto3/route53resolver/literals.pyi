@@ -50,6 +50,7 @@ __all__ = (
     "ResolverDNSSECValidationStatusType",
     "ResolverEndpointDirectionType",
     "ResolverEndpointStatusType",
+    "ResolverEndpointTypeType",
     "ResolverQueryLogConfigAssociationErrorType",
     "ResolverQueryLogConfigAssociationStatusType",
     "ResolverQueryLogConfigStatusType",
@@ -62,7 +63,7 @@ __all__ = (
 )
 
 ActionType = Literal["ALERT", "ALLOW", "BLOCK"]
-AutodefinedReverseFlagType = Literal["DISABLE", "ENABLE"]
+AutodefinedReverseFlagType = Literal["DISABLE", "ENABLE", "USE_LOCAL_RESOURCE_SETTING"]
 BlockOverrideDnsTypeType = Literal["CNAME"]
 BlockResponseType = Literal["NODATA", "NXDOMAIN", "OVERRIDE"]
 FirewallDomainImportOperationType = Literal["REPLACE"]
@@ -70,7 +71,7 @@ FirewallDomainListStatusType = Literal[
     "COMPLETE", "COMPLETE_IMPORT_FAILED", "DELETING", "IMPORTING", "UPDATING"
 ]
 FirewallDomainUpdateOperationType = Literal["ADD", "REMOVE", "REPLACE"]
-FirewallFailOpenStatusType = Literal["DISABLED", "ENABLED"]
+FirewallFailOpenStatusType = Literal["DISABLED", "ENABLED", "USE_LOCAL_RESOURCE_SETTING"]
 FirewallRuleGroupAssociationStatusType = Literal["COMPLETE", "DELETING", "UPDATING"]
 FirewallRuleGroupStatusType = Literal["COMPLETE", "DELETING", "UPDATING"]
 IpAddressStatusType = Literal[
@@ -84,6 +85,7 @@ IpAddressStatusType = Literal[
     "FAILED_RESOURCE_GONE",
     "REMAP_ATTACHING",
     "REMAP_DETACHING",
+    "UPDATING",
 ]
 ListFirewallConfigsPaginatorName = Literal["list_firewall_configs"]
 ListFirewallDomainListsPaginatorName = Literal["list_firewall_domain_lists"]
@@ -103,12 +105,27 @@ ListResolverRuleAssociationsPaginatorName = Literal["list_resolver_rule_associat
 ListResolverRulesPaginatorName = Literal["list_resolver_rules"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 MutationProtectionStatusType = Literal["DISABLED", "ENABLED"]
-ResolverAutodefinedReverseStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]
-ResolverDNSSECValidationStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]
+ResolverAutodefinedReverseStatusType = Literal[
+    "DISABLED",
+    "DISABLING",
+    "ENABLED",
+    "ENABLING",
+    "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+    "USE_LOCAL_RESOURCE_SETTING",
+]
+ResolverDNSSECValidationStatusType = Literal[
+    "DISABLED",
+    "DISABLING",
+    "ENABLED",
+    "ENABLING",
+    "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+    "USE_LOCAL_RESOURCE_SETTING",
+]
 ResolverEndpointDirectionType = Literal["INBOUND", "OUTBOUND"]
 ResolverEndpointStatusType = Literal[
     "ACTION_NEEDED", "AUTO_RECOVERING", "CREATING", "DELETING", "OPERATIONAL", "UPDATING"
 ]
+ResolverEndpointTypeType = Literal["DUALSTACK", "IPV4", "IPV6"]
 ResolverQueryLogConfigAssociationErrorType = Literal[
     "ACCESS_DENIED", "DESTINATION_NOT_FOUND", "INTERNAL_SERVICE_ERROR", "NONE"
 ]
@@ -123,4 +140,4 @@ ResolverRuleStatusType = Literal["COMPLETE", "DELETING", "FAILED", "UPDATING"]
 RuleTypeOptionType = Literal["FORWARD", "RECURSIVE", "SYSTEM"]
 ShareStatusType = Literal["NOT_SHARED", "SHARED_BY_ME", "SHARED_WITH_ME"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
-ValidationType = Literal["DISABLE", "ENABLE"]
+ValidationType = Literal["DISABLE", "ENABLE", "USE_LOCAL_RESOURCE_SETTING"]

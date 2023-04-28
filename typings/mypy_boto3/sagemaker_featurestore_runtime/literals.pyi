@@ -6,9 +6,9 @@ Type annotations for sagemaker-featurestore-runtime service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker_featurestore_runtime.literals import TargetStoreType
+    from mypy_boto3_sagemaker_featurestore_runtime.literals import DeletionModeType
 
-    data: TargetStoreType = "OfflineStore"
+    data: DeletionModeType = "HardDelete"
     ```
 """
 import sys
@@ -18,6 +18,7 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("TargetStoreType",)
+__all__ = ("DeletionModeType", "TargetStoreType")
 
+DeletionModeType = Literal["HardDelete", "SoftDelete"]
 TargetStoreType = Literal["OfflineStore", "OnlineStore"]

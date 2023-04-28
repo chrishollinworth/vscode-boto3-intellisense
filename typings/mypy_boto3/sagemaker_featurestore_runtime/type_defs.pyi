@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List
 
-from .literals import TargetStoreType
+from .literals import DeletionModeType, TargetStoreType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -103,6 +103,7 @@ _OptionalDeleteRecordRequestRequestTypeDef = TypedDict(
     "_OptionalDeleteRecordRequestRequestTypeDef",
     {
         "TargetStores": List[TargetStoreType],
+        "DeletionMode": DeletionModeType,
     },
     total=False,
 )

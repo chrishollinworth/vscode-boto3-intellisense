@@ -83,7 +83,7 @@ class Exceptions:
 
 class ApplicationDiscoveryServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html)
     """
 
@@ -100,7 +100,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Associates one or more configuration items with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.associate_configuration_items_to_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.associate_configuration_items_to_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#associate_configuration_items_to_application)
         """
     def batch_delete_import_data(
@@ -109,21 +109,21 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Deletes one or more import tasks, each identified by their import ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.batch_delete_import_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.batch_delete_import_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#batch_delete_import_data)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#close)
         """
     def create_application(
@@ -132,7 +132,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Creates an application with the given name and description.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#create_application)
         """
     def create_tags(
@@ -141,14 +141,14 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Creates one or more tags for configuration items.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.create_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.create_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#create_tags)
         """
     def delete_applications(self, *, configurationIds: List[str]) -> Dict[str, Any]:
         """
         Deletes a list of applications and their associations with configuration items.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.delete_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.delete_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#delete_applications)
         """
     def delete_tags(
@@ -157,7 +157,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Deletes the association between configuration items and one or more tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.delete_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.delete_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#delete_tags)
         """
     def describe_agents(
@@ -171,7 +171,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Lists agents or connectors as specified by ID or other filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_agents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_agents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#describe_agents)
         """
     def describe_configurations(
@@ -180,7 +180,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Retrieves attributes for a list of configuration item IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#describe_configurations)
         """
     def describe_continuous_exports(
@@ -189,7 +189,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Lists exports as specified by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_continuous_exports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_continuous_exports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#describe_continuous_exports)
         """
     def describe_export_configurations(
@@ -198,7 +198,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         `DescribeExportConfigurations` is deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_export_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_export_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#describe_export_configurations)
         """
     def describe_export_tasks(
@@ -212,7 +212,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Retrieve status of one or more export tasks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_export_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_export_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#describe_export_tasks)
         """
     def describe_import_tasks(
@@ -226,7 +226,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         Returns an array of import tasks for your account, including status information,
         times, IDs, the Amazon S3 Object URL for the import file, and more.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_import_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_import_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#describe_import_tasks)
         """
     def describe_tags(
@@ -238,9 +238,9 @@ class ApplicationDiscoveryServiceClient(BaseClient):
     ) -> DescribeTagsResponseTypeDef:
         """
         Retrieves a list of configuration items that have tags as specified by the key-
-        value pairs, name and value, passed to the optional parameter `filters` .
+        value pairs, name and value, passed to the optional parameter `filters`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#describe_tags)
         """
     def disassociate_configuration_items_from_application(
@@ -249,14 +249,14 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Disassociates one or more configuration items from an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.disassociate_configuration_items_from_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.disassociate_configuration_items_from_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#disassociate_configuration_items_from_application)
         """
     def export_configurations(self) -> ExportConfigurationsResponseTypeDef:
         """
         Deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.export_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.export_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#export_configurations)
         """
     def generate_presigned_url(
@@ -269,14 +269,14 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#generate_presigned_url)
         """
     def get_discovery_summary(self) -> GetDiscoverySummaryResponseTypeDef:
         """
         Retrieves a short summary of discovered assets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.get_discovery_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.get_discovery_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#get_discovery_summary)
         """
     def list_configurations(
@@ -292,7 +292,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         Retrieves a list of configuration items as specified by the value passed to the
         required parameter `configurationType`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.list_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.list_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#list_configurations)
         """
     def list_server_neighbors(
@@ -308,14 +308,14 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         Retrieves a list of servers that are one network hop away from a specified
         server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.list_server_neighbors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.list_server_neighbors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#list_server_neighbors)
         """
     def start_continuous_export(self) -> StartContinuousExportResponseTypeDef:
         """
         Start the continuous flow of agent's discovered data into Amazon Athena.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_continuous_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_continuous_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#start_continuous_export)
         """
     def start_data_collection_by_agent_ids(
@@ -324,7 +324,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Instructs the specified agents or connectors to start collecting data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_data_collection_by_agent_ids)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_data_collection_by_agent_ids)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#start_data_collection_by_agent_ids)
         """
     def start_export_task(
@@ -338,7 +338,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Begins the export of discovered data to an S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_export_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_export_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#start_export_task)
         """
     def start_import_task(
@@ -350,14 +350,14 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         use the Application Discovery Service (ADS) tools such as the Discovery
         Connector or Discovery Agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_import_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#start_import_task)
         """
     def stop_continuous_export(self, *, exportId: str) -> StopContinuousExportResponseTypeDef:
         """
         Stop the continuous flow of agent's discovered data into Amazon Athena.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.stop_continuous_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.stop_continuous_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#stop_continuous_export)
         """
     def stop_data_collection_by_agent_ids(
@@ -366,7 +366,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Instructs the specified agents or connectors to stop collecting data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.stop_data_collection_by_agent_ids)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.stop_data_collection_by_agent_ids)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#stop_data_collection_by_agent_ids)
         """
     def update_application(
@@ -375,13 +375,13 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         """
         Updates metadata about an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/client.html#update_application)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_agents"]) -> DescribeAgentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeagentspaginator)
         """
     @overload
@@ -389,7 +389,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         self, operation_name: Literal["describe_continuous_exports"]
     ) -> DescribeContinuousExportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describecontinuousexportspaginator)
         """
     @overload
@@ -397,7 +397,7 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         self, operation_name: Literal["describe_export_configurations"]
     ) -> DescribeExportConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeexportconfigurationspaginator)
         """
     @overload
@@ -405,13 +405,13 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         self, operation_name: Literal["describe_export_tasks"]
     ) -> DescribeExportTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeexporttaskspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_tags"]) -> DescribeTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describetagspaginator)
         """
     @overload
@@ -419,6 +419,6 @@ class ApplicationDiscoveryServiceClient(BaseClient):
         self, operation_name: Literal["list_configurations"]
     ) -> ListConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#listconfigurationspaginator)
         """

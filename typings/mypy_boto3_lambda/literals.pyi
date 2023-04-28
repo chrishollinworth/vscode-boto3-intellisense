@@ -23,6 +23,7 @@ __all__ = (
     "CodeSigningPolicyType",
     "EndPointTypeType",
     "EventSourcePositionType",
+    "FullDocumentType",
     "FunctionActiveV2WaiterName",
     "FunctionActiveWaiterName",
     "FunctionExistsWaiterName",
@@ -32,6 +33,7 @@ __all__ = (
     "FunctionUrlAuthTypeType",
     "FunctionVersionType",
     "InvocationTypeType",
+    "InvokeModeType",
     "LastUpdateStatusReasonCodeType",
     "LastUpdateStatusType",
     "ListAliasesPaginatorName",
@@ -49,6 +51,7 @@ __all__ = (
     "PackageTypeType",
     "ProvisionedConcurrencyStatusEnumType",
     "PublishedVersionActiveWaiterName",
+    "ResponseStreamingInvocationTypeType",
     "RuntimeType",
     "SnapStartApplyOnType",
     "SnapStartOptimizationStatusType",
@@ -56,12 +59,14 @@ __all__ = (
     "StateReasonCodeType",
     "StateType",
     "TracingModeType",
+    "UpdateRuntimeOnType",
 )
 
 ArchitectureType = Literal["arm64", "x86_64"]
 CodeSigningPolicyType = Literal["Enforce", "Warn"]
 EndPointTypeType = Literal["KAFKA_BOOTSTRAP_SERVERS"]
 EventSourcePositionType = Literal["AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"]
+FullDocumentType = Literal["Default", "UpdateLookup"]
 FunctionActiveV2WaiterName = Literal["function_active_v2"]
 FunctionActiveWaiterName = Literal["function_active"]
 FunctionExistsWaiterName = Literal["function_exists"]
@@ -71,6 +76,7 @@ FunctionUpdatedWaiterName = Literal["function_updated"]
 FunctionUrlAuthTypeType = Literal["AWS_IAM", "NONE"]
 FunctionVersionType = Literal["ALL"]
 InvocationTypeType = Literal["DryRun", "Event", "RequestResponse"]
+InvokeModeType = Literal["BUFFERED", "RESPONSE_STREAM"]
 LastUpdateStatusReasonCodeType = Literal[
     "DisabledKMSKey",
     "EFSIOError",
@@ -110,6 +116,7 @@ LogTypeType = Literal["None", "Tail"]
 PackageTypeType = Literal["Image", "Zip"]
 ProvisionedConcurrencyStatusEnumType = Literal["FAILED", "IN_PROGRESS", "READY"]
 PublishedVersionActiveWaiterName = Literal["published_version_active"]
+ResponseStreamingInvocationTypeType = Literal["DryRun", "RequestResponse"]
 RuntimeType = Literal[
     "dotnet6",
     "dotnetcore1.0",
@@ -133,6 +140,7 @@ RuntimeType = Literal[
     "provided",
     "provided.al2",
     "python2.7",
+    "python3.10",
     "python3.6",
     "python3.7",
     "python3.8",
@@ -180,3 +188,4 @@ StateReasonCodeType = Literal[
 ]
 StateType = Literal["Active", "Failed", "Inactive", "Pending"]
 TracingModeType = Literal["Active", "PassThrough"]
+UpdateRuntimeOnType = Literal["Auto", "FunctionUpdate", "Manual"]

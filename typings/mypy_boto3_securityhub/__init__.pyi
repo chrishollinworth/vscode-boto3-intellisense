@@ -19,6 +19,8 @@ Usage::
         ListInvitationsPaginator,
         ListMembersPaginator,
         ListOrganizationAdminAccountsPaginator,
+        ListSecurityControlDefinitionsPaginator,
+        ListStandardsControlAssociationsPaginator,
         SecurityHubClient,
     )
 
@@ -39,6 +41,8 @@ Usage::
     list_invitations_paginator: ListInvitationsPaginator = client.get_paginator("list_invitations")
     list_members_paginator: ListMembersPaginator = client.get_paginator("list_members")
     list_organization_admin_accounts_paginator: ListOrganizationAdminAccountsPaginator = client.get_paginator("list_organization_admin_accounts")
+    list_security_control_definitions_paginator: ListSecurityControlDefinitionsPaginator = client.get_paginator("list_security_control_definitions")
+    list_standards_control_associations_paginator: ListStandardsControlAssociationsPaginator = client.get_paginator("list_standards_control_associations")
     ```
 """
 from .client import SecurityHubClient
@@ -55,6 +59,8 @@ from .paginator import (
     ListInvitationsPaginator,
     ListMembersPaginator,
     ListOrganizationAdminAccountsPaginator,
+    ListSecurityControlDefinitionsPaginator,
+    ListStandardsControlAssociationsPaginator,
 )
 
 Client = SecurityHubClient
@@ -73,5 +79,7 @@ __all__ = (
     "ListInvitationsPaginator",
     "ListMembersPaginator",
     "ListOrganizationAdminAccountsPaginator",
+    "ListSecurityControlDefinitionsPaginator",
+    "ListStandardsControlAssociationsPaginator",
     "SecurityHubClient",
 )

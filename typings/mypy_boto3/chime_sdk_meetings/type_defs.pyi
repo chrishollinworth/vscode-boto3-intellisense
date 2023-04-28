@@ -323,6 +323,8 @@ EngineTranscribeSettingsTypeDef = TypedDict(
         "IdentifyLanguage": bool,
         "LanguageOptions": str,
         "PreferredLanguage": TranscribeLanguageCodeType,
+        "VocabularyNames": str,
+        "VocabularyFilterNames": str,
     },
     total=False,
 )

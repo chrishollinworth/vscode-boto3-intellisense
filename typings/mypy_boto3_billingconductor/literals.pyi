@@ -65,5 +65,5 @@ ListPricingRulesPaginatorName = Literal["list_pricing_rules"]
 ListResourcesAssociatedToCustomLineItemPaginatorName = Literal[
     "list_resources_associated_to_custom_line_item"
 ]
-PricingRuleScopeType = Literal["BILLING_ENTITY", "GLOBAL", "SERVICE"]
+PricingRuleScopeType = Literal["BILLING_ENTITY", "GLOBAL", "SERVICE", "SKU"]
 PricingRuleTypeType = Literal["DISCOUNT", "MARKUP", "TIERING"]

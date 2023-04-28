@@ -6,9 +6,9 @@ Type annotations for keyspaces service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_keyspaces.literals import EncryptionTypeType
+    from mypy_boto3_keyspaces.literals import ClientSideTimestampsStatusType
 
-    data: EncryptionTypeType = "AWS_OWNED_KMS_KEY"
+    data: ClientSideTimestampsStatusType = "ENABLED"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ClientSideTimestampsStatusType",
     "EncryptionTypeType",
     "ListKeyspacesPaginatorName",
     "ListTablesPaginatorName",
@@ -30,6 +31,7 @@ __all__ = (
     "TimeToLiveStatusType",
 )
 
+ClientSideTimestampsStatusType = Literal["ENABLED"]
 EncryptionTypeType = Literal["AWS_OWNED_KMS_KEY", "CUSTOMER_MANAGED_KMS_KEY"]
 ListKeyspacesPaginatorName = Literal["list_keyspaces"]
 ListTablesPaginatorName = Literal["list_tables"]

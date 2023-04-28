@@ -218,6 +218,7 @@ ObjectStorageClassType = Literal[
     "ONEZONE_IA",
     "OUTPOSTS",
     "REDUCED_REDUNDANCY",
+    "SNOW",
     "STANDARD",
     "STANDARD_IA",
 ]
@@ -245,6 +246,7 @@ StorageClassType = Literal[
     "ONEZONE_IA",
     "OUTPOSTS",
     "REDUCED_REDUNDANCY",
+    "SNOW",
     "STANDARD",
     "STANDARD_IA",
 ]

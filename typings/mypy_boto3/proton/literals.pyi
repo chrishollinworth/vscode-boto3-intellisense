@@ -6,9 +6,9 @@ Type annotations for proton service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_proton.literals import ComponentDeletedWaiterName
+    from mypy_boto3_proton.literals import BlockerStatusType
 
-    data: ComponentDeletedWaiterName = "component_deleted"
+    data: BlockerStatusType = "ACTIVE"
     ```
 """
 import sys
@@ -19,6 +19,8 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "BlockerStatusType",
+    "BlockerTypeType",
     "ComponentDeletedWaiterName",
     "ComponentDeployedWaiterName",
     "ComponentDeploymentUpdateTypeType",
@@ -70,6 +72,8 @@ __all__ = (
     "TemplateVersionStatusType",
 )
 
+BlockerStatusType = Literal["ACTIVE", "RESOLVED"]
+BlockerTypeType = Literal["AUTOMATED"]
 ComponentDeletedWaiterName = Literal["component_deleted"]
 ComponentDeployedWaiterName = Literal["component_deployed"]
 ComponentDeploymentUpdateTypeType = Literal["CURRENT_VERSION", "NONE"]
@@ -165,7 +169,7 @@ ServiceTemplateSupportedComponentSourceTypeType = Literal["DIRECTLY_DEFINED"]
 ServiceTemplateVersionRegisteredWaiterName = Literal["service_template_version_registered"]
 ServiceUpdatedWaiterName = Literal["service_updated"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
-SyncTypeType = Literal["TEMPLATE_SYNC"]
+SyncTypeType = Literal["SERVICE_SYNC", "TEMPLATE_SYNC"]
 TemplateTypeType = Literal["ENVIRONMENT", "SERVICE"]
 TemplateVersionStatusType = Literal[
     "DRAFT", "PUBLISHED", "REGISTRATION_FAILED", "REGISTRATION_IN_PROGRESS"

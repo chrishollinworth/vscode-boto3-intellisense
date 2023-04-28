@@ -38,6 +38,7 @@ __all__ = (
     "RenderRecommendationTypeType",
     "ResiliencyPolicyTierType",
     "ResourceImportStatusTypeType",
+    "ResourceImportStrategyTypeType",
     "ResourceMappingTypeType",
     "ResourceResolutionStatusTypeType",
     "SopServiceTypeType",
@@ -80,8 +81,9 @@ ResiliencyPolicyTierType = Literal[
     "CoreServices", "Critical", "Important", "MissionCritical", "NonCritical"
 ]
 ResourceImportStatusTypeType = Literal["Failed", "InProgress", "Pending", "Success"]
+ResourceImportStrategyTypeType = Literal["AddOnly", "ReplaceAll"]
 ResourceMappingTypeType = Literal[
-    "AppRegistryApp", "CfnStack", "Resource", "ResourceGroup", "Terraform"
+    "AppRegistryApp", "CfnStack", "EKS", "Resource", "ResourceGroup", "Terraform"
 ]
 ResourceResolutionStatusTypeType = Literal["Failed", "InProgress", "Pending", "Success"]
 SopServiceTypeType = Literal["SSM"]

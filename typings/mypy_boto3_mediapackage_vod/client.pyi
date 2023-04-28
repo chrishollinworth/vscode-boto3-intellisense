@@ -68,7 +68,7 @@ class Exceptions:
 
 class MediaPackageVodClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html)
     """
 
@@ -83,14 +83,14 @@ class MediaPackageVodClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#close)
         """
     def configure_logs(
@@ -101,9 +101,9 @@ class MediaPackageVodClient(BaseClient):
         also: `AWS API Documentation
         <https://docs.aws.amazon.com/goto/WebAPI/mediapackage-
         vod-2018-11-07/ConfigureLogs>`_ **Request Syntax** response =
-        client.configure_logs( EgressAccessLogs={ 'LogGrou...
+        client.configure_logs( EgressAccessLogs={ 'LogGroup...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.configure_logs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.configure_logs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#configure_logs)
         """
     def create_asset(
@@ -119,7 +119,7 @@ class MediaPackageVodClient(BaseClient):
         """
         Creates a new MediaPackage VOD Asset resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.create_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.create_asset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#create_asset)
         """
     def create_packaging_configuration(
@@ -136,7 +136,7 @@ class MediaPackageVodClient(BaseClient):
         """
         Creates a new MediaPackage VOD PackagingConfiguration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.create_packaging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.create_packaging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#create_packaging_configuration)
         """
     def create_packaging_group(
@@ -150,35 +150,35 @@ class MediaPackageVodClient(BaseClient):
         """
         Creates a new MediaPackage VOD PackagingGroup resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.create_packaging_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.create_packaging_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#create_packaging_group)
         """
     def delete_asset(self, *, Id: str) -> Dict[str, Any]:
         """
         Deletes an existing MediaPackage VOD Asset resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.delete_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.delete_asset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#delete_asset)
         """
     def delete_packaging_configuration(self, *, Id: str) -> Dict[str, Any]:
         """
         Deletes a MediaPackage VOD PackagingConfiguration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.delete_packaging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.delete_packaging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#delete_packaging_configuration)
         """
     def delete_packaging_group(self, *, Id: str) -> Dict[str, Any]:
         """
         Deletes a MediaPackage VOD PackagingGroup resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.delete_packaging_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.delete_packaging_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#delete_packaging_group)
         """
     def describe_asset(self, *, Id: str) -> DescribeAssetResponseTypeDef:
         """
         Returns a description of a MediaPackage VOD Asset resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.describe_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.describe_asset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#describe_asset)
         """
     def describe_packaging_configuration(
@@ -187,14 +187,14 @@ class MediaPackageVodClient(BaseClient):
         """
         Returns a description of a MediaPackage VOD PackagingConfiguration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.describe_packaging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.describe_packaging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#describe_packaging_configuration)
         """
     def describe_packaging_group(self, *, Id: str) -> DescribePackagingGroupResponseTypeDef:
         """
         Returns a description of a MediaPackage VOD PackagingGroup resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.describe_packaging_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.describe_packaging_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#describe_packaging_group)
         """
     def generate_presigned_url(
@@ -207,7 +207,7 @@ class MediaPackageVodClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#generate_presigned_url)
         """
     def list_assets(
@@ -216,7 +216,7 @@ class MediaPackageVodClient(BaseClient):
         """
         Returns a collection of MediaPackage VOD Asset resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.list_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.list_assets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#list_assets)
         """
     def list_packaging_configurations(
@@ -225,7 +225,7 @@ class MediaPackageVodClient(BaseClient):
         """
         Returns a collection of MediaPackage VOD PackagingConfiguration resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.list_packaging_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.list_packaging_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#list_packaging_configurations)
         """
     def list_packaging_groups(
@@ -234,28 +234,28 @@ class MediaPackageVodClient(BaseClient):
         """
         Returns a collection of MediaPackage VOD PackagingGroup resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.list_packaging_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.list_packaging_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#list_packaging_groups)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Returns a list of the tags assigned to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#list_tags_for_resource)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
         """
         Adds tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
         """
         Removes tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#untag_resource)
         """
     def update_packaging_group(
@@ -264,13 +264,13 @@ class MediaPackageVodClient(BaseClient):
         """
         Updates a specific packaging group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Client.update_packaging_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Client.update_packaging_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/client.html#update_packaging_group)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_assets"]) -> ListAssetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListAssets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListAssets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/paginators.html#listassetspaginator)
         """
     @overload
@@ -278,7 +278,7 @@ class MediaPackageVodClient(BaseClient):
         self, operation_name: Literal["list_packaging_configurations"]
     ) -> ListPackagingConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/paginators.html#listpackagingconfigurationspaginator)
         """
     @overload
@@ -286,6 +286,6 @@ class MediaPackageVodClient(BaseClient):
         self, operation_name: Literal["list_packaging_groups"]
     ) -> ListPackagingGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/paginators.html#listpackaginggroupspaginator)
         """

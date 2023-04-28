@@ -21,7 +21,11 @@ else:
 __all__ = (
     "AugmentedManifestsDocumentTypeFormatType",
     "BlockTypeType",
+    "DatasetDataFormatType",
+    "DatasetStatusType",
+    "DatasetTypeType",
     "DocumentClassifierDataFormatType",
+    "DocumentClassifierDocumentTypeFormatType",
     "DocumentClassifierModeType",
     "DocumentReadActionType",
     "DocumentReadFeatureTypesType",
@@ -30,6 +34,8 @@ __all__ = (
     "EndpointStatusType",
     "EntityRecognizerDataFormatType",
     "EntityTypeType",
+    "FlywheelIterationStatusType",
+    "FlywheelStatusType",
     "InputFormatType",
     "JobStatusType",
     "LanguageCodeType",
@@ -44,7 +50,9 @@ __all__ = (
     "ListSentimentDetectionJobsPaginatorName",
     "ListTopicsDetectionJobsPaginatorName",
     "ModelStatusType",
+    "ModelTypeType",
     "PageBasedErrorCodeType",
+    "PageBasedWarningCodeType",
     "PartOfSpeechTagTypeType",
     "PiiEntitiesDetectionMaskModeType",
     "PiiEntitiesDetectionModeType",
@@ -60,7 +68,13 @@ AugmentedManifestsDocumentTypeFormatType = Literal[
     "PLAIN_TEXT_DOCUMENT", "SEMI_STRUCTURED_DOCUMENT"
 ]
 BlockTypeType = Literal["LINE", "WORD"]
+DatasetDataFormatType = Literal["AUGMENTED_MANIFEST", "COMPREHEND_CSV"]
+DatasetStatusType = Literal["COMPLETED", "CREATING", "FAILED"]
+DatasetTypeType = Literal["TEST", "TRAIN"]
 DocumentClassifierDataFormatType = Literal["AUGMENTED_MANIFEST", "COMPREHEND_CSV"]
+DocumentClassifierDocumentTypeFormatType = Literal[
+    "PLAIN_TEXT_DOCUMENT", "SEMI_STRUCTURED_DOCUMENT"
+]
 DocumentClassifierModeType = Literal["MULTI_CLASS", "MULTI_LABEL"]
 DocumentReadActionType = Literal["TEXTRACT_ANALYZE_DOCUMENT", "TEXTRACT_DETECT_DOCUMENT_TEXT"]
 DocumentReadFeatureTypesType = Literal["FORMS", "TABLES"]
@@ -87,6 +101,10 @@ EntityTypeType = Literal[
     "QUANTITY",
     "TITLE",
 ]
+FlywheelIterationStatusType = Literal[
+    "COMPLETED", "EVALUATING", "FAILED", "STOPPED", "STOP_REQUESTED", "TRAINING"
+]
+FlywheelStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 InputFormatType = Literal["ONE_DOC_PER_FILE", "ONE_DOC_PER_LINE"]
 JobStatusType = Literal[
     "COMPLETED", "FAILED", "IN_PROGRESS", "STOPPED", "STOP_REQUESTED", "SUBMITTED"
@@ -105,14 +123,26 @@ ListPiiEntitiesDetectionJobsPaginatorName = Literal["list_pii_entities_detection
 ListSentimentDetectionJobsPaginatorName = Literal["list_sentiment_detection_jobs"]
 ListTopicsDetectionJobsPaginatorName = Literal["list_topics_detection_jobs"]
 ModelStatusType = Literal[
-    "DELETING", "IN_ERROR", "STOPPED", "STOP_REQUESTED", "SUBMITTED", "TRAINED", "TRAINING"
+    "DELETING",
+    "IN_ERROR",
+    "STOPPED",
+    "STOP_REQUESTED",
+    "SUBMITTED",
+    "TRAINED",
+    "TRAINED_WITH_WARNING",
+    "TRAINING",
 ]
+ModelTypeType = Literal["DOCUMENT_CLASSIFIER", "ENTITY_RECOGNIZER"]
 PageBasedErrorCodeType = Literal[
     "INTERNAL_SERVER_ERROR",
     "PAGE_CHARACTERS_EXCEEDED",
     "PAGE_SIZE_EXCEEDED",
     "TEXTRACT_BAD_PAGE",
     "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED",
+]
+PageBasedWarningCodeType = Literal[
+    "INFERENCING_NATIVE_DOCUMENT_WITH_PLAINTEXT_TRAINED_MODEL",
+    "INFERENCING_PLAINTEXT_WITH_NATIVE_TRAINED_MODEL",
 ]
 PartOfSpeechTagTypeType = Literal[
     "ADJ",

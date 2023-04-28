@@ -146,6 +146,7 @@ AccessorTypeDef = TypedDict(
         "Status": AccessorStatusType,
         "CreationDate": datetime,
         "Arn": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -160,13 +161,25 @@ ApprovalThresholdPolicyTypeDef = TypedDict(
     total=False,
 )
 
-CreateAccessorInputRequestTypeDef = TypedDict(
-    "CreateAccessorInputRequestTypeDef",
+_RequiredCreateAccessorInputRequestTypeDef = TypedDict(
+    "_RequiredCreateAccessorInputRequestTypeDef",
     {
         "ClientRequestToken": str,
         "AccessorType": Literal["BILLING_TOKEN"],
     },
 )
+_OptionalCreateAccessorInputRequestTypeDef = TypedDict(
+    "_OptionalCreateAccessorInputRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateAccessorInputRequestTypeDef(
+    _RequiredCreateAccessorInputRequestTypeDef, _OptionalCreateAccessorInputRequestTypeDef
+):
+    pass
 
 CreateAccessorOutputTypeDef = TypedDict(
     "CreateAccessorOutputTypeDef",

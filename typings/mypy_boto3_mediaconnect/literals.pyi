@@ -20,7 +20,11 @@ else:
 
 __all__ = (
     "AlgorithmType",
+    "BridgePlacementType",
+    "BridgeStateType",
     "ColorimetryType",
+    "ConnectionStatusType",
+    "DesiredStateType",
     "DurationUnitsType",
     "EncoderProfileType",
     "EncodingNameType",
@@ -29,9 +33,14 @@ __all__ = (
     "FlowActiveWaiterName",
     "FlowDeletedWaiterName",
     "FlowStandbyWaiterName",
+    "GatewayStateType",
+    "InstanceStateType",
     "KeyTypeType",
+    "ListBridgesPaginatorName",
     "ListEntitlementsPaginatorName",
     "ListFlowsPaginatorName",
+    "ListGatewayInstancesPaginatorName",
+    "ListGatewaysPaginatorName",
     "ListOfferingsPaginatorName",
     "ListReservationsPaginatorName",
     "MaintenanceDayType",
@@ -50,7 +59,24 @@ __all__ = (
 )
 
 AlgorithmType = Literal["aes128", "aes192", "aes256"]
+BridgePlacementType = Literal["AVAILABLE", "LOCKED"]
+BridgeStateType = Literal[
+    "ACTIVE",
+    "CREATING",
+    "DELETED",
+    "DELETING",
+    "DEPLOYING",
+    "STANDBY",
+    "STARTING",
+    "START_FAILED",
+    "START_PENDING",
+    "STOPPING",
+    "STOP_FAILED",
+    "UPDATING",
+]
 ColorimetryType = Literal["BT2020", "BT2100", "BT601", "BT709", "ST2065-1", "ST2065-3", "XYZ"]
+ConnectionStatusType = Literal["CONNECTED", "DISCONNECTED"]
+DesiredStateType = Literal["ACTIVE", "DELETED", "STANDBY"]
 DurationUnitsType = Literal["MONTHS"]
 EncoderProfileType = Literal["high", "main"]
 EncodingNameType = Literal["jxsv", "pcm", "raw", "smpte291"]
@@ -59,9 +85,21 @@ FailoverModeType = Literal["FAILOVER", "MERGE"]
 FlowActiveWaiterName = Literal["flow_active"]
 FlowDeletedWaiterName = Literal["flow_deleted"]
 FlowStandbyWaiterName = Literal["flow_standby"]
+GatewayStateType = Literal["ACTIVE", "CREATING", "DELETED", "DELETING", "ERROR", "UPDATING"]
+InstanceStateType = Literal[
+    "ACTIVE",
+    "DEREGISTERED",
+    "DEREGISTERING",
+    "DEREGISTRATION_ERROR",
+    "REGISTERING",
+    "REGISTRATION_ERROR",
+]
 KeyTypeType = Literal["speke", "srt-password", "static-key"]
+ListBridgesPaginatorName = Literal["list_bridges"]
 ListEntitlementsPaginatorName = Literal["list_entitlements"]
 ListFlowsPaginatorName = Literal["list_flows"]
+ListGatewayInstancesPaginatorName = Literal["list_gateway_instances"]
+ListGatewaysPaginatorName = Literal["list_gateways"]
 ListOfferingsPaginatorName = Literal["list_offerings"]
 ListReservationsPaginatorName = Literal["list_reservations"]
 MaintenanceDayType = Literal[
@@ -79,6 +117,7 @@ ProtocolType = Literal[
     "srt-caller",
     "srt-listener",
     "st2110-jpegxs",
+    "udp",
     "zixi-pull",
     "zixi-push",
 ]

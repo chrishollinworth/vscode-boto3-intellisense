@@ -28,6 +28,7 @@ __all__ = (
     "EvaluationTypeType",
     "FeaturizationMethodNameType",
     "FilterConditionStringType",
+    "ImportModeType",
     "ListDatasetGroupsPaginatorName",
     "ListDatasetImportJobsPaginatorName",
     "ListDatasetsPaginatorName",
@@ -64,6 +65,7 @@ DomainType = Literal[
 EvaluationTypeType = Literal["COMPUTED", "SUMMARY"]
 FeaturizationMethodNameType = Literal["filling"]
 FilterConditionStringType = Literal["IS", "IS_NOT"]
+ImportModeType = Literal["FULL", "INCREMENTAL"]
 ListDatasetGroupsPaginatorName = Literal["list_dataset_groups"]
 ListDatasetImportJobsPaginatorName = Literal["list_dataset_import_jobs"]
 ListDatasetsPaginatorName = Literal["list_datasets"]

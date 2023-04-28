@@ -38,6 +38,7 @@ from .literals import (
     ExperienceStatusType,
     FaqFileFormatType,
     FaqStatusType,
+    FeaturedResultsSetStatusType,
     HighlightTypeType,
     IndexEditionType,
     IndexStatusType,
@@ -100,6 +101,9 @@ __all__ = (
     "BatchDeleteDocumentRequestRequestTypeDef",
     "BatchDeleteDocumentResponseFailedDocumentTypeDef",
     "BatchDeleteDocumentResponseTypeDef",
+    "BatchDeleteFeaturedResultsSetErrorTypeDef",
+    "BatchDeleteFeaturedResultsSetRequestRequestTypeDef",
+    "BatchDeleteFeaturedResultsSetResponseTypeDef",
     "BatchGetDocumentStatusRequestRequestTypeDef",
     "BatchGetDocumentStatusResponseErrorTypeDef",
     "BatchGetDocumentStatusResponseTypeDef",
@@ -131,6 +135,8 @@ __all__ = (
     "CreateExperienceResponseTypeDef",
     "CreateFaqRequestRequestTypeDef",
     "CreateFaqResponseTypeDef",
+    "CreateFeaturedResultsSetRequestRequestTypeDef",
+    "CreateFeaturedResultsSetResponseTypeDef",
     "CreateIndexRequestRequestTypeDef",
     "CreateIndexResponseTypeDef",
     "CreateQuerySuggestionsBlockListRequestRequestTypeDef",
@@ -163,6 +169,8 @@ __all__ = (
     "DescribeExperienceResponseTypeDef",
     "DescribeFaqRequestRequestTypeDef",
     "DescribeFaqResponseTypeDef",
+    "DescribeFeaturedResultsSetRequestRequestTypeDef",
+    "DescribeFeaturedResultsSetResponseTypeDef",
     "DescribeIndexRequestRequestTypeDef",
     "DescribeIndexResponseTypeDef",
     "DescribePrincipalMappingRequestRequestTypeDef",
@@ -199,6 +207,12 @@ __all__ = (
     "FailedEntityTypeDef",
     "FaqStatisticsTypeDef",
     "FaqSummaryTypeDef",
+    "FeaturedDocumentMissingTypeDef",
+    "FeaturedDocumentTypeDef",
+    "FeaturedDocumentWithMetadataTypeDef",
+    "FeaturedResultsItemTypeDef",
+    "FeaturedResultsSetSummaryTypeDef",
+    "FeaturedResultsSetTypeDef",
     "FsxConfigurationTypeDef",
     "GetQuerySuggestionsRequestRequestTypeDef",
     "GetQuerySuggestionsResponseTypeDef",
@@ -233,6 +247,8 @@ __all__ = (
     "ListExperiencesResponseTypeDef",
     "ListFaqsRequestRequestTypeDef",
     "ListFaqsResponseTypeDef",
+    "ListFeaturedResultsSetsRequestRequestTypeDef",
+    "ListFeaturedResultsSetsResponseTypeDef",
     "ListGroupsOlderThanOrderingIdRequestRequestTypeDef",
     "ListGroupsOlderThanOrderingIdResponseTypeDef",
     "ListIndicesRequestRequestTypeDef",
@@ -307,6 +323,8 @@ __all__ = (
     "UpdateAccessControlConfigurationRequestRequestTypeDef",
     "UpdateDataSourceRequestRequestTypeDef",
     "UpdateExperienceRequestRequestTypeDef",
+    "UpdateFeaturedResultsSetRequestRequestTypeDef",
+    "UpdateFeaturedResultsSetResponseTypeDef",
     "UpdateIndexRequestRequestTypeDef",
     "UpdateQuerySuggestionsBlockListRequestRequestTypeDef",
     "UpdateQuerySuggestionsConfigRequestRequestTypeDef",
@@ -493,6 +511,31 @@ BatchDeleteDocumentResponseTypeDef = TypedDict(
     "BatchDeleteDocumentResponseTypeDef",
     {
         "FailedDocuments": List["BatchDeleteDocumentResponseFailedDocumentTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchDeleteFeaturedResultsSetErrorTypeDef = TypedDict(
+    "BatchDeleteFeaturedResultsSetErrorTypeDef",
+    {
+        "Id": str,
+        "ErrorCode": ErrorCodeType,
+        "ErrorMessage": str,
+    },
+)
+
+BatchDeleteFeaturedResultsSetRequestRequestTypeDef = TypedDict(
+    "BatchDeleteFeaturedResultsSetRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "FeaturedResultsSetIds": List[str],
+    },
+)
+
+BatchDeleteFeaturedResultsSetResponseTypeDef = TypedDict(
+    "BatchDeleteFeaturedResultsSetResponseTypeDef",
+    {
+        "Errors": List["BatchDeleteFeaturedResultsSetErrorTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -904,6 +947,40 @@ CreateFaqResponseTypeDef = TypedDict(
     "CreateFaqResponseTypeDef",
     {
         "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateFeaturedResultsSetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFeaturedResultsSetRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "FeaturedResultsSetName": str,
+    },
+)
+_OptionalCreateFeaturedResultsSetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFeaturedResultsSetRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ClientToken": str,
+        "Status": FeaturedResultsSetStatusType,
+        "QueryTexts": List[str],
+        "FeaturedDocuments": List["FeaturedDocumentTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFeaturedResultsSetRequestRequestTypeDef(
+    _RequiredCreateFeaturedResultsSetRequestRequestTypeDef,
+    _OptionalCreateFeaturedResultsSetRequestRequestTypeDef,
+):
+    pass
+
+CreateFeaturedResultsSetResponseTypeDef = TypedDict(
+    "CreateFeaturedResultsSetResponseTypeDef",
+    {
+        "FeaturedResultsSet": "FeaturedResultsSetTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1343,6 +1420,30 @@ DescribeFaqResponseTypeDef = TypedDict(
     },
 )
 
+DescribeFeaturedResultsSetRequestRequestTypeDef = TypedDict(
+    "DescribeFeaturedResultsSetRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "FeaturedResultsSetId": str,
+    },
+)
+
+DescribeFeaturedResultsSetResponseTypeDef = TypedDict(
+    "DescribeFeaturedResultsSetResponseTypeDef",
+    {
+        "FeaturedResultsSetId": str,
+        "FeaturedResultsSetName": str,
+        "Description": str,
+        "Status": FeaturedResultsSetStatusType,
+        "QueryTexts": List[str],
+        "FeaturedDocumentsWithMetadata": List["FeaturedDocumentWithMetadataTypeDef"],
+        "FeaturedDocumentsMissing": List["FeaturedDocumentMissingTypeDef"],
+        "LastUpdatedTimestamp": int,
+        "CreationTimestamp": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeIndexRequestRequestTypeDef = TypedDict(
     "DescribeIndexRequestRequestTypeDef",
     {
@@ -1768,6 +1869,75 @@ FaqSummaryTypeDef = TypedDict(
         "UpdatedAt": datetime,
         "FileFormat": FaqFileFormatType,
         "LanguageCode": str,
+    },
+    total=False,
+)
+
+FeaturedDocumentMissingTypeDef = TypedDict(
+    "FeaturedDocumentMissingTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
+)
+
+FeaturedDocumentTypeDef = TypedDict(
+    "FeaturedDocumentTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
+)
+
+FeaturedDocumentWithMetadataTypeDef = TypedDict(
+    "FeaturedDocumentWithMetadataTypeDef",
+    {
+        "Id": str,
+        "Title": str,
+        "URI": str,
+    },
+    total=False,
+)
+
+FeaturedResultsItemTypeDef = TypedDict(
+    "FeaturedResultsItemTypeDef",
+    {
+        "Id": str,
+        "Type": QueryResultTypeType,
+        "AdditionalAttributes": List["AdditionalResultAttributeTypeDef"],
+        "DocumentId": str,
+        "DocumentTitle": "TextWithHighlightsTypeDef",
+        "DocumentExcerpt": "TextWithHighlightsTypeDef",
+        "DocumentURI": str,
+        "DocumentAttributes": List["DocumentAttributeTypeDef"],
+        "FeedbackToken": str,
+    },
+    total=False,
+)
+
+FeaturedResultsSetSummaryTypeDef = TypedDict(
+    "FeaturedResultsSetSummaryTypeDef",
+    {
+        "FeaturedResultsSetId": str,
+        "FeaturedResultsSetName": str,
+        "Status": FeaturedResultsSetStatusType,
+        "LastUpdatedTimestamp": int,
+        "CreationTimestamp": int,
+    },
+    total=False,
+)
+
+FeaturedResultsSetTypeDef = TypedDict(
+    "FeaturedResultsSetTypeDef",
+    {
+        "FeaturedResultsSetId": str,
+        "FeaturedResultsSetName": str,
+        "Description": str,
+        "Status": FeaturedResultsSetStatusType,
+        "QueryTexts": List[str],
+        "FeaturedDocuments": List["FeaturedDocumentTypeDef"],
+        "LastUpdatedTimestamp": int,
+        "CreationTimestamp": int,
     },
     total=False,
 )
@@ -2339,6 +2509,36 @@ ListFaqsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListFeaturedResultsSetsRequestRequestTypeDef = TypedDict(
+    "_RequiredListFeaturedResultsSetsRequestRequestTypeDef",
+    {
+        "IndexId": str,
+    },
+)
+_OptionalListFeaturedResultsSetsRequestRequestTypeDef = TypedDict(
+    "_OptionalListFeaturedResultsSetsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListFeaturedResultsSetsRequestRequestTypeDef(
+    _RequiredListFeaturedResultsSetsRequestRequestTypeDef,
+    _OptionalListFeaturedResultsSetsRequestRequestTypeDef,
+):
+    pass
+
+ListFeaturedResultsSetsResponseTypeDef = TypedDict(
+    "ListFeaturedResultsSetsResponseTypeDef",
+    {
+        "FeaturedResultsSetSummaryItems": List["FeaturedResultsSetSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListGroupsOlderThanOrderingIdRequestRequestTypeDef = TypedDict(
     "_RequiredListGroupsOlderThanOrderingIdRequestRequestTypeDef",
     {
@@ -2661,6 +2861,7 @@ QueryResultTypeDef = TypedDict(
         "TotalNumberOfResults": int,
         "Warnings": List["WarningTypeDef"],
         "SpellCorrectedQueries": List["SpellCorrectedQueryTypeDef"],
+        "FeaturedResultsItems": List["FeaturedResultsItemTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3403,6 +3604,39 @@ class UpdateExperienceRequestRequestTypeDef(
     _RequiredUpdateExperienceRequestRequestTypeDef, _OptionalUpdateExperienceRequestRequestTypeDef
 ):
     pass
+
+_RequiredUpdateFeaturedResultsSetRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFeaturedResultsSetRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "FeaturedResultsSetId": str,
+    },
+)
+_OptionalUpdateFeaturedResultsSetRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFeaturedResultsSetRequestRequestTypeDef",
+    {
+        "FeaturedResultsSetName": str,
+        "Description": str,
+        "Status": FeaturedResultsSetStatusType,
+        "QueryTexts": List[str],
+        "FeaturedDocuments": List["FeaturedDocumentTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateFeaturedResultsSetRequestRequestTypeDef(
+    _RequiredUpdateFeaturedResultsSetRequestRequestTypeDef,
+    _OptionalUpdateFeaturedResultsSetRequestRequestTypeDef,
+):
+    pass
+
+UpdateFeaturedResultsSetResponseTypeDef = TypedDict(
+    "UpdateFeaturedResultsSetResponseTypeDef",
+    {
+        "FeaturedResultsSet": "FeaturedResultsSetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredUpdateIndexRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateIndexRequestRequestTypeDef",

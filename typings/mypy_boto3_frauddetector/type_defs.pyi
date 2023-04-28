@@ -22,6 +22,7 @@ from .literals import (
     DataTypeType,
     DetectorVersionStatusType,
     EventIngestionType,
+    ListUpdateModeType,
     ModelEndpointStatusType,
     ModelInputDataFormatType,
     ModelOutputDataFormatType,
@@ -48,6 +49,7 @@ __all__ = (
     "AggregatedLogOddsMetricTypeDef",
     "AggregatedVariablesImpactExplanationTypeDef",
     "AggregatedVariablesImportanceMetricsTypeDef",
+    "AllowDenyListTypeDef",
     "BatchCreateVariableErrorTypeDef",
     "BatchCreateVariableRequestRequestTypeDef",
     "BatchCreateVariableResultTypeDef",
@@ -62,6 +64,7 @@ __all__ = (
     "CreateBatchPredictionJobRequestRequestTypeDef",
     "CreateDetectorVersionRequestRequestTypeDef",
     "CreateDetectorVersionResultTypeDef",
+    "CreateListRequestRequestTypeDef",
     "CreateModelRequestRequestTypeDef",
     "CreateModelVersionRequestRequestTypeDef",
     "CreateModelVersionResultTypeDef",
@@ -80,6 +83,7 @@ __all__ = (
     "DeleteEventsByEventTypeResultTypeDef",
     "DeleteExternalModelRequestRequestTypeDef",
     "DeleteLabelRequestRequestTypeDef",
+    "DeleteListRequestRequestTypeDef",
     "DeleteModelRequestRequestTypeDef",
     "DeleteModelVersionRequestRequestTypeDef",
     "DeleteOutcomeRequestRequestTypeDef",
@@ -132,6 +136,10 @@ __all__ = (
     "GetKMSEncryptionKeyResultTypeDef",
     "GetLabelsRequestRequestTypeDef",
     "GetLabelsResultTypeDef",
+    "GetListElementsRequestRequestTypeDef",
+    "GetListElementsResultTypeDef",
+    "GetListsMetadataRequestRequestTypeDef",
+    "GetListsMetadataResultTypeDef",
     "GetModelVersionRequestRequestTypeDef",
     "GetModelVersionResultTypeDef",
     "GetModelsRequestRequestTypeDef",
@@ -190,11 +198,13 @@ __all__ = (
     "TrainingMetricsV2TypeDef",
     "TrainingResultTypeDef",
     "TrainingResultV2TypeDef",
+    "UncertaintyRangeTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDetectorVersionMetadataRequestRequestTypeDef",
     "UpdateDetectorVersionRequestRequestTypeDef",
     "UpdateDetectorVersionStatusRequestRequestTypeDef",
     "UpdateEventLabelRequestRequestTypeDef",
+    "UpdateListRequestRequestTypeDef",
     "UpdateModelRequestRequestTypeDef",
     "UpdateModelVersionRequestRequestTypeDef",
     "UpdateModelVersionResultTypeDef",
@@ -262,6 +272,27 @@ AggregatedVariablesImportanceMetricsTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredAllowDenyListTypeDef = TypedDict(
+    "_RequiredAllowDenyListTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalAllowDenyListTypeDef = TypedDict(
+    "_OptionalAllowDenyListTypeDef",
+    {
+        "description": str,
+        "variableType": str,
+        "createdTime": str,
+        "updatedTime": str,
+        "arn": str,
+    },
+    total=False,
+)
+
+class AllowDenyListTypeDef(_RequiredAllowDenyListTypeDef, _OptionalAllowDenyListTypeDef):
+    pass
 
 BatchCreateVariableErrorTypeDef = TypedDict(
     "BatchCreateVariableErrorTypeDef",
@@ -467,6 +498,28 @@ CreateDetectorVersionResultTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredCreateListRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateListRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalCreateListRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateListRequestRequestTypeDef",
+    {
+        "elements": List[str],
+        "variableType": str,
+        "description": str,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateListRequestRequestTypeDef(
+    _RequiredCreateListRequestRequestTypeDef, _OptionalCreateListRequestRequestTypeDef
+):
+    pass
 
 _RequiredCreateModelRequestRequestTypeDef = TypedDict(
     "_RequiredCreateModelRequestRequestTypeDef",
@@ -679,6 +732,13 @@ DeleteExternalModelRequestRequestTypeDef = TypedDict(
 
 DeleteLabelRequestRequestTypeDef = TypedDict(
     "DeleteLabelRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+
+DeleteListRequestRequestTypeDef = TypedDict(
+    "DeleteListRequestRequestTypeDef",
     {
         "name": str,
     },
@@ -1248,6 +1308,54 @@ GetLabelsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredGetListElementsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetListElementsRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalGetListElementsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetListElementsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class GetListElementsRequestRequestTypeDef(
+    _RequiredGetListElementsRequestRequestTypeDef, _OptionalGetListElementsRequestRequestTypeDef
+):
+    pass
+
+GetListElementsResultTypeDef = TypedDict(
+    "GetListElementsResultTypeDef",
+    {
+        "elements": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetListsMetadataRequestRequestTypeDef = TypedDict(
+    "GetListsMetadataRequestRequestTypeDef",
+    {
+        "name": str,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+GetListsMetadataResultTypeDef = TypedDict(
+    "GetListsMetadataResultTypeDef",
+    {
+        "lists": List["AllowDenyListTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetModelVersionRequestRequestTypeDef = TypedDict(
     "GetModelVersionRequestRequestTypeDef",
     {
@@ -1629,6 +1737,7 @@ OFIModelPerformanceTypeDef = TypedDict(
     "OFIModelPerformanceTypeDef",
     {
         "auc": float,
+        "uncertaintyRange": "UncertaintyRangeTypeDef",
     },
     total=False,
 )
@@ -1894,6 +2003,7 @@ TFIModelPerformanceTypeDef = TypedDict(
     "TFIModelPerformanceTypeDef",
     {
         "auc": float,
+        "uncertaintyRange": "UncertaintyRangeTypeDef",
     },
     total=False,
 )
@@ -1982,6 +2092,14 @@ TrainingResultV2TypeDef = TypedDict(
     total=False,
 )
 
+UncertaintyRangeTypeDef = TypedDict(
+    "UncertaintyRangeTypeDef",
+    {
+        "lowerBoundValue": float,
+        "upperBoundValue": float,
+    },
+)
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -2042,6 +2160,28 @@ UpdateEventLabelRequestRequestTypeDef = TypedDict(
         "labelTimestamp": str,
     },
 )
+
+_RequiredUpdateListRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateListRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalUpdateListRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateListRequestRequestTypeDef",
+    {
+        "elements": List[str],
+        "description": str,
+        "updateMode": ListUpdateModeType,
+        "variableType": str,
+    },
+    total=False,
+)
+
+class UpdateListRequestRequestTypeDef(
+    _RequiredUpdateListRequestRequestTypeDef, _OptionalUpdateListRequestRequestTypeDef
+):
+    pass
 
 _RequiredUpdateModelRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateModelRequestRequestTypeDef",

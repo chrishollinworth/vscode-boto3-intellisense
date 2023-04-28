@@ -58,6 +58,7 @@ __all__ = (
     "MonitoringConfigurationTypeDef",
     "NetworkConfigurationTypeDef",
     "PaginatorConfigTypeDef",
+    "ResourceUtilizationTypeDef",
     "ResponseMetadataTypeDef",
     "S3MonitoringConfigurationTypeDef",
     "SparkSubmitTypeDef",
@@ -415,6 +416,8 @@ _OptionalJobRunTypeDef = TypedDict(
         "totalResourceUtilization": "TotalResourceUtilizationTypeDef",
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "totalExecutionDurationSeconds": int,
+        "executionTimeoutMinutes": int,
+        "billedResourceUtilization": "ResourceUtilizationTypeDef",
     },
     total=False,
 )
@@ -541,6 +544,16 @@ PaginatorConfigTypeDef = TypedDict(
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+ResourceUtilizationTypeDef = TypedDict(
+    "ResourceUtilizationTypeDef",
+    {
+        "vCPUHour": float,
+        "memoryGBHour": float,
+        "storageGBHour": float,
     },
     total=False,
 )

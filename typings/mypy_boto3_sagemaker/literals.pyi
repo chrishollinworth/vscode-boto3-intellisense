@@ -32,9 +32,11 @@ __all__ = (
     "ArtifactSourceIdTypeType",
     "AssemblyTypeType",
     "AssociationEdgeTypeType",
+    "AsyncNotificationTopicTypesType",
     "AthenaResultCompressionTypeType",
     "AthenaResultFormatType",
     "AuthModeType",
+    "AutoMLAlgorithmType",
     "AutoMLChannelTypeType",
     "AutoMLJobObjectiveTypeType",
     "AutoMLJobSecondaryStatusType",
@@ -42,6 +44,7 @@ __all__ = (
     "AutoMLMetricEnumType",
     "AutoMLMetricExtendedEnumType",
     "AutoMLModeType",
+    "AutoMLProcessingUnitType",
     "AutoMLS3DataTypeType",
     "AutoMLSortByType",
     "AutoMLSortOrderType",
@@ -60,6 +63,7 @@ __all__ = (
     "CodeRepositorySortByType",
     "CodeRepositorySortOrderType",
     "CompilationJobStatusType",
+    "CompleteOnConvergenceType",
     "CompressionTypeType",
     "ConditionOutcomeType",
     "ContainerModeType",
@@ -316,6 +320,7 @@ __all__ = (
     "TrainingJobEarlyStoppingTypeType",
     "TrainingJobSortByOptionsType",
     "TrainingJobStatusType",
+    "TrainingRepositoryAccessModeType",
     "TransformInstanceTypeType",
     "TransformJobCompletedOrStoppedWaiterName",
     "TransformJobStatusType",
@@ -356,6 +361,7 @@ AppInstanceTypeType = Literal[
     "ml.g5.4xlarge",
     "ml.g5.8xlarge",
     "ml.g5.xlarge",
+    "ml.geospatial.interactive",
     "ml.m5.12xlarge",
     "ml.m5.16xlarge",
     "ml.m5.24xlarge",
@@ -402,9 +408,21 @@ AppTypeType = Literal[
 ArtifactSourceIdTypeType = Literal["Custom", "MD5Hash", "S3ETag", "S3Version"]
 AssemblyTypeType = Literal["Line", "None"]
 AssociationEdgeTypeType = Literal["AssociatedWith", "ContributedTo", "DerivedFrom", "Produced"]
+AsyncNotificationTopicTypesType = Literal["ERROR_NOTIFICATION_TOPIC", "SUCCESS_NOTIFICATION_TOPIC"]
 AthenaResultCompressionTypeType = Literal["GZIP", "SNAPPY", "ZLIB"]
 AthenaResultFormatType = Literal["AVRO", "JSON", "ORC", "PARQUET", "TEXTFILE"]
 AuthModeType = Literal["IAM", "SSO"]
+AutoMLAlgorithmType = Literal[
+    "catboost",
+    "extra-trees",
+    "fastai",
+    "lightgbm",
+    "linear-learner",
+    "mlp",
+    "nn-torch",
+    "randomforest",
+    "xgboost",
+]
 AutoMLChannelTypeType = Literal["training", "validation"]
 AutoMLJobObjectiveTypeType = Literal["Maximize", "Minimize"]
 AutoMLJobSecondaryStatusType = Literal[
@@ -425,6 +443,7 @@ AutoMLJobSecondaryStatusType = Literal[
     "Starting",
     "Stopped",
     "Stopping",
+    "TrainingModels",
 ]
 AutoMLJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
 AutoMLMetricEnumType = Literal[
@@ -460,7 +479,8 @@ AutoMLMetricExtendedEnumType = Literal[
     "RecallMacro",
 ]
 AutoMLModeType = Literal["AUTO", "ENSEMBLING", "HYPERPARAMETER_TUNING"]
-AutoMLS3DataTypeType = Literal["ManifestFile", "S3Prefix"]
+AutoMLProcessingUnitType = Literal["CPU", "GPU"]
+AutoMLS3DataTypeType = Literal["AugmentedManifestFile", "ManifestFile", "S3Prefix"]
 AutoMLSortByType = Literal["CreationTime", "Name", "Status"]
 AutoMLSortOrderType = Literal["Ascending", "Descending"]
 AwsManagedHumanLoopRequestSourceType = Literal[
@@ -545,6 +565,7 @@ CodeRepositorySortOrderType = Literal["Ascending", "Descending"]
 CompilationJobStatusType = Literal[
     "COMPLETED", "FAILED", "INPROGRESS", "STARTING", "STOPPED", "STOPPING"
 ]
+CompleteOnConvergenceType = Literal["Disabled", "Enabled"]
 CompressionTypeType = Literal["Gzip", "None"]
 ConditionOutcomeType = Literal["False", "True"]
 ContainerModeType = Literal["MultiModel", "SingleModel"]
@@ -1050,6 +1071,7 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.p3.2xlarge",
     "ml.p3.8xlarge",
     "ml.p4d.24xlarge",
+    "ml.p4de.24xlarge",
     "ml.r5.12xlarge",
     "ml.r5.24xlarge",
     "ml.r5.2xlarge",
@@ -1284,6 +1306,7 @@ TrainingJobSortByOptionsType = Literal[
     "CreationTime", "FinalObjectiveMetricValue", "Name", "Status"
 ]
 TrainingJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
+TrainingRepositoryAccessModeType = Literal["Platform", "Vpc"]
 TransformInstanceTypeType = Literal[
     "ml.c4.2xlarge",
     "ml.c4.4xlarge",

@@ -12,10 +12,13 @@ Usage::
         ListAgentStatusesPaginator,
         ListApprovedOriginsPaginator,
         ListBotsPaginator,
+        ListContactEvaluationsPaginator,
         ListContactFlowModulesPaginator,
         ListContactFlowsPaginator,
         ListContactReferencesPaginator,
         ListDefaultVocabulariesPaginator,
+        ListEvaluationFormVersionsPaginator,
+        ListEvaluationFormsPaginator,
         ListHoursOfOperationsPaginator,
         ListInstanceAttributesPaginator,
         ListInstanceStorageConfigsPaginator,
@@ -57,10 +60,13 @@ Usage::
     list_agent_statuses_paginator: ListAgentStatusesPaginator = client.get_paginator("list_agent_statuses")
     list_approved_origins_paginator: ListApprovedOriginsPaginator = client.get_paginator("list_approved_origins")
     list_bots_paginator: ListBotsPaginator = client.get_paginator("list_bots")
+    list_contact_evaluations_paginator: ListContactEvaluationsPaginator = client.get_paginator("list_contact_evaluations")
     list_contact_flow_modules_paginator: ListContactFlowModulesPaginator = client.get_paginator("list_contact_flow_modules")
     list_contact_flows_paginator: ListContactFlowsPaginator = client.get_paginator("list_contact_flows")
     list_contact_references_paginator: ListContactReferencesPaginator = client.get_paginator("list_contact_references")
     list_default_vocabularies_paginator: ListDefaultVocabulariesPaginator = client.get_paginator("list_default_vocabularies")
+    list_evaluation_form_versions_paginator: ListEvaluationFormVersionsPaginator = client.get_paginator("list_evaluation_form_versions")
+    list_evaluation_forms_paginator: ListEvaluationFormsPaginator = client.get_paginator("list_evaluation_forms")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
     list_instance_attributes_paginator: ListInstanceAttributesPaginator = client.get_paginator("list_instance_attributes")
     list_instance_storage_configs_paginator: ListInstanceStorageConfigsPaginator = client.get_paginator("list_instance_storage_configs")
@@ -99,10 +105,13 @@ from .paginator import (
     ListAgentStatusesPaginator,
     ListApprovedOriginsPaginator,
     ListBotsPaginator,
+    ListContactEvaluationsPaginator,
     ListContactFlowModulesPaginator,
     ListContactFlowsPaginator,
     ListContactReferencesPaginator,
     ListDefaultVocabulariesPaginator,
+    ListEvaluationFormsPaginator,
+    ListEvaluationFormVersionsPaginator,
     ListHoursOfOperationsPaginator,
     ListInstanceAttributesPaginator,
     ListInstancesPaginator,
@@ -144,10 +153,13 @@ __all__ = (
     "ListAgentStatusesPaginator",
     "ListApprovedOriginsPaginator",
     "ListBotsPaginator",
+    "ListContactEvaluationsPaginator",
     "ListContactFlowModulesPaginator",
     "ListContactFlowsPaginator",
     "ListContactReferencesPaginator",
     "ListDefaultVocabulariesPaginator",
+    "ListEvaluationFormVersionsPaginator",
+    "ListEvaluationFormsPaginator",
     "ListHoursOfOperationsPaginator",
     "ListInstanceAttributesPaginator",
     "ListInstanceStorageConfigsPaginator",

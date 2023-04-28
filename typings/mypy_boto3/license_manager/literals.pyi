@@ -6,9 +6,9 @@ Type annotations for license-manager service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_license_manager.literals import AllowedOperationType
+    from mypy_boto3_license_manager.literals import ActivationOverrideBehaviorType
 
-    data: AllowedOperationType = "CheckInLicense"
+    data: ActivationOverrideBehaviorType = "ALL_GRANTS_PERMITTED_BY_ISSUER"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ActivationOverrideBehaviorType",
     "AllowedOperationType",
     "CheckoutTypeType",
     "DigitalSignatureMethodType",
@@ -44,6 +45,9 @@ __all__ = (
     "TokenTypeType",
 )
 
+ActivationOverrideBehaviorType = Literal[
+    "ALL_GRANTS_PERMITTED_BY_ISSUER", "DISTRIBUTED_GRANTS_ONLY"
+]
 AllowedOperationType = Literal[
     "CheckInLicense",
     "CheckoutBorrowLicense",

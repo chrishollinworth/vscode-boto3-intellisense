@@ -27,11 +27,15 @@ __all__ = (
     "CreateEndpointResultTypeDef",
     "DeleteEndpointRequestRequestTypeDef",
     "EndpointTypeDef",
+    "FailedReasonTypeDef",
     "ListEndpointsRequestRequestTypeDef",
     "ListEndpointsResultTypeDef",
+    "ListOutpostsWithS3RequestRequestTypeDef",
+    "ListOutpostsWithS3ResultTypeDef",
     "ListSharedEndpointsRequestRequestTypeDef",
     "ListSharedEndpointsResultTypeDef",
     "NetworkInterfaceTypeDef",
+    "OutpostTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
 )
@@ -88,6 +92,16 @@ EndpointTypeDef = TypedDict(
         "SecurityGroupId": str,
         "AccessType": EndpointAccessTypeType,
         "CustomerOwnedIpv4Pool": str,
+        "FailedReason": "FailedReasonTypeDef",
+    },
+    total=False,
+)
+
+FailedReasonTypeDef = TypedDict(
+    "FailedReasonTypeDef",
+    {
+        "ErrorCode": str,
+        "Message": str,
     },
     total=False,
 )
@@ -105,6 +119,24 @@ ListEndpointsResultTypeDef = TypedDict(
     "ListEndpointsResultTypeDef",
     {
         "Endpoints": List["EndpointTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListOutpostsWithS3RequestRequestTypeDef = TypedDict(
+    "ListOutpostsWithS3RequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListOutpostsWithS3ResultTypeDef = TypedDict(
+    "ListOutpostsWithS3ResultTypeDef",
+    {
+        "Outposts": List["OutpostTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -144,6 +176,17 @@ NetworkInterfaceTypeDef = TypedDict(
     "NetworkInterfaceTypeDef",
     {
         "NetworkInterfaceId": str,
+    },
+    total=False,
+)
+
+OutpostTypeDef = TypedDict(
+    "OutpostTypeDef",
+    {
+        "OutpostArn": str,
+        "OutpostId": str,
+        "OwnerId": str,
+        "CapacityInBytes": int,
     },
     total=False,
 )

@@ -27,8 +27,10 @@ __all__ = (
     "ChannelModeType",
     "ChannelPrivacyType",
     "ErrorCodeType",
+    "ExpirationCriterionType",
     "FallbackActionType",
     "InvocationTypeType",
+    "MessagingDataTypeType",
     "PushNotificationTypeType",
     "SearchFieldKeyType",
     "SearchFieldOperatorType",
@@ -59,8 +61,10 @@ ErrorCodeType = Literal[
     "Unprocessable",
     "VoiceConnectorGroupAssociationsExist",
 ]
+ExpirationCriterionType = Literal["CREATED_TIMESTAMP", "LAST_MESSAGE_TIMESTAMP"]
 FallbackActionType = Literal["ABORT", "CONTINUE"]
 InvocationTypeType = Literal["ASYNC"]
+MessagingDataTypeType = Literal["Channel", "ChannelMessage"]
 PushNotificationTypeType = Literal["DEFAULT", "VOIP"]
 SearchFieldKeyType = Literal["MEMBERS"]
 SearchFieldOperatorType = Literal["EQUALS", "INCLUDES"]

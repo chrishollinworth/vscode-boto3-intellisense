@@ -225,6 +225,7 @@ from .literals import (
     NielsenPcmToId3TaggingStateType,
     NielsenWatermarksCbetStepasideType,
     NielsenWatermarksDistributionTypesType,
+    NielsenWatermarkTimezonesType,
     PipelineIdType,
     PreferredChannelPipelineType,
     RebootInputDeviceForceType,
@@ -1664,6 +1665,7 @@ DescribeInputDeviceResponseTypeDef = TypedDict(
         "SerialNumber": str,
         "Type": InputDeviceTypeType,
         "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
+        "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2417,7 +2419,9 @@ HlsId3SegmentTaggingScheduleActionSettingsTypeDef = TypedDict(
     "HlsId3SegmentTaggingScheduleActionSettingsTypeDef",
     {
         "Tag": str,
+        "Id3": str,
     },
+    total=False,
 )
 
 HlsInputSettingsTypeDef = TypedDict(
@@ -2639,6 +2643,7 @@ InputDeviceSummaryTypeDef = TypedDict(
         "SerialNumber": str,
         "Type": InputDeviceTypeType,
         "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -3122,6 +3127,7 @@ M2tsSettingsTypeDef = TypedDict(
         "TimedMetadataPid": str,
         "TransportStreamId": int,
         "VideoPid": str,
+        "Scte35PrerollPullupMilliseconds": float,
     },
     total=False,
 )
@@ -3563,13 +3569,23 @@ NielsenConfigurationTypeDef = TypedDict(
     total=False,
 )
 
-NielsenNaesIiNwTypeDef = TypedDict(
-    "NielsenNaesIiNwTypeDef",
+_RequiredNielsenNaesIiNwTypeDef = TypedDict(
+    "_RequiredNielsenNaesIiNwTypeDef",
     {
         "CheckDigitString": str,
         "Sid": float,
     },
 )
+_OptionalNielsenNaesIiNwTypeDef = TypedDict(
+    "_OptionalNielsenNaesIiNwTypeDef",
+    {
+        "Timezone": NielsenWatermarkTimezonesType,
+    },
+    total=False,
+)
+
+class NielsenNaesIiNwTypeDef(_RequiredNielsenNaesIiNwTypeDef, _OptionalNielsenNaesIiNwTypeDef):
+    pass
 
 NielsenWatermarksSettingsTypeDef = TypedDict(
     "NielsenWatermarksSettingsTypeDef",
@@ -4535,6 +4551,7 @@ UpdateInputDeviceResponseTypeDef = TypedDict(
         "SerialNumber": str,
         "Type": InputDeviceTypeType,
         "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
+        "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

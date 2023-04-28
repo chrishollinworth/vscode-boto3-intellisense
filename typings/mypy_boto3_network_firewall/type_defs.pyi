@@ -21,6 +21,7 @@ from .literals import (
     EncryptionTypeType,
     FirewallStatusValueType,
     GeneratedRulesTypeType,
+    IPAddressTypeType,
     LogDestinationTypeType,
     LogTypeType,
     PerObjectSyncStatusType,
@@ -62,6 +63,8 @@ __all__ = (
     "CreateFirewallResponseTypeDef",
     "CreateRuleGroupRequestRequestTypeDef",
     "CreateRuleGroupResponseTypeDef",
+    "CreateTLSInspectionConfigurationRequestRequestTypeDef",
+    "CreateTLSInspectionConfigurationResponseTypeDef",
     "CustomActionTypeDef",
     "DeleteFirewallPolicyRequestRequestTypeDef",
     "DeleteFirewallPolicyResponseTypeDef",
@@ -70,6 +73,8 @@ __all__ = (
     "DeleteResourcePolicyRequestRequestTypeDef",
     "DeleteRuleGroupRequestRequestTypeDef",
     "DeleteRuleGroupResponseTypeDef",
+    "DeleteTLSInspectionConfigurationRequestRequestTypeDef",
+    "DeleteTLSInspectionConfigurationResponseTypeDef",
     "DescribeFirewallPolicyRequestRequestTypeDef",
     "DescribeFirewallPolicyResponseTypeDef",
     "DescribeFirewallRequestRequestTypeDef",
@@ -82,6 +87,8 @@ __all__ = (
     "DescribeRuleGroupMetadataResponseTypeDef",
     "DescribeRuleGroupRequestRequestTypeDef",
     "DescribeRuleGroupResponseTypeDef",
+    "DescribeTLSInspectionConfigurationRequestRequestTypeDef",
+    "DescribeTLSInspectionConfigurationResponseTypeDef",
     "DimensionTypeDef",
     "DisassociateSubnetsRequestRequestTypeDef",
     "DisassociateSubnetsResponseTypeDef",
@@ -102,6 +109,8 @@ __all__ = (
     "ListFirewallsResponseTypeDef",
     "ListRuleGroupsRequestRequestTypeDef",
     "ListRuleGroupsResponseTypeDef",
+    "ListTLSInspectionConfigurationsRequestRequestTypeDef",
+    "ListTLSInspectionConfigurationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LogDestinationConfigTypeDef",
@@ -123,6 +132,9 @@ __all__ = (
     "RuleVariablesTypeDef",
     "RulesSourceListTypeDef",
     "RulesSourceTypeDef",
+    "ServerCertificateConfigurationTypeDef",
+    "ServerCertificateScopeTypeDef",
+    "ServerCertificateTypeDef",
     "SourceMetadataTypeDef",
     "StatefulEngineOptionsTypeDef",
     "StatefulRuleGroupOverrideTypeDef",
@@ -135,8 +147,12 @@ __all__ = (
     "SubnetMappingTypeDef",
     "SyncStateTypeDef",
     "TCPFlagFieldTypeDef",
+    "TLSInspectionConfigurationMetadataTypeDef",
+    "TLSInspectionConfigurationResponseTypeDef",
+    "TLSInspectionConfigurationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TlsCertificateDataTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateFirewallDeleteProtectionRequestRequestTypeDef",
     "UpdateFirewallDeleteProtectionResponseTypeDef",
@@ -154,6 +170,8 @@ __all__ = (
     "UpdateRuleGroupResponseTypeDef",
     "UpdateSubnetChangeProtectionRequestRequestTypeDef",
     "UpdateSubnetChangeProtectionResponseTypeDef",
+    "UpdateTLSInspectionConfigurationRequestRequestTypeDef",
+    "UpdateTLSInspectionConfigurationResponseTypeDef",
 )
 
 ActionDefinitionTypeDef = TypedDict(
@@ -370,6 +388,38 @@ CreateRuleGroupResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTLSInspectionConfigurationRequestRequestTypeDef",
+    {
+        "TLSInspectionConfigurationName": str,
+        "TLSInspectionConfiguration": "TLSInspectionConfigurationTypeDef",
+    },
+)
+_OptionalCreateTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTLSInspectionConfigurationRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class CreateTLSInspectionConfigurationRequestRequestTypeDef(
+    _RequiredCreateTLSInspectionConfigurationRequestRequestTypeDef,
+    _OptionalCreateTLSInspectionConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateTLSInspectionConfigurationResponseTypeDef = TypedDict(
+    "CreateTLSInspectionConfigurationResponseTypeDef",
+    {
+        "UpdateToken": str,
+        "TLSInspectionConfigurationResponse": "TLSInspectionConfigurationResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CustomActionTypeDef = TypedDict(
     "CustomActionTypeDef",
     {
@@ -434,6 +484,23 @@ DeleteRuleGroupResponseTypeDef = TypedDict(
     "DeleteRuleGroupResponseTypeDef",
     {
         "RuleGroupResponse": "RuleGroupResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteTLSInspectionConfigurationRequestRequestTypeDef",
+    {
+        "TLSInspectionConfigurationArn": str,
+        "TLSInspectionConfigurationName": str,
+    },
+    total=False,
+)
+
+DeleteTLSInspectionConfigurationResponseTypeDef = TypedDict(
+    "DeleteTLSInspectionConfigurationResponseTypeDef",
+    {
+        "TLSInspectionConfigurationResponse": "TLSInspectionConfigurationResponseTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -549,6 +616,25 @@ DescribeRuleGroupResponseTypeDef = TypedDict(
         "UpdateToken": str,
         "RuleGroup": "RuleGroupTypeDef",
         "RuleGroupResponse": "RuleGroupResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeTLSInspectionConfigurationRequestRequestTypeDef",
+    {
+        "TLSInspectionConfigurationArn": str,
+        "TLSInspectionConfigurationName": str,
+    },
+    total=False,
+)
+
+DescribeTLSInspectionConfigurationResponseTypeDef = TypedDict(
+    "DescribeTLSInspectionConfigurationResponseTypeDef",
+    {
+        "UpdateToken": str,
+        "TLSInspectionConfiguration": "TLSInspectionConfigurationTypeDef",
+        "TLSInspectionConfigurationResponse": "TLSInspectionConfigurationResponseTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -673,6 +759,7 @@ _OptionalFirewallPolicyTypeDef = TypedDict(
         "StatefulRuleGroupReferences": List["StatefulRuleGroupReferenceTypeDef"],
         "StatefulDefaultActions": List[str],
         "StatefulEngineOptions": "StatefulEngineOptionsTypeDef",
+        "TLSInspectionConfigurationArn": str,
     },
     total=False,
 )
@@ -815,6 +902,24 @@ ListRuleGroupsResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "RuleGroups": List["RuleGroupMetadataTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTLSInspectionConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListTLSInspectionConfigurationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListTLSInspectionConfigurationsResponseTypeDef = TypedDict(
+    "ListTLSInspectionConfigurationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "TLSInspectionConfigurations": List["TLSInspectionConfigurationMetadataTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1060,6 +1165,35 @@ RulesSourceTypeDef = TypedDict(
     total=False,
 )
 
+ServerCertificateConfigurationTypeDef = TypedDict(
+    "ServerCertificateConfigurationTypeDef",
+    {
+        "ServerCertificates": List["ServerCertificateTypeDef"],
+        "Scopes": List["ServerCertificateScopeTypeDef"],
+    },
+    total=False,
+)
+
+ServerCertificateScopeTypeDef = TypedDict(
+    "ServerCertificateScopeTypeDef",
+    {
+        "Sources": List["AddressTypeDef"],
+        "Destinations": List["AddressTypeDef"],
+        "SourcePorts": List["PortRangeTypeDef"],
+        "DestinationPorts": List["PortRangeTypeDef"],
+        "Protocols": List[int],
+    },
+    total=False,
+)
+
+ServerCertificateTypeDef = TypedDict(
+    "ServerCertificateTypeDef",
+    {
+        "ResourceArn": str,
+    },
+    total=False,
+)
+
 SourceMetadataTypeDef = TypedDict(
     "SourceMetadataTypeDef",
     {
@@ -1158,12 +1292,22 @@ class StatelessRulesAndCustomActionsTypeDef(
 ):
     pass
 
-SubnetMappingTypeDef = TypedDict(
-    "SubnetMappingTypeDef",
+_RequiredSubnetMappingTypeDef = TypedDict(
+    "_RequiredSubnetMappingTypeDef",
     {
         "SubnetId": str,
     },
 )
+_OptionalSubnetMappingTypeDef = TypedDict(
+    "_OptionalSubnetMappingTypeDef",
+    {
+        "IPAddressType": IPAddressTypeType,
+    },
+    total=False,
+)
+
+class SubnetMappingTypeDef(_RequiredSubnetMappingTypeDef, _OptionalSubnetMappingTypeDef):
+    pass
 
 SyncStateTypeDef = TypedDict(
     "SyncStateTypeDef",
@@ -1191,6 +1335,51 @@ _OptionalTCPFlagFieldTypeDef = TypedDict(
 class TCPFlagFieldTypeDef(_RequiredTCPFlagFieldTypeDef, _OptionalTCPFlagFieldTypeDef):
     pass
 
+TLSInspectionConfigurationMetadataTypeDef = TypedDict(
+    "TLSInspectionConfigurationMetadataTypeDef",
+    {
+        "Name": str,
+        "Arn": str,
+    },
+    total=False,
+)
+
+_RequiredTLSInspectionConfigurationResponseTypeDef = TypedDict(
+    "_RequiredTLSInspectionConfigurationResponseTypeDef",
+    {
+        "TLSInspectionConfigurationArn": str,
+        "TLSInspectionConfigurationName": str,
+        "TLSInspectionConfigurationId": str,
+    },
+)
+_OptionalTLSInspectionConfigurationResponseTypeDef = TypedDict(
+    "_OptionalTLSInspectionConfigurationResponseTypeDef",
+    {
+        "TLSInspectionConfigurationStatus": ResourceStatusType,
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+        "LastModifiedTime": datetime,
+        "NumberOfAssociations": int,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "Certificates": List["TlsCertificateDataTypeDef"],
+    },
+    total=False,
+)
+
+class TLSInspectionConfigurationResponseTypeDef(
+    _RequiredTLSInspectionConfigurationResponseTypeDef,
+    _OptionalTLSInspectionConfigurationResponseTypeDef,
+):
+    pass
+
+TLSInspectionConfigurationTypeDef = TypedDict(
+    "TLSInspectionConfigurationTypeDef",
+    {
+        "ServerCertificateConfigurations": List["ServerCertificateConfigurationTypeDef"],
+    },
+    total=False,
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -1205,6 +1394,17 @@ TagTypeDef = TypedDict(
         "Key": str,
         "Value": str,
     },
+)
+
+TlsCertificateDataTypeDef = TypedDict(
+    "TlsCertificateDataTypeDef",
+    {
+        "CertificateArn": str,
+        "CertificateSerial": str,
+        "Status": str,
+        "StatusMessage": str,
+    },
+    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(
@@ -1444,6 +1644,39 @@ UpdateSubnetChangeProtectionResponseTypeDef = TypedDict(
         "FirewallArn": str,
         "FirewallName": str,
         "SubnetChangeProtection": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTLSInspectionConfigurationRequestRequestTypeDef",
+    {
+        "TLSInspectionConfiguration": "TLSInspectionConfigurationTypeDef",
+        "UpdateToken": str,
+    },
+)
+_OptionalUpdateTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTLSInspectionConfigurationRequestRequestTypeDef",
+    {
+        "TLSInspectionConfigurationArn": str,
+        "TLSInspectionConfigurationName": str,
+        "Description": str,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateTLSInspectionConfigurationRequestRequestTypeDef(
+    _RequiredUpdateTLSInspectionConfigurationRequestRequestTypeDef,
+    _OptionalUpdateTLSInspectionConfigurationRequestRequestTypeDef,
+):
+    pass
+
+UpdateTLSInspectionConfigurationResponseTypeDef = TypedDict(
+    "UpdateTLSInspectionConfigurationResponseTypeDef",
+    {
+        "UpdateToken": str,
+        "TLSInspectionConfigurationResponse": "TLSInspectionConfigurationResponseTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

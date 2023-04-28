@@ -47,6 +47,9 @@ __all__ = (
     "BumperTypeDef",
     "CdnConfigurationTypeDef",
     "ChannelTypeDef",
+    "ClipRangeTypeDef",
+    "ConfigureLogsForChannelRequestRequestTypeDef",
+    "ConfigureLogsForChannelResponseTypeDef",
     "ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef",
     "ConfigureLogsForPlaybackConfigurationResponseTypeDef",
     "CreateChannelRequestRequestTypeDef",
@@ -113,6 +116,7 @@ __all__ = (
     "ListVodSourcesResponseTypeDef",
     "LivePreRollConfigurationTypeDef",
     "LiveSourceTypeDef",
+    "LogConfigurationForChannelTypeDef",
     "LogConfigurationTypeDef",
     "ManifestProcessingRulesTypeDef",
     "PaginatorConfigTypeDef",
@@ -145,6 +149,10 @@ __all__ = (
     "UpdateChannelResponseTypeDef",
     "UpdateLiveSourceRequestRequestTypeDef",
     "UpdateLiveSourceResponseTypeDef",
+    "UpdateProgramRequestRequestTypeDef",
+    "UpdateProgramResponseTypeDef",
+    "UpdateProgramScheduleConfigurationTypeDef",
+    "UpdateProgramTransitionTypeDef",
     "UpdateSourceLocationRequestRequestTypeDef",
     "UpdateSourceLocationResponseTypeDef",
     "UpdateVodSourceRequestRequestTypeDef",
@@ -233,6 +241,7 @@ _RequiredChannelTypeDef = TypedDict(
         "Arn": str,
         "ChannelName": str,
         "ChannelState": str,
+        "LogConfiguration": "LogConfigurationForChannelTypeDef",
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,
         "Tier": str,
@@ -251,6 +260,30 @@ _OptionalChannelTypeDef = TypedDict(
 
 class ChannelTypeDef(_RequiredChannelTypeDef, _OptionalChannelTypeDef):
     pass
+
+ClipRangeTypeDef = TypedDict(
+    "ClipRangeTypeDef",
+    {
+        "EndOffsetMillis": int,
+    },
+)
+
+ConfigureLogsForChannelRequestRequestTypeDef = TypedDict(
+    "ConfigureLogsForChannelRequestRequestTypeDef",
+    {
+        "ChannelName": str,
+        "LogTypes": List[Literal["AS_RUN"]],
+    },
+)
+
+ConfigureLogsForChannelResponseTypeDef = TypedDict(
+    "ConfigureLogsForChannelResponseTypeDef",
+    {
+        "ChannelName": str,
+        "LogTypes": List[Literal["AS_RUN"]],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef = TypedDict(
     "ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef",
@@ -410,7 +443,9 @@ CreateProgramResponseTypeDef = TypedDict(
         "AdBreaks": List["AdBreakTypeDef"],
         "Arn": str,
         "ChannelName": str,
+        "ClipRange": "ClipRangeTypeDef",
         "CreationTime": datetime,
+        "DurationMillis": int,
         "LiveSourceName": str,
         "ProgramName": str,
         "ScheduledStartTime": datetime,
@@ -609,6 +644,7 @@ DescribeChannelResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "FillerSlate": "SlateSourceTypeDef",
         "LastModifiedTime": datetime,
+        "LogConfiguration": "LogConfigurationForChannelTypeDef",
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,
         "Tags": Dict[str, str],
@@ -653,7 +689,9 @@ DescribeProgramResponseTypeDef = TypedDict(
         "AdBreaks": List["AdBreakTypeDef"],
         "Arn": str,
         "ChannelName": str,
+        "ClipRange": "ClipRangeTypeDef",
         "CreationTime": datetime,
+        "DurationMillis": int,
         "LiveSourceName": str,
         "ProgramName": str,
         "ScheduledStartTime": datetime,
@@ -1058,6 +1096,14 @@ _OptionalLiveSourceTypeDef = TypedDict(
 class LiveSourceTypeDef(_RequiredLiveSourceTypeDef, _OptionalLiveSourceTypeDef):
     pass
 
+LogConfigurationForChannelTypeDef = TypedDict(
+    "LogConfigurationForChannelTypeDef",
+    {
+        "LogTypes": List[Literal["AS_RUN"]],
+    },
+    total=False,
+)
+
 LogConfigurationTypeDef = TypedDict(
     "LogConfigurationTypeDef",
     {
@@ -1301,12 +1347,24 @@ ScheduleAdBreakTypeDef = TypedDict(
     total=False,
 )
 
-ScheduleConfigurationTypeDef = TypedDict(
-    "ScheduleConfigurationTypeDef",
+_RequiredScheduleConfigurationTypeDef = TypedDict(
+    "_RequiredScheduleConfigurationTypeDef",
     {
         "Transition": "TransitionTypeDef",
     },
 )
+_OptionalScheduleConfigurationTypeDef = TypedDict(
+    "_OptionalScheduleConfigurationTypeDef",
+    {
+        "ClipRange": "ClipRangeTypeDef",
+    },
+    total=False,
+)
+
+class ScheduleConfigurationTypeDef(
+    _RequiredScheduleConfigurationTypeDef, _OptionalScheduleConfigurationTypeDef
+):
+    pass
 
 _RequiredScheduleEntryTypeDef = TypedDict(
     "_RequiredScheduleEntryTypeDef",
@@ -1527,6 +1585,63 @@ UpdateLiveSourceResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredUpdateProgramRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateProgramRequestRequestTypeDef",
+    {
+        "ChannelName": str,
+        "ProgramName": str,
+        "ScheduleConfiguration": "UpdateProgramScheduleConfigurationTypeDef",
+    },
+)
+_OptionalUpdateProgramRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateProgramRequestRequestTypeDef",
+    {
+        "AdBreaks": List["AdBreakTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateProgramRequestRequestTypeDef(
+    _RequiredUpdateProgramRequestRequestTypeDef, _OptionalUpdateProgramRequestRequestTypeDef
+):
+    pass
+
+UpdateProgramResponseTypeDef = TypedDict(
+    "UpdateProgramResponseTypeDef",
+    {
+        "AdBreaks": List["AdBreakTypeDef"],
+        "Arn": str,
+        "ChannelName": str,
+        "ClipRange": "ClipRangeTypeDef",
+        "CreationTime": datetime,
+        "DurationMillis": int,
+        "LiveSourceName": str,
+        "ProgramName": str,
+        "ScheduledStartTime": datetime,
+        "SourceLocationName": str,
+        "VodSourceName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateProgramScheduleConfigurationTypeDef = TypedDict(
+    "UpdateProgramScheduleConfigurationTypeDef",
+    {
+        "ClipRange": "ClipRangeTypeDef",
+        "Transition": "UpdateProgramTransitionTypeDef",
+    },
+    total=False,
+)
+
+UpdateProgramTransitionTypeDef = TypedDict(
+    "UpdateProgramTransitionTypeDef",
+    {
+        "DurationMillis": int,
+        "ScheduledStartTimeMillis": int,
+    },
+    total=False,
 )
 
 _RequiredUpdateSourceLocationRequestRequestTypeDef = TypedDict(

@@ -23,9 +23,11 @@ __all__ = (
     "FilterTypeType",
     "GetAttributeValuesPaginatorName",
     "GetProductsPaginatorName",
+    "ListPriceListsPaginatorName",
 )
 
 DescribeServicesPaginatorName = Literal["describe_services"]
 FilterTypeType = Literal["TERM_MATCH"]
 GetAttributeValuesPaginatorName = Literal["get_attribute_values"]
 GetProductsPaginatorName = Literal["get_products"]
+ListPriceListsPaginatorName = Literal["list_price_lists"]

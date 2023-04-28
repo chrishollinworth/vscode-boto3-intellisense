@@ -109,6 +109,7 @@ from .literals import (
     FpgaImageAttributeNameType,
     FpgaImageStateCodeType,
     GatewayAssociationStateType,
+    HostMaintenanceType,
     HostnameTypeType,
     HostRecoveryType,
     HostTenancyType,
@@ -121,6 +122,7 @@ from .literals import (
     ImageTypeValuesType,
     InstanceAttributeNameType,
     InstanceAutoRecoveryStateType,
+    InstanceBootModeValuesType,
     InstanceEventWindowStateType,
     InstanceGenerationType,
     InstanceHealthStatusType,
@@ -140,12 +142,18 @@ from .literals import (
     InterfaceProtocolTypeType,
     IpAddressTypeType,
     IpamAddressHistoryResourceTypeType,
+    IpamAssociatedResourceDiscoveryStatusType,
     IpamComplianceStatusType,
+    IpamDiscoveryFailureCodeType,
     IpamManagementStateType,
     IpamOverlapStatusType,
     IpamPoolAllocationResourceTypeType,
+    IpamPoolCidrFailureCodeType,
     IpamPoolCidrStateType,
+    IpamPoolPublicIpSourceType,
     IpamPoolStateType,
+    IpamResourceDiscoveryAssociationStateType,
+    IpamResourceDiscoveryStateType,
     IpamResourceTypeType,
     IpamScopeStateType,
     IpamScopeTypeType,
@@ -174,6 +182,7 @@ from .literals import (
     MonitoringStateType,
     MoveStatusType,
     MulticastSupportValueType,
+    NatGatewayAddressStatusType,
     NatGatewayStateType,
     NetworkInterfaceAttributeType,
     NetworkInterfaceCreationTypeType,
@@ -349,6 +358,8 @@ __all__ = (
     "AssignPrivateIpAddressesRequestNetworkInterfaceTypeDef",
     "AssignPrivateIpAddressesRequestRequestTypeDef",
     "AssignPrivateIpAddressesResultTypeDef",
+    "AssignPrivateNatGatewayAddressRequestRequestTypeDef",
+    "AssignPrivateNatGatewayAddressResultTypeDef",
     "AssignedPrivateIpAddressTypeDef",
     "AssociateAddressRequestClassicAddressTypeDef",
     "AssociateAddressRequestRequestTypeDef",
@@ -365,6 +376,10 @@ __all__ = (
     "AssociateIamInstanceProfileResultTypeDef",
     "AssociateInstanceEventWindowRequestRequestTypeDef",
     "AssociateInstanceEventWindowResultTypeDef",
+    "AssociateIpamResourceDiscoveryRequestRequestTypeDef",
+    "AssociateIpamResourceDiscoveryResultTypeDef",
+    "AssociateNatGatewayAddressRequestRequestTypeDef",
+    "AssociateNatGatewayAddressResultTypeDef",
     "AssociateRouteTableRequestRequestTypeDef",
     "AssociateRouteTableRequestRouteTableTypeDef",
     "AssociateRouteTableResultTypeDef",
@@ -551,6 +566,8 @@ __all__ = (
     "CreateIpamPoolRequestRequestTypeDef",
     "CreateIpamPoolResultTypeDef",
     "CreateIpamRequestRequestTypeDef",
+    "CreateIpamResourceDiscoveryRequestRequestTypeDef",
+    "CreateIpamResourceDiscoveryResultTypeDef",
     "CreateIpamResultTypeDef",
     "CreateIpamScopeRequestRequestTypeDef",
     "CreateIpamScopeResultTypeDef",
@@ -743,6 +760,8 @@ __all__ = (
     "DeleteIpamPoolRequestRequestTypeDef",
     "DeleteIpamPoolResultTypeDef",
     "DeleteIpamRequestRequestTypeDef",
+    "DeleteIpamResourceDiscoveryRequestRequestTypeDef",
+    "DeleteIpamResourceDiscoveryResultTypeDef",
     "DeleteIpamResultTypeDef",
     "DeleteIpamScopeRequestRequestTypeDef",
     "DeleteIpamScopeResultTypeDef",
@@ -986,6 +1005,10 @@ __all__ = (
     "DescribeInternetGatewaysResultTypeDef",
     "DescribeIpamPoolsRequestRequestTypeDef",
     "DescribeIpamPoolsResultTypeDef",
+    "DescribeIpamResourceDiscoveriesRequestRequestTypeDef",
+    "DescribeIpamResourceDiscoveriesResultTypeDef",
+    "DescribeIpamResourceDiscoveryAssociationsRequestRequestTypeDef",
+    "DescribeIpamResourceDiscoveryAssociationsResultTypeDef",
     "DescribeIpamScopesRequestRequestTypeDef",
     "DescribeIpamScopesResultTypeDef",
     "DescribeIpamsRequestRequestTypeDef",
@@ -1228,6 +1251,10 @@ __all__ = (
     "DisassociateIamInstanceProfileResultTypeDef",
     "DisassociateInstanceEventWindowRequestRequestTypeDef",
     "DisassociateInstanceEventWindowResultTypeDef",
+    "DisassociateIpamResourceDiscoveryRequestRequestTypeDef",
+    "DisassociateIpamResourceDiscoveryResultTypeDef",
+    "DisassociateNatGatewayAddressRequestRequestTypeDef",
+    "DisassociateNatGatewayAddressResultTypeDef",
     "DisassociateRouteTableRequestRequestTypeDef",
     "DisassociateRouteTableRequestRouteTableAssociationTypeDef",
     "DisassociateRouteTableRequestServiceResourceTypeDef",
@@ -1326,7 +1353,10 @@ __all__ = (
     "FastLaunchSnapshotConfigurationResponseTypeDef",
     "FederatedAuthenticationRequestTypeDef",
     "FederatedAuthenticationTypeDef",
+    "FilterPortRangeTypeDef",
     "FilterTypeDef",
+    "FirewallStatefulRuleTypeDef",
+    "FirewallStatelessRuleTypeDef",
     "FleetCapacityReservationTypeDef",
     "FleetDataTypeDef",
     "FleetLaunchTemplateConfigRequestTypeDef",
@@ -1379,6 +1409,10 @@ __all__ = (
     "GetInstanceUefiDataResultTypeDef",
     "GetIpamAddressHistoryRequestRequestTypeDef",
     "GetIpamAddressHistoryResultTypeDef",
+    "GetIpamDiscoveredAccountsRequestRequestTypeDef",
+    "GetIpamDiscoveredAccountsResultTypeDef",
+    "GetIpamDiscoveredResourceCidrsRequestRequestTypeDef",
+    "GetIpamDiscoveredResourceCidrsResultTypeDef",
     "GetIpamPoolAllocationsRequestRequestTypeDef",
     "GetIpamPoolAllocationsResultTypeDef",
     "GetIpamPoolCidrsRequestRequestTypeDef",
@@ -1428,6 +1462,8 @@ __all__ = (
     "GetVpnConnectionDeviceSampleConfigurationResultTypeDef",
     "GetVpnConnectionDeviceTypesRequestRequestTypeDef",
     "GetVpnConnectionDeviceTypesResultTypeDef",
+    "GetVpnTunnelReplacementStatusRequestRequestTypeDef",
+    "GetVpnTunnelReplacementStatusResultTypeDef",
     "GpuDeviceInfoTypeDef",
     "GpuDeviceMemoryInfoTypeDef",
     "GpuInfoTypeDef",
@@ -1531,12 +1567,17 @@ __all__ = (
     "IpRangeTypeDef",
     "IpamAddressHistoryRecordTypeDef",
     "IpamCidrAuthorizationContextTypeDef",
+    "IpamDiscoveredAccountTypeDef",
+    "IpamDiscoveredResourceCidrTypeDef",
+    "IpamDiscoveryFailureReasonTypeDef",
     "IpamOperatingRegionTypeDef",
     "IpamPoolAllocationTypeDef",
     "IpamPoolCidrFailureReasonTypeDef",
     "IpamPoolCidrTypeDef",
     "IpamPoolTypeDef",
     "IpamResourceCidrTypeDef",
+    "IpamResourceDiscoveryAssociationTypeDef",
+    "IpamResourceDiscoveryTypeDef",
     "IpamResourceTagTypeDef",
     "IpamScopeTypeDef",
     "IpamTypeDef",
@@ -1615,6 +1656,7 @@ __all__ = (
     "LocalGatewayTypeDef",
     "LocalGatewayVirtualInterfaceGroupTypeDef",
     "LocalGatewayVirtualInterfaceTypeDef",
+    "MaintenanceDetailsTypeDef",
     "ManagedPrefixListTypeDef",
     "MemoryGiBPerVCpuRequestTypeDef",
     "MemoryGiBPerVCpuTypeDef",
@@ -1667,6 +1709,8 @@ __all__ = (
     "ModifyIpamRequestRequestTypeDef",
     "ModifyIpamResourceCidrRequestRequestTypeDef",
     "ModifyIpamResourceCidrResultTypeDef",
+    "ModifyIpamResourceDiscoveryRequestRequestTypeDef",
+    "ModifyIpamResourceDiscoveryResultTypeDef",
     "ModifyIpamResultTypeDef",
     "ModifyIpamScopeRequestRequestTypeDef",
     "ModifyIpamScopeResultTypeDef",
@@ -1792,6 +1836,8 @@ __all__ = (
     "PacketHeaderStatementTypeDef",
     "PaginatorConfigTypeDef",
     "PathComponentTypeDef",
+    "PathFilterTypeDef",
+    "PathRequestFilterTypeDef",
     "PathStatementRequestTypeDef",
     "PathStatementTypeDef",
     "PciIdTypeDef",
@@ -1902,8 +1948,11 @@ __all__ = (
     "ReplaceRouteTableAssociationResultTypeDef",
     "ReplaceTransitGatewayRouteRequestRequestTypeDef",
     "ReplaceTransitGatewayRouteResultTypeDef",
+    "ReplaceVpnTunnelRequestRequestTypeDef",
+    "ReplaceVpnTunnelResultTypeDef",
     "ReportInstanceStatusRequestInstanceTypeDef",
     "ReportInstanceStatusRequestRequestTypeDef",
+    "RequestFilterPortRangeTypeDef",
     "RequestIpamResourceTagTypeDef",
     "RequestLaunchTemplateDataTypeDef",
     "RequestSpotFleetRequestRequestTypeDef",
@@ -1965,6 +2014,9 @@ __all__ = (
     "RouteTableAssociationTypeDef",
     "RouteTableTypeDef",
     "RouteTypeDef",
+    "RuleGroupRuleOptionsPairTypeDef",
+    "RuleGroupTypePairTypeDef",
+    "RuleOptionTypeDef",
     "RunInstancesMonitoringEnabledTypeDef",
     "RunInstancesRequestRequestTypeDef",
     "RunInstancesRequestServiceResourceTypeDef",
@@ -2151,6 +2203,8 @@ __all__ = (
     "UnassignIpv6AddressesResultTypeDef",
     "UnassignPrivateIpAddressesRequestNetworkInterfaceTypeDef",
     "UnassignPrivateIpAddressesRequestRequestTypeDef",
+    "UnassignPrivateNatGatewayAddressRequestRequestTypeDef",
+    "UnassignPrivateNatGatewayAddressResultTypeDef",
     "UnmonitorInstancesRequestInstanceTypeDef",
     "UnmonitorInstancesRequestRequestTypeDef",
     "UnmonitorInstancesResultTypeDef",
@@ -2426,14 +2480,25 @@ AcceptVpcEndpointConnectionsResultTypeDef = TypedDict(
     },
 )
 
-AcceptVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
-    "AcceptVpcPeeringConnectionRequestRequestTypeDef",
+_RequiredAcceptVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredAcceptVpcPeeringConnectionRequestRequestTypeDef",
+    {
+        "VpcPeeringConnectionId": str,
+    },
+)
+_OptionalAcceptVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalAcceptVpcPeeringConnectionRequestRequestTypeDef",
     {
         "DryRun": bool,
-        "VpcPeeringConnectionId": str,
     },
     total=False,
 )
+
+class AcceptVpcPeeringConnectionRequestRequestTypeDef(
+    _RequiredAcceptVpcPeeringConnectionRequestRequestTypeDef,
+    _OptionalAcceptVpcPeeringConnectionRequestRequestTypeDef,
+):
+    pass
 
 AcceptVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef = TypedDict(
     "AcceptVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef",
@@ -2553,6 +2618,12 @@ AdditionalDetailTypeDef = TypedDict(
     {
         "AdditionalDetailType": str,
         "Component": "AnalysisComponentTypeDef",
+        "VpcEndpointService": "AnalysisComponentTypeDef",
+        "RuleOptions": List["RuleOptionTypeDef"],
+        "RuleGroupTypePairs": List["RuleGroupTypePairTypeDef"],
+        "RuleGroupRuleOptionsPairs": List["RuleGroupRuleOptionsPairTypeDef"],
+        "ServiceName": str,
+        "LoadBalancers": List["AnalysisComponentTypeDef"],
     },
     total=False,
 )
@@ -2676,6 +2747,7 @@ _OptionalAllocateHostsRequestRequestTypeDef = TypedDict(
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "HostRecovery": HostRecoveryType,
         "OutpostArn": str,
+        "HostMaintenance": HostMaintenanceType,
     },
     total=False,
 )
@@ -2817,6 +2889,9 @@ AnalysisRouteTableRouteTypeDef = TypedDict(
         "TransitGatewayId": str,
         "VpcPeeringConnectionId": str,
         "State": str,
+        "CarrierGatewayId": str,
+        "CoreNetworkArn": str,
+        "LocalGatewayId": str,
     },
     total=False,
 )
@@ -2939,6 +3014,37 @@ AssignPrivateIpAddressesResultTypeDef = TypedDict(
         "NetworkInterfaceId": str,
         "AssignedPrivateIpAddresses": List["AssignedPrivateIpAddressTypeDef"],
         "AssignedIpv4Prefixes": List["Ipv4PrefixSpecificationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssignPrivateNatGatewayAddressRequestRequestTypeDef = TypedDict(
+    "_RequiredAssignPrivateNatGatewayAddressRequestRequestTypeDef",
+    {
+        "NatGatewayId": str,
+    },
+)
+_OptionalAssignPrivateNatGatewayAddressRequestRequestTypeDef = TypedDict(
+    "_OptionalAssignPrivateNatGatewayAddressRequestRequestTypeDef",
+    {
+        "PrivateIpAddresses": List[str],
+        "PrivateIpAddressCount": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssignPrivateNatGatewayAddressRequestRequestTypeDef(
+    _RequiredAssignPrivateNatGatewayAddressRequestRequestTypeDef,
+    _OptionalAssignPrivateNatGatewayAddressRequestRequestTypeDef,
+):
+    pass
+
+AssignPrivateNatGatewayAddressResultTypeDef = TypedDict(
+    "AssignPrivateNatGatewayAddressResultTypeDef",
+    {
+        "NatGatewayId": str,
+        "NatGatewayAddresses": List["NatGatewayAddressTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3090,15 +3196,26 @@ class AssociateDhcpOptionsRequestVpcTypeDef(
 ):
     pass
 
-AssociateEnclaveCertificateIamRoleRequestRequestTypeDef = TypedDict(
-    "AssociateEnclaveCertificateIamRoleRequestRequestTypeDef",
+_RequiredAssociateEnclaveCertificateIamRoleRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateEnclaveCertificateIamRoleRequestRequestTypeDef",
     {
         "CertificateArn": str,
         "RoleArn": str,
+    },
+)
+_OptionalAssociateEnclaveCertificateIamRoleRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateEnclaveCertificateIamRoleRequestRequestTypeDef",
+    {
         "DryRun": bool,
     },
     total=False,
 )
+
+class AssociateEnclaveCertificateIamRoleRequestRequestTypeDef(
+    _RequiredAssociateEnclaveCertificateIamRoleRequestRequestTypeDef,
+    _OptionalAssociateEnclaveCertificateIamRoleRequestRequestTypeDef,
+):
+    pass
 
 AssociateEnclaveCertificateIamRoleResultTypeDef = TypedDict(
     "AssociateEnclaveCertificateIamRoleResultTypeDef",
@@ -3151,6 +3268,68 @@ AssociateInstanceEventWindowResultTypeDef = TypedDict(
     "AssociateInstanceEventWindowResultTypeDef",
     {
         "InstanceEventWindow": "InstanceEventWindowTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "IpamId": str,
+        "IpamResourceDiscoveryId": str,
+    },
+)
+_OptionalAssociateIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class AssociateIpamResourceDiscoveryRequestRequestTypeDef(
+    _RequiredAssociateIpamResourceDiscoveryRequestRequestTypeDef,
+    _OptionalAssociateIpamResourceDiscoveryRequestRequestTypeDef,
+):
+    pass
+
+AssociateIpamResourceDiscoveryResultTypeDef = TypedDict(
+    "AssociateIpamResourceDiscoveryResultTypeDef",
+    {
+        "IpamResourceDiscoveryAssociation": "IpamResourceDiscoveryAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateNatGatewayAddressRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateNatGatewayAddressRequestRequestTypeDef",
+    {
+        "NatGatewayId": str,
+        "AllocationIds": List[str],
+    },
+)
+_OptionalAssociateNatGatewayAddressRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateNatGatewayAddressRequestRequestTypeDef",
+    {
+        "PrivateIpAddresses": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateNatGatewayAddressRequestRequestTypeDef(
+    _RequiredAssociateNatGatewayAddressRequestRequestTypeDef,
+    _OptionalAssociateNatGatewayAddressRequestRequestTypeDef,
+):
+    pass
+
+AssociateNatGatewayAddressResultTypeDef = TypedDict(
+    "AssociateNatGatewayAddressResultTypeDef",
+    {
+        "NatGatewayId": str,
+        "NatGatewayAddresses": List["NatGatewayAddressTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3213,16 +3392,27 @@ AssociateSubnetCidrBlockResultTypeDef = TypedDict(
     },
 )
 
-AssociateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
-    "AssociateTransitGatewayMulticastDomainRequestRequestTypeDef",
+_RequiredAssociateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateTransitGatewayMulticastDomainRequestRequestTypeDef",
     {
         "TransitGatewayMulticastDomainId": str,
         "TransitGatewayAttachmentId": str,
         "SubnetIds": List[str],
+    },
+)
+_OptionalAssociateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    {
         "DryRun": bool,
     },
     total=False,
 )
+
+class AssociateTransitGatewayMulticastDomainRequestRequestTypeDef(
+    _RequiredAssociateTransitGatewayMulticastDomainRequestRequestTypeDef,
+    _OptionalAssociateTransitGatewayMulticastDomainRequestRequestTypeDef,
+):
+    pass
 
 AssociateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
     "AssociateTransitGatewayMulticastDomainResultTypeDef",
@@ -5236,13 +5426,13 @@ CreateCoipPoolResultTypeDef = TypedDict(
 _RequiredCreateCustomerGatewayRequestRequestTypeDef = TypedDict(
     "_RequiredCreateCustomerGatewayRequestRequestTypeDef",
     {
-        "BgpAsn": int,
         "Type": Literal["ipsec.1"],
     },
 )
 _OptionalCreateCustomerGatewayRequestRequestTypeDef = TypedDict(
     "_OptionalCreateCustomerGatewayRequestRequestTypeDef",
     {
+        "BgpAsn": int,
         "PublicIp": str,
         "CertificateArn": str,
         "TagSpecifications": List["TagSpecificationTypeDef"],
@@ -5685,6 +5875,7 @@ _OptionalCreateIpamPoolRequestRequestTypeDef = TypedDict(
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "ClientToken": str,
         "AwsService": Literal["ec2"],
+        "PublicIpSource": IpamPoolPublicIpSourceType,
     },
     total=False,
 )
@@ -5712,6 +5903,26 @@ CreateIpamRequestRequestTypeDef = TypedDict(
         "ClientToken": str,
     },
     total=False,
+)
+
+CreateIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "CreateIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Description": str,
+        "OperatingRegions": List["AddIpamOperatingRegionTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+CreateIpamResourceDiscoveryResultTypeDef = TypedDict(
+    "CreateIpamResourceDiscoveryResultTypeDef",
+    {
+        "IpamResourceDiscovery": "IpamResourceDiscoveryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CreateIpamResultTypeDef = TypedDict(
@@ -5845,6 +6056,7 @@ _OptionalCreateLaunchTemplateVersionRequestRequestTypeDef = TypedDict(
         "LaunchTemplateName": str,
         "SourceVersion": str,
         "VersionDescription": str,
+        "ResolveAlias": bool,
     },
     total=False,
 )
@@ -5867,16 +6079,17 @@ CreateLaunchTemplateVersionResultTypeDef = TypedDict(
 _RequiredCreateLocalGatewayRouteRequestRequestTypeDef = TypedDict(
     "_RequiredCreateLocalGatewayRouteRequestRequestTypeDef",
     {
-        "DestinationCidrBlock": str,
         "LocalGatewayRouteTableId": str,
     },
 )
 _OptionalCreateLocalGatewayRouteRequestRequestTypeDef = TypedDict(
     "_OptionalCreateLocalGatewayRouteRequestRequestTypeDef",
     {
+        "DestinationCidrBlock": str,
         "LocalGatewayVirtualInterfaceGroupId": str,
         "DryRun": bool,
         "NetworkInterfaceId": str,
+        "DestinationPrefixListId": str,
     },
     total=False,
 )
@@ -6033,6 +6246,9 @@ _OptionalCreateNatGatewayRequestRequestTypeDef = TypedDict(
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "ConnectivityType": ConnectivityTypeType,
         "PrivateIpAddress": str,
+        "SecondaryAllocationIds": List[str],
+        "SecondaryPrivateIpAddresses": List[str],
+        "SecondaryPrivateIpAddressCount": int,
     },
     total=False,
 )
@@ -6200,7 +6416,6 @@ _RequiredCreateNetworkInsightsPathRequestRequestTypeDef = TypedDict(
     "_RequiredCreateNetworkInsightsPathRequestRequestTypeDef",
     {
         "Source": str,
-        "Destination": str,
         "Protocol": ProtocolType,
         "ClientToken": str,
     },
@@ -6210,9 +6425,12 @@ _OptionalCreateNetworkInsightsPathRequestRequestTypeDef = TypedDict(
     {
         "SourceIp": str,
         "DestinationIp": str,
+        "Destination": str,
         "DestinationPort": int,
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "DryRun": bool,
+        "FilterAtSource": "PathRequestFilterTypeDef",
+        "FilterAtDestination": "PathRequestFilterTypeDef",
     },
     total=False,
 )
@@ -8042,31 +8260,53 @@ CreateVpcEndpointServiceConfigurationResultTypeDef = TypedDict(
     },
 )
 
-CreateVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
-    "CreateVpcPeeringConnectionRequestRequestTypeDef",
+_RequiredCreateVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpcPeeringConnectionRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalCreateVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpcPeeringConnectionRequestRequestTypeDef",
     {
         "DryRun": bool,
         "PeerOwnerId": str,
         "PeerVpcId": str,
-        "VpcId": str,
         "PeerRegion": str,
         "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
 )
 
-CreateVpcPeeringConnectionRequestServiceResourceTypeDef = TypedDict(
-    "CreateVpcPeeringConnectionRequestServiceResourceTypeDef",
+class CreateVpcPeeringConnectionRequestRequestTypeDef(
+    _RequiredCreateVpcPeeringConnectionRequestRequestTypeDef,
+    _OptionalCreateVpcPeeringConnectionRequestRequestTypeDef,
+):
+    pass
+
+_RequiredCreateVpcPeeringConnectionRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateVpcPeeringConnectionRequestServiceResourceTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalCreateVpcPeeringConnectionRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateVpcPeeringConnectionRequestServiceResourceTypeDef",
     {
         "DryRun": bool,
         "PeerOwnerId": str,
         "PeerVpcId": str,
-        "VpcId": str,
         "PeerRegion": str,
         "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
 )
+
+class CreateVpcPeeringConnectionRequestServiceResourceTypeDef(
+    _RequiredCreateVpcPeeringConnectionRequestServiceResourceTypeDef,
+    _OptionalCreateVpcPeeringConnectionRequestServiceResourceTypeDef,
+):
+    pass
 
 CreateVpcPeeringConnectionRequestVpcTypeDef = TypedDict(
     "CreateVpcPeeringConnectionRequestVpcTypeDef",
@@ -8693,6 +8933,34 @@ class DeleteIpamRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDeleteIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "IpamResourceDiscoveryId": str,
+    },
+)
+_OptionalDeleteIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteIpamResourceDiscoveryRequestRequestTypeDef(
+    _RequiredDeleteIpamResourceDiscoveryRequestRequestTypeDef,
+    _OptionalDeleteIpamResourceDiscoveryRequestRequestTypeDef,
+):
+    pass
+
+DeleteIpamResourceDiscoveryResultTypeDef = TypedDict(
+    "DeleteIpamResourceDiscoveryResultTypeDef",
+    {
+        "IpamResourceDiscovery": "IpamResourceDiscoveryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteIpamResultTypeDef = TypedDict(
     "DeleteIpamResultTypeDef",
     {
@@ -8833,14 +9101,15 @@ DeleteLaunchTemplateVersionsResultTypeDef = TypedDict(
 _RequiredDeleteLocalGatewayRouteRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteLocalGatewayRouteRequestRequestTypeDef",
     {
-        "DestinationCidrBlock": str,
         "LocalGatewayRouteTableId": str,
     },
 )
 _OptionalDeleteLocalGatewayRouteRequestRequestTypeDef = TypedDict(
     "_OptionalDeleteLocalGatewayRouteRequestRequestTypeDef",
     {
+        "DestinationCidrBlock": str,
         "DryRun": bool,
+        "DestinationPrefixListId": str,
     },
     total=False,
 )
@@ -11757,6 +12026,48 @@ DescribeIpamPoolsResultTypeDef = TypedDict(
     },
 )
 
+DescribeIpamResourceDiscoveriesRequestRequestTypeDef = TypedDict(
+    "DescribeIpamResourceDiscoveriesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "IpamResourceDiscoveryIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeIpamResourceDiscoveriesResultTypeDef = TypedDict(
+    "DescribeIpamResourceDiscoveriesResultTypeDef",
+    {
+        "IpamResourceDiscoveries": List["IpamResourceDiscoveryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeIpamResourceDiscoveryAssociationsRequestRequestTypeDef = TypedDict(
+    "DescribeIpamResourceDiscoveryAssociationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "IpamResourceDiscoveryAssociationIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeIpamResourceDiscoveryAssociationsResultTypeDef = TypedDict(
+    "DescribeIpamResourceDiscoveryAssociationsResultTypeDef",
+    {
+        "IpamResourceDiscoveryAssociations": List["IpamResourceDiscoveryAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeIpamScopesRequestRequestTypeDef = TypedDict(
     "DescribeIpamScopesRequestRequestTypeDef",
     {
@@ -11852,6 +12163,7 @@ DescribeLaunchTemplateVersionsRequestRequestTypeDef = TypedDict(
         "NextToken": str,
         "MaxResults": int,
         "Filters": List["FilterTypeDef"],
+        "ResolveAlias": bool,
     },
     total=False,
 )
@@ -14548,15 +14860,26 @@ DisassociateClientVpnTargetNetworkResultTypeDef = TypedDict(
     },
 )
 
-DisassociateEnclaveCertificateIamRoleRequestRequestTypeDef = TypedDict(
-    "DisassociateEnclaveCertificateIamRoleRequestRequestTypeDef",
+_RequiredDisassociateEnclaveCertificateIamRoleRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateEnclaveCertificateIamRoleRequestRequestTypeDef",
     {
         "CertificateArn": str,
         "RoleArn": str,
+    },
+)
+_OptionalDisassociateEnclaveCertificateIamRoleRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateEnclaveCertificateIamRoleRequestRequestTypeDef",
+    {
         "DryRun": bool,
     },
     total=False,
 )
+
+class DisassociateEnclaveCertificateIamRoleRequestRequestTypeDef(
+    _RequiredDisassociateEnclaveCertificateIamRoleRequestRequestTypeDef,
+    _OptionalDisassociateEnclaveCertificateIamRoleRequestRequestTypeDef,
+):
+    pass
 
 DisassociateEnclaveCertificateIamRoleResultTypeDef = TypedDict(
     "DisassociateEnclaveCertificateIamRoleResultTypeDef",
@@ -14606,6 +14929,65 @@ DisassociateInstanceEventWindowResultTypeDef = TypedDict(
     "DisassociateInstanceEventWindowResultTypeDef",
     {
         "InstanceEventWindow": "InstanceEventWindowTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisassociateIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "IpamResourceDiscoveryAssociationId": str,
+    },
+)
+_OptionalDisassociateIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateIpamResourceDiscoveryRequestRequestTypeDef(
+    _RequiredDisassociateIpamResourceDiscoveryRequestRequestTypeDef,
+    _OptionalDisassociateIpamResourceDiscoveryRequestRequestTypeDef,
+):
+    pass
+
+DisassociateIpamResourceDiscoveryResultTypeDef = TypedDict(
+    "DisassociateIpamResourceDiscoveryResultTypeDef",
+    {
+        "IpamResourceDiscoveryAssociation": "IpamResourceDiscoveryAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisassociateNatGatewayAddressRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateNatGatewayAddressRequestRequestTypeDef",
+    {
+        "NatGatewayId": str,
+        "AssociationIds": List[str],
+    },
+)
+_OptionalDisassociateNatGatewayAddressRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateNatGatewayAddressRequestRequestTypeDef",
+    {
+        "MaxDrainDurationSeconds": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateNatGatewayAddressRequestRequestTypeDef(
+    _RequiredDisassociateNatGatewayAddressRequestRequestTypeDef,
+    _OptionalDisassociateNatGatewayAddressRequestRequestTypeDef,
+):
+    pass
+
+DisassociateNatGatewayAddressResultTypeDef = TypedDict(
+    "DisassociateNatGatewayAddressResultTypeDef",
+    {
+        "NatGatewayId": str,
+        "NatGatewayAddresses": List["NatGatewayAddressTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -14674,16 +15056,27 @@ DisassociateSubnetCidrBlockResultTypeDef = TypedDict(
     },
 )
 
-DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
-    "DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef",
+_RequiredDisassociateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateTransitGatewayMulticastDomainRequestRequestTypeDef",
     {
         "TransitGatewayMulticastDomainId": str,
         "TransitGatewayAttachmentId": str,
         "SubnetIds": List[str],
+    },
+)
+_OptionalDisassociateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    {
         "DryRun": bool,
     },
     total=False,
 )
+
+class DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef(
+    _RequiredDisassociateTransitGatewayMulticastDomainRequestRequestTypeDef,
+    _OptionalDisassociateTransitGatewayMulticastDomainRequestRequestTypeDef,
+):
+    pass
 
 DisassociateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
     "DisassociateTransitGatewayMulticastDomainResultTypeDef",
@@ -14860,6 +15253,7 @@ DnsOptionsSpecificationTypeDef = TypedDict(
     "DnsOptionsSpecificationTypeDef",
     {
         "DnsRecordIpType": DnsRecordIpTypeType,
+        "PrivateDnsOnlyForInboundResolverEndpoint": bool,
     },
     total=False,
 )
@@ -14868,6 +15262,7 @@ DnsOptionsTypeDef = TypedDict(
     "DnsOptionsTypeDef",
     {
         "DnsRecordIpType": DnsRecordIpTypeType,
+        "PrivateDnsOnlyForInboundResolverEndpoint": bool,
     },
     total=False,
 )
@@ -15532,6 +15927,8 @@ ExplanationTypeDef = TypedDict(
         "TransitGatewayAttachment": "AnalysisComponentTypeDef",
         "ComponentAccount": str,
         "ComponentRegion": str,
+        "FirewallStatelessRule": "FirewallStatelessRuleTypeDef",
+        "FirewallStatefulRule": "FirewallStatefulRuleTypeDef",
     },
     total=False,
 )
@@ -15827,11 +16224,50 @@ FederatedAuthenticationTypeDef = TypedDict(
     total=False,
 )
 
+FilterPortRangeTypeDef = TypedDict(
+    "FilterPortRangeTypeDef",
+    {
+        "FromPort": int,
+        "ToPort": int,
+    },
+    total=False,
+)
+
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
     {
         "Name": str,
         "Values": List[str],
+    },
+    total=False,
+)
+
+FirewallStatefulRuleTypeDef = TypedDict(
+    "FirewallStatefulRuleTypeDef",
+    {
+        "RuleGroupArn": str,
+        "Sources": List[str],
+        "Destinations": List[str],
+        "SourcePorts": List["PortRangeTypeDef"],
+        "DestinationPorts": List["PortRangeTypeDef"],
+        "Protocol": str,
+        "RuleAction": str,
+        "Direction": str,
+    },
+    total=False,
+)
+
+FirewallStatelessRuleTypeDef = TypedDict(
+    "FirewallStatelessRuleTypeDef",
+    {
+        "RuleGroupArn": str,
+        "Sources": List[str],
+        "Destinations": List[str],
+        "SourcePorts": List["PortRangeTypeDef"],
+        "DestinationPorts": List["PortRangeTypeDef"],
+        "Protocols": List[int],
+        "RuleAction": str,
+        "Priority": int,
     },
     total=False,
 )
@@ -16081,14 +16517,25 @@ FpgaInfoTypeDef = TypedDict(
     total=False,
 )
 
-GetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef = TypedDict(
-    "GetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef",
+_RequiredGetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef",
     {
         "CertificateArn": str,
+    },
+)
+_OptionalGetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef",
+    {
         "DryRun": bool,
     },
     total=False,
 )
+
+class GetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef(
+    _RequiredGetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef,
+    _OptionalGetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef,
+):
+    pass
 
 GetAssociatedEnclaveCertificateIamRolesResultTypeDef = TypedDict(
     "GetAssociatedEnclaveCertificateIamRolesResultTypeDef",
@@ -16520,6 +16967,72 @@ GetIpamAddressHistoryResultTypeDef = TypedDict(
     "GetIpamAddressHistoryResultTypeDef",
     {
         "HistoryRecords": List["IpamAddressHistoryRecordTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetIpamDiscoveredAccountsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetIpamDiscoveredAccountsRequestRequestTypeDef",
+    {
+        "IpamResourceDiscoveryId": str,
+        "DiscoveryRegion": str,
+    },
+)
+_OptionalGetIpamDiscoveredAccountsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetIpamDiscoveredAccountsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetIpamDiscoveredAccountsRequestRequestTypeDef(
+    _RequiredGetIpamDiscoveredAccountsRequestRequestTypeDef,
+    _OptionalGetIpamDiscoveredAccountsRequestRequestTypeDef,
+):
+    pass
+
+GetIpamDiscoveredAccountsResultTypeDef = TypedDict(
+    "GetIpamDiscoveredAccountsResultTypeDef",
+    {
+        "IpamDiscoveredAccounts": List["IpamDiscoveredAccountTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetIpamDiscoveredResourceCidrsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetIpamDiscoveredResourceCidrsRequestRequestTypeDef",
+    {
+        "IpamResourceDiscoveryId": str,
+        "ResourceRegion": str,
+    },
+)
+_OptionalGetIpamDiscoveredResourceCidrsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetIpamDiscoveredResourceCidrsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetIpamDiscoveredResourceCidrsRequestRequestTypeDef(
+    _RequiredGetIpamDiscoveredResourceCidrsRequestRequestTypeDef,
+    _OptionalGetIpamDiscoveredResourceCidrsRequestRequestTypeDef,
+):
+    pass
+
+GetIpamDiscoveredResourceCidrsResultTypeDef = TypedDict(
+    "GetIpamDiscoveredResourceCidrsResultTypeDef",
+    {
+        "IpamDiscoveredResourceCidrs": List["IpamDiscoveredResourceCidrTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -16969,10 +17482,15 @@ GetTransitGatewayAttachmentPropagationsResultTypeDef = TypedDict(
     },
 )
 
-GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef = TypedDict(
-    "GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
+_RequiredGetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
     {
         "TransitGatewayMulticastDomainId": str,
+    },
+)
+_OptionalGetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
+    {
         "Filters": List["FilterTypeDef"],
         "MaxResults": int,
         "NextToken": str,
@@ -16980,6 +17498,12 @@ GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
+
+class GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef(
+    _RequiredGetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef,
+    _OptionalGetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef,
+):
+    pass
 
 GetTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
     "GetTransitGatewayMulticastDomainAssociationsResultTypeDef",
@@ -17256,6 +17780,40 @@ GetVpnConnectionDeviceTypesResultTypeDef = TypedDict(
     },
 )
 
+_RequiredGetVpnTunnelReplacementStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredGetVpnTunnelReplacementStatusRequestRequestTypeDef",
+    {
+        "VpnConnectionId": str,
+        "VpnTunnelOutsideIpAddress": str,
+    },
+)
+_OptionalGetVpnTunnelReplacementStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalGetVpnTunnelReplacementStatusRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetVpnTunnelReplacementStatusRequestRequestTypeDef(
+    _RequiredGetVpnTunnelReplacementStatusRequestRequestTypeDef,
+    _OptionalGetVpnTunnelReplacementStatusRequestRequestTypeDef,
+):
+    pass
+
+GetVpnTunnelReplacementStatusResultTypeDef = TypedDict(
+    "GetVpnTunnelReplacementStatusResultTypeDef",
+    {
+        "VpnConnectionId": str,
+        "TransitGatewayId": str,
+        "CustomerGatewayId": str,
+        "VpnGatewayId": str,
+        "VpnTunnelOutsideIpAddress": str,
+        "MaintenanceDetails": "MaintenanceDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GpuDeviceInfoTypeDef = TypedDict(
     "GpuDeviceInfoTypeDef",
     {
@@ -17407,6 +17965,7 @@ HostTypeDef = TypedDict(
         "AvailabilityZoneId": str,
         "MemberOfServiceLinkedResourceGroup": bool,
         "OutpostArn": str,
+        "HostMaintenance": HostMaintenanceType,
     },
     total=False,
 )
@@ -17961,14 +18520,25 @@ InstanceCountTypeDef = TypedDict(
     total=False,
 )
 
-InstanceCreditSpecificationRequestTypeDef = TypedDict(
-    "InstanceCreditSpecificationRequestTypeDef",
+_RequiredInstanceCreditSpecificationRequestTypeDef = TypedDict(
+    "_RequiredInstanceCreditSpecificationRequestTypeDef",
     {
         "InstanceId": str,
+    },
+)
+_OptionalInstanceCreditSpecificationRequestTypeDef = TypedDict(
+    "_OptionalInstanceCreditSpecificationRequestTypeDef",
+    {
         "CpuCredits": str,
     },
     total=False,
 )
+
+class InstanceCreditSpecificationRequestTypeDef(
+    _RequiredInstanceCreditSpecificationRequestTypeDef,
+    _OptionalInstanceCreditSpecificationRequestTypeDef,
+):
+    pass
 
 InstanceCreditSpecificationTypeDef = TypedDict(
     "InstanceCreditSpecificationTypeDef",
@@ -18339,15 +18909,25 @@ InstanceRequirementsWithMetadataRequestTypeDef = TypedDict(
     total=False,
 )
 
-InstanceSpecificationTypeDef = TypedDict(
-    "InstanceSpecificationTypeDef",
+_RequiredInstanceSpecificationTypeDef = TypedDict(
+    "_RequiredInstanceSpecificationTypeDef",
     {
         "InstanceId": str,
+    },
+)
+_OptionalInstanceSpecificationTypeDef = TypedDict(
+    "_OptionalInstanceSpecificationTypeDef",
+    {
         "ExcludeBootVolume": bool,
         "ExcludeDataVolumeIds": List[str],
     },
     total=False,
 )
+
+class InstanceSpecificationTypeDef(
+    _RequiredInstanceSpecificationTypeDef, _OptionalInstanceSpecificationTypeDef
+):
+    pass
 
 InstanceStateChangeTypeDef = TypedDict(
     "InstanceStateChangeTypeDef",
@@ -18495,6 +19075,7 @@ InstanceTypeDef = TypedDict(
         "Ipv6Address": str,
         "TpmSupport": str,
         "MaintenanceOptions": "InstanceMaintenanceOptionsTypeDef",
+        "CurrentInstanceBootMode": InstanceBootModeValuesType,
     },
     total=False,
 )
@@ -18635,6 +19216,44 @@ IpamCidrAuthorizationContextTypeDef = TypedDict(
     total=False,
 )
 
+IpamDiscoveredAccountTypeDef = TypedDict(
+    "IpamDiscoveredAccountTypeDef",
+    {
+        "AccountId": str,
+        "DiscoveryRegion": str,
+        "FailureReason": "IpamDiscoveryFailureReasonTypeDef",
+        "LastAttemptedDiscoveryTime": datetime,
+        "LastSuccessfulDiscoveryTime": datetime,
+    },
+    total=False,
+)
+
+IpamDiscoveredResourceCidrTypeDef = TypedDict(
+    "IpamDiscoveredResourceCidrTypeDef",
+    {
+        "IpamResourceDiscoveryId": str,
+        "ResourceRegion": str,
+        "ResourceId": str,
+        "ResourceOwnerId": str,
+        "ResourceCidr": str,
+        "ResourceType": IpamResourceTypeType,
+        "ResourceTags": List["IpamResourceTagTypeDef"],
+        "IpUsage": float,
+        "VpcId": str,
+        "SampleTime": datetime,
+    },
+    total=False,
+)
+
+IpamDiscoveryFailureReasonTypeDef = TypedDict(
+    "IpamDiscoveryFailureReasonTypeDef",
+    {
+        "Code": IpamDiscoveryFailureCodeType,
+        "Message": str,
+    },
+    total=False,
+)
+
 IpamOperatingRegionTypeDef = TypedDict(
     "IpamOperatingRegionTypeDef",
     {
@@ -18660,7 +19279,7 @@ IpamPoolAllocationTypeDef = TypedDict(
 IpamPoolCidrFailureReasonTypeDef = TypedDict(
     "IpamPoolCidrFailureReasonTypeDef",
     {
-        "Code": Literal["cidr-not-available"],
+        "Code": IpamPoolCidrFailureCodeType,
         "Message": str,
     },
     total=False,
@@ -18672,6 +19291,8 @@ IpamPoolCidrTypeDef = TypedDict(
         "Cidr": str,
         "State": IpamPoolCidrStateType,
         "FailureReason": "IpamPoolCidrFailureReasonTypeDef",
+        "IpamPoolCidrId": str,
+        "NetmaskLength": int,
     },
     total=False,
 )
@@ -18701,6 +19322,7 @@ IpamPoolTypeDef = TypedDict(
         "AllocationResourceTags": List["IpamResourceTagTypeDef"],
         "Tags": List["TagTypeDef"],
         "AwsService": Literal["ec2"],
+        "PublicIpSource": IpamPoolPublicIpSourceType,
     },
     total=False,
 )
@@ -18723,6 +19345,40 @@ IpamResourceCidrTypeDef = TypedDict(
         "ManagementState": IpamManagementStateType,
         "OverlapStatus": IpamOverlapStatusType,
         "VpcId": str,
+    },
+    total=False,
+)
+
+IpamResourceDiscoveryAssociationTypeDef = TypedDict(
+    "IpamResourceDiscoveryAssociationTypeDef",
+    {
+        "OwnerId": str,
+        "IpamResourceDiscoveryAssociationId": str,
+        "IpamResourceDiscoveryAssociationArn": str,
+        "IpamResourceDiscoveryId": str,
+        "IpamId": str,
+        "IpamArn": str,
+        "IpamRegion": str,
+        "IsDefault": bool,
+        "ResourceDiscoveryStatus": IpamAssociatedResourceDiscoveryStatusType,
+        "State": IpamResourceDiscoveryAssociationStateType,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+IpamResourceDiscoveryTypeDef = TypedDict(
+    "IpamResourceDiscoveryTypeDef",
+    {
+        "OwnerId": str,
+        "IpamResourceDiscoveryId": str,
+        "IpamResourceDiscoveryArn": str,
+        "IpamResourceDiscoveryRegion": str,
+        "Description": str,
+        "OperatingRegions": List["IpamOperatingRegionTypeDef"],
+        "IsDefault": bool,
+        "State": IpamResourceDiscoveryStateType,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -18768,6 +19424,9 @@ IpamTypeDef = TypedDict(
         "OperatingRegions": List["IpamOperatingRegionTypeDef"],
         "State": IpamStateType,
         "Tags": List["TagTypeDef"],
+        "DefaultResourceDiscoveryId": str,
+        "DefaultResourceDiscoveryAssociationId": str,
+        "ResourceDiscoveryAssociationCount": int,
     },
     total=False,
 )
@@ -19560,6 +20219,7 @@ LocalGatewayRouteTypeDef = TypedDict(
         "SubnetId": str,
         "CoipPoolId": str,
         "NetworkInterfaceId": str,
+        "DestinationPrefixListId": str,
     },
     total=False,
 )
@@ -19600,6 +20260,16 @@ LocalGatewayVirtualInterfaceTypeDef = TypedDict(
         "PeerBgpAsn": int,
         "OwnerId": str,
         "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+MaintenanceDetailsTypeDef = TypedDict(
+    "MaintenanceDetailsTypeDef",
+    {
+        "PendingMaintenance": str,
+        "MaintenanceAutoAppliedAfter": datetime,
+        "LastMaintenanceApplied": datetime,
     },
     total=False,
 )
@@ -19983,6 +20653,7 @@ _OptionalModifyHostsRequestRequestTypeDef = TypedDict(
         "HostRecovery": HostRecoveryType,
         "InstanceType": str,
         "InstanceFamily": str,
+        "HostMaintenance": HostMaintenanceType,
     },
     total=False,
 )
@@ -20032,6 +20703,7 @@ ModifyImageAttributeRequestImageTypeDef = TypedDict(
         "DryRun": bool,
         "OrganizationArns": List[str],
         "OrganizationalUnitArns": List[str],
+        "ImdsSupport": "AttributeValueTypeDef",
     },
     total=False,
 )
@@ -20056,6 +20728,7 @@ _OptionalModifyImageAttributeRequestRequestTypeDef = TypedDict(
         "DryRun": bool,
         "OrganizationArns": List[str],
         "OrganizationalUnitArns": List[str],
+        "ImdsSupport": "AttributeValueTypeDef",
     },
     total=False,
 )
@@ -20436,6 +21109,37 @@ ModifyIpamResourceCidrResultTypeDef = TypedDict(
     },
 )
 
+_RequiredModifyIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "IpamResourceDiscoveryId": str,
+    },
+)
+_OptionalModifyIpamResourceDiscoveryRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyIpamResourceDiscoveryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Description": str,
+        "AddOperatingRegions": List["AddIpamOperatingRegionTypeDef"],
+        "RemoveOperatingRegions": List["RemoveIpamOperatingRegionTypeDef"],
+    },
+    total=False,
+)
+
+class ModifyIpamResourceDiscoveryRequestRequestTypeDef(
+    _RequiredModifyIpamResourceDiscoveryRequestRequestTypeDef,
+    _OptionalModifyIpamResourceDiscoveryRequestRequestTypeDef,
+):
+    pass
+
+ModifyIpamResourceDiscoveryResultTypeDef = TypedDict(
+    "ModifyIpamResourceDiscoveryResultTypeDef",
+    {
+        "IpamResourceDiscovery": "IpamResourceDiscoveryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ModifyIpamResultTypeDef = TypedDict(
     "ModifyIpamResultTypeDef",
     {
@@ -20495,16 +21199,17 @@ ModifyLaunchTemplateResultTypeDef = TypedDict(
 _RequiredModifyLocalGatewayRouteRequestRequestTypeDef = TypedDict(
     "_RequiredModifyLocalGatewayRouteRequestRequestTypeDef",
     {
-        "DestinationCidrBlock": str,
         "LocalGatewayRouteTableId": str,
     },
 )
 _OptionalModifyLocalGatewayRouteRequestRequestTypeDef = TypedDict(
     "_OptionalModifyLocalGatewayRouteRequestRequestTypeDef",
     {
+        "DestinationCidrBlock": str,
         "LocalGatewayVirtualInterfaceGroupId": str,
         "NetworkInterfaceId": str,
         "DryRun": bool,
+        "DestinationPrefixListId": str,
     },
     total=False,
 )
@@ -20594,17 +21299,28 @@ class ModifyNetworkInterfaceAttributeRequestRequestTypeDef(
 ):
     pass
 
-ModifyPrivateDnsNameOptionsRequestRequestTypeDef = TypedDict(
-    "ModifyPrivateDnsNameOptionsRequestRequestTypeDef",
+_RequiredModifyPrivateDnsNameOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyPrivateDnsNameOptionsRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalModifyPrivateDnsNameOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyPrivateDnsNameOptionsRequestRequestTypeDef",
     {
         "DryRun": bool,
-        "InstanceId": str,
         "PrivateDnsHostnameType": HostnameTypeType,
         "EnableResourceNameDnsARecord": bool,
         "EnableResourceNameDnsAAAARecord": bool,
     },
     total=False,
 )
+
+class ModifyPrivateDnsNameOptionsRequestRequestTypeDef(
+    _RequiredModifyPrivateDnsNameOptionsRequestRequestTypeDef,
+    _OptionalModifyPrivateDnsNameOptionsRequestRequestTypeDef,
+):
+    pass
 
 ModifyPrivateDnsNameOptionsResultTypeDef = TypedDict(
     "ModifyPrivateDnsNameOptionsResultTypeDef",
@@ -21233,6 +21949,12 @@ ModifyVerifiedAccessInstanceResultTypeDef = TypedDict(
 ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef = TypedDict(
     "ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef",
     {
+        "Issuer": str,
+        "AuthorizationEndpoint": str,
+        "TokenEndpoint": str,
+        "UserInfoEndpoint": str,
+        "ClientId": str,
+        "ClientSecret": str,
         "Scope": str,
     },
     total=False,
@@ -21691,6 +22413,7 @@ _OptionalModifyVpnTunnelOptionsRequestRequestTypeDef = TypedDict(
     "_OptionalModifyVpnTunnelOptionsRequestRequestTypeDef",
     {
         "DryRun": bool,
+        "SkipTunnelReplacement": bool,
     },
     total=False,
 )
@@ -21731,6 +22454,7 @@ ModifyVpnTunnelOptionsSpecificationTypeDef = TypedDict(
         "IKEVersions": List["IKEVersionsRequestListValueTypeDef"],
         "StartupAction": str,
         "LogOptions": "VpnTunnelLogOptionsSpecificationTypeDef",
+        "EnableTunnelLifecycleControl": bool,
     },
     total=False,
 )
@@ -21852,6 +22576,10 @@ NatGatewayAddressTypeDef = TypedDict(
         "NetworkInterfaceId": str,
         "PrivateIp": str,
         "PublicIp": str,
+        "AssociationId": str,
+        "IsPrimary": bool,
+        "FailureMessage": str,
+        "Status": NatGatewayAddressStatusType,
     },
     total=False,
 )
@@ -22040,6 +22768,8 @@ NetworkInsightsPathTypeDef = TypedDict(
         "Protocol": ProtocolType,
         "DestinationPort": int,
         "Tags": List["TagTypeDef"],
+        "FilterAtSource": "PathFilterTypeDef",
+        "FilterAtDestination": "PathFilterTypeDef",
     },
     total=False,
 )
@@ -22282,6 +23012,31 @@ PathComponentTypeDef = TypedDict(
         "TransitGatewayRouteTableRoute": "TransitGatewayRouteTableRouteTypeDef",
         "Explanations": List["ExplanationTypeDef"],
         "ElasticLoadBalancerListener": "AnalysisComponentTypeDef",
+        "FirewallStatelessRule": "FirewallStatelessRuleTypeDef",
+        "FirewallStatefulRule": "FirewallStatefulRuleTypeDef",
+        "ServiceName": str,
+    },
+    total=False,
+)
+
+PathFilterTypeDef = TypedDict(
+    "PathFilterTypeDef",
+    {
+        "SourceAddress": str,
+        "SourcePortRange": "FilterPortRangeTypeDef",
+        "DestinationAddress": str,
+        "DestinationPortRange": "FilterPortRangeTypeDef",
+    },
+    total=False,
+)
+
+PathRequestFilterTypeDef = TypedDict(
+    "PathRequestFilterTypeDef",
+    {
+        "SourceAddress": str,
+        "SourcePortRange": "RequestFilterPortRangeTypeDef",
+        "DestinationAddress": str,
+        "DestinationPortRange": "RequestFilterPortRangeTypeDef",
     },
     total=False,
 )
@@ -22720,6 +23475,8 @@ _OptionalProvisionIpamPoolCidrRequestRequestTypeDef = TypedDict(
         "DryRun": bool,
         "Cidr": str,
         "CidrAuthorizationContext": "IpamCidrAuthorizationContextTypeDef",
+        "NetmaskLength": int,
+        "ClientToken": str,
     },
     total=False,
 )
@@ -23096,16 +23853,27 @@ RegisterInstanceTagAttributeRequestTypeDef = TypedDict(
     total=False,
 )
 
-RegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef = TypedDict(
-    "RegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef",
+_RequiredRegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef",
     {
         "TransitGatewayMulticastDomainId": str,
-        "GroupIpAddress": str,
         "NetworkInterfaceIds": List[str],
+    },
+)
+_OptionalRegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef",
+    {
+        "GroupIpAddress": str,
         "DryRun": bool,
     },
     total=False,
 )
+
+class RegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef(
+    _RequiredRegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef,
+    _OptionalRegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef,
+):
+    pass
 
 RegisterTransitGatewayMulticastGroupMembersResultTypeDef = TypedDict(
     "RegisterTransitGatewayMulticastGroupMembersResultTypeDef",
@@ -23115,16 +23883,27 @@ RegisterTransitGatewayMulticastGroupMembersResultTypeDef = TypedDict(
     },
 )
 
-RegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef = TypedDict(
-    "RegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef",
+_RequiredRegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef",
     {
         "TransitGatewayMulticastDomainId": str,
-        "GroupIpAddress": str,
         "NetworkInterfaceIds": List[str],
+    },
+)
+_OptionalRegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef",
+    {
+        "GroupIpAddress": str,
         "DryRun": bool,
     },
     total=False,
 )
+
+class RegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef(
+    _RequiredRegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef,
+    _OptionalRegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef,
+):
+    pass
 
 RegisterTransitGatewayMulticastGroupSourcesResultTypeDef = TypedDict(
     "RegisterTransitGatewayMulticastGroupSourcesResultTypeDef",
@@ -23641,6 +24420,35 @@ ReplaceTransitGatewayRouteResultTypeDef = TypedDict(
     },
 )
 
+_RequiredReplaceVpnTunnelRequestRequestTypeDef = TypedDict(
+    "_RequiredReplaceVpnTunnelRequestRequestTypeDef",
+    {
+        "VpnConnectionId": str,
+        "VpnTunnelOutsideIpAddress": str,
+    },
+)
+_OptionalReplaceVpnTunnelRequestRequestTypeDef = TypedDict(
+    "_OptionalReplaceVpnTunnelRequestRequestTypeDef",
+    {
+        "ApplyPendingMaintenance": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ReplaceVpnTunnelRequestRequestTypeDef(
+    _RequiredReplaceVpnTunnelRequestRequestTypeDef, _OptionalReplaceVpnTunnelRequestRequestTypeDef
+):
+    pass
+
+ReplaceVpnTunnelResultTypeDef = TypedDict(
+    "ReplaceVpnTunnelResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredReportInstanceStatusRequestInstanceTypeDef = TypedDict(
     "_RequiredReportInstanceStatusRequestInstanceTypeDef",
     {
@@ -23689,6 +24497,15 @@ class ReportInstanceStatusRequestRequestTypeDef(
     _OptionalReportInstanceStatusRequestRequestTypeDef,
 ):
     pass
+
+RequestFilterPortRangeTypeDef = TypedDict(
+    "RequestFilterPortRangeTypeDef",
+    {
+        "FromPort": int,
+        "ToPort": int,
+    },
+    total=False,
+)
 
 RequestIpamResourceTagTypeDef = TypedDict(
     "RequestIpamResourceTagTypeDef",
@@ -24640,6 +25457,33 @@ RouteTypeDef = TypedDict(
     total=False,
 )
 
+RuleGroupRuleOptionsPairTypeDef = TypedDict(
+    "RuleGroupRuleOptionsPairTypeDef",
+    {
+        "RuleGroupArn": str,
+        "RuleOptions": List["RuleOptionTypeDef"],
+    },
+    total=False,
+)
+
+RuleGroupTypePairTypeDef = TypedDict(
+    "RuleGroupTypePairTypeDef",
+    {
+        "RuleGroupArn": str,
+        "RuleGroupType": str,
+    },
+    total=False,
+)
+
+RuleOptionTypeDef = TypedDict(
+    "RuleOptionTypeDef",
+    {
+        "Keyword": str,
+        "Settings": List[str],
+    },
+    total=False,
+)
+
 RunInstancesMonitoringEnabledTypeDef = TypedDict(
     "RunInstancesMonitoringEnabledTypeDef",
     {
@@ -25086,10 +25930,15 @@ SearchLocalGatewayRoutesResultTypeDef = TypedDict(
     },
 )
 
-SearchTransitGatewayMulticastGroupsRequestRequestTypeDef = TypedDict(
-    "SearchTransitGatewayMulticastGroupsRequestRequestTypeDef",
+_RequiredSearchTransitGatewayMulticastGroupsRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchTransitGatewayMulticastGroupsRequestRequestTypeDef",
     {
         "TransitGatewayMulticastDomainId": str,
+    },
+)
+_OptionalSearchTransitGatewayMulticastGroupsRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchTransitGatewayMulticastGroupsRequestRequestTypeDef",
+    {
         "Filters": List["FilterTypeDef"],
         "MaxResults": int,
         "NextToken": str,
@@ -25097,6 +25946,12 @@ SearchTransitGatewayMulticastGroupsRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
+
+class SearchTransitGatewayMulticastGroupsRequestRequestTypeDef(
+    _RequiredSearchTransitGatewayMulticastGroupsRequestRequestTypeDef,
+    _OptionalSearchTransitGatewayMulticastGroupsRequestRequestTypeDef,
+):
+    pass
 
 SearchTransitGatewayMulticastGroupsResultTypeDef = TypedDict(
     "SearchTransitGatewayMulticastGroupsResultTypeDef",
@@ -25201,14 +26056,24 @@ SecurityGroupRuleTypeDef = TypedDict(
     total=False,
 )
 
-SecurityGroupRuleUpdateTypeDef = TypedDict(
-    "SecurityGroupRuleUpdateTypeDef",
+_RequiredSecurityGroupRuleUpdateTypeDef = TypedDict(
+    "_RequiredSecurityGroupRuleUpdateTypeDef",
     {
         "SecurityGroupRuleId": str,
+    },
+)
+_OptionalSecurityGroupRuleUpdateTypeDef = TypedDict(
+    "_OptionalSecurityGroupRuleUpdateTypeDef",
+    {
         "SecurityGroupRule": "SecurityGroupRuleRequestTypeDef",
     },
     total=False,
 )
+
+class SecurityGroupRuleUpdateTypeDef(
+    _RequiredSecurityGroupRuleUpdateTypeDef, _OptionalSecurityGroupRuleUpdateTypeDef
+):
+    pass
 
 SecurityGroupTypeDef = TypedDict(
     "SecurityGroupTypeDef",
@@ -27055,6 +27920,7 @@ TunnelOptionTypeDef = TypedDict(
         "IkeVersions": List["IKEVersionsListValueTypeDef"],
         "StartupAction": str,
         "LogOptions": "VpnTunnelLogOptionsTypeDef",
+        "EnableTunnelLifecycleControl": bool,
     },
     total=False,
 )
@@ -27119,6 +27985,37 @@ class UnassignPrivateIpAddressesRequestRequestTypeDef(
     _OptionalUnassignPrivateIpAddressesRequestRequestTypeDef,
 ):
     pass
+
+_RequiredUnassignPrivateNatGatewayAddressRequestRequestTypeDef = TypedDict(
+    "_RequiredUnassignPrivateNatGatewayAddressRequestRequestTypeDef",
+    {
+        "NatGatewayId": str,
+        "PrivateIpAddresses": List[str],
+    },
+)
+_OptionalUnassignPrivateNatGatewayAddressRequestRequestTypeDef = TypedDict(
+    "_OptionalUnassignPrivateNatGatewayAddressRequestRequestTypeDef",
+    {
+        "MaxDrainDurationSeconds": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class UnassignPrivateNatGatewayAddressRequestRequestTypeDef(
+    _RequiredUnassignPrivateNatGatewayAddressRequestRequestTypeDef,
+    _OptionalUnassignPrivateNatGatewayAddressRequestRequestTypeDef,
+):
+    pass
+
+UnassignPrivateNatGatewayAddressResultTypeDef = TypedDict(
+    "UnassignPrivateNatGatewayAddressResultTypeDef",
+    {
+        "NatGatewayId": str,
+        "NatGatewayAddresses": List["NatGatewayAddressTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 UnmonitorInstancesRequestInstanceTypeDef = TypedDict(
     "UnmonitorInstancesRequestInstanceTypeDef",
@@ -28041,6 +28938,7 @@ VpnTunnelOptionsSpecificationTypeDef = TypedDict(
         "IKEVersions": List["IKEVersionsRequestListValueTypeDef"],
         "StartupAction": str,
         "LogOptions": "VpnTunnelLogOptionsSpecificationTypeDef",
+        "EnableTunnelLifecycleControl": bool,
     },
     total=False,
 )

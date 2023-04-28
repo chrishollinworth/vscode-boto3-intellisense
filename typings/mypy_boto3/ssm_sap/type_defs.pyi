@@ -19,6 +19,7 @@ from .literals import (
     ApplicationStatusType,
     DatabaseStatusType,
     DatabaseTypeType,
+    FilterOperatorType,
     HostRoleType,
     OperationStatusType,
 )
@@ -43,6 +44,7 @@ __all__ = (
     "DeleteResourcePermissionInputRequestTypeDef",
     "DeleteResourcePermissionOutputTypeDef",
     "DeregisterApplicationInputRequestTypeDef",
+    "FilterTypeDef",
     "GetApplicationInputRequestTypeDef",
     "GetApplicationOutputTypeDef",
     "GetComponentInputRequestTypeDef",
@@ -60,6 +62,8 @@ __all__ = (
     "ListComponentsOutputTypeDef",
     "ListDatabasesInputRequestTypeDef",
     "ListDatabasesOutputTypeDef",
+    "ListOperationsInputRequestTypeDef",
+    "ListOperationsOutputTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OperationTypeDef",
@@ -203,11 +207,21 @@ DeregisterApplicationInputRequestTypeDef = TypedDict(
     },
 )
 
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+        "Operator": FilterOperatorType,
+    },
+)
+
 GetApplicationInputRequestTypeDef = TypedDict(
     "GetApplicationInputRequestTypeDef",
     {
         "ApplicationId": str,
         "ApplicationArn": str,
+        "AppRegistryArn": str,
     },
     total=False,
 )
@@ -363,6 +377,36 @@ ListDatabasesOutputTypeDef = TypedDict(
     "ListDatabasesOutputTypeDef",
     {
         "Databases": List["DatabaseSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListOperationsInputRequestTypeDef = TypedDict(
+    "_RequiredListOperationsInputRequestTypeDef",
+    {
+        "ApplicationId": str,
+    },
+)
+_OptionalListOperationsInputRequestTypeDef = TypedDict(
+    "_OptionalListOperationsInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+class ListOperationsInputRequestTypeDef(
+    _RequiredListOperationsInputRequestTypeDef, _OptionalListOperationsInputRequestTypeDef
+):
+    pass
+
+ListOperationsOutputTypeDef = TypedDict(
+    "ListOperationsOutputTypeDef",
+    {
+        "Operations": List["OperationTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

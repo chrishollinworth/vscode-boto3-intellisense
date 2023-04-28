@@ -6,9 +6,9 @@ Type annotations for location service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_location.type_defs import AssociateTrackerConsumerRequestRequestTypeDef
+    from mypy_boto3_location.type_defs import ApiKeyFilterTypeDef
 
-    data: AssociateTrackerConsumerRequestRequestTypeDef = {...}
+    data: ApiKeyFilterTypeDef = {...}
     ```
 """
 import sys
@@ -23,6 +23,7 @@ from .literals import (
     PositionFilteringType,
     PricingPlanType,
     RouteMatrixErrorCodeType,
+    StatusType,
     TravelModeType,
     VehicleWeightUnitType,
 )
@@ -33,6 +34,8 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ApiKeyFilterTypeDef",
+    "ApiKeyRestrictionsTypeDef",
     "AssociateTrackerConsumerRequestRequestTypeDef",
     "BatchDeleteDevicePositionHistoryErrorTypeDef",
     "BatchDeleteDevicePositionHistoryRequestRequestTypeDef",
@@ -66,6 +69,8 @@ __all__ = (
     "CircleTypeDef",
     "CreateGeofenceCollectionRequestRequestTypeDef",
     "CreateGeofenceCollectionResponseTypeDef",
+    "CreateKeyRequestRequestTypeDef",
+    "CreateKeyResponseTypeDef",
     "CreateMapRequestRequestTypeDef",
     "CreateMapResponseTypeDef",
     "CreatePlaceIndexRequestRequestTypeDef",
@@ -76,12 +81,15 @@ __all__ = (
     "CreateTrackerResponseTypeDef",
     "DataSourceConfigurationTypeDef",
     "DeleteGeofenceCollectionRequestRequestTypeDef",
+    "DeleteKeyRequestRequestTypeDef",
     "DeleteMapRequestRequestTypeDef",
     "DeletePlaceIndexRequestRequestTypeDef",
     "DeleteRouteCalculatorRequestRequestTypeDef",
     "DeleteTrackerRequestRequestTypeDef",
     "DescribeGeofenceCollectionRequestRequestTypeDef",
     "DescribeGeofenceCollectionResponseTypeDef",
+    "DescribeKeyRequestRequestTypeDef",
+    "DescribeKeyResponseTypeDef",
     "DescribeMapRequestRequestTypeDef",
     "DescribeMapResponseTypeDef",
     "DescribePlaceIndexRequestRequestTypeDef",
@@ -121,6 +129,9 @@ __all__ = (
     "ListGeofenceResponseEntryTypeDef",
     "ListGeofencesRequestRequestTypeDef",
     "ListGeofencesResponseTypeDef",
+    "ListKeysRequestRequestTypeDef",
+    "ListKeysResponseEntryTypeDef",
+    "ListKeysResponseTypeDef",
     "ListMapsRequestRequestTypeDef",
     "ListMapsResponseEntryTypeDef",
     "ListMapsResponseTypeDef",
@@ -167,6 +178,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateGeofenceCollectionRequestRequestTypeDef",
     "UpdateGeofenceCollectionResponseTypeDef",
+    "UpdateKeyRequestRequestTypeDef",
+    "UpdateKeyResponseTypeDef",
     "UpdateMapRequestRequestTypeDef",
     "UpdateMapResponseTypeDef",
     "UpdatePlaceIndexRequestRequestTypeDef",
@@ -176,6 +189,34 @@ __all__ = (
     "UpdateTrackerRequestRequestTypeDef",
     "UpdateTrackerResponseTypeDef",
 )
+
+ApiKeyFilterTypeDef = TypedDict(
+    "ApiKeyFilterTypeDef",
+    {
+        "KeyStatus": StatusType,
+    },
+    total=False,
+)
+
+_RequiredApiKeyRestrictionsTypeDef = TypedDict(
+    "_RequiredApiKeyRestrictionsTypeDef",
+    {
+        "AllowActions": List[str],
+        "AllowResources": List[str],
+    },
+)
+_OptionalApiKeyRestrictionsTypeDef = TypedDict(
+    "_OptionalApiKeyRestrictionsTypeDef",
+    {
+        "AllowReferers": List[str],
+    },
+    total=False,
+)
+
+class ApiKeyRestrictionsTypeDef(
+    _RequiredApiKeyRestrictionsTypeDef, _OptionalApiKeyRestrictionsTypeDef
+):
+    pass
 
 AssociateTrackerConsumerRequestRequestTypeDef = TypedDict(
     "AssociateTrackerConsumerRequestRequestTypeDef",
@@ -517,6 +558,40 @@ CreateGeofenceCollectionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateKeyRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateKeyRequestRequestTypeDef",
+    {
+        "KeyName": str,
+        "Restrictions": "ApiKeyRestrictionsTypeDef",
+    },
+)
+_OptionalCreateKeyRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateKeyRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ExpireTime": Union[datetime, str],
+        "NoExpiry": bool,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateKeyRequestRequestTypeDef(
+    _RequiredCreateKeyRequestRequestTypeDef, _OptionalCreateKeyRequestRequestTypeDef
+):
+    pass
+
+CreateKeyResponseTypeDef = TypedDict(
+    "CreateKeyResponseTypeDef",
+    {
+        "CreateTime": datetime,
+        "Key": str,
+        "KeyArn": str,
+        "KeyName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateMapRequestRequestTypeDef = TypedDict(
     "_RequiredCreateMapRequestRequestTypeDef",
     {
@@ -664,6 +739,13 @@ DeleteGeofenceCollectionRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteKeyRequestRequestTypeDef = TypedDict(
+    "DeleteKeyRequestRequestTypeDef",
+    {
+        "KeyName": str,
+    },
+)
+
 DeleteMapRequestRequestTypeDef = TypedDict(
     "DeleteMapRequestRequestTypeDef",
     {
@@ -709,6 +791,29 @@ DescribeGeofenceCollectionResponseTypeDef = TypedDict(
         "KmsKeyId": str,
         "PricingPlan": PricingPlanType,
         "PricingPlanDataSource": str,
+        "Tags": Dict[str, str],
+        "UpdateTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeKeyRequestRequestTypeDef = TypedDict(
+    "DescribeKeyRequestRequestTypeDef",
+    {
+        "KeyName": str,
+    },
+)
+
+DescribeKeyResponseTypeDef = TypedDict(
+    "DescribeKeyResponseTypeDef",
+    {
+        "CreateTime": datetime,
+        "Description": str,
+        "ExpireTime": datetime,
+        "Key": str,
+        "KeyArn": str,
+        "KeyName": str,
+        "Restrictions": "ApiKeyRestrictionsTypeDef",
         "Tags": Dict[str, str],
         "UpdateTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -941,59 +1046,99 @@ GetGeofenceResponseTypeDef = TypedDict(
     },
 )
 
-GetMapGlyphsRequestRequestTypeDef = TypedDict(
-    "GetMapGlyphsRequestRequestTypeDef",
+_RequiredGetMapGlyphsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetMapGlyphsRequestRequestTypeDef",
     {
         "FontStack": str,
         "FontUnicodeRange": str,
         "MapName": str,
     },
 )
+_OptionalGetMapGlyphsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetMapGlyphsRequestRequestTypeDef",
+    {
+        "Key": str,
+    },
+    total=False,
+)
+
+class GetMapGlyphsRequestRequestTypeDef(
+    _RequiredGetMapGlyphsRequestRequestTypeDef, _OptionalGetMapGlyphsRequestRequestTypeDef
+):
+    pass
 
 GetMapGlyphsResponseTypeDef = TypedDict(
     "GetMapGlyphsResponseTypeDef",
     {
         "Blob": bytes,
+        "CacheControl": str,
         "ContentType": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
-GetMapSpritesRequestRequestTypeDef = TypedDict(
-    "GetMapSpritesRequestRequestTypeDef",
+_RequiredGetMapSpritesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetMapSpritesRequestRequestTypeDef",
     {
         "FileName": str,
         "MapName": str,
     },
 )
+_OptionalGetMapSpritesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetMapSpritesRequestRequestTypeDef",
+    {
+        "Key": str,
+    },
+    total=False,
+)
+
+class GetMapSpritesRequestRequestTypeDef(
+    _RequiredGetMapSpritesRequestRequestTypeDef, _OptionalGetMapSpritesRequestRequestTypeDef
+):
+    pass
 
 GetMapSpritesResponseTypeDef = TypedDict(
     "GetMapSpritesResponseTypeDef",
     {
         "Blob": bytes,
+        "CacheControl": str,
         "ContentType": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
-GetMapStyleDescriptorRequestRequestTypeDef = TypedDict(
-    "GetMapStyleDescriptorRequestRequestTypeDef",
+_RequiredGetMapStyleDescriptorRequestRequestTypeDef = TypedDict(
+    "_RequiredGetMapStyleDescriptorRequestRequestTypeDef",
     {
         "MapName": str,
     },
 )
+_OptionalGetMapStyleDescriptorRequestRequestTypeDef = TypedDict(
+    "_OptionalGetMapStyleDescriptorRequestRequestTypeDef",
+    {
+        "Key": str,
+    },
+    total=False,
+)
+
+class GetMapStyleDescriptorRequestRequestTypeDef(
+    _RequiredGetMapStyleDescriptorRequestRequestTypeDef,
+    _OptionalGetMapStyleDescriptorRequestRequestTypeDef,
+):
+    pass
 
 GetMapStyleDescriptorResponseTypeDef = TypedDict(
     "GetMapStyleDescriptorResponseTypeDef",
     {
         "Blob": bytes,
+        "CacheControl": str,
         "ContentType": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
-GetMapTileRequestRequestTypeDef = TypedDict(
-    "GetMapTileRequestRequestTypeDef",
+_RequiredGetMapTileRequestRequestTypeDef = TypedDict(
+    "_RequiredGetMapTileRequestRequestTypeDef",
     {
         "MapName": str,
         "X": str,
@@ -1001,11 +1146,24 @@ GetMapTileRequestRequestTypeDef = TypedDict(
         "Z": str,
     },
 )
+_OptionalGetMapTileRequestRequestTypeDef = TypedDict(
+    "_OptionalGetMapTileRequestRequestTypeDef",
+    {
+        "Key": str,
+    },
+    total=False,
+)
+
+class GetMapTileRequestRequestTypeDef(
+    _RequiredGetMapTileRequestRequestTypeDef, _OptionalGetMapTileRequestRequestTypeDef
+):
+    pass
 
 GetMapTileResponseTypeDef = TypedDict(
     "GetMapTileResponseTypeDef",
     {
         "Blob": bytes,
+        "CacheControl": str,
         "ContentType": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1198,6 +1356,48 @@ ListGeofencesResponseTypeDef = TypedDict(
     "ListGeofencesResponseTypeDef",
     {
         "Entries": List["ListGeofenceResponseEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListKeysRequestRequestTypeDef = TypedDict(
+    "ListKeysRequestRequestTypeDef",
+    {
+        "Filter": "ApiKeyFilterTypeDef",
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+_RequiredListKeysResponseEntryTypeDef = TypedDict(
+    "_RequiredListKeysResponseEntryTypeDef",
+    {
+        "CreateTime": datetime,
+        "ExpireTime": datetime,
+        "KeyName": str,
+        "Restrictions": "ApiKeyRestrictionsTypeDef",
+        "UpdateTime": datetime,
+    },
+)
+_OptionalListKeysResponseEntryTypeDef = TypedDict(
+    "_OptionalListKeysResponseEntryTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class ListKeysResponseEntryTypeDef(
+    _RequiredListKeysResponseEntryTypeDef, _OptionalListKeysResponseEntryTypeDef
+):
+    pass
+
+ListKeysResponseTypeDef = TypedDict(
+    "ListKeysResponseTypeDef",
+    {
+        "Entries": List["ListKeysResponseEntryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1864,6 +2064,39 @@ UpdateGeofenceCollectionResponseTypeDef = TypedDict(
     {
         "CollectionArn": str,
         "CollectionName": str,
+        "UpdateTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateKeyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateKeyRequestRequestTypeDef",
+    {
+        "KeyName": str,
+    },
+)
+_OptionalUpdateKeyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateKeyRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ExpireTime": Union[datetime, str],
+        "ForceUpdate": bool,
+        "NoExpiry": bool,
+        "Restrictions": "ApiKeyRestrictionsTypeDef",
+    },
+    total=False,
+)
+
+class UpdateKeyRequestRequestTypeDef(
+    _RequiredUpdateKeyRequestRequestTypeDef, _OptionalUpdateKeyRequestRequestTypeDef
+):
+    pass
+
+UpdateKeyResponseTypeDef = TypedDict(
+    "UpdateKeyResponseTypeDef",
+    {
+        "KeyArn": str,
+        "KeyName": str,
         "UpdateTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

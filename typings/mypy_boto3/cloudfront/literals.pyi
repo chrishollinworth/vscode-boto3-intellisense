@@ -88,15 +88,15 @@ MethodType = Literal["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
 MinimumProtocolVersionType = Literal[
     "SSLv3", "TLSv1", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021", "TLSv1_2016"
 ]
-OriginAccessControlOriginTypesType = Literal["s3"]
+OriginAccessControlOriginTypesType = Literal["mediastore", "s3"]
 OriginAccessControlSigningBehaviorsType = Literal["always", "never", "no-override"]
 OriginAccessControlSigningProtocolsType = Literal["sigv4"]
 OriginProtocolPolicyType = Literal["http-only", "https-only", "match-viewer"]
-OriginRequestPolicyCookieBehaviorType = Literal["all", "none", "whitelist"]
+OriginRequestPolicyCookieBehaviorType = Literal["all", "allExcept", "none", "whitelist"]
 OriginRequestPolicyHeaderBehaviorType = Literal[
-    "allViewer", "allViewerAndWhitelistCloudFront", "none", "whitelist"
+    "allExcept", "allViewer", "allViewerAndWhitelistCloudFront", "none", "whitelist"
 ]
-OriginRequestPolicyQueryStringBehaviorType = Literal["all", "none", "whitelist"]
+OriginRequestPolicyQueryStringBehaviorType = Literal["all", "allExcept", "none", "whitelist"]
 OriginRequestPolicyTypeType = Literal["custom", "managed"]
 PriceClassType = Literal["PriceClass_100", "PriceClass_200", "PriceClass_All"]
 RealtimeMetricsSubscriptionStatusType = Literal["Disabled", "Enabled"]

@@ -25,6 +25,7 @@ __all__ = (
     "DetectorVersionStatusType",
     "EventIngestionType",
     "LanguageType",
+    "ListUpdateModeType",
     "ModelEndpointStatusType",
     "ModelInputDataFormatType",
     "ModelOutputDataFormatType",
@@ -49,6 +50,7 @@ DataTypeType = Literal["BOOLEAN", "FLOAT", "INTEGER", "STRING"]
 DetectorVersionStatusType = Literal["ACTIVE", "DRAFT", "INACTIVE"]
 EventIngestionType = Literal["DISABLED", "ENABLED"]
 LanguageType = Literal["DETECTORPL"]
+ListUpdateModeType = Literal["APPEND", "REMOVE", "REPLACE"]
 ModelEndpointStatusType = Literal["ASSOCIATED", "DISSOCIATED"]
 ModelInputDataFormatType = Literal["APPLICATION_JSON", "TEXT_CSV"]
 ModelOutputDataFormatType = Literal["APPLICATION_JSONLINES", "TEXT_CSV"]
@@ -59,4 +61,4 @@ ModelTypeEnumType = Literal[
 ModelVersionStatusType = Literal["ACTIVE", "INACTIVE", "TRAINING_CANCELLED"]
 RuleExecutionModeType = Literal["ALL_MATCHED", "FIRST_MATCHED"]
 TrainingDataSourceEnumType = Literal["EXTERNAL_EVENTS", "INGESTED_EVENTS"]
-UnlabeledEventsTreatmentType = Literal["FRAUD", "IGNORE", "LEGIT"]
+UnlabeledEventsTreatmentType = Literal["AUTO", "FRAUD", "IGNORE", "LEGIT"]

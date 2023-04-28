@@ -1734,6 +1734,7 @@ _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
         "KmsKeyId": str,
         "EnableCloudwatchLogsExports": List[str],
         "DeletionProtection": bool,
+        "DBClusterParameterGroupName": str,
     },
     total=False,
 )

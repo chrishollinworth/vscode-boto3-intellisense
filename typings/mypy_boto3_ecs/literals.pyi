@@ -172,7 +172,9 @@ SettingNameType = Literal[
     "awsvpcTrunking",
     "containerInsights",
     "containerInstanceLongArnFormat",
+    "fargateFIPSMode",
     "serviceLongArnFormat",
+    "tagResourceAuthorization",
     "taskLongArnFormat",
 ]
 SortOrderType = Literal["ASC", "DESC"]
@@ -181,7 +183,7 @@ TargetTypeType = Literal["container-instance"]
 TaskDefinitionFamilyStatusType = Literal["ACTIVE", "ALL", "INACTIVE"]
 TaskDefinitionFieldType = Literal["TAGS"]
 TaskDefinitionPlacementConstraintTypeType = Literal["memberOf"]
-TaskDefinitionStatusType = Literal["ACTIVE", "INACTIVE"]
+TaskDefinitionStatusType = Literal["ACTIVE", "DELETE_IN_PROGRESS", "INACTIVE"]
 TaskFieldType = Literal["TAGS"]
 TaskSetFieldType = Literal["TAGS"]
 TaskStopCodeType = Literal[

@@ -6,9 +6,9 @@ Type annotations for groundstation service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_groundstation.literals import AngleUnitsType
+    from mypy_boto3_groundstation.literals import AgentStatusType
 
-    data: AngleUnitsType = "DEGREE_ANGLE"
+    data: AgentStatusType = "ACTIVE"
     ```
 """
 import sys
@@ -19,9 +19,14 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AgentStatusType",
     "AngleUnitsType",
+    "AuditResultsType",
     "BandwidthUnitsType",
+    "CapabilityHealthReasonType",
+    "CapabilityHealthType",
     "ConfigCapabilityTypeType",
+    "ContactScheduledWaiterName",
     "ContactStatusType",
     "CriticalityType",
     "EirpUnitsType",
@@ -40,8 +45,20 @@ __all__ = (
     "PolarizationType",
 )
 
+AgentStatusType = Literal["ACTIVE", "FAILED", "INACTIVE", "SUCCESS"]
 AngleUnitsType = Literal["DEGREE_ANGLE", "RADIAN"]
+AuditResultsType = Literal["HEALTHY", "UNHEALTHY"]
 BandwidthUnitsType = Literal["GHz", "MHz", "kHz"]
+CapabilityHealthReasonType = Literal[
+    "DATAPLANE_FAILURE",
+    "HEALTHY",
+    "INITIALIZING_DATAPLANE",
+    "INVALID_IP_OWNERSHIP",
+    "NOT_AUTHORIZED_TO_CREATE_SLR",
+    "NO_REGISTERED_AGENT",
+    "UNVERIFIED_IP_OWNERSHIP",
+]
+CapabilityHealthType = Literal["HEALTHY", "UNHEALTHY"]
 ConfigCapabilityTypeType = Literal[
     "antenna-downlink",
     "antenna-downlink-demod-decode",
@@ -51,6 +68,7 @@ ConfigCapabilityTypeType = Literal[
     "tracking",
     "uplink-echo",
 ]
+ContactScheduledWaiterName = Literal["contact_scheduled"]
 ContactStatusType = Literal[
     "AVAILABLE",
     "AWS_CANCELLED",

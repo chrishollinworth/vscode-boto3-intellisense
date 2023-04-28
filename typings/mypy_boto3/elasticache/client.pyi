@@ -208,7 +208,7 @@ class Exceptions:
 
 class ElastiCacheClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html)
     """
 
@@ -225,7 +225,7 @@ class ElastiCacheClient(BaseClient):
         """
         A tag is a key-value pair where the key and value are case-sensitive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.add_tags_to_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.add_tags_to_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#add_tags_to_resource)
         """
     def authorize_cache_security_group_ingress(
@@ -238,7 +238,7 @@ class ElastiCacheClient(BaseClient):
         """
         Allows network ingress to a cache security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.authorize_cache_security_group_ingress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.authorize_cache_security_group_ingress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#authorize_cache_security_group_ingress)
         """
     def batch_apply_update_action(
@@ -251,7 +251,7 @@ class ElastiCacheClient(BaseClient):
         """
         Apply the service update.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.batch_apply_update_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.batch_apply_update_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#batch_apply_update_action)
         """
     def batch_stop_update_action(
@@ -264,21 +264,21 @@ class ElastiCacheClient(BaseClient):
         """
         Stop the service update.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.batch_stop_update_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.batch_stop_update_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#batch_stop_update_action)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#close)
         """
     def complete_migration(
@@ -287,7 +287,7 @@ class ElastiCacheClient(BaseClient):
         """
         Complete the migration of data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.complete_migration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.complete_migration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#complete_migration)
         """
     def copy_snapshot(
@@ -302,7 +302,7 @@ class ElastiCacheClient(BaseClient):
         """
         Makes a copy of an existing snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.copy_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.copy_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#copy_snapshot)
         """
     def create_cache_cluster(
@@ -342,7 +342,7 @@ class ElastiCacheClient(BaseClient):
         """
         Creates a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_cache_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_cache_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_cache_cluster)
         """
     def create_cache_parameter_group(
@@ -356,7 +356,7 @@ class ElastiCacheClient(BaseClient):
         """
         Creates a new Amazon ElastiCache cache parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_cache_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_cache_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_cache_parameter_group)
         """
     def create_cache_security_group(
@@ -365,7 +365,7 @@ class ElastiCacheClient(BaseClient):
         """
         Creates a new cache security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_cache_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_cache_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_cache_security_group)
         """
     def create_cache_subnet_group(
@@ -379,7 +379,7 @@ class ElastiCacheClient(BaseClient):
         """
         Creates a new cache subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_cache_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_cache_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_cache_subnet_group)
         """
     def create_global_replication_group(
@@ -393,7 +393,7 @@ class ElastiCacheClient(BaseClient):
         Global Datastore for Redis offers fully managed, fast, reliable and secure
         cross-region replication.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_global_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_global_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_global_replication_group)
         """
     def create_replication_group(
@@ -441,7 +441,7 @@ class ElastiCacheClient(BaseClient):
         Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
         replication group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_replication_group)
         """
     def create_snapshot(
@@ -457,7 +457,7 @@ class ElastiCacheClient(BaseClient):
         Creates a copy of an entire cluster or replication group at a specific moment in
         time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_snapshot)
         """
     def create_user(
@@ -475,7 +475,7 @@ class ElastiCacheClient(BaseClient):
         """
         For Redis engine version 6.0 onwards: Creates a Redis user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_user)
         """
     def create_user_group(
@@ -489,7 +489,7 @@ class ElastiCacheClient(BaseClient):
         """
         For Redis engine version 6.0 onwards: Creates a Redis user group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.create_user_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.create_user_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#create_user_group)
         """
     def decrease_node_groups_in_global_replication_group(
@@ -505,9 +505,9 @@ class ElastiCacheClient(BaseClient):
         Decreases the number of node groups in a Global datastore See also: `AWS API
         Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-
         02/DecreaseNodeGroupsInGlobalReplicationGroup>`_ **Request Syntax** response =
-        client.decrease_node_groups_in_global_replication_grou...
+        client.decrease_node_groups_in_global_replication_group...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.decrease_node_groups_in_global_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.decrease_node_groups_in_global_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#decrease_node_groups_in_global_replication_group)
         """
     def decrease_replica_count(
@@ -524,7 +524,7 @@ class ElastiCacheClient(BaseClient):
         replication group or the number of replica nodes in one or more node groups
         (shards) of a Redis (cluster mode enabled) replication group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.decrease_replica_count)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.decrease_replica_count)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#decrease_replica_count)
         """
     def delete_cache_cluster(
@@ -533,28 +533,28 @@ class ElastiCacheClient(BaseClient):
         """
         Deletes a previously provisioned cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_cache_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_cache_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_cache_cluster)
         """
     def delete_cache_parameter_group(self, *, CacheParameterGroupName: str) -> None:
         """
         Deletes the specified cache parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_cache_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_cache_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_cache_parameter_group)
         """
     def delete_cache_security_group(self, *, CacheSecurityGroupName: str) -> None:
         """
         Deletes a cache security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_cache_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_cache_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_cache_security_group)
         """
     def delete_cache_subnet_group(self, *, CacheSubnetGroupName: str) -> None:
         """
         Deletes a cache subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_cache_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_cache_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_cache_subnet_group)
         """
     def delete_global_replication_group(
@@ -565,7 +565,7 @@ class ElastiCacheClient(BaseClient):
         DisassociateGlobalReplicationGroup to remove the secondary clusters in the
         Global datastore.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_global_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_global_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_global_replication_group)
         """
     def delete_replication_group(
@@ -578,28 +578,28 @@ class ElastiCacheClient(BaseClient):
         """
         Deletes an existing replication group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_replication_group)
         """
     def delete_snapshot(self, *, SnapshotName: str) -> DeleteSnapshotResultTypeDef:
         """
         Deletes an existing snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_snapshot)
         """
     def delete_user(self, *, UserId: str) -> UserResponseMetadataTypeDef:
         """
         For Redis engine version 6.0 onwards: Deletes a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_user)
         """
     def delete_user_group(self, *, UserGroupId: str) -> UserGroupResponseMetadataTypeDef:
         """
         For Redis engine version 6.0 onwards: Deletes a user group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.delete_user_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.delete_user_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#delete_user_group)
         """
     def describe_cache_clusters(
@@ -616,7 +616,7 @@ class ElastiCacheClient(BaseClient):
         specified, or about a specific cache cluster if a cluster identifier is
         supplied.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_cache_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_cache_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_cache_clusters)
         """
     def describe_cache_engine_versions(
@@ -632,7 +632,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns a list of the available cache engines and their versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_cache_engine_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_cache_engine_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_cache_engine_versions)
         """
     def describe_cache_parameter_groups(
@@ -641,7 +641,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns a list of cache parameter group descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_cache_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_cache_parameter_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_cache_parameter_groups)
         """
     def describe_cache_parameters(
@@ -655,7 +655,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns the detailed parameter list for a particular cache parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_cache_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_cache_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_cache_parameters)
         """
     def describe_cache_security_groups(
@@ -664,7 +664,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns a list of cache security group descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_cache_security_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_cache_security_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_cache_security_groups)
         """
     def describe_cache_subnet_groups(
@@ -673,7 +673,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns a list of cache subnet group descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_cache_subnet_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_cache_subnet_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_cache_subnet_groups)
         """
     def describe_engine_default_parameters(
@@ -683,7 +683,7 @@ class ElastiCacheClient(BaseClient):
         Returns the default engine and system parameter information for the specified
         cache engine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_engine_default_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_engine_default_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_engine_default_parameters)
         """
     def describe_events(
@@ -701,7 +701,7 @@ class ElastiCacheClient(BaseClient):
         Returns events related to clusters, cache security groups, and cache parameter
         groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_events)
         """
     def describe_global_replication_groups(
@@ -715,7 +715,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns information about a particular global replication group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_global_replication_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_global_replication_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_global_replication_groups)
         """
     def describe_replication_groups(
@@ -724,7 +724,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns information about a particular replication group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_replication_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_replication_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_replication_groups)
         """
     def describe_reserved_cache_nodes(
@@ -743,7 +743,7 @@ class ElastiCacheClient(BaseClient):
         Returns information about reserved cache nodes for this account, or about a
         specified reserved cache node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_reserved_cache_nodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_reserved_cache_nodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_reserved_cache_nodes)
         """
     def describe_reserved_cache_nodes_offerings(
@@ -760,7 +760,7 @@ class ElastiCacheClient(BaseClient):
         """
         Lists available reserved cache node offerings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_reserved_cache_nodes_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_reserved_cache_nodes_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_reserved_cache_nodes_offerings)
         """
     def describe_service_updates(
@@ -776,9 +776,9 @@ class ElastiCacheClient(BaseClient):
         /docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-
         02/DescribeServiceUpdates>`_ **Request Syntax** response =
         client.describe_service_updates( ServiceUpdateName='string',
-        ServiceUpdateStatus=...
+        ServiceUpdateStatus=[...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_service_updates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_service_updates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_service_updates)
         """
     def describe_snapshots(
@@ -795,7 +795,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns information about cluster or replication group snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_snapshots)
         """
     def describe_update_actions(
@@ -818,7 +818,7 @@ class ElastiCacheClient(BaseClient):
         **Request Syntax** response = client.describe_update_actions(
         ServiceUpdateName='string', ReplicationGroupIds=[ ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_update_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_update_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_update_actions)
         """
     def describe_user_groups(
@@ -827,7 +827,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns a list of user groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_user_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_user_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_user_groups)
         """
     def describe_users(
@@ -842,7 +842,7 @@ class ElastiCacheClient(BaseClient):
         """
         Returns a list of users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.describe_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.describe_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#describe_users)
         """
     def disassociate_global_replication_group(
@@ -852,7 +852,7 @@ class ElastiCacheClient(BaseClient):
         Remove a secondary cluster from the Global datastore using the Global datastore
         name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.disassociate_global_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.disassociate_global_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#disassociate_global_replication_group)
         """
     def failover_global_replication_group(
@@ -861,7 +861,7 @@ class ElastiCacheClient(BaseClient):
         """
         Used to failover the primary region to a secondary region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.failover_global_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.failover_global_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#failover_global_replication_group)
         """
     def generate_presigned_url(
@@ -874,7 +874,7 @@ class ElastiCacheClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#generate_presigned_url)
         """
     def increase_node_groups_in_global_replication_group(
@@ -889,9 +889,9 @@ class ElastiCacheClient(BaseClient):
         Increase the number of node groups in the Global datastore See also: `AWS API
         Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-
         02/IncreaseNodeGroupsInGlobalReplicationGroup>`_ **Request Syntax** response =
-        client.increase_node_groups_in_global_replication_gro...
+        client.increase_node_groups_in_global_replication_grou...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.increase_node_groups_in_global_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.increase_node_groups_in_global_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#increase_node_groups_in_global_replication_group)
         """
     def increase_replica_count(
@@ -907,7 +907,7 @@ class ElastiCacheClient(BaseClient):
         replication group or the number of replica nodes in one or more node groups
         (shards) of a Redis (cluster mode enabled) replication group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.increase_replica_count)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.increase_replica_count)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#increase_replica_count)
         """
     def list_allowed_node_type_modifications(
@@ -917,14 +917,14 @@ class ElastiCacheClient(BaseClient):
         Lists all available node types that you can scale your Redis cluster's or
         replication group's current node type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.list_allowed_node_type_modifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.list_allowed_node_type_modifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#list_allowed_node_type_modifications)
         """
     def list_tags_for_resource(self, *, ResourceName: str) -> TagListMessageTypeDef:
         """
         Lists all tags currently on a named resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#list_tags_for_resource)
         """
     def modify_cache_cluster(
@@ -955,7 +955,7 @@ class ElastiCacheClient(BaseClient):
         """
         Modifies the settings for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.modify_cache_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.modify_cache_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#modify_cache_cluster)
         """
     def modify_cache_parameter_group(
@@ -967,7 +967,7 @@ class ElastiCacheClient(BaseClient):
         """
         Modifies the parameters of a cache parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.modify_cache_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.modify_cache_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#modify_cache_parameter_group)
         """
     def modify_cache_subnet_group(
@@ -980,7 +980,7 @@ class ElastiCacheClient(BaseClient):
         """
         Modifies an existing cache subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.modify_cache_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.modify_cache_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#modify_cache_subnet_group)
         """
     def modify_global_replication_group(
@@ -997,7 +997,7 @@ class ElastiCacheClient(BaseClient):
         """
         Modifies the settings for a Global datastore.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.modify_global_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.modify_global_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#modify_global_replication_group)
         """
     def modify_replication_group(
@@ -1035,7 +1035,7 @@ class ElastiCacheClient(BaseClient):
         """
         Modifies the settings for a replication group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.modify_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.modify_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#modify_replication_group)
         """
     def modify_replication_group_shard_configuration(
@@ -1052,7 +1052,7 @@ class ElastiCacheClient(BaseClient):
         Modifies a replication group's shards (node groups) by allowing you to add
         shards, remove shards, or rebalance the keyspaces among existing shards.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.modify_replication_group_shard_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.modify_replication_group_shard_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#modify_replication_group_shard_configuration)
         """
     def modify_user(
@@ -1068,7 +1068,7 @@ class ElastiCacheClient(BaseClient):
         """
         Changes user password(s) and/or access string.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.modify_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.modify_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#modify_user)
         """
     def modify_user_group(
@@ -1077,7 +1077,7 @@ class ElastiCacheClient(BaseClient):
         """
         Changes the list of users that belong to the user group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.modify_user_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.modify_user_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#modify_user_group)
         """
     def purchase_reserved_cache_nodes_offering(
@@ -1091,7 +1091,7 @@ class ElastiCacheClient(BaseClient):
         """
         Allows you to purchase a reserved cache node offering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.purchase_reserved_cache_nodes_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.purchase_reserved_cache_nodes_offering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#purchase_reserved_cache_nodes_offering)
         """
     def rebalance_slots_in_global_replication_group(
@@ -1101,7 +1101,7 @@ class ElastiCacheClient(BaseClient):
         Redistribute slots to ensure uniform distribution across existing shards in the
         cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.rebalance_slots_in_global_replication_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.rebalance_slots_in_global_replication_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#rebalance_slots_in_global_replication_group)
         """
     def reboot_cache_cluster(
@@ -1110,7 +1110,7 @@ class ElastiCacheClient(BaseClient):
         """
         Reboots some, or all, of the cache nodes within a provisioned cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.reboot_cache_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.reboot_cache_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#reboot_cache_cluster)
         """
     def remove_tags_from_resource(
@@ -1119,7 +1119,7 @@ class ElastiCacheClient(BaseClient):
         """
         Removes the tags identified by the `TagKeys` list from the named resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.remove_tags_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.remove_tags_from_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#remove_tags_from_resource)
         """
     def reset_cache_parameter_group(
@@ -1133,7 +1133,7 @@ class ElastiCacheClient(BaseClient):
         Modifies the parameters of a cache parameter group to the engine or system
         default value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.reset_cache_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.reset_cache_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#reset_cache_parameter_group)
         """
     def revoke_cache_security_group_ingress(
@@ -1146,7 +1146,7 @@ class ElastiCacheClient(BaseClient):
         """
         Revokes ingress from a cache security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.revoke_cache_security_group_ingress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.revoke_cache_security_group_ingress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#revoke_cache_security_group_ingress)
         """
     def start_migration(
@@ -1158,7 +1158,7 @@ class ElastiCacheClient(BaseClient):
         """
         Start the migration of data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.start_migration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.start_migration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#start_migration)
         """
     def test_failover(
@@ -1169,7 +1169,7 @@ class ElastiCacheClient(BaseClient):
         on a specified node group (called shard in the console) in a replication group
         (called cluster in the console).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Client.test_failover)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Client.test_failover)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/client.html#test_failover)
         """
     @overload
@@ -1177,7 +1177,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_cache_clusters"]
     ) -> DescribeCacheClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheclusterspaginator)
         """
     @overload
@@ -1185,7 +1185,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_cache_engine_versions"]
     ) -> DescribeCacheEngineVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheengineversionspaginator)
         """
     @overload
@@ -1193,7 +1193,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_cache_parameter_groups"]
     ) -> DescribeCacheParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheparametergroupspaginator)
         """
     @overload
@@ -1201,7 +1201,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_cache_parameters"]
     ) -> DescribeCacheParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheparameterspaginator)
         """
     @overload
@@ -1209,7 +1209,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_cache_security_groups"]
     ) -> DescribeCacheSecurityGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecachesecuritygroupspaginator)
         """
     @overload
@@ -1217,7 +1217,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_cache_subnet_groups"]
     ) -> DescribeCacheSubnetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecachesubnetgroupspaginator)
         """
     @overload
@@ -1225,13 +1225,13 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_engine_default_parameters"]
     ) -> DescribeEngineDefaultParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeenginedefaultparameterspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeeventspaginator)
         """
     @overload
@@ -1239,7 +1239,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_global_replication_groups"]
     ) -> DescribeGlobalReplicationGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeglobalreplicationgroupspaginator)
         """
     @overload
@@ -1247,7 +1247,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_replication_groups"]
     ) -> DescribeReplicationGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereplicationgroupspaginator)
         """
     @overload
@@ -1255,7 +1255,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_reserved_cache_nodes"]
     ) -> DescribeReservedCacheNodesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereservedcachenodespaginator)
         """
     @overload
@@ -1263,7 +1263,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_reserved_cache_nodes_offerings"]
     ) -> DescribeReservedCacheNodesOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereservedcachenodesofferingspaginator)
         """
     @overload
@@ -1271,7 +1271,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_service_updates"]
     ) -> DescribeServiceUpdatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeserviceupdatespaginator)
         """
     @overload
@@ -1279,7 +1279,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_snapshots"]
     ) -> DescribeSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describesnapshotspaginator)
         """
     @overload
@@ -1287,7 +1287,7 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_update_actions"]
     ) -> DescribeUpdateActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeupdateactionspaginator)
         """
     @overload
@@ -1295,13 +1295,13 @@ class ElastiCacheClient(BaseClient):
         self, operation_name: Literal["describe_user_groups"]
     ) -> DescribeUserGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUserGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUserGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeusergroupspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_users"]) -> DescribeUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeuserspaginator)
         """
     @overload
@@ -1309,7 +1309,7 @@ class ElastiCacheClient(BaseClient):
         self, waiter_name: Literal["cache_cluster_available"]
     ) -> CacheClusterAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#cacheclusteravailablewaiter)
         """
     @overload
@@ -1317,7 +1317,7 @@ class ElastiCacheClient(BaseClient):
         self, waiter_name: Literal["cache_cluster_deleted"]
     ) -> CacheClusterDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#cacheclusterdeletedwaiter)
         """
     @overload
@@ -1325,7 +1325,7 @@ class ElastiCacheClient(BaseClient):
         self, waiter_name: Literal["replication_group_available"]
     ) -> ReplicationGroupAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#replicationgroupavailablewaiter)
         """
     @overload
@@ -1333,6 +1333,6 @@ class ElastiCacheClient(BaseClient):
         self, waiter_name: Literal["replication_group_deleted"]
     ) -> ReplicationGroupDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#replicationgroupdeletedwaiter)
         """

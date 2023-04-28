@@ -16,6 +16,11 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    PermissionFeatureSetType,
+    PermissionStatusType,
+    PermissionTypeFilterType,
+    PermissionTypeType,
+    ReplacePermissionAssociationsWorkStatusType,
     ResourceOwnerType,
     ResourceRegionScopeFilterType,
     ResourceRegionScopeType,
@@ -39,8 +44,17 @@ __all__ = (
     "AssociateResourceSharePermissionResponseTypeDef",
     "AssociateResourceShareRequestRequestTypeDef",
     "AssociateResourceShareResponseTypeDef",
+    "AssociatedPermissionTypeDef",
+    "CreatePermissionRequestRequestTypeDef",
+    "CreatePermissionResponseTypeDef",
+    "CreatePermissionVersionRequestRequestTypeDef",
+    "CreatePermissionVersionResponseTypeDef",
     "CreateResourceShareRequestRequestTypeDef",
     "CreateResourceShareResponseTypeDef",
+    "DeletePermissionRequestRequestTypeDef",
+    "DeletePermissionResponseTypeDef",
+    "DeletePermissionVersionRequestRequestTypeDef",
+    "DeletePermissionVersionResponseTypeDef",
     "DeleteResourceShareRequestRequestTypeDef",
     "DeleteResourceShareResponseTypeDef",
     "DisassociateResourceSharePermissionRequestRequestTypeDef",
@@ -60,12 +74,16 @@ __all__ = (
     "GetResourceSharesResponseTypeDef",
     "ListPendingInvitationResourcesRequestRequestTypeDef",
     "ListPendingInvitationResourcesResponseTypeDef",
+    "ListPermissionAssociationsRequestRequestTypeDef",
+    "ListPermissionAssociationsResponseTypeDef",
     "ListPermissionVersionsRequestRequestTypeDef",
     "ListPermissionVersionsResponseTypeDef",
     "ListPermissionsRequestRequestTypeDef",
     "ListPermissionsResponseTypeDef",
     "ListPrincipalsRequestRequestTypeDef",
     "ListPrincipalsResponseTypeDef",
+    "ListReplacePermissionAssociationsWorkRequestRequestTypeDef",
+    "ListReplacePermissionAssociationsWorkResponseTypeDef",
     "ListResourceSharePermissionsRequestRequestTypeDef",
     "ListResourceSharePermissionsResponseTypeDef",
     "ListResourceTypesRequestRequestTypeDef",
@@ -74,10 +92,15 @@ __all__ = (
     "ListResourcesResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PrincipalTypeDef",
+    "PromotePermissionCreatedFromPolicyRequestRequestTypeDef",
+    "PromotePermissionCreatedFromPolicyResponseTypeDef",
     "PromoteResourceShareCreatedFromPolicyRequestRequestTypeDef",
     "PromoteResourceShareCreatedFromPolicyResponseTypeDef",
     "RejectResourceShareInvitationRequestRequestTypeDef",
     "RejectResourceShareInvitationResponseTypeDef",
+    "ReplacePermissionAssociationsRequestRequestTypeDef",
+    "ReplacePermissionAssociationsResponseTypeDef",
+    "ReplacePermissionAssociationsWorkTypeDef",
     "ResourceShareAssociationTypeDef",
     "ResourceShareInvitationTypeDef",
     "ResourceSharePermissionDetailTypeDef",
@@ -86,6 +109,8 @@ __all__ = (
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "ServiceNameAndResourceTypeTypeDef",
+    "SetDefaultPermissionVersionRequestRequestTypeDef",
+    "SetDefaultPermissionVersionResponseTypeDef",
     "TagFilterTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
@@ -186,6 +211,82 @@ AssociateResourceShareResponseTypeDef = TypedDict(
     },
 )
 
+AssociatedPermissionTypeDef = TypedDict(
+    "AssociatedPermissionTypeDef",
+    {
+        "arn": str,
+        "permissionVersion": str,
+        "defaultVersion": bool,
+        "resourceType": str,
+        "status": str,
+        "featureSet": PermissionFeatureSetType,
+        "lastUpdatedTime": datetime,
+        "resourceShareArn": str,
+    },
+    total=False,
+)
+
+_RequiredCreatePermissionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePermissionRequestRequestTypeDef",
+    {
+        "name": str,
+        "resourceType": str,
+        "policyTemplate": str,
+    },
+)
+_OptionalCreatePermissionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePermissionRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreatePermissionRequestRequestTypeDef(
+    _RequiredCreatePermissionRequestRequestTypeDef, _OptionalCreatePermissionRequestRequestTypeDef
+):
+    pass
+
+CreatePermissionResponseTypeDef = TypedDict(
+    "CreatePermissionResponseTypeDef",
+    {
+        "permission": "ResourceSharePermissionSummaryTypeDef",
+        "clientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePermissionVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePermissionVersionRequestRequestTypeDef",
+    {
+        "permissionArn": str,
+        "policyTemplate": str,
+    },
+)
+_OptionalCreatePermissionVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePermissionVersionRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class CreatePermissionVersionRequestRequestTypeDef(
+    _RequiredCreatePermissionVersionRequestRequestTypeDef,
+    _OptionalCreatePermissionVersionRequestRequestTypeDef,
+):
+    pass
+
+CreatePermissionVersionResponseTypeDef = TypedDict(
+    "CreatePermissionVersionResponseTypeDef",
+    {
+        "permission": "ResourceSharePermissionDetailTypeDef",
+        "clientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateResourceShareRequestRequestTypeDef = TypedDict(
     "_RequiredCreateResourceShareRequestRequestTypeDef",
     {
@@ -216,6 +317,66 @@ CreateResourceShareResponseTypeDef = TypedDict(
     {
         "resourceShare": "ResourceShareTypeDef",
         "clientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeletePermissionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeletePermissionRequestRequestTypeDef",
+    {
+        "permissionArn": str,
+    },
+)
+_OptionalDeletePermissionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeletePermissionRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeletePermissionRequestRequestTypeDef(
+    _RequiredDeletePermissionRequestRequestTypeDef, _OptionalDeletePermissionRequestRequestTypeDef
+):
+    pass
+
+DeletePermissionResponseTypeDef = TypedDict(
+    "DeletePermissionResponseTypeDef",
+    {
+        "returnValue": bool,
+        "clientToken": str,
+        "permissionStatus": PermissionStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeletePermissionVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeletePermissionVersionRequestRequestTypeDef",
+    {
+        "permissionArn": str,
+        "permissionVersion": int,
+    },
+)
+_OptionalDeletePermissionVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeletePermissionVersionRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeletePermissionVersionRequestRequestTypeDef(
+    _RequiredDeletePermissionVersionRequestRequestTypeDef,
+    _OptionalDeletePermissionVersionRequestRequestTypeDef,
+):
+    pass
+
+DeletePermissionVersionResponseTypeDef = TypedDict(
+    "DeletePermissionVersionResponseTypeDef",
+    {
+        "returnValue": bool,
+        "clientToken": str,
+        "permissionStatus": PermissionStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -446,6 +607,7 @@ _OptionalGetResourceSharesRequestRequestTypeDef = TypedDict(
         "nextToken": str,
         "maxResults": int,
         "permissionArn": str,
+        "permissionVersion": int,
     },
     total=False,
 )
@@ -495,6 +657,30 @@ ListPendingInvitationResourcesResponseTypeDef = TypedDict(
     },
 )
 
+ListPermissionAssociationsRequestRequestTypeDef = TypedDict(
+    "ListPermissionAssociationsRequestRequestTypeDef",
+    {
+        "permissionArn": str,
+        "permissionVersion": int,
+        "associationStatus": ResourceShareAssociationStatusType,
+        "resourceType": str,
+        "featureSet": PermissionFeatureSetType,
+        "defaultVersion": bool,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListPermissionAssociationsResponseTypeDef = TypedDict(
+    "ListPermissionAssociationsResponseTypeDef",
+    {
+        "permissions": List["AssociatedPermissionTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListPermissionVersionsRequestRequestTypeDef = TypedDict(
     "_RequiredListPermissionVersionsRequestRequestTypeDef",
     {
@@ -531,6 +717,7 @@ ListPermissionsRequestRequestTypeDef = TypedDict(
         "resourceType": str,
         "nextToken": str,
         "maxResults": int,
+        "permissionType": PermissionTypeFilterType,
     },
     total=False,
 )
@@ -572,6 +759,26 @@ ListPrincipalsResponseTypeDef = TypedDict(
     "ListPrincipalsResponseTypeDef",
     {
         "principals": List["PrincipalTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListReplacePermissionAssociationsWorkRequestRequestTypeDef = TypedDict(
+    "ListReplacePermissionAssociationsWorkRequestRequestTypeDef",
+    {
+        "workIds": List[str],
+        "status": ReplacePermissionAssociationsWorkStatusType,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListReplacePermissionAssociationsWorkResponseTypeDef = TypedDict(
+    "ListReplacePermissionAssociationsWorkResponseTypeDef",
+    {
+        "replacePermissionAssociationsWorks": List["ReplacePermissionAssociationsWorkTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -682,6 +889,36 @@ PrincipalTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPromotePermissionCreatedFromPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredPromotePermissionCreatedFromPolicyRequestRequestTypeDef",
+    {
+        "permissionArn": str,
+        "name": str,
+    },
+)
+_OptionalPromotePermissionCreatedFromPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalPromotePermissionCreatedFromPolicyRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class PromotePermissionCreatedFromPolicyRequestRequestTypeDef(
+    _RequiredPromotePermissionCreatedFromPolicyRequestRequestTypeDef,
+    _OptionalPromotePermissionCreatedFromPolicyRequestRequestTypeDef,
+):
+    pass
+
+PromotePermissionCreatedFromPolicyResponseTypeDef = TypedDict(
+    "PromotePermissionCreatedFromPolicyResponseTypeDef",
+    {
+        "permission": "ResourceSharePermissionSummaryTypeDef",
+        "clientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PromoteResourceShareCreatedFromPolicyRequestRequestTypeDef = TypedDict(
     "PromoteResourceShareCreatedFromPolicyRequestRequestTypeDef",
     {
@@ -724,6 +961,53 @@ RejectResourceShareInvitationResponseTypeDef = TypedDict(
         "clientToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredReplacePermissionAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredReplacePermissionAssociationsRequestRequestTypeDef",
+    {
+        "fromPermissionArn": str,
+        "toPermissionArn": str,
+    },
+)
+_OptionalReplacePermissionAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalReplacePermissionAssociationsRequestRequestTypeDef",
+    {
+        "fromPermissionVersion": int,
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class ReplacePermissionAssociationsRequestRequestTypeDef(
+    _RequiredReplacePermissionAssociationsRequestRequestTypeDef,
+    _OptionalReplacePermissionAssociationsRequestRequestTypeDef,
+):
+    pass
+
+ReplacePermissionAssociationsResponseTypeDef = TypedDict(
+    "ReplacePermissionAssociationsResponseTypeDef",
+    {
+        "replacePermissionAssociationsWork": "ReplacePermissionAssociationsWorkTypeDef",
+        "clientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ReplacePermissionAssociationsWorkTypeDef = TypedDict(
+    "ReplacePermissionAssociationsWorkTypeDef",
+    {
+        "id": str,
+        "fromPermissionArn": str,
+        "fromPermissionVersion": str,
+        "toPermissionArn": str,
+        "toPermissionVersion": str,
+        "status": ReplacePermissionAssociationsWorkStatusType,
+        "statusMessage": str,
+        "creationTime": datetime,
+        "lastUpdatedTime": datetime,
+    },
+    total=False,
 )
 
 ResourceShareAssociationTypeDef = TypedDict(
@@ -770,6 +1054,10 @@ ResourceSharePermissionDetailTypeDef = TypedDict(
         "creationTime": datetime,
         "lastUpdatedTime": datetime,
         "isResourceTypeDefault": bool,
+        "permissionType": PermissionTypeType,
+        "featureSet": PermissionFeatureSetType,
+        "status": PermissionStatusType,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -786,6 +1074,9 @@ ResourceSharePermissionSummaryTypeDef = TypedDict(
         "creationTime": datetime,
         "lastUpdatedTime": datetime,
         "isResourceTypeDefault": bool,
+        "permissionType": PermissionTypeType,
+        "featureSet": PermissionFeatureSetType,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -844,6 +1135,36 @@ ServiceNameAndResourceTypeTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSetDefaultPermissionVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredSetDefaultPermissionVersionRequestRequestTypeDef",
+    {
+        "permissionArn": str,
+        "permissionVersion": int,
+    },
+)
+_OptionalSetDefaultPermissionVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalSetDefaultPermissionVersionRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class SetDefaultPermissionVersionRequestRequestTypeDef(
+    _RequiredSetDefaultPermissionVersionRequestRequestTypeDef,
+    _OptionalSetDefaultPermissionVersionRequestRequestTypeDef,
+):
+    pass
+
+SetDefaultPermissionVersionResponseTypeDef = TypedDict(
+    "SetDefaultPermissionVersionResponseTypeDef",
+    {
+        "returnValue": bool,
+        "clientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 TagFilterTypeDef = TypedDict(
     "TagFilterTypeDef",
     {
@@ -853,13 +1174,25 @@ TagFilterTypeDef = TypedDict(
     total=False,
 )
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
+_RequiredTagResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredTagResourceRequestRequestTypeDef",
     {
-        "resourceShareArn": str,
         "tags": List["TagTypeDef"],
     },
 )
+_OptionalTagResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalTagResourceRequestRequestTypeDef",
+    {
+        "resourceShareArn": str,
+        "resourceArn": str,
+    },
+    total=False,
+)
+
+class TagResourceRequestRequestTypeDef(
+    _RequiredTagResourceRequestRequestTypeDef, _OptionalTagResourceRequestRequestTypeDef
+):
+    pass
 
 TagTypeDef = TypedDict(
     "TagTypeDef",
@@ -870,13 +1203,25 @@ TagTypeDef = TypedDict(
     total=False,
 )
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
+_RequiredUntagResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredUntagResourceRequestRequestTypeDef",
     {
-        "resourceShareArn": str,
         "tagKeys": List[str],
     },
 )
+_OptionalUntagResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalUntagResourceRequestRequestTypeDef",
+    {
+        "resourceShareArn": str,
+        "resourceArn": str,
+    },
+    total=False,
+)
+
+class UntagResourceRequestRequestTypeDef(
+    _RequiredUntagResourceRequestRequestTypeDef, _OptionalUntagResourceRequestRequestTypeDef
+):
+    pass
 
 _RequiredUpdateResourceShareRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateResourceShareRequestRequestTypeDef",

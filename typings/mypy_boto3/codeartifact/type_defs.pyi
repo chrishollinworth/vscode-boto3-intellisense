@@ -13,7 +13,7 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 from botocore.response import StreamingBody
 
@@ -51,6 +51,8 @@ __all__ = (
     "DeleteDomainPermissionsPolicyResultTypeDef",
     "DeleteDomainRequestRequestTypeDef",
     "DeleteDomainResultTypeDef",
+    "DeletePackageRequestRequestTypeDef",
+    "DeletePackageResultTypeDef",
     "DeletePackageVersionsRequestRequestTypeDef",
     "DeletePackageVersionsResultTypeDef",
     "DeleteRepositoryPermissionsPolicyRequestRequestTypeDef",
@@ -111,6 +113,8 @@ __all__ = (
     "PackageVersionOriginTypeDef",
     "PackageVersionSummaryTypeDef",
     "PaginatorConfigTypeDef",
+    "PublishPackageVersionRequestRequestTypeDef",
+    "PublishPackageVersionResultTypeDef",
     "PutDomainPermissionsPolicyRequestRequestTypeDef",
     "PutDomainPermissionsPolicyResultTypeDef",
     "PutPackageOriginConfigurationRequestRequestTypeDef",
@@ -331,6 +335,37 @@ DeleteDomainResultTypeDef = TypedDict(
     "DeleteDomainResultTypeDef",
     {
         "domain": "DomainDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeletePackageRequestRequestTypeDef = TypedDict(
+    "_RequiredDeletePackageRequestRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+    },
+)
+_OptionalDeletePackageRequestRequestTypeDef = TypedDict(
+    "_OptionalDeletePackageRequestRequestTypeDef",
+    {
+        "domainOwner": str,
+        "namespace": str,
+    },
+    total=False,
+)
+
+class DeletePackageRequestRequestTypeDef(
+    _RequiredDeletePackageRequestRequestTypeDef, _OptionalDeletePackageRequestRequestTypeDef
+):
+    pass
+
+DeletePackageResultTypeDef = TypedDict(
+    "DeletePackageResultTypeDef",
+    {
+        "deletedPackage": "PackageSummaryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1216,6 +1251,49 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPublishPackageVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredPublishPackageVersionRequestRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+        "packageVersion": str,
+        "assetContent": Union[bytes, IO[bytes], StreamingBody],
+        "assetName": str,
+        "assetSHA256": str,
+    },
+)
+_OptionalPublishPackageVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalPublishPackageVersionRequestRequestTypeDef",
+    {
+        "domainOwner": str,
+        "namespace": str,
+        "unfinished": bool,
+    },
+    total=False,
+)
+
+class PublishPackageVersionRequestRequestTypeDef(
+    _RequiredPublishPackageVersionRequestRequestTypeDef,
+    _OptionalPublishPackageVersionRequestRequestTypeDef,
+):
+    pass
+
+PublishPackageVersionResultTypeDef = TypedDict(
+    "PublishPackageVersionResultTypeDef",
+    {
+        "format": PackageFormatType,
+        "namespace": str,
+        "package": str,
+        "version": str,
+        "versionRevision": str,
+        "status": PackageVersionStatusType,
+        "asset": "AssetSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredPutDomainPermissionsPolicyRequestRequestTypeDef = TypedDict(
     "_RequiredPutDomainPermissionsPolicyRequestRequestTypeDef",
     {
@@ -1321,6 +1399,7 @@ RepositoryDescriptionTypeDef = TypedDict(
         "description": str,
         "upstreams": List["UpstreamRepositoryInfoTypeDef"],
         "externalConnections": List["RepositoryExternalConnectionInfoTypeDef"],
+        "createdTime": datetime,
     },
     total=False,
 )
@@ -1344,6 +1423,7 @@ RepositorySummaryTypeDef = TypedDict(
         "domainOwner": str,
         "arn": str,
         "description": str,
+        "createdTime": datetime,
     },
     total=False,
 )

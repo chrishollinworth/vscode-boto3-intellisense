@@ -35,6 +35,7 @@ from .literals import (
     LabelDetectionAggregateByType,
     LabelDetectionSortByType,
     LandmarkTypeType,
+    LivenessSessionStatusType,
     OrientationCorrectionType,
     PersonTrackingSortByType,
     ProjectStatusType,
@@ -64,6 +65,7 @@ __all__ = (
     "AgeRangeTypeDef",
     "AssetTypeDef",
     "AudioMetadataTypeDef",
+    "AuditImageTypeDef",
     "BeardTypeDef",
     "BlackFrameTypeDef",
     "BoundingBoxTypeDef",
@@ -85,6 +87,9 @@ __all__ = (
     "CreateCollectionResponseTypeDef",
     "CreateDatasetRequestRequestTypeDef",
     "CreateDatasetResponseTypeDef",
+    "CreateFaceLivenessSessionRequestRequestTypeDef",
+    "CreateFaceLivenessSessionRequestSettingsTypeDef",
+    "CreateFaceLivenessSessionResponseTypeDef",
     "CreateProjectRequestRequestTypeDef",
     "CreateProjectResponseTypeDef",
     "CreateProjectVersionRequestRequestTypeDef",
@@ -165,6 +170,8 @@ __all__ = (
     "GetContentModerationResponseTypeDef",
     "GetFaceDetectionRequestRequestTypeDef",
     "GetFaceDetectionResponseTypeDef",
+    "GetFaceLivenessSessionResultsRequestRequestTypeDef",
+    "GetFaceLivenessSessionResultsResponseTypeDef",
     "GetFaceSearchRequestRequestTypeDef",
     "GetFaceSearchResponseTypeDef",
     "GetLabelDetectionRequestRequestTypeDef",
@@ -208,6 +215,7 @@ __all__ = (
     "ListStreamProcessorsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "LivenessOutputConfigTypeDef",
     "ModerationLabelTypeDef",
     "MouthOpenTypeDef",
     "MustacheTypeDef",
@@ -323,6 +331,16 @@ AudioMetadataTypeDef = TypedDict(
         "DurationMillis": int,
         "SampleRate": int,
         "NumberOfChannels": int,
+    },
+    total=False,
+)
+
+AuditImageTypeDef = TypedDict(
+    "AuditImageTypeDef",
+    {
+        "Bytes": bytes,
+        "S3Object": "S3ObjectTypeDef",
+        "BoundingBox": "BoundingBoxTypeDef",
     },
     total=False,
 )
@@ -589,6 +607,33 @@ CreateDatasetResponseTypeDef = TypedDict(
     "CreateDatasetResponseTypeDef",
     {
         "DatasetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateFaceLivenessSessionRequestRequestTypeDef = TypedDict(
+    "CreateFaceLivenessSessionRequestRequestTypeDef",
+    {
+        "KmsKeyId": str,
+        "Settings": "CreateFaceLivenessSessionRequestSettingsTypeDef",
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+CreateFaceLivenessSessionRequestSettingsTypeDef = TypedDict(
+    "CreateFaceLivenessSessionRequestSettingsTypeDef",
+    {
+        "OutputConfig": "LivenessOutputConfigTypeDef",
+        "AuditImagesLimit": int,
+    },
+    total=False,
+)
+
+CreateFaceLivenessSessionResponseTypeDef = TypedDict(
+    "CreateFaceLivenessSessionResponseTypeDef",
+    {
+        "SessionId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1513,6 +1558,25 @@ GetFaceDetectionResponseTypeDef = TypedDict(
     },
 )
 
+GetFaceLivenessSessionResultsRequestRequestTypeDef = TypedDict(
+    "GetFaceLivenessSessionResultsRequestRequestTypeDef",
+    {
+        "SessionId": str,
+    },
+)
+
+GetFaceLivenessSessionResultsResponseTypeDef = TypedDict(
+    "GetFaceLivenessSessionResultsResponseTypeDef",
+    {
+        "SessionId": str,
+        "Status": LivenessSessionStatusType,
+        "Confidence": float,
+        "ReferenceImage": "AuditImageTypeDef",
+        "AuditImages": List["AuditImageTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetFaceSearchRequestRequestTypeDef = TypedDict(
     "_RequiredGetFaceSearchRequestRequestTypeDef",
     {
@@ -2054,6 +2118,25 @@ ListTagsForResourceResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredLivenessOutputConfigTypeDef = TypedDict(
+    "_RequiredLivenessOutputConfigTypeDef",
+    {
+        "S3Bucket": str,
+    },
+)
+_OptionalLivenessOutputConfigTypeDef = TypedDict(
+    "_OptionalLivenessOutputConfigTypeDef",
+    {
+        "S3KeyPrefix": str,
+    },
+    total=False,
+)
+
+class LivenessOutputConfigTypeDef(
+    _RequiredLivenessOutputConfigTypeDef, _OptionalLivenessOutputConfigTypeDef
+):
+    pass
 
 ModerationLabelTypeDef = TypedDict(
     "ModerationLabelTypeDef",

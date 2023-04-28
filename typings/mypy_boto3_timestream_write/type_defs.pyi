@@ -6,16 +6,23 @@ Type annotations for timestream-write service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_timestream_write.type_defs import CreateDatabaseRequestRequestTypeDef
+    from mypy_boto3_timestream_write.type_defs import BatchLoadProgressReportTypeDef
 
-    data: CreateDatabaseRequestRequestTypeDef = {...}
+    data: BatchLoadProgressReportTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import MeasureValueTypeType, S3EncryptionOptionType, TableStatusType, TimeUnitType
+from .literals import (
+    BatchLoadStatusType,
+    MeasureValueTypeType,
+    S3EncryptionOptionType,
+    ScalarMeasureValueTypeType,
+    TableStatusType,
+    TimeUnitType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -27,20 +34,36 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "BatchLoadProgressReportTypeDef",
+    "BatchLoadTaskDescriptionTypeDef",
+    "BatchLoadTaskTypeDef",
+    "CreateBatchLoadTaskRequestRequestTypeDef",
+    "CreateBatchLoadTaskResponseTypeDef",
     "CreateDatabaseRequestRequestTypeDef",
     "CreateDatabaseResponseTypeDef",
     "CreateTableRequestRequestTypeDef",
     "CreateTableResponseTypeDef",
+    "CsvConfigurationTypeDef",
+    "DataModelConfigurationTypeDef",
+    "DataModelS3ConfigurationTypeDef",
+    "DataModelTypeDef",
+    "DataSourceConfigurationTypeDef",
+    "DataSourceS3ConfigurationTypeDef",
     "DatabaseTypeDef",
     "DeleteDatabaseRequestRequestTypeDef",
     "DeleteTableRequestRequestTypeDef",
+    "DescribeBatchLoadTaskRequestRequestTypeDef",
+    "DescribeBatchLoadTaskResponseTypeDef",
     "DescribeDatabaseRequestRequestTypeDef",
     "DescribeDatabaseResponseTypeDef",
     "DescribeEndpointsResponseTypeDef",
     "DescribeTableRequestRequestTypeDef",
     "DescribeTableResponseTypeDef",
+    "DimensionMappingTypeDef",
     "DimensionTypeDef",
     "EndpointTypeDef",
+    "ListBatchLoadTasksRequestRequestTypeDef",
+    "ListBatchLoadTasksResponseTypeDef",
     "ListDatabasesRequestRequestTypeDef",
     "ListDatabasesResponseTypeDef",
     "ListTablesRequestRequestTypeDef",
@@ -50,9 +73,15 @@ __all__ = (
     "MagneticStoreRejectedDataLocationTypeDef",
     "MagneticStoreWritePropertiesTypeDef",
     "MeasureValueTypeDef",
+    "MixedMeasureMappingTypeDef",
+    "MultiMeasureAttributeMappingTypeDef",
+    "MultiMeasureMappingsTypeDef",
     "RecordTypeDef",
     "RecordsIngestedTypeDef",
+    "ReportConfigurationTypeDef",
+    "ReportS3ConfigurationTypeDef",
     "ResponseMetadataTypeDef",
+    "ResumeBatchLoadTaskRequestRequestTypeDef",
     "RetentionPropertiesTypeDef",
     "S3ConfigurationTypeDef",
     "TableTypeDef",
@@ -65,6 +94,86 @@ __all__ = (
     "UpdateTableResponseTypeDef",
     "WriteRecordsRequestRequestTypeDef",
     "WriteRecordsResponseTypeDef",
+)
+
+BatchLoadProgressReportTypeDef = TypedDict(
+    "BatchLoadProgressReportTypeDef",
+    {
+        "RecordsProcessed": int,
+        "RecordsIngested": int,
+        "ParseFailures": int,
+        "RecordIngestionFailures": int,
+        "FileFailures": int,
+        "BytesMetered": int,
+    },
+    total=False,
+)
+
+BatchLoadTaskDescriptionTypeDef = TypedDict(
+    "BatchLoadTaskDescriptionTypeDef",
+    {
+        "TaskId": str,
+        "ErrorMessage": str,
+        "DataSourceConfiguration": "DataSourceConfigurationTypeDef",
+        "ProgressReport": "BatchLoadProgressReportTypeDef",
+        "ReportConfiguration": "ReportConfigurationTypeDef",
+        "DataModelConfiguration": "DataModelConfigurationTypeDef",
+        "TargetDatabaseName": str,
+        "TargetTableName": str,
+        "TaskStatus": BatchLoadStatusType,
+        "RecordVersion": int,
+        "CreationTime": datetime,
+        "LastUpdatedTime": datetime,
+        "ResumableUntil": datetime,
+    },
+    total=False,
+)
+
+BatchLoadTaskTypeDef = TypedDict(
+    "BatchLoadTaskTypeDef",
+    {
+        "TaskId": str,
+        "TaskStatus": BatchLoadStatusType,
+        "DatabaseName": str,
+        "TableName": str,
+        "CreationTime": datetime,
+        "LastUpdatedTime": datetime,
+        "ResumableUntil": datetime,
+    },
+    total=False,
+)
+
+_RequiredCreateBatchLoadTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBatchLoadTaskRequestRequestTypeDef",
+    {
+        "DataSourceConfiguration": "DataSourceConfigurationTypeDef",
+        "ReportConfiguration": "ReportConfigurationTypeDef",
+        "TargetDatabaseName": str,
+        "TargetTableName": str,
+    },
+)
+_OptionalCreateBatchLoadTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBatchLoadTaskRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DataModelConfiguration": "DataModelConfigurationTypeDef",
+        "RecordVersion": int,
+    },
+    total=False,
+)
+
+class CreateBatchLoadTaskRequestRequestTypeDef(
+    _RequiredCreateBatchLoadTaskRequestRequestTypeDef,
+    _OptionalCreateBatchLoadTaskRequestRequestTypeDef,
+):
+    pass
+
+CreateBatchLoadTaskResponseTypeDef = TypedDict(
+    "CreateBatchLoadTaskResponseTypeDef",
+    {
+        "TaskId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredCreateDatabaseRequestRequestTypeDef = TypedDict(
@@ -125,6 +234,96 @@ CreateTableResponseTypeDef = TypedDict(
     },
 )
 
+CsvConfigurationTypeDef = TypedDict(
+    "CsvConfigurationTypeDef",
+    {
+        "ColumnSeparator": str,
+        "EscapeChar": str,
+        "QuoteChar": str,
+        "NullValue": str,
+        "TrimWhiteSpace": bool,
+    },
+    total=False,
+)
+
+DataModelConfigurationTypeDef = TypedDict(
+    "DataModelConfigurationTypeDef",
+    {
+        "DataModel": "DataModelTypeDef",
+        "DataModelS3Configuration": "DataModelS3ConfigurationTypeDef",
+    },
+    total=False,
+)
+
+DataModelS3ConfigurationTypeDef = TypedDict(
+    "DataModelS3ConfigurationTypeDef",
+    {
+        "BucketName": str,
+        "ObjectKey": str,
+    },
+    total=False,
+)
+
+_RequiredDataModelTypeDef = TypedDict(
+    "_RequiredDataModelTypeDef",
+    {
+        "DimensionMappings": List["DimensionMappingTypeDef"],
+    },
+)
+_OptionalDataModelTypeDef = TypedDict(
+    "_OptionalDataModelTypeDef",
+    {
+        "TimeColumn": str,
+        "TimeUnit": TimeUnitType,
+        "MultiMeasureMappings": "MultiMeasureMappingsTypeDef",
+        "MixedMeasureMappings": List["MixedMeasureMappingTypeDef"],
+        "MeasureNameColumn": str,
+    },
+    total=False,
+)
+
+class DataModelTypeDef(_RequiredDataModelTypeDef, _OptionalDataModelTypeDef):
+    pass
+
+_RequiredDataSourceConfigurationTypeDef = TypedDict(
+    "_RequiredDataSourceConfigurationTypeDef",
+    {
+        "DataSourceS3Configuration": "DataSourceS3ConfigurationTypeDef",
+        "DataFormat": Literal["CSV"],
+    },
+)
+_OptionalDataSourceConfigurationTypeDef = TypedDict(
+    "_OptionalDataSourceConfigurationTypeDef",
+    {
+        "CsvConfiguration": "CsvConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class DataSourceConfigurationTypeDef(
+    _RequiredDataSourceConfigurationTypeDef, _OptionalDataSourceConfigurationTypeDef
+):
+    pass
+
+_RequiredDataSourceS3ConfigurationTypeDef = TypedDict(
+    "_RequiredDataSourceS3ConfigurationTypeDef",
+    {
+        "BucketName": str,
+    },
+)
+_OptionalDataSourceS3ConfigurationTypeDef = TypedDict(
+    "_OptionalDataSourceS3ConfigurationTypeDef",
+    {
+        "ObjectKeyPrefix": str,
+    },
+    total=False,
+)
+
+class DataSourceS3ConfigurationTypeDef(
+    _RequiredDataSourceS3ConfigurationTypeDef, _OptionalDataSourceS3ConfigurationTypeDef
+):
+    pass
+
 DatabaseTypeDef = TypedDict(
     "DatabaseTypeDef",
     {
@@ -150,6 +349,21 @@ DeleteTableRequestRequestTypeDef = TypedDict(
     {
         "DatabaseName": str,
         "TableName": str,
+    },
+)
+
+DescribeBatchLoadTaskRequestRequestTypeDef = TypedDict(
+    "DescribeBatchLoadTaskRequestRequestTypeDef",
+    {
+        "TaskId": str,
+    },
+)
+
+DescribeBatchLoadTaskResponseTypeDef = TypedDict(
+    "DescribeBatchLoadTaskResponseTypeDef",
+    {
+        "BatchLoadTaskDescription": "BatchLoadTaskDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -192,6 +406,15 @@ DescribeTableResponseTypeDef = TypedDict(
     },
 )
 
+DimensionMappingTypeDef = TypedDict(
+    "DimensionMappingTypeDef",
+    {
+        "SourceColumn": str,
+        "DestinationColumn": str,
+    },
+    total=False,
+)
+
 _RequiredDimensionTypeDef = TypedDict(
     "_RequiredDimensionTypeDef",
     {
@@ -215,6 +438,25 @@ EndpointTypeDef = TypedDict(
     {
         "Address": str,
         "CachePeriodInMinutes": int,
+    },
+)
+
+ListBatchLoadTasksRequestRequestTypeDef = TypedDict(
+    "ListBatchLoadTasksRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "TaskStatus": BatchLoadStatusType,
+    },
+    total=False,
+)
+
+ListBatchLoadTasksResponseTypeDef = TypedDict(
+    "ListBatchLoadTasksResponseTypeDef",
+    {
+        "NextToken": str,
+        "BatchLoadTasks": List["BatchLoadTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -306,6 +548,67 @@ MeasureValueTypeDef = TypedDict(
     },
 )
 
+_RequiredMixedMeasureMappingTypeDef = TypedDict(
+    "_RequiredMixedMeasureMappingTypeDef",
+    {
+        "MeasureValueType": MeasureValueTypeType,
+    },
+)
+_OptionalMixedMeasureMappingTypeDef = TypedDict(
+    "_OptionalMixedMeasureMappingTypeDef",
+    {
+        "MeasureName": str,
+        "SourceColumn": str,
+        "TargetMeasureName": str,
+        "MultiMeasureAttributeMappings": List["MultiMeasureAttributeMappingTypeDef"],
+    },
+    total=False,
+)
+
+class MixedMeasureMappingTypeDef(
+    _RequiredMixedMeasureMappingTypeDef, _OptionalMixedMeasureMappingTypeDef
+):
+    pass
+
+_RequiredMultiMeasureAttributeMappingTypeDef = TypedDict(
+    "_RequiredMultiMeasureAttributeMappingTypeDef",
+    {
+        "SourceColumn": str,
+    },
+)
+_OptionalMultiMeasureAttributeMappingTypeDef = TypedDict(
+    "_OptionalMultiMeasureAttributeMappingTypeDef",
+    {
+        "TargetMultiMeasureAttributeName": str,
+        "MeasureValueType": ScalarMeasureValueTypeType,
+    },
+    total=False,
+)
+
+class MultiMeasureAttributeMappingTypeDef(
+    _RequiredMultiMeasureAttributeMappingTypeDef, _OptionalMultiMeasureAttributeMappingTypeDef
+):
+    pass
+
+_RequiredMultiMeasureMappingsTypeDef = TypedDict(
+    "_RequiredMultiMeasureMappingsTypeDef",
+    {
+        "MultiMeasureAttributeMappings": List["MultiMeasureAttributeMappingTypeDef"],
+    },
+)
+_OptionalMultiMeasureMappingsTypeDef = TypedDict(
+    "_OptionalMultiMeasureMappingsTypeDef",
+    {
+        "TargetMultiMeasureName": str,
+    },
+    total=False,
+)
+
+class MultiMeasureMappingsTypeDef(
+    _RequiredMultiMeasureMappingsTypeDef, _OptionalMultiMeasureMappingsTypeDef
+):
+    pass
+
 RecordTypeDef = TypedDict(
     "RecordTypeDef",
     {
@@ -331,6 +634,35 @@ RecordsIngestedTypeDef = TypedDict(
     total=False,
 )
 
+ReportConfigurationTypeDef = TypedDict(
+    "ReportConfigurationTypeDef",
+    {
+        "ReportS3Configuration": "ReportS3ConfigurationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredReportS3ConfigurationTypeDef = TypedDict(
+    "_RequiredReportS3ConfigurationTypeDef",
+    {
+        "BucketName": str,
+    },
+)
+_OptionalReportS3ConfigurationTypeDef = TypedDict(
+    "_OptionalReportS3ConfigurationTypeDef",
+    {
+        "ObjectKeyPrefix": str,
+        "EncryptionOption": S3EncryptionOptionType,
+        "KmsKeyId": str,
+    },
+    total=False,
+)
+
+class ReportS3ConfigurationTypeDef(
+    _RequiredReportS3ConfigurationTypeDef, _OptionalReportS3ConfigurationTypeDef
+):
+    pass
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -339,6 +671,13 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+ResumeBatchLoadTaskRequestRequestTypeDef = TypedDict(
+    "ResumeBatchLoadTaskRequestRequestTypeDef",
+    {
+        "TaskId": str,
     },
 )
 

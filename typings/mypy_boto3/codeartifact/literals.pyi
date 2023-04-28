@@ -48,7 +48,7 @@ ListPackageVersionsPaginatorName = Literal["list_package_versions"]
 ListPackagesPaginatorName = Literal["list_packages"]
 ListRepositoriesInDomainPaginatorName = Literal["list_repositories_in_domain"]
 ListRepositoriesPaginatorName = Literal["list_repositories"]
-PackageFormatType = Literal["maven", "npm", "nuget", "pypi"]
+PackageFormatType = Literal["generic", "maven", "npm", "nuget", "pypi"]
 PackageVersionErrorCodeType = Literal[
     "ALREADY_EXISTS",
     "MISMATCHED_REVISION",

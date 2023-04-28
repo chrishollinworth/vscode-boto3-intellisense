@@ -11,6 +11,7 @@ Usage::
         ListDevicePositionsPaginator,
         ListGeofenceCollectionsPaginator,
         ListGeofencesPaginator,
+        ListKeysPaginator,
         ListMapsPaginator,
         ListPlaceIndexesPaginator,
         ListRouteCalculatorsPaginator,
@@ -28,6 +29,7 @@ Usage::
     list_device_positions_paginator: ListDevicePositionsPaginator = client.get_paginator("list_device_positions")
     list_geofence_collections_paginator: ListGeofenceCollectionsPaginator = client.get_paginator("list_geofence_collections")
     list_geofences_paginator: ListGeofencesPaginator = client.get_paginator("list_geofences")
+    list_keys_paginator: ListKeysPaginator = client.get_paginator("list_keys")
     list_maps_paginator: ListMapsPaginator = client.get_paginator("list_maps")
     list_place_indexes_paginator: ListPlaceIndexesPaginator = client.get_paginator("list_place_indexes")
     list_route_calculators_paginator: ListRouteCalculatorsPaginator = client.get_paginator("list_route_calculators")
@@ -41,6 +43,7 @@ from .paginator import (
     ListDevicePositionsPaginator,
     ListGeofenceCollectionsPaginator,
     ListGeofencesPaginator,
+    ListKeysPaginator,
     ListMapsPaginator,
     ListPlaceIndexesPaginator,
     ListRouteCalculatorsPaginator,
@@ -56,6 +59,7 @@ __all__ = (
     "ListDevicePositionsPaginator",
     "ListGeofenceCollectionsPaginator",
     "ListGeofencesPaginator",
+    "ListKeysPaginator",
     "ListMapsPaginator",
     "ListPlaceIndexesPaginator",
     "ListRouteCalculatorsPaginator",

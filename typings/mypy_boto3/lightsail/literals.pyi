@@ -24,6 +24,8 @@ __all__ = (
     "AccountLevelBpaSyncStatusType",
     "AddOnTypeType",
     "AlarmStateType",
+    "AppCategoryType",
+    "AutoMountStatusType",
     "AutoSnapshotStatusType",
     "BPAStatusMessageType",
     "BehaviorEnumType",
@@ -42,6 +44,7 @@ __all__ = (
     "ContainerServiceProtocolType",
     "ContainerServiceStateDetailCodeType",
     "ContainerServiceStateType",
+    "CurrencyType",
     "DiskSnapshotStateType",
     "DiskStateType",
     "DistributionMetricNameType",
@@ -101,6 +104,7 @@ __all__ = (
     "PortAccessTypeType",
     "PortInfoSourceTypeType",
     "PortStateType",
+    "PricingUnitType",
     "R53HostedZoneDeletionStateCodeType",
     "RecordStateType",
     "RegionNameType",
@@ -110,6 +114,7 @@ __all__ = (
     "RenewalStatusType",
     "ResourceBucketAccessType",
     "ResourceTypeType",
+    "StatusType",
     "StatusTypeType",
     "TreatMissingDataType",
 )
@@ -117,8 +122,10 @@ __all__ = (
 AccessDirectionType = Literal["inbound", "outbound"]
 AccessTypeType = Literal["private", "public"]
 AccountLevelBpaSyncStatusType = Literal["Defaulted", "Failed", "InSync", "NeverSynced"]
-AddOnTypeType = Literal["AutoSnapshot"]
+AddOnTypeType = Literal["AutoSnapshot", "StopInstanceOnIdle"]
 AlarmStateType = Literal["ALARM", "INSUFFICIENT_DATA", "OK"]
+AppCategoryType = Literal["LfR"]
+AutoMountStatusType = Literal["Failed", "Mounted", "NotMounted", "Pending"]
 AutoSnapshotStatusType = Literal["Failed", "InProgress", "NotFound", "Success"]
 BPAStatusMessageType = Literal[
     "DEFAULTED_FOR_SLR_MISSING", "DEFAULTED_FOR_SLR_MISSING_ON_HOLD", "SYNC_ON_HOLD", "Unknown"
@@ -164,6 +171,7 @@ ContainerServiceStateDetailCodeType = Literal[
 ContainerServiceStateType = Literal[
     "DELETING", "DEPLOYING", "DISABLED", "PENDING", "READY", "RUNNING", "UPDATING"
 ]
+CurrencyType = Literal["USD"]
 DiskSnapshotStateType = Literal["completed", "error", "pending", "unknown"]
 DiskStateType = Literal["available", "error", "in-use", "pending", "unknown"]
 DistributionMetricNameType = Literal[
@@ -432,8 +440,10 @@ OperationTypeType = Literal[
     "SendContactMethodVerification",
     "SetIpAddressType",
     "SetResourceAccessForBucket",
+    "StartGUISession",
     "StartInstance",
     "StartRelationalDatabase",
+    "StopGUISession",
     "StopInstance",
     "StopRelationalDatabase",
     "TestAlarm",
@@ -452,6 +462,7 @@ OriginProtocolPolicyEnumType = Literal["http-only", "https-only"]
 PortAccessTypeType = Literal["Private", "Public"]
 PortInfoSourceTypeType = Literal["CLOSED", "DEFAULT", "INSTANCE", "NONE"]
 PortStateType = Literal["closed", "open"]
+PricingUnitType = Literal["Bundles", "GB", "GB-Mo", "Hrs", "Queries"]
 R53HostedZoneDeletionStateCodeType = Literal["FAILED", "PENDING", "STARTED", "SUCCEEDED"]
 RecordStateType = Literal["Failed", "Started", "Succeeded"]
 RegionNameType = Literal[
@@ -504,6 +515,18 @@ ResourceTypeType = Literal[
     "RelationalDatabase",
     "RelationalDatabaseSnapshot",
     "StaticIp",
+]
+StatusType = Literal[
+    "failedInstanceCreation",
+    "failedStartingGUISession",
+    "failedStoppingGUISession",
+    "notStarted",
+    "settingUpInstance",
+    "startExpired",
+    "started",
+    "starting",
+    "stopped",
+    "stopping",
 ]
 StatusTypeType = Literal["Active", "Inactive"]
 TreatMissingDataType = Literal["breaching", "ignore", "missing", "notBreaching"]

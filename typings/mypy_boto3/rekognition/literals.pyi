@@ -45,6 +45,7 @@ __all__ = (
     "ListFacesPaginatorName",
     "ListProjectPoliciesPaginatorName",
     "ListStreamProcessorsPaginatorName",
+    "LivenessSessionStatusType",
     "OrientationCorrectionType",
     "PersonTrackingSortByType",
     "ProjectStatusType",
@@ -130,6 +131,7 @@ ListDatasetLabelsPaginatorName = Literal["list_dataset_labels"]
 ListFacesPaginatorName = Literal["list_faces"]
 ListProjectPoliciesPaginatorName = Literal["list_project_policies"]
 ListStreamProcessorsPaginatorName = Literal["list_stream_processors"]
+LivenessSessionStatusType = Literal["CREATED", "EXPIRED", "FAILED", "IN_PROGRESS", "SUCCEEDED"]
 OrientationCorrectionType = Literal["ROTATE_0", "ROTATE_180", "ROTATE_270", "ROTATE_90"]
 PersonTrackingSortByType = Literal["INDEX", "TIMESTAMP"]
 ProjectStatusType = Literal["CREATED", "CREATING", "DELETING"]

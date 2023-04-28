@@ -61,7 +61,7 @@ class Exceptions:
 
 class SyntheticsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html)
     """
 
@@ -76,21 +76,21 @@ class SyntheticsClient(BaseClient):
         """
         Associates a canary with a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.associate_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.associate_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#associate_resource)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#close)
         """
     def create_canary(
@@ -112,7 +112,7 @@ class SyntheticsClient(BaseClient):
         """
         Creates a canary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.create_canary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.create_canary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#create_canary)
         """
     def create_group(self, *, Name: str, Tags: Dict[str, str] = None) -> CreateGroupResponseTypeDef:
@@ -120,21 +120,21 @@ class SyntheticsClient(BaseClient):
         Creates a group which you can use to associate canaries with each other,
         including cross-Region canaries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.create_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.create_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#create_group)
         """
     def delete_canary(self, *, Name: str, DeleteLambda: bool = None) -> Dict[str, Any]:
         """
         Permanently deletes the specified canary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.delete_canary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.delete_canary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#delete_canary)
         """
     def delete_group(self, *, GroupIdentifier: str) -> Dict[str, Any]:
         """
         Deletes a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.delete_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.delete_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#delete_group)
         """
     def describe_canaries(
@@ -144,7 +144,7 @@ class SyntheticsClient(BaseClient):
         This operation returns a list of the canaries in your account, along with full
         details about each canary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.describe_canaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.describe_canaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#describe_canaries)
         """
     def describe_canaries_last_run(
@@ -154,7 +154,7 @@ class SyntheticsClient(BaseClient):
         Use this operation to see information from the most recent run of each canary
         that you have created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.describe_canaries_last_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.describe_canaries_last_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#describe_canaries_last_run)
         """
     def describe_runtime_versions(
@@ -163,14 +163,14 @@ class SyntheticsClient(BaseClient):
         """
         Returns a list of Synthetics canary runtime versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.describe_runtime_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.describe_runtime_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#describe_runtime_versions)
         """
     def disassociate_resource(self, *, GroupIdentifier: str, ResourceArn: str) -> Dict[str, Any]:
         """
         Removes a canary from a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.disassociate_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.disassociate_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#disassociate_resource)
         """
     def generate_presigned_url(
@@ -183,14 +183,14 @@ class SyntheticsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#generate_presigned_url)
         """
     def get_canary(self, *, Name: str) -> GetCanaryResponseTypeDef:
         """
         Retrieves complete information about one canary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.get_canary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.get_canary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#get_canary)
         """
     def get_canary_runs(
@@ -199,14 +199,14 @@ class SyntheticsClient(BaseClient):
         """
         Retrieves a list of runs for a specified canary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.get_canary_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.get_canary_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#get_canary_runs)
         """
     def get_group(self, *, GroupIdentifier: str) -> GetGroupResponseTypeDef:
         """
         Returns information about one group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.get_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.get_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#get_group)
         """
     def list_associated_groups(
@@ -215,7 +215,7 @@ class SyntheticsClient(BaseClient):
         """
         Returns a list of the groups that the specified canary is associated with.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.list_associated_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.list_associated_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#list_associated_groups)
         """
     def list_group_resources(
@@ -225,7 +225,7 @@ class SyntheticsClient(BaseClient):
         This operation returns a list of the ARNs of the canaries that are associated
         with the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.list_group_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.list_group_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#list_group_resources)
         """
     def list_groups(
@@ -235,42 +235,42 @@ class SyntheticsClient(BaseClient):
         Returns a list of all groups in the account, displaying their names, unique IDs,
         and ARNs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.list_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.list_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#list_groups)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Displays the tags associated with a canary or group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#list_tags_for_resource)
         """
     def start_canary(self, *, Name: str) -> Dict[str, Any]:
         """
         Use this operation to run a canary that has already been created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.start_canary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.start_canary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#start_canary)
         """
     def stop_canary(self, *, Name: str) -> Dict[str, Any]:
         """
         Stops the canary to prevent all future runs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.stop_canary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.stop_canary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#stop_canary)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Assigns one or more tags (key-value pairs) to the specified canary or group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes one or more tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#untag_resource)
         """
     def update_canary(
@@ -292,6 +292,6 @@ class SyntheticsClient(BaseClient):
         """
         Updates the configuration of a canary that has already been created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/synthetics.html#Synthetics.Client.update_canary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/synthetics.html#Synthetics.Client.update_canary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/client.html#update_canary)
         """

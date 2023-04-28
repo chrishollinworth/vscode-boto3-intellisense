@@ -28,12 +28,12 @@ __all__ = ("IdentityExistsWaiter",)
 
 class IdentityExistsWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ses.html#SES.Waiter.IdentityExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/ses.html#SES.Waiter.IdentityExists)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ses/waiters.html#identityexistswaiter)
     """
 
     def wait(self, *, Identities: List[str], WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.45/reference/services/ses.html#SES.Waiter.IdentityExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.26.121/reference/services/ses.html#SES.Waiter.IdentityExists.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ses/waiters.html#identityexistswaiter)
         """

@@ -26,10 +26,12 @@ __all__ = (
     "FormActionTypeType",
     "FormButtonsPositionType",
     "FormDataSourceTypeType",
+    "LabelDecoratorType",
     "ListComponentsPaginatorName",
     "ListFormsPaginatorName",
     "ListThemesPaginatorName",
     "SortDirectionType",
+    "StorageAccessLevelType",
     "TokenProvidersType",
 )
 
@@ -40,8 +42,10 @@ FixedPositionType = Literal["first"]
 FormActionTypeType = Literal["create", "update"]
 FormButtonsPositionType = Literal["bottom", "top", "top_and_bottom"]
 FormDataSourceTypeType = Literal["Custom", "DataStore"]
+LabelDecoratorType = Literal["none", "optional", "required"]
 ListComponentsPaginatorName = Literal["list_components"]
 ListFormsPaginatorName = Literal["list_forms"]
 ListThemesPaginatorName = Literal["list_themes"]
 SortDirectionType = Literal["ASC", "DESC"]
+StorageAccessLevelType = Literal["private", "protected", "public"]
 TokenProvidersType = Literal["figma"]

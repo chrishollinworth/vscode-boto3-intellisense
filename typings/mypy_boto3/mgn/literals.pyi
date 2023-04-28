@@ -6,9 +6,9 @@ Type annotations for mgn service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mgn.literals import ApplicationHealthStatusType
+    from mypy_boto3_mgn.literals import ActionCategoryType
 
-    data: ApplicationHealthStatusType = "ERROR"
+    data: ActionCategoryType = "BACKUP"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ActionCategoryType",
     "ApplicationHealthStatusType",
     "ApplicationProgressStatusType",
     "BootModeType",
@@ -33,7 +34,10 @@ __all__ = (
     "DescribeReplicationConfigurationTemplatesPaginatorName",
     "DescribeSourceServersPaginatorName",
     "DescribeVcenterClientsPaginatorName",
+    "ExportStatusType",
     "FirstBootType",
+    "ImportErrorTypeType",
+    "ImportStatusType",
     "InitiatedByType",
     "JobLogEventType",
     "JobStatusType",
@@ -42,6 +46,10 @@ __all__ = (
     "LaunchStatusType",
     "LifeCycleStateType",
     "ListApplicationsPaginatorName",
+    "ListExportErrorsPaginatorName",
+    "ListExportsPaginatorName",
+    "ListImportErrorsPaginatorName",
+    "ListImportsPaginatorName",
     "ListSourceServerActionsPaginatorName",
     "ListTemplateActionsPaginatorName",
     "ListWavesPaginatorName",
@@ -60,6 +68,18 @@ __all__ = (
     "WaveProgressStatusType",
 )
 
+ActionCategoryType = Literal[
+    "BACKUP",
+    "CONFIGURATION",
+    "DISASTER_RECOVERY",
+    "LICENSE_AND_SUBSCRIPTION",
+    "NETWORKING",
+    "OBSERVABILITY",
+    "OPERATING_SYSTEM",
+    "OTHER",
+    "SECURITY",
+    "VALIDATION",
+]
 ApplicationHealthStatusType = Literal["ERROR", "HEALTHY", "LAGGING"]
 ApplicationProgressStatusType = Literal["COMPLETED", "IN_PROGRESS", "NOT_STARTED"]
 BootModeType = Literal["LEGACY_BIOS", "UEFI"]
@@ -124,7 +144,10 @@ DescribeReplicationConfigurationTemplatesPaginatorName = Literal[
 ]
 DescribeSourceServersPaginatorName = Literal["describe_source_servers"]
 DescribeVcenterClientsPaginatorName = Literal["describe_vcenter_clients"]
+ExportStatusType = Literal["FAILED", "PENDING", "STARTED", "SUCCEEDED"]
 FirstBootType = Literal["STOPPED", "SUCCEEDED", "UNKNOWN", "WAITING"]
+ImportErrorTypeType = Literal["PROCESSING_ERROR", "VALIDATION_ERROR"]
+ImportStatusType = Literal["FAILED", "PENDING", "STARTED", "SUCCEEDED"]
 InitiatedByType = Literal["DIAGNOSTIC", "START_CUTOVER", "START_TEST", "TERMINATE"]
 JobLogEventType = Literal[
     "CLEANUP_END",
@@ -154,12 +177,17 @@ LifeCycleStateType = Literal[
     "DISCONNECTED",
     "DISCOVERED",
     "NOT_READY",
+    "PENDING_INSTALLATION",
     "READY_FOR_CUTOVER",
     "READY_FOR_TEST",
     "STOPPED",
     "TESTING",
 ]
 ListApplicationsPaginatorName = Literal["list_applications"]
+ListExportErrorsPaginatorName = Literal["list_export_errors"]
+ListExportsPaginatorName = Literal["list_exports"]
+ListImportErrorsPaginatorName = Literal["list_import_errors"]
+ListImportsPaginatorName = Literal["list_imports"]
 ListSourceServerActionsPaginatorName = Literal["list_source_server_actions"]
 ListTemplateActionsPaginatorName = Literal["list_template_actions"]
 ListWavesPaginatorName = Literal["list_waves"]

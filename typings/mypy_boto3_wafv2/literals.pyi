@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "ActionValueType",
+    "AssociatedResourceTypeType",
     "BodyParsingFallbackBehaviorType",
     "ComparisonOperatorType",
     "CountryCodeType",
@@ -42,10 +43,12 @@ __all__ = (
     "ResponseContentTypeType",
     "ScopeType",
     "SensitivityLevelType",
+    "SizeInspectionLimitType",
     "TextTransformationTypeType",
 )
 
 ActionValueType = Literal["ALLOW", "BLOCK", "CAPTCHA", "CHALLENGE", "COUNT", "EXCLUDED_AS_COUNT"]
+AssociatedResourceTypeType = Literal["CLOUDFRONT"]
 BodyParsingFallbackBehaviorType = Literal["EVALUATE_AS_STRING", "MATCH", "NO_MATCH"]
 ComparisonOperatorType = Literal["EQ", "GE", "GT", "LE", "LT", "NE"]
 CountryCodeType = Literal[
@@ -320,11 +323,12 @@ PositionalConstraintType = Literal[
 ]
 RateBasedStatementAggregateKeyTypeType = Literal["FORWARDED_IP", "IP"]
 ResourceTypeType = Literal[
-    "API_GATEWAY", "APPLICATION_LOAD_BALANCER", "APPSYNC", "COGNITO_USER_POOL"
+    "API_GATEWAY", "APPLICATION_LOAD_BALANCER", "APPSYNC", "APP_RUNNER_SERVICE", "COGNITO_USER_POOL"
 ]
 ResponseContentTypeType = Literal["APPLICATION_JSON", "TEXT_HTML", "TEXT_PLAIN"]
 ScopeType = Literal["CLOUDFRONT", "REGIONAL"]
 SensitivityLevelType = Literal["HIGH", "LOW"]
+SizeInspectionLimitType = Literal["KB_16", "KB_32", "KB_48", "KB_64"]
 TextTransformationTypeType = Literal[
     "BASE64_DECODE",
     "BASE64_DECODE_EXT",
