@@ -8,6 +8,8 @@ sudo rm -Rf  buildstubs_env
 virtualenv buildstubs_env
 source buildstubs_env/bin/activate
 pip3 install --upgrade boto3 botocore jinja2 pyparsing black mdformat isort
+python3 get_aws_services.py
+
 
 git clone https://github.com/chrishollinworth/mypy_boto3_builder.git
 cd mypy_boto3_builder
@@ -30,7 +32,7 @@ cp buildstubs_env/lib/python3.10/site-packages/boto3-stubs/session.pyi typings/b
 cp buildstubs_env/lib/python3.10/site-packages/boto3-stubs/utils.pyi typings/boto3/utils.pyi
 cp buildstubs_env/lib/python3.10/site-packages/botocore-stubs/config.pyi typings/botocore/config.pyi
 
-cat services.txt | while IFS=$' \t\n\r' read -r line || [[ -n "$line" ]]; do 
+cat services2.txt | while IFS=$' \t\n\r' read -r line || [[ -n "$line" ]]; do 
    
     if [ "$line" != "lambda" ]; then 
         # install generated stubs for implicit type inference on boto3.client/boto3.resource
