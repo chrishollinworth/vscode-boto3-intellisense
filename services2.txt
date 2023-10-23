@@ -12,6 +12,7 @@ apigatewaymanagementapi
 apigatewayv2
 appconfig
 appconfigdata
+appfabric
 appflow
 appintegrations
 application_autoscaling
@@ -30,6 +31,8 @@ backup
 backup_gateway
 backupstorage
 batch
+bedrock
+bedrock_runtime
 billingconductor
 braket
 budgets
@@ -59,6 +62,7 @@ codecatalyst
 codecommit
 codedeploy
 codeguru_reviewer
+codeguru_security
 codeguruprofiler
 codepipeline
 codestar
@@ -83,6 +87,7 @@ databrew
 dataexchange
 datapipeline
 datasync
+datazone
 dax
 detective
 devicefarm
@@ -114,6 +119,7 @@ elbv2
 emr
 emr_containers
 emr_serverless
+entityresolution
 es
 events
 evidently
@@ -127,7 +133,6 @@ forecastquery
 frauddetector
 fsx
 gamelift
-gamesparks
 glacier
 globalaccelerator
 glue
@@ -200,6 +205,7 @@ machinelearning
 macie
 macie2
 managedblockchain
+managedblockchain_query
 marketplace_catalog
 marketplace_entitlement
 marketplacecommerceanalytics
@@ -208,9 +214,11 @@ mediaconvert
 medialive
 mediapackage
 mediapackage_vod
+mediapackagev2
 mediastore
 mediastore_data
 mediatailor
+medical_imaging
 memorydb
 meteringmarketplace
 mgh
@@ -224,6 +232,7 @@ mq
 mturk
 mwaa
 neptune
+neptunedata
 network_firewall
 networkmanager
 nimble
@@ -237,6 +246,9 @@ organizations
 osis
 outposts
 panorama
+payment_cryptography
+payment_cryptography_data
+pca_connector_ad
 personalize
 personalize_events
 personalize_runtime
@@ -328,6 +340,7 @@ tnb
 transcribe
 transfer
 translate
+verifiedpermissions
 voice_id
 vpc_lattice
 waf
