@@ -187,6 +187,7 @@ kinesisvideo
 kms
 lakeformation
 lambda
+launch_wizard
 lex_models
 lex_runtime
 lexv2_models

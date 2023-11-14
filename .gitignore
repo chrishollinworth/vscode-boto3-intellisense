@@ -3,3 +3,4 @@ scripts/Python-3.9.6/
 .vscode/settings.json
 .gitignore
 scripts/Python-3.9.6.tgz
+.hypothesis/unicode_data/13.0.0/charmap.json.gz
