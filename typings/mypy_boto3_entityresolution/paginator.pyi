@@ -53,7 +53,7 @@ __all__ = (
 
 class ListIdMappingJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listidmappingjobspaginator)
     """
 
@@ -61,13 +61,13 @@ class ListIdMappingJobsPaginator(Boto3Paginator):
         self, *, workflowName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIdMappingJobsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listidmappingjobspaginator)
         """
 
 class ListIdMappingWorkflowsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingWorkflows)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingWorkflows)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listidmappingworkflowspaginator)
     """
 
@@ -75,13 +75,13 @@ class ListIdMappingWorkflowsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIdMappingWorkflowsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingWorkflows.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingWorkflows.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listidmappingworkflowspaginator)
         """
 
 class ListMatchingJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listmatchingjobspaginator)
     """
 
@@ -89,13 +89,13 @@ class ListMatchingJobsPaginator(Boto3Paginator):
         self, *, workflowName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMatchingJobsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listmatchingjobspaginator)
         """
 
 class ListMatchingWorkflowsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingWorkflows)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingWorkflows)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listmatchingworkflowspaginator)
     """
 
@@ -103,13 +103,13 @@ class ListMatchingWorkflowsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMatchingWorkflowsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingWorkflows.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingWorkflows.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listmatchingworkflowspaginator)
         """
 
 class ListProviderServicesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListProviderServices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListProviderServices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listproviderservicespaginator)
     """
 
@@ -117,13 +117,13 @@ class ListProviderServicesPaginator(Boto3Paginator):
         self, *, providerName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProviderServicesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListProviderServices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListProviderServices.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listproviderservicespaginator)
         """
 
 class ListSchemaMappingsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListSchemaMappings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListSchemaMappings)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listschemamappingspaginator)
     """
 
@@ -131,6 +131,6 @@ class ListSchemaMappingsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSchemaMappingsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/entityresolution.html#EntityResolution.Paginator.ListSchemaMappings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/entityresolution.html#EntityResolution.Paginator.ListSchemaMappings.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listschemamappingspaginator)
         """

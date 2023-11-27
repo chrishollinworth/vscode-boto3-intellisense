@@ -67,7 +67,7 @@ __all__ = (
 
 class ListAccessLogSubscriptionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListAccessLogSubscriptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListAccessLogSubscriptions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listaccesslogsubscriptionspaginator)
     """
 
@@ -75,13 +75,13 @@ class ListAccessLogSubscriptionsPaginator(Boto3Paginator):
         self, *, resourceIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccessLogSubscriptionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListAccessLogSubscriptions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListAccessLogSubscriptions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listaccesslogsubscriptionspaginator)
         """
 
 class ListListenersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListListeners)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListListeners)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listlistenerspaginator)
     """
 
@@ -89,13 +89,13 @@ class ListListenersPaginator(Boto3Paginator):
         self, *, serviceIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListListenersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListListeners.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListListeners.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listlistenerspaginator)
         """
 
 class ListRulesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListRules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListRules)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listrulespaginator)
     """
 
@@ -107,13 +107,13 @@ class ListRulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListRules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListRules.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listrulespaginator)
         """
 
 class ListServiceNetworkServiceAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkServiceAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkServiceAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkserviceassociationspaginator)
     """
 
@@ -125,13 +125,13 @@ class ListServiceNetworkServiceAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceNetworkServiceAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkServiceAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkServiceAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkserviceassociationspaginator)
         """
 
 class ListServiceNetworkVpcAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkVpcAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkVpcAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkvpcassociationspaginator)
     """
 
@@ -143,13 +143,13 @@ class ListServiceNetworkVpcAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceNetworkVpcAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkVpcAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkVpcAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkvpcassociationspaginator)
         """
 
 class ListServiceNetworksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkspaginator)
     """
 
@@ -157,13 +157,13 @@ class ListServiceNetworksPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceNetworksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkspaginator)
         """
 
 class ListServicesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicespaginator)
     """
 
@@ -171,13 +171,13 @@ class ListServicesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServicesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServices.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicespaginator)
         """
 
 class ListTargetGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargetGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargetGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listtargetgroupspaginator)
     """
 
@@ -189,13 +189,13 @@ class ListTargetGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTargetGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargetGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargetGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listtargetgroupspaginator)
         """
 
 class ListTargetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listtargetspaginator)
     """
 
@@ -207,6 +207,6 @@ class ListTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTargetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listtargetspaginator)
         """

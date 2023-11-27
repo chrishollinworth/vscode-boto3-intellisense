@@ -56,6 +56,8 @@ from .literals import (
     ErrorCodeType,
     ExportFilterOperatorType,
     ExportStatusType,
+    GenerationSortByAttributeType,
+    GenerationStatusType,
     ImportExportFileFormatType,
     ImportFilterOperatorType,
     ImportResourceTypeType,
@@ -70,6 +72,7 @@ from .literals import (
     SearchOrderType,
     SlotConstraintType,
     SlotFilterOperatorType,
+    SlotResolutionStrategyType,
     SlotShapeType,
     SlotSortAttributeType,
     SlotTypeCategoryType,
@@ -154,6 +157,7 @@ __all__ = (
     "BatchDeleteCustomVocabularyItemResponseTypeDef",
     "BatchUpdateCustomVocabularyItemRequestRequestTypeDef",
     "BatchUpdateCustomVocabularyItemResponseTypeDef",
+    "BedrockModelSpecificationTypeDef",
     "BotAliasHistoryEventTypeDef",
     "BotAliasLocaleSettingsTypeDef",
     "BotAliasSummaryTypeDef",
@@ -178,6 +182,7 @@ __all__ = (
     "BotVersionSummaryTypeDef",
     "BuildBotLocaleRequestRequestTypeDef",
     "BuildBotLocaleResponseTypeDef",
+    "BuildtimeSettingsTypeDef",
     "BuiltInIntentSortByTypeDef",
     "BuiltInIntentSummaryTypeDef",
     "BuiltInSlotTypeSortByTypeDef",
@@ -260,6 +265,8 @@ __all__ = (
     "DescribeBotRecommendationRequestRequestTypeDef",
     "DescribeBotRecommendationResponseTypeDef",
     "DescribeBotRequestRequestTypeDef",
+    "DescribeBotResourceGenerationRequestRequestTypeDef",
+    "DescribeBotResourceGenerationResponseTypeDef",
     "DescribeBotResponseTypeDef",
     "DescribeBotVersionRequestRequestTypeDef",
     "DescribeBotVersionResponseTypeDef",
@@ -285,6 +292,7 @@ __all__ = (
     "DescribeTestSetGenerationResponseTypeDef",
     "DescribeTestSetRequestRequestTypeDef",
     "DescribeTestSetResponseTypeDef",
+    "DescriptiveBotBuilderSpecificationTypeDef",
     "DialogActionTypeDef",
     "DialogCodeHookInvocationSettingTypeDef",
     "DialogCodeHookSettingsTypeDef",
@@ -302,6 +310,11 @@ __all__ = (
     "FulfillmentStartResponseSpecificationTypeDef",
     "FulfillmentUpdateResponseSpecificationTypeDef",
     "FulfillmentUpdatesSpecificationTypeDef",
+    "GenerateBotElementRequestRequestTypeDef",
+    "GenerateBotElementResponseTypeDef",
+    "GenerationSortByTypeDef",
+    "GenerationSummaryTypeDef",
+    "GenerativeAISettingsTypeDef",
     "GetTestExecutionArtifactsUrlRequestRequestTypeDef",
     "GetTestExecutionArtifactsUrlResponseTypeDef",
     "GrammarSlotTypeSettingTypeDef",
@@ -338,6 +351,8 @@ __all__ = (
     "ListBotLocalesResponseTypeDef",
     "ListBotRecommendationsRequestRequestTypeDef",
     "ListBotRecommendationsResponseTypeDef",
+    "ListBotResourceGenerationsRequestRequestTypeDef",
+    "ListBotResourceGenerationsResponseTypeDef",
     "ListBotVersionsRequestRequestTypeDef",
     "ListBotVersionsResponseTypeDef",
     "ListBotsRequestRequestTypeDef",
@@ -407,9 +422,11 @@ __all__ = (
     "RuntimeHintDetailsTypeDef",
     "RuntimeHintValueTypeDef",
     "RuntimeHintsTypeDef",
+    "RuntimeSettingsTypeDef",
     "S3BucketLogDestinationTypeDef",
     "S3BucketTranscriptSourceTypeDef",
     "SSMLMessageTypeDef",
+    "SampleUtteranceGenerationSpecificationTypeDef",
     "SampleUtteranceTypeDef",
     "SampleValueTypeDef",
     "SearchAssociatedTranscriptsRequestRequestTypeDef",
@@ -422,6 +439,8 @@ __all__ = (
     "SlotDefaultValueTypeDef",
     "SlotFilterTypeDef",
     "SlotPriorityTypeDef",
+    "SlotResolutionImprovementSpecificationTypeDef",
+    "SlotResolutionSettingTypeDef",
     "SlotResolutionTestResultItemCountsTypeDef",
     "SlotResolutionTestResultItemTypeDef",
     "SlotSortByTypeDef",
@@ -439,6 +458,8 @@ __all__ = (
     "SpecificationsTypeDef",
     "StartBotRecommendationRequestRequestTypeDef",
     "StartBotRecommendationResponseTypeDef",
+    "StartBotResourceGenerationRequestRequestTypeDef",
+    "StartBotResourceGenerationResponseTypeDef",
     "StartImportRequestRequestTypeDef",
     "StartImportResponseTypeDef",
     "StartTestExecutionRequestRequestTypeDef",
@@ -1058,6 +1079,13 @@ BatchUpdateCustomVocabularyItemResponseTypeDef = TypedDict(
     },
 )
 
+BedrockModelSpecificationTypeDef = TypedDict(
+    "BedrockModelSpecificationTypeDef",
+    {
+        "modelArn": str,
+    },
+)
+
 BotAliasHistoryEventTypeDef = TypedDict(
     "BotAliasHistoryEventTypeDef",
     {
@@ -1340,6 +1368,15 @@ BuildBotLocaleResponseTypeDef = TypedDict(
     },
 )
 
+BuildtimeSettingsTypeDef = TypedDict(
+    "BuildtimeSettingsTypeDef",
+    {
+        "descriptiveBotBuilder": "DescriptiveBotBuilderSpecificationTypeDef",
+        "sampleUtteranceGeneration": "SampleUtteranceGenerationSpecificationTypeDef",
+    },
+    total=False,
+)
+
 BuiltInIntentSortByTypeDef = TypedDict(
     "BuiltInIntentSortByTypeDef",
     {
@@ -1602,6 +1639,7 @@ _OptionalCreateBotLocaleRequestRequestTypeDef = TypedDict(
     {
         "description": str,
         "voiceSettings": "VoiceSettingsTypeDef",
+        "generativeAISettings": "GenerativeAISettingsTypeDef",
     },
     total=False,
 )
@@ -1623,6 +1661,7 @@ CreateBotLocaleResponseTypeDef = TypedDict(
         "voiceSettings": "VoiceSettingsTypeDef",
         "botLocaleStatus": BotLocaleStatusType,
         "creationDateTime": datetime,
+        "generativeAISettings": "GenerativeAISettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2398,6 +2437,7 @@ DescribeBotLocaleResponseTypeDef = TypedDict(
         "lastBuildSubmittedDateTime": datetime,
         "botLocaleHistoryEvents": List["BotLocaleHistoryEventTypeDef"],
         "recommendedActions": List[str],
+        "generativeAISettings": "GenerativeAISettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2434,6 +2474,34 @@ DescribeBotRequestRequestTypeDef = TypedDict(
     "DescribeBotRequestRequestTypeDef",
     {
         "botId": str,
+    },
+)
+
+DescribeBotResourceGenerationRequestRequestTypeDef = TypedDict(
+    "DescribeBotResourceGenerationRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "generationId": str,
+    },
+)
+
+DescribeBotResourceGenerationResponseTypeDef = TypedDict(
+    "DescribeBotResourceGenerationResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "generationId": str,
+        "failureReasons": List[str],
+        "generationStatus": GenerationStatusType,
+        "generationInputPrompt": str,
+        "generatedBotLocaleUrl": str,
+        "creationDateTime": datetime,
+        "modelArn": str,
+        "lastUpdatedDateTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -2762,6 +2830,26 @@ DescribeTestSetResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDescriptiveBotBuilderSpecificationTypeDef = TypedDict(
+    "_RequiredDescriptiveBotBuilderSpecificationTypeDef",
+    {
+        "enabled": bool,
+    },
+)
+_OptionalDescriptiveBotBuilderSpecificationTypeDef = TypedDict(
+    "_OptionalDescriptiveBotBuilderSpecificationTypeDef",
+    {
+        "bedrockModelSpecification": "BedrockModelSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class DescriptiveBotBuilderSpecificationTypeDef(
+    _RequiredDescriptiveBotBuilderSpecificationTypeDef,
+    _OptionalDescriptiveBotBuilderSpecificationTypeDef,
+):
+    pass
+
 _RequiredDialogActionTypeDef = TypedDict(
     "_RequiredDialogActionTypeDef",
     {
@@ -2998,6 +3086,56 @@ class FulfillmentUpdatesSpecificationTypeDef(
     _RequiredFulfillmentUpdatesSpecificationTypeDef, _OptionalFulfillmentUpdatesSpecificationTypeDef
 ):
     pass
+
+GenerateBotElementRequestRequestTypeDef = TypedDict(
+    "GenerateBotElementRequestRequestTypeDef",
+    {
+        "intentId": str,
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+    },
+)
+
+GenerateBotElementResponseTypeDef = TypedDict(
+    "GenerateBotElementResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "intentId": str,
+        "sampleUtterances": List["SampleUtteranceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GenerationSortByTypeDef = TypedDict(
+    "GenerationSortByTypeDef",
+    {
+        "attribute": GenerationSortByAttributeType,
+        "order": SortOrderType,
+    },
+)
+
+GenerationSummaryTypeDef = TypedDict(
+    "GenerationSummaryTypeDef",
+    {
+        "generationId": str,
+        "generationStatus": GenerationStatusType,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+    },
+    total=False,
+)
+
+GenerativeAISettingsTypeDef = TypedDict(
+    "GenerativeAISettingsTypeDef",
+    {
+        "runtimeSettings": "RuntimeSettingsTypeDef",
+        "buildtimeSettings": "BuildtimeSettingsTypeDef",
+    },
+    total=False,
+)
 
 GetTestExecutionArtifactsUrlRequestRequestTypeDef = TypedDict(
     "GetTestExecutionArtifactsUrlRequestRequestTypeDef",
@@ -3459,6 +3597,42 @@ ListBotRecommendationsResponseTypeDef = TypedDict(
         "botVersion": str,
         "localeId": str,
         "botRecommendationSummaries": List["BotRecommendationSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListBotResourceGenerationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListBotResourceGenerationsRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+    },
+)
+_OptionalListBotResourceGenerationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListBotResourceGenerationsRequestRequestTypeDef",
+    {
+        "sortBy": "GenerationSortByTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListBotResourceGenerationsRequestRequestTypeDef(
+    _RequiredListBotResourceGenerationsRequestRequestTypeDef,
+    _OptionalListBotResourceGenerationsRequestRequestTypeDef,
+):
+    pass
+
+ListBotResourceGenerationsResponseTypeDef = TypedDict(
+    "ListBotResourceGenerationsResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "generationSummaries": List["GenerationSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -4454,6 +4628,14 @@ RuntimeHintsTypeDef = TypedDict(
     total=False,
 )
 
+RuntimeSettingsTypeDef = TypedDict(
+    "RuntimeSettingsTypeDef",
+    {
+        "slotResolutionImprovement": "SlotResolutionImprovementSpecificationTypeDef",
+    },
+    total=False,
+)
+
 _RequiredS3BucketLogDestinationTypeDef = TypedDict(
     "_RequiredS3BucketLogDestinationTypeDef",
     {
@@ -4502,6 +4684,26 @@ SSMLMessageTypeDef = TypedDict(
         "value": str,
     },
 )
+
+_RequiredSampleUtteranceGenerationSpecificationTypeDef = TypedDict(
+    "_RequiredSampleUtteranceGenerationSpecificationTypeDef",
+    {
+        "enabled": bool,
+    },
+)
+_OptionalSampleUtteranceGenerationSpecificationTypeDef = TypedDict(
+    "_OptionalSampleUtteranceGenerationSpecificationTypeDef",
+    {
+        "bedrockModelSpecification": "BedrockModelSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class SampleUtteranceGenerationSpecificationTypeDef(
+    _RequiredSampleUtteranceGenerationSpecificationTypeDef,
+    _OptionalSampleUtteranceGenerationSpecificationTypeDef,
+):
+    pass
 
 SampleUtteranceTypeDef = TypedDict(
     "SampleUtteranceTypeDef",
@@ -4638,6 +4840,33 @@ SlotPriorityTypeDef = TypedDict(
     },
 )
 
+_RequiredSlotResolutionImprovementSpecificationTypeDef = TypedDict(
+    "_RequiredSlotResolutionImprovementSpecificationTypeDef",
+    {
+        "enabled": bool,
+    },
+)
+_OptionalSlotResolutionImprovementSpecificationTypeDef = TypedDict(
+    "_OptionalSlotResolutionImprovementSpecificationTypeDef",
+    {
+        "bedrockModelSpecification": "BedrockModelSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class SlotResolutionImprovementSpecificationTypeDef(
+    _RequiredSlotResolutionImprovementSpecificationTypeDef,
+    _OptionalSlotResolutionImprovementSpecificationTypeDef,
+):
+    pass
+
+SlotResolutionSettingTypeDef = TypedDict(
+    "SlotResolutionSettingTypeDef",
+    {
+        "slotResolutionStrategy": SlotResolutionStrategyType,
+    },
+)
+
 _RequiredSlotResolutionTestResultItemCountsTypeDef = TypedDict(
     "_RequiredSlotResolutionTestResultItemCountsTypeDef",
     {
@@ -4750,6 +4979,7 @@ _OptionalSlotValueElicitationSettingTypeDef = TypedDict(
         "sampleUtterances": List["SampleUtteranceTypeDef"],
         "waitAndContinueSpecification": "WaitAndContinueSpecificationTypeDef",
         "slotCaptureSetting": "SlotCaptureSettingTypeDef",
+        "slotResolutionSetting": "SlotResolutionSettingTypeDef",
     },
     total=False,
 )
@@ -4846,6 +5076,30 @@ StartBotRecommendationResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
         "encryptionSetting": "EncryptionSettingTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartBotResourceGenerationRequestRequestTypeDef = TypedDict(
+    "StartBotResourceGenerationRequestRequestTypeDef",
+    {
+        "generationInputPrompt": str,
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+    },
+)
+
+StartBotResourceGenerationResponseTypeDef = TypedDict(
+    "StartBotResourceGenerationResponseTypeDef",
+    {
+        "generationInputPrompt": str,
+        "generationId": str,
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "generationStatus": GenerationStatusType,
+        "creationDateTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5398,6 +5652,7 @@ _OptionalUpdateBotLocaleRequestRequestTypeDef = TypedDict(
     {
         "description": str,
         "voiceSettings": "VoiceSettingsTypeDef",
+        "generativeAISettings": "GenerativeAISettingsTypeDef",
     },
     total=False,
 )
@@ -5422,6 +5677,7 @@ UpdateBotLocaleResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "recommendedActions": List[str],
+        "generativeAISettings": "GenerativeAISettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

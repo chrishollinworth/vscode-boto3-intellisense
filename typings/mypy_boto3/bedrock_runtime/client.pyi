@@ -43,7 +43,7 @@ class Exceptions:
 
 class BedrockRuntimeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock-runtime.html#BedrockRuntime.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html)
     """
 
@@ -58,14 +58,14 @@ class BedrockRuntimeClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock-runtime.html#BedrockRuntime.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock-runtime.html#BedrockRuntime.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#close)
         """
     def generate_presigned_url(
@@ -78,7 +78,7 @@ class BedrockRuntimeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock-runtime.html#BedrockRuntime.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#generate_presigned_url)
         """
     def invoke_model(
@@ -93,7 +93,7 @@ class BedrockRuntimeClient(BaseClient):
         Invokes the specified Bedrock model to run inference using the input provided in
         the request body.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#invoke_model)
         """
     def invoke_model_with_response_stream(
@@ -107,6 +107,6 @@ class BedrockRuntimeClient(BaseClient):
         """
         Invoke the specified Bedrock model to run inference using the input provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model_with_response_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model_with_response_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#invoke_model_with_response_stream)
         """

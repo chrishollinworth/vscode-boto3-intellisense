@@ -21,6 +21,7 @@ from .literals import (
     AlertManagerDefinitionStatusCodeType,
     LoggingConfigurationStatusCodeType,
     RuleGroupsNamespaceStatusCodeType,
+    ScraperStatusCodeType,
     WorkspaceStatusCodeType,
 )
 
@@ -32,17 +33,22 @@ else:
 __all__ = (
     "AlertManagerDefinitionDescriptionTypeDef",
     "AlertManagerDefinitionStatusTypeDef",
+    "AmpConfigurationTypeDef",
     "CreateAlertManagerDefinitionRequestRequestTypeDef",
     "CreateAlertManagerDefinitionResponseTypeDef",
     "CreateLoggingConfigurationRequestRequestTypeDef",
     "CreateLoggingConfigurationResponseTypeDef",
     "CreateRuleGroupsNamespaceRequestRequestTypeDef",
     "CreateRuleGroupsNamespaceResponseTypeDef",
+    "CreateScraperRequestRequestTypeDef",
+    "CreateScraperResponseTypeDef",
     "CreateWorkspaceRequestRequestTypeDef",
     "CreateWorkspaceResponseTypeDef",
     "DeleteAlertManagerDefinitionRequestRequestTypeDef",
     "DeleteLoggingConfigurationRequestRequestTypeDef",
     "DeleteRuleGroupsNamespaceRequestRequestTypeDef",
+    "DeleteScraperRequestRequestTypeDef",
+    "DeleteScraperResponseTypeDef",
     "DeleteWorkspaceRequestRequestTypeDef",
     "DescribeAlertManagerDefinitionRequestRequestTypeDef",
     "DescribeAlertManagerDefinitionResponseTypeDef",
@@ -50,10 +56,17 @@ __all__ = (
     "DescribeLoggingConfigurationResponseTypeDef",
     "DescribeRuleGroupsNamespaceRequestRequestTypeDef",
     "DescribeRuleGroupsNamespaceResponseTypeDef",
+    "DescribeScraperRequestRequestTypeDef",
+    "DescribeScraperResponseTypeDef",
     "DescribeWorkspaceRequestRequestTypeDef",
     "DescribeWorkspaceResponseTypeDef",
+    "DestinationTypeDef",
+    "EksConfigurationTypeDef",
+    "GetDefaultScraperConfigurationResponseTypeDef",
     "ListRuleGroupsNamespacesRequestRequestTypeDef",
     "ListRuleGroupsNamespacesResponseTypeDef",
+    "ListScrapersRequestRequestTypeDef",
+    "ListScrapersResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListWorkspacesRequestRequestTypeDef",
@@ -69,6 +82,11 @@ __all__ = (
     "RuleGroupsNamespaceDescriptionTypeDef",
     "RuleGroupsNamespaceStatusTypeDef",
     "RuleGroupsNamespaceSummaryTypeDef",
+    "ScrapeConfigurationTypeDef",
+    "ScraperDescriptionTypeDef",
+    "ScraperStatusTypeDef",
+    "ScraperSummaryTypeDef",
+    "SourceTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateLoggingConfigurationRequestRequestTypeDef",
@@ -108,6 +126,13 @@ class AlertManagerDefinitionStatusTypeDef(
     _RequiredAlertManagerDefinitionStatusTypeDef, _OptionalAlertManagerDefinitionStatusTypeDef
 ):
     pass
+
+AmpConfigurationTypeDef = TypedDict(
+    "AmpConfigurationTypeDef",
+    {
+        "workspaceArn": str,
+    },
+)
 
 _RequiredCreateAlertManagerDefinitionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateAlertManagerDefinitionRequestRequestTypeDef",
@@ -201,6 +226,40 @@ CreateRuleGroupsNamespaceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateScraperRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateScraperRequestRequestTypeDef",
+    {
+        "scrapeConfiguration": "ScrapeConfigurationTypeDef",
+        "source": "SourceTypeDef",
+        "destination": "DestinationTypeDef",
+    },
+)
+_OptionalCreateScraperRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateScraperRequestRequestTypeDef",
+    {
+        "alias": str,
+        "clientToken": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateScraperRequestRequestTypeDef(
+    _RequiredCreateScraperRequestRequestTypeDef, _OptionalCreateScraperRequestRequestTypeDef
+):
+    pass
+
+CreateScraperResponseTypeDef = TypedDict(
+    "CreateScraperResponseTypeDef",
+    {
+        "scraperId": str,
+        "arn": str,
+        "status": "ScraperStatusTypeDef",
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateWorkspaceRequestRequestTypeDef = TypedDict(
     "CreateWorkspaceRequestRequestTypeDef",
     {
@@ -283,6 +342,34 @@ class DeleteRuleGroupsNamespaceRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDeleteScraperRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteScraperRequestRequestTypeDef",
+    {
+        "scraperId": str,
+    },
+)
+_OptionalDeleteScraperRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteScraperRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeleteScraperRequestRequestTypeDef(
+    _RequiredDeleteScraperRequestRequestTypeDef, _OptionalDeleteScraperRequestRequestTypeDef
+):
+    pass
+
+DeleteScraperResponseTypeDef = TypedDict(
+    "DeleteScraperResponseTypeDef",
+    {
+        "scraperId": str,
+        "status": "ScraperStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteWorkspaceRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteWorkspaceRequestRequestTypeDef",
     {
@@ -348,6 +435,21 @@ DescribeRuleGroupsNamespaceResponseTypeDef = TypedDict(
     },
 )
 
+DescribeScraperRequestRequestTypeDef = TypedDict(
+    "DescribeScraperRequestRequestTypeDef",
+    {
+        "scraperId": str,
+    },
+)
+
+DescribeScraperResponseTypeDef = TypedDict(
+    "DescribeScraperResponseTypeDef",
+    {
+        "scraper": "ScraperDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeWorkspaceRequestRequestTypeDef = TypedDict(
     "DescribeWorkspaceRequestRequestTypeDef",
     {
@@ -359,6 +461,40 @@ DescribeWorkspaceResponseTypeDef = TypedDict(
     "DescribeWorkspaceResponseTypeDef",
     {
         "workspace": "WorkspaceDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DestinationTypeDef = TypedDict(
+    "DestinationTypeDef",
+    {
+        "ampConfiguration": "AmpConfigurationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredEksConfigurationTypeDef = TypedDict(
+    "_RequiredEksConfigurationTypeDef",
+    {
+        "clusterArn": str,
+        "subnetIds": List[str],
+    },
+)
+_OptionalEksConfigurationTypeDef = TypedDict(
+    "_OptionalEksConfigurationTypeDef",
+    {
+        "securityGroupIds": List[str],
+    },
+    total=False,
+)
+
+class EksConfigurationTypeDef(_RequiredEksConfigurationTypeDef, _OptionalEksConfigurationTypeDef):
+    pass
+
+GetDefaultScraperConfigurationResponseTypeDef = TypedDict(
+    "GetDefaultScraperConfigurationResponseTypeDef",
+    {
+        "configuration": bytes,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -389,6 +525,25 @@ ListRuleGroupsNamespacesResponseTypeDef = TypedDict(
     "ListRuleGroupsNamespacesResponseTypeDef",
     {
         "ruleGroupsNamespaces": List["RuleGroupsNamespaceSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListScrapersRequestRequestTypeDef = TypedDict(
+    "ListScrapersRequestRequestTypeDef",
+    {
+        "filters": Dict[str, List[str]],
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListScrapersResponseTypeDef = TypedDict(
+    "ListScrapersResponseTypeDef",
+    {
+        "scrapers": List["ScraperSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -606,6 +761,84 @@ class RuleGroupsNamespaceSummaryTypeDef(
     _RequiredRuleGroupsNamespaceSummaryTypeDef, _OptionalRuleGroupsNamespaceSummaryTypeDef
 ):
     pass
+
+ScrapeConfigurationTypeDef = TypedDict(
+    "ScrapeConfigurationTypeDef",
+    {
+        "configurationBlob": Union[bytes, IO[bytes], StreamingBody],
+    },
+    total=False,
+)
+
+_RequiredScraperDescriptionTypeDef = TypedDict(
+    "_RequiredScraperDescriptionTypeDef",
+    {
+        "scraperId": str,
+        "arn": str,
+        "roleArn": str,
+        "status": "ScraperStatusTypeDef",
+        "createdAt": datetime,
+        "lastModifiedAt": datetime,
+        "scrapeConfiguration": "ScrapeConfigurationTypeDef",
+        "source": "SourceTypeDef",
+        "destination": "DestinationTypeDef",
+    },
+)
+_OptionalScraperDescriptionTypeDef = TypedDict(
+    "_OptionalScraperDescriptionTypeDef",
+    {
+        "alias": str,
+        "tags": Dict[str, str],
+        "statusReason": str,
+    },
+    total=False,
+)
+
+class ScraperDescriptionTypeDef(
+    _RequiredScraperDescriptionTypeDef, _OptionalScraperDescriptionTypeDef
+):
+    pass
+
+ScraperStatusTypeDef = TypedDict(
+    "ScraperStatusTypeDef",
+    {
+        "statusCode": ScraperStatusCodeType,
+    },
+)
+
+_RequiredScraperSummaryTypeDef = TypedDict(
+    "_RequiredScraperSummaryTypeDef",
+    {
+        "scraperId": str,
+        "arn": str,
+        "roleArn": str,
+        "status": "ScraperStatusTypeDef",
+        "createdAt": datetime,
+        "lastModifiedAt": datetime,
+        "source": "SourceTypeDef",
+        "destination": "DestinationTypeDef",
+    },
+)
+_OptionalScraperSummaryTypeDef = TypedDict(
+    "_OptionalScraperSummaryTypeDef",
+    {
+        "alias": str,
+        "tags": Dict[str, str],
+        "statusReason": str,
+    },
+    total=False,
+)
+
+class ScraperSummaryTypeDef(_RequiredScraperSummaryTypeDef, _OptionalScraperSummaryTypeDef):
+    pass
+
+SourceTypeDef = TypedDict(
+    "SourceTypeDef",
+    {
+        "eksConfiguration": "EksConfigurationTypeDef",
+    },
+    total=False,
+)
 
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",

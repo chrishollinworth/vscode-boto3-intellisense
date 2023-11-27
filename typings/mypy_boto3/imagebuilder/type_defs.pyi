@@ -13,7 +13,7 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 from .literals import (
     BuildTypeType,
@@ -24,10 +24,19 @@ from .literals import (
     ImageSourceType,
     ImageStatusType,
     ImageTypeType,
+    LifecycleExecutionResourceActionNameType,
+    LifecycleExecutionResourceStatusType,
+    LifecycleExecutionStatusType,
+    LifecyclePolicyDetailActionTypeType,
+    LifecyclePolicyDetailFilterTypeType,
+    LifecyclePolicyResourceTypeType,
+    LifecyclePolicyStatusType,
+    LifecyclePolicyTimeUnitType,
     OwnershipType,
     PipelineExecutionStartConditionType,
     PipelineStatusType,
     PlatformType,
+    ResourceStatusType,
     WorkflowExecutionStatusType,
     WorkflowStepExecutionRollbackStatusType,
     WorkflowStepExecutionStatusType,
@@ -50,6 +59,8 @@ __all__ = (
     "AmiTypeDef",
     "CancelImageCreationRequestRequestTypeDef",
     "CancelImageCreationResponseTypeDef",
+    "CancelLifecycleExecutionRequestRequestTypeDef",
+    "CancelLifecycleExecutionResponseTypeDef",
     "ComponentConfigurationTypeDef",
     "ComponentParameterDetailTypeDef",
     "ComponentParameterTypeDef",
@@ -75,6 +86,8 @@ __all__ = (
     "CreateImageResponseTypeDef",
     "CreateInfrastructureConfigurationRequestRequestTypeDef",
     "CreateInfrastructureConfigurationResponseTypeDef",
+    "CreateLifecyclePolicyRequestRequestTypeDef",
+    "CreateLifecyclePolicyResponseTypeDef",
     "CvssScoreAdjustmentTypeDef",
     "CvssScoreDetailsTypeDef",
     "CvssScoreTypeDef",
@@ -92,6 +105,8 @@ __all__ = (
     "DeleteImageResponseTypeDef",
     "DeleteInfrastructureConfigurationRequestRequestTypeDef",
     "DeleteInfrastructureConfigurationResponseTypeDef",
+    "DeleteLifecyclePolicyRequestRequestTypeDef",
+    "DeleteLifecyclePolicyResponseTypeDef",
     "DistributionConfigurationSummaryTypeDef",
     "DistributionConfigurationTypeDef",
     "DistributionTypeDef",
@@ -123,6 +138,10 @@ __all__ = (
     "GetImageResponseTypeDef",
     "GetInfrastructureConfigurationRequestRequestTypeDef",
     "GetInfrastructureConfigurationResponseTypeDef",
+    "GetLifecycleExecutionRequestRequestTypeDef",
+    "GetLifecycleExecutionResponseTypeDef",
+    "GetLifecyclePolicyRequestRequestTypeDef",
+    "GetLifecyclePolicyResponseTypeDef",
     "GetWorkflowExecutionRequestRequestTypeDef",
     "GetWorkflowExecutionResponseTypeDef",
     "GetWorkflowStepExecutionRequestRequestTypeDef",
@@ -155,6 +174,24 @@ __all__ = (
     "InstanceMetadataOptionsTypeDef",
     "LaunchPermissionConfigurationTypeDef",
     "LaunchTemplateConfigurationTypeDef",
+    "LifecycleExecutionResourceActionTypeDef",
+    "LifecycleExecutionResourceStateTypeDef",
+    "LifecycleExecutionResourceTypeDef",
+    "LifecycleExecutionResourcesImpactedSummaryTypeDef",
+    "LifecycleExecutionSnapshotResourceTypeDef",
+    "LifecycleExecutionStateTypeDef",
+    "LifecycleExecutionTypeDef",
+    "LifecyclePolicyDetailActionIncludeResourcesTypeDef",
+    "LifecyclePolicyDetailActionTypeDef",
+    "LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef",
+    "LifecyclePolicyDetailExclusionRulesAmisTypeDef",
+    "LifecyclePolicyDetailExclusionRulesTypeDef",
+    "LifecyclePolicyDetailFilterTypeDef",
+    "LifecyclePolicyDetailTypeDef",
+    "LifecyclePolicyResourceSelectionRecipeTypeDef",
+    "LifecyclePolicyResourceSelectionTypeDef",
+    "LifecyclePolicySummaryTypeDef",
+    "LifecyclePolicyTypeDef",
     "ListComponentBuildVersionsRequestRequestTypeDef",
     "ListComponentBuildVersionsResponseTypeDef",
     "ListComponentsRequestRequestTypeDef",
@@ -181,6 +218,12 @@ __all__ = (
     "ListImagesResponseTypeDef",
     "ListInfrastructureConfigurationsRequestRequestTypeDef",
     "ListInfrastructureConfigurationsResponseTypeDef",
+    "ListLifecycleExecutionResourcesRequestRequestTypeDef",
+    "ListLifecycleExecutionResourcesResponseTypeDef",
+    "ListLifecycleExecutionsRequestRequestTypeDef",
+    "ListLifecycleExecutionsResponseTypeDef",
+    "ListLifecyclePoliciesRequestRequestTypeDef",
+    "ListLifecyclePoliciesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListWorkflowExecutionsRequestRequestTypeDef",
@@ -200,6 +243,9 @@ __all__ = (
     "PutImageRecipePolicyResponseTypeDef",
     "RemediationRecommendationTypeDef",
     "RemediationTypeDef",
+    "ResourceStateTypeDef",
+    "ResourceStateUpdateExclusionRulesTypeDef",
+    "ResourceStateUpdateIncludeResourcesTypeDef",
     "ResponseMetadataTypeDef",
     "S3ExportConfigurationTypeDef",
     "S3LogsTypeDef",
@@ -207,6 +253,8 @@ __all__ = (
     "SeverityCountsTypeDef",
     "StartImagePipelineExecutionRequestRequestTypeDef",
     "StartImagePipelineExecutionResponseTypeDef",
+    "StartResourceStateUpdateRequestRequestTypeDef",
+    "StartResourceStateUpdateResponseTypeDef",
     "SystemsManagerAgentTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TargetContainerRepositoryTypeDef",
@@ -217,6 +265,8 @@ __all__ = (
     "UpdateImagePipelineResponseTypeDef",
     "UpdateInfrastructureConfigurationRequestRequestTypeDef",
     "UpdateInfrastructureConfigurationResponseTypeDef",
+    "UpdateLifecyclePolicyRequestRequestTypeDef",
+    "UpdateLifecyclePolicyResponseTypeDef",
     "VulnerabilityIdAggregationTypeDef",
     "VulnerablePackageTypeDef",
     "WorkflowExecutionMetadataTypeDef",
@@ -281,6 +331,22 @@ CancelImageCreationResponseTypeDef = TypedDict(
         "requestId": str,
         "clientToken": str,
         "imageBuildVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CancelLifecycleExecutionRequestRequestTypeDef = TypedDict(
+    "CancelLifecycleExecutionRequestRequestTypeDef",
+    {
+        "lifecycleExecutionId": str,
+        "clientToken": str,
+    },
+)
+
+CancelLifecycleExecutionResponseTypeDef = TypedDict(
+    "CancelLifecycleExecutionResponseTypeDef",
+    {
+        "lifecycleExecutionId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -744,6 +810,42 @@ CreateInfrastructureConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateLifecyclePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLifecyclePolicyRequestRequestTypeDef",
+    {
+        "name": str,
+        "executionRole": str,
+        "resourceType": LifecyclePolicyResourceTypeType,
+        "policyDetails": List["LifecyclePolicyDetailTypeDef"],
+        "resourceSelection": "LifecyclePolicyResourceSelectionTypeDef",
+        "clientToken": str,
+    },
+)
+_OptionalCreateLifecyclePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLifecyclePolicyRequestRequestTypeDef",
+    {
+        "description": str,
+        "status": LifecyclePolicyStatusType,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateLifecyclePolicyRequestRequestTypeDef(
+    _RequiredCreateLifecyclePolicyRequestRequestTypeDef,
+    _OptionalCreateLifecyclePolicyRequestRequestTypeDef,
+):
+    pass
+
+CreateLifecyclePolicyResponseTypeDef = TypedDict(
+    "CreateLifecyclePolicyResponseTypeDef",
+    {
+        "clientToken": str,
+        "lifecyclePolicyArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CvssScoreAdjustmentTypeDef = TypedDict(
     "CvssScoreAdjustmentTypeDef",
     {
@@ -885,6 +987,21 @@ DeleteInfrastructureConfigurationResponseTypeDef = TypedDict(
     {
         "requestId": str,
         "infrastructureConfigurationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteLifecyclePolicyRequestRequestTypeDef = TypedDict(
+    "DeleteLifecyclePolicyRequestRequestTypeDef",
+    {
+        "lifecyclePolicyArn": str,
+    },
+)
+
+DeleteLifecyclePolicyResponseTypeDef = TypedDict(
+    "DeleteLifecyclePolicyResponseTypeDef",
+    {
+        "lifecyclePolicyArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1199,6 +1316,36 @@ GetInfrastructureConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+GetLifecycleExecutionRequestRequestTypeDef = TypedDict(
+    "GetLifecycleExecutionRequestRequestTypeDef",
+    {
+        "lifecycleExecutionId": str,
+    },
+)
+
+GetLifecycleExecutionResponseTypeDef = TypedDict(
+    "GetLifecycleExecutionResponseTypeDef",
+    {
+        "lifecycleExecution": "LifecycleExecutionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetLifecyclePolicyRequestRequestTypeDef = TypedDict(
+    "GetLifecyclePolicyRequestRequestTypeDef",
+    {
+        "lifecyclePolicyArn": str,
+    },
+)
+
+GetLifecyclePolicyResponseTypeDef = TypedDict(
+    "GetLifecyclePolicyResponseTypeDef",
+    {
+        "lifecyclePolicy": "LifecyclePolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetWorkflowExecutionRequestRequestTypeDef = TypedDict(
     "GetWorkflowExecutionRequestRequestTypeDef",
     {
@@ -1428,6 +1575,8 @@ ImageSummaryTypeDef = TypedDict(
         "tags": Dict[str, str],
         "buildType": BuildTypeType,
         "imageSource": ImageSourceType,
+        "deprecationTime": datetime,
+        "lifecycleExecutionId": str,
     },
     total=False,
 )
@@ -1466,6 +1615,8 @@ ImageTypeDef = TypedDict(
         "imageSource": ImageSourceType,
         "scanState": "ImageScanStateTypeDef",
         "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
+        "deprecationTime": datetime,
+        "lifecycleExecutionId": str,
     },
     total=False,
 )
@@ -1667,6 +1818,229 @@ class LaunchTemplateConfigurationTypeDef(
     _RequiredLaunchTemplateConfigurationTypeDef, _OptionalLaunchTemplateConfigurationTypeDef
 ):
     pass
+
+LifecycleExecutionResourceActionTypeDef = TypedDict(
+    "LifecycleExecutionResourceActionTypeDef",
+    {
+        "name": LifecycleExecutionResourceActionNameType,
+        "reason": str,
+    },
+    total=False,
+)
+
+LifecycleExecutionResourceStateTypeDef = TypedDict(
+    "LifecycleExecutionResourceStateTypeDef",
+    {
+        "status": LifecycleExecutionResourceStatusType,
+        "reason": str,
+    },
+    total=False,
+)
+
+LifecycleExecutionResourceTypeDef = TypedDict(
+    "LifecycleExecutionResourceTypeDef",
+    {
+        "accountId": str,
+        "resourceId": str,
+        "state": "LifecycleExecutionResourceStateTypeDef",
+        "action": "LifecycleExecutionResourceActionTypeDef",
+        "region": str,
+        "snapshots": List["LifecycleExecutionSnapshotResourceTypeDef"],
+        "imageUris": List[str],
+    },
+    total=False,
+)
+
+LifecycleExecutionResourcesImpactedSummaryTypeDef = TypedDict(
+    "LifecycleExecutionResourcesImpactedSummaryTypeDef",
+    {
+        "hasImpactedResources": bool,
+    },
+    total=False,
+)
+
+LifecycleExecutionSnapshotResourceTypeDef = TypedDict(
+    "LifecycleExecutionSnapshotResourceTypeDef",
+    {
+        "snapshotId": str,
+        "state": "LifecycleExecutionResourceStateTypeDef",
+    },
+    total=False,
+)
+
+LifecycleExecutionStateTypeDef = TypedDict(
+    "LifecycleExecutionStateTypeDef",
+    {
+        "status": LifecycleExecutionStatusType,
+        "reason": str,
+    },
+    total=False,
+)
+
+LifecycleExecutionTypeDef = TypedDict(
+    "LifecycleExecutionTypeDef",
+    {
+        "lifecycleExecutionId": str,
+        "lifecyclePolicyArn": str,
+        "resourcesImpactedSummary": "LifecycleExecutionResourcesImpactedSummaryTypeDef",
+        "state": "LifecycleExecutionStateTypeDef",
+        "startTime": datetime,
+        "endTime": datetime,
+    },
+    total=False,
+)
+
+LifecyclePolicyDetailActionIncludeResourcesTypeDef = TypedDict(
+    "LifecyclePolicyDetailActionIncludeResourcesTypeDef",
+    {
+        "amis": bool,
+        "snapshots": bool,
+        "containers": bool,
+    },
+    total=False,
+)
+
+_RequiredLifecyclePolicyDetailActionTypeDef = TypedDict(
+    "_RequiredLifecyclePolicyDetailActionTypeDef",
+    {
+        "type": LifecyclePolicyDetailActionTypeType,
+    },
+)
+_OptionalLifecyclePolicyDetailActionTypeDef = TypedDict(
+    "_OptionalLifecyclePolicyDetailActionTypeDef",
+    {
+        "includeResources": "LifecyclePolicyDetailActionIncludeResourcesTypeDef",
+    },
+    total=False,
+)
+
+class LifecyclePolicyDetailActionTypeDef(
+    _RequiredLifecyclePolicyDetailActionTypeDef, _OptionalLifecyclePolicyDetailActionTypeDef
+):
+    pass
+
+LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef = TypedDict(
+    "LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef",
+    {
+        "value": int,
+        "unit": LifecyclePolicyTimeUnitType,
+    },
+)
+
+LifecyclePolicyDetailExclusionRulesAmisTypeDef = TypedDict(
+    "LifecyclePolicyDetailExclusionRulesAmisTypeDef",
+    {
+        "isPublic": bool,
+        "regions": List[str],
+        "sharedAccounts": List[str],
+        "lastLaunched": "LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef",
+        "tagMap": Dict[str, str],
+    },
+    total=False,
+)
+
+LifecyclePolicyDetailExclusionRulesTypeDef = TypedDict(
+    "LifecyclePolicyDetailExclusionRulesTypeDef",
+    {
+        "tagMap": Dict[str, str],
+        "amis": "LifecyclePolicyDetailExclusionRulesAmisTypeDef",
+    },
+    total=False,
+)
+
+_RequiredLifecyclePolicyDetailFilterTypeDef = TypedDict(
+    "_RequiredLifecyclePolicyDetailFilterTypeDef",
+    {
+        "type": LifecyclePolicyDetailFilterTypeType,
+        "value": int,
+    },
+)
+_OptionalLifecyclePolicyDetailFilterTypeDef = TypedDict(
+    "_OptionalLifecyclePolicyDetailFilterTypeDef",
+    {
+        "unit": LifecyclePolicyTimeUnitType,
+        "retainAtLeast": int,
+    },
+    total=False,
+)
+
+class LifecyclePolicyDetailFilterTypeDef(
+    _RequiredLifecyclePolicyDetailFilterTypeDef, _OptionalLifecyclePolicyDetailFilterTypeDef
+):
+    pass
+
+_RequiredLifecyclePolicyDetailTypeDef = TypedDict(
+    "_RequiredLifecyclePolicyDetailTypeDef",
+    {
+        "action": "LifecyclePolicyDetailActionTypeDef",
+        "filter": "LifecyclePolicyDetailFilterTypeDef",
+    },
+)
+_OptionalLifecyclePolicyDetailTypeDef = TypedDict(
+    "_OptionalLifecyclePolicyDetailTypeDef",
+    {
+        "exclusionRules": "LifecyclePolicyDetailExclusionRulesTypeDef",
+    },
+    total=False,
+)
+
+class LifecyclePolicyDetailTypeDef(
+    _RequiredLifecyclePolicyDetailTypeDef, _OptionalLifecyclePolicyDetailTypeDef
+):
+    pass
+
+LifecyclePolicyResourceSelectionRecipeTypeDef = TypedDict(
+    "LifecyclePolicyResourceSelectionRecipeTypeDef",
+    {
+        "name": str,
+        "semanticVersion": str,
+    },
+)
+
+LifecyclePolicyResourceSelectionTypeDef = TypedDict(
+    "LifecyclePolicyResourceSelectionTypeDef",
+    {
+        "recipes": List["LifecyclePolicyResourceSelectionRecipeTypeDef"],
+        "tagMap": Dict[str, str],
+    },
+    total=False,
+)
+
+LifecyclePolicySummaryTypeDef = TypedDict(
+    "LifecyclePolicySummaryTypeDef",
+    {
+        "arn": str,
+        "name": str,
+        "description": str,
+        "status": LifecyclePolicyStatusType,
+        "executionRole": str,
+        "resourceType": LifecyclePolicyResourceTypeType,
+        "dateCreated": datetime,
+        "dateUpdated": datetime,
+        "dateLastRun": datetime,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+LifecyclePolicyTypeDef = TypedDict(
+    "LifecyclePolicyTypeDef",
+    {
+        "arn": str,
+        "name": str,
+        "description": str,
+        "status": LifecyclePolicyStatusType,
+        "executionRole": str,
+        "resourceType": LifecyclePolicyResourceTypeType,
+        "policyDetails": List["LifecyclePolicyDetailTypeDef"],
+        "resourceSelection": "LifecyclePolicyResourceSelectionTypeDef",
+        "dateCreated": datetime,
+        "dateUpdated": datetime,
+        "dateLastRun": datetime,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
 
 _RequiredListComponentBuildVersionsRequestRequestTypeDef = TypedDict(
     "_RequiredListComponentBuildVersionsRequestRequestTypeDef",
@@ -1980,6 +2354,88 @@ ListInfrastructureConfigurationsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListLifecycleExecutionResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListLifecycleExecutionResourcesRequestRequestTypeDef",
+    {
+        "lifecycleExecutionId": str,
+    },
+)
+_OptionalListLifecycleExecutionResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListLifecycleExecutionResourcesRequestRequestTypeDef",
+    {
+        "parentResourceId": str,
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListLifecycleExecutionResourcesRequestRequestTypeDef(
+    _RequiredListLifecycleExecutionResourcesRequestRequestTypeDef,
+    _OptionalListLifecycleExecutionResourcesRequestRequestTypeDef,
+):
+    pass
+
+ListLifecycleExecutionResourcesResponseTypeDef = TypedDict(
+    "ListLifecycleExecutionResourcesResponseTypeDef",
+    {
+        "lifecycleExecutionId": str,
+        "lifecycleExecutionState": "LifecycleExecutionStateTypeDef",
+        "resources": List["LifecycleExecutionResourceTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListLifecycleExecutionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListLifecycleExecutionsRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+_OptionalListLifecycleExecutionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListLifecycleExecutionsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListLifecycleExecutionsRequestRequestTypeDef(
+    _RequiredListLifecycleExecutionsRequestRequestTypeDef,
+    _OptionalListLifecycleExecutionsRequestRequestTypeDef,
+):
+    pass
+
+ListLifecycleExecutionsResponseTypeDef = TypedDict(
+    "ListLifecycleExecutionsResponseTypeDef",
+    {
+        "lifecycleExecutions": List["LifecycleExecutionTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListLifecyclePoliciesRequestRequestTypeDef = TypedDict(
+    "ListLifecyclePoliciesRequestRequestTypeDef",
+    {
+        "filters": List["FilterTypeDef"],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListLifecyclePoliciesResponseTypeDef = TypedDict(
+    "ListLifecyclePoliciesResponseTypeDef",
+    {
+        "lifecyclePolicySummaryList": List["LifecyclePolicySummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -2192,6 +2648,32 @@ RemediationTypeDef = TypedDict(
     total=False,
 )
 
+ResourceStateTypeDef = TypedDict(
+    "ResourceStateTypeDef",
+    {
+        "status": ResourceStatusType,
+    },
+    total=False,
+)
+
+ResourceStateUpdateExclusionRulesTypeDef = TypedDict(
+    "ResourceStateUpdateExclusionRulesTypeDef",
+    {
+        "amis": "LifecyclePolicyDetailExclusionRulesAmisTypeDef",
+    },
+    total=False,
+)
+
+ResourceStateUpdateIncludeResourcesTypeDef = TypedDict(
+    "ResourceStateUpdateIncludeResourcesTypeDef",
+    {
+        "amis": bool,
+        "snapshots": bool,
+        "containers": bool,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -2268,6 +2750,40 @@ StartImagePipelineExecutionResponseTypeDef = TypedDict(
         "requestId": str,
         "clientToken": str,
         "imageBuildVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartResourceStateUpdateRequestRequestTypeDef = TypedDict(
+    "_RequiredStartResourceStateUpdateRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "state": "ResourceStateTypeDef",
+        "clientToken": str,
+    },
+)
+_OptionalStartResourceStateUpdateRequestRequestTypeDef = TypedDict(
+    "_OptionalStartResourceStateUpdateRequestRequestTypeDef",
+    {
+        "executionRole": str,
+        "includeResources": "ResourceStateUpdateIncludeResourcesTypeDef",
+        "exclusionRules": "ResourceStateUpdateExclusionRulesTypeDef",
+        "updateAt": Union[datetime, str],
+    },
+    total=False,
+)
+
+class StartResourceStateUpdateRequestRequestTypeDef(
+    _RequiredStartResourceStateUpdateRequestRequestTypeDef,
+    _OptionalStartResourceStateUpdateRequestRequestTypeDef,
+):
+    pass
+
+StartResourceStateUpdateResponseTypeDef = TypedDict(
+    "StartResourceStateUpdateResponseTypeDef",
+    {
+        "lifecycleExecutionId": str,
+        "resourceArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2413,6 +2929,40 @@ UpdateInfrastructureConfigurationResponseTypeDef = TypedDict(
         "requestId": str,
         "clientToken": str,
         "infrastructureConfigurationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateLifecyclePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateLifecyclePolicyRequestRequestTypeDef",
+    {
+        "lifecyclePolicyArn": str,
+        "executionRole": str,
+        "resourceType": LifecyclePolicyResourceTypeType,
+        "policyDetails": List["LifecyclePolicyDetailTypeDef"],
+        "resourceSelection": "LifecyclePolicyResourceSelectionTypeDef",
+        "clientToken": str,
+    },
+)
+_OptionalUpdateLifecyclePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateLifecyclePolicyRequestRequestTypeDef",
+    {
+        "description": str,
+        "status": LifecyclePolicyStatusType,
+    },
+    total=False,
+)
+
+class UpdateLifecyclePolicyRequestRequestTypeDef(
+    _RequiredUpdateLifecyclePolicyRequestRequestTypeDef,
+    _OptionalUpdateLifecyclePolicyRequestRequestTypeDef,
+):
+    pass
+
+UpdateLifecyclePolicyResponseTypeDef = TypedDict(
+    "UpdateLifecyclePolicyResponseTypeDef",
+    {
+        "lifecyclePolicyArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

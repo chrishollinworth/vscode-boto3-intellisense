@@ -29,6 +29,10 @@ else:
 __all__ = (
     "ActionIdentifierTypeDef",
     "AttributeValueTypeDef",
+    "BatchIsAuthorizedInputItemTypeDef",
+    "BatchIsAuthorizedInputRequestTypeDef",
+    "BatchIsAuthorizedOutputItemTypeDef",
+    "BatchIsAuthorizedOutputTypeDef",
     "CognitoUserPoolConfigurationTypeDef",
     "ConfigurationTypeDef",
     "ContextDefinitionTypeDef",
@@ -128,6 +132,55 @@ AttributeValueTypeDef = TypedDict(
         "record": Dict[str, Dict[str, Any]],
     },
     total=False,
+)
+
+BatchIsAuthorizedInputItemTypeDef = TypedDict(
+    "BatchIsAuthorizedInputItemTypeDef",
+    {
+        "principal": "EntityIdentifierTypeDef",
+        "action": "ActionIdentifierTypeDef",
+        "resource": "EntityIdentifierTypeDef",
+        "context": "ContextDefinitionTypeDef",
+    },
+    total=False,
+)
+
+_RequiredBatchIsAuthorizedInputRequestTypeDef = TypedDict(
+    "_RequiredBatchIsAuthorizedInputRequestTypeDef",
+    {
+        "policyStoreId": str,
+        "requests": List["BatchIsAuthorizedInputItemTypeDef"],
+    },
+)
+_OptionalBatchIsAuthorizedInputRequestTypeDef = TypedDict(
+    "_OptionalBatchIsAuthorizedInputRequestTypeDef",
+    {
+        "entities": "EntitiesDefinitionTypeDef",
+    },
+    total=False,
+)
+
+class BatchIsAuthorizedInputRequestTypeDef(
+    _RequiredBatchIsAuthorizedInputRequestTypeDef, _OptionalBatchIsAuthorizedInputRequestTypeDef
+):
+    pass
+
+BatchIsAuthorizedOutputItemTypeDef = TypedDict(
+    "BatchIsAuthorizedOutputItemTypeDef",
+    {
+        "request": "BatchIsAuthorizedInputItemTypeDef",
+        "decision": DecisionType,
+        "determiningPolicies": List["DeterminingPolicyItemTypeDef"],
+        "errors": List["EvaluationErrorItemTypeDef"],
+    },
+)
+
+BatchIsAuthorizedOutputTypeDef = TypedDict(
+    "BatchIsAuthorizedOutputTypeDef",
+    {
+        "results": List["BatchIsAuthorizedOutputItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredCognitoUserPoolConfigurationTypeDef = TypedDict(

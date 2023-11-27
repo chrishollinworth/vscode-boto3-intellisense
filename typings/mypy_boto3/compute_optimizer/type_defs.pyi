@@ -20,8 +20,12 @@ from .literals import (
     CpuVendorArchitectureType,
     CurrencyType,
     CurrentPerformanceRiskType,
+    CustomizableMetricHeadroomType,
+    CustomizableMetricThresholdType,
     EBSFindingType,
     EBSMetricNameType,
+    EBSSavingsEstimationModeSourceType,
+    ECSSavingsEstimationModeSourceType,
     ECSServiceLaunchTypeType,
     ECSServiceMetricNameType,
     ECSServiceMetricStatisticType,
@@ -44,6 +48,7 @@ from .literals import (
     InferredWorkloadTypeType,
     InstanceIdleType,
     InstanceRecommendationFindingReasonCodeType,
+    InstanceSavingsEstimationModeSourceType,
     InstanceStateType,
     JobFilterNameType,
     JobStatusType,
@@ -53,11 +58,13 @@ from .literals import (
     LambdaFunctionRecommendationFilterNameType,
     LambdaFunctionRecommendationFindingReasonCodeType,
     LambdaFunctionRecommendationFindingType,
+    LambdaSavingsEstimationModeSourceType,
     LicenseEditionType,
     LicenseFindingReasonCodeType,
     LicenseFindingType,
     LicenseModelType,
     LicenseRecommendationFilterNameType,
+    LookBackPeriodPreferenceType,
     MetricNameType,
     MetricStatisticType,
     MigrationEffortType,
@@ -65,6 +72,7 @@ from .literals import (
     RecommendationPreferenceNameType,
     RecommendationSourceTypeType,
     ResourceTypeType,
+    SavingsEstimationModeType,
     ScopeNameType,
     StatusType,
 )
@@ -81,16 +89,27 @@ else:
 __all__ = (
     "AccountEnrollmentStatusTypeDef",
     "AutoScalingGroupConfigurationTypeDef",
+    "AutoScalingGroupEstimatedMonthlySavingsTypeDef",
     "AutoScalingGroupRecommendationOptionTypeDef",
     "AutoScalingGroupRecommendationTypeDef",
+    "AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef",
     "ContainerConfigurationTypeDef",
     "ContainerRecommendationTypeDef",
     "CurrentPerformanceRiskRatingsTypeDef",
+    "CustomizableMetricParametersTypeDef",
     "DeleteRecommendationPreferencesRequestRequestTypeDef",
     "DescribeRecommendationExportJobsRequestRequestTypeDef",
     "DescribeRecommendationExportJobsResponseTypeDef",
+    "EBSEffectiveRecommendationPreferencesTypeDef",
+    "EBSEstimatedMonthlySavingsTypeDef",
     "EBSFilterTypeDef",
+    "EBSSavingsEstimationModeTypeDef",
+    "EBSSavingsOpportunityAfterDiscountsTypeDef",
     "EBSUtilizationMetricTypeDef",
+    "ECSEffectiveRecommendationPreferencesTypeDef",
+    "ECSEstimatedMonthlySavingsTypeDef",
+    "ECSSavingsEstimationModeTypeDef",
+    "ECSSavingsOpportunityAfterDiscountsTypeDef",
     "ECSServiceProjectedMetricTypeDef",
     "ECSServiceProjectedUtilizationMetricTypeDef",
     "ECSServiceRecommendationFilterTypeDef",
@@ -98,6 +117,7 @@ __all__ = (
     "ECSServiceRecommendationTypeDef",
     "ECSServiceRecommendedOptionProjectedMetricTypeDef",
     "ECSServiceUtilizationMetricTypeDef",
+    "EffectivePreferredResourceTypeDef",
     "EffectiveRecommendationPreferencesTypeDef",
     "EnrollmentFilterTypeDef",
     "EstimatedMonthlySavingsTypeDef",
@@ -146,14 +166,21 @@ __all__ = (
     "GpuInfoTypeDef",
     "GpuTypeDef",
     "InferredWorkloadSavingTypeDef",
+    "InstanceEstimatedMonthlySavingsTypeDef",
     "InstanceRecommendationOptionTypeDef",
     "InstanceRecommendationTypeDef",
+    "InstanceSavingsEstimationModeTypeDef",
+    "InstanceSavingsOpportunityAfterDiscountsTypeDef",
     "JobFilterTypeDef",
+    "LambdaEffectiveRecommendationPreferencesTypeDef",
+    "LambdaEstimatedMonthlySavingsTypeDef",
     "LambdaFunctionMemoryProjectedMetricTypeDef",
     "LambdaFunctionMemoryRecommendationOptionTypeDef",
     "LambdaFunctionRecommendationFilterTypeDef",
     "LambdaFunctionRecommendationTypeDef",
     "LambdaFunctionUtilizationMetricTypeDef",
+    "LambdaSavingsEstimationModeTypeDef",
+    "LambdaSavingsOpportunityAfterDiscountsTypeDef",
     "LicenseConfigurationTypeDef",
     "LicenseRecommendationFilterTypeDef",
     "LicenseRecommendationOptionTypeDef",
@@ -161,6 +188,7 @@ __all__ = (
     "MemorySizeConfigurationTypeDef",
     "MetricSourceTypeDef",
     "PaginatorConfigTypeDef",
+    "PreferredResourceTypeDef",
     "ProjectedMetricTypeDef",
     "PutRecommendationPreferencesRequestRequestTypeDef",
     "ReasonCodeSummaryTypeDef",
@@ -181,6 +209,7 @@ __all__ = (
     "UpdateEnrollmentStatusRequestRequestTypeDef",
     "UpdateEnrollmentStatusResponseTypeDef",
     "UtilizationMetricTypeDef",
+    "UtilizationPreferenceTypeDef",
     "VolumeConfigurationTypeDef",
     "VolumeRecommendationOptionTypeDef",
     "VolumeRecommendationTypeDef",
@@ -208,6 +237,15 @@ AutoScalingGroupConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+AutoScalingGroupEstimatedMonthlySavingsTypeDef = TypedDict(
+    "AutoScalingGroupEstimatedMonthlySavingsTypeDef",
+    {
+        "currency": CurrencyType,
+        "value": float,
+    },
+    total=False,
+)
+
 AutoScalingGroupRecommendationOptionTypeDef = TypedDict(
     "AutoScalingGroupRecommendationOptionTypeDef",
     {
@@ -218,6 +256,7 @@ AutoScalingGroupRecommendationOptionTypeDef = TypedDict(
         "savingsOpportunity": "SavingsOpportunityTypeDef",
         "migrationEffort": MigrationEffortType,
         "instanceGpuInfo": "GpuInfoTypeDef",
+        "savingsOpportunityAfterDiscounts": "AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef",
     },
     total=False,
 )
@@ -238,6 +277,15 @@ AutoScalingGroupRecommendationTypeDef = TypedDict(
         "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
         "inferredWorkloadTypes": List[InferredWorkloadTypeType],
         "currentInstanceGpuInfo": "GpuInfoTypeDef",
+    },
+    total=False,
+)
+
+AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
+    "AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef",
+    {
+        "savingsOpportunityPercentage": float,
+        "estimatedMonthlySavings": "AutoScalingGroupEstimatedMonthlySavingsTypeDef",
     },
     total=False,
 )
@@ -269,6 +317,15 @@ CurrentPerformanceRiskRatingsTypeDef = TypedDict(
         "medium": int,
         "low": int,
         "veryLow": int,
+    },
+    total=False,
+)
+
+CustomizableMetricParametersTypeDef = TypedDict(
+    "CustomizableMetricParametersTypeDef",
+    {
+        "threshold": CustomizableMetricThresholdType,
+        "headroom": CustomizableMetricHeadroomType,
     },
     total=False,
 )
@@ -314,11 +371,45 @@ DescribeRecommendationExportJobsResponseTypeDef = TypedDict(
     },
 )
 
+EBSEffectiveRecommendationPreferencesTypeDef = TypedDict(
+    "EBSEffectiveRecommendationPreferencesTypeDef",
+    {
+        "savingsEstimationMode": "EBSSavingsEstimationModeTypeDef",
+    },
+    total=False,
+)
+
+EBSEstimatedMonthlySavingsTypeDef = TypedDict(
+    "EBSEstimatedMonthlySavingsTypeDef",
+    {
+        "currency": CurrencyType,
+        "value": float,
+    },
+    total=False,
+)
+
 EBSFilterTypeDef = TypedDict(
     "EBSFilterTypeDef",
     {
         "name": Literal["Finding"],
         "values": List[str],
+    },
+    total=False,
+)
+
+EBSSavingsEstimationModeTypeDef = TypedDict(
+    "EBSSavingsEstimationModeTypeDef",
+    {
+        "source": EBSSavingsEstimationModeSourceType,
+    },
+    total=False,
+)
+
+EBSSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
+    "EBSSavingsOpportunityAfterDiscountsTypeDef",
+    {
+        "savingsOpportunityPercentage": float,
+        "estimatedMonthlySavings": "EBSEstimatedMonthlySavingsTypeDef",
     },
     total=False,
 )
@@ -329,6 +420,40 @@ EBSUtilizationMetricTypeDef = TypedDict(
         "name": EBSMetricNameType,
         "statistic": MetricStatisticType,
         "value": float,
+    },
+    total=False,
+)
+
+ECSEffectiveRecommendationPreferencesTypeDef = TypedDict(
+    "ECSEffectiveRecommendationPreferencesTypeDef",
+    {
+        "savingsEstimationMode": "ECSSavingsEstimationModeTypeDef",
+    },
+    total=False,
+)
+
+ECSEstimatedMonthlySavingsTypeDef = TypedDict(
+    "ECSEstimatedMonthlySavingsTypeDef",
+    {
+        "currency": CurrencyType,
+        "value": float,
+    },
+    total=False,
+)
+
+ECSSavingsEstimationModeTypeDef = TypedDict(
+    "ECSSavingsEstimationModeTypeDef",
+    {
+        "source": ECSSavingsEstimationModeSourceType,
+    },
+    total=False,
+)
+
+ECSSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
+    "ECSSavingsOpportunityAfterDiscountsTypeDef",
+    {
+        "savingsOpportunityPercentage": float,
+        "estimatedMonthlySavings": "ECSEstimatedMonthlySavingsTypeDef",
     },
     total=False,
 )
@@ -372,6 +497,7 @@ ECSServiceRecommendationOptionTypeDef = TypedDict(
         "savingsOpportunity": "SavingsOpportunityTypeDef",
         "projectedUtilizationMetrics": List["ECSServiceProjectedUtilizationMetricTypeDef"],
         "containerRecommendations": List["ContainerRecommendationTypeDef"],
+        "savingsOpportunityAfterDiscounts": "ECSSavingsOpportunityAfterDiscountsTypeDef",
     },
     total=False,
 )
@@ -391,6 +517,7 @@ ECSServiceRecommendationTypeDef = TypedDict(
         "serviceRecommendationOptions": List["ECSServiceRecommendationOptionTypeDef"],
         "currentPerformanceRisk": CurrentPerformanceRiskType,
         "tags": List["TagTypeDef"],
+        "effectiveRecommendationPreferences": "ECSEffectiveRecommendationPreferencesTypeDef",
     },
     total=False,
 )
@@ -415,6 +542,17 @@ ECSServiceUtilizationMetricTypeDef = TypedDict(
     total=False,
 )
 
+EffectivePreferredResourceTypeDef = TypedDict(
+    "EffectivePreferredResourceTypeDef",
+    {
+        "name": Literal["Ec2InstanceTypes"],
+        "includeList": List[str],
+        "effectiveIncludeList": List[str],
+        "excludeList": List[str],
+    },
+    total=False,
+)
+
 EffectiveRecommendationPreferencesTypeDef = TypedDict(
     "EffectiveRecommendationPreferencesTypeDef",
     {
@@ -422,6 +560,10 @@ EffectiveRecommendationPreferencesTypeDef = TypedDict(
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
         "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
         "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
+        "lookBackPeriod": LookBackPeriodPreferenceType,
+        "utilizationPreferences": List["UtilizationPreferenceTypeDef"],
+        "preferredResources": List["EffectivePreferredResourceTypeDef"],
+        "savingsEstimationMode": "InstanceSavingsEstimationModeTypeDef",
     },
     total=False,
 )
@@ -833,6 +975,9 @@ GetEffectiveRecommendationPreferencesResponseTypeDef = TypedDict(
     {
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
         "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
+        "lookBackPeriod": LookBackPeriodPreferenceType,
+        "utilizationPreferences": List["UtilizationPreferenceTypeDef"],
+        "preferredResources": List["EffectivePreferredResourceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -997,6 +1142,15 @@ InferredWorkloadSavingTypeDef = TypedDict(
     total=False,
 )
 
+InstanceEstimatedMonthlySavingsTypeDef = TypedDict(
+    "InstanceEstimatedMonthlySavingsTypeDef",
+    {
+        "currency": CurrencyType,
+        "value": float,
+    },
+    total=False,
+)
+
 InstanceRecommendationOptionTypeDef = TypedDict(
     "InstanceRecommendationOptionTypeDef",
     {
@@ -1008,6 +1162,7 @@ InstanceRecommendationOptionTypeDef = TypedDict(
         "savingsOpportunity": "SavingsOpportunityTypeDef",
         "migrationEffort": MigrationEffortType,
         "instanceGpuInfo": "GpuInfoTypeDef",
+        "savingsOpportunityAfterDiscounts": "InstanceSavingsOpportunityAfterDiscountsTypeDef",
     },
     total=False,
 )
@@ -1038,11 +1193,45 @@ InstanceRecommendationTypeDef = TypedDict(
     total=False,
 )
 
+InstanceSavingsEstimationModeTypeDef = TypedDict(
+    "InstanceSavingsEstimationModeTypeDef",
+    {
+        "source": InstanceSavingsEstimationModeSourceType,
+    },
+    total=False,
+)
+
+InstanceSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
+    "InstanceSavingsOpportunityAfterDiscountsTypeDef",
+    {
+        "savingsOpportunityPercentage": float,
+        "estimatedMonthlySavings": "InstanceEstimatedMonthlySavingsTypeDef",
+    },
+    total=False,
+)
+
 JobFilterTypeDef = TypedDict(
     "JobFilterTypeDef",
     {
         "name": JobFilterNameType,
         "values": List[str],
+    },
+    total=False,
+)
+
+LambdaEffectiveRecommendationPreferencesTypeDef = TypedDict(
+    "LambdaEffectiveRecommendationPreferencesTypeDef",
+    {
+        "savingsEstimationMode": "LambdaSavingsEstimationModeTypeDef",
+    },
+    total=False,
+)
+
+LambdaEstimatedMonthlySavingsTypeDef = TypedDict(
+    "LambdaEstimatedMonthlySavingsTypeDef",
+    {
+        "currency": CurrencyType,
+        "value": float,
     },
     total=False,
 )
@@ -1064,6 +1253,7 @@ LambdaFunctionMemoryRecommendationOptionTypeDef = TypedDict(
         "memorySize": int,
         "projectedUtilizationMetrics": List["LambdaFunctionMemoryProjectedMetricTypeDef"],
         "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "savingsOpportunityAfterDiscounts": "LambdaSavingsOpportunityAfterDiscountsTypeDef",
     },
     total=False,
 )
@@ -1093,6 +1283,7 @@ LambdaFunctionRecommendationTypeDef = TypedDict(
         "memorySizeRecommendationOptions": List["LambdaFunctionMemoryRecommendationOptionTypeDef"],
         "currentPerformanceRisk": CurrentPerformanceRiskType,
         "tags": List["TagTypeDef"],
+        "effectiveRecommendationPreferences": "LambdaEffectiveRecommendationPreferencesTypeDef",
     },
     total=False,
 )
@@ -1103,6 +1294,23 @@ LambdaFunctionUtilizationMetricTypeDef = TypedDict(
         "name": LambdaFunctionMetricNameType,
         "statistic": LambdaFunctionMetricStatisticType,
         "value": float,
+    },
+    total=False,
+)
+
+LambdaSavingsEstimationModeTypeDef = TypedDict(
+    "LambdaSavingsEstimationModeTypeDef",
+    {
+        "source": LambdaSavingsEstimationModeSourceType,
+    },
+    total=False,
+)
+
+LambdaSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
+    "LambdaSavingsOpportunityAfterDiscountsTypeDef",
+    {
+        "savingsOpportunityPercentage": float,
+        "estimatedMonthlySavings": "LambdaEstimatedMonthlySavingsTypeDef",
     },
     total=False,
 )
@@ -1187,6 +1395,16 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PreferredResourceTypeDef = TypedDict(
+    "PreferredResourceTypeDef",
+    {
+        "name": Literal["Ec2InstanceTypes"],
+        "includeList": List[str],
+        "excludeList": List[str],
+    },
+    total=False,
+)
+
 ProjectedMetricTypeDef = TypedDict(
     "ProjectedMetricTypeDef",
     {
@@ -1210,6 +1428,10 @@ _OptionalPutRecommendationPreferencesRequestRequestTypeDef = TypedDict(
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
         "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
         "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
+        "lookBackPeriod": LookBackPeriodPreferenceType,
+        "utilizationPreferences": List["UtilizationPreferenceTypeDef"],
+        "preferredResources": List["PreferredResourceTypeDef"],
+        "savingsEstimationMode": SavingsEstimationModeType,
     },
     total=False,
 )
@@ -1251,6 +1473,10 @@ RecommendationPreferencesDetailTypeDef = TypedDict(
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
         "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
         "externalMetricsPreference": "ExternalMetricsPreferenceTypeDef",
+        "lookBackPeriod": LookBackPeriodPreferenceType,
+        "utilizationPreferences": List["UtilizationPreferenceTypeDef"],
+        "preferredResources": List["EffectivePreferredResourceTypeDef"],
+        "savingsEstimationMode": SavingsEstimationModeType,
     },
     total=False,
 )
@@ -1413,6 +1639,15 @@ UtilizationMetricTypeDef = TypedDict(
     total=False,
 )
 
+UtilizationPreferenceTypeDef = TypedDict(
+    "UtilizationPreferenceTypeDef",
+    {
+        "metricName": Literal["CpuUtilization"],
+        "metricParameters": "CustomizableMetricParametersTypeDef",
+    },
+    total=False,
+)
+
 VolumeConfigurationTypeDef = TypedDict(
     "VolumeConfigurationTypeDef",
     {
@@ -1434,6 +1669,7 @@ VolumeRecommendationOptionTypeDef = TypedDict(
         "performanceRisk": float,
         "rank": int,
         "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "savingsOpportunityAfterDiscounts": "EBSSavingsOpportunityAfterDiscountsTypeDef",
     },
     total=False,
 )
@@ -1451,6 +1687,7 @@ VolumeRecommendationTypeDef = TypedDict(
         "lastRefreshTimestamp": datetime,
         "currentPerformanceRisk": CurrentPerformanceRiskType,
         "tags": List["TagTypeDef"],
+        "effectiveRecommendationPreferences": "EBSEffectiveRecommendationPreferencesTypeDef",
     },
     total=False,
 )

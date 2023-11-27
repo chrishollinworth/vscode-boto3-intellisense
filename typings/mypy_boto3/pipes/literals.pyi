@@ -25,9 +25,11 @@ __all__ = (
     "DynamoDBStreamStartPositionType",
     "EcsEnvironmentFileTypeType",
     "EcsResourceRequirementTypeType",
+    "IncludeExecutionDataOptionType",
     "KinesisStreamStartPositionType",
     "LaunchTypeType",
     "ListPipesPaginatorName",
+    "LogLevelType",
     "MSKStartPositionType",
     "OnPartialBatchItemFailureStreamsType",
     "PipeStateType",
@@ -37,6 +39,7 @@ __all__ = (
     "PropagateTagsType",
     "RequestedPipeStateDescribeResponseType",
     "RequestedPipeStateType",
+    "S3OutputFormatType",
     "SelfManagedKafkaStartPositionType",
 )
 
@@ -46,14 +49,19 @@ BatchResourceRequirementTypeType = Literal["GPU", "MEMORY", "VCPU"]
 DynamoDBStreamStartPositionType = Literal["LATEST", "TRIM_HORIZON"]
 EcsEnvironmentFileTypeType = Literal["s3"]
 EcsResourceRequirementTypeType = Literal["GPU", "InferenceAccelerator"]
+IncludeExecutionDataOptionType = Literal["ALL"]
 KinesisStreamStartPositionType = Literal["AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"]
 LaunchTypeType = Literal["EC2", "EXTERNAL", "FARGATE"]
 ListPipesPaginatorName = Literal["list_pipes"]
+LogLevelType = Literal["ERROR", "INFO", "OFF", "TRACE"]
 MSKStartPositionType = Literal["LATEST", "TRIM_HORIZON"]
 OnPartialBatchItemFailureStreamsType = Literal["AUTOMATIC_BISECT"]
 PipeStateType = Literal[
     "CREATE_FAILED",
+    "CREATE_ROLLBACK_FAILED",
     "CREATING",
+    "DELETE_FAILED",
+    "DELETE_ROLLBACK_FAILED",
     "DELETING",
     "RUNNING",
     "STARTING",
@@ -62,6 +70,7 @@ PipeStateType = Literal[
     "STOPPING",
     "STOP_FAILED",
     "UPDATE_FAILED",
+    "UPDATE_ROLLBACK_FAILED",
     "UPDATING",
 ]
 PipeTargetInvocationTypeType = Literal["FIRE_AND_FORGET", "REQUEST_RESPONSE"]
@@ -70,4 +79,5 @@ PlacementStrategyTypeType = Literal["binpack", "random", "spread"]
 PropagateTagsType = Literal["TASK_DEFINITION"]
 RequestedPipeStateDescribeResponseType = Literal["DELETED", "RUNNING", "STOPPED"]
 RequestedPipeStateType = Literal["RUNNING", "STOPPED"]
+S3OutputFormatType = Literal["json", "plain", "w3c"]
 SelfManagedKafkaStartPositionType = Literal["LATEST", "TRIM_HORIZON"]

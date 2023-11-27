@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import IndexStateType, IndexTypeType
+from .literals import AWSServiceAccessStatusType, IndexStateType, IndexTypeType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -36,12 +36,15 @@ __all__ = (
     "DeleteIndexOutputTypeDef",
     "DeleteViewInputRequestTypeDef",
     "DeleteViewOutputTypeDef",
+    "GetAccountLevelServiceConfigurationOutputTypeDef",
     "GetDefaultViewOutputTypeDef",
     "GetIndexOutputTypeDef",
     "GetViewInputRequestTypeDef",
     "GetViewOutputTypeDef",
     "IncludedPropertyTypeDef",
     "IndexTypeDef",
+    "ListIndexesForMembersInputRequestTypeDef",
+    "ListIndexesForMembersOutputTypeDef",
     "ListIndexesInputRequestTypeDef",
     "ListIndexesOutputTypeDef",
     "ListSupportedResourceTypesInputRequestTypeDef",
@@ -50,6 +53,8 @@ __all__ = (
     "ListTagsForResourceOutputTypeDef",
     "ListViewsInputRequestTypeDef",
     "ListViewsOutputTypeDef",
+    "MemberIndexTypeDef",
+    "OrgConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ResourceCountTypeDef",
     "ResourcePropertyTypeDef",
@@ -139,6 +144,7 @@ _OptionalCreateViewInputRequestTypeDef = TypedDict(
         "ClientToken": str,
         "Filters": "SearchFilterTypeDef",
         "IncludedProperties": List["IncludedPropertyTypeDef"],
+        "Scope": str,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -185,6 +191,14 @@ DeleteViewOutputTypeDef = TypedDict(
     "DeleteViewOutputTypeDef",
     {
         "ViewArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAccountLevelServiceConfigurationOutputTypeDef = TypedDict(
+    "GetAccountLevelServiceConfigurationOutputTypeDef",
+    {
+        "OrgConfiguration": "OrgConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -243,6 +257,36 @@ IndexTypeDef = TypedDict(
         "Type": IndexTypeType,
     },
     total=False,
+)
+
+_RequiredListIndexesForMembersInputRequestTypeDef = TypedDict(
+    "_RequiredListIndexesForMembersInputRequestTypeDef",
+    {
+        "AccountIdList": List[str],
+    },
+)
+_OptionalListIndexesForMembersInputRequestTypeDef = TypedDict(
+    "_OptionalListIndexesForMembersInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListIndexesForMembersInputRequestTypeDef(
+    _RequiredListIndexesForMembersInputRequestTypeDef,
+    _OptionalListIndexesForMembersInputRequestTypeDef,
+):
+    pass
+
+ListIndexesForMembersOutputTypeDef = TypedDict(
+    "ListIndexesForMembersOutputTypeDef",
+    {
+        "Indexes": List["MemberIndexTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListIndexesInputRequestTypeDef = TypedDict(
@@ -315,6 +359,34 @@ ListViewsOutputTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+MemberIndexTypeDef = TypedDict(
+    "MemberIndexTypeDef",
+    {
+        "AccountId": str,
+        "Arn": str,
+        "Region": str,
+        "Type": IndexTypeType,
+    },
+    total=False,
+)
+
+_RequiredOrgConfigurationTypeDef = TypedDict(
+    "_RequiredOrgConfigurationTypeDef",
+    {
+        "AWSServiceAccessStatus": AWSServiceAccessStatusType,
+    },
+)
+_OptionalOrgConfigurationTypeDef = TypedDict(
+    "_OptionalOrgConfigurationTypeDef",
+    {
+        "ServiceLinkedRole": str,
+    },
+    total=False,
+)
+
+class OrgConfigurationTypeDef(_RequiredOrgConfigurationTypeDef, _OptionalOrgConfigurationTypeDef):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",

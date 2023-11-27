@@ -6,9 +6,9 @@ Type annotations for stepfunctions service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_stepfunctions.literals import ExecutionStatusType
+    from mypy_boto3_stepfunctions.literals import ExecutionRedriveFilterType
 
-    data: ExecutionStatusType = "ABORTED"
+    data: ExecutionRedriveFilterType = "NOT_REDRIVEN"
     ```
 """
 import sys
@@ -19,9 +19,12 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ExecutionRedriveFilterType",
+    "ExecutionRedriveStatusType",
     "ExecutionStatusType",
     "GetExecutionHistoryPaginatorName",
     "HistoryEventTypeType",
+    "InspectionLevelType",
     "ListActivitiesPaginatorName",
     "ListExecutionsPaginatorName",
     "ListMapRunsPaginatorName",
@@ -31,9 +34,14 @@ __all__ = (
     "StateMachineStatusType",
     "StateMachineTypeType",
     "SyncExecutionStatusType",
+    "TestExecutionStatusType",
 )
 
-ExecutionStatusType = Literal["ABORTED", "FAILED", "RUNNING", "SUCCEEDED", "TIMED_OUT"]
+ExecutionRedriveFilterType = Literal["NOT_REDRIVEN", "REDRIVEN"]
+ExecutionRedriveStatusType = Literal["NOT_REDRIVABLE", "REDRIVABLE", "REDRIVABLE_BY_MAP_RUN"]
+ExecutionStatusType = Literal[
+    "ABORTED", "FAILED", "PENDING_REDRIVE", "RUNNING", "SUCCEEDED", "TIMED_OUT"
+]
 GetExecutionHistoryPaginatorName = Literal["get_execution_history"]
 HistoryEventTypeType = Literal[
     "ActivityFailed",
@@ -46,6 +54,7 @@ HistoryEventTypeType = Literal[
     "ChoiceStateExited",
     "ExecutionAborted",
     "ExecutionFailed",
+    "ExecutionRedriven",
     "ExecutionStarted",
     "ExecutionSucceeded",
     "ExecutionTimedOut",
@@ -63,6 +72,7 @@ HistoryEventTypeType = Literal[
     "MapIterationSucceeded",
     "MapRunAborted",
     "MapRunFailed",
+    "MapRunRedriven",
     "MapRunStarted",
     "MapRunSucceeded",
     "MapStateAborted",
@@ -96,6 +106,7 @@ HistoryEventTypeType = Literal[
     "WaitStateEntered",
     "WaitStateExited",
 ]
+InspectionLevelType = Literal["DEBUG", "INFO", "TRACE"]
 ListActivitiesPaginatorName = Literal["list_activities"]
 ListExecutionsPaginatorName = Literal["list_executions"]
 ListMapRunsPaginatorName = Literal["list_map_runs"]
@@ -105,3 +116,4 @@ MapRunStatusType = Literal["ABORTED", "FAILED", "RUNNING", "SUCCEEDED"]
 StateMachineStatusType = Literal["ACTIVE", "DELETING"]
 StateMachineTypeType = Literal["EXPRESS", "STANDARD"]
 SyncExecutionStatusType = Literal["FAILED", "SUCCEEDED", "TIMED_OUT"]
+TestExecutionStatusType = Literal["CAUGHT_ERROR", "FAILED", "RETRIABLE", "SUCCEEDED"]

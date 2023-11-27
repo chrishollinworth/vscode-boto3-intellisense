@@ -52,6 +52,7 @@ __all__ = (
     "DescribeInboundIntegrationsPaginatorName",
     "DescribeNodeConfigurationOptionsPaginatorName",
     "DescribeOrderableClusterOptionsPaginatorName",
+    "DescribeRedshiftIdcApplicationsPaginatorName",
     "DescribeReservedNodeExchangeStatusPaginatorName",
     "DescribeReservedNodeOfferingsPaginatorName",
     "DescribeReservedNodesPaginatorName",
@@ -76,6 +77,7 @@ __all__ = (
     "ScheduledActionFilterNameType",
     "ScheduledActionStateType",
     "ScheduledActionTypeValuesType",
+    "ServiceAuthorizationType",
     "SnapshotAttributeToSortByType",
     "SnapshotAvailableWaiterName",
     "SortByOrderType",
@@ -125,6 +127,7 @@ DescribeHsmConfigurationsPaginatorName = Literal["describe_hsm_configurations"]
 DescribeInboundIntegrationsPaginatorName = Literal["describe_inbound_integrations"]
 DescribeNodeConfigurationOptionsPaginatorName = Literal["describe_node_configuration_options"]
 DescribeOrderableClusterOptionsPaginatorName = Literal["describe_orderable_cluster_options"]
+DescribeRedshiftIdcApplicationsPaginatorName = Literal["describe_redshift_idc_applications"]
 DescribeReservedNodeExchangeStatusPaginatorName = Literal["describe_reserved_node_exchange_status"]
 DescribeReservedNodeOfferingsPaginatorName = Literal["describe_reserved_node_offerings"]
 DescribeReservedNodesPaginatorName = Literal["describe_reserved_nodes"]
@@ -155,6 +158,7 @@ ScheduleStateType = Literal["ACTIVE", "FAILED", "MODIFYING"]
 ScheduledActionFilterNameType = Literal["cluster-identifier", "iam-role"]
 ScheduledActionStateType = Literal["ACTIVE", "DISABLED"]
 ScheduledActionTypeValuesType = Literal["PauseCluster", "ResizeCluster", "ResumeCluster"]
+ServiceAuthorizationType = Literal["Disabled", "Enabled"]
 SnapshotAttributeToSortByType = Literal["CREATE_TIME", "SOURCE_TYPE", "TOTAL_SIZE"]
 SnapshotAvailableWaiterName = Literal["snapshot_available"]
 SortByOrderType = Literal["ASC", "DESC"]

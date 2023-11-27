@@ -23,10 +23,15 @@ __all__ = (
     "CpuVendorArchitectureType",
     "CurrencyType",
     "CurrentPerformanceRiskType",
+    "CustomizableMetricHeadroomType",
+    "CustomizableMetricNameType",
+    "CustomizableMetricThresholdType",
     "DescribeRecommendationExportJobsPaginatorName",
     "EBSFilterNameType",
     "EBSFindingType",
     "EBSMetricNameType",
+    "EBSSavingsEstimationModeSourceType",
+    "ECSSavingsEstimationModeSourceType",
     "ECSServiceLaunchTypeType",
     "ECSServiceMetricNameType",
     "ECSServiceMetricStatisticType",
@@ -55,6 +60,7 @@ __all__ = (
     "InferredWorkloadTypesPreferenceType",
     "InstanceIdleType",
     "InstanceRecommendationFindingReasonCodeType",
+    "InstanceSavingsEstimationModeSourceType",
     "InstanceStateType",
     "JobFilterNameType",
     "JobStatusType",
@@ -65,20 +71,24 @@ __all__ = (
     "LambdaFunctionRecommendationFilterNameType",
     "LambdaFunctionRecommendationFindingReasonCodeType",
     "LambdaFunctionRecommendationFindingType",
+    "LambdaSavingsEstimationModeSourceType",
     "LicenseEditionType",
     "LicenseFindingReasonCodeType",
     "LicenseFindingType",
     "LicenseModelType",
     "LicenseNameType",
     "LicenseRecommendationFilterNameType",
+    "LookBackPeriodPreferenceType",
     "MetricNameType",
     "MetricSourceProviderType",
     "MetricStatisticType",
     "MigrationEffortType",
     "PlatformDifferenceType",
+    "PreferredResourceNameType",
     "RecommendationPreferenceNameType",
     "RecommendationSourceTypeType",
     "ResourceTypeType",
+    "SavingsEstimationModeType",
     "ScopeNameType",
     "StatusType",
 )
@@ -87,6 +97,9 @@ AutoScalingConfigurationType = Literal["TargetTrackingScalingCpu", "TargetTracki
 CpuVendorArchitectureType = Literal["AWS_ARM64", "CURRENT"]
 CurrencyType = Literal["CNY", "USD"]
 CurrentPerformanceRiskType = Literal["High", "Low", "Medium", "VeryLow"]
+CustomizableMetricHeadroomType = Literal["PERCENT_0", "PERCENT_20", "PERCENT_30"]
+CustomizableMetricNameType = Literal["CpuUtilization"]
+CustomizableMetricThresholdType = Literal["P90", "P95", "P99_5"]
 DescribeRecommendationExportJobsPaginatorName = Literal["describe_recommendation_export_jobs"]
 EBSFilterNameType = Literal["Finding"]
 EBSFindingType = Literal["NotOptimized", "Optimized"]
@@ -95,6 +108,12 @@ EBSMetricNameType = Literal[
     "VolumeReadOpsPerSecond",
     "VolumeWriteBytesPerSecond",
     "VolumeWriteOpsPerSecond",
+]
+EBSSavingsEstimationModeSourceType = Literal[
+    "CostExplorerRightsizing", "CostOptimizationHub", "PublicPricing"
+]
+ECSSavingsEstimationModeSourceType = Literal[
+    "CostExplorerRightsizing", "CostOptimizationHub", "PublicPricing"
 ]
 ECSServiceLaunchTypeType = Literal["EC2", "Fargate"]
 ECSServiceMetricNameType = Literal["Cpu", "Memory"]
@@ -126,6 +145,9 @@ ExportableAutoScalingGroupFieldType = Literal[
     "EffectiveRecommendationPreferencesCpuVendorArchitectures",
     "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
     "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+    "EffectiveRecommendationPreferencesLookBackPeriod",
+    "EffectiveRecommendationPreferencesPreferredResources",
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
     "Finding",
     "InferredWorkloadTypes",
     "LastRefreshTimestamp",
@@ -135,7 +157,9 @@ ExportableAutoScalingGroupFieldType = Literal[
     "RecommendationOptionsConfigurationMaxSize",
     "RecommendationOptionsConfigurationMinSize",
     "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
     "RecommendationOptionsEstimatedMonthlySavingsValue",
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
     "RecommendationOptionsInstanceGpuInfo",
     "RecommendationOptionsMemory",
     "RecommendationOptionsMigrationEffort",
@@ -146,6 +170,7 @@ ExportableAutoScalingGroupFieldType = Literal[
     "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum",
     "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum",
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
     "RecommendationOptionsSavingsOpportunityPercentage",
     "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
     "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
@@ -176,6 +201,7 @@ ExportableECSServiceFieldType = Literal[
     "CurrentServiceConfigurationMemory",
     "CurrentServiceConfigurationTaskDefinitionArn",
     "CurrentServiceContainerConfigurations",
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
     "Finding",
     "FindingReasonCodes",
     "LastRefreshTimestamp",
@@ -184,10 +210,13 @@ ExportableECSServiceFieldType = Literal[
     "RecommendationOptionsContainerRecommendations",
     "RecommendationOptionsCpu",
     "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
     "RecommendationOptionsEstimatedMonthlySavingsValue",
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
     "RecommendationOptionsMemory",
     "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
     "RecommendationOptionsSavingsOpportunityPercentage",
     "ServiceArn",
     "Tags",
@@ -210,6 +239,10 @@ ExportableInstanceFieldType = Literal[
     "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
     "EffectiveRecommendationPreferencesExternalMetricsSource",
     "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+    "EffectiveRecommendationPreferencesLookBackPeriod",
+    "EffectiveRecommendationPreferencesPreferredResources",
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
+    "EffectiveRecommendationPreferencesUtilizationPreferences",
     "ExternalMetricStatusCode",
     "ExternalMetricStatusReason",
     "Finding",
@@ -222,7 +255,9 @@ ExportableInstanceFieldType = Literal[
     "LastRefreshTimestamp",
     "LookbackPeriodInDays",
     "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
     "RecommendationOptionsEstimatedMonthlySavingsValue",
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
     "RecommendationOptionsInstanceGpuInfo",
     "RecommendationOptionsInstanceType",
     "RecommendationOptionsMemory",
@@ -235,6 +270,7 @@ ExportableInstanceFieldType = Literal[
     "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum",
     "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum",
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
     "RecommendationOptionsSavingsOpportunityPercentage",
     "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
     "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
@@ -267,6 +303,7 @@ ExportableLambdaFunctionFieldType = Literal[
     "CurrentCostAverage",
     "CurrentCostTotal",
     "CurrentPerformanceRisk",
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
     "Finding",
     "FindingReasonCodes",
     "FunctionArn",
@@ -278,10 +315,13 @@ ExportableLambdaFunctionFieldType = Literal[
     "RecommendationOptionsCostHigh",
     "RecommendationOptionsCostLow",
     "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
     "RecommendationOptionsEstimatedMonthlySavingsValue",
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
     "RecommendationOptionsProjectedUtilizationMetricsDurationExpected",
     "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound",
     "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
     "RecommendationOptionsSavingsOpportunityPercentage",
     "Tags",
     "UtilizationMetricsDurationAverage",
@@ -323,6 +363,7 @@ ExportableVolumeFieldType = Literal[
     "CurrentConfigurationVolumeType",
     "CurrentMonthlyPrice",
     "CurrentPerformanceRisk",
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
     "Finding",
     "LastRefreshTimestamp",
     "LookbackPeriodInDays",
@@ -333,9 +374,12 @@ ExportableVolumeFieldType = Literal[
     "RecommendationOptionsConfigurationVolumeSize",
     "RecommendationOptionsConfigurationVolumeType",
     "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
     "RecommendationOptionsEstimatedMonthlySavingsValue",
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
     "RecommendationOptionsMonthlyPrice",
     "RecommendationOptionsPerformanceRisk",
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
     "RecommendationOptionsSavingsOpportunityPercentage",
     "RootVolume",
     "Tags",
@@ -405,6 +449,9 @@ InstanceRecommendationFindingReasonCodeType = Literal[
     "NetworkPPSOverprovisioned",
     "NetworkPPSUnderprovisioned",
 ]
+InstanceSavingsEstimationModeSourceType = Literal[
+    "CostExplorerRightsizing", "CostOptimizationHub", "PublicPricing"
+]
 InstanceStateType = Literal[
     "pending", "running", "shutting-down", "stopped", "stopping", "terminated"
 ]
@@ -419,6 +466,9 @@ LambdaFunctionRecommendationFindingReasonCodeType = Literal[
     "Inconclusive", "InsufficientData", "MemoryOverprovisioned", "MemoryUnderprovisioned"
 ]
 LambdaFunctionRecommendationFindingType = Literal["NotOptimized", "Optimized", "Unavailable"]
+LambdaSavingsEstimationModeSourceType = Literal[
+    "CostExplorerRightsizing", "CostOptimizationHub", "PublicPricing"
+]
 LicenseEditionType = Literal["Enterprise", "Free", "NoLicenseEditionFound", "Standard"]
 LicenseFindingReasonCodeType = Literal[
     "CloudWatchApplicationInsightsError",
@@ -430,6 +480,7 @@ LicenseFindingType = Literal["InsufficientMetrics", "NotOptimized", "Optimized"]
 LicenseModelType = Literal["BringYourOwnLicense", "LicenseIncluded"]
 LicenseNameType = Literal["SQLServer"]
 LicenseRecommendationFilterNameType = Literal["Finding", "FindingReasonCode", "LicenseName"]
+LookBackPeriodPreferenceType = Literal["DAYS_14", "DAYS_32", "DAYS_93"]
 MetricNameType = Literal[
     "Cpu",
     "DISK_READ_BYTES_PER_SECOND",
@@ -459,8 +510,14 @@ PlatformDifferenceType = Literal[
     "StorageInterface",
     "VirtualizationType",
 ]
+PreferredResourceNameType = Literal["Ec2InstanceTypes"]
 RecommendationPreferenceNameType = Literal[
-    "EnhancedInfrastructureMetrics", "ExternalMetricsPreference", "InferredWorkloadTypes"
+    "EnhancedInfrastructureMetrics",
+    "ExternalMetricsPreference",
+    "InferredWorkloadTypes",
+    "LookBackPeriodPreference",
+    "PreferredResources",
+    "UtilizationPreferences",
 ]
 RecommendationSourceTypeType = Literal[
     "AutoScalingGroup", "EbsVolume", "Ec2Instance", "EcsService", "LambdaFunction", "License"
@@ -474,5 +531,6 @@ ResourceTypeType = Literal[
     "License",
     "NotApplicable",
 ]
+SavingsEstimationModeType = Literal["AfterDiscounts", "BeforeDiscounts"]
 ScopeNameType = Literal["AccountId", "Organization", "ResourceArn"]
 StatusType = Literal["Active", "Failed", "Inactive", "Pending"]

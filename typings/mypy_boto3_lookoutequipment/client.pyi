@@ -97,7 +97,7 @@ class Exceptions:
 
 class LookoutEquipmentClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html)
     """
 
@@ -112,14 +112,14 @@ class LookoutEquipmentClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#close)
         """
     def create_dataset(
@@ -134,7 +134,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Creates a container for a collection of data being ingested for analysis.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#create_dataset)
         """
     def create_inference_scheduler(
@@ -154,7 +154,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Creates a scheduled inference.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_inference_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_inference_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#create_inference_scheduler)
         """
     def create_label(
@@ -172,7 +172,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Creates a label for an event.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_label)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_label)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#create_label)
         """
     def create_label_group(
@@ -186,7 +186,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Creates a group of labels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_label_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_label_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#create_label_group)
         """
     def create_model(
@@ -210,7 +210,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Creates a machine learning model for data inference.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#create_model)
         """
     def create_retraining_scheduler(
@@ -226,35 +226,35 @@ class LookoutEquipmentClient(BaseClient):
         """
         Creates a retraining scheduler on the specified model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_retraining_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.create_retraining_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#create_retraining_scheduler)
         """
     def delete_dataset(self, *, DatasetName: str) -> None:
         """
         Deletes a dataset and associated artifacts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#delete_dataset)
         """
     def delete_inference_scheduler(self, *, InferenceSchedulerName: str) -> None:
         """
         Deletes an inference scheduler that has been set up.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_inference_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_inference_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#delete_inference_scheduler)
         """
     def delete_label(self, *, LabelGroupName: str, LabelId: str) -> None:
         """
         Deletes a label.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_label)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_label)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#delete_label)
         """
     def delete_label_group(self, *, LabelGroupName: str) -> None:
         """
         Deletes a group of labels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_label_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_label_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#delete_label_group)
         """
     def delete_model(self, *, ModelName: str) -> None:
@@ -262,21 +262,21 @@ class LookoutEquipmentClient(BaseClient):
         Deletes a machine learning model currently available for Amazon Lookout for
         Equipment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#delete_model)
         """
     def delete_resource_policy(self, *, ResourceArn: str) -> None:
         """
         Deletes the resource policy attached to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#delete_resource_policy)
         """
     def delete_retraining_scheduler(self, *, ModelName: str) -> None:
         """
         Deletes a retraining scheduler from a model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_retraining_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.delete_retraining_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#delete_retraining_scheduler)
         """
     def describe_data_ingestion_job(self, *, JobId: str) -> DescribeDataIngestionJobResponseTypeDef:
@@ -284,7 +284,7 @@ class LookoutEquipmentClient(BaseClient):
         Provides information on a specific data ingestion job such as creation time,
         dataset ARN, and status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_data_ingestion_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_data_ingestion_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_data_ingestion_job)
         """
     def describe_dataset(self, *, DatasetName: str) -> DescribeDatasetResponseTypeDef:
@@ -292,7 +292,7 @@ class LookoutEquipmentClient(BaseClient):
         Provides a JSON description of the data in each time series dataset, including
         names, column names, and data types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_dataset)
         """
     def describe_inference_scheduler(
@@ -304,21 +304,21 @@ class LookoutEquipmentClient(BaseClient):
         /docs.aws.amazon.com/goto/WebAPI/lookoutequipment-2020-12-
         15/DescribeInferenceScheduler>`_ **Request Syntax** response = clien...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_inference_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_inference_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_inference_scheduler)
         """
     def describe_label(self, *, LabelGroupName: str, LabelId: str) -> DescribeLabelResponseTypeDef:
         """
         Returns the name of the label.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_label)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_label)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_label)
         """
     def describe_label_group(self, *, LabelGroupName: str) -> DescribeLabelGroupResponseTypeDef:
         """
         Returns information about the label group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_label_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_label_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_label_group)
         """
     def describe_model(self, *, ModelName: str) -> DescribeModelResponseTypeDef:
@@ -327,7 +327,7 @@ class LookoutEquipmentClient(BaseClient):
         learning model, including model name and ARN, dataset, training and evaluation
         information, status, and so on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_model)
         """
     def describe_model_version(
@@ -336,7 +336,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Retrieves information about a specific machine learning model version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_model_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_model_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_model_version)
         """
     def describe_resource_policy(
@@ -345,7 +345,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Provides the details of a resource policy attached to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_resource_policy)
         """
     def describe_retraining_scheduler(
@@ -355,7 +355,7 @@ class LookoutEquipmentClient(BaseClient):
         Provides a description of the retraining scheduler, including information such
         as the model name and retraining parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_retraining_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.describe_retraining_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#describe_retraining_scheduler)
         """
     def generate_presigned_url(
@@ -368,7 +368,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#generate_presigned_url)
         """
     def import_dataset(
@@ -383,7 +383,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Imports a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.import_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.import_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#import_dataset)
         """
     def import_model_version(
@@ -402,7 +402,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Imports a model that has been trained successfully.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.import_model_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.import_model_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#import_model_version)
         """
     def list_data_ingestion_jobs(
@@ -417,7 +417,7 @@ class LookoutEquipmentClient(BaseClient):
         Provides a list of all data ingestion jobs, including dataset name and ARN, S3
         location of the input data, status, and so on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_data_ingestion_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_data_ingestion_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_data_ingestion_jobs)
         """
     def list_datasets(
@@ -427,7 +427,7 @@ class LookoutEquipmentClient(BaseClient):
         Lists all datasets currently available in your account, filtering on the dataset
         name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_datasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_datasets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_datasets)
         """
     def list_inference_events(
@@ -443,7 +443,7 @@ class LookoutEquipmentClient(BaseClient):
         Lists all inference events that have been found for the specified inference
         scheduler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_inference_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_inference_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_inference_events)
         """
     def list_inference_executions(
@@ -460,7 +460,7 @@ class LookoutEquipmentClient(BaseClient):
         Lists all inference executions that have been performed by the specified
         inference scheduler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_inference_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_inference_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_inference_executions)
         """
     def list_inference_schedulers(
@@ -476,7 +476,7 @@ class LookoutEquipmentClient(BaseClient):
         Retrieves a list of all inference schedulers currently available for your
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_inference_schedulers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_inference_schedulers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_inference_schedulers)
         """
     def list_label_groups(
@@ -485,7 +485,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Returns a list of the label groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_label_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_label_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_label_groups)
         """
     def list_labels(
@@ -502,7 +502,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Provides a list of labels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_labels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_labels)
         """
     def list_model_versions(
@@ -522,7 +522,7 @@ class LookoutEquipmentClient(BaseClient):
         Generates a list of all model versions for a given model, including the model
         version, model version ARN, and status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_model_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_model_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_model_versions)
         """
     def list_models(
@@ -538,7 +538,7 @@ class LookoutEquipmentClient(BaseClient):
         Generates a list of all models in the account, including model name and ARN,
         dataset, and status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_models)
         """
     def list_retraining_schedulers(
@@ -553,7 +553,7 @@ class LookoutEquipmentClient(BaseClient):
         Lists all retraining schedulers in your account, filtering by model name prefix
         and status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_retraining_schedulers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_retraining_schedulers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_retraining_schedulers)
         """
     def list_sensor_statistics(
@@ -568,14 +568,14 @@ class LookoutEquipmentClient(BaseClient):
         Lists statistics about the data collected for each of the sensors that have been
         successfully ingested in the particular dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_sensor_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_sensor_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_sensor_statistics)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all the tags for a specified resource, including key and value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#list_tags_for_resource)
         """
     def put_resource_policy(
@@ -589,7 +589,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Creates a resource control policy for a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#put_resource_policy)
         """
     def start_data_ingestion_job(
@@ -603,7 +603,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Starts a data ingestion job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.start_data_ingestion_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.start_data_ingestion_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#start_data_ingestion_job)
         """
     def start_inference_scheduler(
@@ -612,7 +612,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Starts an inference scheduler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.start_inference_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.start_inference_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#start_inference_scheduler)
         """
     def start_retraining_scheduler(
@@ -621,7 +621,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Starts a retraining scheduler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.start_retraining_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.start_retraining_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#start_retraining_scheduler)
         """
     def stop_inference_scheduler(
@@ -630,7 +630,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Stops an inference scheduler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.stop_inference_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.stop_inference_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#stop_inference_scheduler)
         """
     def stop_retraining_scheduler(
@@ -639,21 +639,21 @@ class LookoutEquipmentClient(BaseClient):
         """
         Stops a retraining scheduler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.stop_retraining_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.stop_retraining_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#stop_retraining_scheduler)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Associates a given tag to a resource in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a specific tag from a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#untag_resource)
         """
     def update_active_model_version(
@@ -662,7 +662,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Sets the active model version for a given machine learning model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_active_model_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_active_model_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#update_active_model_version)
         """
     def update_inference_scheduler(
@@ -678,14 +678,14 @@ class LookoutEquipmentClient(BaseClient):
         """
         Updates an inference scheduler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_inference_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_inference_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#update_inference_scheduler)
         """
     def update_label_group(self, *, LabelGroupName: str, FaultCodes: List[str] = None) -> None:
         """
         Updates the label group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_label_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_label_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#update_label_group)
         """
     def update_model(
@@ -698,7 +698,7 @@ class LookoutEquipmentClient(BaseClient):
         """
         Updates a model in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#update_model)
         """
     def update_retraining_scheduler(
@@ -713,6 +713,6 @@ class LookoutEquipmentClient(BaseClient):
         """
         Updates a retraining scheduler.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_retraining_scheduler)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/lookoutequipment.html#LookoutEquipment.Client.update_retraining_scheduler)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/client.html#update_retraining_scheduler)
         """

@@ -6,9 +6,9 @@ Type annotations for cloudtrail service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_cloudtrail.literals import DeliveryStatusType
+    from mypy_boto3_cloudtrail.literals import BillingModeType
 
-    data: DeliveryStatusType = "ACCESS_DENIED"
+    data: BillingModeType = "EXTENDABLE_RETENTION_PRICING"
     ```
 """
 import sys
@@ -19,10 +19,12 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "BillingModeType",
     "DeliveryStatusType",
     "DestinationTypeType",
     "EventCategoryType",
     "EventDataStoreStatusType",
+    "FederationStatusType",
     "ImportFailureStatusType",
     "ImportStatusType",
     "InsightTypeType",
@@ -37,6 +39,7 @@ __all__ = (
     "ReadWriteTypeType",
 )
 
+BillingModeType = Literal["EXTENDABLE_RETENTION_PRICING", "FIXED_RETENTION_PRICING"]
 DeliveryStatusType = Literal[
     "ACCESS_DENIED",
     "ACCESS_DENIED_SIGNING_FILE",
@@ -58,6 +61,7 @@ EventDataStoreStatusType = Literal[
     "STOPPED_INGESTION",
     "STOPPING_INGESTION",
 ]
+FederationStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]
 ImportFailureStatusType = Literal["FAILED", "RETRY", "SUCCEEDED"]
 ImportStatusType = Literal["COMPLETED", "FAILED", "INITIALIZING", "IN_PROGRESS", "STOPPED"]
 InsightTypeType = Literal["ApiCallRateInsight", "ApiErrorRateInsight"]

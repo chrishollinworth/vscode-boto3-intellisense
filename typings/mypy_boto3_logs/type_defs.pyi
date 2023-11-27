@@ -15,14 +15,21 @@ import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    AnomalyDetectorStatusType,
     DataProtectionStatusType,
     DeliveryDestinationTypeType,
     DistributionType,
+    EvaluationFrequencyType,
     ExportTaskStatusCodeType,
+    LogGroupClassType,
     OrderByType,
     OutputFormatType,
     QueryStatusType,
     StandardUnitType,
+    StateType,
+    SuppressionStateType,
+    SuppressionTypeType,
+    SuppressionUnitType,
 )
 
 if sys.version_info >= (3, 8):
@@ -36,12 +43,16 @@ else:
 
 __all__ = (
     "AccountPolicyTypeDef",
+    "AnomalyDetectorTypeDef",
+    "AnomalyTypeDef",
     "AssociateKmsKeyRequestRequestTypeDef",
     "CancelExportTaskRequestRequestTypeDef",
     "CreateDeliveryRequestRequestTypeDef",
     "CreateDeliveryResponseTypeDef",
     "CreateExportTaskRequestRequestTypeDef",
     "CreateExportTaskResponseTypeDef",
+    "CreateLogAnomalyDetectorRequestRequestTypeDef",
+    "CreateLogAnomalyDetectorResponseTypeDef",
     "CreateLogGroupRequestRequestTypeDef",
     "CreateLogStreamRequestRequestTypeDef",
     "DeleteAccountPolicyRequestRequestTypeDef",
@@ -51,6 +62,7 @@ __all__ = (
     "DeleteDeliveryRequestRequestTypeDef",
     "DeleteDeliverySourceRequestRequestTypeDef",
     "DeleteDestinationRequestRequestTypeDef",
+    "DeleteLogAnomalyDetectorRequestRequestTypeDef",
     "DeleteLogGroupRequestRequestTypeDef",
     "DeleteLogStreamRequestRequestTypeDef",
     "DeleteMetricFilterRequestRequestTypeDef",
@@ -107,6 +119,8 @@ __all__ = (
     "GetDeliveryResponseTypeDef",
     "GetDeliverySourceRequestRequestTypeDef",
     "GetDeliverySourceResponseTypeDef",
+    "GetLogAnomalyDetectorRequestRequestTypeDef",
+    "GetLogAnomalyDetectorResponseTypeDef",
     "GetLogEventsRequestRequestTypeDef",
     "GetLogEventsResponseTypeDef",
     "GetLogGroupFieldsRequestRequestTypeDef",
@@ -116,6 +130,10 @@ __all__ = (
     "GetQueryResultsRequestRequestTypeDef",
     "GetQueryResultsResponseTypeDef",
     "InputLogEventTypeDef",
+    "ListAnomaliesRequestRequestTypeDef",
+    "ListAnomaliesResponseTypeDef",
+    "ListLogAnomalyDetectorsRequestRequestTypeDef",
+    "ListLogAnomalyDetectorsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListTagsLogGroupRequestRequestTypeDef",
@@ -128,6 +146,7 @@ __all__ = (
     "MetricTransformationTypeDef",
     "OutputLogEventTypeDef",
     "PaginatorConfigTypeDef",
+    "PatternTokenTypeDef",
     "PolicyTypeDef",
     "PutAccountPolicyRequestRequestTypeDef",
     "PutAccountPolicyResponseTypeDef",
@@ -164,12 +183,15 @@ __all__ = (
     "StopQueryRequestRequestTypeDef",
     "StopQueryResponseTypeDef",
     "SubscriptionFilterTypeDef",
+    "SuppressionPeriodTypeDef",
     "TagLogGroupRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TestMetricFilterRequestRequestTypeDef",
     "TestMetricFilterResponseTypeDef",
     "UntagLogGroupRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAnomalyRequestRequestTypeDef",
+    "UpdateLogAnomalyDetectorRequestRequestTypeDef",
 )
 
 AccountPolicyTypeDef = TypedDict(
@@ -184,6 +206,57 @@ AccountPolicyTypeDef = TypedDict(
     },
     total=False,
 )
+
+AnomalyDetectorTypeDef = TypedDict(
+    "AnomalyDetectorTypeDef",
+    {
+        "anomalyDetectorArn": str,
+        "detectorName": str,
+        "logGroupArnList": List[str],
+        "evaluationFrequency": EvaluationFrequencyType,
+        "filterPattern": str,
+        "anomalyDetectorStatus": AnomalyDetectorStatusType,
+        "kmsKeyId": str,
+        "creationTimeStamp": int,
+        "lastModifiedTimeStamp": int,
+        "anomalyVisibilityTime": int,
+    },
+    total=False,
+)
+
+_RequiredAnomalyTypeDef = TypedDict(
+    "_RequiredAnomalyTypeDef",
+    {
+        "anomalyId": str,
+        "patternId": str,
+        "anomalyDetectorArn": str,
+        "patternString": str,
+        "firstSeen": int,
+        "lastSeen": int,
+        "description": str,
+        "active": bool,
+        "state": StateType,
+        "histogram": Dict[str, int],
+        "logSamples": List[str],
+        "patternTokens": List["PatternTokenTypeDef"],
+        "logGroupArnList": List[str],
+    },
+)
+_OptionalAnomalyTypeDef = TypedDict(
+    "_OptionalAnomalyTypeDef",
+    {
+        "patternRegex": str,
+        "priority": str,
+        "suppressed": bool,
+        "suppressedDate": int,
+        "suppressedUntil": int,
+        "isPatternLevelSuppression": bool,
+    },
+    total=False,
+)
+
+class AnomalyTypeDef(_RequiredAnomalyTypeDef, _OptionalAnomalyTypeDef):
+    pass
 
 _RequiredAssociateKmsKeyRequestRequestTypeDef = TypedDict(
     "_RequiredAssociateKmsKeyRequestRequestTypeDef",
@@ -272,6 +345,39 @@ CreateExportTaskResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateLogAnomalyDetectorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLogAnomalyDetectorRequestRequestTypeDef",
+    {
+        "logGroupArnList": List[str],
+    },
+)
+_OptionalCreateLogAnomalyDetectorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLogAnomalyDetectorRequestRequestTypeDef",
+    {
+        "detectorName": str,
+        "evaluationFrequency": EvaluationFrequencyType,
+        "filterPattern": str,
+        "kmsKeyId": str,
+        "anomalyVisibilityTime": int,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateLogAnomalyDetectorRequestRequestTypeDef(
+    _RequiredCreateLogAnomalyDetectorRequestRequestTypeDef,
+    _OptionalCreateLogAnomalyDetectorRequestRequestTypeDef,
+):
+    pass
+
+CreateLogAnomalyDetectorResponseTypeDef = TypedDict(
+    "CreateLogAnomalyDetectorResponseTypeDef",
+    {
+        "anomalyDetectorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateLogGroupRequestRequestTypeDef = TypedDict(
     "_RequiredCreateLogGroupRequestRequestTypeDef",
     {
@@ -283,6 +389,7 @@ _OptionalCreateLogGroupRequestRequestTypeDef = TypedDict(
     {
         "kmsKeyId": str,
         "tags": Dict[str, str],
+        "logGroupClass": LogGroupClassType,
     },
     total=False,
 )
@@ -347,6 +454,13 @@ DeleteDestinationRequestRequestTypeDef = TypedDict(
     "DeleteDestinationRequestRequestTypeDef",
     {
         "destinationName": str,
+    },
+)
+
+DeleteLogAnomalyDetectorRequestRequestTypeDef = TypedDict(
+    "DeleteLogAnomalyDetectorRequestRequestTypeDef",
+    {
+        "anomalyDetectorArn": str,
     },
 )
 
@@ -588,6 +702,7 @@ DescribeLogGroupsRequestRequestTypeDef = TypedDict(
         "nextToken": str,
         "limit": int,
         "includeLinkedAccounts": bool,
+        "logGroupClass": LogGroupClassType,
     },
     total=False,
 )
@@ -907,6 +1022,29 @@ GetDeliverySourceResponseTypeDef = TypedDict(
     },
 )
 
+GetLogAnomalyDetectorRequestRequestTypeDef = TypedDict(
+    "GetLogAnomalyDetectorRequestRequestTypeDef",
+    {
+        "anomalyDetectorArn": str,
+    },
+)
+
+GetLogAnomalyDetectorResponseTypeDef = TypedDict(
+    "GetLogAnomalyDetectorResponseTypeDef",
+    {
+        "detectorName": str,
+        "logGroupArnList": List[str],
+        "evaluationFrequency": EvaluationFrequencyType,
+        "filterPattern": str,
+        "anomalyDetectorStatus": AnomalyDetectorStatusType,
+        "kmsKeyId": str,
+        "creationTimeStamp": int,
+        "lastModifiedTimeStamp": int,
+        "anomalyVisibilityTime": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetLogEventsRequestRequestTypeDef = TypedDict(
     "_RequiredGetLogEventsRequestRequestTypeDef",
     {
@@ -1014,6 +1152,45 @@ InputLogEventTypeDef = TypedDict(
     },
 )
 
+ListAnomaliesRequestRequestTypeDef = TypedDict(
+    "ListAnomaliesRequestRequestTypeDef",
+    {
+        "anomalyDetectorArn": str,
+        "suppressionState": SuppressionStateType,
+        "limit": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListAnomaliesResponseTypeDef = TypedDict(
+    "ListAnomaliesResponseTypeDef",
+    {
+        "anomalies": List["AnomalyTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListLogAnomalyDetectorsRequestRequestTypeDef = TypedDict(
+    "ListLogAnomalyDetectorsRequestRequestTypeDef",
+    {
+        "filterLogGroupArn": str,
+        "limit": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListLogAnomalyDetectorsResponseTypeDef = TypedDict(
+    "ListLogAnomalyDetectorsResponseTypeDef",
+    {
+        "anomalyDetectors": List["AnomalyDetectorTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -1065,6 +1242,7 @@ LogGroupTypeDef = TypedDict(
         "kmsKeyId": str,
         "dataProtectionStatus": DataProtectionStatusType,
         "inheritedProperties": List[Literal["ACCOUNT_DATA_PROTECTION"]],
+        "logGroupClass": LogGroupClassType,
     },
     total=False,
 )
@@ -1145,6 +1323,17 @@ PaginatorConfigTypeDef = TypedDict(
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+PatternTokenTypeDef = TypedDict(
+    "PatternTokenTypeDef",
+    {
+        "dynamicTokenPosition": int,
+        "isDynamic": bool,
+        "tokenString": str,
+        "enumerations": Dict[str, int],
     },
     total=False,
 )
@@ -1593,6 +1782,15 @@ SubscriptionFilterTypeDef = TypedDict(
     total=False,
 )
 
+SuppressionPeriodTypeDef = TypedDict(
+    "SuppressionPeriodTypeDef",
+    {
+        "value": int,
+        "suppressionUnit": SuppressionUnitType,
+    },
+    total=False,
+)
+
 TagLogGroupRequestRequestTypeDef = TypedDict(
     "TagLogGroupRequestRequestTypeDef",
     {
@@ -1640,3 +1838,48 @@ UntagResourceRequestRequestTypeDef = TypedDict(
         "tagKeys": List[str],
     },
 )
+
+_RequiredUpdateAnomalyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAnomalyRequestRequestTypeDef",
+    {
+        "anomalyDetectorArn": str,
+    },
+)
+_OptionalUpdateAnomalyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAnomalyRequestRequestTypeDef",
+    {
+        "anomalyId": str,
+        "patternId": str,
+        "suppressionType": SuppressionTypeType,
+        "suppressionPeriod": "SuppressionPeriodTypeDef",
+    },
+    total=False,
+)
+
+class UpdateAnomalyRequestRequestTypeDef(
+    _RequiredUpdateAnomalyRequestRequestTypeDef, _OptionalUpdateAnomalyRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateLogAnomalyDetectorRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateLogAnomalyDetectorRequestRequestTypeDef",
+    {
+        "anomalyDetectorArn": str,
+        "enabled": bool,
+    },
+)
+_OptionalUpdateLogAnomalyDetectorRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateLogAnomalyDetectorRequestRequestTypeDef",
+    {
+        "evaluationFrequency": EvaluationFrequencyType,
+        "filterPattern": str,
+        "anomalyVisibilityTime": int,
+    },
+    total=False,
+)
+
+class UpdateLogAnomalyDetectorRequestRequestTypeDef(
+    _RequiredUpdateLogAnomalyDetectorRequestRequestTypeDef,
+    _OptionalUpdateLogAnomalyDetectorRequestRequestTypeDef,
+):
+    pass

@@ -79,7 +79,7 @@ class Exceptions:
 
 class BedrockClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html)
     """
 
@@ -94,14 +94,14 @@ class BedrockClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#close)
         """
     def create_model_customization_job(
@@ -124,7 +124,7 @@ class BedrockClient(BaseClient):
         """
         Creates a fine-tuning job to customize a base model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.create_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.create_model_customization_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_model_customization_job)
         """
     def create_provisioned_model_throughput(
@@ -141,28 +141,28 @@ class BedrockClient(BaseClient):
         Creates a provisioned throughput with dedicated capacity for a foundation model
         or a fine-tuned model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.create_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.create_provisioned_model_throughput)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_provisioned_model_throughput)
         """
     def delete_custom_model(self, *, modelIdentifier: str) -> Dict[str, Any]:
         """
         Deletes a custom model that you created earlier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.delete_custom_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.delete_custom_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_custom_model)
         """
     def delete_model_invocation_logging_configuration(self) -> Dict[str, Any]:
         """
         Delete the invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.delete_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.delete_model_invocation_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_model_invocation_logging_configuration)
         """
     def delete_provisioned_model_throughput(self, *, provisionedModelId: str) -> Dict[str, Any]:
         """
         Deletes a provisioned throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.delete_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.delete_provisioned_model_throughput)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_provisioned_model_throughput)
         """
     def generate_presigned_url(
@@ -175,7 +175,7 @@ class BedrockClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#generate_presigned_url)
         """
     def get_custom_model(self, *, modelIdentifier: str) -> GetCustomModelResponseTypeDef:
@@ -185,14 +185,14 @@ class BedrockClient(BaseClient):
         <https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html>`__ in
         the Bedrock User Guide.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.get_custom_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.get_custom_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_custom_model)
         """
     def get_foundation_model(self, *, modelIdentifier: str) -> GetFoundationModelResponseTypeDef:
         """
         Get details about a Bedrock foundation model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.get_foundation_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.get_foundation_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_foundation_model)
         """
     def get_model_customization_job(
@@ -202,7 +202,7 @@ class BedrockClient(BaseClient):
         Retrieves the properties associated with a model-customization job, including
         the status of the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.get_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.get_model_customization_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_model_customization_job)
         """
     def get_model_invocation_logging_configuration(
@@ -211,7 +211,7 @@ class BedrockClient(BaseClient):
         """
         Get the current configuration values for model invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.get_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.get_model_invocation_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_model_invocation_logging_configuration)
         """
     def get_provisioned_model_throughput(
@@ -220,7 +220,7 @@ class BedrockClient(BaseClient):
         """
         Get details for a provisioned throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.get_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.get_provisioned_model_throughput)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_provisioned_model_throughput)
         """
     def list_custom_models(
@@ -240,7 +240,7 @@ class BedrockClient(BaseClient):
         Returns a list of the custom models that you have created with the
         `CreateModelCustomizationJob` operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.list_custom_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.list_custom_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_custom_models)
         """
     def list_foundation_models(
@@ -254,7 +254,7 @@ class BedrockClient(BaseClient):
         """
         List of Bedrock foundation models that you can use.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.list_foundation_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.list_foundation_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_foundation_models)
         """
     def list_model_customization_jobs(
@@ -272,7 +272,7 @@ class BedrockClient(BaseClient):
         """
         Returns a list of model customization jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.list_model_customization_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.list_model_customization_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_model_customization_jobs)
         """
     def list_provisioned_model_throughputs(
@@ -291,14 +291,14 @@ class BedrockClient(BaseClient):
         """
         List the provisioned capacities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.list_provisioned_model_throughputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.list_provisioned_model_throughputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_provisioned_model_throughputs)
         """
     def list_tags_for_resource(self, *, resourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
         List the tags associated with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_tags_for_resource)
         """
     def put_model_invocation_logging_configuration(
@@ -307,28 +307,28 @@ class BedrockClient(BaseClient):
         """
         Set the configuration values for model invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.put_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.put_model_invocation_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#put_model_invocation_logging_configuration)
         """
     def stop_model_customization_job(self, *, jobIdentifier: str) -> Dict[str, Any]:
         """
         Stops an active model customization job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.stop_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.stop_model_customization_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#stop_model_customization_job)
         """
     def tag_resource(self, *, resourceARN: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Associate tags with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceARN: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Remove one or more tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#untag_resource)
         """
     def update_provisioned_model_throughput(
@@ -341,7 +341,7 @@ class BedrockClient(BaseClient):
         """
         Update a provisioned throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Client.update_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Client.update_provisioned_model_throughput)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#update_provisioned_model_throughput)
         """
     @overload
@@ -349,7 +349,7 @@ class BedrockClient(BaseClient):
         self, operation_name: Literal["list_custom_models"]
     ) -> ListCustomModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Paginator.ListCustomModels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Paginator.ListCustomModels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listcustommodelspaginator)
         """
     @overload
@@ -357,7 +357,7 @@ class BedrockClient(BaseClient):
         self, operation_name: Literal["list_model_customization_jobs"]
     ) -> ListModelCustomizationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Paginator.ListModelCustomizationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Paginator.ListModelCustomizationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listmodelcustomizationjobspaginator)
         """
     @overload
@@ -365,6 +365,6 @@ class BedrockClient(BaseClient):
         self, operation_name: Literal["list_provisioned_model_throughputs"]
     ) -> ListProvisionedModelThroughputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/bedrock.html#Bedrock.Paginator.ListProvisionedModelThroughputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock.html#Bedrock.Paginator.ListProvisionedModelThroughputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listprovisionedmodelthroughputspaginator)
         """

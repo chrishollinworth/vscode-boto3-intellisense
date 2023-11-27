@@ -67,6 +67,7 @@ from .type_defs import (
     PutApprovalResultOutputTypeDef,
     PutWebhookOutputTypeDef,
     RetryStageExecutionOutputTypeDef,
+    SourceRevisionOverrideTypeDef,
     StartPipelineExecutionOutputTypeDef,
     StopPipelineExecutionOutputTypeDef,
     TagTypeDef,
@@ -130,7 +131,7 @@ class Exceptions:
 
 class CodePipelineClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html)
     """
 
@@ -146,7 +147,7 @@ class CodePipelineClient(BaseClient):
         Returns information about a specified job and whether that job has been received
         by the job worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.acknowledge_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.acknowledge_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#acknowledge_job)
         """
     def acknowledge_third_party_job(
@@ -155,21 +156,21 @@ class CodePipelineClient(BaseClient):
         """
         Confirms a job worker has received the specified job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.acknowledge_third_party_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.acknowledge_third_party_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#acknowledge_third_party_job)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#close)
         """
     def create_custom_action_type(
@@ -188,7 +189,7 @@ class CodePipelineClient(BaseClient):
         Creates a new custom action that can be used in all pipelines associated with
         the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.create_custom_action_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.create_custom_action_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#create_custom_action_type)
         """
     def create_pipeline(
@@ -197,7 +198,7 @@ class CodePipelineClient(BaseClient):
         """
         Creates a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.create_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.create_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#create_pipeline)
         """
     def delete_custom_action_type(
@@ -206,21 +207,21 @@ class CodePipelineClient(BaseClient):
         """
         Marks a custom action as deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.delete_custom_action_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.delete_custom_action_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#delete_custom_action_type)
         """
     def delete_pipeline(self, *, name: str) -> None:
         """
         Deletes the specified pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.delete_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.delete_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#delete_pipeline)
         """
     def delete_webhook(self, *, name: str) -> Dict[str, Any]:
         """
         Deletes a previously created webhook by name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.delete_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.delete_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#delete_webhook)
         """
     def deregister_webhook_with_third_party(self, *, webhookName: str = None) -> Dict[str, Any]:
@@ -228,7 +229,7 @@ class CodePipelineClient(BaseClient):
         Removes the connection between the webhook that was created by CodePipeline and
         the external tool with events to be detected.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.deregister_webhook_with_third_party)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.deregister_webhook_with_third_party)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#deregister_webhook_with_third_party)
         """
     def disable_stage_transition(
@@ -243,7 +244,7 @@ class CodePipelineClient(BaseClient):
         Prevents artifacts in a pipeline from transitioning to the next stage in the
         pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.disable_stage_transition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.disable_stage_transition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#disable_stage_transition)
         """
     def enable_stage_transition(
@@ -252,7 +253,7 @@ class CodePipelineClient(BaseClient):
         """
         Enables artifacts in a pipeline to transition to a stage in a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.enable_stage_transition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.enable_stage_transition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#enable_stage_transition)
         """
     def generate_presigned_url(
@@ -265,7 +266,7 @@ class CodePipelineClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#generate_presigned_url)
         """
     def get_action_type(
@@ -275,21 +276,21 @@ class CodePipelineClient(BaseClient):
         Returns information about an action type created for an external provider, where
         the action is to be used by customers of the external provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.get_action_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.get_action_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#get_action_type)
         """
     def get_job_details(self, *, jobId: str) -> GetJobDetailsOutputTypeDef:
         """
         Returns information about a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.get_job_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.get_job_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#get_job_details)
         """
     def get_pipeline(self, *, name: str, version: int = None) -> GetPipelineOutputTypeDef:
         """
         Returns the metadata, structure, stages, and actions of a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#get_pipeline)
         """
     def get_pipeline_execution(
@@ -300,7 +301,7 @@ class CodePipelineClient(BaseClient):
         artifacts, the pipeline execution ID, and the name, version, and status of the
         pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#get_pipeline_execution)
         """
     def get_pipeline_state(self, *, name: str) -> GetPipelineStateOutputTypeDef:
@@ -308,7 +309,7 @@ class CodePipelineClient(BaseClient):
         Returns information about the state of a pipeline, including the stages and
         actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#get_pipeline_state)
         """
     def get_third_party_job_details(
@@ -317,7 +318,7 @@ class CodePipelineClient(BaseClient):
         """
         Requests the details of a job for a third party action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.get_third_party_job_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.get_third_party_job_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#get_third_party_job_details)
         """
     def list_action_executions(
@@ -331,7 +332,7 @@ class CodePipelineClient(BaseClient):
         """
         Lists the action executions that have occurred in a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.list_action_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.list_action_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#list_action_executions)
         """
     def list_action_types(
@@ -344,7 +345,7 @@ class CodePipelineClient(BaseClient):
         """
         Gets a summary of all CodePipeline action types associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.list_action_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.list_action_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#list_action_types)
         """
     def list_pipeline_executions(
@@ -353,7 +354,7 @@ class CodePipelineClient(BaseClient):
         """
         Gets a summary of the most recent executions for a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.list_pipeline_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.list_pipeline_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#list_pipeline_executions)
         """
     def list_pipelines(
@@ -362,7 +363,7 @@ class CodePipelineClient(BaseClient):
         """
         Gets a summary of all of the pipelines associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.list_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.list_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#list_pipelines)
         """
     def list_tags_for_resource(
@@ -371,7 +372,7 @@ class CodePipelineClient(BaseClient):
         """
         Gets the set of key-value pairs (metadata) that are used to manage the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#list_tags_for_resource)
         """
     def list_webhooks(
@@ -381,7 +382,7 @@ class CodePipelineClient(BaseClient):
         Gets a listing of all the webhooks in this Amazon Web Services Region for this
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.list_webhooks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.list_webhooks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#list_webhooks)
         """
     def poll_for_jobs(
@@ -394,7 +395,7 @@ class CodePipelineClient(BaseClient):
         """
         Returns information about any jobs for CodePipeline to act on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.poll_for_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.poll_for_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#poll_for_jobs)
         """
     def poll_for_third_party_jobs(
@@ -403,7 +404,7 @@ class CodePipelineClient(BaseClient):
         """
         Determines whether there are any third party jobs for a job worker to act on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.poll_for_third_party_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.poll_for_third_party_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#poll_for_third_party_jobs)
         """
     def put_action_revision(
@@ -417,7 +418,7 @@ class CodePipelineClient(BaseClient):
         """
         Provides information to CodePipeline about new revisions to a source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.put_action_revision)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.put_action_revision)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#put_action_revision)
         """
     def put_approval_result(
@@ -432,7 +433,7 @@ class CodePipelineClient(BaseClient):
         """
         Provides the response to a manual approval request to CodePipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.put_approval_result)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.put_approval_result)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#put_approval_result)
         """
     def put_job_failure_result(
@@ -441,7 +442,7 @@ class CodePipelineClient(BaseClient):
         """
         Represents the failure of a job as returned to the pipeline by a job worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.put_job_failure_result)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.put_job_failure_result)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#put_job_failure_result)
         """
     def put_job_success_result(
@@ -456,7 +457,7 @@ class CodePipelineClient(BaseClient):
         """
         Represents the success of a job as returned to the pipeline by a job worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.put_job_success_result)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.put_job_success_result)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#put_job_success_result)
         """
     def put_third_party_job_failure_result(
@@ -466,7 +467,7 @@ class CodePipelineClient(BaseClient):
         Represents the failure of a third party job as returned to the pipeline by a job
         worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.put_third_party_job_failure_result)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.put_third_party_job_failure_result)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#put_third_party_job_failure_result)
         """
     def put_third_party_job_success_result(
@@ -482,7 +483,7 @@ class CodePipelineClient(BaseClient):
         Represents the success of a third party job as returned to the pipeline by a job
         worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.put_third_party_job_success_result)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.put_third_party_job_success_result)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#put_third_party_job_success_result)
         """
     def put_webhook(
@@ -491,7 +492,7 @@ class CodePipelineClient(BaseClient):
         """
         Defines a webhook and returns a unique webhook URL generated by CodePipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.put_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.put_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#put_webhook)
         """
     def register_webhook_with_third_party(self, *, webhookName: str = None) -> Dict[str, Any]:
@@ -499,7 +500,7 @@ class CodePipelineClient(BaseClient):
         Configures a connection between the webhook that was created and the external
         tool with events to be detected.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.register_webhook_with_third_party)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.register_webhook_with_third_party)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#register_webhook_with_third_party)
         """
     def retry_stage_execution(
@@ -514,7 +515,7 @@ class CodePipelineClient(BaseClient):
         You can retry a stage that has failed without having to run a pipeline again
         from the beginning.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.retry_stage_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.retry_stage_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#retry_stage_execution)
         """
     def start_pipeline_execution(
@@ -522,12 +523,13 @@ class CodePipelineClient(BaseClient):
         *,
         name: str,
         variables: List["PipelineVariableTypeDef"] = None,
-        clientRequestToken: str = None
+        clientRequestToken: str = None,
+        sourceRevisions: List["SourceRevisionOverrideTypeDef"] = None
     ) -> StartPipelineExecutionOutputTypeDef:
         """
         Starts the specified pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.start_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.start_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#start_pipeline_execution)
         """
     def stop_pipeline_execution(
@@ -541,21 +543,21 @@ class CodePipelineClient(BaseClient):
         """
         Stops the specified pipeline execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.stop_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.stop_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#stop_pipeline_execution)
         """
     def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds to or modifies the tags of the given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#untag_resource)
         """
     def update_action_type(self, *, actionType: "ActionTypeDeclarationTypeDef") -> None:
@@ -563,7 +565,7 @@ class CodePipelineClient(BaseClient):
         Updates an action type that was created with any supported integration model,
         where the action type is to be used by customers of the action type provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.update_action_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.update_action_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#update_action_type)
         """
     def update_pipeline(
@@ -572,7 +574,7 @@ class CodePipelineClient(BaseClient):
         """
         Updates a specified pipeline with edits or changes to its structure.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Client.update_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Client.update_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/client.html#update_pipeline)
         """
     @overload
@@ -580,7 +582,7 @@ class CodePipelineClient(BaseClient):
         self, operation_name: Literal["list_action_executions"]
     ) -> ListActionExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listactionexecutionspaginator)
         """
     @overload
@@ -588,7 +590,7 @@ class CodePipelineClient(BaseClient):
         self, operation_name: Literal["list_action_types"]
     ) -> ListActionTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listactiontypespaginator)
         """
     @overload
@@ -596,13 +598,13 @@ class CodePipelineClient(BaseClient):
         self, operation_name: Literal["list_pipeline_executions"]
     ) -> ListPipelineExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listpipelineexecutionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listpipelinespaginator)
         """
     @overload
@@ -610,12 +612,12 @@ class CodePipelineClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listtagsforresourcepaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_webhooks"]) -> ListWebhooksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listwebhookspaginator)
         """

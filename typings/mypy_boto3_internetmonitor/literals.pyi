@@ -27,6 +27,9 @@ __all__ = (
     "LogDeliveryStatusType",
     "MonitorConfigStateType",
     "MonitorProcessingStatusCodeType",
+    "OperatorType",
+    "QueryStatusType",
+    "QueryTypeType",
     "TriangulationEventTypeType",
 )
 
@@ -47,4 +50,7 @@ MonitorProcessingStatusCodeType = Literal[
     "INSUFFICIENT_DATA",
     "OK",
 ]
+OperatorType = Literal["EQUALS", "NOT_EQUALS"]
+QueryStatusType = Literal["CANCELED", "FAILED", "QUEUED", "RUNNING", "SUCCEEDED"]
+QueryTypeType = Literal["MEASUREMENTS", "TOP_LOCATIONS", "TOP_LOCATION_DETAILS"]
 TriangulationEventTypeType = Literal["AWS", "Internet"]

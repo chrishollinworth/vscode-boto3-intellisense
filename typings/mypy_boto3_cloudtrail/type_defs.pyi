@@ -16,9 +16,11 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    BillingModeType,
     DeliveryStatusType,
     DestinationTypeType,
     EventDataStoreStatusType,
+    FederationStatusType,
     ImportFailureStatusType,
     ImportStatusType,
     InsightTypeType,
@@ -60,6 +62,10 @@ __all__ = (
     "DescribeTrailsRequestRequestTypeDef",
     "DescribeTrailsResponseTypeDef",
     "DestinationTypeDef",
+    "DisableFederationRequestRequestTypeDef",
+    "DisableFederationResponseTypeDef",
+    "EnableFederationRequestRequestTypeDef",
+    "EnableFederationResponseTypeDef",
     "EventDataStoreTypeDef",
     "EventSelectorTypeDef",
     "EventTypeDef",
@@ -285,6 +291,7 @@ _OptionalCreateEventDataStoreRequestRequestTypeDef = TypedDict(
         "TagsList": List["TagTypeDef"],
         "KmsKeyId": str,
         "StartIngestion": bool,
+        "BillingMode": BillingModeType,
     },
     total=False,
 )
@@ -310,6 +317,7 @@ CreateEventDataStoreResponseTypeDef = TypedDict(
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
         "KmsKeyId": str,
+        "BillingMode": BillingModeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -456,6 +464,40 @@ DestinationTypeDef = TypedDict(
     },
 )
 
+DisableFederationRequestRequestTypeDef = TypedDict(
+    "DisableFederationRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+    },
+)
+
+DisableFederationResponseTypeDef = TypedDict(
+    "DisableFederationResponseTypeDef",
+    {
+        "EventDataStoreArn": str,
+        "FederationStatus": FederationStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EnableFederationRequestRequestTypeDef = TypedDict(
+    "EnableFederationRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+        "FederationRoleArn": str,
+    },
+)
+
+EnableFederationResponseTypeDef = TypedDict(
+    "EnableFederationResponseTypeDef",
+    {
+        "EventDataStoreArn": str,
+        "FederationStatus": FederationStatusType,
+        "FederationRoleArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 EventDataStoreTypeDef = TypedDict(
     "EventDataStoreTypeDef",
     {
@@ -541,6 +583,9 @@ GetEventDataStoreResponseTypeDef = TypedDict(
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
         "KmsKeyId": str,
+        "BillingMode": BillingModeType,
+        "FederationStatus": FederationStatusType,
+        "FederationRoleArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1173,6 +1218,7 @@ RestoreEventDataStoreResponseTypeDef = TypedDict(
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
         "KmsKeyId": str,
+        "BillingMode": BillingModeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1389,6 +1435,7 @@ _OptionalUpdateEventDataStoreRequestRequestTypeDef = TypedDict(
         "RetentionPeriod": int,
         "TerminationProtectionEnabled": bool,
         "KmsKeyId": str,
+        "BillingMode": BillingModeType,
     },
     total=False,
 )
@@ -1413,6 +1460,9 @@ UpdateEventDataStoreResponseTypeDef = TypedDict(
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
         "KmsKeyId": str,
+        "BillingMode": BillingModeType,
+        "FederationStatus": FederationStatusType,
+        "FederationRoleArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

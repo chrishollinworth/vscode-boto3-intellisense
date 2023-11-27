@@ -43,6 +43,7 @@ __all__ = (
     "ScanningConfigurationFailureCodeType",
     "ScanningRepositoryFilterTypeType",
     "TagStatusType",
+    "UpstreamRegistryType",
 )
 
 DescribeImageScanFindingsPaginatorName = Literal["describe_image_scan_findings"]
@@ -61,6 +62,9 @@ ImageFailureCodeType = Literal[
     "InvalidImageTag",
     "KmsError",
     "MissingDigestAndTag",
+    "UpstreamAccessDenied",
+    "UpstreamTooManyRequests",
+    "UpstreamUnavailable",
 ]
 ImageScanCompleteWaiterName = Literal["image_scan_complete"]
 ImageTagMutabilityType = Literal["IMMUTABLE", "MUTABLE"]
@@ -86,3 +90,11 @@ ScanTypeType = Literal["BASIC", "ENHANCED"]
 ScanningConfigurationFailureCodeType = Literal["REPOSITORY_NOT_FOUND"]
 ScanningRepositoryFilterTypeType = Literal["WILDCARD"]
 TagStatusType = Literal["ANY", "TAGGED", "UNTAGGED"]
+UpstreamRegistryType = Literal[
+    "azure-container-registry",
+    "docker-hub",
+    "ecr-public",
+    "github-container-registry",
+    "k8s",
+    "quay",
+]

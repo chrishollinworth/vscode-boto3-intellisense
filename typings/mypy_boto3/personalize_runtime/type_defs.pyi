@@ -6,9 +6,9 @@ Type annotations for personalize-runtime service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_personalize_runtime.type_defs import GetPersonalizedRankingRequestRequestTypeDef
+    from mypy_boto3_personalize_runtime.type_defs import GetActionRecommendationsRequestRequestTypeDef
 
-    data: GetPersonalizedRankingRequestRequestTypeDef = {...}
+    data: GetActionRecommendationsRequestRequestTypeDef = {...}
     ```
 """
 import sys
@@ -20,13 +20,37 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "GetActionRecommendationsRequestRequestTypeDef",
+    "GetActionRecommendationsResponseTypeDef",
     "GetPersonalizedRankingRequestRequestTypeDef",
     "GetPersonalizedRankingResponseTypeDef",
     "GetRecommendationsRequestRequestTypeDef",
     "GetRecommendationsResponseTypeDef",
+    "PredictedActionTypeDef",
     "PredictedItemTypeDef",
     "PromotionTypeDef",
     "ResponseMetadataTypeDef",
+)
+
+GetActionRecommendationsRequestRequestTypeDef = TypedDict(
+    "GetActionRecommendationsRequestRequestTypeDef",
+    {
+        "campaignArn": str,
+        "userId": str,
+        "numResults": int,
+        "filterArn": str,
+        "filterValues": Dict[str, str],
+    },
+    total=False,
+)
+
+GetActionRecommendationsResponseTypeDef = TypedDict(
+    "GetActionRecommendationsResponseTypeDef",
+    {
+        "actionList": List["PredictedActionTypeDef"],
+        "recommendationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredGetPersonalizedRankingRequestRequestTypeDef = TypedDict(
@@ -43,6 +67,7 @@ _OptionalGetPersonalizedRankingRequestRequestTypeDef = TypedDict(
         "context": Dict[str, str],
         "filterArn": str,
         "filterValues": Dict[str, str],
+        "metadataColumns": Dict[str, List[str]],
     },
     total=False,
 )
@@ -74,6 +99,7 @@ GetRecommendationsRequestRequestTypeDef = TypedDict(
         "filterValues": Dict[str, str],
         "recommenderArn": str,
         "promotions": List["PromotionTypeDef"],
+        "metadataColumns": Dict[str, List[str]],
     },
     total=False,
 )
@@ -87,12 +113,22 @@ GetRecommendationsResponseTypeDef = TypedDict(
     },
 )
 
+PredictedActionTypeDef = TypedDict(
+    "PredictedActionTypeDef",
+    {
+        "actionId": str,
+        "score": float,
+    },
+    total=False,
+)
+
 PredictedItemTypeDef = TypedDict(
     "PredictedItemTypeDef",
     {
         "itemId": str,
         "score": float,
         "promotionName": str,
+        "metadata": Dict[str, str],
     },
     total=False,
 )

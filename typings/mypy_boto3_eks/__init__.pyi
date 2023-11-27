@@ -17,9 +17,11 @@ Usage::
         FargateProfileDeletedWaiter,
         ListAddonsPaginator,
         ListClustersPaginator,
+        ListEksAnywhereSubscriptionsPaginator,
         ListFargateProfilesPaginator,
         ListIdentityProviderConfigsPaginator,
         ListNodegroupsPaginator,
+        ListPodIdentityAssociationsPaginator,
         ListUpdatesPaginator,
         NodegroupActiveWaiter,
         NodegroupDeletedWaiter,
@@ -42,9 +44,11 @@ Usage::
     describe_addon_versions_paginator: DescribeAddonVersionsPaginator = client.get_paginator("describe_addon_versions")
     list_addons_paginator: ListAddonsPaginator = client.get_paginator("list_addons")
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
+    list_eks_anywhere_subscriptions_paginator: ListEksAnywhereSubscriptionsPaginator = client.get_paginator("list_eks_anywhere_subscriptions")
     list_fargate_profiles_paginator: ListFargateProfilesPaginator = client.get_paginator("list_fargate_profiles")
     list_identity_provider_configs_paginator: ListIdentityProviderConfigsPaginator = client.get_paginator("list_identity_provider_configs")
     list_nodegroups_paginator: ListNodegroupsPaginator = client.get_paginator("list_nodegroups")
+    list_pod_identity_associations_paginator: ListPodIdentityAssociationsPaginator = client.get_paginator("list_pod_identity_associations")
     list_updates_paginator: ListUpdatesPaginator = client.get_paginator("list_updates")
     ```
 """
@@ -53,9 +57,11 @@ from .paginator import (
     DescribeAddonVersionsPaginator,
     ListAddonsPaginator,
     ListClustersPaginator,
+    ListEksAnywhereSubscriptionsPaginator,
     ListFargateProfilesPaginator,
     ListIdentityProviderConfigsPaginator,
     ListNodegroupsPaginator,
+    ListPodIdentityAssociationsPaginator,
     ListUpdatesPaginator,
 )
 from .waiter import (
@@ -83,9 +89,11 @@ __all__ = (
     "FargateProfileDeletedWaiter",
     "ListAddonsPaginator",
     "ListClustersPaginator",
+    "ListEksAnywhereSubscriptionsPaginator",
     "ListFargateProfilesPaginator",
     "ListIdentityProviderConfigsPaginator",
     "ListNodegroupsPaginator",
+    "ListPodIdentityAssociationsPaginator",
     "ListUpdatesPaginator",
     "NodegroupActiveWaiter",
     "NodegroupDeletedWaiter",

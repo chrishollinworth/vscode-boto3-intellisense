@@ -16,6 +16,8 @@ Usage::
         ListSourceRepositoriesPaginator,
         ListSourceRepositoryBranchesPaginator,
         ListSpacesPaginator,
+        ListWorkflowRunsPaginator,
+        ListWorkflowsPaginator,
     )
 
     session = boto3.Session()
@@ -31,6 +33,8 @@ Usage::
     list_source_repositories_paginator: ListSourceRepositoriesPaginator = client.get_paginator("list_source_repositories")
     list_source_repository_branches_paginator: ListSourceRepositoryBranchesPaginator = client.get_paginator("list_source_repository_branches")
     list_spaces_paginator: ListSpacesPaginator = client.get_paginator("list_spaces")
+    list_workflow_runs_paginator: ListWorkflowRunsPaginator = client.get_paginator("list_workflow_runs")
+    list_workflows_paginator: ListWorkflowsPaginator = client.get_paginator("list_workflows")
     ```
 """
 from .client import CodeCatalystClient
@@ -43,6 +47,8 @@ from .paginator import (
     ListSourceRepositoriesPaginator,
     ListSourceRepositoryBranchesPaginator,
     ListSpacesPaginator,
+    ListWorkflowRunsPaginator,
+    ListWorkflowsPaginator,
 )
 
 Client = CodeCatalystClient
@@ -58,4 +64,6 @@ __all__ = (
     "ListSourceRepositoriesPaginator",
     "ListSourceRepositoryBranchesPaginator",
     "ListSpacesPaginator",
+    "ListWorkflowRunsPaginator",
+    "ListWorkflowsPaginator",
 )

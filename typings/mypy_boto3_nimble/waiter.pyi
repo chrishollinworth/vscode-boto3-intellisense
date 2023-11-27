@@ -61,7 +61,7 @@ __all__ = (
 
 class LaunchProfileDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.LaunchProfileDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.LaunchProfileDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#launchprofiledeletedwaiter)
     """
 
@@ -69,13 +69,13 @@ class LaunchProfileDeletedWaiter(Boto3Waiter):
         self, *, launchProfileId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.LaunchProfileDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.LaunchProfileDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#launchprofiledeletedwaiter)
         """
 
 class LaunchProfileReadyWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.LaunchProfileReady)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.LaunchProfileReady)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#launchprofilereadywaiter)
     """
 
@@ -83,13 +83,13 @@ class LaunchProfileReadyWaiter(Boto3Waiter):
         self, *, launchProfileId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.LaunchProfileReady.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.LaunchProfileReady.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#launchprofilereadywaiter)
         """
 
 class StreamingImageDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingImageDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingImageDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingimagedeletedwaiter)
     """
 
@@ -97,13 +97,13 @@ class StreamingImageDeletedWaiter(Boto3Waiter):
         self, *, streamingImageId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingImageDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingImageDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingimagedeletedwaiter)
         """
 
 class StreamingImageReadyWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingImageReady)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingImageReady)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingimagereadywaiter)
     """
 
@@ -111,13 +111,13 @@ class StreamingImageReadyWaiter(Boto3Waiter):
         self, *, streamingImageId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingImageReady.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingImageReady.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingimagereadywaiter)
         """
 
 class StreamingSessionDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingsessiondeletedwaiter)
     """
 
@@ -125,13 +125,13 @@ class StreamingSessionDeletedWaiter(Boto3Waiter):
         self, *, sessionId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingsessiondeletedwaiter)
         """
 
 class StreamingSessionReadyWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionReady)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionReady)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingsessionreadywaiter)
     """
 
@@ -139,13 +139,13 @@ class StreamingSessionReadyWaiter(Boto3Waiter):
         self, *, sessionId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionReady.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionReady.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingsessionreadywaiter)
         """
 
 class StreamingSessionStoppedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionStopped)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionStopped)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingsessionstoppedwaiter)
     """
 
@@ -153,13 +153,13 @@ class StreamingSessionStoppedWaiter(Boto3Waiter):
         self, *, sessionId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionStopped.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionStopped.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingsessionstoppedwaiter)
         """
 
 class StreamingSessionStreamReadyWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionStreamReady)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionStreamReady)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingsessionstreamreadywaiter)
     """
 
@@ -172,13 +172,13 @@ class StreamingSessionStreamReadyWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionStreamReady.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StreamingSessionStreamReady.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#streamingsessionstreamreadywaiter)
         """
 
 class StudioComponentDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StudioComponentDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StudioComponentDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#studiocomponentdeletedwaiter)
     """
 
@@ -186,13 +186,13 @@ class StudioComponentDeletedWaiter(Boto3Waiter):
         self, *, studioComponentId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StudioComponentDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StudioComponentDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#studiocomponentdeletedwaiter)
         """
 
 class StudioComponentReadyWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StudioComponentReady)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StudioComponentReady)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#studiocomponentreadywaiter)
     """
 
@@ -200,30 +200,30 @@ class StudioComponentReadyWaiter(Boto3Waiter):
         self, *, studioComponentId: str, studioId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StudioComponentReady.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StudioComponentReady.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#studiocomponentreadywaiter)
         """
 
 class StudioDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StudioDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StudioDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#studiodeletedwaiter)
     """
 
     def wait(self, *, studioId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StudioDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StudioDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#studiodeletedwaiter)
         """
 
 class StudioReadyWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StudioReady)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StudioReady)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#studioreadywaiter)
     """
 
     def wait(self, *, studioId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/nimble.html#NimbleStudio.Waiter.StudioReady.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/nimble.html#NimbleStudio.Waiter.StudioReady.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_nimble/waiters.html#studioreadywaiter)
         """

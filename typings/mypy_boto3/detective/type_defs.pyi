@@ -13,16 +13,27 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 from .literals import (
     DatasourcePackageIngestStateType,
     DatasourcePackageType,
+    EntityTypeType,
+    FieldType,
+    IndicatorTypeType,
     InvitationTypeType,
     MemberDisabledReasonType,
     MemberStatusType,
+    SeverityType,
+    SortOrderType,
+    StateType,
+    StatusType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -42,6 +53,7 @@ __all__ = (
     "CreateMembersResponseTypeDef",
     "DatasourcePackageIngestDetailTypeDef",
     "DatasourcePackageUsageInfoTypeDef",
+    "DateFilterTypeDef",
     "DeleteGraphRequestRequestTypeDef",
     "DeleteMembersRequestRequestTypeDef",
     "DeleteMembersResponseTypeDef",
@@ -49,13 +61,25 @@ __all__ = (
     "DescribeOrganizationConfigurationResponseTypeDef",
     "DisassociateMembershipRequestRequestTypeDef",
     "EnableOrganizationAdminAccountRequestRequestTypeDef",
+    "FilterCriteriaTypeDef",
+    "FlaggedIpAddressDetailTypeDef",
+    "GetInvestigationRequestRequestTypeDef",
+    "GetInvestigationResponseTypeDef",
     "GetMembersRequestRequestTypeDef",
     "GetMembersResponseTypeDef",
     "GraphTypeDef",
+    "ImpossibleTravelDetailTypeDef",
+    "IndicatorDetailTypeDef",
+    "IndicatorTypeDef",
+    "InvestigationDetailTypeDef",
     "ListDatasourcePackagesRequestRequestTypeDef",
     "ListDatasourcePackagesResponseTypeDef",
     "ListGraphsRequestRequestTypeDef",
     "ListGraphsResponseTypeDef",
+    "ListIndicatorsRequestRequestTypeDef",
+    "ListIndicatorsResponseTypeDef",
+    "ListInvestigationsRequestRequestTypeDef",
+    "ListInvestigationsResponseTypeDef",
     "ListInvitationsRequestRequestTypeDef",
     "ListInvitationsResponseTypeDef",
     "ListMembersRequestRequestTypeDef",
@@ -66,15 +90,26 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "MemberDetailTypeDef",
     "MembershipDatasourcesTypeDef",
+    "NewAsoDetailTypeDef",
+    "NewGeolocationDetailTypeDef",
+    "NewUserAgentDetailTypeDef",
     "RejectInvitationRequestRequestTypeDef",
+    "RelatedFindingDetailTypeDef",
+    "RelatedFindingGroupDetailTypeDef",
     "ResponseMetadataTypeDef",
+    "SortCriteriaTypeDef",
+    "StartInvestigationRequestRequestTypeDef",
+    "StartInvestigationResponseTypeDef",
     "StartMonitoringMemberRequestRequestTypeDef",
+    "StringFilterTypeDef",
+    "TTPsObservedDetailTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TimestampForCollectionTypeDef",
     "UnprocessedAccountTypeDef",
     "UnprocessedGraphTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDatasourcePackagesRequestRequestTypeDef",
+    "UpdateInvestigationStateRequestRequestTypeDef",
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
 )
 
@@ -202,6 +237,14 @@ DatasourcePackageUsageInfoTypeDef = TypedDict(
     total=False,
 )
 
+DateFilterTypeDef = TypedDict(
+    "DateFilterTypeDef",
+    {
+        "StartInclusive": Union[datetime, str],
+        "EndInclusive": Union[datetime, str],
+    },
+)
+
 DeleteGraphRequestRequestTypeDef = TypedDict(
     "DeleteGraphRequestRequestTypeDef",
     {
@@ -255,6 +298,52 @@ EnableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
     },
 )
 
+FilterCriteriaTypeDef = TypedDict(
+    "FilterCriteriaTypeDef",
+    {
+        "Severity": "StringFilterTypeDef",
+        "Status": "StringFilterTypeDef",
+        "State": "StringFilterTypeDef",
+        "EntityArn": "StringFilterTypeDef",
+        "CreatedTime": "DateFilterTypeDef",
+    },
+    total=False,
+)
+
+FlaggedIpAddressDetailTypeDef = TypedDict(
+    "FlaggedIpAddressDetailTypeDef",
+    {
+        "IpAddress": str,
+        "Reason": Literal["AWS_THREAT_INTELLIGENCE"],
+    },
+    total=False,
+)
+
+GetInvestigationRequestRequestTypeDef = TypedDict(
+    "GetInvestigationRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+        "InvestigationId": str,
+    },
+)
+
+GetInvestigationResponseTypeDef = TypedDict(
+    "GetInvestigationResponseTypeDef",
+    {
+        "GraphArn": str,
+        "InvestigationId": str,
+        "EntityArn": str,
+        "EntityType": EntityTypeType,
+        "CreatedTime": datetime,
+        "ScopeStartTime": datetime,
+        "ScopeEndTime": datetime,
+        "Status": StatusType,
+        "Severity": SeverityType,
+        "State": StateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetMembersRequestRequestTypeDef = TypedDict(
     "GetMembersRequestRequestTypeDef",
     {
@@ -277,6 +366,56 @@ GraphTypeDef = TypedDict(
     {
         "Arn": str,
         "CreatedTime": datetime,
+    },
+    total=False,
+)
+
+ImpossibleTravelDetailTypeDef = TypedDict(
+    "ImpossibleTravelDetailTypeDef",
+    {
+        "StartingIpAddress": str,
+        "EndingIpAddress": str,
+        "StartingLocation": str,
+        "EndingLocation": str,
+        "HourlyTimeDelta": int,
+    },
+    total=False,
+)
+
+IndicatorDetailTypeDef = TypedDict(
+    "IndicatorDetailTypeDef",
+    {
+        "TTPsObservedDetail": "TTPsObservedDetailTypeDef",
+        "ImpossibleTravelDetail": "ImpossibleTravelDetailTypeDef",
+        "FlaggedIpAddressDetail": "FlaggedIpAddressDetailTypeDef",
+        "NewGeolocationDetail": "NewGeolocationDetailTypeDef",
+        "NewAsoDetail": "NewAsoDetailTypeDef",
+        "NewUserAgentDetail": "NewUserAgentDetailTypeDef",
+        "RelatedFindingDetail": "RelatedFindingDetailTypeDef",
+        "RelatedFindingGroupDetail": "RelatedFindingGroupDetailTypeDef",
+    },
+    total=False,
+)
+
+IndicatorTypeDef = TypedDict(
+    "IndicatorTypeDef",
+    {
+        "IndicatorType": IndicatorTypeType,
+        "IndicatorDetail": "IndicatorDetailTypeDef",
+    },
+    total=False,
+)
+
+InvestigationDetailTypeDef = TypedDict(
+    "InvestigationDetailTypeDef",
+    {
+        "InvestigationId": str,
+        "Severity": SeverityType,
+        "Status": StatusType,
+        "State": StateType,
+        "CreatedTime": datetime,
+        "EntityArn": str,
+        "EntityType": EntityTypeType,
     },
     total=False,
 )
@@ -324,6 +463,71 @@ ListGraphsResponseTypeDef = TypedDict(
     "ListGraphsResponseTypeDef",
     {
         "GraphList": List["GraphTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListIndicatorsRequestRequestTypeDef = TypedDict(
+    "_RequiredListIndicatorsRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+        "InvestigationId": str,
+    },
+)
+_OptionalListIndicatorsRequestRequestTypeDef = TypedDict(
+    "_OptionalListIndicatorsRequestRequestTypeDef",
+    {
+        "IndicatorType": IndicatorTypeType,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListIndicatorsRequestRequestTypeDef(
+    _RequiredListIndicatorsRequestRequestTypeDef, _OptionalListIndicatorsRequestRequestTypeDef
+):
+    pass
+
+ListIndicatorsResponseTypeDef = TypedDict(
+    "ListIndicatorsResponseTypeDef",
+    {
+        "GraphArn": str,
+        "InvestigationId": str,
+        "NextToken": str,
+        "Indicators": List["IndicatorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListInvestigationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListInvestigationsRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+    },
+)
+_OptionalListInvestigationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListInvestigationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "FilterCriteria": "FilterCriteriaTypeDef",
+        "SortCriteria": "SortCriteriaTypeDef",
+    },
+    total=False,
+)
+
+class ListInvestigationsRequestRequestTypeDef(
+    _RequiredListInvestigationsRequestRequestTypeDef,
+    _OptionalListInvestigationsRequestRequestTypeDef,
+):
+    pass
+
+ListInvestigationsResponseTypeDef = TypedDict(
+    "ListInvestigationsResponseTypeDef",
+    {
+        "InvestigationDetails": List["InvestigationDetailTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -449,11 +653,57 @@ MembershipDatasourcesTypeDef = TypedDict(
     total=False,
 )
 
+NewAsoDetailTypeDef = TypedDict(
+    "NewAsoDetailTypeDef",
+    {
+        "Aso": str,
+        "IsNewForEntireAccount": bool,
+    },
+    total=False,
+)
+
+NewGeolocationDetailTypeDef = TypedDict(
+    "NewGeolocationDetailTypeDef",
+    {
+        "Location": str,
+        "IpAddress": str,
+        "IsNewForEntireAccount": bool,
+    },
+    total=False,
+)
+
+NewUserAgentDetailTypeDef = TypedDict(
+    "NewUserAgentDetailTypeDef",
+    {
+        "UserAgent": str,
+        "IsNewForEntireAccount": bool,
+    },
+    total=False,
+)
+
 RejectInvitationRequestRequestTypeDef = TypedDict(
     "RejectInvitationRequestRequestTypeDef",
     {
         "GraphArn": str,
     },
+)
+
+RelatedFindingDetailTypeDef = TypedDict(
+    "RelatedFindingDetailTypeDef",
+    {
+        "Arn": str,
+        "Type": str,
+        "IpAddress": str,
+    },
+    total=False,
+)
+
+RelatedFindingGroupDetailTypeDef = TypedDict(
+    "RelatedFindingGroupDetailTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
 )
 
 ResponseMetadataTypeDef = TypedDict(
@@ -467,12 +717,60 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+SortCriteriaTypeDef = TypedDict(
+    "SortCriteriaTypeDef",
+    {
+        "Field": FieldType,
+        "SortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+StartInvestigationRequestRequestTypeDef = TypedDict(
+    "StartInvestigationRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+        "EntityArn": str,
+        "ScopeStartTime": Union[datetime, str],
+        "ScopeEndTime": Union[datetime, str],
+    },
+)
+
+StartInvestigationResponseTypeDef = TypedDict(
+    "StartInvestigationResponseTypeDef",
+    {
+        "InvestigationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StartMonitoringMemberRequestRequestTypeDef = TypedDict(
     "StartMonitoringMemberRequestRequestTypeDef",
     {
         "GraphArn": str,
         "AccountId": str,
     },
+)
+
+StringFilterTypeDef = TypedDict(
+    "StringFilterTypeDef",
+    {
+        "Value": str,
+    },
+)
+
+TTPsObservedDetailTypeDef = TypedDict(
+    "TTPsObservedDetailTypeDef",
+    {
+        "Tactic": str,
+        "Technique": str,
+        "Procedure": str,
+        "IpAddress": str,
+        "APIName": str,
+        "APISuccessCount": int,
+        "APIFailureCount": int,
+    },
+    total=False,
 )
 
 TagResourceRequestRequestTypeDef = TypedDict(
@@ -522,6 +820,15 @@ UpdateDatasourcePackagesRequestRequestTypeDef = TypedDict(
     {
         "GraphArn": str,
         "DatasourcePackages": List[DatasourcePackageType],
+    },
+)
+
+UpdateInvestigationStateRequestRequestTypeDef = TypedDict(
+    "UpdateInvestigationStateRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+        "InvestigationId": str,
+        "State": StateType,
     },
 )
 

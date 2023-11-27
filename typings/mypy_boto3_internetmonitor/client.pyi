@@ -18,17 +18,21 @@ from typing import Any, Dict, List, Type, Union, overload
 
 from botocore.client import BaseClient, ClientMeta
 
-from .literals import HealthEventStatusType, MonitorConfigStateType
+from .literals import HealthEventStatusType, MonitorConfigStateType, QueryTypeType
 from .paginator import ListHealthEventsPaginator, ListMonitorsPaginator
 from .type_defs import (
     CreateMonitorOutputTypeDef,
+    FilterParameterTypeDef,
     GetHealthEventOutputTypeDef,
     GetMonitorOutputTypeDef,
+    GetQueryResultsOutputTypeDef,
+    GetQueryStatusOutputTypeDef,
     HealthEventsConfigTypeDef,
     InternetMeasurementsLogDeliveryTypeDef,
     ListHealthEventsOutputTypeDef,
     ListMonitorsOutputTypeDef,
     ListTagsForResourceOutputTypeDef,
+    StartQueryOutputTypeDef,
     UpdateMonitorOutputTypeDef,
 )
 
@@ -62,7 +66,7 @@ class Exceptions:
 
 class CloudWatchInternetMonitorClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html)
     """
 
@@ -77,14 +81,14 @@ class CloudWatchInternetMonitorClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#close)
         """
     def create_monitor(
@@ -102,14 +106,14 @@ class CloudWatchInternetMonitorClient(BaseClient):
         """
         Creates a monitor in Amazon CloudWatch Internet Monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.create_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.create_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#create_monitor)
         """
     def delete_monitor(self, *, MonitorName: str) -> Dict[str, Any]:
         """
         Deletes a monitor in Amazon CloudWatch Internet Monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.delete_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.delete_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#delete_monitor)
         """
     def generate_presigned_url(
@@ -122,7 +126,7 @@ class CloudWatchInternetMonitorClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#generate_presigned_url)
         """
     def get_health_event(self, *, MonitorName: str, EventId: str) -> GetHealthEventOutputTypeDef:
@@ -130,7 +134,7 @@ class CloudWatchInternetMonitorClient(BaseClient):
         Gets information the Amazon CloudWatch Internet Monitor has created and stored
         about a health event for a specified monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.get_health_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.get_health_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#get_health_event)
         """
     def get_monitor(self, *, MonitorName: str) -> GetMonitorOutputTypeDef:
@@ -138,8 +142,26 @@ class CloudWatchInternetMonitorClient(BaseClient):
         Gets information about a monitor in Amazon CloudWatch Internet Monitor based on
         a monitor name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.get_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.get_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#get_monitor)
+        """
+    def get_query_results(
+        self, *, MonitorName: str, QueryId: str, NextToken: str = None, MaxResults: int = None
+    ) -> GetQueryResultsOutputTypeDef:
+        """
+        Return the data for a query with the Amazon CloudWatch Internet Monitor query
+        interface.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.get_query_results)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#get_query_results)
+        """
+    def get_query_status(self, *, MonitorName: str, QueryId: str) -> GetQueryStatusOutputTypeDef:
+        """
+        Returns the current status of a query for the Amazon CloudWatch Internet Monitor
+        query interface, for a specified query ID and monitor.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.get_query_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#get_query_status)
         """
     def list_health_events(
         self,
@@ -154,7 +176,7 @@ class CloudWatchInternetMonitorClient(BaseClient):
         """
         Lists all health events for a monitor in Amazon CloudWatch Internet Monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.list_health_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.list_health_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#list_health_events)
         """
     def list_monitors(
@@ -164,28 +186,51 @@ class CloudWatchInternetMonitorClient(BaseClient):
         Lists all of your monitors for Amazon CloudWatch Internet Monitor and their
         statuses, along with the Amazon Resource Name (ARN) and name of each monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.list_monitors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.list_monitors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#list_monitors)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceOutputTypeDef:
         """
         Lists the tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#list_tags_for_resource)
+        """
+    def start_query(
+        self,
+        *,
+        MonitorName: str,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
+        QueryType: QueryTypeType,
+        FilterParameters: List["FilterParameterTypeDef"] = None
+    ) -> StartQueryOutputTypeDef:
+        """
+        Start a query to return data for a specific query type for the Amazon CloudWatch
+        Internet Monitor query interface.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.start_query)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#start_query)
+        """
+    def stop_query(self, *, MonitorName: str, QueryId: str) -> Dict[str, Any]:
+        """
+        Stop a query that is progress for a specific monitor.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.stop_query)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#stop_query)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Adds a tag to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a tag from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#untag_resource)
         """
     def update_monitor(
@@ -204,7 +249,7 @@ class CloudWatchInternetMonitorClient(BaseClient):
         """
         Updates a monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.update_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Client.update_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/client.html#update_monitor)
         """
     @overload
@@ -212,12 +257,12 @@ class CloudWatchInternetMonitorClient(BaseClient):
         self, operation_name: Literal["list_health_events"]
     ) -> ListHealthEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListHealthEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListHealthEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/paginators.html#listhealtheventspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_monitors"]) -> ListMonitorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListMonitors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListMonitors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/paginators.html#listmonitorspaginator)
         """

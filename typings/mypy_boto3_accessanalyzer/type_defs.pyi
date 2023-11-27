@@ -16,14 +16,18 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AccessCheckPolicyTypeType,
     AccessPreviewStatusReasonCodeType,
     AccessPreviewStatusType,
     AclPermissionType,
     AnalyzerStatusType,
+    CheckAccessNotGrantedResultType,
+    CheckNoNewAccessResultType,
     FindingChangeTypeType,
     FindingSourceTypeType,
     FindingStatusType,
     FindingStatusUpdateType,
+    FindingTypeType,
     JobErrorCodeType,
     JobStatusType,
     KmsGrantOperationType,
@@ -47,13 +51,19 @@ __all__ = (
     "AccessPreviewStatusReasonTypeDef",
     "AccessPreviewSummaryTypeDef",
     "AccessPreviewTypeDef",
+    "AccessTypeDef",
     "AclGranteeTypeDef",
     "AnalyzedResourceSummaryTypeDef",
     "AnalyzedResourceTypeDef",
+    "AnalyzerConfigurationTypeDef",
     "AnalyzerSummaryTypeDef",
     "ApplyArchiveRuleRequestRequestTypeDef",
     "ArchiveRuleSummaryTypeDef",
     "CancelPolicyGenerationRequestRequestTypeDef",
+    "CheckAccessNotGrantedRequestRequestTypeDef",
+    "CheckAccessNotGrantedResponseTypeDef",
+    "CheckNoNewAccessRequestRequestTypeDef",
+    "CheckNoNewAccessResponseTypeDef",
     "CloudTrailDetailsTypeDef",
     "CloudTrailPropertiesTypeDef",
     "ConfigurationTypeDef",
@@ -68,9 +78,12 @@ __all__ = (
     "EbsSnapshotConfigurationTypeDef",
     "EcrRepositoryConfigurationTypeDef",
     "EfsFileSystemConfigurationTypeDef",
+    "ExternalAccessDetailsTypeDef",
+    "FindingDetailsTypeDef",
     "FindingSourceDetailTypeDef",
     "FindingSourceTypeDef",
     "FindingSummaryTypeDef",
+    "FindingSummaryV2TypeDef",
     "FindingTypeDef",
     "GeneratedPolicyPropertiesTypeDef",
     "GeneratedPolicyResultTypeDef",
@@ -85,6 +98,8 @@ __all__ = (
     "GetArchiveRuleResponseTypeDef",
     "GetFindingRequestRequestTypeDef",
     "GetFindingResponseTypeDef",
+    "GetFindingV2RequestRequestTypeDef",
+    "GetFindingV2ResponseTypeDef",
     "GetGeneratedPolicyRequestRequestTypeDef",
     "GetGeneratedPolicyResponseTypeDef",
     "IamRoleConfigurationTypeDef",
@@ -106,6 +121,8 @@ __all__ = (
     "ListArchiveRulesResponseTypeDef",
     "ListFindingsRequestRequestTypeDef",
     "ListFindingsResponseTypeDef",
+    "ListFindingsV2RequestRequestTypeDef",
+    "ListFindingsV2ResponseTypeDef",
     "ListPolicyGenerationsRequestRequestTypeDef",
     "ListPolicyGenerationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -121,6 +138,7 @@ __all__ = (
     "RdsDbClusterSnapshotConfigurationTypeDef",
     "RdsDbSnapshotAttributeValueTypeDef",
     "RdsDbSnapshotConfigurationTypeDef",
+    "ReasonSummaryTypeDef",
     "ResponseMetadataTypeDef",
     "S3AccessPointConfigurationTypeDef",
     "S3BucketAclGrantConfigurationTypeDef",
@@ -140,6 +158,12 @@ __all__ = (
     "TrailPropertiesTypeDef",
     "TrailTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UnusedAccessConfigurationTypeDef",
+    "UnusedActionTypeDef",
+    "UnusedIamRoleDetailsTypeDef",
+    "UnusedIamUserAccessKeyDetailsTypeDef",
+    "UnusedIamUserPasswordDetailsTypeDef",
+    "UnusedPermissionDetailsTypeDef",
     "UpdateArchiveRuleRequestRequestTypeDef",
     "UpdateFindingsRequestRequestTypeDef",
     "ValidatePolicyFindingTypeDef",
@@ -230,6 +254,13 @@ _OptionalAccessPreviewTypeDef = TypedDict(
 class AccessPreviewTypeDef(_RequiredAccessPreviewTypeDef, _OptionalAccessPreviewTypeDef):
     pass
 
+AccessTypeDef = TypedDict(
+    "AccessTypeDef",
+    {
+        "actions": List[str],
+    },
+)
+
 AclGranteeTypeDef = TypedDict(
     "AclGranteeTypeDef",
     {
@@ -274,6 +305,14 @@ _OptionalAnalyzedResourceTypeDef = TypedDict(
 class AnalyzedResourceTypeDef(_RequiredAnalyzedResourceTypeDef, _OptionalAnalyzedResourceTypeDef):
     pass
 
+AnalyzerConfigurationTypeDef = TypedDict(
+    "AnalyzerConfigurationTypeDef",
+    {
+        "unusedAccess": "UnusedAccessConfigurationTypeDef",
+    },
+    total=False,
+)
+
 _RequiredAnalyzerSummaryTypeDef = TypedDict(
     "_RequiredAnalyzerSummaryTypeDef",
     {
@@ -291,6 +330,7 @@ _OptionalAnalyzerSummaryTypeDef = TypedDict(
         "lastResourceAnalyzedAt": datetime,
         "tags": Dict[str, str],
         "statusReason": "StatusReasonTypeDef",
+        "configuration": "AnalyzerConfigurationTypeDef",
     },
     total=False,
 )
@@ -332,6 +372,44 @@ CancelPolicyGenerationRequestRequestTypeDef = TypedDict(
     "CancelPolicyGenerationRequestRequestTypeDef",
     {
         "jobId": str,
+    },
+)
+
+CheckAccessNotGrantedRequestRequestTypeDef = TypedDict(
+    "CheckAccessNotGrantedRequestRequestTypeDef",
+    {
+        "policyDocument": str,
+        "access": List["AccessTypeDef"],
+        "policyType": AccessCheckPolicyTypeType,
+    },
+)
+
+CheckAccessNotGrantedResponseTypeDef = TypedDict(
+    "CheckAccessNotGrantedResponseTypeDef",
+    {
+        "result": CheckAccessNotGrantedResultType,
+        "message": str,
+        "reasons": List["ReasonSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CheckNoNewAccessRequestRequestTypeDef = TypedDict(
+    "CheckNoNewAccessRequestRequestTypeDef",
+    {
+        "newPolicyDocument": str,
+        "existingPolicyDocument": str,
+        "policyType": AccessCheckPolicyTypeType,
+    },
+)
+
+CheckNoNewAccessResponseTypeDef = TypedDict(
+    "CheckNoNewAccessResponseTypeDef",
+    {
+        "result": CheckNoNewAccessResultType,
+        "message": str,
+        "reasons": List["ReasonSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -425,6 +503,7 @@ _OptionalCreateAnalyzerRequestRequestTypeDef = TypedDict(
         "archiveRules": List["InlineArchiveRuleTypeDef"],
         "tags": Dict[str, str],
         "clientToken": str,
+        "configuration": "AnalyzerConfigurationTypeDef",
     },
     total=False,
 )
@@ -539,6 +618,40 @@ EfsFileSystemConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredExternalAccessDetailsTypeDef = TypedDict(
+    "_RequiredExternalAccessDetailsTypeDef",
+    {
+        "condition": Dict[str, str],
+    },
+)
+_OptionalExternalAccessDetailsTypeDef = TypedDict(
+    "_OptionalExternalAccessDetailsTypeDef",
+    {
+        "action": List[str],
+        "isPublic": bool,
+        "principal": Dict[str, str],
+        "sources": List["FindingSourceTypeDef"],
+    },
+    total=False,
+)
+
+class ExternalAccessDetailsTypeDef(
+    _RequiredExternalAccessDetailsTypeDef, _OptionalExternalAccessDetailsTypeDef
+):
+    pass
+
+FindingDetailsTypeDef = TypedDict(
+    "FindingDetailsTypeDef",
+    {
+        "externalAccessDetails": "ExternalAccessDetailsTypeDef",
+        "unusedPermissionDetails": "UnusedPermissionDetailsTypeDef",
+        "unusedIamUserAccessKeyDetails": "UnusedIamUserAccessKeyDetailsTypeDef",
+        "unusedIamRoleDetails": "UnusedIamRoleDetailsTypeDef",
+        "unusedIamUserPasswordDetails": "UnusedIamUserPasswordDetailsTypeDef",
+    },
+    total=False,
+)
+
 FindingSourceDetailTypeDef = TypedDict(
     "FindingSourceDetailTypeDef",
     {
@@ -592,6 +705,31 @@ _OptionalFindingSummaryTypeDef = TypedDict(
 )
 
 class FindingSummaryTypeDef(_RequiredFindingSummaryTypeDef, _OptionalFindingSummaryTypeDef):
+    pass
+
+_RequiredFindingSummaryV2TypeDef = TypedDict(
+    "_RequiredFindingSummaryV2TypeDef",
+    {
+        "analyzedAt": datetime,
+        "createdAt": datetime,
+        "id": str,
+        "resourceType": ResourceTypeType,
+        "resourceOwnerAccount": str,
+        "status": FindingStatusType,
+        "updatedAt": datetime,
+    },
+)
+_OptionalFindingSummaryV2TypeDef = TypedDict(
+    "_OptionalFindingSummaryV2TypeDef",
+    {
+        "error": str,
+        "resource": str,
+        "findingType": FindingTypeType,
+    },
+    total=False,
+)
+
+class FindingSummaryV2TypeDef(_RequiredFindingSummaryV2TypeDef, _OptionalFindingSummaryV2TypeDef):
     pass
 
 _RequiredFindingTypeDef = TypedDict(
@@ -744,6 +882,46 @@ GetFindingResponseTypeDef = TypedDict(
     "GetFindingResponseTypeDef",
     {
         "finding": "FindingTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetFindingV2RequestRequestTypeDef = TypedDict(
+    "_RequiredGetFindingV2RequestRequestTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+    },
+)
+_OptionalGetFindingV2RequestRequestTypeDef = TypedDict(
+    "_OptionalGetFindingV2RequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class GetFindingV2RequestRequestTypeDef(
+    _RequiredGetFindingV2RequestRequestTypeDef, _OptionalGetFindingV2RequestRequestTypeDef
+):
+    pass
+
+GetFindingV2ResponseTypeDef = TypedDict(
+    "GetFindingV2ResponseTypeDef",
+    {
+        "analyzedAt": datetime,
+        "createdAt": datetime,
+        "error": str,
+        "id": str,
+        "nextToken": str,
+        "resource": str,
+        "resourceType": ResourceTypeType,
+        "resourceOwnerAccount": str,
+        "status": FindingStatusType,
+        "updatedAt": datetime,
+        "findingDetails": List["FindingDetailsTypeDef"],
+        "findingType": FindingTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1034,6 +1212,37 @@ ListFindingsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListFindingsV2RequestRequestTypeDef = TypedDict(
+    "_RequiredListFindingsV2RequestRequestTypeDef",
+    {
+        "analyzerArn": str,
+    },
+)
+_OptionalListFindingsV2RequestRequestTypeDef = TypedDict(
+    "_OptionalListFindingsV2RequestRequestTypeDef",
+    {
+        "filter": Dict[str, "CriterionTypeDef"],
+        "maxResults": int,
+        "nextToken": str,
+        "sort": "SortCriteriaTypeDef",
+    },
+    total=False,
+)
+
+class ListFindingsV2RequestRequestTypeDef(
+    _RequiredListFindingsV2RequestRequestTypeDef, _OptionalListFindingsV2RequestRequestTypeDef
+):
+    pass
+
+ListFindingsV2ResponseTypeDef = TypedDict(
+    "ListFindingsV2ResponseTypeDef",
+    {
+        "findings": List["FindingSummaryV2TypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListPolicyGenerationsRequestRequestTypeDef = TypedDict(
     "ListPolicyGenerationsRequestRequestTypeDef",
     {
@@ -1172,6 +1381,16 @@ RdsDbSnapshotConfigurationTypeDef = TypedDict(
     {
         "attributes": Dict[str, "RdsDbSnapshotAttributeValueTypeDef"],
         "kmsKeyId": str,
+    },
+    total=False,
+)
+
+ReasonSummaryTypeDef = TypedDict(
+    "ReasonSummaryTypeDef",
+    {
+        "description": str,
+        "statementIndex": int,
+        "statementId": str,
     },
     total=False,
 )
@@ -1381,6 +1600,86 @@ UntagResourceRequestRequestTypeDef = TypedDict(
         "tagKeys": List[str],
     },
 )
+
+UnusedAccessConfigurationTypeDef = TypedDict(
+    "UnusedAccessConfigurationTypeDef",
+    {
+        "unusedAccessAge": int,
+    },
+    total=False,
+)
+
+_RequiredUnusedActionTypeDef = TypedDict(
+    "_RequiredUnusedActionTypeDef",
+    {
+        "action": str,
+    },
+)
+_OptionalUnusedActionTypeDef = TypedDict(
+    "_OptionalUnusedActionTypeDef",
+    {
+        "lastAccessed": datetime,
+    },
+    total=False,
+)
+
+class UnusedActionTypeDef(_RequiredUnusedActionTypeDef, _OptionalUnusedActionTypeDef):
+    pass
+
+UnusedIamRoleDetailsTypeDef = TypedDict(
+    "UnusedIamRoleDetailsTypeDef",
+    {
+        "lastAccessed": datetime,
+    },
+    total=False,
+)
+
+_RequiredUnusedIamUserAccessKeyDetailsTypeDef = TypedDict(
+    "_RequiredUnusedIamUserAccessKeyDetailsTypeDef",
+    {
+        "accessKeyId": str,
+    },
+)
+_OptionalUnusedIamUserAccessKeyDetailsTypeDef = TypedDict(
+    "_OptionalUnusedIamUserAccessKeyDetailsTypeDef",
+    {
+        "lastAccessed": datetime,
+    },
+    total=False,
+)
+
+class UnusedIamUserAccessKeyDetailsTypeDef(
+    _RequiredUnusedIamUserAccessKeyDetailsTypeDef, _OptionalUnusedIamUserAccessKeyDetailsTypeDef
+):
+    pass
+
+UnusedIamUserPasswordDetailsTypeDef = TypedDict(
+    "UnusedIamUserPasswordDetailsTypeDef",
+    {
+        "lastAccessed": datetime,
+    },
+    total=False,
+)
+
+_RequiredUnusedPermissionDetailsTypeDef = TypedDict(
+    "_RequiredUnusedPermissionDetailsTypeDef",
+    {
+        "serviceNamespace": str,
+    },
+)
+_OptionalUnusedPermissionDetailsTypeDef = TypedDict(
+    "_OptionalUnusedPermissionDetailsTypeDef",
+    {
+        "actions": List["UnusedActionTypeDef"],
+        "lastAccessed": datetime,
+    },
+    total=False,
+)
+
+class UnusedPermissionDetailsTypeDef(
+    _RequiredUnusedPermissionDetailsTypeDef, _OptionalUnusedPermissionDetailsTypeDef
+):
+    pass
 
 _RequiredUpdateArchiveRuleRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateArchiveRuleRequestRequestTypeDef",

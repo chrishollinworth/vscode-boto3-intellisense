@@ -301,6 +301,7 @@ IntegrationTypeType = Literal[
     "VOICE_ID",
     "WISDOM_ASSISTANT",
     "WISDOM_KNOWLEDGE_BASE",
+    "WISDOM_QUICK_RESPONSES",
 ]
 IntervalPeriodType = Literal["DAY", "FIFTEEN_MIN", "HOUR", "THIRTY_MIN", "TOTAL", "WEEK"]
 LexVersionType = Literal["V1", "V2"]
@@ -314,7 +315,7 @@ ListContactReferencesPaginatorName = Literal["list_contact_references"]
 ListDefaultVocabulariesPaginatorName = Literal["list_default_vocabularies"]
 ListEvaluationFormVersionsPaginatorName = Literal["list_evaluation_form_versions"]
 ListEvaluationFormsPaginatorName = Literal["list_evaluation_forms"]
-ListFlowAssociationResourceTypeType = Literal["SMS_PHONE_NUMBER", "VOICE_PHONE_NUMBER"]
+ListFlowAssociationResourceTypeType = Literal["VOICE_PHONE_NUMBER"]
 ListHoursOfOperationsPaginatorName = Literal["list_hours_of_operations"]
 ListInstanceAttributesPaginatorName = Literal["list_instance_attributes"]
 ListInstanceStorageConfigsPaginatorName = Literal["list_instance_storage_configs"]

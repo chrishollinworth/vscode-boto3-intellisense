@@ -16,10 +16,16 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    ApplicationStatusType,
+    ApplicationVisibilityType,
+    FederationProtocolType,
+    GrantTypeType,
     InstanceAccessControlAttributeConfigurationStatusType,
+    InstanceStatusType,
     PrincipalTypeType,
     ProvisioningStatusType,
     ProvisionTargetTypeType,
+    SignInOriginType,
     StatusValuesType,
 )
 
@@ -35,50 +41,115 @@ else:
 __all__ = (
     "AccessControlAttributeTypeDef",
     "AccessControlAttributeValueTypeDef",
+    "AccountAssignmentForPrincipalTypeDef",
     "AccountAssignmentOperationStatusMetadataTypeDef",
     "AccountAssignmentOperationStatusTypeDef",
     "AccountAssignmentTypeDef",
+    "ApplicationAssignmentForPrincipalTypeDef",
+    "ApplicationAssignmentTypeDef",
+    "ApplicationProviderTypeDef",
+    "ApplicationTypeDef",
     "AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef",
     "AttachManagedPolicyToPermissionSetRequestRequestTypeDef",
     "AttachedManagedPolicyTypeDef",
+    "AuthenticationMethodItemTypeDef",
+    "AuthenticationMethodTypeDef",
+    "AuthorizationCodeGrantTypeDef",
+    "AuthorizedTokenIssuerTypeDef",
     "CreateAccountAssignmentRequestRequestTypeDef",
     "CreateAccountAssignmentResponseTypeDef",
+    "CreateApplicationAssignmentRequestRequestTypeDef",
+    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationResponseTypeDef",
     "CreateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
+    "CreateInstanceRequestRequestTypeDef",
+    "CreateInstanceResponseTypeDef",
     "CreatePermissionSetRequestRequestTypeDef",
     "CreatePermissionSetResponseTypeDef",
+    "CreateTrustedTokenIssuerRequestRequestTypeDef",
+    "CreateTrustedTokenIssuerResponseTypeDef",
     "CustomerManagedPolicyReferenceTypeDef",
     "DeleteAccountAssignmentRequestRequestTypeDef",
     "DeleteAccountAssignmentResponseTypeDef",
+    "DeleteApplicationAccessScopeRequestRequestTypeDef",
+    "DeleteApplicationAssignmentRequestRequestTypeDef",
+    "DeleteApplicationAuthenticationMethodRequestRequestTypeDef",
+    "DeleteApplicationGrantRequestRequestTypeDef",
+    "DeleteApplicationRequestRequestTypeDef",
     "DeleteInlinePolicyFromPermissionSetRequestRequestTypeDef",
     "DeleteInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
+    "DeleteInstanceRequestRequestTypeDef",
     "DeletePermissionSetRequestRequestTypeDef",
     "DeletePermissionsBoundaryFromPermissionSetRequestRequestTypeDef",
+    "DeleteTrustedTokenIssuerRequestRequestTypeDef",
     "DescribeAccountAssignmentCreationStatusRequestRequestTypeDef",
     "DescribeAccountAssignmentCreationStatusResponseTypeDef",
     "DescribeAccountAssignmentDeletionStatusRequestRequestTypeDef",
     "DescribeAccountAssignmentDeletionStatusResponseTypeDef",
+    "DescribeApplicationAssignmentRequestRequestTypeDef",
+    "DescribeApplicationAssignmentResponseTypeDef",
+    "DescribeApplicationProviderRequestRequestTypeDef",
+    "DescribeApplicationProviderResponseTypeDef",
+    "DescribeApplicationRequestRequestTypeDef",
+    "DescribeApplicationResponseTypeDef",
     "DescribeInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
     "DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef",
+    "DescribeInstanceRequestRequestTypeDef",
+    "DescribeInstanceResponseTypeDef",
     "DescribePermissionSetProvisioningStatusRequestRequestTypeDef",
     "DescribePermissionSetProvisioningStatusResponseTypeDef",
     "DescribePermissionSetRequestRequestTypeDef",
     "DescribePermissionSetResponseTypeDef",
+    "DescribeTrustedTokenIssuerRequestRequestTypeDef",
+    "DescribeTrustedTokenIssuerResponseTypeDef",
     "DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef",
     "DetachManagedPolicyFromPermissionSetRequestRequestTypeDef",
+    "DisplayDataTypeDef",
+    "GetApplicationAccessScopeRequestRequestTypeDef",
+    "GetApplicationAccessScopeResponseTypeDef",
+    "GetApplicationAssignmentConfigurationRequestRequestTypeDef",
+    "GetApplicationAssignmentConfigurationResponseTypeDef",
+    "GetApplicationAuthenticationMethodRequestRequestTypeDef",
+    "GetApplicationAuthenticationMethodResponseTypeDef",
+    "GetApplicationGrantRequestRequestTypeDef",
+    "GetApplicationGrantResponseTypeDef",
     "GetInlinePolicyForPermissionSetRequestRequestTypeDef",
     "GetInlinePolicyForPermissionSetResponseTypeDef",
     "GetPermissionsBoundaryForPermissionSetRequestRequestTypeDef",
     "GetPermissionsBoundaryForPermissionSetResponseTypeDef",
+    "GrantItemTypeDef",
+    "GrantTypeDef",
+    "IamAuthenticationMethodTypeDef",
     "InstanceAccessControlAttributeConfigurationTypeDef",
     "InstanceMetadataTypeDef",
+    "JwtBearerGrantTypeDef",
     "ListAccountAssignmentCreationStatusRequestRequestTypeDef",
     "ListAccountAssignmentCreationStatusResponseTypeDef",
     "ListAccountAssignmentDeletionStatusRequestRequestTypeDef",
     "ListAccountAssignmentDeletionStatusResponseTypeDef",
+    "ListAccountAssignmentsFilterTypeDef",
+    "ListAccountAssignmentsForPrincipalRequestRequestTypeDef",
+    "ListAccountAssignmentsForPrincipalResponseTypeDef",
     "ListAccountAssignmentsRequestRequestTypeDef",
     "ListAccountAssignmentsResponseTypeDef",
     "ListAccountsForProvisionedPermissionSetRequestRequestTypeDef",
     "ListAccountsForProvisionedPermissionSetResponseTypeDef",
+    "ListApplicationAccessScopesRequestRequestTypeDef",
+    "ListApplicationAccessScopesResponseTypeDef",
+    "ListApplicationAssignmentsFilterTypeDef",
+    "ListApplicationAssignmentsForPrincipalRequestRequestTypeDef",
+    "ListApplicationAssignmentsForPrincipalResponseTypeDef",
+    "ListApplicationAssignmentsRequestRequestTypeDef",
+    "ListApplicationAssignmentsResponseTypeDef",
+    "ListApplicationAuthenticationMethodsRequestRequestTypeDef",
+    "ListApplicationAuthenticationMethodsResponseTypeDef",
+    "ListApplicationGrantsRequestRequestTypeDef",
+    "ListApplicationGrantsResponseTypeDef",
+    "ListApplicationProvidersRequestRequestTypeDef",
+    "ListApplicationProvidersResponseTypeDef",
+    "ListApplicationsFilterTypeDef",
+    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsResponseTypeDef",
     "ListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef",
     "ListCustomerManagedPolicyReferencesInPermissionSetResponseTypeDef",
     "ListInstancesRequestRequestTypeDef",
@@ -93,22 +164,42 @@ __all__ = (
     "ListPermissionSetsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTrustedTokenIssuersRequestRequestTypeDef",
+    "ListTrustedTokenIssuersResponseTypeDef",
+    "OidcJwtConfigurationTypeDef",
+    "OidcJwtUpdateConfigurationTypeDef",
     "OperationStatusFilterTypeDef",
     "PaginatorConfigTypeDef",
     "PermissionSetProvisioningStatusMetadataTypeDef",
     "PermissionSetProvisioningStatusTypeDef",
     "PermissionSetTypeDef",
     "PermissionsBoundaryTypeDef",
+    "PortalOptionsTypeDef",
     "ProvisionPermissionSetRequestRequestTypeDef",
     "ProvisionPermissionSetResponseTypeDef",
+    "PutApplicationAccessScopeRequestRequestTypeDef",
+    "PutApplicationAssignmentConfigurationRequestRequestTypeDef",
+    "PutApplicationAuthenticationMethodRequestRequestTypeDef",
+    "PutApplicationGrantRequestRequestTypeDef",
     "PutInlinePolicyToPermissionSetRequestRequestTypeDef",
     "PutPermissionsBoundaryToPermissionSetRequestRequestTypeDef",
+    "ResourceServerConfigTypeDef",
+    "ResourceServerScopeDetailsTypeDef",
     "ResponseMetadataTypeDef",
+    "ScopeDetailsTypeDef",
+    "SignInOptionsTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TrustedTokenIssuerConfigurationTypeDef",
+    "TrustedTokenIssuerMetadataTypeDef",
+    "TrustedTokenIssuerUpdateConfigurationTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateApplicationPortalOptionsTypeDef",
+    "UpdateApplicationRequestRequestTypeDef",
     "UpdateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
+    "UpdateInstanceRequestRequestTypeDef",
     "UpdatePermissionSetRequestRequestTypeDef",
+    "UpdateTrustedTokenIssuerRequestRequestTypeDef",
 )
 
 AccessControlAttributeTypeDef = TypedDict(
@@ -124,6 +215,17 @@ AccessControlAttributeValueTypeDef = TypedDict(
     {
         "Source": List[str],
     },
+)
+
+AccountAssignmentForPrincipalTypeDef = TypedDict(
+    "AccountAssignmentForPrincipalTypeDef",
+    {
+        "AccountId": str,
+        "PermissionSetArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+    },
+    total=False,
 )
 
 AccountAssignmentOperationStatusMetadataTypeDef = TypedDict(
@@ -163,6 +265,62 @@ AccountAssignmentTypeDef = TypedDict(
     total=False,
 )
 
+ApplicationAssignmentForPrincipalTypeDef = TypedDict(
+    "ApplicationAssignmentForPrincipalTypeDef",
+    {
+        "ApplicationArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+    },
+    total=False,
+)
+
+ApplicationAssignmentTypeDef = TypedDict(
+    "ApplicationAssignmentTypeDef",
+    {
+        "ApplicationArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+    },
+)
+
+_RequiredApplicationProviderTypeDef = TypedDict(
+    "_RequiredApplicationProviderTypeDef",
+    {
+        "ApplicationProviderArn": str,
+    },
+)
+_OptionalApplicationProviderTypeDef = TypedDict(
+    "_OptionalApplicationProviderTypeDef",
+    {
+        "DisplayData": "DisplayDataTypeDef",
+        "FederationProtocol": FederationProtocolType,
+        "ResourceServerConfig": "ResourceServerConfigTypeDef",
+    },
+    total=False,
+)
+
+class ApplicationProviderTypeDef(
+    _RequiredApplicationProviderTypeDef, _OptionalApplicationProviderTypeDef
+):
+    pass
+
+ApplicationTypeDef = TypedDict(
+    "ApplicationTypeDef",
+    {
+        "ApplicationAccount": str,
+        "ApplicationArn": str,
+        "ApplicationProviderArn": str,
+        "CreatedDate": datetime,
+        "Description": str,
+        "InstanceArn": str,
+        "Name": str,
+        "PortalOptions": "PortalOptionsTypeDef",
+        "Status": ApplicationStatusType,
+    },
+    total=False,
+)
+
 AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef = TypedDict(
     "AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef",
     {
@@ -190,6 +348,40 @@ AttachedManagedPolicyTypeDef = TypedDict(
     total=False,
 )
 
+AuthenticationMethodItemTypeDef = TypedDict(
+    "AuthenticationMethodItemTypeDef",
+    {
+        "AuthenticationMethod": "AuthenticationMethodTypeDef",
+        "AuthenticationMethodType": Literal["IAM"],
+    },
+    total=False,
+)
+
+AuthenticationMethodTypeDef = TypedDict(
+    "AuthenticationMethodTypeDef",
+    {
+        "Iam": "IamAuthenticationMethodTypeDef",
+    },
+    total=False,
+)
+
+AuthorizationCodeGrantTypeDef = TypedDict(
+    "AuthorizationCodeGrantTypeDef",
+    {
+        "RedirectUris": List[str],
+    },
+    total=False,
+)
+
+AuthorizedTokenIssuerTypeDef = TypedDict(
+    "AuthorizedTokenIssuerTypeDef",
+    {
+        "AuthorizedAudiences": List[str],
+        "TrustedTokenIssuerArn": str,
+    },
+    total=False,
+)
+
 CreateAccountAssignmentRequestRequestTypeDef = TypedDict(
     "CreateAccountAssignmentRequestRequestTypeDef",
     {
@@ -210,11 +402,71 @@ CreateAccountAssignmentResponseTypeDef = TypedDict(
     },
 )
 
+CreateApplicationAssignmentRequestRequestTypeDef = TypedDict(
+    "CreateApplicationAssignmentRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+    },
+)
+
+_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationRequestRequestTypeDef",
+    {
+        "ApplicationProviderArn": str,
+        "InstanceArn": str,
+        "Name": str,
+    },
+)
+_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Description": str,
+        "PortalOptions": "PortalOptionsTypeDef",
+        "Status": ApplicationStatusType,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateApplicationRequestRequestTypeDef(
+    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
+):
+    pass
+
+CreateApplicationResponseTypeDef = TypedDict(
+    "CreateApplicationResponseTypeDef",
+    {
+        "ApplicationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef = TypedDict(
     "CreateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
     {
         "InstanceAccessControlAttributeConfiguration": "InstanceAccessControlAttributeConfigurationTypeDef",
         "InstanceArn": str,
+    },
+)
+
+CreateInstanceRequestRequestTypeDef = TypedDict(
+    "CreateInstanceRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Name": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+CreateInstanceResponseTypeDef = TypedDict(
+    "CreateInstanceResponseTypeDef",
+    {
+        "InstanceArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -246,6 +498,38 @@ CreatePermissionSetResponseTypeDef = TypedDict(
     "CreatePermissionSetResponseTypeDef",
     {
         "PermissionSet": "PermissionSetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTrustedTokenIssuerRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTrustedTokenIssuerRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "Name": str,
+        "TrustedTokenIssuerConfiguration": "TrustedTokenIssuerConfigurationTypeDef",
+        "TrustedTokenIssuerType": Literal["OIDC_JWT"],
+    },
+)
+_OptionalCreateTrustedTokenIssuerRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTrustedTokenIssuerRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateTrustedTokenIssuerRequestRequestTypeDef(
+    _RequiredCreateTrustedTokenIssuerRequestRequestTypeDef,
+    _OptionalCreateTrustedTokenIssuerRequestRequestTypeDef,
+):
+    pass
+
+CreateTrustedTokenIssuerResponseTypeDef = TypedDict(
+    "CreateTrustedTokenIssuerResponseTypeDef",
+    {
+        "TrustedTokenIssuerArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -289,6 +573,46 @@ DeleteAccountAssignmentResponseTypeDef = TypedDict(
     },
 )
 
+DeleteApplicationAccessScopeRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationAccessScopeRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "Scope": str,
+    },
+)
+
+DeleteApplicationAssignmentRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationAssignmentRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+    },
+)
+
+DeleteApplicationAuthenticationMethodRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationAuthenticationMethodRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "AuthenticationMethodType": Literal["IAM"],
+    },
+)
+
+DeleteApplicationGrantRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationGrantRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "GrantType": GrantTypeType,
+    },
+)
+
+DeleteApplicationRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+)
+
 DeleteInlinePolicyFromPermissionSetRequestRequestTypeDef = TypedDict(
     "DeleteInlinePolicyFromPermissionSetRequestRequestTypeDef",
     {
@@ -299,6 +623,13 @@ DeleteInlinePolicyFromPermissionSetRequestRequestTypeDef = TypedDict(
 
 DeleteInstanceAccessControlAttributeConfigurationRequestRequestTypeDef = TypedDict(
     "DeleteInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+    },
+)
+
+DeleteInstanceRequestRequestTypeDef = TypedDict(
+    "DeleteInstanceRequestRequestTypeDef",
     {
         "InstanceArn": str,
     },
@@ -317,6 +648,13 @@ DeletePermissionsBoundaryFromPermissionSetRequestRequestTypeDef = TypedDict(
     {
         "InstanceArn": str,
         "PermissionSetArn": str,
+    },
+)
+
+DeleteTrustedTokenIssuerRequestRequestTypeDef = TypedDict(
+    "DeleteTrustedTokenIssuerRequestRequestTypeDef",
+    {
+        "TrustedTokenIssuerArn": str,
     },
 )
 
@@ -352,6 +690,66 @@ DescribeAccountAssignmentDeletionStatusResponseTypeDef = TypedDict(
     },
 )
 
+DescribeApplicationAssignmentRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationAssignmentRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+    },
+)
+
+DescribeApplicationAssignmentResponseTypeDef = TypedDict(
+    "DescribeApplicationAssignmentResponseTypeDef",
+    {
+        "ApplicationArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeApplicationProviderRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationProviderRequestRequestTypeDef",
+    {
+        "ApplicationProviderArn": str,
+    },
+)
+
+DescribeApplicationProviderResponseTypeDef = TypedDict(
+    "DescribeApplicationProviderResponseTypeDef",
+    {
+        "ApplicationProviderArn": str,
+        "DisplayData": "DisplayDataTypeDef",
+        "FederationProtocol": FederationProtocolType,
+        "ResourceServerConfig": "ResourceServerConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeApplicationRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+)
+
+DescribeApplicationResponseTypeDef = TypedDict(
+    "DescribeApplicationResponseTypeDef",
+    {
+        "ApplicationAccount": str,
+        "ApplicationArn": str,
+        "ApplicationProviderArn": str,
+        "CreatedDate": datetime,
+        "Description": str,
+        "InstanceArn": str,
+        "Name": str,
+        "PortalOptions": "PortalOptionsTypeDef",
+        "Status": ApplicationStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeInstanceAccessControlAttributeConfigurationRequestRequestTypeDef = TypedDict(
     "DescribeInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
     {
@@ -365,6 +763,26 @@ DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef = TypedDict(
         "InstanceAccessControlAttributeConfiguration": "InstanceAccessControlAttributeConfigurationTypeDef",
         "Status": InstanceAccessControlAttributeConfigurationStatusType,
         "StatusReason": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInstanceRequestRequestTypeDef = TypedDict(
+    "DescribeInstanceRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+    },
+)
+
+DescribeInstanceResponseTypeDef = TypedDict(
+    "DescribeInstanceResponseTypeDef",
+    {
+        "CreatedDate": datetime,
+        "IdentityStoreId": str,
+        "InstanceArn": str,
+        "Name": str,
+        "OwnerAccountId": str,
+        "Status": InstanceStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -401,6 +819,24 @@ DescribePermissionSetResponseTypeDef = TypedDict(
     },
 )
 
+DescribeTrustedTokenIssuerRequestRequestTypeDef = TypedDict(
+    "DescribeTrustedTokenIssuerRequestRequestTypeDef",
+    {
+        "TrustedTokenIssuerArn": str,
+    },
+)
+
+DescribeTrustedTokenIssuerResponseTypeDef = TypedDict(
+    "DescribeTrustedTokenIssuerResponseTypeDef",
+    {
+        "Name": str,
+        "TrustedTokenIssuerArn": str,
+        "TrustedTokenIssuerConfiguration": "TrustedTokenIssuerConfigurationTypeDef",
+        "TrustedTokenIssuerType": Literal["OIDC_JWT"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef = TypedDict(
     "DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef",
     {
@@ -416,6 +852,80 @@ DetachManagedPolicyFromPermissionSetRequestRequestTypeDef = TypedDict(
         "InstanceArn": str,
         "ManagedPolicyArn": str,
         "PermissionSetArn": str,
+    },
+)
+
+DisplayDataTypeDef = TypedDict(
+    "DisplayDataTypeDef",
+    {
+        "Description": str,
+        "DisplayName": str,
+        "IconUrl": str,
+    },
+    total=False,
+)
+
+GetApplicationAccessScopeRequestRequestTypeDef = TypedDict(
+    "GetApplicationAccessScopeRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "Scope": str,
+    },
+)
+
+GetApplicationAccessScopeResponseTypeDef = TypedDict(
+    "GetApplicationAccessScopeResponseTypeDef",
+    {
+        "AuthorizedTargets": List[str],
+        "Scope": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetApplicationAssignmentConfigurationRequestRequestTypeDef = TypedDict(
+    "GetApplicationAssignmentConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+)
+
+GetApplicationAssignmentConfigurationResponseTypeDef = TypedDict(
+    "GetApplicationAssignmentConfigurationResponseTypeDef",
+    {
+        "AssignmentRequired": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetApplicationAuthenticationMethodRequestRequestTypeDef = TypedDict(
+    "GetApplicationAuthenticationMethodRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "AuthenticationMethodType": Literal["IAM"],
+    },
+)
+
+GetApplicationAuthenticationMethodResponseTypeDef = TypedDict(
+    "GetApplicationAuthenticationMethodResponseTypeDef",
+    {
+        "AuthenticationMethod": "AuthenticationMethodTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetApplicationGrantRequestRequestTypeDef = TypedDict(
+    "GetApplicationGrantRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "GrantType": GrantTypeType,
+    },
+)
+
+GetApplicationGrantResponseTypeDef = TypedDict(
+    "GetApplicationGrantResponseTypeDef",
+    {
+        "Grant": "GrantTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -451,6 +961,32 @@ GetPermissionsBoundaryForPermissionSetResponseTypeDef = TypedDict(
     },
 )
 
+GrantItemTypeDef = TypedDict(
+    "GrantItemTypeDef",
+    {
+        "Grant": "GrantTypeDef",
+        "GrantType": GrantTypeType,
+    },
+)
+
+GrantTypeDef = TypedDict(
+    "GrantTypeDef",
+    {
+        "AuthorizationCode": "AuthorizationCodeGrantTypeDef",
+        "JwtBearer": "JwtBearerGrantTypeDef",
+        "RefreshToken": Dict[str, Any],
+        "TokenExchange": Dict[str, Any],
+    },
+    total=False,
+)
+
+IamAuthenticationMethodTypeDef = TypedDict(
+    "IamAuthenticationMethodTypeDef",
+    {
+        "ActorPolicy": Dict[str, Any],
+    },
+)
+
 InstanceAccessControlAttributeConfigurationTypeDef = TypedDict(
     "InstanceAccessControlAttributeConfigurationTypeDef",
     {
@@ -461,8 +997,20 @@ InstanceAccessControlAttributeConfigurationTypeDef = TypedDict(
 InstanceMetadataTypeDef = TypedDict(
     "InstanceMetadataTypeDef",
     {
+        "CreatedDate": datetime,
         "IdentityStoreId": str,
         "InstanceArn": str,
+        "Name": str,
+        "OwnerAccountId": str,
+        "Status": InstanceStatusType,
+    },
+    total=False,
+)
+
+JwtBearerGrantTypeDef = TypedDict(
+    "JwtBearerGrantTypeDef",
+    {
+        "AuthorizedTokenIssuers": List["AuthorizedTokenIssuerTypeDef"],
     },
     total=False,
 )
@@ -529,6 +1077,47 @@ ListAccountAssignmentDeletionStatusResponseTypeDef = TypedDict(
     },
 )
 
+ListAccountAssignmentsFilterTypeDef = TypedDict(
+    "ListAccountAssignmentsFilterTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+_RequiredListAccountAssignmentsForPrincipalRequestRequestTypeDef = TypedDict(
+    "_RequiredListAccountAssignmentsForPrincipalRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+    },
+)
+_OptionalListAccountAssignmentsForPrincipalRequestRequestTypeDef = TypedDict(
+    "_OptionalListAccountAssignmentsForPrincipalRequestRequestTypeDef",
+    {
+        "Filter": "ListAccountAssignmentsFilterTypeDef",
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAccountAssignmentsForPrincipalRequestRequestTypeDef(
+    _RequiredListAccountAssignmentsForPrincipalRequestRequestTypeDef,
+    _OptionalListAccountAssignmentsForPrincipalRequestRequestTypeDef,
+):
+    pass
+
+ListAccountAssignmentsForPrincipalResponseTypeDef = TypedDict(
+    "ListAccountAssignmentsForPrincipalResponseTypeDef",
+    {
+        "AccountAssignments": List["AccountAssignmentForPrincipalTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListAccountAssignmentsRequestRequestTypeDef = TypedDict(
     "_RequiredListAccountAssignmentsRequestRequestTypeDef",
     {
@@ -588,6 +1177,222 @@ ListAccountsForProvisionedPermissionSetResponseTypeDef = TypedDict(
     "ListAccountsForProvisionedPermissionSetResponseTypeDef",
     {
         "AccountIds": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListApplicationAccessScopesRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationAccessScopesRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+)
+_OptionalListApplicationAccessScopesRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationAccessScopesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationAccessScopesRequestRequestTypeDef(
+    _RequiredListApplicationAccessScopesRequestRequestTypeDef,
+    _OptionalListApplicationAccessScopesRequestRequestTypeDef,
+):
+    pass
+
+ListApplicationAccessScopesResponseTypeDef = TypedDict(
+    "ListApplicationAccessScopesResponseTypeDef",
+    {
+        "NextToken": str,
+        "Scopes": List["ScopeDetailsTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListApplicationAssignmentsFilterTypeDef = TypedDict(
+    "ListApplicationAssignmentsFilterTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+    total=False,
+)
+
+_RequiredListApplicationAssignmentsForPrincipalRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationAssignmentsForPrincipalRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "PrincipalId": str,
+        "PrincipalType": PrincipalTypeType,
+    },
+)
+_OptionalListApplicationAssignmentsForPrincipalRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationAssignmentsForPrincipalRequestRequestTypeDef",
+    {
+        "Filter": "ListApplicationAssignmentsFilterTypeDef",
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationAssignmentsForPrincipalRequestRequestTypeDef(
+    _RequiredListApplicationAssignmentsForPrincipalRequestRequestTypeDef,
+    _OptionalListApplicationAssignmentsForPrincipalRequestRequestTypeDef,
+):
+    pass
+
+ListApplicationAssignmentsForPrincipalResponseTypeDef = TypedDict(
+    "ListApplicationAssignmentsForPrincipalResponseTypeDef",
+    {
+        "ApplicationAssignments": List["ApplicationAssignmentForPrincipalTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListApplicationAssignmentsRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationAssignmentsRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+)
+_OptionalListApplicationAssignmentsRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationAssignmentsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationAssignmentsRequestRequestTypeDef(
+    _RequiredListApplicationAssignmentsRequestRequestTypeDef,
+    _OptionalListApplicationAssignmentsRequestRequestTypeDef,
+):
+    pass
+
+ListApplicationAssignmentsResponseTypeDef = TypedDict(
+    "ListApplicationAssignmentsResponseTypeDef",
+    {
+        "ApplicationAssignments": List["ApplicationAssignmentTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListApplicationAuthenticationMethodsRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationAuthenticationMethodsRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+)
+_OptionalListApplicationAuthenticationMethodsRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationAuthenticationMethodsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationAuthenticationMethodsRequestRequestTypeDef(
+    _RequiredListApplicationAuthenticationMethodsRequestRequestTypeDef,
+    _OptionalListApplicationAuthenticationMethodsRequestRequestTypeDef,
+):
+    pass
+
+ListApplicationAuthenticationMethodsResponseTypeDef = TypedDict(
+    "ListApplicationAuthenticationMethodsResponseTypeDef",
+    {
+        "AuthenticationMethods": List["AuthenticationMethodItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListApplicationGrantsRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationGrantsRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+)
+_OptionalListApplicationGrantsRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationGrantsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationGrantsRequestRequestTypeDef(
+    _RequiredListApplicationGrantsRequestRequestTypeDef,
+    _OptionalListApplicationGrantsRequestRequestTypeDef,
+):
+    pass
+
+ListApplicationGrantsResponseTypeDef = TypedDict(
+    "ListApplicationGrantsResponseTypeDef",
+    {
+        "Grants": List["GrantItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListApplicationProvidersRequestRequestTypeDef = TypedDict(
+    "ListApplicationProvidersRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListApplicationProvidersResponseTypeDef = TypedDict(
+    "ListApplicationProvidersResponseTypeDef",
+    {
+        "ApplicationProviders": List["ApplicationProviderTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListApplicationsFilterTypeDef = TypedDict(
+    "ListApplicationsFilterTypeDef",
+    {
+        "ApplicationAccount": str,
+        "ApplicationProvider": str,
+    },
+    total=False,
+)
+
+_RequiredListApplicationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationsRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+    },
+)
+_OptionalListApplicationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationsRequestRequestTypeDef",
+    {
+        "Filter": "ListApplicationsFilterTypeDef",
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationsRequestRequestTypeDef(
+    _RequiredListApplicationsRequestRequestTypeDef, _OptionalListApplicationsRequestRequestTypeDef
+):
+    pass
+
+ListApplicationsResponseTypeDef = TypedDict(
+    "ListApplicationsResponseTypeDef",
+    {
+        "Applications": List["ApplicationTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -769,13 +1574,13 @@ ListPermissionSetsResponseTypeDef = TypedDict(
 _RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
     "_RequiredListTagsForResourceRequestRequestTypeDef",
     {
-        "InstanceArn": str,
         "ResourceArn": str,
     },
 )
 _OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
     "_OptionalListTagsForResourceRequestRequestTypeDef",
     {
+        "InstanceArn": str,
         "NextToken": str,
     },
     total=False,
@@ -794,6 +1599,56 @@ ListTagsForResourceResponseTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredListTrustedTokenIssuersRequestRequestTypeDef = TypedDict(
+    "_RequiredListTrustedTokenIssuersRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+    },
+)
+_OptionalListTrustedTokenIssuersRequestRequestTypeDef = TypedDict(
+    "_OptionalListTrustedTokenIssuersRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListTrustedTokenIssuersRequestRequestTypeDef(
+    _RequiredListTrustedTokenIssuersRequestRequestTypeDef,
+    _OptionalListTrustedTokenIssuersRequestRequestTypeDef,
+):
+    pass
+
+ListTrustedTokenIssuersResponseTypeDef = TypedDict(
+    "ListTrustedTokenIssuersResponseTypeDef",
+    {
+        "NextToken": str,
+        "TrustedTokenIssuers": List["TrustedTokenIssuerMetadataTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+OidcJwtConfigurationTypeDef = TypedDict(
+    "OidcJwtConfigurationTypeDef",
+    {
+        "ClaimAttributePath": str,
+        "IdentityStoreAttributePath": str,
+        "IssuerUrl": str,
+        "JwksRetrievalOption": Literal["OPEN_ID_DISCOVERY"],
+    },
+)
+
+OidcJwtUpdateConfigurationTypeDef = TypedDict(
+    "OidcJwtUpdateConfigurationTypeDef",
+    {
+        "ClaimAttributePath": str,
+        "IdentityStoreAttributePath": str,
+        "JwksRetrievalOption": Literal["OPEN_ID_DISCOVERY"],
+    },
+    total=False,
 )
 
 OperationStatusFilterTypeDef = TypedDict(
@@ -859,6 +1714,15 @@ PermissionsBoundaryTypeDef = TypedDict(
     total=False,
 )
 
+PortalOptionsTypeDef = TypedDict(
+    "PortalOptionsTypeDef",
+    {
+        "SignInOptions": "SignInOptionsTypeDef",
+        "Visibility": ApplicationVisibilityType,
+    },
+    total=False,
+)
+
 _RequiredProvisionPermissionSetRequestRequestTypeDef = TypedDict(
     "_RequiredProvisionPermissionSetRequestRequestTypeDef",
     {
@@ -889,6 +1753,53 @@ ProvisionPermissionSetResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredPutApplicationAccessScopeRequestRequestTypeDef = TypedDict(
+    "_RequiredPutApplicationAccessScopeRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "Scope": str,
+    },
+)
+_OptionalPutApplicationAccessScopeRequestRequestTypeDef = TypedDict(
+    "_OptionalPutApplicationAccessScopeRequestRequestTypeDef",
+    {
+        "AuthorizedTargets": List[str],
+    },
+    total=False,
+)
+
+class PutApplicationAccessScopeRequestRequestTypeDef(
+    _RequiredPutApplicationAccessScopeRequestRequestTypeDef,
+    _OptionalPutApplicationAccessScopeRequestRequestTypeDef,
+):
+    pass
+
+PutApplicationAssignmentConfigurationRequestRequestTypeDef = TypedDict(
+    "PutApplicationAssignmentConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "AssignmentRequired": bool,
+    },
+)
+
+PutApplicationAuthenticationMethodRequestRequestTypeDef = TypedDict(
+    "PutApplicationAuthenticationMethodRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "AuthenticationMethod": "AuthenticationMethodTypeDef",
+        "AuthenticationMethodType": Literal["IAM"],
+    },
+)
+
+PutApplicationGrantRequestRequestTypeDef = TypedDict(
+    "PutApplicationGrantRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+        "Grant": "GrantTypeDef",
+        "GrantType": GrantTypeType,
+    },
+)
+
 PutInlinePolicyToPermissionSetRequestRequestTypeDef = TypedDict(
     "PutInlinePolicyToPermissionSetRequestRequestTypeDef",
     {
@@ -907,6 +1818,23 @@ PutPermissionsBoundaryToPermissionSetRequestRequestTypeDef = TypedDict(
     },
 )
 
+ResourceServerConfigTypeDef = TypedDict(
+    "ResourceServerConfigTypeDef",
+    {
+        "Scopes": Dict[str, "ResourceServerScopeDetailsTypeDef"],
+    },
+    total=False,
+)
+
+ResourceServerScopeDetailsTypeDef = TypedDict(
+    "ResourceServerScopeDetailsTypeDef",
+    {
+        "DetailedTitle": str,
+        "LongDescription": str,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -918,14 +1846,59 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
+_RequiredScopeDetailsTypeDef = TypedDict(
+    "_RequiredScopeDetailsTypeDef",
     {
-        "InstanceArn": str,
+        "Scope": str,
+    },
+)
+_OptionalScopeDetailsTypeDef = TypedDict(
+    "_OptionalScopeDetailsTypeDef",
+    {
+        "AuthorizedTargets": List[str],
+    },
+    total=False,
+)
+
+class ScopeDetailsTypeDef(_RequiredScopeDetailsTypeDef, _OptionalScopeDetailsTypeDef):
+    pass
+
+_RequiredSignInOptionsTypeDef = TypedDict(
+    "_RequiredSignInOptionsTypeDef",
+    {
+        "Origin": SignInOriginType,
+    },
+)
+_OptionalSignInOptionsTypeDef = TypedDict(
+    "_OptionalSignInOptionsTypeDef",
+    {
+        "ApplicationUrl": str,
+    },
+    total=False,
+)
+
+class SignInOptionsTypeDef(_RequiredSignInOptionsTypeDef, _OptionalSignInOptionsTypeDef):
+    pass
+
+_RequiredTagResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredTagResourceRequestRequestTypeDef",
+    {
         "ResourceArn": str,
         "Tags": List["TagTypeDef"],
     },
 )
+_OptionalTagResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalTagResourceRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+    },
+    total=False,
+)
+
+class TagResourceRequestRequestTypeDef(
+    _RequiredTagResourceRequestRequestTypeDef, _OptionalTagResourceRequestRequestTypeDef
+):
+    pass
 
 TagTypeDef = TypedDict(
     "TagTypeDef",
@@ -935,20 +1908,95 @@ TagTypeDef = TypedDict(
     },
 )
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
+TrustedTokenIssuerConfigurationTypeDef = TypedDict(
+    "TrustedTokenIssuerConfigurationTypeDef",
     {
-        "InstanceArn": str,
+        "OidcJwtConfiguration": "OidcJwtConfigurationTypeDef",
+    },
+    total=False,
+)
+
+TrustedTokenIssuerMetadataTypeDef = TypedDict(
+    "TrustedTokenIssuerMetadataTypeDef",
+    {
+        "Name": str,
+        "TrustedTokenIssuerArn": str,
+        "TrustedTokenIssuerType": Literal["OIDC_JWT"],
+    },
+    total=False,
+)
+
+TrustedTokenIssuerUpdateConfigurationTypeDef = TypedDict(
+    "TrustedTokenIssuerUpdateConfigurationTypeDef",
+    {
+        "OidcJwtConfiguration": "OidcJwtUpdateConfigurationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredUntagResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredUntagResourceRequestRequestTypeDef",
+    {
         "ResourceArn": str,
         "TagKeys": List[str],
     },
 )
+_OptionalUntagResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalUntagResourceRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+    },
+    total=False,
+)
+
+class UntagResourceRequestRequestTypeDef(
+    _RequiredUntagResourceRequestRequestTypeDef, _OptionalUntagResourceRequestRequestTypeDef
+):
+    pass
+
+UpdateApplicationPortalOptionsTypeDef = TypedDict(
+    "UpdateApplicationPortalOptionsTypeDef",
+    {
+        "SignInOptions": "SignInOptionsTypeDef",
+    },
+    total=False,
+)
+
+_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateApplicationRequestRequestTypeDef",
+    {
+        "ApplicationArn": str,
+    },
+)
+_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateApplicationRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Name": str,
+        "PortalOptions": "UpdateApplicationPortalOptionsTypeDef",
+        "Status": ApplicationStatusType,
+    },
+    total=False,
+)
+
+class UpdateApplicationRequestRequestTypeDef(
+    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
+):
+    pass
 
 UpdateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef = TypedDict(
     "UpdateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef",
     {
         "InstanceAccessControlAttributeConfiguration": "InstanceAccessControlAttributeConfigurationTypeDef",
         "InstanceArn": str,
+    },
+)
+
+UpdateInstanceRequestRequestTypeDef = TypedDict(
+    "UpdateInstanceRequestRequestTypeDef",
+    {
+        "InstanceArn": str,
+        "Name": str,
     },
 )
 
@@ -972,5 +2020,26 @@ _OptionalUpdatePermissionSetRequestRequestTypeDef = TypedDict(
 class UpdatePermissionSetRequestRequestTypeDef(
     _RequiredUpdatePermissionSetRequestRequestTypeDef,
     _OptionalUpdatePermissionSetRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateTrustedTokenIssuerRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTrustedTokenIssuerRequestRequestTypeDef",
+    {
+        "TrustedTokenIssuerArn": str,
+    },
+)
+_OptionalUpdateTrustedTokenIssuerRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTrustedTokenIssuerRequestRequestTypeDef",
+    {
+        "Name": str,
+        "TrustedTokenIssuerConfiguration": "TrustedTokenIssuerUpdateConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateTrustedTokenIssuerRequestRequestTypeDef(
+    _RequiredUpdateTrustedTokenIssuerRequestRequestTypeDef,
+    _OptionalUpdateTrustedTokenIssuerRequestRequestTypeDef,
 ):
     pass

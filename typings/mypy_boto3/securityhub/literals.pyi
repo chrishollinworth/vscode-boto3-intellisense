@@ -50,10 +50,12 @@ __all__ = (
     "MalwareTypeType",
     "MapFilterComparisonType",
     "NetworkDirectionType",
+    "ParameterValueTypeType",
     "PartitionType",
     "RecordStateType",
     "RegionAvailabilityStatusType",
     "RuleStatusType",
+    "SecurityControlPropertyType",
     "SeverityLabelType",
     "SeverityRatingType",
     "SortOrderType",
@@ -63,6 +65,7 @@ __all__ = (
     "ThreatIntelIndicatorCategoryType",
     "ThreatIntelIndicatorTypeType",
     "UnprocessedErrorCodeType",
+    "UpdateStatusType",
     "VerificationStateType",
     "VulnerabilityExploitAvailableType",
     "VulnerabilityFixAvailableType",
@@ -121,10 +124,12 @@ MalwareTypeType = Literal[
 ]
 MapFilterComparisonType = Literal["CONTAINS", "EQUALS", "NOT_CONTAINS", "NOT_EQUALS"]
 NetworkDirectionType = Literal["IN", "OUT"]
+ParameterValueTypeType = Literal["CUSTOM", "DEFAULT"]
 PartitionType = Literal["aws", "aws-cn", "aws-us-gov"]
 RecordStateType = Literal["ACTIVE", "ARCHIVED"]
 RegionAvailabilityStatusType = Literal["AVAILABLE", "UNAVAILABLE"]
 RuleStatusType = Literal["DISABLED", "ENABLED"]
+SecurityControlPropertyType = Literal["Parameters"]
 SeverityLabelType = Literal["CRITICAL", "HIGH", "INFORMATIONAL", "LOW", "MEDIUM"]
 SeverityRatingType = Literal["CRITICAL", "HIGH", "LOW", "MEDIUM"]
 SortOrderType = Literal["asc", "desc"]
@@ -150,6 +155,7 @@ ThreatIntelIndicatorTypeType = Literal[
     "URL",
 ]
 UnprocessedErrorCodeType = Literal["ACCESS_DENIED", "INVALID_INPUT", "LIMIT_EXCEEDED", "NOT_FOUND"]
+UpdateStatusType = Literal["READY", "UPDATING"]
 VerificationStateType = Literal["BENIGN_POSITIVE", "FALSE_POSITIVE", "TRUE_POSITIVE", "UNKNOWN"]
 VulnerabilityExploitAvailableType = Literal["NO", "YES"]
 VulnerabilityFixAvailableType = Literal["NO", "PARTIAL", "YES"]

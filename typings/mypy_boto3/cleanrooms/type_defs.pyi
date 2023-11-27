@@ -136,11 +136,14 @@ __all__ = (
     "ListTagsForResourceOutputTypeDef",
     "MemberSpecificationTypeDef",
     "MemberSummaryTypeDef",
+    "MembershipPaymentConfigurationTypeDef",
     "MembershipProtectedQueryOutputConfigurationTypeDef",
     "MembershipProtectedQueryResultConfigurationTypeDef",
+    "MembershipQueryComputePaymentConfigTypeDef",
     "MembershipSummaryTypeDef",
     "MembershipTypeDef",
     "PaginatorConfigTypeDef",
+    "PaymentConfigurationTypeDef",
     "ProtectedQueryErrorTypeDef",
     "ProtectedQueryOutputConfigurationTypeDef",
     "ProtectedQueryOutputTypeDef",
@@ -153,6 +156,7 @@ __all__ = (
     "ProtectedQueryStatisticsTypeDef",
     "ProtectedQuerySummaryTypeDef",
     "ProtectedQueryTypeDef",
+    "QueryComputePaymentConfigTypeDef",
     "ResponseMetadataTypeDef",
     "SchemaSummaryTypeDef",
     "SchemaTypeDef",
@@ -708,6 +712,7 @@ _OptionalCreateCollaborationInputRequestTypeDef = TypedDict(
     {
         "dataEncryptionMetadata": "DataEncryptionMetadataTypeDef",
         "tags": Dict[str, str],
+        "creatorPaymentConfiguration": "PaymentConfigurationTypeDef",
     },
     total=False,
 )
@@ -818,6 +823,7 @@ _OptionalCreateMembershipInputRequestTypeDef = TypedDict(
     {
         "tags": Dict[str, str],
         "defaultResultConfiguration": "MembershipProtectedQueryResultConfigurationTypeDef",
+        "paymentConfiguration": "MembershipPaymentConfigurationTypeDef",
     },
     total=False,
 )
@@ -1317,14 +1323,26 @@ ListTagsForResourceOutputTypeDef = TypedDict(
     },
 )
 
-MemberSpecificationTypeDef = TypedDict(
-    "MemberSpecificationTypeDef",
+_RequiredMemberSpecificationTypeDef = TypedDict(
+    "_RequiredMemberSpecificationTypeDef",
     {
         "accountId": str,
         "memberAbilities": List[MemberAbilityType],
         "displayName": str,
     },
 )
+_OptionalMemberSpecificationTypeDef = TypedDict(
+    "_OptionalMemberSpecificationTypeDef",
+    {
+        "paymentConfiguration": "PaymentConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class MemberSpecificationTypeDef(
+    _RequiredMemberSpecificationTypeDef, _OptionalMemberSpecificationTypeDef
+):
+    pass
 
 _RequiredMemberSummaryTypeDef = TypedDict(
     "_RequiredMemberSummaryTypeDef",
@@ -1335,6 +1353,7 @@ _RequiredMemberSummaryTypeDef = TypedDict(
         "abilities": List[MemberAbilityType],
         "createTime": datetime,
         "updateTime": datetime,
+        "paymentConfiguration": "PaymentConfigurationTypeDef",
     },
 )
 _OptionalMemberSummaryTypeDef = TypedDict(
@@ -1348,6 +1367,13 @@ _OptionalMemberSummaryTypeDef = TypedDict(
 
 class MemberSummaryTypeDef(_RequiredMemberSummaryTypeDef, _OptionalMemberSummaryTypeDef):
     pass
+
+MembershipPaymentConfigurationTypeDef = TypedDict(
+    "MembershipPaymentConfigurationTypeDef",
+    {
+        "queryCompute": "MembershipQueryComputePaymentConfigTypeDef",
+    },
+)
 
 MembershipProtectedQueryOutputConfigurationTypeDef = TypedDict(
     "MembershipProtectedQueryOutputConfigurationTypeDef",
@@ -1377,6 +1403,13 @@ class MembershipProtectedQueryResultConfigurationTypeDef(
 ):
     pass
 
+MembershipQueryComputePaymentConfigTypeDef = TypedDict(
+    "MembershipQueryComputePaymentConfigTypeDef",
+    {
+        "isResponsible": bool,
+    },
+)
+
 MembershipSummaryTypeDef = TypedDict(
     "MembershipSummaryTypeDef",
     {
@@ -1391,6 +1424,7 @@ MembershipSummaryTypeDef = TypedDict(
         "updateTime": datetime,
         "status": MembershipStatusType,
         "memberAbilities": List[MemberAbilityType],
+        "paymentConfiguration": "MembershipPaymentConfigurationTypeDef",
     },
 )
 
@@ -1409,6 +1443,7 @@ _RequiredMembershipTypeDef = TypedDict(
         "status": MembershipStatusType,
         "memberAbilities": List[MemberAbilityType],
         "queryLogStatus": MembershipQueryLogStatusType,
+        "paymentConfiguration": "MembershipPaymentConfigurationTypeDef",
     },
 )
 _OptionalMembershipTypeDef = TypedDict(
@@ -1430,6 +1465,13 @@ PaginatorConfigTypeDef = TypedDict(
         "StartingToken": str,
     },
     total=False,
+)
+
+PaymentConfigurationTypeDef = TypedDict(
+    "PaymentConfigurationTypeDef",
+    {
+        "queryCompute": "QueryComputePaymentConfigTypeDef",
+    },
 )
 
 ProtectedQueryErrorTypeDef = TypedDict(
@@ -1559,6 +1601,13 @@ _OptionalProtectedQueryTypeDef = TypedDict(
 
 class ProtectedQueryTypeDef(_RequiredProtectedQueryTypeDef, _OptionalProtectedQueryTypeDef):
     pass
+
+QueryComputePaymentConfigTypeDef = TypedDict(
+    "QueryComputePaymentConfigTypeDef",
+    {
+        "isResponsible": bool,
+    },
+)
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",

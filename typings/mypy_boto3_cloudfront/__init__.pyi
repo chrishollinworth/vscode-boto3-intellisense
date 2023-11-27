@@ -13,6 +13,7 @@ Usage::
         ListCloudFrontOriginAccessIdentitiesPaginator,
         ListDistributionsPaginator,
         ListInvalidationsPaginator,
+        ListKeyValueStoresPaginator,
         ListStreamingDistributionsPaginator,
         StreamingDistributionDeployedWaiter,
     )
@@ -29,6 +30,7 @@ Usage::
     list_cloud_front_origin_access_identities_paginator: ListCloudFrontOriginAccessIdentitiesPaginator = client.get_paginator("list_cloud_front_origin_access_identities")
     list_distributions_paginator: ListDistributionsPaginator = client.get_paginator("list_distributions")
     list_invalidations_paginator: ListInvalidationsPaginator = client.get_paginator("list_invalidations")
+    list_key_value_stores_paginator: ListKeyValueStoresPaginator = client.get_paginator("list_key_value_stores")
     list_streaming_distributions_paginator: ListStreamingDistributionsPaginator = client.get_paginator("list_streaming_distributions")
     ```
 """
@@ -37,6 +39,7 @@ from .paginator import (
     ListCloudFrontOriginAccessIdentitiesPaginator,
     ListDistributionsPaginator,
     ListInvalidationsPaginator,
+    ListKeyValueStoresPaginator,
     ListStreamingDistributionsPaginator,
 )
 from .waiter import (
@@ -55,6 +58,7 @@ __all__ = (
     "ListCloudFrontOriginAccessIdentitiesPaginator",
     "ListDistributionsPaginator",
     "ListInvalidationsPaginator",
+    "ListKeyValueStoresPaginator",
     "ListStreamingDistributionsPaginator",
     "StreamingDistributionDeployedWaiter",
 )

@@ -6,9 +6,9 @@ Type annotations for lakeformation service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lakeformation.literals import ComparisonOperatorType
+    from mypy_boto3_lakeformation.literals import ApplicationStatusType
 
-    data: ComparisonOperatorType = "BEGINS_WITH"
+    data: ApplicationStatusType = "DISABLED"
     ```
 """
 import sys
@@ -19,8 +19,10 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ApplicationStatusType",
     "ComparisonOperatorType",
     "DataLakeResourceTypeType",
+    "EnableStatusType",
     "FieldNameStringType",
     "GetWorkUnitsPaginatorName",
     "ListDataCellsFilterPaginatorName",
@@ -38,6 +40,7 @@ __all__ = (
     "TransactionTypeType",
 )
 
+ApplicationStatusType = Literal["DISABLED", "ENABLED"]
 ComparisonOperatorType = Literal[
     "BEGINS_WITH", "BETWEEN", "CONTAINS", "EQ", "GE", "GT", "IN", "LE", "LT", "NE", "NOT_CONTAINS"
 ]
@@ -51,6 +54,7 @@ DataLakeResourceTypeType = Literal[
     "LF_TAG_POLICY_TABLE",
     "TABLE",
 ]
+EnableStatusType = Literal["DISABLED", "ENABLED"]
 FieldNameStringType = Literal["LAST_MODIFIED", "RESOURCE_ARN", "ROLE_ARN"]
 GetWorkUnitsPaginatorName = Literal["get_work_units"]
 ListDataCellsFilterPaginatorName = Literal["list_data_cells_filter"]

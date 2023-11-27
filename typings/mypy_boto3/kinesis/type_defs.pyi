@@ -43,6 +43,7 @@ __all__ = (
     "ConsumerTypeDef",
     "CreateStreamInputRequestTypeDef",
     "DecreaseStreamRetentionPeriodInputRequestTypeDef",
+    "DeleteResourcePolicyInputRequestTypeDef",
     "DeleteStreamInputRequestTypeDef",
     "DeregisterStreamConsumerInputRequestTypeDef",
     "DescribeLimitsOutputTypeDef",
@@ -58,6 +59,8 @@ __all__ = (
     "EnhancedMonitoringOutputTypeDef",
     "GetRecordsInputRequestTypeDef",
     "GetRecordsOutputTypeDef",
+    "GetResourcePolicyInputRequestTypeDef",
+    "GetResourcePolicyOutputTypeDef",
     "GetShardIteratorInputRequestTypeDef",
     "GetShardIteratorOutputTypeDef",
     "HashKeyRangeTypeDef",
@@ -85,6 +88,7 @@ __all__ = (
     "PutRecordsOutputTypeDef",
     "PutRecordsRequestEntryTypeDef",
     "PutRecordsResultEntryTypeDef",
+    "PutResourcePolicyInputRequestTypeDef",
     "RecordTypeDef",
     "RegisterStreamConsumerInputRequestTypeDef",
     "RegisterStreamConsumerOutputTypeDef",
@@ -204,6 +208,13 @@ class DecreaseStreamRetentionPeriodInputRequestTypeDef(
     _OptionalDecreaseStreamRetentionPeriodInputRequestTypeDef,
 ):
     pass
+
+DeleteResourcePolicyInputRequestTypeDef = TypedDict(
+    "DeleteResourcePolicyInputRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
 
 DeleteStreamInputRequestTypeDef = TypedDict(
     "DeleteStreamInputRequestTypeDef",
@@ -378,6 +389,21 @@ GetRecordsOutputTypeDef = TypedDict(
         "NextShardIterator": str,
         "MillisBehindLatest": int,
         "ChildShards": List["ChildShardTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetResourcePolicyInputRequestTypeDef = TypedDict(
+    "GetResourcePolicyInputRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+GetResourcePolicyOutputTypeDef = TypedDict(
+    "GetResourcePolicyOutputTypeDef",
+    {
+        "Policy": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -715,6 +741,14 @@ PutRecordsResultEntryTypeDef = TypedDict(
         "ErrorMessage": str,
     },
     total=False,
+)
+
+PutResourcePolicyInputRequestTypeDef = TypedDict(
+    "PutResourcePolicyInputRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "Policy": str,
+    },
 )
 
 _RequiredRecordTypeDef = TypedDict(

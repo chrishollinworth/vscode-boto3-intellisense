@@ -6,9 +6,9 @@ Type annotations for secretsmanager service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_secretsmanager.type_defs import CancelRotateSecretRequestRequestTypeDef
+    from mypy_boto3_secretsmanager.type_defs import APIErrorTypeTypeDef
 
-    data: CancelRotateSecretRequestRequestTypeDef = {...}
+    data: APIErrorTypeTypeDef = {...}
     ```
 """
 import sys
@@ -25,6 +25,9 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "APIErrorTypeTypeDef",
+    "BatchGetSecretValueRequestRequestTypeDef",
+    "BatchGetSecretValueResponseTypeDef",
     "CancelRotateSecretRequestRequestTypeDef",
     "CancelRotateSecretResponseTypeDef",
     "CreateSecretRequestRequestTypeDef",
@@ -64,6 +67,7 @@ __all__ = (
     "RotateSecretResponseTypeDef",
     "RotationRulesTypeTypeDef",
     "SecretListEntryTypeDef",
+    "SecretValueEntryTypeDef",
     "SecretVersionsListEntryTypeDef",
     "StopReplicationToReplicaRequestRequestTypeDef",
     "StopReplicationToReplicaResponseTypeDef",
@@ -77,6 +81,37 @@ __all__ = (
     "ValidateResourcePolicyRequestRequestTypeDef",
     "ValidateResourcePolicyResponseTypeDef",
     "ValidationErrorsEntryTypeDef",
+)
+
+APIErrorTypeTypeDef = TypedDict(
+    "APIErrorTypeTypeDef",
+    {
+        "SecretId": str,
+        "ErrorCode": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+BatchGetSecretValueRequestRequestTypeDef = TypedDict(
+    "BatchGetSecretValueRequestRequestTypeDef",
+    {
+        "SecretIdList": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+BatchGetSecretValueResponseTypeDef = TypedDict(
+    "BatchGetSecretValueResponseTypeDef",
+    {
+        "SecretValues": List["SecretValueEntryTypeDef"],
+        "NextToken": str,
+        "Errors": List["APIErrorTypeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CancelRotateSecretRequestRequestTypeDef = TypedDict(
@@ -577,6 +612,20 @@ SecretListEntryTypeDef = TypedDict(
         "OwningService": str,
         "CreatedDate": datetime,
         "PrimaryRegion": str,
+    },
+    total=False,
+)
+
+SecretValueEntryTypeDef = TypedDict(
+    "SecretValueEntryTypeDef",
+    {
+        "ARN": str,
+        "Name": str,
+        "VersionId": str,
+        "SecretBinary": bytes,
+        "SecretString": str,
+        "VersionStages": List[str],
+        "CreatedDate": datetime,
     },
     total=False,
 )

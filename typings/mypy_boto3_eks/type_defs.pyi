@@ -77,6 +77,8 @@ __all__ = (
     "CreateFargateProfileResponseTypeDef",
     "CreateNodegroupRequestRequestTypeDef",
     "CreateNodegroupResponseTypeDef",
+    "CreatePodIdentityAssociationRequestRequestTypeDef",
+    "CreatePodIdentityAssociationResponseTypeDef",
     "DeleteAddonRequestRequestTypeDef",
     "DeleteAddonResponseTypeDef",
     "DeleteClusterRequestRequestTypeDef",
@@ -87,6 +89,8 @@ __all__ = (
     "DeleteFargateProfileResponseTypeDef",
     "DeleteNodegroupRequestRequestTypeDef",
     "DeleteNodegroupResponseTypeDef",
+    "DeletePodIdentityAssociationRequestRequestTypeDef",
+    "DeletePodIdentityAssociationResponseTypeDef",
     "DeregisterClusterRequestRequestTypeDef",
     "DeregisterClusterResponseTypeDef",
     "DescribeAddonConfigurationRequestRequestTypeDef",
@@ -105,6 +109,8 @@ __all__ = (
     "DescribeIdentityProviderConfigResponseTypeDef",
     "DescribeNodegroupRequestRequestTypeDef",
     "DescribeNodegroupResponseTypeDef",
+    "DescribePodIdentityAssociationRequestRequestTypeDef",
+    "DescribePodIdentityAssociationResponseTypeDef",
     "DescribeUpdateRequestRequestTypeDef",
     "DescribeUpdateResponseTypeDef",
     "DisassociateIdentityProviderConfigRequestRequestTypeDef",
@@ -134,6 +140,8 @@ __all__ = (
     "ListIdentityProviderConfigsResponseTypeDef",
     "ListNodegroupsRequestRequestTypeDef",
     "ListNodegroupsResponseTypeDef",
+    "ListPodIdentityAssociationsRequestRequestTypeDef",
+    "ListPodIdentityAssociationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListUpdatesRequestRequestTypeDef",
@@ -152,6 +160,8 @@ __all__ = (
     "OutpostConfigRequestTypeDef",
     "OutpostConfigResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PodIdentityAssociationSummaryTypeDef",
+    "PodIdentityAssociationTypeDef",
     "ProviderTypeDef",
     "RegisterClusterRequestRequestTypeDef",
     "RegisterClusterResponseTypeDef",
@@ -174,6 +184,8 @@ __all__ = (
     "UpdateNodegroupVersionRequestRequestTypeDef",
     "UpdateNodegroupVersionResponseTypeDef",
     "UpdateParamTypeDef",
+    "UpdatePodIdentityAssociationRequestRequestTypeDef",
+    "UpdatePodIdentityAssociationResponseTypeDef",
     "UpdateTaintsPayloadTypeDef",
     "UpdateTypeDef",
     "VpcConfigRequestTypeDef",
@@ -588,6 +600,38 @@ CreateNodegroupResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreatePodIdentityAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePodIdentityAssociationRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "namespace": str,
+        "serviceAccount": str,
+        "roleArn": str,
+    },
+)
+_OptionalCreatePodIdentityAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePodIdentityAssociationRequestRequestTypeDef",
+    {
+        "clientRequestToken": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreatePodIdentityAssociationRequestRequestTypeDef(
+    _RequiredCreatePodIdentityAssociationRequestRequestTypeDef,
+    _OptionalCreatePodIdentityAssociationRequestRequestTypeDef,
+):
+    pass
+
+CreatePodIdentityAssociationResponseTypeDef = TypedDict(
+    "CreatePodIdentityAssociationResponseTypeDef",
+    {
+        "association": "PodIdentityAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteAddonRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteAddonRequestRequestTypeDef",
     {
@@ -674,6 +718,22 @@ DeleteNodegroupResponseTypeDef = TypedDict(
     "DeleteNodegroupResponseTypeDef",
     {
         "nodegroup": "NodegroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeletePodIdentityAssociationRequestRequestTypeDef = TypedDict(
+    "DeletePodIdentityAssociationRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "associationId": str,
+    },
+)
+
+DeletePodIdentityAssociationResponseTypeDef = TypedDict(
+    "DeletePodIdentityAssociationResponseTypeDef",
+    {
+        "association": "PodIdentityAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -824,6 +884,22 @@ DescribeNodegroupResponseTypeDef = TypedDict(
     "DescribeNodegroupResponseTypeDef",
     {
         "nodegroup": "NodegroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePodIdentityAssociationRequestRequestTypeDef = TypedDict(
+    "DescribePodIdentityAssociationRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "associationId": str,
+    },
+)
+
+DescribePodIdentityAssociationResponseTypeDef = TypedDict(
+    "DescribePodIdentityAssociationResponseTypeDef",
+    {
+        "association": "PodIdentityAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1177,6 +1253,38 @@ ListNodegroupsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListPodIdentityAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListPodIdentityAssociationsRequestRequestTypeDef",
+    {
+        "clusterName": str,
+    },
+)
+_OptionalListPodIdentityAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListPodIdentityAssociationsRequestRequestTypeDef",
+    {
+        "namespace": str,
+        "serviceAccount": str,
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListPodIdentityAssociationsRequestRequestTypeDef(
+    _RequiredListPodIdentityAssociationsRequestRequestTypeDef,
+    _OptionalListPodIdentityAssociationsRequestRequestTypeDef,
+):
+    pass
+
+ListPodIdentityAssociationsResponseTypeDef = TypedDict(
+    "ListPodIdentityAssociationsResponseTypeDef",
+    {
+        "associations": List["PodIdentityAssociationSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -1414,6 +1522,34 @@ PaginatorConfigTypeDef = TypedDict(
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+PodIdentityAssociationSummaryTypeDef = TypedDict(
+    "PodIdentityAssociationSummaryTypeDef",
+    {
+        "clusterName": str,
+        "namespace": str,
+        "serviceAccount": str,
+        "associationArn": str,
+        "associationId": str,
+    },
+    total=False,
+)
+
+PodIdentityAssociationTypeDef = TypedDict(
+    "PodIdentityAssociationTypeDef",
+    {
+        "clusterName": str,
+        "namespace": str,
+        "serviceAccount": str,
+        "roleArn": str,
+        "associationArn": str,
+        "associationId": str,
+        "tags": Dict[str, str],
+        "createdAt": datetime,
+        "modifiedAt": datetime,
     },
     total=False,
 )
@@ -1703,6 +1839,36 @@ UpdateParamTypeDef = TypedDict(
         "value": str,
     },
     total=False,
+)
+
+_RequiredUpdatePodIdentityAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdatePodIdentityAssociationRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "associationId": str,
+    },
+)
+_OptionalUpdatePodIdentityAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdatePodIdentityAssociationRequestRequestTypeDef",
+    {
+        "roleArn": str,
+        "clientRequestToken": str,
+    },
+    total=False,
+)
+
+class UpdatePodIdentityAssociationRequestRequestTypeDef(
+    _RequiredUpdatePodIdentityAssociationRequestRequestTypeDef,
+    _OptionalUpdatePodIdentityAssociationRequestRequestTypeDef,
+):
+    pass
+
+UpdatePodIdentityAssociationResponseTypeDef = TypedDict(
+    "UpdatePodIdentityAssociationResponseTypeDef",
+    {
+        "association": "PodIdentityAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 UpdateTaintsPayloadTypeDef = TypedDict(

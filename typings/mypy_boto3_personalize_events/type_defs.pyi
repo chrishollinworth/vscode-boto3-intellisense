@@ -6,9 +6,9 @@ Type annotations for personalize-events service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_personalize_events.type_defs import EventTypeDef
+    from mypy_boto3_personalize_events.type_defs import ActionInteractionTypeDef
 
-    data: EventTypeDef = {...}
+    data: ActionInteractionTypeDef = {...}
     ```
 """
 import sys
@@ -21,14 +21,61 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ActionInteractionTypeDef",
+    "ActionTypeDef",
     "EventTypeDef",
     "ItemTypeDef",
     "MetricAttributionTypeDef",
+    "PutActionInteractionsRequestRequestTypeDef",
+    "PutActionsRequestRequestTypeDef",
     "PutEventsRequestRequestTypeDef",
     "PutItemsRequestRequestTypeDef",
     "PutUsersRequestRequestTypeDef",
     "UserTypeDef",
 )
+
+_RequiredActionInteractionTypeDef = TypedDict(
+    "_RequiredActionInteractionTypeDef",
+    {
+        "actionId": str,
+        "sessionId": str,
+        "timestamp": Union[datetime, str],
+        "eventType": str,
+    },
+)
+_OptionalActionInteractionTypeDef = TypedDict(
+    "_OptionalActionInteractionTypeDef",
+    {
+        "userId": str,
+        "eventId": str,
+        "recommendationId": str,
+        "impression": List[str],
+        "properties": str,
+    },
+    total=False,
+)
+
+class ActionInteractionTypeDef(
+    _RequiredActionInteractionTypeDef, _OptionalActionInteractionTypeDef
+):
+    pass
+
+_RequiredActionTypeDef = TypedDict(
+    "_RequiredActionTypeDef",
+    {
+        "actionId": str,
+    },
+)
+_OptionalActionTypeDef = TypedDict(
+    "_OptionalActionTypeDef",
+    {
+        "properties": str,
+    },
+    total=False,
+)
+
+class ActionTypeDef(_RequiredActionTypeDef, _OptionalActionTypeDef):
+    pass
 
 _RequiredEventTypeDef = TypedDict(
     "_RequiredEventTypeDef",
@@ -75,6 +122,22 @@ MetricAttributionTypeDef = TypedDict(
     "MetricAttributionTypeDef",
     {
         "eventAttributionSource": str,
+    },
+)
+
+PutActionInteractionsRequestRequestTypeDef = TypedDict(
+    "PutActionInteractionsRequestRequestTypeDef",
+    {
+        "trackingId": str,
+        "actionInteractions": List["ActionInteractionTypeDef"],
+    },
+)
+
+PutActionsRequestRequestTypeDef = TypedDict(
+    "PutActionsRequestRequestTypeDef",
+    {
+        "datasetArn": str,
+        "actions": List["ActionTypeDef"],
     },
 )
 

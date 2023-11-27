@@ -415,6 +415,7 @@ __all__ = (
     "ParameterStringFilterTypeDef",
     "ParameterTypeDef",
     "ParametersFilterTypeDef",
+    "ParentStepDetailsTypeDef",
     "PatchBaselineIdentityTypeDef",
     "PatchComplianceDataTypeDef",
     "PatchFilterGroupTypeDef",
@@ -883,6 +884,7 @@ AutomationExecutionTypeDef = TypedDict(
         "OpsItemId": str,
         "AssociationId": str,
         "ChangeRequestName": str,
+        "Variables": Dict[str, List[str]],
     },
     total=False,
 )
@@ -4716,6 +4718,18 @@ ParametersFilterTypeDef = TypedDict(
     },
 )
 
+ParentStepDetailsTypeDef = TypedDict(
+    "ParentStepDetailsTypeDef",
+    {
+        "StepExecutionId": str,
+        "StepName": str,
+        "Action": str,
+        "Iteration": int,
+        "IteratorValue": str,
+    },
+    total=False,
+)
+
 PatchBaselineIdentityTypeDef = TypedDict(
     "PatchBaselineIdentityTypeDef",
     {
@@ -5632,6 +5646,7 @@ StepExecutionTypeDef = TypedDict(
         "Targets": List["TargetTypeDef"],
         "TargetLocation": "TargetLocationTypeDef",
         "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
+        "ParentStepDetails": "ParentStepDetailsTypeDef",
     },
     total=False,
 )

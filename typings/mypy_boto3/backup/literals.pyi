@@ -6,9 +6,9 @@ Type annotations for backup service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_backup.literals import BackupJobStateType
+    from mypy_boto3_backup.literals import AggregationPeriodType
 
-    data: BackupJobStateType = "ABORTED"
+    data: AggregationPeriodType = "FOURTEEN_DAYS"
     ```
 """
 import sys
@@ -19,10 +19,13 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AggregationPeriodType",
     "BackupJobStateType",
+    "BackupJobStatusType",
     "BackupVaultEventType",
     "ConditionTypeType",
     "CopyJobStateType",
+    "CopyJobStatusType",
     "LegalHoldStatusType",
     "ListBackupJobsPaginatorName",
     "ListBackupPlanTemplatesPaginatorName",
@@ -39,15 +42,30 @@ __all__ = (
     "ListRecoveryPointsByResourcePaginatorName",
     "ListRestoreJobsPaginatorName",
     "RecoveryPointStatusType",
+    "RestoreJobStateType",
     "RestoreJobStatusType",
     "StorageClassType",
     "VaultStateType",
     "VaultTypeType",
 )
 
+AggregationPeriodType = Literal["FOURTEEN_DAYS", "ONE_DAY", "SEVEN_DAYS"]
 BackupJobStateType = Literal[
     "ABORTED",
     "ABORTING",
+    "COMPLETED",
+    "CREATED",
+    "EXPIRED",
+    "FAILED",
+    "PARTIAL",
+    "PENDING",
+    "RUNNING",
+]
+BackupJobStatusType = Literal[
+    "ABORTED",
+    "ABORTING",
+    "AGGREGATE_ALL",
+    "ANY",
     "COMPLETED",
     "CREATED",
     "EXPIRED",
@@ -77,6 +95,19 @@ BackupVaultEventType = Literal[
 ]
 ConditionTypeType = Literal["STRINGEQUALS"]
 CopyJobStateType = Literal["COMPLETED", "CREATED", "FAILED", "PARTIAL", "RUNNING"]
+CopyJobStatusType = Literal[
+    "ABORTED",
+    "ABORTING",
+    "AGGREGATE_ALL",
+    "ANY",
+    "COMPLETED",
+    "COMPLETING",
+    "CREATED",
+    "FAILED",
+    "FAILING",
+    "PARTIAL",
+    "RUNNING",
+]
 LegalHoldStatusType = Literal["ACTIVE", "CANCELED", "CANCELING", "CREATING"]
 ListBackupJobsPaginatorName = Literal["list_backup_jobs"]
 ListBackupPlanTemplatesPaginatorName = Literal["list_backup_plan_templates"]
@@ -95,6 +126,9 @@ ListRecoveryPointsByLegalHoldPaginatorName = Literal["list_recovery_points_by_le
 ListRecoveryPointsByResourcePaginatorName = Literal["list_recovery_points_by_resource"]
 ListRestoreJobsPaginatorName = Literal["list_restore_jobs"]
 RecoveryPointStatusType = Literal["COMPLETED", "DELETING", "EXPIRED", "PARTIAL"]
+RestoreJobStateType = Literal[
+    "ABORTED", "AGGREGATE_ALL", "ANY", "COMPLETED", "CREATED", "FAILED", "PENDING", "RUNNING"
+]
 RestoreJobStatusType = Literal["ABORTED", "COMPLETED", "FAILED", "PENDING", "RUNNING"]
 StorageClassType = Literal["COLD", "DELETED", "WARM"]
 VaultStateType = Literal["AVAILABLE", "CREATING", "FAILED"]

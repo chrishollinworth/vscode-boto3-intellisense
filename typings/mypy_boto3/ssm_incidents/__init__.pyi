@@ -8,6 +8,7 @@ Usage::
     from mypy_boto3_ssm_incidents import (
         Client,
         GetResourcePoliciesPaginator,
+        ListIncidentFindingsPaginator,
         ListIncidentRecordsPaginator,
         ListRelatedItemsPaginator,
         ListReplicationSetsPaginator,
@@ -27,6 +28,7 @@ Usage::
     wait_for_replication_set_deleted_waiter: WaitForReplicationSetDeletedWaiter = client.get_waiter("wait_for_replication_set_deleted")
 
     get_resource_policies_paginator: GetResourcePoliciesPaginator = client.get_paginator("get_resource_policies")
+    list_incident_findings_paginator: ListIncidentFindingsPaginator = client.get_paginator("list_incident_findings")
     list_incident_records_paginator: ListIncidentRecordsPaginator = client.get_paginator("list_incident_records")
     list_related_items_paginator: ListRelatedItemsPaginator = client.get_paginator("list_related_items")
     list_replication_sets_paginator: ListReplicationSetsPaginator = client.get_paginator("list_replication_sets")
@@ -37,6 +39,7 @@ Usage::
 from .client import SSMIncidentsClient
 from .paginator import (
     GetResourcePoliciesPaginator,
+    ListIncidentFindingsPaginator,
     ListIncidentRecordsPaginator,
     ListRelatedItemsPaginator,
     ListReplicationSetsPaginator,
@@ -50,6 +53,7 @@ Client = SSMIncidentsClient
 __all__ = (
     "Client",
     "GetResourcePoliciesPaginator",
+    "ListIncidentFindingsPaginator",
     "ListIncidentRecordsPaginator",
     "ListRelatedItemsPaginator",
     "ListReplicationSetsPaginator",

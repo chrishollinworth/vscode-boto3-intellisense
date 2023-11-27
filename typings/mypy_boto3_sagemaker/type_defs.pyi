@@ -961,6 +961,7 @@ __all__ = (
     "MetricDefinitionTypeDef",
     "MetricSpecificationTypeDef",
     "MetricsSourceTypeDef",
+    "ModelAccessConfigTypeDef",
     "ModelArtifactsTypeDef",
     "ModelBiasAppSpecificationTypeDef",
     "ModelBiasBaselineConfigTypeDef",
@@ -5515,6 +5516,7 @@ DescribeDomainResponseTypeDef = TypedDict(
         "DomainName": str,
         "HomeEfsFileSystemId": str,
         "SingleSignOnManagedApplicationInstanceId": str,
+        "SingleSignOnApplicationArn": str,
         "Status": DomainStatusType,
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
@@ -8510,8 +8512,6 @@ _RequiredInferenceSpecificationTypeDef = TypedDict(
     "_RequiredInferenceSpecificationTypeDef",
     {
         "Containers": List["ModelPackageContainerDefinitionTypeDef"],
-        "SupportedContentTypes": List[str],
-        "SupportedResponseMIMETypes": List[str],
     },
 )
 _OptionalInferenceSpecificationTypeDef = TypedDict(
@@ -8519,6 +8519,8 @@ _OptionalInferenceSpecificationTypeDef = TypedDict(
     {
         "SupportedTransformInstanceTypes": List[TransformInstanceTypeType],
         "SupportedRealtimeInferenceInstanceTypes": List[ProductionVariantInstanceTypeType],
+        "SupportedContentTypes": List[str],
+        "SupportedResponseMIMETypes": List[str],
     },
     total=False,
 )
@@ -10850,6 +10852,13 @@ _OptionalMetricsSourceTypeDef = TypedDict(
 class MetricsSourceTypeDef(_RequiredMetricsSourceTypeDef, _OptionalMetricsSourceTypeDef):
     pass
 
+ModelAccessConfigTypeDef = TypedDict(
+    "ModelAccessConfigTypeDef",
+    {
+        "AcceptEula": bool,
+    },
+)
+
 ModelArtifactsTypeDef = TypedDict(
     "ModelArtifactsTypeDef",
     {
@@ -11341,7 +11350,6 @@ class ModelPackageStatusItemTypeDef(
 _RequiredModelPackageSummaryTypeDef = TypedDict(
     "_RequiredModelPackageSummaryTypeDef",
     {
-        "ModelPackageName": str,
         "ModelPackageArn": str,
         "CreationTime": datetime,
         "ModelPackageStatus": ModelPackageStatusType,
@@ -11350,6 +11358,7 @@ _RequiredModelPackageSummaryTypeDef = TypedDict(
 _OptionalModelPackageSummaryTypeDef = TypedDict(
     "_OptionalModelPackageSummaryTypeDef",
     {
+        "ModelPackageName": str,
         "ModelPackageGroupName": str,
         "ModelPackageVersion": int,
         "ModelPackageDescription": str,
@@ -13416,14 +13425,26 @@ _OptionalS3DataSourceTypeDef = TypedDict(
 class S3DataSourceTypeDef(_RequiredS3DataSourceTypeDef, _OptionalS3DataSourceTypeDef):
     pass
 
-S3ModelDataSourceTypeDef = TypedDict(
-    "S3ModelDataSourceTypeDef",
+_RequiredS3ModelDataSourceTypeDef = TypedDict(
+    "_RequiredS3ModelDataSourceTypeDef",
     {
         "S3Uri": str,
         "S3DataType": S3ModelDataTypeType,
         "CompressionType": ModelCompressionTypeType,
     },
 )
+_OptionalS3ModelDataSourceTypeDef = TypedDict(
+    "_OptionalS3ModelDataSourceTypeDef",
+    {
+        "ModelAccessConfig": "ModelAccessConfigTypeDef",
+    },
+    total=False,
+)
+
+class S3ModelDataSourceTypeDef(
+    _RequiredS3ModelDataSourceTypeDef, _OptionalS3ModelDataSourceTypeDef
+):
+    pass
 
 _RequiredS3StorageConfigTypeDef = TypedDict(
     "_RequiredS3StorageConfigTypeDef",
@@ -14008,6 +14029,7 @@ StoppingConditionTypeDef = TypedDict(
     {
         "MaxRuntimeInSeconds": int,
         "MaxWaitTimeInSeconds": int,
+        "MaxPendingTimeInSeconds": int,
     },
     total=False,
 )

@@ -68,6 +68,7 @@ __all__ = (
     "ObjectVersionStorageClassType",
     "OptionalObjectAttributesType",
     "OwnerOverrideType",
+    "PartitionDateSourceType",
     "PayerType",
     "PermissionType",
     "ProtocolType",
@@ -230,6 +231,7 @@ ObjectStorageClassType = Literal[
 ObjectVersionStorageClassType = Literal["STANDARD"]
 OptionalObjectAttributesType = Literal["RestoreStatus"]
 OwnerOverrideType = Literal["Destination"]
+PartitionDateSourceType = Literal["DeliveryTime", "EventTime"]
 PayerType = Literal["BucketOwner", "Requester"]
 PermissionType = Literal["FULL_CONTROL", "READ", "READ_ACP", "WRITE", "WRITE_ACP"]
 ProtocolType = Literal["http", "https"]

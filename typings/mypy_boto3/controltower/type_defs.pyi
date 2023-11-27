@@ -20,6 +20,10 @@ from .literals import (
     ControlOperationTypeType,
     DriftStatusType,
     EnablementStatusType,
+    LandingZoneDriftStatusType,
+    LandingZoneOperationStatusType,
+    LandingZoneOperationTypeType,
+    LandingZoneStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -29,6 +33,10 @@ else:
 
 __all__ = (
     "ControlOperationTypeDef",
+    "CreateLandingZoneInputRequestTypeDef",
+    "CreateLandingZoneOutputTypeDef",
+    "DeleteLandingZoneInputRequestTypeDef",
+    "DeleteLandingZoneOutputTypeDef",
     "DisableControlInputRequestTypeDef",
     "DisableControlOutputTypeDef",
     "DriftStatusSummaryTypeDef",
@@ -41,15 +49,29 @@ __all__ = (
     "GetControlOperationOutputTypeDef",
     "GetEnabledControlInputRequestTypeDef",
     "GetEnabledControlOutputTypeDef",
+    "GetLandingZoneInputRequestTypeDef",
+    "GetLandingZoneOperationInputRequestTypeDef",
+    "GetLandingZoneOperationOutputTypeDef",
+    "GetLandingZoneOutputTypeDef",
+    "LandingZoneDetailTypeDef",
+    "LandingZoneDriftStatusSummaryTypeDef",
+    "LandingZoneOperationDetailTypeDef",
+    "LandingZoneSummaryTypeDef",
     "ListEnabledControlsInputRequestTypeDef",
     "ListEnabledControlsOutputTypeDef",
+    "ListLandingZonesInputRequestTypeDef",
+    "ListLandingZonesOutputTypeDef",
     "ListTagsForResourceInputRequestTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "PaginatorConfigTypeDef",
     "RegionTypeDef",
+    "ResetLandingZoneInputRequestTypeDef",
+    "ResetLandingZoneOutputTypeDef",
     "ResponseMetadataTypeDef",
     "TagResourceInputRequestTypeDef",
     "UntagResourceInputRequestTypeDef",
+    "UpdateLandingZoneInputRequestTypeDef",
+    "UpdateLandingZoneOutputTypeDef",
 )
 
 ControlOperationTypeDef = TypedDict(
@@ -62,6 +84,50 @@ ControlOperationTypeDef = TypedDict(
         "statusMessage": str,
     },
     total=False,
+)
+
+_RequiredCreateLandingZoneInputRequestTypeDef = TypedDict(
+    "_RequiredCreateLandingZoneInputRequestTypeDef",
+    {
+        "manifest": Dict[str, Any],
+        "version": str,
+    },
+)
+_OptionalCreateLandingZoneInputRequestTypeDef = TypedDict(
+    "_OptionalCreateLandingZoneInputRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateLandingZoneInputRequestTypeDef(
+    _RequiredCreateLandingZoneInputRequestTypeDef, _OptionalCreateLandingZoneInputRequestTypeDef
+):
+    pass
+
+CreateLandingZoneOutputTypeDef = TypedDict(
+    "CreateLandingZoneOutputTypeDef",
+    {
+        "arn": str,
+        "operationIdentifier": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteLandingZoneInputRequestTypeDef = TypedDict(
+    "DeleteLandingZoneInputRequestTypeDef",
+    {
+        "landingZoneIdentifier": str,
+    },
+)
+
+DeleteLandingZoneOutputTypeDef = TypedDict(
+    "DeleteLandingZoneOutputTypeDef",
+    {
+        "operationIdentifier": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DisableControlInputRequestTypeDef = TypedDict(
@@ -181,6 +247,87 @@ GetEnabledControlOutputTypeDef = TypedDict(
     },
 )
 
+GetLandingZoneInputRequestTypeDef = TypedDict(
+    "GetLandingZoneInputRequestTypeDef",
+    {
+        "landingZoneIdentifier": str,
+    },
+)
+
+GetLandingZoneOperationInputRequestTypeDef = TypedDict(
+    "GetLandingZoneOperationInputRequestTypeDef",
+    {
+        "operationIdentifier": str,
+    },
+)
+
+GetLandingZoneOperationOutputTypeDef = TypedDict(
+    "GetLandingZoneOperationOutputTypeDef",
+    {
+        "operationDetails": "LandingZoneOperationDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetLandingZoneOutputTypeDef = TypedDict(
+    "GetLandingZoneOutputTypeDef",
+    {
+        "landingZone": "LandingZoneDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredLandingZoneDetailTypeDef = TypedDict(
+    "_RequiredLandingZoneDetailTypeDef",
+    {
+        "manifest": Dict[str, Any],
+        "version": str,
+    },
+)
+_OptionalLandingZoneDetailTypeDef = TypedDict(
+    "_OptionalLandingZoneDetailTypeDef",
+    {
+        "arn": str,
+        "driftStatus": "LandingZoneDriftStatusSummaryTypeDef",
+        "latestAvailableVersion": str,
+        "status": LandingZoneStatusType,
+    },
+    total=False,
+)
+
+class LandingZoneDetailTypeDef(
+    _RequiredLandingZoneDetailTypeDef, _OptionalLandingZoneDetailTypeDef
+):
+    pass
+
+LandingZoneDriftStatusSummaryTypeDef = TypedDict(
+    "LandingZoneDriftStatusSummaryTypeDef",
+    {
+        "status": LandingZoneDriftStatusType,
+    },
+    total=False,
+)
+
+LandingZoneOperationDetailTypeDef = TypedDict(
+    "LandingZoneOperationDetailTypeDef",
+    {
+        "endTime": datetime,
+        "operationType": LandingZoneOperationTypeType,
+        "startTime": datetime,
+        "status": LandingZoneOperationStatusType,
+        "statusMessage": str,
+    },
+    total=False,
+)
+
+LandingZoneSummaryTypeDef = TypedDict(
+    "LandingZoneSummaryTypeDef",
+    {
+        "arn": str,
+    },
+    total=False,
+)
+
 _RequiredListEnabledControlsInputRequestTypeDef = TypedDict(
     "_RequiredListEnabledControlsInputRequestTypeDef",
     {
@@ -205,6 +352,24 @@ ListEnabledControlsOutputTypeDef = TypedDict(
     "ListEnabledControlsOutputTypeDef",
     {
         "enabledControls": List["EnabledControlSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListLandingZonesInputRequestTypeDef = TypedDict(
+    "ListLandingZonesInputRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListLandingZonesOutputTypeDef = TypedDict(
+    "ListLandingZonesOutputTypeDef",
+    {
+        "landingZones": List["LandingZoneSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -243,6 +408,21 @@ RegionTypeDef = TypedDict(
     total=False,
 )
 
+ResetLandingZoneInputRequestTypeDef = TypedDict(
+    "ResetLandingZoneInputRequestTypeDef",
+    {
+        "landingZoneIdentifier": str,
+    },
+)
+
+ResetLandingZoneOutputTypeDef = TypedDict(
+    "ResetLandingZoneOutputTypeDef",
+    {
+        "operationIdentifier": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -267,5 +447,22 @@ UntagResourceInputRequestTypeDef = TypedDict(
     {
         "resourceArn": str,
         "tagKeys": List[str],
+    },
+)
+
+UpdateLandingZoneInputRequestTypeDef = TypedDict(
+    "UpdateLandingZoneInputRequestTypeDef",
+    {
+        "landingZoneIdentifier": str,
+        "manifest": Dict[str, Any],
+        "version": str,
+    },
+)
+
+UpdateLandingZoneOutputTypeDef = TypedDict(
+    "UpdateLandingZoneOutputTypeDef",
+    {
+        "operationIdentifier": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

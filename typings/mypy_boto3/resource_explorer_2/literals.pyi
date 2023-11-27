@@ -6,9 +6,9 @@ Type annotations for resource-explorer-2 service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_resource_explorer_2.literals import IndexStateType
+    from mypy_boto3_resource_explorer_2.literals import AWSServiceAccessStatusType
 
-    data: IndexStateType = "ACTIVE"
+    data: AWSServiceAccessStatusType = "DISABLED"
     ```
 """
 import sys
@@ -19,16 +19,20 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AWSServiceAccessStatusType",
     "IndexStateType",
     "IndexTypeType",
+    "ListIndexesForMembersPaginatorName",
     "ListIndexesPaginatorName",
     "ListSupportedResourceTypesPaginatorName",
     "ListViewsPaginatorName",
     "SearchPaginatorName",
 )
 
+AWSServiceAccessStatusType = Literal["DISABLED", "ENABLED"]
 IndexStateType = Literal["ACTIVE", "CREATING", "DELETED", "DELETING", "UPDATING"]
 IndexTypeType = Literal["AGGREGATOR", "LOCAL"]
+ListIndexesForMembersPaginatorName = Literal["list_indexes_for_members"]
 ListIndexesPaginatorName = Literal["list_indexes"]
 ListSupportedResourceTypesPaginatorName = Literal["list_supported_resource_types"]
 ListViewsPaginatorName = Literal["list_views"]

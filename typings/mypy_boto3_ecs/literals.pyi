@@ -76,6 +76,7 @@ __all__ = (
     "ServicesInactiveWaiterName",
     "ServicesStableWaiterName",
     "SettingNameType",
+    "SettingTypeType",
     "SortOrderType",
     "StabilityStatusType",
     "TargetTypeType",
@@ -174,10 +175,12 @@ SettingNameType = Literal[
     "containerInstanceLongArnFormat",
     "fargateFIPSMode",
     "fargateTaskRetirementWaitPeriod",
+    "guardDutyActivate",
     "serviceLongArnFormat",
     "tagResourceAuthorization",
     "taskLongArnFormat",
 ]
+SettingTypeType = Literal["aws_managed", "user"]
 SortOrderType = Literal["ASC", "DESC"]
 StabilityStatusType = Literal["STABILIZING", "STEADY_STATE"]
 TargetTypeType = Literal["container-instance"]

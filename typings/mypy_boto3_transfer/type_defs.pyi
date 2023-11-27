@@ -22,6 +22,7 @@ from .literals import (
     CertificateUsageTypeType,
     CompressionEnumType,
     CustomStepStatusType,
+    DirectoryListingOptimizationType,
     DomainType,
     EncryptionAlgType,
     EndpointTypeType,
@@ -29,6 +30,7 @@ from .literals import (
     ExecutionStatusType,
     HomeDirectoryTypeType,
     IdentityProviderTypeType,
+    MapTypeType,
     MdnResponseType,
     MdnSigningAlgType,
     OverwriteExistingType,
@@ -170,6 +172,7 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "S3FileLocationTypeDef",
     "S3InputFileLocationTypeDef",
+    "S3StorageOptionsTypeDef",
     "S3TagTypeDef",
     "SendWorkflowStepStateRequestRequestTypeDef",
     "ServiceMetadataTypeDef",
@@ -383,6 +386,7 @@ CreateServerRequestRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "WorkflowDetails": "WorkflowDetailsTypeDef",
         "StructuredLogDestinations": List[str],
+        "S3StorageOptions": "S3StorageOptionsTypeDef",
     },
     total=False,
 )
@@ -957,6 +961,7 @@ _OptionalDescribedServerTypeDef = TypedDict(
         "UserCount": int,
         "WorkflowDetails": "WorkflowDetailsTypeDef",
         "StructuredLogDestinations": List[str],
+        "S3StorageOptions": "S3StorageOptionsTypeDef",
     },
     total=False,
 )
@@ -1069,13 +1074,25 @@ FileLocationTypeDef = TypedDict(
     total=False,
 )
 
-HomeDirectoryMapEntryTypeDef = TypedDict(
-    "HomeDirectoryMapEntryTypeDef",
+_RequiredHomeDirectoryMapEntryTypeDef = TypedDict(
+    "_RequiredHomeDirectoryMapEntryTypeDef",
     {
         "Entry": str,
         "Target": str,
     },
 )
+_OptionalHomeDirectoryMapEntryTypeDef = TypedDict(
+    "_OptionalHomeDirectoryMapEntryTypeDef",
+    {
+        "Type": MapTypeType,
+    },
+    total=False,
+)
+
+class HomeDirectoryMapEntryTypeDef(
+    _RequiredHomeDirectoryMapEntryTypeDef, _OptionalHomeDirectoryMapEntryTypeDef
+):
+    pass
 
 IdentityProviderDetailsTypeDef = TypedDict(
     "IdentityProviderDetailsTypeDef",
@@ -1695,6 +1712,14 @@ S3InputFileLocationTypeDef = TypedDict(
     total=False,
 )
 
+S3StorageOptionsTypeDef = TypedDict(
+    "S3StorageOptionsTypeDef",
+    {
+        "DirectoryListingOptimization": DirectoryListingOptimizationType,
+    },
+    total=False,
+)
+
 S3TagTypeDef = TypedDict(
     "S3TagTypeDef",
     {
@@ -2061,6 +2086,7 @@ _OptionalUpdateServerRequestRequestTypeDef = TypedDict(
         "SecurityPolicyName": str,
         "WorkflowDetails": "WorkflowDetailsTypeDef",
         "StructuredLogDestinations": List[str],
+        "S3StorageOptions": "S3StorageOptionsTypeDef",
     },
     total=False,
 )

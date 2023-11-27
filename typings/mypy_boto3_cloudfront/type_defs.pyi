@@ -116,6 +116,8 @@ __all__ = (
     "CreateInvalidationResultTypeDef",
     "CreateKeyGroupRequestRequestTypeDef",
     "CreateKeyGroupResultTypeDef",
+    "CreateKeyValueStoreRequestRequestTypeDef",
+    "CreateKeyValueStoreResultTypeDef",
     "CreateMonitoringSubscriptionRequestRequestTypeDef",
     "CreateMonitoringSubscriptionResultTypeDef",
     "CreateOriginAccessControlRequestRequestTypeDef",
@@ -145,6 +147,7 @@ __all__ = (
     "DeleteFieldLevelEncryptionProfileRequestRequestTypeDef",
     "DeleteFunctionRequestRequestTypeDef",
     "DeleteKeyGroupRequestRequestTypeDef",
+    "DeleteKeyValueStoreRequestRequestTypeDef",
     "DeleteMonitoringSubscriptionRequestRequestTypeDef",
     "DeleteOriginAccessControlRequestRequestTypeDef",
     "DeleteOriginRequestPolicyRequestRequestTypeDef",
@@ -154,6 +157,8 @@ __all__ = (
     "DeleteStreamingDistributionRequestRequestTypeDef",
     "DescribeFunctionRequestRequestTypeDef",
     "DescribeFunctionResultTypeDef",
+    "DescribeKeyValueStoreRequestRequestTypeDef",
+    "DescribeKeyValueStoreResultTypeDef",
     "DistributionConfigTypeDef",
     "DistributionConfigWithTagsTypeDef",
     "DistributionIdListTypeDef",
@@ -237,6 +242,7 @@ __all__ = (
     "GetStreamingDistributionRequestRequestTypeDef",
     "GetStreamingDistributionResultTypeDef",
     "HeadersTypeDef",
+    "ImportSourceTypeDef",
     "InvalidationBatchTypeDef",
     "InvalidationListTypeDef",
     "InvalidationSummaryTypeDef",
@@ -247,6 +253,10 @@ __all__ = (
     "KeyGroupSummaryTypeDef",
     "KeyGroupTypeDef",
     "KeyPairIdsTypeDef",
+    "KeyValueStoreAssociationTypeDef",
+    "KeyValueStoreAssociationsTypeDef",
+    "KeyValueStoreListTypeDef",
+    "KeyValueStoreTypeDef",
     "KinesisStreamConfigTypeDef",
     "LambdaFunctionAssociationTypeDef",
     "LambdaFunctionAssociationsTypeDef",
@@ -282,6 +292,8 @@ __all__ = (
     "ListInvalidationsResultTypeDef",
     "ListKeyGroupsRequestRequestTypeDef",
     "ListKeyGroupsResultTypeDef",
+    "ListKeyValueStoresRequestRequestTypeDef",
+    "ListKeyValueStoresResultTypeDef",
     "ListOriginAccessControlsRequestRequestTypeDef",
     "ListOriginAccessControlsResultTypeDef",
     "ListOriginRequestPoliciesRequestRequestTypeDef",
@@ -400,6 +412,8 @@ __all__ = (
     "UpdateFunctionResultTypeDef",
     "UpdateKeyGroupRequestRequestTypeDef",
     "UpdateKeyGroupResultTypeDef",
+    "UpdateKeyValueStoreRequestRequestTypeDef",
+    "UpdateKeyValueStoreResultTypeDef",
     "UpdateOriginAccessControlRequestRequestTypeDef",
     "UpdateOriginAccessControlResultTypeDef",
     "UpdateOriginRequestPolicyRequestRequestTypeDef",
@@ -1147,6 +1161,37 @@ CreateKeyGroupResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateKeyValueStoreRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateKeyValueStoreRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateKeyValueStoreRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateKeyValueStoreRequestRequestTypeDef",
+    {
+        "Comment": str,
+        "ImportSource": "ImportSourceTypeDef",
+    },
+    total=False,
+)
+
+class CreateKeyValueStoreRequestRequestTypeDef(
+    _RequiredCreateKeyValueStoreRequestRequestTypeDef,
+    _OptionalCreateKeyValueStoreRequestRequestTypeDef,
+):
+    pass
+
+CreateKeyValueStoreResultTypeDef = TypedDict(
+    "CreateKeyValueStoreResultTypeDef",
+    {
+        "KeyValueStore": "KeyValueStoreTypeDef",
+        "ETag": str,
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateMonitoringSubscriptionRequestRequestTypeDef = TypedDict(
     "CreateMonitoringSubscriptionRequestRequestTypeDef",
     {
@@ -1544,6 +1589,14 @@ class DeleteKeyGroupRequestRequestTypeDef(
 ):
     pass
 
+DeleteKeyValueStoreRequestRequestTypeDef = TypedDict(
+    "DeleteKeyValueStoreRequestRequestTypeDef",
+    {
+        "Name": str,
+        "IfMatch": str,
+    },
+)
+
 DeleteMonitoringSubscriptionRequestRequestTypeDef = TypedDict(
     "DeleteMonitoringSubscriptionRequestRequestTypeDef",
     {
@@ -1682,6 +1735,22 @@ DescribeFunctionResultTypeDef = TypedDict(
     "DescribeFunctionResultTypeDef",
     {
         "FunctionSummary": "FunctionSummaryTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeKeyValueStoreRequestRequestTypeDef = TypedDict(
+    "DescribeKeyValueStoreRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DescribeKeyValueStoreResultTypeDef = TypedDict(
+    "DescribeKeyValueStoreResultTypeDef",
+    {
+        "KeyValueStore": "KeyValueStoreTypeDef",
         "ETag": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2094,13 +2163,23 @@ class FunctionAssociationsTypeDef(
 ):
     pass
 
-FunctionConfigTypeDef = TypedDict(
-    "FunctionConfigTypeDef",
+_RequiredFunctionConfigTypeDef = TypedDict(
+    "_RequiredFunctionConfigTypeDef",
     {
         "Comment": str,
         "Runtime": FunctionRuntimeType,
     },
 )
+_OptionalFunctionConfigTypeDef = TypedDict(
+    "_OptionalFunctionConfigTypeDef",
+    {
+        "KeyValueStoreAssociations": "KeyValueStoreAssociationsTypeDef",
+    },
+    total=False,
+)
+
+class FunctionConfigTypeDef(_RequiredFunctionConfigTypeDef, _OptionalFunctionConfigTypeDef):
+    pass
 
 _RequiredFunctionListTypeDef = TypedDict(
     "_RequiredFunctionListTypeDef",
@@ -2655,6 +2734,14 @@ _OptionalHeadersTypeDef = TypedDict(
 class HeadersTypeDef(_RequiredHeadersTypeDef, _OptionalHeadersTypeDef):
     pass
 
+ImportSourceTypeDef = TypedDict(
+    "ImportSourceTypeDef",
+    {
+        "SourceType": Literal["S3"],
+        "SourceARN": str,
+    },
+)
+
 InvalidationBatchTypeDef = TypedDict(
     "InvalidationBatchTypeDef",
     {
@@ -2780,6 +2867,74 @@ _OptionalKeyPairIdsTypeDef = TypedDict(
 )
 
 class KeyPairIdsTypeDef(_RequiredKeyPairIdsTypeDef, _OptionalKeyPairIdsTypeDef):
+    pass
+
+KeyValueStoreAssociationTypeDef = TypedDict(
+    "KeyValueStoreAssociationTypeDef",
+    {
+        "KeyValueStoreARN": str,
+    },
+)
+
+_RequiredKeyValueStoreAssociationsTypeDef = TypedDict(
+    "_RequiredKeyValueStoreAssociationsTypeDef",
+    {
+        "Quantity": int,
+    },
+)
+_OptionalKeyValueStoreAssociationsTypeDef = TypedDict(
+    "_OptionalKeyValueStoreAssociationsTypeDef",
+    {
+        "Items": List["KeyValueStoreAssociationTypeDef"],
+    },
+    total=False,
+)
+
+class KeyValueStoreAssociationsTypeDef(
+    _RequiredKeyValueStoreAssociationsTypeDef, _OptionalKeyValueStoreAssociationsTypeDef
+):
+    pass
+
+_RequiredKeyValueStoreListTypeDef = TypedDict(
+    "_RequiredKeyValueStoreListTypeDef",
+    {
+        "MaxItems": int,
+        "Quantity": int,
+    },
+)
+_OptionalKeyValueStoreListTypeDef = TypedDict(
+    "_OptionalKeyValueStoreListTypeDef",
+    {
+        "NextMarker": str,
+        "Items": List["KeyValueStoreTypeDef"],
+    },
+    total=False,
+)
+
+class KeyValueStoreListTypeDef(
+    _RequiredKeyValueStoreListTypeDef, _OptionalKeyValueStoreListTypeDef
+):
+    pass
+
+_RequiredKeyValueStoreTypeDef = TypedDict(
+    "_RequiredKeyValueStoreTypeDef",
+    {
+        "Name": str,
+        "Id": str,
+        "Comment": str,
+        "ARN": str,
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalKeyValueStoreTypeDef = TypedDict(
+    "_OptionalKeyValueStoreTypeDef",
+    {
+        "Status": str,
+    },
+    total=False,
+)
+
+class KeyValueStoreTypeDef(_RequiredKeyValueStoreTypeDef, _OptionalKeyValueStoreTypeDef):
     pass
 
 KinesisStreamConfigTypeDef = TypedDict(
@@ -3185,6 +3340,24 @@ ListKeyGroupsResultTypeDef = TypedDict(
     "ListKeyGroupsResultTypeDef",
     {
         "KeyGroupList": "KeyGroupListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListKeyValueStoresRequestRequestTypeDef = TypedDict(
+    "ListKeyValueStoresRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": str,
+        "Status": str,
+    },
+    total=False,
+)
+
+ListKeyValueStoresResultTypeDef = TypedDict(
+    "ListKeyValueStoresResultTypeDef",
+    {
+        "KeyValueStoreList": "KeyValueStoreListTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4762,6 +4935,24 @@ UpdateKeyGroupResultTypeDef = TypedDict(
     "UpdateKeyGroupResultTypeDef",
     {
         "KeyGroup": "KeyGroupTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateKeyValueStoreRequestRequestTypeDef = TypedDict(
+    "UpdateKeyValueStoreRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Comment": str,
+        "IfMatch": str,
+    },
+)
+
+UpdateKeyValueStoreResultTypeDef = TypedDict(
+    "UpdateKeyValueStoreResultTypeDef",
+    {
+        "KeyValueStore": "KeyValueStoreTypeDef",
         "ETag": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

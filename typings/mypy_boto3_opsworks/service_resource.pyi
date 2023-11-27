@@ -53,7 +53,7 @@ __all__ = (
 
 class ServiceResourceStacksCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.stacks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.stacks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#serviceresourcestackscollection)
     """
 
@@ -86,7 +86,7 @@ class ServiceResourceStacksCollection(ResourceCollection):
 
 class StackLayersCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Stack.layers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Stack.layers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stacklayerscollection)
     """
 
@@ -119,7 +119,7 @@ class StackLayersCollection(ResourceCollection):
 
 class Layer(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.Layer)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.Layer)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#layer)
     """
 
@@ -153,14 +153,14 @@ class Layer(Boto3ServiceResource):
         """
         Deletes a specified layer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Layer.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Layer.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#layerdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Layer.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Layer.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#layerget_available_subresources-method)
         """
     def load(self) -> None:
@@ -168,7 +168,7 @@ class Layer(Boto3ServiceResource):
         Calls :py:meth:`OpsWorks.Client.describe_layers` to update the attributes of the
         Layer resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Layer.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Layer.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#layerload-method)
         """
     def reload(self) -> None:
@@ -176,7 +176,7 @@ class Layer(Boto3ServiceResource):
         Calls :py:meth:`OpsWorks.Client.describe_layers` to update the attributes of the
         Layer resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Layer.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Layer.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#layerreload-method)
         """
 
@@ -184,7 +184,7 @@ _Layer = Layer
 
 class StackSummary(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.StackSummary)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.StackSummary)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stacksummary)
     """
 
@@ -199,14 +199,14 @@ class StackSummary(Boto3ServiceResource):
         """
         Creates a Stack resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.StackSummary.Stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.StackSummary.Stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stacksummarystack-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.StackSummary.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.StackSummary.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stacksummaryget_available_subresources-method)
         """
     def load(self) -> None:
@@ -214,7 +214,7 @@ class StackSummary(Boto3ServiceResource):
         Calls :py:meth:`OpsWorks.Client.describe_stack_summary` to update the attributes
         of the StackSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.StackSummary.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.StackSummary.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stacksummaryload-method)
         """
     def reload(self) -> None:
@@ -222,7 +222,7 @@ class StackSummary(Boto3ServiceResource):
         Calls :py:meth:`OpsWorks.Client.describe_stack_summary` to update the attributes
         of the StackSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.StackSummary.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.StackSummary.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stacksummaryreload-method)
         """
 
@@ -230,7 +230,7 @@ _StackSummary = StackSummary
 
 class Stack(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.Stack)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.Stack)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stack)
     """
 
@@ -263,7 +263,7 @@ class Stack(Boto3ServiceResource):
         """
         Creates a StackSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Stack.Summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Stack.Summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stacksummary-method)
         """
     def create_layer(
@@ -290,21 +290,21 @@ class Stack(Boto3ServiceResource):
         """
         Creates a layer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Stack.create_layer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Stack.create_layer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stackcreate_layer-method)
         """
     def delete(self) -> None:
         """
         Deletes a specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Stack.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Stack.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stackdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Stack.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Stack.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stackget_available_subresources-method)
         """
     def load(self) -> None:
@@ -312,7 +312,7 @@ class Stack(Boto3ServiceResource):
         Calls :py:meth:`OpsWorks.Client.describe_stacks` to update the attributes of the
         Stack resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Stack.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Stack.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stackload-method)
         """
     def reload(self) -> None:
@@ -320,7 +320,7 @@ class Stack(Boto3ServiceResource):
         Calls :py:meth:`OpsWorks.Client.describe_stacks` to update the attributes of the
         Stack resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.Stack.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.Stack.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#stackreload-method)
         """
 
@@ -331,7 +331,7 @@ class OpsWorksResourceMeta(ResourceMeta):
 
 class OpsWorksServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html)
     """
 
@@ -342,21 +342,21 @@ class OpsWorksServiceResource(Boto3ServiceResource):
         """
         Creates a Layer resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.Layer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.Layer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#opsworksserviceresourcelayer-method)
         """
     def Stack(self, id: str) -> _Stack:
         """
         Creates a Stack resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.Stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.Stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#opsworksserviceresourcestack-method)
         """
     def StackSummary(self, stack_id: str) -> _StackSummary:
         """
         Creates a StackSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.StackSummary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.StackSummary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#opsworksserviceresourcestacksummary-method)
         """
     def create_stack(
@@ -385,13 +385,13 @@ class OpsWorksServiceResource(Boto3ServiceResource):
         """
         Creates a new stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.create_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.create_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#opsworksserviceresourcecreate_stack-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/opsworks.html#OpsWorks.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/opsworks.html#OpsWorks.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/service_resource.html#opsworksserviceresourceget_available_subresources-method)
         """

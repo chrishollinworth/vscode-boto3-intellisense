@@ -21,9 +21,11 @@ else:
 __all__ = (
     "ColumnTypeType",
     "ComponentUpdateTypeType",
+    "DestinationTypeType",
     "ErrorCodeType",
     "GroupTypeType",
     "InterpolationTypeType",
+    "MetadataTransferJobStateType",
     "OrderByTimeType",
     "OrderType",
     "ParentEntityUpdateTypeType",
@@ -33,6 +35,7 @@ __all__ = (
     "PropertyUpdateTypeType",
     "SceneErrorCodeType",
     "ScopeType",
+    "SourceTypeType",
     "StateType",
     "SyncJobStateType",
     "SyncResourceStateType",
@@ -43,15 +46,22 @@ __all__ = (
 
 ColumnTypeType = Literal["EDGE", "NODE", "VALUE"]
 ComponentUpdateTypeType = Literal["CREATE", "DELETE", "UPDATE"]
+DestinationTypeType = Literal["iotsitewise", "iottwinmaker", "s3"]
 ErrorCodeType = Literal[
+    "COMPOSITE_COMPONENT_FAILURE",
     "INTERNAL_FAILURE",
+    "PROCESSING_ERROR",
     "SYNC_CREATING_ERROR",
+    "SYNC_DELETING_ERROR",
     "SYNC_INITIALIZING_ERROR",
     "SYNC_PROCESSING_ERROR",
     "VALIDATION_ERROR",
 ]
 GroupTypeType = Literal["TABULAR"]
 InterpolationTypeType = Literal["LINEAR"]
+MetadataTransferJobStateType = Literal[
+    "CANCELLED", "CANCELLING", "COMPLETED", "ERROR", "PENDING", "RUNNING", "VALIDATING"
+]
 OrderByTimeType = Literal["ASCENDING", "DESCENDING"]
 OrderType = Literal["ASCENDING", "DESCENDING"]
 ParentEntityUpdateTypeType = Literal["DELETE", "UPDATE"]
@@ -61,6 +71,7 @@ PropertyGroupUpdateTypeType = Literal["CREATE", "DELETE", "UPDATE"]
 PropertyUpdateTypeType = Literal["CREATE", "DELETE", "UPDATE"]
 SceneErrorCodeType = Literal["MATTERPORT_ERROR"]
 ScopeType = Literal["ENTITY", "WORKSPACE"]
+SourceTypeType = Literal["iotsitewise", "iottwinmaker", "s3"]
 StateType = Literal["ACTIVE", "CREATING", "DELETING", "ERROR", "UPDATING"]
 SyncJobStateType = Literal["ACTIVE", "CREATING", "DELETING", "ERROR", "INITIALIZING"]
 SyncResourceStateType = Literal["DELETED", "ERROR", "INITIALIZING", "IN_SYNC", "PROCESSING"]

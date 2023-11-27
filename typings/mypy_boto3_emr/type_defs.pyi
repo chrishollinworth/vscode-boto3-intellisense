@@ -26,6 +26,7 @@ from .literals import (
     ClusterStateType,
     ComparisonOperatorType,
     ComputeLimitsUnitTypeType,
+    IdcUserAssignmentType,
     IdentityTypeType,
     InstanceCollectionTypeType,
     InstanceFleetStateChangeReasonCodeType,
@@ -654,6 +655,10 @@ _OptionalCreateStudioInputRequestTypeDef = TypedDict(
         "IdpAuthUrl": str,
         "IdpRelayStateParameterName": str,
         "Tags": List["TagTypeDef"],
+        "TrustedIdentityPropagationEnabled": bool,
+        "IdcUserAssignment": IdcUserAssignmentType,
+        "IdcInstanceArn": str,
+        "EncryptionKeyArn": str,
     },
     total=False,
 )
@@ -2633,6 +2638,10 @@ StudioTypeDef = TypedDict(
         "IdpAuthUrl": str,
         "IdpRelayStateParameterName": str,
         "Tags": List["TagTypeDef"],
+        "IdcInstanceArn": str,
+        "TrustedIdentityPropagationEnabled": bool,
+        "IdcUserAssignment": IdcUserAssignmentType,
+        "EncryptionKeyArn": str,
     },
     total=False,
 )
@@ -2693,6 +2702,7 @@ _OptionalUpdateStudioInputRequestTypeDef = TypedDict(
         "Description": str,
         "SubnetIds": List[str],
         "DefaultS3Location": str,
+        "EncryptionKeyArn": str,
     },
     total=False,
 )

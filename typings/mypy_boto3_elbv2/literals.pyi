@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "ActionTypeEnumType",
+    "AnomalyResultEnumType",
     "AuthenticateCognitoActionConditionalBehaviorEnumType",
     "AuthenticateOidcActionConditionalBehaviorEnumType",
     "DescribeAccountLimitsPaginatorName",
@@ -29,6 +30,7 @@ __all__ = (
     "DescribeRulesPaginatorName",
     "DescribeSSLPoliciesPaginatorName",
     "DescribeTargetGroupsPaginatorName",
+    "DescribeTargetHealthInputIncludeEnumType",
     "EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType",
     "IpAddressTypeType",
     "LoadBalancerAvailableWaiterName",
@@ -37,19 +39,23 @@ __all__ = (
     "LoadBalancerStateEnumType",
     "LoadBalancerTypeEnumType",
     "LoadBalancersDeletedWaiterName",
+    "MitigationInEffectEnumType",
     "ProtocolEnumType",
     "RedirectActionStatusCodeEnumType",
+    "RevocationTypeType",
     "TargetDeregisteredWaiterName",
     "TargetGroupIpAddressTypeEnumType",
     "TargetHealthReasonEnumType",
     "TargetHealthStateEnumType",
     "TargetInServiceWaiterName",
     "TargetTypeEnumType",
+    "TrustStoreStatusType",
 )
 
 ActionTypeEnumType = Literal[
     "authenticate-cognito", "authenticate-oidc", "fixed-response", "forward", "redirect"
 ]
+AnomalyResultEnumType = Literal["anomalous", "normal"]
 AuthenticateCognitoActionConditionalBehaviorEnumType = Literal["allow", "authenticate", "deny"]
 AuthenticateOidcActionConditionalBehaviorEnumType = Literal["allow", "authenticate", "deny"]
 DescribeAccountLimitsPaginatorName = Literal["describe_account_limits"]
@@ -59,6 +65,7 @@ DescribeLoadBalancersPaginatorName = Literal["describe_load_balancers"]
 DescribeRulesPaginatorName = Literal["describe_rules"]
 DescribeSSLPoliciesPaginatorName = Literal["describe_ssl_policies"]
 DescribeTargetGroupsPaginatorName = Literal["describe_target_groups"]
+DescribeTargetHealthInputIncludeEnumType = Literal["All", "AnomalyDetection"]
 EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType = Literal["off", "on"]
 IpAddressTypeType = Literal["dualstack", "ipv4"]
 LoadBalancerAvailableWaiterName = Literal["load_balancer_available"]
@@ -67,8 +74,10 @@ LoadBalancerSchemeEnumType = Literal["internal", "internet-facing"]
 LoadBalancerStateEnumType = Literal["active", "active_impaired", "failed", "provisioning"]
 LoadBalancerTypeEnumType = Literal["application", "gateway", "network"]
 LoadBalancersDeletedWaiterName = Literal["load_balancers_deleted"]
+MitigationInEffectEnumType = Literal["no", "yes"]
 ProtocolEnumType = Literal["GENEVE", "HTTP", "HTTPS", "TCP", "TCP_UDP", "TLS", "UDP"]
 RedirectActionStatusCodeEnumType = Literal["HTTP_301", "HTTP_302"]
+RevocationTypeType = Literal["CRL"]
 TargetDeregisteredWaiterName = Literal["target_deregistered"]
 TargetGroupIpAddressTypeEnumType = Literal["ipv4", "ipv6"]
 TargetHealthReasonEnumType = Literal[
@@ -90,3 +99,4 @@ TargetHealthStateEnumType = Literal[
 ]
 TargetInServiceWaiterName = Literal["target_in_service"]
 TargetTypeEnumType = Literal["alb", "instance", "ip", "lambda"]
+TrustStoreStatusType = Literal["ACTIVE", "CREATING"]

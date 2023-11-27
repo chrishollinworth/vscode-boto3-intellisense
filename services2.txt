@@ -31,6 +31,7 @@ backup
 backup_gateway
 backupstorage
 batch
+bcm_data_exports
 bedrock
 bedrock_runtime
 billingconductor
@@ -49,6 +50,7 @@ cloudcontrol
 clouddirectory
 cloudformation
 cloudfront
+cloudfront_keyvaluestore
 cloudhsm
 cloudhsmv2
 cloudsearch
@@ -81,6 +83,7 @@ connectcampaigns
 connectcases
 connectparticipant
 controltower
+cost_optimization_hub
 cur
 customer_profiles
 databrew
@@ -110,6 +113,7 @@ ecr_public
 ecs
 efs
 eks
+eks_auth
 elastic_inference
 elasticache
 elasticbeanstalk
@@ -131,6 +135,7 @@ fms
 forecast
 forecastquery
 frauddetector
+freetier
 fsx
 gamelift
 glacier
@@ -149,6 +154,7 @@ identitystore
 imagebuilder
 importexport
 inspector
+inspector_scan
 inspector2
 internetmonitor
 iot
@@ -203,7 +209,6 @@ lookoutmetrics
 lookoutvision
 m2
 machinelearning
-macie
 macie2
 managedblockchain
 managedblockchain_query
@@ -274,6 +279,7 @@ redshift
 redshift_data
 redshift_serverless
 rekognition
+repostspace
 resiliencehub
 resource_explorer_2
 resource_groups
@@ -341,6 +347,7 @@ tnb
 transcribe
 transfer
 translate
+trustedadvisor
 verifiedpermissions
 voice_id
 vpc_lattice
@@ -354,5 +361,6 @@ worklink
 workmail
 workmailmessageflow
 workspaces
+workspaces_thin_client
 workspaces_web
 xray

@@ -80,7 +80,7 @@ __all__ = (
 
 class DescribeACLsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeACLs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeACLs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeaclspaginator)
     """
 
@@ -88,13 +88,13 @@ class DescribeACLsPaginator(Boto3Paginator):
         self, *, ACLName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeACLsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeACLs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeACLs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeaclspaginator)
         """
 
 class DescribeClustersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeClusters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeClusters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeclusterspaginator)
     """
 
@@ -106,13 +106,13 @@ class DescribeClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClustersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeClusters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeClusters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeclusterspaginator)
         """
 
 class DescribeEngineVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEngineVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEngineVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeengineversionspaginator)
     """
 
@@ -125,13 +125,13 @@ class DescribeEngineVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEngineVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEngineVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEngineVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeengineversionspaginator)
         """
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEvents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeeventspaginator)
     """
 
@@ -146,13 +146,13 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEventsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEvents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeeventspaginator)
         """
 
 class DescribeParameterGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameterGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameterGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeparametergroupspaginator)
     """
 
@@ -160,13 +160,13 @@ class DescribeParameterGroupsPaginator(Boto3Paginator):
         self, *, ParameterGroupName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeParameterGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameterGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameterGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeparametergroupspaginator)
         """
 
 class DescribeParametersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeparameterspaginator)
     """
 
@@ -174,13 +174,13 @@ class DescribeParametersPaginator(Boto3Paginator):
         self, *, ParameterGroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeParametersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeparameterspaginator)
         """
 
 class DescribeReservedNodesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describereservednodespaginator)
     """
 
@@ -195,13 +195,13 @@ class DescribeReservedNodesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReservedNodesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describereservednodespaginator)
         """
 
 class DescribeReservedNodesOfferingsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodesOfferings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodesOfferings)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describereservednodesofferingspaginator)
     """
 
@@ -215,13 +215,13 @@ class DescribeReservedNodesOfferingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReservedNodesOfferingsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodesOfferings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodesOfferings.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describereservednodesofferingspaginator)
         """
 
 class DescribeServiceUpdatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeServiceUpdates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeServiceUpdates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeserviceupdatespaginator)
     """
 
@@ -234,13 +234,13 @@ class DescribeServiceUpdatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeServiceUpdatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeServiceUpdates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeServiceUpdates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeserviceupdatespaginator)
         """
 
 class DescribeSnapshotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSnapshots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describesnapshotspaginator)
     """
 
@@ -254,13 +254,13 @@ class DescribeSnapshotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSnapshotsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSnapshots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describesnapshotspaginator)
         """
 
 class DescribeSubnetGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSubnetGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSubnetGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describesubnetgroupspaginator)
     """
 
@@ -268,13 +268,13 @@ class DescribeSubnetGroupsPaginator(Boto3Paginator):
         self, *, SubnetGroupName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSubnetGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSubnetGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSubnetGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describesubnetgroupspaginator)
         """
 
 class DescribeUsersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeUsers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeUsers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeuserspaginator)
     """
 
@@ -286,6 +286,6 @@ class DescribeUsersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeUsersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/memorydb.html#MemoryDB.Paginator.DescribeUsers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/memorydb.html#MemoryDB.Paginator.DescribeUsers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeuserspaginator)
         """

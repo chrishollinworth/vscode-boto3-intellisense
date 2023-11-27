@@ -38,6 +38,7 @@ from .literals import (
     OrganizationRuleStatusType,
     OwnerType,
     RecorderStatusType,
+    RecordingFrequencyType,
     RecordingStrategyTypeType,
     RemediationExecutionStateType,
     RemediationExecutionStepStateType,
@@ -279,6 +280,8 @@ __all__ = (
     "PutStoredQueryResponseTypeDef",
     "QueryInfoTypeDef",
     "RecordingGroupTypeDef",
+    "RecordingModeOverrideTypeDef",
+    "RecordingModeTypeDef",
     "RecordingStrategyTypeDef",
     "RelationshipTypeDef",
     "RemediationConfigurationTypeDef",
@@ -502,6 +505,8 @@ BaseConfigurationItemTypeDef = TypedDict(
         "resourceCreationTime": datetime,
         "configuration": str,
         "supplementaryConfiguration": Dict[str, str],
+        "recordingFrequency": RecordingFrequencyType,
+        "configurationItemDeliveryTime": datetime,
     },
     total=False,
 )
@@ -730,6 +735,8 @@ ConfigurationItemTypeDef = TypedDict(
         "relationships": List["RelationshipTypeDef"],
         "configuration": str,
         "supplementaryConfiguration": Dict[str, str],
+        "recordingFrequency": RecordingFrequencyType,
+        "configurationItemDeliveryTime": datetime,
     },
     total=False,
 )
@@ -755,6 +762,7 @@ ConfigurationRecorderTypeDef = TypedDict(
         "name": str,
         "roleARN": str,
         "recordingGroup": "RecordingGroupTypeDef",
+        "recordingMode": "RecordingModeTypeDef",
     },
     total=False,
 )
@@ -3060,6 +3068,43 @@ RecordingGroupTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredRecordingModeOverrideTypeDef = TypedDict(
+    "_RequiredRecordingModeOverrideTypeDef",
+    {
+        "resourceTypes": List[ResourceTypeType],
+        "recordingFrequency": RecordingFrequencyType,
+    },
+)
+_OptionalRecordingModeOverrideTypeDef = TypedDict(
+    "_OptionalRecordingModeOverrideTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class RecordingModeOverrideTypeDef(
+    _RequiredRecordingModeOverrideTypeDef, _OptionalRecordingModeOverrideTypeDef
+):
+    pass
+
+_RequiredRecordingModeTypeDef = TypedDict(
+    "_RequiredRecordingModeTypeDef",
+    {
+        "recordingFrequency": RecordingFrequencyType,
+    },
+)
+_OptionalRecordingModeTypeDef = TypedDict(
+    "_OptionalRecordingModeTypeDef",
+    {
+        "recordingModeOverrides": List["RecordingModeOverrideTypeDef"],
+    },
+    total=False,
+)
+
+class RecordingModeTypeDef(_RequiredRecordingModeTypeDef, _OptionalRecordingModeTypeDef):
+    pass
 
 RecordingStrategyTypeDef = TypedDict(
     "RecordingStrategyTypeDef",

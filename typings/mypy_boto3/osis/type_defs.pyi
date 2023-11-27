@@ -6,9 +6,9 @@ Type annotations for osis service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_osis.type_defs import ChangeProgressStageTypeDef
+    from mypy_boto3_osis.type_defs import BufferOptionsTypeDef
 
-    data: ChangeProgressStageTypeDef = {...}
+    data: BufferOptionsTypeDef = {...}
     ```
 """
 import sys
@@ -22,17 +22,23 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "BufferOptionsTypeDef",
     "ChangeProgressStageTypeDef",
     "ChangeProgressStatusTypeDef",
     "CloudWatchLogDestinationTypeDef",
     "CreatePipelineRequestRequestTypeDef",
     "CreatePipelineResponseTypeDef",
     "DeletePipelineRequestRequestTypeDef",
+    "EncryptionAtRestOptionsTypeDef",
     "GetPipelineBlueprintRequestRequestTypeDef",
     "GetPipelineBlueprintResponseTypeDef",
     "GetPipelineChangeProgressRequestRequestTypeDef",
@@ -51,6 +57,7 @@ __all__ = (
     "PipelineSummaryTypeDef",
     "PipelineTypeDef",
     "ResponseMetadataTypeDef",
+    "ServiceVpcEndpointTypeDef",
     "StartPipelineRequestRequestTypeDef",
     "StartPipelineResponseTypeDef",
     "StopPipelineRequestRequestTypeDef",
@@ -65,6 +72,13 @@ __all__ = (
     "ValidationMessageTypeDef",
     "VpcEndpointTypeDef",
     "VpcOptionsTypeDef",
+)
+
+BufferOptionsTypeDef = TypedDict(
+    "BufferOptionsTypeDef",
+    {
+        "PersistentBufferEnabled": bool,
+    },
 )
 
 ChangeProgressStageTypeDef = TypedDict(
@@ -110,6 +124,8 @@ _OptionalCreatePipelineRequestRequestTypeDef = TypedDict(
     {
         "LogPublishingOptions": "LogPublishingOptionsTypeDef",
         "VpcOptions": "VpcOptionsTypeDef",
+        "BufferOptions": "BufferOptionsTypeDef",
+        "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -132,6 +148,13 @@ DeletePipelineRequestRequestTypeDef = TypedDict(
     "DeletePipelineRequestRequestTypeDef",
     {
         "PipelineName": str,
+    },
+)
+
+EncryptionAtRestOptionsTypeDef = TypedDict(
+    "EncryptionAtRestOptionsTypeDef",
+    {
+        "KmsKeyArn": str,
     },
 )
 
@@ -266,6 +289,7 @@ PipelineSummaryTypeDef = TypedDict(
         "MaxUnits": int,
         "CreatedAt": datetime,
         "LastUpdatedAt": datetime,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -285,6 +309,10 @@ PipelineTypeDef = TypedDict(
         "IngestEndpointUrls": List[str],
         "LogPublishingOptions": "LogPublishingOptionsTypeDef",
         "VpcEndpoints": List["VpcEndpointTypeDef"],
+        "BufferOptions": "BufferOptionsTypeDef",
+        "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
+        "ServiceVpcEndpoints": List["ServiceVpcEndpointTypeDef"],
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -298,6 +326,15 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+ServiceVpcEndpointTypeDef = TypedDict(
+    "ServiceVpcEndpointTypeDef",
+    {
+        "ServiceName": Literal["OPENSEARCH_SERVERLESS"],
+        "VpcEndpointId": str,
+    },
+    total=False,
 )
 
 StartPipelineRequestRequestTypeDef = TypedDict(
@@ -367,6 +404,8 @@ _OptionalUpdatePipelineRequestRequestTypeDef = TypedDict(
         "MaxUnits": int,
         "PipelineConfigurationBody": str,
         "LogPublishingOptions": "LogPublishingOptionsTypeDef",
+        "BufferOptions": "BufferOptionsTypeDef",
+        "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
     },
     total=False,
 )

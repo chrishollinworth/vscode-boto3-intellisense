@@ -37,6 +37,8 @@ __all__ = (
     "ApplianceModeSupportValueType",
     "ArchitectureTypeType",
     "ArchitectureValuesType",
+    "AsnAssociationStateType",
+    "AsnStateType",
     "AssociatedNetworkTypeType",
     "AssociationStatusCodeType",
     "AttachmentStatusType",
@@ -324,13 +326,18 @@ __all__ = (
     "IpamPoolCidrFailureCodeType",
     "IpamPoolCidrStateType",
     "IpamPoolPublicIpSourceType",
+    "IpamPoolSourceResourceTypeType",
     "IpamPoolStateType",
+    "IpamPublicAddressAssociationStatusType",
+    "IpamPublicAddressAwsServiceType",
+    "IpamPublicAddressTypeType",
     "IpamResourceDiscoveryAssociationStateType",
     "IpamResourceDiscoveryStateType",
     "IpamResourceTypeType",
     "IpamScopeStateType",
     "IpamScopeTypeType",
     "IpamStateType",
+    "IpamTierType",
     "Ipv6SupportValueType",
     "KeyFormatType",
     "KeyPairExistsWaiterName",
@@ -352,6 +359,8 @@ __all__ = (
     "LocalStorageType",
     "LocalStorageTypeType",
     "LocationTypeType",
+    "LockModeType",
+    "LockStateType",
     "LogDestinationTypeType",
     "MarketTypeType",
     "MembershipTypeType",
@@ -411,6 +420,7 @@ __all__ = (
     "SearchLocalGatewayRoutesPaginatorName",
     "SearchTransitGatewayMulticastGroupsPaginatorName",
     "SecurityGroupExistsWaiterName",
+    "SecurityGroupReferencingSupportValueType",
     "SelfServicePortalType",
     "ServiceConnectivityTypeType",
     "ServiceStateType",
@@ -546,6 +556,22 @@ AnalysisStatusType = Literal["failed", "running", "succeeded"]
 ApplianceModeSupportValueType = Literal["disable", "enable"]
 ArchitectureTypeType = Literal["arm64", "arm64_mac", "i386", "x86_64", "x86_64_mac"]
 ArchitectureValuesType = Literal["arm64", "arm64_mac", "i386", "x86_64", "x86_64_mac"]
+AsnAssociationStateType = Literal[
+    "associated",
+    "disassociated",
+    "failed-association",
+    "failed-disassociation",
+    "pending-association",
+    "pending-disassociation",
+]
+AsnStateType = Literal[
+    "deprovisioned",
+    "failed-deprovision",
+    "failed-provision",
+    "pending-deprovision",
+    "pending-provision",
+    "provisioned",
+]
 AssociatedNetworkTypeType = Literal["vpc"]
 AssociationStatusCodeType = Literal[
     "associated", "associating", "association-failed", "disassociated", "disassociating"
@@ -829,7 +855,7 @@ DescribeVpcEndpointsPaginatorName = Literal["describe_vpc_endpoints"]
 DescribeVpcPeeringConnectionsPaginatorName = Literal["describe_vpc_peering_connections"]
 DescribeVpcsPaginatorName = Literal["describe_vpcs"]
 DestinationFileFormatType = Literal["parquet", "plain-text"]
-DeviceTrustProviderTypeType = Literal["crowdstrike", "jamf"]
+DeviceTrustProviderTypeType = Literal["crowdstrike", "jamf", "jumpcloud"]
 DeviceTypeType = Literal["ebs", "instance-store"]
 DiskImageFormatType = Literal["RAW", "VHD", "VMDK"]
 DiskTypeType = Literal["hdd", "ssd"]
@@ -1204,6 +1230,7 @@ InstanceTypeType = Literal[
     "d3en.8xlarge",
     "d3en.xlarge",
     "dl1.24xlarge",
+    "dl2q.24xlarge",
     "f1.16xlarge",
     "f1.2xlarge",
     "f1.4xlarge",
@@ -1799,7 +1826,9 @@ IpamDiscoveryFailureCodeType = Literal[
 ]
 IpamManagementStateType = Literal["ignored", "managed", "unmanaged"]
 IpamOverlapStatusType = Literal["ignored", "nonoverlapping", "overlapping"]
-IpamPoolAllocationResourceTypeType = Literal["custom", "ec2-public-ipv4-pool", "ipam-pool", "vpc"]
+IpamPoolAllocationResourceTypeType = Literal[
+    "custom", "ec2-public-ipv4-pool", "ipam-pool", "subnet", "vpc"
+]
 IpamPoolAwsServiceType = Literal["ec2"]
 IpamPoolCidrFailureCodeType = Literal["cidr-not-available", "limit-exceeded"]
 IpamPoolCidrStateType = Literal[
@@ -1813,6 +1842,7 @@ IpamPoolCidrStateType = Literal[
     "provisioned",
 ]
 IpamPoolPublicIpSourceType = Literal["amazon", "byoip"]
+IpamPoolSourceResourceTypeType = Literal["vpc"]
 IpamPoolStateType = Literal[
     "create-complete",
     "create-failed",
@@ -1826,6 +1856,21 @@ IpamPoolStateType = Literal[
     "modify-failed",
     "modify-in-progress",
     "restore-in-progress",
+]
+IpamPublicAddressAssociationStatusType = Literal["associated", "disassociated"]
+IpamPublicAddressAwsServiceType = Literal[
+    "database-migration-service",
+    "elastic-container-service",
+    "global-accelerator",
+    "load-balancer",
+    "nat-gateway",
+    "other",
+    "redshift",
+    "relational-database-service",
+    "site-to-site-vpn",
+]
+IpamPublicAddressTypeType = Literal[
+    "amazon-owned-eip", "byoip", "ec2-public-ip", "service-managed-byoip", "service-managed-ip"
 ]
 IpamResourceDiscoveryAssociationStateType = Literal[
     "associate-complete",
@@ -1852,7 +1897,7 @@ IpamResourceDiscoveryStateType = Literal[
     "modify-in-progress",
     "restore-in-progress",
 ]
-IpamResourceTypeType = Literal["eip", "ipv6-pool", "public-ipv4-pool", "subnet", "vpc"]
+IpamResourceTypeType = Literal["eip", "eni", "ipv6-pool", "public-ipv4-pool", "subnet", "vpc"]
 IpamScopeStateType = Literal[
     "create-complete",
     "create-failed",
@@ -1882,6 +1927,7 @@ IpamStateType = Literal[
     "modify-in-progress",
     "restore-in-progress",
 ]
+IpamTierType = Literal["advanced", "free"]
 Ipv6SupportValueType = Literal["disable", "enable"]
 KeyFormatType = Literal["pem", "ppk"]
 KeyPairExistsWaiterName = Literal["key_pair_exists"]
@@ -1910,6 +1956,8 @@ LocalGatewayRouteTypeType = Literal["propagated", "static"]
 LocalStorageType = Literal["excluded", "included", "required"]
 LocalStorageTypeType = Literal["hdd", "ssd"]
 LocationTypeType = Literal["availability-zone", "availability-zone-id", "outpost", "region"]
+LockModeType = Literal["compliance", "governance"]
+LockStateType = Literal["compliance", "compliance-cooloff", "expired", "governance"]
 LogDestinationTypeType = Literal["cloud-watch-logs", "kinesis-data-firehose", "s3"]
 MarketTypeType = Literal["capacity-block", "spot"]
 MembershipTypeType = Literal["igmp", "static"]
@@ -2118,6 +2166,7 @@ SearchTransitGatewayMulticastGroupsPaginatorName = Literal[
     "search_transit_gateway_multicast_groups"
 ]
 SecurityGroupExistsWaiterName = Literal["security_group_exists"]
+SecurityGroupReferencingSupportValueType = Literal["disable", "enable"]
 SelfServicePortalType = Literal["disabled", "enabled"]
 ServiceConnectivityTypeType = Literal["ipv4", "ipv6"]
 ServiceStateType = Literal["Available", "Deleted", "Deleting", "Failed", "Pending"]

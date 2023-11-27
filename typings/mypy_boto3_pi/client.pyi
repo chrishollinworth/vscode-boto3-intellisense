@@ -57,7 +57,7 @@ class Exceptions:
 
 class PIClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html)
     """
 
@@ -72,14 +72,14 @@ class PIClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#close)
         """
     def create_performance_analysis_report(
@@ -95,7 +95,7 @@ class PIClient(BaseClient):
         Creates a new performance analysis report for a specific time period for the DB
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.create_performance_analysis_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.create_performance_analysis_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#create_performance_analysis_report)
         """
     def delete_performance_analysis_report(
@@ -104,7 +104,7 @@ class PIClient(BaseClient):
         """
         Deletes a performance analysis report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.delete_performance_analysis_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.delete_performance_analysis_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#delete_performance_analysis_report)
         """
     def describe_dimension_keys(
@@ -126,7 +126,7 @@ class PIClient(BaseClient):
         """
         For a specific time period, retrieve the top `N` dimension keys for a metric.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.describe_dimension_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.describe_dimension_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#describe_dimension_keys)
         """
     def generate_presigned_url(
@@ -139,7 +139,7 @@ class PIClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#generate_presigned_url)
         """
     def get_dimension_key_details(
@@ -155,7 +155,7 @@ class PIClient(BaseClient):
         Get the attributes of the specified dimension group for a DB instance or data
         source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.get_dimension_key_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.get_dimension_key_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#get_dimension_key_details)
         """
     def get_performance_analysis_report(
@@ -171,7 +171,7 @@ class PIClient(BaseClient):
         Retrieves the report including the report ID, status, time details, and the
         insights with recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.get_performance_analysis_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.get_performance_analysis_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#get_performance_analysis_report)
         """
     def get_resource_metadata(
@@ -180,7 +180,7 @@ class PIClient(BaseClient):
         """
         Retrieve the metadata for different features.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.get_resource_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.get_resource_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#get_resource_metadata)
         """
     def get_resource_metrics(
@@ -200,7 +200,7 @@ class PIClient(BaseClient):
         Retrieve Performance Insights metrics for a set of data sources over a time
         period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.get_resource_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.get_resource_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#get_resource_metrics)
         """
     def list_available_resource_dimensions(
@@ -216,7 +216,7 @@ class PIClient(BaseClient):
         Retrieve the dimensions that can be queried for each specified metric type on a
         specified DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.list_available_resource_dimensions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.list_available_resource_dimensions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#list_available_resource_dimensions)
         """
     def list_available_resource_metrics(
@@ -232,7 +232,7 @@ class PIClient(BaseClient):
         Retrieve metrics of the specified types that can be queried for a specified DB
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.list_available_resource_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.list_available_resource_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#list_available_resource_metrics)
         """
     def list_performance_analysis_reports(
@@ -247,7 +247,7 @@ class PIClient(BaseClient):
         """
         Lists all the analysis reports created for the DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.list_performance_analysis_reports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.list_performance_analysis_reports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#list_performance_analysis_reports)
         """
     def list_tags_for_resource(
@@ -257,7 +257,7 @@ class PIClient(BaseClient):
         Retrieves all the metadata tags associated with Amazon RDS Performance Insights
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#list_tags_for_resource)
         """
     def tag_resource(
@@ -266,7 +266,7 @@ class PIClient(BaseClient):
         """
         Adds metadata tags to the Amazon RDS Performance Insights resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#tag_resource)
         """
     def untag_resource(
@@ -275,6 +275,6 @@ class PIClient(BaseClient):
         """
         Deletes the metadata tags from the Amazon RDS Performance Insights resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pi.html#PI.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pi.html#PI.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#untag_resource)
         """

@@ -59,8 +59,10 @@ from .literals import (
     StorageVirtualMachineRootVolumeSecurityStyleType,
     StorageVirtualMachineSubtypeType,
     TieringPolicyNameType,
+    UpdateOpenZFSVolumeOptionType,
     VolumeFilterNameType,
     VolumeLifecycleType,
+    VolumeStyleType,
     VolumeTypeType,
     WindowsAccessAuditLogLevelType,
     WindowsDeploymentTypeType,
@@ -79,6 +81,7 @@ __all__ = (
     "ActiveDirectoryBackupAttributesTypeDef",
     "AdministrativeActionFailureDetailsTypeDef",
     "AdministrativeActionTypeDef",
+    "AggregateConfigurationTypeDef",
     "AliasTypeDef",
     "AssociateFileSystemAliasesRequestRequestTypeDef",
     "AssociateFileSystemAliasesResponseTypeDef",
@@ -92,6 +95,9 @@ __all__ = (
     "CompletionReportTypeDef",
     "CopyBackupRequestRequestTypeDef",
     "CopyBackupResponseTypeDef",
+    "CopySnapshotAndUpdateVolumeRequestRequestTypeDef",
+    "CopySnapshotAndUpdateVolumeResponseTypeDef",
+    "CreateAggregateConfigurationTypeDef",
     "CreateBackupRequestRequestTypeDef",
     "CreateBackupResponseTypeDef",
     "CreateDataRepositoryAssociationRequestRequestTypeDef",
@@ -164,6 +170,7 @@ __all__ = (
     "DescribeFileSystemAliasesResponseTypeDef",
     "DescribeFileSystemsRequestRequestTypeDef",
     "DescribeFileSystemsResponseTypeDef",
+    "DescribeSharedVpcConfigurationResponseTypeDef",
     "DescribeSnapshotsRequestRequestTypeDef",
     "DescribeSnapshotsResponseTypeDef",
     "DescribeStorageVirtualMachinesRequestRequestTypeDef",
@@ -243,6 +250,8 @@ __all__ = (
     "UpdateFileSystemWindowsConfigurationTypeDef",
     "UpdateOntapVolumeConfigurationTypeDef",
     "UpdateOpenZFSVolumeConfigurationTypeDef",
+    "UpdateSharedVpcConfigurationRequestRequestTypeDef",
+    "UpdateSharedVpcConfigurationResponseTypeDef",
     "UpdateSnaplockConfigurationTypeDef",
     "UpdateSnapshotRequestRequestTypeDef",
     "UpdateSnapshotResponseTypeDef",
@@ -287,6 +296,17 @@ AdministrativeActionTypeDef = TypedDict(
         "FailureDetails": "AdministrativeActionFailureDetailsTypeDef",
         "TargetVolumeValues": Dict[str, Any],
         "TargetSnapshotValues": Dict[str, Any],
+        "TotalTransferBytes": int,
+        "RemainingTransferBytes": int,
+    },
+    total=False,
+)
+
+AggregateConfigurationTypeDef = TypedDict(
+    "AggregateConfigurationTypeDef",
+    {
+        "Aggregates": List[str],
+        "TotalConstituents": int,
     },
     total=False,
 )
@@ -465,6 +485,48 @@ CopyBackupResponseTypeDef = TypedDict(
         "Backup": "BackupTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredCopySnapshotAndUpdateVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredCopySnapshotAndUpdateVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+        "SourceSnapshotARN": str,
+    },
+)
+_OptionalCopySnapshotAndUpdateVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalCopySnapshotAndUpdateVolumeRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "CopyStrategy": OpenZFSCopyStrategyType,
+        "Options": List[UpdateOpenZFSVolumeOptionType],
+    },
+    total=False,
+)
+
+class CopySnapshotAndUpdateVolumeRequestRequestTypeDef(
+    _RequiredCopySnapshotAndUpdateVolumeRequestRequestTypeDef,
+    _OptionalCopySnapshotAndUpdateVolumeRequestRequestTypeDef,
+):
+    pass
+
+CopySnapshotAndUpdateVolumeResponseTypeDef = TypedDict(
+    "CopySnapshotAndUpdateVolumeResponseTypeDef",
+    {
+        "VolumeId": str,
+        "Lifecycle": VolumeLifecycleType,
+        "AdministrativeActions": List["AdministrativeActionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateAggregateConfigurationTypeDef = TypedDict(
+    "CreateAggregateConfigurationTypeDef",
+    {
+        "Aggregates": List[str],
+        "ConstituentsPerAggregate": int,
+    },
+    total=False,
 )
 
 CreateBackupRequestRequestTypeDef = TypedDict(
@@ -675,7 +737,6 @@ _RequiredCreateFileSystemOntapConfigurationTypeDef = TypedDict(
     "_RequiredCreateFileSystemOntapConfigurationTypeDef",
     {
         "DeploymentType": OntapDeploymentTypeType,
-        "ThroughputCapacity": int,
     },
 )
 _OptionalCreateFileSystemOntapConfigurationTypeDef = TypedDict(
@@ -688,7 +749,10 @@ _OptionalCreateFileSystemOntapConfigurationTypeDef = TypedDict(
         "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
         "PreferredSubnetId": str,
         "RouteTableIds": List[str],
+        "ThroughputCapacity": int,
         "WeeklyMaintenanceStartTime": str,
+        "HAPairs": int,
+        "ThroughputCapacityPerHAPair": int,
     },
     total=False,
 )
@@ -800,7 +864,6 @@ class CreateFileSystemWindowsConfigurationTypeDef(
 _RequiredCreateOntapVolumeConfigurationTypeDef = TypedDict(
     "_RequiredCreateOntapVolumeConfigurationTypeDef",
     {
-        "SizeInMegabytes": int,
         "StorageVirtualMachineId": str,
     },
 )
@@ -809,12 +872,16 @@ _OptionalCreateOntapVolumeConfigurationTypeDef = TypedDict(
     {
         "JunctionPath": str,
         "SecurityStyle": SecurityStyleType,
+        "SizeInMegabytes": int,
         "StorageEfficiencyEnabled": bool,
         "TieringPolicy": "TieringPolicyTypeDef",
         "OntapVolumeType": InputOntapVolumeTypeType,
         "SnapshotPolicy": str,
         "CopyTagsToBackups": bool,
         "SnaplockConfiguration": "CreateSnaplockConfigurationTypeDef",
+        "VolumeStyle": VolumeStyleType,
+        "AggregateConfiguration": "CreateAggregateConfigurationTypeDef",
+        "SizeInBytes": int,
     },
     total=False,
 )
@@ -1553,6 +1620,14 @@ DescribeFileSystemsResponseTypeDef = TypedDict(
     },
 )
 
+DescribeSharedVpcConfigurationResponseTypeDef = TypedDict(
+    "DescribeSharedVpcConfigurationResponseTypeDef",
+    {
+        "EnableFsxRouteTableUpdatesFromParticipantAccounts": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeSnapshotsRequestRequestTypeDef = TypedDict(
     "DescribeSnapshotsRequestRequestTypeDef",
     {
@@ -1978,6 +2053,8 @@ OntapFileSystemConfigurationTypeDef = TypedDict(
         "ThroughputCapacity": int,
         "WeeklyMaintenanceStartTime": str,
         "FsxAdminPassword": str,
+        "HAPairs": int,
+        "ThroughputCapacityPerHAPair": int,
     },
     total=False,
 )
@@ -1998,6 +2075,9 @@ OntapVolumeConfigurationTypeDef = TypedDict(
         "SnapshotPolicy": str,
         "CopyTagsToBackups": bool,
         "SnaplockConfiguration": "SnaplockConfigurationTypeDef",
+        "VolumeStyle": VolumeStyleType,
+        "AggregateConfiguration": "AggregateConfigurationTypeDef",
+        "SizeInBytes": int,
     },
     total=False,
 )
@@ -2085,6 +2165,9 @@ OpenZFSVolumeConfigurationTypeDef = TypedDict(
         "RestoreToSnapshot": str,
         "DeleteIntermediateSnaphots": bool,
         "DeleteClonedVolumes": bool,
+        "DeleteIntermediateData": bool,
+        "SourceSnapshotARN": str,
+        "DestinationSnapshot": str,
     },
     total=False,
 )
@@ -2495,6 +2578,7 @@ UpdateFileSystemLustreConfigurationTypeDef = TypedDict(
         "DataCompressionType": DataCompressionTypeType,
         "LogConfiguration": "LustreLogCreateConfigurationTypeDef",
         "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
+        "PerUnitStorageThroughput": int,
     },
     total=False,
 )
@@ -2510,6 +2594,7 @@ UpdateFileSystemOntapConfigurationTypeDef = TypedDict(
         "ThroughputCapacity": int,
         "AddRouteTableIds": List[str],
         "RemoveRouteTableIds": List[str],
+        "ThroughputCapacityPerHAPair": int,
     },
     total=False,
 )
@@ -2588,6 +2673,7 @@ UpdateOntapVolumeConfigurationTypeDef = TypedDict(
         "SnapshotPolicy": str,
         "CopyTagsToBackups": bool,
         "SnaplockConfiguration": "UpdateSnaplockConfigurationTypeDef",
+        "SizeInBytes": int,
     },
     total=False,
 )
@@ -2604,6 +2690,23 @@ UpdateOpenZFSVolumeConfigurationTypeDef = TypedDict(
         "ReadOnly": bool,
     },
     total=False,
+)
+
+UpdateSharedVpcConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateSharedVpcConfigurationRequestRequestTypeDef",
+    {
+        "EnableFsxRouteTableUpdatesFromParticipantAccounts": str,
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+UpdateSharedVpcConfigurationResponseTypeDef = TypedDict(
+    "UpdateSharedVpcConfigurationResponseTypeDef",
+    {
+        "EnableFsxRouteTableUpdatesFromParticipantAccounts": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 UpdateSnaplockConfigurationTypeDef = TypedDict(

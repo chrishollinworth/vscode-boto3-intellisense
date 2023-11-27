@@ -52,6 +52,7 @@ from .literals import (
     ObjectLockRetentionModeType,
     ObjectOwnershipType,
     ObjectStorageClassType,
+    PartitionDateSourceType,
     PayerType,
     PermissionType,
     ProtocolType,
@@ -326,6 +327,7 @@ __all__ = (
     "OwnershipControlsTypeDef",
     "PaginatorConfigTypeDef",
     "PartTypeDef",
+    "PartitionedPrefixTypeDef",
     "PolicyStatusTypeDef",
     "ProgressEventTypeDef",
     "ProgressTypeDef",
@@ -439,6 +441,7 @@ __all__ = (
     "TagTypeDef",
     "TaggingTypeDef",
     "TargetGrantTypeDef",
+    "TargetObjectKeyFormatTypeDef",
     "TieringTypeDef",
     "TopicConfigurationDeprecatedTypeDef",
     "TopicConfigurationTypeDef",
@@ -3910,6 +3913,7 @@ _OptionalLoggingEnabledTypeDef = TypedDict(
     "_OptionalLoggingEnabledTypeDef",
     {
         "TargetGrants": List["TargetGrantTypeDef"],
+        "TargetObjectKeyFormat": "TargetObjectKeyFormatTypeDef",
     },
     total=False,
 )
@@ -4364,6 +4368,14 @@ PartTypeDef = TypedDict(
         "ChecksumCRC32C": str,
         "ChecksumSHA1": str,
         "ChecksumSHA256": str,
+    },
+    total=False,
+)
+
+PartitionedPrefixTypeDef = TypedDict(
+    "PartitionedPrefixTypeDef",
+    {
+        "PartitionDateSource": PartitionDateSourceType,
     },
     total=False,
 )
@@ -6106,6 +6118,15 @@ TargetGrantTypeDef = TypedDict(
     {
         "Grantee": "GranteeTypeDef",
         "Permission": BucketLogsPermissionType,
+    },
+    total=False,
+)
+
+TargetObjectKeyFormatTypeDef = TypedDict(
+    "TargetObjectKeyFormatTypeDef",
+    {
+        "SimplePrefix": Dict[str, Any],
+        "PartitionedPrefix": "PartitionedPrefixTypeDef",
     },
     total=False,
 )

@@ -17,21 +17,29 @@ from typing import Any, Dict, List
 
 from .literals import (
     ActionTypeEnumType,
+    AnomalyResultEnumType,
     AuthenticateCognitoActionConditionalBehaviorEnumType,
     AuthenticateOidcActionConditionalBehaviorEnumType,
+    DescribeTargetHealthInputIncludeEnumType,
     EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType,
     IpAddressTypeType,
     LoadBalancerSchemeEnumType,
     LoadBalancerStateEnumType,
     LoadBalancerTypeEnumType,
+    MitigationInEffectEnumType,
     ProtocolEnumType,
     RedirectActionStatusCodeEnumType,
     TargetGroupIpAddressTypeEnumType,
     TargetHealthReasonEnumType,
     TargetHealthStateEnumType,
     TargetTypeEnumType,
+    TrustStoreStatusType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -42,6 +50,9 @@ __all__ = (
     "AddListenerCertificatesInputRequestTypeDef",
     "AddListenerCertificatesOutputTypeDef",
     "AddTagsInputRequestTypeDef",
+    "AddTrustStoreRevocationsInputRequestTypeDef",
+    "AddTrustStoreRevocationsOutputTypeDef",
+    "AnomalyDetectionTypeDef",
     "AuthenticateCognitoActionConfigTypeDef",
     "AuthenticateOidcActionConfigTypeDef",
     "AvailabilityZoneTypeDef",
@@ -55,10 +66,13 @@ __all__ = (
     "CreateRuleOutputTypeDef",
     "CreateTargetGroupInputRequestTypeDef",
     "CreateTargetGroupOutputTypeDef",
+    "CreateTrustStoreInputRequestTypeDef",
+    "CreateTrustStoreOutputTypeDef",
     "DeleteListenerInputRequestTypeDef",
     "DeleteLoadBalancerInputRequestTypeDef",
     "DeleteRuleInputRequestTypeDef",
     "DeleteTargetGroupInputRequestTypeDef",
+    "DeleteTrustStoreInputRequestTypeDef",
     "DeregisterTargetsInputRequestTypeDef",
     "DescribeAccountLimitsInputRequestTypeDef",
     "DescribeAccountLimitsOutputTypeDef",
@@ -82,8 +96,19 @@ __all__ = (
     "DescribeTargetGroupsOutputTypeDef",
     "DescribeTargetHealthInputRequestTypeDef",
     "DescribeTargetHealthOutputTypeDef",
+    "DescribeTrustStoreAssociationsInputRequestTypeDef",
+    "DescribeTrustStoreAssociationsOutputTypeDef",
+    "DescribeTrustStoreRevocationTypeDef",
+    "DescribeTrustStoreRevocationsInputRequestTypeDef",
+    "DescribeTrustStoreRevocationsOutputTypeDef",
+    "DescribeTrustStoresInputRequestTypeDef",
+    "DescribeTrustStoresOutputTypeDef",
     "FixedResponseActionConfigTypeDef",
     "ForwardActionConfigTypeDef",
+    "GetTrustStoreCaCertificatesBundleInputRequestTypeDef",
+    "GetTrustStoreCaCertificatesBundleOutputTypeDef",
+    "GetTrustStoreRevocationContentInputRequestTypeDef",
+    "GetTrustStoreRevocationContentOutputTypeDef",
     "HostHeaderConditionConfigTypeDef",
     "HttpHeaderConditionConfigTypeDef",
     "HttpRequestMethodConditionConfigTypeDef",
@@ -104,6 +129,9 @@ __all__ = (
     "ModifyTargetGroupAttributesOutputTypeDef",
     "ModifyTargetGroupInputRequestTypeDef",
     "ModifyTargetGroupOutputTypeDef",
+    "ModifyTrustStoreInputRequestTypeDef",
+    "ModifyTrustStoreOutputTypeDef",
+    "MutualAuthenticationAttributesTypeDef",
     "PaginatorConfigTypeDef",
     "PathPatternConditionConfigTypeDef",
     "QueryStringConditionConfigTypeDef",
@@ -112,7 +140,9 @@ __all__ = (
     "RegisterTargetsInputRequestTypeDef",
     "RemoveListenerCertificatesInputRequestTypeDef",
     "RemoveTagsInputRequestTypeDef",
+    "RemoveTrustStoreRevocationsInputRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "RevocationContentTypeDef",
     "RuleConditionTypeDef",
     "RulePriorityPairTypeDef",
     "RuleTypeDef",
@@ -136,6 +166,9 @@ __all__ = (
     "TargetGroupTypeDef",
     "TargetHealthDescriptionTypeDef",
     "TargetHealthTypeDef",
+    "TrustStoreAssociationTypeDef",
+    "TrustStoreRevocationTypeDef",
+    "TrustStoreTypeDef",
     "WaiterConfigTypeDef",
 )
 
@@ -184,6 +217,43 @@ AddTagsInputRequestTypeDef = TypedDict(
         "ResourceArns": List[str],
         "Tags": List["TagTypeDef"],
     },
+)
+
+_RequiredAddTrustStoreRevocationsInputRequestTypeDef = TypedDict(
+    "_RequiredAddTrustStoreRevocationsInputRequestTypeDef",
+    {
+        "TrustStoreArn": str,
+    },
+)
+_OptionalAddTrustStoreRevocationsInputRequestTypeDef = TypedDict(
+    "_OptionalAddTrustStoreRevocationsInputRequestTypeDef",
+    {
+        "RevocationContents": List["RevocationContentTypeDef"],
+    },
+    total=False,
+)
+
+class AddTrustStoreRevocationsInputRequestTypeDef(
+    _RequiredAddTrustStoreRevocationsInputRequestTypeDef,
+    _OptionalAddTrustStoreRevocationsInputRequestTypeDef,
+):
+    pass
+
+AddTrustStoreRevocationsOutputTypeDef = TypedDict(
+    "AddTrustStoreRevocationsOutputTypeDef",
+    {
+        "TrustStoreRevocations": List["TrustStoreRevocationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AnomalyDetectionTypeDef = TypedDict(
+    "AnomalyDetectionTypeDef",
+    {
+        "Result": AnomalyResultEnumType,
+        "MitigationInEffect": MitigationInEffectEnumType,
+    },
+    total=False,
 )
 
 _RequiredAuthenticateCognitoActionConfigTypeDef = TypedDict(
@@ -285,6 +355,7 @@ _OptionalCreateListenerInputRequestTypeDef = TypedDict(
         "Certificates": List["CertificateTypeDef"],
         "AlpnPolicy": List[str],
         "Tags": List["TagTypeDef"],
+        "MutualAuthentication": "MutualAuthenticationAttributesTypeDef",
     },
     total=False,
 )
@@ -408,6 +479,36 @@ CreateTargetGroupOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateTrustStoreInputRequestTypeDef = TypedDict(
+    "_RequiredCreateTrustStoreInputRequestTypeDef",
+    {
+        "Name": str,
+        "CaCertificatesBundleS3Bucket": str,
+        "CaCertificatesBundleS3Key": str,
+    },
+)
+_OptionalCreateTrustStoreInputRequestTypeDef = TypedDict(
+    "_OptionalCreateTrustStoreInputRequestTypeDef",
+    {
+        "CaCertificatesBundleS3ObjectVersion": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateTrustStoreInputRequestTypeDef(
+    _RequiredCreateTrustStoreInputRequestTypeDef, _OptionalCreateTrustStoreInputRequestTypeDef
+):
+    pass
+
+CreateTrustStoreOutputTypeDef = TypedDict(
+    "CreateTrustStoreOutputTypeDef",
+    {
+        "TrustStores": List["TrustStoreTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteListenerInputRequestTypeDef = TypedDict(
     "DeleteListenerInputRequestTypeDef",
     {
@@ -433,6 +534,13 @@ DeleteTargetGroupInputRequestTypeDef = TypedDict(
     "DeleteTargetGroupInputRequestTypeDef",
     {
         "TargetGroupArn": str,
+    },
+)
+
+DeleteTrustStoreInputRequestTypeDef = TypedDict(
+    "DeleteTrustStoreInputRequestTypeDef",
+    {
+        "TrustStoreArn": str,
     },
 )
 
@@ -648,6 +756,7 @@ _OptionalDescribeTargetHealthInputRequestTypeDef = TypedDict(
     "_OptionalDescribeTargetHealthInputRequestTypeDef",
     {
         "Targets": List["TargetDescriptionTypeDef"],
+        "Include": List[DescribeTargetHealthInputIncludeEnumType],
     },
     total=False,
 )
@@ -662,6 +771,98 @@ DescribeTargetHealthOutputTypeDef = TypedDict(
     "DescribeTargetHealthOutputTypeDef",
     {
         "TargetHealthDescriptions": List["TargetHealthDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeTrustStoreAssociationsInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeTrustStoreAssociationsInputRequestTypeDef",
+    {
+        "TrustStoreArn": str,
+    },
+)
+_OptionalDescribeTrustStoreAssociationsInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeTrustStoreAssociationsInputRequestTypeDef",
+    {
+        "Marker": str,
+        "PageSize": int,
+    },
+    total=False,
+)
+
+class DescribeTrustStoreAssociationsInputRequestTypeDef(
+    _RequiredDescribeTrustStoreAssociationsInputRequestTypeDef,
+    _OptionalDescribeTrustStoreAssociationsInputRequestTypeDef,
+):
+    pass
+
+DescribeTrustStoreAssociationsOutputTypeDef = TypedDict(
+    "DescribeTrustStoreAssociationsOutputTypeDef",
+    {
+        "TrustStoreAssociations": List["TrustStoreAssociationTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTrustStoreRevocationTypeDef = TypedDict(
+    "DescribeTrustStoreRevocationTypeDef",
+    {
+        "TrustStoreArn": str,
+        "RevocationId": int,
+        "RevocationType": Literal["CRL"],
+        "NumberOfRevokedEntries": int,
+    },
+    total=False,
+)
+
+_RequiredDescribeTrustStoreRevocationsInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeTrustStoreRevocationsInputRequestTypeDef",
+    {
+        "TrustStoreArn": str,
+    },
+)
+_OptionalDescribeTrustStoreRevocationsInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeTrustStoreRevocationsInputRequestTypeDef",
+    {
+        "RevocationIds": List[int],
+        "Marker": str,
+        "PageSize": int,
+    },
+    total=False,
+)
+
+class DescribeTrustStoreRevocationsInputRequestTypeDef(
+    _RequiredDescribeTrustStoreRevocationsInputRequestTypeDef,
+    _OptionalDescribeTrustStoreRevocationsInputRequestTypeDef,
+):
+    pass
+
+DescribeTrustStoreRevocationsOutputTypeDef = TypedDict(
+    "DescribeTrustStoreRevocationsOutputTypeDef",
+    {
+        "TrustStoreRevocations": List["DescribeTrustStoreRevocationTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTrustStoresInputRequestTypeDef = TypedDict(
+    "DescribeTrustStoresInputRequestTypeDef",
+    {
+        "TrustStoreArns": List[str],
+        "Names": List[str],
+        "Marker": str,
+        "PageSize": int,
+    },
+    total=False,
+)
+
+DescribeTrustStoresOutputTypeDef = TypedDict(
+    "DescribeTrustStoresOutputTypeDef",
+    {
+        "TrustStores": List["TrustStoreTypeDef"],
+        "NextMarker": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -693,6 +894,37 @@ ForwardActionConfigTypeDef = TypedDict(
         "TargetGroupStickinessConfig": "TargetGroupStickinessConfigTypeDef",
     },
     total=False,
+)
+
+GetTrustStoreCaCertificatesBundleInputRequestTypeDef = TypedDict(
+    "GetTrustStoreCaCertificatesBundleInputRequestTypeDef",
+    {
+        "TrustStoreArn": str,
+    },
+)
+
+GetTrustStoreCaCertificatesBundleOutputTypeDef = TypedDict(
+    "GetTrustStoreCaCertificatesBundleOutputTypeDef",
+    {
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTrustStoreRevocationContentInputRequestTypeDef = TypedDict(
+    "GetTrustStoreRevocationContentInputRequestTypeDef",
+    {
+        "TrustStoreArn": str,
+        "RevocationId": int,
+    },
+)
+
+GetTrustStoreRevocationContentOutputTypeDef = TypedDict(
+    "GetTrustStoreRevocationContentOutputTypeDef",
+    {
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 HostHeaderConditionConfigTypeDef = TypedDict(
@@ -740,6 +972,7 @@ ListenerTypeDef = TypedDict(
         "SslPolicy": str,
         "DefaultActions": List["ActionTypeDef"],
         "AlpnPolicy": List[str],
+        "MutualAuthentication": "MutualAuthenticationAttributesTypeDef",
     },
     total=False,
 )
@@ -818,6 +1051,7 @@ _OptionalModifyListenerInputRequestTypeDef = TypedDict(
         "Certificates": List["CertificateTypeDef"],
         "DefaultActions": List["ActionTypeDef"],
         "AlpnPolicy": List[str],
+        "MutualAuthentication": "MutualAuthenticationAttributesTypeDef",
     },
     total=False,
 )
@@ -930,6 +1164,45 @@ ModifyTargetGroupOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredModifyTrustStoreInputRequestTypeDef = TypedDict(
+    "_RequiredModifyTrustStoreInputRequestTypeDef",
+    {
+        "TrustStoreArn": str,
+        "CaCertificatesBundleS3Bucket": str,
+        "CaCertificatesBundleS3Key": str,
+    },
+)
+_OptionalModifyTrustStoreInputRequestTypeDef = TypedDict(
+    "_OptionalModifyTrustStoreInputRequestTypeDef",
+    {
+        "CaCertificatesBundleS3ObjectVersion": str,
+    },
+    total=False,
+)
+
+class ModifyTrustStoreInputRequestTypeDef(
+    _RequiredModifyTrustStoreInputRequestTypeDef, _OptionalModifyTrustStoreInputRequestTypeDef
+):
+    pass
+
+ModifyTrustStoreOutputTypeDef = TypedDict(
+    "ModifyTrustStoreOutputTypeDef",
+    {
+        "TrustStores": List["TrustStoreTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+MutualAuthenticationAttributesTypeDef = TypedDict(
+    "MutualAuthenticationAttributesTypeDef",
+    {
+        "Mode": str,
+        "TrustStoreArn": str,
+        "IgnoreClientCertificateExpiry": bool,
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -1012,6 +1285,14 @@ RemoveTagsInputRequestTypeDef = TypedDict(
     },
 )
 
+RemoveTrustStoreRevocationsInputRequestTypeDef = TypedDict(
+    "RemoveTrustStoreRevocationsInputRequestTypeDef",
+    {
+        "TrustStoreArn": str,
+        "RevocationIds": List[int],
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1021,6 +1302,17 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RevocationContentTypeDef = TypedDict(
+    "RevocationContentTypeDef",
+    {
+        "S3Bucket": str,
+        "S3Key": str,
+        "S3ObjectVersion": str,
+        "RevocationType": Literal["CRL"],
+    },
+    total=False,
 )
 
 RuleConditionTypeDef = TypedDict(
@@ -1283,6 +1575,7 @@ TargetHealthDescriptionTypeDef = TypedDict(
         "Target": "TargetDescriptionTypeDef",
         "HealthCheckPort": str,
         "TargetHealth": "TargetHealthTypeDef",
+        "AnomalyDetection": "AnomalyDetectionTypeDef",
     },
     total=False,
 )
@@ -1293,6 +1586,37 @@ TargetHealthTypeDef = TypedDict(
         "State": TargetHealthStateEnumType,
         "Reason": TargetHealthReasonEnumType,
         "Description": str,
+    },
+    total=False,
+)
+
+TrustStoreAssociationTypeDef = TypedDict(
+    "TrustStoreAssociationTypeDef",
+    {
+        "ResourceArn": str,
+    },
+    total=False,
+)
+
+TrustStoreRevocationTypeDef = TypedDict(
+    "TrustStoreRevocationTypeDef",
+    {
+        "TrustStoreArn": str,
+        "RevocationId": int,
+        "RevocationType": Literal["CRL"],
+        "NumberOfRevokedEntries": int,
+    },
+    total=False,
+)
+
+TrustStoreTypeDef = TypedDict(
+    "TrustStoreTypeDef",
+    {
+        "Name": str,
+        "TrustStoreArn": str,
+        "Status": TrustStoreStatusType,
+        "NumberOfCaCertificates": int,
+        "TotalRevokedEntries": int,
     },
     total=False,
 )

@@ -18,7 +18,12 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("ChangeProgressStageStatusesType", "ChangeProgressStatusesType", "PipelineStatusType")
+__all__ = (
+    "ChangeProgressStageStatusesType",
+    "ChangeProgressStatusesType",
+    "PipelineStatusType",
+    "VpcEndpointServiceNameType",
+)
 
 ChangeProgressStageStatusesType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "PENDING"]
 ChangeProgressStatusesType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "PENDING"]
@@ -34,3 +39,4 @@ PipelineStatusType = Literal[
     "UPDATE_FAILED",
     "UPDATING",
 ]
+VpcEndpointServiceNameType = Literal["OPENSEARCH_SERVERLESS"]

@@ -6,9 +6,9 @@ Type annotations for lambda service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lambda.literals import ArchitectureType
+    from mypy_boto3_lambda.literals import ApplicationLogLevelType
 
-    data: ArchitectureType = "arm64"
+    data: ApplicationLogLevelType = "DEBUG"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ApplicationLogLevelType",
     "ArchitectureType",
     "CodeSigningPolicyType",
     "EndPointTypeType",
@@ -47,6 +48,7 @@ __all__ = (
     "ListLayersPaginatorName",
     "ListProvisionedConcurrencyConfigsPaginatorName",
     "ListVersionsByFunctionPaginatorName",
+    "LogFormatType",
     "LogTypeType",
     "PackageTypeType",
     "ProvisionedConcurrencyStatusEnumType",
@@ -58,10 +60,12 @@ __all__ = (
     "SourceAccessTypeType",
     "StateReasonCodeType",
     "StateType",
+    "SystemLogLevelType",
     "TracingModeType",
     "UpdateRuntimeOnType",
 )
 
+ApplicationLogLevelType = Literal["DEBUG", "ERROR", "FATAL", "INFO", "TRACE", "WARN"]
 ArchitectureType = Literal["arm64", "x86_64"]
 CodeSigningPolicyType = Literal["Enforce", "Warn"]
 EndPointTypeType = Literal["KAFKA_BOOTSTRAP_SERVERS"]
@@ -112,6 +116,7 @@ ListLayerVersionsPaginatorName = Literal["list_layer_versions"]
 ListLayersPaginatorName = Literal["list_layers"]
 ListProvisionedConcurrencyConfigsPaginatorName = Literal["list_provisioned_concurrency_configs"]
 ListVersionsByFunctionPaginatorName = Literal["list_versions_by_function"]
+LogFormatType = Literal["JSON", "Text"]
 LogTypeType = Literal["None", "Tail"]
 PackageTypeType = Literal["Image", "Zip"]
 ProvisionedConcurrencyStatusEnumType = Literal["FAILED", "IN_PROGRESS", "READY"]
@@ -126,6 +131,7 @@ RuntimeType = Literal[
     "go1.x",
     "java11",
     "java17",
+    "java21",
     "java8",
     "java8.al2",
     "nodejs",
@@ -145,6 +151,7 @@ RuntimeType = Literal[
     "python2.7",
     "python3.10",
     "python3.11",
+    "python3.12",
     "python3.6",
     "python3.7",
     "python3.8",
@@ -192,5 +199,6 @@ StateReasonCodeType = Literal[
     "SubnetOutOfIPAddresses",
 ]
 StateType = Literal["Active", "Failed", "Inactive", "Pending"]
+SystemLogLevelType = Literal["DEBUG", "INFO", "WARN"]
 TracingModeType = Literal["Active", "PassThrough"]
 UpdateRuntimeOnType = Literal["Auto", "FunctionUpdate", "Manual"]

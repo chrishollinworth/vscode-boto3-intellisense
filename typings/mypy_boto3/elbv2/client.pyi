@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Type, overload
 from botocore.client import BaseClient, ClientMeta
 
 from .literals import (
+    DescribeTargetHealthInputIncludeEnumType,
     EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType,
     IpAddressTypeType,
     LoadBalancerSchemeEnumType,
@@ -38,11 +39,13 @@ from .paginator import (
 from .type_defs import (
     ActionTypeDef,
     AddListenerCertificatesOutputTypeDef,
+    AddTrustStoreRevocationsOutputTypeDef,
     CertificateTypeDef,
     CreateListenerOutputTypeDef,
     CreateLoadBalancerOutputTypeDef,
     CreateRuleOutputTypeDef,
     CreateTargetGroupOutputTypeDef,
+    CreateTrustStoreOutputTypeDef,
     DescribeAccountLimitsOutputTypeDef,
     DescribeListenerCertificatesOutputTypeDef,
     DescribeListenersOutputTypeDef,
@@ -54,6 +57,11 @@ from .type_defs import (
     DescribeTargetGroupAttributesOutputTypeDef,
     DescribeTargetGroupsOutputTypeDef,
     DescribeTargetHealthOutputTypeDef,
+    DescribeTrustStoreAssociationsOutputTypeDef,
+    DescribeTrustStoreRevocationsOutputTypeDef,
+    DescribeTrustStoresOutputTypeDef,
+    GetTrustStoreCaCertificatesBundleOutputTypeDef,
+    GetTrustStoreRevocationContentOutputTypeDef,
     LoadBalancerAttributeTypeDef,
     MatcherTypeDef,
     ModifyListenerOutputTypeDef,
@@ -61,6 +69,9 @@ from .type_defs import (
     ModifyRuleOutputTypeDef,
     ModifyTargetGroupAttributesOutputTypeDef,
     ModifyTargetGroupOutputTypeDef,
+    ModifyTrustStoreOutputTypeDef,
+    MutualAuthenticationAttributesTypeDef,
+    RevocationContentTypeDef,
     RuleConditionTypeDef,
     RulePriorityPairTypeDef,
     SetIpAddressTypeOutputTypeDef,
@@ -98,16 +109,20 @@ class Exceptions:
     ALPNPolicyNotSupportedException: Type[BotocoreClientError]
     AllocationIdNotFoundException: Type[BotocoreClientError]
     AvailabilityZoneNotSupportedException: Type[BotocoreClientError]
+    CaCertificatesBundleNotFoundException: Type[BotocoreClientError]
     CertificateNotFoundException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     DuplicateListenerException: Type[BotocoreClientError]
     DuplicateLoadBalancerNameException: Type[BotocoreClientError]
     DuplicateTagKeysException: Type[BotocoreClientError]
     DuplicateTargetGroupNameException: Type[BotocoreClientError]
+    DuplicateTrustStoreNameException: Type[BotocoreClientError]
     HealthUnavailableException: Type[BotocoreClientError]
     IncompatibleProtocolsException: Type[BotocoreClientError]
+    InvalidCaCertificatesBundleException: Type[BotocoreClientError]
     InvalidConfigurationRequestException: Type[BotocoreClientError]
     InvalidLoadBalancerActionException: Type[BotocoreClientError]
+    InvalidRevocationContentException: Type[BotocoreClientError]
     InvalidSchemeException: Type[BotocoreClientError]
     InvalidSecurityGroupException: Type[BotocoreClientError]
     InvalidSubnetException: Type[BotocoreClientError]
@@ -117,6 +132,8 @@ class Exceptions:
     OperationNotPermittedException: Type[BotocoreClientError]
     PriorityInUseException: Type[BotocoreClientError]
     ResourceInUseException: Type[BotocoreClientError]
+    RevocationContentNotFoundException: Type[BotocoreClientError]
+    RevocationIdNotFoundException: Type[BotocoreClientError]
     RuleNotFoundException: Type[BotocoreClientError]
     SSLPolicyNotFoundException: Type[BotocoreClientError]
     SubnetNotFoundException: Type[BotocoreClientError]
@@ -131,12 +148,17 @@ class Exceptions:
     TooManyTagsException: Type[BotocoreClientError]
     TooManyTargetGroupsException: Type[BotocoreClientError]
     TooManyTargetsException: Type[BotocoreClientError]
+    TooManyTrustStoreRevocationEntriesException: Type[BotocoreClientError]
+    TooManyTrustStoresException: Type[BotocoreClientError]
     TooManyUniqueTargetGroupsPerLoadBalancerException: Type[BotocoreClientError]
+    TrustStoreInUseException: Type[BotocoreClientError]
+    TrustStoreNotFoundException: Type[BotocoreClientError]
+    TrustStoreNotReadyException: Type[BotocoreClientError]
     UnsupportedProtocolException: Type[BotocoreClientError]
 
 class ElasticLoadBalancingv2Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html)
     """
 
@@ -154,28 +176,37 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Adds the specified SSL server certificate to the certificate list for the
         specified HTTPS or TLS listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_listener_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_listener_certificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#add_listener_certificates)
         """
     def add_tags(self, *, ResourceArns: List[str], Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds the specified tags to the specified Elastic Load Balancing resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#add_tags)
+        """
+    def add_trust_store_revocations(
+        self, *, TrustStoreArn: str, RevocationContents: List["RevocationContentTypeDef"] = None
+    ) -> AddTrustStoreRevocationsOutputTypeDef:
+        """
+        Adds the specified revocation file to the specified trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_trust_store_revocations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#add_trust_store_revocations)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#close)
         """
     def create_listener(
@@ -188,13 +219,14 @@ class ElasticLoadBalancingv2Client(BaseClient):
         SslPolicy: str = None,
         Certificates: List["CertificateTypeDef"] = None,
         AlpnPolicy: List[str] = None,
-        Tags: List["TagTypeDef"] = None
+        Tags: List["TagTypeDef"] = None,
+        MutualAuthentication: "MutualAuthenticationAttributesTypeDef" = None
     ) -> CreateListenerOutputTypeDef:
         """
         Creates a listener for the specified Application Load Balancer, Network Load
         Balancer, or Gateway Load Balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#create_listener)
         """
     def create_load_balancer(
@@ -214,7 +246,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
         Balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_load_balancer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_load_balancer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#create_load_balancer)
         """
     def create_rule(
@@ -229,7 +261,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Creates a rule for the specified listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#create_rule)
         """
     def create_target_group(
@@ -256,14 +288,29 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Creates a target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_target_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_target_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#create_target_group)
+        """
+    def create_trust_store(
+        self,
+        *,
+        Name: str,
+        CaCertificatesBundleS3Bucket: str,
+        CaCertificatesBundleS3Key: str,
+        CaCertificatesBundleS3ObjectVersion: str = None,
+        Tags: List["TagTypeDef"] = None
+    ) -> CreateTrustStoreOutputTypeDef:
+        """
+        Creates a trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_trust_store)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#create_trust_store)
         """
     def delete_listener(self, *, ListenerArn: str) -> Dict[str, Any]:
         """
         Deletes the specified listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#delete_listener)
         """
     def delete_load_balancer(self, *, LoadBalancerArn: str) -> Dict[str, Any]:
@@ -271,22 +318,29 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Deletes the specified Application Load Balancer, Network Load Balancer, or
         Gateway Load Balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_load_balancer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_load_balancer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#delete_load_balancer)
         """
     def delete_rule(self, *, RuleArn: str) -> Dict[str, Any]:
         """
         Deletes the specified rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#delete_rule)
         """
     def delete_target_group(self, *, TargetGroupArn: str) -> Dict[str, Any]:
         """
         Deletes the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_target_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_target_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#delete_target_group)
+        """
+    def delete_trust_store(self, *, TrustStoreArn: str) -> Dict[str, Any]:
+        """
+        Deletes a trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_trust_store)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#delete_trust_store)
         """
     def deregister_targets(
         self, *, TargetGroupArn: str, Targets: List["TargetDescriptionTypeDef"]
@@ -294,7 +348,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Deregisters the specified targets from the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.deregister_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.deregister_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#deregister_targets)
         """
     def describe_account_limits(
@@ -304,7 +358,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Describes the current Elastic Load Balancing resource limits for your Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_account_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_account_limits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_account_limits)
         """
     def describe_listener_certificates(
@@ -314,7 +368,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Describes the default certificate and the certificate list for the specified
         HTTPS or TLS listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_listener_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_listener_certificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_listener_certificates)
         """
     def describe_listeners(
@@ -329,7 +383,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Describes the specified listeners or the listeners for the specified Application
         Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_listeners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_listeners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_listeners)
         """
     def describe_load_balancer_attributes(
@@ -339,7 +393,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Describes the attributes for the specified Application Load Balancer, Network
         Load Balancer, or Gateway Load Balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_load_balancer_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_load_balancer_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_load_balancer_attributes)
         """
     def describe_load_balancers(
@@ -353,7 +407,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Describes the specified load balancers or all of your load balancers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_load_balancers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_load_balancers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_load_balancers)
         """
     def describe_rules(
@@ -367,7 +421,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Describes the specified rules or the rules for the specified listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_rules)
         """
     def describe_ssl_policies(
@@ -381,14 +435,14 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Describes the specified policies or all policies used for SSL negotiation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_ssl_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_ssl_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_ssl_policies)
         """
     def describe_tags(self, *, ResourceArns: List[str]) -> DescribeTagsOutputTypeDef:
         """
         Describes the tags for the specified Elastic Load Balancing resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_tags)
         """
     def describe_target_group_attributes(
@@ -397,7 +451,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Describes the attributes for the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_group_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_group_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_target_group_attributes)
         """
     def describe_target_groups(
@@ -412,17 +466,59 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Describes the specified target groups or all of your target groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_target_groups)
         """
     def describe_target_health(
-        self, *, TargetGroupArn: str, Targets: List["TargetDescriptionTypeDef"] = None
+        self,
+        *,
+        TargetGroupArn: str,
+        Targets: List["TargetDescriptionTypeDef"] = None,
+        Include: List[DescribeTargetHealthInputIncludeEnumType] = None
     ) -> DescribeTargetHealthOutputTypeDef:
         """
         Describes the health of the specified targets or all of your targets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_health)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_health)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_target_health)
+        """
+    def describe_trust_store_associations(
+        self, *, TrustStoreArn: str, Marker: str = None, PageSize: int = None
+    ) -> DescribeTrustStoreAssociationsOutputTypeDef:
+        """
+        Describes all resources associated with the specified trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_trust_store_associations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_trust_store_associations)
+        """
+    def describe_trust_store_revocations(
+        self,
+        *,
+        TrustStoreArn: str,
+        RevocationIds: List[int] = None,
+        Marker: str = None,
+        PageSize: int = None
+    ) -> DescribeTrustStoreRevocationsOutputTypeDef:
+        """
+        Describes the revocation files in use by the specified trust store arn, or
+        revocation ID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_trust_store_revocations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_trust_store_revocations)
+        """
+    def describe_trust_stores(
+        self,
+        *,
+        TrustStoreArns: List[str] = None,
+        Names: List[str] = None,
+        Marker: str = None,
+        PageSize: int = None
+    ) -> DescribeTrustStoresOutputTypeDef:
+        """
+        Describes all trust stores for a given account by trust store arn’s or name.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_trust_stores)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#describe_trust_stores)
         """
     def generate_presigned_url(
         self,
@@ -434,8 +530,26 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#generate_presigned_url)
+        """
+    def get_trust_store_ca_certificates_bundle(
+        self, *, TrustStoreArn: str
+    ) -> GetTrustStoreCaCertificatesBundleOutputTypeDef:
+        """
+        Retrieves the ca certificate bundle.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.get_trust_store_ca_certificates_bundle)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#get_trust_store_ca_certificates_bundle)
+        """
+    def get_trust_store_revocation_content(
+        self, *, TrustStoreArn: str, RevocationId: int
+    ) -> GetTrustStoreRevocationContentOutputTypeDef:
+        """
+        Retrieves the specified revocation file.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.get_trust_store_revocation_content)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#get_trust_store_revocation_content)
         """
     def modify_listener(
         self,
@@ -446,12 +560,13 @@ class ElasticLoadBalancingv2Client(BaseClient):
         SslPolicy: str = None,
         Certificates: List["CertificateTypeDef"] = None,
         DefaultActions: List["ActionTypeDef"] = None,
-        AlpnPolicy: List[str] = None
+        AlpnPolicy: List[str] = None,
+        MutualAuthentication: "MutualAuthenticationAttributesTypeDef" = None
     ) -> ModifyListenerOutputTypeDef:
         """
         Replaces the specified properties of the specified listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#modify_listener)
         """
     def modify_load_balancer_attributes(
@@ -461,7 +576,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Modifies the specified attributes of the specified Application Load Balancer,
         Network Load Balancer, or Gateway Load Balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_load_balancer_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_load_balancer_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#modify_load_balancer_attributes)
         """
     def modify_rule(
@@ -474,7 +589,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Replaces the specified properties of the specified rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#modify_rule)
         """
     def modify_target_group(
@@ -495,7 +610,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Modifies the health checks used when evaluating the health state of the targets
         in the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_target_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_target_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#modify_target_group)
         """
     def modify_target_group_attributes(
@@ -504,8 +619,22 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Modifies the specified attributes of the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_target_group_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_target_group_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#modify_target_group_attributes)
+        """
+    def modify_trust_store(
+        self,
+        *,
+        TrustStoreArn: str,
+        CaCertificatesBundleS3Bucket: str,
+        CaCertificatesBundleS3Key: str,
+        CaCertificatesBundleS3ObjectVersion: str = None
+    ) -> ModifyTrustStoreOutputTypeDef:
+        """
+        Update the ca certificate bundle for a given trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_trust_store)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#modify_trust_store)
         """
     def register_targets(
         self, *, TargetGroupArn: str, Targets: List["TargetDescriptionTypeDef"]
@@ -513,7 +642,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Registers the specified targets with the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.register_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.register_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#register_targets)
         """
     def remove_listener_certificates(
@@ -523,15 +652,24 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Removes the specified certificate from the certificate list for the specified
         HTTPS or TLS listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_listener_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_listener_certificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#remove_listener_certificates)
         """
     def remove_tags(self, *, ResourceArns: List[str], TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes the specified tags from the specified Elastic Load Balancing resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#remove_tags)
+        """
+    def remove_trust_store_revocations(
+        self, *, TrustStoreArn: str, RevocationIds: List[int]
+    ) -> Dict[str, Any]:
+        """
+        Removes the specified revocation file from the specified trust store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_trust_store_revocations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#remove_trust_store_revocations)
         """
     def set_ip_address_type(
         self, *, LoadBalancerArn: str, IpAddressType: IpAddressTypeType
@@ -540,7 +678,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Sets the type of IP addresses used by the subnets of the specified load
         balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_ip_address_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_ip_address_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#set_ip_address_type)
         """
     def set_rule_priorities(
@@ -549,7 +687,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         """
         Sets the priorities of the specified rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_rule_priorities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_rule_priorities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#set_rule_priorities)
         """
     def set_security_groups(
@@ -563,7 +701,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         Associates the specified security groups with the specified Application Load
         Balancer or Network Load Balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_security_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_security_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#set_security_groups)
         """
     def set_subnets(
@@ -579,7 +717,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         specified Application Load Balancer, Network Load Balancer or Gateway Load
         Balancer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_subnets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_subnets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/client.html#set_subnets)
         """
     @overload
@@ -587,7 +725,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         self, operation_name: Literal["describe_account_limits"]
     ) -> DescribeAccountLimitsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators.html#describeaccountlimitspaginator)
         """
     @overload
@@ -595,7 +733,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         self, operation_name: Literal["describe_listener_certificates"]
     ) -> DescribeListenerCertificatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators.html#describelistenercertificatespaginator)
         """
     @overload
@@ -603,7 +741,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         self, operation_name: Literal["describe_listeners"]
     ) -> DescribeListenersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators.html#describelistenerspaginator)
         """
     @overload
@@ -611,13 +749,13 @@ class ElasticLoadBalancingv2Client(BaseClient):
         self, operation_name: Literal["describe_load_balancers"]
     ) -> DescribeLoadBalancersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators.html#describeloadbalancerspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_rules"]) -> DescribeRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators.html#describerulespaginator)
         """
     @overload
@@ -625,7 +763,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         self, operation_name: Literal["describe_ssl_policies"]
     ) -> DescribeSSLPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators.html#describesslpoliciespaginator)
         """
     @overload
@@ -633,7 +771,7 @@ class ElasticLoadBalancingv2Client(BaseClient):
         self, operation_name: Literal["describe_target_groups"]
     ) -> DescribeTargetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/paginators.html#describetargetgroupspaginator)
         """
     @overload
@@ -641,13 +779,13 @@ class ElasticLoadBalancingv2Client(BaseClient):
         self, waiter_name: Literal["load_balancer_available"]
     ) -> LoadBalancerAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalanceravailablewaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["load_balancer_exists"]) -> LoadBalancerExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalancerexistswaiter)
         """
     @overload
@@ -655,18 +793,18 @@ class ElasticLoadBalancingv2Client(BaseClient):
         self, waiter_name: Literal["load_balancers_deleted"]
     ) -> LoadBalancersDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalancersdeletedwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["target_deregistered"]) -> TargetDeregisteredWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#targetderegisteredwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["target_in_service"]) -> TargetInServiceWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#targetinservicewaiter)
         """

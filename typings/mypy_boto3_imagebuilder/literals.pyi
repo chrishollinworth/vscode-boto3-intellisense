@@ -31,10 +31,19 @@ __all__ = (
     "ImageSourceType",
     "ImageStatusType",
     "ImageTypeType",
+    "LifecycleExecutionResourceActionNameType",
+    "LifecycleExecutionResourceStatusType",
+    "LifecycleExecutionStatusType",
+    "LifecyclePolicyDetailActionTypeType",
+    "LifecyclePolicyDetailFilterTypeType",
+    "LifecyclePolicyResourceTypeType",
+    "LifecyclePolicyStatusType",
+    "LifecyclePolicyTimeUnitType",
     "OwnershipType",
     "PipelineExecutionStartConditionType",
     "PipelineStatusType",
     "PlatformType",
+    "ResourceStatusType",
     "WorkflowExecutionStatusType",
     "WorkflowStepExecutionRollbackStatusType",
     "WorkflowStepExecutionStatusType",
@@ -60,6 +69,7 @@ ImageStatusType = Literal[
     "CREATING",
     "DELETED",
     "DEPRECATED",
+    "DISABLED",
     "DISTRIBUTING",
     "FAILED",
     "INTEGRATING",
@@ -67,12 +77,23 @@ ImageStatusType = Literal[
     "TESTING",
 ]
 ImageTypeType = Literal["AMI", "DOCKER"]
+LifecycleExecutionResourceActionNameType = Literal["AVAILABLE", "DELETE", "DEPRECATE", "DISABLE"]
+LifecycleExecutionResourceStatusType = Literal["FAILED", "IN_PROGRESS", "SKIPPED", "SUCCESS"]
+LifecycleExecutionStatusType = Literal[
+    "CANCELLED", "CANCELLING", "FAILED", "IN_PROGRESS", "SUCCESS"
+]
+LifecyclePolicyDetailActionTypeType = Literal["DELETE", "DEPRECATE", "DISABLE"]
+LifecyclePolicyDetailFilterTypeType = Literal["AGE", "COUNT"]
+LifecyclePolicyResourceTypeType = Literal["AMI_IMAGE", "CONTAINER_IMAGE"]
+LifecyclePolicyStatusType = Literal["DISABLED", "ENABLED"]
+LifecyclePolicyTimeUnitType = Literal["DAYS", "MONTHS", "WEEKS", "YEARS"]
 OwnershipType = Literal["Amazon", "Self", "Shared", "ThirdParty"]
 PipelineExecutionStartConditionType = Literal[
     "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE", "EXPRESSION_MATCH_ONLY"
 ]
 PipelineStatusType = Literal["DISABLED", "ENABLED"]
 PlatformType = Literal["Linux", "Windows"]
+ResourceStatusType = Literal["AVAILABLE", "DELETED", "DEPRECATED", "DISABLED"]
 WorkflowExecutionStatusType = Literal[
     "COMPLETED",
     "FAILED",

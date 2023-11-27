@@ -33,6 +33,7 @@ Usage::
         DescribeInboundIntegrationsPaginator,
         DescribeNodeConfigurationOptionsPaginator,
         DescribeOrderableClusterOptionsPaginator,
+        DescribeRedshiftIdcApplicationsPaginator,
         DescribeReservedNodeExchangeStatusPaginator,
         DescribeReservedNodeOfferingsPaginator,
         DescribeReservedNodesPaginator,
@@ -81,6 +82,7 @@ Usage::
     describe_inbound_integrations_paginator: DescribeInboundIntegrationsPaginator = client.get_paginator("describe_inbound_integrations")
     describe_node_configuration_options_paginator: DescribeNodeConfigurationOptionsPaginator = client.get_paginator("describe_node_configuration_options")
     describe_orderable_cluster_options_paginator: DescribeOrderableClusterOptionsPaginator = client.get_paginator("describe_orderable_cluster_options")
+    describe_redshift_idc_applications_paginator: DescribeRedshiftIdcApplicationsPaginator = client.get_paginator("describe_redshift_idc_applications")
     describe_reserved_node_exchange_status_paginator: DescribeReservedNodeExchangeStatusPaginator = client.get_paginator("describe_reserved_node_exchange_status")
     describe_reserved_node_offerings_paginator: DescribeReservedNodeOfferingsPaginator = client.get_paginator("describe_reserved_node_offerings")
     describe_reserved_nodes_paginator: DescribeReservedNodesPaginator = client.get_paginator("describe_reserved_nodes")
@@ -119,6 +121,7 @@ from .paginator import (
     DescribeInboundIntegrationsPaginator,
     DescribeNodeConfigurationOptionsPaginator,
     DescribeOrderableClusterOptionsPaginator,
+    DescribeRedshiftIdcApplicationsPaginator,
     DescribeReservedNodeExchangeStatusPaginator,
     DescribeReservedNodeOfferingsPaginator,
     DescribeReservedNodesPaginator,
@@ -168,6 +171,7 @@ __all__ = (
     "DescribeInboundIntegrationsPaginator",
     "DescribeNodeConfigurationOptionsPaginator",
     "DescribeOrderableClusterOptionsPaginator",
+    "DescribeRedshiftIdcApplicationsPaginator",
     "DescribeReservedNodeExchangeStatusPaginator",
     "DescribeReservedNodeOfferingsPaginator",
     "DescribeReservedNodesPaginator",

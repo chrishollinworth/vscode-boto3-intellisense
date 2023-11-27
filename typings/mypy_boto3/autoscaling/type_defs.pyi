@@ -134,6 +134,7 @@ __all__ = (
     "FilterTypeDef",
     "GetPredictiveScalingForecastAnswerTypeDef",
     "GetPredictiveScalingForecastTypeRequestTypeDef",
+    "InstanceMaintenancePolicyTypeDef",
     "InstanceMetadataOptionsTypeDef",
     "InstanceMonitoringTypeDef",
     "InstanceRefreshLivePoolProgressTypeDef",
@@ -403,6 +404,7 @@ _OptionalAutoScalingGroupTypeDef = TypedDict(
         "DesiredCapacityType": str,
         "DefaultInstanceWarmup": int,
         "TrafficSources": List["TrafficSourceIdentifierTypeDef"],
+        "InstanceMaintenancePolicy": "InstanceMaintenancePolicyTypeDef",
     },
     total=False,
 )
@@ -598,6 +600,7 @@ _OptionalCreateAutoScalingGroupTypeRequestTypeDef = TypedDict(
         "DesiredCapacityType": str,
         "DefaultInstanceWarmup": int,
         "TrafficSources": List["TrafficSourceIdentifierTypeDef"],
+        "InstanceMaintenancePolicy": "InstanceMaintenancePolicyTypeDef",
     },
     total=False,
 )
@@ -1312,6 +1315,15 @@ GetPredictiveScalingForecastTypeRequestTypeDef = TypedDict(
         "StartTime": Union[datetime, str],
         "EndTime": Union[datetime, str],
     },
+)
+
+InstanceMaintenancePolicyTypeDef = TypedDict(
+    "InstanceMaintenancePolicyTypeDef",
+    {
+        "MinHealthyPercentage": int,
+        "MaxHealthyPercentage": int,
+    },
+    total=False,
 )
 
 InstanceMetadataOptionsTypeDef = TypedDict(
@@ -2105,6 +2117,7 @@ RefreshPreferencesTypeDef = TypedDict(
         "ScaleInProtectedInstances": ScaleInProtectedInstancesType,
         "StandbyInstances": StandbyInstancesType,
         "AlarmSpecification": "AlarmSpecificationTypeDef",
+        "MaxHealthyPercentage": int,
     },
     total=False,
 )
@@ -2527,6 +2540,7 @@ _OptionalUpdateAutoScalingGroupTypeRequestTypeDef = TypedDict(
         "Context": str,
         "DesiredCapacityType": str,
         "DefaultInstanceWarmup": int,
+        "InstanceMaintenancePolicy": "InstanceMaintenancePolicyTypeDef",
     },
     total=False,
 )

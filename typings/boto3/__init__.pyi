@@ -39,6 +39,7 @@ from mypy_boto3_backup.client import BackupClient
 from mypy_boto3_backup_gateway.client import BackupGatewayClient
 from mypy_boto3_backupstorage.client import BackupStorageClient
 from mypy_boto3_batch.client import BatchClient
+from mypy_boto3_bcm_data_exports.client import BillingandCostManagementDataExportsClient
 from mypy_boto3_bedrock.client import BedrockClient
 from mypy_boto3_bedrock_runtime.client import BedrockRuntimeClient
 from mypy_boto3_billingconductor.client import BillingConductorClient
@@ -58,6 +59,7 @@ from mypy_boto3_clouddirectory.client import CloudDirectoryClient
 from mypy_boto3_cloudformation.client import CloudFormationClient
 from mypy_boto3_cloudformation.service_resource import CloudFormationServiceResource
 from mypy_boto3_cloudfront.client import CloudFrontClient
+from mypy_boto3_cloudfront_keyvaluestore.client import CloudFrontKeyValueStoreClient
 from mypy_boto3_cloudhsm.client import CloudHSMClient
 from mypy_boto3_cloudhsmv2.client import CloudHSMV2Client
 from mypy_boto3_cloudsearch.client import CloudSearchClient
@@ -91,6 +93,7 @@ from mypy_boto3_connectcampaigns.client import ConnectCampaignServiceClient
 from mypy_boto3_connectcases.client import ConnectCasesClient
 from mypy_boto3_connectparticipant.client import ConnectParticipantClient
 from mypy_boto3_controltower.client import ControlTowerClient
+from mypy_boto3_cost_optimization_hub.client import CostOptimizationHubClient
 from mypy_boto3_cur.client import CostandUsageReportServiceClient
 from mypy_boto3_customer_profiles.client import CustomerProfilesClient
 from mypy_boto3_databrew.client import GlueDataBrewClient
@@ -122,6 +125,7 @@ from mypy_boto3_ecr_public.client import ECRPublicClient
 from mypy_boto3_ecs.client import ECSClient
 from mypy_boto3_efs.client import EFSClient
 from mypy_boto3_eks.client import EKSClient
+from mypy_boto3_eks_auth.client import EKSAuthClient
 from mypy_boto3_elastic_inference.client import ElasticInferenceClient
 from mypy_boto3_elasticache.client import ElastiCacheClient
 from mypy_boto3_elasticbeanstalk.client import ElasticBeanstalkClient
@@ -143,6 +147,7 @@ from mypy_boto3_fms.client import FMSClient
 from mypy_boto3_forecast.client import ForecastServiceClient
 from mypy_boto3_forecastquery.client import ForecastQueryServiceClient
 from mypy_boto3_frauddetector.client import FraudDetectorClient
+from mypy_boto3_freetier.client import FreeTierClient
 from mypy_boto3_fsx.client import FSxClient
 from mypy_boto3_gamelift.client import GameLiftClient
 from mypy_boto3_glacier.client import GlacierClient
@@ -164,6 +169,7 @@ from mypy_boto3_imagebuilder.client import imagebuilderClient
 from mypy_boto3_importexport.client import ImportExportClient
 from mypy_boto3_inspector2.client import Inspector2Client
 from mypy_boto3_inspector.client import InspectorClient
+from mypy_boto3_inspector_scan.client import inspectorscanClient
 from mypy_boto3_internetmonitor.client import CloudWatchInternetMonitorClient
 from mypy_boto3_iot1click_devices.client import IoT1ClickDevicesServiceClient
 from mypy_boto3_iot1click_projects.client import IoT1ClickProjectsClient
@@ -222,7 +228,6 @@ from mypy_boto3_lookoutvision.client import LookoutforVisionClient
 from mypy_boto3_m2.client import MainframeModernizationClient
 from mypy_boto3_machinelearning.client import MachineLearningClient
 from mypy_boto3_macie2.client import Macie2Client
-from mypy_boto3_macie.client import MacieClient
 from mypy_boto3_managedblockchain.client import ManagedBlockchainClient
 from mypy_boto3_managedblockchain_query.client import ManagedBlockchainQueryClient
 from mypy_boto3_marketplace_catalog.client import MarketplaceCatalogClient
@@ -293,6 +298,7 @@ from mypy_boto3_redshift.client import RedshiftClient
 from mypy_boto3_redshift_data.client import RedshiftDataAPIServiceClient
 from mypy_boto3_redshift_serverless.client import RedshiftServerlessClient
 from mypy_boto3_rekognition.client import RekognitionClient
+from mypy_boto3_repostspace.client import rePostPrivateClient
 from mypy_boto3_resiliencehub.client import ResilienceHubClient
 from mypy_boto3_resource_explorer_2.client import ResourceExplorerClient
 from mypy_boto3_resource_groups.client import ResourceGroupsClient
@@ -363,6 +369,7 @@ from mypy_boto3_tnb.client import TelcoNetworkBuilderClient
 from mypy_boto3_transcribe.client import TranscribeServiceClient
 from mypy_boto3_transfer.client import TransferClient
 from mypy_boto3_translate.client import TranslateClient
+from mypy_boto3_trustedadvisor.client import TrustedAdvisorPublicAPIClient
 from mypy_boto3_verifiedpermissions.client import VerifiedPermissionsClient
 from mypy_boto3_voice_id.client import VoiceIDClient
 from mypy_boto3_vpc_lattice.client import VPCLatticeClient
@@ -376,6 +383,7 @@ from mypy_boto3_worklink.client import WorkLinkClient
 from mypy_boto3_workmail.client import WorkMailClient
 from mypy_boto3_workmailmessageflow.client import WorkMailMessageFlowClient
 from mypy_boto3_workspaces.client import WorkSpacesClient
+from mypy_boto3_workspaces_thin_client.client import WorkSpacesThinClientClient
 from mypy_boto3_workspaces_web.client import WorkSpacesWebClient
 from mypy_boto3_xray.client import XRayClient
 
@@ -846,6 +854,19 @@ def client(
 ) -> BatchClient: ...
 @overload
 def client(
+    service_name: Literal["bcm-data-exports"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> BillingandCostManagementDataExportsClient: ...
+@overload
+def client(
     service_name: Literal["bedrock"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -1078,6 +1099,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> CloudFrontClient: ...
+@overload
+def client(
+    service_name: Literal["cloudfront-keyvaluestore"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> CloudFrontKeyValueStoreClient: ...
 @overload
 def client(
     service_name: Literal["cloudhsm"],
@@ -1496,6 +1530,19 @@ def client(
 ) -> ControlTowerClient: ...
 @overload
 def client(
+    service_name: Literal["cost-optimization-hub"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> CostOptimizationHubClient: ...
+@overload
+def client(
     service_name: Literal["cur"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -1873,6 +1920,19 @@ def client(
 ) -> EKSClient: ...
 @overload
 def client(
+    service_name: Literal["eks-auth"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> EKSAuthClient: ...
+@overload
+def client(
     service_name: Literal["elastic-inference"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -2146,6 +2206,19 @@ def client(
 ) -> FraudDetectorClient: ...
 @overload
 def client(
+    service_name: Literal["freetier"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> FreeTierClient: ...
+@overload
+def client(
     service_name: Literal["fsx"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -2378,6 +2451,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> InspectorClient: ...
+@overload
+def client(
+    service_name: Literal["inspector-scan"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> inspectorscanClient: ...
 @overload
 def client(
     service_name: Literal["inspector2"],
@@ -3080,19 +3166,6 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> MachineLearningClient: ...
-@overload
-def client(
-    service_name: Literal["macie"],
-    region_name: Optional[str] = None,
-    api_version: Optional[str] = None,
-    use_ssl: Optional[bool] = None,
-    verify: Union[bool, str, None] = None,
-    endpoint_url: Optional[str] = None,
-    aws_access_key_id: Optional[str] = None,
-    aws_secret_access_key: Optional[str] = None,
-    aws_session_token: Optional[str] = None,
-    config: Optional[Config] = None,
-) -> MacieClient: ...
 @overload
 def client(
     service_name: Literal["macie2"],
@@ -4005,6 +4078,19 @@ def client(
 ) -> RekognitionClient: ...
 @overload
 def client(
+    service_name: Literal["repostspace"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> rePostPrivateClient: ...
+@overload
+def client(
     service_name: Literal["resiliencehub"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -4876,6 +4962,19 @@ def client(
 ) -> TranslateClient: ...
 @overload
 def client(
+    service_name: Literal["trustedadvisor"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> TrustedAdvisorPublicAPIClient: ...
+@overload
+def client(
     service_name: Literal["verifiedpermissions"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -5043,6 +5142,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> WorkSpacesClient: ...
+@overload
+def client(
+    service_name: Literal["workspaces-thin-client"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> WorkSpacesThinClientClient: ...
 @overload
 def client(
     service_name: Literal["workspaces-web"],

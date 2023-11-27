@@ -77,7 +77,7 @@ __all__ = (
 
 class ListClientVpcConnectionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClientVpcConnections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClientVpcConnections)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclientvpcconnectionspaginator)
     """
 
@@ -85,13 +85,13 @@ class ListClientVpcConnectionsPaginator(Boto3Paginator):
         self, *, ClusterArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClientVpcConnectionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClientVpcConnections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClientVpcConnections.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclientvpcconnectionspaginator)
         """
 
 class ListClusterOperationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclusteroperationspaginator)
     """
 
@@ -99,13 +99,13 @@ class ListClusterOperationsPaginator(Boto3Paginator):
         self, *, ClusterArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClusterOperationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclusteroperationspaginator)
         """
 
 class ListClusterOperationsV2Paginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClusterOperationsV2)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClusterOperationsV2)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclusteroperationsv2paginator)
     """
 
@@ -113,13 +113,13 @@ class ListClusterOperationsV2Paginator(Boto3Paginator):
         self, *, ClusterArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClusterOperationsV2ResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClusterOperationsV2.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClusterOperationsV2.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclusteroperationsv2paginator)
         """
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClusters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClusters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclusterspaginator)
     """
 
@@ -127,13 +127,13 @@ class ListClustersPaginator(Boto3Paginator):
         self, *, ClusterNameFilter: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClusters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClusters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclusterspaginator)
         """
 
 class ListClustersV2Paginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClustersV2)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClustersV2)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclustersv2paginator)
     """
 
@@ -145,13 +145,13 @@ class ListClustersV2Paginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersV2ResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListClustersV2.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListClustersV2.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listclustersv2paginator)
         """
 
 class ListConfigurationRevisionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listconfigurationrevisionspaginator)
     """
 
@@ -159,13 +159,13 @@ class ListConfigurationRevisionsPaginator(Boto3Paginator):
         self, *, Arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigurationRevisionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listconfigurationrevisionspaginator)
         """
 
 class ListConfigurationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListConfigurations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listconfigurationspaginator)
     """
 
@@ -173,13 +173,13 @@ class ListConfigurationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListConfigurations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listconfigurationspaginator)
         """
 
 class ListKafkaVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listkafkaversionspaginator)
     """
 
@@ -187,13 +187,13 @@ class ListKafkaVersionsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKafkaVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listkafkaversionspaginator)
         """
 
 class ListNodesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListNodes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListNodes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listnodespaginator)
     """
 
@@ -201,13 +201,13 @@ class ListNodesPaginator(Boto3Paginator):
         self, *, ClusterArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNodesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListNodes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListNodes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listnodespaginator)
         """
 
 class ListReplicatorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListReplicators)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListReplicators)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listreplicatorspaginator)
     """
 
@@ -215,13 +215,13 @@ class ListReplicatorsPaginator(Boto3Paginator):
         self, *, ReplicatorNameFilter: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListReplicatorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListReplicators.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListReplicators.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listreplicatorspaginator)
         """
 
 class ListScramSecretsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listscramsecretspaginator)
     """
 
@@ -229,13 +229,13 @@ class ListScramSecretsPaginator(Boto3Paginator):
         self, *, ClusterArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListScramSecretsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listscramsecretspaginator)
         """
 
 class ListVpcConnectionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListVpcConnections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListVpcConnections)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listvpcconnectionspaginator)
     """
 
@@ -243,6 +243,6 @@ class ListVpcConnectionsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVpcConnectionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/kafka.html#Kafka.Paginator.ListVpcConnections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kafka.html#Kafka.Paginator.ListVpcConnections.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/paginators.html#listvpcconnectionspaginator)
         """

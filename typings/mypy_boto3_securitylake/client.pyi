@@ -78,7 +78,7 @@ class Exceptions:
 
 class SecurityLakeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html)
     """
 
@@ -93,14 +93,14 @@ class SecurityLakeClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#close)
         """
     def create_aws_log_source(
@@ -109,7 +109,7 @@ class SecurityLakeClient(BaseClient):
         """
         Adds a natively supported Amazon Web Service as an Amazon Security Lake source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.create_aws_log_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.create_aws_log_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#create_aws_log_source)
         """
     def create_custom_log_source(
@@ -124,7 +124,7 @@ class SecurityLakeClient(BaseClient):
         Adds a third-party custom source in Amazon Security Lake, from the Amazon Web
         Services Region where you want to create a custom source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.create_custom_log_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.create_custom_log_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#create_custom_log_source)
         """
     def create_data_lake(
@@ -138,7 +138,7 @@ class SecurityLakeClient(BaseClient):
         Initializes an Amazon Security Lake instance with the provided (or default)
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.create_data_lake)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.create_data_lake)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#create_data_lake)
         """
     def create_data_lake_exception_subscription(
@@ -152,7 +152,7 @@ class SecurityLakeClient(BaseClient):
         Creates the specified notification subscription in Amazon Security Lake for the
         organization you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.create_data_lake_exception_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.create_data_lake_exception_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#create_data_lake_exception_subscription)
         """
     def create_data_lake_organization_configuration(
@@ -162,7 +162,7 @@ class SecurityLakeClient(BaseClient):
         Automatically enables Amazon Security Lake for new member accounts in your
         organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.create_data_lake_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.create_data_lake_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#create_data_lake_organization_configuration)
         """
     def create_subscriber(
@@ -179,7 +179,7 @@ class SecurityLakeClient(BaseClient):
         Creates a subscription permission for accounts that are already enabled in
         Amazon Security Lake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.create_subscriber)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.create_subscriber)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#create_subscriber)
         """
     def create_subscriber_notification(
@@ -189,7 +189,7 @@ class SecurityLakeClient(BaseClient):
         Notifies the subscriber when new data is written to the data lake for the
         sources that the subscriber consumes in Security Lake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.create_subscriber_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.create_subscriber_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#create_subscriber_notification)
         """
     def delete_aws_log_source(
@@ -199,7 +199,7 @@ class SecurityLakeClient(BaseClient):
         Removes a natively supported Amazon Web Service as an Amazon Security Lake
         source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.delete_aws_log_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.delete_aws_log_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#delete_aws_log_source)
         """
     def delete_custom_log_source(
@@ -209,7 +209,7 @@ class SecurityLakeClient(BaseClient):
         Removes a custom log source from Amazon Security Lake, to stop sending data from
         the custom source to Security Lake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.delete_custom_log_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.delete_custom_log_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#delete_custom_log_source)
         """
     def delete_data_lake(self, *, regions: List[str]) -> Dict[str, Any]:
@@ -218,7 +218,7 @@ class SecurityLakeClient(BaseClient):
         disabled in all Amazon Web Services Regions and it stops collecting data from
         your sources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.delete_data_lake)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.delete_data_lake)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#delete_data_lake)
         """
     def delete_data_lake_exception_subscription(self) -> Dict[str, Any]:
@@ -226,7 +226,7 @@ class SecurityLakeClient(BaseClient):
         Deletes the specified notification subscription in Amazon Security Lake for the
         organization you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.delete_data_lake_exception_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.delete_data_lake_exception_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#delete_data_lake_exception_subscription)
         """
     def delete_data_lake_organization_configuration(
@@ -236,7 +236,7 @@ class SecurityLakeClient(BaseClient):
         Turns off automatic enablement of Amazon Security Lake for member accounts that
         are added to an organization in Organizations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.delete_data_lake_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.delete_data_lake_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#delete_data_lake_organization_configuration)
         """
     def delete_subscriber(self, *, subscriberId: str) -> Dict[str, Any]:
@@ -244,7 +244,7 @@ class SecurityLakeClient(BaseClient):
         Deletes the subscription permission and all notification settings for accounts
         that are already enabled in Amazon Security Lake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.delete_subscriber)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.delete_subscriber)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#delete_subscriber)
         """
     def delete_subscriber_notification(self, *, subscriberId: str) -> Dict[str, Any]:
@@ -252,7 +252,7 @@ class SecurityLakeClient(BaseClient):
         Deletes the specified notification subscription in Amazon Security Lake for the
         organization you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.delete_subscriber_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.delete_subscriber_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#delete_subscriber_notification)
         """
     def deregister_data_lake_delegated_administrator(self) -> Dict[str, Any]:
@@ -260,7 +260,7 @@ class SecurityLakeClient(BaseClient):
         Deletes the Amazon Security Lake delegated administrator account for the
         organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.deregister_data_lake_delegated_administrator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.deregister_data_lake_delegated_administrator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#deregister_data_lake_delegated_administrator)
         """
     def generate_presigned_url(
@@ -273,7 +273,7 @@ class SecurityLakeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#generate_presigned_url)
         """
     def get_data_lake_exception_subscription(
@@ -283,7 +283,7 @@ class SecurityLakeClient(BaseClient):
         Retrieves the details of exception notifications for the account in Amazon
         Security Lake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.get_data_lake_exception_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.get_data_lake_exception_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#get_data_lake_exception_subscription)
         """
     def get_data_lake_organization_configuration(
@@ -294,7 +294,7 @@ class SecurityLakeClient(BaseClient):
         to the organization after the organization has onboarded to Amazon Security
         Lake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.get_data_lake_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.get_data_lake_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#get_data_lake_organization_configuration)
         """
     def get_data_lake_sources(
@@ -305,14 +305,14 @@ class SecurityLakeClient(BaseClient):
         Lake is enabled for those accounts and which sources Security Lake is collecting
         data from.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.get_data_lake_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.get_data_lake_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#get_data_lake_sources)
         """
     def get_subscriber(self, *, subscriberId: str) -> GetSubscriberResponseTypeDef:
         """
         Retrieves the subscription information for the specified subscription ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.get_subscriber)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.get_subscriber)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#get_subscriber)
         """
     def list_data_lake_exceptions(
@@ -322,7 +322,7 @@ class SecurityLakeClient(BaseClient):
         Lists the Amazon Security Lake exceptions that you can use to find the source of
         problems and fix them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.list_data_lake_exceptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.list_data_lake_exceptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#list_data_lake_exceptions)
         """
     def list_data_lakes(self, *, regions: List[str] = None) -> ListDataLakesResponseTypeDef:
@@ -330,7 +330,7 @@ class SecurityLakeClient(BaseClient):
         Retrieves the Amazon Security Lake configuration object for the specified Amazon
         Web Services Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.list_data_lakes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.list_data_lakes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#list_data_lakes)
         """
     def list_log_sources(
@@ -345,7 +345,7 @@ class SecurityLakeClient(BaseClient):
         """
         Retrieves the log sources in the current Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.list_log_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.list_log_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#list_log_sources)
         """
     def list_subscribers(
@@ -354,7 +354,7 @@ class SecurityLakeClient(BaseClient):
         """
         List all subscribers for the specific Amazon Security Lake account ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.list_subscribers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.list_subscribers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#list_subscribers)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
@@ -363,7 +363,7 @@ class SecurityLakeClient(BaseClient):
         Lake resource: a subscriber, or the data lake configuration for your Amazon Web
         Services account in a particular Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#list_tags_for_resource)
         """
     def register_data_lake_delegated_administrator(self, *, accountId: str) -> Dict[str, Any]:
@@ -371,7 +371,7 @@ class SecurityLakeClient(BaseClient):
         Designates the Amazon Security Lake delegated administrator account for the
         organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.register_data_lake_delegated_administrator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.register_data_lake_delegated_administrator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#register_data_lake_delegated_administrator)
         """
     def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
@@ -380,7 +380,7 @@ class SecurityLakeClient(BaseClient):
         Lake resource: a subscriber, or the data lake configuration for your Amazon Web
         Services account in a particular Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
@@ -389,7 +389,7 @@ class SecurityLakeClient(BaseClient):
         resource: a subscriber, or the data lake configuration for your Amazon Web
         Services account in a particular Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#untag_resource)
         """
     def update_data_lake(
@@ -398,7 +398,7 @@ class SecurityLakeClient(BaseClient):
         """
         Specifies where to store your security data and for how long.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.update_data_lake)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.update_data_lake)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#update_data_lake)
         """
     def update_data_lake_exception_subscription(
@@ -412,7 +412,7 @@ class SecurityLakeClient(BaseClient):
         Updates the specified notification subscription in Amazon Security Lake for the
         organization you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.update_data_lake_exception_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.update_data_lake_exception_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#update_data_lake_exception_subscription)
         """
     def update_subscriber(
@@ -427,7 +427,7 @@ class SecurityLakeClient(BaseClient):
         """
         Updates an existing subscription for the given Amazon Security Lake account ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.update_subscriber)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.update_subscriber)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#update_subscriber)
         """
     def update_subscriber_notification(
@@ -437,7 +437,7 @@ class SecurityLakeClient(BaseClient):
         Updates an existing notification method for the subscription (SQS or HTTPs
         endpoint) or switches the notification subscription endpoint for a subscriber.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Client.update_subscriber_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Client.update_subscriber_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/client.html#update_subscriber_notification)
         """
     @overload
@@ -445,7 +445,7 @@ class SecurityLakeClient(BaseClient):
         self, operation_name: Literal["get_data_lake_sources"]
     ) -> GetDataLakeSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Paginator.GetDataLakeSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Paginator.GetDataLakeSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#getdatalakesourcespaginator)
         """
     @overload
@@ -453,13 +453,13 @@ class SecurityLakeClient(BaseClient):
         self, operation_name: Literal["list_data_lake_exceptions"]
     ) -> ListDataLakeExceptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Paginator.ListDataLakeExceptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Paginator.ListDataLakeExceptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listdatalakeexceptionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_log_sources"]) -> ListLogSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Paginator.ListLogSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Paginator.ListLogSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listlogsourcespaginator)
         """
     @overload
@@ -467,6 +467,6 @@ class SecurityLakeClient(BaseClient):
         self, operation_name: Literal["list_subscribers"]
     ) -> ListSubscribersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/securitylake.html#SecurityLake.Paginator.ListSubscribers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securitylake.html#SecurityLake.Paginator.ListSubscribers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/paginators.html#listsubscriberspaginator)
         """

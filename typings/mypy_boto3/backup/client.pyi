@@ -19,9 +19,13 @@ from typing import Any, Dict, List, Type, Union, overload
 from botocore.client import BaseClient, ClientMeta
 
 from .literals import (
+    AggregationPeriodType,
     BackupJobStateType,
+    BackupJobStatusType,
     BackupVaultEventType,
     CopyJobStateType,
+    CopyJobStatusType,
+    RestoreJobStateType,
     RestoreJobStatusType,
     VaultTypeType,
 )
@@ -76,12 +80,14 @@ from .type_defs import (
     GetSupportedResourceTypesOutputTypeDef,
     LifecycleTypeDef,
     ListBackupJobsOutputTypeDef,
+    ListBackupJobSummariesOutputTypeDef,
     ListBackupPlansOutputTypeDef,
     ListBackupPlanTemplatesOutputTypeDef,
     ListBackupPlanVersionsOutputTypeDef,
     ListBackupSelectionsOutputTypeDef,
     ListBackupVaultsOutputTypeDef,
     ListCopyJobsOutputTypeDef,
+    ListCopyJobSummariesOutputTypeDef,
     ListFrameworksOutputTypeDef,
     ListLegalHoldsOutputTypeDef,
     ListProtectedResourcesByBackupVaultOutputTypeDef,
@@ -92,6 +98,7 @@ from .type_defs import (
     ListReportJobsOutputTypeDef,
     ListReportPlansOutputTypeDef,
     ListRestoreJobsOutputTypeDef,
+    ListRestoreJobSummariesOutputTypeDef,
     ListTagsOutputTypeDef,
     RecoveryPointSelectionTypeDef,
     ReportDeliveryChannelTypeDef,
@@ -135,7 +142,7 @@ class Exceptions:
 
 class BackupClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html)
     """
 
@@ -150,7 +157,7 @@ class BackupClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#can_paginate)
         """
     def cancel_legal_hold(
@@ -159,14 +166,14 @@ class BackupClient(BaseClient):
         """
         This action removes the specified legal hold on a recovery point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.cancel_legal_hold)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.cancel_legal_hold)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#cancel_legal_hold)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#close)
         """
     def create_backup_plan(
@@ -179,7 +186,7 @@ class BackupClient(BaseClient):
         """
         Creates a backup plan using a backup plan name and backup rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.create_backup_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.create_backup_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#create_backup_plan)
         """
     def create_backup_selection(
@@ -193,7 +200,7 @@ class BackupClient(BaseClient):
         Creates a JSON document that specifies a set of resources to assign to a backup
         plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.create_backup_selection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.create_backup_selection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#create_backup_selection)
         """
     def create_backup_vault(
@@ -207,7 +214,7 @@ class BackupClient(BaseClient):
         """
         Creates a logical container where backups are stored.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.create_backup_vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.create_backup_vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#create_backup_vault)
         """
     def create_framework(
@@ -222,7 +229,7 @@ class BackupClient(BaseClient):
         """
         Creates a framework with one or more controls.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.create_framework)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.create_framework)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#create_framework)
         """
     def create_legal_hold(
@@ -237,7 +244,7 @@ class BackupClient(BaseClient):
         """
         This action creates a legal hold on a recovery point (backup).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.create_legal_hold)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.create_legal_hold)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#create_legal_hold)
         """
     def create_logically_air_gapped_backup_vault(
@@ -252,7 +259,7 @@ class BackupClient(BaseClient):
         """
         This request creates a logical container to where backups may be copied.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.create_logically_air_gapped_backup_vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.create_logically_air_gapped_backup_vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#create_logically_air_gapped_backup_vault)
         """
     def create_report_plan(
@@ -268,14 +275,14 @@ class BackupClient(BaseClient):
         """
         Creates a report plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.create_report_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.create_report_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#create_report_plan)
         """
     def delete_backup_plan(self, *, BackupPlanId: str) -> DeleteBackupPlanOutputTypeDef:
         """
         Deletes a backup plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_backup_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_backup_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_backup_plan)
         """
     def delete_backup_selection(self, *, BackupPlanId: str, SelectionId: str) -> None:
@@ -283,63 +290,63 @@ class BackupClient(BaseClient):
         Deletes the resource selection associated with a backup plan that is specified
         by the `SelectionId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_backup_selection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_backup_selection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_backup_selection)
         """
     def delete_backup_vault(self, *, BackupVaultName: str) -> None:
         """
         Deletes the backup vault identified by its name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_backup_vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_backup_vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_backup_vault)
         """
     def delete_backup_vault_access_policy(self, *, BackupVaultName: str) -> None:
         """
         Deletes the policy document that manages permissions on a backup vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_backup_vault_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_backup_vault_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_backup_vault_access_policy)
         """
     def delete_backup_vault_lock_configuration(self, *, BackupVaultName: str) -> None:
         """
         Deletes Backup Vault Lock from a backup vault specified by a backup vault name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_backup_vault_lock_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_backup_vault_lock_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_backup_vault_lock_configuration)
         """
     def delete_backup_vault_notifications(self, *, BackupVaultName: str) -> None:
         """
         Deletes event notifications for the specified backup vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_backup_vault_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_backup_vault_notifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_backup_vault_notifications)
         """
     def delete_framework(self, *, FrameworkName: str) -> None:
         """
         Deletes the framework specified by a framework name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_framework)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_framework)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_framework)
         """
     def delete_recovery_point(self, *, BackupVaultName: str, RecoveryPointArn: str) -> None:
         """
         Deletes the recovery point specified by a recovery point ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_recovery_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_recovery_point)
         """
     def delete_report_plan(self, *, ReportPlanName: str) -> None:
         """
         Deletes the report plan specified by a report plan name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.delete_report_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.delete_report_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#delete_report_plan)
         """
     def describe_backup_job(self, *, BackupJobId: str) -> DescribeBackupJobOutputTypeDef:
         """
         Returns backup job details for the specified `BackupJobId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_backup_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_backup_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_backup_job)
         """
     def describe_backup_vault(
@@ -348,21 +355,21 @@ class BackupClient(BaseClient):
         """
         Returns metadata about a backup vault specified by its name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_backup_vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_backup_vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_backup_vault)
         """
     def describe_copy_job(self, *, CopyJobId: str) -> DescribeCopyJobOutputTypeDef:
         """
         Returns metadata associated with creating a copy of a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_copy_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_copy_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_copy_job)
         """
     def describe_framework(self, *, FrameworkName: str) -> DescribeFrameworkOutputTypeDef:
         """
         Returns the framework details for the specified `FrameworkName`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_framework)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_framework)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_framework)
         """
     def describe_global_settings(self) -> DescribeGlobalSettingsOutputTypeDef:
@@ -370,7 +377,7 @@ class BackupClient(BaseClient):
         Describes whether the Amazon Web Services account is opted in to cross-account
         backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_global_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_global_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_global_settings)
         """
     def describe_protected_resource(
@@ -381,7 +388,7 @@ class BackupClient(BaseClient):
         backed up, its Amazon Resource Name (ARN), and the Amazon Web Services service
         type of the saved resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_protected_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_protected_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_protected_resource)
         """
     def describe_recovery_point(
@@ -391,14 +398,14 @@ class BackupClient(BaseClient):
         Returns metadata associated with a recovery point, including ID, status,
         encryption, and lifecycle.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_recovery_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_recovery_point)
         """
     def describe_region_settings(self) -> DescribeRegionSettingsOutputTypeDef:
         """
         Returns the current service opt-in settings for the Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_region_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_region_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_region_settings)
         """
     def describe_report_job(self, *, ReportJobId: str) -> DescribeReportJobOutputTypeDef:
@@ -406,7 +413,7 @@ class BackupClient(BaseClient):
         Returns the details associated with creating a report as specified by its
         `ReportJobId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_report_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_report_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_report_job)
         """
     def describe_report_plan(self, *, ReportPlanName: str) -> DescribeReportPlanOutputTypeDef:
@@ -414,14 +421,14 @@ class BackupClient(BaseClient):
         Returns a list of all report plans for an Amazon Web Services account and Amazon
         Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_report_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_report_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_report_plan)
         """
     def describe_restore_job(self, *, RestoreJobId: str) -> DescribeRestoreJobOutputTypeDef:
         """
         Returns metadata associated with a restore job that is specified by a job ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.describe_restore_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.describe_restore_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#describe_restore_job)
         """
     def disassociate_recovery_point(self, *, BackupVaultName: str, RecoveryPointArn: str) -> None:
@@ -429,7 +436,7 @@ class BackupClient(BaseClient):
         Deletes the specified continuous backup recovery point from Backup and releases
         control of that continuous backup to the source service, such as Amazon RDS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.disassociate_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.disassociate_recovery_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#disassociate_recovery_point)
         """
     def disassociate_recovery_point_from_parent(
@@ -439,7 +446,7 @@ class BackupClient(BaseClient):
         This action to a specific child (nested) recovery point removes the relationship
         between the specified recovery point and its parent (composite) recovery point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.disassociate_recovery_point_from_parent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.disassociate_recovery_point_from_parent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#disassociate_recovery_point_from_parent)
         """
     def export_backup_plan_template(
@@ -448,7 +455,7 @@ class BackupClient(BaseClient):
         """
         Returns the backup plan that is specified by the plan ID as a backup template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.export_backup_plan_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.export_backup_plan_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#export_backup_plan_template)
         """
     def generate_presigned_url(
@@ -461,7 +468,7 @@ class BackupClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#generate_presigned_url)
         """
     def get_backup_plan(
@@ -470,7 +477,7 @@ class BackupClient(BaseClient):
         """
         Returns `BackupPlan` details for the specified `BackupPlanId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_backup_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_backup_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_backup_plan)
         """
     def get_backup_plan_from_json(
@@ -479,7 +486,7 @@ class BackupClient(BaseClient):
         """
         Returns a valid JSON document specifying a backup plan or an error.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_backup_plan_from_json)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_backup_plan_from_json)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_backup_plan_from_json)
         """
     def get_backup_plan_from_template(
@@ -488,7 +495,7 @@ class BackupClient(BaseClient):
         """
         Returns the template specified by its `templateId` as a backup plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_backup_plan_from_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_backup_plan_from_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_backup_plan_from_template)
         """
     def get_backup_selection(
@@ -498,7 +505,7 @@ class BackupClient(BaseClient):
         Returns selection metadata and a document in JSON format that specifies a list
         of resources that are associated with a backup plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_backup_selection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_backup_selection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_backup_selection)
         """
     def get_backup_vault_access_policy(
@@ -508,7 +515,7 @@ class BackupClient(BaseClient):
         Returns the access policy document that is associated with the named backup
         vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_backup_vault_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_backup_vault_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_backup_vault_access_policy)
         """
     def get_backup_vault_notifications(
@@ -517,14 +524,14 @@ class BackupClient(BaseClient):
         """
         Returns event notifications for the specified backup vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_backup_vault_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_backup_vault_notifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_backup_vault_notifications)
         """
     def get_legal_hold(self, *, LegalHoldId: str) -> GetLegalHoldOutputTypeDef:
         """
         This action returns details for a specified legal hold.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_legal_hold)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_legal_hold)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_legal_hold)
         """
     def get_recovery_point_restore_metadata(
@@ -533,15 +540,33 @@ class BackupClient(BaseClient):
         """
         Returns a set of metadata key-value pairs that were used to create the backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_recovery_point_restore_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_recovery_point_restore_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_recovery_point_restore_metadata)
         """
     def get_supported_resource_types(self) -> GetSupportedResourceTypesOutputTypeDef:
         """
         Returns the Amazon Web Services resource types supported by Backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.get_supported_resource_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.get_supported_resource_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#get_supported_resource_types)
+        """
+    def list_backup_job_summaries(
+        self,
+        *,
+        AccountId: str = None,
+        State: BackupJobStatusType = None,
+        ResourceType: str = None,
+        MessageCategory: str = None,
+        AggregationPeriod: AggregationPeriodType = None,
+        MaxResults: int = None,
+        NextToken: str = None
+    ) -> ListBackupJobSummariesOutputTypeDef:
+        """
+        This is a request for a summary of backup jobs created or running within the
+        most recent 30 days.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_backup_job_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_backup_job_summaries)
         """
     def list_backup_jobs(
         self,
@@ -557,13 +582,14 @@ class BackupClient(BaseClient):
         ByAccountId: str = None,
         ByCompleteAfter: Union[datetime, str] = None,
         ByCompleteBefore: Union[datetime, str] = None,
-        ByParentJobId: str = None
+        ByParentJobId: str = None,
+        ByMessageCategory: str = None
     ) -> ListBackupJobsOutputTypeDef:
         """
         Returns a list of existing backup jobs for an authenticated account for the last
         30 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_backup_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_backup_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_backup_jobs)
         """
     def list_backup_plan_templates(
@@ -573,7 +599,7 @@ class BackupClient(BaseClient):
         Returns metadata of your saved backup plan templates, including the template ID,
         name, and the creation and deletion dates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_backup_plan_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_backup_plan_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_backup_plan_templates)
         """
     def list_backup_plan_versions(
@@ -584,7 +610,7 @@ class BackupClient(BaseClient):
         (ARNs), backup plan IDs, creation and deletion dates, plan names, and version
         IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_backup_plan_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_backup_plan_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_backup_plan_versions)
         """
     def list_backup_plans(
@@ -593,7 +619,7 @@ class BackupClient(BaseClient):
         """
         Returns a list of all active backup plans for an authenticated account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_backup_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_backup_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_backup_plans)
         """
     def list_backup_selections(
@@ -603,7 +629,7 @@ class BackupClient(BaseClient):
         Returns an array containing metadata of the resources associated with the target
         backup plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_backup_selections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_backup_selections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_backup_selections)
         """
     def list_backup_vaults(
@@ -618,8 +644,26 @@ class BackupClient(BaseClient):
         Returns a list of recovery point storage containers along with information about
         them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_backup_vaults)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_backup_vaults)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_backup_vaults)
+        """
+    def list_copy_job_summaries(
+        self,
+        *,
+        AccountId: str = None,
+        State: CopyJobStatusType = None,
+        ResourceType: str = None,
+        MessageCategory: str = None,
+        AggregationPeriod: AggregationPeriodType = None,
+        MaxResults: int = None,
+        NextToken: str = None
+    ) -> ListCopyJobSummariesOutputTypeDef:
+        """
+        This request obtains a list of copy jobs created or running within the the most
+        recent 30 days.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_copy_job_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_copy_job_summaries)
         """
     def list_copy_jobs(
         self,
@@ -635,12 +679,13 @@ class BackupClient(BaseClient):
         ByAccountId: str = None,
         ByCompleteBefore: Union[datetime, str] = None,
         ByCompleteAfter: Union[datetime, str] = None,
-        ByParentJobId: str = None
+        ByParentJobId: str = None,
+        ByMessageCategory: str = None
     ) -> ListCopyJobsOutputTypeDef:
         """
         Returns metadata about your copy jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_copy_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_copy_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_copy_jobs)
         """
     def list_frameworks(
@@ -650,7 +695,7 @@ class BackupClient(BaseClient):
         Returns a list of all frameworks for an Amazon Web Services account and Amazon
         Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_frameworks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_frameworks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_frameworks)
         """
     def list_legal_holds(
@@ -659,7 +704,7 @@ class BackupClient(BaseClient):
         """
         This action returns metadata about active and previous legal holds.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_legal_holds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_legal_holds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_legal_holds)
         """
     def list_protected_resources(
@@ -670,7 +715,7 @@ class BackupClient(BaseClient):
         time the resource was saved, an Amazon Resource Name (ARN) of the resource, and
         a resource type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_protected_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_protected_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_protected_resources)
         """
     def list_protected_resources_by_backup_vault(
@@ -684,7 +729,7 @@ class BackupClient(BaseClient):
         """
         This request lists the protected resources corresponding to each backup vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_protected_resources_by_backup_vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_protected_resources_by_backup_vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_protected_resources_by_backup_vault)
         """
     def list_recovery_points_by_backup_vault(
@@ -704,7 +749,7 @@ class BackupClient(BaseClient):
         """
         Returns detailed information about the recovery points stored in a backup vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_recovery_points_by_backup_vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_recovery_points_by_backup_vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_recovery_points_by_backup_vault)
         """
     def list_recovery_points_by_legal_hold(
@@ -714,7 +759,7 @@ class BackupClient(BaseClient):
         This action returns recovery point ARNs (Amazon Resource Names) of the specified
         legal hold.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_recovery_points_by_legal_hold)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_recovery_points_by_legal_hold)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_recovery_points_by_legal_hold)
         """
     def list_recovery_points_by_resource(
@@ -724,7 +769,7 @@ class BackupClient(BaseClient):
         Returns detailed information about all the recovery points of the type specified
         by a resource Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_recovery_points_by_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_recovery_points_by_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_recovery_points_by_resource)
         """
     def list_report_jobs(
@@ -740,7 +785,7 @@ class BackupClient(BaseClient):
         """
         Returns details about your report jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_report_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_report_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_report_jobs)
         """
     def list_report_plans(
@@ -749,8 +794,25 @@ class BackupClient(BaseClient):
         """
         Returns a list of your report plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_report_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_report_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_report_plans)
+        """
+    def list_restore_job_summaries(
+        self,
+        *,
+        AccountId: str = None,
+        State: RestoreJobStateType = None,
+        ResourceType: str = None,
+        AggregationPeriod: AggregationPeriodType = None,
+        MaxResults: int = None,
+        NextToken: str = None
+    ) -> ListRestoreJobSummariesOutputTypeDef:
+        """
+        This request obtains a summary of restore jobs created or running within the the
+        most recent 30 days.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_restore_job_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_restore_job_summaries)
         """
     def list_restore_jobs(
         self,
@@ -768,7 +830,7 @@ class BackupClient(BaseClient):
         Returns a list of jobs that Backup initiated to restore a saved resource,
         including details about the recovery process.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_restore_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_restore_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_restore_jobs)
         """
     def list_tags(
@@ -778,7 +840,7 @@ class BackupClient(BaseClient):
         Returns a list of key-value pairs assigned to a target recovery point, backup
         plan, or backup vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.list_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#list_tags)
         """
     def put_backup_vault_access_policy(self, *, BackupVaultName: str, Policy: str = None) -> None:
@@ -786,7 +848,7 @@ class BackupClient(BaseClient):
         Sets a resource-based policy that is used to manage access permissions on the
         target backup vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.put_backup_vault_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.put_backup_vault_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#put_backup_vault_access_policy)
         """
     def put_backup_vault_lock_configuration(
@@ -801,7 +863,7 @@ class BackupClient(BaseClient):
         Applies Backup Vault Lock to a backup vault, preventing attempts to delete any
         recovery point stored in or created in a backup vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.put_backup_vault_lock_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.put_backup_vault_lock_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#put_backup_vault_lock_configuration)
         """
     def put_backup_vault_notifications(
@@ -814,7 +876,7 @@ class BackupClient(BaseClient):
         """
         Turns on notifications on a backup vault for the specified topic and events.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.put_backup_vault_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.put_backup_vault_notifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#put_backup_vault_notifications)
         """
     def start_backup_job(
@@ -833,7 +895,7 @@ class BackupClient(BaseClient):
         """
         Starts an on-demand backup job for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.start_backup_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.start_backup_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#start_backup_job)
         """
     def start_copy_job(
@@ -849,7 +911,7 @@ class BackupClient(BaseClient):
         """
         Starts a job to create a one-time copy of the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.start_copy_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.start_copy_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#start_copy_job)
         """
     def start_report_job(
@@ -858,7 +920,7 @@ class BackupClient(BaseClient):
         """
         Starts an on-demand report job for the specified report plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.start_report_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.start_report_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#start_report_job)
         """
     def start_restore_job(
@@ -874,14 +936,14 @@ class BackupClient(BaseClient):
         """
         Recovers the saved resource identified by an Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.start_restore_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.start_restore_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#start_restore_job)
         """
     def stop_backup_job(self, *, BackupJobId: str) -> None:
         """
         Attempts to cancel a job to create a one-time backup of a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.stop_backup_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.stop_backup_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#stop_backup_job)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
@@ -889,7 +951,7 @@ class BackupClient(BaseClient):
         Assigns a set of key-value pairs to a recovery point, backup plan, or backup
         vault identified by an Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeyList: List[str]) -> None:
@@ -900,7 +962,7 @@ class BackupClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/backup-2018-11-15/UntagResource>`_
         **Request Syntax** response = client.untag_resou...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#untag_resource)
         """
     def update_backup_plan(
@@ -910,7 +972,7 @@ class BackupClient(BaseClient):
         Updates an existing backup plan identified by its `backupPlanId` with the input
         document in JSON format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.update_backup_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.update_backup_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#update_backup_plan)
         """
     def update_framework(
@@ -925,7 +987,7 @@ class BackupClient(BaseClient):
         Updates an existing framework identified by its `FrameworkName` with the input
         document in JSON format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.update_framework)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.update_framework)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#update_framework)
         """
     def update_global_settings(self, *, GlobalSettings: Dict[str, str] = None) -> None:
@@ -933,7 +995,7 @@ class BackupClient(BaseClient):
         Updates whether the Amazon Web Services account is opted in to cross-account
         backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.update_global_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.update_global_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#update_global_settings)
         """
     def update_recovery_point_lifecycle(
@@ -942,7 +1004,7 @@ class BackupClient(BaseClient):
         """
         Sets the transition lifecycle of a recovery point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.update_recovery_point_lifecycle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.update_recovery_point_lifecycle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#update_recovery_point_lifecycle)
         """
     def update_region_settings(
@@ -954,7 +1016,7 @@ class BackupClient(BaseClient):
         """
         Updates the current service opt-in settings for the Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.update_region_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.update_region_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#update_region_settings)
         """
     def update_report_plan(
@@ -970,13 +1032,13 @@ class BackupClient(BaseClient):
         Updates an existing report plan identified by its `ReportPlanName` with the
         input document in JSON format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Client.update_report_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Client.update_report_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/client.html#update_report_plan)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_backup_jobs"]) -> ListBackupJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListBackupJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListBackupJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupjobspaginator)
         """
     @overload
@@ -984,7 +1046,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_backup_plan_templates"]
     ) -> ListBackupPlanTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListBackupPlanTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListBackupPlanTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplantemplatespaginator)
         """
     @overload
@@ -992,7 +1054,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_backup_plan_versions"]
     ) -> ListBackupPlanVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListBackupPlanVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListBackupPlanVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplanversionspaginator)
         """
     @overload
@@ -1000,7 +1062,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_backup_plans"]
     ) -> ListBackupPlansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListBackupPlans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListBackupPlans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupplanspaginator)
         """
     @overload
@@ -1008,7 +1070,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_backup_selections"]
     ) -> ListBackupSelectionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListBackupSelections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListBackupSelections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupselectionspaginator)
         """
     @overload
@@ -1016,19 +1078,19 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_backup_vaults"]
     ) -> ListBackupVaultsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListBackupVaults)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListBackupVaults)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listbackupvaultspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_copy_jobs"]) -> ListCopyJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListCopyJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListCopyJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listcopyjobspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_legal_holds"]) -> ListLegalHoldsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListLegalHolds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListLegalHolds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listlegalholdspaginator)
         """
     @overload
@@ -1036,7 +1098,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_protected_resources"]
     ) -> ListProtectedResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListProtectedResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListProtectedResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listprotectedresourcespaginator)
         """
     @overload
@@ -1044,7 +1106,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_protected_resources_by_backup_vault"]
     ) -> ListProtectedResourcesByBackupVaultPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListProtectedResourcesByBackupVault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListProtectedResourcesByBackupVault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listprotectedresourcesbybackupvaultpaginator)
         """
     @overload
@@ -1052,7 +1114,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_recovery_points_by_backup_vault"]
     ) -> ListRecoveryPointsByBackupVaultPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByBackupVault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByBackupVault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbybackupvaultpaginator)
         """
     @overload
@@ -1060,7 +1122,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_recovery_points_by_legal_hold"]
     ) -> ListRecoveryPointsByLegalHoldPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByLegalHold)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByLegalHold)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbylegalholdpaginator)
         """
     @overload
@@ -1068,7 +1130,7 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_recovery_points_by_resource"]
     ) -> ListRecoveryPointsByResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListRecoveryPointsByResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrecoverypointsbyresourcepaginator)
         """
     @overload
@@ -1076,6 +1138,6 @@ class BackupClient(BaseClient):
         self, operation_name: Literal["list_restore_jobs"]
     ) -> ListRestoreJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup.html#Backup.Paginator.ListRestoreJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup.html#Backup.Paginator.ListRestoreJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup/paginators.html#listrestorejobspaginator)
         """

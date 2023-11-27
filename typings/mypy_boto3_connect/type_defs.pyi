@@ -49,7 +49,6 @@ from .literals import (
     IntegrationTypeType,
     IntervalPeriodType,
     LexVersionType,
-    ListFlowAssociationResourceTypeType,
     MonitorCapabilityType,
     NumericQuestionPropertyAutomationLabelType,
     ParticipantRoleType,
@@ -528,6 +527,7 @@ __all__ = (
     "SecurityProfileSummaryTypeDef",
     "SecurityProfileTypeDef",
     "SecurityProfilesSearchFilterTypeDef",
+    "SegmentAttributeValueTypeDef",
     "SendNotificationActionDefinitionTypeDef",
     "SignInConfigTypeDef",
     "SignInDistributionTypeDef",
@@ -934,7 +934,7 @@ _RequiredBatchGetFlowAssociationRequestRequestTypeDef = TypedDict(
 _OptionalBatchGetFlowAssociationRequestRequestTypeDef = TypedDict(
     "_OptionalBatchGetFlowAssociationRequestRequestTypeDef",
     {
-        "ResourceType": ListFlowAssociationResourceTypeType,
+        "ResourceType": Literal["VOICE_PHONE_NUMBER"],
     },
     total=False,
 )
@@ -3186,7 +3186,7 @@ FlowAssociationSummaryTypeDef = TypedDict(
     {
         "ResourceId": str,
         "FlowId": str,
-        "ResourceType": ListFlowAssociationResourceTypeType,
+        "ResourceType": Literal["VOICE_PHONE_NUMBER"],
     },
     total=False,
 )
@@ -6065,6 +6065,14 @@ SecurityProfilesSearchFilterTypeDef = TypedDict(
     total=False,
 )
 
+SegmentAttributeValueTypeDef = TypedDict(
+    "SegmentAttributeValueTypeDef",
+    {
+        "ValueString": str,
+    },
+    total=False,
+)
+
 _RequiredSendNotificationActionDefinitionTypeDef = TypedDict(
     "_RequiredSendNotificationActionDefinitionTypeDef",
     {
@@ -6130,6 +6138,7 @@ _OptionalStartChatContactRequestRequestTypeDef = TypedDict(
         "SupportedMessagingContentTypes": List[str],
         "PersistentChat": "PersistentChatTypeDef",
         "RelatedContactId": str,
+        "SegmentAttributes": Dict[str, "SegmentAttributeValueTypeDef"],
     },
     total=False,
 )

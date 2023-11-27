@@ -146,6 +146,7 @@ __all__ = (
     "DBClusterSnapshotAttributesResultTypeDef",
     "DBClusterSnapshotMessageTypeDef",
     "DBClusterSnapshotTypeDef",
+    "DBClusterStatusInfoTypeDef",
     "DBClusterTypeDef",
     "DBEngineVersionMessageTypeDef",
     "DBEngineVersionResponseMetadataTypeDef",
@@ -1890,6 +1891,17 @@ DBClusterSnapshotTypeDef = TypedDict(
     total=False,
 )
 
+DBClusterStatusInfoTypeDef = TypedDict(
+    "DBClusterStatusInfoTypeDef",
+    {
+        "StatusType": str,
+        "Normal": bool,
+        "Status": str,
+        "Message": str,
+    },
+    total=False,
+)
+
 DBClusterTypeDef = TypedDict(
     "DBClusterTypeDef",
     {
@@ -1919,6 +1931,7 @@ DBClusterTypeDef = TypedDict(
         "PreferredMaintenanceWindow": str,
         "ReplicationSourceIdentifier": str,
         "ReadReplicaIdentifiers": List[str],
+        "StatusInfos": List["DBClusterStatusInfoTypeDef"],
         "DBClusterMembers": List["DBClusterMemberTypeDef"],
         "VpcSecurityGroups": List["VpcSecurityGroupMembershipTypeDef"],
         "HostedZoneId": str,
@@ -4968,6 +4981,7 @@ RdsCustomClusterConfigurationTypeDef = TypedDict(
     {
         "InterconnectSubnetId": str,
         "TransitGatewayMulticastDomainId": str,
+        "ReplicaMode": ReplicaModeType,
     },
     total=False,
 )

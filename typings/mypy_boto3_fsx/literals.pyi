@@ -76,8 +76,10 @@ __all__ = (
     "StorageVirtualMachineSubtypeType",
     "TieringPolicyNameType",
     "UnitType",
+    "UpdateOpenZFSVolumeOptionType",
     "VolumeFilterNameType",
     "VolumeLifecycleType",
+    "VolumeStyleType",
     "VolumeTypeType",
     "WindowsAccessAuditLogLevelType",
     "WindowsDeploymentTypeType",
@@ -94,8 +96,10 @@ AdministrativeActionTypeType = Literal[
     "STORAGE_OPTIMIZATION",
     "STORAGE_TYPE_OPTIMIZATION",
     "THROUGHPUT_OPTIMIZATION",
+    "VOLUME_INITIALIZE_WITH_SNAPSHOT",
     "VOLUME_RESTORE",
     "VOLUME_UPDATE",
+    "VOLUME_UPDATE_WITH_SNAPSHOT",
 ]
 AliasLifecycleType = Literal["AVAILABLE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"]
 AutoImportPolicyTypeType = Literal["NEW", "NEW_CHANGED", "NEW_CHANGED_DELETED", "NONE"]
@@ -158,9 +162,9 @@ ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LustreAccessAuditLogLevelType = Literal["DISABLED", "ERROR_ONLY", "WARN_ERROR", "WARN_ONLY"]
 LustreDeploymentTypeType = Literal["PERSISTENT_1", "PERSISTENT_2", "SCRATCH_1", "SCRATCH_2"]
 NfsVersionType = Literal["NFS3"]
-OntapDeploymentTypeType = Literal["MULTI_AZ_1", "SINGLE_AZ_1"]
+OntapDeploymentTypeType = Literal["MULTI_AZ_1", "SINGLE_AZ_1", "SINGLE_AZ_2"]
 OntapVolumeTypeType = Literal["DP", "LS", "RW"]
-OpenZFSCopyStrategyType = Literal["CLONE", "FULL_COPY"]
+OpenZFSCopyStrategyType = Literal["CLONE", "FULL_COPY", "INCREMENTAL_COPY"]
 OpenZFSDataCompressionTypeType = Literal["LZ4", "NONE", "ZSTD"]
 OpenZFSDeploymentTypeType = Literal["MULTI_AZ_1", "SINGLE_AZ_1", "SINGLE_AZ_2"]
 OpenZFSQuotaTypeType = Literal["GROUP", "USER"]
@@ -188,10 +192,14 @@ StorageVirtualMachineSubtypeType = Literal[
 ]
 TieringPolicyNameType = Literal["ALL", "AUTO", "NONE", "SNAPSHOT_ONLY"]
 UnitType = Literal["DAYS"]
+UpdateOpenZFSVolumeOptionType = Literal[
+    "DELETE_CLONED_VOLUMES", "DELETE_INTERMEDIATE_DATA", "DELETE_INTERMEDIATE_SNAPSHOTS"
+]
 VolumeFilterNameType = Literal["file-system-id", "storage-virtual-machine-id"]
 VolumeLifecycleType = Literal[
     "AVAILABLE", "CREATED", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "PENDING"
 ]
+VolumeStyleType = Literal["FLEXGROUP", "FLEXVOL"]
 VolumeTypeType = Literal["ONTAP", "OPENZFS"]
 WindowsAccessAuditLogLevelType = Literal[
     "DISABLED", "FAILURE_ONLY", "SUCCESS_AND_FAILURE", "SUCCESS_ONLY"

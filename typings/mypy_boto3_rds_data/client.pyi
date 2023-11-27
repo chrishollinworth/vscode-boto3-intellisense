@@ -49,7 +49,7 @@ class Exceptions:
 
 class RDSDataServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html)
     """
 
@@ -74,7 +74,7 @@ class RDSDataServiceClient(BaseClient):
         """
         Runs a batch SQL statement over an array of data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.batch_execute_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.batch_execute_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#batch_execute_statement)
         """
     def begin_transaction(
@@ -83,21 +83,21 @@ class RDSDataServiceClient(BaseClient):
         """
         Starts a SQL transaction.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.begin_transaction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.begin_transaction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#begin_transaction)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#close)
         """
     def commit_transaction(
@@ -107,7 +107,7 @@ class RDSDataServiceClient(BaseClient):
         Ends a SQL transaction started with the `BeginTransaction` operation and commits
         the changes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.commit_transaction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.commit_transaction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#commit_transaction)
         """
     def execute_sql(
@@ -122,7 +122,7 @@ class RDSDataServiceClient(BaseClient):
         """
         Runs one or more SQL statements.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.execute_sql)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.execute_sql)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#execute_sql)
         """
     def execute_statement(
@@ -143,7 +143,7 @@ class RDSDataServiceClient(BaseClient):
         """
         Runs a SQL statement against a database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.execute_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.execute_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#execute_statement)
         """
     def generate_presigned_url(
@@ -156,7 +156,7 @@ class RDSDataServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#generate_presigned_url)
         """
     def rollback_transaction(
@@ -165,6 +165,6 @@ class RDSDataServiceClient(BaseClient):
         """
         Performs a rollback of a transaction.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/rds-data.html#RDSDataService.Client.rollback_transaction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/rds-data.html#RDSDataService.Client.rollback_transaction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/client.html#rollback_transaction)
         """

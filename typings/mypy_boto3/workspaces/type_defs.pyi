@@ -30,6 +30,7 @@ from .literals import (
     ComputeType,
     ConnectionAliasStateType,
     ConnectionStateType,
+    DataReplicationType,
     DedicatedTenancyModificationStateEnumType,
     DedicatedTenancySupportResultEnumType,
     DeletableSamlPropertyType,
@@ -105,6 +106,7 @@ __all__ = (
     "CreateWorkspaceImageResultTypeDef",
     "CreateWorkspacesRequestRequestTypeDef",
     "CreateWorkspacesResultTypeDef",
+    "DataReplicationSettingsTypeDef",
     "DefaultClientBrandingAttributesTypeDef",
     "DefaultImportClientBrandingAttributesTypeDef",
     "DefaultWorkspaceCreationPropertiesTypeDef",
@@ -209,6 +211,7 @@ __all__ = (
     "SelfservicePermissionsTypeDef",
     "SnapshotTypeDef",
     "StandbyWorkspaceTypeDef",
+    "StandbyWorkspacesPropertiesTypeDef",
     "StartRequestTypeDef",
     "StartWorkspacesRequestRequestTypeDef",
     "StartWorkspacesResultTypeDef",
@@ -660,6 +663,15 @@ CreateWorkspacesResultTypeDef = TypedDict(
         "PendingRequests": List["WorkspaceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DataReplicationSettingsTypeDef = TypedDict(
+    "DataReplicationSettingsTypeDef",
+    {
+        "DataReplication": DataReplicationType,
+        "RecoverySnapshotTime": datetime,
+    },
+    total=False,
 )
 
 DefaultClientBrandingAttributesTypeDef = TypedDict(
@@ -1550,13 +1562,26 @@ ModifyWorkspaceCreationPropertiesRequestRequestTypeDef = TypedDict(
     },
 )
 
-ModifyWorkspacePropertiesRequestRequestTypeDef = TypedDict(
-    "ModifyWorkspacePropertiesRequestRequestTypeDef",
+_RequiredModifyWorkspacePropertiesRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyWorkspacePropertiesRequestRequestTypeDef",
     {
         "WorkspaceId": str,
-        "WorkspaceProperties": "WorkspacePropertiesTypeDef",
     },
 )
+_OptionalModifyWorkspacePropertiesRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyWorkspacePropertiesRequestRequestTypeDef",
+    {
+        "WorkspaceProperties": "WorkspacePropertiesTypeDef",
+        "DataReplication": DataReplicationType,
+    },
+    total=False,
+)
+
+class ModifyWorkspacePropertiesRequestRequestTypeDef(
+    _RequiredModifyWorkspacePropertiesRequestRequestTypeDef,
+    _OptionalModifyWorkspacePropertiesRequestRequestTypeDef,
+):
+    pass
 
 ModifyWorkspaceStateRequestRequestTypeDef = TypedDict(
     "ModifyWorkspaceStateRequestRequestTypeDef",
@@ -1750,12 +1775,23 @@ _OptionalStandbyWorkspaceTypeDef = TypedDict(
     {
         "VolumeEncryptionKey": str,
         "Tags": List["TagTypeDef"],
+        "DataReplication": DataReplicationType,
     },
     total=False,
 )
 
 class StandbyWorkspaceTypeDef(_RequiredStandbyWorkspaceTypeDef, _OptionalStandbyWorkspaceTypeDef):
     pass
+
+StandbyWorkspacesPropertiesTypeDef = TypedDict(
+    "StandbyWorkspacesPropertiesTypeDef",
+    {
+        "StandbyWorkspaceId": str,
+        "DataReplication": DataReplicationType,
+        "RecoverySnapshotTime": datetime,
+    },
+    total=False,
+)
 
 StartRequestTypeDef = TypedDict(
     "StartRequestTypeDef",
@@ -2111,6 +2147,8 @@ WorkspaceTypeDef = TypedDict(
         "WorkspaceProperties": "WorkspacePropertiesTypeDef",
         "ModificationStates": List["ModificationStateTypeDef"],
         "RelatedWorkspaces": List["RelatedWorkspacePropertiesTypeDef"],
+        "DataReplicationSettings": "DataReplicationSettingsTypeDef",
+        "StandbyWorkspacesProperties": List["StandbyWorkspacesPropertiesTypeDef"],
     },
     total=False,
 )

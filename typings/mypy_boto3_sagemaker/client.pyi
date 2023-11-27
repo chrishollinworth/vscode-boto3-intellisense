@@ -629,7 +629,7 @@ class Exceptions:
 
 class SageMakerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html)
     """
 
@@ -650,14 +650,14 @@ class SageMakerClient(BaseClient):
         """
         Creates an *association* between the source and the destination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.add_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.add_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#add_association)
         """
     def add_tags(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> AddTagsOutputTypeDef:
         """
         Adds or overwrites one or more tags for the specified SageMaker resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.add_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.add_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#add_tags)
         """
     def associate_trial_component(
@@ -666,7 +666,7 @@ class SageMakerClient(BaseClient):
         """
         Associates a trial component with a trial.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.associate_trial_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.associate_trial_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#associate_trial_component)
         """
     def batch_describe_model_package(
@@ -678,21 +678,21 @@ class SageMakerClient(BaseClient):
         24/BatchDescribeModelPackage>`_ **Request Syntax** response =
         client.batch_describe_model_package( ModelPackageArnList=[ ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.batch_describe_model_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.batch_describe_model_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#batch_describe_model_package)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#close)
         """
     def create_action(
@@ -710,7 +710,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an *action*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_action)
         """
     def create_algorithm(
@@ -728,7 +728,7 @@ class SageMakerClient(BaseClient):
         Create a machine learning algorithm that you can use in SageMaker and list in
         the Amazon Web Services Marketplace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_algorithm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_algorithm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_algorithm)
         """
     def create_app(
@@ -745,7 +745,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a running app for the specified UserProfile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_app)
         """
     def create_app_image_config(
@@ -758,7 +758,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a configuration for running a SageMaker image as a KernelGateway app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_app_image_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_app_image_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_app_image_config)
         """
     def create_artifact(
@@ -774,7 +774,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an *artifact*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_artifact)
         """
     def create_auto_ml_job(
@@ -794,7 +794,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_auto_ml_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_auto_ml_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_auto_ml_job)
         """
     def create_auto_ml_job_v2(
@@ -815,7 +815,7 @@ class SageMakerClient(BaseClient):
         Creates an Autopilot job also referred to as Autopilot experiment or AutoML job
         V2.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_auto_ml_job_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_auto_ml_job_v2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_auto_ml_job_v2)
         """
     def create_code_repository(
@@ -828,7 +828,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a Git repository as a resource in your SageMaker account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_code_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_code_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_code_repository)
         """
     def create_compilation_job(
@@ -846,7 +846,7 @@ class SageMakerClient(BaseClient):
         """
         Starts a model compilation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_compilation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_compilation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_compilation_job)
         """
     def create_context(
@@ -862,7 +862,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a *context*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_context)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_context)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_context)
         """
     def create_data_quality_job_definition(
@@ -882,7 +882,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a definition for a job that monitors data quality and drift.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_data_quality_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_data_quality_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_data_quality_job_definition)
         """
     def create_device_fleet(
@@ -898,7 +898,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a device fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_device_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_device_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_device_fleet)
         """
     def create_domain(
@@ -920,7 +920,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a `Domain` used by Amazon SageMaker Studio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_domain)
         """
     def create_edge_deployment_plan(
@@ -935,7 +935,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an edge deployment plan, consisting of multiple stages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_edge_deployment_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_edge_deployment_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_edge_deployment_plan)
         """
     def create_edge_deployment_stage(
@@ -944,7 +944,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a new stage in an existing edge deployment plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_edge_deployment_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_edge_deployment_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_edge_deployment_stage)
         """
     def create_edge_packaging_job(
@@ -962,7 +962,7 @@ class SageMakerClient(BaseClient):
         """
         Starts a SageMaker Edge Manager model packaging job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_edge_packaging_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_edge_packaging_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_edge_packaging_job)
         """
     def create_endpoint(
@@ -976,7 +976,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an endpoint using the endpoint configuration specified in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_endpoint)
         """
     def create_endpoint_config(
@@ -995,7 +995,7 @@ class SageMakerClient(BaseClient):
         Creates an endpoint configuration that SageMaker hosting services uses to deploy
         models.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_endpoint_config)
         """
     def create_experiment(
@@ -1009,7 +1009,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a SageMaker *experiment*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_experiment)
         """
     def create_feature_group(
@@ -1028,7 +1028,7 @@ class SageMakerClient(BaseClient):
         """
         Create a new `FeatureGroup`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_feature_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_feature_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_feature_group)
         """
     def create_flow_definition(
@@ -1045,7 +1045,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a flow definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_flow_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_flow_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_flow_definition)
         """
     def create_hub(
@@ -1061,7 +1061,7 @@ class SageMakerClient(BaseClient):
         """
         Create a hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_hub)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_hub)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_hub)
         """
     def create_human_task_ui(
@@ -1074,7 +1074,7 @@ class SageMakerClient(BaseClient):
         """
         Defines the settings you will use for the human review workflow user interface.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_human_task_ui)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_human_task_ui)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_human_task_ui)
         """
     def create_hyper_parameter_tuning_job(
@@ -1091,7 +1091,7 @@ class SageMakerClient(BaseClient):
         """
         Starts a hyperparameter tuning job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_hyper_parameter_tuning_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_hyper_parameter_tuning_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_hyper_parameter_tuning_job)
         """
     def create_image(
@@ -1106,7 +1106,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a custom SageMaker image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_image)
         """
     def create_image_version(
@@ -1127,7 +1127,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a version of the SageMaker image specified by `ImageName`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_image_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_image_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_image_version)
         """
     def create_inference_experiment(
@@ -1149,7 +1149,7 @@ class SageMakerClient(BaseClient):
         Creates an inference experiment using the configurations specified in the
         request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_inference_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_inference_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_inference_experiment)
         """
     def create_inference_recommendations_job(
@@ -1167,7 +1167,7 @@ class SageMakerClient(BaseClient):
         """
         Starts a recommendation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_inference_recommendations_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_inference_recommendations_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_inference_recommendations_job)
         """
     def create_labeling_job(
@@ -1187,7 +1187,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a job that uses workers to label the data objects in your input dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_labeling_job)
         """
     def create_model(
@@ -1205,7 +1205,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a model in SageMaker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_model)
         """
     def create_model_bias_job_definition(
@@ -1225,7 +1225,7 @@ class SageMakerClient(BaseClient):
         """
         Creates the definition for a model bias job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_model_bias_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_model_bias_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_model_bias_job_definition)
         """
     def create_model_card(
@@ -1240,7 +1240,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an Amazon SageMaker Model Card.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_model_card)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_model_card)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_model_card)
         """
     def create_model_card_export_job(
@@ -1254,7 +1254,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an Amazon SageMaker Model Card export job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_model_card_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_model_card_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_model_card_export_job)
         """
     def create_model_explainability_job_definition(
@@ -1274,7 +1274,7 @@ class SageMakerClient(BaseClient):
         """
         Creates the definition for a model explainability job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_model_explainability_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_model_explainability_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_model_explainability_job_definition)
         """
     def create_model_package(
@@ -1307,7 +1307,7 @@ class SageMakerClient(BaseClient):
         Amazon Web Services Marketplace, or a versioned model that is part of a model
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_model_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_model_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_model_package)
         """
     def create_model_package_group(
@@ -1320,7 +1320,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a model group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_model_package_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_model_package_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_model_package_group)
         """
     def create_model_quality_job_definition(
@@ -1340,7 +1340,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a definition for a job that monitors model quality and drift.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_model_quality_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_model_quality_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_model_quality_job_definition)
         """
     def create_monitoring_schedule(
@@ -1354,7 +1354,7 @@ class SageMakerClient(BaseClient):
         Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to
         monitor the data captured for an Amazon SageMaker Endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_monitoring_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_monitoring_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_monitoring_schedule)
         """
     def create_notebook_instance(
@@ -1380,7 +1380,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an SageMaker notebook instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_notebook_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_notebook_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_notebook_instance)
         """
     def create_notebook_instance_lifecycle_config(
@@ -1394,7 +1394,7 @@ class SageMakerClient(BaseClient):
         Creates a lifecycle configuration that you can associate with a notebook
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_notebook_instance_lifecycle_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_notebook_instance_lifecycle_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_notebook_instance_lifecycle_config)
         """
     def create_pipeline(
@@ -1413,7 +1413,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a pipeline using a JSON pipeline definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_pipeline)
         """
     def create_presigned_domain_url(
@@ -1428,7 +1428,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a URL for a specified UserProfile in a Domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_presigned_domain_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_presigned_domain_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_presigned_domain_url)
         """
     def create_presigned_notebook_instance_url(
@@ -1438,7 +1438,7 @@ class SageMakerClient(BaseClient):
         Returns a URL that you can use to connect to the Jupyter server from a notebook
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_presigned_notebook_instance_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_presigned_notebook_instance_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_presigned_notebook_instance_url)
         """
     def create_processing_job(
@@ -1459,7 +1459,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a processing job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_processing_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_processing_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_processing_job)
         """
     def create_project(
@@ -1474,7 +1474,7 @@ class SageMakerClient(BaseClient):
         Creates a machine learning (ML) project that can contain one or more templates
         that set up an ML pipeline from training to deploying an approved model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_project)
         """
     def create_space(
@@ -1488,7 +1488,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a space used for real time collaboration in a Domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_space)
         """
     def create_studio_lifecycle_config(
@@ -1502,7 +1502,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a new Studio Lifecycle Configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_studio_lifecycle_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_studio_lifecycle_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_studio_lifecycle_config)
         """
     def create_training_job(
@@ -1534,7 +1534,7 @@ class SageMakerClient(BaseClient):
         """
         Starts a model training job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_training_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_training_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_training_job)
         """
     def create_transform_job(
@@ -1558,7 +1558,7 @@ class SageMakerClient(BaseClient):
         """
         Starts a transform job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_transform_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_transform_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_transform_job)
         """
     def create_trial(
@@ -1573,7 +1573,7 @@ class SageMakerClient(BaseClient):
         """
         Creates an SageMaker *trial*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_trial)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_trial)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_trial)
         """
     def create_trial_component(
@@ -1593,7 +1593,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a *trial component*, which is a stage of a machine learning *trial*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_trial_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_trial_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_trial_component)
         """
     def create_user_profile(
@@ -1609,7 +1609,7 @@ class SageMakerClient(BaseClient):
         """
         Creates a user profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_user_profile)
         """
     def create_workforce(
@@ -1625,7 +1625,7 @@ class SageMakerClient(BaseClient):
         """
         Use this operation to create a workforce.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_workforce)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_workforce)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_workforce)
         """
     def create_workteam(
@@ -1641,21 +1641,21 @@ class SageMakerClient(BaseClient):
         """
         Creates a new work team for labeling your data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.create_workteam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.create_workteam)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#create_workteam)
         """
     def delete_action(self, *, ActionName: str) -> DeleteActionResponseTypeDef:
         """
         Deletes an action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_action)
         """
     def delete_algorithm(self, *, AlgorithmName: str) -> None:
         """
         Removes the specified algorithm from your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_algorithm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_algorithm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_algorithm)
         """
     def delete_app(
@@ -1670,14 +1670,14 @@ class SageMakerClient(BaseClient):
         """
         Used to stop and delete an app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_app)
         """
     def delete_app_image_config(self, *, AppImageConfigName: str) -> None:
         """
         Deletes an AppImageConfig.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_app_image_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_app_image_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_app_image_config)
         """
     def delete_artifact(
@@ -1686,7 +1686,7 @@ class SageMakerClient(BaseClient):
         """
         Deletes an artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_artifact)
         """
     def delete_association(
@@ -1695,35 +1695,35 @@ class SageMakerClient(BaseClient):
         """
         Deletes an association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_association)
         """
     def delete_code_repository(self, *, CodeRepositoryName: str) -> None:
         """
         Deletes the specified Git repository from your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_code_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_code_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_code_repository)
         """
     def delete_context(self, *, ContextName: str) -> DeleteContextResponseTypeDef:
         """
         Deletes an context.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_context)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_context)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_context)
         """
     def delete_data_quality_job_definition(self, *, JobDefinitionName: str) -> None:
         """
         Deletes a data quality monitoring job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_data_quality_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_data_quality_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_data_quality_job_definition)
         """
     def delete_device_fleet(self, *, DeviceFleetName: str) -> None:
         """
         Deletes a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_device_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_device_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_device_fleet)
         """
     def delete_domain(
@@ -1732,7 +1732,7 @@ class SageMakerClient(BaseClient):
         """
         Used to delete a domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_domain)
         """
     def delete_edge_deployment_plan(self, *, EdgeDeploymentPlanName: str) -> None:
@@ -1740,7 +1740,7 @@ class SageMakerClient(BaseClient):
         Deletes an edge deployment plan if (and only if) all the stages in the plan are
         inactive or there are no stages in the plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_edge_deployment_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_edge_deployment_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_edge_deployment_plan)
         """
     def delete_edge_deployment_stage(self, *, EdgeDeploymentPlanName: str, StageName: str) -> None:
@@ -1748,28 +1748,28 @@ class SageMakerClient(BaseClient):
         Delete a stage in an edge deployment plan if (and only if) the stage is
         inactive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_edge_deployment_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_edge_deployment_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_edge_deployment_stage)
         """
     def delete_endpoint(self, *, EndpointName: str) -> None:
         """
         Deletes an endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_endpoint)
         """
     def delete_endpoint_config(self, *, EndpointConfigName: str) -> None:
         """
         Deletes an endpoint configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_endpoint_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_endpoint_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_endpoint_config)
         """
     def delete_experiment(self, *, ExperimentName: str) -> DeleteExperimentResponseTypeDef:
         """
         Deletes an SageMaker experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_experiment)
         """
     def delete_feature_group(self, *, FeatureGroupName: str) -> None:
@@ -1777,21 +1777,21 @@ class SageMakerClient(BaseClient):
         Delete the `FeatureGroup` and any data that was written to the `OnlineStore` of
         the `FeatureGroup`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_feature_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_feature_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_feature_group)
         """
     def delete_flow_definition(self, *, FlowDefinitionName: str) -> Dict[str, Any]:
         """
         Deletes the specified flow definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_flow_definition)
         """
     def delete_hub(self, *, HubName: str) -> None:
         """
         Delete a hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_hub)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_hub)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_hub)
         """
     def delete_hub_content(
@@ -1805,21 +1805,21 @@ class SageMakerClient(BaseClient):
         """
         Delete the contents of a hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_hub_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_hub_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_hub_content)
         """
     def delete_human_task_ui(self, *, HumanTaskUiName: str) -> Dict[str, Any]:
         """
         Use this operation to delete a human task user interface (worker task template).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_human_task_ui)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_human_task_ui)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_human_task_ui)
         """
     def delete_image(self, *, ImageName: str) -> Dict[str, Any]:
         """
         Deletes a SageMaker image and all versions of the image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_image)
         """
     def delete_image_version(
@@ -1828,84 +1828,84 @@ class SageMakerClient(BaseClient):
         """
         Deletes a version of a SageMaker image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_image_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_image_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_image_version)
         """
     def delete_inference_experiment(self, *, Name: str) -> DeleteInferenceExperimentResponseTypeDef:
         """
         Deletes an inference experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_inference_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_inference_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_inference_experiment)
         """
     def delete_model(self, *, ModelName: str) -> None:
         """
         Deletes a model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_model)
         """
     def delete_model_bias_job_definition(self, *, JobDefinitionName: str) -> None:
         """
         Deletes an Amazon SageMaker model bias job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_model_bias_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_model_bias_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_model_bias_job_definition)
         """
     def delete_model_card(self, *, ModelCardName: str) -> None:
         """
         Deletes an Amazon SageMaker Model Card.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_model_card)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_model_card)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_model_card)
         """
     def delete_model_explainability_job_definition(self, *, JobDefinitionName: str) -> None:
         """
         Deletes an Amazon SageMaker model explainability job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_model_explainability_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_model_explainability_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_model_explainability_job_definition)
         """
     def delete_model_package(self, *, ModelPackageName: str) -> None:
         """
         Deletes a model package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_model_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_model_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_model_package)
         """
     def delete_model_package_group(self, *, ModelPackageGroupName: str) -> None:
         """
         Deletes the specified model group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_model_package_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_model_package_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_model_package_group)
         """
     def delete_model_package_group_policy(self, *, ModelPackageGroupName: str) -> None:
         """
         Deletes a model group resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_model_package_group_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_model_package_group_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_model_package_group_policy)
         """
     def delete_model_quality_job_definition(self, *, JobDefinitionName: str) -> None:
         """
         Deletes the secified model quality monitoring job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_model_quality_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_model_quality_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_model_quality_job_definition)
         """
     def delete_monitoring_schedule(self, *, MonitoringScheduleName: str) -> None:
         """
         Deletes a monitoring schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_monitoring_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_monitoring_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_monitoring_schedule)
         """
     def delete_notebook_instance(self, *, NotebookInstanceName: str) -> None:
         """
         Deletes an SageMaker notebook instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_notebook_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_notebook_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_notebook_instance)
         """
     def delete_notebook_instance_lifecycle_config(
@@ -1914,7 +1914,7 @@ class SageMakerClient(BaseClient):
         """
         Deletes a notebook instance lifecycle configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_notebook_instance_lifecycle_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_notebook_instance_lifecycle_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_notebook_instance_lifecycle_config)
         """
     def delete_pipeline(
@@ -1923,42 +1923,42 @@ class SageMakerClient(BaseClient):
         """
         Deletes a pipeline if there are no running instances of the pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_pipeline)
         """
     def delete_project(self, *, ProjectName: str) -> None:
         """
         Delete the specified project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_project)
         """
     def delete_space(self, *, DomainId: str, SpaceName: str) -> None:
         """
         Used to delete a space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_space)
         """
     def delete_studio_lifecycle_config(self, *, StudioLifecycleConfigName: str) -> None:
         """
         Deletes the Studio Lifecycle Configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_studio_lifecycle_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_studio_lifecycle_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_studio_lifecycle_config)
         """
     def delete_tags(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Deletes the specified tags from an SageMaker resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_tags)
         """
     def delete_trial(self, *, TrialName: str) -> DeleteTrialResponseTypeDef:
         """
         Deletes the specified trial.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_trial)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_trial)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_trial)
         """
     def delete_trial_component(
@@ -1967,49 +1967,49 @@ class SageMakerClient(BaseClient):
         """
         Deletes the specified trial component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_trial_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_trial_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_trial_component)
         """
     def delete_user_profile(self, *, DomainId: str, UserProfileName: str) -> None:
         """
         Deletes a user profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_user_profile)
         """
     def delete_workforce(self, *, WorkforceName: str) -> Dict[str, Any]:
         """
         Use this operation to delete a workforce.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_workforce)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_workforce)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_workforce)
         """
     def delete_workteam(self, *, WorkteamName: str) -> DeleteWorkteamResponseTypeDef:
         """
         Deletes an existing work team.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.delete_workteam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.delete_workteam)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#delete_workteam)
         """
     def deregister_devices(self, *, DeviceFleetName: str, DeviceNames: List[str]) -> None:
         """
         Deregisters the specified devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.deregister_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.deregister_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#deregister_devices)
         """
     def describe_action(self, *, ActionName: str) -> DescribeActionResponseTypeDef:
         """
         Describes an action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_action)
         """
     def describe_algorithm(self, *, AlgorithmName: str) -> DescribeAlgorithmOutputTypeDef:
         """
         Returns a description of the specified algorithm that is in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_algorithm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_algorithm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_algorithm)
         """
     def describe_app(
@@ -2024,7 +2024,7 @@ class SageMakerClient(BaseClient):
         """
         Describes the app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_app)
         """
     def describe_app_image_config(
@@ -2033,14 +2033,14 @@ class SageMakerClient(BaseClient):
         """
         Describes an AppImageConfig.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_app_image_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_app_image_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_app_image_config)
         """
     def describe_artifact(self, *, ArtifactArn: str) -> DescribeArtifactResponseTypeDef:
         """
         Describes an artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_artifact)
         """
     def describe_auto_ml_job(self, *, AutoMLJobName: str) -> DescribeAutoMLJobResponseTypeDef:
@@ -2049,7 +2049,7 @@ class SageMakerClient(BaseClient):
         ps://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html>
         `__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_auto_ml_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_auto_ml_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_auto_ml_job)
         """
     def describe_auto_ml_job_v2(self, *, AutoMLJobName: str) -> DescribeAutoMLJobV2ResponseTypeDef:
@@ -2059,7 +2059,7 @@ class SageMakerClient(BaseClient):
         tml>`__ or `CreateAutoMLJob <https://docs.aws.amazon.com/sagemaker/latest/APIRef
         erence/API_CreateAutoMLJob.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_auto_ml_job_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_auto_ml_job_v2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_auto_ml_job_v2)
         """
     def describe_code_repository(
@@ -2068,7 +2068,7 @@ class SageMakerClient(BaseClient):
         """
         Gets details about the specified Git repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_code_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_code_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_code_repository)
         """
     def describe_compilation_job(
@@ -2077,14 +2077,14 @@ class SageMakerClient(BaseClient):
         """
         Returns information about a model compilation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_compilation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_compilation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_compilation_job)
         """
     def describe_context(self, *, ContextName: str) -> DescribeContextResponseTypeDef:
         """
         Describes a context.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_context)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_context)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_context)
         """
     def describe_data_quality_job_definition(
@@ -2093,7 +2093,7 @@ class SageMakerClient(BaseClient):
         """
         Gets the details of a data quality monitoring job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_data_quality_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_data_quality_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_data_quality_job_definition)
         """
     def describe_device(
@@ -2102,21 +2102,21 @@ class SageMakerClient(BaseClient):
         """
         Describes the device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_device)
         """
     def describe_device_fleet(self, *, DeviceFleetName: str) -> DescribeDeviceFleetResponseTypeDef:
         """
         A description of the fleet the device belongs to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_device_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_device_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_device_fleet)
         """
     def describe_domain(self, *, DomainId: str) -> DescribeDomainResponseTypeDef:
         """
         The description of the domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_domain)
         """
     def describe_edge_deployment_plan(
@@ -2125,7 +2125,7 @@ class SageMakerClient(BaseClient):
         """
         Describes an edge deployment plan with deployment status per stage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_edge_deployment_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_edge_deployment_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_edge_deployment_plan)
         """
     def describe_edge_packaging_job(
@@ -2134,14 +2134,14 @@ class SageMakerClient(BaseClient):
         """
         A description of edge packaging jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_edge_packaging_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_edge_packaging_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_edge_packaging_job)
         """
     def describe_endpoint(self, *, EndpointName: str) -> DescribeEndpointOutputTypeDef:
         """
         Returns the description of an endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_endpoint)
         """
     def describe_endpoint_config(
@@ -2151,14 +2151,14 @@ class SageMakerClient(BaseClient):
         Returns the description of an endpoint configuration created using the
         `CreateEndpointConfig` API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_endpoint_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_endpoint_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_endpoint_config)
         """
     def describe_experiment(self, *, ExperimentName: str) -> DescribeExperimentResponseTypeDef:
         """
         Provides a list of an experiment's properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_experiment)
         """
     def describe_feature_group(
@@ -2167,7 +2167,7 @@ class SageMakerClient(BaseClient):
         """
         Use this operation to describe a `FeatureGroup`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_feature_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_feature_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_feature_group)
         """
     def describe_feature_metadata(
@@ -2176,7 +2176,7 @@ class SageMakerClient(BaseClient):
         """
         Shows the metadata for a feature within a feature group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_feature_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_feature_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_feature_metadata)
         """
     def describe_flow_definition(
@@ -2185,14 +2185,14 @@ class SageMakerClient(BaseClient):
         """
         Returns information about the specified flow definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_flow_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_flow_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_flow_definition)
         """
     def describe_hub(self, *, HubName: str) -> DescribeHubResponseTypeDef:
         """
         Describe a hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_hub)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_hub)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_hub)
         """
     def describe_hub_content(
@@ -2206,7 +2206,7 @@ class SageMakerClient(BaseClient):
         """
         Describe the content of a hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_hub_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_hub_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_hub_content)
         """
     def describe_human_task_ui(self, *, HumanTaskUiName: str) -> DescribeHumanTaskUiResponseTypeDef:
@@ -2214,7 +2214,7 @@ class SageMakerClient(BaseClient):
         Returns information about the requested human task user interface (worker task
         template).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_human_task_ui)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_human_task_ui)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_human_task_ui)
         """
     def describe_hyper_parameter_tuning_job(
@@ -2224,14 +2224,14 @@ class SageMakerClient(BaseClient):
         Returns a description of a hyperparameter tuning job, depending on the fields
         selected.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_hyper_parameter_tuning_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_hyper_parameter_tuning_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_hyper_parameter_tuning_job)
         """
     def describe_image(self, *, ImageName: str) -> DescribeImageResponseTypeDef:
         """
         Describes a SageMaker image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_image)
         """
     def describe_image_version(
@@ -2240,7 +2240,7 @@ class SageMakerClient(BaseClient):
         """
         Describes a version of a SageMaker image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_image_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_image_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_image_version)
         """
     def describe_inference_experiment(
@@ -2249,7 +2249,7 @@ class SageMakerClient(BaseClient):
         """
         Returns details about an inference experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_inference_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_inference_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_inference_experiment)
         """
     def describe_inference_recommendations_job(
@@ -2258,14 +2258,14 @@ class SageMakerClient(BaseClient):
         """
         Provides the results of the Inference Recommender job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_inference_recommendations_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_inference_recommendations_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_inference_recommendations_job)
         """
     def describe_labeling_job(self, *, LabelingJobName: str) -> DescribeLabelingJobResponseTypeDef:
         """
         Gets information about a labeling job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_labeling_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_labeling_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_labeling_job)
         """
     def describe_lineage_group(
@@ -2274,14 +2274,14 @@ class SageMakerClient(BaseClient):
         """
         Provides a list of properties for the requested lineage group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_lineage_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_lineage_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_lineage_group)
         """
     def describe_model(self, *, ModelName: str) -> DescribeModelOutputTypeDef:
         """
         Describes a model that you created using the `CreateModel` API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_model)
         """
     def describe_model_bias_job_definition(
@@ -2290,7 +2290,7 @@ class SageMakerClient(BaseClient):
         """
         Returns a description of a model bias job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_model_bias_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_model_bias_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_model_bias_job_definition)
         """
     def describe_model_card(
@@ -2300,7 +2300,7 @@ class SageMakerClient(BaseClient):
         Describes the content, creation time, and security configuration of an Amazon
         SageMaker Model Card.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_model_card)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_model_card)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_model_card)
         """
     def describe_model_card_export_job(
@@ -2309,7 +2309,7 @@ class SageMakerClient(BaseClient):
         """
         Describes an Amazon SageMaker Model Card export job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_model_card_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_model_card_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_model_card_export_job)
         """
     def describe_model_explainability_job_definition(
@@ -2318,7 +2318,7 @@ class SageMakerClient(BaseClient):
         """
         Returns a description of a model explainability job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_model_explainability_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_model_explainability_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_model_explainability_job_definition)
         """
     def describe_model_package(self, *, ModelPackageName: str) -> DescribeModelPackageOutputTypeDef:
@@ -2326,7 +2326,7 @@ class SageMakerClient(BaseClient):
         Returns a description of the specified model package, which is used to create
         SageMaker models or list them on Amazon Web Services Marketplace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_model_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_model_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_model_package)
         """
     def describe_model_package_group(
@@ -2335,7 +2335,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a description for the specified model group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_model_package_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_model_package_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_model_package_group)
         """
     def describe_model_quality_job_definition(
@@ -2344,7 +2344,7 @@ class SageMakerClient(BaseClient):
         """
         Returns a description of a model quality job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_model_quality_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_model_quality_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_model_quality_job_definition)
         """
     def describe_monitoring_schedule(
@@ -2353,7 +2353,7 @@ class SageMakerClient(BaseClient):
         """
         Describes the schedule for a monitoring job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_monitoring_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_monitoring_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_monitoring_schedule)
         """
     def describe_notebook_instance(
@@ -2362,7 +2362,7 @@ class SageMakerClient(BaseClient):
         """
         Returns information about a notebook instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_notebook_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_notebook_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_notebook_instance)
         """
     def describe_notebook_instance_lifecycle_config(
@@ -2371,14 +2371,14 @@ class SageMakerClient(BaseClient):
         """
         Returns a description of a notebook instance lifecycle configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_notebook_instance_lifecycle_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_notebook_instance_lifecycle_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_notebook_instance_lifecycle_config)
         """
     def describe_pipeline(self, *, PipelineName: str) -> DescribePipelineResponseTypeDef:
         """
         Describes the details of a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_pipeline)
         """
     def describe_pipeline_definition_for_execution(
@@ -2387,7 +2387,7 @@ class SageMakerClient(BaseClient):
         """
         Describes the details of an execution's pipeline definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline_definition_for_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline_definition_for_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_pipeline_definition_for_execution)
         """
     def describe_pipeline_execution(
@@ -2396,7 +2396,7 @@ class SageMakerClient(BaseClient):
         """
         Describes the details of a pipeline execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_pipeline_execution)
         """
     def describe_processing_job(
@@ -2405,21 +2405,21 @@ class SageMakerClient(BaseClient):
         """
         Returns a description of a processing job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_processing_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_processing_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_processing_job)
         """
     def describe_project(self, *, ProjectName: str) -> DescribeProjectOutputTypeDef:
         """
         Describes the details of a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_project)
         """
     def describe_space(self, *, DomainId: str, SpaceName: str) -> DescribeSpaceResponseTypeDef:
         """
         Describes the space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_space)
         """
     def describe_studio_lifecycle_config(
@@ -2428,7 +2428,7 @@ class SageMakerClient(BaseClient):
         """
         Describes the Studio Lifecycle Configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_studio_lifecycle_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_studio_lifecycle_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_studio_lifecycle_config)
         """
     def describe_subscribed_workteam(
@@ -2437,14 +2437,14 @@ class SageMakerClient(BaseClient):
         """
         Gets information about a work team provided by a vendor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_subscribed_workteam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_subscribed_workteam)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_subscribed_workteam)
         """
     def describe_training_job(self, *, TrainingJobName: str) -> DescribeTrainingJobResponseTypeDef:
         """
         Returns information about a training job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_training_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_training_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_training_job)
         """
     def describe_transform_job(
@@ -2453,14 +2453,14 @@ class SageMakerClient(BaseClient):
         """
         Returns information about a transform job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_transform_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_transform_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_transform_job)
         """
     def describe_trial(self, *, TrialName: str) -> DescribeTrialResponseTypeDef:
         """
         Provides a list of a trial's properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_trial)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_trial)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_trial)
         """
     def describe_trial_component(
@@ -2469,7 +2469,7 @@ class SageMakerClient(BaseClient):
         """
         Provides a list of a trials component's properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_trial_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_trial_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_trial_component)
         """
     def describe_user_profile(
@@ -2478,7 +2478,7 @@ class SageMakerClient(BaseClient):
         """
         Describes a user profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_user_profile)
         """
     def describe_workforce(self, *, WorkforceName: str) -> DescribeWorkforceResponseTypeDef:
@@ -2487,21 +2487,21 @@ class SageMakerClient(BaseClient):
         Name (ARN), and, if applicable, allowed IP address ranges ( `CIDRs
         <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html>`__).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_workforce)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_workforce)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_workforce)
         """
     def describe_workteam(self, *, WorkteamName: str) -> DescribeWorkteamResponseTypeDef:
         """
         Gets information about a specific work team.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.describe_workteam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.describe_workteam)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#describe_workteam)
         """
     def disable_sagemaker_servicecatalog_portfolio(self) -> Dict[str, Any]:
         """
         Disables using Service Catalog in SageMaker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.disable_sagemaker_servicecatalog_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.disable_sagemaker_servicecatalog_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#disable_sagemaker_servicecatalog_portfolio)
         """
     def disassociate_trial_component(
@@ -2510,14 +2510,14 @@ class SageMakerClient(BaseClient):
         """
         Disassociates a trial component from a trial.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.disassociate_trial_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.disassociate_trial_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#disassociate_trial_component)
         """
     def enable_sagemaker_servicecatalog_portfolio(self) -> Dict[str, Any]:
         """
         Enables using Service Catalog in SageMaker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.enable_sagemaker_servicecatalog_portfolio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.enable_sagemaker_servicecatalog_portfolio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#enable_sagemaker_servicecatalog_portfolio)
         """
     def generate_presigned_url(
@@ -2530,7 +2530,7 @@ class SageMakerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#generate_presigned_url)
         """
     def get_device_fleet_report(
@@ -2539,7 +2539,7 @@ class SageMakerClient(BaseClient):
         """
         Describes a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.get_device_fleet_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.get_device_fleet_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#get_device_fleet_report)
         """
     def get_lineage_group_policy(
@@ -2548,7 +2548,7 @@ class SageMakerClient(BaseClient):
         """
         The resource policy for the lineage group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.get_lineage_group_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.get_lineage_group_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#get_lineage_group_policy)
         """
     def get_model_package_group_policy(
@@ -2557,7 +2557,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a resource policy that manages access for a model group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.get_model_package_group_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.get_model_package_group_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#get_model_package_group_policy)
         """
     def get_sagemaker_servicecatalog_portfolio_status(
@@ -2566,7 +2566,7 @@ class SageMakerClient(BaseClient):
         """
         Gets the status of Service Catalog in SageMaker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.get_sagemaker_servicecatalog_portfolio_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.get_sagemaker_servicecatalog_portfolio_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#get_sagemaker_servicecatalog_portfolio_status)
         """
     def get_scaling_configuration_recommendation(
@@ -2581,7 +2581,7 @@ class SageMakerClient(BaseClient):
         """
         Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.get_scaling_configuration_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.get_scaling_configuration_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#get_scaling_configuration_recommendation)
         """
     def get_search_suggestions(
@@ -2590,7 +2590,7 @@ class SageMakerClient(BaseClient):
         """
         An auto-complete API for the search functionality in the SageMaker console.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.get_search_suggestions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.get_search_suggestions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#get_search_suggestions)
         """
     def import_hub_content(
@@ -2611,7 +2611,7 @@ class SageMakerClient(BaseClient):
         """
         Import hub content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.import_hub_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.import_hub_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#import_hub_content)
         """
     def list_actions(
@@ -2629,7 +2629,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the actions in your account and their properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_actions)
         """
     def list_algorithms(
@@ -2646,7 +2646,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the machine learning algorithms that have been created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_algorithms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_algorithms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_algorithms)
         """
     def list_aliases(
@@ -2661,7 +2661,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the aliases of a specified image or image version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_aliases)
         """
     def list_app_image_configs(
@@ -2680,7 +2680,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the AppImageConfigs in your account and their properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_app_image_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_app_image_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_app_image_configs)
         """
     def list_apps(
@@ -2697,7 +2697,7 @@ class SageMakerClient(BaseClient):
         """
         Lists apps.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_apps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_apps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_apps)
         """
     def list_artifacts(
@@ -2715,7 +2715,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the artifacts in your account and their properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_artifacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_artifacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_artifacts)
         """
     def list_associations(
@@ -2736,7 +2736,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the associations in your account and their properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_associations)
         """
     def list_auto_ml_jobs(
@@ -2756,7 +2756,7 @@ class SageMakerClient(BaseClient):
         """
         Request a list of jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_auto_ml_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_auto_ml_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_auto_ml_jobs)
         """
     def list_candidates_for_auto_ml_job(
@@ -2773,7 +2773,7 @@ class SageMakerClient(BaseClient):
         """
         List the candidates created for the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_candidates_for_auto_ml_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_candidates_for_auto_ml_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_candidates_for_auto_ml_job)
         """
     def list_code_repositories(
@@ -2792,7 +2792,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of the Git repositories in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_code_repositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_code_repositories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_code_repositories)
         """
     def list_compilation_jobs(
@@ -2812,7 +2812,7 @@ class SageMakerClient(BaseClient):
         """
         Lists model compilation jobs that satisfy various filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_compilation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_compilation_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_compilation_jobs)
         """
     def list_contexts(
@@ -2830,7 +2830,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the contexts in your account and their properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_contexts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_contexts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_contexts)
         """
     def list_data_quality_job_definitions(
@@ -2848,7 +2848,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the data quality job definitions in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_data_quality_job_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_data_quality_job_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_data_quality_job_definitions)
         """
     def list_device_fleets(
@@ -2867,7 +2867,7 @@ class SageMakerClient(BaseClient):
         """
         Returns a list of devices in the fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_device_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_device_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_device_fleets)
         """
     def list_devices(
@@ -2882,7 +2882,7 @@ class SageMakerClient(BaseClient):
         """
         A list of devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_devices)
         """
     def list_domains(
@@ -2891,7 +2891,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the domains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_domains)
         """
     def list_edge_deployment_plans(
@@ -2911,7 +2911,7 @@ class SageMakerClient(BaseClient):
         """
         Lists all edge deployment plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_edge_deployment_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_edge_deployment_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_edge_deployment_plans)
         """
     def list_edge_packaging_jobs(
@@ -2932,7 +2932,7 @@ class SageMakerClient(BaseClient):
         """
         Returns a list of edge packaging jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_edge_packaging_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_edge_packaging_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_edge_packaging_jobs)
         """
     def list_endpoint_configs(
@@ -2949,7 +2949,7 @@ class SageMakerClient(BaseClient):
         """
         Lists endpoint configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_endpoint_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_endpoint_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_endpoint_configs)
         """
     def list_endpoints(
@@ -2969,7 +2969,7 @@ class SageMakerClient(BaseClient):
         """
         Lists endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_endpoints)
         """
     def list_experiments(
@@ -2985,7 +2985,7 @@ class SageMakerClient(BaseClient):
         """
         Lists all the experiments in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_experiments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_experiments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_experiments)
         """
     def list_feature_groups(
@@ -3004,7 +3004,7 @@ class SageMakerClient(BaseClient):
         """
         List `FeatureGroup`s based on given filter and order.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_feature_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_feature_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_feature_groups)
         """
     def list_flow_definitions(
@@ -3019,7 +3019,7 @@ class SageMakerClient(BaseClient):
         """
         Returns information about the flow definitions in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_flow_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_flow_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_flow_definitions)
         """
     def list_hub_content_versions(
@@ -3040,7 +3040,7 @@ class SageMakerClient(BaseClient):
         """
         List hub content versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_hub_content_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_hub_content_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_hub_content_versions)
         """
     def list_hub_contents(
@@ -3060,7 +3060,7 @@ class SageMakerClient(BaseClient):
         """
         List the contents of a hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_hub_contents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_hub_contents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_hub_contents)
         """
     def list_hubs(
@@ -3079,7 +3079,7 @@ class SageMakerClient(BaseClient):
         """
         List all existing hubs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_hubs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_hubs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_hubs)
         """
     def list_human_task_uis(
@@ -3094,7 +3094,7 @@ class SageMakerClient(BaseClient):
         """
         Returns information about the human task user interfaces in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_human_task_uis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_human_task_uis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_human_task_uis)
         """
     def list_hyper_parameter_tuning_jobs(
@@ -3116,7 +3116,7 @@ class SageMakerClient(BaseClient):
         maker/latest/APIReference/API_HyperParameterTuningJobSummary.html>`__ objects
         that describe the hyperparameter tuning jobs launched in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_hyper_parameter_tuning_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_hyper_parameter_tuning_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_hyper_parameter_tuning_jobs)
         """
     def list_image_versions(
@@ -3135,7 +3135,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the versions of a specified image and their properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_image_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_image_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_image_versions)
         """
     def list_images(
@@ -3154,7 +3154,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the images in your account and their properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_images)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_images)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_images)
         """
     def list_inference_experiments(
@@ -3175,7 +3175,7 @@ class SageMakerClient(BaseClient):
         """
         Returns the list of all inference experiments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_inference_experiments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_inference_experiments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_inference_experiments)
         """
     def list_inference_recommendations_job_steps(
@@ -3190,7 +3190,7 @@ class SageMakerClient(BaseClient):
         """
         Returns a list of the subtasks for an Inference Recommender job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_inference_recommendations_job_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_inference_recommendations_job_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_inference_recommendations_job_steps)
         """
     def list_inference_recommendations_jobs(
@@ -3212,7 +3212,7 @@ class SageMakerClient(BaseClient):
         """
         Lists recommendation jobs that satisfy various filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_inference_recommendations_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_inference_recommendations_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_inference_recommendations_jobs)
         """
     def list_labeling_jobs(
@@ -3232,7 +3232,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of labeling jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_labeling_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_labeling_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_labeling_jobs)
         """
     def list_labeling_jobs_for_workteam(
@@ -3250,7 +3250,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of labeling jobs assigned to a specified work team.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_labeling_jobs_for_workteam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_labeling_jobs_for_workteam)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_labeling_jobs_for_workteam)
         """
     def list_lineage_groups(
@@ -3266,7 +3266,7 @@ class SageMakerClient(BaseClient):
         """
         A list of lineage groups shared with your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_lineage_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_lineage_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_lineage_groups)
         """
     def list_model_bias_job_definitions(
@@ -3284,7 +3284,7 @@ class SageMakerClient(BaseClient):
         """
         Lists model bias jobs definitions that satisfy various filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_bias_job_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_bias_job_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_bias_job_definitions)
         """
     def list_model_card_export_jobs(
@@ -3304,7 +3304,7 @@ class SageMakerClient(BaseClient):
         """
         List the export jobs for the Amazon SageMaker Model Card.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_card_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_card_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_card_export_jobs)
         """
     def list_model_card_versions(
@@ -3322,7 +3322,7 @@ class SageMakerClient(BaseClient):
         """
         List existing versions of an Amazon SageMaker Model Card.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_card_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_card_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_card_versions)
         """
     def list_model_cards(
@@ -3340,7 +3340,7 @@ class SageMakerClient(BaseClient):
         """
         List existing model cards.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_cards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_cards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_cards)
         """
     def list_model_explainability_job_definitions(
@@ -3358,7 +3358,7 @@ class SageMakerClient(BaseClient):
         """
         Lists model explainability job definitions that satisfy various filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_explainability_job_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_explainability_job_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_explainability_job_definitions)
         """
     def list_model_metadata(
@@ -3372,7 +3372,7 @@ class SageMakerClient(BaseClient):
         Lists the domain, framework, task, and model name of standard machine learning
         models found in common model zoos.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_metadata)
         """
     def list_model_package_groups(
@@ -3389,7 +3389,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of the model groups in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_package_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_package_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_package_groups)
         """
     def list_model_packages(
@@ -3409,7 +3409,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the model packages that have been created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_packages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_packages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_packages)
         """
     def list_model_quality_job_definitions(
@@ -3427,7 +3427,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of model quality monitoring job definitions in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_model_quality_job_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_model_quality_job_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_model_quality_job_definitions)
         """
     def list_models(
@@ -3444,7 +3444,7 @@ class SageMakerClient(BaseClient):
         """
         Lists models created with the `CreateModel` API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_models)
         """
     def list_monitoring_alert_history(
@@ -3463,7 +3463,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of past alerts in a model monitoring schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_alert_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_alert_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_monitoring_alert_history)
         """
     def list_monitoring_alerts(
@@ -3472,7 +3472,7 @@ class SageMakerClient(BaseClient):
         """
         Gets the alerts for a single monitoring schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_alerts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_alerts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_monitoring_alerts)
         """
     def list_monitoring_executions(
@@ -3497,7 +3497,7 @@ class SageMakerClient(BaseClient):
         """
         Returns list of all monitoring job executions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_monitoring_executions)
         """
     def list_monitoring_schedules(
@@ -3520,7 +3520,7 @@ class SageMakerClient(BaseClient):
         """
         Returns list of all monitoring schedules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_schedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_schedules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_monitoring_schedules)
         """
     def list_notebook_instance_lifecycle_configs(
@@ -3541,7 +3541,7 @@ class SageMakerClient(BaseClient):
         `CreateNotebookInstanceLifecycleConfig <https://docs.aws.amazon.com/sagemaker/la
         test/APIReference/API_CreateNotebookInstanceLifecycleConfig.html>`__ API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_notebook_instance_lifecycle_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_notebook_instance_lifecycle_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_notebook_instance_lifecycle_configs)
         """
     def list_notebook_instances(
@@ -3565,7 +3565,7 @@ class SageMakerClient(BaseClient):
         Returns a list of the SageMaker notebook instances in the requester's account in
         an Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_notebook_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_notebook_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_notebook_instances)
         """
     def list_pipeline_execution_steps(
@@ -3579,7 +3579,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of `PipeLineExecutionStep` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_execution_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_execution_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_pipeline_execution_steps)
         """
     def list_pipeline_executions(
@@ -3596,7 +3596,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of the pipeline executions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_pipeline_executions)
         """
     def list_pipeline_parameters_for_execution(
@@ -3605,7 +3605,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of parameters for a pipeline execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_parameters_for_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_parameters_for_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_pipeline_parameters_for_execution)
         """
     def list_pipelines(
@@ -3622,7 +3622,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of pipelines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_pipelines)
         """
     def list_processing_jobs(
@@ -3642,7 +3642,7 @@ class SageMakerClient(BaseClient):
         """
         Lists processing jobs that satisfy various filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_processing_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_processing_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_processing_jobs)
         """
     def list_projects(
@@ -3659,7 +3659,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of the projects in an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_projects)
         """
     def list_resource_catalogs(
@@ -3676,7 +3676,7 @@ class SageMakerClient(BaseClient):
         """
         Lists Amazon SageMaker Catalogs based on given filters and orders.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_resource_catalogs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_resource_catalogs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_resource_catalogs)
         """
     def list_spaces(
@@ -3692,7 +3692,7 @@ class SageMakerClient(BaseClient):
         """
         Lists spaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_spaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_spaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_spaces)
         """
     def list_stage_devices(
@@ -3708,7 +3708,7 @@ class SageMakerClient(BaseClient):
         Lists devices allocated to the stage, containing detailed device information and
         deployment status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_stage_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_stage_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_stage_devices)
         """
     def list_studio_lifecycle_configs(
@@ -3728,7 +3728,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_studio_lifecycle_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_studio_lifecycle_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_studio_lifecycle_configs)
         """
     def list_subscribed_workteams(
@@ -3738,7 +3738,7 @@ class SageMakerClient(BaseClient):
         Gets a list of the work teams that you are subscribed to in the Amazon Web
         Services Marketplace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_subscribed_workteams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_subscribed_workteams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_subscribed_workteams)
         """
     def list_tags(
@@ -3747,7 +3747,7 @@ class SageMakerClient(BaseClient):
         """
         Returns the tags for the specified SageMaker resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_tags)
         """
     def list_training_jobs(
@@ -3768,7 +3768,7 @@ class SageMakerClient(BaseClient):
         """
         Lists training jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_training_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_training_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_training_jobs)
         """
     def list_training_jobs_for_hyper_parameter_tuning_job(
@@ -3786,7 +3786,7 @@ class SageMakerClient(BaseClient):
         /APIReference/API_TrainingJobSummary.html>`__ objects that describe the training
         jobs that a hyperparameter tuning job launched.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_training_jobs_for_hyper_parameter_tuning_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_training_jobs_for_hyper_parameter_tuning_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_training_jobs_for_hyper_parameter_tuning_job)
         """
     def list_transform_jobs(
@@ -3806,7 +3806,7 @@ class SageMakerClient(BaseClient):
         """
         Lists transform jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_transform_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_transform_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_transform_jobs)
         """
     def list_trial_components(
@@ -3825,7 +3825,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the trial components in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_trial_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_trial_components)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_trial_components)
         """
     def list_trials(
@@ -3843,7 +3843,7 @@ class SageMakerClient(BaseClient):
         """
         Lists the trials in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_trials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_trials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_trials)
         """
     def list_user_profiles(
@@ -3859,7 +3859,7 @@ class SageMakerClient(BaseClient):
         """
         Lists user profiles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_user_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_user_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_user_profiles)
         """
     def list_workforces(
@@ -3875,7 +3875,7 @@ class SageMakerClient(BaseClient):
         Use this operation to list all private and vendor workforces in an Amazon Web
         Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_workforces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_workforces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_workforces)
         """
     def list_workteams(
@@ -3890,7 +3890,7 @@ class SageMakerClient(BaseClient):
         """
         Gets a list of private work teams that you have defined in a region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.list_workteams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.list_workteams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#list_workteams)
         """
     def put_model_package_group_policy(
@@ -3899,7 +3899,7 @@ class SageMakerClient(BaseClient):
         """
         Adds a resouce policy to control access to a model group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.put_model_package_group_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.put_model_package_group_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#put_model_package_group_policy)
         """
     def query_lineage(
@@ -3917,7 +3917,7 @@ class SageMakerClient(BaseClient):
         Use this action to inspect your lineage and discover relationships between
         entities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.query_lineage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.query_lineage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#query_lineage)
         """
     def register_devices(
@@ -3930,7 +3930,7 @@ class SageMakerClient(BaseClient):
         """
         Register devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.register_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.register_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#register_devices)
         """
     def render_ui_template(
@@ -3944,7 +3944,7 @@ class SageMakerClient(BaseClient):
         """
         Renders the UI template so that you can preview the worker's experience.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.render_ui_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.render_ui_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#render_ui_template)
         """
     def retry_pipeline_execution(
@@ -3957,7 +3957,7 @@ class SageMakerClient(BaseClient):
         """
         Retry the execution of the pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.retry_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.retry_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#retry_pipeline_execution)
         """
     def search(
@@ -3974,7 +3974,7 @@ class SageMakerClient(BaseClient):
         """
         Finds SageMaker resources that match a search query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#search)
         """
     def send_pipeline_execution_step_failure(
@@ -3984,7 +3984,7 @@ class SageMakerClient(BaseClient):
         Notifies the pipeline that the execution of a callback step failed, along with a
         message describing why.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.send_pipeline_execution_step_failure)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.send_pipeline_execution_step_failure)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#send_pipeline_execution_step_failure)
         """
     def send_pipeline_execution_step_success(
@@ -3998,28 +3998,28 @@ class SageMakerClient(BaseClient):
         Notifies the pipeline that the execution of a callback step succeeded and
         provides a list of the step's output parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.send_pipeline_execution_step_success)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.send_pipeline_execution_step_success)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#send_pipeline_execution_step_success)
         """
     def start_edge_deployment_stage(self, *, EdgeDeploymentPlanName: str, StageName: str) -> None:
         """
         Starts a stage in an edge deployment plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.start_edge_deployment_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.start_edge_deployment_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#start_edge_deployment_stage)
         """
     def start_inference_experiment(self, *, Name: str) -> StartInferenceExperimentResponseTypeDef:
         """
         Starts an inference experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.start_inference_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.start_inference_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#start_inference_experiment)
         """
     def start_monitoring_schedule(self, *, MonitoringScheduleName: str) -> None:
         """
         Starts a previously stopped monitoring schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.start_monitoring_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.start_monitoring_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#start_monitoring_schedule)
         """
     def start_notebook_instance(self, *, NotebookInstanceName: str) -> None:
@@ -4027,7 +4027,7 @@ class SageMakerClient(BaseClient):
         Launches an ML compute instance with the latest version of the libraries and
         attaches your ML storage volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.start_notebook_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.start_notebook_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#start_notebook_instance)
         """
     def start_pipeline_execution(
@@ -4044,35 +4044,35 @@ class SageMakerClient(BaseClient):
         """
         Starts a pipeline execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.start_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.start_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#start_pipeline_execution)
         """
     def stop_auto_ml_job(self, *, AutoMLJobName: str) -> None:
         """
         A method for forcing a running job to shut down.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_auto_ml_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_auto_ml_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_auto_ml_job)
         """
     def stop_compilation_job(self, *, CompilationJobName: str) -> None:
         """
         Stops a model compilation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_compilation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_compilation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_compilation_job)
         """
     def stop_edge_deployment_stage(self, *, EdgeDeploymentPlanName: str, StageName: str) -> None:
         """
         Stops a stage in an edge deployment plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_edge_deployment_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_edge_deployment_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_edge_deployment_stage)
         """
     def stop_edge_packaging_job(self, *, EdgePackagingJobName: str) -> None:
         """
         Request to stop an edge packaging job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_edge_packaging_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_edge_packaging_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_edge_packaging_job)
         """
     def stop_hyper_parameter_tuning_job(self, *, HyperParameterTuningJobName: str) -> None:
@@ -4080,7 +4080,7 @@ class SageMakerClient(BaseClient):
         Stops a running hyperparameter tuning job and all running training jobs that the
         tuning job launched.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_hyper_parameter_tuning_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_hyper_parameter_tuning_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_hyper_parameter_tuning_job)
         """
     def stop_inference_experiment(
@@ -4095,35 +4095,35 @@ class SageMakerClient(BaseClient):
         """
         Stops an inference experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_inference_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_inference_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_inference_experiment)
         """
     def stop_inference_recommendations_job(self, *, JobName: str) -> None:
         """
         Stops an Inference Recommender job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_inference_recommendations_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_inference_recommendations_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_inference_recommendations_job)
         """
     def stop_labeling_job(self, *, LabelingJobName: str) -> None:
         """
         Stops a running labeling job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_labeling_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_labeling_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_labeling_job)
         """
     def stop_monitoring_schedule(self, *, MonitoringScheduleName: str) -> None:
         """
         Stops a previously started monitoring schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_monitoring_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_monitoring_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_monitoring_schedule)
         """
     def stop_notebook_instance(self, *, NotebookInstanceName: str) -> None:
         """
         Terminates the ML compute instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_notebook_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_notebook_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_notebook_instance)
         """
     def stop_pipeline_execution(
@@ -4132,28 +4132,28 @@ class SageMakerClient(BaseClient):
         """
         Stops a pipeline execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_pipeline_execution)
         """
     def stop_processing_job(self, *, ProcessingJobName: str) -> None:
         """
         Stops a processing job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_processing_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_processing_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_processing_job)
         """
     def stop_training_job(self, *, TrainingJobName: str) -> None:
         """
         Stops a training job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_training_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_training_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_training_job)
         """
     def stop_transform_job(self, *, TransformJobName: str) -> None:
         """
         Stops a batch transform job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.stop_transform_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.stop_transform_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#stop_transform_job)
         """
     def update_action(
@@ -4168,7 +4168,7 @@ class SageMakerClient(BaseClient):
         """
         Updates an action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_action)
         """
     def update_app_image_config(
@@ -4180,7 +4180,7 @@ class SageMakerClient(BaseClient):
         """
         Updates the properties of an AppImageConfig.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_app_image_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_app_image_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_app_image_config)
         """
     def update_artifact(
@@ -4194,7 +4194,7 @@ class SageMakerClient(BaseClient):
         """
         Updates an artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_artifact)
         """
     def update_code_repository(
@@ -4203,7 +4203,7 @@ class SageMakerClient(BaseClient):
         """
         Updates the specified Git repository with the specified values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_code_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_code_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_code_repository)
         """
     def update_context(
@@ -4217,7 +4217,7 @@ class SageMakerClient(BaseClient):
         """
         Updates a context.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_context)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_context)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_context)
         """
     def update_device_fleet(
@@ -4232,14 +4232,14 @@ class SageMakerClient(BaseClient):
         """
         Updates a fleet of devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_device_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_device_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_device_fleet)
         """
     def update_devices(self, *, DeviceFleetName: str, Devices: List["DeviceTypeDef"]) -> None:
         """
         Updates one or more devices in a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_devices)
         """
     def update_domain(
@@ -4254,7 +4254,7 @@ class SageMakerClient(BaseClient):
         """
         Updates the default settings for new user profiles in the domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_domain)
         """
     def update_endpoint(
@@ -4272,7 +4272,7 @@ class SageMakerClient(BaseClient):
         newly created endpoint, and then deletes resources provisioned for the endpoint
         using the previous `EndpointConfig` (there is no availability loss).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_endpoint)
         """
     def update_endpoint_weights_and_capacities(
@@ -4285,7 +4285,7 @@ class SageMakerClient(BaseClient):
         Updates variant weight of one or more variants associated with an existing
         endpoint, or capacity of one variant associated with an existing endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_endpoint_weights_and_capacities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_endpoint_weights_and_capacities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_endpoint_weights_and_capacities)
         """
     def update_experiment(
@@ -4294,7 +4294,7 @@ class SageMakerClient(BaseClient):
         """
         Adds, updates, or removes the description of an experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_experiment)
         """
     def update_feature_group(
@@ -4308,7 +4308,7 @@ class SageMakerClient(BaseClient):
         Updates the feature group by either adding features or updating the online store
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_feature_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_feature_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_feature_group)
         """
     def update_feature_metadata(
@@ -4323,7 +4323,7 @@ class SageMakerClient(BaseClient):
         """
         Updates the description and parameters of the feature group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_feature_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_feature_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_feature_metadata)
         """
     def update_hub(
@@ -4337,7 +4337,7 @@ class SageMakerClient(BaseClient):
         """
         Update a hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_hub)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_hub)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_hub)
         """
     def update_image(
@@ -4352,7 +4352,7 @@ class SageMakerClient(BaseClient):
         """
         Updates the properties of a SageMaker image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_image)
         """
     def update_image_version(
@@ -4374,7 +4374,7 @@ class SageMakerClient(BaseClient):
         """
         Updates the properties of a SageMaker image version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_image_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_image_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_image_version)
         """
     def update_inference_experiment(
@@ -4390,7 +4390,7 @@ class SageMakerClient(BaseClient):
         """
         Updates an inference experiment that you created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_inference_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_inference_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_inference_experiment)
         """
     def update_model_card(
@@ -4403,7 +4403,7 @@ class SageMakerClient(BaseClient):
         """
         Update an Amazon SageMaker Model Card.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_model_card)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_model_card)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_model_card)
         """
     def update_model_package(
@@ -4421,7 +4421,7 @@ class SageMakerClient(BaseClient):
         """
         Updates a versioned model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_model_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_model_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_model_package)
         """
     def update_monitoring_alert(
@@ -4435,7 +4435,7 @@ class SageMakerClient(BaseClient):
         """
         Update the parameters of a model monitor alert.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_monitoring_alert)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_monitoring_alert)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_monitoring_alert)
         """
     def update_monitoring_schedule(
@@ -4447,7 +4447,7 @@ class SageMakerClient(BaseClient):
         """
         Updates a previously created schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_monitoring_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_monitoring_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_monitoring_schedule)
         """
     def update_notebook_instance(
@@ -4471,7 +4471,7 @@ class SageMakerClient(BaseClient):
         """
         Updates a notebook instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_notebook_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_notebook_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_notebook_instance)
         """
     def update_notebook_instance_lifecycle_config(
@@ -4486,7 +4486,7 @@ class SageMakerClient(BaseClient):
         `CreateNotebookInstanceLifecycleConfig <https://docs.aws.amazon.com/sagemaker/la
         test/APIReference/API_CreateNotebookInstanceLifecycleConfig.html>`__ API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_notebook_instance_lifecycle_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_notebook_instance_lifecycle_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_notebook_instance_lifecycle_config)
         """
     def update_pipeline(
@@ -4503,7 +4503,7 @@ class SageMakerClient(BaseClient):
         """
         Updates a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_pipeline)
         """
     def update_pipeline_execution(
@@ -4517,7 +4517,7 @@ class SageMakerClient(BaseClient):
         """
         Updates a pipeline execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_pipeline_execution)
         """
     def update_project(
@@ -4532,7 +4532,7 @@ class SageMakerClient(BaseClient):
         Updates a machine learning (ML) project that is created from a template that
         sets up an ML pipeline from training to deploying an approved model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_project)
         """
     def update_space(
@@ -4541,7 +4541,7 @@ class SageMakerClient(BaseClient):
         """
         Updates the settings of a space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_space)
         """
     def update_training_job(
@@ -4556,7 +4556,7 @@ class SageMakerClient(BaseClient):
         Update a model training job to request a new Debugger profiling configuration or
         to change warm pool retention length.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_training_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_training_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_training_job)
         """
     def update_trial(
@@ -4565,7 +4565,7 @@ class SageMakerClient(BaseClient):
         """
         Updates the display name of a trial.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_trial)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_trial)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_trial)
         """
     def update_trial_component(
@@ -4586,7 +4586,7 @@ class SageMakerClient(BaseClient):
         """
         Updates one or more properties of a trial component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_trial_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_trial_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_trial_component)
         """
     def update_user_profile(
@@ -4595,7 +4595,7 @@ class SageMakerClient(BaseClient):
         """
         Updates a user profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_user_profile)
         """
     def update_workforce(
@@ -4609,7 +4609,7 @@ class SageMakerClient(BaseClient):
         """
         Use this operation to update your workforce.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_workforce)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_workforce)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_workforce)
         """
     def update_workteam(
@@ -4623,25 +4623,25 @@ class SageMakerClient(BaseClient):
         """
         Updates an existing work team with new member definitions or description.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Client.update_workteam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Client.update_workteam)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/client.html#update_workteam)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_actions"]) -> ListActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listactionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_algorithms"]) -> ListAlgorithmsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListAlgorithms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListAlgorithms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listalgorithmspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListAliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListAliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listaliasespaginator)
         """
     @overload
@@ -4649,19 +4649,19 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_app_image_configs"]
     ) -> ListAppImageConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListAppImageConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListAppImageConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listappimageconfigspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_apps"]) -> ListAppsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListApps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListApps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listappspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_artifacts"]) -> ListArtifactsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListArtifacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListArtifacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listartifactspaginator)
         """
     @overload
@@ -4669,7 +4669,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_associations"]
     ) -> ListAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listassociationspaginator)
         """
     @overload
@@ -4677,7 +4677,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_auto_ml_jobs"]
     ) -> ListAutoMLJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListAutoMLJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListAutoMLJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listautomljobspaginator)
         """
     @overload
@@ -4685,7 +4685,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_candidates_for_auto_ml_job"]
     ) -> ListCandidatesForAutoMLJobPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListCandidatesForAutoMLJob)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListCandidatesForAutoMLJob)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcandidatesforautomljobpaginator)
         """
     @overload
@@ -4693,7 +4693,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_code_repositories"]
     ) -> ListCodeRepositoriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListCodeRepositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListCodeRepositories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcoderepositoriespaginator)
         """
     @overload
@@ -4701,13 +4701,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_compilation_jobs"]
     ) -> ListCompilationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListCompilationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListCompilationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcompilationjobspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_contexts"]) -> ListContextsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListContexts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListContexts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcontextspaginator)
         """
     @overload
@@ -4715,7 +4715,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_data_quality_job_definitions"]
     ) -> ListDataQualityJobDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListDataQualityJobDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListDataQualityJobDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdataqualityjobdefinitionspaginator)
         """
     @overload
@@ -4723,19 +4723,19 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_device_fleets"]
     ) -> ListDeviceFleetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListDeviceFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListDeviceFleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdevicefleetspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_devices"]) -> ListDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListDevices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListDevices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdevicespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListDomains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListDomains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdomainspaginator)
         """
     @overload
@@ -4743,7 +4743,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_edge_deployment_plans"]
     ) -> ListEdgeDeploymentPlansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListEdgeDeploymentPlans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListEdgeDeploymentPlans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listedgedeploymentplanspaginator)
         """
     @overload
@@ -4751,7 +4751,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_edge_packaging_jobs"]
     ) -> ListEdgePackagingJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListEdgePackagingJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListEdgePackagingJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listedgepackagingjobspaginator)
         """
     @overload
@@ -4759,13 +4759,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_endpoint_configs"]
     ) -> ListEndpointConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpointConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpointConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listendpointconfigspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_endpoints"]) -> ListEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listendpointspaginator)
         """
     @overload
@@ -4773,7 +4773,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_experiments"]
     ) -> ListExperimentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListExperiments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListExperiments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listexperimentspaginator)
         """
     @overload
@@ -4781,7 +4781,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_feature_groups"]
     ) -> ListFeatureGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListFeatureGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListFeatureGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listfeaturegroupspaginator)
         """
     @overload
@@ -4789,7 +4789,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_flow_definitions"]
     ) -> ListFlowDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListFlowDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListFlowDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listflowdefinitionspaginator)
         """
     @overload
@@ -4797,7 +4797,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_human_task_uis"]
     ) -> ListHumanTaskUisPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListHumanTaskUis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListHumanTaskUis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listhumantaskuispaginator)
         """
     @overload
@@ -4805,7 +4805,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_hyper_parameter_tuning_jobs"]
     ) -> ListHyperParameterTuningJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListHyperParameterTuningJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListHyperParameterTuningJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listhyperparametertuningjobspaginator)
         """
     @overload
@@ -4813,13 +4813,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_image_versions"]
     ) -> ListImageVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListImageVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListImageVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listimageversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_images"]) -> ListImagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListImages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListImages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listimagespaginator)
         """
     @overload
@@ -4827,7 +4827,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_inference_experiments"]
     ) -> ListInferenceExperimentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListInferenceExperiments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListInferenceExperiments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listinferenceexperimentspaginator)
         """
     @overload
@@ -4835,7 +4835,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_inference_recommendations_job_steps"]
     ) -> ListInferenceRecommendationsJobStepsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListInferenceRecommendationsJobSteps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListInferenceRecommendationsJobSteps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listinferencerecommendationsjobstepspaginator)
         """
     @overload
@@ -4843,7 +4843,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_inference_recommendations_jobs"]
     ) -> ListInferenceRecommendationsJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListInferenceRecommendationsJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListInferenceRecommendationsJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listinferencerecommendationsjobspaginator)
         """
     @overload
@@ -4851,7 +4851,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_labeling_jobs"]
     ) -> ListLabelingJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listlabelingjobspaginator)
         """
     @overload
@@ -4859,7 +4859,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_labeling_jobs_for_workteam"]
     ) -> ListLabelingJobsForWorkteamPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobsForWorkteam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobsForWorkteam)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listlabelingjobsforworkteampaginator)
         """
     @overload
@@ -4867,7 +4867,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_lineage_groups"]
     ) -> ListLineageGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListLineageGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListLineageGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listlineagegroupspaginator)
         """
     @overload
@@ -4875,7 +4875,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_model_bias_job_definitions"]
     ) -> ListModelBiasJobDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelBiasJobDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelBiasJobDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelbiasjobdefinitionspaginator)
         """
     @overload
@@ -4883,7 +4883,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_model_card_export_jobs"]
     ) -> ListModelCardExportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelCardExportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelCardExportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelcardexportjobspaginator)
         """
     @overload
@@ -4891,13 +4891,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_model_card_versions"]
     ) -> ListModelCardVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelCardVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelCardVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelcardversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_model_cards"]) -> ListModelCardsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelCards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelCards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelcardspaginator)
         """
     @overload
@@ -4905,7 +4905,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_model_explainability_job_definitions"]
     ) -> ListModelExplainabilityJobDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelExplainabilityJobDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelExplainabilityJobDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelexplainabilityjobdefinitionspaginator)
         """
     @overload
@@ -4913,7 +4913,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_model_metadata"]
     ) -> ListModelMetadataPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelMetadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelMetadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelmetadatapaginator)
         """
     @overload
@@ -4921,7 +4921,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_model_package_groups"]
     ) -> ListModelPackageGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackageGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackageGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelpackagegroupspaginator)
         """
     @overload
@@ -4929,7 +4929,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_model_packages"]
     ) -> ListModelPackagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelpackagespaginator)
         """
     @overload
@@ -4937,13 +4937,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_model_quality_job_definitions"]
     ) -> ListModelQualityJobDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModelQualityJobDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModelQualityJobDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelqualityjobdefinitionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_models"]) -> ListModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListModels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListModels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelspaginator)
         """
     @overload
@@ -4951,7 +4951,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_monitoring_alert_history"]
     ) -> ListMonitoringAlertHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringAlertHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringAlertHistory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmonitoringalerthistorypaginator)
         """
     @overload
@@ -4959,7 +4959,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_monitoring_alerts"]
     ) -> ListMonitoringAlertsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringAlerts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringAlerts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmonitoringalertspaginator)
         """
     @overload
@@ -4967,7 +4967,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_monitoring_executions"]
     ) -> ListMonitoringExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmonitoringexecutionspaginator)
         """
     @overload
@@ -4975,7 +4975,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_monitoring_schedules"]
     ) -> ListMonitoringSchedulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringSchedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringSchedules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmonitoringschedulespaginator)
         """
     @overload
@@ -4983,7 +4983,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_notebook_instance_lifecycle_configs"]
     ) -> ListNotebookInstanceLifecycleConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstanceLifecycleConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstanceLifecycleConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listnotebookinstancelifecycleconfigspaginator)
         """
     @overload
@@ -4991,7 +4991,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_notebook_instances"]
     ) -> ListNotebookInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listnotebookinstancespaginator)
         """
     @overload
@@ -4999,7 +4999,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_pipeline_execution_steps"]
     ) -> ListPipelineExecutionStepsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutionSteps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutionSteps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineexecutionstepspaginator)
         """
     @overload
@@ -5007,7 +5007,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_pipeline_executions"]
     ) -> ListPipelineExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineexecutionspaginator)
         """
     @overload
@@ -5015,13 +5015,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_pipeline_parameters_for_execution"]
     ) -> ListPipelineParametersForExecutionPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineParametersForExecution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineParametersForExecution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineparametersforexecutionpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelinespaginator)
         """
     @overload
@@ -5029,7 +5029,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_processing_jobs"]
     ) -> ListProcessingJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListProcessingJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListProcessingJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listprocessingjobspaginator)
         """
     @overload
@@ -5037,13 +5037,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_resource_catalogs"]
     ) -> ListResourceCatalogsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListResourceCatalogs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListResourceCatalogs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listresourcecatalogspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_spaces"]) -> ListSpacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListSpaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListSpaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listspacespaginator)
         """
     @overload
@@ -5051,7 +5051,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_stage_devices"]
     ) -> ListStageDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListStageDevices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListStageDevices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#liststagedevicespaginator)
         """
     @overload
@@ -5059,7 +5059,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_studio_lifecycle_configs"]
     ) -> ListStudioLifecycleConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListStudioLifecycleConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListStudioLifecycleConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#liststudiolifecycleconfigspaginator)
         """
     @overload
@@ -5067,13 +5067,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_subscribed_workteams"]
     ) -> ListSubscribedWorkteamsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListSubscribedWorkteams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListSubscribedWorkteams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listsubscribedworkteamspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListTags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtagspaginator)
         """
     @overload
@@ -5081,7 +5081,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_training_jobs"]
     ) -> ListTrainingJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrainingjobspaginator)
         """
     @overload
@@ -5089,7 +5089,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_training_jobs_for_hyper_parameter_tuning_job"]
     ) -> ListTrainingJobsForHyperParameterTuningJobPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobsForHyperParameterTuningJob)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobsForHyperParameterTuningJob)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrainingjobsforhyperparametertuningjobpaginator)
         """
     @overload
@@ -5097,7 +5097,7 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_transform_jobs"]
     ) -> ListTransformJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListTransformJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListTransformJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtransformjobspaginator)
         """
     @overload
@@ -5105,13 +5105,13 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_trial_components"]
     ) -> ListTrialComponentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListTrialComponents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListTrialComponents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrialcomponentspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_trials"]) -> ListTrialsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListTrials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListTrials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrialspaginator)
         """
     @overload
@@ -5119,55 +5119,55 @@ class SageMakerClient(BaseClient):
         self, operation_name: Literal["list_user_profiles"]
     ) -> ListUserProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListUserProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListUserProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listuserprofilespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_workforces"]) -> ListWorkforcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkforces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkforces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listworkforcespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_workteams"]) -> ListWorkteamsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkteams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkteams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listworkteamspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["search"]) -> SearchPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Paginator.Search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Paginator.Search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#searchpaginator)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["endpoint_deleted"]) -> EndpointDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.EndpointDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.EndpointDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#endpointdeletedwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["endpoint_in_service"]) -> EndpointInServiceWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.EndpointInService)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.EndpointInService)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#endpointinservicewaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["image_created"]) -> ImageCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.ImageCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.ImageCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#imagecreatedwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["image_deleted"]) -> ImageDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.ImageDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.ImageDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#imagedeletedwaiter)
         """
     @overload
     def get_waiter(self, waiter_name: Literal["image_updated"]) -> ImageUpdatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.ImageUpdated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.ImageUpdated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#imageupdatedwaiter)
         """
     @overload
@@ -5175,7 +5175,7 @@ class SageMakerClient(BaseClient):
         self, waiter_name: Literal["image_version_created"]
     ) -> ImageVersionCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.ImageVersionCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.ImageVersionCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#imageversioncreatedwaiter)
         """
     @overload
@@ -5183,7 +5183,7 @@ class SageMakerClient(BaseClient):
         self, waiter_name: Literal["image_version_deleted"]
     ) -> ImageVersionDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.ImageVersionDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.ImageVersionDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#imageversiondeletedwaiter)
         """
     @overload
@@ -5191,7 +5191,7 @@ class SageMakerClient(BaseClient):
         self, waiter_name: Literal["notebook_instance_deleted"]
     ) -> NotebookInstanceDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#notebookinstancedeletedwaiter)
         """
     @overload
@@ -5199,7 +5199,7 @@ class SageMakerClient(BaseClient):
         self, waiter_name: Literal["notebook_instance_in_service"]
     ) -> NotebookInstanceInServiceWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceInService)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceInService)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#notebookinstanceinservicewaiter)
         """
     @overload
@@ -5207,7 +5207,7 @@ class SageMakerClient(BaseClient):
         self, waiter_name: Literal["notebook_instance_stopped"]
     ) -> NotebookInstanceStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#notebookinstancestoppedwaiter)
         """
     @overload
@@ -5215,7 +5215,7 @@ class SageMakerClient(BaseClient):
         self, waiter_name: Literal["processing_job_completed_or_stopped"]
     ) -> ProcessingJobCompletedOrStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.ProcessingJobCompletedOrStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.ProcessingJobCompletedOrStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#processingjobcompletedorstoppedwaiter)
         """
     @overload
@@ -5223,7 +5223,7 @@ class SageMakerClient(BaseClient):
         self, waiter_name: Literal["training_job_completed_or_stopped"]
     ) -> TrainingJobCompletedOrStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.TrainingJobCompletedOrStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.TrainingJobCompletedOrStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#trainingjobcompletedorstoppedwaiter)
         """
     @overload
@@ -5231,6 +5231,6 @@ class SageMakerClient(BaseClient):
         self, waiter_name: Literal["transform_job_completed_or_stopped"]
     ) -> TransformJobCompletedOrStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sagemaker.html#SageMaker.Waiter.TransformJobCompletedOrStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sagemaker.html#SageMaker.Waiter.TransformJobCompletedOrStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/waiters.html#transformjobcompletedorstoppedwaiter)
         """

@@ -32,6 +32,7 @@ __all__ = (
     "ComparisonOperatorType",
     "ComputeLimitsUnitTypeType",
     "ExecutionEngineTypeType",
+    "IdcUserAssignmentType",
     "IdentityTypeType",
     "InstanceCollectionTypeType",
     "InstanceFleetStateChangeReasonCodeType",
@@ -113,6 +114,7 @@ ComparisonOperatorType = Literal[
 ]
 ComputeLimitsUnitTypeType = Literal["InstanceFleetUnits", "Instances", "VCPU"]
 ExecutionEngineTypeType = Literal["EMR"]
+IdcUserAssignmentType = Literal["OPTIONAL", "REQUIRED"]
 IdentityTypeType = Literal["GROUP", "USER"]
 InstanceCollectionTypeType = Literal["INSTANCE_FLEET", "INSTANCE_GROUP"]
 InstanceFleetStateChangeReasonCodeType = Literal[

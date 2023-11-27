@@ -432,6 +432,7 @@ ChangeSetSummaryTypeDef = TypedDict(
         "IncludeNestedStacks": bool,
         "ParentChangeSetId": str,
         "RootChangeSetId": str,
+        "ImportExistingResources": bool,
     },
     total=False,
 )
@@ -494,6 +495,7 @@ _OptionalCreateChangeSetInputRequestTypeDef = TypedDict(
         "ResourcesToImport": List["ResourceToImportTypeDef"],
         "IncludeNestedStacks": bool,
         "OnStackFailure": OnStackFailureType,
+        "ImportExistingResources": bool,
     },
     total=False,
 )
@@ -895,6 +897,7 @@ DescribeChangeSetOutputTypeDef = TypedDict(
         "ParentChangeSetId": str,
         "RootChangeSetId": str,
         "OnStackFailure": OnStackFailureType,
+        "ImportExistingResources": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

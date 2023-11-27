@@ -73,7 +73,7 @@ class Exceptions:
 
 class BackupGatewayClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html)
     """
 
@@ -90,21 +90,21 @@ class BackupGatewayClient(BaseClient):
         """
         Associates a backup gateway with your server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.associate_gateway_to_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.associate_gateway_to_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#associate_gateway_to_server)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#close)
         """
     def create_gateway(
@@ -118,21 +118,21 @@ class BackupGatewayClient(BaseClient):
         """
         Creates a backup gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.create_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.create_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#create_gateway)
         """
     def delete_gateway(self, *, GatewayArn: str) -> DeleteGatewayOutputTypeDef:
         """
         Deletes a backup gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.delete_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.delete_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#delete_gateway)
         """
     def delete_hypervisor(self, *, HypervisorArn: str) -> DeleteHypervisorOutputTypeDef:
         """
         Deletes a hypervisor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.delete_hypervisor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.delete_hypervisor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#delete_hypervisor)
         """
     def disassociate_gateway_from_server(
@@ -141,7 +141,7 @@ class BackupGatewayClient(BaseClient):
         """
         Disassociates a backup gateway from the specified server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.disassociate_gateway_from_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.disassociate_gateway_from_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#disassociate_gateway_from_server)
         """
     def generate_presigned_url(
@@ -154,7 +154,7 @@ class BackupGatewayClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#generate_presigned_url)
         """
     def get_bandwidth_rate_limit_schedule(
@@ -163,14 +163,14 @@ class BackupGatewayClient(BaseClient):
         """
         Retrieves the bandwidth rate limit schedule for a specified gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.get_bandwidth_rate_limit_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.get_bandwidth_rate_limit_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#get_bandwidth_rate_limit_schedule)
         """
     def get_gateway(self, *, GatewayArn: str) -> GetGatewayOutputTypeDef:
         """
         By providing the ARN (Amazon Resource Name), this API returns the gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.get_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.get_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#get_gateway)
         """
     def get_hypervisor(self, *, HypervisorArn: str) -> GetHypervisorOutputTypeDef:
@@ -178,7 +178,7 @@ class BackupGatewayClient(BaseClient):
         This action requests information about the specified hypervisor to which the
         gateway will connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.get_hypervisor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.get_hypervisor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#get_hypervisor)
         """
     def get_hypervisor_property_mappings(
@@ -187,7 +187,7 @@ class BackupGatewayClient(BaseClient):
         """
         This action retrieves the property mappings for the specified hypervisor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.get_hypervisor_property_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.get_hypervisor_property_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#get_hypervisor_property_mappings)
         """
     def get_virtual_machine(self, *, ResourceArn: str) -> GetVirtualMachineOutputTypeDef:
@@ -195,7 +195,7 @@ class BackupGatewayClient(BaseClient):
         By providing the ARN (Amazon Resource Name), this API returns the virtual
         machine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.get_virtual_machine)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.get_virtual_machine)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#get_virtual_machine)
         """
     def import_hypervisor_configuration(
@@ -211,7 +211,7 @@ class BackupGatewayClient(BaseClient):
         """
         Connect to a hypervisor by importing its configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.import_hypervisor_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.import_hypervisor_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#import_hypervisor_configuration)
         """
     def list_gateways(
@@ -221,7 +221,7 @@ class BackupGatewayClient(BaseClient):
         Lists backup gateways owned by an Amazon Web Services account in an Amazon Web
         Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.list_gateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.list_gateways)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#list_gateways)
         """
     def list_hypervisors(
@@ -230,7 +230,7 @@ class BackupGatewayClient(BaseClient):
         """
         Lists your hypervisors.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.list_hypervisors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.list_hypervisors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#list_hypervisors)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceOutputTypeDef:
@@ -238,7 +238,7 @@ class BackupGatewayClient(BaseClient):
         Lists the tags applied to the resource identified by its Amazon Resource Name
         (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#list_tags_for_resource)
         """
     def list_virtual_machines(
@@ -247,7 +247,7 @@ class BackupGatewayClient(BaseClient):
         """
         Lists your virtual machines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.list_virtual_machines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.list_virtual_machines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#list_virtual_machines)
         """
     def put_bandwidth_rate_limit_schedule(
@@ -259,7 +259,7 @@ class BackupGatewayClient(BaseClient):
         """
         This action sets the bandwidth rate limit schedule for a specified gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.put_bandwidth_rate_limit_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.put_bandwidth_rate_limit_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#put_bandwidth_rate_limit_schedule)
         """
     def put_hypervisor_property_mappings(
@@ -272,7 +272,7 @@ class BackupGatewayClient(BaseClient):
         """
         This action sets the property mappings for the specified hypervisor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.put_hypervisor_property_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.put_hypervisor_property_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#put_hypervisor_property_mappings)
         """
     def put_maintenance_start_time(
@@ -287,7 +287,7 @@ class BackupGatewayClient(BaseClient):
         """
         Set the maintenance start time for a gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.put_maintenance_start_time)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.put_maintenance_start_time)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#put_maintenance_start_time)
         """
     def start_virtual_machines_metadata_sync(
@@ -297,7 +297,7 @@ class BackupGatewayClient(BaseClient):
         This action sends a request to sync metadata across the specified virtual
         machines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.start_virtual_machines_metadata_sync)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.start_virtual_machines_metadata_sync)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#start_virtual_machines_metadata_sync)
         """
     def tag_resource(
@@ -306,7 +306,7 @@ class BackupGatewayClient(BaseClient):
         """
         Tag the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#tag_resource)
         """
     def test_hypervisor_configuration(
@@ -316,14 +316,14 @@ class BackupGatewayClient(BaseClient):
         Tests your hypervisor configuration to validate that backup gateway can connect
         with the hypervisor and its resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.test_hypervisor_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.test_hypervisor_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#test_hypervisor_configuration)
         """
     def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> UntagResourceOutputTypeDef:
         """
         Removes tags from the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#untag_resource)
         """
     def update_gateway_information(
@@ -332,7 +332,7 @@ class BackupGatewayClient(BaseClient):
         """
         Updates a gateway's name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.update_gateway_information)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.update_gateway_information)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#update_gateway_information)
         """
     def update_gateway_software_now(
@@ -341,7 +341,7 @@ class BackupGatewayClient(BaseClient):
         """
         Updates the gateway virtual machine (VM) software.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.update_gateway_software_now)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.update_gateway_software_now)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#update_gateway_software_now)
         """
     def update_hypervisor(
@@ -357,13 +357,13 @@ class BackupGatewayClient(BaseClient):
         """
         Updates a hypervisor metadata, including its host, username, and password.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Client.update_hypervisor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Client.update_hypervisor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/client.html#update_hypervisor)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_gateways"]) -> ListGatewaysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Paginator.ListGateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Paginator.ListGateways)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listgatewayspaginator)
         """
     @overload
@@ -371,7 +371,7 @@ class BackupGatewayClient(BaseClient):
         self, operation_name: Literal["list_hypervisors"]
     ) -> ListHypervisorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Paginator.ListHypervisors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Paginator.ListHypervisors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listhypervisorspaginator)
         """
     @overload
@@ -379,6 +379,6 @@ class BackupGatewayClient(BaseClient):
         self, operation_name: Literal["list_virtual_machines"]
     ) -> ListVirtualMachinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/backup-gateway.html#BackupGateway.Paginator.ListVirtualMachines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backup-gateway.html#BackupGateway.Paginator.ListVirtualMachines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listvirtualmachinespaginator)
         """

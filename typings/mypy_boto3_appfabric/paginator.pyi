@@ -45,7 +45,7 @@ __all__ = (
 
 class ListAppAuthorizationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appfabric.html#AppFabric.Paginator.ListAppAuthorizations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appfabric.html#AppFabric.Paginator.ListAppAuthorizations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listappauthorizationspaginator)
     """
 
@@ -53,13 +53,13 @@ class ListAppAuthorizationsPaginator(Boto3Paginator):
         self, *, appBundleIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppAuthorizationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appfabric.html#AppFabric.Paginator.ListAppAuthorizations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appfabric.html#AppFabric.Paginator.ListAppAuthorizations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listappauthorizationspaginator)
         """
 
 class ListAppBundlesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appfabric.html#AppFabric.Paginator.ListAppBundles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appfabric.html#AppFabric.Paginator.ListAppBundles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listappbundlespaginator)
     """
 
@@ -67,13 +67,13 @@ class ListAppBundlesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppBundlesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appfabric.html#AppFabric.Paginator.ListAppBundles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appfabric.html#AppFabric.Paginator.ListAppBundles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listappbundlespaginator)
         """
 
 class ListIngestionDestinationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appfabric.html#AppFabric.Paginator.ListIngestionDestinations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appfabric.html#AppFabric.Paginator.ListIngestionDestinations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listingestiondestinationspaginator)
     """
 
@@ -85,13 +85,13 @@ class ListIngestionDestinationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIngestionDestinationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appfabric.html#AppFabric.Paginator.ListIngestionDestinations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appfabric.html#AppFabric.Paginator.ListIngestionDestinations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listingestiondestinationspaginator)
         """
 
 class ListIngestionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appfabric.html#AppFabric.Paginator.ListIngestions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appfabric.html#AppFabric.Paginator.ListIngestions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listingestionspaginator)
     """
 
@@ -99,6 +99,6 @@ class ListIngestionsPaginator(Boto3Paginator):
         self, *, appBundleIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIngestionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appfabric.html#AppFabric.Paginator.ListIngestions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appfabric.html#AppFabric.Paginator.ListIngestions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listingestionspaginator)
         """

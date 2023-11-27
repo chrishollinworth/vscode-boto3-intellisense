@@ -92,7 +92,7 @@ class Exceptions:
 
 class MigrationHubStrategyRecommendationsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html)
     """
 
@@ -107,14 +107,14 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#close)
         """
     def generate_presigned_url(
@@ -127,7 +127,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#generate_presigned_url)
         """
     def get_application_component_details(
@@ -136,7 +136,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Retrieves details about an application component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_application_component_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_application_component_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_application_component_details)
         """
     def get_application_component_strategies(
@@ -146,35 +146,35 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         Retrieves a list of all the recommended strategies and tools for an application
         component running on a server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_application_component_strategies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_application_component_strategies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_application_component_strategies)
         """
     def get_assessment(self, *, id: str) -> GetAssessmentResponseTypeDef:
         """
         Retrieves the status of an on-going assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_assessment)
         """
     def get_import_file_task(self, *, id: str) -> GetImportFileTaskResponseTypeDef:
         """
         Retrieves the details about a specific import task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_import_file_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_import_file_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_import_file_task)
         """
     def get_latest_assessment_id(self) -> GetLatestAssessmentIdResponseTypeDef:
         """
         Retrieve the latest ID of a specific assessment task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_latest_assessment_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_latest_assessment_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_latest_assessment_id)
         """
     def get_portfolio_preferences(self) -> GetPortfolioPreferencesResponseTypeDef:
         """
         Retrieves your migration and modernization preferences.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_portfolio_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_portfolio_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_portfolio_preferences)
         """
     def get_portfolio_summary(self) -> GetPortfolioSummaryResponseTypeDef:
@@ -182,7 +182,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         Retrieves overall summary including the number of servers to rehost and the
         overall number of anti-patterns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_portfolio_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_portfolio_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_portfolio_summary)
         """
     def get_recommendation_report_details(
@@ -191,7 +191,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Retrieves detailed information about the specified recommendation report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_recommendation_report_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_recommendation_report_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_recommendation_report_details)
         """
     def get_server_details(
@@ -200,14 +200,14 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Retrieves detailed information about a specified server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_server_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_server_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_server_details)
         """
     def get_server_strategies(self, *, serverId: str) -> GetServerStrategiesResponseTypeDef:
         """
         Retrieves recommended strategies and tools for the specified server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_server_strategies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.get_server_strategies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#get_server_strategies)
         """
     def list_analyzable_servers(
@@ -217,7 +217,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         Retrieves a list of all the servers fetched from customer vCenter using Strategy
         Recommendation Collector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_analyzable_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_analyzable_servers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#list_analyzable_servers)
         """
     def list_application_components(
@@ -233,7 +233,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Retrieves a list of all the application components (processes).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_application_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_application_components)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#list_application_components)
         """
     def list_collectors(
@@ -242,7 +242,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Retrieves a list of all the installed collectors.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_collectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_collectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#list_collectors)
         """
     def list_import_file_task(
@@ -251,7 +251,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Retrieves a list of all the imports performed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_import_file_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_import_file_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#list_import_file_task)
         """
     def list_servers(
@@ -267,7 +267,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Returns a list of all the servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.list_servers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#list_servers)
         """
     def put_portfolio_preferences(
@@ -281,7 +281,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Saves the specified migration and modernization preferences.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.put_portfolio_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.put_portfolio_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#put_portfolio_preferences)
         """
     def start_assessment(
@@ -295,7 +295,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Starts the assessment of an on-premises environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.start_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.start_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#start_assessment)
         """
     def start_import_file_task(
@@ -311,7 +311,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Starts a file import.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.start_import_file_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.start_import_file_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#start_import_file_task)
         """
     def start_recommendation_report_generation(
@@ -320,14 +320,14 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Starts generating a recommendation report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.start_recommendation_report_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.start_recommendation_report_generation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#start_recommendation_report_generation)
         """
     def stop_assessment(self, *, assessmentId: str) -> Dict[str, Any]:
         """
         Stops the assessment of an on-premises environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.stop_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.stop_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#stop_assessment)
         """
     def update_application_component_config(
@@ -344,7 +344,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Updates the configuration of an application component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.update_application_component_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.update_application_component_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#update_application_component_config)
         """
     def update_server_config(
@@ -353,7 +353,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         """
         Updates the configuration of the specified server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.update_server_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Client.update_server_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/client.html#update_server_config)
         """
     @overload
@@ -361,7 +361,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         self, operation_name: Literal["get_server_details"]
     ) -> GetServerDetailsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.GetServerDetails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.GetServerDetails)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/paginators.html#getserverdetailspaginator)
         """
     @overload
@@ -369,7 +369,7 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         self, operation_name: Literal["list_analyzable_servers"]
     ) -> ListAnalyzableServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListAnalyzableServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListAnalyzableServers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/paginators.html#listanalyzableserverspaginator)
         """
     @overload
@@ -377,13 +377,13 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         self, operation_name: Literal["list_application_components"]
     ) -> ListApplicationComponentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListApplicationComponents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListApplicationComponents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/paginators.html#listapplicationcomponentspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_collectors"]) -> ListCollectorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListCollectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListCollectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/paginators.html#listcollectorspaginator)
         """
     @overload
@@ -391,12 +391,12 @@ class MigrationHubStrategyRecommendationsClient(BaseClient):
         self, operation_name: Literal["list_import_file_task"]
     ) -> ListImportFileTaskPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListImportFileTask)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListImportFileTask)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/paginators.html#listimportfiletaskpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_servers"]) -> ListServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/migrationhubstrategy.html#MigrationHubStrategyRecommendations.Paginator.ListServers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/paginators.html#listserverspaginator)
         """

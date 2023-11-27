@@ -33,7 +33,7 @@ __all__ = (
 )
 
 DescribeVoicesPaginatorName = Literal["describe_voices"]
-EngineType = Literal["neural", "standard"]
+EngineType = Literal["long-form", "neural", "standard"]
 GenderType = Literal["Female", "Male"]
 LanguageCodeType = Literal[
     "ar-AE",

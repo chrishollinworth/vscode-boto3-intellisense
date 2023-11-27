@@ -72,6 +72,7 @@ from .literals import (
     ServerCertificateStatusType,
     ServiceTypeType,
     StatusType,
+    TargetFieldOrderType,
     TargetSelectionType,
     TemplateTypeType,
     ThingConnectivityIndexingModeType,
@@ -342,6 +343,7 @@ __all__ = (
     "FileLocationTypeDef",
     "FirehoseActionTypeDef",
     "FleetMetricNameAndArnTypeDef",
+    "GeoLocationTargetTypeDef",
     "GetBehaviorModelTrainingSummariesRequestRequestTypeDef",
     "GetBehaviorModelTrainingSummariesResponseTypeDef",
     "GetBucketsAggregationRequestRequestTypeDef",
@@ -535,6 +537,7 @@ __all__ = (
     "MetricDimensionTypeDef",
     "MetricToRetainTypeDef",
     "MetricValueTypeDef",
+    "MetricsExportConfigTypeDef",
     "MitigationActionIdentifierTypeDef",
     "MitigationActionParamsTypeDef",
     "MitigationActionTypeDef",
@@ -1274,6 +1277,7 @@ _OptionalBehaviorTypeDef = TypedDict(
         "metricDimension": "MetricDimensionTypeDef",
         "criteria": "BehaviorCriteriaTypeDef",
         "suppressAlerts": bool,
+        "exportMetric": bool,
     },
     total=False,
 )
@@ -2323,6 +2327,7 @@ _OptionalCreateSecurityProfileRequestRequestTypeDef = TypedDict(
         "additionalMetricsToRetain": List[str],
         "additionalMetricsToRetainV2": List["MetricToRetainTypeDef"],
         "tags": List["TagTypeDef"],
+        "metricsExportConfig": "MetricsExportConfigTypeDef",
     },
     total=False,
 )
@@ -3464,6 +3469,7 @@ DescribeSecurityProfileResponseTypeDef = TypedDict(
         "version": int,
         "creationDate": datetime,
         "lastModifiedDate": datetime,
+        "metricsExportConfig": "MetricsExportConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3833,6 +3839,15 @@ FleetMetricNameAndArnTypeDef = TypedDict(
     {
         "metricName": str,
         "metricArn": str,
+    },
+    total=False,
+)
+
+GeoLocationTargetTypeDef = TypedDict(
+    "GeoLocationTargetTypeDef",
+    {
+        "name": str,
+        "order": TargetFieldOrderType,
     },
     total=False,
 )
@@ -4275,6 +4290,7 @@ IndexingFilterTypeDef = TypedDict(
     "IndexingFilterTypeDef",
     {
         "namedShadowNames": List[str],
+        "geoLocations": List["GeoLocationTargetTypeDef"],
     },
     total=False,
 )
@@ -6128,6 +6144,7 @@ _OptionalMetricToRetainTypeDef = TypedDict(
     "_OptionalMetricToRetainTypeDef",
     {
         "metricDimension": "MetricDimensionTypeDef",
+        "exportMetric": bool,
     },
     total=False,
 )
@@ -6146,6 +6163,14 @@ MetricValueTypeDef = TypedDict(
         "strings": List[str],
     },
     total=False,
+)
+
+MetricsExportConfigTypeDef = TypedDict(
+    "MetricsExportConfigTypeDef",
+    {
+        "mqttTopic": str,
+        "roleArn": str,
+    },
 )
 
 MitigationActionIdentifierTypeDef = TypedDict(
@@ -8140,6 +8165,8 @@ _OptionalUpdateSecurityProfileRequestRequestTypeDef = TypedDict(
         "deleteAlertTargets": bool,
         "deleteAdditionalMetricsToRetain": bool,
         "expectedVersion": int,
+        "metricsExportConfig": "MetricsExportConfigTypeDef",
+        "deleteMetricsExportConfig": bool,
     },
     total=False,
 )
@@ -8163,6 +8190,7 @@ UpdateSecurityProfileResponseTypeDef = TypedDict(
         "version": int,
         "creationDate": datetime,
         "lastModifiedDate": datetime,
+        "metricsExportConfig": "MetricsExportConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

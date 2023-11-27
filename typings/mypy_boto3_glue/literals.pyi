@@ -26,6 +26,7 @@ __all__ = (
     "BlueprintStatusType",
     "CatalogEncryptionModeType",
     "CloudWatchEncryptionModeType",
+    "ColumnStatisticsStateType",
     "ColumnStatisticsTypeType",
     "ComparatorType",
     "CompatibilityType",
@@ -111,6 +112,8 @@ __all__ = (
     "SourceControlProviderType",
     "StartingPositionType",
     "StatementStateType",
+    "TableOptimizerEventTypeType",
+    "TableOptimizerTypeType",
     "TargetFormatType",
     "TaskRunSortColumnTypeType",
     "TaskStatusTypeType",
@@ -156,6 +159,7 @@ BlueprintRunStateType = Literal["FAILED", "ROLLING_BACK", "RUNNING", "SUCCEEDED"
 BlueprintStatusType = Literal["ACTIVE", "CREATING", "FAILED", "UPDATING"]
 CatalogEncryptionModeType = Literal["DISABLED", "SSE-KMS"]
 CloudWatchEncryptionModeType = Literal["DISABLED", "SSE-KMS"]
+ColumnStatisticsStateType = Literal["FAILED", "RUNNING", "STARTING", "STOPPED", "SUCCEEDED"]
 ColumnStatisticsTypeType = Literal[
     "BINARY", "BOOLEAN", "DATE", "DECIMAL", "DOUBLE", "LONG", "STRING"
 ]
@@ -351,6 +355,8 @@ SourceControlAuthStrategyType = Literal["AWS_SECRETS_MANAGER", "PERSONAL_ACCESS_
 SourceControlProviderType = Literal["AWS_CODE_COMMIT", "BITBUCKET", "GITHUB", "GITLAB"]
 StartingPositionType = Literal["earliest", "latest", "timestamp", "trim_horizon"]
 StatementStateType = Literal["AVAILABLE", "CANCELLED", "CANCELLING", "ERROR", "RUNNING", "WAITING"]
+TableOptimizerEventTypeType = Literal["completed", "failed", "in_progress", "starting"]
+TableOptimizerTypeType = Literal["compaction"]
 TargetFormatType = Literal["avro", "csv", "delta", "hudi", "json", "orc", "parquet"]
 TaskRunSortColumnTypeType = Literal["STARTED", "STATUS", "TASK_RUN_TYPE"]
 TaskStatusTypeType = Literal[

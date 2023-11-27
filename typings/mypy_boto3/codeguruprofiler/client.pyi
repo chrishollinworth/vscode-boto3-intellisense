@@ -76,7 +76,7 @@ class Exceptions:
 
 class CodeGuruProfilerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html)
     """
 
@@ -93,7 +93,7 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Add up to 2 anomaly notifications channels for a profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.add_notification_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.add_notification_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#add_notification_channels)
         """
     def batch_get_frame_metric_data(
@@ -110,21 +110,21 @@ class CodeGuruProfilerClient(BaseClient):
         Returns the time series of values for a requested list of frame metrics from a
         time period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.batch_get_frame_metric_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.batch_get_frame_metric_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#batch_get_frame_metric_data)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#close)
         """
     def configure_agent(
@@ -138,7 +138,7 @@ class CodeGuruProfilerClient(BaseClient):
         Used by profiler agents to report their current state and to receive remote
         configuration updates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.configure_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.configure_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#configure_agent)
         """
     def create_profiling_group(
@@ -153,14 +153,14 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Creates a profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.create_profiling_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.create_profiling_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#create_profiling_group)
         """
     def delete_profiling_group(self, *, profilingGroupName: str) -> Dict[str, Any]:
         """
         Deletes a profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.delete_profiling_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.delete_profiling_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#delete_profiling_group)
         """
     def describe_profiling_group(
@@ -172,7 +172,7 @@ class CodeGuruProfilerClient(BaseClient):
         api/API_ProfilingGroupDescription.html>`__ object that contains information
         about the requested profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.describe_profiling_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.describe_profiling_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#describe_profiling_group)
         """
     def generate_presigned_url(
@@ -185,7 +185,7 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#generate_presigned_url)
         """
     def get_findings_report_account_summary(
@@ -197,7 +197,7 @@ class CodeGuruProfilerClient(BaseClient):
         api/API_FindingsReportSummary.html>`__ objects that contain analysis results for
         all profiling groups in your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_findings_report_account_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_findings_report_account_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#get_findings_report_account_summary)
         """
     def get_notification_configuration(
@@ -206,14 +206,14 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Get the current configuration for anomaly notifications for a profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_notification_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_notification_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#get_notification_configuration)
         """
     def get_policy(self, *, profilingGroupName: str) -> GetPolicyResponseTypeDef:
         """
         Returns the JSON-formatted resource-based policy on a profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#get_policy)
         """
     def get_profile(
@@ -229,7 +229,7 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Gets the aggregated profile of a profiling group for a specified time range.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#get_profile)
         """
     def get_recommendations(
@@ -246,7 +246,7 @@ class CodeGuruProfilerClient(BaseClient):
         api/API_Recommendation.html>`__ objects that contain recommendations for a
         profiling group for a given time period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#get_recommendations)
         """
     def list_findings_reports(
@@ -262,7 +262,7 @@ class CodeGuruProfilerClient(BaseClient):
         """
         List the available reports for a given profiling group and time range.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_findings_reports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_findings_reports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#list_findings_reports)
         """
     def list_profile_times(
@@ -280,7 +280,7 @@ class CodeGuruProfilerClient(BaseClient):
         Lists the start times of the available aggregated profiles of a profiling group
         for an aggregation period within the specified time range.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_profile_times)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_profile_times)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#list_profile_times)
         """
     def list_profiling_groups(
@@ -289,14 +289,14 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Returns a list of profiling groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_profiling_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_profiling_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#list_profiling_groups)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Returns a list of the tags that are assigned to a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#list_tags_for_resource)
         """
     def post_agent_profile(
@@ -310,7 +310,7 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Submits profiling data to an aggregated profile of a profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.post_agent_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.post_agent_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#post_agent_profile)
         """
     def put_permission(
@@ -325,7 +325,7 @@ class CodeGuruProfilerClient(BaseClient):
         Adds permissions to a profiling group's resource-based policy that are provided
         using an action group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.put_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.put_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#put_permission)
         """
     def remove_notification_channel(
@@ -334,7 +334,7 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Remove one anomaly notifications channel for a profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.remove_notification_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.remove_notification_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#remove_notification_channel)
         """
     def remove_permission(
@@ -344,7 +344,7 @@ class CodeGuruProfilerClient(BaseClient):
         Removes permissions from a profiling group's resource-based policy that are
         provided using an action group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.remove_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.remove_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#remove_permission)
         """
     def submit_feedback(
@@ -359,21 +359,21 @@ class CodeGuruProfilerClient(BaseClient):
         Sends feedback to CodeGuru Profiler about whether the anomaly detected by the
         analysis is useful or not.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.submit_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.submit_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#submit_feedback)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Use to assign one or more tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Use to remove one or more tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#untag_resource)
         """
     def update_profiling_group(
@@ -385,13 +385,13 @@ class CodeGuruProfilerClient(BaseClient):
         """
         Updates a profiling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.update_profiling_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.update_profiling_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/client.html#update_profiling_group)
         """
     def get_paginator(
         self, operation_name: Literal["list_profile_times"]
     ) -> ListProfileTimesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/paginators.html#listprofiletimespaginator)
         """

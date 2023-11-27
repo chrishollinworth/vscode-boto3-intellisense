@@ -26,6 +26,7 @@ from .type_defs import (
     ListPipesResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     PipeEnrichmentParametersTypeDef,
+    PipeLogConfigurationParametersTypeDef,
     PipeSourceParametersTypeDef,
     PipeTargetParametersTypeDef,
     StartPipeResponseTypeDef,
@@ -59,7 +60,7 @@ class Exceptions:
 
 class EventBridgePipesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html)
     """
 
@@ -74,14 +75,14 @@ class EventBridgePipesClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#close)
         """
     def create_pipe(
@@ -95,6 +96,7 @@ class EventBridgePipesClient(BaseClient):
         DesiredState: RequestedPipeStateType = None,
         Enrichment: str = None,
         EnrichmentParameters: "PipeEnrichmentParametersTypeDef" = None,
+        LogConfiguration: "PipeLogConfigurationParametersTypeDef" = None,
         SourceParameters: "PipeSourceParametersTypeDef" = None,
         Tags: Dict[str, str] = None,
         TargetParameters: "PipeTargetParametersTypeDef" = None
@@ -102,21 +104,21 @@ class EventBridgePipesClient(BaseClient):
         """
         Create a pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.create_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.create_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#create_pipe)
         """
     def delete_pipe(self, *, Name: str) -> DeletePipeResponseTypeDef:
         """
         Delete an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.delete_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.delete_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#delete_pipe)
         """
     def describe_pipe(self, *, Name: str) -> DescribePipeResponseTypeDef:
         """
         Get the information about an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.describe_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.describe_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#describe_pipe)
         """
     def generate_presigned_url(
@@ -129,7 +131,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#generate_presigned_url)
         """
     def list_pipes(
@@ -146,42 +148,42 @@ class EventBridgePipesClient(BaseClient):
         """
         Get the pipes associated with this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.list_pipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.list_pipes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#list_pipes)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Displays the tags associated with a pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#list_tags_for_resource)
         """
     def start_pipe(self, *, Name: str) -> StartPipeResponseTypeDef:
         """
         Start an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.start_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.start_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#start_pipe)
         """
     def stop_pipe(self, *, Name: str) -> StopPipeResponseTypeDef:
         """
         Stop an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.stop_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.stop_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#stop_pipe)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Assigns one or more tags (key-value pairs) to the specified pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes one or more tags from the specified pipes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#untag_resource)
         """
     def update_pipe(
@@ -193,6 +195,7 @@ class EventBridgePipesClient(BaseClient):
         DesiredState: RequestedPipeStateType = None,
         Enrichment: str = None,
         EnrichmentParameters: "PipeEnrichmentParametersTypeDef" = None,
+        LogConfiguration: "PipeLogConfigurationParametersTypeDef" = None,
         SourceParameters: "UpdatePipeSourceParametersTypeDef" = None,
         Target: str = None,
         TargetParameters: "PipeTargetParametersTypeDef" = None
@@ -200,11 +203,11 @@ class EventBridgePipesClient(BaseClient):
         """
         Update an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Client.update_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Client.update_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#update_pipe)
         """
     def get_paginator(self, operation_name: Literal["list_pipes"]) -> ListPipesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/pipes.html#EventBridgePipes.Paginator.ListPipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/pipes.html#EventBridgePipes.Paginator.ListPipes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/paginators.html#listpipespaginator)
         """

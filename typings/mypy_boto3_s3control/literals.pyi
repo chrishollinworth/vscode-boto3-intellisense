@@ -28,6 +28,7 @@ __all__ = (
     "ExpirationStatusType",
     "FormatType",
     "GeneratedManifestFormatType",
+    "GranteeTypeType",
     "JobManifestFieldNameType",
     "JobManifestFormatType",
     "JobReportFormatType",
@@ -45,6 +46,8 @@ __all__ = (
     "OperationNameType",
     "OutputSchemaVersionType",
     "OwnerOverrideType",
+    "PermissionType",
+    "PrivilegeType",
     "ReplicaModificationsStatusType",
     "ReplicationRuleStatusType",
     "ReplicationStatusType",
@@ -60,6 +63,7 @@ __all__ = (
     "S3ObjectLockModeType",
     "S3ObjectLockRetentionModeType",
     "S3PermissionType",
+    "S3PrefixTypeType",
     "S3SSEAlgorithmType",
     "S3StorageClassType",
     "SseKmsEncryptedObjectsStatusType",
@@ -91,6 +95,7 @@ ExistingObjectReplicationStatusType = Literal["Disabled", "Enabled"]
 ExpirationStatusType = Literal["Disabled", "Enabled"]
 FormatType = Literal["CSV", "Parquet"]
 GeneratedManifestFormatType = Literal["S3InventoryReport_CSV_20211130"]
+GranteeTypeType = Literal["DIRECTORY_GROUP", "DIRECTORY_USER", "IAM"]
 JobManifestFieldNameType = Literal["Bucket", "Ignore", "Key", "VersionId"]
 JobManifestFormatType = Literal["S3BatchOperations_CSV_20180820", "S3InventoryReport_CSV_20161130"]
 JobReportFormatType = Literal["Report_CSV_20180820"]
@@ -143,6 +148,8 @@ OperationNameType = Literal[
 ]
 OutputSchemaVersionType = Literal["V_1"]
 OwnerOverrideType = Literal["Destination"]
+PermissionType = Literal["READ", "READWRITE", "WRITE"]
+PrivilegeType = Literal["Default", "Minimal"]
 ReplicaModificationsStatusType = Literal["Disabled", "Enabled"]
 ReplicationRuleStatusType = Literal["Disabled", "Enabled"]
 ReplicationStatusType = Literal["COMPLETED", "FAILED", "NONE", "REPLICA"]
@@ -176,6 +183,7 @@ S3ObjectLockLegalHoldStatusType = Literal["OFF", "ON"]
 S3ObjectLockModeType = Literal["COMPLIANCE", "GOVERNANCE"]
 S3ObjectLockRetentionModeType = Literal["COMPLIANCE", "GOVERNANCE"]
 S3PermissionType = Literal["FULL_CONTROL", "READ", "READ_ACP", "WRITE", "WRITE_ACP"]
+S3PrefixTypeType = Literal["Object"]
 S3SSEAlgorithmType = Literal["AES256", "KMS"]
 S3StorageClassType = Literal[
     "DEEP_ARCHIVE",

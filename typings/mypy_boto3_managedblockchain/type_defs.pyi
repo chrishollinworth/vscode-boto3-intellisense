@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AccessorNetworkTypeType,
     AccessorStatusType,
     EditionType,
     FrameworkType,
@@ -133,6 +134,7 @@ AccessorSummaryTypeDef = TypedDict(
         "Status": AccessorStatusType,
         "CreationDate": datetime,
         "Arn": str,
+        "NetworkType": AccessorNetworkTypeType,
     },
     total=False,
 )
@@ -147,6 +149,7 @@ AccessorTypeDef = TypedDict(
         "CreationDate": datetime,
         "Arn": str,
         "Tags": Dict[str, str],
+        "NetworkType": AccessorNetworkTypeType,
     },
     total=False,
 )
@@ -172,6 +175,7 @@ _OptionalCreateAccessorInputRequestTypeDef = TypedDict(
     "_OptionalCreateAccessorInputRequestTypeDef",
     {
         "Tags": Dict[str, str],
+        "NetworkType": AccessorNetworkTypeType,
     },
     total=False,
 )
@@ -186,6 +190,7 @@ CreateAccessorOutputTypeDef = TypedDict(
     {
         "AccessorId": str,
         "BillingToken": str,
+        "NetworkType": AccessorNetworkTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -454,6 +459,7 @@ ListAccessorsInputRequestTypeDef = TypedDict(
     {
         "MaxResults": int,
         "NextToken": str,
+        "NetworkType": AccessorNetworkTypeType,
     },
     total=False,
 )

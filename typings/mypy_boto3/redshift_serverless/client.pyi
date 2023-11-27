@@ -109,7 +109,7 @@ class Exceptions:
 
 class RedshiftServerlessClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html)
     """
 
@@ -124,14 +124,14 @@ class RedshiftServerlessClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#close)
         """
     def convert_recovery_point_to_snapshot(
@@ -145,7 +145,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Converts a recovery point to a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.convert_recovery_point_to_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.convert_recovery_point_to_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#convert_recovery_point_to_snapshot)
         """
     def create_custom_domain_association(
@@ -154,7 +154,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Creates a custom domain association for Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_custom_domain_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_custom_domain_association)
         """
     def create_endpoint_access(
@@ -168,7 +168,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Creates an Amazon Redshift Serverless managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_endpoint_access)
         """
     def create_namespace(
@@ -184,12 +184,13 @@ class RedshiftServerlessClient(BaseClient):
         kmsKeyId: str = None,
         logExports: List[LogExportType] = None,
         manageAdminPassword: bool = None,
+        redshiftIdcApplicationArn: str = None,
         tags: List["TagTypeDef"] = None
     ) -> CreateNamespaceResponseTypeDef:
         """
         Creates a namespace in Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_namespace)
         """
     def create_snapshot(
@@ -203,7 +204,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Creates a snapshot of all databases in a namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_snapshot)
         """
     def create_usage_limit(
@@ -218,7 +219,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Creates a usage limit for a specified Amazon Redshift Serverless usage type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_usage_limit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_usage_limit)
         """
     def create_workgroup(
@@ -239,7 +240,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Creates an workgroup in Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_workgroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_workgroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_workgroup)
         """
     def delete_custom_domain_association(
@@ -248,14 +249,14 @@ class RedshiftServerlessClient(BaseClient):
         """
         Deletes a custom domain association for Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_custom_domain_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_custom_domain_association)
         """
     def delete_endpoint_access(self, *, endpointName: str) -> DeleteEndpointAccessResponseTypeDef:
         """
         Deletes an Amazon Redshift Serverless managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_endpoint_access)
         """
     def delete_namespace(
@@ -268,35 +269,35 @@ class RedshiftServerlessClient(BaseClient):
         """
         Deletes a namespace from Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_namespace)
         """
     def delete_resource_policy(self, *, resourceArn: str) -> Dict[str, Any]:
         """
         Deletes the specified resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_resource_policy)
         """
     def delete_snapshot(self, *, snapshotName: str) -> DeleteSnapshotResponseTypeDef:
         """
         Deletes a snapshot from Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_snapshot)
         """
     def delete_usage_limit(self, *, usageLimitId: str) -> DeleteUsageLimitResponseTypeDef:
         """
         Deletes a usage limit from Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_usage_limit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_usage_limit)
         """
     def delete_workgroup(self, *, workgroupName: str) -> DeleteWorkgroupResponseTypeDef:
         """
         Deletes a workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_workgroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_workgroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_workgroup)
         """
     def generate_presigned_url(
@@ -309,7 +310,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#generate_presigned_url)
         """
     def get_credentials(
@@ -324,7 +325,7 @@ class RedshiftServerlessClient(BaseClient):
         Returns a database user name and temporary password with temporary authorization
         to log in to Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_credentials)
         """
     def get_custom_domain_association(
@@ -333,35 +334,35 @@ class RedshiftServerlessClient(BaseClient):
         """
         Gets information about a specific custom domain association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_custom_domain_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_custom_domain_association)
         """
     def get_endpoint_access(self, *, endpointName: str) -> GetEndpointAccessResponseTypeDef:
         """
         Returns information, such as the name, about a VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_endpoint_access)
         """
     def get_namespace(self, *, namespaceName: str) -> GetNamespaceResponseTypeDef:
         """
         Returns information about a namespace in Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_namespace)
         """
     def get_recovery_point(self, *, recoveryPointId: str) -> GetRecoveryPointResponseTypeDef:
         """
         Returns information about a recovery point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_recovery_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_recovery_point)
         """
     def get_resource_policy(self, *, resourceArn: str) -> GetResourcePolicyResponseTypeDef:
         """
         Returns a resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_resource_policy)
         """
     def get_snapshot(
@@ -370,7 +371,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Returns information about a specific snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_snapshot)
         """
     def get_table_restore_status(
@@ -379,21 +380,21 @@ class RedshiftServerlessClient(BaseClient):
         """
         Returns information about a `TableRestoreStatus` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_table_restore_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_table_restore_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_table_restore_status)
         """
     def get_usage_limit(self, *, usageLimitId: str) -> GetUsageLimitResponseTypeDef:
         """
         Returns information about a usage limit.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_usage_limit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_usage_limit)
         """
     def get_workgroup(self, *, workgroupName: str) -> GetWorkgroupResponseTypeDef:
         """
         Returns information about a specific workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_workgroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_workgroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_workgroup)
         """
     def list_custom_domain_associations(
@@ -407,7 +408,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Lists custom domain associations for Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_custom_domain_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_custom_domain_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_custom_domain_associations)
         """
     def list_endpoint_access(
@@ -421,7 +422,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Returns an array of `EndpointAccess` objects and relevant information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_endpoint_access)
         """
     def list_namespaces(
@@ -430,7 +431,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Returns information about a list of specified namespaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_namespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_namespaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_namespaces)
         """
     def list_recovery_points(
@@ -446,7 +447,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Returns an array of recovery points.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_recovery_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_recovery_points)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_recovery_points)
         """
     def list_snapshots(
@@ -463,7 +464,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Returns a list of snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_snapshots)
         """
     def list_table_restore_status(
@@ -477,14 +478,14 @@ class RedshiftServerlessClient(BaseClient):
         """
         Returns information about an array of `TableRestoreStatus` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_table_restore_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_table_restore_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_table_restore_status)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags assigned to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_tags_for_resource)
         """
     def list_usage_limits(
@@ -498,7 +499,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Lists all usage limits within Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_usage_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_usage_limits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_usage_limits)
         """
     def list_workgroups(
@@ -507,7 +508,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Returns information about a list of specified workgroups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_workgroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_workgroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_workgroups)
         """
     def put_resource_policy(
@@ -516,7 +517,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Creates or updates a resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#put_resource_policy)
         """
     def restore_from_recovery_point(
@@ -525,7 +526,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Restore the data from a recovery point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_from_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_from_recovery_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#restore_from_recovery_point)
         """
     def restore_from_snapshot(
@@ -542,7 +543,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Restores a namespace from a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_from_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#restore_from_snapshot)
         """
     def restore_table_from_snapshot(
@@ -562,21 +563,21 @@ class RedshiftServerlessClient(BaseClient):
         """
         Restores a table from a snapshot to your Amazon Redshift Serverless instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_table_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_table_from_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#restore_table_from_snapshot)
         """
     def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Assigns one or more tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a tag or set of tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#untag_resource)
         """
     def update_custom_domain_association(
@@ -586,7 +587,7 @@ class RedshiftServerlessClient(BaseClient):
         Updates an Amazon Redshift Serverless certificate associated with a custom
         domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_custom_domain_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_custom_domain_association)
         """
     def update_endpoint_access(
@@ -595,7 +596,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Updates an Amazon Redshift Serverless managed endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_endpoint_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_endpoint_access)
         """
     def update_namespace(
@@ -614,7 +615,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Updates a namespace with the specified settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_namespace)
         """
     def update_snapshot(
@@ -623,7 +624,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Updates a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_snapshot)
         """
     def update_usage_limit(
@@ -636,7 +637,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Update a usage limit in Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_usage_limit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_usage_limit)
         """
     def update_workgroup(
@@ -655,7 +656,7 @@ class RedshiftServerlessClient(BaseClient):
         """
         Updates a workgroup with the specified configuration settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_workgroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_workgroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_workgroup)
         """
     @overload
@@ -663,7 +664,7 @@ class RedshiftServerlessClient(BaseClient):
         self, operation_name: Literal["list_custom_domain_associations"]
     ) -> ListCustomDomainAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListCustomDomainAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListCustomDomainAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listcustomdomainassociationspaginator)
         """
     @overload
@@ -671,13 +672,13 @@ class RedshiftServerlessClient(BaseClient):
         self, operation_name: Literal["list_endpoint_access"]
     ) -> ListEndpointAccessPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListEndpointAccess)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListEndpointAccess)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listendpointaccesspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_namespaces"]) -> ListNamespacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListNamespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListNamespaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listnamespacespaginator)
         """
     @overload
@@ -685,13 +686,13 @@ class RedshiftServerlessClient(BaseClient):
         self, operation_name: Literal["list_recovery_points"]
     ) -> ListRecoveryPointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListRecoveryPoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListRecoveryPoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listrecoverypointspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_snapshots"]) -> ListSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListSnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listsnapshotspaginator)
         """
     @overload
@@ -699,7 +700,7 @@ class RedshiftServerlessClient(BaseClient):
         self, operation_name: Literal["list_table_restore_status"]
     ) -> ListTableRestoreStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListTableRestoreStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListTableRestoreStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listtablerestorestatuspaginator)
         """
     @overload
@@ -707,12 +708,12 @@ class RedshiftServerlessClient(BaseClient):
         self, operation_name: Literal["list_usage_limits"]
     ) -> ListUsageLimitsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListUsageLimits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListUsageLimits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listusagelimitspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_workgroups"]) -> ListWorkgroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListWorkgroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListWorkgroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listworkgroupspaginator)
         """

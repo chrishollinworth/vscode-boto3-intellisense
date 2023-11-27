@@ -130,6 +130,7 @@ __all__ = (
     "StartTranscriptionJobResponseTypeDef",
     "SubtitlesOutputTypeDef",
     "SubtitlesTypeDef",
+    "SummarizationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "ToxicityDetectionSettingsTypeDef",
@@ -171,6 +172,7 @@ CallAnalyticsJobSettingsTypeDef = TypedDict(
         "ContentRedaction": "ContentRedactionTypeDef",
         "LanguageOptions": List[LanguageCodeType],
         "LanguageIdSettings": Dict[LanguageCodeType, "LanguageIdSettingsTypeDef"],
+        "Summarization": "SummarizationTypeDef",
     },
     total=False,
 )
@@ -1152,6 +1154,13 @@ SubtitlesTypeDef = TypedDict(
         "OutputStartIndex": int,
     },
     total=False,
+)
+
+SummarizationTypeDef = TypedDict(
+    "SummarizationTypeDef",
+    {
+        "GenerateAbstractiveSummary": bool,
+    },
 )
 
 TagResourceRequestRequestTypeDef = TypedDict(

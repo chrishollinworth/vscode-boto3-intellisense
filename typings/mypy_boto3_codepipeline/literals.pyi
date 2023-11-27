@@ -40,6 +40,7 @@ __all__ = (
     "PipelineExecutionStatusType",
     "PipelineTriggerProviderTypeType",
     "PipelineTypeType",
+    "SourceRevisionTypeType",
     "StageExecutionStatusType",
     "StageRetryModeType",
     "StageTransitionTypeType",
@@ -79,6 +80,7 @@ PipelineExecutionStatusType = Literal[
 ]
 PipelineTriggerProviderTypeType = Literal["CodeStarSourceConnection"]
 PipelineTypeType = Literal["V1", "V2"]
+SourceRevisionTypeType = Literal["COMMIT_ID", "IMAGE_DIGEST", "S3_OBJECT_VERSION_ID"]
 StageExecutionStatusType = Literal[
     "Cancelled", "Failed", "InProgress", "Stopped", "Stopping", "Succeeded"
 ]

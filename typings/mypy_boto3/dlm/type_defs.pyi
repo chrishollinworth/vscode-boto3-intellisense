@@ -16,8 +16,11 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    DefaultPoliciesTypeValuesType,
+    DefaultPolicyTypeValuesType,
     GettablePolicyStateValuesType,
     LocationValuesType,
+    PolicyLanguageValuesType,
     PolicyTypeValuesType,
     ResourceLocationValuesType,
     ResourceTypeValuesType,
@@ -46,11 +49,13 @@ __all__ = (
     "CrossRegionCopyDeprecateRuleTypeDef",
     "CrossRegionCopyRetainRuleTypeDef",
     "CrossRegionCopyRuleTypeDef",
+    "CrossRegionCopyTargetTypeDef",
     "DeleteLifecyclePolicyRequestRequestTypeDef",
     "DeprecateRuleTypeDef",
     "EncryptionConfigurationTypeDef",
     "EventParametersTypeDef",
     "EventSourceTypeDef",
+    "ExclusionsTypeDef",
     "FastRestoreRuleTypeDef",
     "GetLifecyclePoliciesRequestRequestTypeDef",
     "GetLifecyclePoliciesResponseTypeDef",
@@ -102,13 +107,20 @@ _RequiredCreateLifecyclePolicyRequestRequestTypeDef = TypedDict(
         "ExecutionRoleArn": str,
         "Description": str,
         "State": SettablePolicyStateValuesType,
-        "PolicyDetails": "PolicyDetailsTypeDef",
     },
 )
 _OptionalCreateLifecyclePolicyRequestRequestTypeDef = TypedDict(
     "_OptionalCreateLifecyclePolicyRequestRequestTypeDef",
     {
+        "PolicyDetails": "PolicyDetailsTypeDef",
         "Tags": Dict[str, str],
+        "DefaultPolicy": DefaultPolicyTypeValuesType,
+        "CreateInterval": int,
+        "RetainInterval": int,
+        "CopyTags": bool,
+        "ExtendDeletion": bool,
+        "CrossRegionCopyTargets": List["CrossRegionCopyTargetTypeDef"],
+        "Exclusions": "ExclusionsTypeDef",
     },
     total=False,
 )
@@ -202,6 +214,14 @@ class CrossRegionCopyRuleTypeDef(
 ):
     pass
 
+CrossRegionCopyTargetTypeDef = TypedDict(
+    "CrossRegionCopyTargetTypeDef",
+    {
+        "TargetRegion": str,
+    },
+    total=False,
+)
+
 DeleteLifecyclePolicyRequestRequestTypeDef = TypedDict(
     "DeleteLifecyclePolicyRequestRequestTypeDef",
     {
@@ -264,6 +284,16 @@ _OptionalEventSourceTypeDef = TypedDict(
 class EventSourceTypeDef(_RequiredEventSourceTypeDef, _OptionalEventSourceTypeDef):
     pass
 
+ExclusionsTypeDef = TypedDict(
+    "ExclusionsTypeDef",
+    {
+        "ExcludeBootVolumes": bool,
+        "ExcludeVolumeTypes": List[str],
+        "ExcludeTags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 _RequiredFastRestoreRuleTypeDef = TypedDict(
     "_RequiredFastRestoreRuleTypeDef",
     {
@@ -291,6 +321,7 @@ GetLifecyclePoliciesRequestRequestTypeDef = TypedDict(
         "ResourceTypes": List[ResourceTypeValuesType],
         "TargetTags": List[str],
         "TagsToAdd": List[str],
+        "DefaultPolicyType": DefaultPoliciesTypeValuesType,
     },
     total=False,
 )
@@ -326,6 +357,7 @@ LifecyclePolicySummaryTypeDef = TypedDict(
         "State": GettablePolicyStateValuesType,
         "Tags": Dict[str, str],
         "PolicyType": PolicyTypeValuesType,
+        "DefaultPolicy": bool,
     },
     total=False,
 )
@@ -343,6 +375,7 @@ LifecyclePolicyTypeDef = TypedDict(
         "PolicyDetails": "PolicyDetailsTypeDef",
         "Tags": Dict[str, str],
         "PolicyArn": str,
+        "DefaultPolicy": bool,
     },
     total=False,
 )
@@ -383,6 +416,14 @@ PolicyDetailsTypeDef = TypedDict(
         "Parameters": "ParametersTypeDef",
         "EventSource": "EventSourceTypeDef",
         "Actions": List["ActionTypeDef"],
+        "PolicyLanguage": PolicyLanguageValuesType,
+        "ResourceType": ResourceTypeValuesType,
+        "CreateInterval": int,
+        "RetainInterval": int,
+        "CopyTags": bool,
+        "CrossRegionCopyTargets": List["CrossRegionCopyTargetTypeDef"],
+        "ExtendDeletion": bool,
+        "Exclusions": "ExclusionsTypeDef",
     },
     total=False,
 )
@@ -512,6 +553,12 @@ _OptionalUpdateLifecyclePolicyRequestRequestTypeDef = TypedDict(
         "State": SettablePolicyStateValuesType,
         "Description": str,
         "PolicyDetails": "PolicyDetailsTypeDef",
+        "CreateInterval": int,
+        "RetainInterval": int,
+        "CopyTags": bool,
+        "ExtendDeletion": bool,
+        "CrossRegionCopyTargets": List["CrossRegionCopyTargetTypeDef"],
+        "Exclusions": "ExclusionsTypeDef",
     },
     total=False,
 )

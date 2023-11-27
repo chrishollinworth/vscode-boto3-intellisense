@@ -69,7 +69,7 @@ __all__ = (
 
 class DescribeAffectedAccountsForOrganizationPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeaffectedaccountsfororganizationpaginator)
     """
 
@@ -77,13 +77,13 @@ class DescribeAffectedAccountsForOrganizationPaginator(Boto3Paginator):
         self, *, eventArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAffectedAccountsForOrganizationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeaffectedaccountsfororganizationpaginator)
         """
 
 class DescribeAffectedEntitiesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeAffectedEntities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeAffectedEntities)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeaffectedentitiespaginator)
     """
 
@@ -95,13 +95,13 @@ class DescribeAffectedEntitiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAffectedEntitiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeAffectedEntities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeAffectedEntities.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeaffectedentitiespaginator)
         """
 
 class DescribeAffectedEntitiesForOrganizationPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeaffectedentitiesfororganizationpaginator)
     """
 
@@ -114,13 +114,13 @@ class DescribeAffectedEntitiesForOrganizationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAffectedEntitiesForOrganizationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeaffectedentitiesfororganizationpaginator)
         """
 
 class DescribeEventAggregatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeEventAggregates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeEventAggregates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeeventaggregatespaginator)
     """
 
@@ -132,13 +132,13 @@ class DescribeEventAggregatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEventAggregatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeEventAggregates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeEventAggregates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeeventaggregatespaginator)
         """
 
 class DescribeEventTypesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeEventTypes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeEventTypes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeeventtypespaginator)
     """
 
@@ -150,13 +150,13 @@ class DescribeEventTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEventTypesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeEventTypes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeEventTypes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeeventtypespaginator)
         """
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeEvents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeeventspaginator)
     """
 
@@ -168,13 +168,13 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEventsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeEvents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeeventspaginator)
         """
 
 class DescribeEventsForOrganizationPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeeventsfororganizationpaginator)
     """
 
@@ -186,6 +186,6 @@ class DescribeEventsForOrganizationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEventsForOrganizationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/paginators.html#describeeventsfororganizationpaginator)
         """

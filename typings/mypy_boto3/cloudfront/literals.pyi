@@ -34,11 +34,13 @@ __all__ = (
     "GeoRestrictionTypeType",
     "HttpVersionType",
     "ICPRecordalStatusType",
+    "ImportSourceTypeType",
     "InvalidationCompletedWaiterName",
     "ItemSelectionType",
     "ListCloudFrontOriginAccessIdentitiesPaginatorName",
     "ListDistributionsPaginatorName",
     "ListInvalidationsPaginatorName",
+    "ListKeyValueStoresPaginatorName",
     "ListStreamingDistributionsPaginatorName",
     "MethodType",
     "MinimumProtocolVersionType",
@@ -76,6 +78,7 @@ FunctionStageType = Literal["DEVELOPMENT", "LIVE"]
 GeoRestrictionTypeType = Literal["blacklist", "none", "whitelist"]
 HttpVersionType = Literal["http1.1", "http2", "http2and3", "http3"]
 ICPRecordalStatusType = Literal["APPROVED", "PENDING", "SUSPENDED"]
+ImportSourceTypeType = Literal["S3"]
 InvalidationCompletedWaiterName = Literal["invalidation_completed"]
 ItemSelectionType = Literal["all", "none", "whitelist"]
 ListCloudFrontOriginAccessIdentitiesPaginatorName = Literal[
@@ -83,6 +86,7 @@ ListCloudFrontOriginAccessIdentitiesPaginatorName = Literal[
 ]
 ListDistributionsPaginatorName = Literal["list_distributions"]
 ListInvalidationsPaginatorName = Literal["list_invalidations"]
+ListKeyValueStoresPaginatorName = Literal["list_key_value_stores"]
 ListStreamingDistributionsPaginatorName = Literal["list_streaming_distributions"]
 MethodType = Literal["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
 MinimumProtocolVersionType = Literal[

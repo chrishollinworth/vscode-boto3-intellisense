@@ -69,6 +69,7 @@ __all__ = (
     "OrderByType",
     "OriginTypeType",
     "RelationshipStatusType",
+    "RetrievalModeType",
     "RevealRequestStatusType",
     "RevealStatusType",
     "ScopeFilterKeyType",
@@ -179,6 +180,7 @@ RelationshipStatusType = Literal[
     "Removed",
     "Resigned",
 ]
+RetrievalModeType = Literal["ASSUME_ROLE", "CALLER_CREDENTIALS"]
 RevealRequestStatusType = Literal["ERROR", "PROCESSING", "SUCCESS"]
 RevealStatusType = Literal["DISABLED", "ENABLED"]
 ScopeFilterKeyType = Literal[
@@ -215,9 +217,15 @@ TagTargetType = Literal["S3_OBJECT"]
 TimeRangeType = Literal["MONTH_TO_DATE", "PAST_30_DAYS"]
 TypeType = Literal["AES256", "NONE", "aws:kms"]
 UnavailabilityReasonCodeType = Literal[
+    "ACCOUNT_NOT_IN_ORGANIZATION",
     "INVALID_CLASSIFICATION_RESULT",
+    "INVALID_RESULT_SIGNATURE",
+    "MEMBER_ROLE_TOO_PERMISSIVE",
+    "MISSING_GET_MEMBER_PERMISSION",
     "OBJECT_EXCEEDS_SIZE_QUOTA",
     "OBJECT_UNAVAILABLE",
+    "RESULT_NOT_SIGNED",
+    "ROLE_TOO_PERMISSIVE",
     "UNSUPPORTED_FINDING_TYPE",
     "UNSUPPORTED_OBJECT_TYPE",
 ]

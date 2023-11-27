@@ -20,6 +20,7 @@ from .literals import (
     ConfirmationStateType,
     DialogActionTypeType,
     IntentStateType,
+    InterpretationSourceType,
     MessageContentTypeType,
     SentimentTypeType,
     ShapeType,
@@ -221,6 +222,7 @@ InterpretationTypeDef = TypedDict(
         "nluConfidence": "ConfidenceScoreTypeDef",
         "sentimentResponse": "SentimentResponseTypeDef",
         "intent": "IntentTypeDef",
+        "interpretationSource": InterpretationSourceType,
     },
     total=False,
 )

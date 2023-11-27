@@ -167,7 +167,7 @@ class Exceptions:
 
 class NetworkManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html)
     """
 
@@ -182,7 +182,7 @@ class NetworkManagerClient(BaseClient):
         """
         Accepts a core network attachment request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.accept_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.accept_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#accept_attachment)
         """
     def associate_connect_peer(
@@ -192,7 +192,7 @@ class NetworkManagerClient(BaseClient):
         Associates a core network Connect peer with a device and optionally, with a
         link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.associate_connect_peer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.associate_connect_peer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#associate_connect_peer)
         """
     def associate_customer_gateway(
@@ -201,7 +201,7 @@ class NetworkManagerClient(BaseClient):
         """
         Associates a customer gateway with a device and optionally, with a link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.associate_customer_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.associate_customer_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#associate_customer_gateway)
         """
     def associate_link(
@@ -210,7 +210,7 @@ class NetworkManagerClient(BaseClient):
         """
         Associates a link to a device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.associate_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.associate_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#associate_link)
         """
     def associate_transit_gateway_connect_peer(
@@ -225,21 +225,21 @@ class NetworkManagerClient(BaseClient):
         Associates a transit gateway Connect peer with a device, and optionally, with a
         link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.associate_transit_gateway_connect_peer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.associate_transit_gateway_connect_peer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#associate_transit_gateway_connect_peer)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#close)
         """
     def create_connect_attachment(
@@ -256,7 +256,7 @@ class NetworkManagerClient(BaseClient):
         Creates a core network Connect attachment from a specified core network
         attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_connect_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_connect_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_connect_attachment)
         """
     def create_connect_peer(
@@ -275,7 +275,7 @@ class NetworkManagerClient(BaseClient):
         Creates a core network Connect peer for a specified core network connect
         attachment between a core network and an appliance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_connect_peer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_connect_peer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_connect_peer)
         """
     def create_connection(
@@ -292,7 +292,7 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a connection between two devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_connection)
         """
     def create_core_network(
@@ -308,7 +308,7 @@ class NetworkManagerClient(BaseClient):
         Creates a core network as part of your global network, and optionally, with a
         core network policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_core_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_core_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_core_network)
         """
     def create_device(
@@ -328,7 +328,7 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a new device in a global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_device)
         """
     def create_global_network(
@@ -337,7 +337,7 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a new, empty global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_global_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_global_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_global_network)
         """
     def create_link(
@@ -354,7 +354,7 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a new link for a specified site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_link)
         """
     def create_site(
@@ -368,7 +368,7 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a new site in a global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_site)
         """
     def create_site_to_site_vpn_attachment(
@@ -383,7 +383,7 @@ class NetworkManagerClient(BaseClient):
         Creates an Amazon Web Services site-to-site VPN attachment on an edge location
         of a core network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_site_to_site_vpn_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_site_to_site_vpn_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_site_to_site_vpn_attachment)
         """
     def create_transit_gateway_peering(
@@ -397,7 +397,7 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a transit gateway peering connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_transit_gateway_peering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_transit_gateway_peering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_transit_gateway_peering)
         """
     def create_transit_gateway_route_table_attachment(
@@ -411,7 +411,7 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a transit gateway route table attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_transit_gateway_route_table_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_transit_gateway_route_table_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_transit_gateway_route_table_attachment)
         """
     def create_vpc_attachment(
@@ -427,21 +427,21 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a VPC attachment on an edge location of a core network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.create_vpc_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.create_vpc_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#create_vpc_attachment)
         """
     def delete_attachment(self, *, AttachmentId: str) -> DeleteAttachmentResponseTypeDef:
         """
         Deletes an attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_attachment)
         """
     def delete_connect_peer(self, *, ConnectPeerId: str) -> DeleteConnectPeerResponseTypeDef:
         """
         Deletes a Connect peer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_connect_peer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_connect_peer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_connect_peer)
         """
     def delete_connection(
@@ -450,14 +450,14 @@ class NetworkManagerClient(BaseClient):
         """
         Deletes the specified connection in your global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_connection)
         """
     def delete_core_network(self, *, CoreNetworkId: str) -> DeleteCoreNetworkResponseTypeDef:
         """
         Deletes a core network along with all core network policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_core_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_core_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_core_network)
         """
     def delete_core_network_policy_version(
@@ -466,49 +466,49 @@ class NetworkManagerClient(BaseClient):
         """
         Deletes a policy version from a core network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_core_network_policy_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_core_network_policy_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_core_network_policy_version)
         """
     def delete_device(self, *, GlobalNetworkId: str, DeviceId: str) -> DeleteDeviceResponseTypeDef:
         """
         Deletes an existing device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_device)
         """
     def delete_global_network(self, *, GlobalNetworkId: str) -> DeleteGlobalNetworkResponseTypeDef:
         """
         Deletes an existing global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_global_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_global_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_global_network)
         """
     def delete_link(self, *, GlobalNetworkId: str, LinkId: str) -> DeleteLinkResponseTypeDef:
         """
         Deletes an existing link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_link)
         """
     def delete_peering(self, *, PeeringId: str) -> DeletePeeringResponseTypeDef:
         """
         Deletes an existing peering connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_peering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_peering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_peering)
         """
     def delete_resource_policy(self, *, ResourceArn: str) -> Dict[str, Any]:
         """
         Deletes a resource policy for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_resource_policy)
         """
     def delete_site(self, *, GlobalNetworkId: str, SiteId: str) -> DeleteSiteResponseTypeDef:
         """
         Deletes an existing site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.delete_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.delete_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#delete_site)
         """
     def deregister_transit_gateway(
@@ -517,7 +517,7 @@ class NetworkManagerClient(BaseClient):
         """
         Deregisters a transit gateway from your global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.deregister_transit_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.deregister_transit_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#deregister_transit_gateway)
         """
     def describe_global_networks(
@@ -526,7 +526,7 @@ class NetworkManagerClient(BaseClient):
         """
         Describes one or more global networks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.describe_global_networks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.describe_global_networks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#describe_global_networks)
         """
     def disassociate_connect_peer(
@@ -535,7 +535,7 @@ class NetworkManagerClient(BaseClient):
         """
         Disassociates a core network Connect peer from a device and a link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.disassociate_connect_peer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.disassociate_connect_peer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#disassociate_connect_peer)
         """
     def disassociate_customer_gateway(
@@ -544,7 +544,7 @@ class NetworkManagerClient(BaseClient):
         """
         Disassociates a customer gateway from a device and a link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.disassociate_customer_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.disassociate_customer_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#disassociate_customer_gateway)
         """
     def disassociate_link(
@@ -553,7 +553,7 @@ class NetworkManagerClient(BaseClient):
         """
         Disassociates an existing device from a link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.disassociate_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.disassociate_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#disassociate_link)
         """
     def disassociate_transit_gateway_connect_peer(
@@ -562,7 +562,7 @@ class NetworkManagerClient(BaseClient):
         """
         Disassociates a transit gateway Connect peer from a device and link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.disassociate_transit_gateway_connect_peer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.disassociate_transit_gateway_connect_peer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#disassociate_transit_gateway_connect_peer)
         """
     def execute_core_network_change_set(
@@ -571,7 +571,7 @@ class NetworkManagerClient(BaseClient):
         """
         Executes a change set on your core network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.execute_core_network_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.execute_core_network_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#execute_core_network_change_set)
         """
     def generate_presigned_url(
@@ -584,21 +584,21 @@ class NetworkManagerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#generate_presigned_url)
         """
     def get_connect_attachment(self, *, AttachmentId: str) -> GetConnectAttachmentResponseTypeDef:
         """
         Returns information about a core network Connect attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_connect_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_connect_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_connect_attachment)
         """
     def get_connect_peer(self, *, ConnectPeerId: str) -> GetConnectPeerResponseTypeDef:
         """
         Returns information about a core network Connect peer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_connect_peer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_connect_peer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_connect_peer)
         """
     def get_connect_peer_associations(
@@ -612,7 +612,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns information about a core network Connect peer associations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_connect_peer_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_connect_peer_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_connect_peer_associations)
         """
     def get_connections(
@@ -627,14 +627,14 @@ class NetworkManagerClient(BaseClient):
         """
         Gets information about one or more of your connections in a global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_connections)
         """
     def get_core_network(self, *, CoreNetworkId: str) -> GetCoreNetworkResponseTypeDef:
         """
         Returns information about the LIVE policy for a core network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_core_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_core_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_core_network)
         """
     def get_core_network_change_events(
@@ -648,7 +648,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns information about a core network change event.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_core_network_change_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_core_network_change_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_core_network_change_events)
         """
     def get_core_network_change_set(
@@ -663,7 +663,7 @@ class NetworkManagerClient(BaseClient):
         Returns a change set between the LIVE core network policy and a submitted
         policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_core_network_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_core_network_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_core_network_change_set)
         """
     def get_core_network_policy(
@@ -676,7 +676,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns details about a core network policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_core_network_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_core_network_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_core_network_policy)
         """
     def get_customer_gateway_associations(
@@ -691,7 +691,7 @@ class NetworkManagerClient(BaseClient):
         Gets the association information for customer gateways that are associated with
         devices and links in your global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_customer_gateway_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_customer_gateway_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_customer_gateway_associations)
         """
     def get_devices(
@@ -706,7 +706,7 @@ class NetworkManagerClient(BaseClient):
         """
         Gets information about one or more of your devices in a global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_devices)
         """
     def get_link_associations(
@@ -721,7 +721,7 @@ class NetworkManagerClient(BaseClient):
         """
         Gets the link associations for a device or a link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_link_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_link_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_link_associations)
         """
     def get_links(
@@ -738,7 +738,7 @@ class NetworkManagerClient(BaseClient):
         """
         Gets information about one or more links in a specified global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_links)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_links)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_links)
         """
     def get_network_resource_counts(
@@ -753,7 +753,7 @@ class NetworkManagerClient(BaseClient):
         Gets the count of network resources, by resource type, for the specified global
         network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_network_resource_counts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_network_resource_counts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_network_resource_counts)
         """
     def get_network_resource_relationships(
@@ -772,7 +772,7 @@ class NetworkManagerClient(BaseClient):
         """
         Gets the network resource relationships for the specified global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_network_resource_relationships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_network_resource_relationships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_network_resource_relationships)
         """
     def get_network_resources(
@@ -791,7 +791,7 @@ class NetworkManagerClient(BaseClient):
         """
         Describes the network resources for the specified global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_network_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_network_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_network_resources)
         """
     def get_network_routes(
@@ -811,7 +811,7 @@ class NetworkManagerClient(BaseClient):
         """
         Gets the network routes of the specified global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_network_routes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_network_routes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_network_routes)
         """
     def get_network_telemetry(
@@ -830,14 +830,14 @@ class NetworkManagerClient(BaseClient):
         """
         Gets the network telemetry of the specified global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_network_telemetry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_network_telemetry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_network_telemetry)
         """
     def get_resource_policy(self, *, ResourceArn: str) -> GetResourcePolicyResponseTypeDef:
         """
         Returns information about a resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_resource_policy)
         """
     def get_route_analysis(
@@ -846,7 +846,7 @@ class NetworkManagerClient(BaseClient):
         """
         Gets information about the specified route analysis.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_route_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_route_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_route_analysis)
         """
     def get_site_to_site_vpn_attachment(
@@ -855,7 +855,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns information about a site-to-site VPN attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_site_to_site_vpn_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_site_to_site_vpn_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_site_to_site_vpn_attachment)
         """
     def get_sites(
@@ -869,7 +869,7 @@ class NetworkManagerClient(BaseClient):
         """
         Gets information about one or more of your sites in a global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_sites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_sites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_sites)
         """
     def get_transit_gateway_connect_peer_associations(
@@ -884,7 +884,7 @@ class NetworkManagerClient(BaseClient):
         Gets information about one or more of your transit gateway Connect peer
         associations in a global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_connect_peer_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_connect_peer_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_transit_gateway_connect_peer_associations)
         """
     def get_transit_gateway_peering(
@@ -893,7 +893,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns information about a transit gateway peer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_peering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_peering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_transit_gateway_peering)
         """
     def get_transit_gateway_registrations(
@@ -908,7 +908,7 @@ class NetworkManagerClient(BaseClient):
         Gets information about the transit gateway registrations in a specified global
         network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_registrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_registrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_transit_gateway_registrations)
         """
     def get_transit_gateway_route_table_attachment(
@@ -917,14 +917,14 @@ class NetworkManagerClient(BaseClient):
         """
         Returns information about a transit gateway route table attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_route_table_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_route_table_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_transit_gateway_route_table_attachment)
         """
     def get_vpc_attachment(self, *, AttachmentId: str) -> GetVpcAttachmentResponseTypeDef:
         """
         Returns information about a VPC attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.get_vpc_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.get_vpc_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#get_vpc_attachment)
         """
     def list_attachments(
@@ -940,7 +940,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns a list of core network attachments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.list_attachments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.list_attachments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#list_attachments)
         """
     def list_connect_peers(
@@ -954,7 +954,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns a list of core network Connect peers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.list_connect_peers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.list_connect_peers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#list_connect_peers)
         """
     def list_core_network_policy_versions(
@@ -963,7 +963,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns a list of core network policy versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.list_core_network_policy_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.list_core_network_policy_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#list_core_network_policy_versions)
         """
     def list_core_networks(
@@ -972,7 +972,7 @@ class NetworkManagerClient(BaseClient):
         """
         Returns a list of owned and shared core networks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.list_core_networks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.list_core_networks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#list_core_networks)
         """
     def list_organization_service_access_status(
@@ -982,7 +982,7 @@ class NetworkManagerClient(BaseClient):
         Gets the status of the Service Linked Role (SLR) deployment for the accounts in
         a given Amazon Web Services Organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.list_organization_service_access_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.list_organization_service_access_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#list_organization_service_access_status)
         """
     def list_peerings(
@@ -998,14 +998,14 @@ class NetworkManagerClient(BaseClient):
         """
         Lists the peerings for a core network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.list_peerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.list_peerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#list_peerings)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#list_tags_for_resource)
         """
     def put_core_network_policy(
@@ -1020,14 +1020,14 @@ class NetworkManagerClient(BaseClient):
         """
         Creates a new, immutable version of a core network policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.put_core_network_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.put_core_network_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#put_core_network_policy)
         """
     def put_resource_policy(self, *, PolicyDocument: str, ResourceArn: str) -> Dict[str, Any]:
         """
         Creates or updates a resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#put_resource_policy)
         """
     def register_transit_gateway(
@@ -1036,14 +1036,14 @@ class NetworkManagerClient(BaseClient):
         """
         Registers a transit gateway in your global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.register_transit_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.register_transit_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#register_transit_gateway)
         """
     def reject_attachment(self, *, AttachmentId: str) -> RejectAttachmentResponseTypeDef:
         """
         Rejects a core network attachment request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.reject_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.reject_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#reject_attachment)
         """
     def restore_core_network_policy_version(
@@ -1053,7 +1053,7 @@ class NetworkManagerClient(BaseClient):
         Restores a previous policy version as a new, immutable version of a core network
         policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.restore_core_network_policy_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.restore_core_network_policy_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#restore_core_network_policy_version)
         """
     def start_organization_service_access_update(
@@ -1062,7 +1062,7 @@ class NetworkManagerClient(BaseClient):
         """
         Enables the Network Manager service for an Amazon Web Services Organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.start_organization_service_access_update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.start_organization_service_access_update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#start_organization_service_access_update)
         """
     def start_route_analysis(
@@ -1077,21 +1077,21 @@ class NetworkManagerClient(BaseClient):
         """
         Starts analyzing the routing path between the specified source and destination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.start_route_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.start_route_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#start_route_analysis)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Tags a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#untag_resource)
         """
     def update_connection(
@@ -1106,7 +1106,7 @@ class NetworkManagerClient(BaseClient):
         """
         Updates the information for an existing connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.update_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.update_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#update_connection)
         """
     def update_core_network(
@@ -1115,7 +1115,7 @@ class NetworkManagerClient(BaseClient):
         """
         Updates the description of a core network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.update_core_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.update_core_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#update_core_network)
         """
     def update_device(
@@ -1135,7 +1135,7 @@ class NetworkManagerClient(BaseClient):
         """
         Updates the details for an existing device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.update_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.update_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#update_device)
         """
     def update_global_network(
@@ -1144,7 +1144,7 @@ class NetworkManagerClient(BaseClient):
         """
         Updates an existing global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.update_global_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.update_global_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#update_global_network)
         """
     def update_link(
@@ -1160,7 +1160,7 @@ class NetworkManagerClient(BaseClient):
         """
         Updates the details for an existing link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.update_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.update_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#update_link)
         """
     def update_network_resource_metadata(
@@ -1169,7 +1169,7 @@ class NetworkManagerClient(BaseClient):
         """
         Updates the resource metadata for the specified global network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.update_network_resource_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.update_network_resource_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#update_network_resource_metadata)
         """
     def update_site(
@@ -1183,7 +1183,7 @@ class NetworkManagerClient(BaseClient):
         """
         Updates the information for an existing site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.update_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.update_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#update_site)
         """
     def update_vpc_attachment(
@@ -1197,7 +1197,7 @@ class NetworkManagerClient(BaseClient):
         """
         Updates a VPC attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Client.update_vpc_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Client.update_vpc_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/client.html#update_vpc_attachment)
         """
     @overload
@@ -1205,7 +1205,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["describe_global_networks"]
     ) -> DescribeGlobalNetworksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#describeglobalnetworkspaginator)
         """
     @overload
@@ -1213,13 +1213,13 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_connect_peer_associations"]
     ) -> GetConnectPeerAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnectPeerAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnectPeerAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getconnectpeerassociationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_connections"]) -> GetConnectionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getconnectionspaginator)
         """
     @overload
@@ -1227,7 +1227,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_core_network_change_events"]
     ) -> GetCoreNetworkChangeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcorenetworkchangeeventspaginator)
         """
     @overload
@@ -1235,7 +1235,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_core_network_change_set"]
     ) -> GetCoreNetworkChangeSetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeSet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetCoreNetworkChangeSet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcorenetworkchangesetpaginator)
         """
     @overload
@@ -1243,13 +1243,13 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_customer_gateway_associations"]
     ) -> GetCustomerGatewayAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getcustomergatewayassociationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_devices"]) -> GetDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getdevicespaginator)
         """
     @overload
@@ -1257,13 +1257,13 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_link_associations"]
     ) -> GetLinkAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getlinkassociationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_links"]) -> GetLinksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getlinkspaginator)
         """
     @overload
@@ -1271,7 +1271,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_network_resource_counts"]
     ) -> GetNetworkResourceCountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceCounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceCounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcecountspaginator)
         """
     @overload
@@ -1279,7 +1279,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_network_resource_relationships"]
     ) -> GetNetworkResourceRelationshipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceRelationships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResourceRelationships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcerelationshipspaginator)
         """
     @overload
@@ -1287,7 +1287,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_network_resources"]
     ) -> GetNetworkResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworkresourcespaginator)
         """
     @overload
@@ -1295,13 +1295,13 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_network_telemetry"]
     ) -> GetNetworkTelemetryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkTelemetry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetNetworkTelemetry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getnetworktelemetrypaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_sites"]) -> GetSitesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#getsitespaginator)
         """
     @overload
@@ -1309,7 +1309,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_transit_gateway_connect_peer_associations"]
     ) -> GetTransitGatewayConnectPeerAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayConnectPeerAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayConnectPeerAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#gettransitgatewayconnectpeerassociationspaginator)
         """
     @overload
@@ -1317,7 +1317,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["get_transit_gateway_registrations"]
     ) -> GetTransitGatewayRegistrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#gettransitgatewayregistrationspaginator)
         """
     @overload
@@ -1325,7 +1325,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["list_attachments"]
     ) -> ListAttachmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.ListAttachments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.ListAttachments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listattachmentspaginator)
         """
     @overload
@@ -1333,7 +1333,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["list_connect_peers"]
     ) -> ListConnectPeersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.ListConnectPeers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.ListConnectPeers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listconnectpeerspaginator)
         """
     @overload
@@ -1341,7 +1341,7 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["list_core_network_policy_versions"]
     ) -> ListCoreNetworkPolicyVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworkPolicyVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworkPolicyVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listcorenetworkpolicyversionspaginator)
         """
     @overload
@@ -1349,12 +1349,12 @@ class NetworkManagerClient(BaseClient):
         self, operation_name: Literal["list_core_networks"]
     ) -> ListCoreNetworksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.ListCoreNetworks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listcorenetworkspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_peerings"]) -> ListPeeringsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/networkmanager.html#NetworkManager.Paginator.ListPeerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/networkmanager.html#NetworkManager.Paginator.ListPeerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/paginators.html#listpeeringspaginator)
         """

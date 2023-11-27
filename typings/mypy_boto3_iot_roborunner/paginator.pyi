@@ -46,7 +46,7 @@ __all__ = (
 
 class ListDestinationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListDestinations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListDestinations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listdestinationspaginator)
     """
 
@@ -58,13 +58,13 @@ class ListDestinationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDestinationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListDestinations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListDestinations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listdestinationspaginator)
         """
 
 class ListSitesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListSites)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListSites)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listsitespaginator)
     """
 
@@ -72,13 +72,13 @@ class ListSitesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSitesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListSites.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListSites.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listsitespaginator)
         """
 
 class ListWorkerFleetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkerFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkerFleets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listworkerfleetspaginator)
     """
 
@@ -86,13 +86,13 @@ class ListWorkerFleetsPaginator(Boto3Paginator):
         self, *, site: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkerFleetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkerFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkerFleets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listworkerfleetspaginator)
         """
 
 class ListWorkersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listworkerspaginator)
     """
 
@@ -100,6 +100,6 @@ class ListWorkersPaginator(Boto3Paginator):
         self, *, site: str, fleet: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/iot-roborunner.html#IoTRoboRunner.Paginator.ListWorkers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_roborunner/paginators.html#listworkerspaginator)
         """

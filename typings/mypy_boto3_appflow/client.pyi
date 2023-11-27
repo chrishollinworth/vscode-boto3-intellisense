@@ -76,7 +76,7 @@ class Exceptions:
 
 class AppflowClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html)
     """
 
@@ -91,7 +91,7 @@ class AppflowClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#can_paginate)
         """
     def cancel_flow_executions(
@@ -100,14 +100,14 @@ class AppflowClient(BaseClient):
         """
         Cancels active runs for a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.cancel_flow_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.cancel_flow_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#cancel_flow_executions)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#close)
         """
     def create_connector_profile(
@@ -125,7 +125,7 @@ class AppflowClient(BaseClient):
         Creates a new connector profile associated with your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.create_connector_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.create_connector_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#create_connector_profile)
         """
     def create_flow(
@@ -145,7 +145,7 @@ class AppflowClient(BaseClient):
         """
         Enables your application to create a new flow using Amazon AppFlow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.create_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.create_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#create_flow)
         """
     def delete_connector_profile(
@@ -154,14 +154,14 @@ class AppflowClient(BaseClient):
         """
         Enables you to delete an existing connector profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.delete_connector_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.delete_connector_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#delete_connector_profile)
         """
     def delete_flow(self, *, flowName: str, forceDelete: bool = None) -> Dict[str, Any]:
         """
         Enables your application to delete an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.delete_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.delete_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#delete_flow)
         """
     def describe_connector(
@@ -171,7 +171,7 @@ class AppflowClient(BaseClient):
         Describes the given custom connector registered in your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.describe_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.describe_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#describe_connector)
         """
     def describe_connector_entity(
@@ -186,7 +186,7 @@ class AppflowClient(BaseClient):
         Provides details regarding the entity used with the connector, with a
         description of the data model for each field in that entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.describe_connector_entity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.describe_connector_entity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#describe_connector_entity)
         """
     def describe_connector_profiles(
@@ -202,7 +202,7 @@ class AppflowClient(BaseClient):
         Returns a list of `connector-profile` details matching the provided `connector-
         profile` names and `connector-types`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.describe_connector_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.describe_connector_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#describe_connector_profiles)
         """
     def describe_connectors(
@@ -215,14 +215,14 @@ class AppflowClient(BaseClient):
         """
         Describes the connectors vended by Amazon AppFlow for specified connector types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.describe_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.describe_connectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#describe_connectors)
         """
     def describe_flow(self, *, flowName: str) -> DescribeFlowResponseTypeDef:
         """
         Provides a description of the specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.describe_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.describe_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#describe_flow)
         """
     def describe_flow_execution_records(
@@ -231,7 +231,7 @@ class AppflowClient(BaseClient):
         """
         Fetches the execution history of the flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.describe_flow_execution_records)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.describe_flow_execution_records)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#describe_flow_execution_records)
         """
     def generate_presigned_url(
@@ -244,7 +244,7 @@ class AppflowClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#generate_presigned_url)
         """
     def list_connector_entities(
@@ -260,7 +260,7 @@ class AppflowClient(BaseClient):
         """
         Returns the list of available connector entities supported by Amazon AppFlow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.list_connector_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.list_connector_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#list_connector_entities)
         """
     def list_connectors(
@@ -270,7 +270,7 @@ class AppflowClient(BaseClient):
         Returns the list of all registered custom connectors in your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.list_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.list_connectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#list_connectors)
         """
     def list_flows(
@@ -279,14 +279,14 @@ class AppflowClient(BaseClient):
         """
         Lists all of the flows associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.list_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.list_flows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#list_flows)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Retrieves the tags that are associated with a specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#list_tags_for_resource)
         """
     def register_connector(
@@ -301,7 +301,7 @@ class AppflowClient(BaseClient):
         """
         Registers a new custom connector with your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.register_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.register_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#register_connector)
         """
     def reset_connector_metadata_cache(
@@ -317,28 +317,28 @@ class AppflowClient(BaseClient):
         Resets metadata about your connector entities that Amazon AppFlow stored in its
         cache.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.reset_connector_metadata_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.reset_connector_metadata_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#reset_connector_metadata_cache)
         """
     def start_flow(self, *, flowName: str, clientToken: str = None) -> StartFlowResponseTypeDef:
         """
         Activates an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.start_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.start_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#start_flow)
         """
     def stop_flow(self, *, flowName: str) -> StopFlowResponseTypeDef:
         """
         Deactivates the existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.stop_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.stop_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#stop_flow)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Applies a tag to the specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#tag_resource)
         """
     def unregister_connector(
@@ -348,14 +348,14 @@ class AppflowClient(BaseClient):
         Unregisters the custom connector registered in your account that matches the
         connector label provided in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.unregister_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.unregister_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#unregister_connector)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a tag from the specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#untag_resource)
         """
     def update_connector_profile(
@@ -369,7 +369,7 @@ class AppflowClient(BaseClient):
         """
         Updates a given connector profile associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.update_connector_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.update_connector_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#update_connector_profile)
         """
     def update_connector_registration(
@@ -383,7 +383,7 @@ class AppflowClient(BaseClient):
         """
         Updates a custom connector that you've previously registered.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.update_connector_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.update_connector_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#update_connector_registration)
         """
     def update_flow(
@@ -401,6 +401,6 @@ class AppflowClient(BaseClient):
         """
         Updates an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/appflow.html#Appflow.Client.update_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/appflow.html#Appflow.Client.update_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appflow/client.html#update_flow)
         """

@@ -366,7 +366,7 @@ AllowActionTypeDef = TypedDict(
 AndStatementTypeDef = TypedDict(
     "AndStatementTypeDef",
     {
-        "Statements": List["StatementTypeDef"],
+        "Statements": List[Dict[str, Any]],
     },
 )
 
@@ -1790,7 +1790,7 @@ _OptionalManagedRuleGroupStatementTypeDef = TypedDict(
     {
         "Version": str,
         "ExcludedRules": List["ExcludedRuleTypeDef"],
-        "ScopeDownStatement": Dict[str, Any],
+        "ScopeDownStatement": "StatementTypeDef",
         "ManagedRuleGroupConfigs": List["ManagedRuleGroupConfigTypeDef"],
         "RuleActionOverrides": List["RuleActionOverrideTypeDef"],
     },

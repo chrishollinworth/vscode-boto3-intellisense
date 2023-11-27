@@ -22,6 +22,7 @@ from .literals import (
     BlueprintStatusType,
     CatalogEncryptionModeType,
     CloudWatchEncryptionModeType,
+    ColumnStatisticsStateType,
     ColumnStatisticsTypeType,
     ComparatorType,
     CompatibilityType,
@@ -85,6 +86,7 @@ from .literals import (
     SourceControlProviderType,
     StartingPositionType,
     StatementStateType,
+    TableOptimizerEventTypeType,
     TargetFormatType,
     TaskRunSortColumnTypeType,
     TaskStatusTypeType,
@@ -146,6 +148,10 @@ __all__ = (
     "BatchGetJobsResponseTypeDef",
     "BatchGetPartitionRequestRequestTypeDef",
     "BatchGetPartitionResponseTypeDef",
+    "BatchGetTableOptimizerEntryTypeDef",
+    "BatchGetTableOptimizerErrorTypeDef",
+    "BatchGetTableOptimizerRequestRequestTypeDef",
+    "BatchGetTableOptimizerResponseTypeDef",
     "BatchGetTriggersRequestRequestTypeDef",
     "BatchGetTriggersResponseTypeDef",
     "BatchGetWorkflowsRequestRequestTypeDef",
@@ -154,6 +160,7 @@ __all__ = (
     "BatchStopJobRunRequestRequestTypeDef",
     "BatchStopJobRunResponseTypeDef",
     "BatchStopJobRunSuccessfulSubmissionTypeDef",
+    "BatchTableOptimizerTypeDef",
     "BatchUpdatePartitionFailureEntryTypeDef",
     "BatchUpdatePartitionRequestEntryTypeDef",
     "BatchUpdatePartitionRequestRequestTypeDef",
@@ -190,6 +197,7 @@ __all__ = (
     "ColumnRowFilterTypeDef",
     "ColumnStatisticsDataTypeDef",
     "ColumnStatisticsErrorTypeDef",
+    "ColumnStatisticsTaskRunTypeDef",
     "ColumnStatisticsTypeDef",
     "ColumnTypeDef",
     "ConditionTypeDef",
@@ -238,6 +246,7 @@ __all__ = (
     "CreateSecurityConfigurationResponseTypeDef",
     "CreateSessionRequestRequestTypeDef",
     "CreateSessionResponseTypeDef",
+    "CreateTableOptimizerRequestRequestTypeDef",
     "CreateTableRequestRequestTypeDef",
     "CreateTriggerRequestRequestTypeDef",
     "CreateTriggerResponseTypeDef",
@@ -300,6 +309,7 @@ __all__ = (
     "DeleteSecurityConfigurationRequestRequestTypeDef",
     "DeleteSessionRequestRequestTypeDef",
     "DeleteSessionResponseTypeDef",
+    "DeleteTableOptimizerRequestRequestTypeDef",
     "DeleteTableRequestRequestTypeDef",
     "DeleteTableVersionRequestRequestTypeDef",
     "DeleteTriggerRequestRequestTypeDef",
@@ -357,6 +367,10 @@ __all__ = (
     "GetColumnStatisticsForPartitionResponseTypeDef",
     "GetColumnStatisticsForTableRequestRequestTypeDef",
     "GetColumnStatisticsForTableResponseTypeDef",
+    "GetColumnStatisticsTaskRunRequestRequestTypeDef",
+    "GetColumnStatisticsTaskRunResponseTypeDef",
+    "GetColumnStatisticsTaskRunsRequestRequestTypeDef",
+    "GetColumnStatisticsTaskRunsResponseTypeDef",
     "GetConnectionRequestRequestTypeDef",
     "GetConnectionResponseTypeDef",
     "GetConnectionsFilterTypeDef",
@@ -440,6 +454,8 @@ __all__ = (
     "GetSessionResponseTypeDef",
     "GetStatementRequestRequestTypeDef",
     "GetStatementResponseTypeDef",
+    "GetTableOptimizerRequestRequestTypeDef",
+    "GetTableOptimizerResponseTypeDef",
     "GetTableRequestRequestTypeDef",
     "GetTableResponseTypeDef",
     "GetTableVersionRequestRequestTypeDef",
@@ -508,6 +524,8 @@ __all__ = (
     "LineageConfigurationTypeDef",
     "ListBlueprintsRequestRequestTypeDef",
     "ListBlueprintsResponseTypeDef",
+    "ListColumnStatisticsTaskRunsRequestRequestTypeDef",
+    "ListColumnStatisticsTaskRunsResponseTypeDef",
     "ListCrawlersRequestRequestTypeDef",
     "ListCrawlersResponseTypeDef",
     "ListCrawlsRequestRequestTypeDef",
@@ -538,6 +556,8 @@ __all__ = (
     "ListSessionsResponseTypeDef",
     "ListStatementsRequestRequestTypeDef",
     "ListStatementsResponseTypeDef",
+    "ListTableOptimizerRunsRequestRequestTypeDef",
+    "ListTableOptimizerRunsResponseTypeDef",
     "ListTriggersRequestRequestTypeDef",
     "ListTriggersResponseTypeDef",
     "ListWorkflowsRequestRequestTypeDef",
@@ -608,6 +628,7 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "ResumeWorkflowRunRequestRequestTypeDef",
     "ResumeWorkflowRunResponseTypeDef",
+    "RunMetricsTypeDef",
     "RunStatementRequestRequestTypeDef",
     "RunStatementResponseTypeDef",
     "S3CatalogDeltaSourceTypeDef",
@@ -661,6 +682,8 @@ __all__ = (
     "SqlAliasTypeDef",
     "StartBlueprintRunRequestRequestTypeDef",
     "StartBlueprintRunResponseTypeDef",
+    "StartColumnStatisticsTaskRunRequestRequestTypeDef",
+    "StartColumnStatisticsTaskRunResponseTypeDef",
     "StartCrawlerRequestRequestTypeDef",
     "StartCrawlerScheduleRequestRequestTypeDef",
     "StartDataQualityRuleRecommendationRunRequestRequestTypeDef",
@@ -685,6 +708,7 @@ __all__ = (
     "StatementOutputDataTypeDef",
     "StatementOutputTypeDef",
     "StatementTypeDef",
+    "StopColumnStatisticsTaskRunRequestRequestTypeDef",
     "StopCrawlerRequestRequestTypeDef",
     "StopCrawlerScheduleRequestRequestTypeDef",
     "StopSessionRequestRequestTypeDef",
@@ -698,6 +722,9 @@ __all__ = (
     "TableErrorTypeDef",
     "TableIdentifierTypeDef",
     "TableInputTypeDef",
+    "TableOptimizerConfigurationTypeDef",
+    "TableOptimizerRunTypeDef",
+    "TableOptimizerTypeDef",
     "TableTypeDef",
     "TableVersionErrorTypeDef",
     "TableVersionTypeDef",
@@ -747,6 +774,7 @@ __all__ = (
     "UpdateSchemaResponseTypeDef",
     "UpdateSourceControlFromJobRequestRequestTypeDef",
     "UpdateSourceControlFromJobResponseTypeDef",
+    "UpdateTableOptimizerRequestRequestTypeDef",
     "UpdateTableRequestRequestTypeDef",
     "UpdateTriggerRequestRequestTypeDef",
     "UpdateTriggerResponseTypeDef",
@@ -1206,6 +1234,45 @@ BatchGetPartitionResponseTypeDef = TypedDict(
     },
 )
 
+BatchGetTableOptimizerEntryTypeDef = TypedDict(
+    "BatchGetTableOptimizerEntryTypeDef",
+    {
+        "catalogId": str,
+        "databaseName": str,
+        "tableName": str,
+        "type": Literal["compaction"],
+    },
+    total=False,
+)
+
+BatchGetTableOptimizerErrorTypeDef = TypedDict(
+    "BatchGetTableOptimizerErrorTypeDef",
+    {
+        "error": "ErrorDetailTypeDef",
+        "catalogId": str,
+        "databaseName": str,
+        "tableName": str,
+        "type": Literal["compaction"],
+    },
+    total=False,
+)
+
+BatchGetTableOptimizerRequestRequestTypeDef = TypedDict(
+    "BatchGetTableOptimizerRequestRequestTypeDef",
+    {
+        "Entries": List["BatchGetTableOptimizerEntryTypeDef"],
+    },
+)
+
+BatchGetTableOptimizerResponseTypeDef = TypedDict(
+    "BatchGetTableOptimizerResponseTypeDef",
+    {
+        "TableOptimizers": List["BatchTableOptimizerTypeDef"],
+        "Failures": List["BatchGetTableOptimizerErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 BatchGetTriggersRequestRequestTypeDef = TypedDict(
     "BatchGetTriggersRequestRequestTypeDef",
     {
@@ -1282,6 +1349,17 @@ BatchStopJobRunSuccessfulSubmissionTypeDef = TypedDict(
     {
         "JobName": str,
         "JobRunId": str,
+    },
+    total=False,
+)
+
+BatchTableOptimizerTypeDef = TypedDict(
+    "BatchTableOptimizerTypeDef",
+    {
+        "catalogId": str,
+        "databaseName": str,
+        "tableName": str,
+        "tableOptimizer": "TableOptimizerTypeDef",
     },
     total=False,
 )
@@ -1821,6 +1899,31 @@ ColumnStatisticsErrorTypeDef = TypedDict(
     {
         "ColumnStatistics": "ColumnStatisticsTypeDef",
         "Error": "ErrorDetailTypeDef",
+    },
+    total=False,
+)
+
+ColumnStatisticsTaskRunTypeDef = TypedDict(
+    "ColumnStatisticsTaskRunTypeDef",
+    {
+        "CustomerId": str,
+        "ColumnStatisticsTaskRunId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "ColumnNameList": List[str],
+        "CatalogID": str,
+        "Role": str,
+        "SampleSize": float,
+        "SecurityConfiguration": str,
+        "NumberOfWorkers": int,
+        "WorkerType": str,
+        "Status": ColumnStatisticsStateType,
+        "CreationTime": datetime,
+        "LastUpdated": datetime,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "ErrorMessage": str,
+        "DPUSeconds": float,
     },
     total=False,
 )
@@ -2653,6 +2756,17 @@ CreateSessionResponseTypeDef = TypedDict(
     {
         "Session": "SessionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateTableOptimizerRequestRequestTypeDef = TypedDict(
+    "CreateTableOptimizerRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Type": Literal["compaction"],
+        "TableOptimizerConfiguration": "TableOptimizerConfigurationTypeDef",
     },
 )
 
@@ -3490,6 +3604,16 @@ DeleteSessionResponseTypeDef = TypedDict(
     },
 )
 
+DeleteTableOptimizerRequestRequestTypeDef = TypedDict(
+    "DeleteTableOptimizerRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Type": Literal["compaction"],
+    },
+)
+
 _RequiredDeleteTableRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteTableRequestRequestTypeDef",
     {
@@ -4267,6 +4391,52 @@ GetColumnStatisticsForTableResponseTypeDef = TypedDict(
     {
         "ColumnStatisticsList": List["ColumnStatisticsTypeDef"],
         "Errors": List["ColumnErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetColumnStatisticsTaskRunRequestRequestTypeDef = TypedDict(
+    "GetColumnStatisticsTaskRunRequestRequestTypeDef",
+    {
+        "ColumnStatisticsTaskRunId": str,
+    },
+)
+
+GetColumnStatisticsTaskRunResponseTypeDef = TypedDict(
+    "GetColumnStatisticsTaskRunResponseTypeDef",
+    {
+        "ColumnStatisticsTaskRun": "ColumnStatisticsTaskRunTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetColumnStatisticsTaskRunsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetColumnStatisticsTaskRunsRequestRequestTypeDef",
+    {
+        "DatabaseName": str,
+        "TableName": str,
+    },
+)
+_OptionalGetColumnStatisticsTaskRunsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetColumnStatisticsTaskRunsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetColumnStatisticsTaskRunsRequestRequestTypeDef(
+    _RequiredGetColumnStatisticsTaskRunsRequestRequestTypeDef,
+    _OptionalGetColumnStatisticsTaskRunsRequestRequestTypeDef,
+):
+    pass
+
+GetColumnStatisticsTaskRunsResponseTypeDef = TypedDict(
+    "GetColumnStatisticsTaskRunsResponseTypeDef",
+    {
+        "ColumnStatisticsTaskRuns": List["ColumnStatisticsTaskRunTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5225,6 +5395,27 @@ GetStatementResponseTypeDef = TypedDict(
     "GetStatementResponseTypeDef",
     {
         "Statement": "StatementTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTableOptimizerRequestRequestTypeDef = TypedDict(
+    "GetTableOptimizerRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Type": Literal["compaction"],
+    },
+)
+
+GetTableOptimizerResponseTypeDef = TypedDict(
+    "GetTableOptimizerResponseTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "TableOptimizer": "TableOptimizerTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6223,6 +6414,24 @@ ListBlueprintsResponseTypeDef = TypedDict(
     },
 )
 
+ListColumnStatisticsTaskRunsRequestRequestTypeDef = TypedDict(
+    "ListColumnStatisticsTaskRunsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListColumnStatisticsTaskRunsResponseTypeDef = TypedDict(
+    "ListColumnStatisticsTaskRunsResponseTypeDef",
+    {
+        "ColumnStatisticsTaskRunIds": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCrawlersRequestRequestTypeDef = TypedDict(
     "ListCrawlersRequestRequestTypeDef",
     {
@@ -6539,6 +6748,42 @@ ListStatementsResponseTypeDef = TypedDict(
     {
         "Statements": List["StatementTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTableOptimizerRunsRequestRequestTypeDef = TypedDict(
+    "_RequiredListTableOptimizerRunsRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Type": Literal["compaction"],
+    },
+)
+_OptionalListTableOptimizerRunsRequestRequestTypeDef = TypedDict(
+    "_OptionalListTableOptimizerRunsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListTableOptimizerRunsRequestRequestTypeDef(
+    _RequiredListTableOptimizerRunsRequestRequestTypeDef,
+    _OptionalListTableOptimizerRunsRequestRequestTypeDef,
+):
+    pass
+
+ListTableOptimizerRunsResponseTypeDef = TypedDict(
+    "ListTableOptimizerRunsResponseTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "NextToken": str,
+        "TableOptimizerRuns": List["TableOptimizerRunTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7370,6 +7615,17 @@ ResumeWorkflowRunResponseTypeDef = TypedDict(
         "NodeIds": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+RunMetricsTypeDef = TypedDict(
+    "RunMetricsTypeDef",
+    {
+        "NumberOfBytesCompacted": str,
+        "NumberOfFilesCompacted": str,
+        "NumberOfDpus": str,
+        "JobDurationInHour": str,
+    },
+    total=False,
 )
 
 _RequiredRunStatementRequestRequestTypeDef = TypedDict(
@@ -8223,6 +8479,39 @@ StartBlueprintRunResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredStartColumnStatisticsTaskRunRequestRequestTypeDef = TypedDict(
+    "_RequiredStartColumnStatisticsTaskRunRequestRequestTypeDef",
+    {
+        "DatabaseName": str,
+        "TableName": str,
+        "Role": str,
+    },
+)
+_OptionalStartColumnStatisticsTaskRunRequestRequestTypeDef = TypedDict(
+    "_OptionalStartColumnStatisticsTaskRunRequestRequestTypeDef",
+    {
+        "ColumnNameList": List[str],
+        "SampleSize": float,
+        "CatalogID": str,
+        "SecurityConfiguration": str,
+    },
+    total=False,
+)
+
+class StartColumnStatisticsTaskRunRequestRequestTypeDef(
+    _RequiredStartColumnStatisticsTaskRunRequestRequestTypeDef,
+    _OptionalStartColumnStatisticsTaskRunRequestRequestTypeDef,
+):
+    pass
+
+StartColumnStatisticsTaskRunResponseTypeDef = TypedDict(
+    "StartColumnStatisticsTaskRunResponseTypeDef",
+    {
+        "ColumnStatisticsTaskRunId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StartCrawlerRequestRequestTypeDef = TypedDict(
     "StartCrawlerRequestRequestTypeDef",
     {
@@ -8501,6 +8790,14 @@ StatementTypeDef = TypedDict(
     total=False,
 )
 
+StopColumnStatisticsTaskRunRequestRequestTypeDef = TypedDict(
+    "StopColumnStatisticsTaskRunRequestRequestTypeDef",
+    {
+        "DatabaseName": str,
+        "TableName": str,
+    },
+)
+
 StopCrawlerRequestRequestTypeDef = TypedDict(
     "StopCrawlerRequestRequestTypeDef",
     {
@@ -8652,6 +8949,37 @@ _OptionalTableInputTypeDef = TypedDict(
 
 class TableInputTypeDef(_RequiredTableInputTypeDef, _OptionalTableInputTypeDef):
     pass
+
+TableOptimizerConfigurationTypeDef = TypedDict(
+    "TableOptimizerConfigurationTypeDef",
+    {
+        "roleArn": str,
+        "enabled": bool,
+    },
+    total=False,
+)
+
+TableOptimizerRunTypeDef = TypedDict(
+    "TableOptimizerRunTypeDef",
+    {
+        "eventType": TableOptimizerEventTypeType,
+        "startTimestamp": datetime,
+        "endTimestamp": datetime,
+        "metrics": "RunMetricsTypeDef",
+        "error": str,
+    },
+    total=False,
+)
+
+TableOptimizerTypeDef = TypedDict(
+    "TableOptimizerTypeDef",
+    {
+        "type": Literal["compaction"],
+        "configuration": "TableOptimizerConfigurationTypeDef",
+        "lastRun": "TableOptimizerRunTypeDef",
+    },
+    total=False,
+)
 
 _RequiredTableTypeDef = TypedDict(
     "_RequiredTableTypeDef",
@@ -9386,6 +9714,17 @@ UpdateSourceControlFromJobResponseTypeDef = TypedDict(
     {
         "JobName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateTableOptimizerRequestRequestTypeDef = TypedDict(
+    "UpdateTableOptimizerRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Type": Literal["compaction"],
+        "TableOptimizerConfiguration": "TableOptimizerConfigurationTypeDef",
     },
 )
 

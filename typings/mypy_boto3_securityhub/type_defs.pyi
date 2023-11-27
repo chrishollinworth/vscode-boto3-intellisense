@@ -30,6 +30,7 @@ from .literals import (
     MalwareTypeType,
     MapFilterComparisonType,
     NetworkDirectionType,
+    ParameterValueTypeType,
     PartitionType,
     RecordStateType,
     RegionAvailabilityStatusType,
@@ -43,6 +44,7 @@ from .literals import (
     ThreatIntelIndicatorCategoryType,
     ThreatIntelIndicatorTypeType,
     UnprocessedErrorCodeType,
+    UpdateStatusType,
     VerificationStateType,
     VulnerabilityExploitAvailableType,
     VulnerabilityFixAvailableType,
@@ -586,6 +588,7 @@ __all__ = (
     "BatchUpdateFindingsUnprocessedFindingTypeDef",
     "BatchUpdateStandardsControlAssociationsRequestRequestTypeDef",
     "BatchUpdateStandardsControlAssociationsResponseTypeDef",
+    "BooleanConfigurationOptionsTypeDef",
     "BooleanFilterTypeDef",
     "CellTypeDef",
     "CidrBlockAssociationTypeDef",
@@ -595,6 +598,7 @@ __all__ = (
     "CloudWatchLogsLogGroupArnConfigDetailsTypeDef",
     "CodeVulnerabilitiesFilePathTypeDef",
     "ComplianceTypeDef",
+    "ConfigurationOptionsTypeDef",
     "ContainerDetailsTypeDef",
     "CountryTypeDef",
     "CreateActionTargetRequestRequestTypeDef",
@@ -639,10 +643,13 @@ __all__ = (
     "DisableOrganizationAdminAccountRequestRequestTypeDef",
     "DisassociateMembersRequestRequestTypeDef",
     "DnsRequestActionTypeDef",
+    "DoubleConfigurationOptionsTypeDef",
     "EnableImportFindingsForProductRequestRequestTypeDef",
     "EnableImportFindingsForProductResponseTypeDef",
     "EnableOrganizationAdminAccountRequestRequestTypeDef",
     "EnableSecurityHubRequestRequestTypeDef",
+    "EnumConfigurationOptionsTypeDef",
+    "EnumListConfigurationOptionsTypeDef",
     "FilePathsTypeDef",
     "FindingAggregatorTypeDef",
     "FindingHistoryRecordTypeDef",
@@ -673,11 +680,15 @@ __all__ = (
     "GetMasterAccountResponseTypeDef",
     "GetMembersRequestRequestTypeDef",
     "GetMembersResponseTypeDef",
+    "GetSecurityControlDefinitionRequestRequestTypeDef",
+    "GetSecurityControlDefinitionResponseTypeDef",
     "IcmpTypeCodeTypeDef",
     "ImportFindingsErrorTypeDef",
     "InsightResultValueTypeDef",
     "InsightResultsTypeDef",
     "InsightTypeDef",
+    "IntegerConfigurationOptionsTypeDef",
+    "IntegerListConfigurationOptionsTypeDef",
     "InvitationTypeDef",
     "InviteMembersRequestRequestTypeDef",
     "InviteMembersResponseTypeDef",
@@ -718,6 +729,9 @@ __all__ = (
     "OccurrencesTypeDef",
     "PageTypeDef",
     "PaginatorConfigTypeDef",
+    "ParameterConfigurationTypeDef",
+    "ParameterDefinitionTypeDef",
+    "ParameterValueTypeDef",
     "PatchSummaryTypeDef",
     "PortProbeActionTypeDef",
     "PortProbeDetailTypeDef",
@@ -756,6 +770,7 @@ __all__ = (
     "RuleGroupVariablesPortSetsDetailsTypeDef",
     "RuleGroupVariablesTypeDef",
     "SecurityControlDefinitionTypeDef",
+    "SecurityControlParameterTypeDef",
     "SecurityControlTypeDef",
     "SensitiveDataDetectionsTypeDef",
     "SensitiveDataResultTypeDef",
@@ -777,7 +792,9 @@ __all__ = (
     "StatelessCustomPublishMetricActionDimensionTypeDef",
     "StatelessCustomPublishMetricActionTypeDef",
     "StatusReasonTypeDef",
+    "StringConfigurationOptionsTypeDef",
     "StringFilterTypeDef",
+    "StringListConfigurationOptionsTypeDef",
     "TagResourceRequestRequestTypeDef",
     "ThreatIntelIndicatorTypeDef",
     "ThreatTypeDef",
@@ -793,6 +810,7 @@ __all__ = (
     "UpdateFindingsRequestRequestTypeDef",
     "UpdateInsightRequestRequestTypeDef",
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
+    "UpdateSecurityControlRequestRequestTypeDef",
     "UpdateSecurityHubConfigurationRequestRequestTypeDef",
     "UpdateStandardsControlRequestRequestTypeDef",
     "VolumeMountTypeDef",
@@ -6312,6 +6330,10 @@ AwsSecurityFindingFiltersTypeDef = TypedDict(
         "Sample": List["BooleanFilterTypeDef"],
         "ComplianceSecurityControlId": List["StringFilterTypeDef"],
         "ComplianceAssociatedStandardsId": List["StringFilterTypeDef"],
+        "VulnerabilitiesExploitAvailable": List["StringFilterTypeDef"],
+        "VulnerabilitiesFixAvailable": List["StringFilterTypeDef"],
+        "ComplianceSecurityControlParametersName": List["StringFilterTypeDef"],
+        "ComplianceSecurityControlParametersValue": List["StringFilterTypeDef"],
     },
     total=False,
 )
@@ -7074,6 +7096,14 @@ BatchUpdateStandardsControlAssociationsResponseTypeDef = TypedDict(
     },
 )
 
+BooleanConfigurationOptionsTypeDef = TypedDict(
+    "BooleanConfigurationOptionsTypeDef",
+    {
+        "DefaultValue": bool,
+    },
+    total=False,
+)
+
 BooleanFilterTypeDef = TypedDict(
     "BooleanFilterTypeDef",
     {
@@ -7162,6 +7192,22 @@ ComplianceTypeDef = TypedDict(
         "StatusReasons": List["StatusReasonTypeDef"],
         "SecurityControlId": str,
         "AssociatedStandards": List["AssociatedStandardTypeDef"],
+        "SecurityControlParameters": List["SecurityControlParameterTypeDef"],
+    },
+    total=False,
+)
+
+ConfigurationOptionsTypeDef = TypedDict(
+    "ConfigurationOptionsTypeDef",
+    {
+        "Integer": "IntegerConfigurationOptionsTypeDef",
+        "IntegerList": "IntegerListConfigurationOptionsTypeDef",
+        "Double": "DoubleConfigurationOptionsTypeDef",
+        "String": "StringConfigurationOptionsTypeDef",
+        "StringList": "StringListConfigurationOptionsTypeDef",
+        "Boolean": "BooleanConfigurationOptionsTypeDef",
+        "Enum": "EnumConfigurationOptionsTypeDef",
+        "EnumList": "EnumListConfigurationOptionsTypeDef",
     },
     total=False,
 )
@@ -7591,6 +7637,16 @@ DnsRequestActionTypeDef = TypedDict(
     total=False,
 )
 
+DoubleConfigurationOptionsTypeDef = TypedDict(
+    "DoubleConfigurationOptionsTypeDef",
+    {
+        "DefaultValue": float,
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
+)
+
 EnableImportFindingsForProductRequestRequestTypeDef = TypedDict(
     "EnableImportFindingsForProductRequestRequestTypeDef",
     {
@@ -7619,6 +7675,25 @@ EnableSecurityHubRequestRequestTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "EnableDefaultStandards": bool,
         "ControlFindingGenerator": ControlFindingGeneratorType,
+    },
+    total=False,
+)
+
+EnumConfigurationOptionsTypeDef = TypedDict(
+    "EnumConfigurationOptionsTypeDef",
+    {
+        "DefaultValue": str,
+        "AllowedValues": List[str],
+    },
+    total=False,
+)
+
+EnumListConfigurationOptionsTypeDef = TypedDict(
+    "EnumListConfigurationOptionsTypeDef",
+    {
+        "DefaultValue": List[str],
+        "MaxItems": int,
+        "AllowedValues": List[str],
     },
     total=False,
 )
@@ -7918,6 +7993,21 @@ GetMembersResponseTypeDef = TypedDict(
     },
 )
 
+GetSecurityControlDefinitionRequestRequestTypeDef = TypedDict(
+    "GetSecurityControlDefinitionRequestRequestTypeDef",
+    {
+        "SecurityControlId": str,
+    },
+)
+
+GetSecurityControlDefinitionResponseTypeDef = TypedDict(
+    "GetSecurityControlDefinitionResponseTypeDef",
+    {
+        "SecurityControlDefinition": "SecurityControlDefinitionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 IcmpTypeCodeTypeDef = TypedDict(
     "IcmpTypeCodeTypeDef",
     {
@@ -7961,6 +8051,27 @@ InsightTypeDef = TypedDict(
         "Filters": "AwsSecurityFindingFiltersTypeDef",
         "GroupByAttribute": str,
     },
+)
+
+IntegerConfigurationOptionsTypeDef = TypedDict(
+    "IntegerConfigurationOptionsTypeDef",
+    {
+        "DefaultValue": int,
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
+IntegerListConfigurationOptionsTypeDef = TypedDict(
+    "IntegerListConfigurationOptionsTypeDef",
+    {
+        "DefaultValue": List[int],
+        "Min": int,
+        "Max": int,
+        "MaxItems": int,
+    },
+    total=False,
 )
 
 InvitationTypeDef = TypedDict(
@@ -8336,6 +8447,8 @@ NumberFilterTypeDef = TypedDict(
         "Gte": float,
         "Lte": float,
         "Eq": float,
+        "Gt": float,
+        "Lt": float,
     },
     total=False,
 )
@@ -8368,6 +8481,48 @@ PaginatorConfigTypeDef = TypedDict(
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+_RequiredParameterConfigurationTypeDef = TypedDict(
+    "_RequiredParameterConfigurationTypeDef",
+    {
+        "ValueType": ParameterValueTypeType,
+    },
+)
+_OptionalParameterConfigurationTypeDef = TypedDict(
+    "_OptionalParameterConfigurationTypeDef",
+    {
+        "Value": "ParameterValueTypeDef",
+    },
+    total=False,
+)
+
+class ParameterConfigurationTypeDef(
+    _RequiredParameterConfigurationTypeDef, _OptionalParameterConfigurationTypeDef
+):
+    pass
+
+ParameterDefinitionTypeDef = TypedDict(
+    "ParameterDefinitionTypeDef",
+    {
+        "Description": str,
+        "ConfigurationOptions": "ConfigurationOptionsTypeDef",
+    },
+)
+
+ParameterValueTypeDef = TypedDict(
+    "ParameterValueTypeDef",
+    {
+        "Integer": int,
+        "IntegerList": List[int],
+        "Double": float,
+        "String": str,
+        "StringList": List[str],
+        "Boolean": bool,
+        "Enum": str,
+        "EnumList": List[str],
     },
     total=False,
 )
@@ -8875,8 +9030,8 @@ RuleGroupVariablesTypeDef = TypedDict(
     total=False,
 )
 
-SecurityControlDefinitionTypeDef = TypedDict(
-    "SecurityControlDefinitionTypeDef",
+_RequiredSecurityControlDefinitionTypeDef = TypedDict(
+    "_RequiredSecurityControlDefinitionTypeDef",
     {
         "SecurityControlId": str,
         "Title": str,
@@ -8886,9 +9041,31 @@ SecurityControlDefinitionTypeDef = TypedDict(
         "CurrentRegionAvailability": RegionAvailabilityStatusType,
     },
 )
+_OptionalSecurityControlDefinitionTypeDef = TypedDict(
+    "_OptionalSecurityControlDefinitionTypeDef",
+    {
+        "CustomizableProperties": List[Literal["Parameters"]],
+        "ParameterDefinitions": Dict[str, "ParameterDefinitionTypeDef"],
+    },
+    total=False,
+)
 
-SecurityControlTypeDef = TypedDict(
-    "SecurityControlTypeDef",
+class SecurityControlDefinitionTypeDef(
+    _RequiredSecurityControlDefinitionTypeDef, _OptionalSecurityControlDefinitionTypeDef
+):
+    pass
+
+SecurityControlParameterTypeDef = TypedDict(
+    "SecurityControlParameterTypeDef",
+    {
+        "Name": str,
+        "Value": List[str],
+    },
+    total=False,
+)
+
+_RequiredSecurityControlTypeDef = TypedDict(
+    "_RequiredSecurityControlTypeDef",
     {
         "SecurityControlId": str,
         "SecurityControlArn": str,
@@ -8899,6 +9076,18 @@ SecurityControlTypeDef = TypedDict(
         "SecurityControlStatus": ControlStatusType,
     },
 )
+_OptionalSecurityControlTypeDef = TypedDict(
+    "_OptionalSecurityControlTypeDef",
+    {
+        "UpdateStatus": UpdateStatusType,
+        "Parameters": Dict[str, "ParameterConfigurationTypeDef"],
+        "LastUpdateReason": str,
+    },
+    total=False,
+)
+
+class SecurityControlTypeDef(_RequiredSecurityControlTypeDef, _OptionalSecurityControlTypeDef):
+    pass
 
 SensitiveDataDetectionsTypeDef = TypedDict(
     "SensitiveDataDetectionsTypeDef",
@@ -9180,11 +9369,32 @@ _OptionalStatusReasonTypeDef = TypedDict(
 class StatusReasonTypeDef(_RequiredStatusReasonTypeDef, _OptionalStatusReasonTypeDef):
     pass
 
+StringConfigurationOptionsTypeDef = TypedDict(
+    "StringConfigurationOptionsTypeDef",
+    {
+        "DefaultValue": str,
+        "Re2Expression": str,
+        "ExpressionDescription": str,
+    },
+    total=False,
+)
+
 StringFilterTypeDef = TypedDict(
     "StringFilterTypeDef",
     {
         "Value": str,
         "Comparison": StringFilterComparisonType,
+    },
+    total=False,
+)
+
+StringListConfigurationOptionsTypeDef = TypedDict(
+    "StringListConfigurationOptionsTypeDef",
+    {
+        "DefaultValue": List[str],
+        "Re2Expression": str,
+        "MaxItems": int,
+        "ExpressionDescription": str,
     },
     total=False,
 )
@@ -9438,6 +9648,27 @@ _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
 class UpdateOrganizationConfigurationRequestRequestTypeDef(
     _RequiredUpdateOrganizationConfigurationRequestRequestTypeDef,
     _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateSecurityControlRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateSecurityControlRequestRequestTypeDef",
+    {
+        "SecurityControlId": str,
+        "Parameters": Dict[str, "ParameterConfigurationTypeDef"],
+    },
+)
+_OptionalUpdateSecurityControlRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateSecurityControlRequestRequestTypeDef",
+    {
+        "LastUpdateReason": str,
+    },
+    total=False,
+)
+
+class UpdateSecurityControlRequestRequestTypeDef(
+    _RequiredUpdateSecurityControlRequestRequestTypeDef,
+    _OptionalUpdateSecurityControlRequestRequestTypeDef,
 ):
     pass
 

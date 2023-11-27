@@ -140,7 +140,7 @@ __all__ = (
 
 class ListAssetRevisionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListAssetRevisions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListAssetRevisions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listassetrevisionspaginator)
     """
 
@@ -152,13 +152,13 @@ class ListAssetRevisionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssetRevisionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListAssetRevisions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListAssetRevisions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listassetrevisionspaginator)
         """
 
 class ListDataSourceRunActivitiesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRunActivities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRunActivities)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcerunactivitiespaginator)
     """
 
@@ -171,13 +171,13 @@ class ListDataSourceRunActivitiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourceRunActivitiesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRunActivities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRunActivities.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcerunactivitiespaginator)
         """
 
 class ListDataSourceRunsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRuns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRuns)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcerunspaginator)
     """
 
@@ -190,13 +190,13 @@ class ListDataSourceRunsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourceRunsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRuns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRuns.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcerunspaginator)
         """
 
 class ListDataSourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListDataSources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListDataSources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcespaginator)
     """
 
@@ -212,13 +212,13 @@ class ListDataSourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListDataSources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListDataSources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcespaginator)
         """
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListDomains)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdomainspaginator)
     """
 
@@ -226,13 +226,13 @@ class ListDomainsPaginator(Boto3Paginator):
         self, *, status: DomainStatusType = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListDomains.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdomainspaginator)
         """
 
 class ListEnvironmentBlueprintConfigurationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprintConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprintConfigurations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentblueprintconfigurationspaginator)
     """
 
@@ -240,13 +240,13 @@ class ListEnvironmentBlueprintConfigurationsPaginator(Boto3Paginator):
         self, *, domainIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnvironmentBlueprintConfigurationsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprintConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprintConfigurations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentblueprintconfigurationspaginator)
         """
 
 class ListEnvironmentBlueprintsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentblueprintspaginator)
     """
 
@@ -259,13 +259,13 @@ class ListEnvironmentBlueprintsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnvironmentBlueprintsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentblueprintspaginator)
         """
 
 class ListEnvironmentProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentprofilespaginator)
     """
 
@@ -281,13 +281,13 @@ class ListEnvironmentProfilesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnvironmentProfilesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentprofilespaginator)
         """
 
 class ListEnvironmentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListEnvironments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListEnvironments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentspaginator)
     """
 
@@ -306,13 +306,13 @@ class ListEnvironmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnvironmentsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListEnvironments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListEnvironments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentspaginator)
         """
 
 class ListNotificationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListNotifications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListNotifications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listnotificationspaginator)
     """
 
@@ -328,13 +328,13 @@ class ListNotificationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNotificationsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListNotifications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListNotifications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listnotificationspaginator)
         """
 
 class ListProjectMembershipsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListProjectMemberships)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListProjectMemberships)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listprojectmembershipspaginator)
     """
 
@@ -348,13 +348,13 @@ class ListProjectMembershipsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectMembershipsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListProjectMemberships.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListProjectMemberships.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listprojectmembershipspaginator)
         """
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListProjects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listprojectspaginator)
     """
 
@@ -368,13 +368,13 @@ class ListProjectsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListProjects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listprojectspaginator)
         """
 
 class ListSubscriptionGrantsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionGrants)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionGrants)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptiongrantspaginator)
     """
 
@@ -391,13 +391,13 @@ class ListSubscriptionGrantsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionGrantsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionGrants.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionGrants.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptiongrantspaginator)
         """
 
 class ListSubscriptionRequestsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionRequests)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionRequests)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptionrequestspaginator)
     """
 
@@ -414,13 +414,13 @@ class ListSubscriptionRequestsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionRequestsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionRequests.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionRequests.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptionrequestspaginator)
         """
 
 class ListSubscriptionTargetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionTargets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionTargets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptiontargetspaginator)
     """
 
@@ -434,13 +434,13 @@ class ListSubscriptionTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionTargetsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionTargets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionTargets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptiontargetspaginator)
         """
 
 class ListSubscriptionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListSubscriptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListSubscriptions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptionspaginator)
     """
 
@@ -458,13 +458,13 @@ class ListSubscriptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.ListSubscriptions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.ListSubscriptions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptionspaginator)
         """
 
 class SearchPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.Search)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.Search)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchpaginator)
     """
 
@@ -482,13 +482,13 @@ class SearchPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.Search.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.Search.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchpaginator)
         """
 
 class SearchGroupProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.SearchGroupProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.SearchGroupProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchgroupprofilespaginator)
     """
 
@@ -501,13 +501,13 @@ class SearchGroupProfilesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchGroupProfilesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.SearchGroupProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.SearchGroupProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchgroupprofilespaginator)
         """
 
 class SearchListingsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.SearchListings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.SearchListings)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchlistingspaginator)
     """
 
@@ -523,13 +523,13 @@ class SearchListingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchListingsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.SearchListings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.SearchListings.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchlistingspaginator)
         """
 
 class SearchTypesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.SearchTypes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.SearchTypes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchtypespaginator)
     """
 
@@ -546,13 +546,13 @@ class SearchTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchTypesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.SearchTypes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.SearchTypes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchtypespaginator)
         """
 
 class SearchUserProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.SearchUserProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.SearchUserProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchuserprofilespaginator)
     """
 
@@ -565,6 +565,6 @@ class SearchUserProfilesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchUserProfilesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/datazone.html#DataZone.Paginator.SearchUserProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/datazone.html#DataZone.Paginator.SearchUserProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchuserprofilespaginator)
         """

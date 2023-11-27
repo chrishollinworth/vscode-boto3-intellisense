@@ -70,7 +70,7 @@ class Exceptions:
 
 class mediapackagev2Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html)
     """
 
@@ -85,14 +85,14 @@ class mediapackagev2Client(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#close)
         """
     def create_channel(
@@ -107,7 +107,7 @@ class mediapackagev2Client(BaseClient):
         """
         Create a channel to start receiving content streams.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.create_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.create_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#create_channel)
         """
     def create_channel_group(
@@ -121,7 +121,7 @@ class mediapackagev2Client(BaseClient):
         """
         Create a channel group to group your channels and origin endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.create_channel_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.create_channel_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#create_channel_group)
         """
     def create_origin_endpoint(
@@ -143,7 +143,7 @@ class mediapackagev2Client(BaseClient):
         The endpoint is attached to a channel, and represents the output of the live
         content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.create_origin_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.create_origin_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#create_origin_endpoint)
         """
     def delete_channel(self, *, ChannelGroupName: str, ChannelName: str) -> Dict[str, Any]:
@@ -151,21 +151,21 @@ class mediapackagev2Client(BaseClient):
         Delete a channel to stop AWS Elemental MediaPackage from receiving further
         content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#delete_channel)
         """
     def delete_channel_group(self, *, ChannelGroupName: str) -> Dict[str, Any]:
         """
         Delete a channel group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_channel_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_channel_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#delete_channel_group)
         """
     def delete_channel_policy(self, *, ChannelGroupName: str, ChannelName: str) -> Dict[str, Any]:
         """
         Delete a channel policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_channel_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_channel_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#delete_channel_policy)
         """
     def delete_origin_endpoint(
@@ -174,7 +174,7 @@ class mediapackagev2Client(BaseClient):
         """
         Origin endpoints can serve content until they're deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_origin_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_origin_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#delete_origin_endpoint)
         """
     def delete_origin_endpoint_policy(
@@ -183,7 +183,7 @@ class mediapackagev2Client(BaseClient):
         """
         Delete an origin endpoint policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_origin_endpoint_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.delete_origin_endpoint_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#delete_origin_endpoint_policy)
         """
     def generate_presigned_url(
@@ -196,7 +196,7 @@ class mediapackagev2Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#generate_presigned_url)
         """
     def get_channel(self, *, ChannelGroupName: str, ChannelName: str) -> GetChannelResponseTypeDef:
@@ -204,7 +204,7 @@ class mediapackagev2Client(BaseClient):
         Retrieves the specified channel that's configured in AWS Elemental MediaPackage,
         including the origin endpoints that are associated with it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.get_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.get_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#get_channel)
         """
     def get_channel_group(self, *, ChannelGroupName: str) -> GetChannelGroupResponseTypeDef:
@@ -213,7 +213,7 @@ class mediapackagev2Client(BaseClient):
         MediaPackage, including the channels and origin endpoints that are associated
         with it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.get_channel_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.get_channel_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#get_channel_group)
         """
     def get_channel_policy(
@@ -223,7 +223,7 @@ class mediapackagev2Client(BaseClient):
         Retrieves the specified channel policy that's configured in AWS Elemental
         MediaPackage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.get_channel_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.get_channel_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#get_channel_policy)
         """
     def get_origin_endpoint(
@@ -234,7 +234,7 @@ class mediapackagev2Client(BaseClient):
         MediaPackage to obtain its playback URL and to view the packaging settings that
         it's currently using.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.get_origin_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.get_origin_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#get_origin_endpoint)
         """
     def get_origin_endpoint_policy(
@@ -244,7 +244,7 @@ class mediapackagev2Client(BaseClient):
         Retrieves the specified origin endpoint policy that's configured in AWS
         Elemental MediaPackage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.get_origin_endpoint_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.get_origin_endpoint_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#get_origin_endpoint_policy)
         """
     def list_channel_groups(
@@ -254,7 +254,7 @@ class mediapackagev2Client(BaseClient):
         Retrieves all channel groups that are configured in AWS Elemental MediaPackage,
         including the channels and origin endpoints that are associated with it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.list_channel_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.list_channel_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#list_channel_groups)
         """
     def list_channels(
@@ -265,7 +265,7 @@ class mediapackagev2Client(BaseClient):
         Elemental MediaPackage, including the origin endpoints that are associated with
         it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.list_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#list_channels)
         """
     def list_origin_endpoints(
@@ -280,14 +280,14 @@ class mediapackagev2Client(BaseClient):
         Retrieves all origin endpoints in a specific channel that are configured in AWS
         Elemental MediaPackage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.list_origin_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.list_origin_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#list_origin_endpoints)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags assigned to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#list_tags_for_resource)
         """
     def put_channel_policy(
@@ -296,7 +296,7 @@ class mediapackagev2Client(BaseClient):
         """
         Attaches an IAM policy to the specified channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.put_channel_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.put_channel_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#put_channel_policy)
         """
     def put_origin_endpoint_policy(
@@ -305,7 +305,7 @@ class mediapackagev2Client(BaseClient):
         """
         Attaches an IAM policy to the specified origin endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.put_origin_endpoint_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.put_origin_endpoint_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#put_origin_endpoint_policy)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
@@ -313,14 +313,14 @@ class mediapackagev2Client(BaseClient):
         Assigns one of more tags (key-value pairs) to the specified MediaPackage
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
         """
         Removes one or more tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#untag_resource)
         """
     def update_channel(
@@ -329,7 +329,7 @@ class mediapackagev2Client(BaseClient):
         """
         Update the specified channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.update_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#update_channel)
         """
     def update_channel_group(
@@ -338,7 +338,7 @@ class mediapackagev2Client(BaseClient):
         """
         Update the specified channel group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.update_channel_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.update_channel_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#update_channel_group)
         """
     def update_origin_endpoint(
@@ -357,7 +357,7 @@ class mediapackagev2Client(BaseClient):
         """
         Update the specified origin endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Client.update_origin_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Client.update_origin_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/client.html#update_origin_endpoint)
         """
     @overload
@@ -365,13 +365,13 @@ class mediapackagev2Client(BaseClient):
         self, operation_name: Literal["list_channel_groups"]
     ) -> ListChannelGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Paginator.ListChannelGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Paginator.ListChannelGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/paginators.html#listchannelgroupspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Paginator.ListChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Paginator.ListChannels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/paginators.html#listchannelspaginator)
         """
     @overload
@@ -379,6 +379,6 @@ class mediapackagev2Client(BaseClient):
         self, operation_name: Literal["list_origin_endpoints"]
     ) -> ListOriginEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/mediapackagev2.html#mediapackagev2.Paginator.ListOriginEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/mediapackagev2.html#mediapackagev2.Paginator.ListOriginEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/paginators.html#listoriginendpointspaginator)
         """

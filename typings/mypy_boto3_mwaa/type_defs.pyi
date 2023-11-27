@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    EndpointManagementType,
     EnvironmentStatusType,
     LoggingLevelType,
     UnitType,
@@ -94,6 +95,7 @@ _OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
     {
         "AirflowConfigurationOptions": Dict[str, str],
         "AirflowVersion": str,
+        "EndpointManagement": EndpointManagementType,
         "EnvironmentClass": str,
         "KmsKey": str,
         "LoggingConfiguration": "LoggingConfigurationInputTypeDef",
@@ -163,8 +165,11 @@ EnvironmentTypeDef = TypedDict(
         "AirflowConfigurationOptions": Dict[str, str],
         "AirflowVersion": str,
         "Arn": str,
+        "CeleryExecutorQueue": str,
         "CreatedAt": datetime,
         "DagS3Path": str,
+        "DatabaseVpcEndpointService": str,
+        "EndpointManagement": EndpointManagementType,
         "EnvironmentClass": str,
         "ExecutionRoleArn": str,
         "KmsKey": str,
@@ -187,6 +192,7 @@ EnvironmentTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "WebserverAccessMode": WebserverAccessModeType,
         "WebserverUrl": str,
+        "WebserverVpcEndpointService": str,
         "WeeklyMaintenanceWindowStart": str,
     },
     total=False,

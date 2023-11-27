@@ -18,8 +18,10 @@ from typing import Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    ApplicationStatusType,
     ComparisonOperatorType,
     DataLakeResourceTypeType,
+    EnableStatusType,
     FieldNameStringType,
     OptimizerTypeType,
     PermissionType,
@@ -57,6 +59,8 @@ __all__ = (
     "CommitTransactionResponseTypeDef",
     "CreateDataCellsFilterRequestRequestTypeDef",
     "CreateLFTagRequestRequestTypeDef",
+    "CreateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
+    "CreateLakeFormationIdentityCenterConfigurationResponseTypeDef",
     "CreateLakeFormationOptInRequestRequestTypeDef",
     "DataCellsFilterResourceTypeDef",
     "DataCellsFilterTypeDef",
@@ -66,10 +70,13 @@ __all__ = (
     "DatabaseResourceTypeDef",
     "DeleteDataCellsFilterRequestRequestTypeDef",
     "DeleteLFTagRequestRequestTypeDef",
+    "DeleteLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
     "DeleteLakeFormationOptInRequestRequestTypeDef",
     "DeleteObjectInputTypeDef",
     "DeleteObjectsOnCancelRequestRequestTypeDef",
     "DeregisterResourceRequestRequestTypeDef",
+    "DescribeLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
+    "DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef",
     "DescribeResourceRequestRequestTypeDef",
     "DescribeResourceResponseTypeDef",
     "DescribeTransactionRequestRequestTypeDef",
@@ -78,6 +85,7 @@ __all__ = (
     "ErrorDetailTypeDef",
     "ExecutionStatisticsTypeDef",
     "ExtendTransactionRequestRequestTypeDef",
+    "ExternalFilteringConfigurationTypeDef",
     "FilterConditionTypeDef",
     "GetDataCellsFilterRequestRequestTypeDef",
     "GetDataCellsFilterResponseTypeDef",
@@ -157,6 +165,7 @@ __all__ = (
     "TransactionDescriptionTypeDef",
     "UpdateDataCellsFilterRequestRequestTypeDef",
     "UpdateLFTagRequestRequestTypeDef",
+    "UpdateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
     "UpdateResourceRequestRequestTypeDef",
     "UpdateTableObjectsRequestRequestTypeDef",
     "UpdateTableStorageOptimizerRequestRequestTypeDef",
@@ -408,6 +417,24 @@ class CreateLFTagRequestRequestTypeDef(
 ):
     pass
 
+CreateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef = TypedDict(
+    "CreateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "InstanceArn": str,
+        "ExternalFiltering": "ExternalFilteringConfigurationTypeDef",
+    },
+    total=False,
+)
+
+CreateLakeFormationIdentityCenterConfigurationResponseTypeDef = TypedDict(
+    "CreateLakeFormationIdentityCenterConfigurationResponseTypeDef",
+    {
+        "ApplicationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateLakeFormationOptInRequestRequestTypeDef = TypedDict(
     "CreateLakeFormationOptInRequestRequestTypeDef",
     {
@@ -541,6 +568,14 @@ class DeleteLFTagRequestRequestTypeDef(
 ):
     pass
 
+DeleteLakeFormationIdentityCenterConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+    },
+    total=False,
+)
+
 DeleteLakeFormationOptInRequestRequestTypeDef = TypedDict(
     "DeleteLakeFormationOptInRequestRequestTypeDef",
     {
@@ -596,6 +631,25 @@ DeregisterResourceRequestRequestTypeDef = TypedDict(
     "DeregisterResourceRequestRequestTypeDef",
     {
         "ResourceArn": str,
+    },
+)
+
+DescribeLakeFormationIdentityCenterConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+    },
+    total=False,
+)
+
+DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef = TypedDict(
+    "DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef",
+    {
+        "CatalogId": str,
+        "InstanceArn": str,
+        "ApplicationArn": str,
+        "ExternalFiltering": "ExternalFilteringConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -662,6 +716,14 @@ ExtendTransactionRequestRequestTypeDef = TypedDict(
         "TransactionId": str,
     },
     total=False,
+)
+
+ExternalFilteringConfigurationTypeDef = TypedDict(
+    "ExternalFilteringConfigurationTypeDef",
+    {
+        "Status": EnableStatusType,
+        "AuthorizedTargets": List[str],
+    },
 )
 
 FilterConditionTypeDef = TypedDict(
@@ -1678,6 +1740,16 @@ class UpdateLFTagRequestRequestTypeDef(
     _RequiredUpdateLFTagRequestRequestTypeDef, _OptionalUpdateLFTagRequestRequestTypeDef
 ):
     pass
+
+UpdateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "ApplicationStatus": ApplicationStatusType,
+        "ExternalFiltering": "ExternalFilteringConfigurationTypeDef",
+    },
+    total=False,
+)
 
 _RequiredUpdateResourceRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateResourceRequestRequestTypeDef",

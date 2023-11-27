@@ -23,6 +23,7 @@ from .literals import (
     EcsResourceRequirementTypeType,
     KinesisStreamStartPositionType,
     LaunchTypeType,
+    LogLevelType,
     MSKStartPositionType,
     PipeStateType,
     PipeTargetInvocationTypeType,
@@ -30,6 +31,7 @@ from .literals import (
     PlacementStrategyTypeType,
     RequestedPipeStateDescribeResponseType,
     RequestedPipeStateType,
+    S3OutputFormatType,
     SelfManagedKafkaStartPositionType,
 )
 
@@ -51,6 +53,8 @@ __all__ = (
     "BatchResourceRequirementTypeDef",
     "BatchRetryStrategyTypeDef",
     "CapacityProviderStrategyItemTypeDef",
+    "CloudwatchLogsLogDestinationParametersTypeDef",
+    "CloudwatchLogsLogDestinationTypeDef",
     "CreatePipeRequestRequestTypeDef",
     "CreatePipeResponseTypeDef",
     "DeadLetterConfigTypeDef",
@@ -67,6 +71,8 @@ __all__ = (
     "EcsTaskOverrideTypeDef",
     "FilterCriteriaTypeDef",
     "FilterTypeDef",
+    "FirehoseLogDestinationParametersTypeDef",
+    "FirehoseLogDestinationTypeDef",
     "ListPipesRequestRequestTypeDef",
     "ListPipesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -77,6 +83,8 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PipeEnrichmentHttpParametersTypeDef",
     "PipeEnrichmentParametersTypeDef",
+    "PipeLogConfigurationParametersTypeDef",
+    "PipeLogConfigurationTypeDef",
     "PipeSourceActiveMQBrokerParametersTypeDef",
     "PipeSourceDynamoDBStreamParametersTypeDef",
     "PipeSourceKinesisStreamParametersTypeDef",
@@ -101,6 +109,8 @@ __all__ = (
     "PlacementConstraintTypeDef",
     "PlacementStrategyTypeDef",
     "ResponseMetadataTypeDef",
+    "S3LogDestinationParametersTypeDef",
+    "S3LogDestinationTypeDef",
     "SageMakerPipelineParameterTypeDef",
     "SelfManagedKafkaAccessConfigurationCredentialsTypeDef",
     "SelfManagedKafkaAccessConfigurationVpcTypeDef",
@@ -216,6 +226,21 @@ class CapacityProviderStrategyItemTypeDef(
 ):
     pass
 
+CloudwatchLogsLogDestinationParametersTypeDef = TypedDict(
+    "CloudwatchLogsLogDestinationParametersTypeDef",
+    {
+        "LogGroupArn": str,
+    },
+)
+
+CloudwatchLogsLogDestinationTypeDef = TypedDict(
+    "CloudwatchLogsLogDestinationTypeDef",
+    {
+        "LogGroupArn": str,
+    },
+    total=False,
+)
+
 _RequiredCreatePipeRequestRequestTypeDef = TypedDict(
     "_RequiredCreatePipeRequestRequestTypeDef",
     {
@@ -232,6 +257,7 @@ _OptionalCreatePipeRequestRequestTypeDef = TypedDict(
         "DesiredState": RequestedPipeStateType,
         "Enrichment": str,
         "EnrichmentParameters": "PipeEnrichmentParametersTypeDef",
+        "LogConfiguration": "PipeLogConfigurationParametersTypeDef",
         "SourceParameters": "PipeSourceParametersTypeDef",
         "Tags": Dict[str, str],
         "TargetParameters": "PipeTargetParametersTypeDef",
@@ -303,6 +329,7 @@ DescribePipeResponseTypeDef = TypedDict(
         "Enrichment": str,
         "EnrichmentParameters": "PipeEnrichmentParametersTypeDef",
         "LastModifiedTime": datetime,
+        "LogConfiguration": "PipeLogConfigurationTypeDef",
         "Name": str,
         "RoleArn": str,
         "Source": str,
@@ -401,6 +428,21 @@ FilterTypeDef = TypedDict(
     total=False,
 )
 
+FirehoseLogDestinationParametersTypeDef = TypedDict(
+    "FirehoseLogDestinationParametersTypeDef",
+    {
+        "DeliveryStreamArn": str,
+    },
+)
+
+FirehoseLogDestinationTypeDef = TypedDict(
+    "FirehoseLogDestinationTypeDef",
+    {
+        "DeliveryStreamArn": str,
+    },
+    total=False,
+)
+
 ListPipesRequestRequestTypeDef = TypedDict(
     "ListPipesRequestRequestTypeDef",
     {
@@ -489,6 +531,40 @@ PipeEnrichmentParametersTypeDef = TypedDict(
     {
         "HttpParameters": "PipeEnrichmentHttpParametersTypeDef",
         "InputTemplate": str,
+    },
+    total=False,
+)
+
+_RequiredPipeLogConfigurationParametersTypeDef = TypedDict(
+    "_RequiredPipeLogConfigurationParametersTypeDef",
+    {
+        "Level": LogLevelType,
+    },
+)
+_OptionalPipeLogConfigurationParametersTypeDef = TypedDict(
+    "_OptionalPipeLogConfigurationParametersTypeDef",
+    {
+        "CloudwatchLogsLogDestination": "CloudwatchLogsLogDestinationParametersTypeDef",
+        "FirehoseLogDestination": "FirehoseLogDestinationParametersTypeDef",
+        "IncludeExecutionData": List[Literal["ALL"]],
+        "S3LogDestination": "S3LogDestinationParametersTypeDef",
+    },
+    total=False,
+)
+
+class PipeLogConfigurationParametersTypeDef(
+    _RequiredPipeLogConfigurationParametersTypeDef, _OptionalPipeLogConfigurationParametersTypeDef
+):
+    pass
+
+PipeLogConfigurationTypeDef = TypedDict(
+    "PipeLogConfigurationTypeDef",
+    {
+        "CloudwatchLogsLogDestination": "CloudwatchLogsLogDestinationTypeDef",
+        "FirehoseLogDestination": "FirehoseLogDestinationTypeDef",
+        "IncludeExecutionData": List[Literal["ALL"]],
+        "Level": LogLevelType,
+        "S3LogDestination": "S3LogDestinationTypeDef",
     },
     total=False,
 )
@@ -882,6 +958,38 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+_RequiredS3LogDestinationParametersTypeDef = TypedDict(
+    "_RequiredS3LogDestinationParametersTypeDef",
+    {
+        "BucketName": str,
+        "BucketOwner": str,
+    },
+)
+_OptionalS3LogDestinationParametersTypeDef = TypedDict(
+    "_OptionalS3LogDestinationParametersTypeDef",
+    {
+        "OutputFormat": S3OutputFormatType,
+        "Prefix": str,
+    },
+    total=False,
+)
+
+class S3LogDestinationParametersTypeDef(
+    _RequiredS3LogDestinationParametersTypeDef, _OptionalS3LogDestinationParametersTypeDef
+):
+    pass
+
+S3LogDestinationTypeDef = TypedDict(
+    "S3LogDestinationTypeDef",
+    {
+        "BucketName": str,
+        "BucketOwner": str,
+        "OutputFormat": S3OutputFormatType,
+        "Prefix": str,
+    },
+    total=False,
+)
+
 SageMakerPipelineParameterTypeDef = TypedDict(
     "SageMakerPipelineParameterTypeDef",
     {
@@ -988,6 +1096,7 @@ _OptionalUpdatePipeRequestRequestTypeDef = TypedDict(
         "DesiredState": RequestedPipeStateType,
         "Enrichment": str,
         "EnrichmentParameters": "PipeEnrichmentParametersTypeDef",
+        "LogConfiguration": "PipeLogConfigurationParametersTypeDef",
         "SourceParameters": "UpdatePipeSourceParametersTypeDef",
         "Target": str,
         "TargetParameters": "PipeTargetParametersTypeDef",

@@ -46,7 +46,7 @@ __all__ = (
 
 class ListDeviceResourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDeviceResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDeviceResources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listdeviceresourcespaginator)
     """
 
@@ -58,13 +58,13 @@ class ListDeviceResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeviceResourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDeviceResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDeviceResources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listdeviceresourcespaginator)
         """
 
 class ListDevicesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDevices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDevices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listdevicespaginator)
     """
 
@@ -72,13 +72,13 @@ class ListDevicesPaginator(Boto3Paginator):
         self, *, jobId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevicesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDevices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDevices.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listdevicespaginator)
         """
 
 class ListExecutionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListExecutions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listexecutionspaginator)
     """
 
@@ -90,13 +90,13 @@ class ListExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExecutionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListExecutions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listexecutionspaginator)
         """
 
 class ListTasksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListTasks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listtaskspaginator)
     """
 
@@ -104,6 +104,6 @@ class ListTasksPaginator(Boto3Paginator):
         self, *, state: TaskStateType = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTasksOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListTasks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listtaskspaginator)
         """

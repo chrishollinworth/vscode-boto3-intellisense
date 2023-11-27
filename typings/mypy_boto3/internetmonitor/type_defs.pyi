@@ -22,6 +22,9 @@ from .literals import (
     LogDeliveryStatusType,
     MonitorConfigStateType,
     MonitorProcessingStatusCodeType,
+    OperatorType,
+    QueryStatusType,
+    QueryTypeType,
     TriangulationEventTypeType,
 )
 
@@ -35,10 +38,15 @@ __all__ = (
     "CreateMonitorInputRequestTypeDef",
     "CreateMonitorOutputTypeDef",
     "DeleteMonitorInputRequestTypeDef",
+    "FilterParameterTypeDef",
     "GetHealthEventInputRequestTypeDef",
     "GetHealthEventOutputTypeDef",
     "GetMonitorInputRequestTypeDef",
     "GetMonitorOutputTypeDef",
+    "GetQueryResultsInputRequestTypeDef",
+    "GetQueryResultsOutputTypeDef",
+    "GetQueryStatusInputRequestTypeDef",
+    "GetQueryStatusOutputTypeDef",
     "HealthEventTypeDef",
     "HealthEventsConfigTypeDef",
     "ImpactedLocationTypeDef",
@@ -56,9 +64,13 @@ __all__ = (
     "NetworkTypeDef",
     "PaginatorConfigTypeDef",
     "PerformanceMeasurementTypeDef",
+    "QueryFieldTypeDef",
     "ResponseMetadataTypeDef",
     "RoundTripTimeTypeDef",
     "S3ConfigTypeDef",
+    "StartQueryInputRequestTypeDef",
+    "StartQueryOutputTypeDef",
+    "StopQueryInputRequestTypeDef",
     "TagResourceInputRequestTypeDef",
     "UntagResourceInputRequestTypeDef",
     "UpdateMonitorInputRequestTypeDef",
@@ -116,6 +128,16 @@ DeleteMonitorInputRequestTypeDef = TypedDict(
     },
 )
 
+FilterParameterTypeDef = TypedDict(
+    "FilterParameterTypeDef",
+    {
+        "Field": str,
+        "Operator": OperatorType,
+        "Values": List[str],
+    },
+    total=False,
+)
+
 GetHealthEventInputRequestTypeDef = TypedDict(
     "GetHealthEventInputRequestTypeDef",
     {
@@ -165,6 +187,53 @@ GetMonitorOutputTypeDef = TypedDict(
         "InternetMeasurementsLogDelivery": "InternetMeasurementsLogDeliveryTypeDef",
         "TrafficPercentageToMonitor": int,
         "HealthEventsConfig": "HealthEventsConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetQueryResultsInputRequestTypeDef = TypedDict(
+    "_RequiredGetQueryResultsInputRequestTypeDef",
+    {
+        "MonitorName": str,
+        "QueryId": str,
+    },
+)
+_OptionalGetQueryResultsInputRequestTypeDef = TypedDict(
+    "_OptionalGetQueryResultsInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetQueryResultsInputRequestTypeDef(
+    _RequiredGetQueryResultsInputRequestTypeDef, _OptionalGetQueryResultsInputRequestTypeDef
+):
+    pass
+
+GetQueryResultsOutputTypeDef = TypedDict(
+    "GetQueryResultsOutputTypeDef",
+    {
+        "Fields": List["QueryFieldTypeDef"],
+        "Data": List[List[str]],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetQueryStatusInputRequestTypeDef = TypedDict(
+    "GetQueryStatusInputRequestTypeDef",
+    {
+        "MonitorName": str,
+        "QueryId": str,
+    },
+)
+
+GetQueryStatusOutputTypeDef = TypedDict(
+    "GetQueryStatusOutputTypeDef",
+    {
+        "Status": QueryStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -385,6 +454,15 @@ PerformanceMeasurementTypeDef = TypedDict(
     total=False,
 )
 
+QueryFieldTypeDef = TypedDict(
+    "QueryFieldTypeDef",
+    {
+        "Name": str,
+        "Type": str,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -414,6 +492,44 @@ S3ConfigTypeDef = TypedDict(
         "LogDeliveryStatus": LogDeliveryStatusType,
     },
     total=False,
+)
+
+_RequiredStartQueryInputRequestTypeDef = TypedDict(
+    "_RequiredStartQueryInputRequestTypeDef",
+    {
+        "MonitorName": str,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "QueryType": QueryTypeType,
+    },
+)
+_OptionalStartQueryInputRequestTypeDef = TypedDict(
+    "_OptionalStartQueryInputRequestTypeDef",
+    {
+        "FilterParameters": List["FilterParameterTypeDef"],
+    },
+    total=False,
+)
+
+class StartQueryInputRequestTypeDef(
+    _RequiredStartQueryInputRequestTypeDef, _OptionalStartQueryInputRequestTypeDef
+):
+    pass
+
+StartQueryOutputTypeDef = TypedDict(
+    "StartQueryOutputTypeDef",
+    {
+        "QueryId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopQueryInputRequestTypeDef = TypedDict(
+    "StopQueryInputRequestTypeDef",
+    {
+        "MonitorName": str,
+        "QueryId": str,
+    },
 )
 
 TagResourceInputRequestTypeDef = TypedDict(

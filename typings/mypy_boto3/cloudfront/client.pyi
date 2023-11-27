@@ -28,6 +28,7 @@ from .paginator import (
     ListCloudFrontOriginAccessIdentitiesPaginator,
     ListDistributionsPaginator,
     ListInvalidationsPaginator,
+    ListKeyValueStoresPaginator,
     ListStreamingDistributionsPaginator,
 )
 from .type_defs import (
@@ -45,6 +46,7 @@ from .type_defs import (
     CreateFunctionResultTypeDef,
     CreateInvalidationResultTypeDef,
     CreateKeyGroupResultTypeDef,
+    CreateKeyValueStoreResultTypeDef,
     CreateMonitoringSubscriptionResultTypeDef,
     CreateOriginAccessControlResultTypeDef,
     CreateOriginRequestPolicyResultTypeDef,
@@ -54,6 +56,7 @@ from .type_defs import (
     CreateStreamingDistributionResultTypeDef,
     CreateStreamingDistributionWithTagsResultTypeDef,
     DescribeFunctionResultTypeDef,
+    DescribeKeyValueStoreResultTypeDef,
     DistributionConfigTypeDef,
     DistributionConfigWithTagsTypeDef,
     EndPointTypeDef,
@@ -88,6 +91,7 @@ from .type_defs import (
     GetResponseHeadersPolicyResultTypeDef,
     GetStreamingDistributionConfigResultTypeDef,
     GetStreamingDistributionResultTypeDef,
+    ImportSourceTypeDef,
     InvalidationBatchTypeDef,
     KeyGroupConfigTypeDef,
     ListCachePoliciesResultTypeDef,
@@ -106,6 +110,7 @@ from .type_defs import (
     ListFunctionsResultTypeDef,
     ListInvalidationsResultTypeDef,
     ListKeyGroupsResultTypeDef,
+    ListKeyValueStoresResultTypeDef,
     ListOriginAccessControlsResultTypeDef,
     ListOriginRequestPoliciesResultTypeDef,
     ListPublicKeysResultTypeDef,
@@ -133,6 +138,7 @@ from .type_defs import (
     UpdateFieldLevelEncryptionProfileResultTypeDef,
     UpdateFunctionResultTypeDef,
     UpdateKeyGroupResultTypeDef,
+    UpdateKeyValueStoreResultTypeDef,
     UpdateOriginAccessControlResultTypeDef,
     UpdateOriginRequestPolicyResultTypeDef,
     UpdatePublicKeyResultTypeDef,
@@ -167,6 +173,7 @@ class Exceptions:
     CachePolicyAlreadyExists: Type[BotocoreClientError]
     CachePolicyInUse: Type[BotocoreClientError]
     CannotChangeImmutablePublicKeyFields: Type[BotocoreClientError]
+    CannotDeleteEntityWhileInUse: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     CloudFrontOriginAccessIdentityAlreadyExists: Type[BotocoreClientError]
     CloudFrontOriginAccessIdentityInUse: Type[BotocoreClientError]
@@ -174,6 +181,10 @@ class Exceptions:
     ContinuousDeploymentPolicyInUse: Type[BotocoreClientError]
     DistributionAlreadyExists: Type[BotocoreClientError]
     DistributionNotDisabled: Type[BotocoreClientError]
+    EntityAlreadyExists: Type[BotocoreClientError]
+    EntityLimitExceeded: Type[BotocoreClientError]
+    EntityNotFound: Type[BotocoreClientError]
+    EntitySizeLimitExceeded: Type[BotocoreClientError]
     FieldLevelEncryptionConfigAlreadyExists: Type[BotocoreClientError]
     FieldLevelEncryptionConfigInUse: Type[BotocoreClientError]
     FieldLevelEncryptionProfileAlreadyExists: Type[BotocoreClientError]
@@ -309,7 +320,7 @@ class Exceptions:
 
 class CloudFrontClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html)
     """
 
@@ -325,21 +336,21 @@ class CloudFrontClient(BaseClient):
         Associates an alias (also known as a CNAME or an alternate domain name) with a
         CloudFront distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.associate_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.associate_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#associate_alias)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#close)
         """
     def copy_distribution(
@@ -355,7 +366,7 @@ class CloudFrontClient(BaseClient):
         Creates a staging distribution using the configuration of the provided primary
         distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.copy_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.copy_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#copy_distribution)
         """
     def create_cache_policy(
@@ -364,7 +375,7 @@ class CloudFrontClient(BaseClient):
         """
         Creates a cache policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_cache_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_cache_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_cache_policy)
         """
     def create_cloud_front_origin_access_identity(
@@ -373,7 +384,7 @@ class CloudFrontClient(BaseClient):
         """
         Creates a new origin access identity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_cloud_front_origin_access_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_cloud_front_origin_access_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_cloud_front_origin_access_identity)
         """
     def create_continuous_deployment_policy(
@@ -383,7 +394,7 @@ class CloudFrontClient(BaseClient):
         Creates a continuous deployment policy that distributes traffic for a custom
         domain name to two different CloudFront distributions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_continuous_deployment_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_continuous_deployment_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_continuous_deployment_policy)
         """
     def create_distribution(
@@ -392,7 +403,7 @@ class CloudFrontClient(BaseClient):
         """
         Creates a CloudFront distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_distribution)
         """
     def create_distribution_with_tags(
@@ -401,7 +412,7 @@ class CloudFrontClient(BaseClient):
         """
         Create a new distribution with tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_distribution_with_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_distribution_with_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_distribution_with_tags)
         """
     def create_field_level_encryption_config(
@@ -410,7 +421,7 @@ class CloudFrontClient(BaseClient):
         """
         Create a new field-level encryption configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_field_level_encryption_config)
         """
     def create_field_level_encryption_profile(
@@ -419,7 +430,7 @@ class CloudFrontClient(BaseClient):
         """
         Create a field-level encryption profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_field_level_encryption_profile)
         """
     def create_function(
@@ -432,7 +443,7 @@ class CloudFrontClient(BaseClient):
         """
         Creates a CloudFront function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_function)
         """
     def create_invalidation(
@@ -441,7 +452,7 @@ class CloudFrontClient(BaseClient):
         """
         Create a new invalidation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_invalidation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_invalidation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_invalidation)
         """
     def create_key_group(
@@ -452,8 +463,17 @@ class CloudFrontClient(BaseClient):
         cookies <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Priv
         ateContent.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_key_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_key_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_key_group)
+        """
+    def create_key_value_store(
+        self, *, Name: str, Comment: str = None, ImportSource: "ImportSourceTypeDef" = None
+    ) -> CreateKeyValueStoreResultTypeDef:
+        """
+        Specifies the Key Value Store resource to add to your account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_key_value_store)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_key_value_store)
         """
     def create_monitoring_subscription(
         self, *, DistributionId: str, MonitoringSubscription: "MonitoringSubscriptionTypeDef"
@@ -461,7 +481,7 @@ class CloudFrontClient(BaseClient):
         """
         Enables additional CloudWatch metrics for the specified CloudFront distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_monitoring_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_monitoring_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_monitoring_subscription)
         """
     def create_origin_access_control(
@@ -470,7 +490,7 @@ class CloudFrontClient(BaseClient):
         """
         Creates a new origin access control in CloudFront.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_origin_access_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_origin_access_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_origin_access_control)
         """
     def create_origin_request_policy(
@@ -479,7 +499,7 @@ class CloudFrontClient(BaseClient):
         """
         Creates an origin request policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_origin_request_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_origin_request_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_origin_request_policy)
         """
     def create_public_key(
@@ -492,7 +512,7 @@ class CloudFrontClient(BaseClient):
         <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-
         enc...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_public_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_public_key)
         """
     def create_realtime_log_config(
@@ -501,7 +521,7 @@ class CloudFrontClient(BaseClient):
         """
         Creates a real-time log configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_realtime_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_realtime_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_realtime_log_config)
         """
     def create_response_headers_policy(
@@ -510,7 +530,7 @@ class CloudFrontClient(BaseClient):
         """
         Creates a response headers policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_response_headers_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_response_headers_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_response_headers_policy)
         """
     def create_streaming_distribution(
@@ -519,7 +539,7 @@ class CloudFrontClient(BaseClient):
         """
         This API is deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_streaming_distribution)
         """
     def create_streaming_distribution_with_tags(
@@ -528,113 +548,120 @@ class CloudFrontClient(BaseClient):
         """
         This API is deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution_with_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution_with_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_streaming_distribution_with_tags)
         """
     def delete_cache_policy(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Deletes a cache policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_cache_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_cache_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_cache_policy)
         """
     def delete_cloud_front_origin_access_identity(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Delete an origin access identity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_cloud_front_origin_access_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_cloud_front_origin_access_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_cloud_front_origin_access_identity)
         """
     def delete_continuous_deployment_policy(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Deletes a continuous deployment policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_continuous_deployment_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_continuous_deployment_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_continuous_deployment_policy)
         """
     def delete_distribution(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Delete a distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_distribution)
         """
     def delete_field_level_encryption_config(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Remove a field-level encryption configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_field_level_encryption_config)
         """
     def delete_field_level_encryption_profile(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Remove a field-level encryption profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_field_level_encryption_profile)
         """
     def delete_function(self, *, Name: str, IfMatch: str) -> None:
         """
         Deletes a CloudFront function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_function)
         """
     def delete_key_group(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Deletes a key group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_key_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_key_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_key_group)
+        """
+    def delete_key_value_store(self, *, Name: str, IfMatch: str) -> None:
+        """
+        Specifies the Key Value Store to delete.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_key_value_store)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_key_value_store)
         """
     def delete_monitoring_subscription(self, *, DistributionId: str) -> Dict[str, Any]:
         """
         Disables additional CloudWatch metrics for the specified CloudFront
         distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_monitoring_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_monitoring_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_monitoring_subscription)
         """
     def delete_origin_access_control(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Deletes a CloudFront origin access control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_origin_access_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_origin_access_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_origin_access_control)
         """
     def delete_origin_request_policy(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Deletes an origin request policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_origin_request_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_origin_request_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_origin_request_policy)
         """
     def delete_public_key(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Remove a public key you previously added to CloudFront.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_public_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_public_key)
         """
     def delete_realtime_log_config(self, *, Name: str = None, ARN: str = None) -> None:
         """
         Deletes a real-time log configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_realtime_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_realtime_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_realtime_log_config)
         """
     def delete_response_headers_policy(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Deletes a response headers policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_response_headers_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_response_headers_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_response_headers_policy)
         """
     def delete_streaming_distribution(self, *, Id: str, IfMatch: str = None) -> None:
         """
         Delete a streaming distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.delete_streaming_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.delete_streaming_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_streaming_distribution)
         """
     def describe_function(
@@ -644,8 +671,15 @@ class CloudFrontClient(BaseClient):
         Gets configuration information and metadata about a CloudFront function, but not
         the function's code.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.describe_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.describe_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#describe_function)
+        """
+    def describe_key_value_store(self, *, Name: str) -> DescribeKeyValueStoreResultTypeDef:
+        """
+        Specifies the Key Value Store and its configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.describe_key_value_store)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#describe_key_value_store)
         """
     def generate_presigned_url(
         self,
@@ -657,21 +691,21 @@ class CloudFrontClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#generate_presigned_url)
         """
     def get_cache_policy(self, *, Id: str) -> GetCachePolicyResultTypeDef:
         """
         Gets a cache policy, including the following metadata * The policy's identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_cache_policy)
         """
     def get_cache_policy_config(self, *, Id: str) -> GetCachePolicyConfigResultTypeDef:
         """
         Gets a cache policy configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_cache_policy_config)
         """
     def get_cloud_front_origin_access_identity(
@@ -680,7 +714,7 @@ class CloudFrontClient(BaseClient):
         """
         Get the information about an origin access identity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_cloud_front_origin_access_identity)
         """
     def get_cloud_front_origin_access_identity_config(
@@ -689,7 +723,7 @@ class CloudFrontClient(BaseClient):
         """
         Get the configuration information about an origin access identity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_cloud_front_origin_access_identity_config)
         """
     def get_continuous_deployment_policy(
@@ -699,7 +733,7 @@ class CloudFrontClient(BaseClient):
         Gets a continuous deployment policy, including metadata (the policy's identifier
         and the date and time when the policy was last modified).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_continuous_deployment_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_continuous_deployment_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_continuous_deployment_policy)
         """
     def get_continuous_deployment_policy_config(
@@ -708,28 +742,28 @@ class CloudFrontClient(BaseClient):
         """
         Gets configuration information about a continuous deployment policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_continuous_deployment_policy_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_continuous_deployment_policy_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_continuous_deployment_policy_config)
         """
     def get_distribution(self, *, Id: str) -> GetDistributionResultTypeDef:
         """
         Get the information about a distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_distribution)
         """
     def get_distribution_config(self, *, Id: str) -> GetDistributionConfigResultTypeDef:
         """
         Get the configuration information about a distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_distribution_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_distribution_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_distribution_config)
         """
     def get_field_level_encryption(self, *, Id: str) -> GetFieldLevelEncryptionResultTypeDef:
         """
         Get the field-level encryption configuration information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_field_level_encryption)
         """
     def get_field_level_encryption_config(
@@ -738,7 +772,7 @@ class CloudFrontClient(BaseClient):
         """
         Get the field-level encryption configuration information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_field_level_encryption_config)
         """
     def get_field_level_encryption_profile(
@@ -747,7 +781,7 @@ class CloudFrontClient(BaseClient):
         """
         Get the field-level encryption profile information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_field_level_encryption_profile)
         """
     def get_field_level_encryption_profile_config(
@@ -756,7 +790,7 @@ class CloudFrontClient(BaseClient):
         """
         Get the field-level encryption profile configuration information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_field_level_encryption_profile_config)
         """
     def get_function(
@@ -765,14 +799,14 @@ class CloudFrontClient(BaseClient):
         """
         Gets the code of a CloudFront function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_function)
         """
     def get_invalidation(self, *, DistributionId: str, Id: str) -> GetInvalidationResultTypeDef:
         """
         Get the information about an invalidation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_invalidation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_invalidation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_invalidation)
         """
     def get_key_group(self, *, Id: str) -> GetKeyGroupResultTypeDef:
@@ -780,14 +814,14 @@ class CloudFrontClient(BaseClient):
         Gets a key group, including the date and time when the key group was last
         modified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_key_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_key_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_key_group)
         """
     def get_key_group_config(self, *, Id: str) -> GetKeyGroupConfigResultTypeDef:
         """
         Gets a key group configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_key_group_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_key_group_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_key_group_config)
         """
     def get_monitoring_subscription(
@@ -797,14 +831,14 @@ class CloudFrontClient(BaseClient):
         Gets information about whether additional CloudWatch metrics are enabled for the
         specified CloudFront distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_monitoring_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_monitoring_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_monitoring_subscription)
         """
     def get_origin_access_control(self, *, Id: str) -> GetOriginAccessControlResultTypeDef:
         """
         Gets a CloudFront origin access control, including its unique identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_origin_access_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_origin_access_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_origin_access_control)
         """
     def get_origin_access_control_config(
@@ -813,7 +847,7 @@ class CloudFrontClient(BaseClient):
         """
         Gets a CloudFront origin access control configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_origin_access_control_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_origin_access_control_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_origin_access_control_config)
         """
     def get_origin_request_policy(self, *, Id: str) -> GetOriginRequestPolicyResultTypeDef:
@@ -821,7 +855,7 @@ class CloudFrontClient(BaseClient):
         Gets an origin request policy, including the following metadata * The policy's
         identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_origin_request_policy)
         """
     def get_origin_request_policy_config(
@@ -830,21 +864,21 @@ class CloudFrontClient(BaseClient):
         """
         Gets an origin request policy configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_origin_request_policy_config)
         """
     def get_public_key(self, *, Id: str) -> GetPublicKeyResultTypeDef:
         """
         Gets a public key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_public_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_public_key)
         """
     def get_public_key_config(self, *, Id: str) -> GetPublicKeyConfigResultTypeDef:
         """
         Gets a public key configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_public_key_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_public_key_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_public_key_config)
         """
     def get_realtime_log_config(
@@ -853,7 +887,7 @@ class CloudFrontClient(BaseClient):
         """
         Gets a real-time log configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_realtime_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_realtime_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_realtime_log_config)
         """
     def get_response_headers_policy(self, *, Id: str) -> GetResponseHeadersPolicyResultTypeDef:
@@ -861,7 +895,7 @@ class CloudFrontClient(BaseClient):
         Gets a response headers policy, including metadata (the policy's identifier and
         the date and time when the policy was last modified).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_response_headers_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_response_headers_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_response_headers_policy)
         """
     def get_response_headers_policy_config(
@@ -870,7 +904,7 @@ class CloudFrontClient(BaseClient):
         """
         Gets a response headers policy configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_response_headers_policy_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_response_headers_policy_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_response_headers_policy_config)
         """
     def get_streaming_distribution(self, *, Id: str) -> GetStreamingDistributionResultTypeDef:
@@ -878,7 +912,7 @@ class CloudFrontClient(BaseClient):
         Gets information about a specified RTMP distribution, including the distribution
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_streaming_distribution)
         """
     def get_streaming_distribution_config(
@@ -887,7 +921,7 @@ class CloudFrontClient(BaseClient):
         """
         Get the configuration information about a streaming distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_streaming_distribution_config)
         """
     def list_cache_policies(
@@ -896,7 +930,7 @@ class CloudFrontClient(BaseClient):
         """
         Gets a list of cache policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_cache_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_cache_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_cache_policies)
         """
     def list_cloud_front_origin_access_identities(
@@ -905,7 +939,7 @@ class CloudFrontClient(BaseClient):
         """
         Lists origin access identities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_cloud_front_origin_access_identities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_cloud_front_origin_access_identities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_cloud_front_origin_access_identities)
         """
     def list_conflicting_aliases(
@@ -916,7 +950,7 @@ class CloudFrontClient(BaseClient):
         conflict or overlap with the provided alias, and the associated CloudFront
         distributions and Amazon Web Services accounts for each conflicting alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_conflicting_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_conflicting_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_conflicting_aliases)
         """
     def list_continuous_deployment_policies(
@@ -926,7 +960,7 @@ class CloudFrontClient(BaseClient):
         Gets a list of the continuous deployment policies in your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_continuous_deployment_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_continuous_deployment_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_continuous_deployment_policies)
         """
     def list_distributions(
@@ -935,7 +969,7 @@ class CloudFrontClient(BaseClient):
         """
         List CloudFront distributions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_distributions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_distributions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions)
         """
     def list_distributions_by_cache_policy_id(
@@ -945,7 +979,7 @@ class CloudFrontClient(BaseClient):
         Gets a list of distribution IDs for distributions that have a cache behavior
         that's associated with the specified cache policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_cache_policy_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_cache_policy_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_cache_policy_id)
         """
     def list_distributions_by_key_group(
@@ -955,7 +989,7 @@ class CloudFrontClient(BaseClient):
         Gets a list of distribution IDs for distributions that have a cache behavior
         that references the specified key group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_key_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_key_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_key_group)
         """
     def list_distributions_by_origin_request_policy_id(
@@ -965,7 +999,7 @@ class CloudFrontClient(BaseClient):
         Gets a list of distribution IDs for distributions that have a cache behavior
         that's associated with the specified origin request policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_origin_request_policy_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_origin_request_policy_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_origin_request_policy_id)
         """
     def list_distributions_by_realtime_log_config(
@@ -980,7 +1014,7 @@ class CloudFrontClient(BaseClient):
         Gets a list of distributions that have a cache behavior that's associated with
         the specified real-time log configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_realtime_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_realtime_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_realtime_log_config)
         """
     def list_distributions_by_response_headers_policy_id(
@@ -990,7 +1024,7 @@ class CloudFrontClient(BaseClient):
         Gets a list of distribution IDs for distributions that have a cache behavior
         that's associated with the specified response headers policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_response_headers_policy_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_response_headers_policy_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_response_headers_policy_id)
         """
     def list_distributions_by_web_acl_id(
@@ -999,7 +1033,7 @@ class CloudFrontClient(BaseClient):
         """
         List the distributions that are associated with a specified WAF web ACL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_web_acl_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_web_acl_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_web_acl_id)
         """
     def list_field_level_encryption_configs(
@@ -1009,7 +1043,7 @@ class CloudFrontClient(BaseClient):
         List all field-level encryption configurations that have been created in
         CloudFront for this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_field_level_encryption_configs)
         """
     def list_field_level_encryption_profiles(
@@ -1019,7 +1053,7 @@ class CloudFrontClient(BaseClient):
         Request a list of field-level encryption profiles that have been created in
         CloudFront for this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_field_level_encryption_profiles)
         """
     def list_functions(
@@ -1028,7 +1062,7 @@ class CloudFrontClient(BaseClient):
         """
         Gets a list of all CloudFront functions in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_functions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_functions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_functions)
         """
     def list_invalidations(
@@ -1037,7 +1071,7 @@ class CloudFrontClient(BaseClient):
         """
         Lists invalidation batches.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_invalidations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_invalidations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_invalidations)
         """
     def list_key_groups(
@@ -1046,8 +1080,17 @@ class CloudFrontClient(BaseClient):
         """
         Gets a list of key groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_key_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_key_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_key_groups)
+        """
+    def list_key_value_stores(
+        self, *, Marker: str = None, MaxItems: str = None, Status: str = None
+    ) -> ListKeyValueStoresResultTypeDef:
+        """
+        Specifies the Key Value Stores to list.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_key_value_stores)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_key_value_stores)
         """
     def list_origin_access_controls(
         self, *, Marker: str = None, MaxItems: str = None
@@ -1056,7 +1099,7 @@ class CloudFrontClient(BaseClient):
         Gets the list of CloudFront origin access controls in this Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_origin_access_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_origin_access_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_origin_access_controls)
         """
     def list_origin_request_policies(
@@ -1065,7 +1108,7 @@ class CloudFrontClient(BaseClient):
         """
         Gets a list of origin request policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_origin_request_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_origin_request_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_origin_request_policies)
         """
     def list_public_keys(
@@ -1074,7 +1117,7 @@ class CloudFrontClient(BaseClient):
         """
         List all public keys that have been added to CloudFront for this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_public_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_public_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_public_keys)
         """
     def list_realtime_log_configs(
@@ -1083,7 +1126,7 @@ class CloudFrontClient(BaseClient):
         """
         Gets a list of real-time log configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_realtime_log_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_realtime_log_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_realtime_log_configs)
         """
     def list_response_headers_policies(
@@ -1096,7 +1139,7 @@ class CloudFrontClient(BaseClient):
         """
         Gets a list of response headers policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_response_headers_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_response_headers_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_response_headers_policies)
         """
     def list_streaming_distributions(
@@ -1105,14 +1148,14 @@ class CloudFrontClient(BaseClient):
         """
         List streaming distributions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_streaming_distributions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_streaming_distributions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_streaming_distributions)
         """
     def list_tags_for_resource(self, *, Resource: str) -> ListTagsForResourceResultTypeDef:
         """
         List tags for a CloudFront resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_tags_for_resource)
         """
     def publish_function(self, *, Name: str, IfMatch: str) -> PublishFunctionResultTypeDef:
@@ -1120,14 +1163,14 @@ class CloudFrontClient(BaseClient):
         Publishes a CloudFront function by copying the function code from the
         `DEVELOPMENT` stage to `LIVE`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.publish_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.publish_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#publish_function)
         """
     def tag_resource(self, *, Resource: str, Tags: "TagsTypeDef") -> None:
         """
         Add tags to a CloudFront resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#tag_resource)
         """
     def test_function(
@@ -1141,14 +1184,14 @@ class CloudFrontClient(BaseClient):
         """
         Tests a CloudFront function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.test_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.test_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#test_function)
         """
     def untag_resource(self, *, Resource: str, TagKeys: "TagKeysTypeDef") -> None:
         """
         Remove tags from a CloudFront resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#untag_resource)
         """
     def update_cache_policy(
@@ -1157,7 +1200,7 @@ class CloudFrontClient(BaseClient):
         """
         Updates a cache policy configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_cache_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_cache_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_cache_policy)
         """
     def update_cloud_front_origin_access_identity(
@@ -1170,7 +1213,7 @@ class CloudFrontClient(BaseClient):
         """
         Update an origin access identity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_cloud_front_origin_access_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_cloud_front_origin_access_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_cloud_front_origin_access_identity)
         """
     def update_continuous_deployment_policy(
@@ -1183,7 +1226,7 @@ class CloudFrontClient(BaseClient):
         """
         Updates a continuous deployment policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_continuous_deployment_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_continuous_deployment_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_continuous_deployment_policy)
         """
     def update_distribution(
@@ -1192,7 +1235,7 @@ class CloudFrontClient(BaseClient):
         """
         Updates the configuration for a CloudFront distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_distribution)
         """
     def update_distribution_with_staging_config(
@@ -1202,7 +1245,7 @@ class CloudFrontClient(BaseClient):
         Copies the staging distribution's configuration to its corresponding primary
         distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_distribution_with_staging_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_distribution_with_staging_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_distribution_with_staging_config)
         """
     def update_field_level_encryption_config(
@@ -1215,7 +1258,7 @@ class CloudFrontClient(BaseClient):
         """
         Update a field-level encryption configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_field_level_encryption_config)
         """
     def update_field_level_encryption_profile(
@@ -1228,7 +1271,7 @@ class CloudFrontClient(BaseClient):
         """
         Update a field-level encryption profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_field_level_encryption_profile)
         """
     def update_function(
@@ -1242,7 +1285,7 @@ class CloudFrontClient(BaseClient):
         """
         Updates a CloudFront function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_function)
         """
     def update_key_group(
@@ -1251,8 +1294,17 @@ class CloudFrontClient(BaseClient):
         """
         Updates a key group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_key_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_key_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_key_group)
+        """
+    def update_key_value_store(
+        self, *, Name: str, Comment: str, IfMatch: str
+    ) -> UpdateKeyValueStoreResultTypeDef:
+        """
+        Specifies the Key Value Store to update.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_key_value_store)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_key_value_store)
         """
     def update_origin_access_control(
         self,
@@ -1264,7 +1316,7 @@ class CloudFrontClient(BaseClient):
         """
         Updates a CloudFront origin access control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_origin_access_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_origin_access_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_origin_access_control)
         """
     def update_origin_request_policy(
@@ -1277,7 +1329,7 @@ class CloudFrontClient(BaseClient):
         """
         Updates an origin request policy configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_origin_request_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_origin_request_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_origin_request_policy)
         """
     def update_public_key(
@@ -1286,7 +1338,7 @@ class CloudFrontClient(BaseClient):
         """
         Update public key information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_public_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_public_key)
         """
     def update_realtime_log_config(
@@ -1301,7 +1353,7 @@ class CloudFrontClient(BaseClient):
         """
         Updates a real-time log configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_realtime_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_realtime_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_realtime_log_config)
         """
     def update_response_headers_policy(
@@ -1314,7 +1366,7 @@ class CloudFrontClient(BaseClient):
         """
         Updates a response headers policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_response_headers_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_response_headers_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_response_headers_policy)
         """
     def update_streaming_distribution(
@@ -1327,7 +1379,7 @@ class CloudFrontClient(BaseClient):
         """
         Update a streaming distribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Client.update_streaming_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Client.update_streaming_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_streaming_distribution)
         """
     @overload
@@ -1335,7 +1387,7 @@ class CloudFrontClient(BaseClient):
         self, operation_name: Literal["list_cloud_front_origin_access_identities"]
     ) -> ListCloudFrontOriginAccessIdentitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listcloudfrontoriginaccessidentitiespaginator)
         """
     @overload
@@ -1343,7 +1395,7 @@ class CloudFrontClient(BaseClient):
         self, operation_name: Literal["list_distributions"]
     ) -> ListDistributionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listdistributionspaginator)
         """
     @overload
@@ -1351,15 +1403,23 @@ class CloudFrontClient(BaseClient):
         self, operation_name: Literal["list_invalidations"]
     ) -> ListInvalidationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listinvalidationspaginator)
+        """
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_key_value_stores"]
+    ) -> ListKeyValueStoresPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Paginator.ListKeyValueStores)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listkeyvaluestorespaginator)
         """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_streaming_distributions"]
     ) -> ListStreamingDistributionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#liststreamingdistributionspaginator)
         """
     @overload
@@ -1367,7 +1427,7 @@ class CloudFrontClient(BaseClient):
         self, waiter_name: Literal["distribution_deployed"]
     ) -> DistributionDeployedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#distributiondeployedwaiter)
         """
     @overload
@@ -1375,7 +1435,7 @@ class CloudFrontClient(BaseClient):
         self, waiter_name: Literal["invalidation_completed"]
     ) -> InvalidationCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#invalidationcompletedwaiter)
         """
     @overload
@@ -1383,6 +1443,6 @@ class CloudFrontClient(BaseClient):
         self, waiter_name: Literal["streaming_distribution_deployed"]
     ) -> StreamingDistributionDeployedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#streamingdistributiondeployedwaiter)
         """

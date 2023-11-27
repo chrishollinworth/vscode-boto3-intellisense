@@ -342,6 +342,7 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "EnableCloudwatchLogsExports": List[str],
         "DeletionProtection": bool,
         "GlobalClusterIdentifier": str,
+        "StorageType": str,
         "SourceRegion": str,
     },
     total=False,
@@ -666,6 +667,7 @@ DBClusterSnapshotTypeDef = TypedDict(
         "KmsKeyId": str,
         "DBClusterSnapshotArn": str,
         "SourceDBClusterSnapshotArn": str,
+        "StorageType": str,
     },
     total=False,
 )
@@ -705,6 +707,7 @@ DBClusterTypeDef = TypedDict(
         "ClusterCreateTime": datetime,
         "EnabledCloudwatchLogsExports": List[str],
         "DeletionProtection": bool,
+        "StorageType": str,
     },
     total=False,
 )
@@ -1340,6 +1343,7 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "EngineVersion": str,
         "AllowMajorVersionUpgrade": bool,
         "DeletionProtection": bool,
+        "StorageType": str,
     },
     total=False,
 )
@@ -1530,6 +1534,7 @@ OrderableDBInstanceOptionTypeDef = TypedDict(
         "LicenseModel": str,
         "AvailabilityZones": List["AvailabilityZoneTypeDef"],
         "Vpc": bool,
+        "StorageType": str,
     },
     total=False,
 )
@@ -1751,6 +1756,7 @@ _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
         "EnableCloudwatchLogsExports": List[str],
         "DeletionProtection": bool,
         "DBClusterParameterGroupName": str,
+        "StorageType": str,
     },
     total=False,
 )
@@ -1789,6 +1795,7 @@ _OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
         "KmsKeyId": str,
         "EnableCloudwatchLogsExports": List[str],
         "DeletionProtection": bool,
+        "StorageType": str,
     },
     total=False,
 )

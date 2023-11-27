@@ -26,12 +26,12 @@ __all__ = ("ContactScheduledWaiter",)
 
 class ContactScheduledWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/groundstation.html#GroundStation.Waiter.ContactScheduled)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/groundstation.html#GroundStation.Waiter.ContactScheduled)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/waiters.html#contactscheduledwaiter)
     """
 
     def wait(self, *, contactId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/groundstation.html#GroundStation.Waiter.ContactScheduled.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/groundstation.html#GroundStation.Waiter.ContactScheduled.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/waiters.html#contactscheduledwaiter)
         """

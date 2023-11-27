@@ -71,6 +71,7 @@ __all__ = (
     "OrganizationRuleStatusType",
     "OwnerType",
     "RecorderStatusType",
+    "RecordingFrequencyType",
     "RecordingStrategyTypeType",
     "RemediationExecutionStateType",
     "RemediationExecutionStepStateType",
@@ -219,6 +220,7 @@ OrganizationRuleStatusType = Literal[
 ]
 OwnerType = Literal["AWS", "CUSTOM_LAMBDA", "CUSTOM_POLICY"]
 RecorderStatusType = Literal["Failure", "Pending", "Success"]
+RecordingFrequencyType = Literal["CONTINUOUS", "DAILY"]
 RecordingStrategyTypeType = Literal[
     "ALL_SUPPORTED_RESOURCE_TYPES", "EXCLUSION_BY_RESOURCE_TYPES", "INCLUSION_BY_RESOURCE_TYPES"
 ]

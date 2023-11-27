@@ -27,11 +27,14 @@ from .literals import (
     LogTypeType,
     ManifestStatusType,
     NetworkInterfaceTypeType,
+    NodeDataEncodingType,
     NodeDataTypeType,
     RegistrationStatusType,
+    ROS2PrimitiveTypeType,
     SignalDecoderTypeType,
     SpoolingModeType,
     StorageCompressionFormatType,
+    StructuredMessageListTypeType,
     TriggerModeType,
     UpdateCampaignActionType,
     UpdateModeType,
@@ -39,6 +42,10 @@ from .literals import (
     VehicleStateType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -75,6 +82,8 @@ __all__ = (
     "CreateVehicleRequestRequestTypeDef",
     "CreateVehicleResponseItemTypeDef",
     "CreateVehicleResponseTypeDef",
+    "CustomPropertyTypeDef",
+    "CustomStructTypeDef",
     "DataDestinationConfigTypeDef",
     "DecoderManifestSummaryTypeDef",
     "DeleteCampaignRequestRequestTypeDef",
@@ -141,6 +150,7 @@ __all__ = (
     "ListVehiclesInFleetResponseTypeDef",
     "ListVehiclesRequestRequestTypeDef",
     "ListVehiclesResponseTypeDef",
+    "MessageSignalTypeDef",
     "ModelManifestSummaryTypeDef",
     "NetworkFileDefinitionTypeDef",
     "NetworkInterfaceTypeDef",
@@ -149,9 +159,11 @@ __all__ = (
     "ObdInterfaceTypeDef",
     "ObdSignalTypeDef",
     "PaginatorConfigTypeDef",
+    "PrimitiveMessageDefinitionTypeDef",
     "PutEncryptionConfigurationRequestRequestTypeDef",
     "PutEncryptionConfigurationResponseTypeDef",
     "PutLoggingOptionsRequestRequestTypeDef",
+    "ROS2PrimitiveMessageDefinitionTypeDef",
     "RegisterAccountRequestRequestTypeDef",
     "RegisterAccountResponseTypeDef",
     "ResponseMetadataTypeDef",
@@ -160,6 +172,9 @@ __all__ = (
     "SignalCatalogSummaryTypeDef",
     "SignalDecoderTypeDef",
     "SignalInformationTypeDef",
+    "StructuredMessageFieldNameAndDataTypePairTypeDef",
+    "StructuredMessageListDefinitionTypeDef",
+    "StructuredMessageTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TimeBasedCollectionSchemeTypeDef",
@@ -182,6 +197,7 @@ __all__ = (
     "UpdateVehicleRequestRequestTypeDef",
     "UpdateVehicleResponseItemTypeDef",
     "UpdateVehicleResponseTypeDef",
+    "VehicleMiddlewareTypeDef",
     "VehicleStatusTypeDef",
     "VehicleSummaryTypeDef",
 )
@@ -204,6 +220,7 @@ _OptionalActuatorTypeDef = TypedDict(
         "assignedValue": str,
         "deprecationMessage": str,
         "comment": str,
+        "structFullyQualifiedName": str,
     },
     total=False,
 )
@@ -671,6 +688,47 @@ CreateVehicleResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCustomPropertyTypeDef = TypedDict(
+    "_RequiredCustomPropertyTypeDef",
+    {
+        "fullyQualifiedName": str,
+        "dataType": NodeDataTypeType,
+    },
+)
+_OptionalCustomPropertyTypeDef = TypedDict(
+    "_OptionalCustomPropertyTypeDef",
+    {
+        "dataEncoding": NodeDataEncodingType,
+        "description": str,
+        "deprecationMessage": str,
+        "comment": str,
+        "structFullyQualifiedName": str,
+    },
+    total=False,
+)
+
+class CustomPropertyTypeDef(_RequiredCustomPropertyTypeDef, _OptionalCustomPropertyTypeDef):
+    pass
+
+_RequiredCustomStructTypeDef = TypedDict(
+    "_RequiredCustomStructTypeDef",
+    {
+        "fullyQualifiedName": str,
+    },
+)
+_OptionalCustomStructTypeDef = TypedDict(
+    "_OptionalCustomStructTypeDef",
+    {
+        "description": str,
+        "deprecationMessage": str,
+        "comment": str,
+    },
+    total=False,
+)
+
+class CustomStructTypeDef(_RequiredCustomStructTypeDef, _OptionalCustomStructTypeDef):
+    pass
+
 DataDestinationConfigTypeDef = TypedDict(
     "DataDestinationConfigTypeDef",
     {
@@ -695,6 +753,7 @@ _OptionalDecoderManifestSummaryTypeDef = TypedDict(
         "modelManifestArn": str,
         "description": str,
         "status": ManifestStatusType,
+        "message": str,
     },
     total=False,
 )
@@ -887,6 +946,7 @@ GetDecoderManifestResponseTypeDef = TypedDict(
         "status": ManifestStatusType,
         "creationTime": datetime,
         "lastModificationTime": datetime,
+        "message": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1418,6 +1478,14 @@ ListVehiclesResponseTypeDef = TypedDict(
     },
 )
 
+MessageSignalTypeDef = TypedDict(
+    "MessageSignalTypeDef",
+    {
+        "topicName": str,
+        "structuredMessage": "StructuredMessageTypeDef",
+    },
+)
+
 _RequiredModelManifestSummaryTypeDef = TypedDict(
     "_RequiredModelManifestSummaryTypeDef",
     {
@@ -1462,6 +1530,7 @@ _OptionalNetworkInterfaceTypeDef = TypedDict(
     {
         "canInterface": "CanInterfaceTypeDef",
         "obdInterface": "ObdInterfaceTypeDef",
+        "vehicleMiddleware": "VehicleMiddlewareTypeDef",
     },
     total=False,
 )
@@ -1477,6 +1546,8 @@ NodeCountsTypeDef = TypedDict(
         "totalSensors": int,
         "totalAttributes": int,
         "totalActuators": int,
+        "totalStructs": int,
+        "totalProperties": int,
     },
     total=False,
 )
@@ -1488,6 +1559,8 @@ NodeTypeDef = TypedDict(
         "sensor": "SensorTypeDef",
         "actuator": "ActuatorTypeDef",
         "attribute": "AttributeTypeDef",
+        "struct": "CustomStructTypeDef",
+        "property": "CustomPropertyTypeDef",
     },
     total=False,
 )
@@ -1548,6 +1621,14 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PrimitiveMessageDefinitionTypeDef = TypedDict(
+    "PrimitiveMessageDefinitionTypeDef",
+    {
+        "ros2PrimitiveMessageDefinition": "ROS2PrimitiveMessageDefinitionTypeDef",
+    },
+    total=False,
+)
+
 _RequiredPutEncryptionConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredPutEncryptionConfigurationRequestRequestTypeDef",
     {
@@ -1584,6 +1665,27 @@ PutLoggingOptionsRequestRequestTypeDef = TypedDict(
         "cloudWatchLogDelivery": "CloudWatchLogDeliveryOptionsTypeDef",
     },
 )
+
+_RequiredROS2PrimitiveMessageDefinitionTypeDef = TypedDict(
+    "_RequiredROS2PrimitiveMessageDefinitionTypeDef",
+    {
+        "primitiveType": ROS2PrimitiveTypeType,
+    },
+)
+_OptionalROS2PrimitiveMessageDefinitionTypeDef = TypedDict(
+    "_OptionalROS2PrimitiveMessageDefinitionTypeDef",
+    {
+        "offset": float,
+        "scaling": float,
+        "upperBound": int,
+    },
+    total=False,
+)
+
+class ROS2PrimitiveMessageDefinitionTypeDef(
+    _RequiredROS2PrimitiveMessageDefinitionTypeDef, _OptionalROS2PrimitiveMessageDefinitionTypeDef
+):
+    pass
 
 RegisterAccountRequestRequestTypeDef = TypedDict(
     "RegisterAccountRequestRequestTypeDef",
@@ -1653,6 +1755,7 @@ _OptionalSensorTypeDef = TypedDict(
         "max": float,
         "deprecationMessage": str,
         "comment": str,
+        "structFullyQualifiedName": str,
     },
     total=False,
 )
@@ -1684,6 +1787,7 @@ _OptionalSignalDecoderTypeDef = TypedDict(
     {
         "canSignal": "CanSignalTypeDef",
         "obdSignal": "ObdSignalTypeDef",
+        "messageSignal": "MessageSignalTypeDef",
     },
     total=False,
 )
@@ -1710,6 +1814,45 @@ class SignalInformationTypeDef(
     _RequiredSignalInformationTypeDef, _OptionalSignalInformationTypeDef
 ):
     pass
+
+StructuredMessageFieldNameAndDataTypePairTypeDef = TypedDict(
+    "StructuredMessageFieldNameAndDataTypePairTypeDef",
+    {
+        "fieldName": str,
+        "dataType": Dict[str, Any],
+    },
+)
+
+_RequiredStructuredMessageListDefinitionTypeDef = TypedDict(
+    "_RequiredStructuredMessageListDefinitionTypeDef",
+    {
+        "name": str,
+        "memberType": "StructuredMessageTypeDef",
+        "listType": StructuredMessageListTypeType,
+    },
+)
+_OptionalStructuredMessageListDefinitionTypeDef = TypedDict(
+    "_OptionalStructuredMessageListDefinitionTypeDef",
+    {
+        "capacity": int,
+    },
+    total=False,
+)
+
+class StructuredMessageListDefinitionTypeDef(
+    _RequiredStructuredMessageListDefinitionTypeDef, _OptionalStructuredMessageListDefinitionTypeDef
+):
+    pass
+
+StructuredMessageTypeDef = TypedDict(
+    "StructuredMessageTypeDef",
+    {
+        "primitiveMessageDefinition": "PrimitiveMessageDefinitionTypeDef",
+        "structuredMessageListDefinition": Dict[str, Any],
+        "structuredMessageDefinition": List[Dict[str, Any]],
+    },
+    total=False,
+)
 
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
@@ -2009,6 +2152,14 @@ UpdateVehicleResponseTypeDef = TypedDict(
         "vehicleName": str,
         "arn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+VehicleMiddlewareTypeDef = TypedDict(
+    "VehicleMiddlewareTypeDef",
+    {
+        "name": str,
+        "protocolName": Literal["ROS_2"],
     },
 )
 

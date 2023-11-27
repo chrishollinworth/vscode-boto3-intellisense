@@ -6,9 +6,9 @@ Type annotations for ivs-realtime service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_ivs_realtime.literals import EventErrorCodeType
+    from mypy_boto3_ivs_realtime.literals import CompositionStateType
 
-    data: EventErrorCodeType = "INSUFFICIENT_CAPABILITIES"
+    data: CompositionStateType = "ACTIVE"
     ```
 """
 import sys
@@ -19,12 +19,19 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "CompositionStateType",
+    "DestinationStateType",
     "EventErrorCodeType",
     "EventNameType",
     "ParticipantStateType",
     "ParticipantTokenCapabilityType",
+    "RecordingConfigurationFormatType",
 )
 
+CompositionStateType = Literal["ACTIVE", "FAILED", "STARTING", "STOPPED", "STOPPING"]
+DestinationStateType = Literal[
+    "ACTIVE", "FAILED", "RECONNECTING", "STARTING", "STOPPED", "STOPPING"
+]
 EventErrorCodeType = Literal["INSUFFICIENT_CAPABILITIES", "PUBLISHER_NOT_FOUND", "QUOTA_EXCEEDED"]
 EventNameType = Literal[
     "JOINED",
@@ -39,3 +46,4 @@ EventNameType = Literal[
 ]
 ParticipantStateType = Literal["CONNECTED", "DISCONNECTED"]
 ParticipantTokenCapabilityType = Literal["PUBLISH", "SUBSCRIBE"]
+RecordingConfigurationFormatType = Literal["HLS"]

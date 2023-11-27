@@ -22,6 +22,8 @@ else:
 __all__ = (
     "CreateTokenRequestRequestTypeDef",
     "CreateTokenResponseTypeDef",
+    "CreateTokenWithIAMRequestRequestTypeDef",
+    "CreateTokenWithIAMResponseTypeDef",
     "RegisterClientRequestRequestTypeDef",
     "RegisterClientResponseTypeDef",
     "ResponseMetadataTypeDef",
@@ -62,6 +64,48 @@ CreateTokenResponseTypeDef = TypedDict(
         "expiresIn": int,
         "refreshToken": str,
         "idToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTokenWithIAMRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTokenWithIAMRequestRequestTypeDef",
+    {
+        "clientId": str,
+        "grantType": str,
+    },
+)
+_OptionalCreateTokenWithIAMRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTokenWithIAMRequestRequestTypeDef",
+    {
+        "code": str,
+        "refreshToken": str,
+        "assertion": str,
+        "scope": List[str],
+        "redirectUri": str,
+        "subjectToken": str,
+        "subjectTokenType": str,
+        "requestedTokenType": str,
+    },
+    total=False,
+)
+
+class CreateTokenWithIAMRequestRequestTypeDef(
+    _RequiredCreateTokenWithIAMRequestRequestTypeDef,
+    _OptionalCreateTokenWithIAMRequestRequestTypeDef,
+):
+    pass
+
+CreateTokenWithIAMResponseTypeDef = TypedDict(
+    "CreateTokenWithIAMResponseTypeDef",
+    {
+        "accessToken": str,
+        "tokenType": str,
+        "expiresIn": int,
+        "refreshToken": str,
+        "idToken": str,
+        "issuedTokenType": str,
+        "scope": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

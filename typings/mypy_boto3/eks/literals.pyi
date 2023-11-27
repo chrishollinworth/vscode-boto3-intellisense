@@ -41,9 +41,11 @@ __all__ = (
     "IpFamilyType",
     "ListAddonsPaginatorName",
     "ListClustersPaginatorName",
+    "ListEksAnywhereSubscriptionsPaginatorName",
     "ListFargateProfilesPaginatorName",
     "ListIdentityProviderConfigsPaginatorName",
     "ListNodegroupsPaginatorName",
+    "ListPodIdentityAssociationsPaginatorName",
     "ListUpdatesPaginatorName",
     "LogTypeType",
     "NodegroupActiveWaiterName",
@@ -155,9 +157,11 @@ FargateProfileStatusType = Literal[
 IpFamilyType = Literal["ipv4", "ipv6"]
 ListAddonsPaginatorName = Literal["list_addons"]
 ListClustersPaginatorName = Literal["list_clusters"]
+ListEksAnywhereSubscriptionsPaginatorName = Literal["list_eks_anywhere_subscriptions"]
 ListFargateProfilesPaginatorName = Literal["list_fargate_profiles"]
 ListIdentityProviderConfigsPaginatorName = Literal["list_identity_provider_configs"]
 ListNodegroupsPaginatorName = Literal["list_nodegroups"]
+ListPodIdentityAssociationsPaginatorName = Literal["list_pod_identity_associations"]
 ListUpdatesPaginatorName = Literal["list_updates"]
 LogTypeType = Literal["api", "audit", "authenticator", "controllerManager", "scheduler"]
 NodegroupActiveWaiterName = Literal["nodegroup_active"]

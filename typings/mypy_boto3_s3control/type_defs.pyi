@@ -24,6 +24,7 @@ from .literals import (
     ExistingObjectReplicationStatusType,
     ExpirationStatusType,
     FormatType,
+    GranteeTypeType,
     JobManifestFieldNameType,
     JobManifestFormatType,
     JobReportScopeType,
@@ -37,6 +38,8 @@ from .literals import (
     ObjectLambdaAllowedFeatureType,
     ObjectLambdaTransformationConfigurationActionType,
     OperationNameType,
+    PermissionType,
+    PrivilegeType,
     ReplicaModificationsStatusType,
     ReplicationRuleStatusType,
     ReplicationStatusType,
@@ -70,11 +73,13 @@ else:
 __all__ = (
     "AbortIncompleteMultipartUploadTypeDef",
     "AccessControlTranslationTypeDef",
+    "AccessGrantsLocationConfigurationTypeDef",
     "AccessPointTypeDef",
     "AccountLevelTypeDef",
     "ActivityMetricsTypeDef",
     "AdvancedCostOptimizationMetricsTypeDef",
     "AdvancedDataProtectionMetricsTypeDef",
+    "AssociateAccessGrantsIdentityCenterRequestRequestTypeDef",
     "AsyncErrorDetailsTypeDef",
     "AsyncOperationTypeDef",
     "AsyncRequestParametersTypeDef",
@@ -82,6 +87,12 @@ __all__ = (
     "AwsLambdaTransformationTypeDef",
     "BucketLevelTypeDef",
     "CloudWatchMetricsTypeDef",
+    "CreateAccessGrantRequestRequestTypeDef",
+    "CreateAccessGrantResultTypeDef",
+    "CreateAccessGrantsInstanceRequestRequestTypeDef",
+    "CreateAccessGrantsInstanceResultTypeDef",
+    "CreateAccessGrantsLocationRequestRequestTypeDef",
+    "CreateAccessGrantsLocationResultTypeDef",
     "CreateAccessPointForObjectLambdaRequestRequestTypeDef",
     "CreateAccessPointForObjectLambdaResultTypeDef",
     "CreateAccessPointRequestRequestTypeDef",
@@ -94,6 +105,12 @@ __all__ = (
     "CreateMultiRegionAccessPointInputTypeDef",
     "CreateMultiRegionAccessPointRequestRequestTypeDef",
     "CreateMultiRegionAccessPointResultTypeDef",
+    "CreateStorageLensGroupRequestRequestTypeDef",
+    "CredentialsTypeDef",
+    "DeleteAccessGrantRequestRequestTypeDef",
+    "DeleteAccessGrantsInstanceRequestRequestTypeDef",
+    "DeleteAccessGrantsInstanceResourcePolicyRequestRequestTypeDef",
+    "DeleteAccessGrantsLocationRequestRequestTypeDef",
     "DeleteAccessPointForObjectLambdaRequestRequestTypeDef",
     "DeleteAccessPointPolicyForObjectLambdaRequestRequestTypeDef",
     "DeleteAccessPointPolicyRequestRequestTypeDef",
@@ -111,17 +128,29 @@ __all__ = (
     "DeletePublicAccessBlockRequestRequestTypeDef",
     "DeleteStorageLensConfigurationRequestRequestTypeDef",
     "DeleteStorageLensConfigurationTaggingRequestRequestTypeDef",
+    "DeleteStorageLensGroupRequestRequestTypeDef",
     "DescribeJobRequestRequestTypeDef",
     "DescribeJobResultTypeDef",
     "DescribeMultiRegionAccessPointOperationRequestRequestTypeDef",
     "DescribeMultiRegionAccessPointOperationResultTypeDef",
     "DestinationTypeDef",
     "DetailedStatusCodesMetricsTypeDef",
+    "DissociateAccessGrantsIdentityCenterRequestRequestTypeDef",
     "EncryptionConfigurationTypeDef",
     "EstablishedMultiRegionAccessPointPolicyTypeDef",
     "ExcludeTypeDef",
     "ExistingObjectReplicationTypeDef",
     "GeneratedManifestEncryptionTypeDef",
+    "GetAccessGrantRequestRequestTypeDef",
+    "GetAccessGrantResultTypeDef",
+    "GetAccessGrantsInstanceForPrefixRequestRequestTypeDef",
+    "GetAccessGrantsInstanceForPrefixResultTypeDef",
+    "GetAccessGrantsInstanceRequestRequestTypeDef",
+    "GetAccessGrantsInstanceResourcePolicyRequestRequestTypeDef",
+    "GetAccessGrantsInstanceResourcePolicyResultTypeDef",
+    "GetAccessGrantsInstanceResultTypeDef",
+    "GetAccessGrantsLocationRequestRequestTypeDef",
+    "GetAccessGrantsLocationResultTypeDef",
     "GetAccessPointConfigurationForObjectLambdaRequestRequestTypeDef",
     "GetAccessPointConfigurationForObjectLambdaResultTypeDef",
     "GetAccessPointForObjectLambdaRequestRequestTypeDef",
@@ -148,6 +177,8 @@ __all__ = (
     "GetBucketTaggingResultTypeDef",
     "GetBucketVersioningRequestRequestTypeDef",
     "GetBucketVersioningResultTypeDef",
+    "GetDataAccessRequestRequestTypeDef",
+    "GetDataAccessResultTypeDef",
     "GetJobTaggingRequestRequestTypeDef",
     "GetJobTaggingResultTypeDef",
     "GetMultiRegionAccessPointPolicyRequestRequestTypeDef",
@@ -164,6 +195,9 @@ __all__ = (
     "GetStorageLensConfigurationResultTypeDef",
     "GetStorageLensConfigurationTaggingRequestRequestTypeDef",
     "GetStorageLensConfigurationTaggingResultTypeDef",
+    "GetStorageLensGroupRequestRequestTypeDef",
+    "GetStorageLensGroupResultTypeDef",
+    "GranteeTypeDef",
     "IncludeTypeDef",
     "JobDescriptorTypeDef",
     "JobFailureTypeDef",
@@ -177,12 +211,22 @@ __all__ = (
     "JobProgressSummaryTypeDef",
     "JobReportTypeDef",
     "JobTimersTypeDef",
+    "KeyNameConstraintTypeDef",
     "LambdaInvokeOperationTypeDef",
     "LifecycleConfigurationTypeDef",
     "LifecycleExpirationTypeDef",
     "LifecycleRuleAndOperatorTypeDef",
     "LifecycleRuleFilterTypeDef",
     "LifecycleRuleTypeDef",
+    "ListAccessGrantEntryTypeDef",
+    "ListAccessGrantsInstanceEntryTypeDef",
+    "ListAccessGrantsInstancesRequestRequestTypeDef",
+    "ListAccessGrantsInstancesResultTypeDef",
+    "ListAccessGrantsLocationsEntryTypeDef",
+    "ListAccessGrantsLocationsRequestRequestTypeDef",
+    "ListAccessGrantsLocationsResultTypeDef",
+    "ListAccessGrantsRequestRequestTypeDef",
+    "ListAccessGrantsResultTypeDef",
     "ListAccessPointsForObjectLambdaRequestRequestTypeDef",
     "ListAccessPointsForObjectLambdaResultTypeDef",
     "ListAccessPointsRequestRequestTypeDef",
@@ -196,6 +240,13 @@ __all__ = (
     "ListStorageLensConfigurationEntryTypeDef",
     "ListStorageLensConfigurationsRequestRequestTypeDef",
     "ListStorageLensConfigurationsResultTypeDef",
+    "ListStorageLensGroupEntryTypeDef",
+    "ListStorageLensGroupsRequestRequestTypeDef",
+    "ListStorageLensGroupsResultTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResultTypeDef",
+    "MatchObjectAgeTypeDef",
+    "MatchObjectSizeTypeDef",
     "MetricsTypeDef",
     "MultiRegionAccessPointPolicyDocumentTypeDef",
     "MultiRegionAccessPointRegionalResponseTypeDef",
@@ -215,6 +266,8 @@ __all__ = (
     "PrefixLevelTypeDef",
     "ProposedMultiRegionAccessPointPolicyTypeDef",
     "PublicAccessBlockConfigurationTypeDef",
+    "PutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef",
+    "PutAccessGrantsInstanceResourcePolicyResultTypeDef",
     "PutAccessPointConfigurationForObjectLambdaRequestRequestTypeDef",
     "PutAccessPointPolicyForObjectLambdaRequestRequestTypeDef",
     "PutAccessPointPolicyRequestRequestTypeDef",
@@ -269,14 +322,26 @@ __all__ = (
     "StorageLensConfigurationTypeDef",
     "StorageLensDataExportEncryptionTypeDef",
     "StorageLensDataExportTypeDef",
+    "StorageLensGroupAndOperatorTypeDef",
+    "StorageLensGroupFilterTypeDef",
+    "StorageLensGroupLevelSelectionCriteriaTypeDef",
+    "StorageLensGroupLevelTypeDef",
+    "StorageLensGroupOrOperatorTypeDef",
+    "StorageLensGroupTypeDef",
     "StorageLensTagTypeDef",
     "SubmitMultiRegionAccessPointRoutesRequestRequestTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TagTypeDef",
     "TaggingTypeDef",
     "TransitionTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateAccessGrantsLocationRequestRequestTypeDef",
+    "UpdateAccessGrantsLocationResultTypeDef",
     "UpdateJobPriorityRequestRequestTypeDef",
     "UpdateJobPriorityResultTypeDef",
     "UpdateJobStatusRequestRequestTypeDef",
     "UpdateJobStatusResultTypeDef",
+    "UpdateStorageLensGroupRequestRequestTypeDef",
     "VersioningConfigurationTypeDef",
     "VpcConfigurationTypeDef",
 )
@@ -294,6 +359,14 @@ AccessControlTranslationTypeDef = TypedDict(
     {
         "Owner": Literal["Destination"],
     },
+)
+
+AccessGrantsLocationConfigurationTypeDef = TypedDict(
+    "AccessGrantsLocationConfigurationTypeDef",
+    {
+        "S3SubPrefix": str,
+    },
+    total=False,
 )
 
 _RequiredAccessPointTypeDef = TypedDict(
@@ -331,6 +404,7 @@ _OptionalAccountLevelTypeDef = TypedDict(
         "AdvancedCostOptimizationMetrics": "AdvancedCostOptimizationMetricsTypeDef",
         "AdvancedDataProtectionMetrics": "AdvancedDataProtectionMetricsTypeDef",
         "DetailedStatusCodesMetrics": "DetailedStatusCodesMetricsTypeDef",
+        "StorageLensGroupLevel": "StorageLensGroupLevelTypeDef",
     },
     total=False,
 )
@@ -360,6 +434,14 @@ AdvancedDataProtectionMetricsTypeDef = TypedDict(
         "IsEnabled": bool,
     },
     total=False,
+)
+
+AssociateAccessGrantsIdentityCenterRequestRequestTypeDef = TypedDict(
+    "AssociateAccessGrantsIdentityCenterRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "IdentityCenterArn": str,
+    },
 )
 
 AsyncErrorDetailsTypeDef = TypedDict(
@@ -440,6 +522,113 @@ CloudWatchMetricsTypeDef = TypedDict(
     "CloudWatchMetricsTypeDef",
     {
         "IsEnabled": bool,
+    },
+)
+
+_RequiredCreateAccessGrantRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAccessGrantRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "AccessGrantsLocationId": str,
+        "Grantee": "GranteeTypeDef",
+        "Permission": PermissionType,
+    },
+)
+_OptionalCreateAccessGrantRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAccessGrantRequestRequestTypeDef",
+    {
+        "AccessGrantsLocationConfiguration": "AccessGrantsLocationConfigurationTypeDef",
+        "ApplicationArn": str,
+        "S3PrefixType": Literal["Object"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAccessGrantRequestRequestTypeDef(
+    _RequiredCreateAccessGrantRequestRequestTypeDef, _OptionalCreateAccessGrantRequestRequestTypeDef
+):
+    pass
+
+CreateAccessGrantResultTypeDef = TypedDict(
+    "CreateAccessGrantResultTypeDef",
+    {
+        "CreatedAt": datetime,
+        "AccessGrantId": str,
+        "AccessGrantArn": str,
+        "Grantee": "GranteeTypeDef",
+        "AccessGrantsLocationId": str,
+        "AccessGrantsLocationConfiguration": "AccessGrantsLocationConfigurationTypeDef",
+        "Permission": PermissionType,
+        "ApplicationArn": str,
+        "GrantScope": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAccessGrantsInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAccessGrantsInstanceRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+_OptionalCreateAccessGrantsInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAccessGrantsInstanceRequestRequestTypeDef",
+    {
+        "IdentityCenterArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAccessGrantsInstanceRequestRequestTypeDef(
+    _RequiredCreateAccessGrantsInstanceRequestRequestTypeDef,
+    _OptionalCreateAccessGrantsInstanceRequestRequestTypeDef,
+):
+    pass
+
+CreateAccessGrantsInstanceResultTypeDef = TypedDict(
+    "CreateAccessGrantsInstanceResultTypeDef",
+    {
+        "CreatedAt": datetime,
+        "AccessGrantsInstanceId": str,
+        "AccessGrantsInstanceArn": str,
+        "IdentityCenterArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAccessGrantsLocationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAccessGrantsLocationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "LocationScope": str,
+        "IAMRoleArn": str,
+    },
+)
+_OptionalCreateAccessGrantsLocationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAccessGrantsLocationRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAccessGrantsLocationRequestRequestTypeDef(
+    _RequiredCreateAccessGrantsLocationRequestRequestTypeDef,
+    _OptionalCreateAccessGrantsLocationRequestRequestTypeDef,
+):
+    pass
+
+CreateAccessGrantsLocationResultTypeDef = TypedDict(
+    "CreateAccessGrantsLocationResultTypeDef",
+    {
+        "CreatedAt": datetime,
+        "AccessGrantsLocationId": str,
+        "AccessGrantsLocationArn": str,
+        "LocationScope": str,
+        "IAMRoleArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -611,6 +800,68 @@ CreateMultiRegionAccessPointResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateStorageLensGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateStorageLensGroupRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "StorageLensGroup": "StorageLensGroupTypeDef",
+    },
+)
+_OptionalCreateStorageLensGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateStorageLensGroupRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateStorageLensGroupRequestRequestTypeDef(
+    _RequiredCreateStorageLensGroupRequestRequestTypeDef,
+    _OptionalCreateStorageLensGroupRequestRequestTypeDef,
+):
+    pass
+
+CredentialsTypeDef = TypedDict(
+    "CredentialsTypeDef",
+    {
+        "AccessKeyId": str,
+        "SecretAccessKey": str,
+        "SessionToken": str,
+        "Expiration": datetime,
+    },
+    total=False,
+)
+
+DeleteAccessGrantRequestRequestTypeDef = TypedDict(
+    "DeleteAccessGrantRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "AccessGrantId": str,
+    },
+)
+
+DeleteAccessGrantsInstanceRequestRequestTypeDef = TypedDict(
+    "DeleteAccessGrantsInstanceRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+
+DeleteAccessGrantsInstanceResourcePolicyRequestRequestTypeDef = TypedDict(
+    "DeleteAccessGrantsInstanceResourcePolicyRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+
+DeleteAccessGrantsLocationRequestRequestTypeDef = TypedDict(
+    "DeleteAccessGrantsLocationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "AccessGrantsLocationId": str,
+    },
+)
+
 DeleteAccessPointForObjectLambdaRequestRequestTypeDef = TypedDict(
     "DeleteAccessPointForObjectLambdaRequestRequestTypeDef",
     {
@@ -745,6 +996,14 @@ DeleteStorageLensConfigurationTaggingRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteStorageLensGroupRequestRequestTypeDef = TypedDict(
+    "DeleteStorageLensGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+        "AccountId": str,
+    },
+)
+
 DescribeJobRequestRequestTypeDef = TypedDict(
     "DescribeJobRequestRequestTypeDef",
     {
@@ -807,6 +1066,13 @@ DetailedStatusCodesMetricsTypeDef = TypedDict(
     total=False,
 )
 
+DissociateAccessGrantsIdentityCenterRequestRequestTypeDef = TypedDict(
+    "DissociateAccessGrantsIdentityCenterRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+
 EncryptionConfigurationTypeDef = TypedDict(
     "EncryptionConfigurationTypeDef",
     {
@@ -846,6 +1112,102 @@ GeneratedManifestEncryptionTypeDef = TypedDict(
         "SSEKMS": "SSEKMSEncryptionTypeDef",
     },
     total=False,
+)
+
+GetAccessGrantRequestRequestTypeDef = TypedDict(
+    "GetAccessGrantRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "AccessGrantId": str,
+    },
+)
+
+GetAccessGrantResultTypeDef = TypedDict(
+    "GetAccessGrantResultTypeDef",
+    {
+        "CreatedAt": datetime,
+        "AccessGrantId": str,
+        "AccessGrantArn": str,
+        "Grantee": "GranteeTypeDef",
+        "Permission": PermissionType,
+        "AccessGrantsLocationId": str,
+        "AccessGrantsLocationConfiguration": "AccessGrantsLocationConfigurationTypeDef",
+        "GrantScope": str,
+        "ApplicationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAccessGrantsInstanceForPrefixRequestRequestTypeDef = TypedDict(
+    "GetAccessGrantsInstanceForPrefixRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "S3Prefix": str,
+    },
+)
+
+GetAccessGrantsInstanceForPrefixResultTypeDef = TypedDict(
+    "GetAccessGrantsInstanceForPrefixResultTypeDef",
+    {
+        "AccessGrantsInstanceArn": str,
+        "AccessGrantsInstanceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAccessGrantsInstanceRequestRequestTypeDef = TypedDict(
+    "GetAccessGrantsInstanceRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+
+GetAccessGrantsInstanceResourcePolicyRequestRequestTypeDef = TypedDict(
+    "GetAccessGrantsInstanceResourcePolicyRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+
+GetAccessGrantsInstanceResourcePolicyResultTypeDef = TypedDict(
+    "GetAccessGrantsInstanceResourcePolicyResultTypeDef",
+    {
+        "Policy": str,
+        "Organization": str,
+        "CreatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAccessGrantsInstanceResultTypeDef = TypedDict(
+    "GetAccessGrantsInstanceResultTypeDef",
+    {
+        "AccessGrantsInstanceArn": str,
+        "AccessGrantsInstanceId": str,
+        "IdentityCenterArn": str,
+        "CreatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAccessGrantsLocationRequestRequestTypeDef = TypedDict(
+    "GetAccessGrantsLocationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "AccessGrantsLocationId": str,
+    },
+)
+
+GetAccessGrantsLocationResultTypeDef = TypedDict(
+    "GetAccessGrantsLocationResultTypeDef",
+    {
+        "CreatedAt": datetime,
+        "AccessGrantsLocationId": str,
+        "AccessGrantsLocationArn": str,
+        "LocationScope": str,
+        "IAMRoleArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetAccessPointConfigurationForObjectLambdaRequestRequestTypeDef = TypedDict(
@@ -1071,6 +1433,38 @@ GetBucketVersioningResultTypeDef = TypedDict(
     },
 )
 
+_RequiredGetDataAccessRequestRequestTypeDef = TypedDict(
+    "_RequiredGetDataAccessRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Target": str,
+        "Permission": PermissionType,
+    },
+)
+_OptionalGetDataAccessRequestRequestTypeDef = TypedDict(
+    "_OptionalGetDataAccessRequestRequestTypeDef",
+    {
+        "DurationSeconds": int,
+        "Privilege": PrivilegeType,
+        "TargetType": Literal["Object"],
+    },
+    total=False,
+)
+
+class GetDataAccessRequestRequestTypeDef(
+    _RequiredGetDataAccessRequestRequestTypeDef, _OptionalGetDataAccessRequestRequestTypeDef
+):
+    pass
+
+GetDataAccessResultTypeDef = TypedDict(
+    "GetDataAccessResultTypeDef",
+    {
+        "Credentials": "CredentialsTypeDef",
+        "MatchedGrantTarget": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetJobTaggingRequestRequestTypeDef = TypedDict(
     "GetJobTaggingRequestRequestTypeDef",
     {
@@ -1199,6 +1593,31 @@ GetStorageLensConfigurationTaggingResultTypeDef = TypedDict(
     },
 )
 
+GetStorageLensGroupRequestRequestTypeDef = TypedDict(
+    "GetStorageLensGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+        "AccountId": str,
+    },
+)
+
+GetStorageLensGroupResultTypeDef = TypedDict(
+    "GetStorageLensGroupResultTypeDef",
+    {
+        "StorageLensGroup": "StorageLensGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GranteeTypeDef = TypedDict(
+    "GranteeTypeDef",
+    {
+        "GranteeType": GranteeTypeType,
+        "GranteeIdentifier": str,
+    },
+    total=False,
+)
+
 IncludeTypeDef = TypedDict(
     "IncludeTypeDef",
     {
@@ -1265,6 +1684,10 @@ JobManifestGeneratorFilterTypeDef = TypedDict(
         "CreatedAfter": Union[datetime, str],
         "CreatedBefore": Union[datetime, str],
         "ObjectReplicationStatuses": List[ReplicationStatusType],
+        "KeyNameConstraint": "KeyNameConstraintTypeDef",
+        "ObjectSizeGreaterThanBytes": int,
+        "ObjectSizeLessThanBytes": int,
+        "MatchAnyStorageClass": List[S3StorageClassType],
     },
     total=False,
 )
@@ -1377,6 +1800,16 @@ JobTimersTypeDef = TypedDict(
     total=False,
 )
 
+KeyNameConstraintTypeDef = TypedDict(
+    "KeyNameConstraintTypeDef",
+    {
+        "MatchAnyPrefix": List[str],
+        "MatchAnySuffix": List[str],
+        "MatchAnySubstring": List[str],
+    },
+    total=False,
+)
+
 LambdaInvokeOperationTypeDef = TypedDict(
     "LambdaInvokeOperationTypeDef",
     {
@@ -1448,6 +1881,140 @@ _OptionalLifecycleRuleTypeDef = TypedDict(
 
 class LifecycleRuleTypeDef(_RequiredLifecycleRuleTypeDef, _OptionalLifecycleRuleTypeDef):
     pass
+
+ListAccessGrantEntryTypeDef = TypedDict(
+    "ListAccessGrantEntryTypeDef",
+    {
+        "CreatedAt": datetime,
+        "AccessGrantId": str,
+        "AccessGrantArn": str,
+        "Grantee": "GranteeTypeDef",
+        "Permission": PermissionType,
+        "AccessGrantsLocationId": str,
+        "AccessGrantsLocationConfiguration": "AccessGrantsLocationConfigurationTypeDef",
+        "GrantScope": str,
+        "ApplicationArn": str,
+    },
+    total=False,
+)
+
+ListAccessGrantsInstanceEntryTypeDef = TypedDict(
+    "ListAccessGrantsInstanceEntryTypeDef",
+    {
+        "AccessGrantsInstanceId": str,
+        "AccessGrantsInstanceArn": str,
+        "CreatedAt": datetime,
+        "IdentityCenterArn": str,
+    },
+    total=False,
+)
+
+_RequiredListAccessGrantsInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAccessGrantsInstancesRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+_OptionalListAccessGrantsInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAccessGrantsInstancesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListAccessGrantsInstancesRequestRequestTypeDef(
+    _RequiredListAccessGrantsInstancesRequestRequestTypeDef,
+    _OptionalListAccessGrantsInstancesRequestRequestTypeDef,
+):
+    pass
+
+ListAccessGrantsInstancesResultTypeDef = TypedDict(
+    "ListAccessGrantsInstancesResultTypeDef",
+    {
+        "NextToken": str,
+        "AccessGrantsInstancesList": List["ListAccessGrantsInstanceEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListAccessGrantsLocationsEntryTypeDef = TypedDict(
+    "ListAccessGrantsLocationsEntryTypeDef",
+    {
+        "CreatedAt": datetime,
+        "AccessGrantsLocationId": str,
+        "AccessGrantsLocationArn": str,
+        "LocationScope": str,
+        "IAMRoleArn": str,
+    },
+    total=False,
+)
+
+_RequiredListAccessGrantsLocationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAccessGrantsLocationsRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+_OptionalListAccessGrantsLocationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAccessGrantsLocationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "LocationScope": str,
+    },
+    total=False,
+)
+
+class ListAccessGrantsLocationsRequestRequestTypeDef(
+    _RequiredListAccessGrantsLocationsRequestRequestTypeDef,
+    _OptionalListAccessGrantsLocationsRequestRequestTypeDef,
+):
+    pass
+
+ListAccessGrantsLocationsResultTypeDef = TypedDict(
+    "ListAccessGrantsLocationsResultTypeDef",
+    {
+        "NextToken": str,
+        "AccessGrantsLocationsList": List["ListAccessGrantsLocationsEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAccessGrantsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAccessGrantsRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+_OptionalListAccessGrantsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAccessGrantsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "GranteeType": GranteeTypeType,
+        "GranteeIdentifier": str,
+        "Permission": PermissionType,
+        "GrantScope": str,
+        "ApplicationArn": str,
+    },
+    total=False,
+)
+
+class ListAccessGrantsRequestRequestTypeDef(
+    _RequiredListAccessGrantsRequestRequestTypeDef, _OptionalListAccessGrantsRequestRequestTypeDef
+):
+    pass
+
+ListAccessGrantsResultTypeDef = TypedDict(
+    "ListAccessGrantsResultTypeDef",
+    {
+        "NextToken": str,
+        "AccessGrantsList": List["ListAccessGrantEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredListAccessPointsForObjectLambdaRequestRequestTypeDef = TypedDict(
     "_RequiredListAccessPointsForObjectLambdaRequestRequestTypeDef",
@@ -1649,6 +2216,78 @@ ListStorageLensConfigurationsResultTypeDef = TypedDict(
         "StorageLensConfigurationList": List["ListStorageLensConfigurationEntryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ListStorageLensGroupEntryTypeDef = TypedDict(
+    "ListStorageLensGroupEntryTypeDef",
+    {
+        "Name": str,
+        "StorageLensGroupArn": str,
+        "HomeRegion": str,
+    },
+)
+
+_RequiredListStorageLensGroupsRequestRequestTypeDef = TypedDict(
+    "_RequiredListStorageLensGroupsRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+_OptionalListStorageLensGroupsRequestRequestTypeDef = TypedDict(
+    "_OptionalListStorageLensGroupsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListStorageLensGroupsRequestRequestTypeDef(
+    _RequiredListStorageLensGroupsRequestRequestTypeDef,
+    _OptionalListStorageLensGroupsRequestRequestTypeDef,
+):
+    pass
+
+ListStorageLensGroupsResultTypeDef = TypedDict(
+    "ListStorageLensGroupsResultTypeDef",
+    {
+        "NextToken": str,
+        "StorageLensGroupList": List["ListStorageLensGroupEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResultTypeDef = TypedDict(
+    "ListTagsForResourceResultTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+MatchObjectAgeTypeDef = TypedDict(
+    "MatchObjectAgeTypeDef",
+    {
+        "DaysGreaterThan": int,
+        "DaysLessThan": int,
+    },
+    total=False,
+)
+
+MatchObjectSizeTypeDef = TypedDict(
+    "MatchObjectSizeTypeDef",
+    {
+        "BytesGreaterThan": int,
+        "BytesLessThan": int,
+    },
+    total=False,
 )
 
 _RequiredMetricsTypeDef = TypedDict(
@@ -1862,6 +2501,37 @@ PublicAccessBlockConfigurationTypeDef = TypedDict(
         "RestrictPublicBuckets": bool,
     },
     total=False,
+)
+
+_RequiredPutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredPutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Policy": str,
+    },
+)
+_OptionalPutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalPutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef",
+    {
+        "Organization": str,
+    },
+    total=False,
+)
+
+class PutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef(
+    _RequiredPutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef,
+    _OptionalPutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef,
+):
+    pass
+
+PutAccessGrantsInstanceResourcePolicyResultTypeDef = TypedDict(
+    "PutAccessGrantsInstanceResourcePolicyResultTypeDef",
+    {
+        "Policy": str,
+        "Organization": str,
+        "CreatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 PutAccessPointConfigurationForObjectLambdaRequestRequestTypeDef = TypedDict(
@@ -2519,6 +3189,79 @@ StorageLensDataExportTypeDef = TypedDict(
     total=False,
 )
 
+StorageLensGroupAndOperatorTypeDef = TypedDict(
+    "StorageLensGroupAndOperatorTypeDef",
+    {
+        "MatchAnyPrefix": List[str],
+        "MatchAnySuffix": List[str],
+        "MatchAnyTag": List["S3TagTypeDef"],
+        "MatchObjectAge": "MatchObjectAgeTypeDef",
+        "MatchObjectSize": "MatchObjectSizeTypeDef",
+    },
+    total=False,
+)
+
+StorageLensGroupFilterTypeDef = TypedDict(
+    "StorageLensGroupFilterTypeDef",
+    {
+        "MatchAnyPrefix": List[str],
+        "MatchAnySuffix": List[str],
+        "MatchAnyTag": List["S3TagTypeDef"],
+        "MatchObjectAge": "MatchObjectAgeTypeDef",
+        "MatchObjectSize": "MatchObjectSizeTypeDef",
+        "And": "StorageLensGroupAndOperatorTypeDef",
+        "Or": "StorageLensGroupOrOperatorTypeDef",
+    },
+    total=False,
+)
+
+StorageLensGroupLevelSelectionCriteriaTypeDef = TypedDict(
+    "StorageLensGroupLevelSelectionCriteriaTypeDef",
+    {
+        "Include": List[str],
+        "Exclude": List[str],
+    },
+    total=False,
+)
+
+StorageLensGroupLevelTypeDef = TypedDict(
+    "StorageLensGroupLevelTypeDef",
+    {
+        "SelectionCriteria": "StorageLensGroupLevelSelectionCriteriaTypeDef",
+    },
+    total=False,
+)
+
+StorageLensGroupOrOperatorTypeDef = TypedDict(
+    "StorageLensGroupOrOperatorTypeDef",
+    {
+        "MatchAnyPrefix": List[str],
+        "MatchAnySuffix": List[str],
+        "MatchAnyTag": List["S3TagTypeDef"],
+        "MatchObjectAge": "MatchObjectAgeTypeDef",
+        "MatchObjectSize": "MatchObjectSizeTypeDef",
+    },
+    total=False,
+)
+
+_RequiredStorageLensGroupTypeDef = TypedDict(
+    "_RequiredStorageLensGroupTypeDef",
+    {
+        "Name": str,
+        "Filter": "StorageLensGroupFilterTypeDef",
+    },
+)
+_OptionalStorageLensGroupTypeDef = TypedDict(
+    "_OptionalStorageLensGroupTypeDef",
+    {
+        "StorageLensGroupArn": str,
+    },
+    total=False,
+)
+
+class StorageLensGroupTypeDef(_RequiredStorageLensGroupTypeDef, _OptionalStorageLensGroupTypeDef):
+    pass
+
 StorageLensTagTypeDef = TypedDict(
     "StorageLensTagTypeDef",
     {
@@ -2533,6 +3276,23 @@ SubmitMultiRegionAccessPointRoutesRequestRequestTypeDef = TypedDict(
         "AccountId": str,
         "Mrap": str,
         "RouteUpdates": List["MultiRegionAccessPointRouteTypeDef"],
+    },
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
     },
 )
 
@@ -2551,6 +3311,36 @@ TransitionTypeDef = TypedDict(
         "StorageClass": TransitionStorageClassType,
     },
     total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
+)
+
+UpdateAccessGrantsLocationRequestRequestTypeDef = TypedDict(
+    "UpdateAccessGrantsLocationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "AccessGrantsLocationId": str,
+        "IAMRoleArn": str,
+    },
+)
+
+UpdateAccessGrantsLocationResultTypeDef = TypedDict(
+    "UpdateAccessGrantsLocationResultTypeDef",
+    {
+        "CreatedAt": datetime,
+        "AccessGrantsLocationId": str,
+        "AccessGrantsLocationArn": str,
+        "LocationScope": str,
+        "IAMRoleArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 UpdateJobPriorityRequestRequestTypeDef = TypedDict(
@@ -2599,6 +3389,15 @@ UpdateJobStatusResultTypeDef = TypedDict(
         "Status": JobStatusType,
         "StatusUpdateReason": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateStorageLensGroupRequestRequestTypeDef = TypedDict(
+    "UpdateStorageLensGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+        "AccountId": str,
+        "StorageLensGroup": "StorageLensGroupTypeDef",
     },
 )
 

@@ -6,9 +6,9 @@ Type annotations for personalize service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_personalize.literals import DomainType
+    from mypy_boto3_personalize.literals import BatchInferenceJobModeType
 
-    data: DomainType = "ECOMMERCE"
+    data: BatchInferenceJobModeType = "BATCH_INFERENCE"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "BatchInferenceJobModeType",
     "DomainType",
     "ImportModeType",
     "IngestionModeType",
@@ -43,6 +44,7 @@ __all__ = (
     "TrainingModeType",
 )
 
+BatchInferenceJobModeType = Literal["BATCH_INFERENCE", "THEME_GENERATION"]
 DomainType = Literal["ECOMMERCE", "VIDEO_ON_DEMAND"]
 ImportModeType = Literal["FULL", "INCREMENTAL"]
 IngestionModeType = Literal["ALL", "BULK", "PUT"]

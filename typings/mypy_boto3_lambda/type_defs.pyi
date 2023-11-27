@@ -18,6 +18,7 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    ApplicationLogLevelType,
     ArchitectureType,
     CodeSigningPolicyType,
     EventSourcePositionType,
@@ -27,6 +28,7 @@ from .literals import (
     InvokeModeType,
     LastUpdateStatusReasonCodeType,
     LastUpdateStatusType,
+    LogFormatType,
     LogTypeType,
     PackageTypeType,
     ProvisionedConcurrencyStatusEnumType,
@@ -37,6 +39,7 @@ from .literals import (
     SourceAccessTypeType,
     StateReasonCodeType,
     StateType,
+    SystemLogLevelType,
     TracingModeType,
     UpdateRuntimeOnType,
 )
@@ -170,6 +173,7 @@ __all__ = (
     "ListTagsResponseTypeDef",
     "ListVersionsByFunctionRequestRequestTypeDef",
     "ListVersionsByFunctionResponseTypeDef",
+    "LoggingConfigTypeDef",
     "OnFailureTypeDef",
     "OnSuccessTypeDef",
     "PaginatorConfigTypeDef",
@@ -537,6 +541,7 @@ _OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
         "Architectures": List[ArchitectureType],
         "EphemeralStorage": "EphemeralStorageTypeDef",
         "SnapStart": "SnapStartTypeDef",
+        "LoggingConfig": "LoggingConfigTypeDef",
     },
     total=False,
 )
@@ -906,6 +911,7 @@ FunctionConfigurationResponseMetadataTypeDef = TypedDict(
         "EphemeralStorage": "EphemeralStorageTypeDef",
         "SnapStart": "SnapStartResponseTypeDef",
         "RuntimeVersionConfig": "RuntimeVersionConfigTypeDef",
+        "LoggingConfig": "LoggingConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -948,6 +954,7 @@ FunctionConfigurationTypeDef = TypedDict(
         "EphemeralStorage": "EphemeralStorageTypeDef",
         "SnapStart": "SnapStartResponseTypeDef",
         "RuntimeVersionConfig": "RuntimeVersionConfigTypeDef",
+        "LoggingConfig": "LoggingConfigTypeDef",
     },
     total=False,
 )
@@ -1804,6 +1811,17 @@ ListVersionsByFunctionResponseTypeDef = TypedDict(
     },
 )
 
+LoggingConfigTypeDef = TypedDict(
+    "LoggingConfigTypeDef",
+    {
+        "LogFormat": LogFormatType,
+        "ApplicationLogLevel": ApplicationLogLevelType,
+        "SystemLogLevel": SystemLogLevelType,
+        "LogGroup": str,
+    },
+    total=False,
+)
+
 OnFailureTypeDef = TypedDict(
     "OnFailureTypeDef",
     {
@@ -2302,6 +2320,7 @@ _OptionalUpdateFunctionConfigurationRequestRequestTypeDef = TypedDict(
         "ImageConfig": "ImageConfigTypeDef",
         "EphemeralStorage": "EphemeralStorageTypeDef",
         "SnapStart": "SnapStartTypeDef",
+        "LoggingConfig": "LoggingConfigTypeDef",
     },
     total=False,
 )

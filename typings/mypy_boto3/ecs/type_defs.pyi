@@ -53,6 +53,7 @@ from .literals import (
     SchedulingStrategyType,
     ScopeType,
     SettingNameType,
+    SettingTypeType,
     SortOrderType,
     StabilityStatusType,
     TaskDefinitionFamilyStatusType,
@@ -2328,6 +2329,7 @@ SettingTypeDef = TypedDict(
         "name": SettingNameType,
         "value": str,
         "principalArn": str,
+        "type": SettingTypeType,
     },
     total=False,
 )

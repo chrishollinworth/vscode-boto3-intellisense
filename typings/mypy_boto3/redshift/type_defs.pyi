@@ -36,6 +36,7 @@ from .literals import (
     ScheduledActionStateType,
     ScheduledActionTypeValuesType,
     ScheduleStateType,
+    ServiceAuthorizationType,
     SnapshotAttributeToSortByType,
     SortByOrderType,
     SourceTypeType,
@@ -69,6 +70,7 @@ __all__ = (
     "AuthorizeEndpointAccessMessageRequestTypeDef",
     "AuthorizeSnapshotAccessMessageRequestTypeDef",
     "AuthorizeSnapshotAccessResultTypeDef",
+    "AuthorizedTokenIssuerTypeDef",
     "AvailabilityZoneTypeDef",
     "BatchDeleteClusterSnapshotsRequestRequestTypeDef",
     "BatchDeleteClusterSnapshotsResultTypeDef",
@@ -122,6 +124,8 @@ __all__ = (
     "CreateHsmClientCertificateResultTypeDef",
     "CreateHsmConfigurationMessageRequestTypeDef",
     "CreateHsmConfigurationResultTypeDef",
+    "CreateRedshiftIdcApplicationMessageRequestTypeDef",
+    "CreateRedshiftIdcApplicationResultTypeDef",
     "CreateScheduledActionMessageRequestTypeDef",
     "CreateSnapshotCopyGrantMessageRequestTypeDef",
     "CreateSnapshotCopyGrantResultTypeDef",
@@ -152,6 +156,7 @@ __all__ = (
     "DeleteEventSubscriptionMessageRequestTypeDef",
     "DeleteHsmClientCertificateMessageRequestTypeDef",
     "DeleteHsmConfigurationMessageRequestTypeDef",
+    "DeleteRedshiftIdcApplicationMessageRequestTypeDef",
     "DeleteResourcePolicyMessageRequestTypeDef",
     "DeleteScheduledActionMessageRequestTypeDef",
     "DeleteSnapshotCopyGrantMessageRequestTypeDef",
@@ -192,6 +197,8 @@ __all__ = (
     "DescribeOrderableClusterOptionsMessageRequestTypeDef",
     "DescribePartnersInputMessageRequestTypeDef",
     "DescribePartnersOutputMessageTypeDef",
+    "DescribeRedshiftIdcApplicationsMessageRequestTypeDef",
+    "DescribeRedshiftIdcApplicationsResultTypeDef",
     "DescribeReservedNodeExchangeStatusInputMessageRequestTypeDef",
     "DescribeReservedNodeExchangeStatusOutputMessageTypeDef",
     "DescribeReservedNodeOfferingsMessageRequestTypeDef",
@@ -246,6 +253,8 @@ __all__ = (
     "InboundIntegrationTypeDef",
     "InboundIntegrationsMessageTypeDef",
     "IntegrationErrorTypeDef",
+    "LakeFormationQueryTypeDef",
+    "LakeFormationScopeUnionTypeDef",
     "LoggingStatusTypeDef",
     "MaintenanceTrackTypeDef",
     "ModifyAquaInputMessageRequestTypeDef",
@@ -271,6 +280,8 @@ __all__ = (
     "ModifyEndpointAccessMessageRequestTypeDef",
     "ModifyEventSubscriptionMessageRequestTypeDef",
     "ModifyEventSubscriptionResultTypeDef",
+    "ModifyRedshiftIdcApplicationMessageRequestTypeDef",
+    "ModifyRedshiftIdcApplicationResultTypeDef",
     "ModifyScheduledActionMessageRequestTypeDef",
     "ModifySnapshotCopyRetentionPeriodMessageRequestTypeDef",
     "ModifySnapshotCopyRetentionPeriodResultTypeDef",
@@ -298,6 +309,7 @@ __all__ = (
     "RebootClusterMessageRequestTypeDef",
     "RebootClusterResultTypeDef",
     "RecurringChargeTypeDef",
+    "RedshiftIdcApplicationTypeDef",
     "RejectDataShareMessageRequestTypeDef",
     "ReservedNodeConfigurationOptionTypeDef",
     "ReservedNodeExchangeStatusTypeDef",
@@ -335,6 +347,7 @@ __all__ = (
     "ScheduledActionTypeTypeDef",
     "ScheduledActionsMessageTypeDef",
     "SecondaryClusterInfoTypeDef",
+    "ServiceIntegrationsUnionTypeDef",
     "SnapshotCopyGrantMessageTypeDef",
     "SnapshotCopyGrantTypeDef",
     "SnapshotErrorMessageTypeDef",
@@ -425,6 +438,7 @@ _OptionalAssociateDataShareConsumerMessageRequestTypeDef = TypedDict(
         "AssociateEntireAccount": bool,
         "ConsumerArn": str,
         "ConsumerRegion": str,
+        "AllowWrites": bool,
     },
     total=False,
 )
@@ -492,13 +506,26 @@ AuthorizeClusterSecurityGroupIngressResultTypeDef = TypedDict(
     },
 )
 
-AuthorizeDataShareMessageRequestTypeDef = TypedDict(
-    "AuthorizeDataShareMessageRequestTypeDef",
+_RequiredAuthorizeDataShareMessageRequestTypeDef = TypedDict(
+    "_RequiredAuthorizeDataShareMessageRequestTypeDef",
     {
         "DataShareArn": str,
         "ConsumerIdentifier": str,
     },
 )
+_OptionalAuthorizeDataShareMessageRequestTypeDef = TypedDict(
+    "_OptionalAuthorizeDataShareMessageRequestTypeDef",
+    {
+        "AllowWrites": bool,
+    },
+    total=False,
+)
+
+class AuthorizeDataShareMessageRequestTypeDef(
+    _RequiredAuthorizeDataShareMessageRequestTypeDef,
+    _OptionalAuthorizeDataShareMessageRequestTypeDef,
+):
+    pass
 
 _RequiredAuthorizeEndpointAccessMessageRequestTypeDef = TypedDict(
     "_RequiredAuthorizeEndpointAccessMessageRequestTypeDef",
@@ -549,6 +576,15 @@ AuthorizeSnapshotAccessResultTypeDef = TypedDict(
         "Snapshot": "SnapshotTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+AuthorizedTokenIssuerTypeDef = TypedDict(
+    "AuthorizedTokenIssuerTypeDef",
+    {
+        "TrustedTokenIssuerArn": str,
+        "AuthorizedAudiencesList": List[str],
+    },
+    total=False,
 )
 
 AvailabilityZoneTypeDef = TypedDict(
@@ -1001,6 +1037,7 @@ _OptionalCreateClusterMessageRequestTypeDef = TypedDict(
         "MasterPasswordSecretKmsKeyId": str,
         "IpAddressType": str,
         "MultiAZ": bool,
+        "RedshiftIdcApplicationArn": str,
     },
     total=False,
 )
@@ -1275,6 +1312,39 @@ CreateHsmConfigurationResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateRedshiftIdcApplicationMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateRedshiftIdcApplicationMessageRequestTypeDef",
+    {
+        "IdcInstanceArn": str,
+        "RedshiftIdcApplicationName": str,
+        "IdcDisplayName": str,
+        "IamRoleArn": str,
+    },
+)
+_OptionalCreateRedshiftIdcApplicationMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateRedshiftIdcApplicationMessageRequestTypeDef",
+    {
+        "IdentityNamespace": str,
+        "AuthorizedTokenIssuerList": List["AuthorizedTokenIssuerTypeDef"],
+        "ServiceIntegrations": List["ServiceIntegrationsUnionTypeDef"],
+    },
+    total=False,
+)
+
+class CreateRedshiftIdcApplicationMessageRequestTypeDef(
+    _RequiredCreateRedshiftIdcApplicationMessageRequestTypeDef,
+    _OptionalCreateRedshiftIdcApplicationMessageRequestTypeDef,
+):
+    pass
+
+CreateRedshiftIdcApplicationResultTypeDef = TypedDict(
+    "CreateRedshiftIdcApplicationResultTypeDef",
+    {
+        "RedshiftIdcApplication": "RedshiftIdcApplicationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateScheduledActionMessageRequestTypeDef = TypedDict(
     "_RequiredCreateScheduledActionMessageRequestTypeDef",
     {
@@ -1401,6 +1471,8 @@ DataShareAssociationTypeDef = TypedDict(
         "ConsumerRegion": str,
         "CreatedDate": datetime,
         "StatusChangeDate": datetime,
+        "ProducerAllowedWrites": bool,
+        "ConsumerAcceptedWrites": bool,
     },
     total=False,
 )
@@ -1586,6 +1658,7 @@ DeleteCustomDomainAssociationMessageRequestTypeDef = TypedDict(
     "DeleteCustomDomainAssociationMessageRequestTypeDef",
     {
         "ClusterIdentifier": str,
+        "CustomDomainName": str,
     },
 )
 
@@ -1614,6 +1687,13 @@ DeleteHsmConfigurationMessageRequestTypeDef = TypedDict(
     "DeleteHsmConfigurationMessageRequestTypeDef",
     {
         "HsmConfigurationIdentifier": str,
+    },
+)
+
+DeleteRedshiftIdcApplicationMessageRequestTypeDef = TypedDict(
+    "DeleteRedshiftIdcApplicationMessageRequestTypeDef",
+    {
+        "RedshiftIdcApplicationArn": str,
     },
 )
 
@@ -2068,6 +2148,25 @@ DescribePartnersOutputMessageTypeDef = TypedDict(
     "DescribePartnersOutputMessageTypeDef",
     {
         "PartnerIntegrationInfoList": List["PartnerIntegrationInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRedshiftIdcApplicationsMessageRequestTypeDef = TypedDict(
+    "DescribeRedshiftIdcApplicationsMessageRequestTypeDef",
+    {
+        "RedshiftIdcApplicationArn": str,
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeRedshiftIdcApplicationsResultTypeDef = TypedDict(
+    "DescribeRedshiftIdcApplicationsResultTypeDef",
+    {
+        "RedshiftIdcApplications": List["RedshiftIdcApplicationTypeDef"],
+        "Marker": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2722,6 +2821,21 @@ _OptionalIntegrationErrorTypeDef = TypedDict(
 class IntegrationErrorTypeDef(_RequiredIntegrationErrorTypeDef, _OptionalIntegrationErrorTypeDef):
     pass
 
+LakeFormationQueryTypeDef = TypedDict(
+    "LakeFormationQueryTypeDef",
+    {
+        "Authorization": ServiceAuthorizationType,
+    },
+)
+
+LakeFormationScopeUnionTypeDef = TypedDict(
+    "LakeFormationScopeUnionTypeDef",
+    {
+        "LakeFormationQuery": "LakeFormationQueryTypeDef",
+    },
+    total=False,
+)
+
 LoggingStatusTypeDef = TypedDict(
     "LoggingStatusTypeDef",
     {
@@ -3010,26 +3124,14 @@ ModifyClusterSubnetGroupResultTypeDef = TypedDict(
     },
 )
 
-_RequiredModifyCustomDomainAssociationMessageRequestTypeDef = TypedDict(
-    "_RequiredModifyCustomDomainAssociationMessageRequestTypeDef",
-    {
-        "ClusterIdentifier": str,
-    },
-)
-_OptionalModifyCustomDomainAssociationMessageRequestTypeDef = TypedDict(
-    "_OptionalModifyCustomDomainAssociationMessageRequestTypeDef",
+ModifyCustomDomainAssociationMessageRequestTypeDef = TypedDict(
+    "ModifyCustomDomainAssociationMessageRequestTypeDef",
     {
         "CustomDomainName": str,
         "CustomDomainCertificateArn": str,
+        "ClusterIdentifier": str,
     },
-    total=False,
 )
-
-class ModifyCustomDomainAssociationMessageRequestTypeDef(
-    _RequiredModifyCustomDomainAssociationMessageRequestTypeDef,
-    _OptionalModifyCustomDomainAssociationMessageRequestTypeDef,
-):
-    pass
 
 ModifyCustomDomainAssociationResultTypeDef = TypedDict(
     "ModifyCustomDomainAssociationResultTypeDef",
@@ -3091,6 +3193,38 @@ ModifyEventSubscriptionResultTypeDef = TypedDict(
     "ModifyEventSubscriptionResultTypeDef",
     {
         "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyRedshiftIdcApplicationMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyRedshiftIdcApplicationMessageRequestTypeDef",
+    {
+        "RedshiftIdcApplicationArn": str,
+    },
+)
+_OptionalModifyRedshiftIdcApplicationMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyRedshiftIdcApplicationMessageRequestTypeDef",
+    {
+        "IdentityNamespace": str,
+        "IamRoleArn": str,
+        "IdcDisplayName": str,
+        "AuthorizedTokenIssuerList": List["AuthorizedTokenIssuerTypeDef"],
+        "ServiceIntegrations": List["ServiceIntegrationsUnionTypeDef"],
+    },
+    total=False,
+)
+
+class ModifyRedshiftIdcApplicationMessageRequestTypeDef(
+    _RequiredModifyRedshiftIdcApplicationMessageRequestTypeDef,
+    _OptionalModifyRedshiftIdcApplicationMessageRequestTypeDef,
+):
+    pass
+
+ModifyRedshiftIdcApplicationResultTypeDef = TypedDict(
+    "ModifyRedshiftIdcApplicationResultTypeDef",
+    {
+        "RedshiftIdcApplication": "RedshiftIdcApplicationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3402,6 +3536,23 @@ RecurringChargeTypeDef = TypedDict(
     {
         "RecurringChargeAmount": float,
         "RecurringChargeFrequency": str,
+    },
+    total=False,
+)
+
+RedshiftIdcApplicationTypeDef = TypedDict(
+    "RedshiftIdcApplicationTypeDef",
+    {
+        "IdcInstanceArn": str,
+        "RedshiftIdcApplicationName": str,
+        "RedshiftIdcApplicationArn": str,
+        "IdentityNamespace": str,
+        "IdcDisplayName": str,
+        "IamRoleArn": str,
+        "IdcManagedApplicationArn": str,
+        "IdcOnboardStatus": str,
+        "AuthorizedTokenIssuerList": List["AuthorizedTokenIssuerTypeDef"],
+        "ServiceIntegrations": List["ServiceIntegrationsUnionTypeDef"],
     },
     total=False,
 )
@@ -3915,6 +4066,14 @@ SecondaryClusterInfoTypeDef = TypedDict(
     {
         "AvailabilityZone": str,
         "ClusterNodes": List["ClusterNodeTypeDef"],
+    },
+    total=False,
+)
+
+ServiceIntegrationsUnionTypeDef = TypedDict(
+    "ServiceIntegrationsUnionTypeDef",
+    {
+        "LakeFormation": List["LakeFormationScopeUnionTypeDef"],
     },
     total=False,
 )

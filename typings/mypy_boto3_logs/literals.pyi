@@ -6,9 +6,9 @@ Type annotations for logs service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_logs.literals import DataProtectionStatusType
+    from mypy_boto3_logs.literals import AnomalyDetectorStatusType
 
-    data: DataProtectionStatusType = "ACTIVATED"
+    data: AnomalyDetectorStatusType = "ANALYZING"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AnomalyDetectorStatusType",
     "DataProtectionStatusType",
     "DeliveryDestinationTypeType",
     "DescribeDeliveriesPaginatorName",
@@ -33,17 +34,28 @@ __all__ = (
     "DescribeResourcePoliciesPaginatorName",
     "DescribeSubscriptionFiltersPaginatorName",
     "DistributionType",
+    "EvaluationFrequencyType",
     "ExportTaskStatusCodeType",
     "FilterLogEventsPaginatorName",
     "InheritedPropertyType",
+    "ListAnomaliesPaginatorName",
+    "ListLogAnomalyDetectorsPaginatorName",
+    "LogGroupClassType",
     "OrderByType",
     "OutputFormatType",
     "PolicyTypeType",
     "QueryStatusType",
     "ScopeType",
     "StandardUnitType",
+    "StateType",
+    "SuppressionStateType",
+    "SuppressionTypeType",
+    "SuppressionUnitType",
 )
 
+AnomalyDetectorStatusType = Literal[
+    "ANALYZING", "DELETED", "FAILED", "INITIALIZING", "PAUSED", "TRAINING"
+]
 DataProtectionStatusType = Literal["ACTIVATED", "ARCHIVED", "DELETED", "DISABLED"]
 DeliveryDestinationTypeType = Literal["CWL", "FH", "S3"]
 DescribeDeliveriesPaginatorName = Literal["describe_deliveries"]
@@ -58,11 +70,17 @@ DescribeQueriesPaginatorName = Literal["describe_queries"]
 DescribeResourcePoliciesPaginatorName = Literal["describe_resource_policies"]
 DescribeSubscriptionFiltersPaginatorName = Literal["describe_subscription_filters"]
 DistributionType = Literal["ByLogStream", "Random"]
+EvaluationFrequencyType = Literal[
+    "FIFTEEN_MIN", "FIVE_MIN", "ONE_HOUR", "ONE_MIN", "TEN_MIN", "THIRTY_MIN"
+]
 ExportTaskStatusCodeType = Literal[
     "CANCELLED", "COMPLETED", "FAILED", "PENDING", "PENDING_CANCEL", "RUNNING"
 ]
 FilterLogEventsPaginatorName = Literal["filter_log_events"]
 InheritedPropertyType = Literal["ACCOUNT_DATA_PROTECTION"]
+ListAnomaliesPaginatorName = Literal["list_anomalies"]
+ListLogAnomalyDetectorsPaginatorName = Literal["list_log_anomaly_detectors"]
+LogGroupClassType = Literal["INFREQUENT_ACCESS", "STANDARD"]
 OrderByType = Literal["LastEventTime", "LogStreamName"]
 OutputFormatType = Literal["json", "parquet", "plain", "raw", "w3c"]
 PolicyTypeType = Literal["DATA_PROTECTION_POLICY"]
@@ -99,3 +117,7 @@ StandardUnitType = Literal[
     "Terabytes",
     "Terabytes/Second",
 ]
+StateType = Literal["Active", "Baseline", "Suppressed"]
+SuppressionStateType = Literal["SUPPRESSED", "UNSUPPRESSED"]
+SuppressionTypeType = Literal["INFINITE", "LIMITED"]
+SuppressionUnitType = Literal["HOURS", "MINUTES", "SECONDS"]

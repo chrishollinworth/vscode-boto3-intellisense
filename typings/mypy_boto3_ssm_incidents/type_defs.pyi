@@ -39,7 +39,12 @@ __all__ = (
     "AddRegionActionTypeDef",
     "AttributeValueListTypeDef",
     "AutomationExecutionTypeDef",
+    "BatchGetIncidentFindingsErrorTypeDef",
+    "BatchGetIncidentFindingsInputRequestTypeDef",
+    "BatchGetIncidentFindingsOutputTypeDef",
     "ChatChannelTypeDef",
+    "CloudFormationStackUpdateTypeDef",
+    "CodeDeployDeploymentTypeDef",
     "ConditionTypeDef",
     "CreateReplicationSetInputRequestTypeDef",
     "CreateReplicationSetOutputTypeDef",
@@ -57,6 +62,9 @@ __all__ = (
     "EventReferenceTypeDef",
     "EventSummaryTypeDef",
     "FilterTypeDef",
+    "FindingDetailsTypeDef",
+    "FindingSummaryTypeDef",
+    "FindingTypeDef",
     "GetIncidentRecordInputRequestTypeDef",
     "GetIncidentRecordOutputTypeDef",
     "GetReplicationSetInputRequestTypeDef",
@@ -74,6 +82,8 @@ __all__ = (
     "IntegrationTypeDef",
     "ItemIdentifierTypeDef",
     "ItemValueTypeDef",
+    "ListIncidentFindingsInputRequestTypeDef",
+    "ListIncidentFindingsOutputTypeDef",
     "ListIncidentRecordsInputRequestTypeDef",
     "ListIncidentRecordsOutputTypeDef",
     "ListRelatedItemsInputRequestTypeDef",
@@ -160,6 +170,32 @@ AutomationExecutionTypeDef = TypedDict(
     total=False,
 )
 
+BatchGetIncidentFindingsErrorTypeDef = TypedDict(
+    "BatchGetIncidentFindingsErrorTypeDef",
+    {
+        "code": str,
+        "findingId": str,
+        "message": str,
+    },
+)
+
+BatchGetIncidentFindingsInputRequestTypeDef = TypedDict(
+    "BatchGetIncidentFindingsInputRequestTypeDef",
+    {
+        "findingIds": List[str],
+        "incidentRecordArn": str,
+    },
+)
+
+BatchGetIncidentFindingsOutputTypeDef = TypedDict(
+    "BatchGetIncidentFindingsOutputTypeDef",
+    {
+        "errors": List["BatchGetIncidentFindingsErrorTypeDef"],
+        "findings": List["FindingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ChatChannelTypeDef = TypedDict(
     "ChatChannelTypeDef",
     {
@@ -168,6 +204,47 @@ ChatChannelTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredCloudFormationStackUpdateTypeDef = TypedDict(
+    "_RequiredCloudFormationStackUpdateTypeDef",
+    {
+        "stackArn": str,
+        "startTime": datetime,
+    },
+)
+_OptionalCloudFormationStackUpdateTypeDef = TypedDict(
+    "_OptionalCloudFormationStackUpdateTypeDef",
+    {
+        "endTime": datetime,
+    },
+    total=False,
+)
+
+class CloudFormationStackUpdateTypeDef(
+    _RequiredCloudFormationStackUpdateTypeDef, _OptionalCloudFormationStackUpdateTypeDef
+):
+    pass
+
+_RequiredCodeDeployDeploymentTypeDef = TypedDict(
+    "_RequiredCodeDeployDeploymentTypeDef",
+    {
+        "deploymentGroupArn": str,
+        "deploymentId": str,
+        "startTime": datetime,
+    },
+)
+_OptionalCodeDeployDeploymentTypeDef = TypedDict(
+    "_OptionalCodeDeployDeploymentTypeDef",
+    {
+        "endTime": datetime,
+    },
+    total=False,
+)
+
+class CodeDeployDeploymentTypeDef(
+    _RequiredCodeDeployDeploymentTypeDef, _OptionalCodeDeployDeploymentTypeDef
+):
+    pass
 
 ConditionTypeDef = TypedDict(
     "ConditionTypeDef",
@@ -363,6 +440,42 @@ FilterTypeDef = TypedDict(
         "key": str,
     },
 )
+
+FindingDetailsTypeDef = TypedDict(
+    "FindingDetailsTypeDef",
+    {
+        "cloudFormationStackUpdate": "CloudFormationStackUpdateTypeDef",
+        "codeDeployDeployment": "CodeDeployDeploymentTypeDef",
+    },
+    total=False,
+)
+
+FindingSummaryTypeDef = TypedDict(
+    "FindingSummaryTypeDef",
+    {
+        "id": str,
+        "lastModifiedTime": datetime,
+    },
+)
+
+_RequiredFindingTypeDef = TypedDict(
+    "_RequiredFindingTypeDef",
+    {
+        "creationTime": datetime,
+        "id": str,
+        "lastModifiedTime": datetime,
+    },
+)
+_OptionalFindingTypeDef = TypedDict(
+    "_OptionalFindingTypeDef",
+    {
+        "details": "FindingDetailsTypeDef",
+    },
+    total=False,
+)
+
+class FindingTypeDef(_RequiredFindingTypeDef, _OptionalFindingTypeDef):
+    pass
 
 GetIncidentRecordInputRequestTypeDef = TypedDict(
     "GetIncidentRecordInputRequestTypeDef",
@@ -581,6 +694,36 @@ ItemValueTypeDef = TypedDict(
         "url": str,
     },
     total=False,
+)
+
+_RequiredListIncidentFindingsInputRequestTypeDef = TypedDict(
+    "_RequiredListIncidentFindingsInputRequestTypeDef",
+    {
+        "incidentRecordArn": str,
+    },
+)
+_OptionalListIncidentFindingsInputRequestTypeDef = TypedDict(
+    "_OptionalListIncidentFindingsInputRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListIncidentFindingsInputRequestTypeDef(
+    _RequiredListIncidentFindingsInputRequestTypeDef,
+    _OptionalListIncidentFindingsInputRequestTypeDef,
+):
+    pass
+
+ListIncidentFindingsOutputTypeDef = TypedDict(
+    "ListIncidentFindingsOutputTypeDef",
+    {
+        "findings": List["FindingSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListIncidentRecordsInputRequestTypeDef = TypedDict(

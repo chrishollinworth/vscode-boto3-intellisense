@@ -57,7 +57,7 @@ __all__ = (
 
 class ExportComponentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportComponents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportComponents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#exportcomponentspaginator)
     """
 
@@ -65,13 +65,13 @@ class ExportComponentsPaginator(Boto3Paginator):
         self, *, appId: str, environmentName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ExportComponentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportComponents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportComponents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#exportcomponentspaginator)
         """
 
 class ExportFormsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportForms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportForms)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#exportformspaginator)
     """
 
@@ -79,13 +79,13 @@ class ExportFormsPaginator(Boto3Paginator):
         self, *, appId: str, environmentName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ExportFormsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportForms.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportForms.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#exportformspaginator)
         """
 
 class ExportThemesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportThemes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportThemes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#exportthemespaginator)
     """
 
@@ -93,13 +93,13 @@ class ExportThemesPaginator(Boto3Paginator):
         self, *, appId: str, environmentName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ExportThemesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportThemes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ExportThemes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#exportthemespaginator)
         """
 
 class ListCodegenJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListCodegenJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListCodegenJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#listcodegenjobspaginator)
     """
 
@@ -107,13 +107,13 @@ class ListCodegenJobsPaginator(Boto3Paginator):
         self, *, appId: str, environmentName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCodegenJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListCodegenJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListCodegenJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#listcodegenjobspaginator)
         """
 
 class ListComponentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListComponents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListComponents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#listcomponentspaginator)
     """
 
@@ -121,13 +121,13 @@ class ListComponentsPaginator(Boto3Paginator):
         self, *, appId: str, environmentName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListComponentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListComponents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListComponents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#listcomponentspaginator)
         """
 
 class ListFormsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListForms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListForms)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#listformspaginator)
     """
 
@@ -135,13 +135,13 @@ class ListFormsPaginator(Boto3Paginator):
         self, *, appId: str, environmentName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFormsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListForms.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListForms.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#listformspaginator)
         """
 
 class ListThemesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListThemes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListThemes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#listthemespaginator)
     """
 
@@ -149,6 +149,6 @@ class ListThemesPaginator(Boto3Paginator):
         self, *, appId: str, environmentName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThemesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListThemes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifyuibuilder.html#AmplifyUIBuilder.Paginator.ListThemes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifyuibuilder/paginators.html#listthemespaginator)
         """

@@ -129,7 +129,7 @@ class Exceptions:
 
 class NeptuneDataClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html)
     """
 
@@ -144,21 +144,21 @@ class NeptuneDataClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#can_paginate)
         """
     def cancel_gremlin_query(self, *, queryId: str) -> CancelGremlinQueryOutputTypeDef:
         """
         Cancels a Gremlin query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.cancel_gremlin_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.cancel_gremlin_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#cancel_gremlin_query)
         """
     def cancel_loader_job(self, *, loadId: str) -> CancelLoaderJobOutputTypeDef:
         """
         Cancels a specified load job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.cancel_loader_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.cancel_loader_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#cancel_loader_job)
         """
     def cancel_ml_data_processing_job(
@@ -167,7 +167,7 @@ class NeptuneDataClient(BaseClient):
         """
         Cancels a Neptune ML data processing job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.cancel_ml_data_processing_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.cancel_ml_data_processing_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#cancel_ml_data_processing_job)
         """
     def cancel_ml_model_training_job(
@@ -176,7 +176,7 @@ class NeptuneDataClient(BaseClient):
         """
         Cancels a Neptune ML model training job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.cancel_ml_model_training_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.cancel_ml_model_training_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#cancel_ml_model_training_job)
         """
     def cancel_ml_model_transform_job(
@@ -185,7 +185,7 @@ class NeptuneDataClient(BaseClient):
         """
         Cancels a specified model transform job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.cancel_ml_model_transform_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.cancel_ml_model_transform_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#cancel_ml_model_transform_job)
         """
     def cancel_open_cypher_query(
@@ -194,14 +194,14 @@ class NeptuneDataClient(BaseClient):
         """
         Cancels a specified openCypher query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.cancel_open_cypher_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.cancel_open_cypher_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#cancel_open_cypher_query)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#close)
         """
     def create_ml_endpoint(
@@ -221,7 +221,7 @@ class NeptuneDataClient(BaseClient):
         Creates a new Neptune ML inference endpoint that lets you query one specific
         model that the model-training process constructed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.create_ml_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.create_ml_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#create_ml_endpoint)
         """
     def delete_ml_endpoint(
@@ -230,14 +230,14 @@ class NeptuneDataClient(BaseClient):
         """
         Cancels the creation of a Neptune ML inference endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.delete_ml_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.delete_ml_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#delete_ml_endpoint)
         """
     def delete_propertygraph_statistics(self) -> DeletePropertygraphStatisticsOutputTypeDef:
         """
         Deletes statistics for Gremlin and openCypher (property graph) data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.delete_propertygraph_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.delete_propertygraph_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#delete_propertygraph_statistics)
         """
     def delete_sparql_statistics(self) -> DeleteSparqlStatisticsOutputTypeDef:
@@ -247,7 +247,7 @@ class NeptuneDataClient(BaseClient):
         have a policy attached that allows the `neptune-db\:DeleteStatistics
         <https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actio...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.delete_sparql_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.delete_sparql_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#delete_sparql_statistics)
         """
     def execute_fast_reset(
@@ -257,7 +257,7 @@ class NeptuneDataClient(BaseClient):
         The fast reset REST API lets you reset a Neptune graph quicky and easily,
         removing all of its data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.execute_fast_reset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.execute_fast_reset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#execute_fast_reset)
         """
     def execute_gremlin_explain_query(
@@ -266,7 +266,7 @@ class NeptuneDataClient(BaseClient):
         """
         Executes a Gremlin Explain query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.execute_gremlin_explain_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.execute_gremlin_explain_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#execute_gremlin_explain_query)
         """
     def execute_gremlin_profile_query(
@@ -282,7 +282,7 @@ class NeptuneDataClient(BaseClient):
         Executes a Gremlin Profile query, which runs a specified traversal, collects
         various metrics about the run, and produces a profile report as output.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.execute_gremlin_profile_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.execute_gremlin_profile_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#execute_gremlin_profile_query)
         """
     def execute_gremlin_query(
@@ -291,7 +291,7 @@ class NeptuneDataClient(BaseClient):
         """
         This commands executes a Gremlin query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.execute_gremlin_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.execute_gremlin_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#execute_gremlin_query)
         """
     def execute_open_cypher_explain_query(
@@ -304,7 +304,7 @@ class NeptuneDataClient(BaseClient):
         """
         Executes an openCypher `explain` request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.execute_open_cypher_explain_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.execute_open_cypher_explain_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#execute_open_cypher_explain_query)
         """
     def execute_open_cypher_query(
@@ -313,7 +313,7 @@ class NeptuneDataClient(BaseClient):
         """
         Executes an openCypher query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.execute_open_cypher_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.execute_open_cypher_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#execute_open_cypher_query)
         """
     def generate_presigned_url(
@@ -326,21 +326,21 @@ class NeptuneDataClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#generate_presigned_url)
         """
     def get_engine_status(self) -> GetEngineStatusOutputTypeDef:
         """
         Retrieves the status of the graph database on the host.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_engine_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_engine_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_engine_status)
         """
     def get_gremlin_query_status(self, *, queryId: str) -> GetGremlinQueryStatusOutputTypeDef:
         """
         Gets the status of a specified Gremlin query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_gremlin_query_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_gremlin_query_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_gremlin_query_status)
         """
     def get_loader_job_status(
@@ -355,7 +355,7 @@ class NeptuneDataClient(BaseClient):
         """
         Gets status information about a specified load job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_loader_job_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_loader_job_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_loader_job_status)
         """
     def get_ml_data_processing_job(
@@ -364,7 +364,7 @@ class NeptuneDataClient(BaseClient):
         """
         Retrieves information about a specified data processing job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_ml_data_processing_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_ml_data_processing_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_ml_data_processing_job)
         """
     def get_ml_endpoint(
@@ -373,7 +373,7 @@ class NeptuneDataClient(BaseClient):
         """
         Retrieves details about an inference endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_ml_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_ml_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_ml_endpoint)
         """
     def get_ml_model_training_job(
@@ -382,7 +382,7 @@ class NeptuneDataClient(BaseClient):
         """
         Retrieves information about a Neptune ML model training job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_ml_model_training_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_ml_model_training_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_ml_model_training_job)
         """
     def get_ml_model_transform_job(
@@ -391,7 +391,7 @@ class NeptuneDataClient(BaseClient):
         """
         Gets information about a specified model transform job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_ml_model_transform_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_ml_model_transform_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_ml_model_transform_job)
         """
     def get_open_cypher_query_status(
@@ -400,14 +400,14 @@ class NeptuneDataClient(BaseClient):
         """
         Retrieves the status of a specified openCypher query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_open_cypher_query_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_open_cypher_query_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_open_cypher_query_status)
         """
     def get_propertygraph_statistics(self) -> GetPropertygraphStatisticsOutputTypeDef:
         """
         Gets property graph statistics (Gremlin and openCypher).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_propertygraph_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_propertygraph_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_propertygraph_statistics)
         """
     def get_propertygraph_stream(
@@ -422,7 +422,7 @@ class NeptuneDataClient(BaseClient):
         """
         Gets a stream for a property graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_propertygraph_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_propertygraph_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_propertygraph_stream)
         """
     def get_propertygraph_summary(
@@ -431,7 +431,7 @@ class NeptuneDataClient(BaseClient):
         """
         Gets a graph summary for a property graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_propertygraph_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_propertygraph_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_propertygraph_summary)
         """
     def get_rdf_graph_summary(
@@ -440,14 +440,14 @@ class NeptuneDataClient(BaseClient):
         """
         Gets a graph summary for an RDF graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_rdf_graph_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_rdf_graph_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_rdf_graph_summary)
         """
     def get_sparql_statistics(self) -> GetSparqlStatisticsOutputTypeDef:
         """
         Gets RDF statistics (SPARQL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_sparql_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_sparql_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_sparql_statistics)
         """
     def get_sparql_stream(
@@ -462,7 +462,7 @@ class NeptuneDataClient(BaseClient):
         """
         Gets a stream for an RDF graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.get_sparql_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.get_sparql_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#get_sparql_stream)
         """
     def list_gremlin_queries(
@@ -471,7 +471,7 @@ class NeptuneDataClient(BaseClient):
         """
         Lists active Gremlin queries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.list_gremlin_queries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.list_gremlin_queries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#list_gremlin_queries)
         """
     def list_loader_jobs(
@@ -480,7 +480,7 @@ class NeptuneDataClient(BaseClient):
         """
         Retrieves a list of the `loadIds` for all active loader jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.list_loader_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.list_loader_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#list_loader_jobs)
         """
     def list_ml_data_processing_jobs(
@@ -489,7 +489,7 @@ class NeptuneDataClient(BaseClient):
         """
         Returns a list of Neptune ML data processing jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.list_ml_data_processing_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.list_ml_data_processing_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#list_ml_data_processing_jobs)
         """
     def list_ml_endpoints(
@@ -498,7 +498,7 @@ class NeptuneDataClient(BaseClient):
         """
         Lists existing inference endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.list_ml_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.list_ml_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#list_ml_endpoints)
         """
     def list_ml_model_training_jobs(
@@ -507,7 +507,7 @@ class NeptuneDataClient(BaseClient):
         """
         Lists Neptune ML model-training jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.list_ml_model_training_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.list_ml_model_training_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#list_ml_model_training_jobs)
         """
     def list_ml_model_transform_jobs(
@@ -516,7 +516,7 @@ class NeptuneDataClient(BaseClient):
         """
         Returns a list of model transform job IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.list_ml_model_transform_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.list_ml_model_transform_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#list_ml_model_transform_jobs)
         """
     def list_open_cypher_queries(
@@ -525,7 +525,7 @@ class NeptuneDataClient(BaseClient):
         """
         Lists active openCypher queries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.list_open_cypher_queries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.list_open_cypher_queries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#list_open_cypher_queries)
         """
     def manage_propertygraph_statistics(
@@ -534,7 +534,7 @@ class NeptuneDataClient(BaseClient):
         """
         Manages the generation and use of property graph statistics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.manage_propertygraph_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.manage_propertygraph_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#manage_propertygraph_statistics)
         """
     def manage_sparql_statistics(
@@ -543,7 +543,7 @@ class NeptuneDataClient(BaseClient):
         """
         Manages the generation and use of RDF graph statistics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.manage_sparql_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.manage_sparql_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#manage_sparql_statistics)
         """
     def start_loader_job(
@@ -566,7 +566,7 @@ class NeptuneDataClient(BaseClient):
         Starts a Neptune bulk loader job to load data from an Amazon S3 bucket into a
         Neptune DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.start_loader_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.start_loader_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#start_loader_job)
         """
     def start_ml_data_processing_job(
@@ -592,7 +592,7 @@ class NeptuneDataClient(BaseClient):
         Creates a new Neptune ML data processing job for processing the graph data
         exported from Neptune for training.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.start_ml_data_processing_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.start_ml_data_processing_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#start_ml_data_processing_job)
         """
     def start_ml_model_training_job(
@@ -620,7 +620,7 @@ class NeptuneDataClient(BaseClient):
         """
         Creates a new Neptune ML model training job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.start_ml_model_training_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.start_ml_model_training_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#start_ml_model_training_job)
         """
     def start_ml_model_transform_job(
@@ -644,6 +644,6 @@ class NeptuneDataClient(BaseClient):
         """
         Creates a new model transform job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/neptunedata.html#NeptuneData.Client.start_ml_model_transform_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/neptunedata.html#NeptuneData.Client.start_ml_model_transform_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/client.html#start_ml_model_transform_job)
         """

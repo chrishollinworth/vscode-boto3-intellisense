@@ -23,6 +23,7 @@ from .literals import (
     ResourceType,
     StatusType,
     ThroughputModeType,
+    TransitionToArchiveRulesType,
     TransitionToIARulesType,
 )
 
@@ -560,6 +561,7 @@ _OptionalFileSystemSizeTypeDef = TypedDict(
         "Timestamp": datetime,
         "ValueInIA": int,
         "ValueInStandard": int,
+        "ValueInArchive": int,
     },
     total=False,
 )
@@ -580,6 +582,7 @@ LifecyclePolicyTypeDef = TypedDict(
     {
         "TransitionToIA": TransitionToIARulesType,
         "TransitionToPrimaryStorageClass": Literal["AFTER_1_ACCESS"],
+        "TransitionToArchive": TransitionToArchiveRulesType,
     },
     total=False,
 )

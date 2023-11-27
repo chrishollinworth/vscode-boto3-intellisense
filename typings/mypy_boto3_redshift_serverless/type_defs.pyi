@@ -254,6 +254,7 @@ _OptionalCreateNamespaceRequestRequestTypeDef = TypedDict(
         "kmsKeyId": str,
         "logExports": List[LogExportType],
         "manageAdminPassword": bool,
+        "redshiftIdcApplicationArn": str,
         "tags": List["TagTypeDef"],
     },
     total=False,

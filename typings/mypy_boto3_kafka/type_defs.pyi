@@ -22,6 +22,7 @@ from .literals import (
     ClusterStateType,
     ClusterTypeType,
     ConfigurationStateType,
+    CustomerActionStatusType,
     EnhancedMonitoringType,
     KafkaVersionStatusType,
     ReplicatorStateType,
@@ -417,6 +418,7 @@ ClusterInfoTypeDef = TypedDict(
         "ZookeeperConnectString": str,
         "ZookeeperConnectStringTls": str,
         "StorageMode": StorageModeType,
+        "CustomerActionStatus": CustomerActionStatusType,
     },
     total=False,
 )
@@ -1686,6 +1688,7 @@ _OptionalProvisionedTypeDef = TypedDict(
         "ZookeeperConnectString": str,
         "ZookeeperConnectStringTls": str,
         "StorageMode": StorageModeType,
+        "CustomerActionStatus": CustomerActionStatusType,
     },
     total=False,
 )

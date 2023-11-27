@@ -30,6 +30,7 @@ from .literals import (
     ScanStatusType,
     ScanTypeType,
     TagStatusType,
+    UpstreamRegistryType,
 )
 
 if sys.version_info >= (3, 8):
@@ -162,8 +163,12 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdatePullThroughCacheRuleRequestRequestTypeDef",
+    "UpdatePullThroughCacheRuleResponseTypeDef",
     "UploadLayerPartRequestRequestTypeDef",
     "UploadLayerPartResponseTypeDef",
+    "ValidatePullThroughCacheRuleRequestRequestTypeDef",
+    "ValidatePullThroughCacheRuleResponseTypeDef",
     "VulnerablePackageTypeDef",
     "WaiterConfigTypeDef",
 )
@@ -359,6 +364,8 @@ _OptionalCreatePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
     "_OptionalCreatePullThroughCacheRuleRequestRequestTypeDef",
     {
         "registryId": str,
+        "upstreamRegistry": UpstreamRegistryType,
+        "credentialArn": str,
     },
     total=False,
 )
@@ -376,6 +383,8 @@ CreatePullThroughCacheRuleResponseTypeDef = TypedDict(
         "upstreamRegistryUrl": str,
         "createdAt": datetime,
         "registryId": str,
+        "upstreamRegistry": UpstreamRegistryType,
+        "credentialArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -501,6 +510,7 @@ DeletePullThroughCacheRuleResponseTypeDef = TypedDict(
         "upstreamRegistryUrl": str,
         "createdAt": datetime,
         "registryId": str,
+        "credentialArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1217,6 +1227,9 @@ PullThroughCacheRuleTypeDef = TypedDict(
         "upstreamRegistryUrl": str,
         "createdAt": datetime,
         "registryId": str,
+        "credentialArn": str,
+        "upstreamRegistry": UpstreamRegistryType,
+        "updatedAt": datetime,
     },
     total=False,
 )
@@ -1669,6 +1682,38 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdatePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdatePullThroughCacheRuleRequestRequestTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+        "credentialArn": str,
+    },
+)
+_OptionalUpdatePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdatePullThroughCacheRuleRequestRequestTypeDef",
+    {
+        "registryId": str,
+    },
+    total=False,
+)
+
+class UpdatePullThroughCacheRuleRequestRequestTypeDef(
+    _RequiredUpdatePullThroughCacheRuleRequestRequestTypeDef,
+    _OptionalUpdatePullThroughCacheRuleRequestRequestTypeDef,
+):
+    pass
+
+UpdatePullThroughCacheRuleResponseTypeDef = TypedDict(
+    "UpdatePullThroughCacheRuleResponseTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+        "registryId": str,
+        "updatedAt": datetime,
+        "credentialArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUploadLayerPartRequestRequestTypeDef = TypedDict(
     "_RequiredUploadLayerPartRequestRequestTypeDef",
     {
@@ -1699,6 +1744,39 @@ UploadLayerPartResponseTypeDef = TypedDict(
         "repositoryName": str,
         "uploadId": str,
         "lastByteReceived": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredValidatePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredValidatePullThroughCacheRuleRequestRequestTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+    },
+)
+_OptionalValidatePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalValidatePullThroughCacheRuleRequestRequestTypeDef",
+    {
+        "registryId": str,
+    },
+    total=False,
+)
+
+class ValidatePullThroughCacheRuleRequestRequestTypeDef(
+    _RequiredValidatePullThroughCacheRuleRequestRequestTypeDef,
+    _OptionalValidatePullThroughCacheRuleRequestRequestTypeDef,
+):
+    pass
+
+ValidatePullThroughCacheRuleResponseTypeDef = TypedDict(
+    "ValidatePullThroughCacheRuleResponseTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+        "registryId": str,
+        "upstreamRegistryUrl": str,
+        "credentialArn": str,
+        "isValid": bool,
+        "failure": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

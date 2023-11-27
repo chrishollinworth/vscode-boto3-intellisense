@@ -136,6 +136,7 @@ __all__ = (
     "ListIAMPolicyAssignmentsPaginatorName",
     "ListIngestionsPaginatorName",
     "ListNamespacesPaginatorName",
+    "ListRoleMembershipsPaginatorName",
     "ListTemplateAliasesPaginatorName",
     "ListTemplateVersionsPaginatorName",
     "ListTemplatesPaginatorName",
@@ -185,6 +186,7 @@ __all__ = (
     "RelativeFontSizeType",
     "ResizeOptionType",
     "ResourceStatusType",
+    "RoleType",
     "RowLevelPermissionFormatVersionType",
     "RowLevelPermissionPolicyType",
     "SearchAnalysesPaginatorName",
@@ -197,6 +199,7 @@ __all__ = (
     "SelectAllValueOptionsType",
     "SelectedFieldOptionsType",
     "SelectedTooltipTypeType",
+    "ServiceTypeType",
     "SharingModelType",
     "SheetContentTypeType",
     "SheetControlDateTimePickerTypeType",
@@ -434,6 +437,7 @@ DataSourceTypeType = Literal[
     "AURORA",
     "AURORA_POSTGRESQL",
     "AWS_IOT_ANALYTICS",
+    "BIGQUERY",
     "DATABRICKS",
     "EXASOL",
     "GITHUB",
@@ -450,8 +454,10 @@ DataSourceTypeType = Literal[
     "SNOWFLAKE",
     "SPARK",
     "SQLSERVER",
+    "STARBURST",
     "TERADATA",
     "TIMESTREAM",
+    "TRINO",
     "TWITTER",
 ]
 DatasetParameterValueTypeType = Literal["MULTI_VALUED", "SINGLE_VALUED"]
@@ -627,6 +633,7 @@ ListIAMPolicyAssignmentsForUserPaginatorName = Literal["list_iam_policy_assignme
 ListIAMPolicyAssignmentsPaginatorName = Literal["list_iam_policy_assignments"]
 ListIngestionsPaginatorName = Literal["list_ingestions"]
 ListNamespacesPaginatorName = Literal["list_namespaces"]
+ListRoleMembershipsPaginatorName = Literal["list_role_memberships"]
 ListTemplateAliasesPaginatorName = Literal["list_template_aliases"]
 ListTemplateVersionsPaginatorName = Literal["list_template_versions"]
 ListTemplatesPaginatorName = Literal["list_templates"]
@@ -747,6 +754,7 @@ ResourceStatusType = Literal[
     "UPDATE_IN_PROGRESS",
     "UPDATE_SUCCESSFUL",
 ]
+RoleType = Literal["ADMIN", "AUTHOR", "READER"]
 RowLevelPermissionFormatVersionType = Literal["VERSION_1", "VERSION_2"]
 RowLevelPermissionPolicyType = Literal["DENY_ACCESS", "GRANT_ACCESS"]
 SearchAnalysesPaginatorName = Literal["search_analyses"]
@@ -759,6 +767,7 @@ SectionPageBreakStatusType = Literal["DISABLED", "ENABLED"]
 SelectAllValueOptionsType = Literal["ALL_VALUES"]
 SelectedFieldOptionsType = Literal["ALL_FIELDS"]
 SelectedTooltipTypeType = Literal["BASIC", "DETAILED"]
+ServiceTypeType = Literal["REDSHIFT"]
 SharingModelType = Literal["ACCOUNT", "NAMESPACE"]
 SheetContentTypeType = Literal["INTERACTIVE", "PAGINATED"]
 SheetControlDateTimePickerTypeType = Literal["DATE_RANGE", "SINGLE_VALUED"]

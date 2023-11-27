@@ -22,6 +22,7 @@ __all__ = (
     "GetResourcePoliciesPaginatorName",
     "IncidentRecordStatusType",
     "ItemTypeType",
+    "ListIncidentFindingsPaginatorName",
     "ListIncidentRecordsPaginatorName",
     "ListRelatedItemsPaginatorName",
     "ListReplicationSetsPaginatorName",
@@ -50,6 +51,7 @@ ItemTypeType = Literal[
     "PARENT",
     "TASK",
 ]
+ListIncidentFindingsPaginatorName = Literal["list_incident_findings"]
 ListIncidentRecordsPaginatorName = Literal["list_incident_records"]
 ListRelatedItemsPaginatorName = Literal["list_related_items"]
 ListReplicationSetsPaginatorName = Literal["list_replication_sets"]

@@ -79,6 +79,8 @@ __all__ = (
     "ExportFilterOperatorType",
     "ExportSortAttributeType",
     "ExportStatusType",
+    "GenerationSortByAttributeType",
+    "GenerationStatusType",
     "ImportExportFileFormatType",
     "ImportFilterNameType",
     "ImportFilterOperatorType",
@@ -97,6 +99,7 @@ __all__ = (
     "SlotConstraintType",
     "SlotFilterNameType",
     "SlotFilterOperatorType",
+    "SlotResolutionStrategyType",
     "SlotShapeType",
     "SlotSortAttributeType",
     "SlotTypeCategoryType",
@@ -264,6 +267,8 @@ ExportFilterNameType = Literal["ExportResourceType"]
 ExportFilterOperatorType = Literal["CO", "EQ"]
 ExportSortAttributeType = Literal["LastUpdatedDateTime"]
 ExportStatusType = Literal["Completed", "Deleting", "Failed", "InProgress"]
+GenerationSortByAttributeType = Literal["creationStartTime", "lastUpdatedTime"]
+GenerationStatusType = Literal["Complete", "Failed", "InProgress"]
 ImportExportFileFormatType = Literal["CSV", "LexJson", "TSV"]
 ImportFilterNameType = Literal["ImportResourceType"]
 ImportFilterOperatorType = Literal["CO", "EQ"]
@@ -284,6 +289,7 @@ SearchOrderType = Literal["Ascending", "Descending"]
 SlotConstraintType = Literal["Optional", "Required"]
 SlotFilterNameType = Literal["SlotName"]
 SlotFilterOperatorType = Literal["CO", "EQ"]
+SlotResolutionStrategyType = Literal["Default", "EnhancedFallback"]
 SlotShapeType = Literal["List", "Scalar"]
 SlotSortAttributeType = Literal["LastUpdatedDateTime", "SlotName"]
 SlotTypeCategoryType = Literal["Composite", "Custom", "Extended", "ExternalGrammar"]

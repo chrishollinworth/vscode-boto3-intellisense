@@ -16,13 +16,17 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    ExecutionRedriveFilterType,
+    ExecutionRedriveStatusType,
     ExecutionStatusType,
     HistoryEventTypeType,
+    InspectionLevelType,
     LogLevelType,
     MapRunStatusType,
     StateMachineStatusType,
     StateMachineTypeType,
     SyncExecutionStatusType,
+    TestExecutionStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -66,6 +70,7 @@ __all__ = (
     "ExecutionAbortedEventDetailsTypeDef",
     "ExecutionFailedEventDetailsTypeDef",
     "ExecutionListItemTypeDef",
+    "ExecutionRedrivenEventDetailsTypeDef",
     "ExecutionStartedEventDetailsTypeDef",
     "ExecutionSucceededEventDetailsTypeDef",
     "ExecutionTimedOutEventDetailsTypeDef",
@@ -75,6 +80,9 @@ __all__ = (
     "GetExecutionHistoryOutputTypeDef",
     "HistoryEventExecutionDataDetailsTypeDef",
     "HistoryEventTypeDef",
+    "InspectionDataRequestTypeDef",
+    "InspectionDataResponseTypeDef",
+    "InspectionDataTypeDef",
     "LambdaFunctionFailedEventDetailsTypeDef",
     "LambdaFunctionScheduleFailedEventDetailsTypeDef",
     "LambdaFunctionScheduledEventDetailsTypeDef",
@@ -102,11 +110,14 @@ __all__ = (
     "MapRunFailedEventDetailsTypeDef",
     "MapRunItemCountsTypeDef",
     "MapRunListItemTypeDef",
+    "MapRunRedrivenEventDetailsTypeDef",
     "MapRunStartedEventDetailsTypeDef",
     "MapStateStartedEventDetailsTypeDef",
     "PaginatorConfigTypeDef",
     "PublishStateMachineVersionInputRequestTypeDef",
     "PublishStateMachineVersionOutputTypeDef",
+    "RedriveExecutionInputRequestTypeDef",
+    "RedriveExecutionOutputTypeDef",
     "ResponseMetadataTypeDef",
     "RoutingConfigurationListItemTypeDef",
     "SendTaskFailureInputRequestTypeDef",
@@ -134,6 +145,8 @@ __all__ = (
     "TaskSubmittedEventDetailsTypeDef",
     "TaskSucceededEventDetailsTypeDef",
     "TaskTimedOutEventDetailsTypeDef",
+    "TestStateInputRequestTypeDef",
+    "TestStateOutputTypeDef",
     "TracingConfigurationTypeDef",
     "UntagResourceInputRequestTypeDef",
     "UpdateMapRunInputRequestTypeDef",
@@ -408,6 +421,10 @@ DescribeExecutionOutputTypeDef = TypedDict(
         "cause": str,
         "stateMachineVersionArn": str,
         "stateMachineAliasArn": str,
+        "redriveCount": int,
+        "redriveDate": datetime,
+        "redriveStatus": ExecutionRedriveStatusType,
+        "redriveStatusReason": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -432,6 +449,8 @@ DescribeMapRunOutputTypeDef = TypedDict(
         "toleratedFailureCount": int,
         "itemCounts": "MapRunItemCountsTypeDef",
         "executionCounts": "MapRunExecutionCountsTypeDef",
+        "redriveCount": int,
+        "redriveDate": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -542,6 +561,8 @@ _OptionalExecutionListItemTypeDef = TypedDict(
         "itemCount": int,
         "stateMachineVersionArn": str,
         "stateMachineAliasArn": str,
+        "redriveCount": int,
+        "redriveDate": datetime,
     },
     total=False,
 )
@@ -550,6 +571,14 @@ class ExecutionListItemTypeDef(
     _RequiredExecutionListItemTypeDef, _OptionalExecutionListItemTypeDef
 ):
     pass
+
+ExecutionRedrivenEventDetailsTypeDef = TypedDict(
+    "ExecutionRedrivenEventDetailsTypeDef",
+    {
+        "redriveCount": int,
+    },
+    total=False,
+)
 
 ExecutionStartedEventDetailsTypeDef = TypedDict(
     "ExecutionStartedEventDetailsTypeDef",
@@ -679,6 +708,7 @@ _OptionalHistoryEventTypeDef = TypedDict(
         "executionSucceededEventDetails": "ExecutionSucceededEventDetailsTypeDef",
         "executionAbortedEventDetails": "ExecutionAbortedEventDetailsTypeDef",
         "executionTimedOutEventDetails": "ExecutionTimedOutEventDetailsTypeDef",
+        "executionRedrivenEventDetails": "ExecutionRedrivenEventDetailsTypeDef",
         "mapStateStartedEventDetails": "MapStateStartedEventDetailsTypeDef",
         "mapIterationStartedEventDetails": "MapIterationEventDetailsTypeDef",
         "mapIterationSucceededEventDetails": "MapIterationEventDetailsTypeDef",
@@ -694,12 +724,52 @@ _OptionalHistoryEventTypeDef = TypedDict(
         "stateExitedEventDetails": "StateExitedEventDetailsTypeDef",
         "mapRunStartedEventDetails": "MapRunStartedEventDetailsTypeDef",
         "mapRunFailedEventDetails": "MapRunFailedEventDetailsTypeDef",
+        "mapRunRedrivenEventDetails": "MapRunRedrivenEventDetailsTypeDef",
     },
     total=False,
 )
 
 class HistoryEventTypeDef(_RequiredHistoryEventTypeDef, _OptionalHistoryEventTypeDef):
     pass
+
+InspectionDataRequestTypeDef = TypedDict(
+    "InspectionDataRequestTypeDef",
+    {
+        "protocol": str,
+        "method": str,
+        "url": str,
+        "headers": str,
+        "body": str,
+    },
+    total=False,
+)
+
+InspectionDataResponseTypeDef = TypedDict(
+    "InspectionDataResponseTypeDef",
+    {
+        "protocol": str,
+        "statusCode": str,
+        "statusMessage": str,
+        "headers": str,
+        "body": str,
+    },
+    total=False,
+)
+
+InspectionDataTypeDef = TypedDict(
+    "InspectionDataTypeDef",
+    {
+        "input": str,
+        "afterInputPath": str,
+        "afterParameters": str,
+        "result": str,
+        "afterResultSelector": str,
+        "afterResultPath": str,
+        "request": "InspectionDataRequestTypeDef",
+        "response": "InspectionDataResponseTypeDef",
+    },
+    total=False,
+)
 
 LambdaFunctionFailedEventDetailsTypeDef = TypedDict(
     "LambdaFunctionFailedEventDetailsTypeDef",
@@ -795,6 +865,7 @@ ListExecutionsInputRequestTypeDef = TypedDict(
         "maxResults": int,
         "nextToken": str,
         "mapRunArn": str,
+        "redriveFilter": ExecutionRedriveFilterType,
     },
     total=False,
 )
@@ -957,8 +1028,8 @@ MapIterationEventDetailsTypeDef = TypedDict(
     total=False,
 )
 
-MapRunExecutionCountsTypeDef = TypedDict(
-    "MapRunExecutionCountsTypeDef",
+_RequiredMapRunExecutionCountsTypeDef = TypedDict(
+    "_RequiredMapRunExecutionCountsTypeDef",
     {
         "pending": int,
         "running": int,
@@ -970,6 +1041,19 @@ MapRunExecutionCountsTypeDef = TypedDict(
         "resultsWritten": int,
     },
 )
+_OptionalMapRunExecutionCountsTypeDef = TypedDict(
+    "_OptionalMapRunExecutionCountsTypeDef",
+    {
+        "failuresNotRedrivable": int,
+        "pendingRedrive": int,
+    },
+    total=False,
+)
+
+class MapRunExecutionCountsTypeDef(
+    _RequiredMapRunExecutionCountsTypeDef, _OptionalMapRunExecutionCountsTypeDef
+):
+    pass
 
 MapRunFailedEventDetailsTypeDef = TypedDict(
     "MapRunFailedEventDetailsTypeDef",
@@ -980,8 +1064,8 @@ MapRunFailedEventDetailsTypeDef = TypedDict(
     total=False,
 )
 
-MapRunItemCountsTypeDef = TypedDict(
-    "MapRunItemCountsTypeDef",
+_RequiredMapRunItemCountsTypeDef = TypedDict(
+    "_RequiredMapRunItemCountsTypeDef",
     {
         "pending": int,
         "running": int,
@@ -993,6 +1077,17 @@ MapRunItemCountsTypeDef = TypedDict(
         "resultsWritten": int,
     },
 )
+_OptionalMapRunItemCountsTypeDef = TypedDict(
+    "_OptionalMapRunItemCountsTypeDef",
+    {
+        "failuresNotRedrivable": int,
+        "pendingRedrive": int,
+    },
+    total=False,
+)
+
+class MapRunItemCountsTypeDef(_RequiredMapRunItemCountsTypeDef, _OptionalMapRunItemCountsTypeDef):
+    pass
 
 _RequiredMapRunListItemTypeDef = TypedDict(
     "_RequiredMapRunListItemTypeDef",
@@ -1013,6 +1108,15 @@ _OptionalMapRunListItemTypeDef = TypedDict(
 
 class MapRunListItemTypeDef(_RequiredMapRunListItemTypeDef, _OptionalMapRunListItemTypeDef):
     pass
+
+MapRunRedrivenEventDetailsTypeDef = TypedDict(
+    "MapRunRedrivenEventDetailsTypeDef",
+    {
+        "mapRunArn": str,
+        "redriveCount": int,
+    },
+    total=False,
+)
 
 MapRunStartedEventDetailsTypeDef = TypedDict(
     "MapRunStartedEventDetailsTypeDef",
@@ -1066,6 +1170,33 @@ PublishStateMachineVersionOutputTypeDef = TypedDict(
     {
         "creationDate": datetime,
         "stateMachineVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRedriveExecutionInputRequestTypeDef = TypedDict(
+    "_RequiredRedriveExecutionInputRequestTypeDef",
+    {
+        "executionArn": str,
+    },
+)
+_OptionalRedriveExecutionInputRequestTypeDef = TypedDict(
+    "_OptionalRedriveExecutionInputRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class RedriveExecutionInputRequestTypeDef(
+    _RequiredRedriveExecutionInputRequestTypeDef, _OptionalRedriveExecutionInputRequestTypeDef
+):
+    pass
+
+RedriveExecutionOutputTypeDef = TypedDict(
+    "RedriveExecutionOutputTypeDef",
+    {
+        "redriveDate": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1472,6 +1603,41 @@ class TaskTimedOutEventDetailsTypeDef(
     _RequiredTaskTimedOutEventDetailsTypeDef, _OptionalTaskTimedOutEventDetailsTypeDef
 ):
     pass
+
+_RequiredTestStateInputRequestTypeDef = TypedDict(
+    "_RequiredTestStateInputRequestTypeDef",
+    {
+        "definition": str,
+        "roleArn": str,
+    },
+)
+_OptionalTestStateInputRequestTypeDef = TypedDict(
+    "_OptionalTestStateInputRequestTypeDef",
+    {
+        "input": str,
+        "inspectionLevel": InspectionLevelType,
+        "revealSecrets": bool,
+    },
+    total=False,
+)
+
+class TestStateInputRequestTypeDef(
+    _RequiredTestStateInputRequestTypeDef, _OptionalTestStateInputRequestTypeDef
+):
+    pass
+
+TestStateOutputTypeDef = TypedDict(
+    "TestStateOutputTypeDef",
+    {
+        "output": str,
+        "error": str,
+        "cause": str,
+        "inspectionData": "InspectionDataTypeDef",
+        "nextState": str,
+        "status": TestExecutionStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 TracingConfigurationTypeDef = TypedDict(
     "TracingConfigurationTypeDef",

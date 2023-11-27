@@ -95,6 +95,7 @@ __all__ = (
     "EmbeddedConvert608To708Type",
     "EmbeddedScte20DetectionType",
     "FeatureActivationsInputPrepareScheduleActionsType",
+    "FeatureActivationsOutputStaticImageOverlayScheduleActionsType",
     "FecOutputIncludeFecType",
     "FixedAfdType",
     "Fmp4NielsenId3BehaviorType",
@@ -444,6 +445,7 @@ EbuTtDFillLineGapControlType = Literal["DISABLED", "ENABLED"]
 EmbeddedConvert608To708Type = Literal["DISABLED", "UPCONVERT"]
 EmbeddedScte20DetectionType = Literal["AUTO", "OFF"]
 FeatureActivationsInputPrepareScheduleActionsType = Literal["DISABLED", "ENABLED"]
+FeatureActivationsOutputStaticImageOverlayScheduleActionsType = Literal["DISABLED", "ENABLED"]
 FecOutputIncludeFecType = Literal["COLUMN", "COLUMN_AND_ROW"]
 FixedAfdType = Literal[
     "AFD_0000",

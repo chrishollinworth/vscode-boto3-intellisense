@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    BatchInferenceJobModeType,
     DomainType,
     ImportModeType,
     IngestionModeType,
@@ -143,6 +144,7 @@ __all__ = (
     "EventTrackerSummaryTypeDef",
     "EventTrackerTypeDef",
     "FeatureTransformationTypeDef",
+    "FieldsForThemeGenerationTypeDef",
     "FilterSummaryTypeDef",
     "FilterTypeDef",
     "GetSolutionMetricsRequestRequestTypeDef",
@@ -212,6 +214,7 @@ __all__ = (
     "StopSolutionVersionCreationRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "ThemeGenerationConfigTypeDef",
     "TrainingDataConfigTypeDef",
     "TunedHPOParamsTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -308,6 +311,7 @@ BatchInferenceJobSummaryTypeDef = TypedDict(
         "lastUpdatedDateTime": datetime,
         "failureReason": str,
         "solutionVersionArn": str,
+        "batchInferenceJobMode": BatchInferenceJobModeType,
     },
     total=False,
 )
@@ -325,6 +329,8 @@ BatchInferenceJobTypeDef = TypedDict(
         "jobOutput": "BatchInferenceJobOutputTypeDef",
         "batchInferenceJobConfig": "BatchInferenceJobConfigTypeDef",
         "roleArn": str,
+        "batchInferenceJobMode": BatchInferenceJobModeType,
+        "themeGenerationConfig": "ThemeGenerationConfigTypeDef",
         "status": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
@@ -383,6 +389,7 @@ CampaignConfigTypeDef = TypedDict(
     "CampaignConfigTypeDef",
     {
         "itemExplorationConfig": Dict[str, str],
+        "enableMetadataWithRecommendations": bool,
     },
     total=False,
 )
@@ -467,6 +474,8 @@ _OptionalCreateBatchInferenceJobRequestRequestTypeDef = TypedDict(
         "numResults": int,
         "batchInferenceJobConfig": "BatchInferenceJobConfigTypeDef",
         "tags": List["TagTypeDef"],
+        "batchInferenceJobMode": BatchInferenceJobModeType,
+        "themeGenerationConfig": "ThemeGenerationConfigTypeDef",
     },
     total=False,
 )
@@ -1031,6 +1040,7 @@ DatasetTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "latestDatasetUpdate": "DatasetUpdateSummaryTypeDef",
+        "trackingId": str,
     },
     total=False,
 )
@@ -1445,6 +1455,13 @@ FeatureTransformationTypeDef = TypedDict(
         "status": str,
     },
     total=False,
+)
+
+FieldsForThemeGenerationTypeDef = TypedDict(
+    "FieldsForThemeGenerationTypeDef",
+    {
+        "itemName": str,
+    },
 )
 
 FilterSummaryTypeDef = TypedDict(
@@ -1969,6 +1986,7 @@ RecommenderConfigTypeDef = TypedDict(
         "itemExplorationConfig": Dict[str, str],
         "minRecommendationRequestsPerSecond": int,
         "trainingDataConfig": "TrainingDataConfigTypeDef",
+        "enableMetadataWithRecommendations": bool,
     },
     total=False,
 )
@@ -2178,6 +2196,13 @@ TagTypeDef = TypedDict(
     {
         "tagKey": str,
         "tagValue": str,
+    },
+)
+
+ThemeGenerationConfigTypeDef = TypedDict(
+    "ThemeGenerationConfigTypeDef",
+    {
+        "fieldsForThemeGeneration": "FieldsForThemeGenerationTypeDef",
     },
 )
 

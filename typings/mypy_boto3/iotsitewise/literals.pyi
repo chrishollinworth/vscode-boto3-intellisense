@@ -25,6 +25,7 @@ __all__ = (
     "AssetModelActiveWaiterName",
     "AssetModelNotExistsWaiterName",
     "AssetModelStateType",
+    "AssetModelTypeType",
     "AssetNotExistsWaiterName",
     "AssetRelationshipTypeType",
     "AssetStateType",
@@ -42,6 +43,7 @@ __all__ = (
     "DisassociatedDataStorageStateType",
     "EncryptionTypeType",
     "ErrorCodeType",
+    "ExecuteQueryPaginatorName",
     "ForwardingConfigStateType",
     "GetAssetPropertyAggregatesPaginatorName",
     "GetAssetPropertyValueHistoryPaginatorName",
@@ -50,6 +52,8 @@ __all__ = (
     "ImageFileTypeType",
     "JobStatusType",
     "ListAccessPoliciesPaginatorName",
+    "ListActionsPaginatorName",
+    "ListAssetModelCompositeModelsPaginatorName",
     "ListAssetModelPropertiesFilterType",
     "ListAssetModelPropertiesPaginatorName",
     "ListAssetModelsPaginatorName",
@@ -61,6 +65,7 @@ __all__ = (
     "ListAssociatedAssetsPaginatorName",
     "ListBulkImportJobsFilterType",
     "ListBulkImportJobsPaginatorName",
+    "ListCompositionRelationshipsPaginatorName",
     "ListDashboardsPaginatorName",
     "ListGatewaysPaginatorName",
     "ListPortalsPaginatorName",
@@ -78,10 +83,13 @@ __all__ = (
     "PropertyNotificationStateType",
     "QualityType",
     "ResourceTypeType",
+    "ScalarTypeType",
     "StorageTypeType",
+    "TargetResourceTypeType",
     "TimeOrderingType",
     "TraversalDirectionType",
     "TraversalTypeType",
+    "WarmTierStateType",
 )
 
 AggregateTypeType = Literal["AVERAGE", "COUNT", "MAXIMUM", "MINIMUM", "STANDARD_DEVIATION", "SUM"]
@@ -90,6 +98,7 @@ AssetErrorCodeType = Literal["INTERNAL_FAILURE"]
 AssetModelActiveWaiterName = Literal["asset_model_active"]
 AssetModelNotExistsWaiterName = Literal["asset_model_not_exists"]
 AssetModelStateType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "PROPAGATING", "UPDATING"]
+AssetModelTypeType = Literal["ASSET_MODEL", "COMPONENT_MODEL"]
 AssetNotExistsWaiterName = Literal["asset_not_exists"]
 AssetRelationshipTypeType = Literal["HIERARCHY"]
 AssetStateType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
@@ -134,6 +143,7 @@ DetailedErrorCodeType = Literal[
 DisassociatedDataStorageStateType = Literal["DISABLED", "ENABLED"]
 EncryptionTypeType = Literal["KMS_BASED_ENCRYPTION", "SITEWISE_DEFAULT_ENCRYPTION"]
 ErrorCodeType = Literal["INTERNAL_FAILURE", "VALIDATION_ERROR"]
+ExecuteQueryPaginatorName = Literal["execute_query"]
 ForwardingConfigStateType = Literal["DISABLED", "ENABLED"]
 GetAssetPropertyAggregatesPaginatorName = Literal["get_asset_property_aggregates"]
 GetAssetPropertyValueHistoryPaginatorName = Literal["get_asset_property_value_history"]
@@ -144,6 +154,8 @@ JobStatusType = Literal[
     "CANCELLED", "COMPLETED", "COMPLETED_WITH_FAILURES", "FAILED", "PENDING", "RUNNING"
 ]
 ListAccessPoliciesPaginatorName = Literal["list_access_policies"]
+ListActionsPaginatorName = Literal["list_actions"]
+ListAssetModelCompositeModelsPaginatorName = Literal["list_asset_model_composite_models"]
 ListAssetModelPropertiesFilterType = Literal["ALL", "BASE"]
 ListAssetModelPropertiesPaginatorName = Literal["list_asset_model_properties"]
 ListAssetModelsPaginatorName = Literal["list_asset_models"]
@@ -157,6 +169,7 @@ ListBulkImportJobsFilterType = Literal[
     "ALL", "CANCELLED", "COMPLETED", "COMPLETED_WITH_FAILURES", "FAILED", "PENDING", "RUNNING"
 ]
 ListBulkImportJobsPaginatorName = Literal["list_bulk_import_jobs"]
+ListCompositionRelationshipsPaginatorName = Literal["list_composition_relationships"]
 ListDashboardsPaginatorName = Literal["list_dashboards"]
 ListGatewaysPaginatorName = Literal["list_gateways"]
 ListPortalsPaginatorName = Literal["list_portals"]
@@ -174,7 +187,10 @@ PropertyDataTypeType = Literal["BOOLEAN", "DOUBLE", "INTEGER", "STRING", "STRUCT
 PropertyNotificationStateType = Literal["DISABLED", "ENABLED"]
 QualityType = Literal["BAD", "GOOD", "UNCERTAIN"]
 ResourceTypeType = Literal["PORTAL", "PROJECT"]
+ScalarTypeType = Literal["BOOLEAN", "DOUBLE", "INT", "STRING", "TIMESTAMP"]
 StorageTypeType = Literal["MULTI_LAYER_STORAGE", "SITEWISE_DEFAULT_STORAGE"]
+TargetResourceTypeType = Literal["ASSET"]
 TimeOrderingType = Literal["ASCENDING", "DESCENDING"]
 TraversalDirectionType = Literal["CHILD", "PARENT"]
 TraversalTypeType = Literal["PATH_TO_ROOT"]
+WarmTierStateType = Literal["DISABLED", "ENABLED"]

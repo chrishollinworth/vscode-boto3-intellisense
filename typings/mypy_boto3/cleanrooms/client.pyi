@@ -71,8 +71,10 @@ from .type_defs import (
     ListProtectedQueriesOutputTypeDef,
     ListSchemasOutputTypeDef,
     ListTagsForResourceOutputTypeDef,
+    MembershipPaymentConfigurationTypeDef,
     MembershipProtectedQueryResultConfigurationTypeDef,
     MemberSpecificationTypeDef,
+    PaymentConfigurationTypeDef,
     ProtectedQueryResultConfigurationTypeDef,
     ProtectedQuerySQLParametersTypeDef,
     StartProtectedQueryOutputTypeDef,
@@ -112,7 +114,7 @@ class Exceptions:
 
 class CleanRoomsServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html)
     """
 
@@ -130,7 +132,7 @@ class CleanRoomsServiceClient(BaseClient):
         Retrieves multiple analysis templates within a collaboration by their Amazon
         Resource Names (ARNs).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.batch_get_collaboration_analysis_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.batch_get_collaboration_analysis_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#batch_get_collaboration_analysis_template)
         """
     def batch_get_schema(
@@ -139,21 +141,21 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Retrieves multiple schemas by their identifiers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.batch_get_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.batch_get_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#batch_get_schema)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#close)
         """
     def create_analysis_template(
@@ -170,7 +172,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Creates a new analysis template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.create_analysis_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.create_analysis_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#create_analysis_template)
         """
     def create_collaboration(
@@ -183,12 +185,13 @@ class CleanRoomsServiceClient(BaseClient):
         creatorDisplayName: str,
         queryLogStatus: CollaborationQueryLogStatusType,
         dataEncryptionMetadata: "DataEncryptionMetadataTypeDef" = None,
-        tags: Dict[str, str] = None
+        tags: Dict[str, str] = None,
+        creatorPaymentConfiguration: "PaymentConfigurationTypeDef" = None
     ) -> CreateCollaborationOutputTypeDef:
         """
         Creates a new collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.create_collaboration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.create_collaboration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#create_collaboration)
         """
     def create_configured_table(
@@ -204,7 +207,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Creates a new configured table resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.create_configured_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.create_configured_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#create_configured_table)
         """
     def create_configured_table_analysis_rule(
@@ -217,7 +220,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Creates a new analysis rule for a configured table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.create_configured_table_analysis_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.create_configured_table_analysis_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#create_configured_table_analysis_rule)
         """
     def create_configured_table_association(
@@ -233,7 +236,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Creates a configured table association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.create_configured_table_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.create_configured_table_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#create_configured_table_association)
         """
     def create_membership(
@@ -242,13 +245,14 @@ class CleanRoomsServiceClient(BaseClient):
         collaborationIdentifier: str,
         queryLogStatus: MembershipQueryLogStatusType,
         tags: Dict[str, str] = None,
-        defaultResultConfiguration: "MembershipProtectedQueryResultConfigurationTypeDef" = None
+        defaultResultConfiguration: "MembershipProtectedQueryResultConfigurationTypeDef" = None,
+        paymentConfiguration: "MembershipPaymentConfigurationTypeDef" = None
     ) -> CreateMembershipOutputTypeDef:
         """
         Creates a membership for a specific collaboration identifier and joins the
         collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.create_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.create_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#create_membership)
         """
     def delete_analysis_template(
@@ -257,21 +261,21 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Deletes an analysis template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_analysis_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_analysis_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#delete_analysis_template)
         """
     def delete_collaboration(self, *, collaborationIdentifier: str) -> Dict[str, Any]:
         """
         Deletes a collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_collaboration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_collaboration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#delete_collaboration)
         """
     def delete_configured_table(self, *, configuredTableIdentifier: str) -> Dict[str, Any]:
         """
         Deletes a configured table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_configured_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_configured_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#delete_configured_table)
         """
     def delete_configured_table_analysis_rule(
@@ -283,7 +287,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Deletes a configured table analysis rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_configured_table_analysis_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_configured_table_analysis_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#delete_configured_table_analysis_rule)
         """
     def delete_configured_table_association(
@@ -292,21 +296,21 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Deletes a configured table association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_configured_table_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_configured_table_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#delete_configured_table_association)
         """
     def delete_member(self, *, collaborationIdentifier: str, accountId: str) -> Dict[str, Any]:
         """
         Removes the specified member from a collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#delete_member)
         """
     def delete_membership(self, *, membershipIdentifier: str) -> Dict[str, Any]:
         """
         Deletes a specified membership.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.delete_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#delete_membership)
         """
     def generate_presigned_url(
@@ -319,7 +323,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#generate_presigned_url)
         """
     def get_analysis_template(
@@ -328,14 +332,14 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Retrieves an analysis template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_analysis_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_analysis_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_analysis_template)
         """
     def get_collaboration(self, *, collaborationIdentifier: str) -> GetCollaborationOutputTypeDef:
         """
         Returns metadata about a collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_collaboration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_collaboration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_collaboration)
         """
     def get_collaboration_analysis_template(
@@ -344,7 +348,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Retrieves an analysis template within a collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_collaboration_analysis_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_collaboration_analysis_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_collaboration_analysis_template)
         """
     def get_configured_table(
@@ -353,7 +357,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Retrieves a configured table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_configured_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_configured_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_configured_table)
         """
     def get_configured_table_analysis_rule(
@@ -365,7 +369,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Retrieves a configured table analysis rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_configured_table_analysis_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_configured_table_analysis_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_configured_table_analysis_rule)
         """
     def get_configured_table_association(
@@ -374,14 +378,14 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Retrieves a configured table association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_configured_table_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_configured_table_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_configured_table_association)
         """
     def get_membership(self, *, membershipIdentifier: str) -> GetMembershipOutputTypeDef:
         """
         Retrieves a specified membership for an identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_membership)
         """
     def get_protected_query(
@@ -390,14 +394,14 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Returns query processing metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_protected_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_protected_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_protected_query)
         """
     def get_schema(self, *, collaborationIdentifier: str, name: str) -> GetSchemaOutputTypeDef:
         """
         Retrieves the schema for a relation within a collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_schema)
         """
     def get_schema_analysis_rule(
@@ -406,7 +410,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Retrieves a schema analysis rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.get_schema_analysis_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.get_schema_analysis_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#get_schema_analysis_rule)
         """
     def list_analysis_templates(
@@ -415,7 +419,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists analysis templates that the caller owns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_analysis_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_analysis_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_analysis_templates)
         """
     def list_collaboration_analysis_templates(
@@ -424,7 +428,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists analysis templates within a collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_collaboration_analysis_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_collaboration_analysis_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_collaboration_analysis_templates)
         """
     def list_collaborations(
@@ -437,7 +441,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists collaborations the caller owns, is active in, or has been invited to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_collaborations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_collaborations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_collaborations)
         """
     def list_configured_table_associations(
@@ -446,7 +450,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists configured table associations for a membership.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_configured_table_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_configured_table_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_configured_table_associations)
         """
     def list_configured_tables(
@@ -455,7 +459,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists configured tables.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_configured_tables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_configured_tables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_configured_tables)
         """
     def list_members(
@@ -464,7 +468,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists all members within a collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_members)
         """
     def list_memberships(
@@ -473,7 +477,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists all memberships resources within the caller's account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_memberships)
         """
     def list_protected_queries(
@@ -487,7 +491,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists protected queries, sorted by the most recent query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_protected_queries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_protected_queries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_protected_queries)
         """
     def list_schemas(
@@ -501,14 +505,14 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Lists the schemas for relations within a collaboration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_schemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_schemas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_schemas)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceOutputTypeDef:
         """
         Lists all of the tags that have been added to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#list_tags_for_resource)
         """
     def start_protected_query(
@@ -522,21 +526,21 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Creates a protected query that is started by Clean Rooms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.start_protected_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.start_protected_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#start_protected_query)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Tags a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a tag or list of tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#untag_resource)
         """
     def update_analysis_template(
@@ -545,7 +549,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Updates the analysis template metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.update_analysis_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.update_analysis_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#update_analysis_template)
         """
     def update_collaboration(
@@ -555,7 +559,7 @@ class CleanRoomsServiceClient(BaseClient):
         Updates collaboration metadata and can only be called by the collaboration
         owner.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.update_collaboration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.update_collaboration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#update_collaboration)
         """
     def update_configured_table(
@@ -564,7 +568,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Updates a configured table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.update_configured_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.update_configured_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#update_configured_table)
         """
     def update_configured_table_analysis_rule(
@@ -577,7 +581,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Updates a configured table analysis rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.update_configured_table_analysis_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.update_configured_table_analysis_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#update_configured_table_analysis_rule)
         """
     def update_configured_table_association(
@@ -591,7 +595,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Updates a configured table association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.update_configured_table_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.update_configured_table_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#update_configured_table_association)
         """
     def update_membership(
@@ -604,7 +608,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Updates a membership.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.update_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.update_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#update_membership)
         """
     def update_protected_query(
@@ -617,7 +621,7 @@ class CleanRoomsServiceClient(BaseClient):
         """
         Updates the processing of a currently running query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Client.update_protected_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Client.update_protected_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/client.html#update_protected_query)
         """
     @overload
@@ -625,7 +629,7 @@ class CleanRoomsServiceClient(BaseClient):
         self, operation_name: Literal["list_analysis_templates"]
     ) -> ListAnalysisTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListAnalysisTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListAnalysisTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listanalysistemplatespaginator)
         """
     @overload
@@ -633,7 +637,7 @@ class CleanRoomsServiceClient(BaseClient):
         self, operation_name: Literal["list_collaboration_analysis_templates"]
     ) -> ListCollaborationAnalysisTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListCollaborationAnalysisTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListCollaborationAnalysisTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listcollaborationanalysistemplatespaginator)
         """
     @overload
@@ -641,7 +645,7 @@ class CleanRoomsServiceClient(BaseClient):
         self, operation_name: Literal["list_collaborations"]
     ) -> ListCollaborationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListCollaborations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListCollaborations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listcollaborationspaginator)
         """
     @overload
@@ -649,7 +653,7 @@ class CleanRoomsServiceClient(BaseClient):
         self, operation_name: Literal["list_configured_table_associations"]
     ) -> ListConfiguredTableAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListConfiguredTableAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListConfiguredTableAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listconfiguredtableassociationspaginator)
         """
     @overload
@@ -657,13 +661,13 @@ class CleanRoomsServiceClient(BaseClient):
         self, operation_name: Literal["list_configured_tables"]
     ) -> ListConfiguredTablesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListConfiguredTables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListConfiguredTables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listconfiguredtablespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_members"]) -> ListMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listmemberspaginator)
         """
     @overload
@@ -671,7 +675,7 @@ class CleanRoomsServiceClient(BaseClient):
         self, operation_name: Literal["list_memberships"]
     ) -> ListMembershipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListMemberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListMemberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listmembershipspaginator)
         """
     @overload
@@ -679,12 +683,12 @@ class CleanRoomsServiceClient(BaseClient):
         self, operation_name: Literal["list_protected_queries"]
     ) -> ListProtectedQueriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListProtectedQueries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListProtectedQueries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listprotectedqueriespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_schemas"]) -> ListSchemasPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListSchemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cleanrooms.html#CleanRoomsService.Paginator.ListSchemas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanrooms/paginators.html#listschemaspaginator)
         """

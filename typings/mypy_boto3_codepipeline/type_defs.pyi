@@ -26,6 +26,7 @@ from .literals import (
     JobStatusType,
     PipelineExecutionStatusType,
     PipelineTypeType,
+    SourceRevisionTypeType,
     StageExecutionStatusType,
     StageRetryModeType,
     StageTransitionTypeType,
@@ -161,6 +162,7 @@ __all__ = (
     "RetryStageExecutionOutputTypeDef",
     "S3ArtifactLocationTypeDef",
     "S3LocationTypeDef",
+    "SourceRevisionOverrideTypeDef",
     "SourceRevisionTypeDef",
     "StageContextTypeDef",
     "StageDeclarationTypeDef",
@@ -1577,6 +1579,15 @@ S3LocationTypeDef = TypedDict(
     total=False,
 )
 
+SourceRevisionOverrideTypeDef = TypedDict(
+    "SourceRevisionOverrideTypeDef",
+    {
+        "actionName": str,
+        "revisionType": SourceRevisionTypeType,
+        "revisionValue": str,
+    },
+)
+
 _RequiredSourceRevisionTypeDef = TypedDict(
     "_RequiredSourceRevisionTypeDef",
     {
@@ -1653,6 +1664,7 @@ _OptionalStartPipelineExecutionInputRequestTypeDef = TypedDict(
     {
         "variables": List["PipelineVariableTypeDef"],
         "clientRequestToken": str,
+        "sourceRevisions": List["SourceRevisionOverrideTypeDef"],
     },
     total=False,
 )

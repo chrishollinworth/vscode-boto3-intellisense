@@ -6,9 +6,9 @@ Type annotations for dlm service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_dlm.literals import EventSourceValuesType
+    from mypy_boto3_dlm.literals import DefaultPoliciesTypeValuesType
 
-    data: EventSourceValuesType = "MANAGED_CWE"
+    data: DefaultPoliciesTypeValuesType = "ALL"
     ```
 """
 import sys
@@ -19,12 +19,15 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "DefaultPoliciesTypeValuesType",
+    "DefaultPolicyTypeValuesType",
     "EventSourceValuesType",
     "EventTypeValuesType",
     "ExecutionHandlerServiceValuesType",
     "GettablePolicyStateValuesType",
     "IntervalUnitValuesType",
     "LocationValuesType",
+    "PolicyLanguageValuesType",
     "PolicyTypeValuesType",
     "ResourceLocationValuesType",
     "ResourceTypeValuesType",
@@ -33,12 +36,15 @@ __all__ = (
     "StageValuesType",
 )
 
+DefaultPoliciesTypeValuesType = Literal["ALL", "INSTANCE", "VOLUME"]
+DefaultPolicyTypeValuesType = Literal["INSTANCE", "VOLUME"]
 EventSourceValuesType = Literal["MANAGED_CWE"]
 EventTypeValuesType = Literal["shareSnapshot"]
 ExecutionHandlerServiceValuesType = Literal["AWS_SYSTEMS_MANAGER"]
 GettablePolicyStateValuesType = Literal["DISABLED", "ENABLED", "ERROR"]
 IntervalUnitValuesType = Literal["HOURS"]
 LocationValuesType = Literal["CLOUD", "OUTPOST_LOCAL"]
+PolicyLanguageValuesType = Literal["SIMPLIFIED", "STANDARD"]
 PolicyTypeValuesType = Literal["EBS_SNAPSHOT_MANAGEMENT", "EVENT_BASED_POLICY", "IMAGE_MANAGEMENT"]
 ResourceLocationValuesType = Literal["CLOUD", "OUTPOST"]
 ResourceTypeValuesType = Literal["INSTANCE", "VOLUME"]

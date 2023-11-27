@@ -54,7 +54,7 @@ __all__ = (
 
 class GetOutpostInstanceTypesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostinstancetypespaginator)
     """
 
@@ -62,13 +62,13 @@ class GetOutpostInstanceTypesPaginator(Boto3Paginator):
         self, *, OutpostId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetOutpostInstanceTypesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostinstancetypespaginator)
         """
 
 class ListAssetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListAssets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListAssets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listassetspaginator)
     """
 
@@ -81,13 +81,13 @@ class ListAssetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssetsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListAssets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListAssets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listassetspaginator)
         """
 
 class ListCatalogItemsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcatalogitemspaginator)
     """
 
@@ -100,13 +100,13 @@ class ListCatalogItemsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCatalogItemsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcatalogitemspaginator)
         """
 
 class ListOrdersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListOrders)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListOrders)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listorderspaginator)
     """
 
@@ -117,13 +117,13 @@ class ListOrdersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOrdersOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListOrders.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListOrders.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listorderspaginator)
         """
 
 class ListOutpostsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListOutposts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListOutposts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listoutpostspaginator)
     """
 
@@ -136,13 +136,13 @@ class ListOutpostsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOutpostsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListOutposts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListOutposts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listoutpostspaginator)
         """
 
 class ListSitesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListSites)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListSites)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listsitespaginator)
     """
 
@@ -155,6 +155,6 @@ class ListSitesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSitesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/outposts.html#Outposts.Paginator.ListSites.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/outposts.html#Outposts.Paginator.ListSites.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listsitespaginator)
         """

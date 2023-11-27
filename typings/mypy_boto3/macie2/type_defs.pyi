@@ -47,6 +47,7 @@ from .literals import (
     OrderByType,
     OriginTypeType,
     RelationshipStatusType,
+    RetrievalModeType,
     RevealRequestStatusType,
     RevealStatusType,
     ScopeFilterKeyType,
@@ -263,6 +264,7 @@ __all__ = (
     "ResourceStatisticsTypeDef",
     "ResourcesAffectedTypeDef",
     "ResponseMetadataTypeDef",
+    "RetrievalConfigurationTypeDef",
     "RevealConfigurationTypeDef",
     "S3BucketCriteriaForJobTypeDef",
     "S3BucketDefinitionForJobTypeDef",
@@ -325,6 +327,7 @@ __all__ = (
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
     "UpdateResourceProfileDetectionsRequestRequestTypeDef",
     "UpdateResourceProfileRequestRequestTypeDef",
+    "UpdateRetrievalConfigurationTypeDef",
     "UpdateRevealConfigurationRequestRequestTypeDef",
     "UpdateRevealConfigurationResponseTypeDef",
     "UpdateSensitivityInspectionTemplateRequestRequestTypeDef",
@@ -1583,6 +1586,7 @@ GetRevealConfigurationResponseTypeDef = TypedDict(
     "GetRevealConfigurationResponseTypeDef",
     {
         "configuration": "RevealConfigurationTypeDef",
+        "retrievalConfiguration": "RetrievalConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2368,6 +2372,26 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+_RequiredRetrievalConfigurationTypeDef = TypedDict(
+    "_RequiredRetrievalConfigurationTypeDef",
+    {
+        "retrievalMode": RetrievalModeType,
+    },
+)
+_OptionalRetrievalConfigurationTypeDef = TypedDict(
+    "_OptionalRetrievalConfigurationTypeDef",
+    {
+        "externalId": str,
+        "roleName": str,
+    },
+    total=False,
+)
+
+class RetrievalConfigurationTypeDef(
+    _RequiredRetrievalConfigurationTypeDef, _OptionalRetrievalConfigurationTypeDef
+):
+    pass
+
 _RequiredRevealConfigurationTypeDef = TypedDict(
     "_RequiredRevealConfigurationTypeDef",
     {
@@ -3031,17 +3055,50 @@ class UpdateResourceProfileRequestRequestTypeDef(
 ):
     pass
 
-UpdateRevealConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateRevealConfigurationRequestRequestTypeDef",
+_RequiredUpdateRetrievalConfigurationTypeDef = TypedDict(
+    "_RequiredUpdateRetrievalConfigurationTypeDef",
+    {
+        "retrievalMode": RetrievalModeType,
+    },
+)
+_OptionalUpdateRetrievalConfigurationTypeDef = TypedDict(
+    "_OptionalUpdateRetrievalConfigurationTypeDef",
+    {
+        "roleName": str,
+    },
+    total=False,
+)
+
+class UpdateRetrievalConfigurationTypeDef(
+    _RequiredUpdateRetrievalConfigurationTypeDef, _OptionalUpdateRetrievalConfigurationTypeDef
+):
+    pass
+
+_RequiredUpdateRevealConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateRevealConfigurationRequestRequestTypeDef",
     {
         "configuration": "RevealConfigurationTypeDef",
     },
 )
+_OptionalUpdateRevealConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateRevealConfigurationRequestRequestTypeDef",
+    {
+        "retrievalConfiguration": "UpdateRetrievalConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateRevealConfigurationRequestRequestTypeDef(
+    _RequiredUpdateRevealConfigurationRequestRequestTypeDef,
+    _OptionalUpdateRevealConfigurationRequestRequestTypeDef,
+):
+    pass
 
 UpdateRevealConfigurationResponseTypeDef = TypedDict(
     "UpdateRevealConfigurationResponseTypeDef",
     {
         "configuration": "RevealConfigurationTypeDef",
+        "retrievalConfiguration": "RetrievalConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

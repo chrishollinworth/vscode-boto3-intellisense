@@ -28,7 +28,7 @@ __all__ = ("ListEventStreamsPaginator",)
 
 class ListEventStreamsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/customer-profiles.html#CustomerProfiles.Paginator.ListEventStreams)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/customer-profiles.html#CustomerProfiles.Paginator.ListEventStreams)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_customer_profiles/paginators.html#listeventstreamspaginator)
     """
 
@@ -36,6 +36,6 @@ class ListEventStreamsPaginator(Boto3Paginator):
         self, *, DomainName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventStreamsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/customer-profiles.html#CustomerProfiles.Paginator.ListEventStreams.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/customer-profiles.html#CustomerProfiles.Paginator.ListEventStreams.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_customer_profiles/paginators.html#listeventstreamspaginator)
         """

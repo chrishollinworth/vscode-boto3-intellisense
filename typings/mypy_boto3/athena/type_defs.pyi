@@ -1646,6 +1646,7 @@ QueryExecutionStatisticsTypeDef = TypedDict(
         "DataManifestLocation": str,
         "TotalExecutionTimeInMillis": int,
         "QueryQueueTimeInMillis": int,
+        "ServicePreProcessingTimeInMillis": int,
         "QueryPlanningTimeInMillis": int,
         "ServiceProcessingTimeInMillis": int,
         "ResultReuseInformation": "ResultReuseInformationTypeDef",
@@ -1699,6 +1700,7 @@ QueryRuntimeStatisticsTimelineTypeDef = TypedDict(
     "QueryRuntimeStatisticsTimelineTypeDef",
     {
         "QueryQueueTimeInMillis": int,
+        "ServicePreProcessingTimeInMillis": int,
         "QueryPlanningTimeInMillis": int,
         "EngineExecutionTimeInMillis": int,
         "ServiceProcessingTimeInMillis": int,

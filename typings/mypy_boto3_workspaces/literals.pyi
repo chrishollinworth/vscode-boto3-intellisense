@@ -32,6 +32,7 @@ __all__ = (
     "ComputeType",
     "ConnectionAliasStateType",
     "ConnectionStateType",
+    "DataReplicationType",
     "DedicatedTenancyModificationStateEnumType",
     "DedicatedTenancySupportEnumType",
     "DedicatedTenancySupportResultEnumType",
@@ -124,6 +125,7 @@ ComputeType = Literal[
 ]
 ConnectionAliasStateType = Literal["CREATED", "CREATING", "DELETING"]
 ConnectionStateType = Literal["CONNECTED", "DISCONNECTED", "UNKNOWN"]
+DataReplicationType = Literal["NO_REPLICATION", "PRIMARY_AS_SOURCE"]
 DedicatedTenancyModificationStateEnumType = Literal["COMPLETED", "FAILED", "PENDING"]
 DedicatedTenancySupportEnumType = Literal["ENABLED"]
 DedicatedTenancySupportResultEnumType = Literal["DISABLED", "ENABLED"]

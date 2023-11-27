@@ -23,11 +23,21 @@ __all__ = (
     "ControlOperationTypeType",
     "DriftStatusType",
     "EnablementStatusType",
+    "LandingZoneDriftStatusType",
+    "LandingZoneOperationStatusType",
+    "LandingZoneOperationTypeType",
+    "LandingZoneStatusType",
     "ListEnabledControlsPaginatorName",
+    "ListLandingZonesPaginatorName",
 )
 
 ControlOperationStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
 ControlOperationTypeType = Literal["DISABLE_CONTROL", "ENABLE_CONTROL"]
 DriftStatusType = Literal["DRIFTED", "IN_SYNC", "NOT_CHECKING", "UNKNOWN"]
 EnablementStatusType = Literal["FAILED", "SUCCEEDED", "UNDER_CHANGE"]
+LandingZoneDriftStatusType = Literal["DRIFTED", "IN_SYNC"]
+LandingZoneOperationStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
+LandingZoneOperationTypeType = Literal["CREATE", "DELETE", "RESET", "UPDATE"]
+LandingZoneStatusType = Literal["ACTIVE", "FAILED", "PROCESSING"]
 ListEnabledControlsPaginatorName = Literal["list_enabled_controls"]
+ListLandingZonesPaginatorName = Literal["list_landing_zones"]

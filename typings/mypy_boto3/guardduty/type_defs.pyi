@@ -29,6 +29,7 @@ from .literals import (
     DetectorFeatureType,
     DetectorStatusType,
     EbsSnapshotPreservationType,
+    FeatureAdditionalConfigurationType,
     FeatureStatusType,
     FeedbackType,
     FilterActionType,
@@ -38,10 +39,12 @@ from .literals import (
     IpSetStatusType,
     ManagementTypeType,
     OrderByType,
+    OrgFeatureAdditionalConfigurationType,
     OrgFeatureStatusType,
     OrgFeatureType,
     ProfileSubtypeType,
     PublishingStatusType,
+    ResourceTypeType,
     ScanResultType,
     ScanStatusType,
     ScanTypeType,
@@ -72,6 +75,7 @@ __all__ = (
     "AddonDetailsTypeDef",
     "AdminAccountTypeDef",
     "AdministratorTypeDef",
+    "AgentDetailsTypeDef",
     "AnomalyObjectTypeDef",
     "AnomalyTypeDef",
     "AnomalyUnusualTypeDef",
@@ -83,8 +87,11 @@ __all__ = (
     "CityTypeDef",
     "CloudTrailConfigurationResultTypeDef",
     "ConditionTypeDef",
+    "ContainerInstanceDetailsTypeDef",
     "ContainerTypeDef",
     "CountryTypeDef",
+    "CoverageEc2InstanceDetailsTypeDef",
+    "CoverageEcsClusterDetailsTypeDef",
     "CoverageEksClusterDetailsTypeDef",
     "CoverageFilterConditionTypeDef",
     "CoverageFilterCriteriaTypeDef",
@@ -151,6 +158,7 @@ __all__ = (
     "EksClusterDetailsTypeDef",
     "EnableOrganizationAdminAccountRequestRequestTypeDef",
     "EvidenceTypeDef",
+    "FargateDetailsTypeDef",
     "FilterConditionTypeDef",
     "FilterCriteriaTypeDef",
     "FilterCriterionTypeDef",
@@ -457,6 +465,14 @@ AdministratorTypeDef = TypedDict(
     total=False,
 )
 
+AgentDetailsTypeDef = TypedDict(
+    "AgentDetailsTypeDef",
+    {
+        "Version": str,
+    },
+    total=False,
+)
+
 AnomalyObjectTypeDef = TypedDict(
     "AnomalyObjectTypeDef",
     {
@@ -572,6 +588,15 @@ ConditionTypeDef = TypedDict(
     total=False,
 )
 
+ContainerInstanceDetailsTypeDef = TypedDict(
+    "ContainerInstanceDetailsTypeDef",
+    {
+        "CoveredContainerInstances": int,
+        "CompatibleContainerInstances": int,
+    },
+    total=False,
+)
+
 ContainerTypeDef = TypedDict(
     "ContainerTypeDef",
     {
@@ -591,6 +616,28 @@ CountryTypeDef = TypedDict(
     {
         "CountryCode": str,
         "CountryName": str,
+    },
+    total=False,
+)
+
+CoverageEc2InstanceDetailsTypeDef = TypedDict(
+    "CoverageEc2InstanceDetailsTypeDef",
+    {
+        "InstanceId": str,
+        "InstanceType": str,
+        "ClusterArn": str,
+        "AgentDetails": "AgentDetailsTypeDef",
+        "ManagementType": ManagementTypeType,
+    },
+    total=False,
+)
+
+CoverageEcsClusterDetailsTypeDef = TypedDict(
+    "CoverageEcsClusterDetailsTypeDef",
+    {
+        "ClusterName": str,
+        "FargateDetails": "FargateDetailsTypeDef",
+        "ContainerInstanceDetails": "ContainerInstanceDetailsTypeDef",
     },
     total=False,
 )
@@ -637,7 +684,9 @@ CoverageResourceDetailsTypeDef = TypedDict(
     "CoverageResourceDetailsTypeDef",
     {
         "EksClusterDetails": "CoverageEksClusterDetailsTypeDef",
-        "ResourceType": Literal["EKS"],
+        "ResourceType": ResourceTypeType,
+        "EcsClusterDetails": "CoverageEcsClusterDetailsTypeDef",
+        "Ec2InstanceDetails": "CoverageEc2InstanceDetailsTypeDef",
     },
     total=False,
 )
@@ -668,7 +717,7 @@ CoverageSortCriteriaTypeDef = TypedDict(
 CoverageStatisticsTypeDef = TypedDict(
     "CoverageStatisticsTypeDef",
     {
-        "CountByResourceType": Dict[Literal["EKS"], int],
+        "CountByResourceType": Dict[ResourceTypeType, int],
         "CountByCoverageStatus": Dict[CoverageStatusType, int],
     },
     total=False,
@@ -1140,7 +1189,7 @@ DetectionTypeDef = TypedDict(
 DetectorAdditionalConfigurationResultTypeDef = TypedDict(
     "DetectorAdditionalConfigurationResultTypeDef",
     {
-        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Name": FeatureAdditionalConfigurationType,
         "Status": FeatureStatusType,
         "UpdatedAt": datetime,
     },
@@ -1150,7 +1199,7 @@ DetectorAdditionalConfigurationResultTypeDef = TypedDict(
 DetectorAdditionalConfigurationTypeDef = TypedDict(
     "DetectorAdditionalConfigurationTypeDef",
     {
-        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Name": FeatureAdditionalConfigurationType,
         "Status": FeatureStatusType,
     },
     total=False,
@@ -1321,6 +1370,15 @@ EvidenceTypeDef = TypedDict(
     "EvidenceTypeDef",
     {
         "ThreatIntelligenceDetails": List["ThreatIntelligenceDetailTypeDef"],
+    },
+    total=False,
+)
+
+FargateDetailsTypeDef = TypedDict(
+    "FargateDetailsTypeDef",
+    {
+        "Issues": List[str],
+        "ManagementType": ManagementTypeType,
     },
     total=False,
 )
@@ -2341,7 +2399,7 @@ MasterTypeDef = TypedDict(
 MemberAdditionalConfigurationResultTypeDef = TypedDict(
     "MemberAdditionalConfigurationResultTypeDef",
     {
-        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Name": OrgFeatureAdditionalConfigurationType,
         "Status": FeatureStatusType,
         "UpdatedAt": datetime,
     },
@@ -2351,7 +2409,7 @@ MemberAdditionalConfigurationResultTypeDef = TypedDict(
 MemberAdditionalConfigurationTypeDef = TypedDict(
     "MemberAdditionalConfigurationTypeDef",
     {
-        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Name": OrgFeatureAdditionalConfigurationType,
         "Status": FeatureStatusType,
     },
     total=False,
@@ -2463,7 +2521,7 @@ ObservationsTypeDef = TypedDict(
 OrganizationAdditionalConfigurationResultTypeDef = TypedDict(
     "OrganizationAdditionalConfigurationResultTypeDef",
     {
-        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Name": OrgFeatureAdditionalConfigurationType,
         "AutoEnable": OrgFeatureStatusType,
     },
     total=False,
@@ -2472,7 +2530,7 @@ OrganizationAdditionalConfigurationResultTypeDef = TypedDict(
 OrganizationAdditionalConfigurationTypeDef = TypedDict(
     "OrganizationAdditionalConfigurationTypeDef",
     {
-        "Name": Literal["EKS_ADDON_MANAGEMENT"],
+        "Name": OrgFeatureAdditionalConfigurationType,
         "AutoEnable": OrgFeatureStatusType,
     },
     total=False,

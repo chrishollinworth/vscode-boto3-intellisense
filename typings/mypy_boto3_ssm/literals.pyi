@@ -194,6 +194,7 @@ AutomationExecutionStatusType = Literal[
     "ChangeCalendarOverrideRejected",
     "CompletedWithFailure",
     "CompletedWithSuccess",
+    "Exited",
     "Failed",
     "InProgress",
     "Pending",
@@ -503,6 +504,9 @@ SignalTypeType = Literal["Approve", "Reject", "Resume", "StartStep", "StopStep"]
 SourceTypeType = Literal["AWS::EC2::Instance", "AWS::IoT::Thing", "AWS::SSM::ManagedInstance"]
 StepExecutionFilterKeyType = Literal[
     "Action",
+    "ParentStepExecutionId",
+    "ParentStepIteration",
+    "ParentStepIteratorValue",
     "StartTimeAfter",
     "StartTimeBefore",
     "StepExecutionId",

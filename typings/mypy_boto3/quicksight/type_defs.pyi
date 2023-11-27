@@ -147,6 +147,7 @@ from .literals import (
     RelativeFontSizeType,
     ResizeOptionType,
     ResourceStatusType,
+    RoleType,
     RowLevelPermissionFormatVersionType,
     RowLevelPermissionPolicyType,
     SectionPageBreakStatusType,
@@ -252,26 +253,45 @@ __all__ = (
     "AssetBundleExportJobSummaryTypeDef",
     "AssetBundleExportJobThemeOverridePropertiesTypeDef",
     "AssetBundleExportJobVPCConnectionOverridePropertiesTypeDef",
+    "AssetBundleExportJobValidationStrategyTypeDef",
+    "AssetBundleExportJobWarningTypeDef",
     "AssetBundleImportJobAnalysisOverrideParametersTypeDef",
+    "AssetBundleImportJobAnalysisOverridePermissionsTypeDef",
+    "AssetBundleImportJobAnalysisOverrideTagsTypeDef",
     "AssetBundleImportJobDashboardOverrideParametersTypeDef",
+    "AssetBundleImportJobDashboardOverridePermissionsTypeDef",
+    "AssetBundleImportJobDashboardOverrideTagsTypeDef",
     "AssetBundleImportJobDataSetOverrideParametersTypeDef",
+    "AssetBundleImportJobDataSetOverridePermissionsTypeDef",
+    "AssetBundleImportJobDataSetOverrideTagsTypeDef",
     "AssetBundleImportJobDataSourceCredentialPairTypeDef",
     "AssetBundleImportJobDataSourceCredentialsTypeDef",
     "AssetBundleImportJobDataSourceOverrideParametersTypeDef",
+    "AssetBundleImportJobDataSourceOverridePermissionsTypeDef",
+    "AssetBundleImportJobDataSourceOverrideTagsTypeDef",
     "AssetBundleImportJobErrorTypeDef",
     "AssetBundleImportJobOverrideParametersTypeDef",
+    "AssetBundleImportJobOverridePermissionsTypeDef",
+    "AssetBundleImportJobOverrideTagsTypeDef",
+    "AssetBundleImportJobOverrideValidationStrategyTypeDef",
     "AssetBundleImportJobRefreshScheduleOverrideParametersTypeDef",
     "AssetBundleImportJobResourceIdOverrideConfigurationTypeDef",
     "AssetBundleImportJobSummaryTypeDef",
     "AssetBundleImportJobThemeOverrideParametersTypeDef",
+    "AssetBundleImportJobThemeOverridePermissionsTypeDef",
+    "AssetBundleImportJobThemeOverrideTagsTypeDef",
     "AssetBundleImportJobVPCConnectionOverrideParametersTypeDef",
+    "AssetBundleImportJobVPCConnectionOverrideTagsTypeDef",
     "AssetBundleImportSourceDescriptionTypeDef",
     "AssetBundleImportSourceTypeDef",
+    "AssetBundleResourceLinkSharingConfigurationTypeDef",
+    "AssetBundleResourcePermissionsTypeDef",
     "AssetOptionsTypeDef",
     "AthenaParametersTypeDef",
     "AttributeAggregationFunctionTypeDef",
     "AuroraParametersTypeDef",
     "AuroraPostgreSqlParametersTypeDef",
+    "AuthorizedTargetsByServiceTypeDef",
     "AwsIotAnalyticsParametersTypeDef",
     "AxisDataOptionsTypeDef",
     "AxisDisplayMinMaxRangeTypeDef",
@@ -288,6 +308,7 @@ __all__ = (
     "BarChartFieldWellsTypeDef",
     "BarChartSortConfigurationTypeDef",
     "BarChartVisualTypeDef",
+    "BigQueryParametersTypeDef",
     "BinCountOptionsTypeDef",
     "BinWidthOptionsTypeDef",
     "BodySectionConfigurationTypeDef",
@@ -380,6 +401,8 @@ __all__ = (
     "CreateNamespaceResponseTypeDef",
     "CreateRefreshScheduleRequestRequestTypeDef",
     "CreateRefreshScheduleResponseTypeDef",
+    "CreateRoleMembershipRequestRequestTypeDef",
+    "CreateRoleMembershipResponseTypeDef",
     "CreateTemplateAliasRequestRequestTypeDef",
     "CreateTemplateAliasResponseTypeDef",
     "CreateTemplateRequestRequestTypeDef",
@@ -504,10 +527,16 @@ __all__ = (
     "DeleteGroupResponseTypeDef",
     "DeleteIAMPolicyAssignmentRequestRequestTypeDef",
     "DeleteIAMPolicyAssignmentResponseTypeDef",
+    "DeleteIdentityPropagationConfigRequestRequestTypeDef",
+    "DeleteIdentityPropagationConfigResponseTypeDef",
     "DeleteNamespaceRequestRequestTypeDef",
     "DeleteNamespaceResponseTypeDef",
     "DeleteRefreshScheduleRequestRequestTypeDef",
     "DeleteRefreshScheduleResponseTypeDef",
+    "DeleteRoleCustomPermissionRequestRequestTypeDef",
+    "DeleteRoleCustomPermissionResponseTypeDef",
+    "DeleteRoleMembershipRequestRequestTypeDef",
+    "DeleteRoleMembershipResponseTypeDef",
     "DeleteTemplateAliasRequestRequestTypeDef",
     "DeleteTemplateAliasResponseTypeDef",
     "DeleteTemplateRequestRequestTypeDef",
@@ -582,6 +611,8 @@ __all__ = (
     "DescribeNamespaceResponseTypeDef",
     "DescribeRefreshScheduleRequestRequestTypeDef",
     "DescribeRefreshScheduleResponseTypeDef",
+    "DescribeRoleCustomPermissionRequestRequestTypeDef",
+    "DescribeRoleCustomPermissionResponseTypeDef",
     "DescribeTemplateAliasRequestRequestTypeDef",
     "DescribeTemplateAliasResponseTypeDef",
     "DescribeTemplateDefinitionRequestRequestTypeDef",
@@ -734,6 +765,7 @@ __all__ = (
     "HistogramVisualTypeDef",
     "IAMPolicyAssignmentSummaryTypeDef",
     "IAMPolicyAssignmentTypeDef",
+    "IdentityCenterConfigurationTypeDef",
     "IncrementalRefreshTypeDef",
     "IngestionTypeDef",
     "InputColumnTypeDef",
@@ -807,12 +839,16 @@ __all__ = (
     "ListIAMPolicyAssignmentsForUserResponseTypeDef",
     "ListIAMPolicyAssignmentsRequestRequestTypeDef",
     "ListIAMPolicyAssignmentsResponseTypeDef",
+    "ListIdentityPropagationConfigsRequestRequestTypeDef",
+    "ListIdentityPropagationConfigsResponseTypeDef",
     "ListIngestionsRequestRequestTypeDef",
     "ListIngestionsResponseTypeDef",
     "ListNamespacesRequestRequestTypeDef",
     "ListNamespacesResponseTypeDef",
     "ListRefreshSchedulesRequestRequestTypeDef",
     "ListRefreshSchedulesResponseTypeDef",
+    "ListRoleMembershipsRequestRequestTypeDef",
+    "ListRoleMembershipsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListTemplateAliasesRequestRequestTypeDef",
@@ -1211,12 +1247,16 @@ __all__ = (
     "UpdateGroupResponseTypeDef",
     "UpdateIAMPolicyAssignmentRequestRequestTypeDef",
     "UpdateIAMPolicyAssignmentResponseTypeDef",
+    "UpdateIdentityPropagationConfigRequestRequestTypeDef",
+    "UpdateIdentityPropagationConfigResponseTypeDef",
     "UpdateIpRestrictionRequestRequestTypeDef",
     "UpdateIpRestrictionResponseTypeDef",
     "UpdatePublicSharingSettingsRequestRequestTypeDef",
     "UpdatePublicSharingSettingsResponseTypeDef",
     "UpdateRefreshScheduleRequestRequestTypeDef",
     "UpdateRefreshScheduleResponseTypeDef",
+    "UpdateRoleCustomPermissionRequestRequestTypeDef",
+    "UpdateRoleCustomPermissionResponseTypeDef",
     "UpdateTemplateAliasRequestRequestTypeDef",
     "UpdateTemplateAliasResponseTypeDef",
     "UpdateTemplatePermissionsRequestRequestTypeDef",
@@ -1461,7 +1501,6 @@ AnalysisTypeDef = TypedDict(
         "CreatedTime": datetime,
         "LastUpdatedTime": datetime,
         "Sheets": List["SheetTypeDef"],
-        "Options": "AssetOptionsTypeDef",
     },
     total=False,
 )
@@ -1564,85 +1603,37 @@ AssetBundleCloudFormationOverridePropertyConfigurationTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredAssetBundleExportJobAnalysisOverridePropertiesTypeDef = TypedDict(
-    "_RequiredAssetBundleExportJobAnalysisOverridePropertiesTypeDef",
+AssetBundleExportJobAnalysisOverridePropertiesTypeDef = TypedDict(
+    "AssetBundleExportJobAnalysisOverridePropertiesTypeDef",
     {
+        "Arn": str,
         "Properties": List[Literal["Name"]],
     },
 )
-_OptionalAssetBundleExportJobAnalysisOverridePropertiesTypeDef = TypedDict(
-    "_OptionalAssetBundleExportJobAnalysisOverridePropertiesTypeDef",
+
+AssetBundleExportJobDashboardOverridePropertiesTypeDef = TypedDict(
+    "AssetBundleExportJobDashboardOverridePropertiesTypeDef",
     {
         "Arn": str,
-    },
-    total=False,
-)
-
-class AssetBundleExportJobAnalysisOverridePropertiesTypeDef(
-    _RequiredAssetBundleExportJobAnalysisOverridePropertiesTypeDef,
-    _OptionalAssetBundleExportJobAnalysisOverridePropertiesTypeDef,
-):
-    pass
-
-_RequiredAssetBundleExportJobDashboardOverridePropertiesTypeDef = TypedDict(
-    "_RequiredAssetBundleExportJobDashboardOverridePropertiesTypeDef",
-    {
         "Properties": List[Literal["Name"]],
     },
 )
-_OptionalAssetBundleExportJobDashboardOverridePropertiesTypeDef = TypedDict(
-    "_OptionalAssetBundleExportJobDashboardOverridePropertiesTypeDef",
+
+AssetBundleExportJobDataSetOverridePropertiesTypeDef = TypedDict(
+    "AssetBundleExportJobDataSetOverridePropertiesTypeDef",
     {
         "Arn": str,
-    },
-    total=False,
-)
-
-class AssetBundleExportJobDashboardOverridePropertiesTypeDef(
-    _RequiredAssetBundleExportJobDashboardOverridePropertiesTypeDef,
-    _OptionalAssetBundleExportJobDashboardOverridePropertiesTypeDef,
-):
-    pass
-
-_RequiredAssetBundleExportJobDataSetOverridePropertiesTypeDef = TypedDict(
-    "_RequiredAssetBundleExportJobDataSetOverridePropertiesTypeDef",
-    {
         "Properties": List[Literal["Name"]],
     },
 )
-_OptionalAssetBundleExportJobDataSetOverridePropertiesTypeDef = TypedDict(
-    "_OptionalAssetBundleExportJobDataSetOverridePropertiesTypeDef",
+
+AssetBundleExportJobDataSourceOverridePropertiesTypeDef = TypedDict(
+    "AssetBundleExportJobDataSourceOverridePropertiesTypeDef",
     {
         "Arn": str,
-    },
-    total=False,
-)
-
-class AssetBundleExportJobDataSetOverridePropertiesTypeDef(
-    _RequiredAssetBundleExportJobDataSetOverridePropertiesTypeDef,
-    _OptionalAssetBundleExportJobDataSetOverridePropertiesTypeDef,
-):
-    pass
-
-_RequiredAssetBundleExportJobDataSourceOverridePropertiesTypeDef = TypedDict(
-    "_RequiredAssetBundleExportJobDataSourceOverridePropertiesTypeDef",
-    {
         "Properties": List[AssetBundleExportJobDataSourcePropertyToOverrideType],
     },
 )
-_OptionalAssetBundleExportJobDataSourceOverridePropertiesTypeDef = TypedDict(
-    "_OptionalAssetBundleExportJobDataSourceOverridePropertiesTypeDef",
-    {
-        "Arn": str,
-    },
-    total=False,
-)
-
-class AssetBundleExportJobDataSourceOverridePropertiesTypeDef(
-    _RequiredAssetBundleExportJobDataSourceOverridePropertiesTypeDef,
-    _OptionalAssetBundleExportJobDataSourceOverridePropertiesTypeDef,
-):
-    pass
 
 AssetBundleExportJobErrorTypeDef = TypedDict(
     "AssetBundleExportJobErrorTypeDef",
@@ -1654,25 +1645,13 @@ AssetBundleExportJobErrorTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredAssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef = TypedDict(
-    "_RequiredAssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef",
+AssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef = TypedDict(
+    "AssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef",
     {
+        "Arn": str,
         "Properties": List[Literal["StartAfterDateTime"]],
     },
 )
-_OptionalAssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef = TypedDict(
-    "_OptionalAssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef",
-    {
-        "Arn": str,
-    },
-    total=False,
-)
-
-class AssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef(
-    _RequiredAssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef,
-    _OptionalAssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef,
-):
-    pass
 
 AssetBundleExportJobResourceIdOverrideConfigurationTypeDef = TypedDict(
     "AssetBundleExportJobResourceIdOverrideConfigurationTypeDef",
@@ -1691,49 +1670,44 @@ AssetBundleExportJobSummaryTypeDef = TypedDict(
         "AssetBundleExportJobId": str,
         "IncludeAllDependencies": bool,
         "ExportFormat": AssetBundleExportFormatType,
+        "IncludePermissions": bool,
+        "IncludeTags": bool,
     },
     total=False,
 )
 
-_RequiredAssetBundleExportJobThemeOverridePropertiesTypeDef = TypedDict(
-    "_RequiredAssetBundleExportJobThemeOverridePropertiesTypeDef",
+AssetBundleExportJobThemeOverridePropertiesTypeDef = TypedDict(
+    "AssetBundleExportJobThemeOverridePropertiesTypeDef",
     {
+        "Arn": str,
         "Properties": List[Literal["Name"]],
     },
 )
-_OptionalAssetBundleExportJobThemeOverridePropertiesTypeDef = TypedDict(
-    "_OptionalAssetBundleExportJobThemeOverridePropertiesTypeDef",
+
+AssetBundleExportJobVPCConnectionOverridePropertiesTypeDef = TypedDict(
+    "AssetBundleExportJobVPCConnectionOverridePropertiesTypeDef",
     {
         "Arn": str,
-    },
-    total=False,
-)
-
-class AssetBundleExportJobThemeOverridePropertiesTypeDef(
-    _RequiredAssetBundleExportJobThemeOverridePropertiesTypeDef,
-    _OptionalAssetBundleExportJobThemeOverridePropertiesTypeDef,
-):
-    pass
-
-_RequiredAssetBundleExportJobVPCConnectionOverridePropertiesTypeDef = TypedDict(
-    "_RequiredAssetBundleExportJobVPCConnectionOverridePropertiesTypeDef",
-    {
         "Properties": List[AssetBundleExportJobVPCConnectionPropertyToOverrideType],
     },
 )
-_OptionalAssetBundleExportJobVPCConnectionOverridePropertiesTypeDef = TypedDict(
-    "_OptionalAssetBundleExportJobVPCConnectionOverridePropertiesTypeDef",
+
+AssetBundleExportJobValidationStrategyTypeDef = TypedDict(
+    "AssetBundleExportJobValidationStrategyTypeDef",
     {
-        "Arn": str,
+        "StrictModeForAllResources": bool,
     },
     total=False,
 )
 
-class AssetBundleExportJobVPCConnectionOverridePropertiesTypeDef(
-    _RequiredAssetBundleExportJobVPCConnectionOverridePropertiesTypeDef,
-    _OptionalAssetBundleExportJobVPCConnectionOverridePropertiesTypeDef,
-):
-    pass
+AssetBundleExportJobWarningTypeDef = TypedDict(
+    "AssetBundleExportJobWarningTypeDef",
+    {
+        "Arn": str,
+        "Message": str,
+    },
+    total=False,
+)
 
 _RequiredAssetBundleImportJobAnalysisOverrideParametersTypeDef = TypedDict(
     "_RequiredAssetBundleImportJobAnalysisOverrideParametersTypeDef",
@@ -1755,6 +1729,22 @@ class AssetBundleImportJobAnalysisOverrideParametersTypeDef(
 ):
     pass
 
+AssetBundleImportJobAnalysisOverridePermissionsTypeDef = TypedDict(
+    "AssetBundleImportJobAnalysisOverridePermissionsTypeDef",
+    {
+        "AnalysisIds": List[str],
+        "Permissions": "AssetBundleResourcePermissionsTypeDef",
+    },
+)
+
+AssetBundleImportJobAnalysisOverrideTagsTypeDef = TypedDict(
+    "AssetBundleImportJobAnalysisOverrideTagsTypeDef",
+    {
+        "AnalysisIds": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+)
+
 _RequiredAssetBundleImportJobDashboardOverrideParametersTypeDef = TypedDict(
     "_RequiredAssetBundleImportJobDashboardOverrideParametersTypeDef",
     {
@@ -1775,6 +1765,35 @@ class AssetBundleImportJobDashboardOverrideParametersTypeDef(
 ):
     pass
 
+_RequiredAssetBundleImportJobDashboardOverridePermissionsTypeDef = TypedDict(
+    "_RequiredAssetBundleImportJobDashboardOverridePermissionsTypeDef",
+    {
+        "DashboardIds": List[str],
+    },
+)
+_OptionalAssetBundleImportJobDashboardOverridePermissionsTypeDef = TypedDict(
+    "_OptionalAssetBundleImportJobDashboardOverridePermissionsTypeDef",
+    {
+        "Permissions": "AssetBundleResourcePermissionsTypeDef",
+        "LinkSharingConfiguration": "AssetBundleResourceLinkSharingConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class AssetBundleImportJobDashboardOverridePermissionsTypeDef(
+    _RequiredAssetBundleImportJobDashboardOverridePermissionsTypeDef,
+    _OptionalAssetBundleImportJobDashboardOverridePermissionsTypeDef,
+):
+    pass
+
+AssetBundleImportJobDashboardOverrideTagsTypeDef = TypedDict(
+    "AssetBundleImportJobDashboardOverrideTagsTypeDef",
+    {
+        "DashboardIds": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+)
+
 _RequiredAssetBundleImportJobDataSetOverrideParametersTypeDef = TypedDict(
     "_RequiredAssetBundleImportJobDataSetOverrideParametersTypeDef",
     {
@@ -1794,6 +1813,22 @@ class AssetBundleImportJobDataSetOverrideParametersTypeDef(
     _OptionalAssetBundleImportJobDataSetOverrideParametersTypeDef,
 ):
     pass
+
+AssetBundleImportJobDataSetOverridePermissionsTypeDef = TypedDict(
+    "AssetBundleImportJobDataSetOverridePermissionsTypeDef",
+    {
+        "DataSetIds": List[str],
+        "Permissions": "AssetBundleResourcePermissionsTypeDef",
+    },
+)
+
+AssetBundleImportJobDataSetOverrideTagsTypeDef = TypedDict(
+    "AssetBundleImportJobDataSetOverrideTagsTypeDef",
+    {
+        "DataSetIds": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+)
 
 AssetBundleImportJobDataSourceCredentialPairTypeDef = TypedDict(
     "AssetBundleImportJobDataSourceCredentialPairTypeDef",
@@ -1836,6 +1871,22 @@ class AssetBundleImportJobDataSourceOverrideParametersTypeDef(
 ):
     pass
 
+AssetBundleImportJobDataSourceOverridePermissionsTypeDef = TypedDict(
+    "AssetBundleImportJobDataSourceOverridePermissionsTypeDef",
+    {
+        "DataSourceIds": List[str],
+        "Permissions": "AssetBundleResourcePermissionsTypeDef",
+    },
+)
+
+AssetBundleImportJobDataSourceOverrideTagsTypeDef = TypedDict(
+    "AssetBundleImportJobDataSourceOverrideTagsTypeDef",
+    {
+        "DataSourceIds": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+)
+
 AssetBundleImportJobErrorTypeDef = TypedDict(
     "AssetBundleImportJobErrorTypeDef",
     {
@@ -1857,6 +1908,39 @@ AssetBundleImportJobOverrideParametersTypeDef = TypedDict(
         "Themes": List["AssetBundleImportJobThemeOverrideParametersTypeDef"],
         "Analyses": List["AssetBundleImportJobAnalysisOverrideParametersTypeDef"],
         "Dashboards": List["AssetBundleImportJobDashboardOverrideParametersTypeDef"],
+    },
+    total=False,
+)
+
+AssetBundleImportJobOverridePermissionsTypeDef = TypedDict(
+    "AssetBundleImportJobOverridePermissionsTypeDef",
+    {
+        "DataSources": List["AssetBundleImportJobDataSourceOverridePermissionsTypeDef"],
+        "DataSets": List["AssetBundleImportJobDataSetOverridePermissionsTypeDef"],
+        "Themes": List["AssetBundleImportJobThemeOverridePermissionsTypeDef"],
+        "Analyses": List["AssetBundleImportJobAnalysisOverridePermissionsTypeDef"],
+        "Dashboards": List["AssetBundleImportJobDashboardOverridePermissionsTypeDef"],
+    },
+    total=False,
+)
+
+AssetBundleImportJobOverrideTagsTypeDef = TypedDict(
+    "AssetBundleImportJobOverrideTagsTypeDef",
+    {
+        "VPCConnections": List["AssetBundleImportJobVPCConnectionOverrideTagsTypeDef"],
+        "DataSources": List["AssetBundleImportJobDataSourceOverrideTagsTypeDef"],
+        "DataSets": List["AssetBundleImportJobDataSetOverrideTagsTypeDef"],
+        "Themes": List["AssetBundleImportJobThemeOverrideTagsTypeDef"],
+        "Analyses": List["AssetBundleImportJobAnalysisOverrideTagsTypeDef"],
+        "Dashboards": List["AssetBundleImportJobDashboardOverrideTagsTypeDef"],
+    },
+    total=False,
+)
+
+AssetBundleImportJobOverrideValidationStrategyTypeDef = TypedDict(
+    "AssetBundleImportJobOverrideValidationStrategyTypeDef",
+    {
+        "StrictModeForAllResources": bool,
     },
     total=False,
 )
@@ -1922,6 +2006,22 @@ class AssetBundleImportJobThemeOverrideParametersTypeDef(
 ):
     pass
 
+AssetBundleImportJobThemeOverridePermissionsTypeDef = TypedDict(
+    "AssetBundleImportJobThemeOverridePermissionsTypeDef",
+    {
+        "ThemeIds": List[str],
+        "Permissions": "AssetBundleResourcePermissionsTypeDef",
+    },
+)
+
+AssetBundleImportJobThemeOverrideTagsTypeDef = TypedDict(
+    "AssetBundleImportJobThemeOverrideTagsTypeDef",
+    {
+        "ThemeIds": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+)
+
 _RequiredAssetBundleImportJobVPCConnectionOverrideParametersTypeDef = TypedDict(
     "_RequiredAssetBundleImportJobVPCConnectionOverrideParametersTypeDef",
     {
@@ -1946,6 +2046,14 @@ class AssetBundleImportJobVPCConnectionOverrideParametersTypeDef(
 ):
     pass
 
+AssetBundleImportJobVPCConnectionOverrideTagsTypeDef = TypedDict(
+    "AssetBundleImportJobVPCConnectionOverrideTagsTypeDef",
+    {
+        "VPCConnectionIds": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+)
+
 AssetBundleImportSourceDescriptionTypeDef = TypedDict(
     "AssetBundleImportSourceDescriptionTypeDef",
     {
@@ -1962,6 +2070,22 @@ AssetBundleImportSourceTypeDef = TypedDict(
         "S3Uri": str,
     },
     total=False,
+)
+
+AssetBundleResourceLinkSharingConfigurationTypeDef = TypedDict(
+    "AssetBundleResourceLinkSharingConfigurationTypeDef",
+    {
+        "Permissions": "AssetBundleResourcePermissionsTypeDef",
+    },
+    total=False,
+)
+
+AssetBundleResourcePermissionsTypeDef = TypedDict(
+    "AssetBundleResourcePermissionsTypeDef",
+    {
+        "Principals": List[str],
+        "Actions": List[str],
+    },
 )
 
 AssetOptionsTypeDef = TypedDict(
@@ -2007,6 +2131,15 @@ AuroraPostgreSqlParametersTypeDef = TypedDict(
         "Port": int,
         "Database": str,
     },
+)
+
+AuthorizedTargetsByServiceTypeDef = TypedDict(
+    "AuthorizedTargetsByServiceTypeDef",
+    {
+        "Service": Literal["REDSHIFT"],
+        "AuthorizedTargets": List[str],
+    },
+    total=False,
 )
 
 AwsIotAnalyticsParametersTypeDef = TypedDict(
@@ -2183,6 +2316,25 @@ _OptionalBarChartVisualTypeDef = TypedDict(
 )
 
 class BarChartVisualTypeDef(_RequiredBarChartVisualTypeDef, _OptionalBarChartVisualTypeDef):
+    pass
+
+_RequiredBigQueryParametersTypeDef = TypedDict(
+    "_RequiredBigQueryParametersTypeDef",
+    {
+        "ProjectId": str,
+    },
+)
+_OptionalBigQueryParametersTypeDef = TypedDict(
+    "_OptionalBigQueryParametersTypeDef",
+    {
+        "DataSetRegion": str,
+    },
+    total=False,
+)
+
+class BigQueryParametersTypeDef(
+    _RequiredBigQueryParametersTypeDef, _OptionalBigQueryParametersTypeDef
+):
     pass
 
 BinCountOptionsTypeDef = TypedDict(
@@ -3066,6 +3218,7 @@ _OptionalCreateDashboardRequestRequestTypeDef = TypedDict(
         "Definition": "DashboardVersionDefinitionTypeDef",
         "ValidationStrategy": "ValidationStrategyTypeDef",
         "FolderArns": List[str],
+        "LinkSharingConfiguration": "LinkSharingConfigurationTypeDef",
     },
     total=False,
 )
@@ -3403,6 +3556,25 @@ CreateRefreshScheduleResponseTypeDef = TypedDict(
         "RequestId": str,
         "ScheduleId": str,
         "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateRoleMembershipRequestRequestTypeDef = TypedDict(
+    "CreateRoleMembershipRequestRequestTypeDef",
+    {
+        "MemberName": str,
+        "AwsAccountId": str,
+        "Namespace": str,
+        "Role": RoleType,
+    },
+)
+
+CreateRoleMembershipResponseTypeDef = TypedDict(
+    "CreateRoleMembershipResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3988,7 +4160,6 @@ DashboardVersionTypeDef = TypedDict(
         "Description": str,
         "ThemeArn": str,
         "Sheets": List["SheetTypeDef"],
-        "Options": "AssetOptionsTypeDef",
     },
     total=False,
 )
@@ -4330,6 +4501,7 @@ DataSourceParametersTypeDef = TypedDict(
         "DatabricksParameters": "DatabricksParametersTypeDef",
         "StarburstParameters": "StarburstParametersTypeDef",
         "TrinoParameters": "TrinoParametersTypeDef",
+        "BigQueryParameters": "BigQueryParametersTypeDef",
     },
     total=False,
 )
@@ -4985,6 +5157,23 @@ DeleteIAMPolicyAssignmentResponseTypeDef = TypedDict(
     },
 )
 
+DeleteIdentityPropagationConfigRequestRequestTypeDef = TypedDict(
+    "DeleteIdentityPropagationConfigRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "Service": Literal["REDSHIFT"],
+    },
+)
+
+DeleteIdentityPropagationConfigResponseTypeDef = TypedDict(
+    "DeleteIdentityPropagationConfigResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteNamespaceRequestRequestTypeDef = TypedDict(
     "DeleteNamespaceRequestRequestTypeDef",
     {
@@ -5018,6 +5207,43 @@ DeleteRefreshScheduleResponseTypeDef = TypedDict(
         "RequestId": str,
         "ScheduleId": str,
         "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteRoleCustomPermissionRequestRequestTypeDef = TypedDict(
+    "DeleteRoleCustomPermissionRequestRequestTypeDef",
+    {
+        "Role": RoleType,
+        "AwsAccountId": str,
+        "Namespace": str,
+    },
+)
+
+DeleteRoleCustomPermissionResponseTypeDef = TypedDict(
+    "DeleteRoleCustomPermissionResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteRoleMembershipRequestRequestTypeDef = TypedDict(
+    "DeleteRoleMembershipRequestRequestTypeDef",
+    {
+        "MemberName": str,
+        "Role": RoleType,
+        "AwsAccountId": str,
+        "Namespace": str,
+    },
+)
+
+DeleteRoleMembershipResponseTypeDef = TypedDict(
+    "DeleteRoleMembershipResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5376,6 +5602,10 @@ DescribeAssetBundleExportJobResponseTypeDef = TypedDict(
         "CloudFormationOverridePropertyConfiguration": "AssetBundleCloudFormationOverridePropertyConfigurationTypeDef",
         "RequestId": str,
         "Status": int,
+        "IncludePermissions": bool,
+        "IncludeTags": bool,
+        "ValidationStrategy": "AssetBundleExportJobValidationStrategyTypeDef",
+        "Warnings": List["AssetBundleExportJobWarningTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5403,6 +5633,9 @@ DescribeAssetBundleImportJobResponseTypeDef = TypedDict(
         "FailureAction": AssetBundleImportFailureActionType,
         "RequestId": str,
         "Status": int,
+        "OverridePermissions": "AssetBundleImportJobOverridePermissionsTypeDef",
+        "OverrideTags": "AssetBundleImportJobOverrideTagsTypeDef",
+        "OverrideValidationStrategy": "AssetBundleImportJobOverrideValidationStrategyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5862,6 +6095,25 @@ DescribeRefreshScheduleResponseTypeDef = TypedDict(
         "Status": int,
         "RequestId": str,
         "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRoleCustomPermissionRequestRequestTypeDef = TypedDict(
+    "DescribeRoleCustomPermissionRequestRequestTypeDef",
+    {
+        "Role": RoleType,
+        "AwsAccountId": str,
+        "Namespace": str,
+    },
+)
+
+DescribeRoleCustomPermissionResponseTypeDef = TypedDict(
+    "DescribeRoleCustomPermissionResponseTypeDef",
+    {
+        "CustomPermissionsName": str,
+        "RequestId": str,
+        "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7812,6 +8064,14 @@ IAMPolicyAssignmentTypeDef = TypedDict(
     total=False,
 )
 
+IdentityCenterConfigurationTypeDef = TypedDict(
+    "IdentityCenterConfigurationTypeDef",
+    {
+        "EnableIdentityPropagation": bool,
+    },
+    total=False,
+)
+
 IncrementalRefreshTypeDef = TypedDict(
     "IncrementalRefreshTypeDef",
     {
@@ -8791,6 +9051,38 @@ ListIAMPolicyAssignmentsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListIdentityPropagationConfigsRequestRequestTypeDef = TypedDict(
+    "_RequiredListIdentityPropagationConfigsRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+    },
+)
+_OptionalListIdentityPropagationConfigsRequestRequestTypeDef = TypedDict(
+    "_OptionalListIdentityPropagationConfigsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListIdentityPropagationConfigsRequestRequestTypeDef(
+    _RequiredListIdentityPropagationConfigsRequestRequestTypeDef,
+    _OptionalListIdentityPropagationConfigsRequestRequestTypeDef,
+):
+    pass
+
+ListIdentityPropagationConfigsResponseTypeDef = TypedDict(
+    "ListIdentityPropagationConfigsResponseTypeDef",
+    {
+        "Services": List["AuthorizedTargetsByServiceTypeDef"],
+        "NextToken": str,
+        "Status": int,
+        "RequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListIngestionsRequestRequestTypeDef = TypedDict(
     "_RequiredListIngestionsRequestRequestTypeDef",
     {
@@ -8868,6 +9160,40 @@ ListRefreshSchedulesResponseTypeDef = TypedDict(
         "RefreshSchedules": List["RefreshScheduleTypeDef"],
         "Status": int,
         "RequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListRoleMembershipsRequestRequestTypeDef = TypedDict(
+    "_RequiredListRoleMembershipsRequestRequestTypeDef",
+    {
+        "Role": RoleType,
+        "AwsAccountId": str,
+        "Namespace": str,
+    },
+)
+_OptionalListRoleMembershipsRequestRequestTypeDef = TypedDict(
+    "_OptionalListRoleMembershipsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListRoleMembershipsRequestRequestTypeDef(
+    _RequiredListRoleMembershipsRequestRequestTypeDef,
+    _OptionalListRoleMembershipsRequestRequestTypeDef,
+):
+    pass
+
+ListRoleMembershipsResponseTypeDef = TypedDict(
+    "ListRoleMembershipsResponseTypeDef",
+    {
+        "MembersList": List[str],
+        "NextToken": str,
+        "RequestId": str,
+        "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -10595,6 +10921,7 @@ _OptionalRedshiftParametersTypeDef = TypedDict(
         "Port": int,
         "ClusterId": str,
         "IAMParameters": "RedshiftIAMParametersTypeDef",
+        "IdentityCenterConfiguration": "IdentityCenterConfigurationTypeDef",
     },
     total=False,
 )
@@ -12024,6 +12351,9 @@ _OptionalStartAssetBundleExportJobRequestRequestTypeDef = TypedDict(
     {
         "IncludeAllDependencies": bool,
         "CloudFormationOverridePropertyConfiguration": "AssetBundleCloudFormationOverridePropertyConfigurationTypeDef",
+        "IncludePermissions": bool,
+        "IncludeTags": bool,
+        "ValidationStrategy": "AssetBundleExportJobValidationStrategyTypeDef",
     },
     total=False,
 )
@@ -12058,6 +12388,9 @@ _OptionalStartAssetBundleImportJobRequestRequestTypeDef = TypedDict(
     {
         "OverrideParameters": "AssetBundleImportJobOverrideParametersTypeDef",
         "FailureAction": AssetBundleImportFailureActionType,
+        "OverridePermissions": "AssetBundleImportJobOverridePermissionsTypeDef",
+        "OverrideTags": "AssetBundleImportJobOverrideTagsTypeDef",
+        "OverrideValidationStrategy": "AssetBundleImportJobOverrideValidationStrategyTypeDef",
     },
     total=False,
 )
@@ -12656,7 +12989,6 @@ TemplateVersionTypeDef = TypedDict(
         "SourceEntityArn": str,
         "ThemeArn": str,
         "Sheets": List["SheetTypeDef"],
-        "Options": "AssetOptionsTypeDef",
     },
     total=False,
 )
@@ -13989,6 +14321,36 @@ UpdateIAMPolicyAssignmentResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateIdentityPropagationConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateIdentityPropagationConfigRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "Service": Literal["REDSHIFT"],
+    },
+)
+_OptionalUpdateIdentityPropagationConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateIdentityPropagationConfigRequestRequestTypeDef",
+    {
+        "AuthorizedTargets": List[str],
+    },
+    total=False,
+)
+
+class UpdateIdentityPropagationConfigRequestRequestTypeDef(
+    _RequiredUpdateIdentityPropagationConfigRequestRequestTypeDef,
+    _OptionalUpdateIdentityPropagationConfigRequestRequestTypeDef,
+):
+    pass
+
+UpdateIdentityPropagationConfigResponseTypeDef = TypedDict(
+    "UpdateIdentityPropagationConfigResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateIpRestrictionRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateIpRestrictionRequestRequestTypeDef",
     {
@@ -14065,6 +14427,25 @@ UpdateRefreshScheduleResponseTypeDef = TypedDict(
         "RequestId": str,
         "ScheduleId": str,
         "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateRoleCustomPermissionRequestRequestTypeDef = TypedDict(
+    "UpdateRoleCustomPermissionRequestRequestTypeDef",
+    {
+        "CustomPermissionsName": str,
+        "Role": RoleType,
+        "AwsAccountId": str,
+        "Namespace": str,
+    },
+)
+
+UpdateRoleCustomPermissionResponseTypeDef = TypedDict(
+    "UpdateRoleCustomPermissionResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

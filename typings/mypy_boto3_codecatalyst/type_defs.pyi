@@ -19,15 +19,15 @@ from .literals import (
     ComparisonOperatorType,
     DevEnvironmentSessionTypeType,
     DevEnvironmentStatusType,
+    FilterKeyType,
     InstanceTypeType,
     OperationTypeType,
     UserTypeType,
+    WorkflowRunModeType,
+    WorkflowRunStatusType,
+    WorkflowStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -78,6 +78,10 @@ __all__ = (
     "GetSubscriptionResponseTypeDef",
     "GetUserDetailsRequestRequestTypeDef",
     "GetUserDetailsResponseTypeDef",
+    "GetWorkflowRequestRequestTypeDef",
+    "GetWorkflowResponseTypeDef",
+    "GetWorkflowRunRequestRequestTypeDef",
+    "GetWorkflowRunResponseTypeDef",
     "IdeConfigurationTypeDef",
     "IdeTypeDef",
     "ListAccessTokensRequestRequestTypeDef",
@@ -98,6 +102,10 @@ __all__ = (
     "ListSourceRepositoryBranchesResponseTypeDef",
     "ListSpacesRequestRequestTypeDef",
     "ListSpacesResponseTypeDef",
+    "ListWorkflowRunsRequestRequestTypeDef",
+    "ListWorkflowRunsResponseTypeDef",
+    "ListWorkflowsRequestRequestTypeDef",
+    "ListWorkflowsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PersistentStorageConfigurationTypeDef",
     "PersistentStorageTypeDef",
@@ -111,6 +119,8 @@ __all__ = (
     "StartDevEnvironmentResponseTypeDef",
     "StartDevEnvironmentSessionRequestRequestTypeDef",
     "StartDevEnvironmentSessionResponseTypeDef",
+    "StartWorkflowRunRequestRequestTypeDef",
+    "StartWorkflowRunResponseTypeDef",
     "StopDevEnvironmentRequestRequestTypeDef",
     "StopDevEnvironmentResponseTypeDef",
     "StopDevEnvironmentSessionRequestRequestTypeDef",
@@ -123,6 +133,10 @@ __all__ = (
     "UpdateSpaceResponseTypeDef",
     "UserIdentityTypeDef",
     "VerifySessionResponseTypeDef",
+    "WorkflowDefinitionSummaryTypeDef",
+    "WorkflowDefinitionTypeDef",
+    "WorkflowRunSummaryTypeDef",
+    "WorkflowSummaryTypeDef",
 )
 
 _RequiredAccessTokenSummaryTypeDef = TypedDict(
@@ -192,6 +206,7 @@ _OptionalCreateDevEnvironmentRequestRequestTypeDef = TypedDict(
         "alias": str,
         "ides": List["IdeConfigurationTypeDef"],
         "inactivityTimeoutMinutes": int,
+        "vpcConnectionName": str,
     },
     total=False,
 )
@@ -208,6 +223,7 @@ CreateDevEnvironmentResponseTypeDef = TypedDict(
         "spaceName": str,
         "projectName": str,
         "id": str,
+        "vpcConnectionName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -468,6 +484,7 @@ _OptionalDevEnvironmentSummaryTypeDef = TypedDict(
         "statusReason": str,
         "alias": str,
         "ides": List["IdeTypeDef"],
+        "vpcConnectionName": str,
     },
     total=False,
 )
@@ -588,6 +605,7 @@ GetDevEnvironmentResponseTypeDef = TypedDict(
         "instanceType": InstanceTypeType,
         "inactivityTimeoutMinutes": int,
         "persistentStorage": "PersistentStorageTypeDef",
+        "vpcConnectionName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -705,6 +723,58 @@ GetUserDetailsResponseTypeDef = TypedDict(
     },
 )
 
+GetWorkflowRequestRequestTypeDef = TypedDict(
+    "GetWorkflowRequestRequestTypeDef",
+    {
+        "spaceName": str,
+        "id": str,
+        "projectName": str,
+    },
+)
+
+GetWorkflowResponseTypeDef = TypedDict(
+    "GetWorkflowResponseTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "name": str,
+        "sourceRepositoryName": str,
+        "sourceBranchName": str,
+        "definition": "WorkflowDefinitionTypeDef",
+        "createdTime": datetime,
+        "lastUpdatedTime": datetime,
+        "runMode": WorkflowRunModeType,
+        "status": WorkflowStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetWorkflowRunRequestRequestTypeDef = TypedDict(
+    "GetWorkflowRunRequestRequestTypeDef",
+    {
+        "spaceName": str,
+        "id": str,
+        "projectName": str,
+    },
+)
+
+GetWorkflowRunResponseTypeDef = TypedDict(
+    "GetWorkflowRunResponseTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "workflowId": str,
+        "status": WorkflowRunStatusType,
+        "statusReasons": List[Dict[str, Any]],
+        "startTime": datetime,
+        "endTime": datetime,
+        "lastUpdatedTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 IdeConfigurationTypeDef = TypedDict(
     "IdeConfigurationTypeDef",
     {
@@ -777,12 +847,12 @@ _RequiredListDevEnvironmentsRequestRequestTypeDef = TypedDict(
     "_RequiredListDevEnvironmentsRequestRequestTypeDef",
     {
         "spaceName": str,
-        "projectName": str,
     },
 )
 _OptionalListDevEnvironmentsRequestRequestTypeDef = TypedDict(
     "_OptionalListDevEnvironmentsRequestRequestTypeDef",
     {
+        "projectName": str,
         "filters": List["FilterTypeDef"],
         "nextToken": str,
         "maxResults": int,
@@ -980,6 +1050,69 @@ ListSpacesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListWorkflowRunsRequestRequestTypeDef = TypedDict(
+    "_RequiredListWorkflowRunsRequestRequestTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+    },
+)
+_OptionalListWorkflowRunsRequestRequestTypeDef = TypedDict(
+    "_OptionalListWorkflowRunsRequestRequestTypeDef",
+    {
+        "workflowId": str,
+        "nextToken": str,
+        "maxResults": int,
+        "sortBy": List[Dict[str, Any]],
+    },
+    total=False,
+)
+
+class ListWorkflowRunsRequestRequestTypeDef(
+    _RequiredListWorkflowRunsRequestRequestTypeDef, _OptionalListWorkflowRunsRequestRequestTypeDef
+):
+    pass
+
+ListWorkflowRunsResponseTypeDef = TypedDict(
+    "ListWorkflowRunsResponseTypeDef",
+    {
+        "nextToken": str,
+        "items": List["WorkflowRunSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListWorkflowsRequestRequestTypeDef = TypedDict(
+    "_RequiredListWorkflowsRequestRequestTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+    },
+)
+_OptionalListWorkflowsRequestRequestTypeDef = TypedDict(
+    "_OptionalListWorkflowsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+        "sortBy": List[Dict[str, Any]],
+    },
+    total=False,
+)
+
+class ListWorkflowsRequestRequestTypeDef(
+    _RequiredListWorkflowsRequestRequestTypeDef, _OptionalListWorkflowsRequestRequestTypeDef
+):
+    pass
+
+ListWorkflowsResponseTypeDef = TypedDict(
+    "ListWorkflowsResponseTypeDef",
+    {
+        "nextToken": str,
+        "items": List["WorkflowSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -1016,7 +1149,7 @@ ProjectInformationTypeDef = TypedDict(
 _RequiredProjectListFilterTypeDef = TypedDict(
     "_RequiredProjectListFilterTypeDef",
     {
-        "key": Literal["hasAccessTo"],
+        "key": FilterKeyType,
         "values": List[str],
     },
 )
@@ -1151,6 +1284,38 @@ StartDevEnvironmentSessionResponseTypeDef = TypedDict(
         "spaceName": str,
         "projectName": str,
         "id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartWorkflowRunRequestRequestTypeDef = TypedDict(
+    "_RequiredStartWorkflowRunRequestRequestTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "workflowId": str,
+    },
+)
+_OptionalStartWorkflowRunRequestRequestTypeDef = TypedDict(
+    "_OptionalStartWorkflowRunRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class StartWorkflowRunRequestRequestTypeDef(
+    _RequiredStartWorkflowRunRequestRequestTypeDef, _OptionalStartWorkflowRunRequestRequestTypeDef
+):
+    pass
+
+StartWorkflowRunResponseTypeDef = TypedDict(
+    "StartWorkflowRunResponseTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "workflowId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1321,5 +1486,59 @@ VerifySessionResponseTypeDef = TypedDict(
     {
         "identity": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+WorkflowDefinitionSummaryTypeDef = TypedDict(
+    "WorkflowDefinitionSummaryTypeDef",
+    {
+        "path": str,
+    },
+)
+
+WorkflowDefinitionTypeDef = TypedDict(
+    "WorkflowDefinitionTypeDef",
+    {
+        "path": str,
+    },
+)
+
+_RequiredWorkflowRunSummaryTypeDef = TypedDict(
+    "_RequiredWorkflowRunSummaryTypeDef",
+    {
+        "id": str,
+        "workflowId": str,
+        "workflowName": str,
+        "status": WorkflowRunStatusType,
+        "startTime": datetime,
+        "lastUpdatedTime": datetime,
+    },
+)
+_OptionalWorkflowRunSummaryTypeDef = TypedDict(
+    "_OptionalWorkflowRunSummaryTypeDef",
+    {
+        "statusReasons": List[Dict[str, Any]],
+        "endTime": datetime,
+    },
+    total=False,
+)
+
+class WorkflowRunSummaryTypeDef(
+    _RequiredWorkflowRunSummaryTypeDef, _OptionalWorkflowRunSummaryTypeDef
+):
+    pass
+
+WorkflowSummaryTypeDef = TypedDict(
+    "WorkflowSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "sourceRepositoryName": str,
+        "sourceBranchName": str,
+        "definition": "WorkflowDefinitionSummaryTypeDef",
+        "createdTime": datetime,
+        "lastUpdatedTime": datetime,
+        "runMode": WorkflowRunModeType,
+        "status": WorkflowStatusType,
     },
 )

@@ -24,6 +24,7 @@ __all__ = (
     "ClusterStateType",
     "ClusterTypeType",
     "ConfigurationStateType",
+    "CustomerActionStatusType",
     "EnhancedMonitoringType",
     "KafkaVersionStatusType",
     "ListClientVpcConnectionsPaginatorName",
@@ -60,6 +61,7 @@ ClusterStateType = Literal[
 ]
 ClusterTypeType = Literal["PROVISIONED", "SERVERLESS"]
 ConfigurationStateType = Literal["ACTIVE", "DELETE_FAILED", "DELETING"]
+CustomerActionStatusType = Literal["ACTION_RECOMMENDED", "CRITICAL_ACTION_REQUIRED", "NONE"]
 EnhancedMonitoringType = Literal[
     "DEFAULT", "PER_BROKER", "PER_TOPIC_PER_BROKER", "PER_TOPIC_PER_PARTITION"
 ]

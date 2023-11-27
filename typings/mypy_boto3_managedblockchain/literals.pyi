@@ -6,9 +6,9 @@ Type annotations for managedblockchain service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_managedblockchain.literals import AccessorStatusType
+    from mypy_boto3_managedblockchain.literals import AccessorNetworkTypeType
 
-    data: AccessorStatusType = "AVAILABLE"
+    data: AccessorNetworkTypeType = "ETHEREUM_GOERLI"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AccessorNetworkTypeType",
     "AccessorStatusType",
     "AccessorTypeType",
     "EditionType",
@@ -34,6 +35,13 @@ __all__ = (
     "VoteValueType",
 )
 
+AccessorNetworkTypeType = Literal[
+    "ETHEREUM_GOERLI",
+    "ETHEREUM_MAINNET",
+    "ETHEREUM_MAINNET_AND_GOERLI",
+    "POLYGON_MAINNET",
+    "POLYGON_MUMBAI",
+]
 AccessorStatusType = Literal["AVAILABLE", "DELETED", "PENDING_DELETION"]
 AccessorTypeType = Literal["BILLING_TOKEN"]
 EditionType = Literal["STANDARD", "STARTER"]

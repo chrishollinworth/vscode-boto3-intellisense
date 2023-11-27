@@ -16,11 +16,15 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AggregationPeriodType,
     BackupJobStateType,
+    BackupJobStatusType,
     BackupVaultEventType,
     CopyJobStateType,
+    CopyJobStatusType,
     LegalHoldStatusType,
     RecoveryPointStatusType,
+    RestoreJobStateType,
     RestoreJobStatusType,
     StorageClassType,
     VaultStateType,
@@ -38,6 +42,7 @@ else:
 
 __all__ = (
     "AdvancedBackupSettingTypeDef",
+    "BackupJobSummaryTypeDef",
     "BackupJobTypeDef",
     "BackupPlanInputTypeDef",
     "BackupPlanTemplatesListMemberTypeDef",
@@ -56,6 +61,7 @@ __all__ = (
     "ControlInputParameterTypeDef",
     "ControlScopeTypeDef",
     "CopyActionTypeDef",
+    "CopyJobSummaryTypeDef",
     "CopyJobTypeDef",
     "CreateBackupPlanInputRequestTypeDef",
     "CreateBackupPlanOutputTypeDef",
@@ -127,6 +133,8 @@ __all__ = (
     "GetSupportedResourceTypesOutputTypeDef",
     "LegalHoldTypeDef",
     "LifecycleTypeDef",
+    "ListBackupJobSummariesInputRequestTypeDef",
+    "ListBackupJobSummariesOutputTypeDef",
     "ListBackupJobsInputRequestTypeDef",
     "ListBackupJobsOutputTypeDef",
     "ListBackupPlanTemplatesInputRequestTypeDef",
@@ -139,6 +147,8 @@ __all__ = (
     "ListBackupSelectionsOutputTypeDef",
     "ListBackupVaultsInputRequestTypeDef",
     "ListBackupVaultsOutputTypeDef",
+    "ListCopyJobSummariesInputRequestTypeDef",
+    "ListCopyJobSummariesOutputTypeDef",
     "ListCopyJobsInputRequestTypeDef",
     "ListCopyJobsOutputTypeDef",
     "ListFrameworksInputRequestTypeDef",
@@ -159,6 +169,8 @@ __all__ = (
     "ListReportJobsOutputTypeDef",
     "ListReportPlansInputRequestTypeDef",
     "ListReportPlansOutputTypeDef",
+    "ListRestoreJobSummariesInputRequestTypeDef",
+    "ListRestoreJobSummariesOutputTypeDef",
     "ListRestoreJobsInputRequestTypeDef",
     "ListRestoreJobsOutputTypeDef",
     "ListTagsInputRequestTypeDef",
@@ -179,6 +191,7 @@ __all__ = (
     "ReportPlanTypeDef",
     "ReportSettingTypeDef",
     "ResponseMetadataTypeDef",
+    "RestoreJobSummaryTypeDef",
     "RestoreJobsListMemberTypeDef",
     "StartBackupJobInputRequestTypeDef",
     "StartBackupJobOutputTypeDef",
@@ -212,6 +225,21 @@ AdvancedBackupSettingTypeDef = TypedDict(
     total=False,
 )
 
+BackupJobSummaryTypeDef = TypedDict(
+    "BackupJobSummaryTypeDef",
+    {
+        "Region": str,
+        "AccountId": str,
+        "State": BackupJobStatusType,
+        "ResourceType": str,
+        "MessageCategory": str,
+        "Count": int,
+        "StartTime": datetime,
+        "EndTime": datetime,
+    },
+    total=False,
+)
+
 BackupJobTypeDef = TypedDict(
     "BackupJobTypeDef",
     {
@@ -238,6 +266,7 @@ BackupJobTypeDef = TypedDict(
         "ParentJobId": str,
         "IsParent": bool,
         "ResourceName": str,
+        "MessageCategory": str,
     },
     total=False,
 )
@@ -499,6 +528,21 @@ _OptionalCopyActionTypeDef = TypedDict(
 class CopyActionTypeDef(_RequiredCopyActionTypeDef, _OptionalCopyActionTypeDef):
     pass
 
+CopyJobSummaryTypeDef = TypedDict(
+    "CopyJobSummaryTypeDef",
+    {
+        "Region": str,
+        "AccountId": str,
+        "State": CopyJobStatusType,
+        "ResourceType": str,
+        "MessageCategory": str,
+        "Count": int,
+        "StartTime": datetime,
+        "EndTime": datetime,
+    },
+    total=False,
+)
+
 CopyJobTypeDef = TypedDict(
     "CopyJobTypeDef",
     {
@@ -523,6 +567,7 @@ CopyJobTypeDef = TypedDict(
         "NumberOfChildJobs": int,
         "ChildJobsInState": Dict[CopyJobStateType, int],
         "ResourceName": str,
+        "MessageCategory": str,
     },
     total=False,
 )
@@ -874,6 +919,7 @@ DescribeBackupJobOutputTypeDef = TypedDict(
         "NumberOfChildJobs": int,
         "ChildJobsInState": Dict[BackupJobStateType, int],
         "ResourceName": str,
+        "MessageCategory": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1364,6 +1410,30 @@ LifecycleTypeDef = TypedDict(
     total=False,
 )
 
+ListBackupJobSummariesInputRequestTypeDef = TypedDict(
+    "ListBackupJobSummariesInputRequestTypeDef",
+    {
+        "AccountId": str,
+        "State": BackupJobStatusType,
+        "ResourceType": str,
+        "MessageCategory": str,
+        "AggregationPeriod": AggregationPeriodType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListBackupJobSummariesOutputTypeDef = TypedDict(
+    "ListBackupJobSummariesOutputTypeDef",
+    {
+        "BackupJobSummaries": List["BackupJobSummaryTypeDef"],
+        "AggregationPeriod": str,
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListBackupJobsInputRequestTypeDef = TypedDict(
     "ListBackupJobsInputRequestTypeDef",
     {
@@ -1379,6 +1449,7 @@ ListBackupJobsInputRequestTypeDef = TypedDict(
         "ByCompleteAfter": Union[datetime, str],
         "ByCompleteBefore": Union[datetime, str],
         "ByParentJobId": str,
+        "ByMessageCategory": str,
     },
     total=False,
 )
@@ -1509,6 +1580,30 @@ ListBackupVaultsOutputTypeDef = TypedDict(
     },
 )
 
+ListCopyJobSummariesInputRequestTypeDef = TypedDict(
+    "ListCopyJobSummariesInputRequestTypeDef",
+    {
+        "AccountId": str,
+        "State": CopyJobStatusType,
+        "ResourceType": str,
+        "MessageCategory": str,
+        "AggregationPeriod": AggregationPeriodType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListCopyJobSummariesOutputTypeDef = TypedDict(
+    "ListCopyJobSummariesOutputTypeDef",
+    {
+        "CopyJobSummaries": List["CopyJobSummaryTypeDef"],
+        "AggregationPeriod": str,
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCopyJobsInputRequestTypeDef = TypedDict(
     "ListCopyJobsInputRequestTypeDef",
     {
@@ -1524,6 +1619,7 @@ ListCopyJobsInputRequestTypeDef = TypedDict(
         "ByCompleteBefore": Union[datetime, str],
         "ByCompleteAfter": Union[datetime, str],
         "ByParentJobId": str,
+        "ByMessageCategory": str,
     },
     total=False,
 )
@@ -1754,6 +1850,29 @@ ListReportPlansOutputTypeDef = TypedDict(
     "ListReportPlansOutputTypeDef",
     {
         "ReportPlans": List["ReportPlanTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListRestoreJobSummariesInputRequestTypeDef = TypedDict(
+    "ListRestoreJobSummariesInputRequestTypeDef",
+    {
+        "AccountId": str,
+        "State": RestoreJobStateType,
+        "ResourceType": str,
+        "AggregationPeriod": AggregationPeriodType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListRestoreJobSummariesOutputTypeDef = TypedDict(
+    "ListRestoreJobSummariesOutputTypeDef",
+    {
+        "RestoreJobSummaries": List["RestoreJobSummaryTypeDef"],
+        "AggregationPeriod": str,
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2052,6 +2171,20 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RestoreJobSummaryTypeDef = TypedDict(
+    "RestoreJobSummaryTypeDef",
+    {
+        "Region": str,
+        "AccountId": str,
+        "State": RestoreJobStateType,
+        "ResourceType": str,
+        "Count": int,
+        "StartTime": datetime,
+        "EndTime": datetime,
+    },
+    total=False,
 )
 
 RestoreJobsListMemberTypeDef = TypedDict(

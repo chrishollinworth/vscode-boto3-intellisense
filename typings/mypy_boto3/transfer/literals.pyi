@@ -26,6 +26,7 @@ __all__ = (
     "CertificateUsageTypeType",
     "CompressionEnumType",
     "CustomStepStatusType",
+    "DirectoryListingOptimizationType",
     "DomainType",
     "EncryptionAlgType",
     "EncryptionTypeType",
@@ -45,6 +46,7 @@ __all__ = (
     "ListTagsForResourcePaginatorName",
     "ListUsersPaginatorName",
     "ListWorkflowsPaginatorName",
+    "MapTypeType",
     "MdnResponseType",
     "MdnSigningAlgType",
     "OverwriteExistingType",
@@ -67,6 +69,7 @@ CertificateTypeType = Literal["CERTIFICATE", "CERTIFICATE_WITH_PRIVATE_KEY"]
 CertificateUsageTypeType = Literal["ENCRYPTION", "SIGNING"]
 CompressionEnumType = Literal["DISABLED", "ZLIB"]
 CustomStepStatusType = Literal["FAILURE", "SUCCESS"]
+DirectoryListingOptimizationType = Literal["DISABLED", "ENABLED"]
 DomainType = Literal["EFS", "S3"]
 EncryptionAlgType = Literal["AES128_CBC", "AES192_CBC", "AES256_CBC", "NONE"]
 EncryptionTypeType = Literal["PGP"]
@@ -97,6 +100,7 @@ ListServersPaginatorName = Literal["list_servers"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 ListUsersPaginatorName = Literal["list_users"]
 ListWorkflowsPaginatorName = Literal["list_workflows"]
+MapTypeType = Literal["DIRECTORY", "FILE"]
 MdnResponseType = Literal["NONE", "SYNC"]
 MdnSigningAlgType = Literal["DEFAULT", "NONE", "SHA1", "SHA256", "SHA384", "SHA512"]
 OverwriteExistingType = Literal["FALSE", "TRUE"]

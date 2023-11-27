@@ -13,14 +13,20 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AccountLimitNameType,
+    AttachmentStatusType,
     ConfigurationSetFilterNameType,
     DestinationCountryParameterKeyType,
     EventTypeType,
+    FieldRequirementType,
+    FieldTypeType,
     KeywordActionType,
+    LanguageCodeType,
     MessageTypeType,
     NumberCapabilityType,
     NumberStatusType,
@@ -29,9 +35,18 @@ from .literals import (
     PoolFilterNameType,
     PoolOriginationIdentitiesFilterNameType,
     PoolStatusType,
+    RegistrationAssociationBehaviorType,
+    RegistrationAssociationFilterNameType,
+    RegistrationDisassociationBehaviorType,
+    RegistrationFilterNameType,
+    RegistrationStatusType,
+    RegistrationTypeFilterNameType,
+    RegistrationVersionStatusType,
     RequestableNumberTypeType,
     SenderIdFilterNameType,
     SpendLimitNameType,
+    VerificationChannelType,
+    VerificationStatusType,
     VoiceIdType,
     VoiceMessageBodyTextTypeType,
 )
@@ -61,6 +76,16 @@ __all__ = (
     "CreateOptOutListResultTypeDef",
     "CreatePoolRequestRequestTypeDef",
     "CreatePoolResultTypeDef",
+    "CreateRegistrationAssociationRequestRequestTypeDef",
+    "CreateRegistrationAssociationResultTypeDef",
+    "CreateRegistrationAttachmentRequestRequestTypeDef",
+    "CreateRegistrationAttachmentResultTypeDef",
+    "CreateRegistrationRequestRequestTypeDef",
+    "CreateRegistrationResultTypeDef",
+    "CreateRegistrationVersionRequestRequestTypeDef",
+    "CreateRegistrationVersionResultTypeDef",
+    "CreateVerifiedDestinationNumberRequestRequestTypeDef",
+    "CreateVerifiedDestinationNumberResultTypeDef",
     "DeleteConfigurationSetRequestRequestTypeDef",
     "DeleteConfigurationSetResultTypeDef",
     "DeleteDefaultMessageTypeRequestRequestTypeDef",
@@ -77,7 +102,15 @@ __all__ = (
     "DeleteOptedOutNumberResultTypeDef",
     "DeletePoolRequestRequestTypeDef",
     "DeletePoolResultTypeDef",
+    "DeleteRegistrationAttachmentRequestRequestTypeDef",
+    "DeleteRegistrationAttachmentResultTypeDef",
+    "DeleteRegistrationFieldValueRequestRequestTypeDef",
+    "DeleteRegistrationFieldValueResultTypeDef",
+    "DeleteRegistrationRequestRequestTypeDef",
+    "DeleteRegistrationResultTypeDef",
     "DeleteTextMessageSpendLimitOverrideResultTypeDef",
+    "DeleteVerifiedDestinationNumberRequestRequestTypeDef",
+    "DeleteVerifiedDestinationNumberResultTypeDef",
     "DeleteVoiceMessageSpendLimitOverrideResultTypeDef",
     "DescribeAccountAttributesRequestRequestTypeDef",
     "DescribeAccountAttributesResultTypeDef",
@@ -95,18 +128,38 @@ __all__ = (
     "DescribePhoneNumbersResultTypeDef",
     "DescribePoolsRequestRequestTypeDef",
     "DescribePoolsResultTypeDef",
+    "DescribeRegistrationAttachmentsRequestRequestTypeDef",
+    "DescribeRegistrationAttachmentsResultTypeDef",
+    "DescribeRegistrationFieldDefinitionsRequestRequestTypeDef",
+    "DescribeRegistrationFieldDefinitionsResultTypeDef",
+    "DescribeRegistrationFieldValuesRequestRequestTypeDef",
+    "DescribeRegistrationFieldValuesResultTypeDef",
+    "DescribeRegistrationSectionDefinitionsRequestRequestTypeDef",
+    "DescribeRegistrationSectionDefinitionsResultTypeDef",
+    "DescribeRegistrationTypeDefinitionsRequestRequestTypeDef",
+    "DescribeRegistrationTypeDefinitionsResultTypeDef",
+    "DescribeRegistrationVersionsRequestRequestTypeDef",
+    "DescribeRegistrationVersionsResultTypeDef",
+    "DescribeRegistrationsRequestRequestTypeDef",
+    "DescribeRegistrationsResultTypeDef",
     "DescribeSenderIdsRequestRequestTypeDef",
     "DescribeSenderIdsResultTypeDef",
     "DescribeSpendLimitsRequestRequestTypeDef",
     "DescribeSpendLimitsResultTypeDef",
+    "DescribeVerifiedDestinationNumbersRequestRequestTypeDef",
+    "DescribeVerifiedDestinationNumbersResultTypeDef",
     "DisassociateOriginationIdentityRequestRequestTypeDef",
     "DisassociateOriginationIdentityResultTypeDef",
+    "DiscardRegistrationVersionRequestRequestTypeDef",
+    "DiscardRegistrationVersionResultTypeDef",
     "EventDestinationTypeDef",
     "KeywordFilterTypeDef",
     "KeywordInformationTypeDef",
     "KinesisFirehoseDestinationTypeDef",
     "ListPoolOriginationIdentitiesRequestRequestTypeDef",
     "ListPoolOriginationIdentitiesResultTypeDef",
+    "ListRegistrationAssociationsRequestRequestTypeDef",
+    "ListRegistrationAssociationsResultTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
     "OptOutListInformationTypeDef",
@@ -123,11 +176,39 @@ __all__ = (
     "PutKeywordResultTypeDef",
     "PutOptedOutNumberRequestRequestTypeDef",
     "PutOptedOutNumberResultTypeDef",
+    "PutRegistrationFieldValueRequestRequestTypeDef",
+    "PutRegistrationFieldValueResultTypeDef",
+    "RegistrationAssociationFilterTypeDef",
+    "RegistrationAssociationMetadataTypeDef",
+    "RegistrationAttachmentFilterTypeDef",
+    "RegistrationAttachmentsInformationTypeDef",
+    "RegistrationDeniedReasonInformationTypeDef",
+    "RegistrationFieldDefinitionTypeDef",
+    "RegistrationFieldDisplayHintsTypeDef",
+    "RegistrationFieldValueInformationTypeDef",
+    "RegistrationFilterTypeDef",
+    "RegistrationInformationTypeDef",
+    "RegistrationSectionDefinitionTypeDef",
+    "RegistrationSectionDisplayHintsTypeDef",
+    "RegistrationTypeDefinitionTypeDef",
+    "RegistrationTypeDisplayHintsTypeDef",
+    "RegistrationTypeFilterTypeDef",
+    "RegistrationVersionFilterTypeDef",
+    "RegistrationVersionInformationTypeDef",
+    "RegistrationVersionStatusHistoryTypeDef",
     "ReleasePhoneNumberRequestRequestTypeDef",
     "ReleasePhoneNumberResultTypeDef",
+    "ReleaseSenderIdRequestRequestTypeDef",
+    "ReleaseSenderIdResultTypeDef",
     "RequestPhoneNumberRequestRequestTypeDef",
     "RequestPhoneNumberResultTypeDef",
+    "RequestSenderIdRequestRequestTypeDef",
+    "RequestSenderIdResultTypeDef",
     "ResponseMetadataTypeDef",
+    "SelectOptionDescriptionTypeDef",
+    "SelectValidationTypeDef",
+    "SendDestinationNumberVerificationCodeRequestRequestTypeDef",
+    "SendDestinationNumberVerificationCodeResultTypeDef",
     "SendTextMessageRequestRequestTypeDef",
     "SendTextMessageResultTypeDef",
     "SendVoiceMessageRequestRequestTypeDef",
@@ -145,8 +226,12 @@ __all__ = (
     "SetVoiceMessageSpendLimitOverrideResultTypeDef",
     "SnsDestinationTypeDef",
     "SpendLimitTypeDef",
+    "SubmitRegistrationVersionRequestRequestTypeDef",
+    "SubmitRegistrationVersionResultTypeDef",
+    "SupportedAssociationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TextValidationTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateEventDestinationRequestRequestTypeDef",
     "UpdateEventDestinationResultTypeDef",
@@ -154,6 +239,12 @@ __all__ = (
     "UpdatePhoneNumberResultTypeDef",
     "UpdatePoolRequestRequestTypeDef",
     "UpdatePoolResultTypeDef",
+    "UpdateSenderIdRequestRequestTypeDef",
+    "UpdateSenderIdResultTypeDef",
+    "VerifiedDestinationNumberFilterTypeDef",
+    "VerifiedDestinationNumberInformationTypeDef",
+    "VerifyDestinationNumberRequestRequestTypeDef",
+    "VerifyDestinationNumberResultTypeDef",
 )
 
 AccountAttributeTypeDef = TypedDict(
@@ -376,10 +467,146 @@ CreatePoolResultTypeDef = TypedDict(
         "MessageType": MessageTypeType,
         "TwoWayEnabled": bool,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "SelfManagedOptOutsEnabled": bool,
         "OptOutListName": str,
         "SharedRoutesEnabled": bool,
         "DeletionProtectionEnabled": bool,
+        "Tags": List["TagTypeDef"],
+        "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateRegistrationAssociationRequestRequestTypeDef = TypedDict(
+    "CreateRegistrationAssociationRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+        "ResourceId": str,
+    },
+)
+
+CreateRegistrationAssociationResultTypeDef = TypedDict(
+    "CreateRegistrationAssociationResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "RegistrationType": str,
+        "ResourceArn": str,
+        "ResourceId": str,
+        "ResourceType": str,
+        "IsoCountryCode": str,
+        "PhoneNumber": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateRegistrationAttachmentRequestRequestTypeDef = TypedDict(
+    "CreateRegistrationAttachmentRequestRequestTypeDef",
+    {
+        "AttachmentBody": Union[bytes, IO[bytes], StreamingBody],
+        "AttachmentUrl": str,
+        "Tags": List["TagTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+CreateRegistrationAttachmentResultTypeDef = TypedDict(
+    "CreateRegistrationAttachmentResultTypeDef",
+    {
+        "RegistrationAttachmentArn": str,
+        "RegistrationAttachmentId": str,
+        "AttachmentStatus": AttachmentStatusType,
+        "Tags": List["TagTypeDef"],
+        "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateRegistrationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRegistrationRequestRequestTypeDef",
+    {
+        "RegistrationType": str,
+    },
+)
+_OptionalCreateRegistrationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRegistrationRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateRegistrationRequestRequestTypeDef(
+    _RequiredCreateRegistrationRequestRequestTypeDef,
+    _OptionalCreateRegistrationRequestRequestTypeDef,
+):
+    pass
+
+CreateRegistrationResultTypeDef = TypedDict(
+    "CreateRegistrationResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "RegistrationType": str,
+        "RegistrationStatus": RegistrationStatusType,
+        "CurrentVersionNumber": int,
+        "AdditionalAttributes": Dict[str, str],
+        "Tags": List["TagTypeDef"],
+        "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateRegistrationVersionRequestRequestTypeDef = TypedDict(
+    "CreateRegistrationVersionRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+    },
+)
+
+CreateRegistrationVersionResultTypeDef = TypedDict(
+    "CreateRegistrationVersionResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "VersionNumber": int,
+        "RegistrationVersionStatus": RegistrationVersionStatusType,
+        "RegistrationVersionStatusHistory": "RegistrationVersionStatusHistoryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateVerifiedDestinationNumberRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVerifiedDestinationNumberRequestRequestTypeDef",
+    {
+        "DestinationPhoneNumber": str,
+    },
+)
+_OptionalCreateVerifiedDestinationNumberRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVerifiedDestinationNumberRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateVerifiedDestinationNumberRequestRequestTypeDef(
+    _RequiredCreateVerifiedDestinationNumberRequestRequestTypeDef,
+    _OptionalCreateVerifiedDestinationNumberRequestRequestTypeDef,
+):
+    pass
+
+CreateVerifiedDestinationNumberResultTypeDef = TypedDict(
+    "CreateVerifiedDestinationNumberResultTypeDef",
+    {
+        "VerifiedDestinationNumberArn": str,
+        "VerifiedDestinationNumberId": str,
+        "DestinationPhoneNumber": str,
+        "Status": VerificationStatusType,
         "Tags": List["TagTypeDef"],
         "CreatedTimestamp": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -531,9 +758,74 @@ DeletePoolResultTypeDef = TypedDict(
         "MessageType": MessageTypeType,
         "TwoWayEnabled": bool,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "SelfManagedOptOutsEnabled": bool,
         "OptOutListName": str,
         "SharedRoutesEnabled": bool,
+        "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteRegistrationAttachmentRequestRequestTypeDef = TypedDict(
+    "DeleteRegistrationAttachmentRequestRequestTypeDef",
+    {
+        "RegistrationAttachmentId": str,
+    },
+)
+
+DeleteRegistrationAttachmentResultTypeDef = TypedDict(
+    "DeleteRegistrationAttachmentResultTypeDef",
+    {
+        "RegistrationAttachmentArn": str,
+        "RegistrationAttachmentId": str,
+        "AttachmentStatus": AttachmentStatusType,
+        "AttachmentUploadErrorReason": Literal["INTERNAL_ERROR"],
+        "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteRegistrationFieldValueRequestRequestTypeDef = TypedDict(
+    "DeleteRegistrationFieldValueRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+        "FieldPath": str,
+    },
+)
+
+DeleteRegistrationFieldValueResultTypeDef = TypedDict(
+    "DeleteRegistrationFieldValueResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "VersionNumber": int,
+        "FieldPath": str,
+        "SelectChoices": List[str],
+        "TextValue": str,
+        "RegistrationAttachmentId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteRegistrationRequestRequestTypeDef = TypedDict(
+    "DeleteRegistrationRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+    },
+)
+
+DeleteRegistrationResultTypeDef = TypedDict(
+    "DeleteRegistrationResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "RegistrationType": str,
+        "RegistrationStatus": RegistrationStatusType,
+        "CurrentVersionNumber": int,
+        "ApprovedVersionNumber": int,
+        "LatestDeniedVersionNumber": int,
+        "AdditionalAttributes": Dict[str, str],
         "CreatedTimestamp": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -543,6 +835,24 @@ DeleteTextMessageSpendLimitOverrideResultTypeDef = TypedDict(
     "DeleteTextMessageSpendLimitOverrideResultTypeDef",
     {
         "MonthlyLimit": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteVerifiedDestinationNumberRequestRequestTypeDef = TypedDict(
+    "DeleteVerifiedDestinationNumberRequestRequestTypeDef",
+    {
+        "VerifiedDestinationNumberId": str,
+    },
+)
+
+DeleteVerifiedDestinationNumberResultTypeDef = TypedDict(
+    "DeleteVerifiedDestinationNumberResultTypeDef",
+    {
+        "VerifiedDestinationNumberArn": str,
+        "VerifiedDestinationNumberId": str,
+        "DestinationPhoneNumber": str,
+        "CreatedTimestamp": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -737,6 +1047,201 @@ DescribePoolsResultTypeDef = TypedDict(
     },
 )
 
+DescribeRegistrationAttachmentsRequestRequestTypeDef = TypedDict(
+    "DescribeRegistrationAttachmentsRequestRequestTypeDef",
+    {
+        "RegistrationAttachmentIds": List[str],
+        "Filters": List["RegistrationAttachmentFilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeRegistrationAttachmentsResultTypeDef = TypedDict(
+    "DescribeRegistrationAttachmentsResultTypeDef",
+    {
+        "RegistrationAttachments": List["RegistrationAttachmentsInformationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeRegistrationFieldDefinitionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeRegistrationFieldDefinitionsRequestRequestTypeDef",
+    {
+        "RegistrationType": str,
+    },
+)
+_OptionalDescribeRegistrationFieldDefinitionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeRegistrationFieldDefinitionsRequestRequestTypeDef",
+    {
+        "SectionPath": str,
+        "FieldPaths": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeRegistrationFieldDefinitionsRequestRequestTypeDef(
+    _RequiredDescribeRegistrationFieldDefinitionsRequestRequestTypeDef,
+    _OptionalDescribeRegistrationFieldDefinitionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeRegistrationFieldDefinitionsResultTypeDef = TypedDict(
+    "DescribeRegistrationFieldDefinitionsResultTypeDef",
+    {
+        "RegistrationType": str,
+        "RegistrationFieldDefinitions": List["RegistrationFieldDefinitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeRegistrationFieldValuesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeRegistrationFieldValuesRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+    },
+)
+_OptionalDescribeRegistrationFieldValuesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeRegistrationFieldValuesRequestRequestTypeDef",
+    {
+        "VersionNumber": int,
+        "SectionPath": str,
+        "FieldPaths": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeRegistrationFieldValuesRequestRequestTypeDef(
+    _RequiredDescribeRegistrationFieldValuesRequestRequestTypeDef,
+    _OptionalDescribeRegistrationFieldValuesRequestRequestTypeDef,
+):
+    pass
+
+DescribeRegistrationFieldValuesResultTypeDef = TypedDict(
+    "DescribeRegistrationFieldValuesResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "VersionNumber": int,
+        "RegistrationFieldValues": List["RegistrationFieldValueInformationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeRegistrationSectionDefinitionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeRegistrationSectionDefinitionsRequestRequestTypeDef",
+    {
+        "RegistrationType": str,
+    },
+)
+_OptionalDescribeRegistrationSectionDefinitionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeRegistrationSectionDefinitionsRequestRequestTypeDef",
+    {
+        "SectionPaths": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeRegistrationSectionDefinitionsRequestRequestTypeDef(
+    _RequiredDescribeRegistrationSectionDefinitionsRequestRequestTypeDef,
+    _OptionalDescribeRegistrationSectionDefinitionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeRegistrationSectionDefinitionsResultTypeDef = TypedDict(
+    "DescribeRegistrationSectionDefinitionsResultTypeDef",
+    {
+        "RegistrationType": str,
+        "RegistrationSectionDefinitions": List["RegistrationSectionDefinitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRegistrationTypeDefinitionsRequestRequestTypeDef = TypedDict(
+    "DescribeRegistrationTypeDefinitionsRequestRequestTypeDef",
+    {
+        "RegistrationTypes": List[str],
+        "Filters": List["RegistrationTypeFilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeRegistrationTypeDefinitionsResultTypeDef = TypedDict(
+    "DescribeRegistrationTypeDefinitionsResultTypeDef",
+    {
+        "RegistrationTypeDefinitions": List["RegistrationTypeDefinitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeRegistrationVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeRegistrationVersionsRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+    },
+)
+_OptionalDescribeRegistrationVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeRegistrationVersionsRequestRequestTypeDef",
+    {
+        "VersionNumbers": List[int],
+        "Filters": List["RegistrationVersionFilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeRegistrationVersionsRequestRequestTypeDef(
+    _RequiredDescribeRegistrationVersionsRequestRequestTypeDef,
+    _OptionalDescribeRegistrationVersionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeRegistrationVersionsResultTypeDef = TypedDict(
+    "DescribeRegistrationVersionsResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "RegistrationVersions": List["RegistrationVersionInformationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRegistrationsRequestRequestTypeDef = TypedDict(
+    "DescribeRegistrationsRequestRequestTypeDef",
+    {
+        "RegistrationIds": List[str],
+        "Filters": List["RegistrationFilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeRegistrationsResultTypeDef = TypedDict(
+    "DescribeRegistrationsResultTypeDef",
+    {
+        "Registrations": List["RegistrationInformationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeSenderIdsRequestRequestTypeDef = TypedDict(
     "DescribeSenderIdsRequestRequestTypeDef",
     {
@@ -775,6 +1280,27 @@ DescribeSpendLimitsResultTypeDef = TypedDict(
     },
 )
 
+DescribeVerifiedDestinationNumbersRequestRequestTypeDef = TypedDict(
+    "DescribeVerifiedDestinationNumbersRequestRequestTypeDef",
+    {
+        "VerifiedDestinationNumberIds": List[str],
+        "DestinationPhoneNumbers": List[str],
+        "Filters": List["VerifiedDestinationNumberFilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeVerifiedDestinationNumbersResultTypeDef = TypedDict(
+    "DescribeVerifiedDestinationNumbersResultTypeDef",
+    {
+        "VerifiedDestinationNumbers": List["VerifiedDestinationNumberInformationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDisassociateOriginationIdentityRequestRequestTypeDef = TypedDict(
     "_RequiredDisassociateOriginationIdentityRequestRequestTypeDef",
     {
@@ -805,6 +1331,25 @@ DisassociateOriginationIdentityResultTypeDef = TypedDict(
         "OriginationIdentityArn": str,
         "OriginationIdentity": str,
         "IsoCountryCode": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DiscardRegistrationVersionRequestRequestTypeDef = TypedDict(
+    "DiscardRegistrationVersionRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+    },
+)
+
+DiscardRegistrationVersionResultTypeDef = TypedDict(
+    "DiscardRegistrationVersionResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "VersionNumber": int,
+        "RegistrationVersionStatus": RegistrationVersionStatusType,
+        "RegistrationVersionStatusHistory": "RegistrationVersionStatusHistoryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -888,6 +1433,40 @@ ListPoolOriginationIdentitiesResultTypeDef = TypedDict(
     },
 )
 
+_RequiredListRegistrationAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListRegistrationAssociationsRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+    },
+)
+_OptionalListRegistrationAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListRegistrationAssociationsRequestRequestTypeDef",
+    {
+        "Filters": List["RegistrationAssociationFilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListRegistrationAssociationsRequestRequestTypeDef(
+    _RequiredListRegistrationAssociationsRequestRequestTypeDef,
+    _OptionalListRegistrationAssociationsRequestRequestTypeDef,
+):
+    pass
+
+ListRegistrationAssociationsResultTypeDef = TypedDict(
+    "ListRegistrationAssociationsResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "RegistrationType": str,
+        "RegistrationAssociations": List["RegistrationAssociationMetadataTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -930,8 +1509,8 @@ OptedOutNumberInformationTypeDef = TypedDict(
     },
 )
 
-OriginationIdentityMetadataTypeDef = TypedDict(
-    "OriginationIdentityMetadataTypeDef",
+_RequiredOriginationIdentityMetadataTypeDef = TypedDict(
+    "_RequiredOriginationIdentityMetadataTypeDef",
     {
         "OriginationIdentityArn": str,
         "OriginationIdentity": str,
@@ -939,6 +1518,18 @@ OriginationIdentityMetadataTypeDef = TypedDict(
         "NumberCapabilities": List[NumberCapabilityType],
     },
 )
+_OptionalOriginationIdentityMetadataTypeDef = TypedDict(
+    "_OptionalOriginationIdentityMetadataTypeDef",
+    {
+        "PhoneNumber": str,
+    },
+    total=False,
+)
+
+class OriginationIdentityMetadataTypeDef(
+    _RequiredOriginationIdentityMetadataTypeDef, _OptionalOriginationIdentityMetadataTypeDef
+):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
@@ -981,7 +1572,9 @@ _OptionalPhoneNumberInformationTypeDef = TypedDict(
     {
         "PhoneNumberId": str,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "PoolId": str,
+        "RegistrationId": str,
     },
     total=False,
 )
@@ -1018,6 +1611,7 @@ _OptionalPoolInformationTypeDef = TypedDict(
     "_OptionalPoolInformationTypeDef",
     {
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
     },
     total=False,
 )
@@ -1086,6 +1680,368 @@ PutOptedOutNumberResultTypeDef = TypedDict(
     },
 )
 
+_RequiredPutRegistrationFieldValueRequestRequestTypeDef = TypedDict(
+    "_RequiredPutRegistrationFieldValueRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+        "FieldPath": str,
+    },
+)
+_OptionalPutRegistrationFieldValueRequestRequestTypeDef = TypedDict(
+    "_OptionalPutRegistrationFieldValueRequestRequestTypeDef",
+    {
+        "SelectChoices": List[str],
+        "TextValue": str,
+        "RegistrationAttachmentId": str,
+    },
+    total=False,
+)
+
+class PutRegistrationFieldValueRequestRequestTypeDef(
+    _RequiredPutRegistrationFieldValueRequestRequestTypeDef,
+    _OptionalPutRegistrationFieldValueRequestRequestTypeDef,
+):
+    pass
+
+PutRegistrationFieldValueResultTypeDef = TypedDict(
+    "PutRegistrationFieldValueResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "VersionNumber": int,
+        "FieldPath": str,
+        "SelectChoices": List[str],
+        "TextValue": str,
+        "RegistrationAttachmentId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RegistrationAssociationFilterTypeDef = TypedDict(
+    "RegistrationAssociationFilterTypeDef",
+    {
+        "Name": RegistrationAssociationFilterNameType,
+        "Values": List[str],
+    },
+)
+
+_RequiredRegistrationAssociationMetadataTypeDef = TypedDict(
+    "_RequiredRegistrationAssociationMetadataTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourceId": str,
+        "ResourceType": str,
+    },
+)
+_OptionalRegistrationAssociationMetadataTypeDef = TypedDict(
+    "_OptionalRegistrationAssociationMetadataTypeDef",
+    {
+        "IsoCountryCode": str,
+        "PhoneNumber": str,
+    },
+    total=False,
+)
+
+class RegistrationAssociationMetadataTypeDef(
+    _RequiredRegistrationAssociationMetadataTypeDef, _OptionalRegistrationAssociationMetadataTypeDef
+):
+    pass
+
+RegistrationAttachmentFilterTypeDef = TypedDict(
+    "RegistrationAttachmentFilterTypeDef",
+    {
+        "Name": Literal["attachment-status"],
+        "Values": List[str],
+    },
+)
+
+_RequiredRegistrationAttachmentsInformationTypeDef = TypedDict(
+    "_RequiredRegistrationAttachmentsInformationTypeDef",
+    {
+        "RegistrationAttachmentArn": str,
+        "RegistrationAttachmentId": str,
+        "AttachmentStatus": AttachmentStatusType,
+        "CreatedTimestamp": datetime,
+    },
+)
+_OptionalRegistrationAttachmentsInformationTypeDef = TypedDict(
+    "_OptionalRegistrationAttachmentsInformationTypeDef",
+    {
+        "AttachmentUploadErrorReason": Literal["INTERNAL_ERROR"],
+    },
+    total=False,
+)
+
+class RegistrationAttachmentsInformationTypeDef(
+    _RequiredRegistrationAttachmentsInformationTypeDef,
+    _OptionalRegistrationAttachmentsInformationTypeDef,
+):
+    pass
+
+_RequiredRegistrationDeniedReasonInformationTypeDef = TypedDict(
+    "_RequiredRegistrationDeniedReasonInformationTypeDef",
+    {
+        "Reason": str,
+        "ShortDescription": str,
+    },
+)
+_OptionalRegistrationDeniedReasonInformationTypeDef = TypedDict(
+    "_OptionalRegistrationDeniedReasonInformationTypeDef",
+    {
+        "LongDescription": str,
+        "DocumentationTitle": str,
+        "DocumentationLink": str,
+    },
+    total=False,
+)
+
+class RegistrationDeniedReasonInformationTypeDef(
+    _RequiredRegistrationDeniedReasonInformationTypeDef,
+    _OptionalRegistrationDeniedReasonInformationTypeDef,
+):
+    pass
+
+_RequiredRegistrationFieldDefinitionTypeDef = TypedDict(
+    "_RequiredRegistrationFieldDefinitionTypeDef",
+    {
+        "SectionPath": str,
+        "FieldPath": str,
+        "FieldType": FieldTypeType,
+        "FieldRequirement": FieldRequirementType,
+        "DisplayHints": "RegistrationFieldDisplayHintsTypeDef",
+    },
+)
+_OptionalRegistrationFieldDefinitionTypeDef = TypedDict(
+    "_OptionalRegistrationFieldDefinitionTypeDef",
+    {
+        "SelectValidation": "SelectValidationTypeDef",
+        "TextValidation": "TextValidationTypeDef",
+    },
+    total=False,
+)
+
+class RegistrationFieldDefinitionTypeDef(
+    _RequiredRegistrationFieldDefinitionTypeDef, _OptionalRegistrationFieldDefinitionTypeDef
+):
+    pass
+
+_RequiredRegistrationFieldDisplayHintsTypeDef = TypedDict(
+    "_RequiredRegistrationFieldDisplayHintsTypeDef",
+    {
+        "Title": str,
+        "ShortDescription": str,
+    },
+)
+_OptionalRegistrationFieldDisplayHintsTypeDef = TypedDict(
+    "_OptionalRegistrationFieldDisplayHintsTypeDef",
+    {
+        "LongDescription": str,
+        "DocumentationTitle": str,
+        "DocumentationLink": str,
+        "SelectOptionDescriptions": List["SelectOptionDescriptionTypeDef"],
+        "TextValidationDescription": str,
+        "ExampleTextValue": str,
+    },
+    total=False,
+)
+
+class RegistrationFieldDisplayHintsTypeDef(
+    _RequiredRegistrationFieldDisplayHintsTypeDef, _OptionalRegistrationFieldDisplayHintsTypeDef
+):
+    pass
+
+_RequiredRegistrationFieldValueInformationTypeDef = TypedDict(
+    "_RequiredRegistrationFieldValueInformationTypeDef",
+    {
+        "FieldPath": str,
+    },
+)
+_OptionalRegistrationFieldValueInformationTypeDef = TypedDict(
+    "_OptionalRegistrationFieldValueInformationTypeDef",
+    {
+        "SelectChoices": List[str],
+        "TextValue": str,
+        "RegistrationAttachmentId": str,
+        "DeniedReason": str,
+    },
+    total=False,
+)
+
+class RegistrationFieldValueInformationTypeDef(
+    _RequiredRegistrationFieldValueInformationTypeDef,
+    _OptionalRegistrationFieldValueInformationTypeDef,
+):
+    pass
+
+RegistrationFilterTypeDef = TypedDict(
+    "RegistrationFilterTypeDef",
+    {
+        "Name": RegistrationFilterNameType,
+        "Values": List[str],
+    },
+)
+
+_RequiredRegistrationInformationTypeDef = TypedDict(
+    "_RequiredRegistrationInformationTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "RegistrationType": str,
+        "RegistrationStatus": RegistrationStatusType,
+        "CurrentVersionNumber": int,
+        "CreatedTimestamp": datetime,
+    },
+)
+_OptionalRegistrationInformationTypeDef = TypedDict(
+    "_OptionalRegistrationInformationTypeDef",
+    {
+        "ApprovedVersionNumber": int,
+        "LatestDeniedVersionNumber": int,
+        "AdditionalAttributes": Dict[str, str],
+    },
+    total=False,
+)
+
+class RegistrationInformationTypeDef(
+    _RequiredRegistrationInformationTypeDef, _OptionalRegistrationInformationTypeDef
+):
+    pass
+
+RegistrationSectionDefinitionTypeDef = TypedDict(
+    "RegistrationSectionDefinitionTypeDef",
+    {
+        "SectionPath": str,
+        "DisplayHints": "RegistrationSectionDisplayHintsTypeDef",
+    },
+)
+
+_RequiredRegistrationSectionDisplayHintsTypeDef = TypedDict(
+    "_RequiredRegistrationSectionDisplayHintsTypeDef",
+    {
+        "Title": str,
+        "ShortDescription": str,
+    },
+)
+_OptionalRegistrationSectionDisplayHintsTypeDef = TypedDict(
+    "_OptionalRegistrationSectionDisplayHintsTypeDef",
+    {
+        "LongDescription": str,
+        "DocumentationTitle": str,
+        "DocumentationLink": str,
+    },
+    total=False,
+)
+
+class RegistrationSectionDisplayHintsTypeDef(
+    _RequiredRegistrationSectionDisplayHintsTypeDef, _OptionalRegistrationSectionDisplayHintsTypeDef
+):
+    pass
+
+_RequiredRegistrationTypeDefinitionTypeDef = TypedDict(
+    "_RequiredRegistrationTypeDefinitionTypeDef",
+    {
+        "RegistrationType": str,
+        "DisplayHints": "RegistrationTypeDisplayHintsTypeDef",
+    },
+)
+_OptionalRegistrationTypeDefinitionTypeDef = TypedDict(
+    "_OptionalRegistrationTypeDefinitionTypeDef",
+    {
+        "SupportedAssociations": List["SupportedAssociationTypeDef"],
+    },
+    total=False,
+)
+
+class RegistrationTypeDefinitionTypeDef(
+    _RequiredRegistrationTypeDefinitionTypeDef, _OptionalRegistrationTypeDefinitionTypeDef
+):
+    pass
+
+_RequiredRegistrationTypeDisplayHintsTypeDef = TypedDict(
+    "_RequiredRegistrationTypeDisplayHintsTypeDef",
+    {
+        "Title": str,
+    },
+)
+_OptionalRegistrationTypeDisplayHintsTypeDef = TypedDict(
+    "_OptionalRegistrationTypeDisplayHintsTypeDef",
+    {
+        "ShortDescription": str,
+        "LongDescription": str,
+        "DocumentationTitle": str,
+        "DocumentationLink": str,
+    },
+    total=False,
+)
+
+class RegistrationTypeDisplayHintsTypeDef(
+    _RequiredRegistrationTypeDisplayHintsTypeDef, _OptionalRegistrationTypeDisplayHintsTypeDef
+):
+    pass
+
+RegistrationTypeFilterTypeDef = TypedDict(
+    "RegistrationTypeFilterTypeDef",
+    {
+        "Name": RegistrationTypeFilterNameType,
+        "Values": List[str],
+    },
+)
+
+RegistrationVersionFilterTypeDef = TypedDict(
+    "RegistrationVersionFilterTypeDef",
+    {
+        "Name": Literal["registration-version-status"],
+        "Values": List[str],
+    },
+)
+
+_RequiredRegistrationVersionInformationTypeDef = TypedDict(
+    "_RequiredRegistrationVersionInformationTypeDef",
+    {
+        "VersionNumber": int,
+        "RegistrationVersionStatus": RegistrationVersionStatusType,
+        "RegistrationVersionStatusHistory": "RegistrationVersionStatusHistoryTypeDef",
+    },
+)
+_OptionalRegistrationVersionInformationTypeDef = TypedDict(
+    "_OptionalRegistrationVersionInformationTypeDef",
+    {
+        "DeniedReasons": List["RegistrationDeniedReasonInformationTypeDef"],
+    },
+    total=False,
+)
+
+class RegistrationVersionInformationTypeDef(
+    _RequiredRegistrationVersionInformationTypeDef, _OptionalRegistrationVersionInformationTypeDef
+):
+    pass
+
+_RequiredRegistrationVersionStatusHistoryTypeDef = TypedDict(
+    "_RequiredRegistrationVersionStatusHistoryTypeDef",
+    {
+        "DraftTimestamp": datetime,
+    },
+)
+_OptionalRegistrationVersionStatusHistoryTypeDef = TypedDict(
+    "_OptionalRegistrationVersionStatusHistoryTypeDef",
+    {
+        "SubmittedTimestamp": datetime,
+        "ReviewingTimestamp": datetime,
+        "ApprovedTimestamp": datetime,
+        "DiscardedTimestamp": datetime,
+        "DeniedTimestamp": datetime,
+        "RevokedTimestamp": datetime,
+        "ArchivedTimestamp": datetime,
+    },
+    total=False,
+)
+
+class RegistrationVersionStatusHistoryTypeDef(
+    _RequiredRegistrationVersionStatusHistoryTypeDef,
+    _OptionalRegistrationVersionStatusHistoryTypeDef,
+):
+    pass
+
 ReleasePhoneNumberRequestRequestTypeDef = TypedDict(
     "ReleasePhoneNumberRequestRequestTypeDef",
     {
@@ -1107,9 +2063,33 @@ ReleasePhoneNumberResultTypeDef = TypedDict(
         "MonthlyLeasingPrice": str,
         "TwoWayEnabled": bool,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "SelfManagedOptOutsEnabled": bool,
         "OptOutListName": str,
+        "RegistrationId": str,
         "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ReleaseSenderIdRequestRequestTypeDef = TypedDict(
+    "ReleaseSenderIdRequestRequestTypeDef",
+    {
+        "SenderId": str,
+        "IsoCountryCode": str,
+    },
+)
+
+ReleaseSenderIdResultTypeDef = TypedDict(
+    "ReleaseSenderIdResultTypeDef",
+    {
+        "SenderIdArn": str,
+        "SenderId": str,
+        "IsoCountryCode": str,
+        "MessageTypes": List[MessageTypeType],
+        "MonthlyLeasingPrice": str,
+        "Registered": bool,
+        "RegistrationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1156,12 +2136,52 @@ RequestPhoneNumberResultTypeDef = TypedDict(
         "MonthlyLeasingPrice": str,
         "TwoWayEnabled": bool,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "SelfManagedOptOutsEnabled": bool,
         "OptOutListName": str,
         "DeletionProtectionEnabled": bool,
         "PoolId": str,
+        "RegistrationId": str,
         "Tags": List["TagTypeDef"],
         "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRequestSenderIdRequestRequestTypeDef = TypedDict(
+    "_RequiredRequestSenderIdRequestRequestTypeDef",
+    {
+        "SenderId": str,
+        "IsoCountryCode": str,
+    },
+)
+_OptionalRequestSenderIdRequestRequestTypeDef = TypedDict(
+    "_OptionalRequestSenderIdRequestRequestTypeDef",
+    {
+        "MessageTypes": List[MessageTypeType],
+        "DeletionProtectionEnabled": bool,
+        "Tags": List["TagTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class RequestSenderIdRequestRequestTypeDef(
+    _RequiredRequestSenderIdRequestRequestTypeDef, _OptionalRequestSenderIdRequestRequestTypeDef
+):
+    pass
+
+RequestSenderIdResultTypeDef = TypedDict(
+    "RequestSenderIdResultTypeDef",
+    {
+        "SenderIdArn": str,
+        "SenderId": str,
+        "IsoCountryCode": str,
+        "MessageTypes": List[MessageTypeType],
+        "MonthlyLeasingPrice": str,
+        "DeletionProtectionEnabled": bool,
+        "Registered": bool,
+        "Tags": List["TagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1174,6 +2194,68 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+_RequiredSelectOptionDescriptionTypeDef = TypedDict(
+    "_RequiredSelectOptionDescriptionTypeDef",
+    {
+        "Option": str,
+    },
+)
+_OptionalSelectOptionDescriptionTypeDef = TypedDict(
+    "_OptionalSelectOptionDescriptionTypeDef",
+    {
+        "Title": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+class SelectOptionDescriptionTypeDef(
+    _RequiredSelectOptionDescriptionTypeDef, _OptionalSelectOptionDescriptionTypeDef
+):
+    pass
+
+SelectValidationTypeDef = TypedDict(
+    "SelectValidationTypeDef",
+    {
+        "MinChoices": int,
+        "MaxChoices": int,
+        "Options": List[str],
+    },
+)
+
+_RequiredSendDestinationNumberVerificationCodeRequestRequestTypeDef = TypedDict(
+    "_RequiredSendDestinationNumberVerificationCodeRequestRequestTypeDef",
+    {
+        "VerifiedDestinationNumberId": str,
+        "VerificationChannel": VerificationChannelType,
+    },
+)
+_OptionalSendDestinationNumberVerificationCodeRequestRequestTypeDef = TypedDict(
+    "_OptionalSendDestinationNumberVerificationCodeRequestRequestTypeDef",
+    {
+        "LanguageCode": LanguageCodeType,
+        "OriginationIdentity": str,
+        "ConfigurationSetName": str,
+        "Context": Dict[str, str],
+        "DestinationCountryParameters": Dict[DestinationCountryParameterKeyType, str],
+    },
+    total=False,
+)
+
+class SendDestinationNumberVerificationCodeRequestRequestTypeDef(
+    _RequiredSendDestinationNumberVerificationCodeRequestRequestTypeDef,
+    _OptionalSendDestinationNumberVerificationCodeRequestRequestTypeDef,
+):
+    pass
+
+SendDestinationNumberVerificationCodeResultTypeDef = TypedDict(
+    "SendDestinationNumberVerificationCodeResultTypeDef",
+    {
+        "MessageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1264,16 +2346,30 @@ SenderIdFilterTypeDef = TypedDict(
     },
 )
 
-SenderIdInformationTypeDef = TypedDict(
-    "SenderIdInformationTypeDef",
+_RequiredSenderIdInformationTypeDef = TypedDict(
+    "_RequiredSenderIdInformationTypeDef",
     {
         "SenderIdArn": str,
         "SenderId": str,
         "IsoCountryCode": str,
         "MessageTypes": List[MessageTypeType],
         "MonthlyLeasingPrice": str,
+        "DeletionProtectionEnabled": bool,
+        "Registered": bool,
     },
 )
+_OptionalSenderIdInformationTypeDef = TypedDict(
+    "_OptionalSenderIdInformationTypeDef",
+    {
+        "RegistrationId": str,
+    },
+    total=False,
+)
+
+class SenderIdInformationTypeDef(
+    _RequiredSenderIdInformationTypeDef, _OptionalSenderIdInformationTypeDef
+):
+    pass
 
 SetDefaultMessageTypeRequestRequestTypeDef = TypedDict(
     "SetDefaultMessageTypeRequestRequestTypeDef",
@@ -1358,6 +2454,46 @@ SpendLimitTypeDef = TypedDict(
     },
 )
 
+SubmitRegistrationVersionRequestRequestTypeDef = TypedDict(
+    "SubmitRegistrationVersionRequestRequestTypeDef",
+    {
+        "RegistrationId": str,
+    },
+)
+
+SubmitRegistrationVersionResultTypeDef = TypedDict(
+    "SubmitRegistrationVersionResultTypeDef",
+    {
+        "RegistrationArn": str,
+        "RegistrationId": str,
+        "VersionNumber": int,
+        "RegistrationVersionStatus": RegistrationVersionStatusType,
+        "RegistrationVersionStatusHistory": "RegistrationVersionStatusHistoryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSupportedAssociationTypeDef = TypedDict(
+    "_RequiredSupportedAssociationTypeDef",
+    {
+        "ResourceType": str,
+        "AssociationBehavior": RegistrationAssociationBehaviorType,
+        "DisassociationBehavior": RegistrationDisassociationBehaviorType,
+    },
+)
+_OptionalSupportedAssociationTypeDef = TypedDict(
+    "_OptionalSupportedAssociationTypeDef",
+    {
+        "IsoCountryCode": str,
+    },
+    total=False,
+)
+
+class SupportedAssociationTypeDef(
+    _RequiredSupportedAssociationTypeDef, _OptionalSupportedAssociationTypeDef
+):
+    pass
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -1371,6 +2507,15 @@ TagTypeDef = TypedDict(
     {
         "Key": str,
         "Value": str,
+    },
+)
+
+TextValidationTypeDef = TypedDict(
+    "TextValidationTypeDef",
+    {
+        "MinLength": int,
+        "MaxLength": int,
+        "Pattern": str,
     },
 )
 
@@ -1428,6 +2573,7 @@ _OptionalUpdatePhoneNumberRequestRequestTypeDef = TypedDict(
     {
         "TwoWayEnabled": bool,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "SelfManagedOptOutsEnabled": bool,
         "OptOutListName": str,
         "DeletionProtectionEnabled": bool,
@@ -1454,9 +2600,11 @@ UpdatePhoneNumberResultTypeDef = TypedDict(
         "MonthlyLeasingPrice": str,
         "TwoWayEnabled": bool,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "SelfManagedOptOutsEnabled": bool,
         "OptOutListName": str,
         "DeletionProtectionEnabled": bool,
+        "RegistrationId": str,
         "CreatedTimestamp": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1473,6 +2621,7 @@ _OptionalUpdatePoolRequestRequestTypeDef = TypedDict(
     {
         "TwoWayEnabled": bool,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "SelfManagedOptOutsEnabled": bool,
         "OptOutListName": str,
         "SharedRoutesEnabled": bool,
@@ -1495,10 +2644,85 @@ UpdatePoolResultTypeDef = TypedDict(
         "MessageType": MessageTypeType,
         "TwoWayEnabled": bool,
         "TwoWayChannelArn": str,
+        "TwoWayChannelRole": str,
         "SelfManagedOptOutsEnabled": bool,
         "OptOutListName": str,
         "SharedRoutesEnabled": bool,
         "DeletionProtectionEnabled": bool,
+        "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateSenderIdRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateSenderIdRequestRequestTypeDef",
+    {
+        "SenderId": str,
+        "IsoCountryCode": str,
+    },
+)
+_OptionalUpdateSenderIdRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateSenderIdRequestRequestTypeDef",
+    {
+        "DeletionProtectionEnabled": bool,
+    },
+    total=False,
+)
+
+class UpdateSenderIdRequestRequestTypeDef(
+    _RequiredUpdateSenderIdRequestRequestTypeDef, _OptionalUpdateSenderIdRequestRequestTypeDef
+):
+    pass
+
+UpdateSenderIdResultTypeDef = TypedDict(
+    "UpdateSenderIdResultTypeDef",
+    {
+        "SenderIdArn": str,
+        "SenderId": str,
+        "IsoCountryCode": str,
+        "MessageTypes": List[MessageTypeType],
+        "MonthlyLeasingPrice": str,
+        "DeletionProtectionEnabled": bool,
+        "Registered": bool,
+        "RegistrationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+VerifiedDestinationNumberFilterTypeDef = TypedDict(
+    "VerifiedDestinationNumberFilterTypeDef",
+    {
+        "Name": Literal["status"],
+        "Values": List[str],
+    },
+)
+
+VerifiedDestinationNumberInformationTypeDef = TypedDict(
+    "VerifiedDestinationNumberInformationTypeDef",
+    {
+        "VerifiedDestinationNumberArn": str,
+        "VerifiedDestinationNumberId": str,
+        "DestinationPhoneNumber": str,
+        "Status": VerificationStatusType,
+        "CreatedTimestamp": datetime,
+    },
+)
+
+VerifyDestinationNumberRequestRequestTypeDef = TypedDict(
+    "VerifyDestinationNumberRequestRequestTypeDef",
+    {
+        "VerifiedDestinationNumberId": str,
+        "VerificationCode": str,
+    },
+)
+
+VerifyDestinationNumberResultTypeDef = TypedDict(
+    "VerifyDestinationNumberResultTypeDef",
+    {
+        "VerifiedDestinationNumberArn": str,
+        "VerifiedDestinationNumberId": str,
+        "DestinationPhoneNumber": str,
+        "Status": VerificationStatusType,
         "CreatedTimestamp": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

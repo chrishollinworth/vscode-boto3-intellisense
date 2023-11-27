@@ -421,6 +421,9 @@ AppInstanceTypeType = Literal[
     "ml.t3.micro",
     "ml.t3.small",
     "ml.t3.xlarge",
+    "ml.trn1.2xlarge",
+    "ml.trn1.32xlarge",
+    "ml.trn1n.32xlarge",
     "system",
 ]
 AppNetworkAccessTypeType = Literal["PublicInternetOnly", "VpcOnly"]

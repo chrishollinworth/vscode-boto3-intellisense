@@ -28,6 +28,8 @@ from .paginator import (
     ListSourceRepositoriesPaginator,
     ListSourceRepositoryBranchesPaginator,
     ListSpacesPaginator,
+    ListWorkflowRunsPaginator,
+    ListWorkflowsPaginator,
 )
 from .type_defs import (
     CreateAccessTokenResponseTypeDef,
@@ -48,6 +50,8 @@ from .type_defs import (
     GetSpaceResponseTypeDef,
     GetSubscriptionResponseTypeDef,
     GetUserDetailsResponseTypeDef,
+    GetWorkflowResponseTypeDef,
+    GetWorkflowRunResponseTypeDef,
     IdeConfigurationTypeDef,
     ListAccessTokensResponseTypeDef,
     ListDevEnvironmentSessionsResponseTypeDef,
@@ -57,11 +61,14 @@ from .type_defs import (
     ListSourceRepositoriesResponseTypeDef,
     ListSourceRepositoryBranchesResponseTypeDef,
     ListSpacesResponseTypeDef,
+    ListWorkflowRunsResponseTypeDef,
+    ListWorkflowsResponseTypeDef,
     PersistentStorageConfigurationTypeDef,
     ProjectListFilterTypeDef,
     RepositoryInputTypeDef,
     StartDevEnvironmentResponseTypeDef,
     StartDevEnvironmentSessionResponseTypeDef,
+    StartWorkflowRunResponseTypeDef,
     StopDevEnvironmentResponseTypeDef,
     StopDevEnvironmentSessionResponseTypeDef,
     UpdateDevEnvironmentResponseTypeDef,
@@ -95,7 +102,7 @@ class Exceptions:
 
 class CodeCatalystClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html)
     """
 
@@ -110,14 +117,14 @@ class CodeCatalystClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#close)
         """
     def create_access_token(
@@ -126,7 +133,7 @@ class CodeCatalystClient(BaseClient):
         """
         Creates a personal access token (PAT) for the current user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.create_access_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.create_access_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#create_access_token)
         """
     def create_dev_environment(
@@ -140,14 +147,15 @@ class CodeCatalystClient(BaseClient):
         clientToken: str = None,
         alias: str = None,
         ides: List["IdeConfigurationTypeDef"] = None,
-        inactivityTimeoutMinutes: int = None
+        inactivityTimeoutMinutes: int = None,
+        vpcConnectionName: str = None
     ) -> CreateDevEnvironmentResponseTypeDef:
         """
         Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development
         environment that you can use to quickly work on the code stored in the source
         repositories of your project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.create_dev_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.create_dev_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#create_dev_environment)
         """
     def create_project(
@@ -156,7 +164,7 @@ class CodeCatalystClient(BaseClient):
         """
         Creates a project in a specified space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.create_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.create_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#create_project)
         """
     def create_source_repository(
@@ -165,7 +173,7 @@ class CodeCatalystClient(BaseClient):
         """
         Creates an empty Git-based source repository in a specified project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.create_source_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.create_source_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#create_source_repository)
         """
     def create_source_repository_branch(
@@ -180,14 +188,14 @@ class CodeCatalystClient(BaseClient):
         """
         Creates a branch in a specified source repository in Amazon CodeCatalyst.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.create_source_repository_branch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.create_source_repository_branch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#create_source_repository_branch)
         """
     def delete_access_token(self, *, id: str) -> Dict[str, Any]:
         """
         Deletes a specified personal access token (PAT).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_access_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_access_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#delete_access_token)
         """
     def delete_dev_environment(
@@ -196,14 +204,14 @@ class CodeCatalystClient(BaseClient):
         """
         Deletes a Dev Environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_dev_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_dev_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#delete_dev_environment)
         """
     def delete_project(self, *, spaceName: str, name: str) -> DeleteProjectResponseTypeDef:
         """
         Deletes a project in a space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#delete_project)
         """
     def delete_source_repository(
@@ -212,14 +220,14 @@ class CodeCatalystClient(BaseClient):
         """
         Deletes a source repository in Amazon CodeCatalyst.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_source_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_source_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#delete_source_repository)
         """
     def delete_space(self, *, name: str) -> DeleteSpaceResponseTypeDef:
         """
         Deletes a space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.delete_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#delete_space)
         """
     def generate_presigned_url(
@@ -232,7 +240,7 @@ class CodeCatalystClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#generate_presigned_url)
         """
     def get_dev_environment(
@@ -242,14 +250,14 @@ class CodeCatalystClient(BaseClient):
         Returns information about a Dev Environment for a source repository in a
         project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.get_dev_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_dev_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_dev_environment)
         """
     def get_project(self, *, spaceName: str, name: str) -> GetProjectResponseTypeDef:
         """
         Returns information about a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.get_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_project)
         """
     def get_source_repository(
@@ -258,7 +266,7 @@ class CodeCatalystClient(BaseClient):
         """
         Returns information about a source repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.get_source_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_source_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_source_repository)
         """
     def get_source_repository_clone_urls(
@@ -268,14 +276,14 @@ class CodeCatalystClient(BaseClient):
         Returns information about the URLs that can be used with a Git client to clone a
         source repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.get_source_repository_clone_urls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_source_repository_clone_urls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_source_repository_clone_urls)
         """
     def get_space(self, *, name: str) -> GetSpaceResponseTypeDef:
         """
         Returns information about an space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.get_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_space)
         """
     def get_subscription(self, *, spaceName: str) -> GetSubscriptionResponseTypeDef:
@@ -283,7 +291,7 @@ class CodeCatalystClient(BaseClient):
         Returns information about the Amazon Web Services account used for billing
         purposes and the billing plan for the space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.get_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_subscription)
         """
     def get_user_details(
@@ -292,8 +300,26 @@ class CodeCatalystClient(BaseClient):
         """
         Returns information about a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.get_user_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_user_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_user_details)
+        """
+    def get_workflow(
+        self, *, spaceName: str, id: str, projectName: str
+    ) -> GetWorkflowResponseTypeDef:
+        """
+        Returns information about a workflow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_workflow)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_workflow)
+        """
+    def get_workflow_run(
+        self, *, spaceName: str, id: str, projectName: str
+    ) -> GetWorkflowRunResponseTypeDef:
+        """
+        Returns information about a specified run of a workflow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.get_workflow_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#get_workflow_run)
         """
     def list_access_tokens(
         self, *, maxResults: int = None, nextToken: str = None
@@ -302,7 +328,7 @@ class CodeCatalystClient(BaseClient):
         Lists all personal access tokens (PATs) associated with the user who calls the
         API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.list_access_tokens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_access_tokens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_access_tokens)
         """
     def list_dev_environment_sessions(
@@ -317,14 +343,14 @@ class CodeCatalystClient(BaseClient):
         """
         Retrieves a list of active sessions for a Dev Environment in a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.list_dev_environment_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_dev_environment_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_dev_environment_sessions)
         """
     def list_dev_environments(
         self,
         *,
         spaceName: str,
-        projectName: str,
+        projectName: str = None,
         filters: List["FilterTypeDef"] = None,
         nextToken: str = None,
         maxResults: int = None
@@ -332,7 +358,7 @@ class CodeCatalystClient(BaseClient):
         """
         Retrieves a list of Dev Environments in a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.list_dev_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_dev_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_dev_environments)
         """
     def list_event_logs(
@@ -346,10 +372,9 @@ class CodeCatalystClient(BaseClient):
         maxResults: int = None
     ) -> ListEventLogsResponseTypeDef:
         """
-        Retrieves a list of events that occurred during a specified time period in a
-        space.
+        Retrieves a list of events that occurred during a specific time in a space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.list_event_logs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_event_logs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_event_logs)
         """
     def list_projects(
@@ -363,7 +388,7 @@ class CodeCatalystClient(BaseClient):
         """
         Retrieves a list of projects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_projects)
         """
     def list_source_repositories(
@@ -372,7 +397,7 @@ class CodeCatalystClient(BaseClient):
         """
         Retrieves a list of source repositories in a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.list_source_repositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_source_repositories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_source_repositories)
         """
     def list_source_repository_branches(
@@ -387,15 +412,46 @@ class CodeCatalystClient(BaseClient):
         """
         Retrieves a list of branches in a specified source repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.list_source_repository_branches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_source_repository_branches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_source_repository_branches)
         """
     def list_spaces(self, *, nextToken: str = None) -> ListSpacesResponseTypeDef:
         """
         Retrieves a list of spaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.list_spaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_spaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_spaces)
+        """
+    def list_workflow_runs(
+        self,
+        *,
+        spaceName: str,
+        projectName: str,
+        workflowId: str = None,
+        nextToken: str = None,
+        maxResults: int = None,
+        sortBy: List[Dict[str, Any]] = None
+    ) -> ListWorkflowRunsResponseTypeDef:
+        """
+        Retrieves a list of workflow runs of a specified workflow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_workflow_runs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_workflow_runs)
+        """
+    def list_workflows(
+        self,
+        *,
+        spaceName: str,
+        projectName: str,
+        nextToken: str = None,
+        maxResults: int = None,
+        sortBy: List[Dict[str, Any]] = None
+    ) -> ListWorkflowsResponseTypeDef:
+        """
+        Retrieves a list of workflows in a specified project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.list_workflows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#list_workflows)
         """
     def start_dev_environment(
         self,
@@ -410,7 +466,7 @@ class CodeCatalystClient(BaseClient):
         """
         Starts a specified Dev Environment and puts it into an active state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.start_dev_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.start_dev_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#start_dev_environment)
         """
     def start_dev_environment_session(
@@ -424,8 +480,17 @@ class CodeCatalystClient(BaseClient):
         """
         Starts a session for a specified Dev Environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.start_dev_environment_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.start_dev_environment_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#start_dev_environment_session)
+        """
+    def start_workflow_run(
+        self, *, spaceName: str, projectName: str, workflowId: str, clientToken: str = None
+    ) -> StartWorkflowRunResponseTypeDef:
+        """
+        Begins a run of a specified workflow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.start_workflow_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#start_workflow_run)
         """
     def stop_dev_environment(
         self, *, spaceName: str, projectName: str, id: str
@@ -433,7 +498,7 @@ class CodeCatalystClient(BaseClient):
         """
         Pauses a specified Dev Environment and places it in a non-running state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.stop_dev_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.stop_dev_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#stop_dev_environment)
         """
     def stop_dev_environment_session(
@@ -442,7 +507,7 @@ class CodeCatalystClient(BaseClient):
         """
         Stops a session for a specified Dev Environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.stop_dev_environment_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.stop_dev_environment_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#stop_dev_environment_session)
         """
     def update_dev_environment(
@@ -460,7 +525,7 @@ class CodeCatalystClient(BaseClient):
         """
         Changes one or more values for a Dev Environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.update_dev_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.update_dev_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#update_dev_environment)
         """
     def update_project(
@@ -469,14 +534,14 @@ class CodeCatalystClient(BaseClient):
         """
         Changes one or more values for a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.update_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#update_project)
         """
     def update_space(self, *, name: str, description: str = None) -> UpdateSpaceResponseTypeDef:
         """
         Changes one or more values for a space.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.update_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.update_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#update_space)
         """
     def verify_session(self) -> VerifySessionResponseTypeDef:
@@ -484,7 +549,7 @@ class CodeCatalystClient(BaseClient):
         Verifies whether the calling user has a valid Amazon CodeCatalyst login and
         session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Client.verify_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Client.verify_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/client.html#verify_session)
         """
     @overload
@@ -492,7 +557,7 @@ class CodeCatalystClient(BaseClient):
         self, operation_name: Literal["list_access_tokens"]
     ) -> ListAccessTokensPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListAccessTokens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListAccessTokens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listaccesstokenspaginator)
         """
     @overload
@@ -500,7 +565,7 @@ class CodeCatalystClient(BaseClient):
         self, operation_name: Literal["list_dev_environment_sessions"]
     ) -> ListDevEnvironmentSessionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironmentSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironmentSessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listdevenvironmentsessionspaginator)
         """
     @overload
@@ -508,19 +573,19 @@ class CodeCatalystClient(BaseClient):
         self, operation_name: Literal["list_dev_environments"]
     ) -> ListDevEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listdevenvironmentspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_event_logs"]) -> ListEventLogsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListEventLogs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListEventLogs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listeventlogspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListProjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListProjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listprojectspaginator)
         """
     @overload
@@ -528,7 +593,7 @@ class CodeCatalystClient(BaseClient):
         self, operation_name: Literal["list_source_repositories"]
     ) -> ListSourceRepositoriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listsourcerepositoriespaginator)
         """
     @overload
@@ -536,12 +601,26 @@ class CodeCatalystClient(BaseClient):
         self, operation_name: Literal["list_source_repository_branches"]
     ) -> ListSourceRepositoryBranchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositoryBranches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositoryBranches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listsourcerepositorybranchespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_spaces"]) -> ListSpacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSpaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSpaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listspacespaginator)
+        """
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_workflow_runs"]
+    ) -> ListWorkflowRunsPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflowRuns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listworkflowrunspaginator)
+        """
+    @overload
+    def get_paginator(self, operation_name: Literal["list_workflows"]) -> ListWorkflowsPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listworkflowspaginator)
         """

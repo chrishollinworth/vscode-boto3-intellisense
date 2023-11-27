@@ -18,6 +18,7 @@ from botocore.client import BaseClient, ClientMeta
 
 from .type_defs import (
     CreateTokenResponseTypeDef,
+    CreateTokenWithIAMResponseTypeDef,
     RegisterClientResponseTypeDef,
     StartDeviceAuthorizationResponseTypeDef,
 )
@@ -41,6 +42,7 @@ class Exceptions:
     InvalidClientMetadataException: Type[BotocoreClientError]
     InvalidGrantException: Type[BotocoreClientError]
     InvalidRequestException: Type[BotocoreClientError]
+    InvalidRequestRegionException: Type[BotocoreClientError]
     InvalidScopeException: Type[BotocoreClientError]
     SlowDownException: Type[BotocoreClientError]
     UnauthorizedClientException: Type[BotocoreClientError]
@@ -48,7 +50,7 @@ class Exceptions:
 
 class SSOOIDCClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sso-oidc.html#SSOOIDC.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sso-oidc.html#SSOOIDC.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html)
     """
 
@@ -63,14 +65,14 @@ class SSOOIDCClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sso-oidc.html#SSOOIDC.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sso-oidc.html#SSOOIDC.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sso-oidc.html#SSOOIDC.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sso-oidc.html#SSOOIDC.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#close)
         """
     def create_token(
@@ -86,10 +88,32 @@ class SSOOIDCClient(BaseClient):
         redirectUri: str = None
     ) -> CreateTokenResponseTypeDef:
         """
-        Creates and returns an access token for the authorized client.
+        Creates and returns access and refresh tokens for clients that are authenticated
+        using client secrets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sso-oidc.html#SSOOIDC.Client.create_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sso-oidc.html#SSOOIDC.Client.create_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#create_token)
+        """
+    def create_token_with_iam(
+        self,
+        *,
+        clientId: str,
+        grantType: str,
+        code: str = None,
+        refreshToken: str = None,
+        assertion: str = None,
+        scope: List[str] = None,
+        redirectUri: str = None,
+        subjectToken: str = None,
+        subjectTokenType: str = None,
+        requestedTokenType: str = None
+    ) -> CreateTokenWithIAMResponseTypeDef:
+        """
+        Creates and returns access and refresh tokens for clients and applications that
+        are authenticated using IAM entities.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sso-oidc.html#SSOOIDC.Client.create_token_with_iam)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#create_token_with_iam)
         """
     def generate_presigned_url(
         self,
@@ -101,7 +125,7 @@ class SSOOIDCClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sso-oidc.html#SSOOIDC.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sso-oidc.html#SSOOIDC.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#generate_presigned_url)
         """
     def register_client(
@@ -110,7 +134,7 @@ class SSOOIDCClient(BaseClient):
         """
         Registers a client with IAM Identity Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sso-oidc.html#SSOOIDC.Client.register_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sso-oidc.html#SSOOIDC.Client.register_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#register_client)
         """
     def start_device_authorization(
@@ -120,6 +144,6 @@ class SSOOIDCClient(BaseClient):
         Initiates device authorization by requesting a pair of verification codes from
         the authorization service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/sso-oidc.html#SSOOIDC.Client.start_device_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sso-oidc.html#SSOOIDC.Client.start_device_authorization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#start_device_authorization)
         """

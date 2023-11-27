@@ -86,6 +86,7 @@ from .literals import (
     EmbeddedConvert608To708Type,
     EmbeddedScte20DetectionType,
     FeatureActivationsInputPrepareScheduleActionsType,
+    FeatureActivationsOutputStaticImageOverlayScheduleActionsType,
     FecOutputIncludeFecType,
     FixedAfdType,
     Fmp4NielsenId3BehaviorType,
@@ -581,6 +582,8 @@ __all__ = (
     "StartTimecodeTypeDef",
     "StaticImageActivateScheduleActionSettingsTypeDef",
     "StaticImageDeactivateScheduleActionSettingsTypeDef",
+    "StaticImageOutputActivateScheduleActionSettingsTypeDef",
+    "StaticImageOutputDeactivateScheduleActionSettingsTypeDef",
     "StaticKeySettingsTypeDef",
     "StopChannelRequestRequestTypeDef",
     "StopChannelResponseTypeDef",
@@ -2143,6 +2146,7 @@ FeatureActivationsTypeDef = TypedDict(
     "FeatureActivationsTypeDef",
     {
         "InputPrepareScheduleActions": FeatureActivationsInputPrepareScheduleActionsType,
+        "OutputStaticImageOverlayScheduleActions": FeatureActivationsOutputStaticImageOverlayScheduleActionsType,
     },
     total=False,
 )
@@ -4049,6 +4053,8 @@ ScheduleActionSettingsTypeDef = TypedDict(
         "Scte35TimeSignalSettings": "Scte35TimeSignalScheduleActionSettingsTypeDef",
         "StaticImageActivateSettings": "StaticImageActivateScheduleActionSettingsTypeDef",
         "StaticImageDeactivateSettings": "StaticImageDeactivateScheduleActionSettingsTypeDef",
+        "StaticImageOutputActivateSettings": "StaticImageOutputActivateScheduleActionSettingsTypeDef",
+        "StaticImageOutputDeactivateSettings": "StaticImageOutputDeactivateScheduleActionSettingsTypeDef",
     },
     total=False,
 )
@@ -4349,6 +4355,56 @@ StaticImageDeactivateScheduleActionSettingsTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredStaticImageOutputActivateScheduleActionSettingsTypeDef = TypedDict(
+    "_RequiredStaticImageOutputActivateScheduleActionSettingsTypeDef",
+    {
+        "Image": "InputLocationTypeDef",
+        "OutputNames": List[str],
+    },
+)
+_OptionalStaticImageOutputActivateScheduleActionSettingsTypeDef = TypedDict(
+    "_OptionalStaticImageOutputActivateScheduleActionSettingsTypeDef",
+    {
+        "Duration": int,
+        "FadeIn": int,
+        "FadeOut": int,
+        "Height": int,
+        "ImageX": int,
+        "ImageY": int,
+        "Layer": int,
+        "Opacity": int,
+        "Width": int,
+    },
+    total=False,
+)
+
+class StaticImageOutputActivateScheduleActionSettingsTypeDef(
+    _RequiredStaticImageOutputActivateScheduleActionSettingsTypeDef,
+    _OptionalStaticImageOutputActivateScheduleActionSettingsTypeDef,
+):
+    pass
+
+_RequiredStaticImageOutputDeactivateScheduleActionSettingsTypeDef = TypedDict(
+    "_RequiredStaticImageOutputDeactivateScheduleActionSettingsTypeDef",
+    {
+        "OutputNames": List[str],
+    },
+)
+_OptionalStaticImageOutputDeactivateScheduleActionSettingsTypeDef = TypedDict(
+    "_OptionalStaticImageOutputDeactivateScheduleActionSettingsTypeDef",
+    {
+        "FadeOut": int,
+        "Layer": int,
+    },
+    total=False,
+)
+
+class StaticImageOutputDeactivateScheduleActionSettingsTypeDef(
+    _RequiredStaticImageOutputDeactivateScheduleActionSettingsTypeDef,
+    _OptionalStaticImageOutputDeactivateScheduleActionSettingsTypeDef,
+):
+    pass
 
 _RequiredStaticKeySettingsTypeDef = TypedDict(
     "_RequiredStaticKeySettingsTypeDef",

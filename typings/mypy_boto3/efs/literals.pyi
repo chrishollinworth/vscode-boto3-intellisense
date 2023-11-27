@@ -6,9 +6,9 @@ Type annotations for efs service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_efs.literals import DescribeFileSystemsPaginatorName
+    from mypy_boto3_efs.literals import DescribeAccessPointsPaginatorName
 
-    data: DescribeFileSystemsPaginatorName = "describe_file_systems"
+    data: DescribeAccessPointsPaginatorName = "describe_access_points"
     ```
 """
 import sys
@@ -19,8 +19,10 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "DescribeAccessPointsPaginatorName",
     "DescribeFileSystemsPaginatorName",
     "DescribeMountTargetsPaginatorName",
+    "DescribeReplicationConfigurationsPaginatorName",
     "DescribeTagsPaginatorName",
     "LifeCycleStateType",
     "PerformanceModeType",
@@ -29,12 +31,15 @@ __all__ = (
     "ResourceType",
     "StatusType",
     "ThroughputModeType",
+    "TransitionToArchiveRulesType",
     "TransitionToIARulesType",
     "TransitionToPrimaryStorageClassRulesType",
 )
 
+DescribeAccessPointsPaginatorName = Literal["describe_access_points"]
 DescribeFileSystemsPaginatorName = Literal["describe_file_systems"]
 DescribeMountTargetsPaginatorName = Literal["describe_mount_targets"]
+DescribeReplicationConfigurationsPaginatorName = Literal["describe_replication_configurations"]
 DescribeTagsPaginatorName = Literal["describe_tags"]
 LifeCycleStateType = Literal["available", "creating", "deleted", "deleting", "error", "updating"]
 PerformanceModeType = Literal["generalPurpose", "maxIO"]
@@ -43,10 +48,24 @@ ResourceIdTypeType = Literal["LONG_ID", "SHORT_ID"]
 ResourceType = Literal["FILE_SYSTEM", "MOUNT_TARGET"]
 StatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]
 ThroughputModeType = Literal["bursting", "elastic", "provisioned"]
+TransitionToArchiveRulesType = Literal[
+    "AFTER_14_DAYS",
+    "AFTER_180_DAYS",
+    "AFTER_1_DAY",
+    "AFTER_270_DAYS",
+    "AFTER_30_DAYS",
+    "AFTER_365_DAYS",
+    "AFTER_60_DAYS",
+    "AFTER_7_DAYS",
+    "AFTER_90_DAYS",
+]
 TransitionToIARulesType = Literal[
     "AFTER_14_DAYS",
+    "AFTER_180_DAYS",
     "AFTER_1_DAY",
+    "AFTER_270_DAYS",
     "AFTER_30_DAYS",
+    "AFTER_365_DAYS",
     "AFTER_60_DAYS",
     "AFTER_7_DAYS",
     "AFTER_90_DAYS",

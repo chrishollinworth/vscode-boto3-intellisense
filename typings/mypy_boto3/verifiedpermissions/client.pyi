@@ -25,6 +25,8 @@ from .paginator import (
 )
 from .type_defs import (
     ActionIdentifierTypeDef,
+    BatchIsAuthorizedInputItemTypeDef,
+    BatchIsAuthorizedOutputTypeDef,
     ConfigurationTypeDef,
     ContextDefinitionTypeDef,
     CreateIdentitySourceOutputTypeDef,
@@ -84,7 +86,7 @@ class Exceptions:
 
 class VerifiedPermissionsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html)
     """
 
@@ -95,18 +97,32 @@ class VerifiedPermissionsClient(BaseClient):
         """
         VerifiedPermissionsClient exceptions.
         """
+    def batch_is_authorized(
+        self,
+        *,
+        policyStoreId: str,
+        requests: List["BatchIsAuthorizedInputItemTypeDef"],
+        entities: "EntitiesDefinitionTypeDef" = None
+    ) -> BatchIsAuthorizedOutputTypeDef:
+        """
+        Makes a series of decisions about multiple authorization requests for one
+        principal or resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.batch_is_authorized)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#batch_is_authorized)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#can_paginate)
         """
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#close)
         """
     def create_identity_source(
@@ -121,7 +137,7 @@ class VerifiedPermissionsClient(BaseClient):
         Creates a reference to an Amazon Cognito user pool as an external identity
         provider (IdP).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.create_identity_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.create_identity_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#create_identity_source)
         """
     def create_policy(
@@ -130,7 +146,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Creates a Cedar policy and saves it in the specified policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.create_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.create_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#create_policy)
         """
     def create_policy_store(
@@ -139,7 +155,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Creates a policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.create_policy_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.create_policy_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#create_policy_store)
         """
     def create_policy_template(
@@ -153,7 +169,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Creates a policy template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.create_policy_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.create_policy_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#create_policy_template)
         """
     def delete_identity_source(
@@ -163,21 +179,21 @@ class VerifiedPermissionsClient(BaseClient):
         Deletes an identity source that references an identity provider (IdP) such as
         Amazon Cognito.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.delete_identity_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.delete_identity_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#delete_identity_source)
         """
     def delete_policy(self, *, policyStoreId: str, policyId: str) -> Dict[str, Any]:
         """
         Deletes the specified policy from the policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.delete_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.delete_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#delete_policy)
         """
     def delete_policy_store(self, *, policyStoreId: str) -> Dict[str, Any]:
         """
         Deletes the specified policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.delete_policy_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.delete_policy_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#delete_policy_store)
         """
     def delete_policy_template(
@@ -186,7 +202,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Deletes the specified policy template from the policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.delete_policy_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.delete_policy_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#delete_policy_template)
         """
     def generate_presigned_url(
@@ -199,7 +215,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#generate_presigned_url)
         """
     def get_identity_source(
@@ -208,21 +224,21 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Retrieves the details about the specified identity source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_identity_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_identity_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#get_identity_source)
         """
     def get_policy(self, *, policyStoreId: str, policyId: str) -> GetPolicyOutputTypeDef:
         """
         Retrieves information about the specified policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#get_policy)
         """
     def get_policy_store(self, *, policyStoreId: str) -> GetPolicyStoreOutputTypeDef:
         """
         Retrieves details about a policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_policy_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_policy_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#get_policy_store)
         """
     def get_policy_template(
@@ -232,14 +248,14 @@ class VerifiedPermissionsClient(BaseClient):
         Retrieve the details for the specified policy template in the specified policy
         store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_policy_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_policy_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#get_policy_template)
         """
     def get_schema(self, *, policyStoreId: str) -> GetSchemaOutputTypeDef:
         """
         Retrieve the details for the specified schema in the specified policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.get_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#get_schema)
         """
     def is_authorized(
@@ -256,7 +272,7 @@ class VerifiedPermissionsClient(BaseClient):
         Makes an authorization decision about a service request described in the
         parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.is_authorized)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.is_authorized)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#is_authorized)
         """
     def is_authorized_with_token(
@@ -274,7 +290,7 @@ class VerifiedPermissionsClient(BaseClient):
         Makes an authorization decision about a service request described in the
         parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.is_authorized_with_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.is_authorized_with_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#is_authorized_with_token)
         """
     def list_identity_sources(
@@ -289,7 +305,7 @@ class VerifiedPermissionsClient(BaseClient):
         Returns a paginated list of all of the identity sources defined in the specified
         policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.list_identity_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.list_identity_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#list_identity_sources)
         """
     def list_policies(
@@ -303,7 +319,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Returns a paginated list of all policies stored in the specified policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.list_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.list_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#list_policies)
         """
     def list_policy_stores(
@@ -313,7 +329,7 @@ class VerifiedPermissionsClient(BaseClient):
         Returns a paginated list of all policy stores in the calling Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.list_policy_stores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.list_policy_stores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#list_policy_stores)
         """
     def list_policy_templates(
@@ -322,7 +338,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Returns a paginated list of all policy templates in the specified policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.list_policy_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.list_policy_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#list_policy_templates)
         """
     def put_schema(
@@ -331,7 +347,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Creates or updates the policy schema in the specified policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.put_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.put_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#put_schema)
         """
     def update_identity_source(
@@ -347,7 +363,7 @@ class VerifiedPermissionsClient(BaseClient):
         source, or to change the mapping of identities from the IdP to a different
         principal entity type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.update_identity_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.update_identity_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#update_identity_source)
         """
     def update_policy(
@@ -356,7 +372,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Modifies a Cedar static policy in the specified policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.update_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.update_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#update_policy)
         """
     def update_policy_store(
@@ -365,7 +381,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Modifies the validation setting for a policy store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.update_policy_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.update_policy_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#update_policy_store)
         """
     def update_policy_template(
@@ -374,7 +390,7 @@ class VerifiedPermissionsClient(BaseClient):
         """
         Updates the specified policy template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.update_policy_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Client.update_policy_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/client.html#update_policy_template)
         """
     @overload
@@ -382,13 +398,13 @@ class VerifiedPermissionsClient(BaseClient):
         self, operation_name: Literal["list_identity_sources"]
     ) -> ListIdentitySourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListIdentitySources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListIdentitySources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listidentitysourcespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_policies"]) -> ListPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpoliciespaginator)
         """
     @overload
@@ -396,7 +412,7 @@ class VerifiedPermissionsClient(BaseClient):
         self, operation_name: Literal["list_policy_stores"]
     ) -> ListPolicyStoresPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyStores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyStores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicystorespaginator)
         """
     @overload
@@ -404,6 +420,6 @@ class VerifiedPermissionsClient(BaseClient):
         self, operation_name: Literal["list_policy_templates"]
     ) -> ListPolicyTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.28.85/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicytemplatespaginator)
         """

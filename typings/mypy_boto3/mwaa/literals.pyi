@@ -6,9 +6,9 @@ Type annotations for mwaa service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mwaa.literals import EnvironmentStatusType
+    from mypy_boto3_mwaa.literals import EndpointManagementType
 
-    data: EnvironmentStatusType = "AVAILABLE"
+    data: EndpointManagementType = "CUSTOMER"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "EndpointManagementType",
     "EnvironmentStatusType",
     "ListEnvironmentsPaginatorName",
     "LoggingLevelType",
@@ -27,6 +28,7 @@ __all__ = (
     "WebserverAccessModeType",
 )
 
+EndpointManagementType = Literal["CUSTOMER", "SERVICE"]
 EnvironmentStatusType = Literal[
     "AVAILABLE",
     "CREATE_FAILED",
@@ -34,6 +36,7 @@ EnvironmentStatusType = Literal[
     "CREATING_SNAPSHOT",
     "DELETED",
     "DELETING",
+    "PENDING",
     "ROLLING_BACK",
     "UNAVAILABLE",
     "UPDATE_FAILED",
