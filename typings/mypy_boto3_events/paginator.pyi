@@ -22,6 +22,7 @@ Usage::
     list_targets_by_rule_paginator: ListTargetsByRulePaginator = client.get_paginator("list_targets_by_rule")
     ```
 """
+
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -37,7 +38,7 @@ __all__ = ("ListRuleNamesByTargetPaginator", "ListRulesPaginator", "ListTargetsB
 
 class ListRuleNamesByTargetPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulenamesbytargetpaginator)
     """
 
@@ -49,13 +50,13 @@ class ListRuleNamesByTargetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRuleNamesByTargetResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulenamesbytargetpaginator)
         """
 
 class ListRulesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/events.html#EventBridge.Paginator.ListRules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/events.html#EventBridge.Paginator.ListRules)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulespaginator)
     """
 
@@ -67,13 +68,13 @@ class ListRulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/events.html#EventBridge.Paginator.ListRules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/events.html#EventBridge.Paginator.ListRules.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulespaginator)
         """
 
 class ListTargetsByRulePaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listtargetsbyrulepaginator)
     """
 
@@ -85,6 +86,6 @@ class ListTargetsByRulePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTargetsByRuleResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listtargetsbyrulepaginator)
         """

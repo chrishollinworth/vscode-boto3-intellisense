@@ -12,6 +12,7 @@ Usage::
     client: BackupStorageClient = boto3.client("backupstorage")
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, Type, Union
@@ -59,7 +60,7 @@ class Exceptions:
 
 class BackupStorageClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html)
     """
 
@@ -70,27 +71,31 @@ class BackupStorageClient(BaseClient):
         """
         BackupStorageClient exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#close)
         """
+
     def delete_object(self, *, BackupJobId: str, ObjectName: str) -> None:
         """
         Delete Object from the incremental base Backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.delete_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.delete_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#delete_object)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -101,25 +106,28 @@ class BackupStorageClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#generate_presigned_url)
         """
+
     def get_chunk(self, *, StorageJobId: str, ChunkToken: str) -> GetChunkOutputTypeDef:
         """
         Gets the specified object's chunk.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.get_chunk)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.get_chunk)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#get_chunk)
         """
+
     def get_object_metadata(
         self, *, StorageJobId: str, ObjectToken: str
     ) -> GetObjectMetadataOutputTypeDef:
         """
         Get metadata associated with an Object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.get_object_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.get_object_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#get_object_metadata)
         """
+
     def list_chunks(
         self, *, StorageJobId: str, ObjectToken: str, MaxResults: int = None, NextToken: str = None
     ) -> ListChunksOutputTypeDef:
@@ -129,9 +137,10 @@ class BackupStorageClient(BaseClient):
         **Request Syntax** response = client.list_chunks( StorageJobId='string',
         ObjectToken='string', MaxResults=123, NextToken=...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.list_chunks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.list_chunks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#list_chunks)
         """
+
     def list_objects(
         self,
         *,
@@ -146,9 +155,10 @@ class BackupStorageClient(BaseClient):
         """
         List all Objects in a given Backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.list_objects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.list_objects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#list_objects)
         """
+
     def notify_object_complete(
         self,
         *,
@@ -168,9 +178,10 @@ class BackupStorageClient(BaseClient):
         response = client.notify_object_complete( BackupJobId='string',
         UploadId='string', ObjectChecksum='string', ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.notify_object_complete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.notify_object_complete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#notify_object_complete)
         """
+
     def put_chunk(
         self,
         *,
@@ -185,9 +196,10 @@ class BackupStorageClient(BaseClient):
         """
         Upload chunk.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.put_chunk)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.put_chunk)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#put_chunk)
         """
+
     def put_object(
         self,
         *,
@@ -206,15 +218,16 @@ class BackupStorageClient(BaseClient):
         Upload object that can store object metadata String and data blob in single API
         call using inline chunk field.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.put_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.put_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#put_object)
         """
+
     def start_object(
         self, *, BackupJobId: str, ObjectName: str, ThrowOnDuplicate: bool = None
     ) -> StartObjectOutputTypeDef:
         """
         Start upload containing one or many chunks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/backupstorage.html#BackupStorage.Client.start_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/backupstorage.html#BackupStorage.Client.start_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backupstorage/client.html#start_object)
         """

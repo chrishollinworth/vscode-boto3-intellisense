@@ -8,9 +8,10 @@ Usage::
     ```python
     from mypy_boto3_glue.literals import AdditionalOptionKeysType
 
-    data: AdditionalOptionKeysType = "performanceTuning.caching"
+    data: AdditionalOptionKeysType = "observations.scope"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -75,6 +76,7 @@ __all__ = (
     "JDBCDataTypeType",
     "JdbcMetadataEntryType",
     "JobBookmarksEncryptionModeType",
+    "JobModeType",
     "JobRunStateType",
     "JoinTypeType",
     "LanguageType",
@@ -126,11 +128,12 @@ __all__ = (
     "UnionTypeType",
     "UpdateBehaviorType",
     "UpdateCatalogBehaviorType",
+    "ViewDialectType",
     "WorkerTypeType",
     "WorkflowRunStatusType",
 )
 
-AdditionalOptionKeysType = Literal["performanceTuning.caching"]
+AdditionalOptionKeysType = Literal["observations.scope", "performanceTuning.caching"]
 AggFunctionType = Literal[
     "avg",
     "count",
@@ -157,7 +160,7 @@ BackfillErrorCodeType = Literal[
 ]
 BlueprintRunStateType = Literal["FAILED", "ROLLING_BACK", "RUNNING", "SUCCEEDED"]
 BlueprintStatusType = Literal["ACTIVE", "CREATING", "FAILED", "UPDATING"]
-CatalogEncryptionModeType = Literal["DISABLED", "SSE-KMS"]
+CatalogEncryptionModeType = Literal["DISABLED", "SSE-KMS", "SSE-KMS-WITH-SERVICE-ROLE"]
 CloudWatchEncryptionModeType = Literal["DISABLED", "SSE-KMS"]
 ColumnStatisticsStateType = Literal["FAILED", "RUNNING", "STARTING", "STOPPED", "SUCCEEDED"]
 ColumnStatisticsTypeType = Literal[
@@ -180,6 +183,7 @@ ConnectionPropertyKeyType = Literal[
     "CUSTOM_JDBC_CERT_STRING",
     "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
     "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
+    "ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD",
     "ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD",
     "ENCRYPTED_PASSWORD",
     "HOST",
@@ -200,6 +204,8 @@ ConnectionPropertyKeyType = Literal[
     "KAFKA_SASL_GSSAPI_PRINCIPAL",
     "KAFKA_SASL_GSSAPI_SERVICE",
     "KAFKA_SASL_MECHANISM",
+    "KAFKA_SASL_PLAIN_PASSWORD",
+    "KAFKA_SASL_PLAIN_USERNAME",
     "KAFKA_SASL_SCRAM_PASSWORD",
     "KAFKA_SASL_SCRAM_SECRETS_ARN",
     "KAFKA_SASL_SCRAM_USERNAME",
@@ -296,8 +302,10 @@ JDBCDataTypeType = Literal[
 ]
 JdbcMetadataEntryType = Literal["COMMENTS", "RAWTYPES"]
 JobBookmarksEncryptionModeType = Literal["CSE-KMS", "DISABLED"]
+JobModeType = Literal["NOTEBOOK", "SCRIPT", "VISUAL"]
 JobRunStateType = Literal[
     "ERROR",
+    "EXPIRED",
     "FAILED",
     "RUNNING",
     "STARTING",
@@ -384,5 +392,6 @@ TriggerTypeType = Literal["CONDITIONAL", "EVENT", "ON_DEMAND", "SCHEDULED"]
 UnionTypeType = Literal["ALL", "DISTINCT"]
 UpdateBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
 UpdateCatalogBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
+ViewDialectType = Literal["ATHENA", "REDSHIFT", "SPARK"]
 WorkerTypeType = Literal["G.025X", "G.1X", "G.2X", "G.4X", "G.8X", "Standard", "Z.2X"]
 WorkflowRunStatusType = Literal["COMPLETED", "ERROR", "RUNNING", "STOPPED", "STOPPING"]

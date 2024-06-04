@@ -11,6 +11,7 @@ Usage::
     data: AddPermissionRequestQueueTypeDef = {...}
     ```
 """
+
 import sys
 from typing import IO, Any, Dict, List, Union
 
@@ -589,6 +590,7 @@ ReceiveMessageRequestQueueTypeDef = TypedDict(
     "ReceiveMessageRequestQueueTypeDef",
     {
         "AttributeNames": List[QueueAttributeNameType],
+        "MessageSystemAttributeNames": List[MessageSystemAttributeNameType],
         "MessageAttributeNames": List[str],
         "MaxNumberOfMessages": int,
         "VisibilityTimeout": int,
@@ -608,6 +610,7 @@ _OptionalReceiveMessageRequestRequestTypeDef = TypedDict(
     "_OptionalReceiveMessageRequestRequestTypeDef",
     {
         "AttributeNames": List[QueueAttributeNameType],
+        "MessageSystemAttributeNames": List[MessageSystemAttributeNameType],
         "MessageAttributeNames": List[str],
         "MaxNumberOfMessages": int,
         "VisibilityTimeout": int,

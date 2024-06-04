@@ -99,6 +99,7 @@ Usage::
     simulate_principal_policy_paginator: SimulatePrincipalPolicyPaginator = client.get_paginator("simulate_principal_policy")
     ```
 """
+
 from .client import IAMClient
 from .paginator import (
     GetAccountAuthorizationDetailsPaginator,

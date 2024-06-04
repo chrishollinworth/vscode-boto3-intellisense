@@ -40,6 +40,7 @@ Usage::
     list_safety_rules_paginator: ListSafetyRulesPaginator = client.get_paginator("list_safety_rules")
     ```
 """
+
 from .client import Route53RecoveryControlConfigClient
 from .paginator import (
     ListAssociatedRoute53HealthChecksPaginator,

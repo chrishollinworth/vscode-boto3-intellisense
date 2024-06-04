@@ -11,6 +11,7 @@ Usage::
     data: BatchGetRecordErrorTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

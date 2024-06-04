@@ -11,6 +11,7 @@ Usage::
     data: AacCodingModeType = "AD_RECEIVER_MIX"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -57,14 +58,25 @@ __all__ = (
     "ChannelClassType",
     "ChannelCreatedWaiterName",
     "ChannelDeletedWaiterName",
+    "ChannelPipelineIdToRestartType",
     "ChannelRunningWaiterName",
     "ChannelStateType",
     "ChannelStoppedWaiterName",
+    "CloudWatchAlarmTemplateComparisonOperatorType",
+    "CloudWatchAlarmTemplateStatisticType",
+    "CloudWatchAlarmTemplateTargetResourceTypeType",
+    "CloudWatchAlarmTemplateTreatMissingDataType",
+    "CmafIngestSegmentLengthUnitsType",
+    "CmafNielsenId3BehaviorType",
+    "ColorSpaceType",
     "ContentTypeType",
+    "DashRoleAudioType",
+    "DashRoleCaptionType",
     "DescribeSchedulePaginatorName",
     "DeviceSettingsSyncStateType",
     "DeviceUpdateStatusType",
     "DolbyEProgramSelectionType",
+    "DvbDashAccessibilityType",
     "DvbSdtOutputSdtType",
     "DvbSubDestinationAlignmentType",
     "DvbSubDestinationBackgroundColorType",
@@ -94,6 +106,7 @@ __all__ = (
     "EbuTtDFillLineGapControlType",
     "EmbeddedConvert608To708Type",
     "EmbeddedScte20DetectionType",
+    "EventBridgeRuleTemplateEventTypeType",
     "FeatureActivationsInputPrepareScheduleActionsType",
     "FeatureActivationsOutputStaticImageOverlayScheduleActionsType",
     "FecOutputIncludeFecType",
@@ -134,12 +147,16 @@ __all__ = (
     "H265GopSizeUnitsType",
     "H265LevelType",
     "H265LookAheadRateControlType",
+    "H265MvOverPictureBoundariesType",
+    "H265MvTemporalPredictorType",
     "H265ProfileType",
     "H265RateControlModeType",
     "H265ScanTypeType",
     "H265SceneChangeDetectType",
     "H265TierType",
+    "H265TilePaddingType",
     "H265TimecodeInsertionBehaviorType",
+    "H265TreeblockSizeType",
     "HlsAdMarkersType",
     "HlsAkamaiHttpTransferModeType",
     "HlsCaptionLanguageSettingType",
@@ -178,6 +195,7 @@ __all__ = (
     "InputDetachedWaiterName",
     "InputDeviceActiveInputType",
     "InputDeviceCodecType",
+    "InputDeviceConfigurableAudioChannelPairProfileType",
     "InputDeviceConfiguredInputType",
     "InputDeviceConnectionStateType",
     "InputDeviceIpSchemeType",
@@ -186,6 +204,7 @@ __all__ = (
     "InputDeviceStateType",
     "InputDeviceTransferTypeType",
     "InputDeviceTypeType",
+    "InputDeviceUhdAudioChannelPairProfileType",
     "InputFilterType",
     "InputLossActionForHlsOutType",
     "InputLossActionForMsSmoothOutType",
@@ -203,6 +222,10 @@ __all__ = (
     "InputTypeType",
     "LastFrameClippingBehaviorType",
     "ListChannelsPaginatorName",
+    "ListCloudWatchAlarmTemplateGroupsPaginatorName",
+    "ListCloudWatchAlarmTemplatesPaginatorName",
+    "ListEventBridgeRuleTemplateGroupsPaginatorName",
+    "ListEventBridgeRuleTemplatesPaginatorName",
     "ListInputDeviceTransfersPaginatorName",
     "ListInputDevicesPaginatorName",
     "ListInputSecurityGroupsPaginatorName",
@@ -211,6 +234,7 @@ __all__ = (
     "ListMultiplexesPaginatorName",
     "ListOfferingsPaginatorName",
     "ListReservationsPaginatorName",
+    "ListSignalMapsPaginatorName",
     "LogLevelType",
     "M2tsAbsentInputAudioBehaviorType",
     "M2tsAribCaptionsPidControlType",
@@ -286,9 +310,17 @@ __all__ = (
     "Scte35InputModeType",
     "Scte35NoRegionalBlackoutFlagType",
     "Scte35SegmentationCancelIndicatorType",
+    "Scte35SegmentationScopeType",
     "Scte35SpliceInsertNoRegionalBlackoutBehaviorType",
     "Scte35SpliceInsertWebDeliveryAllowedBehaviorType",
+    "Scte35TypeType",
     "Scte35WebDeliveryAllowedFlagType",
+    "SignalMapCreatedWaiterName",
+    "SignalMapMonitorDeletedWaiterName",
+    "SignalMapMonitorDeployedWaiterName",
+    "SignalMapMonitorDeploymentStatusType",
+    "SignalMapStatusType",
+    "SignalMapUpdatedWaiterName",
     "SmoothGroupAudioOnlyTimecodeControlType",
     "SmoothGroupCertificateModeType",
     "SmoothGroupEventIdModeType",
@@ -375,6 +407,7 @@ CdiInputResolutionType = Literal["FHD", "HD", "SD", "UHD"]
 ChannelClassType = Literal["SINGLE_PIPELINE", "STANDARD"]
 ChannelCreatedWaiterName = Literal["channel_created"]
 ChannelDeletedWaiterName = Literal["channel_deleted"]
+ChannelPipelineIdToRestartType = Literal["PIPELINE_0", "PIPELINE_1"]
 ChannelRunningWaiterName = Literal["channel_running"]
 ChannelStateType = Literal[
     "CREATE_FAILED",
@@ -390,7 +423,58 @@ ChannelStateType = Literal[
     "UPDATING",
 ]
 ChannelStoppedWaiterName = Literal["channel_stopped"]
+CloudWatchAlarmTemplateComparisonOperatorType = Literal[
+    "GreaterThanOrEqualToThreshold",
+    "GreaterThanThreshold",
+    "LessThanOrEqualToThreshold",
+    "LessThanThreshold",
+]
+CloudWatchAlarmTemplateStatisticType = Literal[
+    "Average", "Maximum", "Minimum", "SampleCount", "Sum"
+]
+CloudWatchAlarmTemplateTargetResourceTypeType = Literal[
+    "CLOUDFRONT_DISTRIBUTION",
+    "MEDIACONNECT_FLOW",
+    "MEDIALIVE_CHANNEL",
+    "MEDIALIVE_INPUT_DEVICE",
+    "MEDIALIVE_MULTIPLEX",
+    "MEDIAPACKAGE_CHANNEL",
+    "MEDIAPACKAGE_ORIGIN_ENDPOINT",
+    "S3_BUCKET",
+]
+CloudWatchAlarmTemplateTreatMissingDataType = Literal[
+    "breaching", "ignore", "missing", "notBreaching"
+]
+CmafIngestSegmentLengthUnitsType = Literal["MILLISECONDS", "SECONDS"]
+CmafNielsenId3BehaviorType = Literal["NO_PASSTHROUGH", "PASSTHROUGH"]
+ColorSpaceType = Literal["HDR10", "HLG_2020", "REC_601", "REC_709"]
 ContentTypeType = Literal["image/jpeg"]
+DashRoleAudioType = Literal[
+    "ALTERNATE",
+    "COMMENTARY",
+    "DESCRIPTION",
+    "DUB",
+    "EMERGENCY",
+    "ENHANCED-AUDIO-INTELLIGIBILITY",
+    "KARAOKE",
+    "MAIN",
+    "SUPPLEMENTARY",
+]
+DashRoleCaptionType = Literal[
+    "ALTERNATE",
+    "CAPTION",
+    "COMMENTARY",
+    "DESCRIPTION",
+    "DUB",
+    "EASYREADER",
+    "EMERGENCY",
+    "FORCED-SUBTITLE",
+    "KARAOKE",
+    "MAIN",
+    "METADATA",
+    "SUBTITLE",
+    "SUPPLEMENTARY",
+]
 DescribeSchedulePaginatorName = Literal["describe_schedule"]
 DeviceSettingsSyncStateType = Literal["SYNCED", "SYNCING"]
 DeviceUpdateStatusType = Literal["NOT_UP_TO_DATE", "UPDATING", "UP_TO_DATE"]
@@ -404,6 +488,15 @@ DolbyEProgramSelectionType = Literal[
     "PROGRAM_6",
     "PROGRAM_7",
     "PROGRAM_8",
+]
+DvbDashAccessibilityType = Literal[
+    "DVBDASH_1_VISUALLY_IMPAIRED",
+    "DVBDASH_2_HARD_OF_HEARING",
+    "DVBDASH_3_SUPPLEMENTAL_COMMENTARY",
+    "DVBDASH_4_DIRECTORS_COMMENTARY",
+    "DVBDASH_5_EDUCATIONAL_NOTES",
+    "DVBDASH_6_MAIN_PROGRAM",
+    "DVBDASH_7_CLEAN_FEED",
 ]
 DvbSdtOutputSdtType = Literal["SDT_FOLLOW", "SDT_FOLLOW_IF_PRESENT", "SDT_MANUAL", "SDT_NONE"]
 DvbSubDestinationAlignmentType = Literal["CENTERED", "LEFT", "SMART"]
@@ -444,6 +537,21 @@ EbuTtDDestinationStyleControlType = Literal["EXCLUDE", "INCLUDE"]
 EbuTtDFillLineGapControlType = Literal["DISABLED", "ENABLED"]
 EmbeddedConvert608To708Type = Literal["DISABLED", "UPCONVERT"]
 EmbeddedScte20DetectionType = Literal["AUTO", "OFF"]
+EventBridgeRuleTemplateEventTypeType = Literal[
+    "MEDIACONNECT_ALERT",
+    "MEDIACONNECT_FLOW_STATUS_CHANGE",
+    "MEDIACONNECT_OUTPUT_HEALTH",
+    "MEDIACONNECT_SOURCE_HEALTH",
+    "MEDIALIVE_CHANNEL_ALERT",
+    "MEDIALIVE_CHANNEL_INPUT_CHANGE",
+    "MEDIALIVE_CHANNEL_STATE_CHANGE",
+    "MEDIALIVE_MULTIPLEX_ALERT",
+    "MEDIALIVE_MULTIPLEX_STATE_CHANGE",
+    "MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION",
+    "MEDIAPACKAGE_INPUT_NOTIFICATION",
+    "MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION",
+    "SIGNAL_MAP_ACTIVE_ALARM",
+]
 FeatureActivationsInputPrepareScheduleActionsType = Literal["DISABLED", "ENABLED"]
 FeatureActivationsOutputStaticImageOverlayScheduleActionsType = Literal["DISABLED", "ENABLED"]
 FecOutputIncludeFecType = Literal["COLUMN", "COLUMN_AND_ROW"]
@@ -529,12 +637,16 @@ H265LevelType = Literal[
     "H265_LEVEL_AUTO",
 ]
 H265LookAheadRateControlType = Literal["HIGH", "LOW", "MEDIUM"]
+H265MvOverPictureBoundariesType = Literal["DISABLED", "ENABLED"]
+H265MvTemporalPredictorType = Literal["DISABLED", "ENABLED"]
 H265ProfileType = Literal["MAIN", "MAIN_10BIT"]
 H265RateControlModeType = Literal["CBR", "MULTIPLEX", "QVBR"]
 H265ScanTypeType = Literal["INTERLACED", "PROGRESSIVE"]
 H265SceneChangeDetectType = Literal["DISABLED", "ENABLED"]
 H265TierType = Literal["HIGH", "MAIN"]
+H265TilePaddingType = Literal["NONE", "PADDED"]
 H265TimecodeInsertionBehaviorType = Literal["DISABLED", "PIC_TIMING_SEI"]
+H265TreeblockSizeType = Literal["AUTO", "TREE_SIZE_32X32"]
 HlsAdMarkersType = Literal["ADOBE", "ELEMENTAL", "ELEMENTAL_SCTE35"]
 HlsAkamaiHttpTransferModeType = Literal["CHUNKED", "NON_CHUNKED"]
 HlsCaptionLanguageSettingType = Literal["INSERT", "NONE", "OMIT"]
@@ -575,6 +687,16 @@ InputDenoiseFilterType = Literal["DISABLED", "ENABLED"]
 InputDetachedWaiterName = Literal["input_detached"]
 InputDeviceActiveInputType = Literal["HDMI", "SDI"]
 InputDeviceCodecType = Literal["AVC", "HEVC"]
+InputDeviceConfigurableAudioChannelPairProfileType = Literal[
+    "CBR-AAC_HQ-192000",
+    "CBR-AAC_HQ-256000",
+    "CBR-AAC_HQ-384000",
+    "CBR-AAC_HQ-512000",
+    "DISABLED",
+    "VBR-AAC_HE-64000",
+    "VBR-AAC_HHE-16000",
+    "VBR-AAC_LC-128000",
+]
 InputDeviceConfiguredInputType = Literal["AUTO", "HDMI", "SDI"]
 InputDeviceConnectionStateType = Literal["CONNECTED", "DISCONNECTED"]
 InputDeviceIpSchemeType = Literal["DHCP", "STATIC"]
@@ -583,6 +705,16 @@ InputDeviceScanTypeType = Literal["INTERLACED", "PROGRESSIVE"]
 InputDeviceStateType = Literal["IDLE", "STREAMING"]
 InputDeviceTransferTypeType = Literal["INCOMING", "OUTGOING"]
 InputDeviceTypeType = Literal["HD", "UHD"]
+InputDeviceUhdAudioChannelPairProfileType = Literal[
+    "CBR-AAC_HQ-192000",
+    "CBR-AAC_HQ-256000",
+    "CBR-AAC_HQ-384000",
+    "CBR-AAC_HQ-512000",
+    "DISABLED",
+    "VBR-AAC_HE-64000",
+    "VBR-AAC_HHE-16000",
+    "VBR-AAC_LC-128000",
+]
 InputFilterType = Literal["AUTO", "DISABLED", "FORCED"]
 InputLossActionForHlsOutType = Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"]
 InputLossActionForMsSmoothOutType = Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"]
@@ -611,6 +743,10 @@ InputTypeType = Literal[
 ]
 LastFrameClippingBehaviorType = Literal["EXCLUDE_LAST_FRAME", "INCLUDE_LAST_FRAME"]
 ListChannelsPaginatorName = Literal["list_channels"]
+ListCloudWatchAlarmTemplateGroupsPaginatorName = Literal["list_cloud_watch_alarm_template_groups"]
+ListCloudWatchAlarmTemplatesPaginatorName = Literal["list_cloud_watch_alarm_templates"]
+ListEventBridgeRuleTemplateGroupsPaginatorName = Literal["list_event_bridge_rule_template_groups"]
+ListEventBridgeRuleTemplatesPaginatorName = Literal["list_event_bridge_rule_templates"]
 ListInputDeviceTransfersPaginatorName = Literal["list_input_device_transfers"]
 ListInputDevicesPaginatorName = Literal["list_input_devices"]
 ListInputSecurityGroupsPaginatorName = Literal["list_input_security_groups"]
@@ -619,6 +755,7 @@ ListMultiplexProgramsPaginatorName = Literal["list_multiplex_programs"]
 ListMultiplexesPaginatorName = Literal["list_multiplexes"]
 ListOfferingsPaginatorName = Literal["list_offerings"]
 ListReservationsPaginatorName = Literal["list_reservations"]
+ListSignalMapsPaginatorName = Literal["list_signal_maps"]
 LogLevelType = Literal["DEBUG", "DISABLED", "ERROR", "INFO", "WARNING"]
 M2tsAbsentInputAudioBehaviorType = Literal["DROP", "ENCODE_SILENCE"]
 M2tsAribCaptionsPidControlType = Literal["AUTO", "USE_CONFIGURED"]
@@ -727,9 +864,38 @@ Scte35NoRegionalBlackoutFlagType = Literal["NO_REGIONAL_BLACKOUT", "REGIONAL_BLA
 Scte35SegmentationCancelIndicatorType = Literal[
     "SEGMENTATION_EVENT_CANCELED", "SEGMENTATION_EVENT_NOT_CANCELED"
 ]
+Scte35SegmentationScopeType = Literal["ALL_OUTPUT_GROUPS", "SCTE35_ENABLED_OUTPUT_GROUPS"]
 Scte35SpliceInsertNoRegionalBlackoutBehaviorType = Literal["FOLLOW", "IGNORE"]
 Scte35SpliceInsertWebDeliveryAllowedBehaviorType = Literal["FOLLOW", "IGNORE"]
+Scte35TypeType = Literal["NONE", "SCTE_35_WITHOUT_SEGMENTATION"]
 Scte35WebDeliveryAllowedFlagType = Literal["WEB_DELIVERY_ALLOWED", "WEB_DELIVERY_NOT_ALLOWED"]
+SignalMapCreatedWaiterName = Literal["signal_map_created"]
+SignalMapMonitorDeletedWaiterName = Literal["signal_map_monitor_deleted"]
+SignalMapMonitorDeployedWaiterName = Literal["signal_map_monitor_deployed"]
+SignalMapMonitorDeploymentStatusType = Literal[
+    "DELETE_COMPLETE",
+    "DELETE_FAILED",
+    "DELETE_IN_PROGRESS",
+    "DEPLOYMENT_COMPLETE",
+    "DEPLOYMENT_FAILED",
+    "DEPLOYMENT_IN_PROGRESS",
+    "DRY_RUN_DEPLOYMENT_COMPLETE",
+    "DRY_RUN_DEPLOYMENT_FAILED",
+    "DRY_RUN_DEPLOYMENT_IN_PROGRESS",
+    "NOT_DEPLOYED",
+]
+SignalMapStatusType = Literal[
+    "CREATE_COMPLETE",
+    "CREATE_FAILED",
+    "CREATE_IN_PROGRESS",
+    "NOT_READY",
+    "READY",
+    "UPDATE_COMPLETE",
+    "UPDATE_FAILED",
+    "UPDATE_IN_PROGRESS",
+    "UPDATE_REVERTED",
+]
+SignalMapUpdatedWaiterName = Literal["signal_map_updated"]
 SmoothGroupAudioOnlyTimecodeControlType = Literal["PASSTHROUGH", "USE_CONFIGURED_CLOCK"]
 SmoothGroupCertificateModeType = Literal["SELF_SIGNED", "VERIFY_AUTHENTICITY"]
 SmoothGroupEventIdModeType = Literal["NO_EVENT_ID", "USE_CONFIGURED", "USE_TIMESTAMP"]

@@ -18,6 +18,8 @@ Usage::
         GetFindingHistoryPaginator,
         GetFindingsPaginator,
         GetInsightsPaginator,
+        ListConfigurationPoliciesPaginator,
+        ListConfigurationPolicyAssociationsPaginator,
         ListEnabledProductsForImportPaginator,
         ListFindingAggregatorsPaginator,
         ListInvitationsPaginator,
@@ -37,6 +39,8 @@ Usage::
     get_finding_history_paginator: GetFindingHistoryPaginator = client.get_paginator("get_finding_history")
     get_findings_paginator: GetFindingsPaginator = client.get_paginator("get_findings")
     get_insights_paginator: GetInsightsPaginator = client.get_paginator("get_insights")
+    list_configuration_policies_paginator: ListConfigurationPoliciesPaginator = client.get_paginator("list_configuration_policies")
+    list_configuration_policy_associations_paginator: ListConfigurationPolicyAssociationsPaginator = client.get_paginator("list_configuration_policy_associations")
     list_enabled_products_for_import_paginator: ListEnabledProductsForImportPaginator = client.get_paginator("list_enabled_products_for_import")
     list_finding_aggregators_paginator: ListFindingAggregatorsPaginator = client.get_paginator("list_finding_aggregators")
     list_invitations_paginator: ListInvitationsPaginator = client.get_paginator("list_invitations")
@@ -46,12 +50,14 @@ Usage::
     list_standards_control_associations_paginator: ListStandardsControlAssociationsPaginator = client.get_paginator("list_standards_control_associations")
     ```
 """
+
 from datetime import datetime
 from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
 from .type_defs import (
+    AssociationFiltersTypeDef,
     AwsSecurityFindingFiltersTypeDef,
     AwsSecurityFindingIdentifierTypeDef,
     DescribeActionTargetsResponseTypeDef,
@@ -62,6 +68,8 @@ from .type_defs import (
     GetFindingHistoryResponseTypeDef,
     GetFindingsResponseTypeDef,
     GetInsightsResponseTypeDef,
+    ListConfigurationPoliciesResponseTypeDef,
+    ListConfigurationPolicyAssociationsResponseTypeDef,
     ListEnabledProductsForImportResponseTypeDef,
     ListFindingAggregatorsResponseTypeDef,
     ListInvitationsResponseTypeDef,
@@ -82,6 +90,8 @@ __all__ = (
     "GetFindingHistoryPaginator",
     "GetFindingsPaginator",
     "GetInsightsPaginator",
+    "ListConfigurationPoliciesPaginator",
+    "ListConfigurationPolicyAssociationsPaginator",
     "ListEnabledProductsForImportPaginator",
     "ListFindingAggregatorsPaginator",
     "ListInvitationsPaginator",
@@ -93,7 +103,7 @@ __all__ = (
 
 class DescribeActionTargetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.DescribeActionTargets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeActionTargets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describeactiontargetspaginator)
     """
 
@@ -101,13 +111,13 @@ class DescribeActionTargetsPaginator(Boto3Paginator):
         self, *, ActionTargetArns: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeActionTargetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.DescribeActionTargets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeActionTargets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describeactiontargetspaginator)
         """
 
 class DescribeProductsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.DescribeProducts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeProducts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describeproductspaginator)
     """
 
@@ -115,13 +125,13 @@ class DescribeProductsPaginator(Boto3Paginator):
         self, *, ProductArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeProductsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.DescribeProducts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeProducts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describeproductspaginator)
         """
 
 class DescribeStandardsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandards)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandards)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describestandardspaginator)
     """
 
@@ -129,13 +139,13 @@ class DescribeStandardsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStandardsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandards.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandards.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describestandardspaginator)
         """
 
 class DescribeStandardsControlsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandardsControls)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandardsControls)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describestandardscontrolspaginator)
     """
 
@@ -143,13 +153,13 @@ class DescribeStandardsControlsPaginator(Boto3Paginator):
         self, *, StandardsSubscriptionArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStandardsControlsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandardsControls.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandardsControls.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describestandardscontrolspaginator)
         """
 
 class GetEnabledStandardsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getenabledstandardspaginator)
     """
 
@@ -160,13 +170,13 @@ class GetEnabledStandardsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetEnabledStandardsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getenabledstandardspaginator)
         """
 
 class GetFindingHistoryPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.GetFindingHistory)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetFindingHistory)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getfindinghistorypaginator)
     """
 
@@ -179,13 +189,13 @@ class GetFindingHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetFindingHistoryResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.GetFindingHistory.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetFindingHistory.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getfindinghistorypaginator)
         """
 
 class GetFindingsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getfindingspaginator)
     """
 
@@ -197,13 +207,13 @@ class GetFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetFindingsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getfindingspaginator)
         """
 
 class GetInsightsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getinsightspaginator)
     """
 
@@ -211,13 +221,44 @@ class GetInsightsPaginator(Boto3Paginator):
         self, *, InsightArns: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetInsightsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getinsightspaginator)
+        """
+
+class ListConfigurationPoliciesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListConfigurationPolicies)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listconfigurationpoliciespaginator)
+    """
+
+    def paginate(
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListConfigurationPoliciesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListConfigurationPolicies.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listconfigurationpoliciespaginator)
+        """
+
+class ListConfigurationPolicyAssociationsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListConfigurationPolicyAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listconfigurationpolicyassociationspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Filters: "AssociationFiltersTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListConfigurationPolicyAssociationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListConfigurationPolicyAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listconfigurationpolicyassociationspaginator)
         """
 
 class ListEnabledProductsForImportPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listenabledproductsforimportpaginator)
     """
 
@@ -225,13 +266,13 @@ class ListEnabledProductsForImportPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnabledProductsForImportResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listenabledproductsforimportpaginator)
         """
 
 class ListFindingAggregatorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListFindingAggregators)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListFindingAggregators)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listfindingaggregatorspaginator)
     """
 
@@ -239,13 +280,13 @@ class ListFindingAggregatorsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFindingAggregatorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListFindingAggregators.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListFindingAggregators.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listfindingaggregatorspaginator)
         """
 
 class ListInvitationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listinvitationspaginator)
     """
 
@@ -253,13 +294,13 @@ class ListInvitationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInvitationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listinvitationspaginator)
         """
 
 class ListMembersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listmemberspaginator)
     """
 
@@ -267,13 +308,13 @@ class ListMembersPaginator(Boto3Paginator):
         self, *, OnlyAssociated: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMembersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listmemberspaginator)
         """
 
 class ListOrganizationAdminAccountsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListOrganizationAdminAccounts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListOrganizationAdminAccounts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listorganizationadminaccountspaginator)
     """
 
@@ -281,13 +322,13 @@ class ListOrganizationAdminAccountsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOrganizationAdminAccountsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListOrganizationAdminAccounts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListOrganizationAdminAccounts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listorganizationadminaccountspaginator)
         """
 
 class ListSecurityControlDefinitionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListSecurityControlDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListSecurityControlDefinitions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listsecuritycontroldefinitionspaginator)
     """
 
@@ -295,13 +336,13 @@ class ListSecurityControlDefinitionsPaginator(Boto3Paginator):
         self, *, StandardsArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSecurityControlDefinitionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListSecurityControlDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListSecurityControlDefinitions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listsecuritycontroldefinitionspaginator)
         """
 
 class ListStandardsControlAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListStandardsControlAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListStandardsControlAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#liststandardscontrolassociationspaginator)
     """
 
@@ -309,6 +350,6 @@ class ListStandardsControlAssociationsPaginator(Boto3Paginator):
         self, *, SecurityControlId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStandardsControlAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/securityhub.html#SecurityHub.Paginator.ListStandardsControlAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListStandardsControlAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#liststandardscontrolassociationspaginator)
         """

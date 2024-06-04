@@ -21,6 +21,7 @@ Usage::
         DescribeInstancePatchStatesForPatchGroupPaginator,
         DescribeInstancePatchStatesPaginator,
         DescribeInstancePatchesPaginator,
+        DescribeInstancePropertiesPaginator,
         DescribeInventoryDeletionsPaginator,
         DescribeMaintenanceWindowExecutionTaskInvocationsPaginator,
         DescribeMaintenanceWindowExecutionTasksPaginator,
@@ -78,6 +79,7 @@ Usage::
     describe_instance_patch_states_paginator: DescribeInstancePatchStatesPaginator = client.get_paginator("describe_instance_patch_states")
     describe_instance_patch_states_for_patch_group_paginator: DescribeInstancePatchStatesForPatchGroupPaginator = client.get_paginator("describe_instance_patch_states_for_patch_group")
     describe_instance_patches_paginator: DescribeInstancePatchesPaginator = client.get_paginator("describe_instance_patches")
+    describe_instance_properties_paginator: DescribeInstancePropertiesPaginator = client.get_paginator("describe_instance_properties")
     describe_inventory_deletions_paginator: DescribeInventoryDeletionsPaginator = client.get_paginator("describe_inventory_deletions")
     describe_maintenance_window_execution_task_invocations_paginator: DescribeMaintenanceWindowExecutionTaskInvocationsPaginator = client.get_paginator("describe_maintenance_window_execution_task_invocations")
     describe_maintenance_window_execution_tasks_paginator: DescribeMaintenanceWindowExecutionTasksPaginator = client.get_paginator("describe_maintenance_window_execution_tasks")
@@ -114,6 +116,7 @@ Usage::
     list_resource_data_sync_paginator: ListResourceDataSyncPaginator = client.get_paginator("list_resource_data_sync")
     ```
 """
+
 from .client import SSMClient
 from .paginator import (
     DescribeActivationsPaginator,
@@ -129,6 +132,7 @@ from .paginator import (
     DescribeInstancePatchesPaginator,
     DescribeInstancePatchStatesForPatchGroupPaginator,
     DescribeInstancePatchStatesPaginator,
+    DescribeInstancePropertiesPaginator,
     DescribeInventoryDeletionsPaginator,
     DescribeMaintenanceWindowExecutionsPaginator,
     DescribeMaintenanceWindowExecutionTaskInvocationsPaginator,
@@ -184,6 +188,7 @@ __all__ = (
     "DescribeInstancePatchStatesForPatchGroupPaginator",
     "DescribeInstancePatchStatesPaginator",
     "DescribeInstancePatchesPaginator",
+    "DescribeInstancePropertiesPaginator",
     "DescribeInventoryDeletionsPaginator",
     "DescribeMaintenanceWindowExecutionTaskInvocationsPaginator",
     "DescribeMaintenanceWindowExecutionTasksPaginator",

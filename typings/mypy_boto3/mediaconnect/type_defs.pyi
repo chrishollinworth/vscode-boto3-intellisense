@@ -11,7 +11,9 @@ Usage::
     data: AddBridgeFlowSourceRequestTypeDef = {...}
     ```
 """
+
 import sys
+from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
@@ -98,6 +100,8 @@ __all__ = (
     "DescribeBridgeResponseTypeDef",
     "DescribeFlowRequestRequestTypeDef",
     "DescribeFlowResponseTypeDef",
+    "DescribeFlowSourceMetadataRequestRequestTypeDef",
+    "DescribeFlowSourceMetadataResponseTypeDef",
     "DescribeGatewayInstanceRequestRequestTypeDef",
     "DescribeGatewayInstanceResponseTypeDef",
     "DescribeGatewayRequestRequestTypeDef",
@@ -117,6 +121,7 @@ __all__ = (
     "FlowTypeDef",
     "FmtpRequestTypeDef",
     "FmtpTypeDef",
+    "FrameResolutionTypeDef",
     "GatewayBridgeSourceTypeDef",
     "GatewayInstanceTypeDef",
     "GatewayNetworkTypeDef",
@@ -191,6 +196,9 @@ __all__ = (
     "StopFlowRequestRequestTypeDef",
     "StopFlowResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TransportMediaInfoTypeDef",
+    "TransportStreamProgramTypeDef",
+    "TransportStreamTypeDef",
     "TransportTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateBridgeFlowSourceRequestTypeDef",
@@ -751,6 +759,24 @@ DescribeFlowResponseTypeDef = TypedDict(
     },
 )
 
+DescribeFlowSourceMetadataRequestRequestTypeDef = TypedDict(
+    "DescribeFlowSourceMetadataRequestRequestTypeDef",
+    {
+        "FlowArn": str,
+    },
+)
+
+DescribeFlowSourceMetadataResponseTypeDef = TypedDict(
+    "DescribeFlowSourceMetadataResponseTypeDef",
+    {
+        "FlowArn": str,
+        "Messages": List["MessageDetailTypeDef"],
+        "Timestamp": datetime,
+        "TransportMediaInfo": "TransportMediaInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeGatewayInstanceRequestRequestTypeDef = TypedDict(
     "DescribeGatewayInstanceRequestRequestTypeDef",
     {
@@ -977,6 +1003,14 @@ FmtpTypeDef = TypedDict(
         "Tcs": TcsType,
     },
     total=False,
+)
+
+FrameResolutionTypeDef = TypedDict(
+    "FrameResolutionTypeDef",
+    {
+        "FrameHeight": int,
+        "FrameWidth": int,
+    },
 )
 
 _RequiredGatewayBridgeSourceTypeDef = TypedDict(
@@ -1900,6 +1934,58 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "Tags": Dict[str, str],
     },
 )
+
+TransportMediaInfoTypeDef = TypedDict(
+    "TransportMediaInfoTypeDef",
+    {
+        "Programs": List["TransportStreamProgramTypeDef"],
+    },
+)
+
+_RequiredTransportStreamProgramTypeDef = TypedDict(
+    "_RequiredTransportStreamProgramTypeDef",
+    {
+        "PcrPid": int,
+        "ProgramNumber": int,
+        "ProgramPid": int,
+        "Streams": List["TransportStreamTypeDef"],
+    },
+)
+_OptionalTransportStreamProgramTypeDef = TypedDict(
+    "_OptionalTransportStreamProgramTypeDef",
+    {
+        "ProgramName": str,
+    },
+    total=False,
+)
+
+class TransportStreamProgramTypeDef(
+    _RequiredTransportStreamProgramTypeDef, _OptionalTransportStreamProgramTypeDef
+):
+    pass
+
+_RequiredTransportStreamTypeDef = TypedDict(
+    "_RequiredTransportStreamTypeDef",
+    {
+        "Pid": int,
+        "StreamType": str,
+    },
+)
+_OptionalTransportStreamTypeDef = TypedDict(
+    "_OptionalTransportStreamTypeDef",
+    {
+        "Channels": int,
+        "Codec": str,
+        "FrameRate": str,
+        "FrameResolution": "FrameResolutionTypeDef",
+        "SampleRate": int,
+        "SampleSize": int,
+    },
+    total=False,
+)
+
+class TransportStreamTypeDef(_RequiredTransportStreamTypeDef, _OptionalTransportStreamTypeDef):
+    pass
 
 _RequiredTransportTypeDef = TypedDict(
     "_RequiredTransportTypeDef",

@@ -135,6 +135,7 @@ Usage::
     list_violation_events_paginator: ListViolationEventsPaginator = client.get_paginator("list_violation_events")
     ```
 """
+
 from .client import IoTClient
 from .paginator import (
     GetBehaviorModelTrainingSummariesPaginator,

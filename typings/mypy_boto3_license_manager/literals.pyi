@@ -11,6 +11,7 @@ Usage::
     data: ActivationOverrideBehaviorType = "ALL_GRANTS_PERMITTED_BY_ISSUER"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

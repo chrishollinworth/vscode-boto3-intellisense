@@ -11,6 +11,7 @@ Usage::
     data: DescribeAcceleratorsPaginatorName = "describe_accelerators"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -16,6 +16,7 @@ Usage::
     session_client: WorkLinkClient = session.client("worklink")
     ```
 """
+
 from .client import WorkLinkClient
 
 Client = WorkLinkClient

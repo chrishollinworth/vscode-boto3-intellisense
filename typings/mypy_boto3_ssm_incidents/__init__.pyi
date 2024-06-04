@@ -36,6 +36,7 @@ Usage::
     list_timeline_events_paginator: ListTimelineEventsPaginator = client.get_paginator("list_timeline_events")
     ```
 """
+
 from .client import SSMIncidentsClient
 from .paginator import (
     GetResourcePoliciesPaginator,

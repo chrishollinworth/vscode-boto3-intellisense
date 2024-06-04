@@ -57,6 +57,7 @@ Usage::
     get_static_ips_paginator: GetStaticIpsPaginator = client.get_paginator("get_static_ips")
     ```
 """
+
 from .client import LightsailClient
 from .paginator import (
     GetActiveNamesPaginator,

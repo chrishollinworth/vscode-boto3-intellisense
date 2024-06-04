@@ -11,11 +11,13 @@ Usage::
     data: ActionTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AdditionalOptionKeysType,
     AggFunctionType,
     BackfillErrorCodeType,
     BlueprintRunStateType,
@@ -55,6 +57,7 @@ from .literals import (
     JDBCDataTypeType,
     JdbcMetadataEntryType,
     JobBookmarksEncryptionModeType,
+    JobModeType,
     JobRunStateType,
     JoinTypeType,
     LanguageType,
@@ -98,6 +101,7 @@ from .literals import (
     UnionTypeType,
     UpdateBehaviorType,
     UpdateCatalogBehaviorType,
+    ViewDialectType,
     WorkerTypeType,
     WorkflowRunStatusType,
 )
@@ -261,7 +265,10 @@ __all__ = (
     "DQStopJobOnFailureOptionsTypeDef",
     "DataCatalogEncryptionSettingsTypeDef",
     "DataLakePrincipalTypeDef",
+    "DataQualityAnalyzerResultTypeDef",
     "DataQualityEvaluationRunAdditionalRunOptionsTypeDef",
+    "DataQualityMetricValuesTypeDef",
+    "DataQualityObservationTypeDef",
     "DataQualityResultDescriptionTypeDef",
     "DataQualityResultFilterCriteriaTypeDef",
     "DataQualityResultTypeDef",
@@ -571,6 +578,7 @@ __all__ = (
     "MergeTypeDef",
     "MetadataInfoTypeDef",
     "MetadataKeyValuePairTypeDef",
+    "MetricBasedObservationTypeDef",
     "MicrosoftSQLServerCatalogSourceTypeDef",
     "MicrosoftSQLServerCatalogTargetTypeDef",
     "MongoDBTargetTypeDef",
@@ -609,6 +617,7 @@ __all__ = (
     "PutWorkflowRunPropertiesRequestRequestTypeDef",
     "QuerySchemaVersionMetadataInputRequestTypeDef",
     "QuerySchemaVersionMetadataResponseTypeDef",
+    "QuerySessionContextTypeDef",
     "RecipeReferenceTypeDef",
     "RecipeTypeDef",
     "RecrawlPolicyTypeDef",
@@ -719,6 +728,7 @@ __all__ = (
     "StorageDescriptorTypeDef",
     "StreamingDataPreviewOptionsTypeDef",
     "StringColumnStatisticsDataTypeDef",
+    "SupportedDialectTypeDef",
     "TableErrorTypeDef",
     "TableIdentifierTypeDef",
     "TableInputTypeDef",
@@ -785,6 +795,8 @@ __all__ = (
     "UpsertRedshiftTargetOptionsTypeDef",
     "UserDefinedFunctionInputTypeDef",
     "UserDefinedFunctionTypeDef",
+    "ViewDefinitionTypeDef",
+    "ViewRepresentationTypeDef",
     "WorkflowGraphTypeDef",
     "WorkflowRunStatisticsTypeDef",
     "WorkflowRunTypeDef",
@@ -2482,6 +2494,7 @@ _RequiredCreateJobRequestRequestTypeDef = TypedDict(
 _OptionalCreateJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreateJobRequestRequestTypeDef",
     {
+        "JobMode": JobModeType,
         "Description": str,
         "LogUri": str,
         "ExecutionProperty": "ExecutionPropertyTypeDef",
@@ -2501,6 +2514,7 @@ _OptionalCreateJobRequestRequestTypeDef = TypedDict(
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
         "ExecutionClass": ExecutionClassType,
         "SourceControlDetails": "SourceControlDetailsTypeDef",
+        "MaintenanceWindow": str,
     },
     total=False,
 )
@@ -3001,11 +3015,42 @@ DataLakePrincipalTypeDef = TypedDict(
     total=False,
 )
 
+DataQualityAnalyzerResultTypeDef = TypedDict(
+    "DataQualityAnalyzerResultTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "EvaluationMessage": str,
+        "EvaluatedMetrics": Dict[str, float],
+    },
+    total=False,
+)
+
 DataQualityEvaluationRunAdditionalRunOptionsTypeDef = TypedDict(
     "DataQualityEvaluationRunAdditionalRunOptionsTypeDef",
     {
         "CloudWatchMetricsEnabled": bool,
         "ResultsS3Prefix": str,
+    },
+    total=False,
+)
+
+DataQualityMetricValuesTypeDef = TypedDict(
+    "DataQualityMetricValuesTypeDef",
+    {
+        "ActualValue": float,
+        "ExpectedValue": float,
+        "LowerLimit": float,
+        "UpperLimit": float,
+    },
+    total=False,
+)
+
+DataQualityObservationTypeDef = TypedDict(
+    "DataQualityObservationTypeDef",
+    {
+        "Description": str,
+        "MetricBasedObservation": "MetricBasedObservationTypeDef",
     },
     total=False,
 )
@@ -3048,6 +3093,8 @@ DataQualityResultTypeDef = TypedDict(
         "JobRunId": str,
         "RulesetEvaluationRunId": str,
         "RuleResults": List["DataQualityRuleResultTypeDef"],
+        "AnalyzerResults": List["DataQualityAnalyzerResultTypeDef"],
+        "Observations": List["DataQualityObservationTypeDef"],
     },
     total=False,
 )
@@ -3964,6 +4011,7 @@ _OptionalEncryptionAtRestTypeDef = TypedDict(
     "_OptionalEncryptionAtRestTypeDef",
     {
         "SseAwsKmsKeyId": str,
+        "CatalogEncryptionServiceRole": str,
     },
     total=False,
 )
@@ -4012,7 +4060,7 @@ _OptionalEvaluateDataQualityMultiFrameTypeDef = TypedDict(
     {
         "AdditionalDataSources": Dict[str, str],
         "PublishingOptions": "DQResultsPublishingOptionsTypeDef",
-        "AdditionalOptions": Dict[Literal["performanceTuning.caching"], str],
+        "AdditionalOptions": Dict[AdditionalOptionKeysType, str],
         "StopJobOnFailureOptions": "DQStopJobOnFailureOptionsTypeDef",
     },
     total=False,
@@ -4605,6 +4653,8 @@ GetDataQualityResultResponseTypeDef = TypedDict(
         "JobRunId": str,
         "RulesetEvaluationRunId": str,
         "RuleResults": List["DataQualityRuleResultTypeDef"],
+        "AnalyzerResults": List["DataQualityAnalyzerResultTypeDef"],
+        "Observations": List["DataQualityObservationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5605,7 +5655,9 @@ _RequiredGetUnfilteredPartitionMetadataRequestRequestTypeDef = TypedDict(
 _OptionalGetUnfilteredPartitionMetadataRequestRequestTypeDef = TypedDict(
     "_OptionalGetUnfilteredPartitionMetadataRequestRequestTypeDef",
     {
+        "Region": str,
         "AuditContext": "AuditContextTypeDef",
+        "QuerySessionContext": "QuerySessionContextTypeDef",
     },
     total=False,
 )
@@ -5638,11 +5690,13 @@ _RequiredGetUnfilteredPartitionsMetadataRequestRequestTypeDef = TypedDict(
 _OptionalGetUnfilteredPartitionsMetadataRequestRequestTypeDef = TypedDict(
     "_OptionalGetUnfilteredPartitionsMetadataRequestRequestTypeDef",
     {
+        "Region": str,
         "Expression": str,
         "AuditContext": "AuditContextTypeDef",
         "NextToken": str,
         "Segment": "SegmentTypeDef",
         "MaxResults": int,
+        "QuerySessionContext": "QuerySessionContextTypeDef",
     },
     total=False,
 )
@@ -5674,7 +5728,13 @@ _RequiredGetUnfilteredTableMetadataRequestRequestTypeDef = TypedDict(
 _OptionalGetUnfilteredTableMetadataRequestRequestTypeDef = TypedDict(
     "_OptionalGetUnfilteredTableMetadataRequestRequestTypeDef",
     {
+        "Region": str,
         "AuditContext": "AuditContextTypeDef",
+        "ParentResourceArn": str,
+        "RootResourceArn": str,
+        "SupportedDialect": "SupportedDialectTypeDef",
+        "Permissions": List[PermissionType],
+        "QuerySessionContext": "QuerySessionContextTypeDef",
     },
     total=False,
 )
@@ -5692,6 +5752,12 @@ GetUnfilteredTableMetadataResponseTypeDef = TypedDict(
         "AuthorizedColumns": List[str],
         "IsRegisteredWithLakeFormation": bool,
         "CellFilters": List["ColumnRowFilterTypeDef"],
+        "QueryAuthorizationId": str,
+        "IsMultiDialectView": bool,
+        "ResourceArn": str,
+        "IsProtected": bool,
+        "Permissions": List[PermissionType],
+        "RowFilter": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6165,6 +6231,7 @@ JobRunTypeDef = TypedDict(
         "PreviousRunId": str,
         "TriggerName": str,
         "JobName": str,
+        "JobMode": JobModeType,
         "StartedOn": datetime,
         "LastModifiedOn": datetime,
         "CompletedOn": datetime,
@@ -6184,6 +6251,7 @@ JobRunTypeDef = TypedDict(
         "GlueVersion": str,
         "DPUSeconds": float,
         "ExecutionClass": ExecutionClassType,
+        "MaintenanceWindow": str,
     },
     total=False,
 )
@@ -6192,6 +6260,7 @@ JobTypeDef = TypedDict(
     "JobTypeDef",
     {
         "Name": str,
+        "JobMode": JobModeType,
         "Description": str,
         "LogUri": str,
         "Role": str,
@@ -6214,6 +6283,7 @@ JobTypeDef = TypedDict(
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
         "ExecutionClass": ExecutionClassType,
         "SourceControlDetails": "SourceControlDetailsTypeDef",
+        "MaintenanceWindow": str,
     },
     total=False,
 )
@@ -6221,6 +6291,7 @@ JobTypeDef = TypedDict(
 JobUpdateTypeDef = TypedDict(
     "JobUpdateTypeDef",
     {
+        "JobMode": JobModeType,
         "Description": str,
         "LogUri": str,
         "Role": str,
@@ -6241,6 +6312,7 @@ JobUpdateTypeDef = TypedDict(
         "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
         "ExecutionClass": ExecutionClassType,
         "SourceControlDetails": "SourceControlDetailsTypeDef",
+        "MaintenanceWindow": str,
     },
     total=False,
 )
@@ -6957,6 +7029,16 @@ MetadataKeyValuePairTypeDef = TypedDict(
     total=False,
 )
 
+MetricBasedObservationTypeDef = TypedDict(
+    "MetricBasedObservationTypeDef",
+    {
+        "MetricName": str,
+        "MetricValues": "DataQualityMetricValuesTypeDef",
+        "NewRules": List[str],
+    },
+    total=False,
+)
+
 MicrosoftSQLServerCatalogSourceTypeDef = TypedDict(
     "MicrosoftSQLServerCatalogSourceTypeDef",
     {
@@ -7387,6 +7469,18 @@ QuerySchemaVersionMetadataResponseTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+QuerySessionContextTypeDef = TypedDict(
+    "QuerySessionContextTypeDef",
+    {
+        "QueryId": str,
+        "QueryStartTime": Union[datetime, str],
+        "ClusterId": str,
+        "QueryAuthorizationId": str,
+        "AdditionalContext": Dict[str, str],
+    },
+    total=False,
 )
 
 RecipeReferenceTypeDef = TypedDict(
@@ -8902,6 +8996,15 @@ StringColumnStatisticsDataTypeDef = TypedDict(
     },
 )
 
+SupportedDialectTypeDef = TypedDict(
+    "SupportedDialectTypeDef",
+    {
+        "Dialect": ViewDialectType,
+        "DialectVersion": str,
+    },
+    total=False,
+)
+
 TableErrorTypeDef = TypedDict(
     "TableErrorTypeDef",
     {
@@ -9010,6 +9113,8 @@ _OptionalTableTypeDef = TypedDict(
         "CatalogId": str,
         "VersionId": str,
         "FederatedTable": "FederatedTableTypeDef",
+        "ViewDefinition": "ViewDefinitionTypeDef",
+        "IsMultiDialectView": bool,
     },
     total=False,
 )
@@ -9871,6 +9976,29 @@ UserDefinedFunctionTypeDef = TypedDict(
         "CreateTime": datetime,
         "ResourceUris": List["ResourceUriTypeDef"],
         "CatalogId": str,
+    },
+    total=False,
+)
+
+ViewDefinitionTypeDef = TypedDict(
+    "ViewDefinitionTypeDef",
+    {
+        "IsProtected": bool,
+        "Definer": str,
+        "SubObjects": List[str],
+        "Representations": List["ViewRepresentationTypeDef"],
+    },
+    total=False,
+)
+
+ViewRepresentationTypeDef = TypedDict(
+    "ViewRepresentationTypeDef",
+    {
+        "Dialect": ViewDialectType,
+        "DialectVersion": str,
+        "ViewOriginalText": str,
+        "ViewExpandedText": str,
+        "IsStale": bool,
     },
     total=False,
 )

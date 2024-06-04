@@ -19,6 +19,7 @@ Usage::
     list_items_paginator: ListItemsPaginator = client.get_paginator("list_items")
     ```
 """
+
 from .client import MediaStoreDataClient
 from .paginator import ListItemsPaginator
 

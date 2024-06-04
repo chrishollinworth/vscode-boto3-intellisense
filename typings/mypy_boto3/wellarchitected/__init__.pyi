@@ -16,6 +16,7 @@ Usage::
     session_client: WellArchitectedClient = session.client("wellarchitected")
     ```
 """
+
 from .client import WellArchitectedClient
 
 Client = WellArchitectedClient

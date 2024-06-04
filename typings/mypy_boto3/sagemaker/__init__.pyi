@@ -23,6 +23,8 @@ Usage::
         ListAssociationsPaginator,
         ListAutoMLJobsPaginator,
         ListCandidatesForAutoMLJobPaginator,
+        ListClusterNodesPaginator,
+        ListClustersPaginator,
         ListCodeRepositoriesPaginator,
         ListCompilationJobsPaginator,
         ListContextsPaginator,
@@ -41,6 +43,7 @@ Usage::
         ListHyperParameterTuningJobsPaginator,
         ListImageVersionsPaginator,
         ListImagesPaginator,
+        ListInferenceComponentsPaginator,
         ListInferenceExperimentsPaginator,
         ListInferenceRecommendationsJobStepsPaginator,
         ListInferenceRecommendationsJobsPaginator,
@@ -120,6 +123,8 @@ Usage::
     list_associations_paginator: ListAssociationsPaginator = client.get_paginator("list_associations")
     list_auto_ml_jobs_paginator: ListAutoMLJobsPaginator = client.get_paginator("list_auto_ml_jobs")
     list_candidates_for_auto_ml_job_paginator: ListCandidatesForAutoMLJobPaginator = client.get_paginator("list_candidates_for_auto_ml_job")
+    list_cluster_nodes_paginator: ListClusterNodesPaginator = client.get_paginator("list_cluster_nodes")
+    list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     list_code_repositories_paginator: ListCodeRepositoriesPaginator = client.get_paginator("list_code_repositories")
     list_compilation_jobs_paginator: ListCompilationJobsPaginator = client.get_paginator("list_compilation_jobs")
     list_contexts_paginator: ListContextsPaginator = client.get_paginator("list_contexts")
@@ -138,6 +143,7 @@ Usage::
     list_hyper_parameter_tuning_jobs_paginator: ListHyperParameterTuningJobsPaginator = client.get_paginator("list_hyper_parameter_tuning_jobs")
     list_image_versions_paginator: ListImageVersionsPaginator = client.get_paginator("list_image_versions")
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
+    list_inference_components_paginator: ListInferenceComponentsPaginator = client.get_paginator("list_inference_components")
     list_inference_experiments_paginator: ListInferenceExperimentsPaginator = client.get_paginator("list_inference_experiments")
     list_inference_recommendations_job_steps_paginator: ListInferenceRecommendationsJobStepsPaginator = client.get_paginator("list_inference_recommendations_job_steps")
     list_inference_recommendations_jobs_paginator: ListInferenceRecommendationsJobsPaginator = client.get_paginator("list_inference_recommendations_jobs")
@@ -182,6 +188,7 @@ Usage::
     search_paginator: SearchPaginator = client.get_paginator("search")
     ```
 """
+
 from .client import SageMakerClient
 from .paginator import (
     ListActionsPaginator,
@@ -193,6 +200,8 @@ from .paginator import (
     ListAssociationsPaginator,
     ListAutoMLJobsPaginator,
     ListCandidatesForAutoMLJobPaginator,
+    ListClusterNodesPaginator,
+    ListClustersPaginator,
     ListCodeRepositoriesPaginator,
     ListCompilationJobsPaginator,
     ListContextsPaginator,
@@ -211,6 +220,7 @@ from .paginator import (
     ListHyperParameterTuningJobsPaginator,
     ListImagesPaginator,
     ListImageVersionsPaginator,
+    ListInferenceComponentsPaginator,
     ListInferenceExperimentsPaginator,
     ListInferenceRecommendationsJobsPaginator,
     ListInferenceRecommendationsJobStepsPaginator,
@@ -290,6 +300,8 @@ __all__ = (
     "ListAssociationsPaginator",
     "ListAutoMLJobsPaginator",
     "ListCandidatesForAutoMLJobPaginator",
+    "ListClusterNodesPaginator",
+    "ListClustersPaginator",
     "ListCodeRepositoriesPaginator",
     "ListCompilationJobsPaginator",
     "ListContextsPaginator",
@@ -308,6 +320,7 @@ __all__ = (
     "ListHyperParameterTuningJobsPaginator",
     "ListImageVersionsPaginator",
     "ListImagesPaginator",
+    "ListInferenceComponentsPaginator",
     "ListInferenceExperimentsPaginator",
     "ListInferenceRecommendationsJobStepsPaginator",
     "ListInferenceRecommendationsJobsPaginator",

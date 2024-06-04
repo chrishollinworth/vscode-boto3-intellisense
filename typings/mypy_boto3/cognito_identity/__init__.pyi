@@ -19,6 +19,7 @@ Usage::
     list_identity_pools_paginator: ListIdentityPoolsPaginator = client.get_paginator("list_identity_pools")
     ```
 """
+
 from .client import CognitoIdentityClient
 from .paginator import ListIdentityPoolsPaginator
 

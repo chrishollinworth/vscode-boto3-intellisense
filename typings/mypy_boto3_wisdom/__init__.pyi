@@ -37,6 +37,7 @@ Usage::
     search_sessions_paginator: SearchSessionsPaginator = client.get_paginator("search_sessions")
     ```
 """
+
 from .client import ConnectWisdomServiceClient
 from .paginator import (
     ListAssistantAssociationsPaginator,

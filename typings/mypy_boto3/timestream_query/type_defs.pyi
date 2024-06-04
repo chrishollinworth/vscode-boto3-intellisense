@@ -11,12 +11,14 @@ Usage::
     data: CancelQueryRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
     MeasureValueTypeType,
+    QueryPricingModelType,
     S3EncryptionOptionType,
     ScalarMeasureValueTypeType,
     ScalarTypeType,
@@ -41,6 +43,7 @@ __all__ = (
     "CreateScheduledQueryResponseTypeDef",
     "DatumTypeDef",
     "DeleteScheduledQueryRequestRequestTypeDef",
+    "DescribeAccountSettingsResponseTypeDef",
     "DescribeEndpointsResponseTypeDef",
     "DescribeScheduledQueryRequestRequestTypeDef",
     "DescribeScheduledQueryResponseTypeDef",
@@ -84,6 +87,8 @@ __all__ = (
     "TimestreamDestinationTypeDef",
     "TypeTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAccountSettingsRequestRequestTypeDef",
+    "UpdateAccountSettingsResponseTypeDef",
     "UpdateScheduledQueryRequestRequestTypeDef",
 )
 
@@ -174,6 +179,15 @@ DeleteScheduledQueryRequestRequestTypeDef = TypedDict(
     },
 )
 
+DescribeAccountSettingsResponseTypeDef = TypedDict(
+    "DescribeAccountSettingsResponseTypeDef",
+    {
+        "MaxQueryTCU": int,
+        "QueryPricingModel": QueryPricingModelType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeEndpointsResponseTypeDef = TypedDict(
     "DescribeEndpointsResponseTypeDef",
     {
@@ -255,6 +269,7 @@ ExecutionStatsTypeDef = TypedDict(
         "ExecutionTimeInMillis": int,
         "DataWrites": int,
         "BytesMetered": int,
+        "CumulativeBytesScanned": int,
         "RecordsIngested": int,
         "QueryResultRows": int,
     },
@@ -695,6 +710,24 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceARN": str,
         "TagKeys": List[str],
+    },
+)
+
+UpdateAccountSettingsRequestRequestTypeDef = TypedDict(
+    "UpdateAccountSettingsRequestRequestTypeDef",
+    {
+        "MaxQueryTCU": int,
+        "QueryPricingModel": QueryPricingModelType,
+    },
+    total=False,
+)
+
+UpdateAccountSettingsResponseTypeDef = TypedDict(
+    "UpdateAccountSettingsResponseTypeDef",
+    {
+        "MaxQueryTCU": int,
+        "QueryPricingModel": QueryPricingModelType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

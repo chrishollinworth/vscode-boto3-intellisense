@@ -6,21 +6,23 @@ Type annotations for managedblockchain-query service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_managedblockchain_query.type_defs import AssetContractTypeDef
+    from mypy_boto3_managedblockchain_query.type_defs import AddressIdentifierFilterTypeDef
 
-    data: AssetContractTypeDef = {...}
+    data: AddressIdentifierFilterTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    ConfirmationStatusType,
     ErrorTypeType,
+    ExecutionStatusType,
     QueryNetworkType,
     QueryTokenStandardType,
     QueryTransactionEventTypeType,
-    QueryTransactionStatusType,
     SortOrderType,
 )
 
@@ -34,6 +36,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AddressIdentifierFilterTypeDef",
     "AssetContractTypeDef",
     "BatchGetTokenBalanceErrorItemTypeDef",
     "BatchGetTokenBalanceInputItemTypeDef",
@@ -41,6 +44,7 @@ __all__ = (
     "BatchGetTokenBalanceOutputItemTypeDef",
     "BatchGetTokenBalanceOutputTypeDef",
     "BlockchainInstantTypeDef",
+    "ConfirmationStatusFilterTypeDef",
     "ContractFilterTypeDef",
     "ContractIdentifierTypeDef",
     "ContractMetadataTypeDef",
@@ -52,6 +56,9 @@ __all__ = (
     "GetTransactionOutputTypeDef",
     "ListAssetContractsInputRequestTypeDef",
     "ListAssetContractsOutputTypeDef",
+    "ListFilteredTransactionEventsInputRequestTypeDef",
+    "ListFilteredTransactionEventsOutputTypeDef",
+    "ListFilteredTransactionEventsSortTypeDef",
     "ListTokenBalancesInputRequestTypeDef",
     "ListTokenBalancesOutputTypeDef",
     "ListTransactionEventsInputRequestTypeDef",
@@ -63,12 +70,21 @@ __all__ = (
     "OwnerIdentifierTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
+    "TimeFilterTypeDef",
     "TokenBalanceTypeDef",
     "TokenFilterTypeDef",
     "TokenIdentifierTypeDef",
     "TransactionEventTypeDef",
     "TransactionOutputItemTypeDef",
     "TransactionTypeDef",
+    "VoutFilterTypeDef",
+)
+
+AddressIdentifierFilterTypeDef = TypedDict(
+    "AddressIdentifierFilterTypeDef",
+    {
+        "transactionEventToAddress": List[str],
+    },
 )
 
 AssetContractTypeDef = TypedDict(
@@ -170,6 +186,13 @@ BlockchainInstantTypeDef = TypedDict(
     total=False,
 )
 
+ConfirmationStatusFilterTypeDef = TypedDict(
+    "ConfirmationStatusFilterTypeDef",
+    {
+        "include": List[ConfirmationStatusType],
+    },
+)
+
 ContractFilterTypeDef = TypedDict(
     "ContractFilterTypeDef",
     {
@@ -247,13 +270,25 @@ GetTokenBalanceOutputTypeDef = TypedDict(
     },
 )
 
-GetTransactionInputRequestTypeDef = TypedDict(
-    "GetTransactionInputRequestTypeDef",
+_RequiredGetTransactionInputRequestTypeDef = TypedDict(
+    "_RequiredGetTransactionInputRequestTypeDef",
     {
-        "transactionHash": str,
         "network": QueryNetworkType,
     },
 )
+_OptionalGetTransactionInputRequestTypeDef = TypedDict(
+    "_OptionalGetTransactionInputRequestTypeDef",
+    {
+        "transactionHash": str,
+        "transactionId": str,
+    },
+    total=False,
+)
+
+class GetTransactionInputRequestTypeDef(
+    _RequiredGetTransactionInputRequestTypeDef, _OptionalGetTransactionInputRequestTypeDef
+):
+    pass
 
 GetTransactionOutputTypeDef = TypedDict(
     "GetTransactionOutputTypeDef",
@@ -292,6 +327,50 @@ ListAssetContractsOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredListFilteredTransactionEventsInputRequestTypeDef = TypedDict(
+    "_RequiredListFilteredTransactionEventsInputRequestTypeDef",
+    {
+        "network": str,
+        "addressIdentifierFilter": "AddressIdentifierFilterTypeDef",
+    },
+)
+_OptionalListFilteredTransactionEventsInputRequestTypeDef = TypedDict(
+    "_OptionalListFilteredTransactionEventsInputRequestTypeDef",
+    {
+        "timeFilter": "TimeFilterTypeDef",
+        "voutFilter": "VoutFilterTypeDef",
+        "confirmationStatusFilter": "ConfirmationStatusFilterTypeDef",
+        "sort": "ListFilteredTransactionEventsSortTypeDef",
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListFilteredTransactionEventsInputRequestTypeDef(
+    _RequiredListFilteredTransactionEventsInputRequestTypeDef,
+    _OptionalListFilteredTransactionEventsInputRequestTypeDef,
+):
+    pass
+
+ListFilteredTransactionEventsOutputTypeDef = TypedDict(
+    "ListFilteredTransactionEventsOutputTypeDef",
+    {
+        "events": List["TransactionEventTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListFilteredTransactionEventsSortTypeDef = TypedDict(
+    "ListFilteredTransactionEventsSortTypeDef",
+    {
+        "sortBy": Literal["blockchainInstant"],
+        "sortOrder": SortOrderType,
+    },
+    total=False,
+)
+
 _RequiredListTokenBalancesInputRequestTypeDef = TypedDict(
     "_RequiredListTokenBalancesInputRequestTypeDef",
     {
@@ -325,13 +404,14 @@ ListTokenBalancesOutputTypeDef = TypedDict(
 _RequiredListTransactionEventsInputRequestTypeDef = TypedDict(
     "_RequiredListTransactionEventsInputRequestTypeDef",
     {
-        "transactionHash": str,
         "network": QueryNetworkType,
     },
 )
 _OptionalListTransactionEventsInputRequestTypeDef = TypedDict(
     "_OptionalListTransactionEventsInputRequestTypeDef",
     {
+        "transactionHash": str,
+        "transactionId": str,
         "nextToken": str,
         "maxResults": int,
     },
@@ -368,6 +448,7 @@ _OptionalListTransactionsInputRequestTypeDef = TypedDict(
         "sort": "ListTransactionsSortTypeDef",
         "nextToken": str,
         "maxResults": int,
+        "confirmationStatusFilter": "ConfirmationStatusFilterTypeDef",
     },
     total=False,
 )
@@ -428,6 +509,15 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+TimeFilterTypeDef = TypedDict(
+    "TimeFilterTypeDef",
+    {
+        "from": "BlockchainInstantTypeDef",
+        "to": "BlockchainInstantTypeDef",
+    },
+    total=False,
 )
 
 _RequiredTokenBalanceTypeDef = TypedDict(
@@ -504,6 +594,12 @@ _OptionalTransactionEventTypeDef = TypedDict(
         "tokenId": str,
         "transactionId": str,
         "voutIndex": int,
+        "voutSpent": bool,
+        "spentVoutTransactionId": str,
+        "spentVoutTransactionHash": str,
+        "spentVoutIndex": int,
+        "blockchainInstant": "BlockchainInstantTypeDef",
+        "confirmationStatus": ConfirmationStatusType,
     },
     total=False,
 )
@@ -511,14 +607,27 @@ _OptionalTransactionEventTypeDef = TypedDict(
 class TransactionEventTypeDef(_RequiredTransactionEventTypeDef, _OptionalTransactionEventTypeDef):
     pass
 
-TransactionOutputItemTypeDef = TypedDict(
-    "TransactionOutputItemTypeDef",
+_RequiredTransactionOutputItemTypeDef = TypedDict(
+    "_RequiredTransactionOutputItemTypeDef",
     {
         "transactionHash": str,
         "network": QueryNetworkType,
         "transactionTimestamp": datetime,
     },
 )
+_OptionalTransactionOutputItemTypeDef = TypedDict(
+    "_OptionalTransactionOutputItemTypeDef",
+    {
+        "transactionId": str,
+        "confirmationStatus": ConfirmationStatusType,
+    },
+    total=False,
+)
+
+class TransactionOutputItemTypeDef(
+    _RequiredTransactionOutputItemTypeDef, _OptionalTransactionOutputItemTypeDef
+):
+    pass
 
 _RequiredTransactionTypeDef = TypedDict(
     "_RequiredTransactionTypeDef",
@@ -528,7 +637,6 @@ _RequiredTransactionTypeDef = TypedDict(
         "transactionTimestamp": datetime,
         "transactionIndex": int,
         "numberOfTransactions": int,
-        "status": QueryTransactionStatusType,
         "to": str,
     },
 )
@@ -547,9 +655,18 @@ _OptionalTransactionTypeDef = TypedDict(
         "signatureS": str,
         "transactionFee": str,
         "transactionId": str,
+        "confirmationStatus": ConfirmationStatusType,
+        "executionStatus": ExecutionStatusType,
     },
     total=False,
 )
 
 class TransactionTypeDef(_RequiredTransactionTypeDef, _OptionalTransactionTypeDef):
     pass
+
+VoutFilterTypeDef = TypedDict(
+    "VoutFilterTypeDef",
+    {
+        "voutSpent": bool,
+    },
+)

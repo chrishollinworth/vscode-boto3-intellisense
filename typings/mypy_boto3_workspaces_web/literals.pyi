@@ -11,6 +11,7 @@ Usage::
     data: AuthenticationTypeType = "IAM_Identity_Center"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -23,6 +24,7 @@ __all__ = (
     "BrowserTypeType",
     "EnabledTypeType",
     "IdentityProviderTypeType",
+    "InstanceTypeType",
     "PortalStatusType",
     "RendererTypeType",
 )
@@ -33,5 +35,6 @@ EnabledTypeType = Literal["Disabled", "Enabled"]
 IdentityProviderTypeType = Literal[
     "Facebook", "Google", "LoginWithAmazon", "OIDC", "SAML", "SignInWithApple"
 ]
+InstanceTypeType = Literal["standard.large", "standard.regular", "standard.xlarge"]
 PortalStatusType = Literal["Active", "Incomplete", "Pending"]
 RendererTypeType = Literal["AppStream"]

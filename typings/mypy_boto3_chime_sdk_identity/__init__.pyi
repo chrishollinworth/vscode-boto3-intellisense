@@ -16,6 +16,7 @@ Usage::
     session_client: ChimeSDKIdentityClient = session.client("chime-sdk-identity")
     ```
 """
+
 from .client import ChimeSDKIdentityClient
 
 Client = ChimeSDKIdentityClient

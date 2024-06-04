@@ -23,6 +23,7 @@ Usage::
     list_virtual_machines_paginator: ListVirtualMachinesPaginator = client.get_paginator("list_virtual_machines")
     ```
 """
+
 from .client import BackupGatewayClient
 from .paginator import ListGatewaysPaginator, ListHypervisorsPaginator, ListVirtualMachinesPaginator
 

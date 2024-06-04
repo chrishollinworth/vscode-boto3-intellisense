@@ -11,6 +11,7 @@ Usage::
     data: ActuatorTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -32,6 +33,7 @@ from .literals import (
     RegistrationStatusType,
     ROS2PrimitiveTypeType,
     SignalDecoderTypeType,
+    SignalNodeTypeType,
     SpoolingModeType,
     StorageCompressionFormatType,
     StructuredMessageListTypeType,
@@ -1377,6 +1379,7 @@ _OptionalListSignalCatalogNodesRequestRequestTypeDef = TypedDict(
     {
         "nextToken": str,
         "maxResults": int,
+        "signalNodeType": SignalNodeTypeType,
     },
     total=False,
 )
@@ -1463,6 +1466,8 @@ ListVehiclesRequestRequestTypeDef = TypedDict(
     "ListVehiclesRequestRequestTypeDef",
     {
         "modelManifestArn": str,
+        "attributeNames": List[str],
+        "attributeValues": List[str],
         "nextToken": str,
         "maxResults": int,
     },
@@ -2173,8 +2178,8 @@ VehicleStatusTypeDef = TypedDict(
     total=False,
 )
 
-VehicleSummaryTypeDef = TypedDict(
-    "VehicleSummaryTypeDef",
+_RequiredVehicleSummaryTypeDef = TypedDict(
+    "_RequiredVehicleSummaryTypeDef",
     {
         "vehicleName": str,
         "arn": str,
@@ -2184,3 +2189,13 @@ VehicleSummaryTypeDef = TypedDict(
         "lastModificationTime": datetime,
     },
 )
+_OptionalVehicleSummaryTypeDef = TypedDict(
+    "_OptionalVehicleSummaryTypeDef",
+    {
+        "attributes": Dict[str, str],
+    },
+    total=False,
+)
+
+class VehicleSummaryTypeDef(_RequiredVehicleSummaryTypeDef, _OptionalVehicleSummaryTypeDef):
+    pass

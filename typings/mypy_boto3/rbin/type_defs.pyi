@@ -11,6 +11,7 @@ Usage::
     data: CreateRuleRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -89,6 +90,7 @@ CreateRuleResponseTypeDef = TypedDict(
         "Status": RuleStatusType,
         "LockConfiguration": "LockConfigurationTypeDef",
         "LockState": LockStateType,
+        "RuleArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -119,6 +121,7 @@ GetRuleResponseTypeDef = TypedDict(
         "LockConfiguration": "LockConfigurationTypeDef",
         "LockState": LockStateType,
         "LockEndTime": datetime,
+        "RuleArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -195,6 +198,7 @@ LockRuleResponseTypeDef = TypedDict(
         "Status": RuleStatusType,
         "LockConfiguration": "LockConfigurationTypeDef",
         "LockState": LockStateType,
+        "RuleArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -252,6 +256,7 @@ RuleSummaryTypeDef = TypedDict(
         "Description": str,
         "RetentionPeriod": "RetentionPeriodTypeDef",
         "LockState": LockStateType,
+        "RuleArn": str,
     },
     total=False,
 )
@@ -299,6 +304,7 @@ UnlockRuleResponseTypeDef = TypedDict(
         "LockConfiguration": "LockConfigurationTypeDef",
         "LockState": LockStateType,
         "LockEndTime": datetime,
+        "RuleArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -344,6 +350,7 @@ UpdateRuleResponseTypeDef = TypedDict(
         "Status": RuleStatusType,
         "LockState": LockStateType,
         "LockEndTime": datetime,
+        "RuleArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

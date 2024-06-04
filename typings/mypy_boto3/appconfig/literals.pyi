@@ -11,6 +11,7 @@ Usage::
     data: ActionPointType = "ON_DEPLOYMENT_BAKING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

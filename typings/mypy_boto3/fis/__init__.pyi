@@ -16,6 +16,7 @@ Usage::
     session_client: FISClient = session.client("fis")
     ```
 """
+
 from .client import FISClient
 
 Client = FISClient

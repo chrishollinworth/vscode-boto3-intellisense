@@ -27,6 +27,7 @@ Usage::
     list_progress_update_streams_paginator: ListProgressUpdateStreamsPaginator = client.get_paginator("list_progress_update_streams")
     ```
 """
+
 from .client import MigrationHubClient
 from .paginator import (
     ListApplicationStatesPaginator,

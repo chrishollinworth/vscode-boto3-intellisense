@@ -21,6 +21,8 @@ Usage::
         DescribeReplicationGroupsPaginator,
         DescribeReservedCacheNodesOfferingsPaginator,
         DescribeReservedCacheNodesPaginator,
+        DescribeServerlessCacheSnapshotsPaginator,
+        DescribeServerlessCachesPaginator,
         DescribeServiceUpdatesPaginator,
         DescribeSnapshotsPaginator,
         DescribeUpdateActionsPaginator,
@@ -53,6 +55,8 @@ Usage::
     describe_replication_groups_paginator: DescribeReplicationGroupsPaginator = client.get_paginator("describe_replication_groups")
     describe_reserved_cache_nodes_paginator: DescribeReservedCacheNodesPaginator = client.get_paginator("describe_reserved_cache_nodes")
     describe_reserved_cache_nodes_offerings_paginator: DescribeReservedCacheNodesOfferingsPaginator = client.get_paginator("describe_reserved_cache_nodes_offerings")
+    describe_serverless_cache_snapshots_paginator: DescribeServerlessCacheSnapshotsPaginator = client.get_paginator("describe_serverless_cache_snapshots")
+    describe_serverless_caches_paginator: DescribeServerlessCachesPaginator = client.get_paginator("describe_serverless_caches")
     describe_service_updates_paginator: DescribeServiceUpdatesPaginator = client.get_paginator("describe_service_updates")
     describe_snapshots_paginator: DescribeSnapshotsPaginator = client.get_paginator("describe_snapshots")
     describe_update_actions_paginator: DescribeUpdateActionsPaginator = client.get_paginator("describe_update_actions")
@@ -60,6 +64,7 @@ Usage::
     describe_users_paginator: DescribeUsersPaginator = client.get_paginator("describe_users")
     ```
 """
+
 from .client import ElastiCacheClient
 from .paginator import (
     DescribeCacheClustersPaginator,
@@ -74,6 +79,8 @@ from .paginator import (
     DescribeReplicationGroupsPaginator,
     DescribeReservedCacheNodesOfferingsPaginator,
     DescribeReservedCacheNodesPaginator,
+    DescribeServerlessCacheSnapshotsPaginator,
+    DescribeServerlessCachesPaginator,
     DescribeServiceUpdatesPaginator,
     DescribeSnapshotsPaginator,
     DescribeUpdateActionsPaginator,
@@ -105,6 +112,8 @@ __all__ = (
     "DescribeReplicationGroupsPaginator",
     "DescribeReservedCacheNodesOfferingsPaginator",
     "DescribeReservedCacheNodesPaginator",
+    "DescribeServerlessCacheSnapshotsPaginator",
+    "DescribeServerlessCachesPaginator",
     "DescribeServiceUpdatesPaginator",
     "DescribeSnapshotsPaginator",
     "DescribeUpdateActionsPaginator",

@@ -11,6 +11,7 @@ Usage::
     data: DescribeAccessPointsPaginatorName = "describe_access_points"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -26,6 +27,7 @@ __all__ = (
     "DescribeTagsPaginatorName",
     "LifeCycleStateType",
     "PerformanceModeType",
+    "ReplicationOverwriteProtectionType",
     "ReplicationStatusType",
     "ResourceIdTypeType",
     "ResourceType",
@@ -43,6 +45,7 @@ DescribeReplicationConfigurationsPaginatorName = Literal["describe_replication_c
 DescribeTagsPaginatorName = Literal["describe_tags"]
 LifeCycleStateType = Literal["available", "creating", "deleted", "deleting", "error", "updating"]
 PerformanceModeType = Literal["generalPurpose", "maxIO"]
+ReplicationOverwriteProtectionType = Literal["DISABLED", "ENABLED", "REPLICATING"]
 ReplicationStatusType = Literal["DELETING", "ENABLED", "ENABLING", "ERROR", "PAUSED", "PAUSING"]
 ResourceIdTypeType = Literal["LONG_ID", "SHORT_ID"]
 ResourceType = Literal["FILE_SYSTEM", "MOUNT_TARGET"]

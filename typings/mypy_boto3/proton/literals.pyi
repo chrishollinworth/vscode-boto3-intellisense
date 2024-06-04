@@ -11,6 +11,7 @@ Usage::
     data: BlockerStatusType = "ACTIVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -16,6 +16,7 @@ Usage::
     session_client: SupportAppClient = session.client("support-app")
     ```
 """
+
 from .client import SupportAppClient
 
 Client = SupportAppClient

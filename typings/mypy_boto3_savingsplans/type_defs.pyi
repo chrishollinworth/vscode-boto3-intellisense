@@ -11,6 +11,7 @@ Usage::
     data: CreateSavingsPlanRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -52,6 +53,8 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ParentSavingsPlanOfferingTypeDef",
     "ResponseMetadataTypeDef",
+    "ReturnSavingsPlanRequestRequestTypeDef",
+    "ReturnSavingsPlanResponseTypeDef",
     "SavingsPlanFilterTypeDef",
     "SavingsPlanOfferingFilterElementTypeDef",
     "SavingsPlanOfferingPropertyTypeDef",
@@ -253,6 +256,33 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+_RequiredReturnSavingsPlanRequestRequestTypeDef = TypedDict(
+    "_RequiredReturnSavingsPlanRequestRequestTypeDef",
+    {
+        "savingsPlanId": str,
+    },
+)
+_OptionalReturnSavingsPlanRequestRequestTypeDef = TypedDict(
+    "_OptionalReturnSavingsPlanRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class ReturnSavingsPlanRequestRequestTypeDef(
+    _RequiredReturnSavingsPlanRequestRequestTypeDef, _OptionalReturnSavingsPlanRequestRequestTypeDef
+):
+    pass
+
+ReturnSavingsPlanResponseTypeDef = TypedDict(
+    "ReturnSavingsPlanResponseTypeDef",
+    {
+        "savingsPlanId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 SavingsPlanFilterTypeDef = TypedDict(
     "SavingsPlanFilterTypeDef",
     {
@@ -385,6 +415,7 @@ SavingsPlanTypeDef = TypedDict(
         "recurringPaymentAmount": str,
         "termDurationInSeconds": int,
         "tags": Dict[str, str],
+        "returnableUntil": str,
     },
     total=False,
 )

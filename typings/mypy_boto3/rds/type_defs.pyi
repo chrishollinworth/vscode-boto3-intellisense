@@ -11,6 +11,7 @@ Usage::
     data: AccountAttributesMessageTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -33,6 +34,7 @@ from .literals import (
     GlobalClusterMemberSynchronizationStatusType,
     IAMAuthModeType,
     IntegrationStatusType,
+    LimitlessDatabaseStatusType,
     LocalWriteForwardingStatusType,
     ReplicaModeType,
     SourceTypeType,
@@ -79,6 +81,7 @@ __all__ = (
     "ClusterPendingModifiedValuesTypeDef",
     "ConnectionPoolConfigurationInfoTypeDef",
     "ConnectionPoolConfigurationTypeDef",
+    "ContextAttributeTypeDef",
     "CopyDBClusterParameterGroupMessageRequestTypeDef",
     "CopyDBClusterParameterGroupResultTypeDef",
     "CopyDBClusterSnapshotMessageRequestTypeDef",
@@ -111,6 +114,7 @@ __all__ = (
     "CreateDBProxyResponseTypeDef",
     "CreateDBSecurityGroupMessageRequestTypeDef",
     "CreateDBSecurityGroupResultTypeDef",
+    "CreateDBShardGroupMessageRequestTypeDef",
     "CreateDBSnapshotMessageRequestTypeDef",
     "CreateDBSnapshotResultTypeDef",
     "CreateDBSubnetGroupMessageRequestTypeDef",
@@ -167,9 +171,14 @@ __all__ = (
     "DBProxyTargetGroupTypeDef",
     "DBProxyTargetTypeDef",
     "DBProxyTypeDef",
+    "DBRecommendationMessageTypeDef",
+    "DBRecommendationTypeDef",
+    "DBRecommendationsMessageTypeDef",
     "DBSecurityGroupMembershipTypeDef",
     "DBSecurityGroupMessageTypeDef",
     "DBSecurityGroupTypeDef",
+    "DBShardGroupResponseMetadataTypeDef",
+    "DBShardGroupTypeDef",
     "DBSnapshotAttributeTypeDef",
     "DBSnapshotAttributesResultTypeDef",
     "DBSnapshotMessageTypeDef",
@@ -199,6 +208,7 @@ __all__ = (
     "DeleteDBProxyRequestRequestTypeDef",
     "DeleteDBProxyResponseTypeDef",
     "DeleteDBSecurityGroupMessageRequestTypeDef",
+    "DeleteDBShardGroupMessageRequestTypeDef",
     "DeleteDBSnapshotMessageRequestTypeDef",
     "DeleteDBSnapshotResultTypeDef",
     "DeleteDBSubnetGroupMessageRequestTypeDef",
@@ -239,7 +249,10 @@ __all__ = (
     "DescribeDBProxyTargetGroupsResponseTypeDef",
     "DescribeDBProxyTargetsRequestRequestTypeDef",
     "DescribeDBProxyTargetsResponseTypeDef",
+    "DescribeDBRecommendationsMessageRequestTypeDef",
     "DescribeDBSecurityGroupsMessageRequestTypeDef",
+    "DescribeDBShardGroupsMessageRequestTypeDef",
+    "DescribeDBShardGroupsResponseTypeDef",
     "DescribeDBSnapshotAttributesMessageRequestTypeDef",
     "DescribeDBSnapshotAttributesResultTypeDef",
     "DescribeDBSnapshotTenantDatabasesMessageRequestTypeDef",
@@ -266,11 +279,16 @@ __all__ = (
     "DescribeTenantDatabasesMessageRequestTypeDef",
     "DescribeValidDBInstanceModificationsMessageRequestTypeDef",
     "DescribeValidDBInstanceModificationsResultTypeDef",
+    "DisableHttpEndpointRequestRequestTypeDef",
+    "DisableHttpEndpointResponseTypeDef",
+    "DocLinkTypeDef",
     "DomainMembershipTypeDef",
     "DoubleRangeTypeDef",
     "DownloadDBLogFilePortionDetailsTypeDef",
     "DownloadDBLogFilePortionMessageRequestTypeDef",
     "EC2SecurityGroupTypeDef",
+    "EnableHttpEndpointRequestRequestTypeDef",
+    "EnableHttpEndpointResponseTypeDef",
     "EndpointTypeDef",
     "EngineDefaultsTypeDef",
     "EventCategoriesMapTypeDef",
@@ -295,8 +313,13 @@ __all__ = (
     "IntegrationErrorTypeDef",
     "IntegrationResponseMetadataTypeDef",
     "IntegrationTypeDef",
+    "IssueDetailsTypeDef",
+    "LimitlessDatabaseTypeDef",
     "ListTagsForResourceMessageRequestTypeDef",
     "MasterUserSecretTypeDef",
+    "MetricQueryTypeDef",
+    "MetricReferenceTypeDef",
+    "MetricTypeDef",
     "MinimumEngineVersionPerAllowedValueTypeDef",
     "ModifyActivityStreamRequestRequestTypeDef",
     "ModifyActivityStreamResponseTypeDef",
@@ -319,6 +342,8 @@ __all__ = (
     "ModifyDBProxyResponseTypeDef",
     "ModifyDBProxyTargetGroupRequestRequestTypeDef",
     "ModifyDBProxyTargetGroupResponseTypeDef",
+    "ModifyDBRecommendationMessageRequestTypeDef",
+    "ModifyDBShardGroupMessageRequestTypeDef",
     "ModifyDBSnapshotAttributeMessageRequestTypeDef",
     "ModifyDBSnapshotAttributeResultTypeDef",
     "ModifyDBSnapshotMessageRequestTypeDef",
@@ -329,6 +354,7 @@ __all__ = (
     "ModifyEventSubscriptionResultTypeDef",
     "ModifyGlobalClusterMessageRequestTypeDef",
     "ModifyGlobalClusterResultTypeDef",
+    "ModifyIntegrationMessageRequestTypeDef",
     "ModifyOptionGroupMessageRequestTypeDef",
     "ModifyOptionGroupResultTypeDef",
     "ModifyTenantDatabaseMessageRequestTypeDef",
@@ -352,6 +378,9 @@ __all__ = (
     "PendingMaintenanceActionTypeDef",
     "PendingMaintenanceActionsMessageTypeDef",
     "PendingModifiedValuesTypeDef",
+    "PerformanceInsightsMetricDimensionGroupTypeDef",
+    "PerformanceInsightsMetricQueryTypeDef",
+    "PerformanceIssueDetailsTypeDef",
     "ProcessorFeatureTypeDef",
     "PromoteReadReplicaDBClusterMessageRequestTypeDef",
     "PromoteReadReplicaDBClusterResultTypeDef",
@@ -365,7 +394,12 @@ __all__ = (
     "RebootDBClusterResultTypeDef",
     "RebootDBInstanceMessageRequestTypeDef",
     "RebootDBInstanceResultTypeDef",
+    "RebootDBShardGroupMessageRequestTypeDef",
+    "RecommendedActionParameterTypeDef",
+    "RecommendedActionTypeDef",
+    "RecommendedActionUpdateTypeDef",
     "RecurringChargeTypeDef",
+    "ReferenceDetailsTypeDef",
     "RegisterDBProxyTargetsRequestRequestTypeDef",
     "RegisterDBProxyTargetsResponseTypeDef",
     "RemoveFromGlobalClusterMessageRequestTypeDef",
@@ -398,6 +432,7 @@ __all__ = (
     "RestoreWindowTypeDef",
     "RevokeDBSecurityGroupIngressMessageRequestTypeDef",
     "RevokeDBSecurityGroupIngressResultTypeDef",
+    "ScalarReferenceDetailsTypeDef",
     "ScalingConfigurationInfoTypeDef",
     "ScalingConfigurationTypeDef",
     "ServerlessV2ScalingConfigurationInfoTypeDef",
@@ -726,6 +761,7 @@ ClusterPendingModifiedValuesTypeDef = TypedDict(
         "RdsCustomClusterConfiguration": "RdsCustomClusterConfigurationTypeDef",
         "Iops": int,
         "StorageType": str,
+        "CertificateDetails": "CertificateDetailsTypeDef",
     },
     total=False,
 )
@@ -750,6 +786,15 @@ ConnectionPoolConfigurationTypeDef = TypedDict(
         "ConnectionBorrowTimeout": int,
         "SessionPinningFilters": List[str],
         "InitQuery": str,
+    },
+    total=False,
+)
+
+ContextAttributeTypeDef = TypedDict(
+    "ContextAttributeTypeDef",
+    {
+        "Key": str,
+        "Value": str,
     },
     total=False,
 )
@@ -1051,12 +1096,15 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "EnablePerformanceInsights": bool,
         "PerformanceInsightsKMSKeyId": str,
         "PerformanceInsightsRetentionPeriod": int,
+        "EnableLimitlessDatabase": bool,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "NetworkType": str,
         "DBSystemId": str,
         "ManageMasterUserPassword": bool,
         "MasterUserSecretKmsKeyId": str,
         "EnableLocalWriteForwarding": bool,
+        "CACertificateIdentifier": str,
+        "EngineLifecycleSupport": str,
         "SourceRegion": str,
     },
     total=False,
@@ -1204,6 +1252,7 @@ _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "DBSystemId": str,
         "DedicatedLogVolume": bool,
         "MultiTenant": bool,
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -1265,6 +1314,7 @@ _OptionalCreateDBInstanceReadReplicaMessageRequestTypeDef = TypedDict(
         "SourceDBClusterIdentifier": str,
         "DedicatedLogVolume": bool,
         "UpgradeStorageConfig": bool,
+        "CACertificateIdentifier": str,
         "SourceRegion": str,
     },
     total=False,
@@ -1418,6 +1468,29 @@ CreateDBSecurityGroupResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateDBShardGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateDBShardGroupMessageRequestTypeDef",
+    {
+        "DBShardGroupIdentifier": str,
+        "DBClusterIdentifier": str,
+        "MaxACU": float,
+    },
+)
+_OptionalCreateDBShardGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateDBShardGroupMessageRequestTypeDef",
+    {
+        "ComputeRedundancy": int,
+        "PubliclyAccessible": bool,
+    },
+    total=False,
+)
+
+class CreateDBShardGroupMessageRequestTypeDef(
+    _RequiredCreateDBShardGroupMessageRequestTypeDef,
+    _OptionalCreateDBShardGroupMessageRequestTypeDef,
+):
+    pass
+
 _RequiredCreateDBSnapshotMessageRequestTypeDef = TypedDict(
     "_RequiredCreateDBSnapshotMessageRequestTypeDef",
     {
@@ -1516,6 +1589,7 @@ CreateGlobalClusterMessageRequestTypeDef = TypedDict(
         "SourceDBClusterIdentifier": str,
         "Engine": str,
         "EngineVersion": str,
+        "EngineLifecycleSupport": str,
         "DeletionProtection": bool,
         "DatabaseName": str,
         "StorageEncrypted": bool,
@@ -1545,6 +1619,8 @@ _OptionalCreateIntegrationMessageRequestTypeDef = TypedDict(
         "KMSKeyId": str,
         "AdditionalEncryptionContext": Dict[str, str],
         "Tags": List["TagTypeDef"],
+        "DataFilter": str,
+        "Description": str,
     },
     total=False,
 )
@@ -1662,6 +1738,7 @@ DBClusterAutomatedBackupTypeDef = TypedDict(
         "StorageType": str,
         "Iops": int,
         "AwsBackupRecoveryPointArn": str,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -1887,6 +1964,7 @@ DBClusterSnapshotTypeDef = TypedDict(
         "DBSystemId": str,
         "StorageType": str,
         "DbClusterResourceId": str,
+        "StorageThroughput": int,
     },
     total=False,
 )
@@ -1981,6 +2059,10 @@ DBClusterTypeDef = TypedDict(
         "IOOptimizedNextAllowedModificationTime": datetime,
         "LocalWriteForwardingStatus": LocalWriteForwardingStatusType,
         "AwsBackupRecoveryPointArn": str,
+        "LimitlessDatabase": "LimitlessDatabaseTypeDef",
+        "StorageThroughput": int,
+        "CertificateDetails": "CertificateDetailsTypeDef",
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -2026,6 +2108,7 @@ DBEngineVersionResponseMetadataTypeDef = TypedDict(
         "TagList": List["TagTypeDef"],
         "SupportsBabelfish": bool,
         "CustomDBEngineVersionManifest": str,
+        "SupportsLimitlessDatabase": bool,
         "SupportsCertificateRotationWithoutRestart": bool,
         "SupportedCACertificateIdentifiers": List[str],
         "SupportsLocalWriteForwarding": bool,
@@ -2066,6 +2149,7 @@ DBEngineVersionTypeDef = TypedDict(
         "TagList": List["TagTypeDef"],
         "SupportsBabelfish": bool,
         "CustomDBEngineVersionManifest": str,
+        "SupportsLimitlessDatabase": bool,
         "SupportsCertificateRotationWithoutRestart": bool,
         "SupportedCACertificateIdentifiers": List[str],
         "SupportsLocalWriteForwarding": bool,
@@ -2251,6 +2335,7 @@ DBInstanceTypeDef = TypedDict(
         "DedicatedLogVolume": bool,
         "IsStorageConfigUpgradeAvailable": bool,
         "MultiTenant": bool,
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -2371,6 +2456,50 @@ DBProxyTypeDef = TypedDict(
     total=False,
 )
 
+DBRecommendationMessageTypeDef = TypedDict(
+    "DBRecommendationMessageTypeDef",
+    {
+        "DBRecommendation": "DBRecommendationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DBRecommendationTypeDef = TypedDict(
+    "DBRecommendationTypeDef",
+    {
+        "RecommendationId": str,
+        "TypeId": str,
+        "Severity": str,
+        "ResourceArn": str,
+        "Status": str,
+        "CreatedTime": datetime,
+        "UpdatedTime": datetime,
+        "Detection": str,
+        "Recommendation": str,
+        "Description": str,
+        "Reason": str,
+        "RecommendedActions": List["RecommendedActionTypeDef"],
+        "Category": str,
+        "Source": str,
+        "TypeDetection": str,
+        "TypeRecommendation": str,
+        "Impact": str,
+        "AdditionalInfo": str,
+        "Links": List["DocLinkTypeDef"],
+        "IssueDetails": "IssueDetailsTypeDef",
+    },
+    total=False,
+)
+
+DBRecommendationsMessageTypeDef = TypedDict(
+    "DBRecommendationsMessageTypeDef",
+    {
+        "DBRecommendations": List["DBRecommendationTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DBSecurityGroupMembershipTypeDef = TypedDict(
     "DBSecurityGroupMembershipTypeDef",
     {
@@ -2399,6 +2528,36 @@ DBSecurityGroupTypeDef = TypedDict(
         "EC2SecurityGroups": List["EC2SecurityGroupTypeDef"],
         "IPRanges": List["IPRangeTypeDef"],
         "DBSecurityGroupArn": str,
+    },
+    total=False,
+)
+
+DBShardGroupResponseMetadataTypeDef = TypedDict(
+    "DBShardGroupResponseMetadataTypeDef",
+    {
+        "DBShardGroupResourceId": str,
+        "DBShardGroupIdentifier": str,
+        "DBClusterIdentifier": str,
+        "MaxACU": float,
+        "ComputeRedundancy": int,
+        "Status": str,
+        "PubliclyAccessible": bool,
+        "Endpoint": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DBShardGroupTypeDef = TypedDict(
+    "DBShardGroupTypeDef",
+    {
+        "DBShardGroupResourceId": str,
+        "DBShardGroupIdentifier": str,
+        "DBClusterIdentifier": str,
+        "MaxACU": float,
+        "ComputeRedundancy": int,
+        "Status": str,
+        "PubliclyAccessible": bool,
+        "Endpoint": str,
     },
     total=False,
 )
@@ -2721,6 +2880,13 @@ DeleteDBSecurityGroupMessageRequestTypeDef = TypedDict(
     "DeleteDBSecurityGroupMessageRequestTypeDef",
     {
         "DBSecurityGroupName": str,
+    },
+)
+
+DeleteDBShardGroupMessageRequestTypeDef = TypedDict(
+    "DeleteDBShardGroupMessageRequestTypeDef",
+    {
+        "DBShardGroupIdentifier": str,
     },
 )
 
@@ -3221,6 +3387,19 @@ DescribeDBProxyTargetsResponseTypeDef = TypedDict(
     },
 )
 
+DescribeDBRecommendationsMessageRequestTypeDef = TypedDict(
+    "DescribeDBRecommendationsMessageRequestTypeDef",
+    {
+        "LastUpdatedAfter": Union[datetime, str],
+        "LastUpdatedBefore": Union[datetime, str],
+        "Locale": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
 DescribeDBSecurityGroupsMessageRequestTypeDef = TypedDict(
     "DescribeDBSecurityGroupsMessageRequestTypeDef",
     {
@@ -3230,6 +3409,26 @@ DescribeDBSecurityGroupsMessageRequestTypeDef = TypedDict(
         "Marker": str,
     },
     total=False,
+)
+
+DescribeDBShardGroupsMessageRequestTypeDef = TypedDict(
+    "DescribeDBShardGroupsMessageRequestTypeDef",
+    {
+        "DBShardGroupIdentifier": str,
+        "Filters": List["FilterTypeDef"],
+        "Marker": str,
+        "MaxRecords": int,
+    },
+    total=False,
+)
+
+DescribeDBShardGroupsResponseTypeDef = TypedDict(
+    "DescribeDBShardGroupsResponseTypeDef",
+    {
+        "DBShardGroups": List["DBShardGroupTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DescribeDBSnapshotAttributesMessageRequestTypeDef = TypedDict(
@@ -3574,6 +3773,31 @@ DescribeValidDBInstanceModificationsResultTypeDef = TypedDict(
     },
 )
 
+DisableHttpEndpointRequestRequestTypeDef = TypedDict(
+    "DisableHttpEndpointRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+DisableHttpEndpointResponseTypeDef = TypedDict(
+    "DisableHttpEndpointResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "HttpEndpointEnabled": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DocLinkTypeDef = TypedDict(
+    "DocLinkTypeDef",
+    {
+        "Text": str,
+        "Url": str,
+    },
+    total=False,
+)
+
 DomainMembershipTypeDef = TypedDict(
     "DomainMembershipTypeDef",
     {
@@ -3638,6 +3862,22 @@ EC2SecurityGroupTypeDef = TypedDict(
         "EC2SecurityGroupOwnerId": str,
     },
     total=False,
+)
+
+EnableHttpEndpointRequestRequestTypeDef = TypedDict(
+    "EnableHttpEndpointRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+EnableHttpEndpointResponseTypeDef = TypedDict(
+    "EnableHttpEndpointResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "HttpEndpointEnabled": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 EndpointTypeDef = TypedDict(
@@ -3877,6 +4117,7 @@ GlobalClusterTypeDef = TypedDict(
         "Status": str,
         "Engine": str,
         "EngineVersion": str,
+        "EngineLifecycleSupport": str,
         "DatabaseName": str,
         "StorageEncrypted": bool,
         "DeletionProtection": bool,
@@ -3934,6 +4175,8 @@ IntegrationResponseMetadataTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "CreateTime": datetime,
         "Errors": List["IntegrationErrorTypeDef"],
+        "DataFilter": str,
+        "Description": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3951,6 +4194,25 @@ IntegrationTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "CreateTime": datetime,
         "Errors": List["IntegrationErrorTypeDef"],
+        "DataFilter": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+IssueDetailsTypeDef = TypedDict(
+    "IssueDetailsTypeDef",
+    {
+        "PerformanceIssueDetails": "PerformanceIssueDetailsTypeDef",
+    },
+    total=False,
+)
+
+LimitlessDatabaseTypeDef = TypedDict(
+    "LimitlessDatabaseTypeDef",
+    {
+        "Status": LimitlessDatabaseStatusType,
+        "MinRequiredACU": float,
     },
     total=False,
 )
@@ -3981,6 +4243,34 @@ MasterUserSecretTypeDef = TypedDict(
         "SecretArn": str,
         "SecretStatus": str,
         "KmsKeyId": str,
+    },
+    total=False,
+)
+
+MetricQueryTypeDef = TypedDict(
+    "MetricQueryTypeDef",
+    {
+        "PerformanceInsightsMetricQuery": "PerformanceInsightsMetricQueryTypeDef",
+    },
+    total=False,
+)
+
+MetricReferenceTypeDef = TypedDict(
+    "MetricReferenceTypeDef",
+    {
+        "Name": str,
+        "ReferenceDetails": "ReferenceDetailsTypeDef",
+    },
+    total=False,
+)
+
+MetricTypeDef = TypedDict(
+    "MetricTypeDef",
+    {
+        "Name": str,
+        "References": List["MetricReferenceTypeDef"],
+        "StatisticsDetails": str,
+        "MetricQuery": "MetricQueryTypeDef",
     },
     total=False,
 )
@@ -4150,6 +4440,8 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "AllowEngineModeChange": bool,
         "EnableLocalWriteForwarding": bool,
         "AwsBackupRecoveryPointArn": str,
+        "EnableLimitlessDatabase": bool,
+        "CACertificateIdentifier": str,
     },
     total=False,
 )
@@ -4390,6 +4682,48 @@ ModifyDBProxyTargetGroupResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredModifyDBRecommendationMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyDBRecommendationMessageRequestTypeDef",
+    {
+        "RecommendationId": str,
+    },
+)
+_OptionalModifyDBRecommendationMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyDBRecommendationMessageRequestTypeDef",
+    {
+        "Locale": str,
+        "Status": str,
+        "RecommendedActionUpdates": List["RecommendedActionUpdateTypeDef"],
+    },
+    total=False,
+)
+
+class ModifyDBRecommendationMessageRequestTypeDef(
+    _RequiredModifyDBRecommendationMessageRequestTypeDef,
+    _OptionalModifyDBRecommendationMessageRequestTypeDef,
+):
+    pass
+
+_RequiredModifyDBShardGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyDBShardGroupMessageRequestTypeDef",
+    {
+        "DBShardGroupIdentifier": str,
+    },
+)
+_OptionalModifyDBShardGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyDBShardGroupMessageRequestTypeDef",
+    {
+        "MaxACU": float,
+    },
+    total=False,
+)
+
+class ModifyDBShardGroupMessageRequestTypeDef(
+    _RequiredModifyDBShardGroupMessageRequestTypeDef,
+    _OptionalModifyDBShardGroupMessageRequestTypeDef,
+):
+    pass
+
 _RequiredModifyDBSnapshotAttributeMessageRequestTypeDef = TypedDict(
     "_RequiredModifyDBSnapshotAttributeMessageRequestTypeDef",
     {
@@ -4527,6 +4861,27 @@ ModifyGlobalClusterResultTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredModifyIntegrationMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyIntegrationMessageRequestTypeDef",
+    {
+        "IntegrationIdentifier": str,
+    },
+)
+_OptionalModifyIntegrationMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyIntegrationMessageRequestTypeDef",
+    {
+        "IntegrationName": str,
+        "DataFilter": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+class ModifyIntegrationMessageRequestTypeDef(
+    _RequiredModifyIntegrationMessageRequestTypeDef, _OptionalModifyIntegrationMessageRequestTypeDef
+):
+    pass
 
 _RequiredModifyOptionGroupMessageRequestTypeDef = TypedDict(
     "_RequiredModifyOptionGroupMessageRequestTypeDef",
@@ -4883,6 +5238,36 @@ PendingModifiedValuesTypeDef = TypedDict(
     total=False,
 )
 
+PerformanceInsightsMetricDimensionGroupTypeDef = TypedDict(
+    "PerformanceInsightsMetricDimensionGroupTypeDef",
+    {
+        "Dimensions": List[str],
+        "Group": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+PerformanceInsightsMetricQueryTypeDef = TypedDict(
+    "PerformanceInsightsMetricQueryTypeDef",
+    {
+        "GroupBy": "PerformanceInsightsMetricDimensionGroupTypeDef",
+        "Metric": str,
+    },
+    total=False,
+)
+
+PerformanceIssueDetailsTypeDef = TypedDict(
+    "PerformanceIssueDetailsTypeDef",
+    {
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "Metrics": List["MetricTypeDef"],
+        "Analysis": str,
+    },
+    total=False,
+)
+
 ProcessorFeatureTypeDef = TypedDict(
     "ProcessorFeatureTypeDef",
     {
@@ -5028,11 +5413,59 @@ RebootDBInstanceResultTypeDef = TypedDict(
     },
 )
 
+RebootDBShardGroupMessageRequestTypeDef = TypedDict(
+    "RebootDBShardGroupMessageRequestTypeDef",
+    {
+        "DBShardGroupIdentifier": str,
+    },
+)
+
+RecommendedActionParameterTypeDef = TypedDict(
+    "RecommendedActionParameterTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
+RecommendedActionTypeDef = TypedDict(
+    "RecommendedActionTypeDef",
+    {
+        "ActionId": str,
+        "Title": str,
+        "Description": str,
+        "Operation": str,
+        "Parameters": List["RecommendedActionParameterTypeDef"],
+        "ApplyModes": List[str],
+        "Status": str,
+        "IssueDetails": "IssueDetailsTypeDef",
+        "ContextAttributes": List["ContextAttributeTypeDef"],
+    },
+    total=False,
+)
+
+RecommendedActionUpdateTypeDef = TypedDict(
+    "RecommendedActionUpdateTypeDef",
+    {
+        "ActionId": str,
+        "Status": str,
+    },
+)
+
 RecurringChargeTypeDef = TypedDict(
     "RecurringChargeTypeDef",
     {
         "RecurringChargeAmount": float,
         "RecurringChargeFrequency": str,
+    },
+    total=False,
+)
+
+ReferenceDetailsTypeDef = TypedDict(
+    "ReferenceDetailsTypeDef",
+    {
+        "ScalarReferenceDetails": "ScalarReferenceDetailsTypeDef",
     },
     total=False,
 )
@@ -5302,6 +5735,7 @@ _OptionalRestoreDBClusterFromS3MessageRequestTypeDef = TypedDict(
         "ManageMasterUserPassword": bool,
         "MasterUserSecretKmsKeyId": str,
         "StorageType": str,
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -5357,6 +5791,7 @@ _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "NetworkType": str,
         "RdsCustomClusterConfiguration": "RdsCustomClusterConfigurationTypeDef",
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -5412,6 +5847,7 @@ _OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
         "NetworkType": str,
         "SourceDbClusterResourceId": str,
         "RdsCustomClusterConfiguration": "RdsCustomClusterConfigurationTypeDef",
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -5478,6 +5914,8 @@ _OptionalRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef = TypedDict(
         "DBClusterSnapshotIdentifier": str,
         "AllocatedStorage": int,
         "DedicatedLogVolume": bool,
+        "CACertificateIdentifier": str,
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -5553,6 +5991,8 @@ _OptionalRestoreDBInstanceFromS3MessageRequestTypeDef = TypedDict(
         "ManageMasterUserPassword": bool,
         "MasterUserSecretKmsKeyId": str,
         "DedicatedLogVolume": bool,
+        "CACertificateIdentifier": str,
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -5623,6 +6063,8 @@ _OptionalRestoreDBInstanceToPointInTimeMessageRequestTypeDef = TypedDict(
         "StorageThroughput": int,
         "AllocatedStorage": int,
         "DedicatedLogVolume": bool,
+        "CACertificateIdentifier": str,
+        "EngineLifecycleSupport": str,
     },
     total=False,
 )
@@ -5679,6 +6121,14 @@ RevokeDBSecurityGroupIngressResultTypeDef = TypedDict(
         "DBSecurityGroup": "DBSecurityGroupTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ScalarReferenceDetailsTypeDef = TypedDict(
+    "ScalarReferenceDetailsTypeDef",
+    {
+        "Value": float,
+    },
+    total=False,
 )
 
 ScalingConfigurationInfoTypeDef = TypedDict(
@@ -6118,6 +6568,7 @@ UpgradeTargetTypeDef = TypedDict(
         "SupportsParallelQuery": bool,
         "SupportsGlobalDatabases": bool,
         "SupportsBabelfish": bool,
+        "SupportsLimitlessDatabase": bool,
         "SupportsLocalWriteForwarding": bool,
         "SupportsIntegrations": bool,
     },

@@ -11,6 +11,7 @@ Usage::
     data: ActionHistoryDetailsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -84,15 +85,20 @@ __all__ = (
     "ExecuteBudgetActionResponseTypeDef",
     "HistoricalOptionsTypeDef",
     "IamActionDefinitionTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "NotificationTypeDef",
     "NotificationWithSubscribersTypeDef",
     "PaginatorConfigTypeDef",
+    "ResourceTagTypeDef",
     "ResponseMetadataTypeDef",
     "ScpActionDefinitionTypeDef",
     "SpendTypeDef",
     "SsmActionDefinitionTypeDef",
     "SubscriberTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TimePeriodTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateBudgetActionRequestRequestTypeDef",
     "UpdateBudgetActionResponseTypeDef",
     "UpdateBudgetRequestRequestTypeDef",
@@ -253,8 +259,8 @@ CostTypesTypeDef = TypedDict(
     total=False,
 )
 
-CreateBudgetActionRequestRequestTypeDef = TypedDict(
-    "CreateBudgetActionRequestRequestTypeDef",
+_RequiredCreateBudgetActionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBudgetActionRequestRequestTypeDef",
     {
         "AccountId": str,
         "BudgetName": str,
@@ -267,6 +273,19 @@ CreateBudgetActionRequestRequestTypeDef = TypedDict(
         "Subscribers": List["SubscriberTypeDef"],
     },
 )
+_OptionalCreateBudgetActionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBudgetActionRequestRequestTypeDef",
+    {
+        "ResourceTags": List["ResourceTagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateBudgetActionRequestRequestTypeDef(
+    _RequiredCreateBudgetActionRequestRequestTypeDef,
+    _OptionalCreateBudgetActionRequestRequestTypeDef,
+):
+    pass
 
 CreateBudgetActionResponseTypeDef = TypedDict(
     "CreateBudgetActionResponseTypeDef",
@@ -289,6 +308,7 @@ _OptionalCreateBudgetRequestRequestTypeDef = TypedDict(
     "_OptionalCreateBudgetRequestRequestTypeDef",
     {
         "NotificationsWithSubscribers": List["NotificationWithSubscribersTypeDef"],
+        "ResourceTags": List["ResourceTagTypeDef"],
     },
     total=False,
 )
@@ -718,6 +738,21 @@ class IamActionDefinitionTypeDef(
 ):
     pass
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "ResourceTags": List["ResourceTagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredNotificationTypeDef = TypedDict(
     "_RequiredNotificationTypeDef",
     {
@@ -754,6 +789,14 @@ PaginatorConfigTypeDef = TypedDict(
         "StartingToken": str,
     },
     total=False,
+)
+
+ResourceTagTypeDef = TypedDict(
+    "ResourceTagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
 )
 
 ResponseMetadataTypeDef = TypedDict(
@@ -800,6 +843,14 @@ SubscriberTypeDef = TypedDict(
     },
 )
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "ResourceTags": List["ResourceTagTypeDef"],
+    },
+)
+
 TimePeriodTypeDef = TypedDict(
     "TimePeriodTypeDef",
     {
@@ -807,6 +858,14 @@ TimePeriodTypeDef = TypedDict(
         "End": Union[datetime, str],
     },
     total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "ResourceTagKeys": List[str],
+    },
 )
 
 _RequiredUpdateBudgetActionRequestRequestTypeDef = TypedDict(

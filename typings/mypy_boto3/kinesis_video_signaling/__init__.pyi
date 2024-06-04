@@ -16,6 +16,7 @@ Usage::
     session_client: KinesisVideoSignalingChannelsClient = session.client("kinesis-video-signaling")
     ```
 """
+
 from .client import KinesisVideoSignalingChannelsClient
 
 Client = KinesisVideoSignalingChannelsClient

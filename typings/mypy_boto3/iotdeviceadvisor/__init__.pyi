@@ -16,6 +16,7 @@ Usage::
     session_client: IoTDeviceAdvisorClient = session.client("iotdeviceadvisor")
     ```
 """
+
 from .client import IoTDeviceAdvisorClient
 
 Client = IoTDeviceAdvisorClient

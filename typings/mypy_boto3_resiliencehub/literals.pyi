@@ -11,6 +11,7 @@ Usage::
     data: AlarmTypeType = "Canary"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -38,6 +39,7 @@ __all__ = (
     "EventTypeType",
     "ExcludeRecommendationReasonType",
     "HaArchitectureType",
+    "ListAppAssessmentResourceDriftsPaginatorName",
     "PermissionModelTypeType",
     "PhysicalIdentifierTypeType",
     "RecommendationComplianceStatusType",
@@ -77,10 +79,10 @@ ConfigRecommendationOptimizationTypeType = Literal[
 ]
 CostFrequencyType = Literal["Daily", "Hourly", "Monthly", "Yearly"]
 DataLocationConstraintType = Literal["AnyLocation", "SameContinent", "SameCountry"]
-DifferenceTypeType = Literal["NotEqual"]
+DifferenceTypeType = Literal["Added", "NotEqual", "Removed"]
 DisruptionTypeType = Literal["AZ", "Hardware", "Region", "Software"]
 DriftStatusType = Literal["Detected", "NotChecked", "NotDetected"]
-DriftTypeType = Literal["ApplicationCompliance"]
+DriftTypeType = Literal["AppComponentResiliencyComplianceStatus", "ApplicationCompliance"]
 EstimatedCostTierType = Literal["L1", "L2", "L3", "L4"]
 EventTypeType = Literal["DriftDetected", "ScheduledAssessmentFailure"]
 ExcludeRecommendationReasonType = Literal[
@@ -89,6 +91,7 @@ ExcludeRecommendationReasonType = Literal[
 HaArchitectureType = Literal[
     "BackupAndRestore", "MultiSite", "NoRecoveryPlan", "PilotLight", "WarmStandby"
 ]
+ListAppAssessmentResourceDriftsPaginatorName = Literal["list_app_assessment_resource_drifts"]
 PermissionModelTypeType = Literal["LegacyIAMUser", "RoleBased"]
 PhysicalIdentifierTypeType = Literal["Arn", "Native"]
 RecommendationComplianceStatusType = Literal[

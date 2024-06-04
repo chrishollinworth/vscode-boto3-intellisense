@@ -11,6 +11,7 @@ Usage::
     data: ApiKeyFilterTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -20,6 +21,7 @@ from .literals import (
     DimensionUnitType,
     DistanceUnitType,
     IntendedUseType,
+    OptimizationModeType,
     PositionFilteringType,
     PricingPlanType,
     RouteMatrixErrorCodeType,
@@ -483,12 +485,14 @@ _RequiredCalculateRouteRequestRequestTypeDef = TypedDict(
 _OptionalCalculateRouteRequestRequestTypeDef = TypedDict(
     "_OptionalCalculateRouteRequestRequestTypeDef",
     {
+        "ArrivalTime": Union[datetime, str],
         "CarModeOptions": "CalculateRouteCarModeOptionsTypeDef",
         "DepartNow": bool,
         "DepartureTime": Union[datetime, str],
         "DistanceUnit": DistanceUnitType,
         "IncludeLegGeometry": bool,
         "Key": str,
+        "OptimizeFor": OptimizationModeType,
         "TravelMode": TravelModeType,
         "TruckModeOptions": "CalculateRouteTruckModeOptionsTypeDef",
         "WaypointPositions": List[List[float]],
@@ -757,12 +761,24 @@ DeleteGeofenceCollectionRequestRequestTypeDef = TypedDict(
     },
 )
 
-DeleteKeyRequestRequestTypeDef = TypedDict(
-    "DeleteKeyRequestRequestTypeDef",
+_RequiredDeleteKeyRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteKeyRequestRequestTypeDef",
     {
         "KeyName": str,
     },
 )
+_OptionalDeleteKeyRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteKeyRequestRequestTypeDef",
+    {
+        "ForceDelete": bool,
+    },
+    total=False,
+)
+
+class DeleteKeyRequestRequestTypeDef(
+    _RequiredDeleteKeyRequestRequestTypeDef, _OptionalDeleteKeyRequestRequestTypeDef
+):
+    pass
 
 DeleteMapRequestRequestTypeDef = TypedDict(
     "DeleteMapRequestRequestTypeDef",
@@ -1658,6 +1674,7 @@ _RequiredMapConfigurationTypeDef = TypedDict(
 _OptionalMapConfigurationTypeDef = TypedDict(
     "_OptionalMapConfigurationTypeDef",
     {
+        "CustomLayers": List[str],
         "PoliticalView": str,
     },
     total=False,
@@ -1669,6 +1686,7 @@ class MapConfigurationTypeDef(_RequiredMapConfigurationTypeDef, _OptionalMapConf
 MapConfigurationUpdateTypeDef = TypedDict(
     "MapConfigurationUpdateTypeDef",
     {
+        "CustomLayers": List[str],
         "PoliticalView": str,
     },
     total=False,
@@ -1711,6 +1729,7 @@ _OptionalPlaceTypeDef = TypedDict(
         "PostalCode": str,
         "Region": str,
         "Street": str,
+        "SubMunicipality": str,
         "SubRegion": str,
         "SupplementalCategories": List[str],
         "TimeZone": "TimeZoneTypeDef",

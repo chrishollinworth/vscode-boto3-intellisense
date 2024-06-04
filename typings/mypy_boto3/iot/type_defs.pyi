@@ -11,6 +11,7 @@ Usage::
     data: AbortConfigTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -152,6 +153,7 @@ __all__ = (
     "CancelJobRequestRequestTypeDef",
     "CancelJobResponseTypeDef",
     "CertificateDescriptionTypeDef",
+    "CertificateProviderSummaryTypeDef",
     "CertificateTypeDef",
     "CertificateValidityTypeDef",
     "CloudwatchAlarmActionTypeDef",
@@ -169,6 +171,8 @@ __all__ = (
     "CreateBillingGroupResponseTypeDef",
     "CreateCertificateFromCsrRequestRequestTypeDef",
     "CreateCertificateFromCsrResponseTypeDef",
+    "CreateCertificateProviderRequestRequestTypeDef",
+    "CreateCertificateProviderResponseTypeDef",
     "CreateCustomMetricRequestRequestTypeDef",
     "CreateCustomMetricResponseTypeDef",
     "CreateDimensionRequestRequestTypeDef",
@@ -226,6 +230,7 @@ __all__ = (
     "DeleteAuthorizerRequestRequestTypeDef",
     "DeleteBillingGroupRequestRequestTypeDef",
     "DeleteCACertificateRequestRequestTypeDef",
+    "DeleteCertificateProviderRequestRequestTypeDef",
     "DeleteCertificateRequestRequestTypeDef",
     "DeleteCustomMetricRequestRequestTypeDef",
     "DeleteDimensionRequestRequestTypeDef",
@@ -270,6 +275,8 @@ __all__ = (
     "DescribeBillingGroupResponseTypeDef",
     "DescribeCACertificateRequestRequestTypeDef",
     "DescribeCACertificateResponseTypeDef",
+    "DescribeCertificateProviderRequestRequestTypeDef",
+    "DescribeCertificateProviderResponseTypeDef",
     "DescribeCertificateRequestRequestTypeDef",
     "DescribeCertificateResponseTypeDef",
     "DescribeCustomMetricRequestRequestTypeDef",
@@ -427,6 +434,8 @@ __all__ = (
     "ListBillingGroupsResponseTypeDef",
     "ListCACertificatesRequestRequestTypeDef",
     "ListCACertificatesResponseTypeDef",
+    "ListCertificateProvidersRequestRequestTypeDef",
+    "ListCertificateProvidersResponseTypeDef",
     "ListCertificatesByCARequestRequestTypeDef",
     "ListCertificatesByCAResponseTypeDef",
     "ListCertificatesRequestRequestTypeDef",
@@ -597,6 +606,7 @@ __all__ = (
     "SecurityProfileIdentifierTypeDef",
     "SecurityProfileTargetMappingTypeDef",
     "SecurityProfileTargetTypeDef",
+    "ServerCertificateConfigTypeDef",
     "ServerCertificateSummaryTypeDef",
     "SetDefaultAuthorizerRequestRequestTypeDef",
     "SetDefaultAuthorizerResponseTypeDef",
@@ -669,6 +679,8 @@ __all__ = (
     "UpdateBillingGroupResponseTypeDef",
     "UpdateCACertificateParamsTypeDef",
     "UpdateCACertificateRequestRequestTypeDef",
+    "UpdateCertificateProviderRequestRequestTypeDef",
+    "UpdateCertificateProviderResponseTypeDef",
     "UpdateCertificateRequestRequestTypeDef",
     "UpdateCustomMetricRequestRequestTypeDef",
     "UpdateCustomMetricResponseTypeDef",
@@ -1451,6 +1463,15 @@ CertificateDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+CertificateProviderSummaryTypeDef = TypedDict(
+    "CertificateProviderSummaryTypeDef",
+    {
+        "certificateProviderName": str,
+        "certificateProviderArn": str,
+    },
+    total=False,
+)
+
 CertificateTypeDef = TypedDict(
     "CertificateTypeDef",
     {
@@ -1686,6 +1707,38 @@ CreateCertificateFromCsrResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateCertificateProviderRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCertificateProviderRequestRequestTypeDef",
+    {
+        "certificateProviderName": str,
+        "lambdaFunctionArn": str,
+        "accountDefaultForOperations": List[Literal["CreateCertificateFromCsr"]],
+    },
+)
+_OptionalCreateCertificateProviderRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCertificateProviderRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateCertificateProviderRequestRequestTypeDef(
+    _RequiredCreateCertificateProviderRequestRequestTypeDef,
+    _OptionalCreateCertificateProviderRequestRequestTypeDef,
+):
+    pass
+
+CreateCertificateProviderResponseTypeDef = TypedDict(
+    "CreateCertificateProviderResponseTypeDef",
+    {
+        "certificateProviderName": str,
+        "certificateProviderArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateCustomMetricRequestRequestTypeDef = TypedDict(
     "_RequiredCreateCustomMetricRequestRequestTypeDef",
     {
@@ -1765,6 +1818,7 @@ _OptionalCreateDomainConfigurationRequestRequestTypeDef = TypedDict(
         "serviceType": ServiceTypeType,
         "tags": List["TagTypeDef"],
         "tlsConfig": "TlsConfigTypeDef",
+        "serverCertificateConfig": "ServerCertificateConfigTypeDef",
     },
     total=False,
 )
@@ -2568,6 +2622,13 @@ DeleteCACertificateRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteCertificateProviderRequestRequestTypeDef = TypedDict(
+    "DeleteCertificateProviderRequestRequestTypeDef",
+    {
+        "certificateProviderName": str,
+    },
+)
+
 _RequiredDeleteCertificateRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteCertificateRequestRequestTypeDef",
     {
@@ -3070,6 +3131,26 @@ DescribeCACertificateResponseTypeDef = TypedDict(
     },
 )
 
+DescribeCertificateProviderRequestRequestTypeDef = TypedDict(
+    "DescribeCertificateProviderRequestRequestTypeDef",
+    {
+        "certificateProviderName": str,
+    },
+)
+
+DescribeCertificateProviderResponseTypeDef = TypedDict(
+    "DescribeCertificateProviderResponseTypeDef",
+    {
+        "certificateProviderName": str,
+        "certificateProviderArn": str,
+        "lambdaFunctionArn": str,
+        "accountDefaultForOperations": List[Literal["CreateCertificateFromCsr"]],
+        "creationDate": datetime,
+        "lastModifiedDate": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeCertificateRequestRequestTypeDef = TypedDict(
     "DescribeCertificateRequestRequestTypeDef",
     {
@@ -3168,6 +3249,7 @@ DescribeDomainConfigurationResponseTypeDef = TypedDict(
         "domainType": DomainTypeType,
         "lastStatusChangeDate": datetime,
         "tlsConfig": "TlsConfigTypeDef",
+        "serverCertificateConfig": "ServerCertificateConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4806,6 +4888,24 @@ ListCACertificatesResponseTypeDef = TypedDict(
     {
         "certificates": List["CACertificateTypeDef"],
         "nextMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListCertificateProvidersRequestRequestTypeDef = TypedDict(
+    "ListCertificateProvidersRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "ascendingOrder": bool,
+    },
+    total=False,
+)
+
+ListCertificateProvidersResponseTypeDef = TypedDict(
+    "ListCertificateProvidersResponseTypeDef",
+    {
+        "certificateProviders": List["CertificateProviderSummaryTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6897,6 +6997,14 @@ SecurityProfileTargetTypeDef = TypedDict(
     },
 )
 
+ServerCertificateConfigTypeDef = TypedDict(
+    "ServerCertificateConfigTypeDef",
+    {
+        "enableOCSPCheck": bool,
+    },
+    total=False,
+)
+
 ServerCertificateSummaryTypeDef = TypedDict(
     "ServerCertificateSummaryTypeDef",
     {
@@ -7787,6 +7895,36 @@ class UpdateCACertificateRequestRequestTypeDef(
 ):
     pass
 
+_RequiredUpdateCertificateProviderRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateCertificateProviderRequestRequestTypeDef",
+    {
+        "certificateProviderName": str,
+    },
+)
+_OptionalUpdateCertificateProviderRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateCertificateProviderRequestRequestTypeDef",
+    {
+        "lambdaFunctionArn": str,
+        "accountDefaultForOperations": List[Literal["CreateCertificateFromCsr"]],
+    },
+    total=False,
+)
+
+class UpdateCertificateProviderRequestRequestTypeDef(
+    _RequiredUpdateCertificateProviderRequestRequestTypeDef,
+    _OptionalUpdateCertificateProviderRequestRequestTypeDef,
+):
+    pass
+
+UpdateCertificateProviderResponseTypeDef = TypedDict(
+    "UpdateCertificateProviderResponseTypeDef",
+    {
+        "certificateProviderName": str,
+        "certificateProviderArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateCertificateRequestRequestTypeDef = TypedDict(
     "UpdateCertificateRequestRequestTypeDef",
     {
@@ -7857,6 +7995,7 @@ _OptionalUpdateDomainConfigurationRequestRequestTypeDef = TypedDict(
         "domainConfigurationStatus": DomainConfigurationStatusType,
         "removeAuthorizerConfig": bool,
         "tlsConfig": "TlsConfigTypeDef",
+        "serverCertificateConfig": "ServerCertificateConfigTypeDef",
     },
     total=False,
 )

@@ -13,6 +13,7 @@ Usage::
         ListApplicationsPaginator,
         ListComponentsPaginator,
         ListDatabasesPaginator,
+        ListOperationEventsPaginator,
         ListOperationsPaginator,
     )
 
@@ -21,9 +22,11 @@ Usage::
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     list_components_paginator: ListComponentsPaginator = client.get_paginator("list_components")
     list_databases_paginator: ListDatabasesPaginator = client.get_paginator("list_databases")
+    list_operation_events_paginator: ListOperationEventsPaginator = client.get_paginator("list_operation_events")
     list_operations_paginator: ListOperationsPaginator = client.get_paginator("list_operations")
     ```
 """
+
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -33,6 +36,7 @@ from .type_defs import (
     ListApplicationsOutputTypeDef,
     ListComponentsOutputTypeDef,
     ListDatabasesOutputTypeDef,
+    ListOperationEventsOutputTypeDef,
     ListOperationsOutputTypeDef,
     PaginatorConfigTypeDef,
 )
@@ -41,12 +45,13 @@ __all__ = (
     "ListApplicationsPaginator",
     "ListComponentsPaginator",
     "ListDatabasesPaginator",
+    "ListOperationEventsPaginator",
     "ListOperationsPaginator",
 )
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-sap.html#SsmSap.Paginator.ListApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListApplications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listapplicationspaginator)
     """
 
@@ -57,13 +62,13 @@ class ListApplicationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-sap.html#SsmSap.Paginator.ListApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListApplications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listapplicationspaginator)
         """
 
 class ListComponentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-sap.html#SsmSap.Paginator.ListComponents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListComponents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listcomponentspaginator)
     """
 
@@ -71,13 +76,13 @@ class ListComponentsPaginator(Boto3Paginator):
         self, *, ApplicationId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListComponentsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-sap.html#SsmSap.Paginator.ListComponents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListComponents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listcomponentspaginator)
         """
 
 class ListDatabasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-sap.html#SsmSap.Paginator.ListDatabases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListDatabases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listdatabasespaginator)
     """
 
@@ -89,13 +94,31 @@ class ListDatabasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatabasesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-sap.html#SsmSap.Paginator.ListDatabases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListDatabases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listdatabasespaginator)
+        """
+
+class ListOperationEventsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperationEvents)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listoperationeventspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        OperationId: str,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListOperationEventsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperationEvents.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listoperationeventspaginator)
         """
 
 class ListOperationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listoperationspaginator)
     """
 
@@ -107,6 +130,6 @@ class ListOperationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOperationsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listoperationspaginator)
         """

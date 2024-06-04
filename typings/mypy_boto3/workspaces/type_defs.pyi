@@ -6,11 +6,12 @@ Type annotations for workspaces service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_workspaces.type_defs import AccountModificationTypeDef
+    from mypy_boto3_workspaces.type_defs import AcceptAccountLinkInvitationRequestRequestTypeDef
 
-    data: AccountModificationTypeDef = {...}
+    data: AcceptAccountLinkInvitationRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -19,6 +20,7 @@ from botocore.response import StreamingBody
 
 from .literals import (
     AccessPropertyValueType,
+    AccountLinkStatusEnumType,
     ApplicationAssociatedResourceTypeType,
     ApplicationType,
     AssociationErrorCodeType,
@@ -31,6 +33,7 @@ from .literals import (
     ConnectionAliasStateType,
     ConnectionStateType,
     DataReplicationType,
+    DedicatedTenancyAccountTypeType,
     DedicatedTenancyModificationStateEnumType,
     DedicatedTenancySupportResultEnumType,
     DeletableSamlPropertyType,
@@ -69,6 +72,9 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AcceptAccountLinkInvitationRequestRequestTypeDef",
+    "AcceptAccountLinkInvitationResultTypeDef",
+    "AccountLinkTypeDef",
     "AccountModificationTypeDef",
     "ApplicationResourceAssociationTypeDef",
     "AssociateConnectionAliasRequestRequestTypeDef",
@@ -89,6 +95,8 @@ __all__ = (
     "ConnectionAliasTypeDef",
     "CopyWorkspaceImageRequestRequestTypeDef",
     "CopyWorkspaceImageResultTypeDef",
+    "CreateAccountLinkInvitationRequestRequestTypeDef",
+    "CreateAccountLinkInvitationResultTypeDef",
     "CreateConnectClientAddInRequestRequestTypeDef",
     "CreateConnectClientAddInResultTypeDef",
     "CreateConnectionAliasRequestRequestTypeDef",
@@ -110,6 +118,8 @@ __all__ = (
     "DefaultClientBrandingAttributesTypeDef",
     "DefaultImportClientBrandingAttributesTypeDef",
     "DefaultWorkspaceCreationPropertiesTypeDef",
+    "DeleteAccountLinkInvitationRequestRequestTypeDef",
+    "DeleteAccountLinkInvitationResultTypeDef",
     "DeleteClientBrandingRequestRequestTypeDef",
     "DeleteConnectClientAddInRequestRequestTypeDef",
     "DeleteConnectionAliasRequestRequestTypeDef",
@@ -169,6 +179,8 @@ __all__ = (
     "FailedCreateStandbyWorkspacesRequestTypeDef",
     "FailedCreateWorkspaceRequestTypeDef",
     "FailedWorkspaceChangeRequestTypeDef",
+    "GetAccountLinkRequestRequestTypeDef",
+    "GetAccountLinkResultTypeDef",
     "ImagePermissionTypeDef",
     "ImageResourceAssociationTypeDef",
     "ImportClientBrandingRequestRequestTypeDef",
@@ -178,6 +190,8 @@ __all__ = (
     "IosClientBrandingAttributesTypeDef",
     "IosImportClientBrandingAttributesTypeDef",
     "IpRuleItemTypeDef",
+    "ListAccountLinksRequestRequestTypeDef",
+    "ListAccountLinksResultTypeDef",
     "ListAvailableManagementCidrRangesRequestRequestTypeDef",
     "ListAvailableManagementCidrRangesResultTypeDef",
     "MigrateWorkspaceRequestRequestTypeDef",
@@ -202,6 +216,8 @@ __all__ = (
     "RebuildWorkspacesRequestRequestTypeDef",
     "RebuildWorkspacesResultTypeDef",
     "RegisterWorkspaceDirectoryRequestRequestTypeDef",
+    "RejectAccountLinkInvitationRequestRequestTypeDef",
+    "RejectAccountLinkInvitationResultTypeDef",
     "RelatedWorkspacePropertiesTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreWorkspaceRequestRequestTypeDef",
@@ -242,6 +258,45 @@ __all__ = (
     "WorkspaceResourceAssociationTypeDef",
     "WorkspaceTypeDef",
     "WorkspacesIpGroupTypeDef",
+)
+
+_RequiredAcceptAccountLinkInvitationRequestRequestTypeDef = TypedDict(
+    "_RequiredAcceptAccountLinkInvitationRequestRequestTypeDef",
+    {
+        "LinkId": str,
+    },
+)
+_OptionalAcceptAccountLinkInvitationRequestRequestTypeDef = TypedDict(
+    "_OptionalAcceptAccountLinkInvitationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class AcceptAccountLinkInvitationRequestRequestTypeDef(
+    _RequiredAcceptAccountLinkInvitationRequestRequestTypeDef,
+    _OptionalAcceptAccountLinkInvitationRequestRequestTypeDef,
+):
+    pass
+
+AcceptAccountLinkInvitationResultTypeDef = TypedDict(
+    "AcceptAccountLinkInvitationResultTypeDef",
+    {
+        "AccountLink": "AccountLinkTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AccountLinkTypeDef = TypedDict(
+    "AccountLinkTypeDef",
+    {
+        "AccountLinkId": str,
+        "AccountLinkStatus": AccountLinkStatusEnumType,
+        "SourceAccountId": str,
+        "TargetAccountId": str,
+    },
+    total=False,
 )
 
 AccountModificationTypeDef = TypedDict(
@@ -446,6 +501,34 @@ CopyWorkspaceImageResultTypeDef = TypedDict(
     "CopyWorkspaceImageResultTypeDef",
     {
         "ImageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAccountLinkInvitationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAccountLinkInvitationRequestRequestTypeDef",
+    {
+        "TargetAccountId": str,
+    },
+)
+_OptionalCreateAccountLinkInvitationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAccountLinkInvitationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateAccountLinkInvitationRequestRequestTypeDef(
+    _RequiredCreateAccountLinkInvitationRequestRequestTypeDef,
+    _OptionalCreateAccountLinkInvitationRequestRequestTypeDef,
+):
+    pass
+
+CreateAccountLinkInvitationResultTypeDef = TypedDict(
+    "CreateAccountLinkInvitationResultTypeDef",
+    {
+        "AccountLink": "AccountLinkTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -711,6 +794,34 @@ DefaultWorkspaceCreationPropertiesTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDeleteAccountLinkInvitationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteAccountLinkInvitationRequestRequestTypeDef",
+    {
+        "LinkId": str,
+    },
+)
+_OptionalDeleteAccountLinkInvitationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteAccountLinkInvitationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class DeleteAccountLinkInvitationRequestRequestTypeDef(
+    _RequiredDeleteAccountLinkInvitationRequestRequestTypeDef,
+    _OptionalDeleteAccountLinkInvitationRequestRequestTypeDef,
+):
+    pass
+
+DeleteAccountLinkInvitationResultTypeDef = TypedDict(
+    "DeleteAccountLinkInvitationResultTypeDef",
+    {
+        "AccountLink": "AccountLinkTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteClientBrandingRequestRequestTypeDef = TypedDict(
     "DeleteClientBrandingRequestRequestTypeDef",
     {
@@ -821,6 +932,7 @@ DescribeAccountResultTypeDef = TypedDict(
     {
         "DedicatedTenancySupport": DedicatedTenancySupportResultEnumType,
         "DedicatedTenancyManagementCidrRange": str,
+        "DedicatedTenancyAccountType": DedicatedTenancyAccountTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1209,6 +1321,7 @@ DescribeWorkspacesRequestRequestTypeDef = TypedDict(
         "BundleId": str,
         "Limit": int,
         "NextToken": str,
+        "WorkspaceName": str,
     },
     total=False,
 )
@@ -1290,6 +1403,23 @@ FailedWorkspaceChangeRequestTypeDef = TypedDict(
         "ErrorMessage": str,
     },
     total=False,
+)
+
+GetAccountLinkRequestRequestTypeDef = TypedDict(
+    "GetAccountLinkRequestRequestTypeDef",
+    {
+        "LinkId": str,
+        "LinkedAccountId": str,
+    },
+    total=False,
+)
+
+GetAccountLinkResultTypeDef = TypedDict(
+    "GetAccountLinkResultTypeDef",
+    {
+        "AccountLink": "AccountLinkTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ImagePermissionTypeDef = TypedDict(
@@ -1419,6 +1549,25 @@ IpRuleItemTypeDef = TypedDict(
         "ruleDesc": str,
     },
     total=False,
+)
+
+ListAccountLinksRequestRequestTypeDef = TypedDict(
+    "ListAccountLinksRequestRequestTypeDef",
+    {
+        "LinkStatusFilter": List[AccountLinkStatusEnumType],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListAccountLinksResultTypeDef = TypedDict(
+    "ListAccountLinksResultTypeDef",
+    {
+        "AccountLinks": List["AccountLinkTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredListAvailableManagementCidrRangesRequestRequestTypeDef = TypedDict(
@@ -1687,6 +1836,34 @@ class RegisterWorkspaceDirectoryRequestRequestTypeDef(
     _OptionalRegisterWorkspaceDirectoryRequestRequestTypeDef,
 ):
     pass
+
+_RequiredRejectAccountLinkInvitationRequestRequestTypeDef = TypedDict(
+    "_RequiredRejectAccountLinkInvitationRequestRequestTypeDef",
+    {
+        "LinkId": str,
+    },
+)
+_OptionalRejectAccountLinkInvitationRequestRequestTypeDef = TypedDict(
+    "_OptionalRejectAccountLinkInvitationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class RejectAccountLinkInvitationRequestRequestTypeDef(
+    _RequiredRejectAccountLinkInvitationRequestRequestTypeDef,
+    _OptionalRejectAccountLinkInvitationRequestRequestTypeDef,
+):
+    pass
+
+RejectAccountLinkInvitationResultTypeDef = TypedDict(
+    "RejectAccountLinkInvitationResultTypeDef",
+    {
+        "AccountLink": "AccountLinkTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 RelatedWorkspacePropertiesTypeDef = TypedDict(
     "RelatedWorkspacePropertiesTypeDef",
@@ -2107,6 +2284,7 @@ _OptionalWorkspaceRequestTypeDef = TypedDict(
         "RootVolumeEncryptionEnabled": bool,
         "WorkspaceProperties": "WorkspacePropertiesTypeDef",
         "Tags": List["TagTypeDef"],
+        "WorkspaceName": str,
     },
     total=False,
 )
@@ -2144,6 +2322,7 @@ WorkspaceTypeDef = TypedDict(
         "VolumeEncryptionKey": str,
         "UserVolumeEncryptionEnabled": bool,
         "RootVolumeEncryptionEnabled": bool,
+        "WorkspaceName": str,
         "WorkspaceProperties": "WorkspacePropertiesTypeDef",
         "ModificationStates": List["ModificationStateTypeDef"],
         "RelatedWorkspaces": List["RelatedWorkspacePropertiesTypeDef"],

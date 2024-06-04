@@ -11,12 +11,14 @@ Usage::
     data: ActionSourceTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
     ActionStatusType,
+    AdditionalS3DataSourceDataTypeType,
     AggregationTransformationValueType,
     AlgorithmSortByType,
     AlgorithmStatusType,
@@ -58,6 +60,10 @@ from .literals import (
     ClarifyFeatureTypeType,
     ClarifyTextGranularityType,
     ClarifyTextLanguageType,
+    ClusterInstanceStatusType,
+    ClusterInstanceTypeType,
+    ClusterSortByType,
+    ClusterStatusType,
     CodeRepositorySortByType,
     CodeRepositorySortOrderType,
     CollectionTypeType,
@@ -79,6 +85,7 @@ from .literals import (
     DomainStatusType,
     EdgePackagingJobStatusType,
     EdgePresetDeploymentStatusType,
+    EnabledOrDisabledType,
     EndpointConfigSortKeyType,
     EndpointSortKeyType,
     EndpointStatusType,
@@ -114,6 +121,8 @@ from .literals import (
     ImageVersionSortByType,
     ImageVersionSortOrderType,
     ImageVersionStatusType,
+    InferenceComponentSortKeyType,
+    InferenceComponentStatusType,
     InferenceExecutionModeType,
     InferenceExperimentStatusType,
     InferenceExperimentStopDesiredStateType,
@@ -131,6 +140,7 @@ from .literals import (
     ListInferenceRecommendationsJobsSortByType,
     ListWorkforcesSortByOptionsType,
     ListWorkteamsSortByOptionsType,
+    ManagedInstanceScalingStatusType,
     MetricSetSourceType,
     ModelApprovalStatusType,
     ModelCacheSettingType,
@@ -172,6 +182,7 @@ from .literals import (
     OutputCompressionTypeType,
     ParameterTypeType,
     PipelineExecutionStatusType,
+    PipelineStatusType,
     ProblemTypeType,
     ProcessingInstanceTypeType,
     ProcessingJobStatusType,
@@ -199,6 +210,7 @@ from .literals import (
     ResourceTypeType,
     RetentionTypeType,
     RootAccessType,
+    RoutingStrategyType,
     RStudioServerProAccessStatusType,
     RStudioServerProUserGroupType,
     RuleEvaluationStatusType,
@@ -209,6 +221,7 @@ from .literals import (
     ScheduleStatusType,
     SearchSortOrderType,
     SecondaryStatusType,
+    SharingTypeType,
     SkipModelValidationType,
     SortActionsByType,
     SortAssociationsByType,
@@ -231,11 +244,13 @@ from .literals import (
     StorageTypeType,
     StudioLifecycleConfigAppTypeType,
     StudioLifecycleConfigSortKeyType,
+    StudioWebPortalType,
     TableFormatType,
     TargetDeviceType,
     TargetPlatformAcceleratorType,
     TargetPlatformArchType,
     TargetPlatformOsType,
+    ThroughputModeType,
     TrafficRoutingConfigTypeType,
     TrafficTypeType,
     TrainingInputModeType,
@@ -353,6 +368,16 @@ __all__ = (
     "ClarifyShapBaselineConfigTypeDef",
     "ClarifyShapConfigTypeDef",
     "ClarifyTextConfigTypeDef",
+    "ClusterInstanceGroupDetailsTypeDef",
+    "ClusterInstanceGroupSpecificationTypeDef",
+    "ClusterInstancePlacementTypeDef",
+    "ClusterInstanceStatusDetailsTypeDef",
+    "ClusterLifeCycleConfigTypeDef",
+    "ClusterNodeDetailsTypeDef",
+    "ClusterNodeSummaryTypeDef",
+    "ClusterSummaryTypeDef",
+    "CodeEditorAppImageConfigTypeDef",
+    "CodeEditorAppSettingsTypeDef",
     "CodeRepositorySummaryTypeDef",
     "CodeRepositoryTypeDef",
     "CognitoConfigTypeDef",
@@ -361,6 +386,7 @@ __all__ = (
     "CollectionConfigurationTypeDef",
     "CompilationJobSummaryTypeDef",
     "ConditionStepMetadataTypeDef",
+    "ContainerConfigTypeDef",
     "ContainerDefinitionTypeDef",
     "ContextSourceTypeDef",
     "ContextSummaryTypeDef",
@@ -381,6 +407,8 @@ __all__ = (
     "CreateAutoMLJobResponseTypeDef",
     "CreateAutoMLJobV2RequestRequestTypeDef",
     "CreateAutoMLJobV2ResponseTypeDef",
+    "CreateClusterRequestRequestTypeDef",
+    "CreateClusterResponseTypeDef",
     "CreateCodeRepositoryInputRequestTypeDef",
     "CreateCodeRepositoryOutputTypeDef",
     "CreateCompilationJobRequestRequestTypeDef",
@@ -416,6 +444,8 @@ __all__ = (
     "CreateImageResponseTypeDef",
     "CreateImageVersionRequestRequestTypeDef",
     "CreateImageVersionResponseTypeDef",
+    "CreateInferenceComponentInputRequestTypeDef",
+    "CreateInferenceComponentOutputTypeDef",
     "CreateInferenceExperimentRequestRequestTypeDef",
     "CreateInferenceExperimentResponseTypeDef",
     "CreateInferenceRecommendationsJobRequestRequestTypeDef",
@@ -472,7 +502,10 @@ __all__ = (
     "CreateWorkforceResponseTypeDef",
     "CreateWorkteamRequestRequestTypeDef",
     "CreateWorkteamResponseTypeDef",
+    "CustomFileSystemConfigTypeDef",
+    "CustomFileSystemTypeDef",
     "CustomImageTypeDef",
+    "CustomPosixUserConfigTypeDef",
     "CustomizedMetricSpecificationTypeDef",
     "DataCaptureConfigSummaryTypeDef",
     "DataCaptureConfigTypeDef",
@@ -486,7 +519,9 @@ __all__ = (
     "DebugHookConfigTypeDef",
     "DebugRuleConfigurationTypeDef",
     "DebugRuleEvaluationStatusTypeDef",
+    "DefaultEbsStorageSettingsTypeDef",
     "DefaultSpaceSettingsTypeDef",
+    "DefaultSpaceStorageSettingsTypeDef",
     "DeleteActionRequestRequestTypeDef",
     "DeleteActionResponseTypeDef",
     "DeleteAlgorithmInputRequestTypeDef",
@@ -496,7 +531,10 @@ __all__ = (
     "DeleteArtifactResponseTypeDef",
     "DeleteAssociationRequestRequestTypeDef",
     "DeleteAssociationResponseTypeDef",
+    "DeleteClusterRequestRequestTypeDef",
+    "DeleteClusterResponseTypeDef",
     "DeleteCodeRepositoryInputRequestTypeDef",
+    "DeleteCompilationJobRequestRequestTypeDef",
     "DeleteContextRequestRequestTypeDef",
     "DeleteContextResponseTypeDef",
     "DeleteDataQualityJobDefinitionRequestRequestTypeDef",
@@ -513,8 +551,10 @@ __all__ = (
     "DeleteHubContentRequestRequestTypeDef",
     "DeleteHubRequestRequestTypeDef",
     "DeleteHumanTaskUiRequestRequestTypeDef",
+    "DeleteHyperParameterTuningJobRequestRequestTypeDef",
     "DeleteImageRequestRequestTypeDef",
     "DeleteImageVersionRequestRequestTypeDef",
+    "DeleteInferenceComponentInputRequestTypeDef",
     "DeleteInferenceExperimentRequestRequestTypeDef",
     "DeleteInferenceExperimentResponseTypeDef",
     "DeleteModelBiasJobDefinitionRequestRequestTypeDef",
@@ -563,6 +603,10 @@ __all__ = (
     "DescribeAutoMLJobResponseTypeDef",
     "DescribeAutoMLJobV2RequestRequestTypeDef",
     "DescribeAutoMLJobV2ResponseTypeDef",
+    "DescribeClusterNodeRequestRequestTypeDef",
+    "DescribeClusterNodeResponseTypeDef",
+    "DescribeClusterRequestRequestTypeDef",
+    "DescribeClusterResponseTypeDef",
     "DescribeCodeRepositoryInputRequestTypeDef",
     "DescribeCodeRepositoryOutputTypeDef",
     "DescribeCompilationJobRequestRequestTypeDef",
@@ -605,6 +649,8 @@ __all__ = (
     "DescribeImageResponseTypeDef",
     "DescribeImageVersionRequestRequestTypeDef",
     "DescribeImageVersionResponseTypeDef",
+    "DescribeInferenceComponentInputRequestTypeDef",
+    "DescribeInferenceComponentOutputTypeDef",
     "DescribeInferenceExperimentRequestRequestTypeDef",
     "DescribeInferenceExperimentResponseTypeDef",
     "DescribeInferenceRecommendationsJobRequestRequestTypeDef",
@@ -675,6 +721,7 @@ __all__ = (
     "DirectDeploySettingsTypeDef",
     "DisassociateTrialComponentRequestRequestTypeDef",
     "DisassociateTrialComponentResponseTypeDef",
+    "DockerSettingsTypeDef",
     "DomainDetailsTypeDef",
     "DomainSettingsForUpdateTypeDef",
     "DomainSettingsTypeDef",
@@ -684,7 +731,10 @@ __all__ = (
     "DriftCheckModelDataQualityTypeDef",
     "DriftCheckModelQualityTypeDef",
     "DynamicScalingConfigurationTypeDef",
+    "EFSFileSystemConfigTypeDef",
+    "EFSFileSystemTypeDef",
     "EMRStepMetadataTypeDef",
+    "EbsStorageSettingsTypeDef",
     "EdgeDeploymentConfigTypeDef",
     "EdgeDeploymentModelConfigTypeDef",
     "EdgeDeploymentPlanSummaryTypeDef",
@@ -727,6 +777,7 @@ __all__ = (
     "FinalHyperParameterTuningJobObjectiveMetricTypeDef",
     "FlowDefinitionOutputConfigTypeDef",
     "FlowDefinitionSummaryTypeDef",
+    "GenerativeAiSettingsTypeDef",
     "GetDeviceFleetReportRequestRequestTypeDef",
     "GetDeviceFleetReportResponseTypeDef",
     "GetLineageGroupPolicyRequestRequestTypeDef",
@@ -767,6 +818,7 @@ __all__ = (
     "HyperParameterTuningResourceConfigTypeDef",
     "HyperbandStrategyConfigTypeDef",
     "IamIdentityTypeDef",
+    "IamPolicyConstraintsTypeDef",
     "IdentityProviderOAuthSettingTypeDef",
     "ImageClassificationJobConfigTypeDef",
     "ImageConfigTypeDef",
@@ -774,6 +826,15 @@ __all__ = (
     "ImageVersionTypeDef",
     "ImportHubContentRequestRequestTypeDef",
     "ImportHubContentResponseTypeDef",
+    "InferenceComponentComputeResourceRequirementsTypeDef",
+    "InferenceComponentContainerSpecificationSummaryTypeDef",
+    "InferenceComponentContainerSpecificationTypeDef",
+    "InferenceComponentRuntimeConfigSummaryTypeDef",
+    "InferenceComponentRuntimeConfigTypeDef",
+    "InferenceComponentSpecificationSummaryTypeDef",
+    "InferenceComponentSpecificationTypeDef",
+    "InferenceComponentStartupParametersTypeDef",
+    "InferenceComponentSummaryTypeDef",
     "InferenceExecutionConfigTypeDef",
     "InferenceExperimentDataStorageConfigTypeDef",
     "InferenceExperimentScheduleTypeDef",
@@ -783,11 +844,14 @@ __all__ = (
     "InferenceRecommendationsJobStepTypeDef",
     "InferenceRecommendationsJobTypeDef",
     "InferenceSpecificationTypeDef",
+    "InfraCheckConfigTypeDef",
     "InputConfigTypeDef",
     "InstanceGroupTypeDef",
     "InstanceMetadataServiceConfigurationTypeDef",
     "IntegerParameterRangeSpecificationTypeDef",
     "IntegerParameterRangeTypeDef",
+    "JupyterLabAppImageConfigTypeDef",
+    "JupyterLabAppSettingsTypeDef",
     "JupyterServerAppSettingsTypeDef",
     "KendraSettingsTypeDef",
     "KernelGatewayAppSettingsTypeDef",
@@ -828,6 +892,10 @@ __all__ = (
     "ListAutoMLJobsResponseTypeDef",
     "ListCandidatesForAutoMLJobRequestRequestTypeDef",
     "ListCandidatesForAutoMLJobResponseTypeDef",
+    "ListClusterNodesRequestRequestTypeDef",
+    "ListClusterNodesResponseTypeDef",
+    "ListClustersRequestRequestTypeDef",
+    "ListClustersResponseTypeDef",
     "ListCodeRepositoriesInputRequestTypeDef",
     "ListCodeRepositoriesOutputTypeDef",
     "ListCompilationJobsRequestRequestTypeDef",
@@ -870,6 +938,8 @@ __all__ = (
     "ListImageVersionsResponseTypeDef",
     "ListImagesRequestRequestTypeDef",
     "ListImagesResponseTypeDef",
+    "ListInferenceComponentsInputRequestTypeDef",
+    "ListInferenceComponentsOutputTypeDef",
     "ListInferenceExperimentsRequestRequestTypeDef",
     "ListInferenceExperimentsResponseTypeDef",
     "ListInferenceRecommendationsJobStepsRequestRequestTypeDef",
@@ -998,6 +1068,8 @@ __all__ = (
     "ModelPackageContainerDefinitionTypeDef",
     "ModelPackageGroupSummaryTypeDef",
     "ModelPackageGroupTypeDef",
+    "ModelPackageModelCardTypeDef",
+    "ModelPackageSecurityConfigTypeDef",
     "ModelPackageStatusDetailsTypeDef",
     "ModelPackageStatusItemTypeDef",
     "ModelPackageSummaryTypeDef",
@@ -1059,6 +1131,8 @@ __all__ = (
     "OutputConfigTypeDef",
     "OutputDataConfigTypeDef",
     "OutputParameterTypeDef",
+    "OwnershipSettingsSummaryTypeDef",
+    "OwnershipSettingsTypeDef",
     "PaginatorConfigTypeDef",
     "ParallelismConfigurationTypeDef",
     "ParameterRangeTypeDef",
@@ -1091,6 +1165,8 @@ __all__ = (
     "ProcessingS3OutputTypeDef",
     "ProcessingStoppingConditionTypeDef",
     "ProductionVariantCoreDumpConfigTypeDef",
+    "ProductionVariantManagedInstanceScalingTypeDef",
+    "ProductionVariantRoutingConfigTypeDef",
     "ProductionVariantServerlessConfigTypeDef",
     "ProductionVariantServerlessUpdateConfigTypeDef",
     "ProductionVariantStatusTypeDef",
@@ -1131,6 +1207,8 @@ __all__ = (
     "RedshiftDatasetDefinitionTypeDef",
     "RegisterDevicesRequestRequestTypeDef",
     "RegisterModelStepMetadataTypeDef",
+    "RemoteDebugConfigForUpdateTypeDef",
+    "RemoteDebugConfigTypeDef",
     "RenderUiTemplateRequestRequestTypeDef",
     "RenderUiTemplateResponseTypeDef",
     "RenderableTaskTypeDef",
@@ -1150,6 +1228,7 @@ __all__ = (
     "RollingUpdatePolicyTypeDef",
     "S3DataSourceTypeDef",
     "S3ModelDataSourceTypeDef",
+    "S3PresignTypeDef",
     "S3StorageConfigTypeDef",
     "ScalingPolicyMetricTypeDef",
     "ScalingPolicyObjectiveTypeDef",
@@ -1170,6 +1249,7 @@ __all__ = (
     "ServiceCatalogProvisionedProductDetailsTypeDef",
     "ServiceCatalogProvisioningDetailsTypeDef",
     "ServiceCatalogProvisioningUpdateDetailsTypeDef",
+    "SessionChainingConfigTypeDef",
     "ShadowModeConfigTypeDef",
     "ShadowModelVariantConfigTypeDef",
     "SharingSettingsTypeDef",
@@ -1177,8 +1257,14 @@ __all__ = (
     "SourceAlgorithmSpecificationTypeDef",
     "SourceAlgorithmTypeDef",
     "SourceIpConfigTypeDef",
+    "SpaceCodeEditorAppSettingsTypeDef",
     "SpaceDetailsTypeDef",
+    "SpaceJupyterLabAppSettingsTypeDef",
+    "SpaceSettingsSummaryTypeDef",
     "SpaceSettingsTypeDef",
+    "SpaceSharingSettingsSummaryTypeDef",
+    "SpaceSharingSettingsTypeDef",
+    "SpaceStorageSettingsTypeDef",
     "StairsTypeDef",
     "StartEdgeDeploymentStageRequestRequestTypeDef",
     "StartInferenceExperimentRequestRequestTypeDef",
@@ -1217,6 +1303,9 @@ __all__ = (
     "TextClassificationJobConfigTypeDef",
     "TextGenerationJobConfigTypeDef",
     "TextGenerationResolvedAttributesTypeDef",
+    "ThroughputConfigDescriptionTypeDef",
+    "ThroughputConfigTypeDef",
+    "ThroughputConfigUpdateTypeDef",
     "TimeSeriesConfigTypeDef",
     "TimeSeriesForecastingJobConfigTypeDef",
     "TimeSeriesForecastingSettingsTypeDef",
@@ -1265,6 +1354,10 @@ __all__ = (
     "UpdateAppImageConfigResponseTypeDef",
     "UpdateArtifactRequestRequestTypeDef",
     "UpdateArtifactResponseTypeDef",
+    "UpdateClusterRequestRequestTypeDef",
+    "UpdateClusterResponseTypeDef",
+    "UpdateClusterSoftwareRequestRequestTypeDef",
+    "UpdateClusterSoftwareResponseTypeDef",
     "UpdateCodeRepositoryInputRequestTypeDef",
     "UpdateCodeRepositoryOutputTypeDef",
     "UpdateContextRequestRequestTypeDef",
@@ -1288,6 +1381,10 @@ __all__ = (
     "UpdateImageResponseTypeDef",
     "UpdateImageVersionRequestRequestTypeDef",
     "UpdateImageVersionResponseTypeDef",
+    "UpdateInferenceComponentInputRequestTypeDef",
+    "UpdateInferenceComponentOutputTypeDef",
+    "UpdateInferenceComponentRuntimeConfigInputRequestTypeDef",
+    "UpdateInferenceComponentRuntimeConfigOutputTypeDef",
     "UpdateInferenceExperimentRequestRequestTypeDef",
     "UpdateInferenceExperimentResponseTypeDef",
     "UpdateModelCardRequestRequestTypeDef",
@@ -1326,9 +1423,11 @@ __all__ = (
     "VariantPropertyTypeDef",
     "VectorConfigTypeDef",
     "VertexTypeDef",
+    "VisibilityConditionsTypeDef",
     "VpcConfigTypeDef",
     "WaiterConfigTypeDef",
     "WarmPoolStatusTypeDef",
+    "WorkerAccessConfigurationTypeDef",
     "WorkforceTypeDef",
     "WorkforceVpcConfigRequestTypeDef",
     "WorkforceVpcConfigResponseTypeDef",
@@ -1441,7 +1540,7 @@ class AdditionalInferenceSpecificationDefinitionTypeDef(
 _RequiredAdditionalS3DataSourceTypeDef = TypedDict(
     "_RequiredAdditionalS3DataSourceTypeDef",
     {
-        "S3DataType": Literal["S3Object"],
+        "S3DataType": AdditionalS3DataSourceDataTypeType,
         "S3Uri": str,
     },
 )
@@ -1588,11 +1687,12 @@ AppDetailsTypeDef = TypedDict(
     {
         "DomainId": str,
         "UserProfileName": str,
+        "SpaceName": str,
         "AppType": AppTypeType,
         "AppName": str,
         "Status": AppStatusType,
         "CreationTime": datetime,
-        "SpaceName": str,
+        "ResourceSpec": "ResourceSpecTypeDef",
     },
     total=False,
 )
@@ -1605,6 +1705,8 @@ AppImageConfigDetailsTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "KernelGatewayImageConfig": "KernelGatewayImageConfigTypeDef",
+        "JupyterLabAppImageConfig": "JupyterLabAppImageConfigTypeDef",
+        "CodeEditorAppImageConfig": "CodeEditorAppImageConfigTypeDef",
     },
     total=False,
 )
@@ -1828,13 +1930,13 @@ class AutoMLCandidateTypeDef(_RequiredAutoMLCandidateTypeDef, _OptionalAutoMLCan
 _RequiredAutoMLChannelTypeDef = TypedDict(
     "_RequiredAutoMLChannelTypeDef",
     {
-        "DataSource": "AutoMLDataSourceTypeDef",
         "TargetAttributeName": str,
     },
 )
 _OptionalAutoMLChannelTypeDef = TypedDict(
     "_OptionalAutoMLChannelTypeDef",
     {
+        "DataSource": "AutoMLDataSourceTypeDef",
         "CompressionType": CompressionTypeType,
         "ContentType": str,
         "ChannelType": AutoMLChannelTypeType,
@@ -1916,8 +2018,8 @@ AutoMLJobConfigTypeDef = TypedDict(
     {
         "CompletionCriteria": "AutoMLJobCompletionCriteriaTypeDef",
         "SecurityConfig": "AutoMLSecurityConfigTypeDef",
-        "DataSplitConfig": "AutoMLDataSplitConfigTypeDef",
         "CandidateGenerationConfig": "AutoMLCandidateGenerationConfigTypeDef",
+        "DataSplitConfig": "AutoMLDataSplitConfigTypeDef",
         "Mode": AutoMLModeType,
     },
     total=False,
@@ -1994,8 +2096,8 @@ AutoMLProblemTypeConfigTypeDef = TypedDict(
     {
         "ImageClassificationJobConfig": "ImageClassificationJobConfigTypeDef",
         "TextClassificationJobConfig": "TextClassificationJobConfigTypeDef",
-        "TabularJobConfig": "TabularJobConfigTypeDef",
         "TimeSeriesForecastingJobConfig": "TimeSeriesForecastingJobConfigTypeDef",
+        "TabularJobConfig": "TabularJobConfigTypeDef",
         "TextGenerationJobConfig": "TextGenerationJobConfigTypeDef",
     },
     total=False,
@@ -2260,8 +2362,9 @@ CanvasAppSettingsTypeDef = TypedDict(
         "ModelRegisterSettings": "ModelRegisterSettingsTypeDef",
         "WorkspaceSettings": "WorkspaceSettingsTypeDef",
         "IdentityProviderOAuthSettings": List["IdentityProviderOAuthSettingTypeDef"],
-        "KendraSettings": "KendraSettingsTypeDef",
         "DirectDeploySettings": "DirectDeploySettingsTypeDef",
+        "KendraSettings": "KendraSettingsTypeDef",
+        "GenerativeAiSettings": "GenerativeAiSettingsTypeDef",
     },
     total=False,
 )
@@ -2468,6 +2571,137 @@ ClarifyTextConfigTypeDef = TypedDict(
     },
 )
 
+ClusterInstanceGroupDetailsTypeDef = TypedDict(
+    "ClusterInstanceGroupDetailsTypeDef",
+    {
+        "CurrentCount": int,
+        "TargetCount": int,
+        "InstanceGroupName": str,
+        "InstanceType": ClusterInstanceTypeType,
+        "LifeCycleConfig": "ClusterLifeCycleConfigTypeDef",
+        "ExecutionRole": str,
+        "ThreadsPerCore": int,
+    },
+    total=False,
+)
+
+_RequiredClusterInstanceGroupSpecificationTypeDef = TypedDict(
+    "_RequiredClusterInstanceGroupSpecificationTypeDef",
+    {
+        "InstanceCount": int,
+        "InstanceGroupName": str,
+        "InstanceType": ClusterInstanceTypeType,
+        "LifeCycleConfig": "ClusterLifeCycleConfigTypeDef",
+        "ExecutionRole": str,
+    },
+)
+_OptionalClusterInstanceGroupSpecificationTypeDef = TypedDict(
+    "_OptionalClusterInstanceGroupSpecificationTypeDef",
+    {
+        "ThreadsPerCore": int,
+    },
+    total=False,
+)
+
+class ClusterInstanceGroupSpecificationTypeDef(
+    _RequiredClusterInstanceGroupSpecificationTypeDef,
+    _OptionalClusterInstanceGroupSpecificationTypeDef,
+):
+    pass
+
+ClusterInstancePlacementTypeDef = TypedDict(
+    "ClusterInstancePlacementTypeDef",
+    {
+        "AvailabilityZone": str,
+        "AvailabilityZoneId": str,
+    },
+    total=False,
+)
+
+_RequiredClusterInstanceStatusDetailsTypeDef = TypedDict(
+    "_RequiredClusterInstanceStatusDetailsTypeDef",
+    {
+        "Status": ClusterInstanceStatusType,
+    },
+)
+_OptionalClusterInstanceStatusDetailsTypeDef = TypedDict(
+    "_OptionalClusterInstanceStatusDetailsTypeDef",
+    {
+        "Message": str,
+    },
+    total=False,
+)
+
+class ClusterInstanceStatusDetailsTypeDef(
+    _RequiredClusterInstanceStatusDetailsTypeDef, _OptionalClusterInstanceStatusDetailsTypeDef
+):
+    pass
+
+ClusterLifeCycleConfigTypeDef = TypedDict(
+    "ClusterLifeCycleConfigTypeDef",
+    {
+        "SourceS3Uri": str,
+        "OnCreate": str,
+    },
+)
+
+ClusterNodeDetailsTypeDef = TypedDict(
+    "ClusterNodeDetailsTypeDef",
+    {
+        "InstanceGroupName": str,
+        "InstanceId": str,
+        "InstanceStatus": "ClusterInstanceStatusDetailsTypeDef",
+        "InstanceType": ClusterInstanceTypeType,
+        "LaunchTime": datetime,
+        "LifeCycleConfig": "ClusterLifeCycleConfigTypeDef",
+        "ThreadsPerCore": int,
+        "PrivatePrimaryIp": str,
+        "PrivateDnsHostname": str,
+        "Placement": "ClusterInstancePlacementTypeDef",
+    },
+    total=False,
+)
+
+ClusterNodeSummaryTypeDef = TypedDict(
+    "ClusterNodeSummaryTypeDef",
+    {
+        "InstanceGroupName": str,
+        "InstanceId": str,
+        "InstanceType": ClusterInstanceTypeType,
+        "LaunchTime": datetime,
+        "InstanceStatus": "ClusterInstanceStatusDetailsTypeDef",
+    },
+)
+
+ClusterSummaryTypeDef = TypedDict(
+    "ClusterSummaryTypeDef",
+    {
+        "ClusterArn": str,
+        "ClusterName": str,
+        "CreationTime": datetime,
+        "ClusterStatus": ClusterStatusType,
+    },
+)
+
+CodeEditorAppImageConfigTypeDef = TypedDict(
+    "CodeEditorAppImageConfigTypeDef",
+    {
+        "FileSystemConfig": "FileSystemConfigTypeDef",
+        "ContainerConfig": "ContainerConfigTypeDef",
+    },
+    total=False,
+)
+
+CodeEditorAppSettingsTypeDef = TypedDict(
+    "CodeEditorAppSettingsTypeDef",
+    {
+        "DefaultResourceSpec": "ResourceSpecTypeDef",
+        "CustomImages": List["CustomImageTypeDef"],
+        "LifecycleConfigArns": List[str],
+    },
+    total=False,
+)
+
 _RequiredCodeRepositorySummaryTypeDef = TypedDict(
     "_RequiredCodeRepositorySummaryTypeDef",
     {
@@ -2567,6 +2801,16 @@ ConditionStepMetadataTypeDef = TypedDict(
     total=False,
 )
 
+ContainerConfigTypeDef = TypedDict(
+    "ContainerConfigTypeDef",
+    {
+        "ContainerArguments": List[str],
+        "ContainerEntrypoint": List[str],
+        "ContainerEnvironmentVariables": Dict[str, str],
+    },
+    total=False,
+)
+
 ContainerDefinitionTypeDef = TypedDict(
     "ContainerDefinitionTypeDef",
     {
@@ -2575,11 +2819,11 @@ ContainerDefinitionTypeDef = TypedDict(
         "ImageConfig": "ImageConfigTypeDef",
         "Mode": ContainerModeType,
         "ModelDataUrl": str,
+        "ModelDataSource": "ModelDataSourceTypeDef",
         "Environment": Dict[str, str],
         "ModelPackageName": str,
         "InferenceSpecificationName": str,
         "MultiModelConfig": "MultiModelConfigTypeDef",
-        "ModelDataSource": "ModelDataSourceTypeDef",
     },
     total=False,
 )
@@ -2728,6 +2972,8 @@ _OptionalCreateAppImageConfigRequestRequestTypeDef = TypedDict(
     {
         "Tags": List["TagTypeDef"],
         "KernelGatewayImageConfig": "KernelGatewayImageConfigTypeDef",
+        "JupyterLabAppImageConfig": "JupyterLabAppImageConfigTypeDef",
+        "CodeEditorAppImageConfig": "CodeEditorAppImageConfigTypeDef",
     },
     total=False,
 )
@@ -2758,9 +3004,9 @@ _OptionalCreateAppRequestRequestTypeDef = TypedDict(
     "_OptionalCreateAppRequestRequestTypeDef",
     {
         "UserProfileName": str,
+        "SpaceName": str,
         "Tags": List["TagTypeDef"],
         "ResourceSpec": "ResourceSpecTypeDef",
-        "SpaceName": str,
     },
     total=False,
 )
@@ -2875,6 +3121,35 @@ CreateAutoMLJobV2ResponseTypeDef = TypedDict(
     "CreateAutoMLJobV2ResponseTypeDef",
     {
         "AutoMLJobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateClusterRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateClusterRequestRequestTypeDef",
+    {
+        "ClusterName": str,
+        "InstanceGroups": List["ClusterInstanceGroupSpecificationTypeDef"],
+    },
+)
+_OptionalCreateClusterRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateClusterRequestRequestTypeDef",
+    {
+        "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateClusterRequestRequestTypeDef(
+    _RequiredCreateClusterRequestRequestTypeDef, _OptionalCreateClusterRequestRequestTypeDef
+):
+    pass
+
+CreateClusterResponseTypeDef = TypedDict(
+    "CreateClusterResponseTypeDef",
+    {
+        "ClusterArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3045,12 +3320,12 @@ _RequiredCreateDomainRequestRequestTypeDef = TypedDict(
 _OptionalCreateDomainRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDomainRequestRequestTypeDef",
     {
+        "DomainSettings": "DomainSettingsTypeDef",
         "Tags": List["TagTypeDef"],
         "AppNetworkAccessType": AppNetworkAccessTypeType,
         "HomeEfsFileSystemKmsKeyId": str,
         "KmsKeyId": str,
         "AppSecurityGroupManagement": AppSecurityGroupManagementType,
-        "DomainSettings": "DomainSettingsTypeDef",
         "DefaultSpaceSettings": "DefaultSpaceSettingsTypeDef",
     },
     total=False,
@@ -3151,6 +3426,9 @@ _OptionalCreateEndpointConfigInputRequestTypeDef = TypedDict(
         "AsyncInferenceConfig": "AsyncInferenceConfigTypeDef",
         "ExplainerConfig": "ExplainerConfigTypeDef",
         "ShadowProductionVariants": List["ProductionVariantTypeDef"],
+        "ExecutionRoleArn": str,
+        "VpcConfig": "VpcConfigTypeDef",
+        "EnableNetworkIsolation": bool,
     },
     total=False,
 )
@@ -3241,6 +3519,7 @@ _OptionalCreateFeatureGroupRequestRequestTypeDef = TypedDict(
     {
         "OnlineStoreConfig": "OnlineStoreConfigTypeDef",
         "OfflineStoreConfig": "OfflineStoreConfigTypeDef",
+        "ThroughputConfig": "ThroughputConfigTypeDef",
         "RoleArn": str,
         "Description": str,
         "Tags": List["TagTypeDef"],
@@ -3266,7 +3545,6 @@ _RequiredCreateFlowDefinitionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateFlowDefinitionRequestRequestTypeDef",
     {
         "FlowDefinitionName": str,
-        "HumanLoopConfig": "HumanLoopConfigTypeDef",
         "OutputConfig": "FlowDefinitionOutputConfigTypeDef",
         "RoleArn": str,
     },
@@ -3276,6 +3554,7 @@ _OptionalCreateFlowDefinitionRequestRequestTypeDef = TypedDict(
     {
         "HumanLoopRequestSource": "HumanLoopRequestSourceTypeDef",
         "HumanLoopActivationConfig": "HumanLoopActivationConfigTypeDef",
+        "HumanLoopConfig": "HumanLoopConfigTypeDef",
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -3450,6 +3729,38 @@ CreateImageVersionResponseTypeDef = TypedDict(
     "CreateImageVersionResponseTypeDef",
     {
         "ImageVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateInferenceComponentInputRequestTypeDef = TypedDict(
+    "_RequiredCreateInferenceComponentInputRequestTypeDef",
+    {
+        "InferenceComponentName": str,
+        "EndpointName": str,
+        "VariantName": str,
+        "Specification": "InferenceComponentSpecificationTypeDef",
+        "RuntimeConfig": "InferenceComponentRuntimeConfigTypeDef",
+    },
+)
+_OptionalCreateInferenceComponentInputRequestTypeDef = TypedDict(
+    "_OptionalCreateInferenceComponentInputRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateInferenceComponentInputRequestTypeDef(
+    _RequiredCreateInferenceComponentInputRequestTypeDef,
+    _OptionalCreateInferenceComponentInputRequestTypeDef,
+):
+    pass
+
+CreateInferenceComponentOutputTypeDef = TypedDict(
+    "CreateInferenceComponentOutputTypeDef",
+    {
+        "InferenceComponentArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3696,7 +4007,6 @@ _RequiredCreateModelInputRequestTypeDef = TypedDict(
     "_RequiredCreateModelInputRequestTypeDef",
     {
         "ModelName": str,
-        "ExecutionRoleArn": str,
     },
 )
 _OptionalCreateModelInputRequestTypeDef = TypedDict(
@@ -3705,6 +4015,7 @@ _OptionalCreateModelInputRequestTypeDef = TypedDict(
         "PrimaryContainer": "ContainerDefinitionTypeDef",
         "Containers": List["ContainerDefinitionTypeDef"],
         "InferenceExecutionConfig": "InferenceExecutionConfigTypeDef",
+        "ExecutionRoleArn": str,
         "Tags": List["TagTypeDef"],
         "VpcConfig": "VpcConfigTypeDef",
         "EnableNetworkIsolation": bool,
@@ -3769,15 +4080,18 @@ CreateModelPackageInputRequestTypeDef = TypedDict(
         "MetadataProperties": "MetadataPropertiesTypeDef",
         "ModelMetrics": "ModelMetricsTypeDef",
         "ClientToken": str,
-        "CustomerMetadataProperties": Dict[str, str],
-        "DriftCheckBaselines": "DriftCheckBaselinesTypeDef",
         "Domain": str,
         "Task": str,
         "SamplePayloadUrl": str,
+        "CustomerMetadataProperties": Dict[str, str],
+        "DriftCheckBaselines": "DriftCheckBaselinesTypeDef",
         "AdditionalInferenceSpecifications": List[
             "AdditionalInferenceSpecificationDefinitionTypeDef"
         ],
         "SkipModelValidation": SkipModelValidationType,
+        "SourceUri": str,
+        "SecurityConfig": "ModelPackageSecurityConfigTypeDef",
+        "ModelCard": "ModelPackageModelCardTypeDef",
     },
     total=False,
 )
@@ -3973,6 +4287,7 @@ _OptionalCreatePresignedDomainUrlRequestRequestTypeDef = TypedDict(
         "SessionExpirationDurationInSeconds": int,
         "ExpiresInSeconds": int,
         "SpaceName": str,
+        "LandingUri": str,
     },
     total=False,
 )
@@ -4098,6 +4413,9 @@ _OptionalCreateSpaceRequestRequestTypeDef = TypedDict(
     {
         "Tags": List["TagTypeDef"],
         "SpaceSettings": "SpaceSettingsTypeDef",
+        "OwnershipSettings": "OwnershipSettingsTypeDef",
+        "SpaceSharingSettings": "SpaceSharingSettingsTypeDef",
+        "SpaceDisplayName": str,
     },
     total=False,
 )
@@ -4175,6 +4493,9 @@ _OptionalCreateTrainingJobRequestRequestTypeDef = TypedDict(
         "ProfilerRuleConfigurations": List["ProfilerRuleConfigurationTypeDef"],
         "Environment": Dict[str, str],
         "RetryStrategy": "RetryStrategyTypeDef",
+        "RemoteDebugConfig": "RemoteDebugConfigTypeDef",
+        "InfraCheckConfig": "InfraCheckConfigTypeDef",
+        "SessionChainingConfig": "SessionChainingConfigTypeDef",
     },
     total=False,
 )
@@ -4373,6 +4694,7 @@ _OptionalCreateWorkteamRequestRequestTypeDef = TypedDict(
     {
         "WorkforceName": str,
         "NotificationConfiguration": "NotificationConfigurationTypeDef",
+        "WorkerAccessConfiguration": "WorkerAccessConfigurationTypeDef",
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -4389,6 +4711,22 @@ CreateWorkteamResponseTypeDef = TypedDict(
         "WorkteamArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CustomFileSystemConfigTypeDef = TypedDict(
+    "CustomFileSystemConfigTypeDef",
+    {
+        "EFSFileSystemConfig": "EFSFileSystemConfigTypeDef",
+    },
+    total=False,
+)
+
+CustomFileSystemTypeDef = TypedDict(
+    "CustomFileSystemTypeDef",
+    {
+        "EFSFileSystem": "EFSFileSystemTypeDef",
+    },
+    total=False,
 )
 
 _RequiredCustomImageTypeDef = TypedDict(
@@ -4408,6 +4746,14 @@ _OptionalCustomImageTypeDef = TypedDict(
 
 class CustomImageTypeDef(_RequiredCustomImageTypeDef, _OptionalCustomImageTypeDef):
     pass
+
+CustomPosixUserConfigTypeDef = TypedDict(
+    "CustomPosixUserConfigTypeDef",
+    {
+        "Uid": int,
+        "Gid": int,
+    },
+)
 
 CustomizedMetricSpecificationTypeDef = TypedDict(
     "CustomizedMetricSpecificationTypeDef",
@@ -4590,6 +4936,14 @@ DebugRuleEvaluationStatusTypeDef = TypedDict(
     total=False,
 )
 
+DefaultEbsStorageSettingsTypeDef = TypedDict(
+    "DefaultEbsStorageSettingsTypeDef",
+    {
+        "DefaultEbsVolumeSizeInGb": int,
+        "MaximumEbsVolumeSizeInGb": int,
+    },
+)
+
 DefaultSpaceSettingsTypeDef = TypedDict(
     "DefaultSpaceSettingsTypeDef",
     {
@@ -4597,6 +4951,18 @@ DefaultSpaceSettingsTypeDef = TypedDict(
         "SecurityGroups": List[str],
         "JupyterServerAppSettings": "JupyterServerAppSettingsTypeDef",
         "KernelGatewayAppSettings": "KernelGatewayAppSettingsTypeDef",
+        "JupyterLabAppSettings": "JupyterLabAppSettingsTypeDef",
+        "SpaceStorageSettings": "DefaultSpaceStorageSettingsTypeDef",
+        "CustomPosixUserConfig": "CustomPosixUserConfigTypeDef",
+        "CustomFileSystemConfigs": List["CustomFileSystemConfigTypeDef"],
+    },
+    total=False,
+)
+
+DefaultSpaceStorageSettingsTypeDef = TypedDict(
+    "DefaultSpaceStorageSettingsTypeDef",
+    {
+        "DefaultEbsStorageSettings": "DefaultEbsStorageSettingsTypeDef",
     },
     total=False,
 )
@@ -4686,10 +5052,32 @@ DeleteAssociationResponseTypeDef = TypedDict(
     },
 )
 
+DeleteClusterRequestRequestTypeDef = TypedDict(
+    "DeleteClusterRequestRequestTypeDef",
+    {
+        "ClusterName": str,
+    },
+)
+
+DeleteClusterResponseTypeDef = TypedDict(
+    "DeleteClusterResponseTypeDef",
+    {
+        "ClusterArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteCodeRepositoryInputRequestTypeDef = TypedDict(
     "DeleteCodeRepositoryInputRequestTypeDef",
     {
         "CodeRepositoryName": str,
+    },
+)
+
+DeleteCompilationJobRequestRequestTypeDef = TypedDict(
+    "DeleteCompilationJobRequestRequestTypeDef",
+    {
+        "CompilationJobName": str,
     },
 )
 
@@ -4823,6 +5211,13 @@ DeleteHumanTaskUiRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteHyperParameterTuningJobRequestRequestTypeDef = TypedDict(
+    "DeleteHyperParameterTuningJobRequestRequestTypeDef",
+    {
+        "HyperParameterTuningJobName": str,
+    },
+)
+
 DeleteImageRequestRequestTypeDef = TypedDict(
     "DeleteImageRequestRequestTypeDef",
     {
@@ -4850,6 +5245,13 @@ class DeleteImageVersionRequestRequestTypeDef(
     _OptionalDeleteImageVersionRequestRequestTypeDef,
 ):
     pass
+
+DeleteInferenceComponentInputRequestTypeDef = TypedDict(
+    "DeleteInferenceComponentInputRequestTypeDef",
+    {
+        "InferenceComponentName": str,
+    },
+)
 
 DeleteInferenceExperimentRequestRequestTypeDef = TypedDict(
     "DeleteInferenceExperimentRequestRequestTypeDef",
@@ -5063,8 +5465,8 @@ DeploymentConfigTypeDef = TypedDict(
     "DeploymentConfigTypeDef",
     {
         "BlueGreenUpdatePolicy": "BlueGreenUpdatePolicyTypeDef",
-        "AutoRollbackConfiguration": "AutoRollbackConfigTypeDef",
         "RollingUpdatePolicy": "RollingUpdatePolicyTypeDef",
+        "AutoRollbackConfiguration": "AutoRollbackConfigTypeDef",
     },
     total=False,
 )
@@ -5199,6 +5601,8 @@ DescribeAppImageConfigResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "KernelGatewayImageConfig": "KernelGatewayImageConfigTypeDef",
+        "JupyterLabAppImageConfig": "JupyterLabAppImageConfigTypeDef",
+        "CodeEditorAppImageConfig": "CodeEditorAppImageConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5233,13 +5637,13 @@ DescribeAppResponseTypeDef = TypedDict(
         "AppName": str,
         "DomainId": str,
         "UserProfileName": str,
+        "SpaceName": str,
         "Status": AppStatusType,
         "LastHealthCheckTimestamp": datetime,
         "LastUserActivityTimestamp": datetime,
         "CreationTime": datetime,
         "FailureReason": str,
         "ResourceSpec": "ResourceSpecTypeDef",
-        "SpaceName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5321,6 +5725,7 @@ DescribeAutoMLJobV2ResponseTypeDef = TypedDict(
         "RoleArn": str,
         "AutoMLJobObjective": "AutoMLJobObjectiveTypeDef",
         "AutoMLProblemTypeConfig": "AutoMLProblemTypeConfigTypeDef",
+        "AutoMLProblemTypeConfigName": AutoMLProblemTypeConfigNameType,
         "CreationTime": datetime,
         "EndTime": datetime,
         "LastModifiedTime": datetime,
@@ -5329,13 +5734,49 @@ DescribeAutoMLJobV2ResponseTypeDef = TypedDict(
         "BestCandidate": "AutoMLCandidateTypeDef",
         "AutoMLJobStatus": AutoMLJobStatusType,
         "AutoMLJobSecondaryStatus": AutoMLJobSecondaryStatusType,
+        "AutoMLJobArtifacts": "AutoMLJobArtifactsTypeDef",
+        "ResolvedAttributes": "AutoMLResolvedAttributesTypeDef",
         "ModelDeployConfig": "ModelDeployConfigTypeDef",
         "ModelDeployResult": "ModelDeployResultTypeDef",
         "DataSplitConfig": "AutoMLDataSplitConfigTypeDef",
         "SecurityConfig": "AutoMLSecurityConfigTypeDef",
-        "AutoMLJobArtifacts": "AutoMLJobArtifactsTypeDef",
-        "ResolvedAttributes": "AutoMLResolvedAttributesTypeDef",
-        "AutoMLProblemTypeConfigName": AutoMLProblemTypeConfigNameType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeClusterNodeRequestRequestTypeDef = TypedDict(
+    "DescribeClusterNodeRequestRequestTypeDef",
+    {
+        "ClusterName": str,
+        "NodeId": str,
+    },
+)
+
+DescribeClusterNodeResponseTypeDef = TypedDict(
+    "DescribeClusterNodeResponseTypeDef",
+    {
+        "NodeDetails": "ClusterNodeDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeClusterRequestRequestTypeDef = TypedDict(
+    "DescribeClusterRequestRequestTypeDef",
+    {
+        "ClusterName": str,
+    },
+)
+
+DescribeClusterResponseTypeDef = TypedDict(
+    "DescribeClusterResponseTypeDef",
+    {
+        "ClusterArn": str,
+        "ClusterName": str,
+        "ClusterStatus": ClusterStatusType,
+        "CreationTime": datetime,
+        "FailureMessage": str,
+        "InstanceGroups": List["ClusterInstanceGroupDetailsTypeDef"],
+        "VpcConfig": "VpcConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5521,17 +5962,17 @@ DescribeDomainResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "FailureReason": str,
+        "SecurityGroupIdForDomainBoundary": str,
         "AuthMode": AuthModeType,
         "DefaultUserSettings": "UserSettingsTypeDef",
+        "DomainSettings": "DomainSettingsTypeDef",
         "AppNetworkAccessType": AppNetworkAccessTypeType,
         "HomeEfsFileSystemKmsKeyId": str,
         "SubnetIds": List[str],
         "Url": str,
         "VpcId": str,
         "KmsKeyId": str,
-        "DomainSettings": "DomainSettingsTypeDef",
         "AppSecurityGroupManagement": AppSecurityGroupManagementType,
-        "SecurityGroupIdForDomainBoundary": str,
         "DefaultSpaceSettings": "DefaultSpaceSettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -5624,6 +6065,9 @@ DescribeEndpointConfigOutputTypeDef = TypedDict(
         "AsyncInferenceConfig": "AsyncInferenceConfigTypeDef",
         "ExplainerConfig": "ExplainerConfigTypeDef",
         "ShadowProductionVariants": List["ProductionVariantTypeDef"],
+        "ExecutionRoleArn": str,
+        "VpcConfig": "VpcConfigTypeDef",
+        "EnableNetworkIsolation": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5711,6 +6155,7 @@ DescribeFeatureGroupResponseTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "OnlineStoreConfig": "OnlineStoreConfigTypeDef",
         "OfflineStoreConfig": "OfflineStoreConfigTypeDef",
+        "ThroughputConfig": "ThroughputConfigDescriptionTypeDef",
         "RoleArn": str,
         "FeatureGroupStatus": FeatureGroupStatusType,
         "OfflineStoreStatus": "OfflineStoreStatusTypeDef",
@@ -5882,10 +6327,10 @@ DescribeHyperParameterTuningJobResponseTypeDef = TypedDict(
         "BestTrainingJob": "HyperParameterTrainingJobSummaryTypeDef",
         "OverallBestTrainingJob": "HyperParameterTrainingJobSummaryTypeDef",
         "WarmStartConfig": "HyperParameterTuningJobWarmStartConfigTypeDef",
+        "Autotune": "AutotuneTypeDef",
         "FailureReason": str,
         "TuningJobCompletionDetails": "HyperParameterTuningJobCompletionDetailsTypeDef",
         "ConsumedResources": "HyperParameterTuningJobConsumedResourcesTypeDef",
-        "Autotune": "AutotuneTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5953,6 +6398,31 @@ DescribeImageVersionResponseTypeDef = TypedDict(
         "Processor": ProcessorType,
         "Horovod": bool,
         "ReleaseNotes": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInferenceComponentInputRequestTypeDef = TypedDict(
+    "DescribeInferenceComponentInputRequestTypeDef",
+    {
+        "InferenceComponentName": str,
+    },
+)
+
+DescribeInferenceComponentOutputTypeDef = TypedDict(
+    "DescribeInferenceComponentOutputTypeDef",
+    {
+        "InferenceComponentName": str,
+        "InferenceComponentArn": str,
+        "EndpointName": str,
+        "EndpointArn": str,
+        "VariantName": str,
+        "FailureReason": str,
+        "Specification": "InferenceComponentSpecificationSummaryTypeDef",
+        "RuntimeConfig": "InferenceComponentRuntimeConfigSummaryTypeDef",
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "InferenceComponentStatus": InferenceComponentStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6253,15 +6723,18 @@ DescribeModelPackageOutputTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
         "ApprovalDescription": str,
-        "CustomerMetadataProperties": Dict[str, str],
-        "DriftCheckBaselines": "DriftCheckBaselinesTypeDef",
         "Domain": str,
         "Task": str,
         "SamplePayloadUrl": str,
+        "CustomerMetadataProperties": Dict[str, str],
+        "DriftCheckBaselines": "DriftCheckBaselinesTypeDef",
         "AdditionalInferenceSpecifications": List[
             "AdditionalInferenceSpecificationDefinitionTypeDef"
         ],
         "SkipModelValidation": SkipModelValidationType,
+        "SourceUri": str,
+        "SecurityConfig": "ModelPackageSecurityConfigTypeDef",
+        "ModelCard": "ModelPackageModelCardTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6430,7 +6903,7 @@ DescribePipelineResponseTypeDef = TypedDict(
         "PipelineDefinition": str,
         "PipelineDescription": str,
         "RoleArn": str,
-        "PipelineStatus": Literal["Active"],
+        "PipelineStatus": PipelineStatusType,
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "LastRunTime": datetime,
@@ -6521,6 +6994,10 @@ DescribeSpaceResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "FailureReason": str,
         "SpaceSettings": "SpaceSettingsTypeDef",
+        "OwnershipSettings": "OwnershipSettingsTypeDef",
+        "SpaceSharingSettings": "SpaceSharingSettingsTypeDef",
+        "SpaceDisplayName": str,
+        "Url": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6585,6 +7062,7 @@ DescribeTrainingJobResponseTypeDef = TypedDict(
         "InputDataConfig": List["ChannelTypeDef"],
         "OutputDataConfig": "OutputDataConfigTypeDef",
         "ResourceConfig": "ResourceConfigTypeDef",
+        "WarmPoolStatus": "WarmPoolStatusTypeDef",
         "VpcConfig": "VpcConfigTypeDef",
         "StoppingCondition": "StoppingConditionTypeDef",
         "CreationTime": datetime,
@@ -6608,9 +7086,10 @@ DescribeTrainingJobResponseTypeDef = TypedDict(
         "ProfilerRuleConfigurations": List["ProfilerRuleConfigurationTypeDef"],
         "ProfilerRuleEvaluationStatuses": List["ProfilerRuleEvaluationStatusTypeDef"],
         "ProfilingStatus": ProfilingStatusType,
-        "RetryStrategy": "RetryStrategyTypeDef",
         "Environment": Dict[str, str],
-        "WarmPoolStatus": "WarmPoolStatusTypeDef",
+        "RetryStrategy": "RetryStrategyTypeDef",
+        "RemoteDebugConfig": "RemoteDebugConfigTypeDef",
+        "InfraCheckConfig": "InfraCheckConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6928,6 +7407,15 @@ DisassociateTrialComponentResponseTypeDef = TypedDict(
     },
 )
 
+DockerSettingsTypeDef = TypedDict(
+    "DockerSettingsTypeDef",
+    {
+        "EnableDockerAccess": FeatureStatusType,
+        "VpcOnlyTrustedAccounts": List[str],
+    },
+    total=False,
+)
+
 DomainDetailsTypeDef = TypedDict(
     "DomainDetailsTypeDef",
     {
@@ -6948,6 +7436,7 @@ DomainSettingsForUpdateTypeDef = TypedDict(
         "RStudioServerProDomainSettingsForUpdate": "RStudioServerProDomainSettingsForUpdateTypeDef",
         "ExecutionRoleIdentityConfig": ExecutionRoleIdentityConfigType,
         "SecurityGroupIds": List[str],
+        "DockerSettings": "DockerSettingsTypeDef",
     },
     total=False,
 )
@@ -6958,6 +7447,7 @@ DomainSettingsTypeDef = TypedDict(
         "SecurityGroupIds": List[str],
         "RStudioServerProDomainSettings": "RStudioServerProDomainSettingsTypeDef",
         "ExecutionRoleIdentityConfig": ExecutionRoleIdentityConfigType,
+        "DockerSettings": "DockerSettingsTypeDef",
     },
     total=False,
 )
@@ -7022,6 +7512,32 @@ DynamicScalingConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredEFSFileSystemConfigTypeDef = TypedDict(
+    "_RequiredEFSFileSystemConfigTypeDef",
+    {
+        "FileSystemId": str,
+    },
+)
+_OptionalEFSFileSystemConfigTypeDef = TypedDict(
+    "_OptionalEFSFileSystemConfigTypeDef",
+    {
+        "FileSystemPath": str,
+    },
+    total=False,
+)
+
+class EFSFileSystemConfigTypeDef(
+    _RequiredEFSFileSystemConfigTypeDef, _OptionalEFSFileSystemConfigTypeDef
+):
+    pass
+
+EFSFileSystemTypeDef = TypedDict(
+    "EFSFileSystemTypeDef",
+    {
+        "FileSystemId": str,
+    },
+)
+
 EMRStepMetadataTypeDef = TypedDict(
     "EMRStepMetadataTypeDef",
     {
@@ -7031,6 +7547,13 @@ EMRStepMetadataTypeDef = TypedDict(
         "LogFilePath": str,
     },
     total=False,
+)
+
+EbsStorageSettingsTypeDef = TypedDict(
+    "EbsStorageSettingsTypeDef",
+    {
+        "EbsVolumeSizeInGb": int,
+    },
 )
 
 EdgeDeploymentConfigTypeDef = TypedDict(
@@ -7224,15 +7747,16 @@ EndpointInfoTypeDef = TypedDict(
     {
         "EndpointName": str,
     },
+    total=False,
 )
 
 EndpointInputConfigurationTypeDef = TypedDict(
     "EndpointInputConfigurationTypeDef",
     {
         "InstanceType": ProductionVariantInstanceTypeType,
+        "ServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
         "InferenceSpecificationName": str,
         "EnvironmentParameterRanges": "EnvironmentParameterRangesTypeDef",
-        "ServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
     },
     total=False,
 )
@@ -7449,16 +7973,26 @@ FailStepMetadataTypeDef = TypedDict(
     total=False,
 )
 
-FeatureDefinitionTypeDef = TypedDict(
-    "FeatureDefinitionTypeDef",
+_RequiredFeatureDefinitionTypeDef = TypedDict(
+    "_RequiredFeatureDefinitionTypeDef",
     {
         "FeatureName": str,
         "FeatureType": FeatureTypeType,
+    },
+)
+_OptionalFeatureDefinitionTypeDef = TypedDict(
+    "_OptionalFeatureDefinitionTypeDef",
+    {
         "CollectionType": CollectionTypeType,
         "CollectionConfig": "CollectionConfigTypeDef",
     },
     total=False,
 )
+
+class FeatureDefinitionTypeDef(
+    _RequiredFeatureDefinitionTypeDef, _OptionalFeatureDefinitionTypeDef
+):
+    pass
 
 _RequiredFeatureGroupSummaryTypeDef = TypedDict(
     "_RequiredFeatureGroupSummaryTypeDef",
@@ -7667,6 +8201,14 @@ class FlowDefinitionSummaryTypeDef(
     _RequiredFlowDefinitionSummaryTypeDef, _OptionalFlowDefinitionSummaryTypeDef
 ):
     pass
+
+GenerativeAiSettingsTypeDef = TypedDict(
+    "GenerativeAiSettingsTypeDef",
+    {
+        "AmazonBedrockRoleArn": str,
+    },
+    total=False,
+)
 
 GetDeviceFleetReportRequestRequestTypeDef = TypedDict(
     "GetDeviceFleetReportRequestRequestTypeDef",
@@ -8039,12 +8581,12 @@ _OptionalHyperParameterTrainingJobDefinitionTypeDef = TypedDict(
         "InputDataConfig": List["ChannelTypeDef"],
         "VpcConfig": "VpcConfigTypeDef",
         "ResourceConfig": "ResourceConfigTypeDef",
+        "HyperParameterTuningResourceConfig": "HyperParameterTuningResourceConfigTypeDef",
         "EnableNetworkIsolation": bool,
         "EnableInterContainerTrafficEncryption": bool,
         "EnableManagedSpotTraining": bool,
         "CheckpointConfig": "CheckpointConfigTypeDef",
         "RetryStrategy": "RetryStrategyTypeDef",
-        "HyperParameterTuningResourceConfig": "HyperParameterTuningResourceConfigTypeDef",
         "Environment": Dict[str, str],
     },
     total=False,
@@ -8163,9 +8705,9 @@ HyperParameterTuningJobSearchEntityTypeDef = TypedDict(
         "OverallBestTrainingJob": "HyperParameterTrainingJobSummaryTypeDef",
         "WarmStartConfig": "HyperParameterTuningJobWarmStartConfigTypeDef",
         "FailureReason": str,
-        "Tags": List["TagTypeDef"],
         "TuningJobCompletionDetails": "HyperParameterTuningJobCompletionDetailsTypeDef",
         "ConsumedResources": "HyperParameterTuningJobConsumedResourcesTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -8241,6 +8783,15 @@ IamIdentityTypeDef = TypedDict(
         "Arn": str,
         "PrincipalId": str,
         "SourceIdentity": str,
+    },
+    total=False,
+)
+
+IamPolicyConstraintsTypeDef = TypedDict(
+    "IamPolicyConstraintsTypeDef",
+    {
+        "SourceIp": EnabledOrDisabledType,
+        "VpcSourceIp": EnabledOrDisabledType,
     },
     total=False,
 )
@@ -8361,6 +8912,130 @@ ImportHubContentResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredInferenceComponentComputeResourceRequirementsTypeDef = TypedDict(
+    "_RequiredInferenceComponentComputeResourceRequirementsTypeDef",
+    {
+        "MinMemoryRequiredInMb": int,
+    },
+)
+_OptionalInferenceComponentComputeResourceRequirementsTypeDef = TypedDict(
+    "_OptionalInferenceComponentComputeResourceRequirementsTypeDef",
+    {
+        "NumberOfCpuCoresRequired": float,
+        "NumberOfAcceleratorDevicesRequired": float,
+        "MaxMemoryRequiredInMb": int,
+    },
+    total=False,
+)
+
+class InferenceComponentComputeResourceRequirementsTypeDef(
+    _RequiredInferenceComponentComputeResourceRequirementsTypeDef,
+    _OptionalInferenceComponentComputeResourceRequirementsTypeDef,
+):
+    pass
+
+InferenceComponentContainerSpecificationSummaryTypeDef = TypedDict(
+    "InferenceComponentContainerSpecificationSummaryTypeDef",
+    {
+        "DeployedImage": "DeployedImageTypeDef",
+        "ArtifactUrl": str,
+        "Environment": Dict[str, str],
+    },
+    total=False,
+)
+
+InferenceComponentContainerSpecificationTypeDef = TypedDict(
+    "InferenceComponentContainerSpecificationTypeDef",
+    {
+        "Image": str,
+        "ArtifactUrl": str,
+        "Environment": Dict[str, str],
+    },
+    total=False,
+)
+
+InferenceComponentRuntimeConfigSummaryTypeDef = TypedDict(
+    "InferenceComponentRuntimeConfigSummaryTypeDef",
+    {
+        "DesiredCopyCount": int,
+        "CurrentCopyCount": int,
+    },
+    total=False,
+)
+
+InferenceComponentRuntimeConfigTypeDef = TypedDict(
+    "InferenceComponentRuntimeConfigTypeDef",
+    {
+        "CopyCount": int,
+    },
+)
+
+InferenceComponentSpecificationSummaryTypeDef = TypedDict(
+    "InferenceComponentSpecificationSummaryTypeDef",
+    {
+        "ModelName": str,
+        "Container": "InferenceComponentContainerSpecificationSummaryTypeDef",
+        "StartupParameters": "InferenceComponentStartupParametersTypeDef",
+        "ComputeResourceRequirements": "InferenceComponentComputeResourceRequirementsTypeDef",
+    },
+    total=False,
+)
+
+_RequiredInferenceComponentSpecificationTypeDef = TypedDict(
+    "_RequiredInferenceComponentSpecificationTypeDef",
+    {
+        "ComputeResourceRequirements": "InferenceComponentComputeResourceRequirementsTypeDef",
+    },
+)
+_OptionalInferenceComponentSpecificationTypeDef = TypedDict(
+    "_OptionalInferenceComponentSpecificationTypeDef",
+    {
+        "ModelName": str,
+        "Container": "InferenceComponentContainerSpecificationTypeDef",
+        "StartupParameters": "InferenceComponentStartupParametersTypeDef",
+    },
+    total=False,
+)
+
+class InferenceComponentSpecificationTypeDef(
+    _RequiredInferenceComponentSpecificationTypeDef, _OptionalInferenceComponentSpecificationTypeDef
+):
+    pass
+
+InferenceComponentStartupParametersTypeDef = TypedDict(
+    "InferenceComponentStartupParametersTypeDef",
+    {
+        "ModelDataDownloadTimeoutInSeconds": int,
+        "ContainerStartupHealthCheckTimeoutInSeconds": int,
+    },
+    total=False,
+)
+
+_RequiredInferenceComponentSummaryTypeDef = TypedDict(
+    "_RequiredInferenceComponentSummaryTypeDef",
+    {
+        "CreationTime": datetime,
+        "InferenceComponentArn": str,
+        "InferenceComponentName": str,
+        "EndpointArn": str,
+        "EndpointName": str,
+        "VariantName": str,
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalInferenceComponentSummaryTypeDef = TypedDict(
+    "_OptionalInferenceComponentSummaryTypeDef",
+    {
+        "InferenceComponentStatus": InferenceComponentStatusType,
+    },
+    total=False,
+)
+
+class InferenceComponentSummaryTypeDef(
+    _RequiredInferenceComponentSummaryTypeDef, _OptionalInferenceComponentSummaryTypeDef
+):
+    pass
 
 InferenceExecutionConfigTypeDef = TypedDict(
     "InferenceExecutionConfigTypeDef",
@@ -8530,6 +9205,14 @@ class InferenceSpecificationTypeDef(
 ):
     pass
 
+InfraCheckConfigTypeDef = TypedDict(
+    "InfraCheckConfigTypeDef",
+    {
+        "EnableInfraCheck": bool,
+    },
+    total=False,
+)
+
 _RequiredInputConfigTypeDef = TypedDict(
     "_RequiredInputConfigTypeDef",
     {
@@ -8593,6 +9276,26 @@ class IntegerParameterRangeTypeDef(
     _RequiredIntegerParameterRangeTypeDef, _OptionalIntegerParameterRangeTypeDef
 ):
     pass
+
+JupyterLabAppImageConfigTypeDef = TypedDict(
+    "JupyterLabAppImageConfigTypeDef",
+    {
+        "FileSystemConfig": "FileSystemConfigTypeDef",
+        "ContainerConfig": "ContainerConfigTypeDef",
+    },
+    total=False,
+)
+
+JupyterLabAppSettingsTypeDef = TypedDict(
+    "JupyterLabAppSettingsTypeDef",
+    {
+        "DefaultResourceSpec": "ResourceSpecTypeDef",
+        "CustomImages": List["CustomImageTypeDef"],
+        "LifecycleConfigArns": List[str],
+        "CodeRepositories": List["CodeRepositoryTypeDef"],
+    },
+    total=False,
+)
 
 JupyterServerAppSettingsTypeDef = TypedDict(
     "JupyterServerAppSettingsTypeDef",
@@ -9134,6 +9837,63 @@ ListCandidatesForAutoMLJobResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListClusterNodesRequestRequestTypeDef = TypedDict(
+    "_RequiredListClusterNodesRequestRequestTypeDef",
+    {
+        "ClusterName": str,
+    },
+)
+_OptionalListClusterNodesRequestRequestTypeDef = TypedDict(
+    "_OptionalListClusterNodesRequestRequestTypeDef",
+    {
+        "CreationTimeAfter": Union[datetime, str],
+        "CreationTimeBefore": Union[datetime, str],
+        "InstanceGroupNameContains": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "SortBy": ClusterSortByType,
+        "SortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+class ListClusterNodesRequestRequestTypeDef(
+    _RequiredListClusterNodesRequestRequestTypeDef, _OptionalListClusterNodesRequestRequestTypeDef
+):
+    pass
+
+ListClusterNodesResponseTypeDef = TypedDict(
+    "ListClusterNodesResponseTypeDef",
+    {
+        "NextToken": str,
+        "ClusterNodeSummaries": List["ClusterNodeSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListClustersRequestRequestTypeDef = TypedDict(
+    "ListClustersRequestRequestTypeDef",
+    {
+        "CreationTimeAfter": Union[datetime, str],
+        "CreationTimeBefore": Union[datetime, str],
+        "MaxResults": int,
+        "NameContains": str,
+        "NextToken": str,
+        "SortBy": ClusterSortByType,
+        "SortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+ListClustersResponseTypeDef = TypedDict(
+    "ListClustersResponseTypeDef",
+    {
+        "NextToken": str,
+        "ClusterSummaries": List["ClusterSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCodeRepositoriesInputRequestTypeDef = TypedDict(
     "ListCodeRepositoriesInputRequestTypeDef",
     {
@@ -9668,6 +10428,34 @@ ListImagesResponseTypeDef = TypedDict(
     "ListImagesResponseTypeDef",
     {
         "Images": List["ImageTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListInferenceComponentsInputRequestTypeDef = TypedDict(
+    "ListInferenceComponentsInputRequestTypeDef",
+    {
+        "SortBy": InferenceComponentSortKeyType,
+        "SortOrder": OrderKeyType,
+        "NextToken": str,
+        "MaxResults": int,
+        "NameContains": str,
+        "CreationTimeBefore": Union[datetime, str],
+        "CreationTimeAfter": Union[datetime, str],
+        "LastModifiedTimeBefore": Union[datetime, str],
+        "LastModifiedTimeAfter": Union[datetime, str],
+        "StatusEquals": InferenceComponentStatusType,
+        "EndpointNameEquals": str,
+        "VariantNameEquals": str,
+    },
+    total=False,
+)
+
+ListInferenceComponentsOutputTypeDef = TypedDict(
+    "ListInferenceComponentsOutputTypeDef",
+    {
+        "InferenceComponents": List["InferenceComponentSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -11116,6 +11904,7 @@ ModelDataSourceTypeDef = TypedDict(
     {
         "S3DataSource": "S3ModelDataSourceTypeDef",
     },
+    total=False,
 )
 
 ModelDeployConfigTypeDef = TypedDict(
@@ -11256,6 +12045,7 @@ _OptionalModelPackageContainerDefinitionTypeDef = TypedDict(
         "ContainerHostname": str,
         "ImageDigest": str,
         "ModelDataUrl": str,
+        "ModelDataSource": "ModelDataSourceTypeDef",
         "ProductId": str,
         "Environment": Dict[str, str],
         "ModelInput": "ModelInputTypeDef",
@@ -11306,6 +12096,22 @@ ModelPackageGroupTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
     },
     total=False,
+)
+
+ModelPackageModelCardTypeDef = TypedDict(
+    "ModelPackageModelCardTypeDef",
+    {
+        "ModelCardContent": str,
+        "ModelCardStatus": ModelCardStatusType,
+    },
+    total=False,
+)
+
+ModelPackageSecurityConfigTypeDef = TypedDict(
+    "ModelPackageSecurityConfigTypeDef",
+    {
+        "KmsKeyId": str,
+    },
 )
 
 _RequiredModelPackageStatusDetailsTypeDef = TypedDict(
@@ -11400,6 +12206,9 @@ ModelPackageTypeDef = TypedDict(
         "AdditionalInferenceSpecifications": List[
             "AdditionalInferenceSpecificationDefinitionTypeDef"
         ],
+        "SourceUri": str,
+        "SecurityConfig": "ModelPackageSecurityConfigTypeDef",
+        "ModelCard": "ModelPackageModelCardTypeDef",
         "Tags": List["TagTypeDef"],
         "CustomerMetadataProperties": Dict[str, str],
         "DriftCheckBaselines": "DriftCheckBaselinesTypeDef",
@@ -12061,6 +12870,7 @@ OidcMemberDefinitionTypeDef = TypedDict(
     {
         "Groups": List[str],
     },
+    total=False,
 )
 
 OnlineStoreConfigTypeDef = TypedDict(
@@ -12133,6 +12943,21 @@ OutputParameterTypeDef = TypedDict(
     {
         "Name": str,
         "Value": str,
+    },
+)
+
+OwnershipSettingsSummaryTypeDef = TypedDict(
+    "OwnershipSettingsSummaryTypeDef",
+    {
+        "OwnerUserProfileName": str,
+    },
+    total=False,
+)
+
+OwnershipSettingsTypeDef = TypedDict(
+    "OwnershipSettingsTypeDef",
+    {
+        "OwnerUserProfileName": str,
     },
 )
 
@@ -12239,6 +13064,8 @@ _OptionalPendingProductionVariantSummaryTypeDef = TypedDict(
         "VariantStatus": List["ProductionVariantStatusTypeDef"],
         "CurrentServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
         "DesiredServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
+        "ManagedInstanceScaling": "ProductionVariantManagedInstanceScalingTypeDef",
+        "RoutingConfig": "ProductionVariantRoutingConfigTypeDef",
     },
     total=False,
 )
@@ -12290,9 +13117,9 @@ PipelineExecutionStepMetadataTypeDef = TypedDict(
         "Condition": "ConditionStepMetadataTypeDef",
         "Callback": "CallbackStepMetadataTypeDef",
         "Lambda": "LambdaStepMetadataTypeDef",
+        "EMR": "EMRStepMetadataTypeDef",
         "QualityCheck": "QualityCheckStepMetadataTypeDef",
         "ClarifyCheck": "ClarifyCheckStepMetadataTypeDef",
-        "EMR": "EMRStepMetadataTypeDef",
         "Fail": "FailStepMetadataTypeDef",
         "AutoMLJob": "AutoMLJobStepMetadataTypeDef",
     },
@@ -12309,9 +13136,9 @@ PipelineExecutionStepTypeDef = TypedDict(
         "EndTime": datetime,
         "StepStatus": StepStatusType,
         "CacheHitResult": "CacheHitResultTypeDef",
-        "AttemptCount": int,
         "FailureReason": str,
         "Metadata": "PipelineExecutionStepMetadataTypeDef",
+        "AttemptCount": int,
         "SelectiveExecutionResult": "SelectiveExecutionResultTypeDef",
     },
     total=False,
@@ -12345,8 +13172,8 @@ PipelineExecutionTypeDef = TypedDict(
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedBy": "UserContextTypeDef",
         "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
-        "PipelineParameters": List["ParameterTypeDef"],
         "SelectiveExecutionConfig": "SelectiveExecutionConfigTypeDef",
+        "PipelineParameters": List["ParameterTypeDef"],
     },
     total=False,
 )
@@ -12383,7 +13210,7 @@ PipelineTypeDef = TypedDict(
         "PipelineDisplayName": str,
         "PipelineDescription": str,
         "RoleArn": str,
-        "PipelineStatus": Literal["Active"],
+        "PipelineStatus": PipelineStatusType,
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "LastRunTime": datetime,
@@ -12615,6 +13442,23 @@ class ProductionVariantCoreDumpConfigTypeDef(
 ):
     pass
 
+ProductionVariantManagedInstanceScalingTypeDef = TypedDict(
+    "ProductionVariantManagedInstanceScalingTypeDef",
+    {
+        "Status": ManagedInstanceScalingStatusType,
+        "MinInstanceCount": int,
+        "MaxInstanceCount": int,
+    },
+    total=False,
+)
+
+ProductionVariantRoutingConfigTypeDef = TypedDict(
+    "ProductionVariantRoutingConfigTypeDef",
+    {
+        "RoutingStrategy": RoutingStrategyType,
+    },
+)
+
 _RequiredProductionVariantServerlessConfigTypeDef = TypedDict(
     "_RequiredProductionVariantServerlessConfigTypeDef",
     {
@@ -12682,6 +13526,8 @@ _OptionalProductionVariantSummaryTypeDef = TypedDict(
         "VariantStatus": List["ProductionVariantStatusTypeDef"],
         "CurrentServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
         "DesiredServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
+        "ManagedInstanceScaling": "ProductionVariantManagedInstanceScalingTypeDef",
+        "RoutingConfig": "ProductionVariantRoutingConfigTypeDef",
     },
     total=False,
 )
@@ -12695,12 +13541,12 @@ _RequiredProductionVariantTypeDef = TypedDict(
     "_RequiredProductionVariantTypeDef",
     {
         "VariantName": str,
-        "ModelName": str,
     },
 )
 _OptionalProductionVariantTypeDef = TypedDict(
     "_OptionalProductionVariantTypeDef",
     {
+        "ModelName": str,
         "InitialInstanceCount": int,
         "InstanceType": ProductionVariantInstanceTypeType,
         "InitialVariantWeight": float,
@@ -12711,6 +13557,8 @@ _OptionalProductionVariantTypeDef = TypedDict(
         "ModelDataDownloadTimeoutInSeconds": int,
         "ContainerStartupHealthCheckTimeoutInSeconds": int,
         "EnableSSMAccess": bool,
+        "ManagedInstanceScaling": "ProductionVariantManagedInstanceScalingTypeDef",
+        "RoutingConfig": "ProductionVariantRoutingConfigTypeDef",
     },
     total=False,
 )
@@ -13028,8 +13876,8 @@ RecommendationJobContainerConfigTypeDef = TypedDict(
         "PayloadConfig": "RecommendationJobPayloadConfigTypeDef",
         "NearestModelName": str,
         "SupportedInstanceTypes": List[str],
-        "DataInputConfig": str,
         "SupportedEndpointType": RecommendationJobSupportedEndpointTypeType,
+        "DataInputConfig": str,
         "SupportedResponseMIMETypes": List[str],
     },
     total=False,
@@ -13045,9 +13893,9 @@ _OptionalRecommendationJobInferenceBenchmarkTypeDef = TypedDict(
     "_OptionalRecommendationJobInferenceBenchmarkTypeDef",
     {
         "Metrics": "RecommendationMetricsTypeDef",
+        "EndpointMetrics": "InferenceMetricsTypeDef",
         "EndpointConfiguration": "EndpointOutputConfigurationTypeDef",
         "FailureReason": str,
-        "EndpointMetrics": "InferenceMetricsTypeDef",
         "InvocationEndTime": datetime,
         "InvocationStartTime": datetime,
     },
@@ -13064,6 +13912,7 @@ RecommendationJobInputConfigTypeDef = TypedDict(
     "RecommendationJobInputConfigTypeDef",
     {
         "ModelPackageVersionArn": str,
+        "ModelName": str,
         "JobDurationInSeconds": int,
         "TrafficPattern": "TrafficPatternTypeDef",
         "ResourceLimit": "RecommendationJobResourceLimitTypeDef",
@@ -13072,7 +13921,6 @@ RecommendationJobInputConfigTypeDef = TypedDict(
         "ContainerConfig": "RecommendationJobContainerConfigTypeDef",
         "Endpoints": List["EndpointInfoTypeDef"],
         "VpcConfig": "RecommendationJobVpcConfigTypeDef",
-        "ModelName": str,
     },
     total=False,
 )
@@ -13200,6 +14048,22 @@ RegisterModelStepMetadataTypeDef = TypedDict(
     total=False,
 )
 
+RemoteDebugConfigForUpdateTypeDef = TypedDict(
+    "RemoteDebugConfigForUpdateTypeDef",
+    {
+        "EnableRemoteDebug": bool,
+    },
+    total=False,
+)
+
+RemoteDebugConfigTypeDef = TypedDict(
+    "RemoteDebugConfigTypeDef",
+    {
+        "EnableRemoteDebug": bool,
+    },
+    total=False,
+)
+
 _RequiredRenderUiTemplateRequestRequestTypeDef = TypedDict(
     "_RequiredRenderUiTemplateRequestRequestTypeDef",
     {
@@ -13291,8 +14155,8 @@ _OptionalResourceConfigTypeDef = TypedDict(
         "InstanceType": TrainingInstanceTypeType,
         "InstanceCount": int,
         "VolumeKmsKeyId": str,
-        "InstanceGroups": List["InstanceGroupTypeDef"],
         "KeepAlivePeriodInSeconds": int,
+        "InstanceGroups": List["InstanceGroupTypeDef"],
     },
     total=False,
 )
@@ -13323,6 +14187,7 @@ ResourceSpecTypeDef = TypedDict(
     {
         "SageMakerImageArn": str,
         "SageMakerImageVersionArn": str,
+        "SageMakerImageVersionAlias": str,
         "InstanceType": AppInstanceTypeType,
         "LifecycleConfigArn": str,
     },
@@ -13446,6 +14311,14 @@ class S3ModelDataSourceTypeDef(
 ):
     pass
 
+S3PresignTypeDef = TypedDict(
+    "S3PresignTypeDef",
+    {
+        "IamPolicyConstraints": "IamPolicyConstraintsTypeDef",
+    },
+    total=False,
+)
+
 _RequiredS3StorageConfigTypeDef = TypedDict(
     "_RequiredS3StorageConfigTypeDef",
     {
@@ -13532,11 +14405,11 @@ SearchRecordTypeDef = TypedDict(
         "Pipeline": "PipelineTypeDef",
         "PipelineExecution": "PipelineExecutionTypeDef",
         "FeatureGroup": "FeatureGroupTypeDef",
-        "Project": "ProjectTypeDef",
         "FeatureMetadata": "FeatureMetadataTypeDef",
+        "Project": "ProjectTypeDef",
         "HyperParameterTuningJob": "HyperParameterTuningJobSearchEntityTypeDef",
-        "Model": "ModelDashboardModelTypeDef",
         "ModelCard": "ModelCardTypeDef",
+        "Model": "ModelDashboardModelTypeDef",
     },
     total=False,
 )
@@ -13556,6 +14429,7 @@ _OptionalSearchRequestRequestTypeDef = TypedDict(
         "NextToken": str,
         "MaxResults": int,
         "CrossAccountFilterOption": CrossAccountFilterOptionType,
+        "VisibilityConditions": List["VisibilityConditionsTypeDef"],
     },
     total=False,
 )
@@ -13727,6 +14601,14 @@ ServiceCatalogProvisioningUpdateDetailsTypeDef = TypedDict(
     total=False,
 )
 
+SessionChainingConfigTypeDef = TypedDict(
+    "SessionChainingConfigTypeDef",
+    {
+        "EnableSessionTagChaining": bool,
+    },
+    total=False,
+)
+
 ShadowModeConfigTypeDef = TypedDict(
     "ShadowModeConfigTypeDef",
     {
@@ -13777,6 +14659,7 @@ _OptionalSourceAlgorithmTypeDef = TypedDict(
     "_OptionalSourceAlgorithmTypeDef",
     {
         "ModelDataUrl": str,
+        "ModelDataSource": "ModelDataSourceTypeDef",
     },
     total=False,
 )
@@ -13791,6 +14674,14 @@ SourceIpConfigTypeDef = TypedDict(
     },
 )
 
+SpaceCodeEditorAppSettingsTypeDef = TypedDict(
+    "SpaceCodeEditorAppSettingsTypeDef",
+    {
+        "DefaultResourceSpec": "ResourceSpecTypeDef",
+    },
+    total=False,
+)
+
 SpaceDetailsTypeDef = TypedDict(
     "SpaceDetailsTypeDef",
     {
@@ -13799,6 +14690,28 @@ SpaceDetailsTypeDef = TypedDict(
         "Status": SpaceStatusType,
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
+        "SpaceSettingsSummary": "SpaceSettingsSummaryTypeDef",
+        "SpaceSharingSettingsSummary": "SpaceSharingSettingsSummaryTypeDef",
+        "OwnershipSettingsSummary": "OwnershipSettingsSummaryTypeDef",
+        "SpaceDisplayName": str,
+    },
+    total=False,
+)
+
+SpaceJupyterLabAppSettingsTypeDef = TypedDict(
+    "SpaceJupyterLabAppSettingsTypeDef",
+    {
+        "DefaultResourceSpec": "ResourceSpecTypeDef",
+        "CodeRepositories": List["CodeRepositoryTypeDef"],
+    },
+    total=False,
+)
+
+SpaceSettingsSummaryTypeDef = TypedDict(
+    "SpaceSettingsSummaryTypeDef",
+    {
+        "AppType": AppTypeType,
+        "SpaceStorageSettings": "SpaceStorageSettingsTypeDef",
     },
     total=False,
 )
@@ -13808,6 +14721,34 @@ SpaceSettingsTypeDef = TypedDict(
     {
         "JupyterServerAppSettings": "JupyterServerAppSettingsTypeDef",
         "KernelGatewayAppSettings": "KernelGatewayAppSettingsTypeDef",
+        "CodeEditorAppSettings": "SpaceCodeEditorAppSettingsTypeDef",
+        "JupyterLabAppSettings": "SpaceJupyterLabAppSettingsTypeDef",
+        "AppType": AppTypeType,
+        "SpaceStorageSettings": "SpaceStorageSettingsTypeDef",
+        "CustomFileSystems": List["CustomFileSystemTypeDef"],
+    },
+    total=False,
+)
+
+SpaceSharingSettingsSummaryTypeDef = TypedDict(
+    "SpaceSharingSettingsSummaryTypeDef",
+    {
+        "SharingType": SharingTypeType,
+    },
+    total=False,
+)
+
+SpaceSharingSettingsTypeDef = TypedDict(
+    "SpaceSharingSettingsTypeDef",
+    {
+        "SharingType": SharingTypeType,
+    },
+)
+
+SpaceStorageSettingsTypeDef = TypedDict(
+    "SpaceStorageSettingsTypeDef",
+    {
+        "EbsStorageSettings": "EbsStorageSettingsTypeDef",
     },
     total=False,
 )
@@ -14194,6 +15135,8 @@ TextGenerationJobConfigTypeDef = TypedDict(
     {
         "CompletionCriteria": "AutoMLJobCompletionCriteriaTypeDef",
         "BaseModelName": str,
+        "TextGenerationHyperParameters": Dict[str, str],
+        "ModelAccessConfig": "ModelAccessConfigTypeDef",
     },
     total=False,
 )
@@ -14202,6 +15145,54 @@ TextGenerationResolvedAttributesTypeDef = TypedDict(
     "TextGenerationResolvedAttributesTypeDef",
     {
         "BaseModelName": str,
+    },
+    total=False,
+)
+
+_RequiredThroughputConfigDescriptionTypeDef = TypedDict(
+    "_RequiredThroughputConfigDescriptionTypeDef",
+    {
+        "ThroughputMode": ThroughputModeType,
+    },
+)
+_OptionalThroughputConfigDescriptionTypeDef = TypedDict(
+    "_OptionalThroughputConfigDescriptionTypeDef",
+    {
+        "ProvisionedReadCapacityUnits": int,
+        "ProvisionedWriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+class ThroughputConfigDescriptionTypeDef(
+    _RequiredThroughputConfigDescriptionTypeDef, _OptionalThroughputConfigDescriptionTypeDef
+):
+    pass
+
+_RequiredThroughputConfigTypeDef = TypedDict(
+    "_RequiredThroughputConfigTypeDef",
+    {
+        "ThroughputMode": ThroughputModeType,
+    },
+)
+_OptionalThroughputConfigTypeDef = TypedDict(
+    "_OptionalThroughputConfigTypeDef",
+    {
+        "ProvisionedReadCapacityUnits": int,
+        "ProvisionedWriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+class ThroughputConfigTypeDef(_RequiredThroughputConfigTypeDef, _OptionalThroughputConfigTypeDef):
+    pass
+
+ThroughputConfigUpdateTypeDef = TypedDict(
+    "ThroughputConfigUpdateTypeDef",
+    {
+        "ThroughputMode": ThroughputModeType,
+        "ProvisionedReadCapacityUnits": int,
+        "ProvisionedWriteCapacityUnits": int,
     },
     total=False,
 )
@@ -14241,6 +15232,7 @@ _OptionalTimeSeriesForecastingJobConfigTypeDef = TypedDict(
         "ForecastQuantiles": List[str],
         "Transformations": "TimeSeriesTransformationsTypeDef",
         "HolidayConfig": List["HolidayConfigAttributesTypeDef"],
+        "CandidateGenerationConfig": "CandidateGenerationConfigTypeDef",
     },
     total=False,
 )
@@ -14560,6 +15552,7 @@ TransformJobTypeDef = TypedDict(
         "Environment": Dict[str, str],
         "TransformInput": "TransformInputTypeDef",
         "TransformOutput": "TransformOutputTypeDef",
+        "DataCaptureConfig": "BatchDataCaptureConfigTypeDef",
         "TransformResources": "TransformResourcesTypeDef",
         "CreationTime": datetime,
         "TransformStartTime": datetime,
@@ -14569,7 +15562,6 @@ TransformJobTypeDef = TypedDict(
         "DataProcessing": "DataProcessingTypeDef",
         "ExperimentConfig": "ExperimentConfigTypeDef",
         "Tags": List["TagTypeDef"],
-        "DataCaptureConfig": "BatchDataCaptureConfigTypeDef",
     },
     total=False,
 )
@@ -14913,6 +15905,8 @@ _OptionalUpdateAppImageConfigRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateAppImageConfigRequestRequestTypeDef",
     {
         "KernelGatewayImageConfig": "KernelGatewayImageConfigTypeDef",
+        "JupyterLabAppImageConfig": "JupyterLabAppImageConfigTypeDef",
+        "CodeEditorAppImageConfig": "CodeEditorAppImageConfigTypeDef",
     },
     total=False,
 )
@@ -14956,6 +15950,37 @@ UpdateArtifactResponseTypeDef = TypedDict(
     "UpdateArtifactResponseTypeDef",
     {
         "ArtifactArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateClusterRequestRequestTypeDef = TypedDict(
+    "UpdateClusterRequestRequestTypeDef",
+    {
+        "ClusterName": str,
+        "InstanceGroups": List["ClusterInstanceGroupSpecificationTypeDef"],
+    },
+)
+
+UpdateClusterResponseTypeDef = TypedDict(
+    "UpdateClusterResponseTypeDef",
+    {
+        "ClusterArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateClusterSoftwareRequestRequestTypeDef = TypedDict(
+    "UpdateClusterSoftwareRequestRequestTypeDef",
+    {
+        "ClusterName": str,
+    },
+)
+
+UpdateClusterSoftwareResponseTypeDef = TypedDict(
+    "UpdateClusterSoftwareResponseTypeDef",
+    {
+        "ClusterArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -15058,8 +16083,10 @@ _OptionalUpdateDomainRequestRequestTypeDef = TypedDict(
     {
         "DefaultUserSettings": "UserSettingsTypeDef",
         "DomainSettingsForUpdate": "DomainSettingsForUpdateTypeDef",
-        "DefaultSpaceSettings": "DefaultSpaceSettingsTypeDef",
         "AppSecurityGroupManagement": AppSecurityGroupManagementType,
+        "DefaultSpaceSettings": "DefaultSpaceSettingsTypeDef",
+        "SubnetIds": List[str],
+        "AppNetworkAccessType": AppNetworkAccessTypeType,
     },
     total=False,
 )
@@ -15163,6 +16190,7 @@ _OptionalUpdateFeatureGroupRequestRequestTypeDef = TypedDict(
     {
         "FeatureAdditions": List["FeatureDefinitionTypeDef"],
         "OnlineStoreConfig": "OnlineStoreConfigUpdateTypeDef",
+        "ThroughputConfig": "ThroughputConfigUpdateTypeDef",
     },
     total=False,
 )
@@ -15301,6 +16329,51 @@ UpdateImageVersionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateInferenceComponentInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateInferenceComponentInputRequestTypeDef",
+    {
+        "InferenceComponentName": str,
+    },
+)
+_OptionalUpdateInferenceComponentInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateInferenceComponentInputRequestTypeDef",
+    {
+        "Specification": "InferenceComponentSpecificationTypeDef",
+        "RuntimeConfig": "InferenceComponentRuntimeConfigTypeDef",
+    },
+    total=False,
+)
+
+class UpdateInferenceComponentInputRequestTypeDef(
+    _RequiredUpdateInferenceComponentInputRequestTypeDef,
+    _OptionalUpdateInferenceComponentInputRequestTypeDef,
+):
+    pass
+
+UpdateInferenceComponentOutputTypeDef = TypedDict(
+    "UpdateInferenceComponentOutputTypeDef",
+    {
+        "InferenceComponentArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateInferenceComponentRuntimeConfigInputRequestTypeDef = TypedDict(
+    "UpdateInferenceComponentRuntimeConfigInputRequestTypeDef",
+    {
+        "InferenceComponentName": str,
+        "DesiredRuntimeConfig": "InferenceComponentRuntimeConfigTypeDef",
+    },
+)
+
+UpdateInferenceComponentRuntimeConfigOutputTypeDef = TypedDict(
+    "UpdateInferenceComponentRuntimeConfigOutputTypeDef",
+    {
+        "InferenceComponentArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateInferenceExperimentRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateInferenceExperimentRequestRequestTypeDef",
     {
@@ -15377,6 +16450,9 @@ _OptionalUpdateModelPackageInputRequestTypeDef = TypedDict(
         "AdditionalInferenceSpecificationsToAdd": List[
             "AdditionalInferenceSpecificationDefinitionTypeDef"
         ],
+        "InferenceSpecification": "InferenceSpecificationTypeDef",
+        "SourceUri": str,
+        "ModelCard": "ModelPackageModelCardTypeDef",
     },
     total=False,
 )
@@ -15584,6 +16660,7 @@ _OptionalUpdateSpaceRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateSpaceRequestRequestTypeDef",
     {
         "SpaceSettings": "SpaceSettingsTypeDef",
+        "SpaceDisplayName": str,
     },
     total=False,
 )
@@ -15613,6 +16690,7 @@ _OptionalUpdateTrainingJobRequestRequestTypeDef = TypedDict(
         "ProfilerConfig": "ProfilerConfigForUpdateTypeDef",
         "ProfilerRuleConfigurations": List["ProfilerRuleConfigurationTypeDef"],
         "ResourceConfig": "ResourceConfigForUpdateTypeDef",
+        "RemoteDebugConfig": "RemoteDebugConfigForUpdateTypeDef",
     },
     total=False,
 )
@@ -15763,6 +16841,7 @@ _OptionalUpdateWorkteamRequestRequestTypeDef = TypedDict(
         "MemberDefinitions": List["MemberDefinitionTypeDef"],
         "Description": str,
         "NotificationConfiguration": "NotificationConfigurationTypeDef",
+        "WorkerAccessConfiguration": "WorkerAccessConfigurationTypeDef",
     },
     total=False,
 )
@@ -15815,6 +16894,13 @@ UserSettingsTypeDef = TypedDict(
         "RStudioServerProAppSettings": "RStudioServerProAppSettingsTypeDef",
         "RSessionAppSettings": "RSessionAppSettingsTypeDef",
         "CanvasAppSettings": "CanvasAppSettingsTypeDef",
+        "CodeEditorAppSettings": "CodeEditorAppSettingsTypeDef",
+        "JupyterLabAppSettings": "JupyterLabAppSettingsTypeDef",
+        "SpaceStorageSettings": "DefaultSpaceStorageSettingsTypeDef",
+        "DefaultLandingUri": str,
+        "StudioWebPortal": StudioWebPortalType,
+        "CustomPosixUserConfig": "CustomPosixUserConfigTypeDef",
+        "CustomFileSystemConfigs": List["CustomFileSystemConfigTypeDef"],
     },
     total=False,
 )
@@ -15839,6 +16925,15 @@ VertexTypeDef = TypedDict(
         "Arn": str,
         "Type": str,
         "LineageType": LineageTypeType,
+    },
+    total=False,
+)
+
+VisibilityConditionsTypeDef = TypedDict(
+    "VisibilityConditionsTypeDef",
+    {
+        "Key": str,
+        "Value": str,
     },
     total=False,
 )
@@ -15877,6 +16972,14 @@ _OptionalWarmPoolStatusTypeDef = TypedDict(
 
 class WarmPoolStatusTypeDef(_RequiredWarmPoolStatusTypeDef, _OptionalWarmPoolStatusTypeDef):
     pass
+
+WorkerAccessConfigurationTypeDef = TypedDict(
+    "WorkerAccessConfigurationTypeDef",
+    {
+        "S3Presign": "S3PresignTypeDef",
+    },
+    total=False,
+)
 
 _RequiredWorkforceTypeDef = TypedDict(
     "_RequiredWorkforceTypeDef",
@@ -15962,6 +17065,7 @@ _OptionalWorkteamTypeDef = TypedDict(
         "CreateDate": datetime,
         "LastUpdatedDate": datetime,
         "NotificationConfiguration": "NotificationConfigurationTypeDef",
+        "WorkerAccessConfiguration": "WorkerAccessConfigurationTypeDef",
     },
     total=False,
 )

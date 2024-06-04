@@ -27,6 +27,7 @@ Usage::
     list_streams_paginator: ListStreamsPaginator = client.get_paginator("list_streams")
     ```
 """
+
 from .client import IVSClient
 from .paginator import (
     ListChannelsPaginator,

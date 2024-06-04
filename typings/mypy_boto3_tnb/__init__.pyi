@@ -27,6 +27,7 @@ Usage::
     list_sol_network_packages_paginator: ListSolNetworkPackagesPaginator = client.get_paginator("list_sol_network_packages")
     ```
 """
+
 from .client import TelcoNetworkBuilderClient
 from .paginator import (
     ListSolFunctionInstancesPaginator,

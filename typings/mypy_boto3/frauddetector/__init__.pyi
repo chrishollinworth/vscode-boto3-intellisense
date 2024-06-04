@@ -16,6 +16,7 @@ Usage::
     session_client: FraudDetectorClient = session.client("frauddetector")
     ```
 """
+
 from .client import FraudDetectorClient
 
 Client = FraudDetectorClient

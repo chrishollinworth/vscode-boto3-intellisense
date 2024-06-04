@@ -27,6 +27,7 @@ Usage::
     search_tables_by_lf_tags_paginator: SearchTablesByLFTagsPaginator = client.get_paginator("search_tables_by_lf_tags")
     ```
 """
+
 from .client import LakeFormationClient
 from .paginator import (
     GetWorkUnitsPaginator,

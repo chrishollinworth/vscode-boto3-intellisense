@@ -11,6 +11,7 @@ Usage::
     data: DecisionType = "ALLOW"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -25,6 +26,7 @@ __all__ = (
     "ListPolicyStoresPaginatorName",
     "ListPolicyTemplatesPaginatorName",
     "OpenIdIssuerType",
+    "PolicyEffectType",
     "PolicyTypeType",
     "ValidationModeType",
 )
@@ -35,5 +37,6 @@ ListPoliciesPaginatorName = Literal["list_policies"]
 ListPolicyStoresPaginatorName = Literal["list_policy_stores"]
 ListPolicyTemplatesPaginatorName = Literal["list_policy_templates"]
 OpenIdIssuerType = Literal["COGNITO"]
+PolicyEffectType = Literal["Forbid", "Permit"]
 PolicyTypeType = Literal["STATIC", "TEMPLATE_LINKED"]
 ValidationModeType = Literal["OFF", "STRICT"]

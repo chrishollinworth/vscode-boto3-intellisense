@@ -11,6 +11,7 @@ Usage::
     data: AccountTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -39,6 +40,7 @@ from .literals import (
     LaunchStatusType,
     OriginEnvironmentType,
     PITPolicyRuleUnitsType,
+    ProductCodeModeType,
     RecoveryInstanceDataReplicationInitiationStepNameType,
     RecoveryInstanceDataReplicationInitiationStepStatusType,
     RecoveryInstanceDataReplicationStateType,
@@ -51,6 +53,7 @@ from .literals import (
     ReplicationDirectionType,
     ReplicationStatusType,
     TargetInstanceTypeRightSizingMethodType,
+    VolumeStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -145,6 +148,7 @@ __all__ = (
     "ParticipatingResourceIDTypeDef",
     "ParticipatingResourceTypeDef",
     "ParticipatingServerTypeDef",
+    "ProductCodeTypeDef",
     "PutLaunchActionRequestRequestTypeDef",
     "PutLaunchActionResponseTypeDef",
     "RecoveryInstanceDataReplicationErrorTypeDef",
@@ -243,6 +247,7 @@ ConversionPropertiesTypeDef = TypedDict(
         "forceUefi": bool,
         "rootVolumeName": str,
         "volumeToConversionMap": Dict[str, Dict[str, str]],
+        "volumeToProductCodes": Dict[str, List["ProductCodeTypeDef"]],
         "volumeToVolumeSize": Dict[str, int],
     },
     total=False,
@@ -380,6 +385,7 @@ DataReplicationInfoReplicatedDiskTypeDef = TypedDict(
         "replicatedStorageBytes": int,
         "rescannedStorageBytes": int,
         "totalStorageBytes": int,
+        "volumeStatus": VolumeStatusType,
     },
     total=False,
 )
@@ -394,6 +400,7 @@ DataReplicationInfoTypeDef = TypedDict(
         "lagDuration": str,
         "replicatedDisks": List["DataReplicationInfoReplicatedDiskTypeDef"],
         "stagingAvailabilityZone": str,
+        "stagingOutpostArn": str,
     },
     total=False,
 )
@@ -1134,6 +1141,15 @@ ParticipatingServerTypeDef = TypedDict(
     total=False,
 )
 
+ProductCodeTypeDef = TypedDict(
+    "ProductCodeTypeDef",
+    {
+        "productCodeId": str,
+        "productCodeMode": ProductCodeModeType,
+    },
+    total=False,
+)
+
 _RequiredPutLaunchActionRequestRequestTypeDef = TypedDict(
     "_RequiredPutLaunchActionRequestRequestTypeDef",
     {
@@ -1212,6 +1228,7 @@ RecoveryInstanceDataReplicationInfoTypeDef = TypedDict(
         "lagDuration": str,
         "replicatedDisks": List["RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef"],
         "stagingAvailabilityZone": str,
+        "stagingOutpostArn": str,
     },
     total=False,
 )
@@ -1278,6 +1295,7 @@ RecoveryInstancePropertiesTypeDef = TypedDict(
 RecoveryInstanceTypeDef = TypedDict(
     "RecoveryInstanceTypeDef",
     {
+        "agentVersion": str,
         "arn": str,
         "dataReplicationInfo": "RecoveryInstanceDataReplicationInfoTypeDef",
         "ec2InstanceID": str,
@@ -1290,6 +1308,7 @@ RecoveryInstanceTypeDef = TypedDict(
         "pointInTimeSnapshotDateTime": str,
         "recoveryInstanceID": str,
         "recoveryInstanceProperties": "RecoveryInstancePropertiesTypeDef",
+        "sourceOutpostArn": str,
         "sourceServerID": str,
         "tags": Dict[str, str],
     },
@@ -1461,6 +1480,7 @@ SourceCloudPropertiesTypeDef = TypedDict(
         "originAccountID": str,
         "originAvailabilityZone": str,
         "originRegion": str,
+        "sourceOutpostArn": str,
     },
     total=False,
 )
@@ -1513,6 +1533,7 @@ SourcePropertiesTypeDef = TypedDict(
 SourceServerResponseMetadataTypeDef = TypedDict(
     "SourceServerResponseMetadataTypeDef",
     {
+        "agentVersion": str,
         "arn": str,
         "dataReplicationInfo": "DataReplicationInfoTypeDef",
         "lastLaunchResult": LastLaunchResultType,
@@ -1533,6 +1554,7 @@ SourceServerResponseMetadataTypeDef = TypedDict(
 SourceServerTypeDef = TypedDict(
     "SourceServerTypeDef",
     {
+        "agentVersion": str,
         "arn": str,
         "dataReplicationInfo": "DataReplicationInfoTypeDef",
         "lastLaunchResult": LastLaunchResultType,

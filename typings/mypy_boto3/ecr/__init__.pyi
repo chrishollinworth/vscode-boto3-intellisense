@@ -34,6 +34,7 @@ Usage::
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
     ```
 """
+
 from .client import ECRClient
 from .paginator import (
     DescribeImageScanFindingsPaginator,

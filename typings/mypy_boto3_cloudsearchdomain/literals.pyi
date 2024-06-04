@@ -11,6 +11,7 @@ Usage::
     data: ContentTypeType = "application/json"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

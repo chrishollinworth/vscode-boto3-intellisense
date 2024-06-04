@@ -11,6 +11,7 @@ Usage::
     data: AddProfileKeyRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -97,6 +98,9 @@ __all__ = (
     "DeleteProfileResponseTypeDef",
     "DeleteWorkflowRequestRequestTypeDef",
     "DestinationSummaryTypeDef",
+    "DetectProfileObjectTypeRequestRequestTypeDef",
+    "DetectProfileObjectTypeResponseTypeDef",
+    "DetectedProfileObjectTypeTypeDef",
     "DomainStatsTypeDef",
     "EventStreamDestinationDetailsTypeDef",
     "EventStreamSummaryTypeDef",
@@ -775,6 +779,32 @@ class DestinationSummaryTypeDef(
     _RequiredDestinationSummaryTypeDef, _OptionalDestinationSummaryTypeDef
 ):
     pass
+
+DetectProfileObjectTypeRequestRequestTypeDef = TypedDict(
+    "DetectProfileObjectTypeRequestRequestTypeDef",
+    {
+        "Objects": List[str],
+        "DomainName": str,
+    },
+)
+
+DetectProfileObjectTypeResponseTypeDef = TypedDict(
+    "DetectProfileObjectTypeResponseTypeDef",
+    {
+        "DetectedProfileObjectTypes": List["DetectedProfileObjectTypeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DetectedProfileObjectTypeTypeDef = TypedDict(
+    "DetectedProfileObjectTypeTypeDef",
+    {
+        "SourceLastUpdatedTimestampFormat": str,
+        "Fields": Dict[str, "ObjectTypeFieldTypeDef"],
+        "Keys": Dict[str, List["ObjectTypeKeyTypeDef"]],
+    },
+    total=False,
+)
 
 DomainStatsTypeDef = TypedDict(
     "DomainStatsTypeDef",

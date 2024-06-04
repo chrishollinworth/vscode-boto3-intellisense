@@ -16,6 +16,7 @@ Usage::
     session_client: kendraClient = session.client("kendra")
     ```
 """
+
 from .client import kendraClient
 
 Client = kendraClient

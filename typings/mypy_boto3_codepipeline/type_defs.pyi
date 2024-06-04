@@ -11,6 +11,7 @@ Usage::
     data: AWSSessionCredentialsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -21,8 +22,11 @@ from .literals import (
     ActionExecutionStatusType,
     ActionOwnerType,
     ApprovalStatusType,
+    ExecutionModeType,
+    ExecutionTypeType,
     ExecutorTypeType,
     FailureTypeType,
+    GitPullRequestEventTypeType,
     JobStatusType,
     PipelineExecutionStatusType,
     PipelineTypeType,
@@ -30,6 +34,7 @@ from .literals import (
     StageExecutionStatusType,
     StageRetryModeType,
     StageTransitionTypeType,
+    StartTimeRangeType,
     TriggerTypeType,
     WebhookAuthenticationTypeType,
 )
@@ -95,6 +100,7 @@ __all__ = (
     "ExecutionDetailsTypeDef",
     "ExecutionTriggerTypeDef",
     "ExecutorConfigurationTypeDef",
+    "FailureConditionsTypeDef",
     "FailureDetailsTypeDef",
     "GetActionTypeInputRequestTypeDef",
     "GetActionTypeOutputTypeDef",
@@ -108,7 +114,10 @@ __all__ = (
     "GetPipelineStateOutputTypeDef",
     "GetThirdPartyJobDetailsInputRequestTypeDef",
     "GetThirdPartyJobDetailsOutputTypeDef",
+    "GitBranchFilterCriteriaTypeDef",
     "GitConfigurationTypeDef",
+    "GitFilePathFilterCriteriaTypeDef",
+    "GitPullRequestFilterTypeDef",
     "GitPushFilterTypeDef",
     "GitTagFilterCriteriaTypeDef",
     "InputArtifactTypeDef",
@@ -117,6 +126,7 @@ __all__ = (
     "JobTypeDef",
     "JobWorkerExecutorConfigurationTypeDef",
     "LambdaExecutorConfigurationTypeDef",
+    "LatestInPipelineExecutionFilterTypeDef",
     "ListActionExecutionsInputRequestTypeDef",
     "ListActionExecutionsOutputTypeDef",
     "ListActionTypesInputRequestTypeDef",
@@ -134,9 +144,11 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PipelineContextTypeDef",
     "PipelineDeclarationTypeDef",
+    "PipelineExecutionFilterTypeDef",
     "PipelineExecutionSummaryTypeDef",
     "PipelineExecutionTypeDef",
     "PipelineMetadataTypeDef",
+    "PipelineRollbackMetadataTypeDef",
     "PipelineSummaryTypeDef",
     "PipelineTriggerDeclarationTypeDef",
     "PipelineVariableDeclarationTypeDef",
@@ -160,6 +172,8 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RetryStageExecutionInputRequestTypeDef",
     "RetryStageExecutionOutputTypeDef",
+    "RollbackStageInputRequestTypeDef",
+    "RollbackStageOutputTypeDef",
     "S3ArtifactLocationTypeDef",
     "S3LocationTypeDef",
     "SourceRevisionOverrideTypeDef",
@@ -173,6 +187,7 @@ __all__ = (
     "StopExecutionTriggerTypeDef",
     "StopPipelineExecutionInputRequestTypeDef",
     "StopPipelineExecutionOutputTypeDef",
+    "SucceededInStageFilterTypeDef",
     "TagResourceInputRequestTypeDef",
     "TagTypeDef",
     "ThirdPartyJobDataTypeDef",
@@ -288,6 +303,7 @@ _OptionalActionDeclarationTypeDef = TypedDict(
         "roleArn": str,
         "region": str,
         "namespace": str,
+        "timeoutInMinutes": int,
     },
     total=False,
 )
@@ -307,6 +323,7 @@ ActionExecutionDetailTypeDef = TypedDict(
         "actionName": str,
         "startTime": datetime,
         "lastUpdateTime": datetime,
+        "updatedBy": str,
         "status": ActionExecutionStatusType,
         "input": "ActionExecutionInputTypeDef",
         "output": "ActionExecutionOutputTypeDef",
@@ -318,6 +335,7 @@ ActionExecutionFilterTypeDef = TypedDict(
     "ActionExecutionFilterTypeDef",
     {
         "pipelineExecutionId": str,
+        "latestInPipelineExecution": "LatestInPipelineExecutionFilterTypeDef",
     },
     total=False,
 )
@@ -352,6 +370,7 @@ ActionExecutionResultTypeDef = TypedDict(
         "externalExecutionId": str,
         "externalExecutionSummary": str,
         "externalExecutionUrl": str,
+        "errorDetails": "ErrorDetailsTypeDef",
     },
     total=False,
 )
@@ -800,6 +819,14 @@ ExecutorConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+FailureConditionsTypeDef = TypedDict(
+    "FailureConditionsTypeDef",
+    {
+        "result": Literal["ROLLBACK"],
+    },
+    total=False,
+)
+
 _RequiredFailureDetailsTypeDef = TypedDict(
     "_RequiredFailureDetailsTypeDef",
     {
@@ -930,6 +957,15 @@ GetThirdPartyJobDetailsOutputTypeDef = TypedDict(
     },
 )
 
+GitBranchFilterCriteriaTypeDef = TypedDict(
+    "GitBranchFilterCriteriaTypeDef",
+    {
+        "includes": List[str],
+        "excludes": List[str],
+    },
+    total=False,
+)
+
 _RequiredGitConfigurationTypeDef = TypedDict(
     "_RequiredGitConfigurationTypeDef",
     {
@@ -940,6 +976,7 @@ _OptionalGitConfigurationTypeDef = TypedDict(
     "_OptionalGitConfigurationTypeDef",
     {
         "push": List["GitPushFilterTypeDef"],
+        "pullRequest": List["GitPullRequestFilterTypeDef"],
     },
     total=False,
 )
@@ -947,10 +984,31 @@ _OptionalGitConfigurationTypeDef = TypedDict(
 class GitConfigurationTypeDef(_RequiredGitConfigurationTypeDef, _OptionalGitConfigurationTypeDef):
     pass
 
+GitFilePathFilterCriteriaTypeDef = TypedDict(
+    "GitFilePathFilterCriteriaTypeDef",
+    {
+        "includes": List[str],
+        "excludes": List[str],
+    },
+    total=False,
+)
+
+GitPullRequestFilterTypeDef = TypedDict(
+    "GitPullRequestFilterTypeDef",
+    {
+        "events": List[GitPullRequestEventTypeType],
+        "branches": "GitBranchFilterCriteriaTypeDef",
+        "filePaths": "GitFilePathFilterCriteriaTypeDef",
+    },
+    total=False,
+)
+
 GitPushFilterTypeDef = TypedDict(
     "GitPushFilterTypeDef",
     {
         "tags": "GitTagFilterCriteriaTypeDef",
+        "branches": "GitBranchFilterCriteriaTypeDef",
+        "filePaths": "GitFilePathFilterCriteriaTypeDef",
     },
     total=False,
 )
@@ -1023,6 +1081,14 @@ LambdaExecutorConfigurationTypeDef = TypedDict(
     },
 )
 
+LatestInPipelineExecutionFilterTypeDef = TypedDict(
+    "LatestInPipelineExecutionFilterTypeDef",
+    {
+        "pipelineExecutionId": str,
+        "startTimeRange": StartTimeRangeType,
+    },
+)
+
 _RequiredListActionExecutionsInputRequestTypeDef = TypedDict(
     "_RequiredListActionExecutionsInputRequestTypeDef",
     {
@@ -1083,6 +1149,7 @@ _OptionalListPipelineExecutionsInputRequestTypeDef = TypedDict(
     "_OptionalListPipelineExecutionsInputRequestTypeDef",
     {
         "maxResults": int,
+        "filter": "PipelineExecutionFilterTypeDef",
         "nextToken": str,
     },
     total=False,
@@ -1233,9 +1300,10 @@ _OptionalPipelineDeclarationTypeDef = TypedDict(
         "artifactStore": "ArtifactStoreTypeDef",
         "artifactStores": Dict[str, "ArtifactStoreTypeDef"],
         "version": int,
+        "executionMode": ExecutionModeType,
         "pipelineType": PipelineTypeType,
-        "triggers": List["PipelineTriggerDeclarationTypeDef"],
         "variables": List["PipelineVariableDeclarationTypeDef"],
+        "triggers": List["PipelineTriggerDeclarationTypeDef"],
     },
     total=False,
 )
@@ -1245,16 +1313,28 @@ class PipelineDeclarationTypeDef(
 ):
     pass
 
+PipelineExecutionFilterTypeDef = TypedDict(
+    "PipelineExecutionFilterTypeDef",
+    {
+        "succeededInStage": "SucceededInStageFilterTypeDef",
+    },
+    total=False,
+)
+
 PipelineExecutionSummaryTypeDef = TypedDict(
     "PipelineExecutionSummaryTypeDef",
     {
         "pipelineExecutionId": str,
         "status": PipelineExecutionStatusType,
+        "statusSummary": str,
         "startTime": datetime,
         "lastUpdateTime": datetime,
         "sourceRevisions": List["SourceRevisionTypeDef"],
         "trigger": "ExecutionTriggerTypeDef",
         "stopTrigger": "StopExecutionTriggerTypeDef",
+        "executionMode": ExecutionModeType,
+        "executionType": ExecutionTypeType,
+        "rollbackMetadata": "PipelineRollbackMetadataTypeDef",
     },
     total=False,
 )
@@ -1268,8 +1348,11 @@ PipelineExecutionTypeDef = TypedDict(
         "status": PipelineExecutionStatusType,
         "statusSummary": str,
         "artifactRevisions": List["ArtifactRevisionTypeDef"],
-        "trigger": "ExecutionTriggerTypeDef",
         "variables": List["ResolvedPipelineVariableTypeDef"],
+        "trigger": "ExecutionTriggerTypeDef",
+        "executionMode": ExecutionModeType,
+        "executionType": ExecutionTypeType,
+        "rollbackMetadata": "PipelineRollbackMetadataTypeDef",
     },
     total=False,
 )
@@ -1285,12 +1368,21 @@ PipelineMetadataTypeDef = TypedDict(
     total=False,
 )
 
+PipelineRollbackMetadataTypeDef = TypedDict(
+    "PipelineRollbackMetadataTypeDef",
+    {
+        "rollbackTargetPipelineExecutionId": str,
+    },
+    total=False,
+)
+
 PipelineSummaryTypeDef = TypedDict(
     "PipelineSummaryTypeDef",
     {
         "name": str,
         "version": int,
         "pipelineType": PipelineTypeType,
+        "executionMode": ExecutionModeType,
         "created": datetime,
         "updated": datetime,
     },
@@ -1562,6 +1654,23 @@ RetryStageExecutionOutputTypeDef = TypedDict(
     },
 )
 
+RollbackStageInputRequestTypeDef = TypedDict(
+    "RollbackStageInputRequestTypeDef",
+    {
+        "pipelineName": str,
+        "stageName": str,
+        "targetPipelineExecutionId": str,
+    },
+)
+
+RollbackStageOutputTypeDef = TypedDict(
+    "RollbackStageOutputTypeDef",
+    {
+        "pipelineExecutionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 S3ArtifactLocationTypeDef = TypedDict(
     "S3ArtifactLocationTypeDef",
     {
@@ -1626,6 +1735,7 @@ _OptionalStageDeclarationTypeDef = TypedDict(
     "_OptionalStageDeclarationTypeDef",
     {
         "blockers": List["BlockerDeclarationTypeDef"],
+        "onFailure": "FailureConditionsTypeDef",
     },
     total=False,
 )
@@ -1633,19 +1743,30 @@ _OptionalStageDeclarationTypeDef = TypedDict(
 class StageDeclarationTypeDef(_RequiredStageDeclarationTypeDef, _OptionalStageDeclarationTypeDef):
     pass
 
-StageExecutionTypeDef = TypedDict(
-    "StageExecutionTypeDef",
+_RequiredStageExecutionTypeDef = TypedDict(
+    "_RequiredStageExecutionTypeDef",
     {
         "pipelineExecutionId": str,
         "status": StageExecutionStatusType,
     },
 )
+_OptionalStageExecutionTypeDef = TypedDict(
+    "_OptionalStageExecutionTypeDef",
+    {
+        "type": ExecutionTypeType,
+    },
+    total=False,
+)
+
+class StageExecutionTypeDef(_RequiredStageExecutionTypeDef, _OptionalStageExecutionTypeDef):
+    pass
 
 StageStateTypeDef = TypedDict(
     "StageStateTypeDef",
     {
         "stageName": str,
         "inboundExecution": "StageExecutionTypeDef",
+        "inboundExecutions": List["StageExecutionTypeDef"],
         "inboundTransitionState": "TransitionStateTypeDef",
         "actionStates": List["ActionStateTypeDef"],
         "latestExecution": "StageExecutionTypeDef",
@@ -1719,6 +1840,14 @@ StopPipelineExecutionOutputTypeDef = TypedDict(
         "pipelineExecutionId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+SucceededInStageFilterTypeDef = TypedDict(
+    "SucceededInStageFilterTypeDef",
+    {
+        "stageName": str,
+    },
+    total=False,
 )
 
 TagResourceInputRequestTypeDef = TypedDict(

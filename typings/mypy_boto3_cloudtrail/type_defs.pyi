@@ -11,6 +11,7 @@ Usage::
     data: AddTagsRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -23,6 +24,7 @@ from .literals import (
     FederationStatusType,
     ImportFailureStatusType,
     ImportStatusType,
+    InsightsMetricDataTypeType,
     InsightTypeType,
     LookupAttributeKeyType,
     QueryStatusType,
@@ -101,6 +103,8 @@ __all__ = (
     "ListImportFailuresResponseTypeDef",
     "ListImportsRequestRequestTypeDef",
     "ListImportsResponseTypeDef",
+    "ListInsightsMetricDataRequestRequestTypeDef",
+    "ListInsightsMetricDataResponseTypeDef",
     "ListPublicKeysRequestRequestTypeDef",
     "ListPublicKeysResponseTypeDef",
     "ListQueriesRequestRequestTypeDef",
@@ -113,6 +117,7 @@ __all__ = (
     "LookupEventsRequestRequestTypeDef",
     "LookupEventsResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PartitionKeyTypeDef",
     "PublicKeyTypeDef",
     "PutEventSelectorsRequestRequestTypeDef",
     "PutEventSelectorsResponseTypeDef",
@@ -586,6 +591,7 @@ GetEventDataStoreResponseTypeDef = TypedDict(
         "BillingMode": BillingModeType,
         "FederationStatus": FederationStatusType,
         "FederationRoleArn": str,
+        "PartitionKeys": List["PartitionKeyTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -894,6 +900,48 @@ ListImportsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListInsightsMetricDataRequestRequestTypeDef = TypedDict(
+    "_RequiredListInsightsMetricDataRequestRequestTypeDef",
+    {
+        "EventSource": str,
+        "EventName": str,
+        "InsightType": InsightTypeType,
+    },
+)
+_OptionalListInsightsMetricDataRequestRequestTypeDef = TypedDict(
+    "_OptionalListInsightsMetricDataRequestRequestTypeDef",
+    {
+        "ErrorCode": str,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "Period": int,
+        "DataType": InsightsMetricDataTypeType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListInsightsMetricDataRequestRequestTypeDef(
+    _RequiredListInsightsMetricDataRequestRequestTypeDef,
+    _OptionalListInsightsMetricDataRequestRequestTypeDef,
+):
+    pass
+
+ListInsightsMetricDataResponseTypeDef = TypedDict(
+    "ListInsightsMetricDataResponseTypeDef",
+    {
+        "EventSource": str,
+        "EventName": str,
+        "InsightType": InsightTypeType,
+        "ErrorCode": str,
+        "Timestamps": List[datetime],
+        "Values": List[float],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListPublicKeysRequestRequestTypeDef = TypedDict(
     "ListPublicKeysRequestRequestTypeDef",
     {
@@ -1028,6 +1076,14 @@ PaginatorConfigTypeDef = TypedDict(
         "StartingToken": str,
     },
     total=False,
+)
+
+PartitionKeyTypeDef = TypedDict(
+    "PartitionKeyTypeDef",
+    {
+        "Name": str,
+        "Type": str,
+    },
 )
 
 PublicKeyTypeDef = TypedDict(

@@ -11,6 +11,7 @@ Usage::
     data: ActiveDirectoryIdentityProviderTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

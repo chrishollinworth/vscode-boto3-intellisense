@@ -21,6 +21,7 @@ Usage::
     list_entities_paginator: ListEntitiesPaginator = client.get_paginator("list_entities")
     ```
 """
+
 from .client import MarketplaceCatalogClient
 from .paginator import ListChangeSetsPaginator, ListEntitiesPaginator
 

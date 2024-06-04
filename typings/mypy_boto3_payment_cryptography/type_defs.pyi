@@ -11,6 +11,7 @@ Usage::
     data: AliasTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -19,11 +20,13 @@ from .literals import (
     KeyAlgorithmType,
     KeyCheckValueAlgorithmType,
     KeyClassType,
+    KeyExportabilityType,
     KeyMaterialTypeType,
     KeyOriginType,
     KeyStateType,
     KeyUsageType,
     WrappedKeyMaterialFormatType,
+    WrappingKeySpecType,
 )
 
 if sys.version_info >= (3, 8):
@@ -44,6 +47,9 @@ __all__ = (
     "DeleteAliasInputRequestTypeDef",
     "DeleteKeyInputRequestTypeDef",
     "DeleteKeyOutputTypeDef",
+    "ExportAttributesTypeDef",
+    "ExportDukptInitialKeyTypeDef",
+    "ExportKeyCryptogramTypeDef",
     "ExportKeyInputRequestTypeDef",
     "ExportKeyMaterialTypeDef",
     "ExportKeyOutputTypeDef",
@@ -59,12 +65,14 @@ __all__ = (
     "GetParametersForImportOutputTypeDef",
     "GetPublicKeyCertificateInputRequestTypeDef",
     "GetPublicKeyCertificateOutputTypeDef",
+    "ImportKeyCryptogramTypeDef",
     "ImportKeyInputRequestTypeDef",
     "ImportKeyMaterialTypeDef",
     "ImportKeyOutputTypeDef",
     "ImportTr31KeyBlockTypeDef",
     "ImportTr34KeyBlockTypeDef",
     "KeyAttributesTypeDef",
+    "KeyBlockHeadersTypeDef",
     "KeyModesOfUseTypeDef",
     "KeySummaryTypeDef",
     "KeyTypeDef",
@@ -139,15 +147,15 @@ CreateAliasOutputTypeDef = TypedDict(
 _RequiredCreateKeyInputRequestTypeDef = TypedDict(
     "_RequiredCreateKeyInputRequestTypeDef",
     {
-        "Exportable": bool,
         "KeyAttributes": "KeyAttributesTypeDef",
+        "Exportable": bool,
     },
 )
 _OptionalCreateKeyInputRequestTypeDef = TypedDict(
     "_OptionalCreateKeyInputRequestTypeDef",
     {
-        "Enabled": bool,
         "KeyCheckValueAlgorithm": KeyCheckValueAlgorithmType,
+        "Enabled": bool,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -200,19 +208,68 @@ DeleteKeyOutputTypeDef = TypedDict(
     },
 )
 
-ExportKeyInputRequestTypeDef = TypedDict(
-    "ExportKeyInputRequestTypeDef",
+ExportAttributesTypeDef = TypedDict(
+    "ExportAttributesTypeDef",
     {
-        "ExportKeyIdentifier": str,
-        "KeyMaterial": "ExportKeyMaterialTypeDef",
+        "ExportDukptInitialKey": "ExportDukptInitialKeyTypeDef",
+        "KeyCheckValueAlgorithm": KeyCheckValueAlgorithmType,
+    },
+    total=False,
+)
+
+ExportDukptInitialKeyTypeDef = TypedDict(
+    "ExportDukptInitialKeyTypeDef",
+    {
+        "KeySerialNumber": str,
     },
 )
+
+_RequiredExportKeyCryptogramTypeDef = TypedDict(
+    "_RequiredExportKeyCryptogramTypeDef",
+    {
+        "CertificateAuthorityPublicKeyIdentifier": str,
+        "WrappingKeyCertificate": str,
+    },
+)
+_OptionalExportKeyCryptogramTypeDef = TypedDict(
+    "_OptionalExportKeyCryptogramTypeDef",
+    {
+        "WrappingSpec": WrappingKeySpecType,
+    },
+    total=False,
+)
+
+class ExportKeyCryptogramTypeDef(
+    _RequiredExportKeyCryptogramTypeDef, _OptionalExportKeyCryptogramTypeDef
+):
+    pass
+
+_RequiredExportKeyInputRequestTypeDef = TypedDict(
+    "_RequiredExportKeyInputRequestTypeDef",
+    {
+        "KeyMaterial": "ExportKeyMaterialTypeDef",
+        "ExportKeyIdentifier": str,
+    },
+)
+_OptionalExportKeyInputRequestTypeDef = TypedDict(
+    "_OptionalExportKeyInputRequestTypeDef",
+    {
+        "ExportAttributes": "ExportAttributesTypeDef",
+    },
+    total=False,
+)
+
+class ExportKeyInputRequestTypeDef(
+    _RequiredExportKeyInputRequestTypeDef, _OptionalExportKeyInputRequestTypeDef
+):
+    pass
 
 ExportKeyMaterialTypeDef = TypedDict(
     "ExportKeyMaterialTypeDef",
     {
         "Tr31KeyBlock": "ExportTr31KeyBlockTypeDef",
         "Tr34KeyBlock": "ExportTr34KeyBlockTypeDef",
+        "KeyCryptogram": "ExportKeyCryptogramTypeDef",
     },
     total=False,
 )
@@ -225,26 +282,39 @@ ExportKeyOutputTypeDef = TypedDict(
     },
 )
 
-ExportTr31KeyBlockTypeDef = TypedDict(
-    "ExportTr31KeyBlockTypeDef",
+_RequiredExportTr31KeyBlockTypeDef = TypedDict(
+    "_RequiredExportTr31KeyBlockTypeDef",
     {
         "WrappingKeyIdentifier": str,
     },
 )
+_OptionalExportTr31KeyBlockTypeDef = TypedDict(
+    "_OptionalExportTr31KeyBlockTypeDef",
+    {
+        "KeyBlockHeaders": "KeyBlockHeadersTypeDef",
+    },
+    total=False,
+)
+
+class ExportTr31KeyBlockTypeDef(
+    _RequiredExportTr31KeyBlockTypeDef, _OptionalExportTr31KeyBlockTypeDef
+):
+    pass
 
 _RequiredExportTr34KeyBlockTypeDef = TypedDict(
     "_RequiredExportTr34KeyBlockTypeDef",
     {
         "CertificateAuthorityPublicKeyIdentifier": str,
+        "WrappingKeyCertificate": str,
         "ExportToken": str,
         "KeyBlockFormat": Literal["X9_TR34_2012"],
-        "WrappingKeyCertificate": str,
     },
 )
 _OptionalExportTr34KeyBlockTypeDef = TypedDict(
     "_OptionalExportTr34KeyBlockTypeDef",
     {
         "RandomNonce": str,
+        "KeyBlockHeaders": "KeyBlockHeadersTypeDef",
     },
     total=False,
 )
@@ -295,11 +365,11 @@ GetParametersForExportInputRequestTypeDef = TypedDict(
 GetParametersForExportOutputTypeDef = TypedDict(
     "GetParametersForExportOutputTypeDef",
     {
-        "ExportToken": str,
-        "ParametersValidUntilTimestamp": datetime,
-        "SigningKeyAlgorithm": KeyAlgorithmType,
         "SigningKeyCertificate": str,
         "SigningKeyCertificateChain": str,
+        "SigningKeyAlgorithm": KeyAlgorithmType,
+        "ExportToken": str,
+        "ParametersValidUntilTimestamp": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -315,11 +385,11 @@ GetParametersForImportInputRequestTypeDef = TypedDict(
 GetParametersForImportOutputTypeDef = TypedDict(
     "GetParametersForImportOutputTypeDef",
     {
-        "ImportToken": str,
-        "ParametersValidUntilTimestamp": datetime,
-        "WrappingKeyAlgorithm": KeyAlgorithmType,
         "WrappingKeyCertificate": str,
         "WrappingKeyCertificateChain": str,
+        "WrappingKeyAlgorithm": KeyAlgorithmType,
+        "ImportToken": str,
+        "ParametersValidUntilTimestamp": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -340,6 +410,28 @@ GetPublicKeyCertificateOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredImportKeyCryptogramTypeDef = TypedDict(
+    "_RequiredImportKeyCryptogramTypeDef",
+    {
+        "KeyAttributes": "KeyAttributesTypeDef",
+        "Exportable": bool,
+        "WrappedKeyCryptogram": str,
+        "ImportToken": str,
+    },
+)
+_OptionalImportKeyCryptogramTypeDef = TypedDict(
+    "_OptionalImportKeyCryptogramTypeDef",
+    {
+        "WrappingSpec": WrappingKeySpecType,
+    },
+    total=False,
+)
+
+class ImportKeyCryptogramTypeDef(
+    _RequiredImportKeyCryptogramTypeDef, _OptionalImportKeyCryptogramTypeDef
+):
+    pass
+
 _RequiredImportKeyInputRequestTypeDef = TypedDict(
     "_RequiredImportKeyInputRequestTypeDef",
     {
@@ -349,8 +441,8 @@ _RequiredImportKeyInputRequestTypeDef = TypedDict(
 _OptionalImportKeyInputRequestTypeDef = TypedDict(
     "_OptionalImportKeyInputRequestTypeDef",
     {
-        "Enabled": bool,
         "KeyCheckValueAlgorithm": KeyCheckValueAlgorithmType,
+        "Enabled": bool,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -365,9 +457,10 @@ ImportKeyMaterialTypeDef = TypedDict(
     "ImportKeyMaterialTypeDef",
     {
         "RootCertificatePublicKey": "RootCertificatePublicKeyTypeDef",
+        "TrustedCertificatePublicKey": "TrustedCertificatePublicKeyTypeDef",
         "Tr31KeyBlock": "ImportTr31KeyBlockTypeDef",
         "Tr34KeyBlock": "ImportTr34KeyBlockTypeDef",
-        "TrustedCertificatePublicKey": "TrustedCertificatePublicKeyTypeDef",
+        "KeyCryptogram": "ImportKeyCryptogramTypeDef",
     },
     total=False,
 )
@@ -383,8 +476,8 @@ ImportKeyOutputTypeDef = TypedDict(
 ImportTr31KeyBlockTypeDef = TypedDict(
     "ImportTr31KeyBlockTypeDef",
     {
-        "WrappedKeyBlock": str,
         "WrappingKeyIdentifier": str,
+        "WrappedKeyBlock": str,
     },
 )
 
@@ -392,10 +485,10 @@ _RequiredImportTr34KeyBlockTypeDef = TypedDict(
     "_RequiredImportTr34KeyBlockTypeDef",
     {
         "CertificateAuthorityPublicKeyIdentifier": str,
-        "ImportToken": str,
-        "KeyBlockFormat": Literal["X9_TR34_2012"],
         "SigningKeyCertificate": str,
+        "ImportToken": str,
         "WrappedKeyBlock": str,
+        "KeyBlockFormat": Literal["X9_TR34_2012"],
     },
 )
 _OptionalImportTr34KeyBlockTypeDef = TypedDict(
@@ -414,25 +507,36 @@ class ImportTr34KeyBlockTypeDef(
 KeyAttributesTypeDef = TypedDict(
     "KeyAttributesTypeDef",
     {
-        "KeyAlgorithm": KeyAlgorithmType,
-        "KeyClass": KeyClassType,
-        "KeyModesOfUse": "KeyModesOfUseTypeDef",
         "KeyUsage": KeyUsageType,
+        "KeyClass": KeyClassType,
+        "KeyAlgorithm": KeyAlgorithmType,
+        "KeyModesOfUse": "KeyModesOfUseTypeDef",
     },
+)
+
+KeyBlockHeadersTypeDef = TypedDict(
+    "KeyBlockHeadersTypeDef",
+    {
+        "KeyModesOfUse": "KeyModesOfUseTypeDef",
+        "KeyExportability": KeyExportabilityType,
+        "KeyVersion": str,
+        "OptionalBlocks": Dict[str, str],
+    },
+    total=False,
 )
 
 KeyModesOfUseTypeDef = TypedDict(
     "KeyModesOfUseTypeDef",
     {
-        "Decrypt": bool,
-        "DeriveKey": bool,
         "Encrypt": bool,
-        "Generate": bool,
-        "NoRestrictions": bool,
-        "Sign": bool,
-        "Unwrap": bool,
-        "Verify": bool,
+        "Decrypt": bool,
         "Wrap": bool,
+        "Unwrap": bool,
+        "Generate": bool,
+        "Sign": bool,
+        "Verify": bool,
+        "DeriveKey": bool,
+        "NoRestrictions": bool,
     },
     total=False,
 )
@@ -440,36 +544,36 @@ KeyModesOfUseTypeDef = TypedDict(
 KeySummaryTypeDef = TypedDict(
     "KeySummaryTypeDef",
     {
-        "Enabled": bool,
-        "Exportable": bool,
         "KeyArn": str,
+        "KeyState": KeyStateType,
         "KeyAttributes": "KeyAttributesTypeDef",
         "KeyCheckValue": str,
-        "KeyState": KeyStateType,
+        "Exportable": bool,
+        "Enabled": bool,
     },
 )
 
 _RequiredKeyTypeDef = TypedDict(
     "_RequiredKeyTypeDef",
     {
-        "CreateTimestamp": datetime,
-        "Enabled": bool,
-        "Exportable": bool,
         "KeyArn": str,
         "KeyAttributes": "KeyAttributesTypeDef",
         "KeyCheckValue": str,
         "KeyCheckValueAlgorithm": KeyCheckValueAlgorithmType,
-        "KeyOrigin": KeyOriginType,
+        "Enabled": bool,
+        "Exportable": bool,
         "KeyState": KeyStateType,
+        "KeyOrigin": KeyOriginType,
+        "CreateTimestamp": datetime,
     },
 )
 _OptionalKeyTypeDef = TypedDict(
     "_OptionalKeyTypeDef",
     {
-        "DeletePendingTimestamp": datetime,
-        "DeleteTimestamp": datetime,
         "UsageStartTimestamp": datetime,
         "UsageStopTimestamp": datetime,
+        "DeletePendingTimestamp": datetime,
+        "DeleteTimestamp": datetime,
     },
     total=False,
 )
@@ -480,8 +584,8 @@ class KeyTypeDef(_RequiredKeyTypeDef, _OptionalKeyTypeDef):
 ListAliasesInputRequestTypeDef = TypedDict(
     "ListAliasesInputRequestTypeDef",
     {
-        "MaxResults": int,
         "NextToken": str,
+        "MaxResults": int,
     },
     total=False,
 )
@@ -499,8 +603,8 @@ ListKeysInputRequestTypeDef = TypedDict(
     "ListKeysInputRequestTypeDef",
     {
         "KeyState": KeyStateType,
-        "MaxResults": int,
         "NextToken": str,
+        "MaxResults": int,
     },
     total=False,
 )
@@ -523,8 +627,8 @@ _RequiredListTagsForResourceInputRequestTypeDef = TypedDict(
 _OptionalListTagsForResourceInputRequestTypeDef = TypedDict(
     "_OptionalListTagsForResourceInputRequestTypeDef",
     {
-        "MaxResults": int,
         "NextToken": str,
+        "MaxResults": int,
     },
     total=False,
 )
@@ -537,8 +641,8 @@ class ListTagsForResourceInputRequestTypeDef(
 ListTagsForResourceOutputTypeDef = TypedDict(
     "ListTagsForResourceOutputTypeDef",
     {
-        "NextToken": str,
         "Tags": List["TagTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -645,9 +749,9 @@ class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
 TrustedCertificatePublicKeyTypeDef = TypedDict(
     "TrustedCertificatePublicKeyTypeDef",
     {
-        "CertificateAuthorityPublicKeyIdentifier": str,
         "KeyAttributes": "KeyAttributesTypeDef",
         "PublicKeyCertificate": str,
+        "CertificateAuthorityPublicKeyIdentifier": str,
     },
 )
 
@@ -686,11 +790,22 @@ UpdateAliasOutputTypeDef = TypedDict(
     },
 )
 
-WrappedKeyTypeDef = TypedDict(
-    "WrappedKeyTypeDef",
+_RequiredWrappedKeyTypeDef = TypedDict(
+    "_RequiredWrappedKeyTypeDef",
     {
-        "KeyMaterial": str,
-        "WrappedKeyMaterialFormat": WrappedKeyMaterialFormatType,
         "WrappingKeyArn": str,
+        "WrappedKeyMaterialFormat": WrappedKeyMaterialFormatType,
+        "KeyMaterial": str,
     },
 )
+_OptionalWrappedKeyTypeDef = TypedDict(
+    "_OptionalWrappedKeyTypeDef",
+    {
+        "KeyCheckValue": str,
+        "KeyCheckValueAlgorithm": KeyCheckValueAlgorithmType,
+    },
+    total=False,
+)
+
+class WrappedKeyTypeDef(_RequiredWrappedKeyTypeDef, _OptionalWrappedKeyTypeDef):
+    pass

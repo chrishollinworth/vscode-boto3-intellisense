@@ -27,6 +27,7 @@ Usage::
     list_state_machines_paginator: ListStateMachinesPaginator = client.get_paginator("list_state_machines")
     ```
 """
+
 from .client import SFNClient
 from .paginator import (
     GetExecutionHistoryPaginator,

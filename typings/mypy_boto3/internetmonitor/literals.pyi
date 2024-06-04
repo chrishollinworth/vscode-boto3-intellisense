@@ -11,6 +11,7 @@ Usage::
     data: HealthEventImpactTypeType = "AVAILABILITY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -21,7 +22,10 @@ else:
 __all__ = (
     "HealthEventImpactTypeType",
     "HealthEventStatusType",
+    "InternetEventStatusType",
+    "InternetEventTypeType",
     "ListHealthEventsPaginatorName",
+    "ListInternetEventsPaginatorName",
     "ListMonitorsPaginatorName",
     "LocalHealthEventsConfigStatusType",
     "LogDeliveryStatusType",
@@ -37,7 +41,10 @@ HealthEventImpactTypeType = Literal[
     "AVAILABILITY", "LOCAL_AVAILABILITY", "LOCAL_PERFORMANCE", "PERFORMANCE"
 ]
 HealthEventStatusType = Literal["ACTIVE", "RESOLVED"]
+InternetEventStatusType = Literal["ACTIVE", "RESOLVED"]
+InternetEventTypeType = Literal["AVAILABILITY", "PERFORMANCE"]
 ListHealthEventsPaginatorName = Literal["list_health_events"]
+ListInternetEventsPaginatorName = Literal["list_internet_events"]
 ListMonitorsPaginatorName = Literal["list_monitors"]
 LocalHealthEventsConfigStatusType = Literal["DISABLED", "ENABLED"]
 LogDeliveryStatusType = Literal["DISABLED", "ENABLED"]

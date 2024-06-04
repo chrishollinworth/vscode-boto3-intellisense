@@ -57,6 +57,7 @@ Usage::
     list_vpce_configurations_paginator: ListVPCEConfigurationsPaginator = client.get_paginator("list_vpce_configurations")
     ```
 """
+
 from .client import DeviceFarmClient
 from .paginator import (
     GetOfferingStatusPaginator,

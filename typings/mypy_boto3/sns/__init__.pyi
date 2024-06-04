@@ -38,6 +38,7 @@ Usage::
     list_topics_paginator: ListTopicsPaginator = client.get_paginator("list_topics")
     ```
 """
+
 from .client import SNSClient
 from .paginator import (
     ListEndpointsByPlatformApplicationPaginator,

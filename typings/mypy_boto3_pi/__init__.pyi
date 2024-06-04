@@ -16,6 +16,7 @@ Usage::
     session_client: PIClient = session.client("pi")
     ```
 """
+
 from .client import PIClient
 
 Client = PIClient

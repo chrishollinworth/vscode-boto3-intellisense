@@ -37,6 +37,7 @@ Usage::
     scan_paginator: ScanPaginator = client.get_paginator("scan")
     ```
 """
+
 from .client import DynamoDBClient
 from .paginator import (
     ListBackupsPaginator,

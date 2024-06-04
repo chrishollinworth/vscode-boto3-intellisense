@@ -25,6 +25,7 @@ Usage::
     view_billing_paginator: ViewBillingPaginator = client.get_paginator("view_billing")
     ```
 """
+
 from .client import Route53DomainsClient
 from .paginator import (
     ListDomainsPaginator,

@@ -59,6 +59,7 @@ Usage::
     list_peerings_paginator: ListPeeringsPaginator = client.get_paginator("list_peerings")
     ```
 """
+
 from .client import NetworkManagerClient
 from .paginator import (
     DescribeGlobalNetworksPaginator,

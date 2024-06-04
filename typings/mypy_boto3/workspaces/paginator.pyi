@@ -17,6 +17,7 @@ Usage::
         DescribeWorkspaceImagesPaginator,
         DescribeWorkspacesPaginator,
         DescribeWorkspacesConnectionStatusPaginator,
+        ListAccountLinksPaginator,
         ListAvailableManagementCidrRangesPaginator,
     )
 
@@ -29,14 +30,16 @@ Usage::
     describe_workspace_images_paginator: DescribeWorkspaceImagesPaginator = client.get_paginator("describe_workspace_images")
     describe_workspaces_paginator: DescribeWorkspacesPaginator = client.get_paginator("describe_workspaces")
     describe_workspaces_connection_status_paginator: DescribeWorkspacesConnectionStatusPaginator = client.get_paginator("describe_workspaces_connection_status")
+    list_account_links_paginator: ListAccountLinksPaginator = client.get_paginator("list_account_links")
     list_available_management_cidr_ranges_paginator: ListAvailableManagementCidrRangesPaginator = client.get_paginator("list_available_management_cidr_ranges")
     ```
 """
+
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from .literals import ImageTypeType
+from .literals import AccountLinkStatusEnumType, ImageTypeType
 from .type_defs import (
     DescribeAccountModificationsResultTypeDef,
     DescribeIpGroupsResultTypeDef,
@@ -45,6 +48,7 @@ from .type_defs import (
     DescribeWorkspaceImagesResultTypeDef,
     DescribeWorkspacesConnectionStatusResultTypeDef,
     DescribeWorkspacesResultTypeDef,
+    ListAccountLinksResultTypeDef,
     ListAvailableManagementCidrRangesResultTypeDef,
     PaginatorConfigTypeDef,
 )
@@ -57,12 +61,13 @@ __all__ = (
     "DescribeWorkspaceImagesPaginator",
     "DescribeWorkspacesPaginator",
     "DescribeWorkspacesConnectionStatusPaginator",
+    "ListAccountLinksPaginator",
     "ListAvailableManagementCidrRangesPaginator",
 )
 
 class DescribeAccountModificationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeaccountmodificationspaginator)
     """
 
@@ -70,13 +75,13 @@ class DescribeAccountModificationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAccountModificationsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeaccountmodificationspaginator)
         """
 
 class DescribeIpGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeipgroupspaginator)
     """
 
@@ -84,13 +89,13 @@ class DescribeIpGroupsPaginator(Boto3Paginator):
         self, *, GroupIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeIpGroupsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeipgroupspaginator)
         """
 
 class DescribeWorkspaceBundlesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacebundlespaginator)
     """
 
@@ -102,13 +107,13 @@ class DescribeWorkspaceBundlesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeWorkspaceBundlesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacebundlespaginator)
         """
 
 class DescribeWorkspaceDirectoriesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacedirectoriespaginator)
     """
 
@@ -120,13 +125,13 @@ class DescribeWorkspaceDirectoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeWorkspaceDirectoriesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacedirectoriespaginator)
         """
 
 class DescribeWorkspaceImagesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspaceimagespaginator)
     """
 
@@ -138,13 +143,13 @@ class DescribeWorkspaceImagesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeWorkspaceImagesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspaceimagespaginator)
         """
 
 class DescribeWorkspacesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacespaginator)
     """
 
@@ -155,16 +160,17 @@ class DescribeWorkspacesPaginator(Boto3Paginator):
         DirectoryId: str = None,
         UserName: str = None,
         BundleId: str = None,
+        WorkspaceName: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeWorkspacesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacespaginator)
         """
 
 class DescribeWorkspacesConnectionStatusPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacesconnectionstatuspaginator)
     """
 
@@ -172,13 +178,30 @@ class DescribeWorkspacesConnectionStatusPaginator(Boto3Paginator):
         self, *, WorkspaceIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeWorkspacesConnectionStatusResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacesconnectionstatuspaginator)
+        """
+
+class ListAccountLinksPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.ListAccountLinks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#listaccountlinkspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        LinkStatusFilter: List[AccountLinkStatusEnumType] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListAccountLinksResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.ListAccountLinks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#listaccountlinkspaginator)
         """
 
 class ListAvailableManagementCidrRangesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#listavailablemanagementcidrrangespaginator)
     """
 
@@ -186,6 +209,6 @@ class ListAvailableManagementCidrRangesPaginator(Boto3Paginator):
         self, *, ManagementCidrRangeConstraint: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAvailableManagementCidrRangesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#listavailablemanagementcidrrangespaginator)
         """

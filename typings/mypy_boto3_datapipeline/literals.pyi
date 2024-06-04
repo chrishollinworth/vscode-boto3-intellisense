@@ -11,6 +11,7 @@ Usage::
     data: DescribeObjectsPaginatorName = "describe_objects"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

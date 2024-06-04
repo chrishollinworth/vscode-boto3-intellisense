@@ -11,6 +11,7 @@ Usage::
     data: ActionTypeEnumType = "authenticate-cognito"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -67,7 +68,7 @@ DescribeSSLPoliciesPaginatorName = Literal["describe_ssl_policies"]
 DescribeTargetGroupsPaginatorName = Literal["describe_target_groups"]
 DescribeTargetHealthInputIncludeEnumType = Literal["All", "AnomalyDetection"]
 EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType = Literal["off", "on"]
-IpAddressTypeType = Literal["dualstack", "ipv4"]
+IpAddressTypeType = Literal["dualstack", "dualstack-without-public-ipv4", "ipv4"]
 LoadBalancerAvailableWaiterName = Literal["load_balancer_available"]
 LoadBalancerExistsWaiterName = Literal["load_balancer_exists"]
 LoadBalancerSchemeEnumType = Literal["internal", "internet-facing"]
@@ -95,7 +96,7 @@ TargetHealthReasonEnumType = Literal[
     "Target.Timeout",
 ]
 TargetHealthStateEnumType = Literal[
-    "draining", "healthy", "initial", "unavailable", "unhealthy", "unused"
+    "draining", "healthy", "initial", "unavailable", "unhealthy", "unhealthy.draining", "unused"
 ]
 TargetInServiceWaiterName = Literal["target_in_service"]
 TargetTypeEnumType = Literal["alb", "instance", "ip", "lambda"]

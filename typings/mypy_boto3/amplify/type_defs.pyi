@@ -11,17 +11,20 @@ Usage::
     data: AppTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    CertificateTypeType,
     DomainStatusType,
     JobStatusType,
     JobTypeType,
     PlatformType,
     RepositoryCloneMethodType,
     StageType,
+    UpdateStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -36,6 +39,8 @@ __all__ = (
     "BackendEnvironmentTypeDef",
     "BackendTypeDef",
     "BranchTypeDef",
+    "CertificateSettingsTypeDef",
+    "CertificateTypeDef",
     "CreateAppRequestRequestTypeDef",
     "CreateAppResultTypeDef",
     "CreateBackendEnvironmentRequestRequestTypeDef",
@@ -259,6 +264,43 @@ _OptionalBranchTypeDef = TypedDict(
 class BranchTypeDef(_RequiredBranchTypeDef, _OptionalBranchTypeDef):
     pass
 
+_RequiredCertificateSettingsTypeDef = TypedDict(
+    "_RequiredCertificateSettingsTypeDef",
+    {
+        "type": CertificateTypeType,
+    },
+)
+_OptionalCertificateSettingsTypeDef = TypedDict(
+    "_OptionalCertificateSettingsTypeDef",
+    {
+        "customCertificateArn": str,
+    },
+    total=False,
+)
+
+class CertificateSettingsTypeDef(
+    _RequiredCertificateSettingsTypeDef, _OptionalCertificateSettingsTypeDef
+):
+    pass
+
+_RequiredCertificateTypeDef = TypedDict(
+    "_RequiredCertificateTypeDef",
+    {
+        "type": CertificateTypeType,
+    },
+)
+_OptionalCertificateTypeDef = TypedDict(
+    "_OptionalCertificateTypeDef",
+    {
+        "customCertificateArn": str,
+        "certificateVerificationDNSRecord": str,
+    },
+    total=False,
+)
+
+class CertificateTypeDef(_RequiredCertificateTypeDef, _OptionalCertificateTypeDef):
+    pass
+
 _RequiredCreateAppRequestRequestTypeDef = TypedDict(
     "_RequiredCreateAppRequestRequestTypeDef",
     {
@@ -421,6 +463,7 @@ _OptionalCreateDomainAssociationRequestRequestTypeDef = TypedDict(
         "enableAutoSubDomain": bool,
         "autoSubDomainCreationPatterns": List[str],
         "autoSubDomainIAMRole": str,
+        "certificateSettings": "CertificateSettingsTypeDef",
     },
     total=False,
 )
@@ -597,7 +640,9 @@ _OptionalDomainAssociationTypeDef = TypedDict(
     {
         "autoSubDomainCreationPatterns": List[str],
         "autoSubDomainIAMRole": str,
+        "updateStatus": UpdateStatusType,
         "certificateVerificationDNSRecord": str,
+        "certificate": "CertificateTypeDef",
     },
     total=False,
 )
@@ -1264,6 +1309,7 @@ _OptionalUpdateDomainAssociationRequestRequestTypeDef = TypedDict(
         "subDomainSettings": List["SubDomainSettingTypeDef"],
         "autoSubDomainCreationPatterns": List[str],
         "autoSubDomainIAMRole": str,
+        "certificateSettings": "CertificateSettingsTypeDef",
     },
     total=False,
 )

@@ -11,6 +11,7 @@ Usage::
     data: AccountCustomizationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -135,6 +136,7 @@ from .literals import (
     PrimaryValueDisplayTypeType,
     PropertyRoleType,
     PropertyUsageType,
+    PurchaseModeType,
     RadarChartAxesRangeScaleType,
     RadarChartShapeType,
     ReferenceLineLabelHorizontalPositionType,
@@ -179,6 +181,7 @@ from .literals import (
     TextWrapType,
     ThemeTypeType,
     TimeGranularityType,
+    TooltipTargetType,
     TooltipTitleTypeType,
     TopBottomComputationTypeType,
     TopBottomSortOrderType,
@@ -187,6 +190,7 @@ from .literals import (
     TopicRelativeDateFilterFunctionType,
     TopicScheduleTypeType,
     TopicTimeGranularityType,
+    TopicUserExperienceVersionType,
     UndefinedSpecifiedValueTypeType,
     URLTargetConfigurationType,
     UserRoleType,
@@ -236,6 +240,7 @@ __all__ = (
     "AnonymousUserDashboardEmbeddingConfigurationTypeDef",
     "AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef",
     "AnonymousUserEmbeddingExperienceConfigurationTypeDef",
+    "AnonymousUserGenerativeQnAEmbeddingConfigurationTypeDef",
     "AnonymousUserQSearchBarEmbeddingConfigurationTypeDef",
     "AnonymousUserSnapshotJobResultTypeDef",
     "ArcAxisConfigurationTypeDef",
@@ -282,6 +287,7 @@ __all__ = (
     "AssetBundleImportJobThemeOverrideTagsTypeDef",
     "AssetBundleImportJobVPCConnectionOverrideParametersTypeDef",
     "AssetBundleImportJobVPCConnectionOverrideTagsTypeDef",
+    "AssetBundleImportJobWarningTypeDef",
     "AssetBundleImportSourceDescriptionTypeDef",
     "AssetBundleImportSourceTypeDef",
     "AssetBundleResourceLinkSharingConfigurationTypeDef",
@@ -371,6 +377,7 @@ __all__ = (
     "ConditionalFormattingIconSetTypeDef",
     "ConditionalFormattingIconTypeDef",
     "ConditionalFormattingSolidColorTypeDef",
+    "ContextMenuOptionTypeDef",
     "ContributionAnalysisDefaultTypeDef",
     "CreateAccountCustomizationRequestRequestTypeDef",
     "CreateAccountCustomizationResponseTypeDef",
@@ -496,13 +503,22 @@ __all__ = (
     "DecimalParameterTypeDef",
     "DecimalPlacesConfigurationTypeDef",
     "DecimalValueWhenUnsetConfigurationTypeDef",
+    "DefaultDateTimePickerControlOptionsTypeDef",
+    "DefaultFilterControlConfigurationTypeDef",
+    "DefaultFilterControlOptionsTypeDef",
+    "DefaultFilterDropDownControlOptionsTypeDef",
+    "DefaultFilterListControlOptionsTypeDef",
     "DefaultFormattingTypeDef",
     "DefaultFreeFormLayoutConfigurationTypeDef",
     "DefaultGridLayoutConfigurationTypeDef",
     "DefaultInteractiveLayoutConfigurationTypeDef",
     "DefaultNewSheetConfigurationTypeDef",
     "DefaultPaginatedLayoutConfigurationTypeDef",
+    "DefaultRelativeDateTimeControlOptionsTypeDef",
     "DefaultSectionBasedLayoutConfigurationTypeDef",
+    "DefaultSliderControlOptionsTypeDef",
+    "DefaultTextAreaControlOptionsTypeDef",
+    "DefaultTextFieldControlOptionsTypeDef",
     "DeleteAccountCustomizationRequestRequestTypeDef",
     "DeleteAccountCustomizationResponseTypeDef",
     "DeleteAccountSubscriptionRequestRequestTypeDef",
@@ -607,6 +623,8 @@ __all__ = (
     "DescribeIngestionResponseTypeDef",
     "DescribeIpRestrictionRequestRequestTypeDef",
     "DescribeIpRestrictionResponseTypeDef",
+    "DescribeKeyRegistrationRequestRequestTypeDef",
+    "DescribeKeyRegistrationResponseTypeDef",
     "DescribeNamespaceRequestRequestTypeDef",
     "DescribeNamespaceResponseTypeDef",
     "DescribeRefreshScheduleRequestRequestTypeDef",
@@ -656,6 +674,7 @@ __all__ = (
     "ExportHiddenFieldsOptionTypeDef",
     "ExportToCSVOptionTypeDef",
     "ExportWithHiddenFieldsOptionTypeDef",
+    "FailedKeyRegistrationEntryTypeDef",
     "FieldBasedTooltipTypeDef",
     "FieldFolderTypeDef",
     "FieldLabelTypeTypeDef",
@@ -672,6 +691,7 @@ __all__ = (
     "FilledMapSortConfigurationTypeDef",
     "FilledMapVisualTypeDef",
     "FilterControlTypeDef",
+    "FilterCrossSheetControlTypeDef",
     "FilterDateTimePickerControlTypeDef",
     "FilterDropDownControlTypeDef",
     "FilterGroupTypeDef",
@@ -713,6 +733,7 @@ __all__ = (
     "FunnelChartSortConfigurationTypeDef",
     "FunnelChartVisualTypeDef",
     "GaugeChartArcConditionalFormattingTypeDef",
+    "GaugeChartColorConfigurationTypeDef",
     "GaugeChartConditionalFormattingOptionTypeDef",
     "GaugeChartConditionalFormattingTypeDef",
     "GaugeChartConfigurationTypeDef",
@@ -995,11 +1016,13 @@ __all__ = (
     "RefreshScheduleTypeDef",
     "RegisterUserRequestRequestTypeDef",
     "RegisterUserResponseTypeDef",
+    "RegisteredCustomerManagedKeyTypeDef",
     "RegisteredUserConsoleFeatureConfigurationsTypeDef",
     "RegisteredUserDashboardEmbeddingConfigurationTypeDef",
     "RegisteredUserDashboardFeatureConfigurationsTypeDef",
     "RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef",
     "RegisteredUserEmbeddingExperienceConfigurationTypeDef",
+    "RegisteredUserGenerativeQnAEmbeddingConfigurationTypeDef",
     "RegisteredUserQSearchBarEmbeddingConfigurationTypeDef",
     "RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef",
     "RelationalTableTypeDef",
@@ -1028,6 +1051,7 @@ __all__ = (
     "ScatterPlotCategoricallyAggregatedFieldWellsTypeDef",
     "ScatterPlotConfigurationTypeDef",
     "ScatterPlotFieldWellsTypeDef",
+    "ScatterPlotSortConfigurationTypeDef",
     "ScatterPlotUnaggregatedFieldWellsTypeDef",
     "ScatterPlotVisualTypeDef",
     "ScheduleRefreshOnEntityTypeDef",
@@ -1075,6 +1099,7 @@ __all__ = (
     "ShortFormatTextTypeDef",
     "SignupResponseTypeDef",
     "SimpleClusterMarkerTypeDef",
+    "SingleAxisOptionsTypeDef",
     "SliderControlDisplayOptionsTypeDef",
     "SmallMultiplesAxisPropertiesTypeDef",
     "SmallMultiplesOptionsTypeDef",
@@ -1114,6 +1139,7 @@ __all__ = (
     "StringParameterTypeDef",
     "StringValueWhenUnsetConfigurationTypeDef",
     "SubtotalOptionsTypeDef",
+    "SuccessfulKeyRegistrationEntryTypeDef",
     "TableAggregatedFieldWellsTypeDef",
     "TableBorderOptionsTypeDef",
     "TableCellConditionalFormattingTypeDef",
@@ -1225,6 +1251,8 @@ __all__ = (
     "UpdateAnalysisPermissionsResponseTypeDef",
     "UpdateAnalysisRequestRequestTypeDef",
     "UpdateAnalysisResponseTypeDef",
+    "UpdateDashboardLinksRequestRequestTypeDef",
+    "UpdateDashboardLinksResponseTypeDef",
     "UpdateDashboardPermissionsRequestRequestTypeDef",
     "UpdateDashboardPermissionsResponseTypeDef",
     "UpdateDashboardPublishedVersionRequestRequestTypeDef",
@@ -1251,12 +1279,16 @@ __all__ = (
     "UpdateIdentityPropagationConfigResponseTypeDef",
     "UpdateIpRestrictionRequestRequestTypeDef",
     "UpdateIpRestrictionResponseTypeDef",
+    "UpdateKeyRegistrationRequestRequestTypeDef",
+    "UpdateKeyRegistrationResponseTypeDef",
     "UpdatePublicSharingSettingsRequestRequestTypeDef",
     "UpdatePublicSharingSettingsResponseTypeDef",
     "UpdateRefreshScheduleRequestRequestTypeDef",
     "UpdateRefreshScheduleResponseTypeDef",
     "UpdateRoleCustomPermissionRequestRequestTypeDef",
     "UpdateRoleCustomPermissionResponseTypeDef",
+    "UpdateSPICECapacityConfigurationRequestRequestTypeDef",
+    "UpdateSPICECapacityConfigurationResponseTypeDef",
     "UpdateTemplateAliasRequestRequestTypeDef",
     "UpdateTemplateAliasResponseTypeDef",
     "UpdateTemplatePermissionsRequestRequestTypeDef",
@@ -1288,6 +1320,7 @@ __all__ = (
     "VisualAxisSortOptionTypeDef",
     "VisualCustomActionOperationTypeDef",
     "VisualCustomActionTypeDef",
+    "VisualInteractionOptionsTypeDef",
     "VisualMenuOptionTypeDef",
     "VisualPaletteTypeDef",
     "VisualSubtitleLabelOptionsTypeDef",
@@ -1295,8 +1328,10 @@ __all__ = (
     "VisualTypeDef",
     "VpcConnectionPropertiesTypeDef",
     "WaterfallChartAggregatedFieldWellsTypeDef",
+    "WaterfallChartColorConfigurationTypeDef",
     "WaterfallChartConfigurationTypeDef",
     "WaterfallChartFieldWellsTypeDef",
+    "WaterfallChartGroupColorConfigurationTypeDef",
     "WaterfallChartOptionsTypeDef",
     "WaterfallChartSortConfigurationTypeDef",
     "WaterfallVisualTypeDef",
@@ -1308,6 +1343,7 @@ __all__ = (
     "WordCloudOptionsTypeDef",
     "WordCloudSortConfigurationTypeDef",
     "WordCloudVisualTypeDef",
+    "YAxisOptionsTypeDef",
 )
 
 AccountCustomizationTypeDef = TypedDict(
@@ -1534,8 +1570,16 @@ AnonymousUserEmbeddingExperienceConfigurationTypeDef = TypedDict(
         "Dashboard": "AnonymousUserDashboardEmbeddingConfigurationTypeDef",
         "DashboardVisual": "AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef",
         "QSearchBar": "AnonymousUserQSearchBarEmbeddingConfigurationTypeDef",
+        "GenerativeQnA": "AnonymousUserGenerativeQnAEmbeddingConfigurationTypeDef",
     },
     total=False,
+)
+
+AnonymousUserGenerativeQnAEmbeddingConfigurationTypeDef = TypedDict(
+    "AnonymousUserGenerativeQnAEmbeddingConfigurationTypeDef",
+    {
+        "InitialTopicId": str,
+    },
 )
 
 AnonymousUserQSearchBarEmbeddingConfigurationTypeDef = TypedDict(
@@ -2054,6 +2098,15 @@ AssetBundleImportJobVPCConnectionOverrideTagsTypeDef = TypedDict(
     },
 )
 
+AssetBundleImportJobWarningTypeDef = TypedDict(
+    "AssetBundleImportJobWarningTypeDef",
+    {
+        "Arn": str,
+        "Message": str,
+    },
+    total=False,
+)
+
 AssetBundleImportSourceDescriptionTypeDef = TypedDict(
     "AssetBundleImportSourceDescriptionTypeDef",
     {
@@ -2272,6 +2325,7 @@ BarChartConfigurationTypeDef = TypedDict(
         "Tooltip": "TooltipOptionsTypeDef",
         "ReferenceLines": List["ReferenceLineTypeDef"],
         "ContributionAnalysisDefaults": List["ContributionAnalysisDefaultTypeDef"],
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -2421,6 +2475,7 @@ BoxPlotChartConfigurationTypeDef = TypedDict(
         "Tooltip": "TooltipOptionsTypeDef",
         "ReferenceLines": List["ReferenceLineTypeDef"],
         "VisualPalette": "VisualPaletteTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -2625,14 +2680,24 @@ CategoryFilterConfigurationTypeDef = TypedDict(
     total=False,
 )
 
-CategoryFilterTypeDef = TypedDict(
-    "CategoryFilterTypeDef",
+_RequiredCategoryFilterTypeDef = TypedDict(
+    "_RequiredCategoryFilterTypeDef",
     {
         "FilterId": str,
         "Column": "ColumnIdentifierTypeDef",
         "Configuration": "CategoryFilterConfigurationTypeDef",
     },
 )
+_OptionalCategoryFilterTypeDef = TypedDict(
+    "_OptionalCategoryFilterTypeDef",
+    {
+        "DefaultFilterControlConfiguration": "DefaultFilterControlConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class CategoryFilterTypeDef(_RequiredCategoryFilterTypeDef, _OptionalCategoryFilterTypeDef):
+    pass
 
 CellValueSynonymTypeDef = TypedDict(
     "CellValueSynonymTypeDef",
@@ -2833,6 +2898,7 @@ _OptionalColumnTooltipItemTypeDef = TypedDict(
         "Label": str,
         "Visibility": VisibilityType,
         "Aggregation": "AggregationFunctionTypeDef",
+        "TooltipTarget": TooltipTargetType,
     },
     total=False,
 )
@@ -2865,6 +2931,7 @@ ComboChartConfigurationTypeDef = TypedDict(
         "PrimaryYAxisLabelOptions": "ChartAxisLabelOptionsTypeDef",
         "SecondaryYAxisDisplayOptions": "AxisDisplayOptionsTypeDef",
         "SecondaryYAxisLabelOptions": "ChartAxisLabelOptionsTypeDef",
+        "SingleAxisOptions": "SingleAxisOptionsTypeDef",
         "ColorLabelOptions": "ChartAxisLabelOptionsTypeDef",
         "Legend": "LegendOptionsTypeDef",
         "BarDataLabels": "DataLabelOptionsTypeDef",
@@ -2872,6 +2939,7 @@ ComboChartConfigurationTypeDef = TypedDict(
         "Tooltip": "TooltipOptionsTypeDef",
         "ReferenceLines": List["ReferenceLineTypeDef"],
         "VisualPalette": "VisualPaletteTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -3064,6 +3132,14 @@ class ConditionalFormattingSolidColorTypeDef(
 ):
     pass
 
+ContextMenuOptionTypeDef = TypedDict(
+    "ContextMenuOptionTypeDef",
+    {
+        "AvailabilityStatus": DashboardBehaviorType,
+    },
+    total=False,
+)
+
 ContributionAnalysisDefaultTypeDef = TypedDict(
     "ContributionAnalysisDefaultTypeDef",
     {
@@ -3110,7 +3186,6 @@ CreateAccountCustomizationResponseTypeDef = TypedDict(
 _RequiredCreateAccountSubscriptionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateAccountSubscriptionRequestRequestTypeDef",
     {
-        "Edition": EditionType,
         "AuthenticationMethod": AuthenticationMethodOptionType,
         "AwsAccountId": str,
         "AccountName": str,
@@ -3120,16 +3195,21 @@ _RequiredCreateAccountSubscriptionRequestRequestTypeDef = TypedDict(
 _OptionalCreateAccountSubscriptionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateAccountSubscriptionRequestRequestTypeDef",
     {
+        "Edition": EditionType,
         "ActiveDirectoryName": str,
         "Realm": str,
         "DirectoryId": str,
         "AdminGroup": List[str],
         "AuthorGroup": List[str],
         "ReaderGroup": List[str],
+        "AdminProGroup": List[str],
+        "AuthorProGroup": List[str],
+        "ReaderProGroup": List[str],
         "FirstName": str,
         "LastName": str,
         "EmailAddress": str,
         "ContactNumber": str,
+        "IAMIdentityCenterInstanceArn": str,
     },
     total=False,
 )
@@ -3219,6 +3299,7 @@ _OptionalCreateDashboardRequestRequestTypeDef = TypedDict(
         "ValidationStrategy": "ValidationStrategyTypeDef",
         "FolderArns": List[str],
         "LinkSharingConfiguration": "LinkSharingConfigurationTypeDef",
+        "LinkEntities": List[str],
     },
     total=False,
 )
@@ -3891,6 +3972,7 @@ CustomContentConfigurationTypeDef = TypedDict(
         "ContentUrl": str,
         "ContentType": CustomContentTypeType,
         "ImageScaling": CustomContentImageScalingConfigurationType,
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -4105,6 +4187,7 @@ DashboardTypeDef = TypedDict(
         "CreatedTime": datetime,
         "LastPublishedTime": datetime,
         "LastUpdatedTime": datetime,
+        "LinkEntities": List[str],
     },
     total=False,
 )
@@ -4842,6 +4925,57 @@ DecimalValueWhenUnsetConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+DefaultDateTimePickerControlOptionsTypeDef = TypedDict(
+    "DefaultDateTimePickerControlOptionsTypeDef",
+    {
+        "Type": SheetControlDateTimePickerTypeType,
+        "DisplayOptions": "DateTimePickerControlDisplayOptionsTypeDef",
+    },
+    total=False,
+)
+
+DefaultFilterControlConfigurationTypeDef = TypedDict(
+    "DefaultFilterControlConfigurationTypeDef",
+    {
+        "Title": str,
+        "ControlOptions": "DefaultFilterControlOptionsTypeDef",
+    },
+)
+
+DefaultFilterControlOptionsTypeDef = TypedDict(
+    "DefaultFilterControlOptionsTypeDef",
+    {
+        "DefaultDateTimePickerOptions": "DefaultDateTimePickerControlOptionsTypeDef",
+        "DefaultListOptions": "DefaultFilterListControlOptionsTypeDef",
+        "DefaultDropdownOptions": "DefaultFilterDropDownControlOptionsTypeDef",
+        "DefaultTextFieldOptions": "DefaultTextFieldControlOptionsTypeDef",
+        "DefaultTextAreaOptions": "DefaultTextAreaControlOptionsTypeDef",
+        "DefaultSliderOptions": "DefaultSliderControlOptionsTypeDef",
+        "DefaultRelativeDateTimeOptions": "DefaultRelativeDateTimeControlOptionsTypeDef",
+    },
+    total=False,
+)
+
+DefaultFilterDropDownControlOptionsTypeDef = TypedDict(
+    "DefaultFilterDropDownControlOptionsTypeDef",
+    {
+        "DisplayOptions": "DropDownControlDisplayOptionsTypeDef",
+        "Type": SheetControlListTypeType,
+        "SelectableValues": "FilterSelectableValuesTypeDef",
+    },
+    total=False,
+)
+
+DefaultFilterListControlOptionsTypeDef = TypedDict(
+    "DefaultFilterListControlOptionsTypeDef",
+    {
+        "DisplayOptions": "ListControlDisplayOptionsTypeDef",
+        "Type": SheetControlListTypeType,
+        "SelectableValues": "FilterSelectableValuesTypeDef",
+    },
+    total=False,
+)
+
 DefaultFormattingTypeDef = TypedDict(
     "DefaultFormattingTypeDef",
     {
@@ -4892,11 +5026,58 @@ DefaultPaginatedLayoutConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+DefaultRelativeDateTimeControlOptionsTypeDef = TypedDict(
+    "DefaultRelativeDateTimeControlOptionsTypeDef",
+    {
+        "DisplayOptions": "RelativeDateTimeControlDisplayOptionsTypeDef",
+    },
+    total=False,
+)
+
 DefaultSectionBasedLayoutConfigurationTypeDef = TypedDict(
     "DefaultSectionBasedLayoutConfigurationTypeDef",
     {
         "CanvasSizeOptions": "SectionBasedLayoutCanvasSizeOptionsTypeDef",
     },
+)
+
+_RequiredDefaultSliderControlOptionsTypeDef = TypedDict(
+    "_RequiredDefaultSliderControlOptionsTypeDef",
+    {
+        "MaximumValue": float,
+        "MinimumValue": float,
+        "StepSize": float,
+    },
+)
+_OptionalDefaultSliderControlOptionsTypeDef = TypedDict(
+    "_OptionalDefaultSliderControlOptionsTypeDef",
+    {
+        "DisplayOptions": "SliderControlDisplayOptionsTypeDef",
+        "Type": SheetControlSliderTypeType,
+    },
+    total=False,
+)
+
+class DefaultSliderControlOptionsTypeDef(
+    _RequiredDefaultSliderControlOptionsTypeDef, _OptionalDefaultSliderControlOptionsTypeDef
+):
+    pass
+
+DefaultTextAreaControlOptionsTypeDef = TypedDict(
+    "DefaultTextAreaControlOptionsTypeDef",
+    {
+        "Delimiter": str,
+        "DisplayOptions": "TextAreaControlDisplayOptionsTypeDef",
+    },
+    total=False,
+)
+
+DefaultTextFieldControlOptionsTypeDef = TypedDict(
+    "DefaultTextFieldControlOptionsTypeDef",
+    {
+        "DisplayOptions": "TextFieldControlDisplayOptionsTypeDef",
+    },
+    total=False,
 )
 
 _RequiredDeleteAccountCustomizationRequestRequestTypeDef = TypedDict(
@@ -5636,6 +5817,7 @@ DescribeAssetBundleImportJobResponseTypeDef = TypedDict(
         "OverridePermissions": "AssetBundleImportJobOverridePermissionsTypeDef",
         "OverrideTags": "AssetBundleImportJobOverrideTagsTypeDef",
         "OverrideValidationStrategy": "AssetBundleImportJobOverrideValidationStrategyTypeDef",
+        "Warnings": List["AssetBundleImportJobWarningTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6054,7 +6236,40 @@ DescribeIpRestrictionResponseTypeDef = TypedDict(
     {
         "AwsAccountId": str,
         "IpRestrictionRuleMap": Dict[str, str],
+        "VpcIdRestrictionRuleMap": Dict[str, str],
+        "VpcEndpointIdRestrictionRuleMap": Dict[str, str],
         "Enabled": bool,
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeKeyRegistrationRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeKeyRegistrationRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+    },
+)
+_OptionalDescribeKeyRegistrationRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeKeyRegistrationRequestRequestTypeDef",
+    {
+        "DefaultKeyOnly": bool,
+    },
+    total=False,
+)
+
+class DescribeKeyRegistrationRequestRequestTypeDef(
+    _RequiredDescribeKeyRegistrationRequestRequestTypeDef,
+    _OptionalDescribeKeyRegistrationRequestRequestTypeDef,
+):
+    pass
+
+DescribeKeyRegistrationResponseTypeDef = TypedDict(
+    "DescribeKeyRegistrationResponseTypeDef",
+    {
+        "AwsAccountId": str,
+        "KeyRegistration": List["RegisteredCustomerManagedKeyTypeDef"],
         "RequestId": str,
         "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -6618,6 +6833,27 @@ ExportWithHiddenFieldsOptionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredFailedKeyRegistrationEntryTypeDef = TypedDict(
+    "_RequiredFailedKeyRegistrationEntryTypeDef",
+    {
+        "Message": str,
+        "StatusCode": int,
+        "SenderFault": bool,
+    },
+)
+_OptionalFailedKeyRegistrationEntryTypeDef = TypedDict(
+    "_OptionalFailedKeyRegistrationEntryTypeDef",
+    {
+        "KeyArn": str,
+    },
+    total=False,
+)
+
+class FailedKeyRegistrationEntryTypeDef(
+    _RequiredFailedKeyRegistrationEntryTypeDef, _OptionalFailedKeyRegistrationEntryTypeDef
+):
+    pass
+
 FieldBasedTooltipTypeDef = TypedDict(
     "FieldBasedTooltipTypeDef",
     {
@@ -6692,6 +6928,7 @@ _OptionalFieldTooltipItemTypeDef = TypedDict(
     {
         "Label": str,
         "Visibility": VisibilityType,
+        "TooltipTarget": TooltipTargetType,
     },
     total=False,
 )
@@ -6731,6 +6968,7 @@ FilledMapConfigurationTypeDef = TypedDict(
         "Tooltip": "TooltipOptionsTypeDef",
         "WindowOptions": "GeospatialWindowOptionsTypeDef",
         "MapStyleOptions": "GeospatialMapStyleOptionsTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -6803,9 +7041,30 @@ FilterControlTypeDef = TypedDict(
         "TextArea": "FilterTextAreaControlTypeDef",
         "Slider": "FilterSliderControlTypeDef",
         "RelativeDateTime": "FilterRelativeDateTimeControlTypeDef",
+        "CrossSheet": "FilterCrossSheetControlTypeDef",
     },
     total=False,
 )
+
+_RequiredFilterCrossSheetControlTypeDef = TypedDict(
+    "_RequiredFilterCrossSheetControlTypeDef",
+    {
+        "FilterControlId": str,
+        "SourceFilterId": str,
+    },
+)
+_OptionalFilterCrossSheetControlTypeDef = TypedDict(
+    "_OptionalFilterCrossSheetControlTypeDef",
+    {
+        "CascadingControlConfiguration": "CascadingControlConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class FilterCrossSheetControlTypeDef(
+    _RequiredFilterCrossSheetControlTypeDef, _OptionalFilterCrossSheetControlTypeDef
+):
+    pass
 
 _RequiredFilterDateTimePickerControlTypeDef = TypedDict(
     "_RequiredFilterDateTimePickerControlTypeDef",
@@ -7310,6 +7569,7 @@ FunnelChartConfigurationTypeDef = TypedDict(
         "Tooltip": "TooltipOptionsTypeDef",
         "DataLabelOptions": "FunnelChartDataLabelOptionsTypeDef",
         "VisualPalette": "VisualPaletteTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -7376,6 +7636,15 @@ GaugeChartArcConditionalFormattingTypeDef = TypedDict(
     total=False,
 )
 
+GaugeChartColorConfigurationTypeDef = TypedDict(
+    "GaugeChartColorConfigurationTypeDef",
+    {
+        "ForegroundColor": str,
+        "BackgroundColor": str,
+    },
+    total=False,
+)
+
 GaugeChartConditionalFormattingOptionTypeDef = TypedDict(
     "GaugeChartConditionalFormattingOptionTypeDef",
     {
@@ -7401,6 +7670,8 @@ GaugeChartConfigurationTypeDef = TypedDict(
         "DataLabels": "DataLabelOptionsTypeDef",
         "TooltipOptions": "TooltipOptionsTypeDef",
         "VisualPalette": "VisualPaletteTypeDef",
+        "ColorConfiguration": "GaugeChartColorConfigurationTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -7598,6 +7869,7 @@ GeospatialMapConfigurationTypeDef = TypedDict(
         "MapStyleOptions": "GeospatialMapStyleOptionsTypeDef",
         "PointStyleOptions": "GeospatialPointStyleOptionsTypeDef",
         "VisualPalette": "VisualPaletteTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -7936,6 +8208,7 @@ HeatMapConfigurationTypeDef = TypedDict(
         "Legend": "LegendOptionsTypeDef",
         "DataLabels": "DataLabelOptionsTypeDef",
         "Tooltip": "TooltipOptionsTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -8010,6 +8283,7 @@ HistogramConfigurationTypeDef = TypedDict(
         "DataLabels": "DataLabelOptionsTypeDef",
         "Tooltip": "TooltipOptionsTypeDef",
         "VisualPalette": "VisualPaletteTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -8128,6 +8402,7 @@ InsightConfigurationTypeDef = TypedDict(
     {
         "Computations": List["ComputationTypeDef"],
         "CustomNarrative": "CustomNarrativeOptionsTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -8318,6 +8593,7 @@ KPIConfigurationTypeDef = TypedDict(
         "FieldWells": "KPIFieldWellsTypeDef",
         "SortConfiguration": "KPISortConfigurationTypeDef",
         "KPIOptions": "KPIOptionsTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -8495,6 +8771,7 @@ LineChartConfigurationTypeDef = TypedDict(
         "PrimaryYAxisLabelOptions": "ChartAxisLabelOptionsTypeDef",
         "SecondaryYAxisDisplayOptions": "LineSeriesAxisDisplayOptionsTypeDef",
         "SecondaryYAxisLabelOptions": "ChartAxisLabelOptionsTypeDef",
+        "SingleAxisOptions": "SingleAxisOptionsTypeDef",
         "DefaultSeriesSettings": "LineChartDefaultSeriesSettingsTypeDef",
         "Series": List["SeriesItemTypeDef"],
         "Legend": "LegendOptionsTypeDef",
@@ -8503,6 +8780,7 @@ LineChartConfigurationTypeDef = TypedDict(
         "Tooltip": "TooltipOptionsTypeDef",
         "ContributionAnalysisDefaults": List["ContributionAnalysisDefaultTypeDef"],
         "VisualPalette": "VisualPaletteTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -9891,6 +10169,7 @@ _OptionalNumericEqualityFilterTypeDef = TypedDict(
         "SelectAllOptions": Literal["FILTER_ALL_VALUES"],
         "AggregationFunction": "AggregationFunctionTypeDef",
         "ParameterName": str,
+        "DefaultFilterControlConfiguration": "DefaultFilterControlConfigurationTypeDef",
     },
     total=False,
 )
@@ -9927,6 +10206,7 @@ _OptionalNumericRangeFilterTypeDef = TypedDict(
         "RangeMaximum": "NumericRangeFilterValueTypeDef",
         "SelectAllOptions": Literal["FILTER_ALL_VALUES"],
         "AggregationFunction": "AggregationFunctionTypeDef",
+        "DefaultFilterControlConfiguration": "DefaultFilterControlConfigurationTypeDef",
     },
     total=False,
 )
@@ -10377,6 +10657,7 @@ PieChartConfigurationTypeDef = TypedDict(
         "Tooltip": "TooltipOptionsTypeDef",
         "VisualPalette": "VisualPaletteTypeDef",
         "ContributionAnalysisDefaults": List["ContributionAnalysisDefaultTypeDef"],
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -10494,6 +10775,7 @@ PivotTableConfigurationTypeDef = TypedDict(
         "TotalOptions": "PivotTableTotalOptionsTypeDef",
         "FieldOptions": "PivotTableFieldOptionsTypeDef",
         "PaginatedReportOptions": "PivotTablePaginatedReportOptionsTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -10810,6 +11092,7 @@ RadarChartConfigurationTypeDef = TypedDict(
         "ColorLabelOptions": "ChartAxisLabelOptionsTypeDef",
         "Legend": "LegendOptionsTypeDef",
         "AxesRangeScale": RadarChartAxesRangeScaleType,
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -10891,12 +11174,12 @@ _RequiredRedshiftIAMParametersTypeDef = TypedDict(
     "_RequiredRedshiftIAMParametersTypeDef",
     {
         "RoleArn": str,
-        "DatabaseUser": str,
     },
 )
 _OptionalRedshiftIAMParametersTypeDef = TypedDict(
     "_OptionalRedshiftIAMParametersTypeDef",
     {
+        "DatabaseUser": str,
         "DatabaseGroups": List[str],
         "AutoCreateDatabaseUser": bool,
     },
@@ -11114,6 +11397,15 @@ RegisterUserResponseTypeDef = TypedDict(
     },
 )
 
+RegisteredCustomerManagedKeyTypeDef = TypedDict(
+    "RegisteredCustomerManagedKeyTypeDef",
+    {
+        "KeyArn": str,
+        "DefaultKey": bool,
+    },
+    total=False,
+)
+
 RegisteredUserConsoleFeatureConfigurationsTypeDef = TypedDict(
     "RegisteredUserConsoleFeatureConfigurationsTypeDef",
     {
@@ -11165,6 +11457,15 @@ RegisteredUserEmbeddingExperienceConfigurationTypeDef = TypedDict(
         "QuickSightConsole": "RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef",
         "QSearchBar": "RegisteredUserQSearchBarEmbeddingConfigurationTypeDef",
         "DashboardVisual": "RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef",
+        "GenerativeQnA": "RegisteredUserGenerativeQnAEmbeddingConfigurationTypeDef",
+    },
+    total=False,
+)
+
+RegisteredUserGenerativeQnAEmbeddingConfigurationTypeDef = TypedDict(
+    "RegisteredUserGenerativeQnAEmbeddingConfigurationTypeDef",
+    {
+        "InitialTopicId": str,
     },
     total=False,
 )
@@ -11234,6 +11535,7 @@ _OptionalRelativeDatesFilterTypeDef = TypedDict(
         "RelativeDateValue": int,
         "ParameterName": str,
         "ExcludePeriodConfiguration": "ExcludePeriodConfigurationTypeDef",
+        "DefaultFilterControlConfiguration": "DefaultFilterControlConfigurationTypeDef",
     },
     total=False,
 )
@@ -11461,6 +11763,7 @@ SankeyDiagramChartConfigurationTypeDef = TypedDict(
         "FieldWells": "SankeyDiagramFieldWellsTypeDef",
         "SortConfiguration": "SankeyDiagramSortConfigurationTypeDef",
         "DataLabels": "DataLabelOptionsTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -11521,6 +11824,7 @@ ScatterPlotConfigurationTypeDef = TypedDict(
     "ScatterPlotConfigurationTypeDef",
     {
         "FieldWells": "ScatterPlotFieldWellsTypeDef",
+        "SortConfiguration": "ScatterPlotSortConfigurationTypeDef",
         "XAxisLabelOptions": "ChartAxisLabelOptionsTypeDef",
         "XAxisDisplayOptions": "AxisDisplayOptionsTypeDef",
         "YAxisLabelOptions": "ChartAxisLabelOptionsTypeDef",
@@ -11529,6 +11833,7 @@ ScatterPlotConfigurationTypeDef = TypedDict(
         "DataLabels": "DataLabelOptionsTypeDef",
         "Tooltip": "TooltipOptionsTypeDef",
         "VisualPalette": "VisualPaletteTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -11538,6 +11843,14 @@ ScatterPlotFieldWellsTypeDef = TypedDict(
     {
         "ScatterPlotCategoricallyAggregatedFieldWells": "ScatterPlotCategoricallyAggregatedFieldWellsTypeDef",
         "ScatterPlotUnaggregatedFieldWells": "ScatterPlotUnaggregatedFieldWellsTypeDef",
+    },
+    total=False,
+)
+
+ScatterPlotSortConfigurationTypeDef = TypedDict(
+    "ScatterPlotSortConfigurationTypeDef",
+    {
+        "ScatterPlotLimitConfiguration": "ItemsLimitConfigurationTypeDef",
     },
     total=False,
 )
@@ -12092,6 +12405,14 @@ SimpleClusterMarkerTypeDef = TypedDict(
     total=False,
 )
 
+SingleAxisOptionsTypeDef = TypedDict(
+    "SingleAxisOptionsTypeDef",
+    {
+        "YAxisOptions": "YAxisOptionsTypeDef",
+    },
+    total=False,
+)
+
 SliderControlDisplayOptionsTypeDef = TypedDict(
     "SliderControlDisplayOptionsTypeDef",
     {
@@ -12252,7 +12573,6 @@ SnapshotS3DestinationConfigurationTypeDef = TypedDict(
     {
         "BucketConfiguration": "S3BucketConfigurationTypeDef",
     },
-    total=False,
 )
 
 SnapshotUserConfigurationRedactedTypeDef = TypedDict(
@@ -12542,6 +12862,14 @@ SubtotalOptionsTypeDef = TypedDict(
     total=False,
 )
 
+SuccessfulKeyRegistrationEntryTypeDef = TypedDict(
+    "SuccessfulKeyRegistrationEntryTypeDef",
+    {
+        "KeyArn": str,
+        "StatusCode": int,
+    },
+)
+
 TableAggregatedFieldWellsTypeDef = TypedDict(
     "TableAggregatedFieldWellsTypeDef",
     {
@@ -12630,6 +12958,7 @@ TableConfigurationTypeDef = TypedDict(
         "FieldOptions": "TableFieldOptionsTypeDef",
         "PaginatedReportOptions": "TablePaginatedReportOptionsTypeDef",
         "TableInlineVisualizations": List["TableInlineVisualizationTypeDef"],
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -13177,6 +13506,7 @@ _OptionalTimeEqualityFilterTypeDef = TypedDict(
         "ParameterName": str,
         "TimeGranularity": TimeGranularityType,
         "RollingDate": "RollingDateConfigurationTypeDef",
+        "DefaultFilterControlConfiguration": "DefaultFilterControlConfigurationTypeDef",
     },
     total=False,
 )
@@ -13213,6 +13543,7 @@ _OptionalTimeRangeFilterTypeDef = TypedDict(
         "RangeMaximumValue": "TimeRangeFilterValueTypeDef",
         "ExcludePeriodConfiguration": "ExcludePeriodConfigurationTypeDef",
         "TimeGranularity": TimeGranularityType,
+        "DefaultFilterControlConfiguration": "DefaultFilterControlConfigurationTypeDef",
     },
     total=False,
 )
@@ -13263,6 +13594,7 @@ _OptionalTopBottomFilterTypeDef = TypedDict(
         "Limit": int,
         "TimeGranularity": TimeGranularityType,
         "ParameterName": str,
+        "DefaultFilterControlConfiguration": "DefaultFilterControlConfigurationTypeDef",
     },
     total=False,
 )
@@ -13419,6 +13751,7 @@ TopicDetailsTypeDef = TypedDict(
     {
         "Name": str,
         "Description": str,
+        "UserExperienceVersion": TopicUserExperienceVersionType,
         "DataSets": List["DatasetMetadataTypeDef"],
     },
     total=False,
@@ -13567,6 +13900,7 @@ TopicSummaryTypeDef = TypedDict(
         "Arn": str,
         "TopicId": str,
         "Name": str,
+        "UserExperienceVersion": TopicUserExperienceVersionType,
     },
     total=False,
 )
@@ -13657,6 +13991,7 @@ TreeMapConfigurationTypeDef = TypedDict(
         "Legend": "LegendOptionsTypeDef",
         "DataLabels": "DataLabelOptionsTypeDef",
         "Tooltip": "TooltipOptionsTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -13952,6 +14287,26 @@ UpdateAnalysisResponseTypeDef = TypedDict(
         "UpdateStatus": ResourceStatusType,
         "Status": int,
         "RequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateDashboardLinksRequestRequestTypeDef = TypedDict(
+    "UpdateDashboardLinksRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "DashboardId": str,
+        "LinkEntities": List[str],
+    },
+)
+
+UpdateDashboardLinksResponseTypeDef = TypedDict(
+    "UpdateDashboardLinksResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "DashboardArn": str,
+        "LinkEntities": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -14361,6 +14716,8 @@ _OptionalUpdateIpRestrictionRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateIpRestrictionRequestRequestTypeDef",
     {
         "IpRestrictionRuleMap": Dict[str, str],
+        "VpcIdRestrictionRuleMap": Dict[str, str],
+        "VpcEndpointIdRestrictionRuleMap": Dict[str, str],
         "Enabled": bool,
     },
     total=False,
@@ -14378,6 +14735,24 @@ UpdateIpRestrictionResponseTypeDef = TypedDict(
         "AwsAccountId": str,
         "RequestId": str,
         "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateKeyRegistrationRequestRequestTypeDef = TypedDict(
+    "UpdateKeyRegistrationRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "KeyRegistration": List["RegisteredCustomerManagedKeyTypeDef"],
+    },
+)
+
+UpdateKeyRegistrationResponseTypeDef = TypedDict(
+    "UpdateKeyRegistrationResponseTypeDef",
+    {
+        "FailedKeyRegistration": List["FailedKeyRegistrationEntryTypeDef"],
+        "SuccessfulKeyRegistration": List["SuccessfulKeyRegistrationEntryTypeDef"],
+        "RequestId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -14443,6 +14818,23 @@ UpdateRoleCustomPermissionRequestRequestTypeDef = TypedDict(
 
 UpdateRoleCustomPermissionResponseTypeDef = TypedDict(
     "UpdateRoleCustomPermissionResponseTypeDef",
+    {
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateSPICECapacityConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateSPICECapacityConfigurationRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "PurchaseMode": PurchaseModeType,
+    },
+)
+
+UpdateSPICECapacityConfigurationResponseTypeDef = TypedDict(
+    "UpdateSPICECapacityConfigurationResponseTypeDef",
     {
         "RequestId": str,
         "Status": int,
@@ -14907,6 +15299,15 @@ class VisualCustomActionTypeDef(
 ):
     pass
 
+VisualInteractionOptionsTypeDef = TypedDict(
+    "VisualInteractionOptionsTypeDef",
+    {
+        "VisualMenuOption": "VisualMenuOptionTypeDef",
+        "ContextMenuOption": "ContextMenuOptionTypeDef",
+    },
+    total=False,
+)
+
 VisualMenuOptionTypeDef = TypedDict(
     "VisualMenuOptionTypeDef",
     {
@@ -14989,6 +15390,14 @@ WaterfallChartAggregatedFieldWellsTypeDef = TypedDict(
     total=False,
 )
 
+WaterfallChartColorConfigurationTypeDef = TypedDict(
+    "WaterfallChartColorConfigurationTypeDef",
+    {
+        "GroupColorConfiguration": "WaterfallChartGroupColorConfigurationTypeDef",
+    },
+    total=False,
+)
+
 WaterfallChartConfigurationTypeDef = TypedDict(
     "WaterfallChartConfigurationTypeDef",
     {
@@ -15002,6 +15411,8 @@ WaterfallChartConfigurationTypeDef = TypedDict(
         "Legend": "LegendOptionsTypeDef",
         "DataLabels": "DataLabelOptionsTypeDef",
         "VisualPalette": "VisualPaletteTypeDef",
+        "ColorConfiguration": "WaterfallChartColorConfigurationTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -15010,6 +15421,16 @@ WaterfallChartFieldWellsTypeDef = TypedDict(
     "WaterfallChartFieldWellsTypeDef",
     {
         "WaterfallChartAggregatedFieldWells": "WaterfallChartAggregatedFieldWellsTypeDef",
+    },
+    total=False,
+)
+
+WaterfallChartGroupColorConfigurationTypeDef = TypedDict(
+    "WaterfallChartGroupColorConfigurationTypeDef",
+    {
+        "PositiveBarColor": str,
+        "NegativeBarColor": str,
+        "TotalBarColor": str,
     },
     total=False,
 )
@@ -15085,6 +15506,7 @@ WordCloudChartConfigurationTypeDef = TypedDict(
         "SortConfiguration": "WordCloudSortConfigurationTypeDef",
         "CategoryLabelOptions": "ChartAxisLabelOptionsTypeDef",
         "WordCloudOptions": "WordCloudOptionsTypeDef",
+        "Interactions": "VisualInteractionOptionsTypeDef",
     },
     total=False,
 )
@@ -15139,3 +15561,10 @@ _OptionalWordCloudVisualTypeDef = TypedDict(
 
 class WordCloudVisualTypeDef(_RequiredWordCloudVisualTypeDef, _OptionalWordCloudVisualTypeDef):
     pass
+
+YAxisOptionsTypeDef = TypedDict(
+    "YAxisOptionsTypeDef",
+    {
+        "YAxis": Literal["PRIMARY_Y_AXIS"],
+    },
+)

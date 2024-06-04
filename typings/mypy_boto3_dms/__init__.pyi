@@ -60,6 +60,7 @@ Usage::
     describe_table_statistics_paginator: DescribeTableStatisticsPaginator = client.get_paginator("describe_table_statistics")
     ```
 """
+
 from .client import DatabaseMigrationServiceClient
 from .paginator import (
     DescribeCertificatesPaginator,

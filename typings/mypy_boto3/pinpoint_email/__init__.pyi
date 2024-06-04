@@ -27,6 +27,7 @@ Usage::
     list_email_identities_paginator: ListEmailIdentitiesPaginator = client.get_paginator("list_email_identities")
     ```
 """
+
 from .client import PinpointEmailClient
 from .paginator import (
     GetDedicatedIpsPaginator,

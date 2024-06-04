@@ -6,18 +6,19 @@ Type annotations for rolesanywhere service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_rolesanywhere.type_defs import CreateProfileRequestRequestTypeDef
+    from mypy_boto3_rolesanywhere.type_defs import AttributeMappingTypeDef
 
-    data: CreateProfileRequestRequestTypeDef = {...}
+    data: AttributeMappingTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
 
 from botocore.response import StreamingBody
 
-from .literals import NotificationEventType, TrustAnchorTypeType
+from .literals import CertificateFieldType, NotificationEventType, TrustAnchorTypeType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -29,11 +30,14 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AttributeMappingTypeDef",
     "CreateProfileRequestRequestTypeDef",
     "CreateTrustAnchorRequestRequestTypeDef",
     "CredentialSummaryTypeDef",
     "CrlDetailResponseTypeDef",
     "CrlDetailTypeDef",
+    "DeleteAttributeMappingRequestRequestTypeDef",
+    "DeleteAttributeMappingResponseTypeDef",
     "ImportCrlRequestRequestTypeDef",
     "InstancePropertyTypeDef",
     "ListCrlsResponseTypeDef",
@@ -43,12 +47,15 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListTrustAnchorsResponseTypeDef",
+    "MappingRuleTypeDef",
     "NotificationSettingDetailTypeDef",
     "NotificationSettingKeyTypeDef",
     "NotificationSettingTypeDef",
     "PaginatorConfigTypeDef",
     "ProfileDetailResponseTypeDef",
     "ProfileDetailTypeDef",
+    "PutAttributeMappingRequestRequestTypeDef",
+    "PutAttributeMappingResponseTypeDef",
     "PutNotificationSettingsRequestRequestTypeDef",
     "PutNotificationSettingsResponseTypeDef",
     "ResetNotificationSettingsRequestRequestTypeDef",
@@ -71,6 +78,15 @@ __all__ = (
     "UpdateCrlRequestRequestTypeDef",
     "UpdateProfileRequestRequestTypeDef",
     "UpdateTrustAnchorRequestRequestTypeDef",
+)
+
+AttributeMappingTypeDef = TypedDict(
+    "AttributeMappingTypeDef",
+    {
+        "certificateField": CertificateFieldType,
+        "mappingRules": List["MappingRuleTypeDef"],
+    },
+    total=False,
 )
 
 _RequiredCreateProfileRequestRequestTypeDef = TypedDict(
@@ -154,6 +170,35 @@ CrlDetailTypeDef = TypedDict(
         "updatedAt": datetime,
     },
     total=False,
+)
+
+_RequiredDeleteAttributeMappingRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteAttributeMappingRequestRequestTypeDef",
+    {
+        "certificateField": CertificateFieldType,
+        "profileId": str,
+    },
+)
+_OptionalDeleteAttributeMappingRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteAttributeMappingRequestRequestTypeDef",
+    {
+        "specifiers": List[str],
+    },
+    total=False,
+)
+
+class DeleteAttributeMappingRequestRequestTypeDef(
+    _RequiredDeleteAttributeMappingRequestRequestTypeDef,
+    _OptionalDeleteAttributeMappingRequestRequestTypeDef,
+):
+    pass
+
+DeleteAttributeMappingResponseTypeDef = TypedDict(
+    "DeleteAttributeMappingResponseTypeDef",
+    {
+        "profile": "ProfileDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredImportCrlRequestRequestTypeDef = TypedDict(
@@ -248,6 +293,13 @@ ListTrustAnchorsResponseTypeDef = TypedDict(
     },
 )
 
+MappingRuleTypeDef = TypedDict(
+    "MappingRuleTypeDef",
+    {
+        "specifier": str,
+    },
+)
+
 _RequiredNotificationSettingDetailTypeDef = TypedDict(
     "_RequiredNotificationSettingDetailTypeDef",
     {
@@ -331,6 +383,7 @@ ProfileDetailResponseTypeDef = TypedDict(
 ProfileDetailTypeDef = TypedDict(
     "ProfileDetailTypeDef",
     {
+        "attributeMappings": List["AttributeMappingTypeDef"],
         "createdAt": datetime,
         "createdBy": str,
         "durationSeconds": int,
@@ -345,6 +398,23 @@ ProfileDetailTypeDef = TypedDict(
         "updatedAt": datetime,
     },
     total=False,
+)
+
+PutAttributeMappingRequestRequestTypeDef = TypedDict(
+    "PutAttributeMappingRequestRequestTypeDef",
+    {
+        "certificateField": CertificateFieldType,
+        "mappingRules": List["MappingRuleTypeDef"],
+        "profileId": str,
+    },
+)
+
+PutAttributeMappingResponseTypeDef = TypedDict(
+    "PutAttributeMappingResponseTypeDef",
+    {
+        "profile": "ProfileDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 PutNotificationSettingsRequestRequestTypeDef = TypedDict(

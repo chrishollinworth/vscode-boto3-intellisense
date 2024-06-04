@@ -11,6 +11,7 @@ Usage::
     data: AggregatedUtterancesFilterNameType = "Utterance"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -48,6 +49,7 @@ __all__ = (
     "AssociatedTranscriptFilterNameType",
     "AudioRecognitionStrategyType",
     "BotAliasAvailableWaiterName",
+    "BotAliasReplicationStatusType",
     "BotAliasStatusType",
     "BotAvailableWaiterName",
     "BotExportCompletedWaiterName",
@@ -62,10 +64,13 @@ __all__ = (
     "BotLocaleSortAttributeType",
     "BotLocaleStatusType",
     "BotRecommendationStatusType",
+    "BotReplicaStatusType",
     "BotSortAttributeType",
     "BotStatusType",
     "BotTypeType",
     "BotVersionAvailableWaiterName",
+    "BotVersionReplicaSortAttributeType",
+    "BotVersionReplicationStatusType",
     "BotVersionSortAttributeType",
     "BuiltInIntentSortAttributeType",
     "BuiltInSlotTypeSortAttributeType",
@@ -199,6 +204,7 @@ AnalyticsUtteranceSortByNameType = Literal["UtteranceTimestamp"]
 AssociatedTranscriptFilterNameType = Literal["IntentId", "SlotTypeId"]
 AudioRecognitionStrategyType = Literal["UseSlotValuesAsCustomVocabulary"]
 BotAliasAvailableWaiterName = Literal["bot_alias_available"]
+BotAliasReplicationStatusType = Literal["Available", "Creating", "Deleting", "Failed", "Updating"]
 BotAliasStatusType = Literal["Available", "Creating", "Deleting", "Failed"]
 BotAvailableWaiterName = Literal["bot_available"]
 BotExportCompletedWaiterName = Literal["bot_export_completed"]
@@ -233,12 +239,15 @@ BotRecommendationStatusType = Literal[
     "Stopping",
     "Updating",
 ]
+BotReplicaStatusType = Literal["Deleting", "Enabled", "Enabling", "Failed"]
 BotSortAttributeType = Literal["BotName"]
 BotStatusType = Literal[
     "Available", "Creating", "Deleting", "Failed", "Importing", "Inactive", "Updating", "Versioning"
 ]
 BotTypeType = Literal["Bot", "BotNetwork"]
 BotVersionAvailableWaiterName = Literal["bot_version_available"]
+BotVersionReplicaSortAttributeType = Literal["BotVersion"]
+BotVersionReplicationStatusType = Literal["Available", "Creating", "Deleting", "Failed"]
 BotVersionSortAttributeType = Literal["BotVersion"]
 BuiltInIntentSortAttributeType = Literal["IntentSignature"]
 BuiltInSlotTypeSortAttributeType = Literal["SlotTypeSignature"]

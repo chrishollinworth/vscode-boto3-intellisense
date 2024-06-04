@@ -11,11 +11,12 @@ Usage::
     data: ApplicationSummaryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import ApplicationStateType, ArchitectureType, JobRunStateType
+from .literals import ApplicationStateType, ArchitectureType, JobRunModeType, JobRunStateType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -45,11 +46,15 @@ __all__ = (
     "ImageConfigurationInputTypeDef",
     "ImageConfigurationTypeDef",
     "InitialCapacityConfigTypeDef",
+    "InteractiveConfigurationTypeDef",
     "JobDriverTypeDef",
+    "JobRunAttemptSummaryTypeDef",
     "JobRunSummaryTypeDef",
     "JobRunTypeDef",
     "ListApplicationsRequestRequestTypeDef",
     "ListApplicationsResponseTypeDef",
+    "ListJobRunAttemptsRequestRequestTypeDef",
+    "ListJobRunAttemptsResponseTypeDef",
     "ListJobRunsRequestRequestTypeDef",
     "ListJobRunsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -59,8 +64,10 @@ __all__ = (
     "MonitoringConfigurationTypeDef",
     "NetworkConfigurationTypeDef",
     "PaginatorConfigTypeDef",
+    "PrometheusMonitoringConfigurationTypeDef",
     "ResourceUtilizationTypeDef",
     "ResponseMetadataTypeDef",
+    "RetryPolicyTypeDef",
     "S3MonitoringConfigurationTypeDef",
     "SparkSubmitTypeDef",
     "StartApplicationRequestRequestTypeDef",
@@ -132,6 +139,7 @@ _OptionalApplicationTypeDef = TypedDict(
         "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationTypeDef"],
         "runtimeConfiguration": List["ConfigurationTypeDef"],
         "monitoringConfiguration": "MonitoringConfigurationTypeDef",
+        "interactiveConfiguration": "InteractiveConfigurationTypeDef",
     },
     total=False,
 )
@@ -245,6 +253,7 @@ _OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
         "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationInputTypeDef"],
         "runtimeConfiguration": List["ConfigurationTypeDef"],
         "monitoringConfiguration": "MonitoringConfigurationTypeDef",
+        "interactiveConfiguration": "InteractiveConfigurationTypeDef",
     },
     total=False,
 )
@@ -286,13 +295,26 @@ GetApplicationResponseTypeDef = TypedDict(
     },
 )
 
-GetDashboardForJobRunRequestRequestTypeDef = TypedDict(
-    "GetDashboardForJobRunRequestRequestTypeDef",
+_RequiredGetDashboardForJobRunRequestRequestTypeDef = TypedDict(
+    "_RequiredGetDashboardForJobRunRequestRequestTypeDef",
     {
         "applicationId": str,
         "jobRunId": str,
     },
 )
+_OptionalGetDashboardForJobRunRequestRequestTypeDef = TypedDict(
+    "_OptionalGetDashboardForJobRunRequestRequestTypeDef",
+    {
+        "attempt": int,
+    },
+    total=False,
+)
+
+class GetDashboardForJobRunRequestRequestTypeDef(
+    _RequiredGetDashboardForJobRunRequestRequestTypeDef,
+    _OptionalGetDashboardForJobRunRequestRequestTypeDef,
+):
+    pass
 
 GetDashboardForJobRunResponseTypeDef = TypedDict(
     "GetDashboardForJobRunResponseTypeDef",
@@ -302,13 +324,25 @@ GetDashboardForJobRunResponseTypeDef = TypedDict(
     },
 )
 
-GetJobRunRequestRequestTypeDef = TypedDict(
-    "GetJobRunRequestRequestTypeDef",
+_RequiredGetJobRunRequestRequestTypeDef = TypedDict(
+    "_RequiredGetJobRunRequestRequestTypeDef",
     {
         "applicationId": str,
         "jobRunId": str,
     },
 )
+_OptionalGetJobRunRequestRequestTypeDef = TypedDict(
+    "_OptionalGetJobRunRequestRequestTypeDef",
+    {
+        "attempt": int,
+    },
+    total=False,
+)
+
+class GetJobRunRequestRequestTypeDef(
+    _RequiredGetJobRunRequestRequestTypeDef, _OptionalGetJobRunRequestRequestTypeDef
+):
+    pass
 
 GetJobRunResponseTypeDef = TypedDict(
     "GetJobRunResponseTypeDef",
@@ -382,6 +416,15 @@ class InitialCapacityConfigTypeDef(
 ):
     pass
 
+InteractiveConfigurationTypeDef = TypedDict(
+    "InteractiveConfigurationTypeDef",
+    {
+        "studioEnabled": bool,
+        "livyEndpointEnabled": bool,
+    },
+    total=False,
+)
+
 JobDriverTypeDef = TypedDict(
     "JobDriverTypeDef",
     {
@@ -390,6 +433,38 @@ JobDriverTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredJobRunAttemptSummaryTypeDef = TypedDict(
+    "_RequiredJobRunAttemptSummaryTypeDef",
+    {
+        "applicationId": str,
+        "id": str,
+        "arn": str,
+        "createdBy": str,
+        "jobCreatedAt": datetime,
+        "createdAt": datetime,
+        "updatedAt": datetime,
+        "executionRole": str,
+        "state": JobRunStateType,
+        "stateDetails": str,
+        "releaseLabel": str,
+    },
+)
+_OptionalJobRunAttemptSummaryTypeDef = TypedDict(
+    "_OptionalJobRunAttemptSummaryTypeDef",
+    {
+        "name": str,
+        "mode": JobRunModeType,
+        "type": str,
+        "attempt": int,
+    },
+    total=False,
+)
+
+class JobRunAttemptSummaryTypeDef(
+    _RequiredJobRunAttemptSummaryTypeDef, _OptionalJobRunAttemptSummaryTypeDef
+):
+    pass
 
 _RequiredJobRunSummaryTypeDef = TypedDict(
     "_RequiredJobRunSummaryTypeDef",
@@ -410,7 +485,11 @@ _OptionalJobRunSummaryTypeDef = TypedDict(
     "_OptionalJobRunSummaryTypeDef",
     {
         "name": str,
+        "mode": JobRunModeType,
         "type": str,
+        "attempt": int,
+        "attemptCreatedAt": datetime,
+        "attemptUpdatedAt": datetime,
     },
     total=False,
 )
@@ -445,6 +524,11 @@ _OptionalJobRunTypeDef = TypedDict(
         "totalExecutionDurationSeconds": int,
         "executionTimeoutMinutes": int,
         "billedResourceUtilization": "ResourceUtilizationTypeDef",
+        "mode": JobRunModeType,
+        "retryPolicy": "RetryPolicyTypeDef",
+        "attempt": int,
+        "attemptCreatedAt": datetime,
+        "attemptUpdatedAt": datetime,
     },
     total=False,
 )
@@ -471,6 +555,37 @@ ListApplicationsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListJobRunAttemptsRequestRequestTypeDef = TypedDict(
+    "_RequiredListJobRunAttemptsRequestRequestTypeDef",
+    {
+        "applicationId": str,
+        "jobRunId": str,
+    },
+)
+_OptionalListJobRunAttemptsRequestRequestTypeDef = TypedDict(
+    "_OptionalListJobRunAttemptsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListJobRunAttemptsRequestRequestTypeDef(
+    _RequiredListJobRunAttemptsRequestRequestTypeDef,
+    _OptionalListJobRunAttemptsRequestRequestTypeDef,
+):
+    pass
+
+ListJobRunAttemptsResponseTypeDef = TypedDict(
+    "ListJobRunAttemptsResponseTypeDef",
+    {
+        "jobRunAttempts": List["JobRunAttemptSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListJobRunsRequestRequestTypeDef = TypedDict(
     "_RequiredListJobRunsRequestRequestTypeDef",
     {
@@ -485,6 +600,7 @@ _OptionalListJobRunsRequestRequestTypeDef = TypedDict(
         "createdAtAfter": Union[datetime, str],
         "createdAtBefore": Union[datetime, str],
         "states": List[JobRunStateType],
+        "mode": JobRunModeType,
     },
     total=False,
 )
@@ -553,6 +669,7 @@ MonitoringConfigurationTypeDef = TypedDict(
         "s3MonitoringConfiguration": "S3MonitoringConfigurationTypeDef",
         "managedPersistenceMonitoringConfiguration": "ManagedPersistenceMonitoringConfigurationTypeDef",
         "cloudWatchLoggingConfiguration": "CloudWatchLoggingConfigurationTypeDef",
+        "prometheusMonitoringConfiguration": "PrometheusMonitoringConfigurationTypeDef",
     },
     total=False,
 )
@@ -576,6 +693,14 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PrometheusMonitoringConfigurationTypeDef = TypedDict(
+    "PrometheusMonitoringConfigurationTypeDef",
+    {
+        "remoteWriteUrl": str,
+    },
+    total=False,
+)
+
 ResourceUtilizationTypeDef = TypedDict(
     "ResourceUtilizationTypeDef",
     {
@@ -595,6 +720,15 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RetryPolicyTypeDef = TypedDict(
+    "RetryPolicyTypeDef",
+    {
+        "maxAttempts": int,
+        "maxFailedAttemptsPerHour": int,
+    },
+    total=False,
 )
 
 S3MonitoringConfigurationTypeDef = TypedDict(
@@ -647,6 +781,8 @@ _OptionalStartJobRunRequestRequestTypeDef = TypedDict(
         "tags": Dict[str, str],
         "executionTimeoutMinutes": int,
         "name": str,
+        "mode": JobRunModeType,
+        "retryPolicy": "RetryPolicyTypeDef",
     },
     total=False,
 )
@@ -717,6 +853,7 @@ _OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
         "architecture": ArchitectureType,
         "imageConfiguration": "ImageConfigurationInputTypeDef",
         "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationInputTypeDef"],
+        "interactiveConfiguration": "InteractiveConfigurationTypeDef",
         "releaseLabel": str,
         "runtimeConfiguration": List["ConfigurationTypeDef"],
         "monitoringConfiguration": "MonitoringConfigurationTypeDef",
@@ -748,6 +885,7 @@ _OptionalWorkerResourceConfigTypeDef = TypedDict(
     "_OptionalWorkerResourceConfigTypeDef",
     {
         "disk": str,
+        "diskType": str,
     },
     total=False,
 )

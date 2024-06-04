@@ -25,6 +25,7 @@ Usage::
     list_streams_paginator: ListStreamsPaginator = client.get_paginator("list_streams")
     ```
 """
+
 from .client import KinesisVideoClient
 from .paginator import (
     DescribeMappedResourceConfigurationPaginator,

@@ -11,6 +11,7 @@ Usage::
     data: CreateLinkInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -34,6 +35,7 @@ __all__ = (
     "GetSinkOutputTypeDef",
     "GetSinkPolicyInputRequestTypeDef",
     "GetSinkPolicyOutputTypeDef",
+    "LinkConfigurationTypeDef",
     "ListAttachedLinksInputRequestTypeDef",
     "ListAttachedLinksItemTypeDef",
     "ListAttachedLinksOutputTypeDef",
@@ -45,6 +47,8 @@ __all__ = (
     "ListSinksOutputTypeDef",
     "ListTagsForResourceInputRequestTypeDef",
     "ListTagsForResourceOutputTypeDef",
+    "LogGroupConfigurationTypeDef",
+    "MetricConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "PutSinkPolicyInputRequestTypeDef",
     "PutSinkPolicyOutputTypeDef",
@@ -66,6 +70,7 @@ _RequiredCreateLinkInputRequestTypeDef = TypedDict(
 _OptionalCreateLinkInputRequestTypeDef = TypedDict(
     "_OptionalCreateLinkInputRequestTypeDef",
     {
+        "LinkConfiguration": "LinkConfigurationTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -83,6 +88,7 @@ CreateLinkOutputTypeDef = TypedDict(
         "Id": str,
         "Label": str,
         "LabelTemplate": str,
+        "LinkConfiguration": "LinkConfigurationTypeDef",
         "ResourceTypes": List[str],
         "SinkArn": str,
         "Tags": Dict[str, str],
@@ -148,6 +154,7 @@ GetLinkOutputTypeDef = TypedDict(
         "Id": str,
         "Label": str,
         "LabelTemplate": str,
+        "LinkConfiguration": "LinkConfigurationTypeDef",
         "ResourceTypes": List[str],
         "SinkArn": str,
         "Tags": Dict[str, str],
@@ -183,11 +190,20 @@ GetSinkPolicyInputRequestTypeDef = TypedDict(
 GetSinkPolicyOutputTypeDef = TypedDict(
     "GetSinkPolicyOutputTypeDef",
     {
+        "Policy": str,
         "SinkArn": str,
         "SinkId": str,
-        "Policy": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+LinkConfigurationTypeDef = TypedDict(
+    "LinkConfigurationTypeDef",
+    {
+        "LogGroupConfiguration": "LogGroupConfigurationTypeDef",
+        "MetricConfiguration": "MetricConfigurationTypeDef",
+    },
+    total=False,
 )
 
 _RequiredListAttachedLinksInputRequestTypeDef = TypedDict(
@@ -302,6 +318,20 @@ ListTagsForResourceOutputTypeDef = TypedDict(
     },
 )
 
+LogGroupConfigurationTypeDef = TypedDict(
+    "LogGroupConfigurationTypeDef",
+    {
+        "Filter": str,
+    },
+)
+
+MetricConfigurationTypeDef = TypedDict(
+    "MetricConfigurationTypeDef",
+    {
+        "Filter": str,
+    },
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -315,17 +345,17 @@ PaginatorConfigTypeDef = TypedDict(
 PutSinkPolicyInputRequestTypeDef = TypedDict(
     "PutSinkPolicyInputRequestTypeDef",
     {
-        "SinkIdentifier": str,
         "Policy": str,
+        "SinkIdentifier": str,
     },
 )
 
 PutSinkPolicyOutputTypeDef = TypedDict(
     "PutSinkPolicyOutputTypeDef",
     {
+        "Policy": str,
         "SinkArn": str,
         "SinkId": str,
-        "Policy": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -357,13 +387,25 @@ UntagResourceInputRequestTypeDef = TypedDict(
     },
 )
 
-UpdateLinkInputRequestTypeDef = TypedDict(
-    "UpdateLinkInputRequestTypeDef",
+_RequiredUpdateLinkInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateLinkInputRequestTypeDef",
     {
         "Identifier": str,
         "ResourceTypes": List[ResourceTypeType],
     },
 )
+_OptionalUpdateLinkInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateLinkInputRequestTypeDef",
+    {
+        "LinkConfiguration": "LinkConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateLinkInputRequestTypeDef(
+    _RequiredUpdateLinkInputRequestTypeDef, _OptionalUpdateLinkInputRequestTypeDef
+):
+    pass
 
 UpdateLinkOutputTypeDef = TypedDict(
     "UpdateLinkOutputTypeDef",
@@ -372,6 +414,7 @@ UpdateLinkOutputTypeDef = TypedDict(
         "Id": str,
         "Label": str,
         "LabelTemplate": str,
+        "LinkConfiguration": "LinkConfigurationTypeDef",
         "ResourceTypes": List[str],
         "SinkArn": str,
         "Tags": Dict[str, str],

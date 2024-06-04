@@ -29,6 +29,7 @@ Usage::
     list_recommendations_paginator: ListRecommendationsPaginator = client.get_paginator("list_recommendations")
     ```
 """
+
 from .client import TrustedAdvisorPublicAPIClient
 from .paginator import (
     ListChecksPaginator,

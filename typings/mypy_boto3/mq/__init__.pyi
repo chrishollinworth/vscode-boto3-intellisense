@@ -19,6 +19,7 @@ Usage::
     list_brokers_paginator: ListBrokersPaginator = client.get_paginator("list_brokers")
     ```
 """
+
 from .client import MQClient
 from .paginator import ListBrokersPaginator
 

@@ -11,6 +11,7 @@ Usage::
     data: AnalysisReportSummaryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -20,6 +21,7 @@ from .literals import (
     ContextTypeType,
     DetailStatusType,
     FeatureStatusType,
+    FineGrainedActionType,
     PeriodAlignmentType,
     ServiceTypeType,
     SeverityType,
@@ -437,6 +439,7 @@ _OptionalListAvailableResourceDimensionsRequestRequestTypeDef = TypedDict(
     {
         "MaxResults": int,
         "NextToken": str,
+        "AuthorizedActions": List[FineGrainedActionType],
     },
     total=False,
 )

@@ -31,6 +31,7 @@ Usage::
     list_repositories_paginator: ListRepositoriesPaginator = client.get_paginator("list_repositories")
     ```
 """
+
 from .client import CodeCommitClient
 from .paginator import (
     DescribePullRequestEventsPaginator,

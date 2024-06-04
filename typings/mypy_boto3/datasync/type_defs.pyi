@@ -11,6 +11,7 @@ Usage::
     data: AddStorageSystemRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -46,6 +47,8 @@ from .literals import (
     ReportLevelType,
     ReportOutputTypeType,
     S3StorageClassType,
+    ScheduleDisabledByType,
+    ScheduleStatusType,
     SmbSecurityDescriptorCopyFlagsType,
     SmbVersionType,
     StorageSystemConnectivityStatusType,
@@ -167,6 +170,7 @@ __all__ = (
     "ListTasksResponseTypeDef",
     "LocationFilterTypeDef",
     "LocationListEntryTypeDef",
+    "ManifestConfigTypeDef",
     "MaxP95PerformanceTypeDef",
     "NetAppONTAPClusterTypeDef",
     "NetAppONTAPSVMTypeDef",
@@ -190,7 +194,9 @@ __all__ = (
     "ResourceMetricsTypeDef",
     "ResponseMetadataTypeDef",
     "S3ConfigTypeDef",
+    "S3ManifestConfigTypeDef",
     "SmbMountOptionsTypeDef",
+    "SourceManifestConfigTypeDef",
     "StartDiscoveryJobRequestRequestTypeDef",
     "StartDiscoveryJobResponseTypeDef",
     "StartTaskExecutionRequestRequestTypeDef",
@@ -204,6 +210,7 @@ __all__ = (
     "TaskFilterTypeDef",
     "TaskListEntryTypeDef",
     "TaskReportConfigTypeDef",
+    "TaskScheduleDetailsTypeDef",
     "TaskScheduleTypeDef",
     "ThroughputTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -696,6 +703,7 @@ _OptionalCreateTaskRequestRequestTypeDef = TypedDict(
         "Schedule": "TaskScheduleTypeDef",
         "Tags": List["TagListEntryTypeDef"],
         "Includes": List["FilterRuleTypeDef"],
+        "ManifestConfig": "ManifestConfigTypeDef",
         "TaskReportConfig": "TaskReportConfigTypeDef",
     },
     total=False,
@@ -1119,14 +1127,15 @@ DescribeTaskExecutionResponseTypeDef = TypedDict(
         "Options": "OptionsTypeDef",
         "Excludes": List["FilterRuleTypeDef"],
         "Includes": List["FilterRuleTypeDef"],
+        "ManifestConfig": "ManifestConfigTypeDef",
         "StartTime": datetime,
         "EstimatedFilesToTransfer": int,
         "EstimatedBytesToTransfer": int,
         "FilesTransferred": int,
         "BytesWritten": int,
         "BytesTransferred": int,
-        "Result": "TaskExecutionResultDetailTypeDef",
         "BytesCompressed": int,
+        "Result": "TaskExecutionResultDetailTypeDef",
         "TaskReportConfig": "TaskReportConfigTypeDef",
         "FilesDeleted": int,
         "FilesSkipped": int,
@@ -1163,7 +1172,9 @@ DescribeTaskResponseTypeDef = TypedDict(
         "ErrorDetail": str,
         "CreationTime": datetime,
         "Includes": List["FilterRuleTypeDef"],
+        "ManifestConfig": "ManifestConfigTypeDef",
         "TaskReportConfig": "TaskReportConfigTypeDef",
+        "ScheduleDetails": "TaskScheduleDetailsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1447,6 +1458,16 @@ LocationListEntryTypeDef = TypedDict(
     total=False,
 )
 
+ManifestConfigTypeDef = TypedDict(
+    "ManifestConfigTypeDef",
+    {
+        "Action": Literal["TRANSFER"],
+        "Format": Literal["CSV"],
+        "Source": "SourceManifestConfigTypeDef",
+    },
+    total=False,
+)
+
 MaxP95PerformanceTypeDef = TypedDict(
     "MaxP95PerformanceTypeDef",
     {
@@ -1726,12 +1747,38 @@ S3ConfigTypeDef = TypedDict(
     },
 )
 
+_RequiredS3ManifestConfigTypeDef = TypedDict(
+    "_RequiredS3ManifestConfigTypeDef",
+    {
+        "ManifestObjectPath": str,
+        "BucketAccessRoleArn": str,
+        "S3BucketArn": str,
+    },
+)
+_OptionalS3ManifestConfigTypeDef = TypedDict(
+    "_OptionalS3ManifestConfigTypeDef",
+    {
+        "ManifestObjectVersionId": str,
+    },
+    total=False,
+)
+
+class S3ManifestConfigTypeDef(_RequiredS3ManifestConfigTypeDef, _OptionalS3ManifestConfigTypeDef):
+    pass
+
 SmbMountOptionsTypeDef = TypedDict(
     "SmbMountOptionsTypeDef",
     {
         "Version": SmbVersionType,
     },
     total=False,
+)
+
+SourceManifestConfigTypeDef = TypedDict(
+    "SourceManifestConfigTypeDef",
+    {
+        "S3": "S3ManifestConfigTypeDef",
+    },
 )
 
 _RequiredStartDiscoveryJobRequestRequestTypeDef = TypedDict(
@@ -1775,8 +1822,9 @@ _OptionalStartTaskExecutionRequestRequestTypeDef = TypedDict(
         "OverrideOptions": "OptionsTypeDef",
         "Includes": List["FilterRuleTypeDef"],
         "Excludes": List["FilterRuleTypeDef"],
-        "Tags": List["TagListEntryTypeDef"],
+        "ManifestConfig": "ManifestConfigTypeDef",
         "TaskReportConfig": "TaskReportConfigTypeDef",
+        "Tags": List["TagListEntryTypeDef"],
     },
     total=False,
 )
@@ -1892,12 +1940,32 @@ TaskReportConfigTypeDef = TypedDict(
     total=False,
 )
 
-TaskScheduleTypeDef = TypedDict(
-    "TaskScheduleTypeDef",
+TaskScheduleDetailsTypeDef = TypedDict(
+    "TaskScheduleDetailsTypeDef",
+    {
+        "StatusUpdateTime": datetime,
+        "DisabledReason": str,
+        "DisabledBy": ScheduleDisabledByType,
+    },
+    total=False,
+)
+
+_RequiredTaskScheduleTypeDef = TypedDict(
+    "_RequiredTaskScheduleTypeDef",
     {
         "ScheduleExpression": str,
     },
 )
+_OptionalTaskScheduleTypeDef = TypedDict(
+    "_OptionalTaskScheduleTypeDef",
+    {
+        "Status": ScheduleStatusType,
+    },
+    total=False,
+)
+
+class TaskScheduleTypeDef(_RequiredTaskScheduleTypeDef, _OptionalTaskScheduleTypeDef):
+    pass
 
 ThroughputTypeDef = TypedDict(
     "ThroughputTypeDef",
@@ -2119,6 +2187,7 @@ _OptionalUpdateTaskRequestRequestTypeDef = TypedDict(
         "Name": str,
         "CloudWatchLogGroupArn": str,
         "Includes": List["FilterRuleTypeDef"],
+        "ManifestConfig": "ManifestConfigTypeDef",
         "TaskReportConfig": "TaskReportConfigTypeDef",
     },
     total=False,

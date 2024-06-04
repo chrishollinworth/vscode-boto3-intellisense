@@ -6,11 +6,12 @@ Type annotations for iotwireless service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_iotwireless.literals import ApplicationConfigTypeType
+    from mypy_boto3_iotwireless.literals import AggregationPeriodType
 
-    data: ApplicationConfigTypeType = "SemtechGeolocation"
+    data: AggregationPeriodType = "OneDay"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,11 +20,13 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AggregationPeriodType",
     "ApplicationConfigTypeType",
     "BatteryLevelType",
     "ConnectionStatusType",
     "DeviceProfileTypeType",
     "DeviceStateType",
+    "DimensionNameType",
     "DlClassType",
     "DownlinkModeType",
     "EventNotificationPartnerTypeType",
@@ -37,6 +40,8 @@ __all__ = (
     "ImportTaskStatusType",
     "LogLevelType",
     "MessageTypeType",
+    "MetricNameType",
+    "MetricQueryStatusType",
     "MulticastFrameInfoType",
     "OnboardStatusType",
     "PartnerTypeType",
@@ -47,6 +52,7 @@ __all__ = (
     "PositionSolverTypeType",
     "PositioningConfigStatusType",
     "SigningAlgType",
+    "SummaryMetricConfigurationStatusType",
     "SupportedRfRegionType",
     "WirelessDeviceEventType",
     "WirelessDeviceFrameInfoType",
@@ -61,6 +67,7 @@ __all__ = (
     "WirelessGatewayTypeType",
 )
 
+AggregationPeriodType = Literal["OneDay", "OneHour", "OneWeek"]
 ApplicationConfigTypeType = Literal["SemtechGeolocation"]
 BatteryLevelType = Literal["critical", "low", "normal"]
 ConnectionStatusType = Literal["Connected", "Disconnected"]
@@ -68,6 +75,7 @@ DeviceProfileTypeType = Literal["LoRaWAN", "Sidewalk"]
 DeviceStateType = Literal[
     "Provisioned", "RegisteredNotSeen", "RegisteredReachable", "RegisteredUnreachable"
 ]
+DimensionNameType = Literal["DeviceId", "GatewayId"]
 DlClassType = Literal["ClassB", "ClassC"]
 DownlinkModeType = Literal["CONCURRENT", "SEQUENTIAL", "USING_UPLINK_GATEWAY"]
 EventNotificationPartnerTypeType = Literal["Sidewalk"]
@@ -104,6 +112,39 @@ MessageTypeType = Literal[
     "CUSTOM_COMMAND_ID_RESP",
     "CUSTOM_COMMAND_ID_SET",
 ]
+MetricNameType = Literal[
+    "AwsAccountActiveDeviceCount",
+    "AwsAccountActiveGatewayCount",
+    "AwsAccountDeviceCount",
+    "AwsAccountDownlinkCount",
+    "AwsAccountGatewayCount",
+    "AwsAccountJoinAcceptCount",
+    "AwsAccountJoinRequestCount",
+    "AwsAccountRoamingDownlinkCount",
+    "AwsAccountRoamingUplinkCount",
+    "AwsAccountUplinkCount",
+    "AwsAccountUplinkLostCount",
+    "AwsAccountUplinkLostRate",
+    "DeviceDownlinkCount",
+    "DeviceJoinAcceptCount",
+    "DeviceJoinRequestCount",
+    "DeviceRSSI",
+    "DeviceRoamingDownlinkCount",
+    "DeviceRoamingUplinkCount",
+    "DeviceSNR",
+    "DeviceUplinkCount",
+    "DeviceUplinkLostCount",
+    "DeviceUplinkLostRate",
+    "GatewayDownTime",
+    "GatewayDownlinkCount",
+    "GatewayJoinAcceptCount",
+    "GatewayJoinRequestCount",
+    "GatewayRSSI",
+    "GatewaySNR",
+    "GatewayUpTime",
+    "GatewayUplinkCount",
+]
+MetricQueryStatusType = Literal["Failed", "Succeeded"]
 MulticastFrameInfoType = Literal["DISABLED", "ENABLED"]
 OnboardStatusType = Literal["FAILED", "INITIALIZED", "ONBOARDED", "PENDING"]
 PartnerTypeType = Literal["Sidewalk"]
@@ -114,6 +155,7 @@ PositionSolverProviderType = Literal["Semtech"]
 PositionSolverTypeType = Literal["GNSS"]
 PositioningConfigStatusType = Literal["Disabled", "Enabled"]
 SigningAlgType = Literal["Ed25519", "P256r1"]
+SummaryMetricConfigurationStatusType = Literal["Disabled", "Enabled"]
 SupportedRfRegionType = Literal[
     "AS923-1",
     "AS923-2",

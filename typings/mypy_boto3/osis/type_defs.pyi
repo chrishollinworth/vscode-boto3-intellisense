@@ -11,6 +11,7 @@ Usage::
     data: BufferOptionsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -53,6 +54,7 @@ __all__ = (
     "LogPublishingOptionsTypeDef",
     "PipelineBlueprintSummaryTypeDef",
     "PipelineBlueprintTypeDef",
+    "PipelineDestinationTypeDef",
     "PipelineStatusReasonTypeDef",
     "PipelineSummaryTypeDef",
     "PipelineTypeDef",
@@ -70,6 +72,7 @@ __all__ = (
     "ValidatePipelineRequestRequestTypeDef",
     "ValidatePipelineResponseTypeDef",
     "ValidationMessageTypeDef",
+    "VpcAttachmentOptionsTypeDef",
     "VpcEndpointTypeDef",
     "VpcOptionsTypeDef",
 )
@@ -158,17 +161,31 @@ EncryptionAtRestOptionsTypeDef = TypedDict(
     },
 )
 
-GetPipelineBlueprintRequestRequestTypeDef = TypedDict(
-    "GetPipelineBlueprintRequestRequestTypeDef",
+_RequiredGetPipelineBlueprintRequestRequestTypeDef = TypedDict(
+    "_RequiredGetPipelineBlueprintRequestRequestTypeDef",
     {
         "BlueprintName": str,
     },
 )
+_OptionalGetPipelineBlueprintRequestRequestTypeDef = TypedDict(
+    "_OptionalGetPipelineBlueprintRequestRequestTypeDef",
+    {
+        "Format": str,
+    },
+    total=False,
+)
+
+class GetPipelineBlueprintRequestRequestTypeDef(
+    _RequiredGetPipelineBlueprintRequestRequestTypeDef,
+    _OptionalGetPipelineBlueprintRequestRequestTypeDef,
+):
+    pass
 
 GetPipelineBlueprintResponseTypeDef = TypedDict(
     "GetPipelineBlueprintResponseTypeDef",
     {
         "Blueprint": "PipelineBlueprintTypeDef",
+        "Format": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -257,6 +274,10 @@ PipelineBlueprintSummaryTypeDef = TypedDict(
     "PipelineBlueprintSummaryTypeDef",
     {
         "BlueprintName": str,
+        "DisplayName": str,
+        "DisplayDescription": str,
+        "Service": str,
+        "UseCase": str,
     },
     total=False,
 )
@@ -266,6 +287,19 @@ PipelineBlueprintTypeDef = TypedDict(
     {
         "BlueprintName": str,
         "PipelineConfigurationBody": str,
+        "DisplayName": str,
+        "DisplayDescription": str,
+        "Service": str,
+        "UseCase": str,
+    },
+    total=False,
+)
+
+PipelineDestinationTypeDef = TypedDict(
+    "PipelineDestinationTypeDef",
+    {
+        "ServiceName": str,
+        "Endpoint": str,
     },
     total=False,
 )
@@ -289,6 +323,7 @@ PipelineSummaryTypeDef = TypedDict(
         "MaxUnits": int,
         "CreatedAt": datetime,
         "LastUpdatedAt": datetime,
+        "Destinations": List["PipelineDestinationTypeDef"],
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -312,6 +347,7 @@ PipelineTypeDef = TypedDict(
         "BufferOptions": "BufferOptionsTypeDef",
         "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
         "ServiceVpcEndpoints": List["ServiceVpcEndpointTypeDef"],
+        "Destinations": List["PipelineDestinationTypeDef"],
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -447,6 +483,25 @@ ValidationMessageTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredVpcAttachmentOptionsTypeDef = TypedDict(
+    "_RequiredVpcAttachmentOptionsTypeDef",
+    {
+        "AttachToVpc": bool,
+    },
+)
+_OptionalVpcAttachmentOptionsTypeDef = TypedDict(
+    "_OptionalVpcAttachmentOptionsTypeDef",
+    {
+        "CidrBlock": str,
+    },
+    total=False,
+)
+
+class VpcAttachmentOptionsTypeDef(
+    _RequiredVpcAttachmentOptionsTypeDef, _OptionalVpcAttachmentOptionsTypeDef
+):
+    pass
+
 VpcEndpointTypeDef = TypedDict(
     "VpcEndpointTypeDef",
     {
@@ -467,6 +522,7 @@ _OptionalVpcOptionsTypeDef = TypedDict(
     "_OptionalVpcOptionsTypeDef",
     {
         "SecurityGroupIds": List[str],
+        "VpcAttachmentOptions": "VpcAttachmentOptionsTypeDef",
     },
     total=False,
 )

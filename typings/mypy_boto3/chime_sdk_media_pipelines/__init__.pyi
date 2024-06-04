@@ -16,6 +16,7 @@ Usage::
     session_client: ChimeSDKMediaPipelinesClient = session.client("chime-sdk-media-pipelines")
     ```
 """
+
 from .client import ChimeSDKMediaPipelinesClient
 
 Client = ChimeSDKMediaPipelinesClient

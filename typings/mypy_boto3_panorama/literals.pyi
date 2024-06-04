@@ -11,6 +11,7 @@ Usage::
     data: ApplicationInstanceHealthStatusType = "ERROR"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

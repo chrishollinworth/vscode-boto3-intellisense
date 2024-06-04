@@ -11,6 +11,7 @@ Usage::
     data: BucketInfoTypeDef = {...}
     ```
 """
+
 import sys
 from typing import IO, Any, Dict, List, Union
 

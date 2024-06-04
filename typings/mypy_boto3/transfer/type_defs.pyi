@@ -11,6 +11,7 @@ Usage::
     data: As2ConnectorConfigTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -36,6 +37,8 @@ from .literals import (
     OverwriteExistingType,
     ProfileTypeType,
     ProtocolType,
+    SecurityPolicyProtocolType,
+    SecurityPolicyResourceTypeType,
     SetStatOptionType,
     SftpAuthenticationMethodsType,
     SigningAlgType,
@@ -178,6 +181,8 @@ __all__ = (
     "ServiceMetadataTypeDef",
     "SftpConnectorConfigTypeDef",
     "SshPublicKeyTypeDef",
+    "StartDirectoryListingRequestRequestTypeDef",
+    "StartDirectoryListingResponseTypeDef",
     "StartFileTransferRequestRequestTypeDef",
     "StartFileTransferResponseTypeDef",
     "StartServerRequestRequestTypeDef",
@@ -321,6 +326,7 @@ _OptionalCreateConnectorRequestRequestTypeDef = TypedDict(
         "LoggingRole": str,
         "Tags": List["TagTypeDef"],
         "SftpConfig": "SftpConnectorConfigTypeDef",
+        "SecurityPolicyName": str,
     },
     total=False,
 )
@@ -843,6 +849,8 @@ _OptionalDescribedConnectorTypeDef = TypedDict(
         "LoggingRole": str,
         "Tags": List["TagTypeDef"],
         "SftpConfig": "SftpConnectorConfigTypeDef",
+        "ServiceManagedEgressIpAddresses": List[str],
+        "SecurityPolicyName": str,
     },
     total=False,
 )
@@ -924,6 +932,9 @@ _OptionalDescribedSecurityPolicyTypeDef = TypedDict(
         "SshKexs": List[str],
         "SshMacs": List[str],
         "TlsCiphers": List[str],
+        "SshHostKeyAlgorithms": List[str],
+        "Type": SecurityPolicyResourceTypeType,
+        "Protocols": List[SecurityPolicyProtocolType],
     },
     total=False,
 )
@@ -962,6 +973,7 @@ _OptionalDescribedServerTypeDef = TypedDict(
         "WorkflowDetails": "WorkflowDetailsTypeDef",
         "StructuredLogDestinations": List[str],
         "S3StorageOptions": "S3StorageOptionsTypeDef",
+        "As2ServiceManagedEgressIpAddresses": List[str],
     },
     total=False,
 )
@@ -1763,6 +1775,37 @@ SshPublicKeyTypeDef = TypedDict(
     },
 )
 
+_RequiredStartDirectoryListingRequestRequestTypeDef = TypedDict(
+    "_RequiredStartDirectoryListingRequestRequestTypeDef",
+    {
+        "ConnectorId": str,
+        "RemoteDirectoryPath": str,
+        "OutputDirectoryPath": str,
+    },
+)
+_OptionalStartDirectoryListingRequestRequestTypeDef = TypedDict(
+    "_OptionalStartDirectoryListingRequestRequestTypeDef",
+    {
+        "MaxItems": int,
+    },
+    total=False,
+)
+
+class StartDirectoryListingRequestRequestTypeDef(
+    _RequiredStartDirectoryListingRequestRequestTypeDef,
+    _OptionalStartDirectoryListingRequestRequestTypeDef,
+):
+    pass
+
+StartDirectoryListingResponseTypeDef = TypedDict(
+    "StartDirectoryListingResponseTypeDef",
+    {
+        "ListingId": str,
+        "OutputFileName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredStartFileTransferRequestRequestTypeDef = TypedDict(
     "_RequiredStartFileTransferRequestRequestTypeDef",
     {
@@ -2002,6 +2045,7 @@ _OptionalUpdateConnectorRequestRequestTypeDef = TypedDict(
         "AccessRole": str,
         "LoggingRole": str,
         "SftpConfig": "SftpConnectorConfigTypeDef",
+        "SecurityPolicyName": str,
     },
     total=False,
 )

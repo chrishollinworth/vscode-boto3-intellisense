@@ -23,6 +23,7 @@ Usage::
     list_packaging_groups_paginator: ListPackagingGroupsPaginator = client.get_paginator("list_packaging_groups")
     ```
 """
+
 from .client import MediaPackageVodClient
 from .paginator import (
     ListAssetsPaginator,

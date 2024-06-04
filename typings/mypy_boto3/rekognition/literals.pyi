@@ -11,6 +11,7 @@ Usage::
     data: AttributeType = "AGE_RANGE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

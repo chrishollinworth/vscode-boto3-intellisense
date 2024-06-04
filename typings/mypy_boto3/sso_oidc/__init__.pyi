@@ -16,6 +16,7 @@ Usage::
     session_client: SSOOIDCClient = session.client("sso-oidc")
     ```
 """
+
 from .client import SSOOIDCClient
 
 Client = SSOOIDCClient

@@ -11,6 +11,7 @@ Usage::
     data: AccountRecoverySettingTypeTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -41,6 +42,7 @@ from .literals import (
     IdentityProviderTypeTypeType,
     MessageActionTypeType,
     OAuthFlowTypeType,
+    PreTokenGenerationLambdaVersionTypeType,
     PreventUserExistenceErrorTypesType,
     RecoveryOptionNameTypeType,
     RiskDecisionTypeType,
@@ -230,6 +232,7 @@ __all__ = (
     "NumberAttributeConstraintsTypeTypeDef",
     "PaginatorConfigTypeDef",
     "PasswordPolicyTypeTypeDef",
+    "PreTokenGenerationVersionConfigTypeTypeDef",
     "ProviderDescriptionTypeDef",
     "ProviderUserIdentifierTypeTypeDef",
     "RecoveryOptionTypeTypeDef",
@@ -1965,6 +1968,7 @@ LambdaConfigTypeTypeDef = TypedDict(
         "VerifyAuthChallengeResponse": str,
         "PreTokenGeneration": str,
         "UserMigration": str,
+        "PreTokenGenerationConfig": "PreTokenGenerationVersionConfigTypeTypeDef",
         "CustomSMSSender": "CustomSMSLambdaVersionConfigTypeTypeDef",
         "CustomEmailSender": "CustomEmailLambdaVersionConfigTypeTypeDef",
         "KMSKeyID": str,
@@ -2381,6 +2385,14 @@ PasswordPolicyTypeTypeDef = TypedDict(
         "TemporaryPasswordValidityDays": int,
     },
     total=False,
+)
+
+PreTokenGenerationVersionConfigTypeTypeDef = TypedDict(
+    "PreTokenGenerationVersionConfigTypeTypeDef",
+    {
+        "LambdaVersion": PreTokenGenerationLambdaVersionTypeType,
+        "LambdaArn": str,
+    },
 )
 
 ProviderDescriptionTypeDef = TypedDict(

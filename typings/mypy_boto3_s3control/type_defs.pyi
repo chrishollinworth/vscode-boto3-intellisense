@@ -11,6 +11,7 @@ Usage::
     data: AbortIncompleteMultipartUploadTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -1814,6 +1815,8 @@ LambdaInvokeOperationTypeDef = TypedDict(
     "LambdaInvokeOperationTypeDef",
     {
         "FunctionArn": str,
+        "InvocationSchemaVersion": str,
+        "UserArguments": Dict[str, str],
     },
     total=False,
 )

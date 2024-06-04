@@ -11,6 +11,7 @@ Usage::
     data: AccountLimitTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -66,6 +67,7 @@ __all__ = (
     "CidrRoutingConfigTypeDef",
     "CloudWatchAlarmConfigurationTypeDef",
     "CollectionSummaryTypeDef",
+    "CoordinatesTypeDef",
     "CreateCidrCollectionRequestRequestTypeDef",
     "CreateCidrCollectionResponseTypeDef",
     "CreateHealthCheckRequestRequestTypeDef",
@@ -110,6 +112,7 @@ __all__ = (
     "EnableHostedZoneDNSSECResponseTypeDef",
     "GeoLocationDetailsTypeDef",
     "GeoLocationTypeDef",
+    "GeoProximityLocationTypeDef",
     "GetAccountLimitRequestRequestTypeDef",
     "GetAccountLimitResponseTypeDef",
     "GetChangeRequestRequestTypeDef",
@@ -469,6 +472,14 @@ CollectionSummaryTypeDef = TypedDict(
         "Version": int,
     },
     total=False,
+)
+
+CoordinatesTypeDef = TypedDict(
+    "CoordinatesTypeDef",
+    {
+        "Latitude": str,
+        "Longitude": str,
+    },
 )
 
 CreateCidrCollectionRequestRequestTypeDef = TypedDict(
@@ -914,6 +925,17 @@ GeoLocationTypeDef = TypedDict(
         "ContinentCode": str,
         "CountryCode": str,
         "SubdivisionCode": str,
+    },
+    total=False,
+)
+
+GeoProximityLocationTypeDef = TypedDict(
+    "GeoProximityLocationTypeDef",
+    {
+        "AWSRegion": str,
+        "LocalZoneGroup": str,
+        "Coordinates": "CoordinatesTypeDef",
+        "Bias": int,
     },
     total=False,
 )
@@ -1862,6 +1884,7 @@ _OptionalResourceRecordSetTypeDef = TypedDict(
         "HealthCheckId": str,
         "TrafficPolicyInstanceId": str,
         "CidrRoutingConfig": "CidrRoutingConfigTypeDef",
+        "GeoProximityLocation": "GeoProximityLocationTypeDef",
     },
     total=False,
 )

@@ -16,6 +16,7 @@ Usage::
     session_client: AppConfigDataClient = session.client("appconfigdata")
     ```
 """
+
 from .client import AppConfigDataClient
 
 Client = AppConfigDataClient

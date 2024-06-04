@@ -41,6 +41,7 @@ Usage::
     describe_users_paginator: DescribeUsersPaginator = client.get_paginator("describe_users")
     ```
 """
+
 from .client import MemoryDBClient
 from .paginator import (
     DescribeACLsPaginator,

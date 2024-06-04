@@ -11,6 +11,7 @@ Usage::
     data: CreateSlackChannelConfigurationRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

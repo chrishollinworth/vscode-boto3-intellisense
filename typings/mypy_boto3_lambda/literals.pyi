@@ -11,6 +11,7 @@ Usage::
     data: ApplicationLogLevelType = "DEBUG"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -124,6 +125,7 @@ PublishedVersionActiveWaiterName = Literal["published_version_active"]
 ResponseStreamingInvocationTypeType = Literal["DryRun", "RequestResponse"]
 RuntimeType = Literal[
     "dotnet6",
+    "dotnet8",
     "dotnetcore1.0",
     "dotnetcore2.0",
     "dotnetcore2.1",
@@ -159,6 +161,7 @@ RuntimeType = Literal[
     "ruby2.5",
     "ruby2.7",
     "ruby3.2",
+    "ruby3.3",
 ]
 SnapStartApplyOnType = Literal["None", "PublishedVersions"]
 SnapStartOptimizationStatusType = Literal["Off", "On"]

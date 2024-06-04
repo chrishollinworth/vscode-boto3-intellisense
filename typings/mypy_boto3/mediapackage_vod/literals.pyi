@@ -11,6 +11,7 @@ Usage::
     data: AdMarkersType = "NONE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

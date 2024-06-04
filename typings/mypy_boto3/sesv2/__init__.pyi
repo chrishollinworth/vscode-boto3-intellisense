@@ -16,6 +16,7 @@ Usage::
     session_client: SESV2Client = session.client("sesv2")
     ```
 """
+
 from .client import SESV2Client
 
 Client = SESV2Client

@@ -21,7 +21,10 @@ Usage::
         ListRecoveryPointsByBackupVaultPaginator,
         ListRecoveryPointsByLegalHoldPaginator,
         ListRecoveryPointsByResourcePaginator,
+        ListRestoreJobsByProtectedResourcePaginator,
         ListRestoreJobsPaginator,
+        ListRestoreTestingPlansPaginator,
+        ListRestoreTestingSelectionsPaginator,
     )
 
     session = boto3.Session()
@@ -43,8 +46,12 @@ Usage::
     list_recovery_points_by_legal_hold_paginator: ListRecoveryPointsByLegalHoldPaginator = client.get_paginator("list_recovery_points_by_legal_hold")
     list_recovery_points_by_resource_paginator: ListRecoveryPointsByResourcePaginator = client.get_paginator("list_recovery_points_by_resource")
     list_restore_jobs_paginator: ListRestoreJobsPaginator = client.get_paginator("list_restore_jobs")
+    list_restore_jobs_by_protected_resource_paginator: ListRestoreJobsByProtectedResourcePaginator = client.get_paginator("list_restore_jobs_by_protected_resource")
+    list_restore_testing_plans_paginator: ListRestoreTestingPlansPaginator = client.get_paginator("list_restore_testing_plans")
+    list_restore_testing_selections_paginator: ListRestoreTestingSelectionsPaginator = client.get_paginator("list_restore_testing_selections")
     ```
 """
+
 from .client import BackupClient
 from .paginator import (
     ListBackupJobsPaginator,
@@ -60,7 +67,10 @@ from .paginator import (
     ListRecoveryPointsByBackupVaultPaginator,
     ListRecoveryPointsByLegalHoldPaginator,
     ListRecoveryPointsByResourcePaginator,
+    ListRestoreJobsByProtectedResourcePaginator,
     ListRestoreJobsPaginator,
+    ListRestoreTestingPlansPaginator,
+    ListRestoreTestingSelectionsPaginator,
 )
 
 Client = BackupClient
@@ -81,5 +91,8 @@ __all__ = (
     "ListRecoveryPointsByBackupVaultPaginator",
     "ListRecoveryPointsByLegalHoldPaginator",
     "ListRecoveryPointsByResourcePaginator",
+    "ListRestoreJobsByProtectedResourcePaginator",
     "ListRestoreJobsPaginator",
+    "ListRestoreTestingPlansPaginator",
+    "ListRestoreTestingSelectionsPaginator",
 )

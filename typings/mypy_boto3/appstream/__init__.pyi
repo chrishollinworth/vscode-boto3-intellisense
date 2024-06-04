@@ -42,6 +42,7 @@ Usage::
     list_associated_stacks_paginator: ListAssociatedStacksPaginator = client.get_paginator("list_associated_stacks")
     ```
 """
+
 from .client import AppStreamClient
 from .paginator import (
     DescribeDirectoryConfigsPaginator,

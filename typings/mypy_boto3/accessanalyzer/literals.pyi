@@ -11,6 +11,7 @@ Usage::
     data: AccessCheckPolicyTypeType = "IDENTITY_POLICY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -116,6 +117,8 @@ ReasonCodeType = Literal[
     "SERVICE_LINKED_ROLE_CREATION_FAILED",
 ]
 ResourceTypeType = Literal[
+    "AWS::DynamoDB::Stream",
+    "AWS::DynamoDB::Table",
     "AWS::EC2::Snapshot",
     "AWS::ECR::Repository",
     "AWS::EFS::FileSystem",
@@ -126,6 +129,7 @@ ResourceTypeType = Literal[
     "AWS::RDS::DBClusterSnapshot",
     "AWS::RDS::DBSnapshot",
     "AWS::S3::Bucket",
+    "AWS::S3Express::DirectoryBucket",
     "AWS::SNS::Topic",
     "AWS::SQS::Queue",
     "AWS::SecretsManager::Secret",
@@ -134,6 +138,7 @@ TypeType = Literal["ACCOUNT", "ACCOUNT_UNUSED_ACCESS", "ORGANIZATION", "ORGANIZA
 ValidatePolicyFindingTypeType = Literal["ERROR", "SECURITY_WARNING", "SUGGESTION", "WARNING"]
 ValidatePolicyPaginatorName = Literal["validate_policy"]
 ValidatePolicyResourceTypeType = Literal[
+    "AWS::DynamoDB::Table",
     "AWS::IAM::AssumeRolePolicyDocument",
     "AWS::S3::AccessPoint",
     "AWS::S3::Bucket",

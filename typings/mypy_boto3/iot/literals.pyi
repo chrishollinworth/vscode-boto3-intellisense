@@ -11,6 +11,7 @@ Usage::
     data: AbortActionType = "CANCEL"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -41,6 +42,7 @@ __all__ = (
     "CACertificateUpdateActionType",
     "CannedAccessControlListType",
     "CertificateModeType",
+    "CertificateProviderOperationType",
     "CertificateStatusType",
     "ComparisonOperatorType",
     "ConfidenceLevelType",
@@ -191,6 +193,7 @@ CannedAccessControlListType = Literal[
     "public-read-write",
 ]
 CertificateModeType = Literal["DEFAULT", "SNI_ONLY"]
+CertificateProviderOperationType = Literal["CreateCertificateFromCsr"]
 CertificateStatusType = Literal[
     "ACTIVE", "INACTIVE", "PENDING_ACTIVATION", "PENDING_TRANSFER", "REGISTER_INACTIVE", "REVOKED"
 ]
@@ -337,15 +340,7 @@ ListTopicRulesPaginatorName = Literal["list_topic_rules"]
 ListV2LoggingLevelsPaginatorName = Literal["list_v2_logging_levels"]
 ListViolationEventsPaginatorName = Literal["list_violation_events"]
 LogLevelType = Literal["DEBUG", "DISABLED", "ERROR", "INFO", "WARN"]
-LogTargetTypeType = Literal[
-    "CLIENT_ID",
-    "DEFAULT",
-    "DEVICE_DEFENDER",
-    "EVENT_TYPE",
-    "PRINCIPAL_ID",
-    "SOURCE_IP",
-    "THING_GROUP",
-]
+LogTargetTypeType = Literal["CLIENT_ID", "DEFAULT", "PRINCIPAL_ID", "SOURCE_IP", "THING_GROUP"]
 MessageFormatType = Literal["JSON", "RAW"]
 MitigationActionTypeType = Literal[
     "ADD_THINGS_TO_THING_GROUP",

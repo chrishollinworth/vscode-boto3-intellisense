@@ -11,9 +11,12 @@ Usage::
     data: AccountAggregationResponseTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AccountSortByType,
@@ -23,13 +26,32 @@ from .literals import (
     AmiSortByType,
     ArchitectureType,
     AwsEcrContainerSortByType,
+    CisFindingStatusType,
+    CisReportFormatType,
+    CisReportStatusType,
+    CisResultStatusType,
+    CisRuleStatusType,
+    CisScanConfigurationsSortByType,
+    CisScanResultDetailsSortByType,
+    CisScanResultsAggregatedByChecksSortByType,
+    CisScanResultsAggregatedByTargetResourceSortByType,
+    CisScanStatusType,
+    CisSecurityLevelType,
+    CisSortOrderType,
+    CisStringComparisonType,
+    CisTargetStatusReasonType,
+    CisTargetStatusType,
     CodeSnippetErrorCodeType,
     CoverageResourceTypeType,
     CoverageStringComparisonType,
+    DayType,
     DelegatedAdminStatusType,
     Ec2DeepInspectionStatusType,
     Ec2InstanceSortByType,
     Ec2PlatformType,
+    Ec2ScanModeStatusType,
+    Ec2ScanModeType,
+    EcrPullDateRescanDurationType,
     EcrRescanDurationStatusType,
     EcrRescanDurationType,
     EcrScanFrequencyType,
@@ -49,6 +71,8 @@ from .literals import (
     ImageLayerSortByType,
     LambdaFunctionSortByType,
     LambdaLayerSortByType,
+    ListCisScansDetailLevelType,
+    ListCisScansSortByType,
     NetworkProtocolType,
     OperationType,
     PackageManagerType,
@@ -63,6 +87,7 @@ from .literals import (
     ResourceTypeType,
     RuntimeType,
     SbomReportFormatType,
+    ScanModeType,
     ScanStatusCodeType,
     ScanStatusReasonType,
     ScanTypeType,
@@ -71,6 +96,7 @@ from .literals import (
     SortFieldType,
     SortOrderType,
     StatusType,
+    StopCisSessionStatusType,
     StringComparisonType,
     TitleSortByType,
     UsageTypeType,
@@ -119,18 +145,41 @@ __all__ = (
     "CancelFindingsReportResponseTypeDef",
     "CancelSbomExportRequestRequestTypeDef",
     "CancelSbomExportResponseTypeDef",
+    "CisCheckAggregationTypeDef",
+    "CisDateFilterTypeDef",
+    "CisFindingStatusFilterTypeDef",
+    "CisNumberFilterTypeDef",
+    "CisResultStatusFilterTypeDef",
+    "CisScanConfigurationTypeDef",
+    "CisScanResultDetailsFilterCriteriaTypeDef",
+    "CisScanResultDetailsTypeDef",
+    "CisScanResultsAggregatedByChecksFilterCriteriaTypeDef",
+    "CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef",
+    "CisScanStatusFilterTypeDef",
+    "CisScanTypeDef",
+    "CisSecurityLevelFilterTypeDef",
+    "CisSessionMessageTypeDef",
+    "CisStringFilterTypeDef",
+    "CisTargetResourceAggregationTypeDef",
+    "CisTargetStatusFilterTypeDef",
+    "CisTargetStatusReasonFilterTypeDef",
+    "CisTargetsTypeDef",
     "CisaDataTypeDef",
     "CodeFilePathTypeDef",
     "CodeLineTypeDef",
     "CodeSnippetErrorTypeDef",
     "CodeSnippetResultTypeDef",
     "CodeVulnerabilityDetailsTypeDef",
+    "ComputePlatformTypeDef",
     "CountsTypeDef",
     "CoverageDateFilterTypeDef",
     "CoverageFilterCriteriaTypeDef",
     "CoverageMapFilterTypeDef",
     "CoverageStringFilterTypeDef",
     "CoveredResourceTypeDef",
+    "CreateCisScanConfigurationRequestRequestTypeDef",
+    "CreateCisScanConfigurationResponseTypeDef",
+    "CreateCisTargetsTypeDef",
     "CreateFilterRequestRequestTypeDef",
     "CreateFilterResponseTypeDef",
     "CreateFindingsReportRequestRequestTypeDef",
@@ -142,9 +191,12 @@ __all__ = (
     "CvssScoreAdjustmentTypeDef",
     "CvssScoreDetailsTypeDef",
     "CvssScoreTypeDef",
+    "DailyScheduleTypeDef",
     "DateFilterTypeDef",
     "DelegatedAdminAccountTypeDef",
     "DelegatedAdminTypeDef",
+    "DeleteCisScanConfigurationRequestRequestTypeDef",
+    "DeleteCisScanConfigurationResponseTypeDef",
     "DeleteFilterRequestRequestTypeDef",
     "DeleteFilterResponseTypeDef",
     "DescribeOrganizationConfigurationResponseTypeDef",
@@ -155,9 +207,12 @@ __all__ = (
     "DisableResponseTypeDef",
     "DisassociateMemberRequestRequestTypeDef",
     "DisassociateMemberResponseTypeDef",
+    "Ec2ConfigurationStateTypeDef",
+    "Ec2ConfigurationTypeDef",
     "Ec2InstanceAggregationResponseTypeDef",
     "Ec2InstanceAggregationTypeDef",
     "Ec2MetadataTypeDef",
+    "Ec2ScanModeStateTypeDef",
     "EcrConfigurationStateTypeDef",
     "EcrConfigurationTypeDef",
     "EcrContainerImageMetadataTypeDef",
@@ -184,6 +239,10 @@ __all__ = (
     "FreeTrialAccountInfoTypeDef",
     "FreeTrialInfoErrorTypeDef",
     "FreeTrialInfoTypeDef",
+    "GetCisScanReportRequestRequestTypeDef",
+    "GetCisScanReportResponseTypeDef",
+    "GetCisScanResultDetailsRequestRequestTypeDef",
+    "GetCisScanResultDetailsResponseTypeDef",
     "GetConfigurationResponseTypeDef",
     "GetDelegatedAdminAccountResponseTypeDef",
     "GetEc2DeepInspectionConfigurationResponseTypeDef",
@@ -206,6 +265,16 @@ __all__ = (
     "LambdaVpcConfigTypeDef",
     "ListAccountPermissionsRequestRequestTypeDef",
     "ListAccountPermissionsResponseTypeDef",
+    "ListCisScanConfigurationsFilterCriteriaTypeDef",
+    "ListCisScanConfigurationsRequestRequestTypeDef",
+    "ListCisScanConfigurationsResponseTypeDef",
+    "ListCisScanResultsAggregatedByChecksRequestRequestTypeDef",
+    "ListCisScanResultsAggregatedByChecksResponseTypeDef",
+    "ListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef",
+    "ListCisScanResultsAggregatedByTargetResourceResponseTypeDef",
+    "ListCisScansFilterCriteriaTypeDef",
+    "ListCisScansRequestRequestTypeDef",
+    "ListCisScansResponseTypeDef",
     "ListCoverageRequestRequestTypeDef",
     "ListCoverageResponseTypeDef",
     "ListCoverageStatisticsRequestRequestTypeDef",
@@ -228,6 +297,7 @@ __all__ = (
     "MemberAccountEc2DeepInspectionStatusStateTypeDef",
     "MemberAccountEc2DeepInspectionStatusTypeDef",
     "MemberTypeDef",
+    "MonthlyScheduleTypeDef",
     "NetworkPathTypeDef",
     "NetworkReachabilityDetailsTypeDef",
     "NumberFilterTypeDef",
@@ -254,19 +324,33 @@ __all__ = (
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "ScanStatusTypeDef",
+    "ScheduleTypeDef",
     "SearchVulnerabilitiesFilterCriteriaTypeDef",
     "SearchVulnerabilitiesRequestRequestTypeDef",
     "SearchVulnerabilitiesResponseTypeDef",
+    "SendCisSessionHealthRequestRequestTypeDef",
+    "SendCisSessionTelemetryRequestRequestTypeDef",
     "SeverityCountsTypeDef",
     "SortCriteriaTypeDef",
+    "StartCisSessionMessageTypeDef",
+    "StartCisSessionRequestRequestTypeDef",
     "StateTypeDef",
+    "StatusCountsTypeDef",
     "StepTypeDef",
+    "StopCisMessageProgressTypeDef",
+    "StopCisSessionMessageTypeDef",
+    "StopCisSessionRequestRequestTypeDef",
     "StringFilterTypeDef",
     "SuggestedFixTypeDef",
+    "TagFilterTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TimeTypeDef",
     "TitleAggregationResponseTypeDef",
     "TitleAggregationTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateCisScanConfigurationRequestRequestTypeDef",
+    "UpdateCisScanConfigurationResponseTypeDef",
+    "UpdateCisTargetsTypeDef",
     "UpdateConfigurationRequestRequestTypeDef",
     "UpdateEc2DeepInspectionConfigurationRequestRequestTypeDef",
     "UpdateEc2DeepInspectionConfigurationResponseTypeDef",
@@ -280,6 +364,7 @@ __all__ = (
     "UsageTypeDef",
     "VulnerabilityTypeDef",
     "VulnerablePackageTypeDef",
+    "WeeklyScheduleTypeDef",
 )
 
 AccountAggregationResponseTypeDef = TypedDict(
@@ -668,6 +753,267 @@ CancelSbomExportResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCisCheckAggregationTypeDef = TypedDict(
+    "_RequiredCisCheckAggregationTypeDef",
+    {
+        "scanArn": str,
+    },
+)
+_OptionalCisCheckAggregationTypeDef = TypedDict(
+    "_OptionalCisCheckAggregationTypeDef",
+    {
+        "accountId": str,
+        "checkDescription": str,
+        "checkId": str,
+        "level": CisSecurityLevelType,
+        "platform": str,
+        "statusCounts": "StatusCountsTypeDef",
+        "title": str,
+    },
+    total=False,
+)
+
+class CisCheckAggregationTypeDef(
+    _RequiredCisCheckAggregationTypeDef, _OptionalCisCheckAggregationTypeDef
+):
+    pass
+
+CisDateFilterTypeDef = TypedDict(
+    "CisDateFilterTypeDef",
+    {
+        "earliestScanStartTime": Union[datetime, str],
+        "latestScanStartTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+CisFindingStatusFilterTypeDef = TypedDict(
+    "CisFindingStatusFilterTypeDef",
+    {
+        "comparison": Literal["EQUALS"],
+        "value": CisFindingStatusType,
+    },
+)
+
+CisNumberFilterTypeDef = TypedDict(
+    "CisNumberFilterTypeDef",
+    {
+        "lowerInclusive": int,
+        "upperInclusive": int,
+    },
+    total=False,
+)
+
+CisResultStatusFilterTypeDef = TypedDict(
+    "CisResultStatusFilterTypeDef",
+    {
+        "comparison": Literal["EQUALS"],
+        "value": CisResultStatusType,
+    },
+)
+
+_RequiredCisScanConfigurationTypeDef = TypedDict(
+    "_RequiredCisScanConfigurationTypeDef",
+    {
+        "scanConfigurationArn": str,
+    },
+)
+_OptionalCisScanConfigurationTypeDef = TypedDict(
+    "_OptionalCisScanConfigurationTypeDef",
+    {
+        "ownerId": str,
+        "scanName": str,
+        "schedule": "ScheduleTypeDef",
+        "securityLevel": CisSecurityLevelType,
+        "tags": Dict[str, str],
+        "targets": "CisTargetsTypeDef",
+    },
+    total=False,
+)
+
+class CisScanConfigurationTypeDef(
+    _RequiredCisScanConfigurationTypeDef, _OptionalCisScanConfigurationTypeDef
+):
+    pass
+
+CisScanResultDetailsFilterCriteriaTypeDef = TypedDict(
+    "CisScanResultDetailsFilterCriteriaTypeDef",
+    {
+        "checkIdFilters": List["CisStringFilterTypeDef"],
+        "findingArnFilters": List["CisStringFilterTypeDef"],
+        "findingStatusFilters": List["CisFindingStatusFilterTypeDef"],
+        "securityLevelFilters": List["CisSecurityLevelFilterTypeDef"],
+        "titleFilters": List["CisStringFilterTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredCisScanResultDetailsTypeDef = TypedDict(
+    "_RequiredCisScanResultDetailsTypeDef",
+    {
+        "scanArn": str,
+    },
+)
+_OptionalCisScanResultDetailsTypeDef = TypedDict(
+    "_OptionalCisScanResultDetailsTypeDef",
+    {
+        "accountId": str,
+        "checkDescription": str,
+        "checkId": str,
+        "findingArn": str,
+        "level": CisSecurityLevelType,
+        "platform": str,
+        "remediation": str,
+        "status": CisFindingStatusType,
+        "statusReason": str,
+        "targetResourceId": str,
+        "title": str,
+    },
+    total=False,
+)
+
+class CisScanResultDetailsTypeDef(
+    _RequiredCisScanResultDetailsTypeDef, _OptionalCisScanResultDetailsTypeDef
+):
+    pass
+
+CisScanResultsAggregatedByChecksFilterCriteriaTypeDef = TypedDict(
+    "CisScanResultsAggregatedByChecksFilterCriteriaTypeDef",
+    {
+        "accountIdFilters": List["CisStringFilterTypeDef"],
+        "checkIdFilters": List["CisStringFilterTypeDef"],
+        "failedResourcesFilters": List["CisNumberFilterTypeDef"],
+        "platformFilters": List["CisStringFilterTypeDef"],
+        "securityLevelFilters": List["CisSecurityLevelFilterTypeDef"],
+        "titleFilters": List["CisStringFilterTypeDef"],
+    },
+    total=False,
+)
+
+CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef = TypedDict(
+    "CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef",
+    {
+        "accountIdFilters": List["CisStringFilterTypeDef"],
+        "checkIdFilters": List["CisStringFilterTypeDef"],
+        "failedChecksFilters": List["CisNumberFilterTypeDef"],
+        "platformFilters": List["CisStringFilterTypeDef"],
+        "statusFilters": List["CisResultStatusFilterTypeDef"],
+        "targetResourceIdFilters": List["CisStringFilterTypeDef"],
+        "targetResourceTagFilters": List["TagFilterTypeDef"],
+        "targetStatusFilters": List["CisTargetStatusFilterTypeDef"],
+        "targetStatusReasonFilters": List["CisTargetStatusReasonFilterTypeDef"],
+    },
+    total=False,
+)
+
+CisScanStatusFilterTypeDef = TypedDict(
+    "CisScanStatusFilterTypeDef",
+    {
+        "comparison": Literal["EQUALS"],
+        "value": CisScanStatusType,
+    },
+)
+
+_RequiredCisScanTypeDef = TypedDict(
+    "_RequiredCisScanTypeDef",
+    {
+        "scanArn": str,
+        "scanConfigurationArn": str,
+    },
+)
+_OptionalCisScanTypeDef = TypedDict(
+    "_OptionalCisScanTypeDef",
+    {
+        "failedChecks": int,
+        "scanDate": datetime,
+        "scanName": str,
+        "scheduledBy": str,
+        "securityLevel": CisSecurityLevelType,
+        "status": CisScanStatusType,
+        "targets": "CisTargetsTypeDef",
+        "totalChecks": int,
+    },
+    total=False,
+)
+
+class CisScanTypeDef(_RequiredCisScanTypeDef, _OptionalCisScanTypeDef):
+    pass
+
+CisSecurityLevelFilterTypeDef = TypedDict(
+    "CisSecurityLevelFilterTypeDef",
+    {
+        "comparison": Literal["EQUALS"],
+        "value": CisSecurityLevelType,
+    },
+)
+
+CisSessionMessageTypeDef = TypedDict(
+    "CisSessionMessageTypeDef",
+    {
+        "cisRuleDetails": Union[bytes, IO[bytes], StreamingBody],
+        "ruleId": str,
+        "status": CisRuleStatusType,
+    },
+)
+
+CisStringFilterTypeDef = TypedDict(
+    "CisStringFilterTypeDef",
+    {
+        "comparison": CisStringComparisonType,
+        "value": str,
+    },
+)
+
+_RequiredCisTargetResourceAggregationTypeDef = TypedDict(
+    "_RequiredCisTargetResourceAggregationTypeDef",
+    {
+        "scanArn": str,
+    },
+)
+_OptionalCisTargetResourceAggregationTypeDef = TypedDict(
+    "_OptionalCisTargetResourceAggregationTypeDef",
+    {
+        "accountId": str,
+        "platform": str,
+        "statusCounts": "StatusCountsTypeDef",
+        "targetResourceId": str,
+        "targetResourceTags": Dict[str, List[str]],
+        "targetStatus": CisTargetStatusType,
+        "targetStatusReason": CisTargetStatusReasonType,
+    },
+    total=False,
+)
+
+class CisTargetResourceAggregationTypeDef(
+    _RequiredCisTargetResourceAggregationTypeDef, _OptionalCisTargetResourceAggregationTypeDef
+):
+    pass
+
+CisTargetStatusFilterTypeDef = TypedDict(
+    "CisTargetStatusFilterTypeDef",
+    {
+        "comparison": Literal["EQUALS"],
+        "value": CisTargetStatusType,
+    },
+)
+
+CisTargetStatusReasonFilterTypeDef = TypedDict(
+    "CisTargetStatusReasonFilterTypeDef",
+    {
+        "comparison": Literal["EQUALS"],
+        "value": CisTargetStatusReasonType,
+    },
+)
+
+CisTargetsTypeDef = TypedDict(
+    "CisTargetsTypeDef",
+    {
+        "accountIds": List[str],
+        "targetResourceTags": Dict[str, List[str]],
+    },
+    total=False,
+)
+
 CisaDataTypeDef = TypedDict(
     "CisaDataTypeDef",
     {
@@ -742,6 +1088,16 @@ class CodeVulnerabilityDetailsTypeDef(
 ):
     pass
 
+ComputePlatformTypeDef = TypedDict(
+    "ComputePlatformTypeDef",
+    {
+        "product": str,
+        "vendor": str,
+        "version": str,
+    },
+    total=False,
+)
+
 CountsTypeDef = TypedDict(
     "CountsTypeDef",
     {
@@ -767,12 +1123,14 @@ CoverageFilterCriteriaTypeDef = TypedDict(
         "ec2InstanceTags": List["CoverageMapFilterTypeDef"],
         "ecrImageTags": List["CoverageStringFilterTypeDef"],
         "ecrRepositoryName": List["CoverageStringFilterTypeDef"],
+        "imagePulledAt": List["CoverageDateFilterTypeDef"],
         "lambdaFunctionName": List["CoverageStringFilterTypeDef"],
         "lambdaFunctionRuntime": List["CoverageStringFilterTypeDef"],
         "lambdaFunctionTags": List["CoverageMapFilterTypeDef"],
         "lastScannedAt": List["CoverageDateFilterTypeDef"],
         "resourceId": List["CoverageStringFilterTypeDef"],
         "resourceType": List["CoverageStringFilterTypeDef"],
+        "scanMode": List["CoverageStringFilterTypeDef"],
         "scanStatusCode": List["CoverageStringFilterTypeDef"],
         "scanStatusReason": List["CoverageStringFilterTypeDef"],
         "scanType": List["CoverageStringFilterTypeDef"],
@@ -822,6 +1180,7 @@ _OptionalCoveredResourceTypeDef = TypedDict(
     {
         "lastScannedAt": datetime,
         "resourceMetadata": "ResourceScanMetadataTypeDef",
+        "scanMode": ScanModeType,
         "scanStatus": "ScanStatusTypeDef",
     },
     total=False,
@@ -829,6 +1188,45 @@ _OptionalCoveredResourceTypeDef = TypedDict(
 
 class CoveredResourceTypeDef(_RequiredCoveredResourceTypeDef, _OptionalCoveredResourceTypeDef):
     pass
+
+_RequiredCreateCisScanConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCisScanConfigurationRequestRequestTypeDef",
+    {
+        "scanName": str,
+        "schedule": "ScheduleTypeDef",
+        "securityLevel": CisSecurityLevelType,
+        "targets": "CreateCisTargetsTypeDef",
+    },
+)
+_OptionalCreateCisScanConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCisScanConfigurationRequestRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateCisScanConfigurationRequestRequestTypeDef(
+    _RequiredCreateCisScanConfigurationRequestRequestTypeDef,
+    _OptionalCreateCisScanConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateCisScanConfigurationResponseTypeDef = TypedDict(
+    "CreateCisScanConfigurationResponseTypeDef",
+    {
+        "scanConfigurationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateCisTargetsTypeDef = TypedDict(
+    "CreateCisTargetsTypeDef",
+    {
+        "accountIds": List[str],
+        "targetResourceTags": Dict[str, List[str]],
+    },
+)
 
 _RequiredCreateFilterRequestRequestTypeDef = TypedDict(
     "_RequiredCreateFilterRequestRequestTypeDef",
@@ -975,6 +1373,13 @@ CvssScoreTypeDef = TypedDict(
     },
 )
 
+DailyScheduleTypeDef = TypedDict(
+    "DailyScheduleTypeDef",
+    {
+        "startTime": "TimeTypeDef",
+    },
+)
+
 DateFilterTypeDef = TypedDict(
     "DateFilterTypeDef",
     {
@@ -1000,6 +1405,21 @@ DelegatedAdminTypeDef = TypedDict(
         "relationshipStatus": RelationshipStatusType,
     },
     total=False,
+)
+
+DeleteCisScanConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteCisScanConfigurationRequestRequestTypeDef",
+    {
+        "scanConfigurationArn": str,
+    },
+)
+
+DeleteCisScanConfigurationResponseTypeDef = TypedDict(
+    "DeleteCisScanConfigurationResponseTypeDef",
+    {
+        "scanConfigurationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DeleteFilterRequestRequestTypeDef = TypedDict(
@@ -1092,6 +1512,21 @@ DisassociateMemberResponseTypeDef = TypedDict(
     },
 )
 
+Ec2ConfigurationStateTypeDef = TypedDict(
+    "Ec2ConfigurationStateTypeDef",
+    {
+        "scanModeState": "Ec2ScanModeStateTypeDef",
+    },
+    total=False,
+)
+
+Ec2ConfigurationTypeDef = TypedDict(
+    "Ec2ConfigurationTypeDef",
+    {
+        "scanMode": Ec2ScanModeType,
+    },
+)
+
 _RequiredEc2InstanceAggregationResponseTypeDef = TypedDict(
     "_RequiredEc2InstanceAggregationResponseTypeDef",
     {
@@ -1139,6 +1574,15 @@ Ec2MetadataTypeDef = TypedDict(
     total=False,
 )
 
+Ec2ScanModeStateTypeDef = TypedDict(
+    "Ec2ScanModeStateTypeDef",
+    {
+        "scanMode": Ec2ScanModeType,
+        "scanModeStatus": Ec2ScanModeStatusType,
+    },
+    total=False,
+)
+
 EcrConfigurationStateTypeDef = TypedDict(
     "EcrConfigurationStateTypeDef",
     {
@@ -1147,16 +1591,27 @@ EcrConfigurationStateTypeDef = TypedDict(
     total=False,
 )
 
-EcrConfigurationTypeDef = TypedDict(
-    "EcrConfigurationTypeDef",
+_RequiredEcrConfigurationTypeDef = TypedDict(
+    "_RequiredEcrConfigurationTypeDef",
     {
         "rescanDuration": EcrRescanDurationType,
     },
 )
+_OptionalEcrConfigurationTypeDef = TypedDict(
+    "_OptionalEcrConfigurationTypeDef",
+    {
+        "pullDateRescanDuration": EcrPullDateRescanDurationType,
+    },
+    total=False,
+)
+
+class EcrConfigurationTypeDef(_RequiredEcrConfigurationTypeDef, _OptionalEcrConfigurationTypeDef):
+    pass
 
 EcrContainerImageMetadataTypeDef = TypedDict(
     "EcrContainerImageMetadataTypeDef",
     {
+        "imagePulledAt": datetime,
         "tags": List[str],
     },
     total=False,
@@ -1174,6 +1629,7 @@ EcrRepositoryMetadataTypeDef = TypedDict(
 EcrRescanDurationStateTypeDef = TypedDict(
     "EcrRescanDurationStateTypeDef",
     {
+        "pullDateRescanDuration": EcrPullDateRescanDurationType,
         "rescanDuration": EcrRescanDurationType,
         "status": EcrRescanDurationStatusType,
         "updatedAt": datetime,
@@ -1505,9 +1961,74 @@ FreeTrialInfoTypeDef = TypedDict(
     },
 )
 
+_RequiredGetCisScanReportRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCisScanReportRequestRequestTypeDef",
+    {
+        "scanArn": str,
+    },
+)
+_OptionalGetCisScanReportRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCisScanReportRequestRequestTypeDef",
+    {
+        "reportFormat": CisReportFormatType,
+        "targetAccounts": List[str],
+    },
+    total=False,
+)
+
+class GetCisScanReportRequestRequestTypeDef(
+    _RequiredGetCisScanReportRequestRequestTypeDef, _OptionalGetCisScanReportRequestRequestTypeDef
+):
+    pass
+
+GetCisScanReportResponseTypeDef = TypedDict(
+    "GetCisScanReportResponseTypeDef",
+    {
+        "status": CisReportStatusType,
+        "url": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCisScanResultDetailsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCisScanResultDetailsRequestRequestTypeDef",
+    {
+        "accountId": str,
+        "scanArn": str,
+        "targetResourceId": str,
+    },
+)
+_OptionalGetCisScanResultDetailsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCisScanResultDetailsRequestRequestTypeDef",
+    {
+        "filterCriteria": "CisScanResultDetailsFilterCriteriaTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+        "sortBy": CisScanResultDetailsSortByType,
+        "sortOrder": CisSortOrderType,
+    },
+    total=False,
+)
+
+class GetCisScanResultDetailsRequestRequestTypeDef(
+    _RequiredGetCisScanResultDetailsRequestRequestTypeDef,
+    _OptionalGetCisScanResultDetailsRequestRequestTypeDef,
+):
+    pass
+
+GetCisScanResultDetailsResponseTypeDef = TypedDict(
+    "GetCisScanResultDetailsResponseTypeDef",
+    {
+        "nextToken": str,
+        "scanResultDetails": List["CisScanResultDetailsTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetConfigurationResponseTypeDef = TypedDict(
     "GetConfigurationResponseTypeDef",
     {
+        "ec2Configuration": "Ec2ConfigurationStateTypeDef",
         "ecrConfiguration": "EcrConfigurationStateTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1759,6 +2280,142 @@ ListAccountPermissionsResponseTypeDef = TypedDict(
     },
 )
 
+ListCisScanConfigurationsFilterCriteriaTypeDef = TypedDict(
+    "ListCisScanConfigurationsFilterCriteriaTypeDef",
+    {
+        "scanConfigurationArnFilters": List["CisStringFilterTypeDef"],
+        "scanNameFilters": List["CisStringFilterTypeDef"],
+        "targetResourceTagFilters": List["TagFilterTypeDef"],
+    },
+    total=False,
+)
+
+ListCisScanConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListCisScanConfigurationsRequestRequestTypeDef",
+    {
+        "filterCriteria": "ListCisScanConfigurationsFilterCriteriaTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+        "sortBy": CisScanConfigurationsSortByType,
+        "sortOrder": CisSortOrderType,
+    },
+    total=False,
+)
+
+ListCisScanConfigurationsResponseTypeDef = TypedDict(
+    "ListCisScanConfigurationsResponseTypeDef",
+    {
+        "nextToken": str,
+        "scanConfigurations": List["CisScanConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCisScanResultsAggregatedByChecksRequestRequestTypeDef = TypedDict(
+    "_RequiredListCisScanResultsAggregatedByChecksRequestRequestTypeDef",
+    {
+        "scanArn": str,
+    },
+)
+_OptionalListCisScanResultsAggregatedByChecksRequestRequestTypeDef = TypedDict(
+    "_OptionalListCisScanResultsAggregatedByChecksRequestRequestTypeDef",
+    {
+        "filterCriteria": "CisScanResultsAggregatedByChecksFilterCriteriaTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+        "sortBy": CisScanResultsAggregatedByChecksSortByType,
+        "sortOrder": CisSortOrderType,
+    },
+    total=False,
+)
+
+class ListCisScanResultsAggregatedByChecksRequestRequestTypeDef(
+    _RequiredListCisScanResultsAggregatedByChecksRequestRequestTypeDef,
+    _OptionalListCisScanResultsAggregatedByChecksRequestRequestTypeDef,
+):
+    pass
+
+ListCisScanResultsAggregatedByChecksResponseTypeDef = TypedDict(
+    "ListCisScanResultsAggregatedByChecksResponseTypeDef",
+    {
+        "checkAggregations": List["CisCheckAggregationTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef",
+    {
+        "scanArn": str,
+    },
+)
+_OptionalListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef",
+    {
+        "filterCriteria": "CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+        "sortBy": CisScanResultsAggregatedByTargetResourceSortByType,
+        "sortOrder": CisSortOrderType,
+    },
+    total=False,
+)
+
+class ListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef(
+    _RequiredListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef,
+    _OptionalListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef,
+):
+    pass
+
+ListCisScanResultsAggregatedByTargetResourceResponseTypeDef = TypedDict(
+    "ListCisScanResultsAggregatedByTargetResourceResponseTypeDef",
+    {
+        "nextToken": str,
+        "targetResourceAggregations": List["CisTargetResourceAggregationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListCisScansFilterCriteriaTypeDef = TypedDict(
+    "ListCisScansFilterCriteriaTypeDef",
+    {
+        "failedChecksFilters": List["CisNumberFilterTypeDef"],
+        "scanArnFilters": List["CisStringFilterTypeDef"],
+        "scanAtFilters": List["CisDateFilterTypeDef"],
+        "scanConfigurationArnFilters": List["CisStringFilterTypeDef"],
+        "scanNameFilters": List["CisStringFilterTypeDef"],
+        "scanStatusFilters": List["CisScanStatusFilterTypeDef"],
+        "scheduledByFilters": List["CisStringFilterTypeDef"],
+        "targetAccountIdFilters": List["CisStringFilterTypeDef"],
+        "targetResourceIdFilters": List["CisStringFilterTypeDef"],
+        "targetResourceTagFilters": List["TagFilterTypeDef"],
+    },
+    total=False,
+)
+
+ListCisScansRequestRequestTypeDef = TypedDict(
+    "ListCisScansRequestRequestTypeDef",
+    {
+        "detailLevel": ListCisScansDetailLevelType,
+        "filterCriteria": "ListCisScansFilterCriteriaTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+        "sortBy": ListCisScansSortByType,
+        "sortOrder": CisSortOrderType,
+    },
+    total=False,
+)
+
+ListCisScansResponseTypeDef = TypedDict(
+    "ListCisScansResponseTypeDef",
+    {
+        "nextToken": str,
+        "scans": List["CisScanTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCoverageRequestRequestTypeDef = TypedDict(
     "ListCoverageRequestRequestTypeDef",
     {
@@ -1998,6 +2655,14 @@ MemberTypeDef = TypedDict(
         "updatedAt": datetime,
     },
     total=False,
+)
+
+MonthlyScheduleTypeDef = TypedDict(
+    "MonthlyScheduleTypeDef",
+    {
+        "day": DayType,
+        "startTime": "TimeTypeDef",
+    },
 )
 
 NetworkPathTypeDef = TypedDict(
@@ -2330,6 +2995,17 @@ ScanStatusTypeDef = TypedDict(
     },
 )
 
+ScheduleTypeDef = TypedDict(
+    "ScheduleTypeDef",
+    {
+        "daily": "DailyScheduleTypeDef",
+        "monthly": "MonthlyScheduleTypeDef",
+        "oneTime": Dict[str, Any],
+        "weekly": "WeeklyScheduleTypeDef",
+    },
+    total=False,
+)
+
 SearchVulnerabilitiesFilterCriteriaTypeDef = TypedDict(
     "SearchVulnerabilitiesFilterCriteriaTypeDef",
     {
@@ -2366,6 +3042,23 @@ SearchVulnerabilitiesResponseTypeDef = TypedDict(
     },
 )
 
+SendCisSessionHealthRequestRequestTypeDef = TypedDict(
+    "SendCisSessionHealthRequestRequestTypeDef",
+    {
+        "scanJobId": str,
+        "sessionToken": str,
+    },
+)
+
+SendCisSessionTelemetryRequestRequestTypeDef = TypedDict(
+    "SendCisSessionTelemetryRequestRequestTypeDef",
+    {
+        "messages": List["CisSessionMessageTypeDef"],
+        "scanJobId": str,
+        "sessionToken": str,
+    },
+)
+
 SeverityCountsTypeDef = TypedDict(
     "SeverityCountsTypeDef",
     {
@@ -2385,6 +3078,21 @@ SortCriteriaTypeDef = TypedDict(
     },
 )
 
+StartCisSessionMessageTypeDef = TypedDict(
+    "StartCisSessionMessageTypeDef",
+    {
+        "sessionToken": str,
+    },
+)
+
+StartCisSessionRequestRequestTypeDef = TypedDict(
+    "StartCisSessionRequestRequestTypeDef",
+    {
+        "message": "StartCisSessionMessageTypeDef",
+        "scanJobId": str,
+    },
+)
+
 StateTypeDef = TypedDict(
     "StateTypeDef",
     {
@@ -2394,11 +3102,68 @@ StateTypeDef = TypedDict(
     },
 )
 
+StatusCountsTypeDef = TypedDict(
+    "StatusCountsTypeDef",
+    {
+        "failed": int,
+        "passed": int,
+        "skipped": int,
+    },
+    total=False,
+)
+
 StepTypeDef = TypedDict(
     "StepTypeDef",
     {
         "componentId": str,
         "componentType": str,
+    },
+)
+
+StopCisMessageProgressTypeDef = TypedDict(
+    "StopCisMessageProgressTypeDef",
+    {
+        "errorChecks": int,
+        "failedChecks": int,
+        "informationalChecks": int,
+        "notApplicableChecks": int,
+        "notEvaluatedChecks": int,
+        "successfulChecks": int,
+        "totalChecks": int,
+        "unknownChecks": int,
+    },
+    total=False,
+)
+
+_RequiredStopCisSessionMessageTypeDef = TypedDict(
+    "_RequiredStopCisSessionMessageTypeDef",
+    {
+        "progress": "StopCisMessageProgressTypeDef",
+        "status": StopCisSessionStatusType,
+    },
+)
+_OptionalStopCisSessionMessageTypeDef = TypedDict(
+    "_OptionalStopCisSessionMessageTypeDef",
+    {
+        "benchmarkProfile": str,
+        "benchmarkVersion": str,
+        "computePlatform": "ComputePlatformTypeDef",
+        "reason": str,
+    },
+    total=False,
+)
+
+class StopCisSessionMessageTypeDef(
+    _RequiredStopCisSessionMessageTypeDef, _OptionalStopCisSessionMessageTypeDef
+):
+    pass
+
+StopCisSessionRequestRequestTypeDef = TypedDict(
+    "StopCisSessionRequestRequestTypeDef",
+    {
+        "message": "StopCisSessionMessageTypeDef",
+        "scanJobId": str,
+        "sessionToken": str,
     },
 )
 
@@ -2419,11 +3184,28 @@ SuggestedFixTypeDef = TypedDict(
     total=False,
 )
 
+TagFilterTypeDef = TypedDict(
+    "TagFilterTypeDef",
+    {
+        "comparison": Literal["EQUALS"],
+        "key": str,
+        "value": str,
+    },
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
         "resourceArn": str,
         "tags": Dict[str, str],
+    },
+)
+
+TimeTypeDef = TypedDict(
+    "TimeTypeDef",
+    {
+        "timeOfDay": str,
+        "timezone": str,
     },
 )
 
@@ -2469,11 +3251,53 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateCisScanConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateCisScanConfigurationRequestRequestTypeDef",
+    {
+        "scanConfigurationArn": str,
+    },
+)
+_OptionalUpdateCisScanConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateCisScanConfigurationRequestRequestTypeDef",
+    {
+        "scanName": str,
+        "schedule": "ScheduleTypeDef",
+        "securityLevel": CisSecurityLevelType,
+        "targets": "UpdateCisTargetsTypeDef",
+    },
+    total=False,
+)
+
+class UpdateCisScanConfigurationRequestRequestTypeDef(
+    _RequiredUpdateCisScanConfigurationRequestRequestTypeDef,
+    _OptionalUpdateCisScanConfigurationRequestRequestTypeDef,
+):
+    pass
+
+UpdateCisScanConfigurationResponseTypeDef = TypedDict(
+    "UpdateCisScanConfigurationResponseTypeDef",
+    {
+        "scanConfigurationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateCisTargetsTypeDef = TypedDict(
+    "UpdateCisTargetsTypeDef",
+    {
+        "accountIds": List[str],
+        "targetResourceTags": Dict[str, List[str]],
+    },
+    total=False,
+)
+
 UpdateConfigurationRequestRequestTypeDef = TypedDict(
     "UpdateConfigurationRequestRequestTypeDef",
     {
+        "ec2Configuration": "Ec2ConfigurationTypeDef",
         "ecrConfiguration": "EcrConfigurationTypeDef",
     },
+    total=False,
 )
 
 UpdateEc2DeepInspectionConfigurationRequestRequestTypeDef = TypedDict(
@@ -2637,3 +3461,11 @@ class VulnerablePackageTypeDef(
     _RequiredVulnerablePackageTypeDef, _OptionalVulnerablePackageTypeDef
 ):
     pass
+
+WeeklyScheduleTypeDef = TypedDict(
+    "WeeklyScheduleTypeDef",
+    {
+        "days": List[DayType],
+        "startTime": "TimeTypeDef",
+    },
+)

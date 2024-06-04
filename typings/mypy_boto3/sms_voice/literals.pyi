@@ -11,6 +11,7 @@ Usage::
     data: EventTypeType = "ANSWERED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

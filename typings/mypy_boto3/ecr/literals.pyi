@@ -11,6 +11,7 @@ Usage::
     data: DescribeImageScanFindingsPaginatorName = "describe_image_scan_findings"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -95,6 +96,7 @@ UpstreamRegistryType = Literal[
     "docker-hub",
     "ecr-public",
     "github-container-registry",
+    "gitlab-container-registry",
     "k8s",
     "quay",
 ]

@@ -31,21 +31,26 @@ from mypy_boto3_apprunner.client import AppRunnerClient
 from mypy_boto3_appstream.client import AppStreamClient
 from mypy_boto3_appsync.client import AppSyncClient
 from mypy_boto3_arc_zonal_shift.client import ARCZonalShiftClient
+from mypy_boto3_artifact.client import ArtifactClient
 from mypy_boto3_athena.client import AthenaClient
 from mypy_boto3_auditmanager.client import AuditManagerClient
 from mypy_boto3_autoscaling.client import AutoScalingClient
 from mypy_boto3_autoscaling_plans.client import AutoScalingPlansClient
+from mypy_boto3_b2bi.client import B2BIClient
 from mypy_boto3_backup.client import BackupClient
 from mypy_boto3_backup_gateway.client import BackupGatewayClient
 from mypy_boto3_backupstorage.client import BackupStorageClient
 from mypy_boto3_batch.client import BatchClient
 from mypy_boto3_bcm_data_exports.client import BillingandCostManagementDataExportsClient
 from mypy_boto3_bedrock.client import BedrockClient
+from mypy_boto3_bedrock_agent.client import AgentsforBedrockClient
+from mypy_boto3_bedrock_agent_runtime.client import AgentsforBedrockRuntimeClient
 from mypy_boto3_bedrock_runtime.client import BedrockRuntimeClient
 from mypy_boto3_billingconductor.client import BillingConductorClient
 from mypy_boto3_braket.client import BraketClient
 from mypy_boto3_budgets.client import BudgetsClient
 from mypy_boto3_ce.client import CostExplorerClient
+from mypy_boto3_chatbot.client import ChatbotClient
 from mypy_boto3_chime.client import ChimeClient
 from mypy_boto3_chime_sdk_identity.client import ChimeSDKIdentityClient
 from mypy_boto3_chime_sdk_media_pipelines.client import ChimeSDKMediaPipelinesClient
@@ -53,6 +58,7 @@ from mypy_boto3_chime_sdk_meetings.client import ChimeSDKMeetingsClient
 from mypy_boto3_chime_sdk_messaging.client import ChimeSDKMessagingClient
 from mypy_boto3_chime_sdk_voice.client import ChimeSDKVoiceClient
 from mypy_boto3_cleanrooms.client import CleanRoomsServiceClient
+from mypy_boto3_cleanroomsml.client import CleanRoomsMLClient
 from mypy_boto3_cloud9.client import Cloud9Client
 from mypy_boto3_cloudcontrol.client import CloudControlApiClient
 from mypy_boto3_clouddirectory.client import CloudDirectoryClient
@@ -72,6 +78,7 @@ from mypy_boto3_codeartifact.client import CodeArtifactClient
 from mypy_boto3_codebuild.client import CodeBuildClient
 from mypy_boto3_codecatalyst.client import CodeCatalystClient
 from mypy_boto3_codecommit.client import CodeCommitClient
+from mypy_boto3_codeconnections.client import CodeConnectionsClient
 from mypy_boto3_codedeploy.client import CodeDeployClient
 from mypy_boto3_codeguru_reviewer.client import CodeGuruReviewerClient
 from mypy_boto3_codeguru_security.client import CodeGuruSecurityClient
@@ -92,6 +99,7 @@ from mypy_boto3_connect_contact_lens.client import ConnectContactLensClient
 from mypy_boto3_connectcampaigns.client import ConnectCampaignServiceClient
 from mypy_boto3_connectcases.client import ConnectCasesClient
 from mypy_boto3_connectparticipant.client import ConnectParticipantClient
+from mypy_boto3_controlcatalog.client import ControlCatalogClient
 from mypy_boto3_controltower.client import ControlTowerClient
 from mypy_boto3_cost_optimization_hub.client import CostOptimizationHubClient
 from mypy_boto3_cur.client import CostandUsageReportServiceClient
@@ -102,6 +110,7 @@ from mypy_boto3_datapipeline.client import DataPipelineClient
 from mypy_boto3_datasync.client import DataSyncClient
 from mypy_boto3_datazone.client import DataZoneClient
 from mypy_boto3_dax.client import DAXClient
+from mypy_boto3_deadline.client import DeadlineCloudClient
 from mypy_boto3_detective.client import DetectiveClient
 from mypy_boto3_devicefarm.client import DeviceFarmClient
 from mypy_boto3_devops_guru.client import DevOpsGuruClient
@@ -176,7 +185,6 @@ from mypy_boto3_iot1click_projects.client import IoT1ClickProjectsClient
 from mypy_boto3_iot.client import IoTClient
 from mypy_boto3_iot_data.client import IoTDataPlaneClient
 from mypy_boto3_iot_jobs_data.client import IoTJobsDataPlaneClient
-from mypy_boto3_iot_roborunner.client import IoTRoboRunnerClient
 from mypy_boto3_iotanalytics.client import IoTAnalyticsClient
 from mypy_boto3_iotdeviceadvisor.client import IoTDeviceAdvisorClient
 from mypy_boto3_iotevents.client import IoTEventsClient
@@ -228,9 +236,12 @@ from mypy_boto3_lookoutvision.client import LookoutforVisionClient
 from mypy_boto3_m2.client import MainframeModernizationClient
 from mypy_boto3_machinelearning.client import MachineLearningClient
 from mypy_boto3_macie2.client import Macie2Client
+from mypy_boto3_mailmanager.client import MailManagerClient
 from mypy_boto3_managedblockchain.client import ManagedBlockchainClient
 from mypy_boto3_managedblockchain_query.client import ManagedBlockchainQueryClient
+from mypy_boto3_marketplace_agreement.client import AgreementServiceClient
 from mypy_boto3_marketplace_catalog.client import MarketplaceCatalogClient
+from mypy_boto3_marketplace_deployment.client import MarketplaceDeploymentServiceClient
 from mypy_boto3_marketplace_entitlement.client import MarketplaceEntitlementServiceClient
 from mypy_boto3_marketplacecommerceanalytics.client import MarketplaceCommerceAnalyticsClient
 from mypy_boto3_mediaconnect.client import MediaConnectClient
@@ -256,9 +267,11 @@ from mypy_boto3_mq.client import MQClient
 from mypy_boto3_mturk.client import MTurkClient
 from mypy_boto3_mwaa.client import MWAAClient
 from mypy_boto3_neptune.client import NeptuneClient
+from mypy_boto3_neptune_graph.client import NeptuneGraphClient
 from mypy_boto3_neptunedata.client import NeptuneDataClient
 from mypy_boto3_network_firewall.client import NetworkFirewallClient
 from mypy_boto3_networkmanager.client import NetworkManagerClient
+from mypy_boto3_networkmonitor.client import CloudWatchNetworkMonitorClient
 from mypy_boto3_nimble.client import NimbleStudioClient
 from mypy_boto3_oam.client import CloudWatchObservabilityAccessManagerClient
 from mypy_boto3_omics.client import OmicsClient
@@ -287,6 +300,8 @@ from mypy_boto3_polly.client import PollyClient
 from mypy_boto3_pricing.client import PricingClient
 from mypy_boto3_privatenetworks.client import Private5GClient
 from mypy_boto3_proton.client import ProtonClient
+from mypy_boto3_qbusiness.client import QBusinessClient
+from mypy_boto3_qconnect.client import QConnectClient
 from mypy_boto3_qldb.client import QLDBClient
 from mypy_boto3_qldb_session.client import QLDBSessionClient
 from mypy_boto3_quicksight.client import QuickSightClient
@@ -310,6 +325,7 @@ from mypy_boto3_route53_recovery_cluster.client import Route53RecoveryClusterCli
 from mypy_boto3_route53_recovery_control_config.client import Route53RecoveryControlConfigClient
 from mypy_boto3_route53_recovery_readiness.client import Route53RecoveryReadinessClient
 from mypy_boto3_route53domains.client import Route53DomainsClient
+from mypy_boto3_route53profiles.client import Route53ProfilesClient
 from mypy_boto3_route53resolver.client import Route53ResolverClient
 from mypy_boto3_rum.client import CloudWatchRUMClient
 from mypy_boto3_s3.client import S3Client
@@ -358,11 +374,14 @@ from mypy_boto3_sso_oidc.client import SSOOIDCClient
 from mypy_boto3_stepfunctions.client import SFNClient
 from mypy_boto3_storagegateway.client import StorageGatewayClient
 from mypy_boto3_sts.client import STSClient
+from mypy_boto3_supplychain.client import SupplyChainClient
 from mypy_boto3_support.client import SupportClient
 from mypy_boto3_support_app.client import SupportAppClient
 from mypy_boto3_swf.client import SWFClient
 from mypy_boto3_synthetics.client import SyntheticsClient
+from mypy_boto3_taxsettings.client import TaxSettingsClient
 from mypy_boto3_textract.client import TextractClient
+from mypy_boto3_timestream_influxdb.client import TimestreamInfluxDBClient
 from mypy_boto3_timestream_query.client import TimestreamQueryClient
 from mypy_boto3_timestream_write.client import TimestreamWriteClient
 from mypy_boto3_tnb.client import TelcoNetworkBuilderClient
@@ -750,6 +769,19 @@ def client(
 ) -> ARCZonalShiftClient: ...
 @overload
 def client(
+    service_name: Literal["artifact"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ArtifactClient: ...
+@overload
+def client(
     service_name: Literal["athena"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -800,6 +832,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> AutoScalingPlansClient: ...
+@overload
+def client(
+    service_name: Literal["b2bi"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> B2BIClient: ...
 @overload
 def client(
     service_name: Literal["backup"],
@@ -880,6 +925,32 @@ def client(
 ) -> BedrockClient: ...
 @overload
 def client(
+    service_name: Literal["bedrock-agent"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> AgentsforBedrockClient: ...
+@overload
+def client(
+    service_name: Literal["bedrock-agent-runtime"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> AgentsforBedrockRuntimeClient: ...
+@overload
+def client(
     service_name: Literal["bedrock-runtime"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -943,6 +1014,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> CostExplorerClient: ...
+@overload
+def client(
+    service_name: Literal["chatbot"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ChatbotClient: ...
 @overload
 def client(
     service_name: Literal["chime"],
@@ -1034,6 +1118,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> CleanRoomsServiceClient: ...
+@overload
+def client(
+    service_name: Literal["cleanroomsml"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> CleanRoomsMLClient: ...
 @overload
 def client(
     service_name: Literal["cloud9"],
@@ -1255,6 +1352,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> CodeCommitClient: ...
+@overload
+def client(
+    service_name: Literal["codeconnections"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> CodeConnectionsClient: ...
 @overload
 def client(
     service_name: Literal["codedeploy"],
@@ -1517,6 +1627,19 @@ def client(
 ) -> ConnectParticipantClient: ...
 @overload
 def client(
+    service_name: Literal["controlcatalog"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ControlCatalogClient: ...
+@overload
+def client(
     service_name: Literal["controltower"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -1645,6 +1768,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> DAXClient: ...
+@overload
+def client(
+    service_name: Literal["deadline"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> DeadlineCloudClient: ...
 @overload
 def client(
     service_name: Literal["detective"],
@@ -2531,19 +2667,6 @@ def client(
 ) -> IoTJobsDataPlaneClient: ...
 @overload
 def client(
-    service_name: Literal["iot-roborunner"],
-    region_name: Optional[str] = None,
-    api_version: Optional[str] = None,
-    use_ssl: Optional[bool] = None,
-    verify: Union[bool, str, None] = None,
-    endpoint_url: Optional[str] = None,
-    aws_access_key_id: Optional[str] = None,
-    aws_secret_access_key: Optional[str] = None,
-    aws_session_token: Optional[str] = None,
-    config: Optional[Config] = None,
-) -> IoTRoboRunnerClient: ...
-@overload
-def client(
     service_name: Literal["iot1click-devices"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3181,6 +3304,19 @@ def client(
 ) -> Macie2Client: ...
 @overload
 def client(
+    service_name: Literal["mailmanager"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> MailManagerClient: ...
+@overload
+def client(
     service_name: Literal["managedblockchain"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3207,6 +3343,19 @@ def client(
 ) -> ManagedBlockchainQueryClient: ...
 @overload
 def client(
+    service_name: Literal["marketplace-agreement"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> AgreementServiceClient: ...
+@overload
+def client(
     service_name: Literal["marketplace-catalog"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3218,6 +3367,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> MarketplaceCatalogClient: ...
+@overload
+def client(
+    service_name: Literal["marketplace-deployment"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> MarketplaceDeploymentServiceClient: ...
 @overload
 def client(
     service_name: Literal["marketplace-entitlement"],
@@ -3545,6 +3707,19 @@ def client(
 ) -> NeptuneClient: ...
 @overload
 def client(
+    service_name: Literal["neptune-graph"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> NeptuneGraphClient: ...
+@overload
+def client(
     service_name: Literal["neptunedata"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3582,6 +3757,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> NetworkManagerClient: ...
+@overload
+def client(
+    service_name: Literal["networkmonitor"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> CloudWatchNetworkMonitorClient: ...
 @overload
 def client(
     service_name: Literal["nimble"],
@@ -3935,6 +4123,32 @@ def client(
 ) -> ProtonClient: ...
 @overload
 def client(
+    service_name: Literal["qbusiness"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> QBusinessClient: ...
+@overload
+def client(
+    service_name: Literal["qconnect"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> QConnectClient: ...
+@overload
+def client(
     service_name: Literal["qldb"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -4232,6 +4446,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> Route53DomainsClient: ...
+@overload
+def client(
+    service_name: Literal["route53profiles"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> Route53ProfilesClient: ...
 @overload
 def client(
     service_name: Literal["route53resolver"],
@@ -4819,6 +5046,19 @@ def client(
 ) -> STSClient: ...
 @overload
 def client(
+    service_name: Literal["supplychain"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> SupplyChainClient: ...
+@overload
+def client(
     service_name: Literal["support"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -4871,6 +5111,19 @@ def client(
 ) -> SyntheticsClient: ...
 @overload
 def client(
+    service_name: Literal["taxsettings"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> TaxSettingsClient: ...
+@overload
+def client(
     service_name: Literal["textract"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -4882,6 +5135,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> TextractClient: ...
+@overload
+def client(
+    service_name: Literal["timestream-influxdb"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> TimestreamInfluxDBClient: ...
 @overload
 def client(
     service_name: Literal["timestream-query"],

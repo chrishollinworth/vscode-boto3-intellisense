@@ -21,6 +21,7 @@ Usage::
     select_paginator: SelectPaginator = client.get_paginator("select")
     ```
 """
+
 from .client import SimpleDBClient
 from .paginator import ListDomainsPaginator, SelectPaginator
 

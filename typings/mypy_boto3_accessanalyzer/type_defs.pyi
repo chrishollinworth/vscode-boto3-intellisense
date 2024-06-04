@@ -11,6 +11,7 @@ Usage::
     data: AccessPreviewFindingTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -75,6 +76,8 @@ __all__ = (
     "CriterionTypeDef",
     "DeleteAnalyzerRequestRequestTypeDef",
     "DeleteArchiveRuleRequestRequestTypeDef",
+    "DynamodbStreamConfigurationTypeDef",
+    "DynamodbTableConfigurationTypeDef",
     "EbsSnapshotConfigurationTypeDef",
     "EcrRepositoryConfigurationTypeDef",
     "EfsFileSystemConfigurationTypeDef",
@@ -143,6 +146,7 @@ __all__ = (
     "S3AccessPointConfigurationTypeDef",
     "S3BucketAclGrantConfigurationTypeDef",
     "S3BucketConfigurationTypeDef",
+    "S3ExpressDirectoryBucketConfigurationTypeDef",
     "S3PublicAccessBlockConfigurationTypeDef",
     "SecretsManagerSecretConfigurationTypeDef",
     "SnsTopicConfigurationTypeDef",
@@ -457,6 +461,9 @@ ConfigurationTypeDef = TypedDict(
         "s3Bucket": "S3BucketConfigurationTypeDef",
         "snsTopic": "SnsTopicConfigurationTypeDef",
         "sqsQueue": "SqsQueueConfigurationTypeDef",
+        "s3ExpressDirectoryBucket": "S3ExpressDirectoryBucketConfigurationTypeDef",
+        "dynamodbStream": "DynamodbStreamConfigurationTypeDef",
+        "dynamodbTable": "DynamodbTableConfigurationTypeDef",
     },
     total=False,
 )
@@ -591,6 +598,22 @@ class DeleteArchiveRuleRequestRequestTypeDef(
     _RequiredDeleteArchiveRuleRequestRequestTypeDef, _OptionalDeleteArchiveRuleRequestRequestTypeDef
 ):
     pass
+
+DynamodbStreamConfigurationTypeDef = TypedDict(
+    "DynamodbStreamConfigurationTypeDef",
+    {
+        "streamPolicy": str,
+    },
+    total=False,
+)
+
+DynamodbTableConfigurationTypeDef = TypedDict(
+    "DynamodbTableConfigurationTypeDef",
+    {
+        "tablePolicy": str,
+    },
+    total=False,
+)
 
 EbsSnapshotConfigurationTypeDef = TypedDict(
     "EbsSnapshotConfigurationTypeDef",
@@ -1431,6 +1454,14 @@ S3BucketConfigurationTypeDef = TypedDict(
         "bucketAclGrants": List["S3BucketAclGrantConfigurationTypeDef"],
         "bucketPublicAccessBlock": "S3PublicAccessBlockConfigurationTypeDef",
         "accessPoints": Dict[str, "S3AccessPointConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+S3ExpressDirectoryBucketConfigurationTypeDef = TypedDict(
+    "S3ExpressDirectoryBucketConfigurationTypeDef",
+    {
+        "bucketPolicy": str,
     },
     total=False,
 )

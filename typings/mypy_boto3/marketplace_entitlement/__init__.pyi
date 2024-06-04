@@ -19,6 +19,7 @@ Usage::
     get_entitlements_paginator: GetEntitlementsPaginator = client.get_paginator("get_entitlements")
     ```
 """
+
 from .client import MarketplaceEntitlementServiceClient
 from .paginator import GetEntitlementsPaginator
 

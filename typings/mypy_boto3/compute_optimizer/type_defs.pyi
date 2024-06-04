@@ -11,6 +11,7 @@ Usage::
     data: AccountEnrollmentStatusTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -21,6 +22,7 @@ from .literals import (
     CurrencyType,
     CurrentPerformanceRiskType,
     CustomizableMetricHeadroomType,
+    CustomizableMetricNameType,
     CustomizableMetricThresholdType,
     EBSFindingType,
     EBSMetricNameType,
@@ -1642,7 +1644,7 @@ UtilizationMetricTypeDef = TypedDict(
 UtilizationPreferenceTypeDef = TypedDict(
     "UtilizationPreferenceTypeDef",
     {
-        "metricName": Literal["CpuUtilization"],
+        "metricName": CustomizableMetricNameType,
         "metricParameters": "CustomizableMetricParametersTypeDef",
     },
     total=False,

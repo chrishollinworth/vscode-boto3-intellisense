@@ -11,6 +11,7 @@ Usage::
     data: AddressTypeType = "OPERATING_ADDRESS"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -22,13 +23,17 @@ __all__ = (
     "AddressTypeType",
     "AssetStateType",
     "AssetTypeType",
+    "CapacityTaskFailureTypeType",
+    "CapacityTaskStatusType",
     "CatalogItemClassType",
     "CatalogItemStatusType",
     "ComputeAssetStateType",
     "FiberOpticCableTypeType",
     "GetOutpostInstanceTypesPaginatorName",
+    "GetOutpostSupportedInstanceTypesPaginatorName",
     "LineItemStatusType",
     "ListAssetsPaginatorName",
+    "ListCapacityTasksPaginatorName",
     "ListCatalogItemsPaginatorName",
     "ListOrdersPaginatorName",
     "ListOutpostsPaginatorName",
@@ -53,11 +58,14 @@ __all__ = (
 AddressTypeType = Literal["OPERATING_ADDRESS", "SHIPPING_ADDRESS"]
 AssetStateType = Literal["ACTIVE", "ISOLATED", "RETIRING"]
 AssetTypeType = Literal["COMPUTE"]
+CapacityTaskFailureTypeType = Literal["UNSUPPORTED_CAPACITY_CONFIGURATION"]
+CapacityTaskStatusType = Literal["CANCELLED", "COMPLETED", "FAILED", "IN_PROGRESS", "REQUESTED"]
 CatalogItemClassType = Literal["RACK", "SERVER"]
 CatalogItemStatusType = Literal["AVAILABLE", "DISCONTINUED"]
 ComputeAssetStateType = Literal["ACTIVE", "ISOLATED", "RETIRING"]
 FiberOpticCableTypeType = Literal["MULTI_MODE", "SINGLE_MODE"]
 GetOutpostInstanceTypesPaginatorName = Literal["get_outpost_instance_types"]
+GetOutpostSupportedInstanceTypesPaginatorName = Literal["get_outpost_supported_instance_types"]
 LineItemStatusType = Literal[
     "BUILDING",
     "CANCELLED",
@@ -70,6 +78,7 @@ LineItemStatusType = Literal[
     "SHIPPED",
 ]
 ListAssetsPaginatorName = Literal["list_assets"]
+ListCapacityTasksPaginatorName = Literal["list_capacity_tasks"]
 ListCatalogItemsPaginatorName = Literal["list_catalog_items"]
 ListOrdersPaginatorName = Literal["list_orders"]
 ListOutpostsPaginatorName = Literal["list_outposts"]
@@ -111,7 +120,7 @@ PowerConnectorType = Literal["AH530P7W", "AH532P6W", "IEC309", "L6_30P"]
 PowerDrawKvaType = Literal["POWER_10_KVA", "POWER_15_KVA", "POWER_30_KVA", "POWER_5_KVA"]
 PowerFeedDropType = Literal["ABOVE_RACK", "BELOW_RACK"]
 PowerPhaseType = Literal["SINGLE_PHASE", "THREE_PHASE"]
-ShipmentCarrierType = Literal["DBS", "DHL", "FEDEX", "UPS"]
+ShipmentCarrierType = Literal["DBS", "DHL", "EXPEDITORS", "FEDEX", "UPS"]
 SupportedHardwareTypeType = Literal["RACK", "SERVER"]
 SupportedStorageEnumType = Literal["EBS", "S3"]
 UplinkCountType = Literal[

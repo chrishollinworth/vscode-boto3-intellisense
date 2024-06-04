@@ -39,6 +39,7 @@ Usage::
     list_rotations_paginator: ListRotationsPaginator = client.get_paginator("list_rotations")
     ```
 """
+
 from .client import SSMContactsClient
 from .paginator import (
     ListContactChannelsPaginator,

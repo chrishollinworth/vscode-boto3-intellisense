@@ -11,6 +11,7 @@ Usage::
     data: AccessTypeType = "AUTODETECT_SIGV4"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -25,6 +26,7 @@ __all__ = (
     "ChannelStateType",
     "FillPolicyType",
     "GetChannelSchedulePaginatorName",
+    "InsertionModeType",
     "ListAlertsPaginatorName",
     "ListChannelsPaginatorName",
     "ListLiveSourcesPaginatorName",
@@ -50,6 +52,7 @@ AlertCategoryType = Literal["INFO", "PLAYBACK_WARNING", "SCHEDULING_ERROR"]
 ChannelStateType = Literal["RUNNING", "STOPPED"]
 FillPolicyType = Literal["FULL_AVAIL_ONLY", "PARTIAL_AVAIL"]
 GetChannelSchedulePaginatorName = Literal["get_channel_schedule"]
+InsertionModeType = Literal["PLAYER_SELECT", "STITCHED_ONLY"]
 ListAlertsPaginatorName = Literal["list_alerts"]
 ListChannelsPaginatorName = Literal["list_channels"]
 ListLiveSourcesPaginatorName = Literal["list_live_sources"]
@@ -64,6 +67,6 @@ OperatorType = Literal["EQUALS"]
 OriginManifestTypeType = Literal["MULTI_PERIOD", "SINGLE_PERIOD"]
 PlaybackModeType = Literal["LINEAR", "LOOP"]
 RelativePositionType = Literal["AFTER_PROGRAM", "BEFORE_PROGRAM"]
-ScheduleEntryTypeType = Literal["FILLER_SLATE", "PROGRAM"]
+ScheduleEntryTypeType = Literal["ALTERNATE_MEDIA", "FILLER_SLATE", "PROGRAM"]
 TierType = Literal["BASIC", "STANDARD"]
 TypeType = Literal["DASH", "HLS"]

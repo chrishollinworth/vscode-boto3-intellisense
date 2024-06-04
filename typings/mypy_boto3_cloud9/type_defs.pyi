@@ -11,6 +11,7 @@ Usage::
     data: CreateEnvironmentEC2RequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -66,6 +67,7 @@ _RequiredCreateEnvironmentEC2RequestRequestTypeDef = TypedDict(
     {
         "name": str,
         "instanceType": str,
+        "imageId": str,
     },
 )
 _OptionalCreateEnvironmentEC2RequestRequestTypeDef = TypedDict(
@@ -74,7 +76,6 @@ _OptionalCreateEnvironmentEC2RequestRequestTypeDef = TypedDict(
         "description": str,
         "clientRequestToken": str,
         "subnetId": str,
-        "imageId": str,
         "automaticStopTimeMinutes": int,
         "ownerArn": str,
         "tags": List["TagTypeDef"],

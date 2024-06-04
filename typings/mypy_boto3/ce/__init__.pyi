@@ -16,6 +16,7 @@ Usage::
     session_client: CostExplorerClient = session.client("ce")
     ```
 """
+
 from .client import CostExplorerClient
 
 Client = CostExplorerClient

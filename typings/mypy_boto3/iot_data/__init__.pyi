@@ -19,6 +19,7 @@ Usage::
     list_retained_messages_paginator: ListRetainedMessagesPaginator = client.get_paginator("list_retained_messages")
     ```
 """
+
 from .client import IoTDataPlaneClient
 from .paginator import ListRetainedMessagesPaginator
 

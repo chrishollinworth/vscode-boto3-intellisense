@@ -25,6 +25,7 @@ Usage::
     list_rum_metrics_destinations_paginator: ListRumMetricsDestinationsPaginator = client.get_paginator("list_rum_metrics_destinations")
     ```
 """
+
 from .client import CloudWatchRUMClient
 from .paginator import (
     BatchGetRumMetricDefinitionsPaginator,

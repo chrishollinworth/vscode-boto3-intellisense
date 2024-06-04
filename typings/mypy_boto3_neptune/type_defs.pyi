@@ -11,6 +11,7 @@ Usage::
     data: AddRoleToDBClusterMessageRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -300,6 +301,7 @@ ClusterPendingModifiedValuesTypeDef = TypedDict(
         "IAMDatabaseAuthenticationEnabled": bool,
         "EngineVersion": str,
         "BackupRetentionPeriod": int,
+        "StorageType": str,
         "AllocatedStorage": int,
         "Iops": int,
     },
@@ -475,6 +477,7 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "DeletionProtection": bool,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "GlobalClusterIdentifier": str,
+        "StorageType": str,
         "SourceRegion": str,
     },
     total=False,
@@ -897,6 +900,7 @@ DBClusterSnapshotTypeDef = TypedDict(
         "DBClusterSnapshotArn": str,
         "SourceDBClusterSnapshotArn": str,
         "IAMDatabaseAuthenticationEnabled": bool,
+        "StorageType": str,
     },
     total=False,
 )
@@ -947,6 +951,8 @@ DBClusterTypeDef = TypedDict(
         "AutomaticRestartTime": datetime,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationInfoTypeDef",
         "GlobalClusterIdentifier": str,
+        "IOOptimizedNextAllowedModificationTime": datetime,
+        "StorageType": str,
     },
     total=False,
 )
@@ -1867,6 +1873,7 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "DeletionProtection": bool,
         "CopyTagsToSnapshot": bool,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
+        "StorageType": str,
     },
     total=False,
 )
@@ -2409,6 +2416,7 @@ _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
         "DeletionProtection": bool,
         "CopyTagsToSnapshot": bool,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
+        "StorageType": str,
     },
     total=False,
 )
@@ -2451,6 +2459,7 @@ _OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
         "DBClusterParameterGroupName": str,
         "DeletionProtection": bool,
         "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
+        "StorageType": str,
     },
     total=False,
 )

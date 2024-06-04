@@ -11,6 +11,7 @@ Usage::
     data: AutoScalingConfigurationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -25,7 +26,12 @@ from .literals import (
     KxClusterCodeDeploymentStrategyType,
     KxClusterStatusType,
     KxClusterTypeType,
+    KxDataviewStatusType,
     KxDeploymentStrategyType,
+    KxNAS1TypeType,
+    KxNodeStatusType,
+    KxScalingGroupStatusType,
+    KxVolumeStatusType,
     RuleActionType,
     dnsStatusType,
     tgwStatusType,
@@ -53,16 +59,26 @@ __all__ = (
     "CreateKxClusterResponseTypeDef",
     "CreateKxDatabaseRequestRequestTypeDef",
     "CreateKxDatabaseResponseTypeDef",
+    "CreateKxDataviewRequestRequestTypeDef",
+    "CreateKxDataviewResponseTypeDef",
     "CreateKxEnvironmentRequestRequestTypeDef",
     "CreateKxEnvironmentResponseTypeDef",
+    "CreateKxScalingGroupRequestRequestTypeDef",
+    "CreateKxScalingGroupResponseTypeDef",
     "CreateKxUserRequestRequestTypeDef",
     "CreateKxUserResponseTypeDef",
+    "CreateKxVolumeRequestRequestTypeDef",
+    "CreateKxVolumeResponseTypeDef",
     "CustomDNSServerTypeDef",
     "DeleteEnvironmentRequestRequestTypeDef",
+    "DeleteKxClusterNodeRequestRequestTypeDef",
     "DeleteKxClusterRequestRequestTypeDef",
     "DeleteKxDatabaseRequestRequestTypeDef",
+    "DeleteKxDataviewRequestRequestTypeDef",
     "DeleteKxEnvironmentRequestRequestTypeDef",
+    "DeleteKxScalingGroupRequestRequestTypeDef",
     "DeleteKxUserRequestRequestTypeDef",
+    "DeleteKxVolumeRequestRequestTypeDef",
     "EnvironmentTypeDef",
     "ErrorInfoTypeDef",
     "FederationParametersTypeDef",
@@ -76,11 +92,18 @@ __all__ = (
     "GetKxConnectionStringResponseTypeDef",
     "GetKxDatabaseRequestRequestTypeDef",
     "GetKxDatabaseResponseTypeDef",
+    "GetKxDataviewRequestRequestTypeDef",
+    "GetKxDataviewResponseTypeDef",
     "GetKxEnvironmentRequestRequestTypeDef",
     "GetKxEnvironmentResponseTypeDef",
+    "GetKxScalingGroupRequestRequestTypeDef",
+    "GetKxScalingGroupResponseTypeDef",
     "GetKxUserRequestRequestTypeDef",
     "GetKxUserResponseTypeDef",
+    "GetKxVolumeRequestRequestTypeDef",
+    "GetKxVolumeResponseTypeDef",
     "IcmpTypeCodeTypeDef",
+    "KxAttachedClusterTypeDef",
     "KxCacheStorageConfigurationTypeDef",
     "KxChangesetListEntryTypeDef",
     "KxClusterCodeDeploymentConfigurationTypeDef",
@@ -89,11 +112,19 @@ __all__ = (
     "KxDatabaseCacheConfigurationTypeDef",
     "KxDatabaseConfigurationTypeDef",
     "KxDatabaseListEntryTypeDef",
+    "KxDataviewActiveVersionTypeDef",
+    "KxDataviewConfigurationTypeDef",
+    "KxDataviewListEntryTypeDef",
+    "KxDataviewSegmentConfigurationTypeDef",
     "KxDeploymentConfigurationTypeDef",
     "KxEnvironmentTypeDef",
+    "KxNAS1ConfigurationTypeDef",
     "KxNodeTypeDef",
     "KxSavedownStorageConfigurationTypeDef",
+    "KxScalingGroupConfigurationTypeDef",
+    "KxScalingGroupTypeDef",
     "KxUserTypeDef",
+    "KxVolumeTypeDef",
     "ListEnvironmentsRequestRequestTypeDef",
     "ListEnvironmentsResponseTypeDef",
     "ListKxChangesetsRequestRequestTypeDef",
@@ -104,10 +135,16 @@ __all__ = (
     "ListKxClustersResponseTypeDef",
     "ListKxDatabasesRequestRequestTypeDef",
     "ListKxDatabasesResponseTypeDef",
+    "ListKxDataviewsRequestRequestTypeDef",
+    "ListKxDataviewsResponseTypeDef",
     "ListKxEnvironmentsRequestRequestTypeDef",
     "ListKxEnvironmentsResponseTypeDef",
+    "ListKxScalingGroupsRequestRequestTypeDef",
+    "ListKxScalingGroupsResponseTypeDef",
     "ListKxUsersRequestRequestTypeDef",
     "ListKxUsersResponseTypeDef",
+    "ListKxVolumesRequestRequestTypeDef",
+    "ListKxVolumesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NetworkACLEntryTypeDef",
@@ -116,6 +153,7 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "SuperuserParametersTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TickerplantLogConfigurationTypeDef",
     "TransitGatewayConfigurationTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateEnvironmentRequestRequestTypeDef",
@@ -124,12 +162,17 @@ __all__ = (
     "UpdateKxClusterDatabasesRequestRequestTypeDef",
     "UpdateKxDatabaseRequestRequestTypeDef",
     "UpdateKxDatabaseResponseTypeDef",
+    "UpdateKxDataviewRequestRequestTypeDef",
+    "UpdateKxDataviewResponseTypeDef",
     "UpdateKxEnvironmentNetworkRequestRequestTypeDef",
     "UpdateKxEnvironmentNetworkResponseTypeDef",
     "UpdateKxEnvironmentRequestRequestTypeDef",
     "UpdateKxEnvironmentResponseTypeDef",
     "UpdateKxUserRequestRequestTypeDef",
     "UpdateKxUserResponseTypeDef",
+    "UpdateKxVolumeRequestRequestTypeDef",
+    "UpdateKxVolumeResponseTypeDef",
+    "VolumeTypeDef",
     "VpcConfigurationTypeDef",
 )
 
@@ -249,8 +292,8 @@ _RequiredCreateKxClusterRequestRequestTypeDef = TypedDict(
         "environmentId": str,
         "clusterName": str,
         "clusterType": KxClusterTypeType,
-        "capacityConfiguration": "CapacityConfigurationTypeDef",
         "releaseLabel": str,
+        "vpcConfiguration": "VpcConfigurationTypeDef",
         "azMode": KxAzModeType,
     },
 )
@@ -258,11 +301,12 @@ _OptionalCreateKxClusterRequestRequestTypeDef = TypedDict(
     "_OptionalCreateKxClusterRequestRequestTypeDef",
     {
         "clientToken": str,
+        "tickerplantLogConfiguration": "TickerplantLogConfigurationTypeDef",
         "databases": List["KxDatabaseConfigurationTypeDef"],
         "cacheStorageConfigurations": List["KxCacheStorageConfigurationTypeDef"],
         "autoScalingConfiguration": "AutoScalingConfigurationTypeDef",
         "clusterDescription": str,
-        "vpcConfiguration": "VpcConfigurationTypeDef",
+        "capacityConfiguration": "CapacityConfigurationTypeDef",
         "initializationScript": str,
         "commandLineArguments": List["KxCommandLineArgumentTypeDef"],
         "code": "CodeConfigurationTypeDef",
@@ -270,6 +314,7 @@ _OptionalCreateKxClusterRequestRequestTypeDef = TypedDict(
         "savedownStorageConfiguration": "KxSavedownStorageConfigurationTypeDef",
         "availabilityZoneId": str,
         "tags": Dict[str, str],
+        "scalingGroupConfiguration": "KxScalingGroupConfigurationTypeDef",
     },
     total=False,
 )
@@ -287,6 +332,8 @@ CreateKxClusterResponseTypeDef = TypedDict(
         "statusReason": str,
         "clusterName": str,
         "clusterType": KxClusterTypeType,
+        "tickerplantLogConfiguration": "TickerplantLogConfigurationTypeDef",
+        "volumes": List["VolumeTypeDef"],
         "databases": List["KxDatabaseConfigurationTypeDef"],
         "cacheStorageConfigurations": List["KxCacheStorageConfigurationTypeDef"],
         "autoScalingConfiguration": "AutoScalingConfigurationTypeDef",
@@ -303,6 +350,7 @@ CreateKxClusterResponseTypeDef = TypedDict(
         "azMode": KxAzModeType,
         "availabilityZoneId": str,
         "createdTimestamp": datetime,
+        "scalingGroupConfiguration": "KxScalingGroupConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -338,6 +386,55 @@ CreateKxDatabaseResponseTypeDef = TypedDict(
         "description": str,
         "createdTimestamp": datetime,
         "lastModifiedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateKxDataviewRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateKxDataviewRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "databaseName": str,
+        "dataviewName": str,
+        "azMode": KxAzModeType,
+        "clientToken": str,
+    },
+)
+_OptionalCreateKxDataviewRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateKxDataviewRequestRequestTypeDef",
+    {
+        "availabilityZoneId": str,
+        "changesetId": str,
+        "segmentConfigurations": List["KxDataviewSegmentConfigurationTypeDef"],
+        "autoUpdate": bool,
+        "readWrite": bool,
+        "description": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateKxDataviewRequestRequestTypeDef(
+    _RequiredCreateKxDataviewRequestRequestTypeDef, _OptionalCreateKxDataviewRequestRequestTypeDef
+):
+    pass
+
+CreateKxDataviewResponseTypeDef = TypedDict(
+    "CreateKxDataviewResponseTypeDef",
+    {
+        "dataviewName": str,
+        "databaseName": str,
+        "environmentId": str,
+        "azMode": KxAzModeType,
+        "availabilityZoneId": str,
+        "changesetId": str,
+        "segmentConfigurations": List["KxDataviewSegmentConfigurationTypeDef"],
+        "description": str,
+        "autoUpdate": bool,
+        "readWrite": bool,
+        "createdTimestamp": datetime,
+        "lastModifiedTimestamp": datetime,
+        "status": KxDataviewStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -379,6 +476,44 @@ CreateKxEnvironmentResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateKxScalingGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateKxScalingGroupRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "environmentId": str,
+        "scalingGroupName": str,
+        "hostType": str,
+        "availabilityZoneId": str,
+    },
+)
+_OptionalCreateKxScalingGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateKxScalingGroupRequestRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateKxScalingGroupRequestRequestTypeDef(
+    _RequiredCreateKxScalingGroupRequestRequestTypeDef,
+    _OptionalCreateKxScalingGroupRequestRequestTypeDef,
+):
+    pass
+
+CreateKxScalingGroupResponseTypeDef = TypedDict(
+    "CreateKxScalingGroupResponseTypeDef",
+    {
+        "environmentId": str,
+        "scalingGroupName": str,
+        "hostType": str,
+        "availabilityZoneId": str,
+        "status": KxScalingGroupStatusType,
+        "lastModifiedTimestamp": datetime,
+        "createdTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateKxUserRequestRequestTypeDef = TypedDict(
     "_RequiredCreateKxUserRequestRequestTypeDef",
     {
@@ -412,6 +547,50 @@ CreateKxUserResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateKxVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateKxVolumeRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "volumeType": Literal["NAS_1"],
+        "volumeName": str,
+        "azMode": KxAzModeType,
+        "availabilityZoneIds": List[str],
+    },
+)
+_OptionalCreateKxVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateKxVolumeRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "description": str,
+        "nas1Configuration": "KxNAS1ConfigurationTypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateKxVolumeRequestRequestTypeDef(
+    _RequiredCreateKxVolumeRequestRequestTypeDef, _OptionalCreateKxVolumeRequestRequestTypeDef
+):
+    pass
+
+CreateKxVolumeResponseTypeDef = TypedDict(
+    "CreateKxVolumeResponseTypeDef",
+    {
+        "environmentId": str,
+        "volumeName": str,
+        "volumeType": Literal["NAS_1"],
+        "volumeArn": str,
+        "nas1Configuration": "KxNAS1ConfigurationTypeDef",
+        "status": KxVolumeStatusType,
+        "statusReason": str,
+        "azMode": KxAzModeType,
+        "description": str,
+        "availabilityZoneIds": List[str],
+        "createdTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CustomDNSServerTypeDef = TypedDict(
     "CustomDNSServerTypeDef",
     {
@@ -424,6 +603,15 @@ DeleteEnvironmentRequestRequestTypeDef = TypedDict(
     "DeleteEnvironmentRequestRequestTypeDef",
     {
         "environmentId": str,
+    },
+)
+
+DeleteKxClusterNodeRequestRequestTypeDef = TypedDict(
+    "DeleteKxClusterNodeRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "clusterName": str,
+        "nodeId": str,
     },
 )
 
@@ -456,20 +644,96 @@ DeleteKxDatabaseRequestRequestTypeDef = TypedDict(
     },
 )
 
-DeleteKxEnvironmentRequestRequestTypeDef = TypedDict(
-    "DeleteKxEnvironmentRequestRequestTypeDef",
+DeleteKxDataviewRequestRequestTypeDef = TypedDict(
+    "DeleteKxDataviewRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "databaseName": str,
+        "dataviewName": str,
+        "clientToken": str,
+    },
+)
+
+_RequiredDeleteKxEnvironmentRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteKxEnvironmentRequestRequestTypeDef",
     {
         "environmentId": str,
     },
 )
+_OptionalDeleteKxEnvironmentRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteKxEnvironmentRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
 
-DeleteKxUserRequestRequestTypeDef = TypedDict(
-    "DeleteKxUserRequestRequestTypeDef",
+class DeleteKxEnvironmentRequestRequestTypeDef(
+    _RequiredDeleteKxEnvironmentRequestRequestTypeDef,
+    _OptionalDeleteKxEnvironmentRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDeleteKxScalingGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteKxScalingGroupRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "scalingGroupName": str,
+    },
+)
+_OptionalDeleteKxScalingGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteKxScalingGroupRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeleteKxScalingGroupRequestRequestTypeDef(
+    _RequiredDeleteKxScalingGroupRequestRequestTypeDef,
+    _OptionalDeleteKxScalingGroupRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDeleteKxUserRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteKxUserRequestRequestTypeDef",
     {
         "userName": str,
         "environmentId": str,
     },
 )
+_OptionalDeleteKxUserRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteKxUserRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeleteKxUserRequestRequestTypeDef(
+    _RequiredDeleteKxUserRequestRequestTypeDef, _OptionalDeleteKxUserRequestRequestTypeDef
+):
+    pass
+
+_RequiredDeleteKxVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteKxVolumeRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "volumeName": str,
+    },
+)
+_OptionalDeleteKxVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteKxVolumeRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeleteKxVolumeRequestRequestTypeDef(
+    _RequiredDeleteKxVolumeRequestRequestTypeDef, _OptionalDeleteKxVolumeRequestRequestTypeDef
+):
+    pass
 
 EnvironmentTypeDef = TypedDict(
     "EnvironmentTypeDef",
@@ -567,6 +831,8 @@ GetKxClusterResponseTypeDef = TypedDict(
         "statusReason": str,
         "clusterName": str,
         "clusterType": KxClusterTypeType,
+        "tickerplantLogConfiguration": "TickerplantLogConfigurationTypeDef",
+        "volumes": List["VolumeTypeDef"],
         "databases": List["KxDatabaseConfigurationTypeDef"],
         "cacheStorageConfigurations": List["KxCacheStorageConfigurationTypeDef"],
         "autoScalingConfiguration": "AutoScalingConfigurationTypeDef",
@@ -583,6 +849,7 @@ GetKxClusterResponseTypeDef = TypedDict(
         "azMode": KxAzModeType,
         "availabilityZoneId": str,
         "createdTimestamp": datetime,
+        "scalingGroupConfiguration": "KxScalingGroupConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -629,6 +896,37 @@ GetKxDatabaseResponseTypeDef = TypedDict(
     },
 )
 
+GetKxDataviewRequestRequestTypeDef = TypedDict(
+    "GetKxDataviewRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "databaseName": str,
+        "dataviewName": str,
+    },
+)
+
+GetKxDataviewResponseTypeDef = TypedDict(
+    "GetKxDataviewResponseTypeDef",
+    {
+        "databaseName": str,
+        "dataviewName": str,
+        "azMode": KxAzModeType,
+        "availabilityZoneId": str,
+        "changesetId": str,
+        "segmentConfigurations": List["KxDataviewSegmentConfigurationTypeDef"],
+        "activeVersions": List["KxDataviewActiveVersionTypeDef"],
+        "description": str,
+        "autoUpdate": bool,
+        "readWrite": bool,
+        "environmentId": str,
+        "createdTimestamp": datetime,
+        "lastModifiedTimestamp": datetime,
+        "status": KxDataviewStatusType,
+        "statusReason": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetKxEnvironmentRequestRequestTypeDef = TypedDict(
     "GetKxEnvironmentRequestRequestTypeDef",
     {
@@ -660,6 +958,30 @@ GetKxEnvironmentResponseTypeDef = TypedDict(
     },
 )
 
+GetKxScalingGroupRequestRequestTypeDef = TypedDict(
+    "GetKxScalingGroupRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "scalingGroupName": str,
+    },
+)
+
+GetKxScalingGroupResponseTypeDef = TypedDict(
+    "GetKxScalingGroupResponseTypeDef",
+    {
+        "scalingGroupName": str,
+        "scalingGroupArn": str,
+        "hostType": str,
+        "clusters": List[str],
+        "availabilityZoneId": str,
+        "status": KxScalingGroupStatusType,
+        "statusReason": str,
+        "lastModifiedTimestamp": datetime,
+        "createdTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetKxUserRequestRequestTypeDef = TypedDict(
     "GetKxUserRequestRequestTypeDef",
     {
@@ -679,12 +1001,50 @@ GetKxUserResponseTypeDef = TypedDict(
     },
 )
 
+GetKxVolumeRequestRequestTypeDef = TypedDict(
+    "GetKxVolumeRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "volumeName": str,
+    },
+)
+
+GetKxVolumeResponseTypeDef = TypedDict(
+    "GetKxVolumeResponseTypeDef",
+    {
+        "environmentId": str,
+        "volumeName": str,
+        "volumeType": Literal["NAS_1"],
+        "volumeArn": str,
+        "nas1Configuration": "KxNAS1ConfigurationTypeDef",
+        "status": KxVolumeStatusType,
+        "statusReason": str,
+        "createdTimestamp": datetime,
+        "description": str,
+        "azMode": KxAzModeType,
+        "availabilityZoneIds": List[str],
+        "lastModifiedTimestamp": datetime,
+        "attachedClusters": List["KxAttachedClusterTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 IcmpTypeCodeTypeDef = TypedDict(
     "IcmpTypeCodeTypeDef",
     {
         "type": int,
         "code": int,
     },
+)
+
+KxAttachedClusterTypeDef = TypedDict(
+    "KxAttachedClusterTypeDef",
+    {
+        "clusterName": str,
+        "clusterType": KxClusterTypeType,
+        "clusterStatus": KxClusterStatusType,
+    },
+    total=False,
 )
 
 KxCacheStorageConfigurationTypeDef = TypedDict(
@@ -723,6 +1083,7 @@ KxClusterTypeDef = TypedDict(
         "clusterType": KxClusterTypeType,
         "clusterDescription": str,
         "releaseLabel": str,
+        "volumes": List["VolumeTypeDef"],
         "initializationScript": str,
         "executionRole": str,
         "azMode": KxAzModeType,
@@ -742,13 +1103,25 @@ KxCommandLineArgumentTypeDef = TypedDict(
     total=False,
 )
 
-KxDatabaseCacheConfigurationTypeDef = TypedDict(
-    "KxDatabaseCacheConfigurationTypeDef",
+_RequiredKxDatabaseCacheConfigurationTypeDef = TypedDict(
+    "_RequiredKxDatabaseCacheConfigurationTypeDef",
     {
         "cacheType": str,
         "dbPaths": List[str],
     },
 )
+_OptionalKxDatabaseCacheConfigurationTypeDef = TypedDict(
+    "_OptionalKxDatabaseCacheConfigurationTypeDef",
+    {
+        "dataviewName": str,
+    },
+    total=False,
+)
+
+class KxDatabaseCacheConfigurationTypeDef(
+    _RequiredKxDatabaseCacheConfigurationTypeDef, _OptionalKxDatabaseCacheConfigurationTypeDef
+):
+    pass
 
 _RequiredKxDatabaseConfigurationTypeDef = TypedDict(
     "_RequiredKxDatabaseConfigurationTypeDef",
@@ -761,6 +1134,8 @@ _OptionalKxDatabaseConfigurationTypeDef = TypedDict(
     {
         "cacheConfigurations": List["KxDatabaseCacheConfigurationTypeDef"],
         "changesetId": str,
+        "dataviewName": str,
+        "dataviewConfiguration": "KxDataviewConfigurationTypeDef",
     },
     total=False,
 )
@@ -779,6 +1154,71 @@ KxDatabaseListEntryTypeDef = TypedDict(
     },
     total=False,
 )
+
+KxDataviewActiveVersionTypeDef = TypedDict(
+    "KxDataviewActiveVersionTypeDef",
+    {
+        "changesetId": str,
+        "segmentConfigurations": List["KxDataviewSegmentConfigurationTypeDef"],
+        "attachedClusters": List[str],
+        "createdTimestamp": datetime,
+        "versionId": str,
+    },
+    total=False,
+)
+
+KxDataviewConfigurationTypeDef = TypedDict(
+    "KxDataviewConfigurationTypeDef",
+    {
+        "dataviewName": str,
+        "dataviewVersionId": str,
+        "changesetId": str,
+        "segmentConfigurations": List["KxDataviewSegmentConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+KxDataviewListEntryTypeDef = TypedDict(
+    "KxDataviewListEntryTypeDef",
+    {
+        "environmentId": str,
+        "databaseName": str,
+        "dataviewName": str,
+        "azMode": KxAzModeType,
+        "availabilityZoneId": str,
+        "changesetId": str,
+        "segmentConfigurations": List["KxDataviewSegmentConfigurationTypeDef"],
+        "activeVersions": List["KxDataviewActiveVersionTypeDef"],
+        "status": KxDataviewStatusType,
+        "description": str,
+        "autoUpdate": bool,
+        "readWrite": bool,
+        "createdTimestamp": datetime,
+        "lastModifiedTimestamp": datetime,
+        "statusReason": str,
+    },
+    total=False,
+)
+
+_RequiredKxDataviewSegmentConfigurationTypeDef = TypedDict(
+    "_RequiredKxDataviewSegmentConfigurationTypeDef",
+    {
+        "dbPaths": List[str],
+        "volumeName": str,
+    },
+)
+_OptionalKxDataviewSegmentConfigurationTypeDef = TypedDict(
+    "_OptionalKxDataviewSegmentConfigurationTypeDef",
+    {
+        "onDemand": bool,
+    },
+    total=False,
+)
+
+class KxDataviewSegmentConfigurationTypeDef(
+    _RequiredKxDataviewSegmentConfigurationTypeDef, _OptionalKxDataviewSegmentConfigurationTypeDef
+):
+    pass
 
 KxDeploymentConfigurationTypeDef = TypedDict(
     "KxDeploymentConfigurationTypeDef",
@@ -811,12 +1251,22 @@ KxEnvironmentTypeDef = TypedDict(
     total=False,
 )
 
+KxNAS1ConfigurationTypeDef = TypedDict(
+    "KxNAS1ConfigurationTypeDef",
+    {
+        "type": KxNAS1TypeType,
+        "size": int,
+    },
+    total=False,
+)
+
 KxNodeTypeDef = TypedDict(
     "KxNodeTypeDef",
     {
         "nodeId": str,
         "availabilityZoneId": str,
         "launchTime": datetime,
+        "status": KxNodeStatusType,
     },
     total=False,
 )
@@ -826,7 +1276,46 @@ KxSavedownStorageConfigurationTypeDef = TypedDict(
     {
         "type": Literal["SDS01"],
         "size": int,
+        "volumeName": str,
     },
+    total=False,
+)
+
+_RequiredKxScalingGroupConfigurationTypeDef = TypedDict(
+    "_RequiredKxScalingGroupConfigurationTypeDef",
+    {
+        "scalingGroupName": str,
+        "memoryReservation": int,
+        "nodeCount": int,
+    },
+)
+_OptionalKxScalingGroupConfigurationTypeDef = TypedDict(
+    "_OptionalKxScalingGroupConfigurationTypeDef",
+    {
+        "memoryLimit": int,
+        "cpu": float,
+    },
+    total=False,
+)
+
+class KxScalingGroupConfigurationTypeDef(
+    _RequiredKxScalingGroupConfigurationTypeDef, _OptionalKxScalingGroupConfigurationTypeDef
+):
+    pass
+
+KxScalingGroupTypeDef = TypedDict(
+    "KxScalingGroupTypeDef",
+    {
+        "scalingGroupName": str,
+        "hostType": str,
+        "clusters": List[str],
+        "availabilityZoneId": str,
+        "status": KxScalingGroupStatusType,
+        "statusReason": str,
+        "lastModifiedTimestamp": datetime,
+        "createdTimestamp": datetime,
+    },
+    total=False,
 )
 
 KxUserTypeDef = TypedDict(
@@ -837,6 +1326,22 @@ KxUserTypeDef = TypedDict(
         "iamRole": str,
         "createTimestamp": datetime,
         "updateTimestamp": datetime,
+    },
+    total=False,
+)
+
+KxVolumeTypeDef = TypedDict(
+    "KxVolumeTypeDef",
+    {
+        "volumeName": str,
+        "volumeType": Literal["NAS_1"],
+        "status": KxVolumeStatusType,
+        "description": str,
+        "statusReason": str,
+        "azMode": KxAzModeType,
+        "availabilityZoneIds": List[str],
+        "createdTimestamp": datetime,
+        "lastModifiedTimestamp": datetime,
     },
     total=False,
 )
@@ -979,6 +1484,36 @@ ListKxDatabasesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListKxDataviewsRequestRequestTypeDef = TypedDict(
+    "_RequiredListKxDataviewsRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "databaseName": str,
+    },
+)
+_OptionalListKxDataviewsRequestRequestTypeDef = TypedDict(
+    "_OptionalListKxDataviewsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListKxDataviewsRequestRequestTypeDef(
+    _RequiredListKxDataviewsRequestRequestTypeDef, _OptionalListKxDataviewsRequestRequestTypeDef
+):
+    pass
+
+ListKxDataviewsResponseTypeDef = TypedDict(
+    "ListKxDataviewsResponseTypeDef",
+    {
+        "kxDataviews": List["KxDataviewListEntryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListKxEnvironmentsRequestRequestTypeDef = TypedDict(
     "ListKxEnvironmentsRequestRequestTypeDef",
     {
@@ -992,6 +1527,36 @@ ListKxEnvironmentsResponseTypeDef = TypedDict(
     "ListKxEnvironmentsResponseTypeDef",
     {
         "environments": List["KxEnvironmentTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListKxScalingGroupsRequestRequestTypeDef = TypedDict(
+    "_RequiredListKxScalingGroupsRequestRequestTypeDef",
+    {
+        "environmentId": str,
+    },
+)
+_OptionalListKxScalingGroupsRequestRequestTypeDef = TypedDict(
+    "_OptionalListKxScalingGroupsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListKxScalingGroupsRequestRequestTypeDef(
+    _RequiredListKxScalingGroupsRequestRequestTypeDef,
+    _OptionalListKxScalingGroupsRequestRequestTypeDef,
+):
+    pass
+
+ListKxScalingGroupsResponseTypeDef = TypedDict(
+    "ListKxScalingGroupsResponseTypeDef",
+    {
+        "scalingGroups": List["KxScalingGroupTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1021,6 +1586,36 @@ ListKxUsersResponseTypeDef = TypedDict(
     "ListKxUsersResponseTypeDef",
     {
         "users": List["KxUserTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListKxVolumesRequestRequestTypeDef = TypedDict(
+    "_RequiredListKxVolumesRequestRequestTypeDef",
+    {
+        "environmentId": str,
+    },
+)
+_OptionalListKxVolumesRequestRequestTypeDef = TypedDict(
+    "_OptionalListKxVolumesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+        "volumeType": Literal["NAS_1"],
+    },
+    total=False,
+)
+
+class ListKxVolumesRequestRequestTypeDef(
+    _RequiredListKxVolumesRequestRequestTypeDef, _OptionalListKxVolumesRequestRequestTypeDef
+):
+    pass
+
+ListKxVolumesResponseTypeDef = TypedDict(
+    "ListKxVolumesResponseTypeDef",
+    {
+        "kxVolumeSummaries": List["KxVolumeTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1106,6 +1701,14 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "resourceArn": str,
         "tags": Dict[str, str],
     },
+)
+
+TickerplantLogConfigurationTypeDef = TypedDict(
+    "TickerplantLogConfigurationTypeDef",
+    {
+        "tickerplantLogVolumes": List[str],
+    },
+    total=False,
 )
 
 _RequiredTransitGatewayConfigurationTypeDef = TypedDict(
@@ -1246,6 +1849,51 @@ UpdateKxDatabaseResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateKxDataviewRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateKxDataviewRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "databaseName": str,
+        "dataviewName": str,
+        "clientToken": str,
+    },
+)
+_OptionalUpdateKxDataviewRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateKxDataviewRequestRequestTypeDef",
+    {
+        "description": str,
+        "changesetId": str,
+        "segmentConfigurations": List["KxDataviewSegmentConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateKxDataviewRequestRequestTypeDef(
+    _RequiredUpdateKxDataviewRequestRequestTypeDef, _OptionalUpdateKxDataviewRequestRequestTypeDef
+):
+    pass
+
+UpdateKxDataviewResponseTypeDef = TypedDict(
+    "UpdateKxDataviewResponseTypeDef",
+    {
+        "environmentId": str,
+        "databaseName": str,
+        "dataviewName": str,
+        "azMode": KxAzModeType,
+        "availabilityZoneId": str,
+        "changesetId": str,
+        "segmentConfigurations": List["KxDataviewSegmentConfigurationTypeDef"],
+        "activeVersions": List["KxDataviewActiveVersionTypeDef"],
+        "status": KxDataviewStatusType,
+        "autoUpdate": bool,
+        "readWrite": bool,
+        "description": str,
+        "createdTimestamp": datetime,
+        "lastModifiedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateKxEnvironmentNetworkRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateKxEnvironmentNetworkRequestRequestTypeDef",
     {
@@ -1366,6 +2014,57 @@ UpdateKxUserResponseTypeDef = TypedDict(
         "iamRole": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredUpdateKxVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateKxVolumeRequestRequestTypeDef",
+    {
+        "environmentId": str,
+        "volumeName": str,
+    },
+)
+_OptionalUpdateKxVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateKxVolumeRequestRequestTypeDef",
+    {
+        "description": str,
+        "clientToken": str,
+        "nas1Configuration": "KxNAS1ConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateKxVolumeRequestRequestTypeDef(
+    _RequiredUpdateKxVolumeRequestRequestTypeDef, _OptionalUpdateKxVolumeRequestRequestTypeDef
+):
+    pass
+
+UpdateKxVolumeResponseTypeDef = TypedDict(
+    "UpdateKxVolumeResponseTypeDef",
+    {
+        "environmentId": str,
+        "volumeName": str,
+        "volumeType": Literal["NAS_1"],
+        "volumeArn": str,
+        "nas1Configuration": "KxNAS1ConfigurationTypeDef",
+        "status": KxVolumeStatusType,
+        "description": str,
+        "statusReason": str,
+        "createdTimestamp": datetime,
+        "azMode": KxAzModeType,
+        "availabilityZoneIds": List[str],
+        "lastModifiedTimestamp": datetime,
+        "attachedClusters": List["KxAttachedClusterTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+VolumeTypeDef = TypedDict(
+    "VolumeTypeDef",
+    {
+        "volumeName": str,
+        "volumeType": Literal["NAS_1"],
+    },
+    total=False,
 )
 
 VpcConfigurationTypeDef = TypedDict(

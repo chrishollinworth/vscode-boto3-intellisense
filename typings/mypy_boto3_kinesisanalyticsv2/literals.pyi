@@ -11,6 +11,7 @@ Usage::
     data: ApplicationModeType = "INTERACTIVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -66,6 +67,7 @@ RuntimeEnvironmentType = Literal[
     "FLINK-1_11",
     "FLINK-1_13",
     "FLINK-1_15",
+    "FLINK-1_18",
     "FLINK-1_6",
     "FLINK-1_8",
     "SQL-1_0",

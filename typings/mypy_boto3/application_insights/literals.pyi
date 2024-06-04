@@ -11,6 +11,7 @@ Usage::
     data: CloudWatchEventSourceType = "CODE_DEPLOY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

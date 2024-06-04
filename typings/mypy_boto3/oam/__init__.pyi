@@ -23,6 +23,7 @@ Usage::
     list_sinks_paginator: ListSinksPaginator = client.get_paginator("list_sinks")
     ```
 """
+
 from .client import CloudWatchObservabilityAccessManagerClient
 from .paginator import ListAttachedLinksPaginator, ListLinksPaginator, ListSinksPaginator
 

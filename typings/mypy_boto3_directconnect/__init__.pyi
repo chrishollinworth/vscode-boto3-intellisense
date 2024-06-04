@@ -23,6 +23,7 @@ Usage::
     describe_direct_connect_gateways_paginator: DescribeDirectConnectGatewaysPaginator = client.get_paginator("describe_direct_connect_gateways")
     ```
 """
+
 from .client import DirectConnectClient
 from .paginator import (
     DescribeDirectConnectGatewayAssociationsPaginator,

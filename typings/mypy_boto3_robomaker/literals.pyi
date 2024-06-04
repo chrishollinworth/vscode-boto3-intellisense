@@ -11,6 +11,7 @@ Usage::
     data: ArchitectureType = "ARM64"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

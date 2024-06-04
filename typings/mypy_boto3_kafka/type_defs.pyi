@@ -11,6 +11,7 @@ Usage::
     data: AmazonMskClusterTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -25,6 +26,7 @@ from .literals import (
     CustomerActionStatusType,
     EnhancedMonitoringType,
     KafkaVersionStatusType,
+    ReplicationStartingPositionTypeType,
     ReplicatorStateType,
     StorageModeType,
     TargetCompressionTypeType,
@@ -47,6 +49,7 @@ __all__ = (
     "BatchAssociateScramSecretResponseTypeDef",
     "BatchDisassociateScramSecretRequestRequestTypeDef",
     "BatchDisassociateScramSecretResponseTypeDef",
+    "BrokerCountUpdateInfoTypeDef",
     "BrokerEBSVolumeInfoTypeDef",
     "BrokerLogsTypeDef",
     "BrokerNodeGroupInfoTypeDef",
@@ -71,6 +74,7 @@ __all__ = (
     "ConnectivityInfoTypeDef",
     "ConsumerGroupReplicationTypeDef",
     "ConsumerGroupReplicationUpdateTypeDef",
+    "ControllerNodeInfoTypeDef",
     "CreateClusterRequestRequestTypeDef",
     "CreateClusterResponseTypeDef",
     "CreateClusterV2RequestRequestTypeDef",
@@ -174,6 +178,7 @@ __all__ = (
     "ReplicationInfoDescriptionTypeDef",
     "ReplicationInfoSummaryTypeDef",
     "ReplicationInfoTypeDef",
+    "ReplicationStartingPositionTypeDef",
     "ReplicationStateInfoTypeDef",
     "ReplicatorSummaryTypeDef",
     "ResponseMetadataTypeDef",
@@ -268,6 +273,15 @@ BatchDisassociateScramSecretResponseTypeDef = TypedDict(
         "UnprocessedScramSecrets": List["UnprocessedScramSecretTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+BrokerCountUpdateInfoTypeDef = TypedDict(
+    "BrokerCountUpdateInfoTypeDef",
+    {
+        "CreatedBrokerIds": List[float],
+        "DeletedBrokerIds": List[float],
+    },
+    total=False,
 )
 
 _RequiredBrokerEBSVolumeInfoTypeDef = TypedDict(
@@ -615,6 +629,14 @@ ConsumerGroupReplicationUpdateTypeDef = TypedDict(
         "DetectAndCopyNewConsumerGroups": bool,
         "SynchroniseConsumerGroupOffsets": bool,
     },
+)
+
+ControllerNodeInfoTypeDef = TypedDict(
+    "ControllerNodeInfoTypeDef",
+    {
+        "Endpoints": List[str],
+    },
+    total=False,
 )
 
 _RequiredCreateClusterRequestRequestTypeDef = TypedDict(
@@ -1560,6 +1582,7 @@ MutableClusterInfoTypeDef = TypedDict(
         "EncryptionInfo": "EncryptionInfoTypeDef",
         "ConnectivityInfo": "ConnectivityInfoTypeDef",
         "StorageMode": StorageModeType,
+        "BrokerCountUpdateInfo": "BrokerCountUpdateInfoTypeDef",
     },
     total=False,
 )
@@ -1583,6 +1606,7 @@ NodeInfoTypeDef = TypedDict(
     {
         "AddedToClusterTime": str,
         "BrokerNodeInfo": "BrokerNodeInfoTypeDef",
+        "ControllerNodeInfo": "ControllerNodeInfoTypeDef",
         "InstanceType": str,
         "NodeARN": str,
         "NodeType": Literal["BROKER"],
@@ -1789,6 +1813,14 @@ ReplicationInfoTypeDef = TypedDict(
     },
 )
 
+ReplicationStartingPositionTypeDef = TypedDict(
+    "ReplicationStartingPositionTypeDef",
+    {
+        "Type": ReplicationStartingPositionTypeType,
+    },
+    total=False,
+)
+
 ReplicationStateInfoTypeDef = TypedDict(
     "ReplicationStateInfoTypeDef",
     {
@@ -1958,6 +1990,7 @@ _OptionalTopicReplicationTypeDef = TypedDict(
         "CopyAccessControlListsForTopics": bool,
         "CopyTopicConfigurations": bool,
         "DetectAndCopyNewTopics": bool,
+        "StartingPosition": "ReplicationStartingPositionTypeDef",
         "TopicsToExclude": List[str],
     },
     total=False,

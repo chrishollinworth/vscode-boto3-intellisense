@@ -27,6 +27,7 @@ Usage::
     list_scheduling_policies_paginator: ListSchedulingPoliciesPaginator = client.get_paginator("list_scheduling_policies")
     ```
 """
+
 from .client import BatchClient
 from .paginator import (
     DescribeComputeEnvironmentsPaginator,

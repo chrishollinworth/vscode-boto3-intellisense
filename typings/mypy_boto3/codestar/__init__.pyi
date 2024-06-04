@@ -25,6 +25,7 @@ Usage::
     list_user_profiles_paginator: ListUserProfilesPaginator = client.get_paginator("list_user_profiles")
     ```
 """
+
 from .client import CodeStarClient
 from .paginator import (
     ListProjectsPaginator,

@@ -33,6 +33,7 @@ Usage::
     list_vod_sources_paginator: ListVodSourcesPaginator = client.get_paginator("list_vod_sources")
     ```
 """
+
 from .client import MediaTailorClient
 from .paginator import (
     GetChannelSchedulePaginator,

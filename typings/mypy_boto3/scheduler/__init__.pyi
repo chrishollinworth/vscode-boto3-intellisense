@@ -21,6 +21,7 @@ Usage::
     list_schedules_paginator: ListSchedulesPaginator = client.get_paginator("list_schedules")
     ```
 """
+
 from .client import EventBridgeSchedulerClient
 from .paginator import ListScheduleGroupsPaginator, ListSchedulesPaginator
 

@@ -11,6 +11,7 @@ Usage::
     data: BlockerStatusType = "ACTIVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -23,15 +24,21 @@ __all__ = (
     "BlockerTypeType",
     "ConnectionStatusType",
     "ProviderTypeType",
+    "PublishDeploymentStatusType",
     "RepositorySyncStatusType",
     "ResourceSyncStatusType",
     "SyncConfigurationTypeType",
+    "TriggerResourceUpdateOnType",
 )
 
 BlockerStatusType = Literal["ACTIVE", "RESOLVED"]
 BlockerTypeType = Literal["AUTOMATED"]
 ConnectionStatusType = Literal["AVAILABLE", "ERROR", "PENDING"]
-ProviderTypeType = Literal["Bitbucket", "GitHub", "GitHubEnterpriseServer", "GitLab"]
+ProviderTypeType = Literal[
+    "Bitbucket", "GitHub", "GitHubEnterpriseServer", "GitLab", "GitLabSelfManaged"
+]
+PublishDeploymentStatusType = Literal["DISABLED", "ENABLED"]
 RepositorySyncStatusType = Literal["FAILED", "INITIATED", "IN_PROGRESS", "QUEUED", "SUCCEEDED"]
 ResourceSyncStatusType = Literal["FAILED", "INITIATED", "IN_PROGRESS", "SUCCEEDED"]
 SyncConfigurationTypeType = Literal["CFN_STACK_SYNC"]
+TriggerResourceUpdateOnType = Literal["ANY_CHANGE", "FILE_CHANGE"]

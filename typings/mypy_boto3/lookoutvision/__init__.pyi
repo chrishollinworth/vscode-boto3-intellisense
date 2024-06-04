@@ -25,6 +25,7 @@ Usage::
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
     ```
 """
+
 from .client import LookoutforVisionClient
 from .paginator import (
     ListDatasetEntriesPaginator,

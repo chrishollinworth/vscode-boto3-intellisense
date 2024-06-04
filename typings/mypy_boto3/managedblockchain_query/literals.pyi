@@ -6,11 +6,12 @@ Type annotations for managedblockchain-query service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_managedblockchain_query.literals import ErrorTypeType
+    from mypy_boto3_managedblockchain_query.literals import ConfirmationStatusType
 
-    data: ErrorTypeType = "RESOURCE_NOT_FOUND_EXCEPTION"
+    data: ConfirmationStatusType = "FINAL"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,8 +20,12 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ConfirmationStatusType",
     "ErrorTypeType",
+    "ExecutionStatusType",
     "ListAssetContractsPaginatorName",
+    "ListFilteredTransactionEventsPaginatorName",
+    "ListFilteredTransactionEventsSortByType",
     "ListTokenBalancesPaginatorName",
     "ListTransactionEventsPaginatorName",
     "ListTransactionsPaginatorName",
@@ -28,12 +33,15 @@ __all__ = (
     "QueryNetworkType",
     "QueryTokenStandardType",
     "QueryTransactionEventTypeType",
-    "QueryTransactionStatusType",
     "SortOrderType",
 )
 
+ConfirmationStatusType = Literal["FINAL", "NONFINAL"]
 ErrorTypeType = Literal["RESOURCE_NOT_FOUND_EXCEPTION", "VALIDATION_EXCEPTION"]
+ExecutionStatusType = Literal["FAILED", "SUCCEEDED"]
 ListAssetContractsPaginatorName = Literal["list_asset_contracts"]
+ListFilteredTransactionEventsPaginatorName = Literal["list_filtered_transaction_events"]
+ListFilteredTransactionEventsSortByType = Literal["blockchainInstant"]
 ListTokenBalancesPaginatorName = Literal["list_token_balances"]
 ListTransactionEventsPaginatorName = Literal["list_transaction_events"]
 ListTransactionsPaginatorName = Literal["list_transactions"]
@@ -55,5 +63,4 @@ QueryTransactionEventTypeType = Literal[
     "ETH_TRANSFER",
     "INTERNAL_ETH_TRANSFER",
 ]
-QueryTransactionStatusType = Literal["FAILED", "FINAL"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]

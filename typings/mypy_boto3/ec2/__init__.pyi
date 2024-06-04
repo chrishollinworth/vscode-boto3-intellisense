@@ -65,6 +65,7 @@ Usage::
         DescribeLocalGatewayVirtualInterfaceGroupsPaginator,
         DescribeLocalGatewayVirtualInterfacesPaginator,
         DescribeLocalGatewaysPaginator,
+        DescribeMacHostsPaginator,
         DescribeManagedPrefixListsPaginator,
         DescribeMovingAddressesPaginator,
         DescribeNatGatewaysPaginator,
@@ -287,6 +288,7 @@ Usage::
     describe_local_gateway_virtual_interface_groups_paginator: DescribeLocalGatewayVirtualInterfaceGroupsPaginator = client.get_paginator("describe_local_gateway_virtual_interface_groups")
     describe_local_gateway_virtual_interfaces_paginator: DescribeLocalGatewayVirtualInterfacesPaginator = client.get_paginator("describe_local_gateway_virtual_interfaces")
     describe_local_gateways_paginator: DescribeLocalGatewaysPaginator = client.get_paginator("describe_local_gateways")
+    describe_mac_hosts_paginator: DescribeMacHostsPaginator = client.get_paginator("describe_mac_hosts")
     describe_managed_prefix_lists_paginator: DescribeManagedPrefixListsPaginator = client.get_paginator("describe_managed_prefix_lists")
     describe_moving_addresses_paginator: DescribeMovingAddressesPaginator = client.get_paginator("describe_moving_addresses")
     describe_nat_gateways_paginator: DescribeNatGatewaysPaginator = client.get_paginator("describe_nat_gateways")
@@ -377,6 +379,7 @@ Usage::
     search_transit_gateway_multicast_groups_paginator: SearchTransitGatewayMulticastGroupsPaginator = client.get_paginator("search_transit_gateway_multicast_groups")
     ```
 """
+
 from .client import EC2Client
 from .paginator import (
     DescribeAddressesAttributePaginator,
@@ -432,6 +435,7 @@ from .paginator import (
     DescribeLocalGatewaysPaginator,
     DescribeLocalGatewayVirtualInterfaceGroupsPaginator,
     DescribeLocalGatewayVirtualInterfacesPaginator,
+    DescribeMacHostsPaginator,
     DescribeManagedPrefixListsPaginator,
     DescribeMovingAddressesPaginator,
     DescribeNatGatewaysPaginator,
@@ -625,6 +629,7 @@ __all__ = (
     "DescribeLocalGatewayVirtualInterfaceGroupsPaginator",
     "DescribeLocalGatewayVirtualInterfacesPaginator",
     "DescribeLocalGatewaysPaginator",
+    "DescribeMacHostsPaginator",
     "DescribeManagedPrefixListsPaginator",
     "DescribeMovingAddressesPaginator",
     "DescribeNatGatewaysPaginator",

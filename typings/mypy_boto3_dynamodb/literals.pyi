@@ -6,11 +6,12 @@ Type annotations for dynamodb service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_dynamodb.literals import AttributeActionType
+    from mypy_boto3_dynamodb.literals import ApproximateCreationDateTimePrecisionType
 
-    data: AttributeActionType = "ADD"
+    data: ApproximateCreationDateTimePrecisionType = "MICROSECOND"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ApproximateCreationDateTimePrecisionType",
     "AttributeActionType",
     "BackupStatusType",
     "BackupTypeFilterType",
@@ -66,6 +68,7 @@ __all__ = (
     "TimeToLiveStatusType",
 )
 
+ApproximateCreationDateTimePrecisionType = Literal["MICROSECOND", "MILLISECOND"]
 AttributeActionType = Literal["ADD", "DELETE", "PUT"]
 BackupStatusType = Literal["AVAILABLE", "CREATING", "DELETED"]
 BackupTypeFilterType = Literal["ALL", "AWS_BACKUP", "SYSTEM", "USER"]
@@ -103,7 +106,9 @@ ConditionalOperatorType = Literal["AND", "OR"]
 ContinuousBackupsStatusType = Literal["DISABLED", "ENABLED"]
 ContributorInsightsActionType = Literal["DISABLE", "ENABLE"]
 ContributorInsightsStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING", "FAILED"]
-DestinationStatusType = Literal["ACTIVE", "DISABLED", "DISABLING", "ENABLE_FAILED", "ENABLING"]
+DestinationStatusType = Literal[
+    "ACTIVE", "DISABLED", "DISABLING", "ENABLE_FAILED", "ENABLING", "UPDATING"
+]
 ExportFormatType = Literal["DYNAMODB_JSON", "ION"]
 ExportStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 ExportTypeType = Literal["FULL_EXPORT", "INCREMENTAL_EXPORT"]

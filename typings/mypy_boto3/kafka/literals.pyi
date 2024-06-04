@@ -11,6 +11,7 @@ Usage::
     data: BrokerAZDistributionType = "DEFAULT"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -40,6 +41,7 @@ __all__ = (
     "ListScramSecretsPaginatorName",
     "ListVpcConnectionsPaginatorName",
     "NodeTypeType",
+    "ReplicationStartingPositionTypeType",
     "ReplicatorStateType",
     "StorageModeType",
     "TargetCompressionTypeType",
@@ -79,6 +81,7 @@ ListReplicatorsPaginatorName = Literal["list_replicators"]
 ListScramSecretsPaginatorName = Literal["list_scram_secrets"]
 ListVpcConnectionsPaginatorName = Literal["list_vpc_connections"]
 NodeTypeType = Literal["BROKER"]
+ReplicationStartingPositionTypeType = Literal["EARLIEST", "LATEST"]
 ReplicatorStateType = Literal["CREATING", "DELETING", "FAILED", "RUNNING", "UPDATING"]
 StorageModeType = Literal["LOCAL", "TIERED"]
 TargetCompressionTypeType = Literal["GZIP", "LZ4", "NONE", "SNAPPY", "ZSTD"]

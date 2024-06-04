@@ -33,6 +33,7 @@ Usage::
     bot_version_available_waiter: BotVersionAvailableWaiter = client.get_waiter("bot_version_available")
     ```
 """
+
 from .client import LexModelsV2Client
 from .waiter import (
     BotAliasAvailableWaiter,

@@ -11,6 +11,7 @@ Usage::
     data: AdjustmentTypeType = "ChangeInCapacity"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -62,6 +63,7 @@ MetricTypeType = Literal[
     "NeptuneReaderAverageCPUUtilization",
     "RDSReaderAverageCPUUtilization",
     "RDSReaderAverageDatabaseConnections",
+    "SageMakerInferenceComponentInvocationsPerCopy",
     "SageMakerVariantInvocationsPerInstance",
     "SageMakerVariantProvisionedConcurrencyUtilization",
 ]
@@ -86,6 +88,7 @@ ScalableDimensionType = Literal[
     "lambda:function:ProvisionedConcurrency",
     "neptune:cluster:ReadReplicaCount",
     "rds:cluster:ReadReplicaCount",
+    "sagemaker:inference-component:DesiredCopyCount",
     "sagemaker:variant:DesiredInstanceCount",
     "sagemaker:variant:DesiredProvisionedConcurrency",
 ]

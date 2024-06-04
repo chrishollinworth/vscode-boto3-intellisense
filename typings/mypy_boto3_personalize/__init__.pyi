@@ -49,6 +49,7 @@ Usage::
     list_solutions_paginator: ListSolutionsPaginator = client.get_paginator("list_solutions")
     ```
 """
+
 from .client import PersonalizeClient
 from .paginator import (
     ListBatchInferenceJobsPaginator,

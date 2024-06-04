@@ -23,6 +23,7 @@ Usage::
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     ```
 """
+
 from .client import KeyspacesClient
 from .paginator import ListKeyspacesPaginator, ListTablesPaginator, ListTagsForResourcePaginator
 

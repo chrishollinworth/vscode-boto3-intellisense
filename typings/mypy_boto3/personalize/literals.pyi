@@ -11,6 +11,7 @@ Usage::
     data: BatchInferenceJobModeType = "BATCH_INFERENCE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -42,6 +43,7 @@ __all__ = (
     "ObjectiveSensitivityType",
     "RecipeProviderType",
     "TrainingModeType",
+    "TrainingTypeType",
 )
 
 BatchInferenceJobModeType = Literal["BATCH_INFERENCE", "THEME_GENERATION"]
@@ -66,4 +68,5 @@ ListSolutionVersionsPaginatorName = Literal["list_solution_versions"]
 ListSolutionsPaginatorName = Literal["list_solutions"]
 ObjectiveSensitivityType = Literal["HIGH", "LOW", "MEDIUM", "OFF"]
 RecipeProviderType = Literal["SERVICE"]
-TrainingModeType = Literal["FULL", "UPDATE"]
+TrainingModeType = Literal["AUTOTRAIN", "FULL", "UPDATE"]
+TrainingTypeType = Literal["AUTOMATIC", "MANUAL"]

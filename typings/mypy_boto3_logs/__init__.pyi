@@ -45,6 +45,7 @@ Usage::
     list_log_anomaly_detectors_paginator: ListLogAnomalyDetectorsPaginator = client.get_paginator("list_log_anomaly_detectors")
     ```
 """
+
 from .client import CloudWatchLogsClient
 from .paginator import (
     DescribeDeliveriesPaginator,

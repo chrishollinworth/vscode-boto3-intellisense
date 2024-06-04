@@ -25,6 +25,7 @@ Usage::
     list_workloads_paginator: ListWorkloadsPaginator = client.get_paginator("list_workloads")
     ```
 """
+
 from .client import LaunchWizardClient
 from .paginator import (
     ListDeploymentEventsPaginator,

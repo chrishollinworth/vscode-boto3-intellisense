@@ -16,6 +16,7 @@ Usage::
     session_client: KendraRankingClient = session.client("kendra-ranking")
     ```
 """
+
 from .client import KendraRankingClient
 
 Client = KendraRankingClient

@@ -21,6 +21,7 @@ Usage::
     list_environments_paginator: ListEnvironmentsPaginator = client.get_paginator("list_environments")
     ```
 """
+
 from .client import Cloud9Client
 from .paginator import DescribeEnvironmentMembershipsPaginator, ListEnvironmentsPaginator
 

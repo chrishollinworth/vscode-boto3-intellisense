@@ -16,6 +16,7 @@ Usage::
     session_client: ChimeSDKMessagingClient = session.client("chime-sdk-messaging")
     ```
 """
+
 from .client import ChimeSDKMessagingClient
 
 Client = ChimeSDKMessagingClient

@@ -11,6 +11,7 @@ Usage::
     data: AmazonOpenSearchServerlessBufferingHintsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -42,6 +43,8 @@ from .literals import (
     ProcessorTypeType,
     RedshiftS3BackupModeType,
     S3BackupModeType,
+    SnowflakeDataLoadingOptionType,
+    SnowflakeS3BackupModeType,
     SplunkS3BackupModeType,
 )
 
@@ -136,7 +139,14 @@ __all__ = (
     "S3DestinationUpdateTypeDef",
     "SchemaConfigurationTypeDef",
     "SerializerTypeDef",
+    "SnowflakeDestinationConfigurationTypeDef",
+    "SnowflakeDestinationDescriptionTypeDef",
+    "SnowflakeDestinationUpdateTypeDef",
+    "SnowflakeRetryOptionsTypeDef",
+    "SnowflakeRoleConfigurationTypeDef",
+    "SnowflakeVpcConfigurationTypeDef",
     "SourceDescriptionTypeDef",
+    "SplunkBufferingHintsTypeDef",
     "SplunkDestinationConfigurationTypeDef",
     "SplunkDestinationDescriptionTypeDef",
     "SplunkDestinationUpdateTypeDef",
@@ -384,6 +394,7 @@ _OptionalCreateDeliveryStreamInputRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "AmazonOpenSearchServerlessDestinationConfiguration": "AmazonOpenSearchServerlessDestinationConfigurationTypeDef",
         "MSKSourceConfiguration": "MSKSourceConfigurationTypeDef",
+        "SnowflakeDestinationConfiguration": "SnowflakeDestinationConfigurationTypeDef",
     },
     total=False,
 )
@@ -547,6 +558,7 @@ _OptionalDestinationDescriptionTypeDef = TypedDict(
         "AmazonopensearchserviceDestinationDescription": "AmazonopensearchserviceDestinationDescriptionTypeDef",
         "SplunkDestinationDescription": "SplunkDestinationDescriptionTypeDef",
         "HttpEndpointDestinationDescription": "HttpEndpointDestinationDescriptionTypeDef",
+        "SnowflakeDestinationDescription": "SnowflakeDestinationDescriptionTypeDef",
         "AmazonOpenSearchServerlessDestinationDescription": "AmazonOpenSearchServerlessDestinationDescriptionTypeDef",
     },
     total=False,
@@ -692,6 +704,8 @@ _OptionalExtendedS3DestinationConfigurationTypeDef = TypedDict(
         "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
         "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
         "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
+        "FileExtension": str,
+        "CustomTimeZone": str,
     },
     total=False,
 )
@@ -723,6 +737,8 @@ _OptionalExtendedS3DestinationDescriptionTypeDef = TypedDict(
         "S3BackupDescription": "S3DestinationDescriptionTypeDef",
         "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
         "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
+        "FileExtension": str,
+        "CustomTimeZone": str,
     },
     total=False,
 )
@@ -749,6 +765,8 @@ ExtendedS3DestinationUpdateTypeDef = TypedDict(
         "S3BackupUpdate": "S3DestinationUpdateTypeDef",
         "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
         "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
+        "FileExtension": str,
+        "CustomTimeZone": str,
     },
     total=False,
 )
@@ -1315,11 +1333,127 @@ SerializerTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSnowflakeDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredSnowflakeDestinationConfigurationTypeDef",
+    {
+        "AccountUrl": str,
+        "PrivateKey": str,
+        "User": str,
+        "Database": str,
+        "Schema": str,
+        "Table": str,
+        "RoleARN": str,
+        "S3Configuration": "S3DestinationConfigurationTypeDef",
+    },
+)
+_OptionalSnowflakeDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalSnowflakeDestinationConfigurationTypeDef",
+    {
+        "KeyPassphrase": str,
+        "SnowflakeRoleConfiguration": "SnowflakeRoleConfigurationTypeDef",
+        "DataLoadingOption": SnowflakeDataLoadingOptionType,
+        "MetaDataColumnName": str,
+        "ContentColumnName": str,
+        "SnowflakeVpcConfiguration": "SnowflakeVpcConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "RetryOptions": "SnowflakeRetryOptionsTypeDef",
+        "S3BackupMode": SnowflakeS3BackupModeType,
+    },
+    total=False,
+)
+
+class SnowflakeDestinationConfigurationTypeDef(
+    _RequiredSnowflakeDestinationConfigurationTypeDef,
+    _OptionalSnowflakeDestinationConfigurationTypeDef,
+):
+    pass
+
+SnowflakeDestinationDescriptionTypeDef = TypedDict(
+    "SnowflakeDestinationDescriptionTypeDef",
+    {
+        "AccountUrl": str,
+        "User": str,
+        "Database": str,
+        "Schema": str,
+        "Table": str,
+        "SnowflakeRoleConfiguration": "SnowflakeRoleConfigurationTypeDef",
+        "DataLoadingOption": SnowflakeDataLoadingOptionType,
+        "MetaDataColumnName": str,
+        "ContentColumnName": str,
+        "SnowflakeVpcConfiguration": "SnowflakeVpcConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "RoleARN": str,
+        "RetryOptions": "SnowflakeRetryOptionsTypeDef",
+        "S3BackupMode": SnowflakeS3BackupModeType,
+        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
+    },
+    total=False,
+)
+
+SnowflakeDestinationUpdateTypeDef = TypedDict(
+    "SnowflakeDestinationUpdateTypeDef",
+    {
+        "AccountUrl": str,
+        "PrivateKey": str,
+        "KeyPassphrase": str,
+        "User": str,
+        "Database": str,
+        "Schema": str,
+        "Table": str,
+        "SnowflakeRoleConfiguration": "SnowflakeRoleConfigurationTypeDef",
+        "DataLoadingOption": SnowflakeDataLoadingOptionType,
+        "MetaDataColumnName": str,
+        "ContentColumnName": str,
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "RoleARN": str,
+        "RetryOptions": "SnowflakeRetryOptionsTypeDef",
+        "S3BackupMode": SnowflakeS3BackupModeType,
+        "S3Update": "S3DestinationUpdateTypeDef",
+    },
+    total=False,
+)
+
+SnowflakeRetryOptionsTypeDef = TypedDict(
+    "SnowflakeRetryOptionsTypeDef",
+    {
+        "DurationInSeconds": int,
+    },
+    total=False,
+)
+
+SnowflakeRoleConfigurationTypeDef = TypedDict(
+    "SnowflakeRoleConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "SnowflakeRole": str,
+    },
+    total=False,
+)
+
+SnowflakeVpcConfigurationTypeDef = TypedDict(
+    "SnowflakeVpcConfigurationTypeDef",
+    {
+        "PrivateLinkVpceId": str,
+    },
+)
+
 SourceDescriptionTypeDef = TypedDict(
     "SourceDescriptionTypeDef",
     {
         "KinesisStreamSourceDescription": "KinesisStreamSourceDescriptionTypeDef",
         "MSKSourceDescription": "MSKSourceDescriptionTypeDef",
+    },
+    total=False,
+)
+
+SplunkBufferingHintsTypeDef = TypedDict(
+    "SplunkBufferingHintsTypeDef",
+    {
+        "IntervalInSeconds": int,
+        "SizeInMBs": int,
     },
     total=False,
 )
@@ -1341,6 +1475,7 @@ _OptionalSplunkDestinationConfigurationTypeDef = TypedDict(
         "S3BackupMode": SplunkS3BackupModeType,
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "BufferingHints": "SplunkBufferingHintsTypeDef",
     },
     total=False,
 )
@@ -1362,6 +1497,7 @@ SplunkDestinationDescriptionTypeDef = TypedDict(
         "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "BufferingHints": "SplunkBufferingHintsTypeDef",
     },
     total=False,
 )
@@ -1378,6 +1514,7 @@ SplunkDestinationUpdateTypeDef = TypedDict(
         "S3Update": "S3DestinationUpdateTypeDef",
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "BufferingHints": "SplunkBufferingHintsTypeDef",
     },
     total=False,
 )
@@ -1469,6 +1606,7 @@ _OptionalUpdateDestinationInputRequestTypeDef = TypedDict(
         "SplunkDestinationUpdate": "SplunkDestinationUpdateTypeDef",
         "HttpEndpointDestinationUpdate": "HttpEndpointDestinationUpdateTypeDef",
         "AmazonOpenSearchServerlessDestinationUpdate": "AmazonOpenSearchServerlessDestinationUpdateTypeDef",
+        "SnowflakeDestinationUpdate": "SnowflakeDestinationUpdateTypeDef",
     },
     total=False,
 )

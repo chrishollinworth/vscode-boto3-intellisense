@@ -6,11 +6,12 @@ Type annotations for appintegrations service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_appintegrations.type_defs import ApplicationSourceConfigTypeDef
+    from mypy_boto3_appintegrations.type_defs import ApplicationAssociationSummaryTypeDef
 
-    data: ApplicationSourceConfigTypeDef = {...}
+    data: ApplicationAssociationSummaryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -21,6 +22,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ApplicationAssociationSummaryTypeDef",
     "ApplicationSourceConfigTypeDef",
     "ApplicationSummaryTypeDef",
     "CreateApplicationRequestRequestTypeDef",
@@ -31,6 +33,7 @@ __all__ = (
     "CreateEventIntegrationResponseTypeDef",
     "DataIntegrationAssociationSummaryTypeDef",
     "DataIntegrationSummaryTypeDef",
+    "DeleteApplicationRequestRequestTypeDef",
     "DeleteDataIntegrationRequestRequestTypeDef",
     "DeleteEventIntegrationRequestRequestTypeDef",
     "EventFilterTypeDef",
@@ -44,6 +47,8 @@ __all__ = (
     "GetDataIntegrationResponseTypeDef",
     "GetEventIntegrationRequestRequestTypeDef",
     "GetEventIntegrationResponseTypeDef",
+    "ListApplicationAssociationsRequestRequestTypeDef",
+    "ListApplicationAssociationsResponseTypeDef",
     "ListApplicationsRequestRequestTypeDef",
     "ListApplicationsResponseTypeDef",
     "ListDataIntegrationAssociationsRequestRequestTypeDef",
@@ -66,6 +71,16 @@ __all__ = (
     "UpdateApplicationRequestRequestTypeDef",
     "UpdateDataIntegrationRequestRequestTypeDef",
     "UpdateEventIntegrationRequestRequestTypeDef",
+)
+
+ApplicationAssociationSummaryTypeDef = TypedDict(
+    "ApplicationAssociationSummaryTypeDef",
+    {
+        "ApplicationAssociationArn": str,
+        "ApplicationArn": str,
+        "ClientId": str,
+    },
+    total=False,
 )
 
 ApplicationSourceConfigTypeDef = TypedDict(
@@ -105,6 +120,7 @@ _OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
         "Publications": List["PublicationTypeDef"],
         "ClientToken": str,
         "Tags": Dict[str, str],
+        "Permissions": List[str],
     },
     total=False,
 )
@@ -220,6 +236,13 @@ DataIntegrationSummaryTypeDef = TypedDict(
     total=False,
 )
 
+DeleteApplicationRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationRequestRequestTypeDef",
+    {
+        "Arn": str,
+    },
+)
+
 DeleteDataIntegrationRequestRequestTypeDef = TypedDict(
     "DeleteDataIntegrationRequestRequestTypeDef",
     {
@@ -326,6 +349,7 @@ GetApplicationResponseTypeDef = TypedDict(
         "CreatedTime": datetime,
         "LastModifiedTime": datetime,
         "Tags": Dict[str, str],
+        "Permissions": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -370,6 +394,36 @@ GetEventIntegrationResponseTypeDef = TypedDict(
         "EventBridgeBus": str,
         "EventFilter": "EventFilterTypeDef",
         "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListApplicationAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationAssociationsRequestRequestTypeDef",
+    {
+        "ApplicationId": str,
+    },
+)
+_OptionalListApplicationAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationAssociationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListApplicationAssociationsRequestRequestTypeDef(
+    _RequiredListApplicationAssociationsRequestRequestTypeDef,
+    _OptionalListApplicationAssociationsRequestRequestTypeDef,
+):
+    pass
+
+ListApplicationAssociationsResponseTypeDef = TypedDict(
+    "ListApplicationAssociationsResponseTypeDef",
+    {
+        "ApplicationAssociations": List["ApplicationAssociationSummaryTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -609,6 +663,7 @@ _OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
         "ApplicationSourceConfig": "ApplicationSourceConfigTypeDef",
         "Subscriptions": List["SubscriptionTypeDef"],
         "Publications": List["PublicationTypeDef"],
+        "Permissions": List[str],
     },
     total=False,
 )

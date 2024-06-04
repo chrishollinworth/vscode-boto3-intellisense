@@ -11,6 +11,7 @@ Usage::
     data: AssertionRuleTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

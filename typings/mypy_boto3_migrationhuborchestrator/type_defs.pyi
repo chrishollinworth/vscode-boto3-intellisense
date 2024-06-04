@@ -11,6 +11,7 @@ Usage::
     data: CreateMigrationWorkflowRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -25,12 +26,9 @@ from .literals import (
     StepGroupStatusType,
     StepStatusType,
     TargetTypeType,
+    TemplateStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -39,12 +37,15 @@ else:
 __all__ = (
     "CreateMigrationWorkflowRequestRequestTypeDef",
     "CreateMigrationWorkflowResponseTypeDef",
+    "CreateTemplateRequestRequestTypeDef",
+    "CreateTemplateResponseTypeDef",
     "CreateWorkflowStepGroupRequestRequestTypeDef",
     "CreateWorkflowStepGroupResponseTypeDef",
     "CreateWorkflowStepRequestRequestTypeDef",
     "CreateWorkflowStepResponseTypeDef",
     "DeleteMigrationWorkflowRequestRequestTypeDef",
     "DeleteMigrationWorkflowResponseTypeDef",
+    "DeleteTemplateRequestRequestTypeDef",
     "DeleteWorkflowStepGroupRequestRequestTypeDef",
     "DeleteWorkflowStepRequestRequestTypeDef",
     "GetMigrationWorkflowRequestRequestTypeDef",
@@ -92,6 +93,7 @@ __all__ = (
     "StopMigrationWorkflowResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TemplateInputTypeDef",
+    "TemplateSourceTypeDef",
     "TemplateStepGroupSummaryTypeDef",
     "TemplateStepSummaryTypeDef",
     "TemplateSummaryTypeDef",
@@ -99,6 +101,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateMigrationWorkflowRequestRequestTypeDef",
     "UpdateMigrationWorkflowResponseTypeDef",
+    "UpdateTemplateRequestRequestTypeDef",
+    "UpdateTemplateResponseTypeDef",
     "UpdateWorkflowStepGroupRequestRequestTypeDef",
     "UpdateWorkflowStepGroupResponseTypeDef",
     "UpdateWorkflowStepRequestRequestTypeDef",
@@ -115,7 +119,6 @@ _RequiredCreateMigrationWorkflowRequestRequestTypeDef = TypedDict(
     {
         "name": str,
         "templateId": str,
-        "applicationConfigurationId": str,
         "inputParameters": Dict[str, "StepInputTypeDef"],
     },
 )
@@ -123,6 +126,7 @@ _OptionalCreateMigrationWorkflowRequestRequestTypeDef = TypedDict(
     "_OptionalCreateMigrationWorkflowRequestRequestTypeDef",
     {
         "description": str,
+        "applicationConfigurationId": str,
         "stepTargets": List[str],
         "tags": Dict[str, str],
     },
@@ -148,6 +152,38 @@ CreateMigrationWorkflowResponseTypeDef = TypedDict(
         "stepTargets": List[str],
         "status": MigrationWorkflowStatusEnumType,
         "creationTime": datetime,
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTemplateRequestRequestTypeDef",
+    {
+        "templateName": str,
+        "templateSource": "TemplateSourceTypeDef",
+    },
+)
+_OptionalCreateTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTemplateRequestRequestTypeDef",
+    {
+        "templateDescription": str,
+        "clientToken": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateTemplateRequestRequestTypeDef(
+    _RequiredCreateTemplateRequestRequestTypeDef, _OptionalCreateTemplateRequestRequestTypeDef
+):
+    pass
+
+CreateTemplateResponseTypeDef = TypedDict(
+    "CreateTemplateResponseTypeDef",
+    {
+        "templateId": str,
+        "templateArn": str,
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -247,6 +283,13 @@ DeleteMigrationWorkflowResponseTypeDef = TypedDict(
     },
 )
 
+DeleteTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteTemplateRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
 DeleteWorkflowStepGroupRequestRequestTypeDef = TypedDict(
     "DeleteWorkflowStepGroupRequestRequestTypeDef",
     {
@@ -309,12 +352,17 @@ GetMigrationWorkflowTemplateResponseTypeDef = TypedDict(
     "GetMigrationWorkflowTemplateResponseTypeDef",
     {
         "id": str,
+        "templateArn": str,
         "name": str,
         "description": str,
         "inputs": List["TemplateInputTypeDef"],
         "tools": List["ToolTypeDef"],
-        "status": Literal["CREATED"],
         "creationTime": datetime,
+        "owner": str,
+        "status": TemplateStatusType,
+        "statusMessage": str,
+        "templateClass": str,
+        "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -807,6 +855,14 @@ TemplateInputTypeDef = TypedDict(
     total=False,
 )
 
+TemplateSourceTypeDef = TypedDict(
+    "TemplateSourceTypeDef",
+    {
+        "workflowId": str,
+    },
+    total=False,
+)
+
 TemplateStepGroupSummaryTypeDef = TypedDict(
     "TemplateStepGroupSummaryTypeDef",
     {
@@ -899,6 +955,37 @@ UpdateMigrationWorkflowResponseTypeDef = TypedDict(
         "status": MigrationWorkflowStatusEnumType,
         "creationTime": datetime,
         "lastModifiedTime": datetime,
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTemplateRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+_OptionalUpdateTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTemplateRequestRequestTypeDef",
+    {
+        "templateName": str,
+        "templateDescription": str,
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class UpdateTemplateRequestRequestTypeDef(
+    _RequiredUpdateTemplateRequestRequestTypeDef, _OptionalUpdateTemplateRequestRequestTypeDef
+):
+    pass
+
+UpdateTemplateResponseTypeDef = TypedDict(
+    "UpdateTemplateResponseTypeDef",
+    {
+        "templateId": str,
+        "templateArn": str,
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

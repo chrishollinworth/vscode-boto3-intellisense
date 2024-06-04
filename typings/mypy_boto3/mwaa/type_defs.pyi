@@ -11,6 +11,7 @@ Usage::
     data: CreateCliTokenRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -83,34 +84,36 @@ CreateCliTokenResponseTypeDef = TypedDict(
 _RequiredCreateEnvironmentInputRequestTypeDef = TypedDict(
     "_RequiredCreateEnvironmentInputRequestTypeDef",
     {
-        "DagS3Path": str,
-        "ExecutionRoleArn": str,
         "Name": str,
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
+        "ExecutionRoleArn": str,
         "SourceBucketArn": str,
+        "DagS3Path": str,
+        "NetworkConfiguration": "NetworkConfigurationTypeDef",
     },
 )
 _OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
     "_OptionalCreateEnvironmentInputRequestTypeDef",
     {
-        "AirflowConfigurationOptions": Dict[str, str],
-        "AirflowVersion": str,
-        "EndpointManagement": EndpointManagementType,
-        "EnvironmentClass": str,
-        "KmsKey": str,
-        "LoggingConfiguration": "LoggingConfigurationInputTypeDef",
-        "MaxWorkers": int,
-        "MinWorkers": int,
-        "PluginsS3ObjectVersion": str,
         "PluginsS3Path": str,
-        "RequirementsS3ObjectVersion": str,
+        "PluginsS3ObjectVersion": str,
         "RequirementsS3Path": str,
-        "Schedulers": int,
-        "StartupScriptS3ObjectVersion": str,
+        "RequirementsS3ObjectVersion": str,
         "StartupScriptS3Path": str,
+        "StartupScriptS3ObjectVersion": str,
+        "AirflowConfigurationOptions": Dict[str, str],
+        "EnvironmentClass": str,
+        "MaxWorkers": int,
+        "KmsKey": str,
+        "AirflowVersion": str,
+        "LoggingConfiguration": "LoggingConfigurationInputTypeDef",
+        "WeeklyMaintenanceWindowStart": str,
         "Tags": Dict[str, str],
         "WebserverAccessMode": WebserverAccessModeType,
-        "WeeklyMaintenanceWindowStart": str,
+        "MinWorkers": int,
+        "Schedulers": int,
+        "EndpointManagement": EndpointManagementType,
+        "MinWebservers": int,
+        "MaxWebservers": int,
     },
     total=False,
 )
@@ -138,8 +141,10 @@ CreateWebLoginTokenRequestRequestTypeDef = TypedDict(
 CreateWebLoginTokenResponseTypeDef = TypedDict(
     "CreateWebLoginTokenResponseTypeDef",
     {
-        "WebServerHostname": str,
         "WebToken": str,
+        "WebServerHostname": str,
+        "IamIdentity": str,
+        "AirflowIdentity": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -162,38 +167,40 @@ DimensionTypeDef = TypedDict(
 EnvironmentTypeDef = TypedDict(
     "EnvironmentTypeDef",
     {
-        "AirflowConfigurationOptions": Dict[str, str],
-        "AirflowVersion": str,
-        "Arn": str,
-        "CeleryExecutorQueue": str,
-        "CreatedAt": datetime,
-        "DagS3Path": str,
-        "DatabaseVpcEndpointService": str,
-        "EndpointManagement": EndpointManagementType,
-        "EnvironmentClass": str,
-        "ExecutionRoleArn": str,
-        "KmsKey": str,
-        "LastUpdate": "LastUpdateTypeDef",
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "MaxWorkers": int,
-        "MinWorkers": int,
         "Name": str,
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
-        "PluginsS3ObjectVersion": str,
-        "PluginsS3Path": str,
-        "RequirementsS3ObjectVersion": str,
-        "RequirementsS3Path": str,
-        "Schedulers": int,
-        "ServiceRoleArn": str,
-        "SourceBucketArn": str,
-        "StartupScriptS3ObjectVersion": str,
-        "StartupScriptS3Path": str,
         "Status": EnvironmentStatusType,
+        "Arn": str,
+        "CreatedAt": datetime,
+        "WebserverUrl": str,
+        "ExecutionRoleArn": str,
+        "ServiceRoleArn": str,
+        "KmsKey": str,
+        "AirflowVersion": str,
+        "SourceBucketArn": str,
+        "DagS3Path": str,
+        "PluginsS3Path": str,
+        "PluginsS3ObjectVersion": str,
+        "RequirementsS3Path": str,
+        "RequirementsS3ObjectVersion": str,
+        "StartupScriptS3Path": str,
+        "StartupScriptS3ObjectVersion": str,
+        "AirflowConfigurationOptions": Dict[str, str],
+        "EnvironmentClass": str,
+        "MaxWorkers": int,
+        "NetworkConfiguration": "NetworkConfigurationTypeDef",
+        "LoggingConfiguration": "LoggingConfigurationTypeDef",
+        "LastUpdate": "LastUpdateTypeDef",
+        "WeeklyMaintenanceWindowStart": str,
         "Tags": Dict[str, str],
         "WebserverAccessMode": WebserverAccessModeType,
-        "WebserverUrl": str,
+        "MinWorkers": int,
+        "Schedulers": int,
         "WebserverVpcEndpointService": str,
-        "WeeklyMaintenanceWindowStart": str,
+        "DatabaseVpcEndpointService": str,
+        "CeleryExecutorQueue": str,
+        "EndpointManagement": EndpointManagementType,
+        "MinWebservers": int,
+        "MaxWebservers": int,
     },
     total=False,
 )
@@ -216,10 +223,10 @@ GetEnvironmentOutputTypeDef = TypedDict(
 LastUpdateTypeDef = TypedDict(
     "LastUpdateTypeDef",
     {
+        "Status": UpdateStatusType,
         "CreatedAt": datetime,
         "Error": "UpdateErrorTypeDef",
         "Source": str,
-        "Status": UpdateStatusType,
     },
     total=False,
 )
@@ -227,8 +234,8 @@ LastUpdateTypeDef = TypedDict(
 ListEnvironmentsInputRequestTypeDef = TypedDict(
     "ListEnvironmentsInputRequestTypeDef",
     {
-        "MaxResults": int,
         "NextToken": str,
+        "MaxResults": int,
     },
     total=False,
 )
@@ -262,9 +269,9 @@ LoggingConfigurationInputTypeDef = TypedDict(
     {
         "DagProcessingLogs": "ModuleLoggingConfigurationInputTypeDef",
         "SchedulerLogs": "ModuleLoggingConfigurationInputTypeDef",
-        "TaskLogs": "ModuleLoggingConfigurationInputTypeDef",
         "WebserverLogs": "ModuleLoggingConfigurationInputTypeDef",
         "WorkerLogs": "ModuleLoggingConfigurationInputTypeDef",
+        "TaskLogs": "ModuleLoggingConfigurationInputTypeDef",
     },
     total=False,
 )
@@ -274,9 +281,9 @@ LoggingConfigurationTypeDef = TypedDict(
     {
         "DagProcessingLogs": "ModuleLoggingConfigurationTypeDef",
         "SchedulerLogs": "ModuleLoggingConfigurationTypeDef",
-        "TaskLogs": "ModuleLoggingConfigurationTypeDef",
         "WebserverLogs": "ModuleLoggingConfigurationTypeDef",
         "WorkerLogs": "ModuleLoggingConfigurationTypeDef",
+        "TaskLogs": "ModuleLoggingConfigurationTypeDef",
     },
     total=False,
 )
@@ -292,9 +299,9 @@ _OptionalMetricDatumTypeDef = TypedDict(
     "_OptionalMetricDatumTypeDef",
     {
         "Dimensions": List["DimensionTypeDef"],
-        "StatisticValues": "StatisticSetTypeDef",
-        "Unit": UnitType,
         "Value": float,
+        "Unit": UnitType,
+        "StatisticValues": "StatisticSetTypeDef",
     },
     total=False,
 )
@@ -313,9 +320,9 @@ ModuleLoggingConfigurationInputTypeDef = TypedDict(
 ModuleLoggingConfigurationTypeDef = TypedDict(
     "ModuleLoggingConfigurationTypeDef",
     {
-        "CloudWatchLogGroupArn": str,
         "Enabled": bool,
         "LogLevel": LoggingLevelType,
+        "CloudWatchLogGroupArn": str,
     },
     total=False,
 )
@@ -323,8 +330,8 @@ ModuleLoggingConfigurationTypeDef = TypedDict(
 NetworkConfigurationTypeDef = TypedDict(
     "NetworkConfigurationTypeDef",
     {
-        "SecurityGroupIds": List[str],
         "SubnetIds": List[str],
+        "SecurityGroupIds": List[str],
     },
     total=False,
 )
@@ -361,10 +368,10 @@ ResponseMetadataTypeDef = TypedDict(
 StatisticSetTypeDef = TypedDict(
     "StatisticSetTypeDef",
     {
-        "Maximum": float,
-        "Minimum": float,
         "SampleCount": int,
         "Sum": float,
+        "Minimum": float,
+        "Maximum": float,
     },
     total=False,
 )
@@ -394,25 +401,27 @@ _RequiredUpdateEnvironmentInputRequestTypeDef = TypedDict(
 _OptionalUpdateEnvironmentInputRequestTypeDef = TypedDict(
     "_OptionalUpdateEnvironmentInputRequestTypeDef",
     {
-        "AirflowConfigurationOptions": Dict[str, str],
-        "AirflowVersion": str,
-        "DagS3Path": str,
-        "EnvironmentClass": str,
         "ExecutionRoleArn": str,
-        "LoggingConfiguration": "LoggingConfigurationInputTypeDef",
-        "MaxWorkers": int,
-        "MinWorkers": int,
-        "NetworkConfiguration": "UpdateNetworkConfigurationInputTypeDef",
-        "PluginsS3ObjectVersion": str,
-        "PluginsS3Path": str,
-        "RequirementsS3ObjectVersion": str,
-        "RequirementsS3Path": str,
-        "Schedulers": int,
+        "AirflowVersion": str,
         "SourceBucketArn": str,
-        "StartupScriptS3ObjectVersion": str,
+        "DagS3Path": str,
+        "PluginsS3Path": str,
+        "PluginsS3ObjectVersion": str,
+        "RequirementsS3Path": str,
+        "RequirementsS3ObjectVersion": str,
         "StartupScriptS3Path": str,
-        "WebserverAccessMode": WebserverAccessModeType,
+        "StartupScriptS3ObjectVersion": str,
+        "AirflowConfigurationOptions": Dict[str, str],
+        "EnvironmentClass": str,
+        "MaxWorkers": int,
+        "NetworkConfiguration": "UpdateNetworkConfigurationInputTypeDef",
+        "LoggingConfiguration": "LoggingConfigurationInputTypeDef",
         "WeeklyMaintenanceWindowStart": str,
+        "WebserverAccessMode": WebserverAccessModeType,
+        "MinWorkers": int,
+        "Schedulers": int,
+        "MinWebservers": int,
+        "MaxWebservers": int,
     },
     total=False,
 )

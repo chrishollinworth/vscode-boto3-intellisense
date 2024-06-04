@@ -11,6 +11,7 @@ Usage::
     data: AccountAggregationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -32,12 +33,14 @@ from .literals import (
     LifecyclePolicyResourceTypeType,
     LifecyclePolicyStatusType,
     LifecyclePolicyTimeUnitType,
+    OnWorkflowFailureType,
     OwnershipType,
     PipelineExecutionStartConditionType,
     PipelineStatusType,
     PlatformType,
     ResourceStatusType,
     WorkflowExecutionStatusType,
+    WorkflowStepActionTypeType,
     WorkflowStepExecutionRollbackStatusType,
     WorkflowStepExecutionStatusType,
     WorkflowTypeType,
@@ -88,6 +91,8 @@ __all__ = (
     "CreateInfrastructureConfigurationResponseTypeDef",
     "CreateLifecyclePolicyRequestRequestTypeDef",
     "CreateLifecyclePolicyResponseTypeDef",
+    "CreateWorkflowRequestRequestTypeDef",
+    "CreateWorkflowResponseTypeDef",
     "CvssScoreAdjustmentTypeDef",
     "CvssScoreDetailsTypeDef",
     "CvssScoreTypeDef",
@@ -107,6 +112,8 @@ __all__ = (
     "DeleteInfrastructureConfigurationResponseTypeDef",
     "DeleteLifecyclePolicyRequestRequestTypeDef",
     "DeleteLifecyclePolicyResponseTypeDef",
+    "DeleteWorkflowRequestRequestTypeDef",
+    "DeleteWorkflowResponseTypeDef",
     "DistributionConfigurationSummaryTypeDef",
     "DistributionConfigurationTypeDef",
     "DistributionTypeDef",
@@ -144,6 +151,8 @@ __all__ = (
     "GetLifecyclePolicyResponseTypeDef",
     "GetWorkflowExecutionRequestRequestTypeDef",
     "GetWorkflowExecutionResponseTypeDef",
+    "GetWorkflowRequestRequestTypeDef",
+    "GetWorkflowResponseTypeDef",
     "GetWorkflowStepExecutionRequestRequestTypeDef",
     "GetWorkflowStepExecutionResponseTypeDef",
     "ImageAggregationTypeDef",
@@ -226,10 +235,16 @@ __all__ = (
     "ListLifecyclePoliciesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListWaitingWorkflowStepsRequestRequestTypeDef",
+    "ListWaitingWorkflowStepsResponseTypeDef",
+    "ListWorkflowBuildVersionsRequestRequestTypeDef",
+    "ListWorkflowBuildVersionsResponseTypeDef",
     "ListWorkflowExecutionsRequestRequestTypeDef",
     "ListWorkflowExecutionsResponseTypeDef",
     "ListWorkflowStepExecutionsRequestRequestTypeDef",
     "ListWorkflowStepExecutionsResponseTypeDef",
+    "ListWorkflowsRequestRequestTypeDef",
+    "ListWorkflowsResponseTypeDef",
     "LoggingTypeDef",
     "OutputResourcesTypeDef",
     "PackageVulnerabilityDetailsTypeDef",
@@ -250,6 +265,8 @@ __all__ = (
     "S3ExportConfigurationTypeDef",
     "S3LogsTypeDef",
     "ScheduleTypeDef",
+    "SendWorkflowStepActionRequestRequestTypeDef",
+    "SendWorkflowStepActionResponseTypeDef",
     "SeverityCountsTypeDef",
     "StartImagePipelineExecutionRequestRequestTypeDef",
     "StartImagePipelineExecutionResponseTypeDef",
@@ -269,8 +286,16 @@ __all__ = (
     "UpdateLifecyclePolicyResponseTypeDef",
     "VulnerabilityIdAggregationTypeDef",
     "VulnerablePackageTypeDef",
+    "WorkflowConfigurationTypeDef",
     "WorkflowExecutionMetadataTypeDef",
+    "WorkflowParameterDetailTypeDef",
+    "WorkflowParameterTypeDef",
+    "WorkflowStateTypeDef",
+    "WorkflowStepExecutionTypeDef",
     "WorkflowStepMetadataTypeDef",
+    "WorkflowSummaryTypeDef",
+    "WorkflowTypeDef",
+    "WorkflowVersionTypeDef",
 )
 
 AccountAggregationTypeDef = TypedDict(
@@ -675,6 +700,8 @@ _OptionalCreateImagePipelineRequestRequestTypeDef = TypedDict(
         "status": PipelineStatusType,
         "tags": Dict[str, str],
         "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
+        "workflows": List["WorkflowConfigurationTypeDef"],
+        "executionRole": str,
     },
     total=False,
 )
@@ -749,6 +776,8 @@ _OptionalCreateImageRequestRequestTypeDef = TypedDict(
         "enhancedImageMetadataEnabled": bool,
         "tags": Dict[str, str],
         "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
+        "workflows": List["WorkflowConfigurationTypeDef"],
+        "executionRole": str,
     },
     total=False,
 )
@@ -842,6 +871,42 @@ CreateLifecyclePolicyResponseTypeDef = TypedDict(
     {
         "clientToken": str,
         "lifecyclePolicyArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateWorkflowRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWorkflowRequestRequestTypeDef",
+    {
+        "name": str,
+        "semanticVersion": str,
+        "clientToken": str,
+        "type": WorkflowTypeType,
+    },
+)
+_OptionalCreateWorkflowRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWorkflowRequestRequestTypeDef",
+    {
+        "description": str,
+        "changeDescription": str,
+        "data": str,
+        "uri": str,
+        "kmsKeyId": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateWorkflowRequestRequestTypeDef(
+    _RequiredCreateWorkflowRequestRequestTypeDef, _OptionalCreateWorkflowRequestRequestTypeDef
+):
+    pass
+
+CreateWorkflowResponseTypeDef = TypedDict(
+    "CreateWorkflowResponseTypeDef",
+    {
+        "clientToken": str,
+        "workflowBuildVersionArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1002,6 +1067,21 @@ DeleteLifecyclePolicyResponseTypeDef = TypedDict(
     "DeleteLifecyclePolicyResponseTypeDef",
     {
         "lifecyclePolicyArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteWorkflowRequestRequestTypeDef = TypedDict(
+    "DeleteWorkflowRequestRequestTypeDef",
+    {
+        "workflowBuildVersionArn": str,
+    },
+)
+
+DeleteWorkflowResponseTypeDef = TypedDict(
+    "DeleteWorkflowResponseTypeDef",
+    {
+        "workflowBuildVersionArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1369,6 +1449,22 @@ GetWorkflowExecutionResponseTypeDef = TypedDict(
         "totalStepsSkipped": int,
         "startTime": str,
         "endTime": str,
+        "parallelGroup": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetWorkflowRequestRequestTypeDef = TypedDict(
+    "GetWorkflowRequestRequestTypeDef",
+    {
+        "workflowBuildVersionArn": str,
+    },
+)
+
+GetWorkflowResponseTypeDef = TypedDict(
+    "GetWorkflowResponseTypeDef",
+    {
+        "workflow": "WorkflowTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1452,6 +1548,8 @@ ImagePipelineTypeDef = TypedDict(
         "dateNextRun": str,
         "tags": Dict[str, str],
         "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
+        "executionRole": str,
+        "workflows": List["WorkflowConfigurationTypeDef"],
     },
     total=False,
 )
@@ -1617,6 +1715,8 @@ ImageTypeDef = TypedDict(
         "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
         "deprecationTime": datetime,
         "lifecycleExecutionId": str,
+        "executionRole": str,
+        "workflows": List["WorkflowConfigurationTypeDef"],
     },
     total=False,
 )
@@ -1847,6 +1947,8 @@ LifecycleExecutionResourceTypeDef = TypedDict(
         "region": str,
         "snapshots": List["LifecycleExecutionSnapshotResourceTypeDef"],
         "imageUris": List[str],
+        "startTime": datetime,
+        "endTime": datetime,
     },
     total=False,
 )
@@ -2451,6 +2553,54 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListWaitingWorkflowStepsRequestRequestTypeDef = TypedDict(
+    "ListWaitingWorkflowStepsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListWaitingWorkflowStepsResponseTypeDef = TypedDict(
+    "ListWaitingWorkflowStepsResponseTypeDef",
+    {
+        "steps": List["WorkflowStepExecutionTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListWorkflowBuildVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListWorkflowBuildVersionsRequestRequestTypeDef",
+    {
+        "workflowVersionArn": str,
+    },
+)
+_OptionalListWorkflowBuildVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListWorkflowBuildVersionsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListWorkflowBuildVersionsRequestRequestTypeDef(
+    _RequiredListWorkflowBuildVersionsRequestRequestTypeDef,
+    _OptionalListWorkflowBuildVersionsRequestRequestTypeDef,
+):
+    pass
+
+ListWorkflowBuildVersionsResponseTypeDef = TypedDict(
+    "ListWorkflowBuildVersionsResponseTypeDef",
+    {
+        "workflowSummaryList": List["WorkflowSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListWorkflowExecutionsRequestRequestTypeDef = TypedDict(
     "_RequiredListWorkflowExecutionsRequestRequestTypeDef",
     {
@@ -2514,6 +2664,27 @@ ListWorkflowStepExecutionsResponseTypeDef = TypedDict(
         "workflowExecutionId": str,
         "imageBuildVersionArn": str,
         "message": str,
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListWorkflowsRequestRequestTypeDef = TypedDict(
+    "ListWorkflowsRequestRequestTypeDef",
+    {
+        "owner": OwnershipType,
+        "filters": List["FilterTypeDef"],
+        "byName": bool,
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListWorkflowsResponseTypeDef = TypedDict(
+    "ListWorkflowsResponseTypeDef",
+    {
+        "workflowVersionList": List["WorkflowVersionTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2725,6 +2896,39 @@ ScheduleTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSendWorkflowStepActionRequestRequestTypeDef = TypedDict(
+    "_RequiredSendWorkflowStepActionRequestRequestTypeDef",
+    {
+        "stepExecutionId": str,
+        "imageBuildVersionArn": str,
+        "action": WorkflowStepActionTypeType,
+        "clientToken": str,
+    },
+)
+_OptionalSendWorkflowStepActionRequestRequestTypeDef = TypedDict(
+    "_OptionalSendWorkflowStepActionRequestRequestTypeDef",
+    {
+        "reason": str,
+    },
+    total=False,
+)
+
+class SendWorkflowStepActionRequestRequestTypeDef(
+    _RequiredSendWorkflowStepActionRequestRequestTypeDef,
+    _OptionalSendWorkflowStepActionRequestRequestTypeDef,
+):
+    pass
+
+SendWorkflowStepActionResponseTypeDef = TypedDict(
+    "SendWorkflowStepActionResponseTypeDef",
+    {
+        "stepExecutionId": str,
+        "imageBuildVersionArn": str,
+        "clientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 SeverityCountsTypeDef = TypedDict(
     "SeverityCountsTypeDef",
     {
@@ -2872,6 +3076,8 @@ _OptionalUpdateImagePipelineRequestRequestTypeDef = TypedDict(
         "schedule": "ScheduleTypeDef",
         "status": PipelineStatusType,
         "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
+        "workflows": List["WorkflowConfigurationTypeDef"],
+        "executionRole": str,
     },
     total=False,
 )
@@ -2993,6 +3199,27 @@ VulnerablePackageTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredWorkflowConfigurationTypeDef = TypedDict(
+    "_RequiredWorkflowConfigurationTypeDef",
+    {
+        "workflowArn": str,
+    },
+)
+_OptionalWorkflowConfigurationTypeDef = TypedDict(
+    "_OptionalWorkflowConfigurationTypeDef",
+    {
+        "parameters": List["WorkflowParameterTypeDef"],
+        "parallelGroup": str,
+        "onFailure": OnWorkflowFailureType,
+    },
+    total=False,
+)
+
+class WorkflowConfigurationTypeDef(
+    _RequiredWorkflowConfigurationTypeDef, _OptionalWorkflowConfigurationTypeDef
+):
+    pass
+
 WorkflowExecutionMetadataTypeDef = TypedDict(
     "WorkflowExecutionMetadataTypeDef",
     {
@@ -3007,6 +3234,59 @@ WorkflowExecutionMetadataTypeDef = TypedDict(
         "totalStepsSkipped": int,
         "startTime": str,
         "endTime": str,
+        "parallelGroup": str,
+    },
+    total=False,
+)
+
+_RequiredWorkflowParameterDetailTypeDef = TypedDict(
+    "_RequiredWorkflowParameterDetailTypeDef",
+    {
+        "name": str,
+        "type": str,
+    },
+)
+_OptionalWorkflowParameterDetailTypeDef = TypedDict(
+    "_OptionalWorkflowParameterDetailTypeDef",
+    {
+        "defaultValue": List[str],
+        "description": str,
+    },
+    total=False,
+)
+
+class WorkflowParameterDetailTypeDef(
+    _RequiredWorkflowParameterDetailTypeDef, _OptionalWorkflowParameterDetailTypeDef
+):
+    pass
+
+WorkflowParameterTypeDef = TypedDict(
+    "WorkflowParameterTypeDef",
+    {
+        "name": str,
+        "value": List[str],
+    },
+)
+
+WorkflowStateTypeDef = TypedDict(
+    "WorkflowStateTypeDef",
+    {
+        "status": Literal["DEPRECATED"],
+        "reason": str,
+    },
+    total=False,
+)
+
+WorkflowStepExecutionTypeDef = TypedDict(
+    "WorkflowStepExecutionTypeDef",
+    {
+        "stepExecutionId": str,
+        "imageBuildVersionArn": str,
+        "workflowExecutionId": str,
+        "workflowBuildVersionArn": str,
+        "name": str,
+        "action": str,
+        "startTime": str,
     },
     total=False,
 )
@@ -3025,6 +3305,57 @@ WorkflowStepMetadataTypeDef = TypedDict(
         "outputs": str,
         "startTime": str,
         "endTime": str,
+    },
+    total=False,
+)
+
+WorkflowSummaryTypeDef = TypedDict(
+    "WorkflowSummaryTypeDef",
+    {
+        "arn": str,
+        "name": str,
+        "version": str,
+        "description": str,
+        "changeDescription": str,
+        "type": WorkflowTypeType,
+        "owner": str,
+        "state": "WorkflowStateTypeDef",
+        "dateCreated": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+WorkflowTypeDef = TypedDict(
+    "WorkflowTypeDef",
+    {
+        "arn": str,
+        "name": str,
+        "version": str,
+        "description": str,
+        "changeDescription": str,
+        "type": WorkflowTypeType,
+        "state": "WorkflowStateTypeDef",
+        "owner": str,
+        "data": str,
+        "kmsKeyId": str,
+        "dateCreated": str,
+        "tags": Dict[str, str],
+        "parameters": List["WorkflowParameterDetailTypeDef"],
+    },
+    total=False,
+)
+
+WorkflowVersionTypeDef = TypedDict(
+    "WorkflowVersionTypeDef",
+    {
+        "arn": str,
+        "name": str,
+        "version": str,
+        "description": str,
+        "type": WorkflowTypeType,
+        "owner": str,
+        "dateCreated": str,
     },
     total=False,
 )

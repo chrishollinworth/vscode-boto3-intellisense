@@ -11,6 +11,7 @@ Usage::
     data: AssociateBrowserSettingsRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -21,6 +22,7 @@ from .literals import (
     AuthenticationTypeType,
     EnabledTypeType,
     IdentityProviderTypeType,
+    InstanceTypeType,
     PortalStatusType,
 )
 
@@ -277,8 +279,10 @@ _RequiredBrowserSettingsTypeDef = TypedDict(
 _OptionalBrowserSettingsTypeDef = TypedDict(
     "_OptionalBrowserSettingsTypeDef",
     {
+        "additionalEncryptionContext": Dict[str, str],
         "associatedPortalArns": List[str],
         "browserPolicy": str,
+        "customerManagedKey": str,
     },
     total=False,
 )
@@ -485,6 +489,8 @@ CreatePortalRequestRequestTypeDef = TypedDict(
         "clientToken": str,
         "customerManagedKey": str,
         "displayName": str,
+        "instanceType": InstanceTypeType,
+        "maxConcurrentSessions": int,
         "tags": List["TagTypeDef"],
     },
     total=False,
@@ -914,8 +920,10 @@ _RequiredIpAccessSettingsTypeDef = TypedDict(
 _OptionalIpAccessSettingsTypeDef = TypedDict(
     "_OptionalIpAccessSettingsTypeDef",
     {
+        "additionalEncryptionContext": Dict[str, str],
         "associatedPortalArns": List[str],
         "creationDate": datetime,
+        "customerManagedKey": str,
         "description": str,
         "displayName": str,
         "ipRules": List["IpRuleTypeDef"],
@@ -1198,7 +1206,9 @@ _OptionalPortalSummaryTypeDef = TypedDict(
         "browserType": Literal["Chrome"],
         "creationDate": datetime,
         "displayName": str,
+        "instanceType": InstanceTypeType,
         "ipAccessSettingsArn": str,
+        "maxConcurrentSessions": int,
         "networkSettingsArn": str,
         "portalEndpoint": str,
         "portalStatus": PortalStatusType,
@@ -1222,12 +1232,16 @@ _RequiredPortalTypeDef = TypedDict(
 _OptionalPortalTypeDef = TypedDict(
     "_OptionalPortalTypeDef",
     {
+        "additionalEncryptionContext": Dict[str, str],
         "authenticationType": AuthenticationTypeType,
         "browserSettingsArn": str,
         "browserType": Literal["Chrome"],
         "creationDate": datetime,
+        "customerManagedKey": str,
         "displayName": str,
+        "instanceType": InstanceTypeType,
         "ipAccessSettingsArn": str,
+        "maxConcurrentSessions": int,
         "networkSettingsArn": str,
         "portalEndpoint": str,
         "portalStatus": PortalStatusType,
@@ -1448,6 +1462,8 @@ _OptionalUpdatePortalRequestRequestTypeDef = TypedDict(
     {
         "authenticationType": AuthenticationTypeType,
         "displayName": str,
+        "instanceType": InstanceTypeType,
+        "maxConcurrentSessions": int,
     },
     total=False,
 )
@@ -1634,9 +1650,11 @@ _RequiredUserSettingsTypeDef = TypedDict(
 _OptionalUserSettingsTypeDef = TypedDict(
     "_OptionalUserSettingsTypeDef",
     {
+        "additionalEncryptionContext": Dict[str, str],
         "associatedPortalArns": List[str],
         "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
         "copyAllowed": EnabledTypeType,
+        "customerManagedKey": str,
         "disconnectTimeoutInMinutes": int,
         "downloadAllowed": EnabledTypeType,
         "idleDisconnectTimeoutInMinutes": int,

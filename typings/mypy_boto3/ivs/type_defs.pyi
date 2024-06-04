@@ -11,6 +11,7 @@ Usage::
     data: AudioConfigurationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -49,12 +50,15 @@ __all__ = (
     "ChannelTypeDef",
     "CreateChannelRequestRequestTypeDef",
     "CreateChannelResponseTypeDef",
+    "CreatePlaybackRestrictionPolicyRequestRequestTypeDef",
+    "CreatePlaybackRestrictionPolicyResponseTypeDef",
     "CreateRecordingConfigurationRequestRequestTypeDef",
     "CreateRecordingConfigurationResponseTypeDef",
     "CreateStreamKeyRequestRequestTypeDef",
     "CreateStreamKeyResponseTypeDef",
     "DeleteChannelRequestRequestTypeDef",
     "DeletePlaybackKeyPairRequestRequestTypeDef",
+    "DeletePlaybackRestrictionPolicyRequestRequestTypeDef",
     "DeleteRecordingConfigurationRequestRequestTypeDef",
     "DeleteStreamKeyRequestRequestTypeDef",
     "DestinationConfigurationTypeDef",
@@ -62,6 +66,8 @@ __all__ = (
     "GetChannelResponseTypeDef",
     "GetPlaybackKeyPairRequestRequestTypeDef",
     "GetPlaybackKeyPairResponseTypeDef",
+    "GetPlaybackRestrictionPolicyRequestRequestTypeDef",
+    "GetPlaybackRestrictionPolicyResponseTypeDef",
     "GetRecordingConfigurationRequestRequestTypeDef",
     "GetRecordingConfigurationResponseTypeDef",
     "GetStreamKeyRequestRequestTypeDef",
@@ -77,6 +83,8 @@ __all__ = (
     "ListChannelsResponseTypeDef",
     "ListPlaybackKeyPairsRequestRequestTypeDef",
     "ListPlaybackKeyPairsResponseTypeDef",
+    "ListPlaybackRestrictionPoliciesRequestRequestTypeDef",
+    "ListPlaybackRestrictionPoliciesResponseTypeDef",
     "ListRecordingConfigurationsRequestRequestTypeDef",
     "ListRecordingConfigurationsResponseTypeDef",
     "ListStreamKeysRequestRequestTypeDef",
@@ -90,12 +98,15 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PlaybackKeyPairSummaryTypeDef",
     "PlaybackKeyPairTypeDef",
+    "PlaybackRestrictionPolicySummaryTypeDef",
+    "PlaybackRestrictionPolicyTypeDef",
     "PutMetadataRequestRequestTypeDef",
     "RecordingConfigurationSummaryTypeDef",
     "RecordingConfigurationTypeDef",
     "RenditionConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "S3DestinationConfigurationTypeDef",
+    "SrtTypeDef",
     "StartViewerSessionRevocationRequestRequestTypeDef",
     "StopStreamRequestRequestTypeDef",
     "StreamEventTypeDef",
@@ -111,6 +122,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateChannelRequestRequestTypeDef",
     "UpdateChannelResponseTypeDef",
+    "UpdatePlaybackRestrictionPolicyRequestRequestTypeDef",
+    "UpdatePlaybackRestrictionPolicyResponseTypeDef",
     "VideoConfigurationTypeDef",
 )
 
@@ -233,6 +246,7 @@ ChannelSummaryTypeDef = TypedDict(
         "insecureIngest": bool,
         "latencyMode": ChannelLatencyModeType,
         "name": str,
+        "playbackRestrictionPolicyArn": str,
         "preset": TranscodePresetType,
         "recordingConfigurationArn": str,
         "tags": Dict[str, str],
@@ -250,9 +264,11 @@ ChannelTypeDef = TypedDict(
         "insecureIngest": bool,
         "latencyMode": ChannelLatencyModeType,
         "name": str,
+        "playbackRestrictionPolicyArn": str,
         "playbackUrl": str,
         "preset": TranscodePresetType,
         "recordingConfigurationArn": str,
+        "srt": "SrtTypeDef",
         "tags": Dict[str, str],
         "type": ChannelTypeType,
     },
@@ -266,6 +282,7 @@ CreateChannelRequestRequestTypeDef = TypedDict(
         "insecureIngest": bool,
         "latencyMode": ChannelLatencyModeType,
         "name": str,
+        "playbackRestrictionPolicyArn": str,
         "preset": TranscodePresetType,
         "recordingConfigurationArn": str,
         "tags": Dict[str, str],
@@ -279,6 +296,26 @@ CreateChannelResponseTypeDef = TypedDict(
     {
         "channel": "ChannelTypeDef",
         "streamKey": "StreamKeyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreatePlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
+    "CreatePlaybackRestrictionPolicyRequestRequestTypeDef",
+    {
+        "allowedCountries": List[str],
+        "allowedOrigins": List[str],
+        "enableStrictOriginEnforcement": bool,
+        "name": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+CreatePlaybackRestrictionPolicyResponseTypeDef = TypedDict(
+    "CreatePlaybackRestrictionPolicyResponseTypeDef",
+    {
+        "playbackRestrictionPolicy": "PlaybackRestrictionPolicyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -356,6 +393,13 @@ DeletePlaybackKeyPairRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeletePlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
+    "DeletePlaybackRestrictionPolicyRequestRequestTypeDef",
+    {
+        "arn": str,
+    },
+)
+
 DeleteRecordingConfigurationRequestRequestTypeDef = TypedDict(
     "DeleteRecordingConfigurationRequestRequestTypeDef",
     {
@@ -404,6 +448,21 @@ GetPlaybackKeyPairResponseTypeDef = TypedDict(
     "GetPlaybackKeyPairResponseTypeDef",
     {
         "keyPair": "PlaybackKeyPairTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetPlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
+    "GetPlaybackRestrictionPolicyRequestRequestTypeDef",
+    {
+        "arn": str,
+    },
+)
+
+GetPlaybackRestrictionPolicyResponseTypeDef = TypedDict(
+    "GetPlaybackRestrictionPolicyResponseTypeDef",
+    {
+        "playbackRestrictionPolicy": "PlaybackRestrictionPolicyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -522,6 +581,7 @@ ListChannelsRequestRequestTypeDef = TypedDict(
     "ListChannelsRequestRequestTypeDef",
     {
         "filterByName": str,
+        "filterByPlaybackRestrictionPolicyArn": str,
         "filterByRecordingConfigurationArn": str,
         "maxResults": int,
         "nextToken": str,
@@ -552,6 +612,24 @@ ListPlaybackKeyPairsResponseTypeDef = TypedDict(
     {
         "keyPairs": List["PlaybackKeyPairSummaryTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPlaybackRestrictionPoliciesRequestRequestTypeDef = TypedDict(
+    "ListPlaybackRestrictionPoliciesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListPlaybackRestrictionPoliciesResponseTypeDef = TypedDict(
+    "ListPlaybackRestrictionPoliciesResponseTypeDef",
+    {
+        "nextToken": str,
+        "playbackRestrictionPolicies": List["PlaybackRestrictionPolicySummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -698,6 +776,53 @@ PlaybackKeyPairTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPlaybackRestrictionPolicySummaryTypeDef = TypedDict(
+    "_RequiredPlaybackRestrictionPolicySummaryTypeDef",
+    {
+        "allowedCountries": List[str],
+        "allowedOrigins": List[str],
+        "arn": str,
+    },
+)
+_OptionalPlaybackRestrictionPolicySummaryTypeDef = TypedDict(
+    "_OptionalPlaybackRestrictionPolicySummaryTypeDef",
+    {
+        "enableStrictOriginEnforcement": bool,
+        "name": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class PlaybackRestrictionPolicySummaryTypeDef(
+    _RequiredPlaybackRestrictionPolicySummaryTypeDef,
+    _OptionalPlaybackRestrictionPolicySummaryTypeDef,
+):
+    pass
+
+_RequiredPlaybackRestrictionPolicyTypeDef = TypedDict(
+    "_RequiredPlaybackRestrictionPolicyTypeDef",
+    {
+        "allowedCountries": List[str],
+        "allowedOrigins": List[str],
+        "arn": str,
+    },
+)
+_OptionalPlaybackRestrictionPolicyTypeDef = TypedDict(
+    "_OptionalPlaybackRestrictionPolicyTypeDef",
+    {
+        "enableStrictOriginEnforcement": bool,
+        "name": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class PlaybackRestrictionPolicyTypeDef(
+    _RequiredPlaybackRestrictionPolicyTypeDef, _OptionalPlaybackRestrictionPolicyTypeDef
+):
+    pass
+
 PutMetadataRequestRequestTypeDef = TypedDict(
     "PutMetadataRequestRequestTypeDef",
     {
@@ -778,6 +903,15 @@ S3DestinationConfigurationTypeDef = TypedDict(
     {
         "bucketName": str,
     },
+)
+
+SrtTypeDef = TypedDict(
+    "SrtTypeDef",
+    {
+        "endpoint": str,
+        "passphrase": str,
+    },
+    total=False,
 )
 
 _RequiredStartViewerSessionRevocationRequestRequestTypeDef = TypedDict(
@@ -939,6 +1073,7 @@ _OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
         "insecureIngest": bool,
         "latencyMode": ChannelLatencyModeType,
         "name": str,
+        "playbackRestrictionPolicyArn": str,
         "preset": TranscodePresetType,
         "recordingConfigurationArn": str,
         "type": ChannelTypeType,
@@ -955,6 +1090,37 @@ UpdateChannelResponseTypeDef = TypedDict(
     "UpdateChannelResponseTypeDef",
     {
         "channel": "ChannelTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdatePlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdatePlaybackRestrictionPolicyRequestRequestTypeDef",
+    {
+        "arn": str,
+    },
+)
+_OptionalUpdatePlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdatePlaybackRestrictionPolicyRequestRequestTypeDef",
+    {
+        "allowedCountries": List[str],
+        "allowedOrigins": List[str],
+        "enableStrictOriginEnforcement": bool,
+        "name": str,
+    },
+    total=False,
+)
+
+class UpdatePlaybackRestrictionPolicyRequestRequestTypeDef(
+    _RequiredUpdatePlaybackRestrictionPolicyRequestRequestTypeDef,
+    _OptionalUpdatePlaybackRestrictionPolicyRequestRequestTypeDef,
+):
+    pass
+
+UpdatePlaybackRestrictionPolicyResponseTypeDef = TypedDict(
+    "UpdatePlaybackRestrictionPolicyResponseTypeDef",
+    {
+        "playbackRestrictionPolicy": "PlaybackRestrictionPolicyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

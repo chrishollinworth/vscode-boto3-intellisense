@@ -11,6 +11,7 @@ Usage::
     data: ApiCacheStatusType = "AVAILABLE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -25,11 +26,16 @@ __all__ = (
     "AssociationStatusType",
     "AuthenticationTypeType",
     "AuthorizationTypeType",
+    "CacheHealthMetricsConfigType",
     "ConflictDetectionTypeType",
     "ConflictHandlerTypeType",
+    "DataSourceIntrospectionStatusType",
+    "DataSourceLevelMetricsBehaviorType",
+    "DataSourceLevelMetricsConfigType",
     "DataSourceTypeType",
     "DefaultActionType",
     "FieldLogLevelType",
+    "GraphQLApiIntrospectionConfigType",
     "GraphQLApiTypeType",
     "GraphQLApiVisibilityType",
     "ListApiKeysPaginatorName",
@@ -40,10 +46,13 @@ __all__ = (
     "ListResolversPaginatorName",
     "ListTypesPaginatorName",
     "MergeTypeType",
+    "OperationLevelMetricsConfigType",
     "OutputTypeType",
     "OwnershipType",
     "RelationalDatabaseSourceTypeType",
     "ResolverKindType",
+    "ResolverLevelMetricsBehaviorType",
+    "ResolverLevelMetricsConfigType",
     "RuntimeNameType",
     "SchemaStatusType",
     "SourceApiAssociationStatusType",
@@ -74,8 +83,14 @@ AuthenticationTypeType = Literal[
     "AMAZON_COGNITO_USER_POOLS", "API_KEY", "AWS_IAM", "AWS_LAMBDA", "OPENID_CONNECT"
 ]
 AuthorizationTypeType = Literal["AWS_IAM"]
+CacheHealthMetricsConfigType = Literal["DISABLED", "ENABLED"]
 ConflictDetectionTypeType = Literal["NONE", "VERSION"]
 ConflictHandlerTypeType = Literal["AUTOMERGE", "LAMBDA", "NONE", "OPTIMISTIC_CONCURRENCY"]
+DataSourceIntrospectionStatusType = Literal["FAILED", "PROCESSING", "SUCCESS"]
+DataSourceLevelMetricsBehaviorType = Literal[
+    "FULL_REQUEST_DATA_SOURCE_METRICS", "PER_DATA_SOURCE_METRICS"
+]
+DataSourceLevelMetricsConfigType = Literal["DISABLED", "ENABLED"]
 DataSourceTypeType = Literal[
     "AMAZON_DYNAMODB",
     "AMAZON_ELASTICSEARCH",
@@ -88,6 +103,7 @@ DataSourceTypeType = Literal[
 ]
 DefaultActionType = Literal["ALLOW", "DENY"]
 FieldLogLevelType = Literal["ALL", "ERROR", "NONE"]
+GraphQLApiIntrospectionConfigType = Literal["DISABLED", "ENABLED"]
 GraphQLApiTypeType = Literal["GRAPHQL", "MERGED"]
 GraphQLApiVisibilityType = Literal["GLOBAL", "PRIVATE"]
 ListApiKeysPaginatorName = Literal["list_api_keys"]
@@ -98,10 +114,13 @@ ListResolversByFunctionPaginatorName = Literal["list_resolvers_by_function"]
 ListResolversPaginatorName = Literal["list_resolvers"]
 ListTypesPaginatorName = Literal["list_types"]
 MergeTypeType = Literal["AUTO_MERGE", "MANUAL_MERGE"]
+OperationLevelMetricsConfigType = Literal["DISABLED", "ENABLED"]
 OutputTypeType = Literal["JSON", "SDL"]
 OwnershipType = Literal["CURRENT_ACCOUNT", "OTHER_ACCOUNTS"]
 RelationalDatabaseSourceTypeType = Literal["RDS_HTTP_ENDPOINT"]
 ResolverKindType = Literal["PIPELINE", "UNIT"]
+ResolverLevelMetricsBehaviorType = Literal["FULL_REQUEST_RESOLVER_METRICS", "PER_RESOLVER_METRICS"]
+ResolverLevelMetricsConfigType = Literal["DISABLED", "ENABLED"]
 RuntimeNameType = Literal["APPSYNC_JS"]
 SchemaStatusType = Literal[
     "ACTIVE", "DELETING", "FAILED", "NOT_APPLICABLE", "PROCESSING", "SUCCESS"

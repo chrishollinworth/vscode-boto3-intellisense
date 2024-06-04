@@ -11,6 +11,7 @@ Usage::
     data: AccessTokenSummaryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -698,6 +699,8 @@ GetSubscriptionResponseTypeDef = TypedDict(
     {
         "subscriptionType": str,
         "awsAccountName": str,
+        "pendingSubscriptionType": str,
+        "pendingSubscriptionStartTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

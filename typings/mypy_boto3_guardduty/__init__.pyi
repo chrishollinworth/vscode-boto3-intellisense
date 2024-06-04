@@ -37,6 +37,7 @@ Usage::
     list_threat_intel_sets_paginator: ListThreatIntelSetsPaginator = client.get_paginator("list_threat_intel_sets")
     ```
 """
+
 from .client import GuardDutyClient
 from .paginator import (
     DescribeMalwareScansPaginator,

@@ -11,6 +11,7 @@ Usage::
     data: DukptDerivationTypeType = "AES_128"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -22,6 +23,8 @@ __all__ = (
     "DukptDerivationTypeType",
     "DukptEncryptionModeType",
     "DukptKeyVariantType",
+    "EmvEncryptionModeType",
+    "EmvMajorKeyDerivationModeType",
     "EncryptionModeType",
     "MacAlgorithmType",
     "MajorKeyDerivationModeType",
@@ -33,6 +36,8 @@ __all__ = (
 DukptDerivationTypeType = Literal["AES_128", "AES_192", "AES_256", "TDES_2KEY", "TDES_3KEY"]
 DukptEncryptionModeType = Literal["CBC", "ECB"]
 DukptKeyVariantType = Literal["BIDIRECTIONAL", "REQUEST", "RESPONSE"]
+EmvEncryptionModeType = Literal["CBC", "ECB"]
+EmvMajorKeyDerivationModeType = Literal["EMV_OPTION_A", "EMV_OPTION_B"]
 EncryptionModeType = Literal["CBC", "CFB", "CFB1", "CFB128", "CFB64", "CFB8", "ECB", "OFB"]
 MacAlgorithmType = Literal[
     "CMAC",

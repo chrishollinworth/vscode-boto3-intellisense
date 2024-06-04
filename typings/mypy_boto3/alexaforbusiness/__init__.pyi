@@ -43,6 +43,7 @@ Usage::
     search_users_paginator: SearchUsersPaginator = client.get_paginator("search_users")
     ```
 """
+
 from .client import AlexaForBusinessClient
 from .paginator import (
     ListBusinessReportSchedulesPaginator,

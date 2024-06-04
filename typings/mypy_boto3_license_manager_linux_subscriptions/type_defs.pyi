@@ -11,6 +11,7 @@ Usage::
     data: FilterTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

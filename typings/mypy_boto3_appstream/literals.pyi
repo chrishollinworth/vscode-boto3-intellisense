@@ -11,6 +11,7 @@ Usage::
     data: AccessEndpointTypeType = "STREAMING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -168,7 +169,9 @@ ListAssociatedStacksPaginatorName = Literal["list_associated_stacks"]
 MessageActionType = Literal["RESEND", "SUPPRESS"]
 PackagingTypeType = Literal["APPSTREAM2", "CUSTOM"]
 PermissionType = Literal["DISABLED", "ENABLED"]
-PlatformTypeType = Literal["AMAZON_LINUX2", "WINDOWS", "WINDOWS_SERVER_2016", "WINDOWS_SERVER_2019"]
+PlatformTypeType = Literal[
+    "AMAZON_LINUX2", "WINDOWS", "WINDOWS_SERVER_2016", "WINDOWS_SERVER_2019", "WINDOWS_SERVER_2022"
+]
 PreferredProtocolType = Literal["TCP", "UDP"]
 SessionConnectionStateType = Literal["CONNECTED", "NOT_CONNECTED"]
 SessionStateType = Literal["ACTIVE", "EXPIRED", "PENDING"]

@@ -16,6 +16,7 @@ Usage::
     session_client: ComprehendMedicalClient = session.client("comprehendmedical")
     ```
 """
+
 from .client import ComprehendMedicalClient
 
 Client = ComprehendMedicalClient

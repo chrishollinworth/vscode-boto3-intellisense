@@ -11,6 +11,7 @@ Usage::
     data: EndpointManagementType = "CUSTOMER"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -36,6 +37,7 @@ EnvironmentStatusType = Literal[
     "CREATING_SNAPSHOT",
     "DELETED",
     "DELETING",
+    "MAINTENANCE",
     "PENDING",
     "ROLLING_BACK",
     "UNAVAILABLE",

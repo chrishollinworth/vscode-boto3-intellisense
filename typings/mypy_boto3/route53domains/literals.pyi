@@ -11,6 +11,7 @@ Usage::
     data: ContactTypeType = "ASSOCIATION"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -297,6 +298,8 @@ DomainAvailabilityType = Literal[
     "AVAILABLE_PREORDER",
     "AVAILABLE_RESERVED",
     "DONT_KNOW",
+    "INVALID_NAME_FOR_TLD",
+    "PENDING",
     "RESERVED",
     "UNAVAILABLE",
     "UNAVAILABLE_PREMIUM",
@@ -354,9 +357,11 @@ OperationTypeType = Literal[
     "INTERNAL_TRANSFER_OUT_DOMAIN",
     "PUSH_DOMAIN",
     "REGISTER_DOMAIN",
+    "RELEASE_TO_GANDI",
     "REMOVE_DNSSEC",
     "RENEW_DOMAIN",
     "TRANSFER_IN_DOMAIN",
+    "TRANSFER_ON_RENEW",
     "TRANSFER_OUT_DOMAIN",
     "UPDATE_DOMAIN_CONTACT",
     "UPDATE_NAMESERVER",

@@ -16,6 +16,7 @@ Usage::
     session_client: PersonalizeRuntimeClient = session.client("personalize-runtime")
     ```
 """
+
 from .client import PersonalizeRuntimeClient
 
 Client = PersonalizeRuntimeClient

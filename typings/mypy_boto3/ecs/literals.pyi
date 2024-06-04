@@ -11,6 +11,7 @@ Usage::
     data: AgentUpdateStatusType = "FAILED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -37,6 +38,7 @@ __all__ = (
     "DeploymentRolloutStateType",
     "DesiredStatusType",
     "DeviceCgroupPermissionType",
+    "EBSResourceTypeType",
     "EFSAuthorizationConfigIAMType",
     "EFSTransitEncryptionType",
     "EnvironmentFileTypeType",
@@ -58,6 +60,7 @@ __all__ = (
     "ListTasksPaginatorName",
     "LogDriverType",
     "ManagedAgentNameType",
+    "ManagedDrainingType",
     "ManagedScalingStatusType",
     "ManagedTerminationProtectionType",
     "NetworkModeType",
@@ -85,6 +88,7 @@ __all__ = (
     "TaskDefinitionPlacementConstraintTypeType",
     "TaskDefinitionStatusType",
     "TaskFieldType",
+    "TaskFilesystemTypeType",
     "TaskSetFieldType",
     "TaskStopCodeType",
     "TasksRunningWaiterName",
@@ -120,6 +124,7 @@ DeploymentControllerTypeType = Literal["CODE_DEPLOY", "ECS", "EXTERNAL"]
 DeploymentRolloutStateType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 DesiredStatusType = Literal["PENDING", "RUNNING", "STOPPED"]
 DeviceCgroupPermissionType = Literal["mknod", "read", "write"]
+EBSResourceTypeType = Literal["volume"]
 EFSAuthorizationConfigIAMType = Literal["DISABLED", "ENABLED"]
 EFSTransitEncryptionType = Literal["DISABLED", "ENABLED"]
 EnvironmentFileTypeType = Literal["s3"]
@@ -143,6 +148,7 @@ LogDriverType = Literal[
     "awsfirelens", "awslogs", "fluentd", "gelf", "journald", "json-file", "splunk", "syslog"
 ]
 ManagedAgentNameType = Literal["ExecuteCommandAgent"]
+ManagedDrainingType = Literal["DISABLED", "ENABLED"]
 ManagedScalingStatusType = Literal["DISABLED", "ENABLED"]
 ManagedTerminationProtectionType = Literal["DISABLED", "ENABLED"]
 NetworkModeType = Literal["awsvpc", "bridge", "host", "none"]
@@ -189,6 +195,7 @@ TaskDefinitionFieldType = Literal["TAGS"]
 TaskDefinitionPlacementConstraintTypeType = Literal["memberOf"]
 TaskDefinitionStatusType = Literal["ACTIVE", "DELETE_IN_PROGRESS", "INACTIVE"]
 TaskFieldType = Literal["TAGS"]
+TaskFilesystemTypeType = Literal["ext3", "ext4", "xfs"]
 TaskSetFieldType = Literal["TAGS"]
 TaskStopCodeType = Literal[
     "EssentialContainerExited",

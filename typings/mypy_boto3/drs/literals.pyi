@@ -11,6 +11,7 @@ Usage::
     data: DataReplicationErrorStringType = "AGENT_NOT_SEEN"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -53,6 +54,7 @@ __all__ = (
     "ListStagingAccountsPaginatorName",
     "OriginEnvironmentType",
     "PITPolicyRuleUnitsType",
+    "ProductCodeModeType",
     "RecoveryInstanceDataReplicationInitiationStepNameType",
     "RecoveryInstanceDataReplicationInitiationStepStatusType",
     "RecoveryInstanceDataReplicationStateType",
@@ -65,6 +67,7 @@ __all__ = (
     "ReplicationDirectionType",
     "ReplicationStatusType",
     "TargetInstanceTypeRightSizingMethodType",
+    "VolumeStatusType",
 )
 
 DataReplicationErrorStringType = Literal[
@@ -215,6 +218,7 @@ ListLaunchActionsPaginatorName = Literal["list_launch_actions"]
 ListStagingAccountsPaginatorName = Literal["list_staging_accounts"]
 OriginEnvironmentType = Literal["AWS", "ON_PREMISES"]
 PITPolicyRuleUnitsType = Literal["DAY", "HOUR", "MINUTE"]
+ProductCodeModeType = Literal["DISABLED", "ENABLED"]
 RecoveryInstanceDataReplicationInitiationStepNameType = Literal[
     "ATTACH_STAGING_DISKS",
     "AUTHENTICATE_WITH_SERVICE",
@@ -271,3 +275,10 @@ ReplicationConfigurationReplicatedDiskStagingDiskTypeType = Literal[
 ReplicationDirectionType = Literal["FAILBACK", "FAILOVER"]
 ReplicationStatusType = Literal["ERROR", "IN_PROGRESS", "PROTECTED", "STOPPED"]
 TargetInstanceTypeRightSizingMethodType = Literal["BASIC", "IN_AWS", "NONE"]
+VolumeStatusType = Literal[
+    "CONTAINS_MARKETPLACE_PRODUCT_CODES",
+    "MISSING_VOLUME_ATTRIBUTES",
+    "MISSING_VOLUME_ATTRIBUTES_AND_PRECHECK_UNAVAILABLE",
+    "PENDING",
+    "REGULAR",
+]

@@ -11,6 +11,7 @@ Usage::
     data: ActionAfterCompletionType = "DELETE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

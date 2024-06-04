@@ -16,6 +16,7 @@ Usage::
     session_client: SyntheticsClient = session.client("synthetics")
     ```
 """
+
 from .client import SyntheticsClient
 
 Client = SyntheticsClient

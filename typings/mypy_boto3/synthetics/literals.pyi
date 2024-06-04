@@ -11,6 +11,7 @@ Usage::
     data: CanaryRunStateReasonCodeType = "CANARY_FAILURE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

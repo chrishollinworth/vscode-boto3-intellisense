@@ -11,6 +11,7 @@ Usage::
     data: ConnectionTypeType = "CONNECT_SSH"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

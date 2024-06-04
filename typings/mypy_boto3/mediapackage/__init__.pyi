@@ -23,6 +23,7 @@ Usage::
     list_origin_endpoints_paginator: ListOriginEndpointsPaginator = client.get_paginator("list_origin_endpoints")
     ```
 """
+
 from .client import MediaPackageClient
 from .paginator import ListChannelsPaginator, ListHarvestJobsPaginator, ListOriginEndpointsPaginator
 

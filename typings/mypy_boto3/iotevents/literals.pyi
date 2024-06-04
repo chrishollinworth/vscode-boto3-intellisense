@@ -11,6 +11,7 @@ Usage::
     data: AlarmModelVersionStatusType = "ACTIVATING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

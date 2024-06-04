@@ -37,6 +37,7 @@ Usage::
     list_topics_detection_jobs_paginator: ListTopicsDetectionJobsPaginator = client.get_paginator("list_topics_detection_jobs")
     ```
 """
+
 from .client import ComprehendClient
 from .paginator import (
     ListDocumentClassificationJobsPaginator,

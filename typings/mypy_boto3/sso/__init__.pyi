@@ -21,6 +21,7 @@ Usage::
     list_accounts_paginator: ListAccountsPaginator = client.get_paginator("list_accounts")
     ```
 """
+
 from .client import SSOClient
 from .paginator import ListAccountRolesPaginator, ListAccountsPaginator
 

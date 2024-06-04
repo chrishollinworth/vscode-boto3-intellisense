@@ -27,6 +27,7 @@ Usage::
     list_usage_for_license_configuration_paginator: ListUsageForLicenseConfigurationPaginator = client.get_paginator("list_usage_for_license_configuration")
     ```
 """
+
 from .client import LicenseManagerClient
 from .paginator import (
     ListAssociationsForLicenseConfigurationPaginator,

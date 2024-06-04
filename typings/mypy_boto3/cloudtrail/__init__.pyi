@@ -29,6 +29,7 @@ Usage::
     lookup_events_paginator: LookupEventsPaginator = client.get_paginator("lookup_events")
     ```
 """
+
 from .client import CloudTrailClient
 from .paginator import (
     ListImportFailuresPaginator,

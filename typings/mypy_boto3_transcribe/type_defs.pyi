@@ -11,6 +11,7 @@ Usage::
     data: AbsoluteTimeRangeTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -18,10 +19,13 @@ from typing import Any, Dict, List
 from .literals import (
     BaseModelNameType,
     CallAnalyticsJobStatusType,
+    CallAnalyticsSkippedReasonCodeType,
     CLMLanguageCodeType,
     InputTypeType,
     LanguageCodeType,
     MediaFormatType,
+    MedicalScribeJobStatusType,
+    MedicalScribeParticipantRoleType,
     ModelStatusType,
     OutputLocationTypeType,
     ParticipantRoleType,
@@ -46,9 +50,11 @@ else:
 
 __all__ = (
     "AbsoluteTimeRangeTypeDef",
+    "CallAnalyticsJobDetailsTypeDef",
     "CallAnalyticsJobSettingsTypeDef",
     "CallAnalyticsJobSummaryTypeDef",
     "CallAnalyticsJobTypeDef",
+    "CallAnalyticsSkippedFeatureTypeDef",
     "CategoryPropertiesTypeDef",
     "ChannelDefinitionTypeDef",
     "ContentRedactionTypeDef",
@@ -65,6 +71,7 @@ __all__ = (
     "DeleteCallAnalyticsCategoryRequestRequestTypeDef",
     "DeleteCallAnalyticsJobRequestRequestTypeDef",
     "DeleteLanguageModelRequestRequestTypeDef",
+    "DeleteMedicalScribeJobRequestRequestTypeDef",
     "DeleteMedicalTranscriptionJobRequestRequestTypeDef",
     "DeleteMedicalVocabularyRequestRequestTypeDef",
     "DeleteTranscriptionJobRequestRequestTypeDef",
@@ -76,6 +83,8 @@ __all__ = (
     "GetCallAnalyticsCategoryResponseTypeDef",
     "GetCallAnalyticsJobRequestRequestTypeDef",
     "GetCallAnalyticsJobResponseTypeDef",
+    "GetMedicalScribeJobRequestRequestTypeDef",
+    "GetMedicalScribeJobResponseTypeDef",
     "GetMedicalTranscriptionJobRequestRequestTypeDef",
     "GetMedicalTranscriptionJobResponseTypeDef",
     "GetMedicalVocabularyRequestRequestTypeDef",
@@ -98,6 +107,8 @@ __all__ = (
     "ListCallAnalyticsJobsResponseTypeDef",
     "ListLanguageModelsRequestRequestTypeDef",
     "ListLanguageModelsResponseTypeDef",
+    "ListMedicalScribeJobsRequestRequestTypeDef",
+    "ListMedicalScribeJobsResponseTypeDef",
     "ListMedicalTranscriptionJobsRequestRequestTypeDef",
     "ListMedicalTranscriptionJobsResponseTypeDef",
     "ListMedicalVocabulariesRequestRequestTypeDef",
@@ -111,6 +122,11 @@ __all__ = (
     "ListVocabularyFiltersRequestRequestTypeDef",
     "ListVocabularyFiltersResponseTypeDef",
     "MediaTypeDef",
+    "MedicalScribeChannelDefinitionTypeDef",
+    "MedicalScribeJobSummaryTypeDef",
+    "MedicalScribeJobTypeDef",
+    "MedicalScribeOutputTypeDef",
+    "MedicalScribeSettingsTypeDef",
     "MedicalTranscriptTypeDef",
     "MedicalTranscriptionJobSummaryTypeDef",
     "MedicalTranscriptionJobTypeDef",
@@ -124,6 +140,8 @@ __all__ = (
     "SettingsTypeDef",
     "StartCallAnalyticsJobRequestRequestTypeDef",
     "StartCallAnalyticsJobResponseTypeDef",
+    "StartMedicalScribeJobRequestRequestTypeDef",
+    "StartMedicalScribeJobResponseTypeDef",
     "StartMedicalTranscriptionJobRequestRequestTypeDef",
     "StartMedicalTranscriptionJobResponseTypeDef",
     "StartTranscriptionJobRequestRequestTypeDef",
@@ -162,6 +180,14 @@ AbsoluteTimeRangeTypeDef = TypedDict(
     total=False,
 )
 
+CallAnalyticsJobDetailsTypeDef = TypedDict(
+    "CallAnalyticsJobDetailsTypeDef",
+    {
+        "Skipped": List["CallAnalyticsSkippedFeatureTypeDef"],
+    },
+    total=False,
+)
+
 CallAnalyticsJobSettingsTypeDef = TypedDict(
     "CallAnalyticsJobSettingsTypeDef",
     {
@@ -186,6 +212,7 @@ CallAnalyticsJobSummaryTypeDef = TypedDict(
         "CompletionTime": datetime,
         "LanguageCode": LanguageCodeType,
         "CallAnalyticsJobStatus": CallAnalyticsJobStatusType,
+        "CallAnalyticsJobDetails": "CallAnalyticsJobDetailsTypeDef",
         "FailureReason": str,
     },
     total=False,
@@ -196,6 +223,7 @@ CallAnalyticsJobTypeDef = TypedDict(
     {
         "CallAnalyticsJobName": str,
         "CallAnalyticsJobStatus": CallAnalyticsJobStatusType,
+        "CallAnalyticsJobDetails": "CallAnalyticsJobDetailsTypeDef",
         "LanguageCode": LanguageCodeType,
         "MediaSampleRateHertz": int,
         "MediaFormat": MediaFormatType,
@@ -209,6 +237,16 @@ CallAnalyticsJobTypeDef = TypedDict(
         "IdentifiedLanguageScore": float,
         "Settings": "CallAnalyticsJobSettingsTypeDef",
         "ChannelDefinitions": List["ChannelDefinitionTypeDef"],
+    },
+    total=False,
+)
+
+CallAnalyticsSkippedFeatureTypeDef = TypedDict(
+    "CallAnalyticsSkippedFeatureTypeDef",
+    {
+        "Feature": Literal["GENERATIVE_SUMMARIZATION"],
+        "ReasonCode": CallAnalyticsSkippedReasonCodeType,
+        "Message": str,
     },
     total=False,
 )
@@ -440,6 +478,13 @@ DeleteLanguageModelRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteMedicalScribeJobRequestRequestTypeDef = TypedDict(
+    "DeleteMedicalScribeJobRequestRequestTypeDef",
+    {
+        "MedicalScribeJobName": str,
+    },
+)
+
 DeleteMedicalTranscriptionJobRequestRequestTypeDef = TypedDict(
     "DeleteMedicalTranscriptionJobRequestRequestTypeDef",
     {
@@ -516,6 +561,21 @@ GetCallAnalyticsJobResponseTypeDef = TypedDict(
     "GetCallAnalyticsJobResponseTypeDef",
     {
         "CallAnalyticsJob": "CallAnalyticsJobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMedicalScribeJobRequestRequestTypeDef = TypedDict(
+    "GetMedicalScribeJobRequestRequestTypeDef",
+    {
+        "MedicalScribeJobName": str,
+    },
+)
+
+GetMedicalScribeJobResponseTypeDef = TypedDict(
+    "GetMedicalScribeJobResponseTypeDef",
+    {
+        "MedicalScribeJob": "MedicalScribeJobTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -741,6 +801,27 @@ ListLanguageModelsResponseTypeDef = TypedDict(
     },
 )
 
+ListMedicalScribeJobsRequestRequestTypeDef = TypedDict(
+    "ListMedicalScribeJobsRequestRequestTypeDef",
+    {
+        "Status": MedicalScribeJobStatusType,
+        "JobNameContains": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListMedicalScribeJobsResponseTypeDef = TypedDict(
+    "ListMedicalScribeJobsResponseTypeDef",
+    {
+        "Status": MedicalScribeJobStatusType,
+        "NextToken": str,
+        "MedicalScribeJobSummaries": List["MedicalScribeJobSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListMedicalTranscriptionJobsRequestRequestTypeDef = TypedDict(
     "ListMedicalTranscriptionJobsRequestRequestTypeDef",
     {
@@ -865,6 +946,69 @@ MediaTypeDef = TypedDict(
     {
         "MediaFileUri": str,
         "RedactedMediaFileUri": str,
+    },
+    total=False,
+)
+
+MedicalScribeChannelDefinitionTypeDef = TypedDict(
+    "MedicalScribeChannelDefinitionTypeDef",
+    {
+        "ChannelId": int,
+        "ParticipantRole": MedicalScribeParticipantRoleType,
+    },
+)
+
+MedicalScribeJobSummaryTypeDef = TypedDict(
+    "MedicalScribeJobSummaryTypeDef",
+    {
+        "MedicalScribeJobName": str,
+        "CreationTime": datetime,
+        "StartTime": datetime,
+        "CompletionTime": datetime,
+        "LanguageCode": Literal["en-US"],
+        "MedicalScribeJobStatus": MedicalScribeJobStatusType,
+        "FailureReason": str,
+    },
+    total=False,
+)
+
+MedicalScribeJobTypeDef = TypedDict(
+    "MedicalScribeJobTypeDef",
+    {
+        "MedicalScribeJobName": str,
+        "MedicalScribeJobStatus": MedicalScribeJobStatusType,
+        "LanguageCode": Literal["en-US"],
+        "Media": "MediaTypeDef",
+        "MedicalScribeOutput": "MedicalScribeOutputTypeDef",
+        "StartTime": datetime,
+        "CreationTime": datetime,
+        "CompletionTime": datetime,
+        "FailureReason": str,
+        "Settings": "MedicalScribeSettingsTypeDef",
+        "DataAccessRoleArn": str,
+        "ChannelDefinitions": List["MedicalScribeChannelDefinitionTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+MedicalScribeOutputTypeDef = TypedDict(
+    "MedicalScribeOutputTypeDef",
+    {
+        "TranscriptFileUri": str,
+        "ClinicalDocumentUri": str,
+    },
+)
+
+MedicalScribeSettingsTypeDef = TypedDict(
+    "MedicalScribeSettingsTypeDef",
+    {
+        "ShowSpeakerLabels": bool,
+        "MaxSpeakerLabels": int,
+        "ChannelIdentification": bool,
+        "VocabularyName": str,
+        "VocabularyFilterName": str,
+        "VocabularyFilterMethod": VocabularyFilterMethodType,
     },
     total=False,
 )
@@ -1047,6 +1191,41 @@ StartCallAnalyticsJobResponseTypeDef = TypedDict(
     "StartCallAnalyticsJobResponseTypeDef",
     {
         "CallAnalyticsJob": "CallAnalyticsJobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartMedicalScribeJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartMedicalScribeJobRequestRequestTypeDef",
+    {
+        "MedicalScribeJobName": str,
+        "Media": "MediaTypeDef",
+        "OutputBucketName": str,
+        "DataAccessRoleArn": str,
+        "Settings": "MedicalScribeSettingsTypeDef",
+    },
+)
+_OptionalStartMedicalScribeJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartMedicalScribeJobRequestRequestTypeDef",
+    {
+        "OutputEncryptionKMSKeyId": str,
+        "KMSEncryptionContext": Dict[str, str],
+        "ChannelDefinitions": List["MedicalScribeChannelDefinitionTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class StartMedicalScribeJobRequestRequestTypeDef(
+    _RequiredStartMedicalScribeJobRequestRequestTypeDef,
+    _OptionalStartMedicalScribeJobRequestRequestTypeDef,
+):
+    pass
+
+StartMedicalScribeJobResponseTypeDef = TypedDict(
+    "StartMedicalScribeJobResponseTypeDef",
+    {
+        "MedicalScribeJob": "MedicalScribeJobTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -8,9 +8,10 @@ Usage::
     ```python
     from mypy_boto3_eks.literals import AMITypesType
 
-    data: AMITypesType = "AL2_ARM_64"
+    data: AMITypesType = "AL2023_ARM_64_STANDARD"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -20,11 +21,14 @@ else:
 
 __all__ = (
     "AMITypesType",
+    "AccessScopeTypeType",
     "AddonActiveWaiterName",
     "AddonDeletedWaiterName",
     "AddonIssueCodeType",
     "AddonStatusType",
+    "AuthenticationModeType",
     "CapacityTypesType",
+    "CategoryType",
     "ClusterActiveWaiterName",
     "ClusterDeletedWaiterName",
     "ClusterIssueCodeType",
@@ -38,12 +42,17 @@ __all__ = (
     "FargateProfileActiveWaiterName",
     "FargateProfileDeletedWaiterName",
     "FargateProfileStatusType",
+    "InsightStatusValueType",
     "IpFamilyType",
+    "ListAccessEntriesPaginatorName",
+    "ListAccessPoliciesPaginatorName",
     "ListAddonsPaginatorName",
+    "ListAssociatedAccessPoliciesPaginatorName",
     "ListClustersPaginatorName",
     "ListEksAnywhereSubscriptionsPaginatorName",
     "ListFargateProfilesPaginatorName",
     "ListIdentityProviderConfigsPaginatorName",
+    "ListInsightsPaginatorName",
     "ListNodegroupsPaginatorName",
     "ListPodIdentityAssociationsPaginatorName",
     "ListUpdatesPaginatorName",
@@ -61,6 +70,8 @@ __all__ = (
 )
 
 AMITypesType = Literal[
+    "AL2023_ARM_64_STANDARD",
+    "AL2023_x86_64_STANDARD",
     "AL2_ARM_64",
     "AL2_x86_64",
     "AL2_x86_64_GPU",
@@ -74,10 +85,13 @@ AMITypesType = Literal[
     "WINDOWS_FULL_2019_x86_64",
     "WINDOWS_FULL_2022_x86_64",
 ]
+AccessScopeTypeType = Literal["cluster", "namespace"]
 AddonActiveWaiterName = Literal["addon_active"]
 AddonDeletedWaiterName = Literal["addon_deleted"]
 AddonIssueCodeType = Literal[
     "AccessDenied",
+    "AddonPermissionFailure",
+    "AddonSubscriptionNeeded",
     "AdmissionRequestDenied",
     "ClusterUnreachable",
     "ConfigurationConflict",
@@ -96,7 +110,9 @@ AddonStatusType = Literal[
     "UPDATE_FAILED",
     "UPDATING",
 ]
+AuthenticationModeType = Literal["API", "API_AND_CONFIG_MAP", "CONFIG_MAP"]
 CapacityTypesType = Literal["ON_DEMAND", "SPOT"]
+CategoryType = Literal["UPGRADE_READINESS"]
 ClusterActiveWaiterName = Literal["cluster_active"]
 ClusterDeletedWaiterName = Literal["cluster_deleted"]
 ClusterIssueCodeType = Literal[
@@ -154,12 +170,17 @@ FargateProfileDeletedWaiterName = Literal["fargate_profile_deleted"]
 FargateProfileStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"
 ]
+InsightStatusValueType = Literal["ERROR", "PASSING", "UNKNOWN", "WARNING"]
 IpFamilyType = Literal["ipv4", "ipv6"]
+ListAccessEntriesPaginatorName = Literal["list_access_entries"]
+ListAccessPoliciesPaginatorName = Literal["list_access_policies"]
 ListAddonsPaginatorName = Literal["list_addons"]
+ListAssociatedAccessPoliciesPaginatorName = Literal["list_associated_access_policies"]
 ListClustersPaginatorName = Literal["list_clusters"]
 ListEksAnywhereSubscriptionsPaginatorName = Literal["list_eks_anywhere_subscriptions"]
 ListFargateProfilesPaginatorName = Literal["list_fargate_profiles"]
 ListIdentityProviderConfigsPaginatorName = Literal["list_identity_provider_configs"]
+ListInsightsPaginatorName = Literal["list_insights"]
 ListNodegroupsPaginatorName = Literal["list_nodegroups"]
 ListPodIdentityAssociationsPaginatorName = Literal["list_pod_identity_associations"]
 ListUpdatesPaginatorName = Literal["list_updates"]
@@ -180,6 +201,7 @@ NodegroupIssueCodeType = Literal[
     "Ec2LaunchTemplateInvalidConfiguration",
     "Ec2LaunchTemplateMaxLimitExceeded",
     "Ec2LaunchTemplateNotFound",
+    "Ec2LaunchTemplateVersionMaxLimitExceeded",
     "Ec2LaunchTemplateVersionMismatch",
     "Ec2SecurityGroupDeletionFailure",
     "Ec2SecurityGroupNotFound",
@@ -194,6 +216,7 @@ NodegroupIssueCodeType = Literal[
     "InstanceLimitExceeded",
     "InsufficientFreeAddresses",
     "InternalFailure",
+    "KubernetesLabelInvalid",
     "LimitExceeded",
     "NodeCreationFailure",
     "NodeTerminationFailure",
@@ -208,6 +231,7 @@ ResolveConflictsType = Literal["NONE", "OVERWRITE", "PRESERVE"]
 TaintEffectType = Literal["NO_EXECUTE", "NO_SCHEDULE", "PREFER_NO_SCHEDULE"]
 UpdateParamTypeType = Literal[
     "AddonVersion",
+    "AuthenticationMode",
     "ClusterLogging",
     "ConfigurationValues",
     "DesiredSize",
@@ -224,6 +248,7 @@ UpdateParamTypeType = Literal[
     "MaxUnavailablePercentage",
     "MinSize",
     "PlatformVersion",
+    "PodIdentityAssociations",
     "PublicAccessCidrs",
     "ReleaseVersion",
     "ResolveConflicts",
@@ -236,6 +261,7 @@ UpdateParamTypeType = Literal[
 ]
 UpdateStatusType = Literal["Cancelled", "Failed", "InProgress", "Successful"]
 UpdateTypeType = Literal[
+    "AccessConfigUpdate",
     "AddonUpdate",
     "AssociateEncryptionConfig",
     "AssociateIdentityProviderConfig",

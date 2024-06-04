@@ -11,6 +11,7 @@ Usage::
     data: ApacheKafkaClusterDescriptionTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -21,6 +22,7 @@ from .literals import (
     CustomPluginStateType,
     KafkaClusterClientAuthenticationTypeType,
     KafkaClusterEncryptionInTransitTypeType,
+    WorkerConfigurationStateType,
 )
 
 if sys.version_info >= (3, 8):
@@ -57,6 +59,8 @@ __all__ = (
     "DeleteConnectorResponseTypeDef",
     "DeleteCustomPluginRequestRequestTypeDef",
     "DeleteCustomPluginResponseTypeDef",
+    "DeleteWorkerConfigurationRequestRequestTypeDef",
+    "DeleteWorkerConfigurationResponseTypeDef",
     "DescribeConnectorRequestRequestTypeDef",
     "DescribeConnectorResponseTypeDef",
     "DescribeCustomPluginRequestRequestTypeDef",
@@ -75,6 +79,8 @@ __all__ = (
     "ListConnectorsResponseTypeDef",
     "ListCustomPluginsRequestRequestTypeDef",
     "ListCustomPluginsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ListWorkerConfigurationsRequestRequestTypeDef",
     "ListWorkerConfigurationsResponseTypeDef",
     "LogDeliveryDescriptionTypeDef",
@@ -97,6 +103,8 @@ __all__ = (
     "ScaleOutPolicyTypeDef",
     "ScaleOutPolicyUpdateTypeDef",
     "StateDescriptionTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateConnectorRequestRequestTypeDef",
     "UpdateConnectorResponseTypeDef",
     "VpcDescriptionTypeDef",
@@ -266,6 +274,7 @@ _OptionalCreateConnectorRequestRequestTypeDef = TypedDict(
     {
         "connectorDescription": str,
         "logDelivery": "LogDeliveryTypeDef",
+        "tags": Dict[str, str],
         "workerConfiguration": "WorkerConfigurationTypeDef",
     },
     total=False,
@@ -298,6 +307,7 @@ _OptionalCreateCustomPluginRequestRequestTypeDef = TypedDict(
     "_OptionalCreateCustomPluginRequestRequestTypeDef",
     {
         "description": str,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -330,6 +340,7 @@ _OptionalCreateWorkerConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalCreateWorkerConfigurationRequestRequestTypeDef",
     {
         "description": str,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -347,6 +358,7 @@ CreateWorkerConfigurationResponseTypeDef = TypedDict(
         "latestRevision": "WorkerConfigurationRevisionSummaryTypeDef",
         "name": str,
         "workerConfigurationArn": str,
+        "workerConfigurationState": WorkerConfigurationStateType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -462,6 +474,22 @@ DeleteCustomPluginResponseTypeDef = TypedDict(
     },
 )
 
+DeleteWorkerConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteWorkerConfigurationRequestRequestTypeDef",
+    {
+        "workerConfigurationArn": str,
+    },
+)
+
+DeleteWorkerConfigurationResponseTypeDef = TypedDict(
+    "DeleteWorkerConfigurationResponseTypeDef",
+    {
+        "workerConfigurationArn": str,
+        "workerConfigurationState": WorkerConfigurationStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeConnectorRequestRequestTypeDef = TypedDict(
     "DescribeConnectorRequestRequestTypeDef",
     {
@@ -529,6 +557,7 @@ DescribeWorkerConfigurationResponseTypeDef = TypedDict(
         "latestRevision": "WorkerConfigurationRevisionDescriptionTypeDef",
         "name": str,
         "workerConfigurationArn": str,
+        "workerConfigurationState": WorkerConfigurationStateType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -629,6 +658,7 @@ ListCustomPluginsRequestRequestTypeDef = TypedDict(
     "ListCustomPluginsRequestRequestTypeDef",
     {
         "maxResults": int,
+        "namePrefix": str,
         "nextToken": str,
     },
     total=False,
@@ -643,10 +673,26 @@ ListCustomPluginsResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListWorkerConfigurationsRequestRequestTypeDef = TypedDict(
     "ListWorkerConfigurationsRequestRequestTypeDef",
     {
         "maxResults": int,
+        "namePrefix": str,
         "nextToken": str,
     },
     total=False,
@@ -846,6 +892,22 @@ StateDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tags": Dict[str, str],
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tagKeys": List[str],
+    },
+)
+
 UpdateConnectorRequestRequestTypeDef = TypedDict(
     "UpdateConnectorRequestRequestTypeDef",
     {
@@ -928,6 +990,7 @@ WorkerConfigurationSummaryTypeDef = TypedDict(
         "latestRevision": "WorkerConfigurationRevisionSummaryTypeDef",
         "name": str,
         "workerConfigurationArn": str,
+        "workerConfigurationState": WorkerConfigurationStateType,
     },
     total=False,
 )

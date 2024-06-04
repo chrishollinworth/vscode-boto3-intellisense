@@ -11,6 +11,7 @@ Usage::
     data: AcceptRuleBehaviorType = "ALL"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -50,6 +51,7 @@ __all__ = (
     "ListEnvironmentBlueprintsPaginatorName",
     "ListEnvironmentProfilesPaginatorName",
     "ListEnvironmentsPaginatorName",
+    "ListMetadataGenerationRunsPaginatorName",
     "ListNotificationsPaginatorName",
     "ListProjectMembershipsPaginatorName",
     "ListProjectsPaginatorName",
@@ -57,10 +59,15 @@ __all__ = (
     "ListSubscriptionRequestsPaginatorName",
     "ListSubscriptionTargetsPaginatorName",
     "ListSubscriptionsPaginatorName",
+    "ListTimeSeriesDataPointsPaginatorName",
     "ListingStatusType",
+    "MetadataGenerationRunStatusType",
+    "MetadataGenerationRunTypeType",
+    "MetadataGenerationTargetTypeType",
     "NotificationResourceTypeType",
     "NotificationRoleType",
     "NotificationTypeType",
+    "ProjectStatusType",
     "RejectRuleBehaviorType",
     "SearchGroupProfilesPaginatorName",
     "SearchListingsPaginatorName",
@@ -76,6 +83,7 @@ __all__ = (
     "SubscriptionRequestStatusType",
     "SubscriptionStatusType",
     "TaskStatusType",
+    "TimeSeriesEntityTypeType",
     "TimezoneType",
     "TypesSearchScopeType",
     "UserAssignmentType",
@@ -163,6 +171,7 @@ ListEnvironmentBlueprintConfigurationsPaginatorName = Literal[
 ListEnvironmentBlueprintsPaginatorName = Literal["list_environment_blueprints"]
 ListEnvironmentProfilesPaginatorName = Literal["list_environment_profiles"]
 ListEnvironmentsPaginatorName = Literal["list_environments"]
+ListMetadataGenerationRunsPaginatorName = Literal["list_metadata_generation_runs"]
 ListNotificationsPaginatorName = Literal["list_notifications"]
 ListProjectMembershipsPaginatorName = Literal["list_project_memberships"]
 ListProjectsPaginatorName = Literal["list_projects"]
@@ -170,16 +179,23 @@ ListSubscriptionGrantsPaginatorName = Literal["list_subscription_grants"]
 ListSubscriptionRequestsPaginatorName = Literal["list_subscription_requests"]
 ListSubscriptionTargetsPaginatorName = Literal["list_subscription_targets"]
 ListSubscriptionsPaginatorName = Literal["list_subscriptions"]
+ListTimeSeriesDataPointsPaginatorName = Literal["list_time_series_data_points"]
 ListingStatusType = Literal["ACTIVE", "CREATING", "INACTIVE"]
+MetadataGenerationRunStatusType = Literal[
+    "CANCELED", "FAILED", "IN_PROGRESS", "SUBMITTED", "SUCCEEDED"
+]
+MetadataGenerationRunTypeType = Literal["BUSINESS_DESCRIPTIONS"]
+MetadataGenerationTargetTypeType = Literal["ASSET"]
 NotificationResourceTypeType = Literal["PROJECT"]
 NotificationRoleType = Literal[
     "DOMAIN_OWNER", "PROJECT_CONTRIBUTOR", "PROJECT_OWNER", "PROJECT_SUBSCRIBER", "PROJECT_VIEWER"
 ]
 NotificationTypeType = Literal["EVENT", "TASK"]
+ProjectStatusType = Literal["ACTIVE", "DELETE_FAILED", "DELETING"]
 RejectRuleBehaviorType = Literal["ALL", "NONE"]
 SearchGroupProfilesPaginatorName = Literal["search_group_profiles"]
 SearchListingsPaginatorName = Literal["search_listings"]
-SearchOutputAdditionalAttributeType = Literal["FORMS"]
+SearchOutputAdditionalAttributeType = Literal["FORMS", "TIME_SERIES_DATA_POINT_FORMS"]
 SearchPaginatorName = Literal["search"]
 SearchTypesPaginatorName = Literal["search_types"]
 SearchUserProfilesPaginatorName = Literal["search_user_profiles"]
@@ -208,6 +224,7 @@ SubscriptionGrantStatusType = Literal[
 SubscriptionRequestStatusType = Literal["ACCEPTED", "PENDING", "REJECTED"]
 SubscriptionStatusType = Literal["APPROVED", "CANCELLED", "REVOKED"]
 TaskStatusType = Literal["ACTIVE", "INACTIVE"]
+TimeSeriesEntityTypeType = Literal["ASSET", "LISTING"]
 TimezoneType = Literal[
     "AFRICA_JOHANNESBURG",
     "AMERICA_MONTREAL",

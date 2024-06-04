@@ -16,6 +16,7 @@ Usage::
     session_client: TimestreamWriteClient = session.client("timestream-write")
     ```
 """
+
 from .client import TimestreamWriteClient
 
 Client = TimestreamWriteClient

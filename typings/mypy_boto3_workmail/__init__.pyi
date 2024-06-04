@@ -35,6 +35,7 @@ Usage::
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
+
 from .client import WorkMailClient
 from .paginator import (
     ListAliasesPaginator,

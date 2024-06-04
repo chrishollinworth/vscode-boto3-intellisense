@@ -16,6 +16,7 @@ Usage::
     session_client: LookoutMetricsClient = session.client("lookoutmetrics")
     ```
 """
+
 from .client import LookoutMetricsClient
 
 Client = LookoutMetricsClient

@@ -11,6 +11,7 @@ Usage::
     data: AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -2056,6 +2057,7 @@ _OptionalSnapshotDetailsTypeDef = TypedDict(
     "_OptionalSnapshotDetailsTypeDef",
     {
         "SnapshotCreationTimestamp": datetime,
+        "RuntimeEnvironment": RuntimeEnvironmentType,
     },
     total=False,
 )
@@ -2222,6 +2224,7 @@ _OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
         "RunConfigurationUpdate": "RunConfigurationUpdateTypeDef",
         "CloudWatchLoggingOptionUpdates": List["CloudWatchLoggingOptionUpdateTypeDef"],
         "ConditionalToken": str,
+        "RuntimeEnvironmentUpdate": RuntimeEnvironmentType,
     },
     total=False,
 )

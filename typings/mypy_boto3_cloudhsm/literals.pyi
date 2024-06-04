@@ -11,6 +11,7 @@ Usage::
     data: ClientVersionType = "5.1"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

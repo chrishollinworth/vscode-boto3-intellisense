@@ -11,6 +11,7 @@ Usage::
     data: ApprovalStateType = "APPROVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -20,6 +21,7 @@ else:
 
 __all__ = (
     "ApprovalStateType",
+    "BatchGetRepositoriesErrorCodeEnumType",
     "ChangeTypeEnumType",
     "ConflictDetailLevelTypeEnumType",
     "ConflictResolutionStrategyTypeEnumType",
@@ -44,6 +46,14 @@ __all__ = (
 )
 
 ApprovalStateType = Literal["APPROVE", "REVOKE"]
+BatchGetRepositoriesErrorCodeEnumType = Literal[
+    "EncryptionIntegrityChecksFailedException",
+    "EncryptionKeyAccessDeniedException",
+    "EncryptionKeyDisabledException",
+    "EncryptionKeyNotFoundException",
+    "EncryptionKeyUnavailableException",
+    "RepositoryDoesNotExistException",
+]
 ChangeTypeEnumType = Literal["A", "D", "M"]
 ConflictDetailLevelTypeEnumType = Literal["FILE_LEVEL", "LINE_LEVEL"]
 ConflictResolutionStrategyTypeEnumType = Literal[

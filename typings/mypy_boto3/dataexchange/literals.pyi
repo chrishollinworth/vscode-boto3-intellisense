@@ -11,6 +11,7 @@ Usage::
     data: AssetTypeType = "API_GATEWAY_API"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -11,6 +11,7 @@ Usage::
     data: AddInstanceFleetInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -229,7 +230,9 @@ __all__ = (
     "SecurityConfigurationSummaryTypeDef",
     "SessionMappingDetailTypeDef",
     "SessionMappingSummaryTypeDef",
+    "SetKeepJobFlowAliveWhenNoStepsInputRequestTypeDef",
     "SetTerminationProtectionInputRequestTypeDef",
+    "SetUnhealthyNodeReplacementInputRequestTypeDef",
     "SetVisibleToAllUsersInputRequestTypeDef",
     "ShrinkPolicyTypeDef",
     "SimpleScalingPolicyConfigurationTypeDef",
@@ -552,6 +555,7 @@ ClusterTypeDef = TypedDict(
         "ReleaseLabel": str,
         "AutoTerminate": bool,
         "TerminationProtected": bool,
+        "UnhealthyNodeReplacement": bool,
         "VisibleToAllUsers": bool,
         "Applications": List["ApplicationTypeDef"],
         "Tags": List["TagTypeDef"],
@@ -1505,6 +1509,7 @@ JobFlowInstancesConfigTypeDef = TypedDict(
         "Placement": "PlacementTypeTypeDef",
         "KeepJobFlowAliveWhenNoSteps": bool,
         "TerminationProtected": bool,
+        "UnhealthyNodeReplacement": bool,
         "HadoopVersion": str,
         "Ec2SubnetId": str,
         "Ec2SubnetIds": List[str],
@@ -1537,6 +1542,7 @@ _OptionalJobFlowInstancesDetailTypeDef = TypedDict(
         "Placement": "PlacementTypeTypeDef",
         "KeepJobFlowAliveWhenNoSteps": bool,
         "TerminationProtected": bool,
+        "UnhealthyNodeReplacement": bool,
         "HadoopVersion": str,
     },
     total=False,
@@ -2373,11 +2379,27 @@ SessionMappingSummaryTypeDef = TypedDict(
     total=False,
 )
 
+SetKeepJobFlowAliveWhenNoStepsInputRequestTypeDef = TypedDict(
+    "SetKeepJobFlowAliveWhenNoStepsInputRequestTypeDef",
+    {
+        "JobFlowIds": List[str],
+        "KeepJobFlowAliveWhenNoSteps": bool,
+    },
+)
+
 SetTerminationProtectionInputRequestTypeDef = TypedDict(
     "SetTerminationProtectionInputRequestTypeDef",
     {
         "JobFlowIds": List[str],
         "TerminationProtected": bool,
+    },
+)
+
+SetUnhealthyNodeReplacementInputRequestTypeDef = TypedDict(
+    "SetUnhealthyNodeReplacementInputRequestTypeDef",
+    {
+        "JobFlowIds": List[str],
+        "UnhealthyNodeReplacement": bool,
     },
 )
 

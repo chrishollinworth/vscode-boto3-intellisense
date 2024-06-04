@@ -11,6 +11,7 @@ Usage::
     data: AcceptAdministratorInvitationRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -191,6 +192,7 @@ __all__ = (
     "GetMemberDetectorsResponseTypeDef",
     "GetMembersRequestRequestTypeDef",
     "GetMembersResponseTypeDef",
+    "GetOrganizationStatisticsResponseTypeDef",
     "GetRemainingFreeTrialDaysRequestRequestTypeDef",
     "GetRemainingFreeTrialDaysResponseTypeDef",
     "GetThreatIntelSetRequestRequestTypeDef",
@@ -261,10 +263,13 @@ __all__ = (
     "OrganizationAdditionalConfigurationTypeDef",
     "OrganizationDataSourceConfigurationsResultTypeDef",
     "OrganizationDataSourceConfigurationsTypeDef",
+    "OrganizationDetailsTypeDef",
     "OrganizationEbsVolumesResultTypeDef",
     "OrganizationEbsVolumesTypeDef",
     "OrganizationFeatureConfigurationResultTypeDef",
     "OrganizationFeatureConfigurationTypeDef",
+    "OrganizationFeatureStatisticsAdditionalConfigurationTypeDef",
+    "OrganizationFeatureStatisticsTypeDef",
     "OrganizationKubernetesAuditLogsConfigurationResultTypeDef",
     "OrganizationKubernetesAuditLogsConfigurationTypeDef",
     "OrganizationKubernetesConfigurationResultTypeDef",
@@ -275,6 +280,7 @@ __all__ = (
     "OrganizationS3LogsConfigurationTypeDef",
     "OrganizationScanEc2InstanceWithFindingsResultTypeDef",
     "OrganizationScanEc2InstanceWithFindingsTypeDef",
+    "OrganizationStatisticsTypeDef",
     "OrganizationTypeDef",
     "OwnerTypeDef",
     "PaginatorConfigTypeDef",
@@ -349,6 +355,8 @@ __all__ = (
     "UsageFeatureResultTypeDef",
     "UsageResourceResultTypeDef",
     "UsageStatisticsTypeDef",
+    "UsageTopAccountResultTypeDef",
+    "UsageTopAccountsResultTypeDef",
     "VolumeDetailTypeDef",
     "VolumeMountTypeDef",
     "VolumeTypeDef",
@@ -1718,6 +1726,14 @@ GetMembersResponseTypeDef = TypedDict(
     },
 )
 
+GetOrganizationStatisticsResponseTypeDef = TypedDict(
+    "GetOrganizationStatisticsResponseTypeDef",
+    {
+        "OrganizationDetails": "OrganizationDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetRemainingFreeTrialDaysRequestRequestTypeDef = TypedDict(
     "_RequiredGetRemainingFreeTrialDaysRequestRequestTypeDef",
     {
@@ -2336,6 +2352,7 @@ LocalIpDetailsTypeDef = TypedDict(
     "LocalIpDetailsTypeDef",
     {
         "IpAddressV4": str,
+        "IpAddressV6": str,
     },
     total=False,
 )
@@ -2567,6 +2584,15 @@ OrganizationDataSourceConfigurationsTypeDef = TypedDict(
     total=False,
 )
 
+OrganizationDetailsTypeDef = TypedDict(
+    "OrganizationDetailsTypeDef",
+    {
+        "UpdatedAt": datetime,
+        "OrganizationStatistics": "OrganizationStatisticsTypeDef",
+    },
+    total=False,
+)
+
 OrganizationEbsVolumesResultTypeDef = TypedDict(
     "OrganizationEbsVolumesResultTypeDef",
     {
@@ -2599,6 +2625,27 @@ OrganizationFeatureConfigurationTypeDef = TypedDict(
         "Name": OrgFeatureType,
         "AutoEnable": OrgFeatureStatusType,
         "AdditionalConfiguration": List["OrganizationAdditionalConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+OrganizationFeatureStatisticsAdditionalConfigurationTypeDef = TypedDict(
+    "OrganizationFeatureStatisticsAdditionalConfigurationTypeDef",
+    {
+        "Name": OrgFeatureAdditionalConfigurationType,
+        "EnabledAccountsCount": int,
+    },
+    total=False,
+)
+
+OrganizationFeatureStatisticsTypeDef = TypedDict(
+    "OrganizationFeatureStatisticsTypeDef",
+    {
+        "Name": OrgFeatureType,
+        "EnabledAccountsCount": int,
+        "AdditionalConfiguration": List[
+            "OrganizationFeatureStatisticsAdditionalConfigurationTypeDef"
+        ],
     },
     total=False,
 )
@@ -2673,6 +2720,18 @@ OrganizationScanEc2InstanceWithFindingsTypeDef = TypedDict(
     "OrganizationScanEc2InstanceWithFindingsTypeDef",
     {
         "EbsVolumes": "OrganizationEbsVolumesTypeDef",
+    },
+    total=False,
+)
+
+OrganizationStatisticsTypeDef = TypedDict(
+    "OrganizationStatisticsTypeDef",
+    {
+        "TotalAccountsCount": int,
+        "MemberAccountsCount": int,
+        "ActiveAccountsCount": int,
+        "EnabledAccountsCount": int,
+        "CountByFeature": List["OrganizationFeatureStatisticsTypeDef"],
     },
     total=False,
 )
@@ -2831,6 +2890,7 @@ RemoteIpDetailsTypeDef = TypedDict(
         "Country": "CountryTypeDef",
         "GeoLocation": "GeoLocationTypeDef",
         "IpAddressV4": str,
+        "IpAddressV6": str,
         "Organization": "OrganizationTypeDef",
     },
     total=False,
@@ -2906,6 +2966,11 @@ RuntimeContextTypeDef = TypedDict(
         "AddressFamily": str,
         "IanaProtocolNumber": int,
         "MemoryRegions": List[str],
+        "ToolName": str,
+        "ToolCategory": str,
+        "ServiceName": str,
+        "CommandLineExample": str,
+        "ThreatFilePath": str,
     },
     total=False,
 )
@@ -3210,6 +3275,7 @@ ThreatIntelligenceDetailTypeDef = TypedDict(
     {
         "ThreatListName": str,
         "ThreatNames": List[str],
+        "ThreatFileSha256": str,
     },
     total=False,
 )
@@ -3538,10 +3604,29 @@ UsageStatisticsTypeDef = TypedDict(
     "UsageStatisticsTypeDef",
     {
         "SumByAccount": List["UsageAccountResultTypeDef"],
+        "TopAccountsByFeature": List["UsageTopAccountsResultTypeDef"],
         "SumByDataSource": List["UsageDataSourceResultTypeDef"],
         "SumByResource": List["UsageResourceResultTypeDef"],
         "TopResources": List["UsageResourceResultTypeDef"],
         "SumByFeature": List["UsageFeatureResultTypeDef"],
+    },
+    total=False,
+)
+
+UsageTopAccountResultTypeDef = TypedDict(
+    "UsageTopAccountResultTypeDef",
+    {
+        "AccountId": str,
+        "Total": "TotalTypeDef",
+    },
+    total=False,
+)
+
+UsageTopAccountsResultTypeDef = TypedDict(
+    "UsageTopAccountsResultTypeDef",
+    {
+        "Feature": UsageFeatureType,
+        "Accounts": List["UsageTopAccountResultTypeDef"],
     },
     total=False,
 )

@@ -27,6 +27,7 @@ Usage::
     list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     ```
 """
+
 from .client import MigrationHubRefactorSpacesClient
 from .paginator import (
     ListApplicationsPaginator,

@@ -11,6 +11,7 @@ Usage::
     data: AacSettingsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -284,6 +285,7 @@ from .literals import (
     M2tsKlvMetadataType,
     M2tsNielsenId3Type,
     M2tsPcrControlType,
+    M2tsPreventBufferUnderflowType,
     M2tsRateModeType,
     M2tsScte35SourceType,
     M2tsSegmentationMarkersType,
@@ -382,6 +384,13 @@ from .literals import (
     TsPtsOffsetType,
     TtmlStylePassthroughType,
     TypeType,
+    UncompressedFourccType,
+    UncompressedFramerateControlType,
+    UncompressedFramerateConversionAlgorithmType,
+    UncompressedInterlaceModeType,
+    UncompressedScanTypeConversionModeType,
+    UncompressedSlowPalType,
+    UncompressedTelecineType,
     Vc3ClassType,
     Vc3FramerateControlType,
     Vc3FramerateConversionAlgorithmType,
@@ -474,6 +483,7 @@ __all__ = (
     "CmafGroupSettingsTypeDef",
     "CmafImageBasedTrickPlaySettingsTypeDef",
     "CmfcSettingsTypeDef",
+    "ColorConversion3DLUTSettingTypeDef",
     "ColorCorrectorTypeDef",
     "ContainerSettingsTypeDef",
     "CreateJobRequestRequestTypeDef",
@@ -633,6 +643,7 @@ __all__ = (
     "TimingTypeDef",
     "TrackSourceSettingsTypeDef",
     "TtmlDestinationSettingsTypeDef",
+    "UncompressedSettingsTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateJobTemplateRequestRequestTypeDef",
     "UpdateJobTemplateResponseTypeDef",
@@ -949,6 +960,10 @@ BurninDestinationSettingsTypeDef = TypedDict(
         "BackgroundOpacity": int,
         "FallbackFont": BurninSubtitleFallbackFontType,
         "FontColor": BurninSubtitleFontColorType,
+        "FontFileBold": str,
+        "FontFileBoldItalic": str,
+        "FontFileItalic": str,
+        "FontFileRegular": str,
         "FontOpacity": int,
         "FontResolution": int,
         "FontScript": FontScriptType,
@@ -1158,6 +1173,18 @@ CmfcSettingsTypeDef = TypedDict(
     total=False,
 )
 
+ColorConversion3DLUTSettingTypeDef = TypedDict(
+    "ColorConversion3DLUTSettingTypeDef",
+    {
+        "FileInput": str,
+        "InputColorSpace": ColorSpaceType,
+        "InputMasteringLuminance": int,
+        "OutputColorSpace": ColorSpaceType,
+        "OutputMasteringLuminance": int,
+    },
+    total=False,
+)
+
 ColorCorrectorTypeDef = TypedDict(
     "ColorCorrectorTypeDef",
     {
@@ -1168,6 +1195,7 @@ ColorCorrectorTypeDef = TypedDict(
         "Hdr10Metadata": "Hdr10MetadataTypeDef",
         "HdrToSdrToneMapper": HDRToSDRToneMapperType,
         "Hue": int,
+        "MaxLuminance": int,
         "SampleRangeConversion": SampleRangeConversionType,
         "Saturation": int,
         "SdrReferenceWhiteLevel": int,
@@ -1502,6 +1530,10 @@ DvbSubDestinationSettingsTypeDef = TypedDict(
         "DdsYCoordinate": int,
         "FallbackFont": DvbSubSubtitleFallbackFontType,
         "FontColor": DvbSubtitleFontColorType,
+        "FontFileBold": str,
+        "FontFileBoldItalic": str,
+        "FontFileItalic": str,
+        "FontFileRegular": str,
         "FontOpacity": int,
         "FontResolution": int,
         "FontScript": FontScriptType,
@@ -2198,6 +2230,7 @@ JobSettingsTypeDef = TypedDict(
     {
         "AdAvailOffset": int,
         "AvailBlanking": "AvailBlankingTypeDef",
+        "ColorConversion3DLUTSettings": List["ColorConversion3DLUTSettingTypeDef"],
         "Esam": "EsamSettingsTypeDef",
         "ExtendedDataServices": "ExtendedDataServicesTypeDef",
         "FollowSource": int,
@@ -2218,6 +2251,7 @@ JobTemplateSettingsTypeDef = TypedDict(
     {
         "AdAvailOffset": int,
         "AvailBlanking": "AvailBlankingTypeDef",
+        "ColorConversion3DLUTSettings": List["ColorConversion3DLUTSettingTypeDef"],
         "Esam": "EsamSettingsTypeDef",
         "ExtendedDataServices": "ExtendedDataServicesTypeDef",
         "FollowSource": int,
@@ -2459,6 +2493,7 @@ M2tsSettingsTypeDef = TypedDict(
         "PcrPid": int,
         "PmtInterval": int,
         "PmtPid": int,
+        "PreventBufferUnderflow": M2tsPreventBufferUnderflowType,
         "PrivateMetadataPid": int,
         "ProgramNumber": int,
         "PtsOffset": int,
@@ -3020,6 +3055,8 @@ RectangleTypeDef = TypedDict(
 RemixSettingsTypeDef = TypedDict(
     "RemixSettingsTypeDef",
     {
+        "AudioDescriptionAudioChannel": int,
+        "AudioDescriptionDataChannel": int,
         "ChannelMapping": "ChannelMappingTypeDef",
         "ChannelsIn": int,
         "ChannelsOut": int,
@@ -3227,6 +3264,22 @@ TtmlDestinationSettingsTypeDef = TypedDict(
     total=False,
 )
 
+UncompressedSettingsTypeDef = TypedDict(
+    "UncompressedSettingsTypeDef",
+    {
+        "Fourcc": UncompressedFourccType,
+        "FramerateControl": UncompressedFramerateControlType,
+        "FramerateConversionAlgorithm": UncompressedFramerateConversionAlgorithmType,
+        "FramerateDenominator": int,
+        "FramerateNumerator": int,
+        "InterlaceMode": UncompressedInterlaceModeType,
+        "ScanTypeConversionMode": UncompressedScanTypeConversionModeType,
+        "SlowPal": UncompressedSlowPalType,
+        "Telecine": UncompressedTelecineType,
+    },
+    total=False,
+)
+
 _RequiredUntagResourceRequestRequestTypeDef = TypedDict(
     "_RequiredUntagResourceRequestRequestTypeDef",
     {
@@ -3365,6 +3418,7 @@ VideoCodecSettingsTypeDef = TypedDict(
         "H265Settings": "H265SettingsTypeDef",
         "Mpeg2Settings": "Mpeg2SettingsTypeDef",
         "ProresSettings": "ProresSettingsTypeDef",
+        "UncompressedSettings": "UncompressedSettingsTypeDef",
         "Vc3Settings": "Vc3SettingsTypeDef",
         "Vp8Settings": "Vp8SettingsTypeDef",
         "Vp9Settings": "Vp9SettingsTypeDef",
@@ -3457,6 +3511,7 @@ VideoSelectorTypeDef = TypedDict(
         "ColorSpaceUsage": ColorSpaceUsageType,
         "EmbeddedTimecodeOverride": EmbeddedTimecodeOverrideType,
         "Hdr10Metadata": "Hdr10MetadataTypeDef",
+        "MaxLuminance": int,
         "PadVideo": PadVideoType,
         "Pid": int,
         "ProgramNumber": int,

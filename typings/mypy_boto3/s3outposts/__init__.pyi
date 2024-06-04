@@ -23,6 +23,7 @@ Usage::
     list_shared_endpoints_paginator: ListSharedEndpointsPaginator = client.get_paginator("list_shared_endpoints")
     ```
 """
+
 from .client import S3OutpostsClient
 from .paginator import (
     ListEndpointsPaginator,

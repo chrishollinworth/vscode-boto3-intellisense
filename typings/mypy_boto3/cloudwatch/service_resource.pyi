@@ -17,6 +17,7 @@ Usage::
     my_metric: cloudwatch_resources.Metric = resource.Metric(...)
 ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Iterator, List, Union
@@ -60,7 +61,7 @@ __all__ = (
 
 class ServiceResourceAlarmsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.ServiceResource.alarms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.ServiceResource.alarms)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#serviceresourcealarmscollection)
     """
 
@@ -68,6 +69,7 @@ class ServiceResourceAlarmsCollection(ResourceCollection):
         """
         Get all items from the collection, optionally with a custom page size and item count limit.
         """
+
     def filter(  # type: ignore
         self,
         *,
@@ -84,30 +86,37 @@ class ServiceResourceAlarmsCollection(ResourceCollection):
         """
         Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
         """
+
     def delete(self) -> None:
         """
         Batch method.
         """
+
     def disable_actions(self) -> None:
         """
         Batch method.
         """
+
     def enable_actions(self) -> None:
         """
         Batch method.
         """
+
     def limit(self, count: int) -> "ServiceResourceAlarmsCollection":
         """
         Return at most this many Alarms.
         """
+
     def page_size(self, count: int) -> "ServiceResourceAlarmsCollection":
         """
         Fetch at most this many Alarms per service request.
         """
+
     def pages(self) -> Iterator[List["Alarm"]]:
         """
         A generator which yields pages of Alarms.
         """
+
     def __iter__(self) -> Iterator["Alarm"]:
         """
         A generator which yields Alarms.
@@ -115,7 +124,7 @@ class ServiceResourceAlarmsCollection(ResourceCollection):
 
 class ServiceResourceMetricsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.ServiceResource.metrics)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.ServiceResource.metrics)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#serviceresourcemetricscollection)
     """
 
@@ -123,6 +132,7 @@ class ServiceResourceMetricsCollection(ResourceCollection):
         """
         Get all items from the collection, optionally with a custom page size and item count limit.
         """
+
     def filter(  # type: ignore
         self,
         *,
@@ -137,18 +147,22 @@ class ServiceResourceMetricsCollection(ResourceCollection):
         """
         Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
         """
+
     def limit(self, count: int) -> "ServiceResourceMetricsCollection":
         """
         Return at most this many Metrics.
         """
+
     def page_size(self, count: int) -> "ServiceResourceMetricsCollection":
         """
         Fetch at most this many Metrics per service request.
         """
+
     def pages(self) -> Iterator[List["Metric"]]:
         """
         A generator which yields pages of Metrics.
         """
+
     def __iter__(self) -> Iterator["Metric"]:
         """
         A generator which yields Metrics.
@@ -156,7 +170,7 @@ class ServiceResourceMetricsCollection(ResourceCollection):
 
 class MetricAlarmsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Metric.alarms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Metric.alarms)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#metricalarmscollection)
     """
 
@@ -164,6 +178,7 @@ class MetricAlarmsCollection(ResourceCollection):
         """
         Get all items from the collection, optionally with a custom page size and item count limit.
         """
+
     def filter(  # type: ignore
         self,
         *,
@@ -176,30 +191,37 @@ class MetricAlarmsCollection(ResourceCollection):
         """
         Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
         """
+
     def delete(self) -> None:
         """
         Batch method.
         """
+
     def disable_actions(self) -> None:
         """
         Batch method.
         """
+
     def enable_actions(self) -> None:
         """
         Batch method.
         """
+
     def limit(self, count: int) -> "MetricAlarmsCollection":
         """
         Return at most this many Alarms.
         """
+
     def page_size(self, count: int) -> "MetricAlarmsCollection":
         """
         Fetch at most this many Alarms per service request.
         """
+
     def pages(self) -> Iterator[List["Alarm"]]:
         """
         A generator which yields pages of Alarms.
         """
+
     def __iter__(self) -> Iterator["Alarm"]:
         """
         A generator which yields Alarms.
@@ -207,7 +229,7 @@ class MetricAlarmsCollection(ResourceCollection):
 
 class Alarm(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Alarm)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Alarm)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarm)
     """
 
@@ -247,9 +269,10 @@ class Alarm(Boto3ServiceResource):
         """
         Deletes the specified alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Alarm.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Alarm.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarmdelete-method)
         """
+
     def describe_history(
         self,
         *,
@@ -264,53 +287,59 @@ class Alarm(Boto3ServiceResource):
         """
         Retrieves the history for the specified alarm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Alarm.describe_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Alarm.describe_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarmdescribe_history-method)
         """
+
     def disable_actions(self) -> None:
         """
         Disables the actions for the specified alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Alarm.disable_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Alarm.disable_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarmdisable_actions-method)
         """
+
     def enable_actions(self) -> None:
         """
         Enables the actions for the specified alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Alarm.enable_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Alarm.enable_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarmenable_actions-method)
         """
+
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Alarm.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Alarm.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarmget_available_subresources-method)
         """
+
     def load(self) -> None:
         """
         Calls :py:meth:`CloudWatch.Client.describe_alarms` to update the attributes of
         the Alarm resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Alarm.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Alarm.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarmload-method)
         """
+
     def reload(self) -> None:
         """
         Calls :py:meth:`CloudWatch.Client.describe_alarms` to update the attributes of
         the Alarm resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Alarm.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Alarm.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarmreload-method)
         """
+
     def set_state(
         self, *, StateValue: StateValueType, StateReason: str, StateReasonData: str = None
     ) -> None:
         """
         Temporarily sets the state of an alarm for testing purposes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Alarm.set_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Alarm.set_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#alarmset_state-method)
         """
 
@@ -318,7 +347,7 @@ _Alarm = Alarm
 
 class Metric(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Metric)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Metric)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#metric)
     """
 
@@ -332,9 +361,10 @@ class Metric(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Metric.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Metric.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#metricget_available_subresources-method)
         """
+
     def get_statistics(
         self,
         *,
@@ -349,17 +379,19 @@ class Metric(Boto3ServiceResource):
         """
         Gets statistics for the specified metric.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Metric.get_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Metric.get_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#metricget_statistics-method)
         """
+
     def load(self) -> None:
         """
         Calls :py:meth:`CloudWatch.Client.list_metrics` to update the attributes of the
         Metric resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Metric.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Metric.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#metricload-method)
         """
+
     def put_alarm(
         self,
         *,
@@ -388,22 +420,24 @@ class Metric(Boto3ServiceResource):
         Creates or updates an alarm and associates it with the specified metric, metric
         math expression, anomaly detection model, or Metrics Insights query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Metric.put_alarm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Metric.put_alarm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#metricput_alarm-method)
         """
+
     def put_data(self) -> None:
         """
         Publishes metric data points to Amazon CloudWatch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Metric.put_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Metric.put_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#metricput_data-method)
         """
+
     def reload(self) -> None:
         """
         Calls :py:meth:`CloudWatch.Client.list_metrics` to update the attributes of the
         Metric resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.Metric.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Metric.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#metricreload-method)
         """
 
@@ -414,7 +448,7 @@ class CloudWatchResourceMeta(ResourceMeta):
 
 class CloudWatchServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html)
     """
 
@@ -426,20 +460,22 @@ class CloudWatchServiceResource(Boto3ServiceResource):
         """
         Creates a Alarm resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Alarm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Alarm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#cloudwatchserviceresourcealarm-method)
         """
+
     def Metric(self, namespace: str, name: str) -> _Metric:
         """
         Creates a Metric resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Metric)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Metric)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#cloudwatchserviceresourcemetric-method)
         """
+
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudwatch.html#CloudWatch.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/service_resource.html#cloudwatchserviceresourceget_available_subresources-method)
         """

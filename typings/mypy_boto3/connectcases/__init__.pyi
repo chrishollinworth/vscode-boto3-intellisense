@@ -21,6 +21,7 @@ Usage::
     search_related_items_paginator: SearchRelatedItemsPaginator = client.get_paginator("search_related_items")
     ```
 """
+
 from .client import ConnectCasesClient
 from .paginator import SearchCasesPaginator, SearchRelatedItemsPaginator
 

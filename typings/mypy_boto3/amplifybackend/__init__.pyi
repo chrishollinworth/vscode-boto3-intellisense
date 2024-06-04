@@ -19,6 +19,7 @@ Usage::
     list_backend_jobs_paginator: ListBackendJobsPaginator = client.get_paginator("list_backend_jobs")
     ```
 """
+
 from .client import AmplifyBackendClient
 from .paginator import ListBackendJobsPaginator
 

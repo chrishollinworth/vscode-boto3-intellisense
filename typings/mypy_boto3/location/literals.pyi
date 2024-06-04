@@ -11,6 +11,7 @@ Usage::
     data: BatchItemErrorCodeType = "AccessDeniedError"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -33,6 +34,7 @@ __all__ = (
     "ListRouteCalculatorsPaginatorName",
     "ListTrackerConsumersPaginatorName",
     "ListTrackersPaginatorName",
+    "OptimizationModeType",
     "PositionFilteringType",
     "PricingPlanType",
     "RouteMatrixErrorCodeType",
@@ -62,6 +64,7 @@ ListPlaceIndexesPaginatorName = Literal["list_place_indexes"]
 ListRouteCalculatorsPaginatorName = Literal["list_route_calculators"]
 ListTrackerConsumersPaginatorName = Literal["list_tracker_consumers"]
 ListTrackersPaginatorName = Literal["list_trackers"]
+OptimizationModeType = Literal["FastestRoute", "ShortestRoute"]
 PositionFilteringType = Literal["AccuracyBased", "DistanceBased", "TimeBased"]
 PricingPlanType = Literal["MobileAssetManagement", "MobileAssetTracking", "RequestBasedUsage"]
 RouteMatrixErrorCodeType = Literal[

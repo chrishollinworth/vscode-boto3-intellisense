@@ -11,6 +11,7 @@ Usage::
     data: DimensionValueTypeType = "VARCHAR"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -24,6 +25,7 @@ __all__ = (
     "ListTagsForResourcePaginatorName",
     "MeasureValueTypeType",
     "QueryPaginatorName",
+    "QueryPricingModelType",
     "S3EncryptionOptionType",
     "ScalarMeasureValueTypeType",
     "ScalarTypeType",
@@ -36,6 +38,7 @@ ListScheduledQueriesPaginatorName = Literal["list_scheduled_queries"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 MeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "MULTI", "VARCHAR"]
 QueryPaginatorName = Literal["query"]
+QueryPricingModelType = Literal["BYTES_SCANNED", "COMPUTE_UNITS"]
 S3EncryptionOptionType = Literal["SSE_KMS", "SSE_S3"]
 ScalarMeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "TIMESTAMP", "VARCHAR"]
 ScalarTypeType = Literal[

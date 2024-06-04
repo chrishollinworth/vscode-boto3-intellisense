@@ -11,6 +11,7 @@ Usage::
     data: AlgorithmSpecType = "RSA_AES_KEY_WRAP_SHA_1"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -38,6 +39,7 @@ __all__ = (
     "ListAliasesPaginatorName",
     "ListGrantsPaginatorName",
     "ListKeyPoliciesPaginatorName",
+    "ListKeyRotationsPaginatorName",
     "ListKeysPaginatorName",
     "ListResourceTagsPaginatorName",
     "ListRetirableGrantsPaginatorName",
@@ -45,6 +47,7 @@ __all__ = (
     "MessageTypeType",
     "MultiRegionKeyTypeType",
     "OriginTypeType",
+    "RotationTypeType",
     "SigningAlgorithmSpecType",
     "WrappingKeySpecType",
     "XksProxyConnectivityTypeType",
@@ -56,6 +59,7 @@ AlgorithmSpecType = Literal[
     "RSAES_PKCS1_V1_5",
     "RSA_AES_KEY_WRAP_SHA_1",
     "RSA_AES_KEY_WRAP_SHA_256",
+    "SM2PKE",
 ]
 ConnectionErrorCodeTypeType = Literal[
     "CLUSTER_NOT_FOUND",
@@ -161,6 +165,7 @@ KeyUsageTypeType = Literal["ENCRYPT_DECRYPT", "GENERATE_VERIFY_MAC", "SIGN_VERIF
 ListAliasesPaginatorName = Literal["list_aliases"]
 ListGrantsPaginatorName = Literal["list_grants"]
 ListKeyPoliciesPaginatorName = Literal["list_key_policies"]
+ListKeyRotationsPaginatorName = Literal["list_key_rotations"]
 ListKeysPaginatorName = Literal["list_keys"]
 ListResourceTagsPaginatorName = Literal["list_resource_tags"]
 ListRetirableGrantsPaginatorName = Literal["list_retirable_grants"]
@@ -168,6 +173,7 @@ MacAlgorithmSpecType = Literal["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "
 MessageTypeType = Literal["DIGEST", "RAW"]
 MultiRegionKeyTypeType = Literal["PRIMARY", "REPLICA"]
 OriginTypeType = Literal["AWS_CLOUDHSM", "AWS_KMS", "EXTERNAL", "EXTERNAL_KEY_STORE"]
+RotationTypeType = Literal["AUTOMATIC", "ON_DEMAND"]
 SigningAlgorithmSpecType = Literal[
     "ECDSA_SHA_256",
     "ECDSA_SHA_384",
@@ -180,5 +186,5 @@ SigningAlgorithmSpecType = Literal[
     "RSASSA_PSS_SHA_512",
     "SM2DSA",
 ]
-WrappingKeySpecType = Literal["RSA_2048", "RSA_3072", "RSA_4096"]
+WrappingKeySpecType = Literal["RSA_2048", "RSA_3072", "RSA_4096", "SM2"]
 XksProxyConnectivityTypeType = Literal["PUBLIC_ENDPOINT", "VPC_ENDPOINT_SERVICE"]

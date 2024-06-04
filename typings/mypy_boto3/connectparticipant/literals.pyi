@@ -11,6 +11,7 @@ Usage::
     data: ArtifactStatusType = "APPROVED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -43,6 +44,6 @@ ChatItemTypeType = Literal[
     "TYPING",
 ]
 ConnectionTypeType = Literal["CONNECTION_CREDENTIALS", "WEBSOCKET"]
-ParticipantRoleType = Literal["AGENT", "CUSTOMER", "CUSTOM_BOT", "SYSTEM"]
+ParticipantRoleType = Literal["AGENT", "CUSTOMER", "CUSTOM_BOT", "SUPERVISOR", "SYSTEM"]
 ScanDirectionType = Literal["BACKWARD", "FORWARD"]
 SortKeyType = Literal["ASCENDING", "DESCENDING"]

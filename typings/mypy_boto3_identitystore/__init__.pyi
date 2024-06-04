@@ -25,6 +25,7 @@ Usage::
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
+
 from .client import IdentityStoreClient
 from .paginator import (
     ListGroupMembershipsForMemberPaginator,

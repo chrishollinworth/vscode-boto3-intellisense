@@ -37,6 +37,7 @@ Usage::
     list_workflows_paginator: ListWorkflowsPaginator = client.get_paginator("list_workflows")
     ```
 """
+
 from .client import CodeCatalystClient
 from .paginator import (
     ListAccessTokensPaginator,

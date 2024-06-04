@@ -11,6 +11,7 @@ Usage::
     data: SentimentValueType = "NEGATIVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -11,6 +11,7 @@ Usage::
     data: AdminStatusType = "DISABLE_IN_PROGRESS"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -137,7 +138,9 @@ DetectorFeatureType = Literal[
 ]
 DetectorStatusType = Literal["DISABLED", "ENABLED"]
 EbsSnapshotPreservationType = Literal["NO_RETENTION", "RETENTION_WITH_FINDING"]
-FeatureAdditionalConfigurationType = Literal["ECS_FARGATE_AGENT_MANAGEMENT", "EKS_ADDON_MANAGEMENT"]
+FeatureAdditionalConfigurationType = Literal[
+    "EC2_AGENT_MANAGEMENT", "ECS_FARGATE_AGENT_MANAGEMENT", "EKS_ADDON_MANAGEMENT"
+]
 FeatureStatusType = Literal["DISABLED", "ENABLED"]
 FeedbackType = Literal["NOT_USEFUL", "USEFUL"]
 FilterActionType = Literal["ARCHIVE", "NOOP"]
@@ -172,7 +175,7 @@ ListThreatIntelSetsPaginatorName = Literal["list_threat_intel_sets"]
 ManagementTypeType = Literal["AUTO_MANAGED", "DISABLED", "MANUAL"]
 OrderByType = Literal["ASC", "DESC"]
 OrgFeatureAdditionalConfigurationType = Literal[
-    "ECS_FARGATE_AGENT_MANAGEMENT", "EKS_ADDON_MANAGEMENT"
+    "EC2_AGENT_MANAGEMENT", "ECS_FARGATE_AGENT_MANAGEMENT", "EKS_ADDON_MANAGEMENT"
 ]
 OrgFeatureStatusType = Literal["ALL", "NEW", "NONE"]
 OrgFeatureType = Literal[
@@ -210,9 +213,16 @@ UsageFeatureType = Literal[
     "FARGATE_RUNTIME_MONITORING",
     "FLOW_LOGS",
     "LAMBDA_NETWORK_LOGS",
+    "RDS_DBI_PROTECTION_PROVISIONED",
+    "RDS_DBI_PROTECTION_SERVERLESS",
     "RDS_LOGIN_EVENTS",
     "S3_DATA_EVENTS",
 ]
 UsageStatisticTypeType = Literal[
-    "SUM_BY_ACCOUNT", "SUM_BY_DATA_SOURCE", "SUM_BY_FEATURES", "SUM_BY_RESOURCE", "TOP_RESOURCES"
+    "SUM_BY_ACCOUNT",
+    "SUM_BY_DATA_SOURCE",
+    "SUM_BY_FEATURES",
+    "SUM_BY_RESOURCE",
+    "TOP_ACCOUNTS_BY_FEATURE",
+    "TOP_RESOURCES",
 ]

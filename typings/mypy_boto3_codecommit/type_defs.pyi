@@ -11,6 +11,7 @@ Usage::
     data: ApprovalRuleEventMetadataTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -19,6 +20,7 @@ from botocore.response import StreamingBody
 
 from .literals import (
     ApprovalStateType,
+    BatchGetRepositoriesErrorCodeEnumType,
     ChangeTypeEnumType,
     ConflictDetailLevelTypeEnumType,
     ConflictResolutionStrategyTypeEnumType,
@@ -60,6 +62,7 @@ __all__ = (
     "BatchGetCommitsErrorTypeDef",
     "BatchGetCommitsInputRequestTypeDef",
     "BatchGetCommitsOutputTypeDef",
+    "BatchGetRepositoriesErrorTypeDef",
     "BatchGetRepositoriesInputRequestTypeDef",
     "BatchGetRepositoriesOutputTypeDef",
     "BlobMetadataTypeDef",
@@ -243,6 +246,8 @@ __all__ = (
     "UpdatePullRequestTitleInputRequestTypeDef",
     "UpdatePullRequestTitleOutputTypeDef",
     "UpdateRepositoryDescriptionInputRequestTypeDef",
+    "UpdateRepositoryEncryptionKeyInputRequestTypeDef",
+    "UpdateRepositoryEncryptionKeyOutputTypeDef",
     "UpdateRepositoryNameInputRequestTypeDef",
     "UserInfoTypeDef",
 )
@@ -453,6 +458,17 @@ BatchGetCommitsOutputTypeDef = TypedDict(
     },
 )
 
+BatchGetRepositoriesErrorTypeDef = TypedDict(
+    "BatchGetRepositoriesErrorTypeDef",
+    {
+        "repositoryId": str,
+        "repositoryName": str,
+        "errorCode": BatchGetRepositoriesErrorCodeEnumType,
+        "errorMessage": str,
+    },
+    total=False,
+)
+
 BatchGetRepositoriesInputRequestTypeDef = TypedDict(
     "BatchGetRepositoriesInputRequestTypeDef",
     {
@@ -465,6 +481,7 @@ BatchGetRepositoriesOutputTypeDef = TypedDict(
     {
         "repositories": List["RepositoryMetadataTypeDef"],
         "repositoriesNotFound": List[str],
+        "errors": List["BatchGetRepositoriesErrorTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -718,6 +735,7 @@ _OptionalCreateRepositoryInputRequestTypeDef = TypedDict(
     {
         "repositoryDescription": str,
         "tags": Dict[str, str],
+        "kmsKeyId": str,
     },
     total=False,
 )
@@ -2381,6 +2399,7 @@ RepositoryMetadataTypeDef = TypedDict(
         "cloneUrlHttp": str,
         "cloneUrlSsh": str,
         "Arn": str,
+        "kmsKeyId": str,
     },
     total=False,
 )
@@ -2726,6 +2745,24 @@ class UpdateRepositoryDescriptionInputRequestTypeDef(
     _OptionalUpdateRepositoryDescriptionInputRequestTypeDef,
 ):
     pass
+
+UpdateRepositoryEncryptionKeyInputRequestTypeDef = TypedDict(
+    "UpdateRepositoryEncryptionKeyInputRequestTypeDef",
+    {
+        "repositoryName": str,
+        "kmsKeyId": str,
+    },
+)
+
+UpdateRepositoryEncryptionKeyOutputTypeDef = TypedDict(
+    "UpdateRepositoryEncryptionKeyOutputTypeDef",
+    {
+        "repositoryId": str,
+        "kmsKeyId": str,
+        "originalKmsKeyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 UpdateRepositoryNameInputRequestTypeDef = TypedDict(
     "UpdateRepositoryNameInputRequestTypeDef",

@@ -16,6 +16,7 @@ Usage::
     session_client: MigrationHubConfigClient = session.client("migrationhub-config")
     ```
 """
+
 from .client import MigrationHubConfigClient
 
 Client = MigrationHubConfigClient

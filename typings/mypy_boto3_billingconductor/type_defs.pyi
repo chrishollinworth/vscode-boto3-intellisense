@@ -11,6 +11,7 @@ Usage::
     data: AccountAssociationsListElementTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -20,6 +21,7 @@ from .literals import (
     CurrencyCodeType,
     CustomLineItemRelationshipType,
     CustomLineItemTypeType,
+    GroupByAttributeNameType,
     PricingRuleScopeType,
     PricingRuleTypeType,
 )
@@ -42,12 +44,15 @@ __all__ = (
     "AssociatePricingRulesOutputTypeDef",
     "AssociateResourceErrorTypeDef",
     "AssociateResourceResponseElementTypeDef",
+    "AttributeTypeDef",
     "BatchAssociateResourcesToCustomLineItemInputRequestTypeDef",
     "BatchAssociateResourcesToCustomLineItemOutputTypeDef",
     "BatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef",
     "BatchDisassociateResourcesFromCustomLineItemOutputTypeDef",
     "BillingGroupCostReportElementTypeDef",
+    "BillingGroupCostReportResultElementTypeDef",
     "BillingGroupListElementTypeDef",
+    "BillingPeriodRangeTypeDef",
     "ComputationPreferenceTypeDef",
     "CreateBillingGroupInputRequestTypeDef",
     "CreateBillingGroupOutputTypeDef",
@@ -79,6 +84,8 @@ __all__ = (
     "DisassociatePricingRulesOutputTypeDef",
     "DisassociateResourceResponseElementTypeDef",
     "FreeTierConfigTypeDef",
+    "GetBillingGroupCostReportInputRequestTypeDef",
+    "GetBillingGroupCostReportOutputTypeDef",
     "LineItemFilterTypeDef",
     "ListAccountAssociationsFilterTypeDef",
     "ListAccountAssociationsInputRequestTypeDef",
@@ -217,6 +224,15 @@ AssociateResourceResponseElementTypeDef = TypedDict(
     total=False,
 )
 
+AttributeTypeDef = TypedDict(
+    "AttributeTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
 _RequiredBatchAssociateResourcesToCustomLineItemInputRequestTypeDef = TypedDict(
     "_RequiredBatchAssociateResourcesToCustomLineItemInputRequestTypeDef",
     {
@@ -290,6 +306,20 @@ BillingGroupCostReportElementTypeDef = TypedDict(
     total=False,
 )
 
+BillingGroupCostReportResultElementTypeDef = TypedDict(
+    "BillingGroupCostReportResultElementTypeDef",
+    {
+        "Arn": str,
+        "AWSCost": str,
+        "ProformaCost": str,
+        "Margin": str,
+        "MarginPercentage": str,
+        "Currency": str,
+        "Attributes": List["AttributeTypeDef"],
+    },
+    total=False,
+)
+
 BillingGroupListElementTypeDef = TypedDict(
     "BillingGroupListElementTypeDef",
     {
@@ -306,6 +336,14 @@ BillingGroupListElementTypeDef = TypedDict(
         "AccountGrouping": "ListBillingGroupAccountGroupingTypeDef",
     },
     total=False,
+)
+
+BillingPeriodRangeTypeDef = TypedDict(
+    "BillingPeriodRangeTypeDef",
+    {
+        "InclusiveStartBillingPeriod": str,
+        "ExclusiveEndBillingPeriod": str,
+    },
 )
 
 ComputationPreferenceTypeDef = TypedDict(
@@ -362,6 +400,7 @@ _OptionalCreateCustomLineItemInputRequestTypeDef = TypedDict(
         "ClientToken": str,
         "BillingPeriodRange": "CustomLineItemBillingPeriodRangeTypeDef",
         "Tags": Dict[str, str],
+        "AccountId": str,
     },
     total=False,
 )
@@ -522,6 +561,7 @@ CustomLineItemListElementTypeDef = TypedDict(
         "CreationTime": int,
         "LastModifiedTime": int,
         "AssociationSize": int,
+        "AccountId": str,
     },
     total=False,
 )
@@ -562,6 +602,7 @@ CustomLineItemVersionListElementTypeDef = TypedDict(
         "EndBillingPeriod": str,
         "Arn": str,
         "StartTime": int,
+        "AccountId": str,
     },
     total=False,
 )
@@ -684,6 +725,38 @@ FreeTierConfigTypeDef = TypedDict(
     "FreeTierConfigTypeDef",
     {
         "Activated": bool,
+    },
+)
+
+_RequiredGetBillingGroupCostReportInputRequestTypeDef = TypedDict(
+    "_RequiredGetBillingGroupCostReportInputRequestTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalGetBillingGroupCostReportInputRequestTypeDef = TypedDict(
+    "_OptionalGetBillingGroupCostReportInputRequestTypeDef",
+    {
+        "BillingPeriodRange": "BillingPeriodRangeTypeDef",
+        "GroupBy": List[GroupByAttributeNameType],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetBillingGroupCostReportInputRequestTypeDef(
+    _RequiredGetBillingGroupCostReportInputRequestTypeDef,
+    _OptionalGetBillingGroupCostReportInputRequestTypeDef,
+):
+    pass
+
+GetBillingGroupCostReportOutputTypeDef = TypedDict(
+    "GetBillingGroupCostReportOutputTypeDef",
+    {
+        "BillingGroupCostReportResults": List["BillingGroupCostReportResultElementTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -881,6 +954,7 @@ ListCustomLineItemsFilterTypeDef = TypedDict(
         "Names": List[str],
         "BillingGroups": List[str],
         "Arns": List[str],
+        "AccountIds": List[str],
     },
     total=False,
 )

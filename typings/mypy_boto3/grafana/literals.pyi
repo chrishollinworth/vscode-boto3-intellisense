@@ -11,6 +11,7 @@ Usage::
     data: AccountAccessTypeType = "CURRENT_ACCOUNT"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -25,6 +26,8 @@ __all__ = (
     "LicenseTypeType",
     "ListPermissionsPaginatorName",
     "ListVersionsPaginatorName",
+    "ListWorkspaceServiceAccountTokensPaginatorName",
+    "ListWorkspaceServiceAccountsPaginatorName",
     "ListWorkspacesPaginatorName",
     "NotificationDestinationTypeType",
     "PermissionTypeType",
@@ -51,6 +54,8 @@ DataSourceTypeType = Literal[
 LicenseTypeType = Literal["ENTERPRISE", "ENTERPRISE_FREE_TRIAL"]
 ListPermissionsPaginatorName = Literal["list_permissions"]
 ListVersionsPaginatorName = Literal["list_versions"]
+ListWorkspaceServiceAccountTokensPaginatorName = Literal["list_workspace_service_account_tokens"]
+ListWorkspaceServiceAccountsPaginatorName = Literal["list_workspace_service_accounts"]
 ListWorkspacesPaginatorName = Literal["list_workspaces"]
 NotificationDestinationTypeType = Literal["SNS"]
 PermissionTypeType = Literal["CUSTOMER_MANAGED", "SERVICE_MANAGED"]

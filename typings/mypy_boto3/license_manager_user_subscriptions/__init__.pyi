@@ -25,6 +25,7 @@ Usage::
     list_user_associations_paginator: ListUserAssociationsPaginator = client.get_paginator("list_user_associations")
     ```
 """
+
 from .client import LicenseManagerUserSubscriptionsClient
 from .paginator import (
     ListIdentityProvidersPaginator,

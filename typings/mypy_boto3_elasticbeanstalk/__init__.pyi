@@ -34,6 +34,7 @@ Usage::
     list_platform_versions_paginator: ListPlatformVersionsPaginator = client.get_paginator("list_platform_versions")
     ```
 """
+
 from .client import ElasticBeanstalkClient
 from .paginator import (
     DescribeApplicationVersionsPaginator,

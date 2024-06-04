@@ -11,6 +11,7 @@ Usage::
     data: AliasListEntryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -36,6 +37,7 @@ from .literals import (
     MessageTypeType,
     MultiRegionKeyTypeType,
     OriginTypeType,
+    RotationTypeType,
     SigningAlgorithmSpecType,
     WrappingKeySpecType,
     XksProxyConnectivityTypeType,
@@ -110,6 +112,8 @@ __all__ = (
     "ListGrantsResponseTypeDef",
     "ListKeyPoliciesRequestRequestTypeDef",
     "ListKeyPoliciesResponseTypeDef",
+    "ListKeyRotationsRequestRequestTypeDef",
+    "ListKeyRotationsResponseTypeDef",
     "ListKeysRequestRequestTypeDef",
     "ListKeysResponseTypeDef",
     "ListResourceTagsRequestRequestTypeDef",
@@ -127,6 +131,9 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RetireGrantRequestRequestTypeDef",
     "RevokeGrantRequestRequestTypeDef",
+    "RotateKeyOnDemandRequestRequestTypeDef",
+    "RotateKeyOnDemandResponseTypeDef",
+    "RotationsListEntryTypeDef",
     "ScheduleKeyDeletionRequestRequestTypeDef",
     "ScheduleKeyDeletionResponseTypeDef",
     "SignRequestRequestTypeDef",
@@ -433,12 +440,24 @@ EnableKeyRequestRequestTypeDef = TypedDict(
     },
 )
 
-EnableKeyRotationRequestRequestTypeDef = TypedDict(
-    "EnableKeyRotationRequestRequestTypeDef",
+_RequiredEnableKeyRotationRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableKeyRotationRequestRequestTypeDef",
     {
         "KeyId": str,
     },
 )
+_OptionalEnableKeyRotationRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableKeyRotationRequestRequestTypeDef",
+    {
+        "RotationPeriodInDays": int,
+    },
+    total=False,
+)
+
+class EnableKeyRotationRequestRequestTypeDef(
+    _RequiredEnableKeyRotationRequestRequestTypeDef, _OptionalEnableKeyRotationRequestRequestTypeDef
+):
+    pass
 
 _RequiredEncryptRequestRequestTypeDef = TypedDict(
     "_RequiredEncryptRequestRequestTypeDef",
@@ -663,18 +682,30 @@ GenerateRandomResponseTypeDef = TypedDict(
     },
 )
 
-GetKeyPolicyRequestRequestTypeDef = TypedDict(
-    "GetKeyPolicyRequestRequestTypeDef",
+_RequiredGetKeyPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredGetKeyPolicyRequestRequestTypeDef",
     {
         "KeyId": str,
-        "PolicyName": str,
     },
 )
+_OptionalGetKeyPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalGetKeyPolicyRequestRequestTypeDef",
+    {
+        "PolicyName": str,
+    },
+    total=False,
+)
+
+class GetKeyPolicyRequestRequestTypeDef(
+    _RequiredGetKeyPolicyRequestRequestTypeDef, _OptionalGetKeyPolicyRequestRequestTypeDef
+):
+    pass
 
 GetKeyPolicyResponseTypeDef = TypedDict(
     "GetKeyPolicyResponseTypeDef",
     {
         "Policy": str,
+        "PolicyName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -690,6 +721,10 @@ GetKeyRotationStatusResponseTypeDef = TypedDict(
     "GetKeyRotationStatusResponseTypeDef",
     {
         "KeyRotationEnabled": bool,
+        "KeyId": str,
+        "RotationPeriodInDays": int,
+        "NextRotationDate": datetime,
+        "OnDemandRotationStartDate": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -924,6 +959,36 @@ ListKeyPoliciesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListKeyRotationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListKeyRotationsRequestRequestTypeDef",
+    {
+        "KeyId": str,
+    },
+)
+_OptionalListKeyRotationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListKeyRotationsRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class ListKeyRotationsRequestRequestTypeDef(
+    _RequiredListKeyRotationsRequestRequestTypeDef, _OptionalListKeyRotationsRequestRequestTypeDef
+):
+    pass
+
+ListKeyRotationsResponseTypeDef = TypedDict(
+    "ListKeyRotationsResponseTypeDef",
+    {
+        "Rotations": List["RotationsListEntryTypeDef"],
+        "NextMarker": str,
+        "Truncated": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListKeysRequestRequestTypeDef = TypedDict(
     "ListKeysRequestRequestTypeDef",
     {
@@ -1027,13 +1092,13 @@ _RequiredPutKeyPolicyRequestRequestTypeDef = TypedDict(
     "_RequiredPutKeyPolicyRequestRequestTypeDef",
     {
         "KeyId": str,
-        "PolicyName": str,
         "Policy": str,
     },
 )
 _OptionalPutKeyPolicyRequestRequestTypeDef = TypedDict(
     "_OptionalPutKeyPolicyRequestRequestTypeDef",
     {
+        "PolicyName": str,
         "BypassPolicyLockoutSafetyCheck": bool,
     },
     total=False,
@@ -1165,6 +1230,31 @@ class RevokeGrantRequestRequestTypeDef(
     _RequiredRevokeGrantRequestRequestTypeDef, _OptionalRevokeGrantRequestRequestTypeDef
 ):
     pass
+
+RotateKeyOnDemandRequestRequestTypeDef = TypedDict(
+    "RotateKeyOnDemandRequestRequestTypeDef",
+    {
+        "KeyId": str,
+    },
+)
+
+RotateKeyOnDemandResponseTypeDef = TypedDict(
+    "RotateKeyOnDemandResponseTypeDef",
+    {
+        "KeyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RotationsListEntryTypeDef = TypedDict(
+    "RotationsListEntryTypeDef",
+    {
+        "KeyId": str,
+        "RotationDate": datetime,
+        "RotationType": RotationTypeType,
+    },
+    total=False,
+)
 
 _RequiredScheduleKeyDeletionRequestRequestTypeDef = TypedDict(
     "_RequiredScheduleKeyDeletionRequestRequestTypeDef",

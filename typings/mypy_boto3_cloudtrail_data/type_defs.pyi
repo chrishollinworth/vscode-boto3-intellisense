@@ -11,6 +11,7 @@ Usage::
     data: AuditEventResultEntryTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

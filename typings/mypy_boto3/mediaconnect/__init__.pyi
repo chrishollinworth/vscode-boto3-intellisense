@@ -38,6 +38,7 @@ Usage::
     list_reservations_paginator: ListReservationsPaginator = client.get_paginator("list_reservations")
     ```
 """
+
 from .client import MediaConnectClient
 from .paginator import (
     ListBridgesPaginator,

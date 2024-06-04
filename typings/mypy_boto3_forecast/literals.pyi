@@ -11,6 +11,7 @@ Usage::
     data: AttributeTypeType = "float"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

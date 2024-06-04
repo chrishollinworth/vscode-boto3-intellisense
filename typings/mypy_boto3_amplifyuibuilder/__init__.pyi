@@ -31,6 +31,7 @@ Usage::
     list_themes_paginator: ListThemesPaginator = client.get_paginator("list_themes")
     ```
 """
+
 from .client import AmplifyUIBuilderClient
 from .paginator import (
     ExportComponentsPaginator,

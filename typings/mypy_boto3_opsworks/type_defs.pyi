@@ -11,6 +11,7 @@ Usage::
     data: AgentVersionTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

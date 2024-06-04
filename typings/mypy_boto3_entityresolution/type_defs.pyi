@@ -6,21 +6,26 @@ Type annotations for entityresolution service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_entityresolution.type_defs import CreateIdMappingWorkflowInputRequestTypeDef
+    from mypy_boto3_entityresolution.type_defs import AddPolicyStatementInputRequestTypeDef
 
-    data: CreateIdMappingWorkflowInputRequestTypeDef = {...}
+    data: AddPolicyStatementInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
     AttributeMatchingModelType,
+    DeleteUniqueIdErrorTypeType,
+    DeleteUniqueIdStatusType,
+    IdNamespaceTypeType,
     JobStatusType,
     ResolutionTypeType,
     SchemaAttributeTypeType,
     ServiceTypeType,
+    StatementEffectType,
 )
 
 if sys.version_info >= (3, 8):
@@ -33,47 +38,70 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AddPolicyStatementInputRequestTypeDef",
+    "AddPolicyStatementOutputTypeDef",
+    "BatchDeleteUniqueIdInputRequestTypeDef",
+    "BatchDeleteUniqueIdOutputTypeDef",
     "CreateIdMappingWorkflowInputRequestTypeDef",
     "CreateIdMappingWorkflowOutputTypeDef",
+    "CreateIdNamespaceInputRequestTypeDef",
+    "CreateIdNamespaceOutputTypeDef",
     "CreateMatchingWorkflowInputRequestTypeDef",
     "CreateMatchingWorkflowOutputTypeDef",
     "CreateSchemaMappingInputRequestTypeDef",
     "CreateSchemaMappingOutputTypeDef",
     "DeleteIdMappingWorkflowInputRequestTypeDef",
     "DeleteIdMappingWorkflowOutputTypeDef",
+    "DeleteIdNamespaceInputRequestTypeDef",
+    "DeleteIdNamespaceOutputTypeDef",
     "DeleteMatchingWorkflowInputRequestTypeDef",
     "DeleteMatchingWorkflowOutputTypeDef",
+    "DeletePolicyStatementInputRequestTypeDef",
+    "DeletePolicyStatementOutputTypeDef",
     "DeleteSchemaMappingInputRequestTypeDef",
     "DeleteSchemaMappingOutputTypeDef",
+    "DeleteUniqueIdErrorTypeDef",
+    "DeletedUniqueIdTypeDef",
     "ErrorDetailsTypeDef",
     "GetIdMappingJobInputRequestTypeDef",
     "GetIdMappingJobOutputTypeDef",
     "GetIdMappingWorkflowInputRequestTypeDef",
     "GetIdMappingWorkflowOutputTypeDef",
+    "GetIdNamespaceInputRequestTypeDef",
+    "GetIdNamespaceOutputTypeDef",
     "GetMatchIdInputRequestTypeDef",
     "GetMatchIdOutputTypeDef",
     "GetMatchingJobInputRequestTypeDef",
     "GetMatchingJobOutputTypeDef",
     "GetMatchingWorkflowInputRequestTypeDef",
     "GetMatchingWorkflowOutputTypeDef",
+    "GetPolicyInputRequestTypeDef",
+    "GetPolicyOutputTypeDef",
     "GetProviderServiceInputRequestTypeDef",
     "GetProviderServiceOutputTypeDef",
     "GetSchemaMappingInputRequestTypeDef",
     "GetSchemaMappingOutputTypeDef",
     "IdMappingJobMetricsTypeDef",
+    "IdMappingJobOutputSourceTypeDef",
     "IdMappingTechniquesTypeDef",
     "IdMappingWorkflowInputSourceTypeDef",
     "IdMappingWorkflowOutputSourceTypeDef",
     "IdMappingWorkflowSummaryTypeDef",
+    "IdNamespaceIdMappingWorkflowPropertiesTypeDef",
+    "IdNamespaceInputSourceTypeDef",
+    "IdNamespaceSummaryTypeDef",
     "IncrementalRunConfigTypeDef",
     "InputSourceTypeDef",
     "IntermediateSourceConfigurationTypeDef",
     "JobMetricsTypeDef",
+    "JobOutputSourceTypeDef",
     "JobSummaryTypeDef",
     "ListIdMappingJobsInputRequestTypeDef",
     "ListIdMappingJobsOutputTypeDef",
     "ListIdMappingWorkflowsInputRequestTypeDef",
     "ListIdMappingWorkflowsOutputTypeDef",
+    "ListIdNamespacesInputRequestTypeDef",
+    "ListIdNamespacesOutputTypeDef",
     "ListMatchingJobsInputRequestTypeDef",
     "ListMatchingJobsOutputTypeDef",
     "ListMatchingWorkflowsInputRequestTypeDef",
@@ -85,14 +113,20 @@ __all__ = (
     "ListTagsForResourceInputRequestTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "MatchingWorkflowSummaryTypeDef",
+    "NamespaceProviderPropertiesTypeDef",
     "OutputAttributeTypeDef",
     "OutputSourceTypeDef",
     "PaginatorConfigTypeDef",
+    "ProviderComponentSchemaTypeDef",
     "ProviderEndpointConfigurationTypeDef",
+    "ProviderIdNameSpaceConfigurationTypeDef",
     "ProviderIntermediateDataAccessConfigurationTypeDef",
     "ProviderMarketplaceConfigurationTypeDef",
     "ProviderPropertiesTypeDef",
+    "ProviderSchemaAttributeTypeDef",
     "ProviderServiceSummaryTypeDef",
+    "PutPolicyInputRequestTypeDef",
+    "PutPolicyOutputTypeDef",
     "ResolutionTechniquesTypeDef",
     "ResponseMetadataTypeDef",
     "RuleBasedPropertiesTypeDef",
@@ -107,10 +141,76 @@ __all__ = (
     "UntagResourceInputRequestTypeDef",
     "UpdateIdMappingWorkflowInputRequestTypeDef",
     "UpdateIdMappingWorkflowOutputTypeDef",
+    "UpdateIdNamespaceInputRequestTypeDef",
+    "UpdateIdNamespaceOutputTypeDef",
     "UpdateMatchingWorkflowInputRequestTypeDef",
     "UpdateMatchingWorkflowOutputTypeDef",
     "UpdateSchemaMappingInputRequestTypeDef",
     "UpdateSchemaMappingOutputTypeDef",
+)
+
+_RequiredAddPolicyStatementInputRequestTypeDef = TypedDict(
+    "_RequiredAddPolicyStatementInputRequestTypeDef",
+    {
+        "action": List[str],
+        "arn": str,
+        "effect": StatementEffectType,
+        "principal": List[str],
+        "statementId": str,
+    },
+)
+_OptionalAddPolicyStatementInputRequestTypeDef = TypedDict(
+    "_OptionalAddPolicyStatementInputRequestTypeDef",
+    {
+        "condition": str,
+    },
+    total=False,
+)
+
+class AddPolicyStatementInputRequestTypeDef(
+    _RequiredAddPolicyStatementInputRequestTypeDef, _OptionalAddPolicyStatementInputRequestTypeDef
+):
+    pass
+
+AddPolicyStatementOutputTypeDef = TypedDict(
+    "AddPolicyStatementOutputTypeDef",
+    {
+        "arn": str,
+        "policy": str,
+        "token": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredBatchDeleteUniqueIdInputRequestTypeDef = TypedDict(
+    "_RequiredBatchDeleteUniqueIdInputRequestTypeDef",
+    {
+        "uniqueIds": List[str],
+        "workflowName": str,
+    },
+)
+_OptionalBatchDeleteUniqueIdInputRequestTypeDef = TypedDict(
+    "_OptionalBatchDeleteUniqueIdInputRequestTypeDef",
+    {
+        "inputSource": str,
+    },
+    total=False,
+)
+
+class BatchDeleteUniqueIdInputRequestTypeDef(
+    _RequiredBatchDeleteUniqueIdInputRequestTypeDef, _OptionalBatchDeleteUniqueIdInputRequestTypeDef
+):
+    pass
+
+BatchDeleteUniqueIdOutputTypeDef = TypedDict(
+    "BatchDeleteUniqueIdOutputTypeDef",
+    {
+        "deleted": List["DeletedUniqueIdTypeDef"],
+        "disconnectedUniqueIds": List[str],
+        "errors": List["DeleteUniqueIdErrorTypeDef"],
+        "status": DeleteUniqueIdStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredCreateIdMappingWorkflowInputRequestTypeDef = TypedDict(
@@ -118,7 +218,6 @@ _RequiredCreateIdMappingWorkflowInputRequestTypeDef = TypedDict(
     {
         "idMappingTechniques": "IdMappingTechniquesTypeDef",
         "inputSourceConfig": List["IdMappingWorkflowInputSourceTypeDef"],
-        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
         "roleArn": str,
         "workflowName": str,
     },
@@ -127,6 +226,7 @@ _OptionalCreateIdMappingWorkflowInputRequestTypeDef = TypedDict(
     "_OptionalCreateIdMappingWorkflowInputRequestTypeDef",
     {
         "description": str,
+        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
         "tags": Dict[str, str],
     },
     total=False,
@@ -148,6 +248,47 @@ CreateIdMappingWorkflowOutputTypeDef = TypedDict(
         "roleArn": str,
         "workflowArn": str,
         "workflowName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateIdNamespaceInputRequestTypeDef = TypedDict(
+    "_RequiredCreateIdNamespaceInputRequestTypeDef",
+    {
+        "idNamespaceName": str,
+        "type": IdNamespaceTypeType,
+    },
+)
+_OptionalCreateIdNamespaceInputRequestTypeDef = TypedDict(
+    "_OptionalCreateIdNamespaceInputRequestTypeDef",
+    {
+        "description": str,
+        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
+        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
+        "roleArn": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateIdNamespaceInputRequestTypeDef(
+    _RequiredCreateIdNamespaceInputRequestTypeDef, _OptionalCreateIdNamespaceInputRequestTypeDef
+):
+    pass
+
+CreateIdNamespaceOutputTypeDef = TypedDict(
+    "CreateIdNamespaceOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "description": str,
+        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
+        "idNamespaceArn": str,
+        "idNamespaceName": str,
+        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
+        "roleArn": str,
+        "tags": Dict[str, str],
+        "type": IdNamespaceTypeType,
+        "updatedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -240,6 +381,21 @@ DeleteIdMappingWorkflowOutputTypeDef = TypedDict(
     },
 )
 
+DeleteIdNamespaceInputRequestTypeDef = TypedDict(
+    "DeleteIdNamespaceInputRequestTypeDef",
+    {
+        "idNamespaceName": str,
+    },
+)
+
+DeleteIdNamespaceOutputTypeDef = TypedDict(
+    "DeleteIdNamespaceOutputTypeDef",
+    {
+        "message": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteMatchingWorkflowInputRequestTypeDef = TypedDict(
     "DeleteMatchingWorkflowInputRequestTypeDef",
     {
@@ -251,6 +407,24 @@ DeleteMatchingWorkflowOutputTypeDef = TypedDict(
     "DeleteMatchingWorkflowOutputTypeDef",
     {
         "message": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeletePolicyStatementInputRequestTypeDef = TypedDict(
+    "DeletePolicyStatementInputRequestTypeDef",
+    {
+        "arn": str,
+        "statementId": str,
+    },
+)
+
+DeletePolicyStatementOutputTypeDef = TypedDict(
+    "DeletePolicyStatementOutputTypeDef",
+    {
+        "arn": str,
+        "policy": str,
+        "token": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -267,6 +441,21 @@ DeleteSchemaMappingOutputTypeDef = TypedDict(
     {
         "message": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteUniqueIdErrorTypeDef = TypedDict(
+    "DeleteUniqueIdErrorTypeDef",
+    {
+        "errorType": DeleteUniqueIdErrorTypeType,
+        "uniqueId": str,
+    },
+)
+
+DeletedUniqueIdTypeDef = TypedDict(
+    "DeletedUniqueIdTypeDef",
+    {
+        "uniqueId": str,
     },
 )
 
@@ -293,6 +482,7 @@ GetIdMappingJobOutputTypeDef = TypedDict(
         "errorDetails": "ErrorDetailsTypeDef",
         "jobId": str,
         "metrics": "IdMappingJobMetricsTypeDef",
+        "outputSourceConfig": List["IdMappingJobOutputSourceTypeDef"],
         "startTime": datetime,
         "status": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -323,18 +513,55 @@ GetIdMappingWorkflowOutputTypeDef = TypedDict(
     },
 )
 
-GetMatchIdInputRequestTypeDef = TypedDict(
-    "GetMatchIdInputRequestTypeDef",
+GetIdNamespaceInputRequestTypeDef = TypedDict(
+    "GetIdNamespaceInputRequestTypeDef",
+    {
+        "idNamespaceName": str,
+    },
+)
+
+GetIdNamespaceOutputTypeDef = TypedDict(
+    "GetIdNamespaceOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "description": str,
+        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
+        "idNamespaceArn": str,
+        "idNamespaceName": str,
+        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
+        "roleArn": str,
+        "tags": Dict[str, str],
+        "type": IdNamespaceTypeType,
+        "updatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetMatchIdInputRequestTypeDef = TypedDict(
+    "_RequiredGetMatchIdInputRequestTypeDef",
     {
         "record": Dict[str, str],
         "workflowName": str,
     },
 )
+_OptionalGetMatchIdInputRequestTypeDef = TypedDict(
+    "_OptionalGetMatchIdInputRequestTypeDef",
+    {
+        "applyNormalization": bool,
+    },
+    total=False,
+)
+
+class GetMatchIdInputRequestTypeDef(
+    _RequiredGetMatchIdInputRequestTypeDef, _OptionalGetMatchIdInputRequestTypeDef
+):
+    pass
 
 GetMatchIdOutputTypeDef = TypedDict(
     "GetMatchIdOutputTypeDef",
     {
         "matchId": str,
+        "matchRule": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -354,6 +581,7 @@ GetMatchingJobOutputTypeDef = TypedDict(
         "errorDetails": "ErrorDetailsTypeDef",
         "jobId": str,
         "metrics": "JobMetricsTypeDef",
+        "outputSourceConfig": List["JobOutputSourceTypeDef"],
         "startTime": datetime,
         "status": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -385,6 +613,23 @@ GetMatchingWorkflowOutputTypeDef = TypedDict(
     },
 )
 
+GetPolicyInputRequestTypeDef = TypedDict(
+    "GetPolicyInputRequestTypeDef",
+    {
+        "arn": str,
+    },
+)
+
+GetPolicyOutputTypeDef = TypedDict(
+    "GetPolicyOutputTypeDef",
+    {
+        "arn": str,
+        "policy": str,
+        "token": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetProviderServiceInputRequestTypeDef = TypedDict(
     "GetProviderServiceInputRequestTypeDef",
     {
@@ -397,10 +642,13 @@ GetProviderServiceOutputTypeDef = TypedDict(
     "GetProviderServiceOutputTypeDef",
     {
         "anonymizedOutput": bool,
+        "providerComponentSchema": "ProviderComponentSchemaTypeDef",
         "providerConfigurationDefinition": Dict[str, Any],
         "providerEndpointConfiguration": "ProviderEndpointConfigurationTypeDef",
         "providerEntityOutputDefinition": Dict[str, Any],
+        "providerIdNameSpaceConfiguration": "ProviderIdNameSpaceConfigurationTypeDef",
         "providerIntermediateDataAccessConfiguration": "ProviderIntermediateDataAccessConfigurationTypeDef",
+        "providerJobConfiguration": Dict[str, Any],
         "providerName": str,
         "providerServiceArn": str,
         "providerServiceDisplayName": str,
@@ -442,21 +690,64 @@ IdMappingJobMetricsTypeDef = TypedDict(
     total=False,
 )
 
-IdMappingTechniquesTypeDef = TypedDict(
-    "IdMappingTechniquesTypeDef",
+_RequiredIdMappingJobOutputSourceTypeDef = TypedDict(
+    "_RequiredIdMappingJobOutputSourceTypeDef",
     {
-        "idMappingType": Literal["PROVIDER"],
-        "providerProperties": "ProviderPropertiesTypeDef",
+        "outputS3Path": str,
+        "roleArn": str,
     },
+)
+_OptionalIdMappingJobOutputSourceTypeDef = TypedDict(
+    "_OptionalIdMappingJobOutputSourceTypeDef",
+    {
+        "KMSArn": str,
+    },
+    total=False,
 )
 
-IdMappingWorkflowInputSourceTypeDef = TypedDict(
-    "IdMappingWorkflowInputSourceTypeDef",
+class IdMappingJobOutputSourceTypeDef(
+    _RequiredIdMappingJobOutputSourceTypeDef, _OptionalIdMappingJobOutputSourceTypeDef
+):
+    pass
+
+_RequiredIdMappingTechniquesTypeDef = TypedDict(
+    "_RequiredIdMappingTechniquesTypeDef",
     {
-        "inputSourceARN": str,
-        "schemaName": str,
+        "idMappingType": Literal["PROVIDER"],
     },
 )
+_OptionalIdMappingTechniquesTypeDef = TypedDict(
+    "_OptionalIdMappingTechniquesTypeDef",
+    {
+        "providerProperties": "ProviderPropertiesTypeDef",
+    },
+    total=False,
+)
+
+class IdMappingTechniquesTypeDef(
+    _RequiredIdMappingTechniquesTypeDef, _OptionalIdMappingTechniquesTypeDef
+):
+    pass
+
+_RequiredIdMappingWorkflowInputSourceTypeDef = TypedDict(
+    "_RequiredIdMappingWorkflowInputSourceTypeDef",
+    {
+        "inputSourceARN": str,
+    },
+)
+_OptionalIdMappingWorkflowInputSourceTypeDef = TypedDict(
+    "_OptionalIdMappingWorkflowInputSourceTypeDef",
+    {
+        "schemaName": str,
+        "type": IdNamespaceTypeType,
+    },
+    total=False,
+)
+
+class IdMappingWorkflowInputSourceTypeDef(
+    _RequiredIdMappingWorkflowInputSourceTypeDef, _OptionalIdMappingWorkflowInputSourceTypeDef
+):
+    pass
 
 _RequiredIdMappingWorkflowOutputSourceTypeDef = TypedDict(
     "_RequiredIdMappingWorkflowOutputSourceTypeDef",
@@ -486,6 +777,68 @@ IdMappingWorkflowSummaryTypeDef = TypedDict(
         "workflowName": str,
     },
 )
+
+_RequiredIdNamespaceIdMappingWorkflowPropertiesTypeDef = TypedDict(
+    "_RequiredIdNamespaceIdMappingWorkflowPropertiesTypeDef",
+    {
+        "idMappingType": Literal["PROVIDER"],
+    },
+)
+_OptionalIdNamespaceIdMappingWorkflowPropertiesTypeDef = TypedDict(
+    "_OptionalIdNamespaceIdMappingWorkflowPropertiesTypeDef",
+    {
+        "providerProperties": "NamespaceProviderPropertiesTypeDef",
+    },
+    total=False,
+)
+
+class IdNamespaceIdMappingWorkflowPropertiesTypeDef(
+    _RequiredIdNamespaceIdMappingWorkflowPropertiesTypeDef,
+    _OptionalIdNamespaceIdMappingWorkflowPropertiesTypeDef,
+):
+    pass
+
+_RequiredIdNamespaceInputSourceTypeDef = TypedDict(
+    "_RequiredIdNamespaceInputSourceTypeDef",
+    {
+        "inputSourceARN": str,
+    },
+)
+_OptionalIdNamespaceInputSourceTypeDef = TypedDict(
+    "_OptionalIdNamespaceInputSourceTypeDef",
+    {
+        "schemaName": str,
+    },
+    total=False,
+)
+
+class IdNamespaceInputSourceTypeDef(
+    _RequiredIdNamespaceInputSourceTypeDef, _OptionalIdNamespaceInputSourceTypeDef
+):
+    pass
+
+_RequiredIdNamespaceSummaryTypeDef = TypedDict(
+    "_RequiredIdNamespaceSummaryTypeDef",
+    {
+        "createdAt": datetime,
+        "idNamespaceArn": str,
+        "idNamespaceName": str,
+        "type": IdNamespaceTypeType,
+        "updatedAt": datetime,
+    },
+)
+_OptionalIdNamespaceSummaryTypeDef = TypedDict(
+    "_OptionalIdNamespaceSummaryTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class IdNamespaceSummaryTypeDef(
+    _RequiredIdNamespaceSummaryTypeDef, _OptionalIdNamespaceSummaryTypeDef
+):
+    pass
 
 IncrementalRunConfigTypeDef = TypedDict(
     "IncrementalRunConfigTypeDef",
@@ -530,6 +883,24 @@ JobMetricsTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredJobOutputSourceTypeDef = TypedDict(
+    "_RequiredJobOutputSourceTypeDef",
+    {
+        "outputS3Path": str,
+        "roleArn": str,
+    },
+)
+_OptionalJobOutputSourceTypeDef = TypedDict(
+    "_OptionalJobOutputSourceTypeDef",
+    {
+        "KMSArn": str,
+    },
+    total=False,
+)
+
+class JobOutputSourceTypeDef(_RequiredJobOutputSourceTypeDef, _OptionalJobOutputSourceTypeDef):
+    pass
 
 _RequiredJobSummaryTypeDef = TypedDict(
     "_RequiredJobSummaryTypeDef",
@@ -593,6 +964,24 @@ ListIdMappingWorkflowsOutputTypeDef = TypedDict(
     {
         "nextToken": str,
         "workflowSummaries": List["IdMappingWorkflowSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListIdNamespacesInputRequestTypeDef = TypedDict(
+    "ListIdNamespacesInputRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListIdNamespacesOutputTypeDef = TypedDict(
+    "ListIdNamespacesOutputTypeDef",
+    {
+        "idNamespaceSummaries": List["IdNamespaceSummaryTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -707,6 +1096,25 @@ MatchingWorkflowSummaryTypeDef = TypedDict(
     },
 )
 
+_RequiredNamespaceProviderPropertiesTypeDef = TypedDict(
+    "_RequiredNamespaceProviderPropertiesTypeDef",
+    {
+        "providerServiceArn": str,
+    },
+)
+_OptionalNamespaceProviderPropertiesTypeDef = TypedDict(
+    "_OptionalNamespaceProviderPropertiesTypeDef",
+    {
+        "providerConfiguration": Dict[str, Any],
+    },
+    total=False,
+)
+
+class NamespaceProviderPropertiesTypeDef(
+    _RequiredNamespaceProviderPropertiesTypeDef, _OptionalNamespaceProviderPropertiesTypeDef
+):
+    pass
+
 _RequiredOutputAttributeTypeDef = TypedDict(
     "_RequiredOutputAttributeTypeDef",
     {
@@ -753,10 +1161,29 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+ProviderComponentSchemaTypeDef = TypedDict(
+    "ProviderComponentSchemaTypeDef",
+    {
+        "providerSchemaAttributes": List["ProviderSchemaAttributeTypeDef"],
+        "schemas": List[List[str]],
+    },
+    total=False,
+)
+
 ProviderEndpointConfigurationTypeDef = TypedDict(
     "ProviderEndpointConfigurationTypeDef",
     {
         "marketplaceConfiguration": "ProviderMarketplaceConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ProviderIdNameSpaceConfigurationTypeDef = TypedDict(
+    "ProviderIdNameSpaceConfigurationTypeDef",
+    {
+        "description": str,
+        "providerSourceConfigurationDefinition": Dict[str, Any],
+        "providerTargetConfigurationDefinition": Dict[str, Any],
     },
     total=False,
 )
@@ -800,6 +1227,27 @@ class ProviderPropertiesTypeDef(
 ):
     pass
 
+_RequiredProviderSchemaAttributeTypeDef = TypedDict(
+    "_RequiredProviderSchemaAttributeTypeDef",
+    {
+        "fieldName": str,
+        "type": SchemaAttributeTypeType,
+    },
+)
+_OptionalProviderSchemaAttributeTypeDef = TypedDict(
+    "_OptionalProviderSchemaAttributeTypeDef",
+    {
+        "hashing": bool,
+        "subType": str,
+    },
+    total=False,
+)
+
+class ProviderSchemaAttributeTypeDef(
+    _RequiredProviderSchemaAttributeTypeDef, _OptionalProviderSchemaAttributeTypeDef
+):
+    pass
+
 ProviderServiceSummaryTypeDef = TypedDict(
     "ProviderServiceSummaryTypeDef",
     {
@@ -808,6 +1256,36 @@ ProviderServiceSummaryTypeDef = TypedDict(
         "providerServiceDisplayName": str,
         "providerServiceName": str,
         "providerServiceType": ServiceTypeType,
+    },
+)
+
+_RequiredPutPolicyInputRequestTypeDef = TypedDict(
+    "_RequiredPutPolicyInputRequestTypeDef",
+    {
+        "arn": str,
+        "policy": str,
+    },
+)
+_OptionalPutPolicyInputRequestTypeDef = TypedDict(
+    "_OptionalPutPolicyInputRequestTypeDef",
+    {
+        "token": str,
+    },
+    total=False,
+)
+
+class PutPolicyInputRequestTypeDef(
+    _RequiredPutPolicyInputRequestTypeDef, _OptionalPutPolicyInputRequestTypeDef
+):
+    pass
+
+PutPolicyOutputTypeDef = TypedDict(
+    "PutPolicyOutputTypeDef",
+    {
+        "arn": str,
+        "policy": str,
+        "token": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -891,17 +1369,30 @@ SchemaMappingSummaryTypeDef = TypedDict(
     },
 )
 
-StartIdMappingJobInputRequestTypeDef = TypedDict(
-    "StartIdMappingJobInputRequestTypeDef",
+_RequiredStartIdMappingJobInputRequestTypeDef = TypedDict(
+    "_RequiredStartIdMappingJobInputRequestTypeDef",
     {
         "workflowName": str,
     },
 )
+_OptionalStartIdMappingJobInputRequestTypeDef = TypedDict(
+    "_OptionalStartIdMappingJobInputRequestTypeDef",
+    {
+        "outputSourceConfig": List["IdMappingJobOutputSourceTypeDef"],
+    },
+    total=False,
+)
+
+class StartIdMappingJobInputRequestTypeDef(
+    _RequiredStartIdMappingJobInputRequestTypeDef, _OptionalStartIdMappingJobInputRequestTypeDef
+):
+    pass
 
 StartIdMappingJobOutputTypeDef = TypedDict(
     "StartIdMappingJobOutputTypeDef",
     {
         "jobId": str,
+        "outputSourceConfig": List["IdMappingJobOutputSourceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -942,7 +1433,6 @@ _RequiredUpdateIdMappingWorkflowInputRequestTypeDef = TypedDict(
     {
         "idMappingTechniques": "IdMappingTechniquesTypeDef",
         "inputSourceConfig": List["IdMappingWorkflowInputSourceTypeDef"],
-        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
         "roleArn": str,
         "workflowName": str,
     },
@@ -951,6 +1441,7 @@ _OptionalUpdateIdMappingWorkflowInputRequestTypeDef = TypedDict(
     "_OptionalUpdateIdMappingWorkflowInputRequestTypeDef",
     {
         "description": str,
+        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
     },
     total=False,
 )
@@ -971,6 +1462,44 @@ UpdateIdMappingWorkflowOutputTypeDef = TypedDict(
         "roleArn": str,
         "workflowArn": str,
         "workflowName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateIdNamespaceInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateIdNamespaceInputRequestTypeDef",
+    {
+        "idNamespaceName": str,
+    },
+)
+_OptionalUpdateIdNamespaceInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateIdNamespaceInputRequestTypeDef",
+    {
+        "description": str,
+        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
+        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
+        "roleArn": str,
+    },
+    total=False,
+)
+
+class UpdateIdNamespaceInputRequestTypeDef(
+    _RequiredUpdateIdNamespaceInputRequestTypeDef, _OptionalUpdateIdNamespaceInputRequestTypeDef
+):
+    pass
+
+UpdateIdNamespaceOutputTypeDef = TypedDict(
+    "UpdateIdNamespaceOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "description": str,
+        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
+        "idNamespaceArn": str,
+        "idNamespaceName": str,
+        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
+        "roleArn": str,
+        "type": IdNamespaceTypeType,
+        "updatedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

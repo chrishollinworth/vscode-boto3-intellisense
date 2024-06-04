@@ -11,6 +11,7 @@ Usage::
     data: AlarmHistoryItemTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -105,6 +106,7 @@ __all__ = (
     "ManagedRuleTypeDef",
     "MessageDataTypeDef",
     "MetricAlarmTypeDef",
+    "MetricCharacteristicsTypeDef",
     "MetricDataQueryTypeDef",
     "MetricDataResultTypeDef",
     "MetricDatumTypeDef",
@@ -176,6 +178,7 @@ AnomalyDetectorTypeDef = TypedDict(
         "Stat": str,
         "Configuration": "AnomalyDetectorConfigurationTypeDef",
         "StateValue": AnomalyDetectorStateValueType,
+        "MetricCharacteristics": "MetricCharacteristicsTypeDef",
         "SingleMetricAnomalyDetector": "SingleMetricAnomalyDetectorTypeDef",
         "MetricMathAnomalyDetector": "MetricMathAnomalyDetectorTypeDef",
     },
@@ -956,6 +959,14 @@ MetricAlarmTypeDef = TypedDict(
     total=False,
 )
 
+MetricCharacteristicsTypeDef = TypedDict(
+    "MetricCharacteristicsTypeDef",
+    {
+        "PeriodicSpikes": bool,
+    },
+    total=False,
+)
+
 _RequiredMetricDataQueryTypeDef = TypedDict(
     "_RequiredMetricDataQueryTypeDef",
     {
@@ -1120,6 +1131,7 @@ PutAnomalyDetectorInputRequestTypeDef = TypedDict(
         "Dimensions": List["DimensionTypeDef"],
         "Stat": str,
         "Configuration": "AnomalyDetectorConfigurationTypeDef",
+        "MetricCharacteristics": "MetricCharacteristicsTypeDef",
         "SingleMetricAnomalyDetector": "SingleMetricAnomalyDetectorTypeDef",
         "MetricMathAnomalyDetector": "MetricMathAnomalyDetectorTypeDef",
     },
@@ -1402,6 +1414,7 @@ class SetAlarmStateInputRequestTypeDef(
 SingleMetricAnomalyDetectorTypeDef = TypedDict(
     "SingleMetricAnomalyDetectorTypeDef",
     {
+        "AccountId": str,
         "Namespace": str,
         "MetricName": str,
         "Dimensions": List["DimensionTypeDef"],

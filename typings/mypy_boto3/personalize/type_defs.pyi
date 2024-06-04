@@ -11,6 +11,7 @@ Usage::
     data: AlgorithmImageTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -22,6 +23,7 @@ from .literals import (
     IngestionModeType,
     ObjectiveSensitivityType,
     TrainingModeType,
+    TrainingTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -38,6 +40,7 @@ __all__ = (
     "AlgorithmTypeDef",
     "AutoMLConfigTypeDef",
     "AutoMLResultTypeDef",
+    "AutoTrainingConfigTypeDef",
     "BatchInferenceJobConfigTypeDef",
     "BatchInferenceJobInputTypeDef",
     "BatchInferenceJobOutputTypeDef",
@@ -59,6 +62,8 @@ __all__ = (
     "CreateBatchSegmentJobResponseTypeDef",
     "CreateCampaignRequestRequestTypeDef",
     "CreateCampaignResponseTypeDef",
+    "CreateDataDeletionJobRequestRequestTypeDef",
+    "CreateDataDeletionJobResponseTypeDef",
     "CreateDatasetExportJobRequestRequestTypeDef",
     "CreateDatasetExportJobResponseTypeDef",
     "CreateDatasetGroupRequestRequestTypeDef",
@@ -81,6 +86,8 @@ __all__ = (
     "CreateSolutionResponseTypeDef",
     "CreateSolutionVersionRequestRequestTypeDef",
     "CreateSolutionVersionResponseTypeDef",
+    "DataDeletionJobSummaryTypeDef",
+    "DataDeletionJobTypeDef",
     "DataSourceTypeDef",
     "DatasetExportJobOutputTypeDef",
     "DatasetExportJobSummaryTypeDef",
@@ -115,6 +122,8 @@ __all__ = (
     "DescribeBatchSegmentJobResponseTypeDef",
     "DescribeCampaignRequestRequestTypeDef",
     "DescribeCampaignResponseTypeDef",
+    "DescribeDataDeletionJobRequestRequestTypeDef",
+    "DescribeDataDeletionJobResponseTypeDef",
     "DescribeDatasetExportJobRequestRequestTypeDef",
     "DescribeDatasetExportJobResponseTypeDef",
     "DescribeDatasetGroupRequestRequestTypeDef",
@@ -160,6 +169,8 @@ __all__ = (
     "ListBatchSegmentJobsResponseTypeDef",
     "ListCampaignsRequestRequestTypeDef",
     "ListCampaignsResponseTypeDef",
+    "ListDataDeletionJobsRequestRequestTypeDef",
+    "ListDataDeletionJobsResponseTypeDef",
     "ListDatasetExportJobsRequestRequestTypeDef",
     "ListDatasetExportJobsResponseTypeDef",
     "ListDatasetGroupsRequestRequestTypeDef",
@@ -279,6 +290,14 @@ AutoMLResultTypeDef = TypedDict(
     total=False,
 )
 
+AutoTrainingConfigTypeDef = TypedDict(
+    "AutoTrainingConfigTypeDef",
+    {
+        "schedulingExpression": str,
+    },
+    total=False,
+)
+
 BatchInferenceJobConfigTypeDef = TypedDict(
     "BatchInferenceJobConfigTypeDef",
     {
@@ -390,6 +409,7 @@ CampaignConfigTypeDef = TypedDict(
     {
         "itemExplorationConfig": Dict[str, str],
         "enableMetadataWithRecommendations": bool,
+        "syncWithLatestSolutionVersion": bool,
     },
     total=False,
 )
@@ -554,6 +574,37 @@ CreateCampaignResponseTypeDef = TypedDict(
     "CreateCampaignResponseTypeDef",
     {
         "campaignArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDataDeletionJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDataDeletionJobRequestRequestTypeDef",
+    {
+        "jobName": str,
+        "datasetGroupArn": str,
+        "dataSource": "DataSourceTypeDef",
+        "roleArn": str,
+    },
+)
+_OptionalCreateDataDeletionJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDataDeletionJobRequestRequestTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDataDeletionJobRequestRequestTypeDef(
+    _RequiredCreateDataDeletionJobRequestRequestTypeDef,
+    _OptionalCreateDataDeletionJobRequestRequestTypeDef,
+):
+    pass
+
+CreateDataDeletionJobResponseTypeDef = TypedDict(
+    "CreateDataDeletionJobResponseTypeDef",
+    {
+        "dataDeletionJobArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -832,6 +883,7 @@ _OptionalCreateSolutionRequestRequestTypeDef = TypedDict(
     {
         "performHPO": bool,
         "performAutoML": bool,
+        "performAutoTraining": bool,
         "recipeArn": str,
         "eventType": str,
         "solutionConfig": "SolutionConfigTypeDef",
@@ -881,6 +933,37 @@ CreateSolutionVersionResponseTypeDef = TypedDict(
         "solutionVersionArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DataDeletionJobSummaryTypeDef = TypedDict(
+    "DataDeletionJobSummaryTypeDef",
+    {
+        "dataDeletionJobArn": str,
+        "datasetGroupArn": str,
+        "jobName": str,
+        "status": str,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "failureReason": str,
+    },
+    total=False,
+)
+
+DataDeletionJobTypeDef = TypedDict(
+    "DataDeletionJobTypeDef",
+    {
+        "jobName": str,
+        "dataDeletionJobArn": str,
+        "datasetGroupArn": str,
+        "dataSource": "DataSourceTypeDef",
+        "roleArn": str,
+        "status": str,
+        "numDeleted": int,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "failureReason": str,
+    },
+    total=False,
 )
 
 DataSourceTypeDef = TypedDict(
@@ -1218,6 +1301,21 @@ DescribeCampaignResponseTypeDef = TypedDict(
     "DescribeCampaignResponseTypeDef",
     {
         "campaign": "CampaignTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDataDeletionJobRequestRequestTypeDef = TypedDict(
+    "DescribeDataDeletionJobRequestRequestTypeDef",
+    {
+        "dataDeletionJobArn": str,
+    },
+)
+
+DescribeDataDeletionJobResponseTypeDef = TypedDict(
+    "DescribeDataDeletionJobResponseTypeDef",
+    {
+        "dataDeletionJob": "DataDeletionJobTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1610,6 +1708,25 @@ ListCampaignsResponseTypeDef = TypedDict(
     "ListCampaignsResponseTypeDef",
     {
         "campaigns": List["CampaignSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDataDeletionJobsRequestRequestTypeDef = TypedDict(
+    "ListDataDeletionJobsRequestRequestTypeDef",
+    {
+        "datasetGroupArn": str,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListDataDeletionJobsResponseTypeDef = TypedDict(
+    "ListDataDeletionJobsResponseTypeDef",
+    {
+        "dataDeletionJobs": List["DataDeletionJobSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2074,6 +2191,7 @@ SolutionConfigTypeDef = TypedDict(
         "autoMLConfig": "AutoMLConfigTypeDef",
         "optimizationObjective": "OptimizationObjectiveTypeDef",
         "trainingDataConfig": "TrainingDataConfigTypeDef",
+        "autoTrainingConfig": "AutoTrainingConfigTypeDef",
     },
     total=False,
 )
@@ -2098,6 +2216,7 @@ SolutionTypeDef = TypedDict(
         "solutionArn": str,
         "performHPO": bool,
         "performAutoML": bool,
+        "performAutoTraining": bool,
         "recipeArn": str,
         "datasetGroupArn": str,
         "eventType": str,
@@ -2116,6 +2235,8 @@ SolutionVersionSummaryTypeDef = TypedDict(
     {
         "solutionVersionArn": str,
         "status": str,
+        "trainingMode": TrainingModeType,
+        "trainingType": TrainingTypeType,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "failureReason": str,
@@ -2142,6 +2263,7 @@ SolutionVersionTypeDef = TypedDict(
         "failureReason": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "trainingType": TrainingTypeType,
     },
     total=False,
 )

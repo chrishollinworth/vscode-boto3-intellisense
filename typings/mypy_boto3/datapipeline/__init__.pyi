@@ -23,6 +23,7 @@ Usage::
     query_objects_paginator: QueryObjectsPaginator = client.get_paginator("query_objects")
     ```
 """
+
 from .client import DataPipelineClient
 from .paginator import DescribeObjectsPaginator, ListPipelinesPaginator, QueryObjectsPaginator
 

@@ -11,6 +11,7 @@ Usage::
     data: AuthorizationTypeType = "AWS_IAM"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

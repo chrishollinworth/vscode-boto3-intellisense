@@ -11,6 +11,7 @@ Usage::
     data: AWSServiceAccessStatusType = "DISABLED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

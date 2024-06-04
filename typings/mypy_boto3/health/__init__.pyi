@@ -31,6 +31,7 @@ Usage::
     describe_events_for_organization_paginator: DescribeEventsForOrganizationPaginator = client.get_paginator("describe_events_for_organization")
     ```
 """
+
 from .client import HealthClient
 from .paginator import (
     DescribeAffectedAccountsForOrganizationPaginator,

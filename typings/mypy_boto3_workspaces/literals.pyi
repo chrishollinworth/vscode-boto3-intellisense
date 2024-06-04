@@ -11,6 +11,7 @@ Usage::
     data: AccessPropertyValueType = "ALLOW"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -20,6 +21,7 @@ else:
 
 __all__ = (
     "AccessPropertyValueType",
+    "AccountLinkStatusEnumType",
     "ApplicationAssociatedResourceTypeType",
     "ApplicationType",
     "AssociationErrorCodeType",
@@ -33,6 +35,7 @@ __all__ = (
     "ConnectionAliasStateType",
     "ConnectionStateType",
     "DataReplicationType",
+    "DedicatedTenancyAccountTypeType",
     "DedicatedTenancyModificationStateEnumType",
     "DedicatedTenancySupportEnumType",
     "DedicatedTenancySupportResultEnumType",
@@ -47,6 +50,7 @@ __all__ = (
     "DescribeWorkspacesPaginatorName",
     "ImageAssociatedResourceTypeType",
     "ImageTypeType",
+    "ListAccountLinksPaginatorName",
     "ListAvailableManagementCidrRangesPaginatorName",
     "LogUploadEnumType",
     "ModificationResourceEnumType",
@@ -74,6 +78,9 @@ __all__ = (
 )
 
 AccessPropertyValueType = Literal["ALLOW", "DENY"]
+AccountLinkStatusEnumType = Literal[
+    "LINKED", "LINKING_FAILED", "LINK_NOT_FOUND", "PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT", "REJECTED"
+]
 ApplicationAssociatedResourceTypeType = Literal["BUNDLE", "IMAGE", "WORKSPACE"]
 ApplicationType = Literal["Microsoft_Office_2016", "Microsoft_Office_2019"]
 AssociationErrorCodeType = Literal[
@@ -126,6 +133,7 @@ ComputeType = Literal[
 ConnectionAliasStateType = Literal["CREATED", "CREATING", "DELETING"]
 ConnectionStateType = Literal["CONNECTED", "DISCONNECTED", "UNKNOWN"]
 DataReplicationType = Literal["NO_REPLICATION", "PRIMARY_AS_SOURCE"]
+DedicatedTenancyAccountTypeType = Literal["SOURCE_ACCOUNT", "TARGET_ACCOUNT"]
 DedicatedTenancyModificationStateEnumType = Literal["COMPLETED", "FAILED", "PENDING"]
 DedicatedTenancySupportEnumType = Literal["ENABLED"]
 DedicatedTenancySupportResultEnumType = Literal["DISABLED", "ENABLED"]
@@ -144,6 +152,7 @@ DescribeWorkspacesConnectionStatusPaginatorName = Literal["describe_workspaces_c
 DescribeWorkspacesPaginatorName = Literal["describe_workspaces"]
 ImageAssociatedResourceTypeType = Literal["APPLICATION"]
 ImageTypeType = Literal["OWNED", "SHARED"]
+ListAccountLinksPaginatorName = Literal["list_account_links"]
 ListAvailableManagementCidrRangesPaginatorName = Literal["list_available_management_cidr_ranges"]
 LogUploadEnumType = Literal["DISABLED", "ENABLED"]
 ModificationResourceEnumType = Literal["COMPUTE_TYPE", "ROOT_VOLUME", "USER_VOLUME"]

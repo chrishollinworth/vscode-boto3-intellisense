@@ -39,6 +39,7 @@ Usage::
     list_volumes_paginator: ListVolumesPaginator = client.get_paginator("list_volumes")
     ```
 """
+
 from .client import StorageGatewayClient
 from .paginator import (
     DescribeTapeArchivesPaginator,

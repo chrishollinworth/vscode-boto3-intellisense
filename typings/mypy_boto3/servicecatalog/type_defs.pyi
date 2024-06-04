@@ -11,6 +11,7 @@ Usage::
     data: AcceptPortfolioShareInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -369,6 +370,7 @@ _OptionalAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef = Typ
     "_OptionalAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef",
     {
         "AcceptLanguage": str,
+        "IdempotencyToken": str,
     },
     total=False,
 )
@@ -920,6 +922,7 @@ _OptionalDeleteServiceActionInputRequestTypeDef = TypedDict(
     "_OptionalDeleteServiceActionInputRequestTypeDef",
     {
         "AcceptLanguage": str,
+        "IdempotencyToken": str,
     },
     total=False,
 )
@@ -1417,6 +1420,7 @@ _OptionalDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef = 
     "_OptionalDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef",
     {
         "AcceptLanguage": str,
+        "IdempotencyToken": str,
     },
     total=False,
 )

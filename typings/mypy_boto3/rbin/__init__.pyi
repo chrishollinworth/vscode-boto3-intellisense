@@ -19,6 +19,7 @@ Usage::
     list_rules_paginator: ListRulesPaginator = client.get_paginator("list_rules")
     ```
 """
+
 from .client import RecycleBinClient
 from .paginator import ListRulesPaginator
 

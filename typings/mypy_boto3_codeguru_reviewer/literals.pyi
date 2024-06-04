@@ -11,6 +11,7 @@ Usage::
     data: AnalysisTypeType = "CodeQuality"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

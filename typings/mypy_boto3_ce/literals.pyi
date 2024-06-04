@@ -11,6 +11,7 @@ Usage::
     data: AccountScopeType = "LINKED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -22,7 +23,9 @@ __all__ = (
     "AccountScopeType",
     "AnomalyFeedbackTypeType",
     "AnomalySubscriptionFrequencyType",
+    "ApproximationDimensionType",
     "ContextType",
+    "CostAllocationTagBackfillStatusType",
     "CostAllocationTagStatusType",
     "CostAllocationTagTypeType",
     "CostCategoryInheritedValueDimensionNameType",
@@ -59,7 +62,9 @@ __all__ = (
 AccountScopeType = Literal["LINKED", "PAYER"]
 AnomalyFeedbackTypeType = Literal["NO", "PLANNED_ACTIVITY", "YES"]
 AnomalySubscriptionFrequencyType = Literal["DAILY", "IMMEDIATE", "WEEKLY"]
+ApproximationDimensionType = Literal["RESOURCE", "SERVICE"]
 ContextType = Literal["COST_AND_USAGE", "RESERVATIONS", "SAVINGS_PLANS"]
+CostAllocationTagBackfillStatusType = Literal["FAILED", "PROCESSING", "SUCCEEDED"]
 CostAllocationTagStatusType = Literal["Active", "Inactive"]
 CostAllocationTagTypeType = Literal["AWSGenerated", "UserDefined"]
 CostCategoryInheritedValueDimensionNameType = Literal["LINKED_ACCOUNT_NAME", "TAG"]

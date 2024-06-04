@@ -11,6 +11,7 @@ Usage::
     data: AbortMultipartReadSetUploadRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -20,6 +21,7 @@ from botocore.response import StreamingBody
 from .literals import (
     AnnotationTypeType,
     CreationTypeType,
+    ETagAlgorithmFamilyType,
     ETagAlgorithmType,
     FileTypeType,
     FormatToHeaderKeyType,
@@ -42,7 +44,9 @@ from .literals import (
     RunRetentionModeType,
     RunStatusType,
     SchemaValueTypeType,
+    ShareResourceTypeType,
     ShareStatusType,
+    StorageTypeType,
     StoreFormatType,
     StoreStatusType,
     TaskStatusType,
@@ -221,6 +225,7 @@ __all__ = (
     "ReadSetFilesTypeDef",
     "ReadSetFilterTypeDef",
     "ReadSetListItemTypeDef",
+    "ReadSetS3AccessTypeDef",
     "ReadSetUploadPartListFilterTypeDef",
     "ReadSetUploadPartListItemTypeDef",
     "ReferenceFilesTypeDef",
@@ -236,6 +241,7 @@ __all__ = (
     "SequenceInformationTypeDef",
     "SequenceStoreDetailTypeDef",
     "SequenceStoreFilterTypeDef",
+    "SequenceStoreS3AccessTypeDef",
     "ShareDetailsTypeDef",
     "SourceFilesTypeDef",
     "SseConfigTypeDef",
@@ -708,6 +714,7 @@ _OptionalCreateSequenceStoreRequestRequestTypeDef = TypedDict(
         "tags": Dict[str, str],
         "clientToken": str,
         "fallbackLocation": str,
+        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
     },
     total=False,
 )
@@ -728,6 +735,7 @@ CreateSequenceStoreResponseTypeDef = TypedDict(
         "sseConfig": "SseConfigTypeDef",
         "creationTime": datetime,
         "fallbackLocation": str,
+        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1055,6 +1063,7 @@ FileInformationTypeDef = TypedDict(
         "totalParts": int,
         "partSize": int,
         "contentLength": int,
+        "s3Access": "ReadSetS3AccessTypeDef",
     },
     total=False,
 )
@@ -1064,6 +1073,7 @@ FilterTypeDef = TypedDict(
     {
         "resourceArns": List[str],
         "status": List[ShareStatusType],
+        "type": List[ShareResourceTypeType],
     },
     total=False,
 )
@@ -1461,6 +1471,8 @@ GetRunResponseTypeDef = TypedDict(
         "logLocation": "RunLogLocationTypeDef",
         "uuid": str,
         "runOutputUri": str,
+        "storageType": StorageTypeType,
+        "workflowOwnerId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1510,6 +1522,8 @@ GetSequenceStoreResponseTypeDef = TypedDict(
         "sseConfig": "SseConfigTypeDef",
         "creationTime": datetime,
         "fallbackLocation": str,
+        "s3Access": "SequenceStoreS3AccessTypeDef",
+        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1591,6 +1605,7 @@ _OptionalGetWorkflowRequestRequestTypeDef = TypedDict(
     {
         "type": WorkflowTypeType,
         "export": List[Literal["DEFINITION"]],
+        "workflowOwnerId": str,
     },
     total=False,
 )
@@ -2433,6 +2448,14 @@ _OptionalReadSetListItemTypeDef = TypedDict(
 class ReadSetListItemTypeDef(_RequiredReadSetListItemTypeDef, _OptionalReadSetListItemTypeDef):
     pass
 
+ReadSetS3AccessTypeDef = TypedDict(
+    "ReadSetS3AccessTypeDef",
+    {
+        "s3Uri": str,
+    },
+    total=False,
+)
+
 ReadSetUploadPartListFilterTypeDef = TypedDict(
     "ReadSetUploadPartListFilterTypeDef",
     {
@@ -2591,6 +2614,7 @@ RunListItemTypeDef = TypedDict(
         "creationTime": datetime,
         "startTime": datetime,
         "stopTime": datetime,
+        "storageType": StorageTypeType,
     },
     total=False,
 )
@@ -2630,6 +2654,7 @@ _OptionalSequenceStoreDetailTypeDef = TypedDict(
         "description": str,
         "sseConfig": "SseConfigTypeDef",
         "fallbackLocation": str,
+        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
     },
     total=False,
 )
@@ -2649,11 +2674,21 @@ SequenceStoreFilterTypeDef = TypedDict(
     total=False,
 )
 
+SequenceStoreS3AccessTypeDef = TypedDict(
+    "SequenceStoreS3AccessTypeDef",
+    {
+        "s3Uri": str,
+        "s3AccessPointArn": str,
+    },
+    total=False,
+)
+
 ShareDetailsTypeDef = TypedDict(
     "ShareDetailsTypeDef",
     {
         "shareId": str,
         "resourceArn": str,
+        "resourceId": str,
         "principalSubscriber": str,
         "ownerId": str,
         "status": ShareStatusType,
@@ -2944,6 +2979,8 @@ _OptionalStartRunRequestRequestTypeDef = TypedDict(
         "logLevel": RunLogLevelType,
         "tags": Dict[str, str],
         "retentionMode": RunRetentionModeType,
+        "storageType": StorageTypeType,
+        "workflowOwnerId": str,
     },
     total=False,
 )

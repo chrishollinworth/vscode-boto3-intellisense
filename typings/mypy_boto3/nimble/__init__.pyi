@@ -62,6 +62,7 @@ Usage::
     list_studios_paginator: ListStudiosPaginator = client.get_paginator("list_studios")
     ```
 """
+
 from .client import NimbleStudioClient
 from .paginator import (
     ListEulaAcceptancesPaginator,

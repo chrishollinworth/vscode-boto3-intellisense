@@ -21,6 +21,7 @@ Usage::
     list_linux_subscriptions_paginator: ListLinuxSubscriptionsPaginator = client.get_paginator("list_linux_subscriptions")
     ```
 """
+
 from .client import LicenseManagerLinuxSubscriptionsClient
 from .paginator import ListLinuxSubscriptionInstancesPaginator, ListLinuxSubscriptionsPaginator
 

@@ -11,6 +11,7 @@ Usage::
     data: AlternateContactTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

@@ -11,6 +11,7 @@ Usage::
     data: AccessAdvisorUsageGranularityTypeType = "ACTION_LEVEL"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

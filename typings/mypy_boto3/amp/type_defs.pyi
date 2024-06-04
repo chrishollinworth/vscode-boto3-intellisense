@@ -11,6 +11,7 @@ Usage::
     data: AlertManagerDefinitionDescriptionTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -101,10 +102,10 @@ __all__ = (
 AlertManagerDefinitionDescriptionTypeDef = TypedDict(
     "AlertManagerDefinitionDescriptionTypeDef",
     {
-        "status": "AlertManagerDefinitionStatusTypeDef",
-        "data": bytes,
         "createdAt": datetime,
+        "data": bytes,
         "modifiedAt": datetime,
+        "status": "AlertManagerDefinitionStatusTypeDef",
     },
 )
 
@@ -137,8 +138,8 @@ AmpConfigurationTypeDef = TypedDict(
 _RequiredCreateAlertManagerDefinitionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateAlertManagerDefinitionRequestRequestTypeDef",
     {
-        "workspaceId": str,
         "data": Union[bytes, IO[bytes], StreamingBody],
+        "workspaceId": str,
     },
 )
 _OptionalCreateAlertManagerDefinitionRequestRequestTypeDef = TypedDict(
@@ -166,8 +167,8 @@ CreateAlertManagerDefinitionResponseTypeDef = TypedDict(
 _RequiredCreateLoggingConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredCreateLoggingConfigurationRequestRequestTypeDef",
     {
-        "workspaceId": str,
         "logGroupArn": str,
+        "workspaceId": str,
     },
 )
 _OptionalCreateLoggingConfigurationRequestRequestTypeDef = TypedDict(
@@ -195,9 +196,9 @@ CreateLoggingConfigurationResponseTypeDef = TypedDict(
 _RequiredCreateRuleGroupsNamespaceRequestRequestTypeDef = TypedDict(
     "_RequiredCreateRuleGroupsNamespaceRequestRequestTypeDef",
     {
-        "workspaceId": str,
-        "name": str,
         "data": Union[bytes, IO[bytes], StreamingBody],
+        "name": str,
+        "workspaceId": str,
     },
 )
 _OptionalCreateRuleGroupsNamespaceRequestRequestTypeDef = TypedDict(
@@ -218,8 +219,8 @@ class CreateRuleGroupsNamespaceRequestRequestTypeDef(
 CreateRuleGroupsNamespaceResponseTypeDef = TypedDict(
     "CreateRuleGroupsNamespaceResponseTypeDef",
     {
-        "name": str,
         "arn": str,
+        "name": str,
         "status": "RuleGroupsNamespaceStatusTypeDef",
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -229,9 +230,9 @@ CreateRuleGroupsNamespaceResponseTypeDef = TypedDict(
 _RequiredCreateScraperRequestRequestTypeDef = TypedDict(
     "_RequiredCreateScraperRequestRequestTypeDef",
     {
+        "destination": "DestinationTypeDef",
         "scrapeConfiguration": "ScrapeConfigurationTypeDef",
         "source": "SourceTypeDef",
-        "destination": "DestinationTypeDef",
     },
 )
 _OptionalCreateScraperRequestRequestTypeDef = TypedDict(
@@ -252,8 +253,8 @@ class CreateScraperRequestRequestTypeDef(
 CreateScraperResponseTypeDef = TypedDict(
     "CreateScraperResponseTypeDef",
     {
-        "scraperId": str,
         "arn": str,
+        "scraperId": str,
         "status": "ScraperStatusTypeDef",
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -265,6 +266,7 @@ CreateWorkspaceRequestRequestTypeDef = TypedDict(
     {
         "alias": str,
         "clientToken": str,
+        "kmsKeyArn": str,
         "tags": Dict[str, str],
     },
     total=False,
@@ -273,10 +275,11 @@ CreateWorkspaceRequestRequestTypeDef = TypedDict(
 CreateWorkspaceResponseTypeDef = TypedDict(
     "CreateWorkspaceResponseTypeDef",
     {
-        "workspaceId": str,
         "arn": str,
+        "kmsKeyArn": str,
         "status": "WorkspaceStatusTypeDef",
         "tags": Dict[str, str],
+        "workspaceId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -324,8 +327,8 @@ class DeleteLoggingConfigurationRequestRequestTypeDef(
 _RequiredDeleteRuleGroupsNamespaceRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteRuleGroupsNamespaceRequestRequestTypeDef",
     {
-        "workspaceId": str,
         "name": str,
+        "workspaceId": str,
     },
 )
 _OptionalDeleteRuleGroupsNamespaceRequestRequestTypeDef = TypedDict(
@@ -422,8 +425,8 @@ DescribeLoggingConfigurationResponseTypeDef = TypedDict(
 DescribeRuleGroupsNamespaceRequestRequestTypeDef = TypedDict(
     "DescribeRuleGroupsNamespaceRequestRequestTypeDef",
     {
-        "workspaceId": str,
         "name": str,
+        "workspaceId": str,
     },
 )
 
@@ -508,9 +511,9 @@ _RequiredListRuleGroupsNamespacesRequestRequestTypeDef = TypedDict(
 _OptionalListRuleGroupsNamespacesRequestRequestTypeDef = TypedDict(
     "_OptionalListRuleGroupsNamespacesRequestRequestTypeDef",
     {
+        "maxResults": int,
         "name": str,
         "nextToken": str,
-        "maxResults": int,
     },
     total=False,
 )
@@ -524,8 +527,8 @@ class ListRuleGroupsNamespacesRequestRequestTypeDef(
 ListRuleGroupsNamespacesResponseTypeDef = TypedDict(
     "ListRuleGroupsNamespacesResponseTypeDef",
     {
-        "ruleGroupsNamespaces": List["RuleGroupsNamespaceSummaryTypeDef"],
         "nextToken": str,
+        "ruleGroupsNamespaces": List["RuleGroupsNamespaceSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -534,8 +537,8 @@ ListScrapersRequestRequestTypeDef = TypedDict(
     "ListScrapersRequestRequestTypeDef",
     {
         "filters": Dict[str, List[str]],
-        "nextToken": str,
         "maxResults": int,
+        "nextToken": str,
     },
     total=False,
 )
@@ -543,8 +546,8 @@ ListScrapersRequestRequestTypeDef = TypedDict(
 ListScrapersResponseTypeDef = TypedDict(
     "ListScrapersResponseTypeDef",
     {
-        "scrapers": List["ScraperSummaryTypeDef"],
         "nextToken": str,
+        "scrapers": List["ScraperSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -567,9 +570,9 @@ ListTagsForResourceResponseTypeDef = TypedDict(
 ListWorkspacesRequestRequestTypeDef = TypedDict(
     "ListWorkspacesRequestRequestTypeDef",
     {
-        "nextToken": str,
         "alias": str,
         "maxResults": int,
+        "nextToken": str,
     },
     total=False,
 )
@@ -577,8 +580,8 @@ ListWorkspacesRequestRequestTypeDef = TypedDict(
 ListWorkspacesResponseTypeDef = TypedDict(
     "ListWorkspacesResponseTypeDef",
     {
-        "workspaces": List["WorkspaceSummaryTypeDef"],
         "nextToken": str,
+        "workspaces": List["WorkspaceSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -586,11 +589,11 @@ ListWorkspacesResponseTypeDef = TypedDict(
 LoggingConfigurationMetadataTypeDef = TypedDict(
     "LoggingConfigurationMetadataTypeDef",
     {
+        "createdAt": datetime,
+        "logGroupArn": str,
+        "modifiedAt": datetime,
         "status": "LoggingConfigurationStatusTypeDef",
         "workspace": str,
-        "logGroupArn": str,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
     },
 )
 
@@ -626,8 +629,8 @@ PaginatorConfigTypeDef = TypedDict(
 _RequiredPutAlertManagerDefinitionRequestRequestTypeDef = TypedDict(
     "_RequiredPutAlertManagerDefinitionRequestRequestTypeDef",
     {
-        "workspaceId": str,
         "data": Union[bytes, IO[bytes], StreamingBody],
+        "workspaceId": str,
     },
 )
 _OptionalPutAlertManagerDefinitionRequestRequestTypeDef = TypedDict(
@@ -655,9 +658,9 @@ PutAlertManagerDefinitionResponseTypeDef = TypedDict(
 _RequiredPutRuleGroupsNamespaceRequestRequestTypeDef = TypedDict(
     "_RequiredPutRuleGroupsNamespaceRequestRequestTypeDef",
     {
-        "workspaceId": str,
-        "name": str,
         "data": Union[bytes, IO[bytes], StreamingBody],
+        "name": str,
+        "workspaceId": str,
     },
 )
 _OptionalPutRuleGroupsNamespaceRequestRequestTypeDef = TypedDict(
@@ -677,8 +680,8 @@ class PutRuleGroupsNamespaceRequestRequestTypeDef(
 PutRuleGroupsNamespaceResponseTypeDef = TypedDict(
     "PutRuleGroupsNamespaceResponseTypeDef",
     {
-        "name": str,
         "arn": str,
+        "name": str,
         "status": "RuleGroupsNamespaceStatusTypeDef",
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -700,11 +703,11 @@ _RequiredRuleGroupsNamespaceDescriptionTypeDef = TypedDict(
     "_RequiredRuleGroupsNamespaceDescriptionTypeDef",
     {
         "arn": str,
+        "createdAt": datetime,
+        "data": bytes,
+        "modifiedAt": datetime,
         "name": str,
         "status": "RuleGroupsNamespaceStatusTypeDef",
-        "data": bytes,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
     },
 )
 _OptionalRuleGroupsNamespaceDescriptionTypeDef = TypedDict(
@@ -743,10 +746,10 @@ _RequiredRuleGroupsNamespaceSummaryTypeDef = TypedDict(
     "_RequiredRuleGroupsNamespaceSummaryTypeDef",
     {
         "arn": str,
-        "name": str,
-        "status": "RuleGroupsNamespaceStatusTypeDef",
         "createdAt": datetime,
         "modifiedAt": datetime,
+        "name": str,
+        "status": "RuleGroupsNamespaceStatusTypeDef",
     },
 )
 _OptionalRuleGroupsNamespaceSummaryTypeDef = TypedDict(
@@ -773,23 +776,23 @@ ScrapeConfigurationTypeDef = TypedDict(
 _RequiredScraperDescriptionTypeDef = TypedDict(
     "_RequiredScraperDescriptionTypeDef",
     {
-        "scraperId": str,
         "arn": str,
-        "roleArn": str,
-        "status": "ScraperStatusTypeDef",
         "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "scrapeConfiguration": "ScrapeConfigurationTypeDef",
-        "source": "SourceTypeDef",
         "destination": "DestinationTypeDef",
+        "lastModifiedAt": datetime,
+        "roleArn": str,
+        "scrapeConfiguration": "ScrapeConfigurationTypeDef",
+        "scraperId": str,
+        "source": "SourceTypeDef",
+        "status": "ScraperStatusTypeDef",
     },
 )
 _OptionalScraperDescriptionTypeDef = TypedDict(
     "_OptionalScraperDescriptionTypeDef",
     {
         "alias": str,
-        "tags": Dict[str, str],
         "statusReason": str,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -809,22 +812,22 @@ ScraperStatusTypeDef = TypedDict(
 _RequiredScraperSummaryTypeDef = TypedDict(
     "_RequiredScraperSummaryTypeDef",
     {
-        "scraperId": str,
         "arn": str,
-        "roleArn": str,
-        "status": "ScraperStatusTypeDef",
         "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "source": "SourceTypeDef",
         "destination": "DestinationTypeDef",
+        "lastModifiedAt": datetime,
+        "roleArn": str,
+        "scraperId": str,
+        "source": "SourceTypeDef",
+        "status": "ScraperStatusTypeDef",
     },
 )
 _OptionalScraperSummaryTypeDef = TypedDict(
     "_OptionalScraperSummaryTypeDef",
     {
         "alias": str,
-        "tags": Dict[str, str],
         "statusReason": str,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -859,8 +862,8 @@ UntagResourceRequestRequestTypeDef = TypedDict(
 _RequiredUpdateLoggingConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateLoggingConfigurationRequestRequestTypeDef",
     {
-        "workspaceId": str,
         "logGroupArn": str,
+        "workspaceId": str,
     },
 )
 _OptionalUpdateLoggingConfigurationRequestRequestTypeDef = TypedDict(
@@ -918,16 +921,17 @@ WaiterConfigTypeDef = TypedDict(
 _RequiredWorkspaceDescriptionTypeDef = TypedDict(
     "_RequiredWorkspaceDescriptionTypeDef",
     {
-        "workspaceId": str,
         "arn": str,
-        "status": "WorkspaceStatusTypeDef",
         "createdAt": datetime,
+        "status": "WorkspaceStatusTypeDef",
+        "workspaceId": str,
     },
 )
 _OptionalWorkspaceDescriptionTypeDef = TypedDict(
     "_OptionalWorkspaceDescriptionTypeDef",
     {
         "alias": str,
+        "kmsKeyArn": str,
         "prometheusEndpoint": str,
         "tags": Dict[str, str],
     },
@@ -949,16 +953,17 @@ WorkspaceStatusTypeDef = TypedDict(
 _RequiredWorkspaceSummaryTypeDef = TypedDict(
     "_RequiredWorkspaceSummaryTypeDef",
     {
-        "workspaceId": str,
         "arn": str,
-        "status": "WorkspaceStatusTypeDef",
         "createdAt": datetime,
+        "status": "WorkspaceStatusTypeDef",
+        "workspaceId": str,
     },
 )
 _OptionalWorkspaceSummaryTypeDef = TypedDict(
     "_OptionalWorkspaceSummaryTypeDef",
     {
         "alias": str,
+        "kmsKeyArn": str,
         "tags": Dict[str, str],
     },
     total=False,

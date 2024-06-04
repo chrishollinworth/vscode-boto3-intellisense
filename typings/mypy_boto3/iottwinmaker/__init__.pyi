@@ -16,6 +16,7 @@ Usage::
     session_client: IoTTwinMakerClient = session.client("iottwinmaker")
     ```
 """
+
 from .client import IoTTwinMakerClient
 
 Client = IoTTwinMakerClient

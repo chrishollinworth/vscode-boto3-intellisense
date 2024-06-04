@@ -11,6 +11,7 @@ Usage::
     data: ActiveContextTimeToLiveTypeDef = {...}
     ```
 """
+
 import sys
 from typing import IO, Any, Dict, List, Union
 

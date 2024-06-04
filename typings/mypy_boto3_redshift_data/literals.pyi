@@ -11,6 +11,7 @@ Usage::
     data: DescribeTablePaginatorName = "describe_table"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

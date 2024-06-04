@@ -11,6 +11,7 @@ Usage::
     data: ActivityStreamModeType = "async"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -59,6 +60,7 @@ __all__ = (
     "DescribeDBProxyEndpointsPaginatorName",
     "DescribeDBProxyTargetGroupsPaginatorName",
     "DescribeDBProxyTargetsPaginatorName",
+    "DescribeDBRecommendationsPaginatorName",
     "DescribeDBSecurityGroupsPaginatorName",
     "DescribeDBSnapshotTenantDatabasesPaginatorName",
     "DescribeDBSnapshotsPaginatorName",
@@ -85,6 +87,7 @@ __all__ = (
     "GlobalClusterMemberSynchronizationStatusType",
     "IAMAuthModeType",
     "IntegrationStatusType",
+    "LimitlessDatabaseStatusType",
     "LocalWriteForwardingStatusType",
     "ReplicaModeType",
     "SourceTypeType",
@@ -156,6 +159,7 @@ DescribeDBProxiesPaginatorName = Literal["describe_db_proxies"]
 DescribeDBProxyEndpointsPaginatorName = Literal["describe_db_proxy_endpoints"]
 DescribeDBProxyTargetGroupsPaginatorName = Literal["describe_db_proxy_target_groups"]
 DescribeDBProxyTargetsPaginatorName = Literal["describe_db_proxy_targets"]
+DescribeDBRecommendationsPaginatorName = Literal["describe_db_recommendations"]
 DescribeDBSecurityGroupsPaginatorName = Literal["describe_db_security_groups"]
 DescribeDBSnapshotTenantDatabasesPaginatorName = Literal["describe_db_snapshot_tenant_databases"]
 DescribeDBSnapshotsPaginatorName = Literal["describe_db_snapshots"]
@@ -187,6 +191,16 @@ GlobalClusterMemberSynchronizationStatusType = Literal["connected", "pending-res
 IAMAuthModeType = Literal["DISABLED", "ENABLED", "REQUIRED"]
 IntegrationStatusType = Literal[
     "active", "creating", "deleting", "failed", "modifying", "needs_attention", "syncing"
+]
+LimitlessDatabaseStatusType = Literal[
+    "active",
+    "disabled",
+    "disabling",
+    "enabled",
+    "enabling",
+    "error",
+    "modifying-max-capacity",
+    "not-in-use",
 ]
 LocalWriteForwardingStatusType = Literal[
     "disabled", "disabling", "enabled", "enabling", "requested"

@@ -16,6 +16,7 @@ Usage::
     session_client: WorkSpacesWebClient = session.client("workspaces-web")
     ```
 """
+
 from .client import WorkSpacesWebClient
 
 Client = WorkSpacesWebClient

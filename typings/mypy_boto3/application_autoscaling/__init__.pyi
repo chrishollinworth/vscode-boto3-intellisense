@@ -25,6 +25,7 @@ Usage::
     describe_scheduled_actions_paginator: DescribeScheduledActionsPaginator = client.get_paginator("describe_scheduled_actions")
     ```
 """
+
 from .client import ApplicationAutoScalingClient
 from .paginator import (
     DescribeScalableTargetsPaginator,

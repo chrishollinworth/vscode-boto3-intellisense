@@ -29,6 +29,7 @@ Usage::
     list_segments_paginator: ListSegmentsPaginator = client.get_paginator("list_segments")
     ```
 """
+
 from .client import CloudWatchEvidentlyClient
 from .paginator import (
     ListExperimentsPaginator,

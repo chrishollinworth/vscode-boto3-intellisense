@@ -11,6 +11,7 @@ Usage::
     data: OutputFormatType = "CYCLONE_DX_1_5"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

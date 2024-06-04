@@ -16,6 +16,7 @@ Usage::
     session_client: EC2InstanceConnectClient = session.client("ec2-instance-connect")
     ```
 """
+
 from .client import EC2InstanceConnectClient
 
 Client = EC2InstanceConnectClient

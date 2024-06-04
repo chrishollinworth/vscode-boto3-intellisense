@@ -16,6 +16,7 @@ Usage::
     session_client: WorkMailMessageFlowClient = session.client("workmailmessageflow")
     ```
 """
+
 from .client import WorkMailMessageFlowClient
 
 Client = WorkMailMessageFlowClient

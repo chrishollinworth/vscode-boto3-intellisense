@@ -16,6 +16,7 @@ Usage::
     session_client: BedrockRuntimeClient = session.client("bedrock-runtime")
     ```
 """
+
 from .client import BedrockRuntimeClient
 
 Client = BedrockRuntimeClient

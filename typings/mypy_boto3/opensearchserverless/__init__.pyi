@@ -16,6 +16,7 @@ Usage::
     session_client: OpenSearchServiceServerlessClient = session.client("opensearchserverless")
     ```
 """
+
 from .client import OpenSearchServiceServerlessClient
 
 Client = OpenSearchServiceServerlessClient

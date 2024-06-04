@@ -16,6 +16,7 @@ Usage::
     session_client: SageMakerFeatureStoreRuntimeClient = session.client("sagemaker-featurestore-runtime")
     ```
 """
+
 from .client import SageMakerFeatureStoreRuntimeClient
 
 Client = SageMakerFeatureStoreRuntimeClient

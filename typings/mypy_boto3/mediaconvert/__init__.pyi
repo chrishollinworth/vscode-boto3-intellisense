@@ -27,6 +27,7 @@ Usage::
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
     ```
 """
+
 from .client import MediaConvertClient
 from .paginator import (
     DescribeEndpointsPaginator,

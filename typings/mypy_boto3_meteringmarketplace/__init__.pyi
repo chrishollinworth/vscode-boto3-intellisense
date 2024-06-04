@@ -16,6 +16,7 @@ Usage::
     session_client: MarketplaceMeteringClient = session.client("meteringmarketplace")
     ```
 """
+
 from .client import MarketplaceMeteringClient
 
 Client = MarketplaceMeteringClient

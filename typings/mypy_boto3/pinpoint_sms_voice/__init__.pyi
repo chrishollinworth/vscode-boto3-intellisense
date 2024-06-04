@@ -16,6 +16,7 @@ Usage::
     session_client: PinpointSMSVoiceClient = session.client("pinpoint-sms-voice")
     ```
 """
+
 from .client import PinpointSMSVoiceClient
 
 Client = PinpointSMSVoiceClient

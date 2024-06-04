@@ -19,6 +19,7 @@ Usage::
     describe_report_definitions_paginator: DescribeReportDefinitionsPaginator = client.get_paginator("describe_report_definitions")
     ```
 """
+
 from .client import CostandUsageReportServiceClient
 from .paginator import DescribeReportDefinitionsPaginator
 

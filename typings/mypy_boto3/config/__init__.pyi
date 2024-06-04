@@ -79,6 +79,7 @@ Usage::
     select_resource_config_paginator: SelectResourceConfigPaginator = client.get_paginator("select_resource_config")
     ```
 """
+
 from .client import ConfigServiceClient
 from .paginator import (
     DescribeAggregateComplianceByConfigRulesPaginator,

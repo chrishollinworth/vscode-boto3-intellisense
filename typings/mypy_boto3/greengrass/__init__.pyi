@@ -55,6 +55,7 @@ Usage::
     list_subscription_definitions_paginator: ListSubscriptionDefinitionsPaginator = client.get_paginator("list_subscription_definitions")
     ```
 """
+
 from .client import GreengrassClient
 from .paginator import (
     ListBulkDeploymentDetailedReportsPaginator,

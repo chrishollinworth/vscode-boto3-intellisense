@@ -11,6 +11,7 @@ Usage::
     data: AssociateClientDeviceWithCoreDeviceEntryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -29,12 +30,14 @@ from .literals import (
     EffectiveDeploymentExecutionStatusType,
     InstalledComponentLifecycleStateType,
     InstalledComponentTopologyFilterType,
+    IotEndpointTypeType,
     IoTJobExecutionFailureTypeType,
     LambdaEventSourceTypeType,
     LambdaFilesystemPermissionType,
     LambdaInputPayloadEncodingTypeType,
     LambdaIsolationModeType,
     RecipeOutputFormatType,
+    S3EndpointTypeType,
     VendorGuidanceType,
 )
 
@@ -295,15 +298,26 @@ ComponentDependencyRequirementTypeDef = TypedDict(
     total=False,
 )
 
-ComponentDeploymentSpecificationTypeDef = TypedDict(
-    "ComponentDeploymentSpecificationTypeDef",
+_RequiredComponentDeploymentSpecificationTypeDef = TypedDict(
+    "_RequiredComponentDeploymentSpecificationTypeDef",
     {
         "componentVersion": str,
+    },
+)
+_OptionalComponentDeploymentSpecificationTypeDef = TypedDict(
+    "_OptionalComponentDeploymentSpecificationTypeDef",
+    {
         "configurationUpdate": "ComponentConfigurationUpdateTypeDef",
         "runWith": "ComponentRunWithTypeDef",
     },
     total=False,
 )
+
+class ComponentDeploymentSpecificationTypeDef(
+    _RequiredComponentDeploymentSpecificationTypeDef,
+    _OptionalComponentDeploymentSpecificationTypeDef,
+):
+    pass
 
 ComponentLatestVersionTypeDef = TypedDict(
     "ComponentLatestVersionTypeDef",
@@ -623,13 +637,27 @@ GetComponentResponseTypeDef = TypedDict(
     },
 )
 
-GetComponentVersionArtifactRequestRequestTypeDef = TypedDict(
-    "GetComponentVersionArtifactRequestRequestTypeDef",
+_RequiredGetComponentVersionArtifactRequestRequestTypeDef = TypedDict(
+    "_RequiredGetComponentVersionArtifactRequestRequestTypeDef",
     {
         "arn": str,
         "artifactName": str,
     },
 )
+_OptionalGetComponentVersionArtifactRequestRequestTypeDef = TypedDict(
+    "_OptionalGetComponentVersionArtifactRequestRequestTypeDef",
+    {
+        "s3EndpointType": S3EndpointTypeType,
+        "iotEndpointType": IotEndpointTypeType,
+    },
+    total=False,
+)
+
+class GetComponentVersionArtifactRequestRequestTypeDef(
+    _RequiredGetComponentVersionArtifactRequestRequestTypeDef,
+    _OptionalGetComponentVersionArtifactRequestRequestTypeDef,
+):
+    pass
 
 GetComponentVersionArtifactResponseTypeDef = TypedDict(
     "GetComponentVersionArtifactResponseTypeDef",

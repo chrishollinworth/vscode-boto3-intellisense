@@ -11,6 +11,7 @@ Usage::
     data: ListDeviceEventsPaginatorName = "list_device_events"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

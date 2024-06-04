@@ -11,6 +11,7 @@ Usage::
     data: ListRetainedMessagesPaginatorName = "list_retained_messages"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

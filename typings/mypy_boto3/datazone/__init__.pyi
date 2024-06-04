@@ -17,6 +17,7 @@ Usage::
         ListEnvironmentBlueprintsPaginator,
         ListEnvironmentProfilesPaginator,
         ListEnvironmentsPaginator,
+        ListMetadataGenerationRunsPaginator,
         ListNotificationsPaginator,
         ListProjectMembershipsPaginator,
         ListProjectsPaginator,
@@ -24,6 +25,7 @@ Usage::
         ListSubscriptionRequestsPaginator,
         ListSubscriptionTargetsPaginator,
         ListSubscriptionsPaginator,
+        ListTimeSeriesDataPointsPaginator,
         SearchGroupProfilesPaginator,
         SearchListingsPaginator,
         SearchPaginator,
@@ -45,6 +47,7 @@ Usage::
     list_environment_blueprints_paginator: ListEnvironmentBlueprintsPaginator = client.get_paginator("list_environment_blueprints")
     list_environment_profiles_paginator: ListEnvironmentProfilesPaginator = client.get_paginator("list_environment_profiles")
     list_environments_paginator: ListEnvironmentsPaginator = client.get_paginator("list_environments")
+    list_metadata_generation_runs_paginator: ListMetadataGenerationRunsPaginator = client.get_paginator("list_metadata_generation_runs")
     list_notifications_paginator: ListNotificationsPaginator = client.get_paginator("list_notifications")
     list_project_memberships_paginator: ListProjectMembershipsPaginator = client.get_paginator("list_project_memberships")
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
@@ -52,6 +55,7 @@ Usage::
     list_subscription_requests_paginator: ListSubscriptionRequestsPaginator = client.get_paginator("list_subscription_requests")
     list_subscription_targets_paginator: ListSubscriptionTargetsPaginator = client.get_paginator("list_subscription_targets")
     list_subscriptions_paginator: ListSubscriptionsPaginator = client.get_paginator("list_subscriptions")
+    list_time_series_data_points_paginator: ListTimeSeriesDataPointsPaginator = client.get_paginator("list_time_series_data_points")
     search_paginator: SearchPaginator = client.get_paginator("search")
     search_group_profiles_paginator: SearchGroupProfilesPaginator = client.get_paginator("search_group_profiles")
     search_listings_paginator: SearchListingsPaginator = client.get_paginator("search_listings")
@@ -59,6 +63,7 @@ Usage::
     search_user_profiles_paginator: SearchUserProfilesPaginator = client.get_paginator("search_user_profiles")
     ```
 """
+
 from .client import DataZoneClient
 from .paginator import (
     ListAssetRevisionsPaginator,
@@ -70,6 +75,7 @@ from .paginator import (
     ListEnvironmentBlueprintsPaginator,
     ListEnvironmentProfilesPaginator,
     ListEnvironmentsPaginator,
+    ListMetadataGenerationRunsPaginator,
     ListNotificationsPaginator,
     ListProjectMembershipsPaginator,
     ListProjectsPaginator,
@@ -77,6 +83,7 @@ from .paginator import (
     ListSubscriptionRequestsPaginator,
     ListSubscriptionsPaginator,
     ListSubscriptionTargetsPaginator,
+    ListTimeSeriesDataPointsPaginator,
     SearchGroupProfilesPaginator,
     SearchListingsPaginator,
     SearchPaginator,
@@ -98,6 +105,7 @@ __all__ = (
     "ListEnvironmentBlueprintsPaginator",
     "ListEnvironmentProfilesPaginator",
     "ListEnvironmentsPaginator",
+    "ListMetadataGenerationRunsPaginator",
     "ListNotificationsPaginator",
     "ListProjectMembershipsPaginator",
     "ListProjectsPaginator",
@@ -105,6 +113,7 @@ __all__ = (
     "ListSubscriptionRequestsPaginator",
     "ListSubscriptionTargetsPaginator",
     "ListSubscriptionsPaginator",
+    "ListTimeSeriesDataPointsPaginator",
     "SearchGroupProfilesPaginator",
     "SearchListingsPaginator",
     "SearchPaginator",

@@ -6,11 +6,12 @@ Type annotations for connectcases service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_connectcases.literals import CommentBodyTextTypeType
+    from mypy_boto3_connectcases.literals import AuditEventTypeType
 
-    data: CommentBodyTextTypeType = "Text/Plain"
+    data: AuditEventTypeType = "Case.Created"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AuditEventTypeType",
     "CommentBodyTextTypeType",
     "DomainStatusType",
     "FieldNamespaceType",
@@ -30,12 +32,13 @@ __all__ = (
     "TemplateStatusType",
 )
 
+AuditEventTypeType = Literal["Case.Created", "Case.Updated", "RelatedItem.Created"]
 CommentBodyTextTypeType = Literal["Text/Plain"]
 DomainStatusType = Literal["Active", "CreationFailed", "CreationInProgress"]
 FieldNamespaceType = Literal["Custom", "System"]
-FieldTypeType = Literal["Boolean", "DateTime", "Number", "SingleSelect", "Text", "Url"]
+FieldTypeType = Literal["Boolean", "DateTime", "Number", "SingleSelect", "Text", "Url", "User"]
 OrderType = Literal["Asc", "Desc"]
-RelatedItemTypeType = Literal["Comment", "Contact"]
+RelatedItemTypeType = Literal["Comment", "Contact", "File"]
 SearchCasesPaginatorName = Literal["search_cases"]
 SearchRelatedItemsPaginatorName = Literal["search_related_items"]
 TemplateStatusType = Literal["Active", "Inactive"]

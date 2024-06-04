@@ -11,6 +11,7 @@ Usage::
     data: BuildTypeType = "IMPORT"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -39,12 +40,15 @@ __all__ = (
     "LifecyclePolicyResourceTypeType",
     "LifecyclePolicyStatusType",
     "LifecyclePolicyTimeUnitType",
+    "OnWorkflowFailureType",
     "OwnershipType",
     "PipelineExecutionStartConditionType",
     "PipelineStatusType",
     "PlatformType",
     "ResourceStatusType",
     "WorkflowExecutionStatusType",
+    "WorkflowStatusType",
+    "WorkflowStepActionTypeType",
     "WorkflowStepExecutionRollbackStatusType",
     "WorkflowStepExecutionStatusType",
     "WorkflowTypeType",
@@ -80,13 +84,14 @@ ImageTypeType = Literal["AMI", "DOCKER"]
 LifecycleExecutionResourceActionNameType = Literal["AVAILABLE", "DELETE", "DEPRECATE", "DISABLE"]
 LifecycleExecutionResourceStatusType = Literal["FAILED", "IN_PROGRESS", "SKIPPED", "SUCCESS"]
 LifecycleExecutionStatusType = Literal[
-    "CANCELLED", "CANCELLING", "FAILED", "IN_PROGRESS", "SUCCESS"
+    "CANCELLED", "CANCELLING", "FAILED", "IN_PROGRESS", "PENDING", "SUCCESS"
 ]
 LifecyclePolicyDetailActionTypeType = Literal["DELETE", "DEPRECATE", "DISABLE"]
 LifecyclePolicyDetailFilterTypeType = Literal["AGE", "COUNT"]
 LifecyclePolicyResourceTypeType = Literal["AMI_IMAGE", "CONTAINER_IMAGE"]
 LifecyclePolicyStatusType = Literal["DISABLED", "ENABLED"]
 LifecyclePolicyTimeUnitType = Literal["DAYS", "MONTHS", "WEEKS", "YEARS"]
+OnWorkflowFailureType = Literal["ABORT", "CONTINUE"]
 OwnershipType = Literal["Amazon", "Self", "Shared", "ThirdParty"]
 PipelineExecutionStartConditionType = Literal[
     "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE", "EXPRESSION_MATCH_ONLY"
@@ -95,6 +100,7 @@ PipelineStatusType = Literal["DISABLED", "ENABLED"]
 PlatformType = Literal["Linux", "Windows"]
 ResourceStatusType = Literal["AVAILABLE", "DELETED", "DEPRECATED", "DISABLED"]
 WorkflowExecutionStatusType = Literal[
+    "CANCELLED",
     "COMPLETED",
     "FAILED",
     "PENDING",
@@ -103,6 +109,10 @@ WorkflowExecutionStatusType = Literal[
     "RUNNING",
     "SKIPPED",
 ]
+WorkflowStatusType = Literal["DEPRECATED"]
+WorkflowStepActionTypeType = Literal["RESUME", "STOP"]
 WorkflowStepExecutionRollbackStatusType = Literal["COMPLETED", "FAILED", "RUNNING", "SKIPPED"]
-WorkflowStepExecutionStatusType = Literal["COMPLETED", "FAILED", "PENDING", "RUNNING", "SKIPPED"]
+WorkflowStepExecutionStatusType = Literal[
+    "CANCELLED", "COMPLETED", "FAILED", "PENDING", "RUNNING", "SKIPPED"
+]
 WorkflowTypeType = Literal["BUILD", "DISTRIBUTION", "TEST"]

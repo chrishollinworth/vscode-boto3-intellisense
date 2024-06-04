@@ -16,6 +16,7 @@ Usage::
     session_client: ForecastQueryServiceClient = session.client("forecastquery")
     ```
 """
+
 from .client import ForecastQueryServiceClient
 
 Client = ForecastQueryServiceClient

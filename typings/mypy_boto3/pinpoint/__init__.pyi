@@ -16,6 +16,7 @@ Usage::
     session_client: PinpointClient = session.client("pinpoint")
     ```
 """
+
 from .client import PinpointClient
 
 Client = PinpointClient

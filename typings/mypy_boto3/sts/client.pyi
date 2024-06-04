@@ -12,6 +12,7 @@ Usage::
     client: STSClient = boto3.client("sts")
     ```
 """
+
 from typing import Any, Dict, List, Type
 
 from botocore.client import BaseClient, ClientMeta
@@ -52,7 +53,7 @@ class Exceptions:
 
 class STSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html)
     """
 
@@ -63,6 +64,7 @@ class STSClient(BaseClient):
         """
         STSClient exceptions.
         """
+
     def assume_role(
         self,
         *,
@@ -83,9 +85,10 @@ class STSClient(BaseClient):
         Returns a set of temporary security credentials that you can use to access
         Amazon Web Services resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.assume_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.assume_role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#assume_role)
         """
+
     def assume_role_with_saml(
         self,
         *,
@@ -100,9 +103,10 @@ class STSClient(BaseClient):
         Returns a set of temporary security credentials for users who have been
         authenticated via a SAML authentication response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.assume_role_with_saml)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.assume_role_with_saml)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#assume_role_with_saml)
         """
+
     def assume_role_with_web_identity(
         self,
         *,
@@ -118,23 +122,26 @@ class STSClient(BaseClient):
         Returns a set of temporary security credentials for users who have been
         authenticated in a mobile or web application with a web identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.assume_role_with_web_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.assume_role_with_web_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#assume_role_with_web_identity)
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#close)
         """
+
     def decode_authorization_message(
         self, *, EncodedMessage: str
     ) -> DecodeAuthorizationMessageResponseTypeDef:
@@ -142,9 +149,10 @@ class STSClient(BaseClient):
         Decodes additional information about the authorization status of a request from
         an encoded message returned in response to an Amazon Web Services request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.decode_authorization_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.decode_authorization_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#decode_authorization_message)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -155,24 +163,27 @@ class STSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#generate_presigned_url)
         """
+
     def get_access_key_info(self, *, AccessKeyId: str) -> GetAccessKeyInfoResponseTypeDef:
         """
         Returns the account identifier for the specified access key ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.get_access_key_info)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.get_access_key_info)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#get_access_key_info)
         """
+
     def get_caller_identity(self) -> GetCallerIdentityResponseTypeDef:
         """
         Returns details about the IAM user or role whose credentials are used to call
         the operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.get_caller_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.get_caller_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#get_caller_identity)
         """
+
     def get_federation_token(
         self,
         *,
@@ -186,9 +197,10 @@ class STSClient(BaseClient):
         Returns a set of temporary security credentials (consisting of an access key ID,
         a secret access key, and a security token) for a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.get_federation_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.get_federation_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#get_federation_token)
         """
+
     def get_session_token(
         self, *, DurationSeconds: int = None, SerialNumber: str = None, TokenCode: str = None
     ) -> GetSessionTokenResponseTypeDef:
@@ -196,6 +208,6 @@ class STSClient(BaseClient):
         Returns a set of temporary credentials for an Amazon Web Services account or IAM
         user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sts.html#STS.Client.get_session_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sts.html#STS.Client.get_session_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#get_session_token)
         """

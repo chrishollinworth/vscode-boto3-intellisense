@@ -11,6 +11,7 @@ Usage::
     data: AccessPolicyDetailTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -18,6 +19,7 @@ from .literals import (
     CollectionStatusType,
     CollectionTypeType,
     SecurityPolicyTypeType,
+    StandbyReplicasType,
     VpcEndpointStatusType,
 )
 
@@ -265,6 +267,7 @@ CollectionDetailTypeDef = TypedDict(
         "kmsKeyArn": str,
         "lastModifiedDate": int,
         "name": str,
+        "standbyReplicas": StandbyReplicasType,
         "status": CollectionStatusType,
         "type": CollectionTypeType,
     },
@@ -343,6 +346,7 @@ CreateCollectionDetailTypeDef = TypedDict(
         "kmsKeyArn": str,
         "lastModifiedDate": int,
         "name": str,
+        "standbyReplicas": StandbyReplicasType,
         "status": CollectionStatusType,
         "type": CollectionTypeType,
     },
@@ -360,6 +364,7 @@ _OptionalCreateCollectionRequestRequestTypeDef = TypedDict(
     {
         "clientToken": str,
         "description": str,
+        "standbyReplicas": StandbyReplicasType,
         "tags": List["TagTypeDef"],
         "type": CollectionTypeType,
     },

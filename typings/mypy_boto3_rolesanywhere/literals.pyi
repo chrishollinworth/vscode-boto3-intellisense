@@ -6,11 +6,12 @@ Type annotations for rolesanywhere service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_rolesanywhere.literals import ListCrlsPaginatorName
+    from mypy_boto3_rolesanywhere.literals import CertificateFieldType
 
-    data: ListCrlsPaginatorName = "list_crls"
+    data: CertificateFieldType = "x509Issuer"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "CertificateFieldType",
     "ListCrlsPaginatorName",
     "ListProfilesPaginatorName",
     "ListSubjectsPaginatorName",
@@ -28,6 +30,7 @@ __all__ = (
     "TrustAnchorTypeType",
 )
 
+CertificateFieldType = Literal["x509Issuer", "x509SAN", "x509Subject"]
 ListCrlsPaginatorName = Literal["list_crls"]
 ListProfilesPaginatorName = Literal["list_profiles"]
 ListSubjectsPaginatorName = Literal["list_subjects"]

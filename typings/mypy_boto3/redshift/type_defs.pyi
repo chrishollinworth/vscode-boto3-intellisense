@@ -11,6 +11,7 @@ Usage::
     data: AcceptReservedNodeExchangeInputMessageRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -23,12 +24,14 @@ from .literals import (
     DataShareStatusForConsumerType,
     DataShareStatusForProducerType,
     DataShareStatusType,
+    ImpactRankingTypeType,
     LogDestinationTypeType,
     ModeType,
     NodeConfigurationOptionsFilterNameType,
     OperatorTypeType,
     ParameterApplyTypeType,
     PartnerIntegrationStatusType,
+    RecommendedActionTypeType,
     ReservedNodeExchangeActionTypeType,
     ReservedNodeExchangeStatusTypeType,
     ReservedNodeOfferingTypeType,
@@ -255,6 +258,8 @@ __all__ = (
     "IntegrationErrorTypeDef",
     "LakeFormationQueryTypeDef",
     "LakeFormationScopeUnionTypeDef",
+    "ListRecommendationsMessageRequestTypeDef",
+    "ListRecommendationsResultTypeDef",
     "LoggingStatusTypeDef",
     "MaintenanceTrackTypeDef",
     "ModifyAquaInputMessageRequestTypeDef",
@@ -308,8 +313,11 @@ __all__ = (
     "PutResourcePolicyResultTypeDef",
     "RebootClusterMessageRequestTypeDef",
     "RebootClusterResultTypeDef",
+    "RecommendationTypeDef",
+    "RecommendedActionTypeDef",
     "RecurringChargeTypeDef",
     "RedshiftIdcApplicationTypeDef",
+    "ReferenceLinkTypeDef",
     "RejectDataShareMessageRequestTypeDef",
     "ReservedNodeConfigurationOptionTypeDef",
     "ReservedNodeExchangeStatusTypeDef",
@@ -2836,6 +2844,26 @@ LakeFormationScopeUnionTypeDef = TypedDict(
     total=False,
 )
 
+ListRecommendationsMessageRequestTypeDef = TypedDict(
+    "ListRecommendationsMessageRequestTypeDef",
+    {
+        "ClusterIdentifier": str,
+        "NamespaceArn": str,
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+ListRecommendationsResultTypeDef = TypedDict(
+    "ListRecommendationsResultTypeDef",
+    {
+        "Recommendations": List["RecommendationTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 LoggingStatusTypeDef = TypedDict(
     "LoggingStatusTypeDef",
     {
@@ -3531,6 +3559,36 @@ RebootClusterResultTypeDef = TypedDict(
     },
 )
 
+RecommendationTypeDef = TypedDict(
+    "RecommendationTypeDef",
+    {
+        "Id": str,
+        "ClusterIdentifier": str,
+        "NamespaceArn": str,
+        "CreatedAt": datetime,
+        "RecommendationType": str,
+        "Title": str,
+        "Description": str,
+        "Observation": str,
+        "ImpactRanking": ImpactRankingTypeType,
+        "RecommendationText": str,
+        "RecommendedActions": List["RecommendedActionTypeDef"],
+        "ReferenceLinks": List["ReferenceLinkTypeDef"],
+    },
+    total=False,
+)
+
+RecommendedActionTypeDef = TypedDict(
+    "RecommendedActionTypeDef",
+    {
+        "Text": str,
+        "Database": str,
+        "Command": str,
+        "Type": RecommendedActionTypeType,
+    },
+    total=False,
+)
+
 RecurringChargeTypeDef = TypedDict(
     "RecurringChargeTypeDef",
     {
@@ -3553,6 +3611,15 @@ RedshiftIdcApplicationTypeDef = TypedDict(
         "IdcOnboardStatus": str,
         "AuthorizedTokenIssuerList": List["AuthorizedTokenIssuerTypeDef"],
         "ServiceIntegrations": List["ServiceIntegrationsUnionTypeDef"],
+    },
+    total=False,
+)
+
+ReferenceLinkTypeDef = TypedDict(
+    "ReferenceLinkTypeDef",
+    {
+        "Text": str,
+        "Link": str,
     },
     total=False,
 )
@@ -4203,6 +4270,7 @@ SnapshotTypeDef = TypedDict(
         "SnapshotRetentionStartTime": datetime,
         "MasterPasswordSecretArn": str,
         "MasterPasswordSecretKmsKeyId": str,
+        "SnapshotArn": str,
     },
     total=False,
 )

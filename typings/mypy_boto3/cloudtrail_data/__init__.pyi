@@ -16,6 +16,7 @@ Usage::
     session_client: CloudTrailDataServiceClient = session.client("cloudtrail-data")
     ```
 """
+
 from .client import CloudTrailDataServiceClient
 
 Client = CloudTrailDataServiceClient

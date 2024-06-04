@@ -11,10 +11,12 @@ Usage::
     data: AttendeeCapabilitiesTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    ContentResolutionType,
     MediaCapabilitiesType,
     MeetingFeatureStatusType,
     TranscribeLanguageCodeType,
@@ -24,6 +26,7 @@ from .literals import (
     TranscribePartialResultsStabilityType,
     TranscribeRegionType,
     TranscribeVocabularyFilterMethodType,
+    VideoResolutionType,
 )
 
 if sys.version_info >= (3, 8):
@@ -37,12 +40,14 @@ else:
 
 __all__ = (
     "AttendeeCapabilitiesTypeDef",
+    "AttendeeFeaturesTypeDef",
     "AttendeeIdItemTypeDef",
     "AttendeeTypeDef",
     "AudioFeaturesTypeDef",
     "BatchCreateAttendeeRequestRequestTypeDef",
     "BatchCreateAttendeeResponseTypeDef",
     "BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef",
+    "ContentFeaturesTypeDef",
     "CreateAttendeeErrorTypeDef",
     "CreateAttendeeRequestItemTypeDef",
     "CreateAttendeeRequestRequestTypeDef",
@@ -76,6 +81,7 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateAttendeeCapabilitiesRequestRequestTypeDef",
     "UpdateAttendeeCapabilitiesResponseTypeDef",
+    "VideoFeaturesTypeDef",
 )
 
 AttendeeCapabilitiesTypeDef = TypedDict(
@@ -85,6 +91,14 @@ AttendeeCapabilitiesTypeDef = TypedDict(
         "Video": MediaCapabilitiesType,
         "Content": MediaCapabilitiesType,
     },
+)
+
+AttendeeFeaturesTypeDef = TypedDict(
+    "AttendeeFeaturesTypeDef",
+    {
+        "MaxCount": int,
+    },
+    total=False,
 )
 
 AttendeeIdItemTypeDef = TypedDict(
@@ -137,6 +151,14 @@ BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef = TypedDict(
         "ExcludedAttendeeIds": List["AttendeeIdItemTypeDef"],
         "Capabilities": "AttendeeCapabilitiesTypeDef",
     },
+)
+
+ContentFeaturesTypeDef = TypedDict(
+    "ContentFeaturesTypeDef",
+    {
+        "MaxResolution": ContentResolutionType,
+    },
+    total=False,
 )
 
 CreateAttendeeErrorTypeDef = TypedDict(
@@ -423,6 +445,9 @@ MeetingFeaturesConfigurationTypeDef = TypedDict(
     "MeetingFeaturesConfigurationTypeDef",
     {
         "Audio": "AudioFeaturesTypeDef",
+        "Video": "VideoFeaturesTypeDef",
+        "Content": "ContentFeaturesTypeDef",
+        "Attendee": "AttendeeFeaturesTypeDef",
     },
     total=False,
 )
@@ -527,4 +552,12 @@ UpdateAttendeeCapabilitiesResponseTypeDef = TypedDict(
         "Attendee": "AttendeeTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+VideoFeaturesTypeDef = TypedDict(
+    "VideoFeaturesTypeDef",
+    {
+        "MaxResolution": VideoResolutionType,
+    },
+    total=False,
 )

@@ -11,6 +11,7 @@ Usage::
     data: DescribeScalingPlanResourcesPaginatorName = "describe_scaling_plan_resources"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

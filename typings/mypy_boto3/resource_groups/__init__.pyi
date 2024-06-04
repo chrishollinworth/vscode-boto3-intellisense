@@ -23,6 +23,7 @@ Usage::
     search_resources_paginator: SearchResourcesPaginator = client.get_paginator("search_resources")
     ```
 """
+
 from .client import ResourceGroupsClient
 from .paginator import ListGroupResourcesPaginator, ListGroupsPaginator, SearchResourcesPaginator
 

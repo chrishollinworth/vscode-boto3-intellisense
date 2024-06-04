@@ -23,6 +23,7 @@ Usage::
     query_paginator: QueryPaginator = client.get_paginator("query")
     ```
 """
+
 from .client import TimestreamQueryClient
 from .paginator import ListScheduledQueriesPaginator, ListTagsForResourcePaginator, QueryPaginator
 

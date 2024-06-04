@@ -9,6 +9,7 @@ Usage::
         Client,
         EMRServerlessClient,
         ListApplicationsPaginator,
+        ListJobRunAttemptsPaginator,
         ListJobRunsPaginator,
     )
 
@@ -18,12 +19,20 @@ Usage::
     session_client: EMRServerlessClient = session.client("emr-serverless")
 
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
+    list_job_run_attempts_paginator: ListJobRunAttemptsPaginator = client.get_paginator("list_job_run_attempts")
     list_job_runs_paginator: ListJobRunsPaginator = client.get_paginator("list_job_runs")
     ```
 """
+
 from .client import EMRServerlessClient
-from .paginator import ListApplicationsPaginator, ListJobRunsPaginator
+from .paginator import ListApplicationsPaginator, ListJobRunAttemptsPaginator, ListJobRunsPaginator
 
 Client = EMRServerlessClient
 
-__all__ = ("Client", "EMRServerlessClient", "ListApplicationsPaginator", "ListJobRunsPaginator")
+__all__ = (
+    "Client",
+    "EMRServerlessClient",
+    "ListApplicationsPaginator",
+    "ListJobRunAttemptsPaginator",
+    "ListJobRunsPaginator",
+)

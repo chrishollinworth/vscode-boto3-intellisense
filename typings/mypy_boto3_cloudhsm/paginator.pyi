@@ -22,6 +22,7 @@ Usage::
     list_luna_clients_paginator: ListLunaClientsPaginator = client.get_paginator("list_luna_clients")
     ```
 """
+
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -37,7 +38,7 @@ __all__ = ("ListHapgsPaginator", "ListHsmsPaginator", "ListLunaClientsPaginator"
 
 class ListHapgsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listhapgspaginator)
     """
 
@@ -45,13 +46,13 @@ class ListHapgsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHapgsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listhapgspaginator)
         """
 
 class ListHsmsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listhsmspaginator)
     """
 
@@ -59,13 +60,13 @@ class ListHsmsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHsmsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listhsmspaginator)
         """
 
 class ListLunaClientsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listlunaclientspaginator)
     """
 
@@ -73,6 +74,6 @@ class ListLunaClientsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLunaClientsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listlunaclientspaginator)
         """

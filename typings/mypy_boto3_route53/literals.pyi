@@ -11,6 +11,7 @@ Usage::
     data: AccountLimitTypeType = "MAX_HEALTH_CHECKS_BY_OWNER"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -72,6 +73,7 @@ CloudWatchRegionType = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ca-central-1",
+    "ca-west-1",
     "cn-north-1",
     "cn-northwest-1",
     "eu-central-1",
@@ -153,6 +155,7 @@ ResourceRecordSetRegionType = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ca-central-1",
+    "ca-west-1",
     "cn-north-1",
     "cn-northwest-1",
     "eu-central-1",
@@ -189,6 +192,7 @@ VPCRegionType = Literal[
     "ap-southeast-3",
     "ap-southeast-4",
     "ca-central-1",
+    "ca-west-1",
     "cn-north-1",
     "eu-central-1",
     "eu-central-2",

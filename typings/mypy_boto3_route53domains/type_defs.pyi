@@ -11,6 +11,7 @@ Usage::
     data: AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -481,6 +482,8 @@ GetDomainDetailResponseTypeDef = TypedDict(
         "DnsSec": str,
         "StatusList": List[str],
         "DnssecKeys": List["DnssecKeyTypeDef"],
+        "BillingContact": "ContactDetailTypeDef",
+        "BillingPrivacy": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -677,6 +680,8 @@ _OptionalRegisterDomainRequestRequestTypeDef = TypedDict(
         "PrivacyProtectAdminContact": bool,
         "PrivacyProtectRegistrantContact": bool,
         "PrivacyProtectTechContact": bool,
+        "BillingContact": "ContactDetailTypeDef",
+        "PrivacyProtectBillingContact": bool,
     },
     total=False,
 )
@@ -825,6 +830,8 @@ _OptionalTransferDomainRequestRequestTypeDef = TypedDict(
         "PrivacyProtectAdminContact": bool,
         "PrivacyProtectRegistrantContact": bool,
         "PrivacyProtectTechContact": bool,
+        "BillingContact": "ContactDetailTypeDef",
+        "PrivacyProtectBillingContact": bool,
     },
     total=False,
 )
@@ -871,6 +878,7 @@ _OptionalUpdateDomainContactPrivacyRequestRequestTypeDef = TypedDict(
         "AdminPrivacy": bool,
         "RegistrantPrivacy": bool,
         "TechPrivacy": bool,
+        "BillingPrivacy": bool,
     },
     total=False,
 )
@@ -902,6 +910,7 @@ _OptionalUpdateDomainContactRequestRequestTypeDef = TypedDict(
         "RegistrantContact": "ContactDetailTypeDef",
         "TechContact": "ContactDetailTypeDef",
         "Consent": "ConsentTypeDef",
+        "BillingContact": "ContactDetailTypeDef",
     },
     total=False,
 )

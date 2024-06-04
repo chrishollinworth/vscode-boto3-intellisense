@@ -11,6 +11,7 @@ Usage::
     data: AlgorithmSpecificationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -41,6 +42,7 @@ else:
 
 __all__ = (
     "AlgorithmSpecificationTypeDef",
+    "AssociationTypeDef",
     "CancelJobRequestRequestTypeDef",
     "CancelJobResponseTypeDef",
     "CancelQuantumTaskRequestRequestTypeDef",
@@ -98,6 +100,14 @@ AlgorithmSpecificationTypeDef = TypedDict(
     total=False,
 )
 
+AssociationTypeDef = TypedDict(
+    "AssociationTypeDef",
+    {
+        "arn": str,
+        "type": Literal["RESERVATION_TIME_WINDOW_ARN"],
+    },
+)
+
 CancelJobRequestRequestTypeDef = TypedDict(
     "CancelJobRequestRequestTypeDef",
     {
@@ -153,6 +163,7 @@ _RequiredCreateJobRequestRequestTypeDef = TypedDict(
 _OptionalCreateJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreateJobRequestRequestTypeDef",
     {
+        "associations": List["AssociationTypeDef"],
         "checkpointConfig": "JobCheckpointConfigTypeDef",
         "hyperParameters": Dict[str, str],
         "inputDataConfig": List["InputFileConfigTypeDef"],
@@ -189,6 +200,7 @@ _RequiredCreateQuantumTaskRequestRequestTypeDef = TypedDict(
 _OptionalCreateQuantumTaskRequestRequestTypeDef = TypedDict(
     "_OptionalCreateQuantumTaskRequestRequestTypeDef",
     {
+        "associations": List["AssociationTypeDef"],
         "deviceParameters": str,
         "jobToken": str,
         "tags": Dict[str, str],
@@ -296,6 +308,7 @@ GetJobResponseTypeDef = TypedDict(
     "GetJobResponseTypeDef",
     {
         "algorithmSpecification": "AlgorithmSpecificationTypeDef",
+        "associations": List["AssociationTypeDef"],
         "billableDuration": int,
         "checkpointConfig": "JobCheckpointConfigTypeDef",
         "createdAt": datetime,
@@ -341,6 +354,7 @@ class GetQuantumTaskRequestRequestTypeDef(
 GetQuantumTaskResponseTypeDef = TypedDict(
     "GetQuantumTaskResponseTypeDef",
     {
+        "associations": List["AssociationTypeDef"],
         "createdAt": datetime,
         "deviceArn": str,
         "deviceParameters": str,

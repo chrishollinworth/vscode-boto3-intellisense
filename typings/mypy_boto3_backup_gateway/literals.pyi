@@ -11,6 +11,7 @@ Usage::
     data: GatewayTypeType = "BACKUP_VM"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

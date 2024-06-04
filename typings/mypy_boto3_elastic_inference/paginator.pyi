@@ -18,6 +18,7 @@ Usage::
     describe_accelerators_paginator: DescribeAcceleratorsPaginator = client.get_paginator("describe_accelerators")
     ```
 """
+
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -28,7 +29,7 @@ __all__ = ("DescribeAcceleratorsPaginator",)
 
 class DescribeAcceleratorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/paginators.html#describeacceleratorspaginator)
     """
 
@@ -40,6 +41,6 @@ class DescribeAcceleratorsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAcceleratorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/paginators.html#describeacceleratorspaginator)
         """

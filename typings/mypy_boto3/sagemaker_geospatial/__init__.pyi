@@ -23,6 +23,7 @@ Usage::
     list_vector_enrichment_jobs_paginator: ListVectorEnrichmentJobsPaginator = client.get_paginator("list_vector_enrichment_jobs")
     ```
 """
+
 from .client import SageMakergeospatialcapabilitiesClient
 from .paginator import (
     ListEarthObservationJobsPaginator,

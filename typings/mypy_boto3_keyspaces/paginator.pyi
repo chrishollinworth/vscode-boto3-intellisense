@@ -22,6 +22,7 @@ Usage::
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     ```
 """
+
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -37,7 +38,7 @@ __all__ = ("ListKeyspacesPaginator", "ListTablesPaginator", "ListTagsForResource
 
 class ListKeyspacesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/keyspaces.html#Keyspaces.Paginator.ListKeyspaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListKeyspaces)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listkeyspacespaginator)
     """
 
@@ -45,13 +46,13 @@ class ListKeyspacesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKeyspacesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/keyspaces.html#Keyspaces.Paginator.ListKeyspaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListKeyspaces.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listkeyspacespaginator)
         """
 
 class ListTablesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/keyspaces.html#Keyspaces.Paginator.ListTables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListTables)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listtablespaginator)
     """
 
@@ -59,13 +60,13 @@ class ListTablesPaginator(Boto3Paginator):
         self, *, keyspaceName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTablesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/keyspaces.html#Keyspaces.Paginator.ListTables.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListTables.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listtablespaginator)
         """
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/keyspaces.html#Keyspaces.Paginator.ListTagsForResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListTagsForResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listtagsforresourcepaginator)
     """
 
@@ -73,6 +74,6 @@ class ListTagsForResourcePaginator(Boto3Paginator):
         self, *, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/keyspaces.html#Keyspaces.Paginator.ListTagsForResource.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListTagsForResource.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listtagsforresourcepaginator)
         """

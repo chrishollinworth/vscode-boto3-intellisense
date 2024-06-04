@@ -35,6 +35,7 @@ Usage::
     list_users_in_group_paginator: ListUsersInGroupPaginator = client.get_paginator("list_users_in_group")
     ```
 """
+
 from .client import CognitoIdentityProviderClient
 from .paginator import (
     AdminListGroupsForUserPaginator,

@@ -14,6 +14,7 @@ Usage::
         ListAliasesPaginator,
         ListGrantsPaginator,
         ListKeyPoliciesPaginator,
+        ListKeyRotationsPaginator,
         ListKeysPaginator,
         ListResourceTagsPaginator,
         ListRetirableGrantsPaginator,
@@ -25,11 +26,13 @@ Usage::
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_grants_paginator: ListGrantsPaginator = client.get_paginator("list_grants")
     list_key_policies_paginator: ListKeyPoliciesPaginator = client.get_paginator("list_key_policies")
+    list_key_rotations_paginator: ListKeyRotationsPaginator = client.get_paginator("list_key_rotations")
     list_keys_paginator: ListKeysPaginator = client.get_paginator("list_keys")
     list_resource_tags_paginator: ListResourceTagsPaginator = client.get_paginator("list_resource_tags")
     list_retirable_grants_paginator: ListRetirableGrantsPaginator = client.get_paginator("list_retirable_grants")
     ```
 """
+
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -39,6 +42,7 @@ from .type_defs import (
     ListAliasesResponseTypeDef,
     ListGrantsResponseTypeDef,
     ListKeyPoliciesResponseTypeDef,
+    ListKeyRotationsResponseTypeDef,
     ListKeysResponseTypeDef,
     ListResourceTagsResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -49,6 +53,7 @@ __all__ = (
     "ListAliasesPaginator",
     "ListGrantsPaginator",
     "ListKeyPoliciesPaginator",
+    "ListKeyRotationsPaginator",
     "ListKeysPaginator",
     "ListResourceTagsPaginator",
     "ListRetirableGrantsPaginator",
@@ -56,7 +61,7 @@ __all__ = (
 
 class DescribeCustomKeyStoresPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.DescribeCustomKeyStores)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.DescribeCustomKeyStores)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#describecustomkeystorespaginator)
     """
 
@@ -68,13 +73,13 @@ class DescribeCustomKeyStoresPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeCustomKeyStoresResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.DescribeCustomKeyStores.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.DescribeCustomKeyStores.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#describecustomkeystorespaginator)
         """
 
 class ListAliasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListAliases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListAliases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listaliasespaginator)
     """
 
@@ -82,13 +87,13 @@ class ListAliasesPaginator(Boto3Paginator):
         self, *, KeyId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAliasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListAliases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListAliases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listaliasespaginator)
         """
 
 class ListGrantsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListGrants)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListGrants)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listgrantspaginator)
     """
 
@@ -101,13 +106,13 @@ class ListGrantsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGrantsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListGrants.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListGrants.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listgrantspaginator)
         """
 
 class ListKeyPoliciesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listkeypoliciespaginator)
     """
 
@@ -115,13 +120,27 @@ class ListKeyPoliciesPaginator(Boto3Paginator):
         self, *, KeyId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKeyPoliciesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListKeyPolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListKeyPolicies.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listkeypoliciespaginator)
+        """
+
+class ListKeyRotationsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListKeyRotations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listkeyrotationspaginator)
+    """
+
+    def paginate(
+        self, *, KeyId: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListKeyRotationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListKeyRotations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listkeyrotationspaginator)
         """
 
 class ListKeysPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListKeys)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListKeys)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listkeyspaginator)
     """
 
@@ -129,13 +148,13 @@ class ListKeysPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKeysResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListKeys.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListKeys.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listkeyspaginator)
         """
 
 class ListResourceTagsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListResourceTags)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListResourceTags)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listresourcetagspaginator)
     """
 
@@ -143,13 +162,13 @@ class ListResourceTagsPaginator(Boto3Paginator):
         self, *, KeyId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceTagsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListResourceTags.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListResourceTags.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listresourcetagspaginator)
         """
 
 class ListRetirableGrantsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListRetirableGrants)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListRetirableGrants)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listretirablegrantspaginator)
     """
 
@@ -157,6 +176,6 @@ class ListRetirableGrantsPaginator(Boto3Paginator):
         self, *, RetiringPrincipal: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGrantsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kms.html#KMS.Paginator.ListRetirableGrants.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kms.html#KMS.Paginator.ListRetirableGrants.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kms/paginators.html#listretirablegrantspaginator)
         """

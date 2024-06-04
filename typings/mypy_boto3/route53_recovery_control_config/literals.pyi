@@ -11,6 +11,7 @@ Usage::
     data: ClusterCreatedWaiterName = "cluster_created"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

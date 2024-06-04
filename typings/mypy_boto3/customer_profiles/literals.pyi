@@ -11,6 +11,7 @@ Usage::
     data: AttributeMatchingModelType = "MANY_TO_MANY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

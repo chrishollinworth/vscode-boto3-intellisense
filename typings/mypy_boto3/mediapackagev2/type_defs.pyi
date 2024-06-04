@@ -11,13 +11,18 @@ Usage::
     data: ChannelGroupListConfigurationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AdMarkerDashType,
     CmafEncryptionMethodType,
     ContainerTypeType,
+    DashDrmSignalingType,
+    DashPeriodTriggerType,
+    DashUtcTimingModeType,
     DrmSystemType,
     PresetSpeke20AudioType,
     PresetSpeke20VideoType,
@@ -41,10 +46,12 @@ __all__ = (
     "CreateChannelGroupResponseTypeDef",
     "CreateChannelRequestRequestTypeDef",
     "CreateChannelResponseTypeDef",
+    "CreateDashManifestConfigurationTypeDef",
     "CreateHlsManifestConfigurationTypeDef",
     "CreateLowLatencyHlsManifestConfigurationTypeDef",
     "CreateOriginEndpointRequestRequestTypeDef",
     "CreateOriginEndpointResponseTypeDef",
+    "DashUtcTimingTypeDef",
     "DeleteChannelGroupRequestRequestTypeDef",
     "DeleteChannelPolicyRequestRequestTypeDef",
     "DeleteChannelRequestRequestTypeDef",
@@ -60,6 +67,7 @@ __all__ = (
     "GetChannelPolicyResponseTypeDef",
     "GetChannelRequestRequestTypeDef",
     "GetChannelResponseTypeDef",
+    "GetDashManifestConfigurationTypeDef",
     "GetHlsManifestConfigurationTypeDef",
     "GetLowLatencyHlsManifestConfigurationTypeDef",
     "GetOriginEndpointPolicyRequestRequestTypeDef",
@@ -71,6 +79,7 @@ __all__ = (
     "ListChannelGroupsResponseTypeDef",
     "ListChannelsRequestRequestTypeDef",
     "ListChannelsResponseTypeDef",
+    "ListDashManifestConfigurationTypeDef",
     "ListHlsManifestConfigurationTypeDef",
     "ListLowLatencyHlsManifestConfigurationTypeDef",
     "ListOriginEndpointsRequestRequestTypeDef",
@@ -82,6 +91,7 @@ __all__ = (
     "PutChannelPolicyRequestRequestTypeDef",
     "PutOriginEndpointPolicyRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "ScteDashTypeDef",
     "ScteHlsTypeDef",
     "ScteTypeDef",
     "SegmentTypeDef",
@@ -171,6 +181,7 @@ CreateChannelGroupResponseTypeDef = TypedDict(
         "EgressDomain": str,
         "CreatedAt": datetime,
         "ModifiedAt": datetime,
+        "ETag": str,
         "Description": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -209,10 +220,39 @@ CreateChannelResponseTypeDef = TypedDict(
         "ModifiedAt": datetime,
         "Description": str,
         "IngestEndpoints": List["IngestEndpointTypeDef"],
+        "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredCreateDashManifestConfigurationTypeDef = TypedDict(
+    "_RequiredCreateDashManifestConfigurationTypeDef",
+    {
+        "ManifestName": str,
+    },
+)
+_OptionalCreateDashManifestConfigurationTypeDef = TypedDict(
+    "_OptionalCreateDashManifestConfigurationTypeDef",
+    {
+        "ManifestWindowSeconds": int,
+        "FilterConfiguration": "FilterConfigurationTypeDef",
+        "MinUpdatePeriodSeconds": int,
+        "MinBufferTimeSeconds": int,
+        "SuggestedPresentationDelaySeconds": int,
+        "SegmentTemplateFormat": Literal["NUMBER_WITH_TIMELINE"],
+        "PeriodTriggers": List[DashPeriodTriggerType],
+        "ScteDash": "ScteDashTypeDef",
+        "DrmSignaling": DashDrmSignalingType,
+        "UtcTiming": "DashUtcTimingTypeDef",
+    },
+    total=False,
+)
+
+class CreateDashManifestConfigurationTypeDef(
+    _RequiredCreateDashManifestConfigurationTypeDef, _OptionalCreateDashManifestConfigurationTypeDef
+):
+    pass
 
 _RequiredCreateHlsManifestConfigurationTypeDef = TypedDict(
     "_RequiredCreateHlsManifestConfigurationTypeDef",
@@ -279,6 +319,7 @@ _OptionalCreateOriginEndpointRequestRequestTypeDef = TypedDict(
         "StartoverWindowSeconds": int,
         "HlsManifests": List["CreateHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["CreateLowLatencyHlsManifestConfigurationTypeDef"],
+        "DashManifests": List["CreateDashManifestConfigurationTypeDef"],
         "Tags": Dict[str, str],
     },
     total=False,
@@ -305,9 +346,20 @@ CreateOriginEndpointResponseTypeDef = TypedDict(
         "StartoverWindowSeconds": int,
         "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
+        "DashManifests": List["GetDashManifestConfigurationTypeDef"],
+        "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DashUtcTimingTypeDef = TypedDict(
+    "DashUtcTimingTypeDef",
+    {
+        "TimingMode": DashUtcTimingModeType,
+        "TimingSource": str,
+    },
+    total=False,
 )
 
 DeleteChannelGroupRequestRequestTypeDef = TypedDict(
@@ -414,6 +466,7 @@ GetChannelGroupResponseTypeDef = TypedDict(
         "CreatedAt": datetime,
         "ModifiedAt": datetime,
         "Description": str,
+        "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -455,10 +508,40 @@ GetChannelResponseTypeDef = TypedDict(
         "ModifiedAt": datetime,
         "Description": str,
         "IngestEndpoints": List["IngestEndpointTypeDef"],
+        "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredGetDashManifestConfigurationTypeDef = TypedDict(
+    "_RequiredGetDashManifestConfigurationTypeDef",
+    {
+        "ManifestName": str,
+        "Url": str,
+    },
+)
+_OptionalGetDashManifestConfigurationTypeDef = TypedDict(
+    "_OptionalGetDashManifestConfigurationTypeDef",
+    {
+        "ManifestWindowSeconds": int,
+        "FilterConfiguration": "FilterConfigurationTypeDef",
+        "MinUpdatePeriodSeconds": int,
+        "MinBufferTimeSeconds": int,
+        "SuggestedPresentationDelaySeconds": int,
+        "SegmentTemplateFormat": Literal["NUMBER_WITH_TIMELINE"],
+        "PeriodTriggers": List[DashPeriodTriggerType],
+        "ScteDash": "ScteDashTypeDef",
+        "DrmSignaling": DashDrmSignalingType,
+        "UtcTiming": "DashUtcTimingTypeDef",
+    },
+    total=False,
+)
+
+class GetDashManifestConfigurationTypeDef(
+    _RequiredGetDashManifestConfigurationTypeDef, _OptionalGetDashManifestConfigurationTypeDef
+):
+    pass
 
 _RequiredGetHlsManifestConfigurationTypeDef = TypedDict(
     "_RequiredGetHlsManifestConfigurationTypeDef",
@@ -553,7 +636,9 @@ GetOriginEndpointResponseTypeDef = TypedDict(
         "StartoverWindowSeconds": int,
         "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
+        "ETag": str,
         "Tags": Dict[str, str],
+        "DashManifests": List["GetDashManifestConfigurationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -613,6 +698,25 @@ ListChannelsResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredListDashManifestConfigurationTypeDef = TypedDict(
+    "_RequiredListDashManifestConfigurationTypeDef",
+    {
+        "ManifestName": str,
+    },
+)
+_OptionalListDashManifestConfigurationTypeDef = TypedDict(
+    "_OptionalListDashManifestConfigurationTypeDef",
+    {
+        "Url": str,
+    },
+    total=False,
+)
+
+class ListDashManifestConfigurationTypeDef(
+    _RequiredListDashManifestConfigurationTypeDef, _OptionalListDashManifestConfigurationTypeDef
+):
+    pass
 
 _RequiredListHlsManifestConfigurationTypeDef = TypedDict(
     "_RequiredListHlsManifestConfigurationTypeDef",
@@ -719,6 +823,7 @@ _OptionalOriginEndpointListConfigurationTypeDef = TypedDict(
         "ModifiedAt": datetime,
         "HlsManifests": List["ListHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["ListLowLatencyHlsManifestConfigurationTypeDef"],
+        "DashManifests": List["ListDashManifestConfigurationTypeDef"],
     },
     total=False,
 )
@@ -766,6 +871,14 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+ScteDashTypeDef = TypedDict(
+    "ScteDashTypeDef",
+    {
+        "AdMarkerDash": AdMarkerDashType,
+    },
+    total=False,
 )
 
 ScteHlsTypeDef = TypedDict(
@@ -834,6 +947,7 @@ _RequiredUpdateChannelGroupRequestRequestTypeDef = TypedDict(
 _OptionalUpdateChannelGroupRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateChannelGroupRequestRequestTypeDef",
     {
+        "ETag": str,
         "Description": str,
     },
     total=False,
@@ -854,6 +968,7 @@ UpdateChannelGroupResponseTypeDef = TypedDict(
         "CreatedAt": datetime,
         "ModifiedAt": datetime,
         "Description": str,
+        "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -869,6 +984,7 @@ _RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
 _OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateChannelRequestRequestTypeDef",
     {
+        "ETag": str,
         "Description": str,
     },
     total=False,
@@ -889,6 +1005,7 @@ UpdateChannelResponseTypeDef = TypedDict(
         "ModifiedAt": datetime,
         "Description": str,
         "IngestEndpoints": List["IngestEndpointTypeDef"],
+        "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -911,6 +1028,8 @@ _OptionalUpdateOriginEndpointRequestRequestTypeDef = TypedDict(
         "StartoverWindowSeconds": int,
         "HlsManifests": List["CreateHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["CreateLowLatencyHlsManifestConfigurationTypeDef"],
+        "DashManifests": List["CreateDashManifestConfigurationTypeDef"],
+        "ETag": str,
     },
     total=False,
 )
@@ -936,7 +1055,9 @@ UpdateOriginEndpointResponseTypeDef = TypedDict(
         "StartoverWindowSeconds": int,
         "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
+        "ETag": str,
         "Tags": Dict[str, str],
+        "DashManifests": List["GetDashManifestConfigurationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

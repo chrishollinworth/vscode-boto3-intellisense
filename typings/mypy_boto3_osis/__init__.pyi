@@ -16,6 +16,7 @@ Usage::
     session_client: OpenSearchIngestionClient = session.client("osis")
     ```
 """
+
 from .client import OpenSearchIngestionClient
 
 Client = OpenSearchIngestionClient

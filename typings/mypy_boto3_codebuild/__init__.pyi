@@ -41,6 +41,7 @@ Usage::
     list_shared_report_groups_paginator: ListSharedReportGroupsPaginator = client.get_paginator("list_shared_report_groups")
     ```
 """
+
 from .client import CodeBuildClient
 from .paginator import (
     DescribeCodeCoveragesPaginator,

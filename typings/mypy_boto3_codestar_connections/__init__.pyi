@@ -16,6 +16,7 @@ Usage::
     session_client: CodeStarconnectionsClient = session.client("codestar-connections")
     ```
 """
+
 from .client import CodeStarconnectionsClient
 
 Client = CodeStarconnectionsClient

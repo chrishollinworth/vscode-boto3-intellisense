@@ -21,6 +21,7 @@ Usage::
     list_fragments_paginator: ListFragmentsPaginator = client.get_paginator("list_fragments")
     ```
 """
+
 from .client import KinesisVideoArchivedMediaClient
 from .paginator import GetImagesPaginator, ListFragmentsPaginator
 

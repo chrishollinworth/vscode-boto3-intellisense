@@ -16,6 +16,7 @@ Usage::
     session_client: MarketplaceCommerceAnalyticsClient = session.client("marketplacecommerceanalytics")
     ```
 """
+
 from .client import MarketplaceCommerceAnalyticsClient
 
 Client = MarketplaceCommerceAnalyticsClient

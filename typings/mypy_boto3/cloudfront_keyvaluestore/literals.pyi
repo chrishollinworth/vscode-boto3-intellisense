@@ -11,6 +11,7 @@ Usage::
     data: ListKeysPaginatorName = "list_keys"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

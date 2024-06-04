@@ -19,6 +19,7 @@ Usage::
     list_pipes_paginator: ListPipesPaginator = client.get_paginator("list_pipes")
     ```
 """
+
 from .client import EventBridgePipesClient
 from .paginator import ListPipesPaginator
 

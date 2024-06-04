@@ -11,6 +11,7 @@ Usage::
     data: AuthorizationStrategyType = "AWS_AUTH"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -22,6 +23,7 @@ __all__ = (
     "AuthorizationStrategyType",
     "CmkTypeType",
     "DatastoreStatusType",
+    "ErrorCategoryType",
     "FHIRVersionType",
     "JobStatusType",
     "PreloadDataTypeType",
@@ -29,7 +31,8 @@ __all__ = (
 
 AuthorizationStrategyType = Literal["AWS_AUTH", "SMART_ON_FHIR_V1"]
 CmkTypeType = Literal["AWS_OWNED_KMS_KEY", "CUSTOMER_MANAGED_KMS_KEY"]
-DatastoreStatusType = Literal["ACTIVE", "CREATING", "DELETED", "DELETING"]
+DatastoreStatusType = Literal["ACTIVE", "CREATE_FAILED", "CREATING", "DELETED", "DELETING"]
+ErrorCategoryType = Literal["NON_RETRYABLE_ERROR", "RETRYABLE_ERROR"]
 FHIRVersionType = Literal["R4"]
 JobStatusType = Literal[
     "CANCEL_COMPLETED",

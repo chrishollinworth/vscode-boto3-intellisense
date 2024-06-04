@@ -11,6 +11,7 @@ Usage::
     data: AccountTakeoverEventActionTypeType = "BLOCK"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -55,6 +56,7 @@ __all__ = (
     "LogLevelType",
     "MessageActionTypeType",
     "OAuthFlowTypeType",
+    "PreTokenGenerationLambdaVersionTypeType",
     "PreventUserExistenceErrorTypesType",
     "RecoveryOptionNameTypeType",
     "RiskDecisionTypeType",
@@ -137,6 +139,7 @@ ListUsersPaginatorName = Literal["list_users"]
 LogLevelType = Literal["ERROR"]
 MessageActionTypeType = Literal["RESEND", "SUPPRESS"]
 OAuthFlowTypeType = Literal["client_credentials", "code", "implicit"]
+PreTokenGenerationLambdaVersionTypeType = Literal["V1_0", "V2_0"]
 PreventUserExistenceErrorTypesType = Literal["ENABLED", "LEGACY"]
 RecoveryOptionNameTypeType = Literal["admin_only", "verified_email", "verified_phone_number"]
 RiskDecisionTypeType = Literal["AccountTakeover", "Block", "NoRisk"]
@@ -151,6 +154,7 @@ UserStatusTypeType = Literal[
     "ARCHIVED",
     "COMPROMISED",
     "CONFIRMED",
+    "EXTERNAL_PROVIDER",
     "FORCE_CHANGE_PASSWORD",
     "RESET_REQUIRED",
     "UNCONFIRMED",

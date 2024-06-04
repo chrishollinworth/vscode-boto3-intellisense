@@ -16,6 +16,7 @@ Usage::
     session_client: BackupStorageClient = session.client("backupstorage")
     ```
 """
+
 from .client import BackupStorageClient
 
 Client = BackupStorageClient

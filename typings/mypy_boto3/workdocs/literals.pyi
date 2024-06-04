@@ -11,6 +11,7 @@ Usage::
     data: ActivityTypeType = "DOCUMENT_ANNOTATION_ADDED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

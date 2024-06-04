@@ -11,6 +11,7 @@ Usage::
     data: GetLatestConfigurationRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict
 

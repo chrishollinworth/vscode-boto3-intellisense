@@ -12,6 +12,7 @@ Usage::
     client: SimpleDBClient = boto3.client("sdb")
     ```
 """
+
 import sys
 from typing import Any, Dict, List, Type, overload
 
@@ -66,7 +67,7 @@ class Exceptions:
 
 class SimpleDBClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html)
     """
 
@@ -77,6 +78,7 @@ class SimpleDBClient(BaseClient):
         """
         SimpleDBClient exceptions.
         """
+
     def batch_delete_attributes(
         self, *, DomainName: str, Items: List["DeletableItemTypeDef"]
     ) -> None:
@@ -84,9 +86,10 @@ class SimpleDBClient(BaseClient):
         Performs multiple DeleteAttributes operations in a single call, which reduces
         round trips and latencies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.batch_delete_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.batch_delete_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#batch_delete_attributes)
         """
+
     def batch_put_attributes(
         self, *, DomainName: str, Items: List["ReplaceableItemTypeDef"]
     ) -> None:
@@ -94,30 +97,34 @@ class SimpleDBClient(BaseClient):
         The `BatchPutAttributes` operation creates or replaces attributes within one or
         more items.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.batch_put_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.batch_put_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#batch_put_attributes)
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#close)
         """
+
     def create_domain(self, *, DomainName: str) -> None:
         """
         The `CreateDomain` operation creates a new domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.create_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.create_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#create_domain)
         """
+
     def delete_attributes(
         self,
         *,
@@ -129,25 +136,28 @@ class SimpleDBClient(BaseClient):
         """
         Deletes one or more attributes associated with an item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.delete_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.delete_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#delete_attributes)
         """
+
     def delete_domain(self, *, DomainName: str) -> None:
         """
         The `DeleteDomain` operation deletes a domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.delete_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.delete_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#delete_domain)
         """
+
     def domain_metadata(self, *, DomainName: str) -> DomainMetadataResultTypeDef:
         """
         Returns information about the domain, including when the domain was created, the
         number of items and attributes in the domain, and the size of the attribute
         names and values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.domain_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.domain_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#domain_metadata)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -158,9 +168,10 @@ class SimpleDBClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#generate_presigned_url)
         """
+
     def get_attributes(
         self,
         *,
@@ -172,18 +183,20 @@ class SimpleDBClient(BaseClient):
         """
         Returns all of the attributes associated with the specified item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.get_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.get_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#get_attributes)
         """
+
     def list_domains(
         self, *, MaxNumberOfDomains: int = None, NextToken: str = None
     ) -> ListDomainsResultTypeDef:
         """
         The `ListDomains` operation lists all domains associated with the Access Key ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.list_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#list_domains)
         """
+
     def put_attributes(
         self,
         *,
@@ -195,9 +208,10 @@ class SimpleDBClient(BaseClient):
         """
         The PutAttributes operation creates or replaces attributes in an item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.put_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.put_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#put_attributes)
         """
+
     def select(
         self, *, SelectExpression: str, NextToken: str = None, ConsistentRead: bool = None
     ) -> SelectResultTypeDef:
@@ -205,18 +219,20 @@ class SimpleDBClient(BaseClient):
         The `Select` operation returns a set of attributes for `ItemNames` that match
         the select expression.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Client.select)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Client.select)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#select)
         """
+
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Paginator.ListDomains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Paginator.ListDomains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html#listdomainspaginator)
         """
+
     @overload
     def get_paginator(self, operation_name: Literal["select"]) -> SelectPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/sdb.html#SimpleDB.Paginator.Select)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sdb.html#SimpleDB.Paginator.Select)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html#selectpaginator)
         """

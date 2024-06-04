@@ -11,6 +11,7 @@ Usage::
     data: ListGroupMembershipsForMemberPaginatorName = "list_group_memberships_for_member"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -23,6 +23,7 @@ Usage::
     search_quantum_tasks_paginator: SearchQuantumTasksPaginator = client.get_paginator("search_quantum_tasks")
     ```
 """
+
 from .client import BraketClient
 from .paginator import SearchDevicesPaginator, SearchJobsPaginator, SearchQuantumTasksPaginator
 

@@ -11,6 +11,7 @@ Usage::
     data: ApplicationRevisionSortByType = "firstUsedTime"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -50,6 +51,7 @@ __all__ = (
     "ListGitHubAccountTokenNamesPaginatorName",
     "ListOnPremisesInstancesPaginatorName",
     "ListStateFilterActionType",
+    "MinimumHealthyHostsPerZoneTypeType",
     "MinimumHealthyHostsTypeType",
     "OutdatedInstancesStrategyType",
     "RegistrationStatusType",
@@ -76,6 +78,7 @@ DeploymentCreatorType = Literal[
     "CodeDeploy",
     "CodeDeployAutoUpdate",
     "autoscaling",
+    "autoscalingTermination",
     "codeDeployRollback",
     "user",
 ]
@@ -155,6 +158,7 @@ ListDeploymentsPaginatorName = Literal["list_deployments"]
 ListGitHubAccountTokenNamesPaginatorName = Literal["list_git_hub_account_token_names"]
 ListOnPremisesInstancesPaginatorName = Literal["list_on_premises_instances"]
 ListStateFilterActionType = Literal["exclude", "ignore", "include"]
+MinimumHealthyHostsPerZoneTypeType = Literal["FLEET_PERCENT", "HOST_COUNT"]
 MinimumHealthyHostsTypeType = Literal["FLEET_PERCENT", "HOST_COUNT"]
 OutdatedInstancesStrategyType = Literal["IGNORE", "UPDATE"]
 RegistrationStatusType = Literal["Deregistered", "Registered"]

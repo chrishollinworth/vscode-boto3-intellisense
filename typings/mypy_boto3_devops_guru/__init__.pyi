@@ -45,6 +45,7 @@ Usage::
     search_organization_insights_paginator: SearchOrganizationInsightsPaginator = client.get_paginator("search_organization_insights")
     ```
 """
+
 from .client import DevOpsGuruClient
 from .paginator import (
     DescribeOrganizationResourceCollectionHealthPaginator,

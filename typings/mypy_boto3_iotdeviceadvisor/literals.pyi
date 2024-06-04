@@ -11,6 +11,7 @@ Usage::
     data: AuthenticationMethodType = "SignatureVersion4"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

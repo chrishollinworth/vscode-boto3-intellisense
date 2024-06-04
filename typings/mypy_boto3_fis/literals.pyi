@@ -6,11 +6,12 @@ Type annotations for fis service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_fis.literals import ExperimentActionStatusType
+    from mypy_boto3_fis.literals import AccountTargetingType
 
-    data: ExperimentActionStatusType = "cancelled"
+    data: AccountTargetingType = "multi-account"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -18,10 +19,27 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("ExperimentActionStatusType", "ExperimentStatusType")
+__all__ = (
+    "AccountTargetingType",
+    "ActionsModeType",
+    "EmptyTargetResolutionModeType",
+    "ExperimentActionStatusType",
+    "ExperimentStatusType",
+)
 
+AccountTargetingType = Literal["multi-account", "single-account"]
+ActionsModeType = Literal["run-all", "skip-all"]
+EmptyTargetResolutionModeType = Literal["fail", "skip"]
 ExperimentActionStatusType = Literal[
-    "cancelled", "completed", "failed", "initiating", "pending", "running", "stopped", "stopping"
+    "cancelled",
+    "completed",
+    "failed",
+    "initiating",
+    "pending",
+    "running",
+    "skipped",
+    "stopped",
+    "stopping",
 ]
 ExperimentStatusType = Literal[
     "completed", "failed", "initiating", "pending", "running", "stopped", "stopping"

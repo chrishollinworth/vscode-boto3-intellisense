@@ -11,6 +11,7 @@ Usage::
     data: CreateSuiteDefinitionRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List

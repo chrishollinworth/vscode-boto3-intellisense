@@ -6,11 +6,12 @@ Type annotations for braket service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_braket.literals import CancellationStatusType
+    from mypy_boto3_braket.literals import AssociationTypeType
 
-    data: CancellationStatusType = "CANCELLED"
+    data: AssociationTypeType = "RESERVATION_TIME_WINDOW_ARN"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AssociationTypeType",
     "CancellationStatusType",
     "CompressionTypeType",
     "DeviceStatusType",
@@ -38,6 +40,7 @@ __all__ = (
     "SearchQuantumTasksPaginatorName",
 )
 
+AssociationTypeType = Literal["RESERVATION_TIME_WINDOW_ARN"]
 CancellationStatusType = Literal["CANCELLED", "CANCELLING"]
 CompressionTypeType = Literal["GZIP", "NONE"]
 DeviceStatusType = Literal["OFFLINE", "ONLINE", "RETIRED"]

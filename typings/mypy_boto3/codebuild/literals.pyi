@@ -11,6 +11,7 @@ Usage::
     data: ArtifactNamespaceType = "BUILD_ID"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -36,6 +37,12 @@ __all__ = (
     "EnvironmentTypeType",
     "EnvironmentVariableTypeType",
     "FileSystemTypeType",
+    "FleetContextCodeType",
+    "FleetOverflowBehaviorType",
+    "FleetScalingMetricTypeType",
+    "FleetScalingTypeType",
+    "FleetSortByTypeType",
+    "FleetStatusCodeType",
     "ImagePullCredentialsTypeType",
     "LanguageTypeType",
     "ListBuildBatchesForProjectPaginatorName",
@@ -74,7 +81,7 @@ __all__ = (
 ArtifactNamespaceType = Literal["BUILD_ID", "NONE"]
 ArtifactPackagingType = Literal["NONE", "ZIP"]
 ArtifactsTypeType = Literal["CODEPIPELINE", "NO_ARTIFACTS", "S3"]
-AuthTypeType = Literal["BASIC_AUTH", "OAUTH", "PERSONAL_ACCESS_TOKEN"]
+AuthTypeType = Literal["BASIC_AUTH", "CODECONNECTIONS", "OAUTH", "PERSONAL_ACCESS_TOKEN"]
 BatchReportModeTypeType = Literal["REPORT_AGGREGATED_BATCH", "REPORT_INDIVIDUAL_BUILDS"]
 BucketOwnerAccessType = Literal["FULL", "NONE", "READ_ONLY"]
 BuildBatchPhaseTypeType = Literal[
@@ -106,6 +113,7 @@ ComputeTypeType = Literal[
     "BUILD_GENERAL1_LARGE",
     "BUILD_GENERAL1_MEDIUM",
     "BUILD_GENERAL1_SMALL",
+    "BUILD_GENERAL1_XLARGE",
     "BUILD_LAMBDA_10GB",
     "BUILD_LAMBDA_1GB",
     "BUILD_LAMBDA_2GB",
@@ -126,6 +134,21 @@ EnvironmentTypeType = Literal[
 ]
 EnvironmentVariableTypeType = Literal["PARAMETER_STORE", "PLAINTEXT", "SECRETS_MANAGER"]
 FileSystemTypeType = Literal["EFS"]
+FleetContextCodeType = Literal["ACTION_REQUIRED", "CREATE_FAILED", "UPDATE_FAILED"]
+FleetOverflowBehaviorType = Literal["ON_DEMAND", "QUEUE"]
+FleetScalingMetricTypeType = Literal["FLEET_UTILIZATION_RATE"]
+FleetScalingTypeType = Literal["TARGET_TRACKING_SCALING"]
+FleetSortByTypeType = Literal["CREATED_TIME", "LAST_MODIFIED_TIME", "NAME"]
+FleetStatusCodeType = Literal[
+    "ACTIVE",
+    "CREATE_FAILED",
+    "CREATING",
+    "DELETING",
+    "PENDING_DELETION",
+    "ROTATING",
+    "UPDATE_ROLLBACK_FAILED",
+    "UPDATING",
+]
 ImagePullCredentialsTypeType = Literal["CODEBUILD", "SERVICE_ROLE"]
 LanguageTypeType = Literal[
     "ANDROID", "BASE", "DOCKER", "DOTNET", "GOLANG", "JAVA", "NODE_JS", "PHP", "PYTHON", "RUBY"
@@ -163,15 +186,33 @@ ReportPackagingTypeType = Literal["NONE", "ZIP"]
 ReportStatusTypeType = Literal["DELETING", "FAILED", "GENERATING", "INCOMPLETE", "SUCCEEDED"]
 ReportTypeType = Literal["CODE_COVERAGE", "TEST"]
 RetryBuildBatchTypeType = Literal["RETRY_ALL_BUILDS", "RETRY_FAILED_BUILDS"]
-ServerTypeType = Literal["BITBUCKET", "GITHUB", "GITHUB_ENTERPRISE"]
+ServerTypeType = Literal[
+    "BITBUCKET", "GITHUB", "GITHUB_ENTERPRISE", "GITLAB", "GITLAB_SELF_MANAGED"
+]
 SharedResourceSortByTypeType = Literal["ARN", "MODIFIED_TIME"]
 SortOrderTypeType = Literal["ASCENDING", "DESCENDING"]
-SourceAuthTypeType = Literal["OAUTH"]
+SourceAuthTypeType = Literal["CODECONNECTIONS", "OAUTH"]
 SourceTypeType = Literal[
-    "BITBUCKET", "CODECOMMIT", "CODEPIPELINE", "GITHUB", "GITHUB_ENTERPRISE", "NO_SOURCE", "S3"
+    "BITBUCKET",
+    "CODECOMMIT",
+    "CODEPIPELINE",
+    "GITHUB",
+    "GITHUB_ENTERPRISE",
+    "GITLAB",
+    "GITLAB_SELF_MANAGED",
+    "NO_SOURCE",
+    "S3",
 ]
 StatusTypeType = Literal["FAILED", "FAULT", "IN_PROGRESS", "STOPPED", "SUCCEEDED", "TIMED_OUT"]
 WebhookBuildTypeType = Literal["BUILD", "BUILD_BATCH"]
 WebhookFilterTypeType = Literal[
-    "ACTOR_ACCOUNT_ID", "BASE_REF", "COMMIT_MESSAGE", "EVENT", "FILE_PATH", "HEAD_REF"
+    "ACTOR_ACCOUNT_ID",
+    "BASE_REF",
+    "COMMIT_MESSAGE",
+    "EVENT",
+    "FILE_PATH",
+    "HEAD_REF",
+    "RELEASE_NAME",
+    "TAG_NAME",
+    "WORKFLOW_NAME",
 ]

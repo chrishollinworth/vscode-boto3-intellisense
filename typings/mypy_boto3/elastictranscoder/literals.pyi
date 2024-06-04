@@ -11,6 +11,7 @@ Usage::
     data: JobCompleteWaiterName = "job_complete"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

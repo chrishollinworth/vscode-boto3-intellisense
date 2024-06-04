@@ -18,6 +18,7 @@ Usage::
     command_executed_waiter: CommandExecutedWaiter = client.get_waiter("command_executed")
     ```
 """
+
 from botocore.waiter import Waiter as Boto3Waiter
 
 from .type_defs import WaiterConfigTypeDef
@@ -26,7 +27,7 @@ __all__ = ("CommandExecutedWaiter",)
 
 class CommandExecutedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html#commandexecutedwaiter)
     """
 
@@ -39,6 +40,6 @@ class CommandExecutedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm.html#SSM.Waiter.CommandExecuted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm.html#SSM.Waiter.CommandExecuted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html#commandexecutedwaiter)
         """

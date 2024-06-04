@@ -11,6 +11,7 @@ Usage::
     data: DescribeImageTagsPaginatorName = "describe_image_tags"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

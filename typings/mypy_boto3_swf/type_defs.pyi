@@ -11,6 +11,7 @@ Usage::
     data: ActivityTaskCancelRequestedEventAttributesTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -88,6 +89,8 @@ __all__ = (
     "DecisionTaskTimedOutEventAttributesTypeDef",
     "DecisionTaskTypeDef",
     "DecisionTypeDef",
+    "DeleteActivityTypeInputRequestTypeDef",
+    "DeleteWorkflowTypeInputRequestTypeDef",
     "DeprecateActivityTypeInputRequestTypeDef",
     "DeprecateDomainInputRequestTypeDef",
     "DeprecateWorkflowTypeInputRequestTypeDef",
@@ -777,6 +780,22 @@ _OptionalDecisionTypeDef = TypedDict(
 
 class DecisionTypeDef(_RequiredDecisionTypeDef, _OptionalDecisionTypeDef):
     pass
+
+DeleteActivityTypeInputRequestTypeDef = TypedDict(
+    "DeleteActivityTypeInputRequestTypeDef",
+    {
+        "domain": str,
+        "activityType": "ActivityTypeTypeDef",
+    },
+)
+
+DeleteWorkflowTypeInputRequestTypeDef = TypedDict(
+    "DeleteWorkflowTypeInputRequestTypeDef",
+    {
+        "domain": str,
+        "workflowType": "WorkflowTypeTypeDef",
+    },
+)
 
 DeprecateActivityTypeInputRequestTypeDef = TypedDict(
     "DeprecateActivityTypeInputRequestTypeDef",

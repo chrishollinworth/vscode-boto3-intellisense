@@ -11,6 +11,7 @@ Usage::
     data: AccountSortByType = "ALL"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -26,15 +27,39 @@ __all__ = (
     "AmiSortByType",
     "ArchitectureType",
     "AwsEcrContainerSortByType",
+    "CisFindingStatusComparisonType",
+    "CisFindingStatusType",
+    "CisReportFormatType",
+    "CisReportStatusType",
+    "CisResultStatusComparisonType",
+    "CisResultStatusType",
+    "CisRuleStatusType",
+    "CisScanConfigurationsSortByType",
+    "CisScanResultDetailsSortByType",
+    "CisScanResultsAggregatedByChecksSortByType",
+    "CisScanResultsAggregatedByTargetResourceSortByType",
+    "CisScanStatusComparisonType",
+    "CisScanStatusType",
+    "CisSecurityLevelComparisonType",
+    "CisSecurityLevelType",
+    "CisSortOrderType",
+    "CisStringComparisonType",
+    "CisTargetStatusComparisonType",
+    "CisTargetStatusReasonType",
+    "CisTargetStatusType",
     "CodeSnippetErrorCodeType",
     "CoverageMapComparisonType",
     "CoverageResourceTypeType",
     "CoverageStringComparisonType",
     "CurrencyType",
+    "DayType",
     "DelegatedAdminStatusType",
     "Ec2DeepInspectionStatusType",
     "Ec2InstanceSortByType",
     "Ec2PlatformType",
+    "Ec2ScanModeStatusType",
+    "Ec2ScanModeType",
+    "EcrPullDateRescanDurationType",
     "EcrRescanDurationStatusType",
     "EcrRescanDurationType",
     "EcrScanFrequencyType",
@@ -50,11 +75,18 @@ __all__ = (
     "FreeTrialInfoErrorCodeType",
     "FreeTrialStatusType",
     "FreeTrialTypeType",
+    "GetCisScanResultDetailsPaginatorName",
     "GroupKeyType",
     "ImageLayerSortByType",
     "LambdaFunctionSortByType",
     "LambdaLayerSortByType",
     "ListAccountPermissionsPaginatorName",
+    "ListCisScanConfigurationsPaginatorName",
+    "ListCisScanResultsAggregatedByChecksPaginatorName",
+    "ListCisScanResultsAggregatedByTargetResourcePaginatorName",
+    "ListCisScansDetailLevelType",
+    "ListCisScansPaginatorName",
+    "ListCisScansSortByType",
     "ListCoveragePaginatorName",
     "ListCoverageStatisticsPaginatorName",
     "ListDelegatedAdminAccountsPaginatorName",
@@ -79,6 +111,7 @@ __all__ = (
     "ResourceTypeType",
     "RuntimeType",
     "SbomReportFormatType",
+    "ScanModeType",
     "ScanStatusCodeType",
     "ScanStatusReasonType",
     "ScanTypeType",
@@ -88,7 +121,9 @@ __all__ = (
     "SortFieldType",
     "SortOrderType",
     "StatusType",
+    "StopCisSessionStatusType",
     "StringComparisonType",
+    "TagComparisonType",
     "TitleSortByType",
     "UsageTypeType",
     "VulnerabilitySourceType",
@@ -117,6 +152,37 @@ AggregationTypeType = Literal[
 AmiSortByType = Literal["AFFECTED_INSTANCES", "ALL", "CRITICAL", "HIGH"]
 ArchitectureType = Literal["ARM64", "X86_64"]
 AwsEcrContainerSortByType = Literal["ALL", "CRITICAL", "HIGH"]
+CisFindingStatusComparisonType = Literal["EQUALS"]
+CisFindingStatusType = Literal["FAILED", "PASSED", "SKIPPED"]
+CisReportFormatType = Literal["CSV", "PDF"]
+CisReportStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
+CisResultStatusComparisonType = Literal["EQUALS"]
+CisResultStatusType = Literal["FAILED", "PASSED", "SKIPPED"]
+CisRuleStatusType = Literal[
+    "ERROR", "FAILED", "INFORMATIONAL", "NOT_APPLICABLE", "NOT_EVALUATED", "PASSED", "UNKNOWN"
+]
+CisScanConfigurationsSortByType = Literal["SCAN_CONFIGURATION_ARN", "SCAN_NAME"]
+CisScanResultDetailsSortByType = Literal["CHECK_ID", "STATUS"]
+CisScanResultsAggregatedByChecksSortByType = Literal[
+    "CHECK_ID", "FAILED_COUNTS", "PLATFORM", "SECURITY_LEVEL", "TITLE"
+]
+CisScanResultsAggregatedByTargetResourceSortByType = Literal[
+    "ACCOUNT_ID",
+    "FAILED_COUNTS",
+    "PLATFORM",
+    "RESOURCE_ID",
+    "TARGET_STATUS",
+    "TARGET_STATUS_REASON",
+]
+CisScanStatusComparisonType = Literal["EQUALS"]
+CisScanStatusType = Literal["CANCELLED", "COMPLETED", "FAILED", "IN_PROGRESS"]
+CisSecurityLevelComparisonType = Literal["EQUALS"]
+CisSecurityLevelType = Literal["LEVEL_1", "LEVEL_2"]
+CisSortOrderType = Literal["ASC", "DESC"]
+CisStringComparisonType = Literal["EQUALS", "NOT_EQUALS", "PREFIX"]
+CisTargetStatusComparisonType = Literal["EQUALS"]
+CisTargetStatusReasonType = Literal["SCAN_IN_PROGRESS", "SSM_UNMANAGED", "UNSUPPORTED_OS"]
+CisTargetStatusType = Literal["CANCELLED", "COMPLETED", "TIMED_OUT"]
 CodeSnippetErrorCodeType = Literal[
     "ACCESS_DENIED", "CODE_SNIPPET_NOT_FOUND", "INTERNAL_ERROR", "INVALID_INPUT"
 ]
@@ -126,12 +192,16 @@ CoverageResourceTypeType = Literal[
 ]
 CoverageStringComparisonType = Literal["EQUALS", "NOT_EQUALS"]
 CurrencyType = Literal["USD"]
+DayType = Literal["FRI", "MON", "SAT", "SUN", "THU", "TUE", "WED"]
 DelegatedAdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
 Ec2DeepInspectionStatusType = Literal["ACTIVATED", "DEACTIVATED", "FAILED", "PENDING"]
 Ec2InstanceSortByType = Literal["ALL", "CRITICAL", "HIGH", "NETWORK_FINDINGS"]
 Ec2PlatformType = Literal["LINUX", "MACOS", "UNKNOWN", "WINDOWS"]
+Ec2ScanModeStatusType = Literal["PENDING", "SUCCESS"]
+Ec2ScanModeType = Literal["EC2_HYBRID", "EC2_SSM_AGENT_BASED"]
+EcrPullDateRescanDurationType = Literal["DAYS_14", "DAYS_180", "DAYS_30", "DAYS_60", "DAYS_90"]
 EcrRescanDurationStatusType = Literal["FAILED", "PENDING", "SUCCESS"]
-EcrRescanDurationType = Literal["DAYS_180", "DAYS_30", "LIFETIME"]
+EcrRescanDurationType = Literal["DAYS_14", "DAYS_180", "DAYS_30", "DAYS_60", "DAYS_90", "LIFETIME"]
 EcrScanFrequencyType = Literal["CONTINUOUS_SCAN", "MANUAL", "SCAN_ON_PUSH"]
 ErrorCodeType = Literal[
     "ACCESS_DENIED",
@@ -162,6 +232,7 @@ FixAvailableType = Literal["NO", "PARTIAL", "YES"]
 FreeTrialInfoErrorCodeType = Literal["ACCESS_DENIED", "INTERNAL_ERROR"]
 FreeTrialStatusType = Literal["ACTIVE", "INACTIVE"]
 FreeTrialTypeType = Literal["EC2", "ECR", "LAMBDA", "LAMBDA_CODE"]
+GetCisScanResultDetailsPaginatorName = Literal["get_cis_scan_result_details"]
 GroupKeyType = Literal[
     "ACCOUNT_ID", "ECR_REPOSITORY_NAME", "RESOURCE_TYPE", "SCAN_STATUS_CODE", "SCAN_STATUS_REASON"
 ]
@@ -169,6 +240,16 @@ ImageLayerSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 LambdaFunctionSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 LambdaLayerSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 ListAccountPermissionsPaginatorName = Literal["list_account_permissions"]
+ListCisScanConfigurationsPaginatorName = Literal["list_cis_scan_configurations"]
+ListCisScanResultsAggregatedByChecksPaginatorName = Literal[
+    "list_cis_scan_results_aggregated_by_checks"
+]
+ListCisScanResultsAggregatedByTargetResourcePaginatorName = Literal[
+    "list_cis_scan_results_aggregated_by_target_resource"
+]
+ListCisScansDetailLevelType = Literal["MEMBER", "ORGANIZATION"]
+ListCisScansPaginatorName = Literal["list_cis_scans"]
+ListCisScansSortByType = Literal["FAILED_CHECKS", "SCAN_START_DATE", "SCHEDULED_BY", "STATUS"]
 ListCoveragePaginatorName = Literal["list_coverage"]
 ListCoverageStatisticsPaginatorName = Literal["list_coverage_statistics"]
 ListDelegatedAdminAccountsPaginatorName = Literal["list_delegated_admin_accounts"]
@@ -251,6 +332,7 @@ RuntimeType = Literal[
     "UNSUPPORTED",
 ]
 SbomReportFormatType = Literal["CYCLONEDX_1_4", "SPDX_2_3"]
+ScanModeType = Literal["EC2_AGENTLESS", "EC2_SSM_AGENT_BASED"]
 ScanStatusCodeType = Literal["ACTIVE", "INACTIVE"]
 ScanStatusReasonType = Literal[
     "ACCESS_DENIED",
@@ -303,7 +385,9 @@ SortFieldType = Literal[
 ]
 SortOrderType = Literal["ASC", "DESC"]
 StatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING", "SUSPENDED", "SUSPENDING"]
+StopCisSessionStatusType = Literal["FAILED", "INTERRUPTED", "SUCCESS", "UNSUPPORTED_OS"]
 StringComparisonType = Literal["EQUALS", "NOT_EQUALS", "PREFIX"]
+TagComparisonType = Literal["EQUALS"]
 TitleSortByType = Literal["ALL", "CRITICAL", "HIGH"]
 UsageTypeType = Literal[
     "EC2_INSTANCE_HOURS",

@@ -21,6 +21,7 @@ Usage::
     describe_communications_paginator: DescribeCommunicationsPaginator = client.get_paginator("describe_communications")
     ```
 """
+
 from .client import SupportClient
 from .paginator import DescribeCasesPaginator, DescribeCommunicationsPaginator
 

@@ -16,6 +16,7 @@ Usage::
     session_client: ivsrealtimeClient = session.client("ivs-realtime")
     ```
 """
+
 from .client import ivsrealtimeClient
 
 Client = ivsrealtimeClient

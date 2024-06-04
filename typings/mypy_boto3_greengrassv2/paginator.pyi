@@ -30,6 +30,7 @@ Usage::
     list_installed_components_paginator: ListInstalledComponentsPaginator = client.get_paginator("list_installed_components")
     ```
 """
+
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -63,7 +64,7 @@ __all__ = (
 
 class ListClientDevicesAssociatedWithCoreDevicePaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListClientDevicesAssociatedWithCoreDevice)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListClientDevicesAssociatedWithCoreDevice)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listclientdevicesassociatedwithcoredevicepaginator)
     """
 
@@ -71,13 +72,13 @@ class ListClientDevicesAssociatedWithCoreDevicePaginator(Boto3Paginator):
         self, *, coreDeviceThingName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListClientDevicesAssociatedWithCoreDevice.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListClientDevicesAssociatedWithCoreDevice.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listclientdevicesassociatedwithcoredevicepaginator)
         """
 
 class ListComponentVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponentVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponentVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcomponentversionspaginator)
     """
 
@@ -85,13 +86,13 @@ class ListComponentVersionsPaginator(Boto3Paginator):
         self, *, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListComponentVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponentVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponentVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcomponentversionspaginator)
         """
 
 class ListComponentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcomponentspaginator)
     """
 
@@ -102,13 +103,13 @@ class ListComponentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListComponentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcomponentspaginator)
         """
 
 class ListCoreDevicesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListCoreDevices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListCoreDevices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcoredevicespaginator)
     """
 
@@ -120,13 +121,13 @@ class ListCoreDevicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCoreDevicesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListCoreDevices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListCoreDevices.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcoredevicespaginator)
         """
 
 class ListDeploymentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListDeployments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListDeployments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listdeploymentspaginator)
     """
 
@@ -139,13 +140,13 @@ class ListDeploymentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeploymentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListDeployments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListDeployments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listdeploymentspaginator)
         """
 
 class ListEffectiveDeploymentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListEffectiveDeployments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListEffectiveDeployments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listeffectivedeploymentspaginator)
     """
 
@@ -153,13 +154,13 @@ class ListEffectiveDeploymentsPaginator(Boto3Paginator):
         self, *, coreDeviceThingName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEffectiveDeploymentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListEffectiveDeployments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListEffectiveDeployments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listeffectivedeploymentspaginator)
         """
 
 class ListInstalledComponentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListInstalledComponents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListInstalledComponents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listinstalledcomponentspaginator)
     """
 
@@ -171,6 +172,6 @@ class ListInstalledComponentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstalledComponentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListInstalledComponents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListInstalledComponents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listinstalledcomponentspaginator)
         """

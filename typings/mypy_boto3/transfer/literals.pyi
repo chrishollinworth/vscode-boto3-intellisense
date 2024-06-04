@@ -11,6 +11,7 @@ Usage::
     data: AgreementStatusTypeType = "ACTIVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -52,6 +53,8 @@ __all__ = (
     "OverwriteExistingType",
     "ProfileTypeType",
     "ProtocolType",
+    "SecurityPolicyProtocolType",
+    "SecurityPolicyResourceTypeType",
     "ServerOfflineWaiterName",
     "ServerOnlineWaiterName",
     "SetStatOptionType",
@@ -66,12 +69,12 @@ AgreementStatusTypeType = Literal["ACTIVE", "INACTIVE"]
 As2TransportType = Literal["HTTP"]
 CertificateStatusTypeType = Literal["ACTIVE", "INACTIVE", "PENDING_ROTATION"]
 CertificateTypeType = Literal["CERTIFICATE", "CERTIFICATE_WITH_PRIVATE_KEY"]
-CertificateUsageTypeType = Literal["ENCRYPTION", "SIGNING"]
+CertificateUsageTypeType = Literal["ENCRYPTION", "SIGNING", "TLS"]
 CompressionEnumType = Literal["DISABLED", "ZLIB"]
 CustomStepStatusType = Literal["FAILURE", "SUCCESS"]
 DirectoryListingOptimizationType = Literal["DISABLED", "ENABLED"]
 DomainType = Literal["EFS", "S3"]
-EncryptionAlgType = Literal["AES128_CBC", "AES192_CBC", "AES256_CBC", "NONE"]
+EncryptionAlgType = Literal["AES128_CBC", "AES192_CBC", "AES256_CBC", "DES_EDE3_CBC", "NONE"]
 EncryptionTypeType = Literal["PGP"]
 EndpointTypeType = Literal["PUBLIC", "VPC", "VPC_ENDPOINT"]
 ExecutionErrorTypeType = Literal[
@@ -106,6 +109,8 @@ MdnSigningAlgType = Literal["DEFAULT", "NONE", "SHA1", "SHA256", "SHA384", "SHA5
 OverwriteExistingType = Literal["FALSE", "TRUE"]
 ProfileTypeType = Literal["LOCAL", "PARTNER"]
 ProtocolType = Literal["AS2", "FTP", "FTPS", "SFTP"]
+SecurityPolicyProtocolType = Literal["FTPS", "SFTP"]
+SecurityPolicyResourceTypeType = Literal["CONNECTOR", "SERVER"]
 ServerOfflineWaiterName = Literal["server_offline"]
 ServerOnlineWaiterName = Literal["server_online"]
 SetStatOptionType = Literal["DEFAULT", "ENABLE_NO_OP"]

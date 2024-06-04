@@ -25,6 +25,7 @@ Usage::
     list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     ```
 """
+
 from .client import ServiceDiscoveryClient
 from .paginator import (
     ListInstancesPaginator,

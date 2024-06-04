@@ -22,6 +22,7 @@ Usage::
     list_sinks_paginator: ListSinksPaginator = client.get_paginator("list_sinks")
     ```
 """
+
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -37,7 +38,7 @@ __all__ = ("ListAttachedLinksPaginator", "ListLinksPaginator", "ListSinksPaginat
 
 class ListAttachedLinksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListAttachedLinks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListAttachedLinks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listattachedlinkspaginator)
     """
 
@@ -45,13 +46,13 @@ class ListAttachedLinksPaginator(Boto3Paginator):
         self, *, SinkIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAttachedLinksOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListAttachedLinks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListAttachedLinks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listattachedlinkspaginator)
         """
 
 class ListLinksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListLinks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListLinks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listlinkspaginator)
     """
 
@@ -59,13 +60,13 @@ class ListLinksPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLinksOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListLinks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListLinks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listlinkspaginator)
         """
 
 class ListSinksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListSinks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListSinks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listsinkspaginator)
     """
 
@@ -73,6 +74,6 @@ class ListSinksPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSinksOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListSinks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListSinks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listsinkspaginator)
         """

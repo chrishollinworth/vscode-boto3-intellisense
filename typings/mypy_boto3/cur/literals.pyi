@@ -11,6 +11,7 @@ Usage::
     data: AWSRegionType = "af-south-1"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

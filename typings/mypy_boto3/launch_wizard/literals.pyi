@@ -11,6 +11,7 @@ Usage::
     data: DeploymentFilterKeyType = "DEPLOYMENT_STATUS"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

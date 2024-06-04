@@ -31,6 +31,7 @@ Usage::
     list_configurations_paginator: ListConfigurationsPaginator = client.get_paginator("list_configurations")
     ```
 """
+
 from .client import ApplicationDiscoveryServiceClient
 from .paginator import (
     DescribeAgentsPaginator,

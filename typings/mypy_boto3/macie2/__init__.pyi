@@ -52,6 +52,7 @@ Usage::
     search_resources_paginator: SearchResourcesPaginator = client.get_paginator("search_resources")
     ```
 """
+
 from .client import Macie2Client
 from .paginator import (
     DescribeBucketsPaginator,

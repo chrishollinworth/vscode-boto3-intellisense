@@ -24,6 +24,7 @@ Usage::
         ListAliasesPaginator,
         ListBuildsPaginator,
         ListComputePaginator,
+        ListContainerGroupDefinitionsPaginator,
         ListFleetsPaginator,
         ListGameServerGroupsPaginator,
         ListGameServersPaginator,
@@ -53,6 +54,7 @@ Usage::
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_builds_paginator: ListBuildsPaginator = client.get_paginator("list_builds")
     list_compute_paginator: ListComputePaginator = client.get_paginator("list_compute")
+    list_container_group_definitions_paginator: ListContainerGroupDefinitionsPaginator = client.get_paginator("list_container_group_definitions")
     list_fleets_paginator: ListFleetsPaginator = client.get_paginator("list_fleets")
     list_game_server_groups_paginator: ListGameServerGroupsPaginator = client.get_paginator("list_game_server_groups")
     list_game_servers_paginator: ListGameServersPaginator = client.get_paginator("list_game_servers")
@@ -61,6 +63,7 @@ Usage::
     search_game_sessions_paginator: SearchGameSessionsPaginator = client.get_paginator("search_game_sessions")
     ```
 """
+
 from .client import GameLiftClient
 from .paginator import (
     DescribeFleetAttributesPaginator,
@@ -79,6 +82,7 @@ from .paginator import (
     ListAliasesPaginator,
     ListBuildsPaginator,
     ListComputePaginator,
+    ListContainerGroupDefinitionsPaginator,
     ListFleetsPaginator,
     ListGameServerGroupsPaginator,
     ListGameServersPaginator,
@@ -108,6 +112,7 @@ __all__ = (
     "ListAliasesPaginator",
     "ListBuildsPaginator",
     "ListComputePaginator",
+    "ListContainerGroupDefinitionsPaginator",
     "ListFleetsPaginator",
     "ListGameServerGroupsPaginator",
     "ListGameServersPaginator",

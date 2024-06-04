@@ -11,6 +11,7 @@ Usage::
     data: DescribeServicesPaginatorName = "describe_services"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

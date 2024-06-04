@@ -11,6 +11,7 @@ Usage::
     data: ASN1SubjectTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -58,6 +59,7 @@ __all__ = (
     "CreateCertificateAuthorityResponseTypeDef",
     "CreatePermissionRequestRequestTypeDef",
     "CrlConfigurationTypeDef",
+    "CrlDistributionPointExtensionConfigurationTypeDef",
     "CsrExtensionsTypeDef",
     "CustomAttributeTypeDef",
     "CustomExtensionTypeDef",
@@ -287,12 +289,20 @@ _OptionalCrlConfigurationTypeDef = TypedDict(
         "CustomCname": str,
         "S3BucketName": str,
         "S3ObjectAcl": S3ObjectAclType,
+        "CrlDistributionPointExtensionConfiguration": "CrlDistributionPointExtensionConfigurationTypeDef",
     },
     total=False,
 )
 
 class CrlConfigurationTypeDef(_RequiredCrlConfigurationTypeDef, _OptionalCrlConfigurationTypeDef):
     pass
+
+CrlDistributionPointExtensionConfigurationTypeDef = TypedDict(
+    "CrlDistributionPointExtensionConfigurationTypeDef",
+    {
+        "OmitExtension": bool,
+    },
+)
 
 CsrExtensionsTypeDef = TypedDict(
     "CsrExtensionsTypeDef",

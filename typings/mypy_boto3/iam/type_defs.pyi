@@ -11,6 +11,7 @@ Usage::
     data: AccessDetailTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -837,13 +838,13 @@ _RequiredCreateOpenIDConnectProviderRequestRequestTypeDef = TypedDict(
     "_RequiredCreateOpenIDConnectProviderRequestRequestTypeDef",
     {
         "Url": str,
-        "ThumbprintList": List[str],
     },
 )
 _OptionalCreateOpenIDConnectProviderRequestRequestTypeDef = TypedDict(
     "_OptionalCreateOpenIDConnectProviderRequestRequestTypeDef",
     {
         "ClientIDList": List[str],
+        "ThumbprintList": List[str],
         "Tags": List["TagTypeDef"],
     },
     total=False,

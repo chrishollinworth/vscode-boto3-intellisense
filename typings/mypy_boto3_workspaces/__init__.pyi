@@ -14,6 +14,7 @@ Usage::
         DescribeWorkspaceImagesPaginator,
         DescribeWorkspacesConnectionStatusPaginator,
         DescribeWorkspacesPaginator,
+        ListAccountLinksPaginator,
         ListAvailableManagementCidrRangesPaginator,
         WorkSpacesClient,
     )
@@ -30,9 +31,11 @@ Usage::
     describe_workspace_images_paginator: DescribeWorkspaceImagesPaginator = client.get_paginator("describe_workspace_images")
     describe_workspaces_paginator: DescribeWorkspacesPaginator = client.get_paginator("describe_workspaces")
     describe_workspaces_connection_status_paginator: DescribeWorkspacesConnectionStatusPaginator = client.get_paginator("describe_workspaces_connection_status")
+    list_account_links_paginator: ListAccountLinksPaginator = client.get_paginator("list_account_links")
     list_available_management_cidr_ranges_paginator: ListAvailableManagementCidrRangesPaginator = client.get_paginator("list_available_management_cidr_ranges")
     ```
 """
+
 from .client import WorkSpacesClient
 from .paginator import (
     DescribeAccountModificationsPaginator,
@@ -42,6 +45,7 @@ from .paginator import (
     DescribeWorkspaceImagesPaginator,
     DescribeWorkspacesConnectionStatusPaginator,
     DescribeWorkspacesPaginator,
+    ListAccountLinksPaginator,
     ListAvailableManagementCidrRangesPaginator,
 )
 
@@ -56,6 +60,7 @@ __all__ = (
     "DescribeWorkspaceImagesPaginator",
     "DescribeWorkspacesConnectionStatusPaginator",
     "DescribeWorkspacesPaginator",
+    "ListAccountLinksPaginator",
     "ListAvailableManagementCidrRangesPaginator",
     "WorkSpacesClient",
 )

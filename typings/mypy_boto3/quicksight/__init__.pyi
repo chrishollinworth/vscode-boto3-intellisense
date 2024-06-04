@@ -79,6 +79,7 @@ Usage::
     search_groups_paginator: SearchGroupsPaginator = client.get_paginator("search_groups")
     ```
 """
+
 from .client import QuickSightClient
 from .paginator import (
     DescribeFolderPermissionsPaginator,

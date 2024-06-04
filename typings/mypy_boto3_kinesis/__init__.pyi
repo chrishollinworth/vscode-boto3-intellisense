@@ -30,6 +30,7 @@ Usage::
     list_streams_paginator: ListStreamsPaginator = client.get_paginator("list_streams")
     ```
 """
+
 from .client import KinesisClient
 from .paginator import (
     DescribeStreamPaginator,

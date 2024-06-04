@@ -11,6 +11,7 @@ Usage::
     data: BehaviorOnMXFailureType = "RejectMessage"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

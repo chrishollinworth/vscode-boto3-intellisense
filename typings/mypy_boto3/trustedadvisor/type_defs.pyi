@@ -11,11 +11,13 @@ Usage::
     data: AccountRecommendationLifecycleSummaryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    ExclusionStatusType,
     RecommendationLanguageType,
     RecommendationLifecycleStageType,
     RecommendationPillarType,
@@ -34,6 +36,8 @@ else:
 
 __all__ = (
     "AccountRecommendationLifecycleSummaryTypeDef",
+    "BatchUpdateRecommendationResourceExclusionRequestRequestTypeDef",
+    "BatchUpdateRecommendationResourceExclusionResponseTypeDef",
     "CheckSummaryTypeDef",
     "GetOrganizationRecommendationRequestRequestTypeDef",
     "GetOrganizationRecommendationResponseTypeDef",
@@ -57,6 +61,7 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "RecommendationCostOptimizingAggregatesTypeDef",
     "RecommendationPillarSpecificAggregatesTypeDef",
+    "RecommendationResourceExclusionTypeDef",
     "RecommendationResourceSummaryTypeDef",
     "RecommendationResourcesAggregatesTypeDef",
     "RecommendationSummaryTypeDef",
@@ -64,6 +69,7 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "UpdateOrganizationRecommendationLifecycleRequestRequestTypeDef",
     "UpdateRecommendationLifecycleRequestRequestTypeDef",
+    "UpdateRecommendationResourceExclusionErrorTypeDef",
 )
 
 AccountRecommendationLifecycleSummaryTypeDef = TypedDict(
@@ -79,6 +85,23 @@ AccountRecommendationLifecycleSummaryTypeDef = TypedDict(
         "updatedOnBehalfOfJobTitle": str,
     },
     total=False,
+)
+
+BatchUpdateRecommendationResourceExclusionRequestRequestTypeDef = TypedDict(
+    "BatchUpdateRecommendationResourceExclusionRequestRequestTypeDef",
+    {
+        "recommendationResourceExclusions": List["RecommendationResourceExclusionTypeDef"],
+    },
+)
+
+BatchUpdateRecommendationResourceExclusionResponseTypeDef = TypedDict(
+    "BatchUpdateRecommendationResourceExclusionResponseTypeDef",
+    {
+        "batchUpdateRecommendationResourceExclusionErrors": List[
+            "UpdateRecommendationResourceExclusionErrorTypeDef"
+        ],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CheckSummaryTypeDef = TypedDict(
@@ -190,6 +213,7 @@ _OptionalListOrganizationRecommendationResourcesRequestRequestTypeDef = TypedDic
     "_OptionalListOrganizationRecommendationResourcesRequestRequestTypeDef",
     {
         "affectedAccountId": str,
+        "exclusionStatus": ExclusionStatusType,
         "maxResults": int,
         "nextToken": str,
         "regionCode": str,
@@ -250,6 +274,7 @@ _RequiredListRecommendationResourcesRequestRequestTypeDef = TypedDict(
 _OptionalListRecommendationResourcesRequestRequestTypeDef = TypedDict(
     "_OptionalListRecommendationResourcesRequestRequestTypeDef",
     {
+        "exclusionStatus": ExclusionStatusType,
         "maxResults": int,
         "nextToken": str,
         "regionCode": str,
@@ -316,6 +341,7 @@ _OptionalOrganizationRecommendationResourceSummaryTypeDef = TypedDict(
     "_OptionalOrganizationRecommendationResourceSummaryTypeDef",
     {
         "accountId": str,
+        "exclusionStatus": ExclusionStatusType,
     },
     total=False,
 )
@@ -422,8 +448,16 @@ RecommendationPillarSpecificAggregatesTypeDef = TypedDict(
     total=False,
 )
 
-RecommendationResourceSummaryTypeDef = TypedDict(
-    "RecommendationResourceSummaryTypeDef",
+RecommendationResourceExclusionTypeDef = TypedDict(
+    "RecommendationResourceExclusionTypeDef",
+    {
+        "arn": str,
+        "isExcluded": bool,
+    },
+)
+
+_RequiredRecommendationResourceSummaryTypeDef = TypedDict(
+    "_RequiredRecommendationResourceSummaryTypeDef",
     {
         "arn": str,
         "awsResourceId": str,
@@ -435,6 +469,18 @@ RecommendationResourceSummaryTypeDef = TypedDict(
         "status": ResourceStatusType,
     },
 )
+_OptionalRecommendationResourceSummaryTypeDef = TypedDict(
+    "_OptionalRecommendationResourceSummaryTypeDef",
+    {
+        "exclusionStatus": ExclusionStatusType,
+    },
+    total=False,
+)
+
+class RecommendationResourceSummaryTypeDef(
+    _RequiredRecommendationResourceSummaryTypeDef, _OptionalRecommendationResourceSummaryTypeDef
+):
+    pass
 
 RecommendationResourcesAggregatesTypeDef = TypedDict(
     "RecommendationResourcesAggregatesTypeDef",
@@ -566,3 +612,13 @@ class UpdateRecommendationLifecycleRequestRequestTypeDef(
     _OptionalUpdateRecommendationLifecycleRequestRequestTypeDef,
 ):
     pass
+
+UpdateRecommendationResourceExclusionErrorTypeDef = TypedDict(
+    "UpdateRecommendationResourceExclusionErrorTypeDef",
+    {
+        "arn": str,
+        "errorCode": str,
+        "errorMessage": str,
+    },
+    total=False,
+)

@@ -16,6 +16,7 @@ Usage::
     session_client: AppRunnerClient = session.client("apprunner")
     ```
 """
+
 from .client import AppRunnerClient
 
 Client = AppRunnerClient

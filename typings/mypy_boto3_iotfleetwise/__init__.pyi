@@ -43,6 +43,7 @@ Usage::
     list_vehicles_in_fleet_paginator: ListVehiclesInFleetPaginator = client.get_paginator("list_vehicles_in_fleet")
     ```
 """
+
 from .client import IoTFleetWiseClient
 from .paginator import (
     GetVehicleStatusPaginator,

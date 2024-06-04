@@ -6,11 +6,12 @@ Type annotations for mediapackagev2 service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mediapackagev2.literals import AdMarkerHlsType
+    from mypy_boto3_mediapackagev2.literals import AdMarkerDashType
 
-    data: AdMarkerHlsType = "DATERANGE"
+    data: AdMarkerDashType = "BINARY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,9 +20,14 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AdMarkerDashType",
     "AdMarkerHlsType",
     "CmafEncryptionMethodType",
     "ContainerTypeType",
+    "DashDrmSignalingType",
+    "DashPeriodTriggerType",
+    "DashSegmentTemplateFormatType",
+    "DashUtcTimingModeType",
     "DrmSystemType",
     "ListChannelGroupsPaginatorName",
     "ListChannelsPaginatorName",
@@ -32,9 +38,16 @@ __all__ = (
     "TsEncryptionMethodType",
 )
 
+AdMarkerDashType = Literal["BINARY", "XML"]
 AdMarkerHlsType = Literal["DATERANGE"]
 CmafEncryptionMethodType = Literal["CBCS", "CENC"]
 ContainerTypeType = Literal["CMAF", "TS"]
+DashDrmSignalingType = Literal["INDIVIDUAL", "REFERENCED"]
+DashPeriodTriggerType = Literal[
+    "AVAILS", "DRM_KEY_ROTATION", "NONE", "SOURCE_CHANGES", "SOURCE_DISRUPTIONS"
+]
+DashSegmentTemplateFormatType = Literal["NUMBER_WITH_TIMELINE"]
+DashUtcTimingModeType = Literal["HTTP_HEAD", "HTTP_ISO", "HTTP_XSDATE", "UTC_DIRECT"]
 DrmSystemType = Literal["CLEAR_KEY_AES_128", "FAIRPLAY", "PLAYREADY", "WIDEVINE"]
 ListChannelGroupsPaginatorName = Literal["list_channel_groups"]
 ListChannelsPaginatorName = Literal["list_channels"]

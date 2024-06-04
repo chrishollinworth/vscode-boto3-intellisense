@@ -26,6 +26,7 @@ Usage::
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
     ```
 """
+
 from .client import SQSClient
 from .paginator import ListDeadLetterSourceQueuesPaginator, ListQueuesPaginator
 from .service_resource import SQSServiceResource

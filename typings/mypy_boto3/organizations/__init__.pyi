@@ -49,6 +49,7 @@ Usage::
     list_targets_for_policy_paginator: ListTargetsForPolicyPaginator = client.get_paginator("list_targets_for_policy")
     ```
 """
+
 from .client import OrganizationsClient
 from .paginator import (
     ListAccountsForParentPaginator,

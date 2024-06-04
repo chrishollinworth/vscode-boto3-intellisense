@@ -11,6 +11,7 @@ Usage::
         ListJobRunsPaginator,
         ListJobTemplatesPaginator,
         ListManagedEndpointsPaginator,
+        ListSecurityConfigurationsPaginator,
         ListVirtualClustersPaginator,
     )
 
@@ -22,14 +23,17 @@ Usage::
     list_job_runs_paginator: ListJobRunsPaginator = client.get_paginator("list_job_runs")
     list_job_templates_paginator: ListJobTemplatesPaginator = client.get_paginator("list_job_templates")
     list_managed_endpoints_paginator: ListManagedEndpointsPaginator = client.get_paginator("list_managed_endpoints")
+    list_security_configurations_paginator: ListSecurityConfigurationsPaginator = client.get_paginator("list_security_configurations")
     list_virtual_clusters_paginator: ListVirtualClustersPaginator = client.get_paginator("list_virtual_clusters")
     ```
 """
+
 from .client import EMRContainersClient
 from .paginator import (
     ListJobRunsPaginator,
     ListJobTemplatesPaginator,
     ListManagedEndpointsPaginator,
+    ListSecurityConfigurationsPaginator,
     ListVirtualClustersPaginator,
 )
 
@@ -41,5 +45,6 @@ __all__ = (
     "ListJobRunsPaginator",
     "ListJobTemplatesPaginator",
     "ListManagedEndpointsPaginator",
+    "ListSecurityConfigurationsPaginator",
     "ListVirtualClustersPaginator",
 )

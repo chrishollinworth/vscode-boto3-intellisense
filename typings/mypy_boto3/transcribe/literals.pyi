@@ -11,6 +11,7 @@ Usage::
     data: BaseModelNameType = "NarrowBand"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -21,11 +22,16 @@ else:
 __all__ = (
     "BaseModelNameType",
     "CLMLanguageCodeType",
+    "CallAnalyticsFeatureType",
     "CallAnalyticsJobStatusType",
+    "CallAnalyticsSkippedReasonCodeType",
     "InputTypeType",
     "LanguageCodeType",
     "MediaFormatType",
     "MedicalContentIdentificationTypeType",
+    "MedicalScribeJobStatusType",
+    "MedicalScribeLanguageCodeType",
+    "MedicalScribeParticipantRoleType",
     "ModelStatusType",
     "OutputLocationTypeType",
     "ParticipantRoleType",
@@ -45,7 +51,11 @@ __all__ = (
 
 BaseModelNameType = Literal["NarrowBand", "WideBand"]
 CLMLanguageCodeType = Literal["de-DE", "en-AU", "en-GB", "en-US", "es-US", "hi-IN", "ja-JP"]
+CallAnalyticsFeatureType = Literal["GENERATIVE_SUMMARIZATION"]
 CallAnalyticsJobStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED"]
+CallAnalyticsSkippedReasonCodeType = Literal[
+    "FAILED_SAFETY_GUIDELINES", "INSUFFICIENT_CONVERSATION_CONTENT"
+]
 InputTypeType = Literal["POST_CALL", "REAL_TIME"]
 LanguageCodeType = Literal[
     "ab-GE",
@@ -154,6 +164,9 @@ LanguageCodeType = Literal[
 ]
 MediaFormatType = Literal["amr", "flac", "m4a", "mp3", "mp4", "ogg", "wav", "webm"]
 MedicalContentIdentificationTypeType = Literal["PHI"]
+MedicalScribeJobStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED"]
+MedicalScribeLanguageCodeType = Literal["en-US"]
+MedicalScribeParticipantRoleType = Literal["CLINICIAN", "PATIENT"]
 ModelStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 OutputLocationTypeType = Literal["CUSTOMER_BUCKET", "SERVICE_BUCKET"]
 ParticipantRoleType = Literal["AGENT", "CUSTOMER"]

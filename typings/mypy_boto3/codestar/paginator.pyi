@@ -24,6 +24,7 @@ Usage::
     list_user_profiles_paginator: ListUserProfilesPaginator = client.get_paginator("list_user_profiles")
     ```
 """
+
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -45,7 +46,7 @@ __all__ = (
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listprojectspaginator)
     """
 
@@ -53,13 +54,13 @@ class ListProjectsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codestar.html#CodeStar.Paginator.ListProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListProjects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listprojectspaginator)
         """
 
 class ListResourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codestar.html#CodeStar.Paginator.ListResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListResources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listresourcespaginator)
     """
 
@@ -67,13 +68,13 @@ class ListResourcesPaginator(Boto3Paginator):
         self, *, projectId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourcesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codestar.html#CodeStar.Paginator.ListResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListResources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listresourcespaginator)
         """
 
 class ListTeamMembersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listteammemberspaginator)
     """
 
@@ -81,13 +82,13 @@ class ListTeamMembersPaginator(Boto3Paginator):
         self, *, projectId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTeamMembersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listteammemberspaginator)
         """
 
 class ListUserProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listuserprofilespaginator)
     """
 
@@ -95,6 +96,6 @@ class ListUserProfilesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUserProfilesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listuserprofilespaginator)
         """

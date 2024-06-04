@@ -24,6 +24,7 @@ Usage::
     ml_model_available_waiter: MLModelAvailableWaiter = client.get_waiter("ml_model_available")
     ```
 """
+
 from botocore.waiter import Waiter as Boto3Waiter
 
 from .literals import (
@@ -44,7 +45,7 @@ __all__ = (
 
 class BatchPredictionAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#batchpredictionavailablewaiter)
     """
 
@@ -65,13 +66,13 @@ class BatchPredictionAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#batchpredictionavailablewaiter)
         """
 
 class DataSourceAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#datasourceavailablewaiter)
     """
 
@@ -92,13 +93,13 @@ class DataSourceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#datasourceavailablewaiter)
         """
 
 class EvaluationAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#evaluationavailablewaiter)
     """
 
@@ -119,13 +120,13 @@ class EvaluationAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#evaluationavailablewaiter)
         """
 
 class MLModelAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#mlmodelavailablewaiter)
     """
 
@@ -146,6 +147,6 @@ class MLModelAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#mlmodelavailablewaiter)
         """

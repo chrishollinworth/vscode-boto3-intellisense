@@ -11,6 +11,7 @@ Usage::
     data: ActionSeverityType = "HIGH"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -25,16 +26,20 @@ __all__ = (
     "AutoTuneDesiredStateType",
     "AutoTuneStateType",
     "AutoTuneTypeType",
+    "ConfigChangeStatusType",
     "ConnectionModeType",
+    "DataSourceStatusType",
     "DeploymentStatusType",
     "DescribePackagesFilterNameType",
     "DomainHealthType",
     "DomainPackageStatusType",
+    "DomainProcessingStatusTypeType",
     "DomainStateType",
     "DryRunModeType",
     "EngineTypeType",
     "IPAddressTypeType",
     "InboundConnectionStatusCodeType",
+    "InitiatedByType",
     "LogTypeType",
     "MaintenanceStatusType",
     "MaintenanceTypeType",
@@ -49,6 +54,7 @@ __all__ = (
     "PackageStatusType",
     "PackageTypeType",
     "PrincipalTypeType",
+    "PropertyValueTypeType",
     "ReservedInstancePaymentOptionType",
     "RollbackOnDisableType",
     "ScheduleAtType",
@@ -84,7 +90,18 @@ AutoTuneStateType = Literal[
     "ERROR",
 ]
 AutoTuneTypeType = Literal["SCHEDULED_ACTION"]
+ConfigChangeStatusType = Literal[
+    "ApplyingChanges",
+    "Cancelled",
+    "Completed",
+    "Initializing",
+    "Pending",
+    "PendingUserInput",
+    "Validating",
+    "ValidationFailed",
+]
 ConnectionModeType = Literal["DIRECT", "VPC_ENDPOINT"]
+DataSourceStatusType = Literal["ACTIVE", "DISABLED"]
 DeploymentStatusType = Literal[
     "COMPLETED", "ELIGIBLE", "IN_PROGRESS", "NOT_ELIGIBLE", "PENDING_UPDATE"
 ]
@@ -94,6 +111,15 @@ DescribePackagesFilterNameType = Literal[
 DomainHealthType = Literal["Green", "NotAvailable", "Red", "Yellow"]
 DomainPackageStatusType = Literal[
     "ACTIVE", "ASSOCIATING", "ASSOCIATION_FAILED", "DISSOCIATING", "DISSOCIATION_FAILED"
+]
+DomainProcessingStatusTypeType = Literal[
+    "Active",
+    "Creating",
+    "Deleting",
+    "Isolated",
+    "Modifying",
+    "UpdatingServiceSoftware",
+    "UpgradingEngineVersion",
 ]
 DomainStateType = Literal["Active", "NotAvailable", "Processing"]
 DryRunModeType = Literal["Basic", "Verbose"]
@@ -109,6 +135,7 @@ InboundConnectionStatusCodeType = Literal[
     "REJECTED",
     "REJECTING",
 ]
+InitiatedByType = Literal["CUSTOMER", "SERVICE"]
 LogTypeType = Literal["AUDIT_LOGS", "ES_APPLICATION_LOGS", "INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS"]
 MaintenanceStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "PENDING", "TIMED_OUT"]
 MaintenanceTypeType = Literal["REBOOT_NODE", "RESTART_DASHBOARD", "RESTART_SEARCH_PROCESS"]
@@ -166,6 +193,14 @@ OpenSearchPartitionInstanceTypeType = Literal[
     "m6g.8xlarge.search",
     "m6g.large.search",
     "m6g.xlarge.search",
+    "or1.12xlarge.search",
+    "or1.16xlarge.search",
+    "or1.2xlarge.search",
+    "or1.4xlarge.search",
+    "or1.8xlarge.search",
+    "or1.large.search",
+    "or1.medium.search",
+    "or1.xlarge.search",
     "r3.2xlarge.search",
     "r3.4xlarge.search",
     "r3.8xlarge.search",
@@ -241,6 +276,7 @@ PackageStatusType = Literal[
 ]
 PackageTypeType = Literal["TXT-DICTIONARY", "ZIP-PLUGIN"]
 PrincipalTypeType = Literal["AWS_ACCOUNT", "AWS_SERVICE"]
+PropertyValueTypeType = Literal["PLAIN_TEXT", "STRINGIFIED_JSON"]
 ReservedInstancePaymentOptionType = Literal["ALL_UPFRONT", "NO_UPFRONT", "PARTIAL_UPFRONT"]
 RollbackOnDisableType = Literal["DEFAULT_ROLLBACK", "NO_ROLLBACK"]
 ScheduleAtType = Literal["NOW", "OFF_PEAK_WINDOW", "TIMESTAMP"]
@@ -248,7 +284,9 @@ ScheduledAutoTuneActionTypeType = Literal["JVM_HEAP_SIZE_TUNING", "JVM_YOUNG_GEN
 ScheduledAutoTuneSeverityTypeType = Literal["HIGH", "LOW", "MEDIUM"]
 ScheduledByType = Literal["CUSTOMER", "SYSTEM"]
 SkipUnavailableStatusType = Literal["DISABLED", "ENABLED"]
-TLSSecurityPolicyType = Literal["Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-2-2019-07"]
+TLSSecurityPolicyType = Literal[
+    "Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-2-2019-07", "Policy-Min-TLS-1-2-PFS-2023-10"
+]
 TimeUnitType = Literal["HOURS"]
 UpgradeStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED", "SUCCEEDED_WITH_ISSUES"]
 UpgradeStepType = Literal["PRE_UPGRADE_CHECK", "SNAPSHOT", "UPGRADE"]

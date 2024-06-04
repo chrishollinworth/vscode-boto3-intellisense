@@ -39,6 +39,7 @@ Usage::
     list_metrics_paginator: ListMetricsPaginator = client.get_paginator("list_metrics")
     ```
 """
+
 from .client import CloudWatchClient
 from .paginator import (
     DescribeAlarmHistoryPaginator,

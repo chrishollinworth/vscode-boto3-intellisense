@@ -11,6 +11,7 @@ Usage::
     data: CreateTokenRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -47,6 +48,7 @@ _OptionalCreateTokenRequestRequestTypeDef = TypedDict(
         "refreshToken": str,
         "scope": List[str],
         "redirectUri": str,
+        "codeVerifier": str,
     },
     total=False,
 )
@@ -86,6 +88,7 @@ _OptionalCreateTokenWithIAMRequestRequestTypeDef = TypedDict(
         "subjectToken": str,
         "subjectTokenType": str,
         "requestedTokenType": str,
+        "codeVerifier": str,
     },
     total=False,
 )
@@ -121,6 +124,10 @@ _OptionalRegisterClientRequestRequestTypeDef = TypedDict(
     "_OptionalRegisterClientRequestRequestTypeDef",
     {
         "scopes": List[str],
+        "redirectUris": List[str],
+        "grantTypes": List[str],
+        "issuerUrl": str,
+        "entitledApplicationArn": str,
     },
     total=False,
 )

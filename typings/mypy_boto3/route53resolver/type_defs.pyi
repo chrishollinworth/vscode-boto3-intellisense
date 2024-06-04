@@ -11,6 +11,7 @@ Usage::
     data: AssociateFirewallRuleGroupRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -19,6 +20,7 @@ from .literals import (
     AutodefinedReverseFlagType,
     BlockResponseType,
     FirewallDomainListStatusType,
+    FirewallDomainRedirectionActionType,
     FirewallDomainUpdateOperationType,
     FirewallFailOpenStatusType,
     FirewallRuleGroupAssociationStatusType,
@@ -26,6 +28,7 @@ from .literals import (
     IpAddressStatusType,
     MutationProtectionStatusType,
     OutpostResolverStatusType,
+    ProtocolType,
     ResolverAutodefinedReverseStatusType,
     ResolverDNSSECValidationStatusType,
     ResolverEndpointDirectionType,
@@ -383,6 +386,8 @@ _OptionalCreateFirewallRuleRequestRequestTypeDef = TypedDict(
         "BlockOverrideDomain": str,
         "BlockOverrideDnsType": Literal["CNAME"],
         "BlockOverrideTtl": int,
+        "FirewallDomainRedirectionAction": FirewallDomainRedirectionActionType,
+        "Qtype": str,
     },
     total=False,
 )
@@ -446,10 +451,11 @@ _OptionalCreateResolverEndpointRequestRequestTypeDef = TypedDict(
     "_OptionalCreateResolverEndpointRequestRequestTypeDef",
     {
         "Name": str,
-        "Tags": List["TagTypeDef"],
-        "ResolverEndpointType": ResolverEndpointTypeType,
         "OutpostArn": str,
         "PreferredInstanceType": str,
+        "Tags": List["TagTypeDef"],
+        "ResolverEndpointType": ResolverEndpointTypeType,
+        "Protocols": List[ProtocolType],
     },
     total=False,
 )
@@ -503,13 +509,13 @@ _RequiredCreateResolverRuleRequestRequestTypeDef = TypedDict(
     {
         "CreatorRequestId": str,
         "RuleType": RuleTypeOptionType,
-        "DomainName": str,
     },
 )
 _OptionalCreateResolverRuleRequestRequestTypeDef = TypedDict(
     "_OptionalCreateResolverRuleRequestRequestTypeDef",
     {
         "Name": str,
+        "DomainName": str,
         "TargetIps": List["TargetAddressTypeDef"],
         "ResolverEndpointId": str,
         "Tags": List["TagTypeDef"],
@@ -561,13 +567,26 @@ DeleteFirewallRuleGroupResponseTypeDef = TypedDict(
     },
 )
 
-DeleteFirewallRuleRequestRequestTypeDef = TypedDict(
-    "DeleteFirewallRuleRequestRequestTypeDef",
+_RequiredDeleteFirewallRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteFirewallRuleRequestRequestTypeDef",
     {
         "FirewallRuleGroupId": str,
         "FirewallDomainListId": str,
     },
 )
+_OptionalDeleteFirewallRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteFirewallRuleRequestRequestTypeDef",
+    {
+        "Qtype": str,
+    },
+    total=False,
+)
+
+class DeleteFirewallRuleRequestRequestTypeDef(
+    _RequiredDeleteFirewallRuleRequestRequestTypeDef,
+    _OptionalDeleteFirewallRuleRequestRequestTypeDef,
+):
+    pass
 
 DeleteFirewallRuleResponseTypeDef = TypedDict(
     "DeleteFirewallRuleResponseTypeDef",
@@ -815,6 +834,8 @@ FirewallRuleTypeDef = TypedDict(
         "CreatorRequestId": str,
         "CreationTime": str,
         "ModificationTime": str,
+        "FirewallDomainRedirectionAction": FirewallDomainRedirectionActionType,
+        "Qtype": str,
     },
     total=False,
 )
@@ -1581,9 +1602,10 @@ ResolverEndpointTypeDef = TypedDict(
         "StatusMessage": str,
         "CreationTime": str,
         "ModificationTime": str,
-        "ResolverEndpointType": ResolverEndpointTypeType,
         "OutpostArn": str,
         "PreferredInstanceType": str,
+        "ResolverEndpointType": ResolverEndpointTypeType,
+        "Protocols": List[ProtocolType],
     },
     total=False,
 )
@@ -1696,6 +1718,7 @@ TargetAddressTypeDef = TypedDict(
         "Ip": str,
         "Port": int,
         "Ipv6": str,
+        "Protocol": ProtocolType,
     },
     total=False,
 )
@@ -1791,6 +1814,8 @@ _OptionalUpdateFirewallRuleRequestRequestTypeDef = TypedDict(
         "BlockOverrideDnsType": Literal["CNAME"],
         "BlockOverrideTtl": int,
         "Name": str,
+        "FirewallDomainRedirectionAction": FirewallDomainRedirectionActionType,
+        "Qtype": str,
     },
     total=False,
 )
@@ -1891,6 +1916,7 @@ _OptionalUpdateResolverEndpointRequestRequestTypeDef = TypedDict(
         "Name": str,
         "ResolverEndpointType": ResolverEndpointTypeType,
         "UpdateIpAddresses": List["UpdateIpAddressTypeDef"],
+        "Protocols": List[ProtocolType],
     },
     total=False,
 )

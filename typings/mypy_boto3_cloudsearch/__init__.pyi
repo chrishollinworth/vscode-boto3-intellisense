@@ -16,6 +16,7 @@ Usage::
     session_client: CloudSearchClient = session.client("cloudsearch")
     ```
 """
+
 from .client import CloudSearchClient
 
 Client = CloudSearchClient

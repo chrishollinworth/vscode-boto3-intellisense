@@ -11,6 +11,7 @@ Usage::
     data: AcceptChoiceTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -38,9 +39,12 @@ from .literals import (
     GroupSearchTypeType,
     InventorySearchScopeType,
     ListingStatusType,
+    MetadataGenerationRunStatusType,
     NotificationRoleType,
     NotificationTypeType,
+    ProjectStatusType,
     RejectRuleBehaviorType,
+    SearchOutputAdditionalAttributeType,
     SortKeyType,
     SortOrderType,
     SubscriptionGrantOverallStatusType,
@@ -48,6 +52,7 @@ from .literals import (
     SubscriptionRequestStatusType,
     SubscriptionStatusType,
     TaskStatusType,
+    TimeSeriesEntityTypeType,
     TimezoneType,
     TypesSearchScopeType,
     UserAssignmentType,
@@ -84,6 +89,7 @@ __all__ = (
     "AssetTargetNameMapTypeDef",
     "AssetTypeItemTypeDef",
     "BusinessNameGenerationConfigurationTypeDef",
+    "CancelMetadataGenerationRunInputRequestTypeDef",
     "CancelSubscriptionInputRequestTypeDef",
     "CancelSubscriptionOutputTypeDef",
     "CloudFormationPropertiesTypeDef",
@@ -152,6 +158,7 @@ __all__ = (
     "DeleteSubscriptionGrantOutputTypeDef",
     "DeleteSubscriptionRequestInputRequestTypeDef",
     "DeleteSubscriptionTargetInputRequestTypeDef",
+    "DeleteTimeSeriesDataPointsInputRequestTypeDef",
     "DeploymentPropertiesTypeDef",
     "DeploymentTypeDef",
     "DetailedGlossaryTermTypeDef",
@@ -201,6 +208,8 @@ __all__ = (
     "GetIamPortalLoginUrlOutputTypeDef",
     "GetListingInputRequestTypeDef",
     "GetListingOutputTypeDef",
+    "GetMetadataGenerationRunInputRequestTypeDef",
+    "GetMetadataGenerationRunOutputTypeDef",
     "GetProjectInputRequestTypeDef",
     "GetProjectOutputTypeDef",
     "GetSubscriptionGrantInputRequestTypeDef",
@@ -211,6 +220,8 @@ __all__ = (
     "GetSubscriptionRequestDetailsOutputTypeDef",
     "GetSubscriptionTargetInputRequestTypeDef",
     "GetSubscriptionTargetOutputTypeDef",
+    "GetTimeSeriesDataPointInputRequestTypeDef",
+    "GetTimeSeriesDataPointOutputTypeDef",
     "GetUserProfileInputRequestTypeDef",
     "GetUserProfileOutputTypeDef",
     "GlossaryItemTypeDef",
@@ -241,6 +252,8 @@ __all__ = (
     "ListEnvironmentProfilesOutputTypeDef",
     "ListEnvironmentsInputRequestTypeDef",
     "ListEnvironmentsOutputTypeDef",
+    "ListMetadataGenerationRunsInputRequestTypeDef",
+    "ListMetadataGenerationRunsOutputTypeDef",
     "ListNotificationsInputRequestTypeDef",
     "ListNotificationsOutputTypeDef",
     "ListProjectMembershipsInputRequestTypeDef",
@@ -257,16 +270,23 @@ __all__ = (
     "ListSubscriptionsOutputTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTimeSeriesDataPointsInputRequestTypeDef",
+    "ListTimeSeriesDataPointsOutputTypeDef",
     "ListingItemTypeDef",
     "ListingRevisionInputTypeDef",
     "ListingRevisionTypeDef",
     "MemberDetailsTypeDef",
     "MemberTypeDef",
+    "MetadataGenerationRunItemTypeDef",
+    "MetadataGenerationRunTargetTypeDef",
     "ModelTypeDef",
     "NotificationOutputTypeDef",
     "NotificationResourceTypeDef",
     "PaginatorConfigTypeDef",
+    "PostTimeSeriesDataPointsInputRequestTypeDef",
+    "PostTimeSeriesDataPointsOutputTypeDef",
     "PredictionConfigurationTypeDef",
+    "ProjectDeletionErrorTypeDef",
     "ProjectMemberTypeDef",
     "ProjectSummaryTypeDef",
     "ProvisioningPropertiesTypeDef",
@@ -311,6 +331,8 @@ __all__ = (
     "SsoUserProfileDetailsTypeDef",
     "StartDataSourceRunInputRequestTypeDef",
     "StartDataSourceRunOutputTypeDef",
+    "StartMetadataGenerationRunInputRequestTypeDef",
+    "StartMetadataGenerationRunOutputTypeDef",
     "SubscribedAssetListingTypeDef",
     "SubscribedAssetTypeDef",
     "SubscribedListingInputTypeDef",
@@ -327,6 +349,9 @@ __all__ = (
     "SubscriptionTargetSummaryTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TermRelationsTypeDef",
+    "TimeSeriesDataPointFormInputTypeDef",
+    "TimeSeriesDataPointFormOutputTypeDef",
+    "TimeSeriesDataPointSummaryFormOutputTypeDef",
     "TopicTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDataSourceInputRequestTypeDef",
@@ -358,14 +383,23 @@ __all__ = (
     "UserProfileSummaryTypeDef",
 )
 
-AcceptChoiceTypeDef = TypedDict(
-    "AcceptChoiceTypeDef",
+_RequiredAcceptChoiceTypeDef = TypedDict(
+    "_RequiredAcceptChoiceTypeDef",
     {
-        "predictionChoice": int,
         "predictionTarget": str,
+    },
+)
+_OptionalAcceptChoiceTypeDef = TypedDict(
+    "_OptionalAcceptChoiceTypeDef",
+    {
+        "editedValue": str,
+        "predictionChoice": int,
     },
     total=False,
 )
+
+class AcceptChoiceTypeDef(_RequiredAcceptChoiceTypeDef, _OptionalAcceptChoiceTypeDef):
+    pass
 
 _RequiredAcceptPredictionsInputRequestTypeDef = TypedDict(
     "_RequiredAcceptPredictionsInputRequestTypeDef",
@@ -453,6 +487,7 @@ AssetItemAdditionalAttributesTypeDef = TypedDict(
     "AssetItemAdditionalAttributesTypeDef",
     {
         "formsOutput": List["FormOutputTypeDef"],
+        "latestTimeSeriesDataPointFormsOutput": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
         "readOnlyFormsOutput": List["FormOutputTypeDef"],
     },
     total=False,
@@ -499,6 +534,7 @@ AssetListingItemAdditionalAttributesTypeDef = TypedDict(
     "AssetListingItemAdditionalAttributesTypeDef",
     {
         "forms": str,
+        "latestTimeSeriesDataPointForms": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
     },
     total=False,
 )
@@ -532,6 +568,7 @@ AssetListingTypeDef = TypedDict(
         "createdAt": datetime,
         "forms": str,
         "glossaryTerms": List["DetailedGlossaryTermTypeDef"],
+        "latestTimeSeriesDataPointForms": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
         "owningProjectId": str,
     },
     total=False,
@@ -590,6 +627,14 @@ BusinessNameGenerationConfigurationTypeDef = TypedDict(
         "enabled": bool,
     },
     total=False,
+)
+
+CancelMetadataGenerationRunInputRequestTypeDef = TypedDict(
+    "CancelMetadataGenerationRunInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "identifier": str,
+    },
 )
 
 CancelSubscriptionInputRequestTypeDef = TypedDict(
@@ -695,6 +740,7 @@ CreateAssetOutputTypeDef = TypedDict(
         "formsOutput": List["FormOutputTypeDef"],
         "glossaryTerms": List[str],
         "id": str,
+        "latestTimeSeriesDataPointFormsOutput": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
         "listing": "AssetListingDetailsTypeDef",
         "name": str,
         "owningProjectId": str,
@@ -746,6 +792,7 @@ CreateAssetRevisionOutputTypeDef = TypedDict(
         "formsOutput": List["FormOutputTypeDef"],
         "glossaryTerms": List[str],
         "id": str,
+        "latestTimeSeriesDataPointFormsOutput": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
         "listing": "AssetListingDetailsTypeDef",
         "name": str,
         "owningProjectId": str,
@@ -1210,10 +1257,12 @@ CreateProjectOutputTypeDef = TypedDict(
         "createdBy": str,
         "description": str,
         "domainId": str,
+        "failureReasons": List["ProjectDeletionErrorTypeDef"],
         "glossaryTerms": List[str],
         "id": str,
         "lastUpdatedAt": datetime,
         "name": str,
+        "projectStatus": ProjectStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1638,6 +1687,7 @@ _OptionalDeleteDomainInputRequestTypeDef = TypedDict(
     "_OptionalDeleteDomainInputRequestTypeDef",
     {
         "clientToken": str,
+        "skipDeletionCheck": bool,
     },
     total=False,
 )
@@ -1711,13 +1761,25 @@ DeleteListingInputRequestTypeDef = TypedDict(
     },
 )
 
-DeleteProjectInputRequestTypeDef = TypedDict(
-    "DeleteProjectInputRequestTypeDef",
+_RequiredDeleteProjectInputRequestTypeDef = TypedDict(
+    "_RequiredDeleteProjectInputRequestTypeDef",
     {
         "domainIdentifier": str,
         "identifier": str,
     },
 )
+_OptionalDeleteProjectInputRequestTypeDef = TypedDict(
+    "_OptionalDeleteProjectInputRequestTypeDef",
+    {
+        "skipDeletionCheck": bool,
+    },
+    total=False,
+)
+
+class DeleteProjectInputRequestTypeDef(
+    _RequiredDeleteProjectInputRequestTypeDef, _OptionalDeleteProjectInputRequestTypeDef
+):
+    pass
 
 DeleteProjectMembershipInputRequestTypeDef = TypedDict(
     "DeleteProjectMembershipInputRequestTypeDef",
@@ -1770,6 +1832,29 @@ DeleteSubscriptionTargetInputRequestTypeDef = TypedDict(
         "identifier": str,
     },
 )
+
+_RequiredDeleteTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
+    "_RequiredDeleteTimeSeriesDataPointsInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "entityIdentifier": str,
+        "entityType": TimeSeriesEntityTypeType,
+        "formName": str,
+    },
+)
+_OptionalDeleteTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
+    "_OptionalDeleteTimeSeriesDataPointsInputRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DeleteTimeSeriesDataPointsInputRequestTypeDef(
+    _RequiredDeleteTimeSeriesDataPointsInputRequestTypeDef,
+    _OptionalDeleteTimeSeriesDataPointsInputRequestTypeDef,
+):
+    pass
 
 DeploymentPropertiesTypeDef = TypedDict(
     "DeploymentPropertiesTypeDef",
@@ -2128,6 +2213,7 @@ GetAssetOutputTypeDef = TypedDict(
         "formsOutput": List["FormOutputTypeDef"],
         "glossaryTerms": List[str],
         "id": str,
+        "latestTimeSeriesDataPointFormsOutput": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
         "listing": "AssetListingDetailsTypeDef",
         "name": str,
         "owningProjectId": str,
@@ -2543,6 +2629,29 @@ GetListingOutputTypeDef = TypedDict(
     },
 )
 
+GetMetadataGenerationRunInputRequestTypeDef = TypedDict(
+    "GetMetadataGenerationRunInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "identifier": str,
+    },
+)
+
+GetMetadataGenerationRunOutputTypeDef = TypedDict(
+    "GetMetadataGenerationRunOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "owningProjectId": str,
+        "status": MetadataGenerationRunStatusType,
+        "target": "MetadataGenerationRunTargetTypeDef",
+        "type": Literal["BUSINESS_DESCRIPTIONS"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetProjectInputRequestTypeDef = TypedDict(
     "GetProjectInputRequestTypeDef",
     {
@@ -2558,10 +2667,12 @@ GetProjectOutputTypeDef = TypedDict(
         "createdBy": str,
         "description": str,
         "domainId": str,
+        "failureReasons": List["ProjectDeletionErrorTypeDef"],
         "glossaryTerms": List[str],
         "id": str,
         "lastUpdatedAt": datetime,
         "name": str,
+        "projectStatus": ProjectStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2676,6 +2787,29 @@ GetSubscriptionTargetOutputTypeDef = TypedDict(
     },
 )
 
+GetTimeSeriesDataPointInputRequestTypeDef = TypedDict(
+    "GetTimeSeriesDataPointInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "entityIdentifier": str,
+        "entityType": TimeSeriesEntityTypeType,
+        "formName": str,
+        "identifier": str,
+    },
+)
+
+GetTimeSeriesDataPointOutputTypeDef = TypedDict(
+    "GetTimeSeriesDataPointOutputTypeDef",
+    {
+        "domainId": str,
+        "entityId": str,
+        "entityType": TimeSeriesEntityTypeType,
+        "form": "TimeSeriesDataPointFormOutputTypeDef",
+        "formName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetUserProfileInputRequestTypeDef = TypedDict(
     "_RequiredGetUserProfileInputRequestTypeDef",
     {
@@ -2769,6 +2903,7 @@ _RequiredGlueRunConfigurationInputTypeDef = TypedDict(
 _OptionalGlueRunConfigurationInputTypeDef = TypedDict(
     "_OptionalGlueRunConfigurationInputTypeDef",
     {
+        "autoImportDataQualityResult": bool,
         "dataAccessRole": str,
     },
     total=False,
@@ -2789,6 +2924,7 @@ _OptionalGlueRunConfigurationOutputTypeDef = TypedDict(
     "_OptionalGlueRunConfigurationOutputTypeDef",
     {
         "accountId": str,
+        "autoImportDataQualityResult": bool,
         "dataAccessRole": str,
         "region": str,
     },
@@ -3130,6 +3266,38 @@ ListEnvironmentsOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredListMetadataGenerationRunsInputRequestTypeDef = TypedDict(
+    "_RequiredListMetadataGenerationRunsInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+    },
+)
+_OptionalListMetadataGenerationRunsInputRequestTypeDef = TypedDict(
+    "_OptionalListMetadataGenerationRunsInputRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+        "status": MetadataGenerationRunStatusType,
+        "type": Literal["BUSINESS_DESCRIPTIONS"],
+    },
+    total=False,
+)
+
+class ListMetadataGenerationRunsInputRequestTypeDef(
+    _RequiredListMetadataGenerationRunsInputRequestTypeDef,
+    _OptionalListMetadataGenerationRunsInputRequestTypeDef,
+):
+    pass
+
+ListMetadataGenerationRunsOutputTypeDef = TypedDict(
+    "ListMetadataGenerationRunsOutputTypeDef",
+    {
+        "items": List["MetadataGenerationRunItemTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListNotificationsInputRequestTypeDef = TypedDict(
     "_RequiredListNotificationsInputRequestTypeDef",
     {
@@ -3385,6 +3553,41 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
+    "_RequiredListTimeSeriesDataPointsInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "entityIdentifier": str,
+        "entityType": TimeSeriesEntityTypeType,
+        "formName": str,
+    },
+)
+_OptionalListTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
+    "_OptionalListTimeSeriesDataPointsInputRequestTypeDef",
+    {
+        "endedAt": Union[datetime, str],
+        "maxResults": int,
+        "nextToken": str,
+        "startedAt": Union[datetime, str],
+    },
+    total=False,
+)
+
+class ListTimeSeriesDataPointsInputRequestTypeDef(
+    _RequiredListTimeSeriesDataPointsInputRequestTypeDef,
+    _OptionalListTimeSeriesDataPointsInputRequestTypeDef,
+):
+    pass
+
+ListTimeSeriesDataPointsOutputTypeDef = TypedDict(
+    "ListTimeSeriesDataPointsOutputTypeDef",
+    {
+        "items": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListingItemTypeDef = TypedDict(
     "ListingItemTypeDef",
     {
@@ -3426,6 +3629,51 @@ MemberTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredMetadataGenerationRunItemTypeDef = TypedDict(
+    "_RequiredMetadataGenerationRunItemTypeDef",
+    {
+        "domainId": str,
+        "id": str,
+        "owningProjectId": str,
+    },
+)
+_OptionalMetadataGenerationRunItemTypeDef = TypedDict(
+    "_OptionalMetadataGenerationRunItemTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "status": MetadataGenerationRunStatusType,
+        "target": "MetadataGenerationRunTargetTypeDef",
+        "type": Literal["BUSINESS_DESCRIPTIONS"],
+    },
+    total=False,
+)
+
+class MetadataGenerationRunItemTypeDef(
+    _RequiredMetadataGenerationRunItemTypeDef, _OptionalMetadataGenerationRunItemTypeDef
+):
+    pass
+
+_RequiredMetadataGenerationRunTargetTypeDef = TypedDict(
+    "_RequiredMetadataGenerationRunTargetTypeDef",
+    {
+        "identifier": str,
+        "type": Literal["ASSET"],
+    },
+)
+_OptionalMetadataGenerationRunTargetTypeDef = TypedDict(
+    "_OptionalMetadataGenerationRunTargetTypeDef",
+    {
+        "revision": str,
+    },
+    total=False,
+)
+
+class MetadataGenerationRunTargetTypeDef(
+    _RequiredMetadataGenerationRunTargetTypeDef, _OptionalMetadataGenerationRunTargetTypeDef
+):
+    pass
 
 ModelTypeDef = TypedDict(
     "ModelTypeDef",
@@ -3493,10 +3741,53 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPostTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
+    "_RequiredPostTimeSeriesDataPointsInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "entityIdentifier": str,
+        "entityType": TimeSeriesEntityTypeType,
+        "forms": List["TimeSeriesDataPointFormInputTypeDef"],
+    },
+)
+_OptionalPostTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
+    "_OptionalPostTimeSeriesDataPointsInputRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class PostTimeSeriesDataPointsInputRequestTypeDef(
+    _RequiredPostTimeSeriesDataPointsInputRequestTypeDef,
+    _OptionalPostTimeSeriesDataPointsInputRequestTypeDef,
+):
+    pass
+
+PostTimeSeriesDataPointsOutputTypeDef = TypedDict(
+    "PostTimeSeriesDataPointsOutputTypeDef",
+    {
+        "domainId": str,
+        "entityId": str,
+        "entityType": TimeSeriesEntityTypeType,
+        "forms": List["TimeSeriesDataPointFormOutputTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PredictionConfigurationTypeDef = TypedDict(
     "PredictionConfigurationTypeDef",
     {
         "businessNameGeneration": "BusinessNameGenerationConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ProjectDeletionErrorTypeDef = TypedDict(
+    "ProjectDeletionErrorTypeDef",
+    {
+        "code": str,
+        "message": str,
     },
     total=False,
 )
@@ -3523,6 +3814,8 @@ _OptionalProjectSummaryTypeDef = TypedDict(
     {
         "createdAt": datetime,
         "description": str,
+        "failureReasons": List["ProjectDeletionErrorTypeDef"],
+        "projectStatus": ProjectStatusType,
         "updatedAt": datetime,
     },
     total=False,
@@ -3660,14 +3953,22 @@ RedshiftStorageTypeDef = TypedDict(
     total=False,
 )
 
-RejectChoiceTypeDef = TypedDict(
-    "RejectChoiceTypeDef",
+_RequiredRejectChoiceTypeDef = TypedDict(
+    "_RequiredRejectChoiceTypeDef",
+    {
+        "predictionTarget": str,
+    },
+)
+_OptionalRejectChoiceTypeDef = TypedDict(
+    "_OptionalRejectChoiceTypeDef",
     {
         "predictionChoices": List[int],
-        "predictionTarget": str,
     },
     total=False,
 )
+
+class RejectChoiceTypeDef(_RequiredRejectChoiceTypeDef, _OptionalRejectChoiceTypeDef):
+    pass
 
 _RequiredRejectPredictionsInputRequestTypeDef = TypedDict(
     "_RequiredRejectPredictionsInputRequestTypeDef",
@@ -3908,7 +4209,7 @@ _RequiredSearchInputRequestTypeDef = TypedDict(
 _OptionalSearchInputRequestTypeDef = TypedDict(
     "_OptionalSearchInputRequestTypeDef",
     {
-        "additionalAttributes": List[Literal["FORMS"]],
+        "additionalAttributes": List[SearchOutputAdditionalAttributeType],
         "filters": "FilterClauseTypeDef",
         "maxResults": int,
         "nextToken": str,
@@ -3945,7 +4246,7 @@ _RequiredSearchListingsInputRequestTypeDef = TypedDict(
 _OptionalSearchListingsInputRequestTypeDef = TypedDict(
     "_OptionalSearchListingsInputRequestTypeDef",
     {
-        "additionalAttributes": List[Literal["FORMS"]],
+        "additionalAttributes": List[SearchOutputAdditionalAttributeType],
         "filters": "FilterClauseTypeDef",
         "maxResults": int,
         "nextToken": str,
@@ -4137,6 +4438,43 @@ StartDataSourceRunOutputTypeDef = TypedDict(
         "stoppedAt": datetime,
         "type": DataSourceRunTypeType,
         "updatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartMetadataGenerationRunInputRequestTypeDef = TypedDict(
+    "_RequiredStartMetadataGenerationRunInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "owningProjectIdentifier": str,
+        "target": "MetadataGenerationRunTargetTypeDef",
+        "type": Literal["BUSINESS_DESCRIPTIONS"],
+    },
+)
+_OptionalStartMetadataGenerationRunInputRequestTypeDef = TypedDict(
+    "_OptionalStartMetadataGenerationRunInputRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class StartMetadataGenerationRunInputRequestTypeDef(
+    _RequiredStartMetadataGenerationRunInputRequestTypeDef,
+    _OptionalStartMetadataGenerationRunInputRequestTypeDef,
+):
+    pass
+
+StartMetadataGenerationRunOutputTypeDef = TypedDict(
+    "StartMetadataGenerationRunOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "owningProjectId": str,
+        "status": MetadataGenerationRunStatusType,
+        "type": Literal["BUSINESS_DESCRIPTIONS"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4388,6 +4726,75 @@ TermRelationsTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredTimeSeriesDataPointFormInputTypeDef = TypedDict(
+    "_RequiredTimeSeriesDataPointFormInputTypeDef",
+    {
+        "formName": str,
+        "timestamp": Union[datetime, str],
+        "typeIdentifier": str,
+    },
+)
+_OptionalTimeSeriesDataPointFormInputTypeDef = TypedDict(
+    "_OptionalTimeSeriesDataPointFormInputTypeDef",
+    {
+        "content": str,
+        "typeRevision": str,
+    },
+    total=False,
+)
+
+class TimeSeriesDataPointFormInputTypeDef(
+    _RequiredTimeSeriesDataPointFormInputTypeDef, _OptionalTimeSeriesDataPointFormInputTypeDef
+):
+    pass
+
+_RequiredTimeSeriesDataPointFormOutputTypeDef = TypedDict(
+    "_RequiredTimeSeriesDataPointFormOutputTypeDef",
+    {
+        "formName": str,
+        "timestamp": datetime,
+        "typeIdentifier": str,
+    },
+)
+_OptionalTimeSeriesDataPointFormOutputTypeDef = TypedDict(
+    "_OptionalTimeSeriesDataPointFormOutputTypeDef",
+    {
+        "content": str,
+        "id": str,
+        "typeRevision": str,
+    },
+    total=False,
+)
+
+class TimeSeriesDataPointFormOutputTypeDef(
+    _RequiredTimeSeriesDataPointFormOutputTypeDef, _OptionalTimeSeriesDataPointFormOutputTypeDef
+):
+    pass
+
+_RequiredTimeSeriesDataPointSummaryFormOutputTypeDef = TypedDict(
+    "_RequiredTimeSeriesDataPointSummaryFormOutputTypeDef",
+    {
+        "formName": str,
+        "timestamp": datetime,
+        "typeIdentifier": str,
+    },
+)
+_OptionalTimeSeriesDataPointSummaryFormOutputTypeDef = TypedDict(
+    "_OptionalTimeSeriesDataPointSummaryFormOutputTypeDef",
+    {
+        "contentSummary": str,
+        "id": str,
+        "typeRevision": str,
+    },
+    total=False,
+)
+
+class TimeSeriesDataPointSummaryFormOutputTypeDef(
+    _RequiredTimeSeriesDataPointSummaryFormOutputTypeDef,
+    _OptionalTimeSeriesDataPointSummaryFormOutputTypeDef,
+):
+    pass
 
 TopicTypeDef = TypedDict(
     "TopicTypeDef",
@@ -4715,10 +5122,12 @@ UpdateProjectOutputTypeDef = TypedDict(
         "createdBy": str,
         "description": str,
         "domainId": str,
+        "failureReasons": List["ProjectDeletionErrorTypeDef"],
         "glossaryTerms": List[str],
         "id": str,
         "lastUpdatedAt": datetime,
         "name": str,
+        "projectStatus": ProjectStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

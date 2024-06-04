@@ -44,6 +44,7 @@ Usage::
     list_studios_paginator: ListStudiosPaginator = client.get_paginator("list_studios")
     ```
 """
+
 from .client import EMRClient
 from .paginator import (
     ListBootstrapActionsPaginator,

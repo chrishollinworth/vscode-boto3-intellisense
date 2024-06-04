@@ -11,6 +11,7 @@ Usage::
     data: AccessorNetworkTypeType = "ETHEREUM_GOERLI"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

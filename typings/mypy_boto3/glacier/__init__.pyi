@@ -35,6 +35,7 @@ Usage::
     list_vaults_paginator: ListVaultsPaginator = client.get_paginator("list_vaults")
     ```
 """
+
 from .client import GlacierClient
 from .paginator import (
     ListJobsPaginator,

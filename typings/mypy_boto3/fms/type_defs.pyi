@@ -11,6 +11,7 @@ Usage::
     data: AccountScopeTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -21,15 +22,19 @@ from .literals import (
     CustomerPolicyStatusType,
     DependentServiceNameType,
     DestinationTypeType,
+    EntryTypeType,
+    EntryViolationReasonType,
     FailedItemReasonType,
     FirewallDeploymentModelType,
     MarketplaceSubscriptionOnboardingStatusType,
+    NetworkAclRuleActionType,
     OrganizationStatusType,
     PolicyComplianceStatusTypeType,
     RemediationActionTypeType,
     ResourceSetStatusType,
     RuleOrderType,
     SecurityServiceTypeType,
+    StreamExceptionPolicyType,
     TargetTypeType,
     ThirdPartyFirewallAssociationStatusType,
     ThirdPartyFirewallType,
@@ -64,7 +69,10 @@ __all__ = (
     "BatchDisassociateResourceRequestRequestTypeDef",
     "BatchDisassociateResourceResponseTypeDef",
     "ComplianceViolatorTypeDef",
+    "CreateNetworkAclActionTypeDef",
+    "CreateNetworkAclEntriesActionTypeDef",
     "DeleteAppsListRequestRequestTypeDef",
+    "DeleteNetworkAclEntriesActionTypeDef",
     "DeletePolicyRequestRequestTypeDef",
     "DeleteProtocolsListRequestRequestTypeDef",
     "DeleteResourceSetRequestRequestTypeDef",
@@ -81,6 +89,8 @@ __all__ = (
     "EC2DeleteRouteActionTypeDef",
     "EC2ReplaceRouteActionTypeDef",
     "EC2ReplaceRouteTableAssociationActionTypeDef",
+    "EntryDescriptionTypeDef",
+    "EntryViolationTypeDef",
     "EvaluationResultTypeDef",
     "ExpectedRouteTypeDef",
     "FMSPolicyUpdateFirewallCreationConfigActionTypeDef",
@@ -107,6 +117,7 @@ __all__ = (
     "GetThirdPartyFirewallAssociationStatusResponseTypeDef",
     "GetViolationDetailsRequestRequestTypeDef",
     "GetViolationDetailsResponseTypeDef",
+    "InvalidNetworkAclEntriesViolationTypeDef",
     "ListAdminAccountsForOrganizationRequestRequestTypeDef",
     "ListAdminAccountsForOrganizationResponseTypeDef",
     "ListAdminsManagingAccountRequestRequestTypeDef",
@@ -131,6 +142,11 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
     "ListThirdPartyFirewallFirewallPoliciesResponseTypeDef",
+    "NetworkAclCommonPolicyTypeDef",
+    "NetworkAclEntrySetTypeDef",
+    "NetworkAclEntryTypeDef",
+    "NetworkAclIcmpTypeCodeTypeDef",
+    "NetworkAclPortRangeTypeDef",
     "NetworkFirewallBlackHoleRouteDetectedViolationTypeDef",
     "NetworkFirewallInternetTrafficNotInspectedViolationTypeDef",
     "NetworkFirewallInvalidRouteConfigurationViolationTypeDef",
@@ -170,6 +186,7 @@ __all__ = (
     "RegionScopeTypeDef",
     "RemediationActionTypeDef",
     "RemediationActionWithOrderTypeDef",
+    "ReplaceNetworkAclAssociationActionTypeDef",
     "ResourceSetSummaryTypeDef",
     "ResourceSetTypeDef",
     "ResourceTagTypeDef",
@@ -373,11 +390,43 @@ ComplianceViolatorTypeDef = TypedDict(
     total=False,
 )
 
+CreateNetworkAclActionTypeDef = TypedDict(
+    "CreateNetworkAclActionTypeDef",
+    {
+        "Description": str,
+        "Vpc": "ActionTargetTypeDef",
+        "FMSCanRemediate": bool,
+    },
+    total=False,
+)
+
+CreateNetworkAclEntriesActionTypeDef = TypedDict(
+    "CreateNetworkAclEntriesActionTypeDef",
+    {
+        "Description": str,
+        "NetworkAclId": "ActionTargetTypeDef",
+        "NetworkAclEntriesToBeCreated": List["EntryDescriptionTypeDef"],
+        "FMSCanRemediate": bool,
+    },
+    total=False,
+)
+
 DeleteAppsListRequestRequestTypeDef = TypedDict(
     "DeleteAppsListRequestRequestTypeDef",
     {
         "ListId": str,
     },
+)
+
+DeleteNetworkAclEntriesActionTypeDef = TypedDict(
+    "DeleteNetworkAclEntriesActionTypeDef",
+    {
+        "Description": str,
+        "NetworkAclId": "ActionTargetTypeDef",
+        "NetworkAclEntriesToBeDeleted": List["EntryDescriptionTypeDef"],
+        "FMSCanRemediate": bool,
+    },
+    total=False,
 )
 
 _RequiredDeletePolicyRequestRequestTypeDef = TypedDict(
@@ -619,6 +668,29 @@ class EC2ReplaceRouteTableAssociationActionTypeDef(
     _OptionalEC2ReplaceRouteTableAssociationActionTypeDef,
 ):
     pass
+
+EntryDescriptionTypeDef = TypedDict(
+    "EntryDescriptionTypeDef",
+    {
+        "EntryDetail": "NetworkAclEntryTypeDef",
+        "EntryRuleNumber": int,
+        "EntryType": EntryTypeType,
+    },
+    total=False,
+)
+
+EntryViolationTypeDef = TypedDict(
+    "EntryViolationTypeDef",
+    {
+        "ExpectedEntry": "EntryDescriptionTypeDef",
+        "ExpectedEvaluationOrder": str,
+        "ActualEvaluationOrder": str,
+        "EntryAtExpectedEvaluationOrder": "EntryDescriptionTypeDef",
+        "EntriesWithConflicts": List["EntryDescriptionTypeDef"],
+        "EntryViolationReasons": List[EntryViolationReasonType],
+    },
+    total=False,
+)
 
 EvaluationResultTypeDef = TypedDict(
     "EvaluationResultTypeDef",
@@ -889,6 +961,18 @@ GetViolationDetailsResponseTypeDef = TypedDict(
         "ViolationDetail": "ViolationDetailTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+InvalidNetworkAclEntriesViolationTypeDef = TypedDict(
+    "InvalidNetworkAclEntriesViolationTypeDef",
+    {
+        "Vpc": str,
+        "Subnet": str,
+        "SubnetAvailabilityZone": str,
+        "CurrentAssociatedNetworkAcl": str,
+        "EntryViolations": List["EntryViolationTypeDef"],
+    },
+    total=False,
 )
 
 ListAdminAccountsForOrganizationRequestRequestTypeDef = TypedDict(
@@ -1176,6 +1260,74 @@ ListThirdPartyFirewallFirewallPoliciesResponseTypeDef = TypedDict(
     },
 )
 
+NetworkAclCommonPolicyTypeDef = TypedDict(
+    "NetworkAclCommonPolicyTypeDef",
+    {
+        "NetworkAclEntrySet": "NetworkAclEntrySetTypeDef",
+    },
+)
+
+_RequiredNetworkAclEntrySetTypeDef = TypedDict(
+    "_RequiredNetworkAclEntrySetTypeDef",
+    {
+        "ForceRemediateForFirstEntries": bool,
+        "ForceRemediateForLastEntries": bool,
+    },
+)
+_OptionalNetworkAclEntrySetTypeDef = TypedDict(
+    "_OptionalNetworkAclEntrySetTypeDef",
+    {
+        "FirstEntries": List["NetworkAclEntryTypeDef"],
+        "LastEntries": List["NetworkAclEntryTypeDef"],
+    },
+    total=False,
+)
+
+class NetworkAclEntrySetTypeDef(
+    _RequiredNetworkAclEntrySetTypeDef, _OptionalNetworkAclEntrySetTypeDef
+):
+    pass
+
+_RequiredNetworkAclEntryTypeDef = TypedDict(
+    "_RequiredNetworkAclEntryTypeDef",
+    {
+        "Protocol": str,
+        "RuleAction": NetworkAclRuleActionType,
+        "Egress": bool,
+    },
+)
+_OptionalNetworkAclEntryTypeDef = TypedDict(
+    "_OptionalNetworkAclEntryTypeDef",
+    {
+        "IcmpTypeCode": "NetworkAclIcmpTypeCodeTypeDef",
+        "PortRange": "NetworkAclPortRangeTypeDef",
+        "CidrBlock": str,
+        "Ipv6CidrBlock": str,
+    },
+    total=False,
+)
+
+class NetworkAclEntryTypeDef(_RequiredNetworkAclEntryTypeDef, _OptionalNetworkAclEntryTypeDef):
+    pass
+
+NetworkAclIcmpTypeCodeTypeDef = TypedDict(
+    "NetworkAclIcmpTypeCodeTypeDef",
+    {
+        "Code": int,
+        "Type": int,
+    },
+    total=False,
+)
+
+NetworkAclPortRangeTypeDef = TypedDict(
+    "NetworkAclPortRangeTypeDef",
+    {
+        "From": int,
+        "To": int,
+    },
+    total=False,
+)
+
 NetworkFirewallBlackHoleRouteDetectedViolationTypeDef = TypedDict(
     "NetworkFirewallBlackHoleRouteDetectedViolationTypeDef",
     {
@@ -1401,6 +1553,7 @@ PolicyOptionTypeDef = TypedDict(
     {
         "NetworkFirewallPolicy": "NetworkFirewallPolicyTypeDef",
         "ThirdPartyFirewallPolicy": "ThirdPartyFirewallPolicyTypeDef",
+        "NetworkAclCommonPolicy": "NetworkAclCommonPolicyTypeDef",
     },
     total=False,
 )
@@ -1683,6 +1836,10 @@ RemediationActionTypeDef = TypedDict(
         "EC2AssociateRouteTableAction": "EC2AssociateRouteTableActionTypeDef",
         "EC2CreateRouteTableAction": "EC2CreateRouteTableActionTypeDef",
         "FMSPolicyUpdateFirewallCreationConfigAction": "FMSPolicyUpdateFirewallCreationConfigActionTypeDef",
+        "CreateNetworkAclAction": "CreateNetworkAclActionTypeDef",
+        "ReplaceNetworkAclAssociationAction": "ReplaceNetworkAclAssociationActionTypeDef",
+        "CreateNetworkAclEntriesAction": "CreateNetworkAclEntriesActionTypeDef",
+        "DeleteNetworkAclEntriesAction": "DeleteNetworkAclEntriesActionTypeDef",
     },
     total=False,
 )
@@ -1692,6 +1849,17 @@ RemediationActionWithOrderTypeDef = TypedDict(
     {
         "RemediationAction": "RemediationActionTypeDef",
         "Order": int,
+    },
+    total=False,
+)
+
+ReplaceNetworkAclAssociationActionTypeDef = TypedDict(
+    "ReplaceNetworkAclAssociationActionTypeDef",
+    {
+        "Description": str,
+        "AssociationId": "ActionTargetTypeDef",
+        "NetworkAclId": "ActionTargetTypeDef",
+        "FMSCanRemediate": bool,
     },
     total=False,
 )
@@ -1783,13 +1951,14 @@ ResourceViolationTypeDef = TypedDict(
         "DnsRuleGroupPriorityConflictViolation": "DnsRuleGroupPriorityConflictViolationTypeDef",
         "DnsDuplicateRuleGroupViolation": "DnsDuplicateRuleGroupViolationTypeDef",
         "DnsRuleGroupLimitExceededViolation": "DnsRuleGroupLimitExceededViolationTypeDef",
-        "PossibleRemediationActions": "PossibleRemediationActionsTypeDef",
         "FirewallSubnetIsOutOfScopeViolation": "FirewallSubnetIsOutOfScopeViolationTypeDef",
         "RouteHasOutOfScopeEndpointViolation": "RouteHasOutOfScopeEndpointViolationTypeDef",
         "ThirdPartyFirewallMissingFirewallViolation": "ThirdPartyFirewallMissingFirewallViolationTypeDef",
         "ThirdPartyFirewallMissingSubnetViolation": "ThirdPartyFirewallMissingSubnetViolationTypeDef",
         "ThirdPartyFirewallMissingExpectedRouteTableViolation": "ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef",
         "FirewallSubnetMissingVPCEndpointViolation": "FirewallSubnetMissingVPCEndpointViolationTypeDef",
+        "InvalidNetworkAclEntriesViolation": "InvalidNetworkAclEntriesViolationTypeDef",
+        "PossibleRemediationActions": "PossibleRemediationActionsTypeDef",
     },
     total=False,
 )
@@ -1883,6 +2052,7 @@ StatefulEngineOptionsTypeDef = TypedDict(
     "StatefulEngineOptionsTypeDef",
     {
         "RuleOrder": RuleOrderType,
+        "StreamExceptionPolicy": StreamExceptionPolicyType,
     },
     total=False,
 )

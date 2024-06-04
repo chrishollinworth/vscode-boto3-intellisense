@@ -19,6 +19,7 @@ Usage::
     list_profile_times_paginator: ListProfileTimesPaginator = client.get_paginator("list_profile_times")
     ```
 """
+
 from .client import CodeGuruProfilerClient
 from .paginator import ListProfileTimesPaginator
 

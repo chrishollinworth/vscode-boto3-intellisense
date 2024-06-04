@@ -11,6 +11,7 @@ Usage::
     data: ActivateEventSourceRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -45,6 +46,7 @@ else:
 __all__ = (
     "ActivateEventSourceRequestRequestTypeDef",
     "ApiDestinationTypeDef",
+    "AppSyncParametersTypeDef",
     "ArchiveTypeDef",
     "AwsVpcConfigurationTypeDef",
     "BatchArrayPropertiesTypeDef",
@@ -208,6 +210,8 @@ __all__ = (
     "UpdateConnectionResponseTypeDef",
     "UpdateEndpointRequestRequestTypeDef",
     "UpdateEndpointResponseTypeDef",
+    "UpdateEventBusRequestRequestTypeDef",
+    "UpdateEventBusResponseTypeDef",
 )
 
 ActivateEventSourceRequestRequestTypeDef = TypedDict(
@@ -229,6 +233,14 @@ ApiDestinationTypeDef = TypedDict(
         "InvocationRateLimitPerSecond": int,
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
+AppSyncParametersTypeDef = TypedDict(
+    "AppSyncParametersTypeDef",
+    {
+        "GraphQLOperation": str,
     },
     total=False,
 )
@@ -654,6 +666,9 @@ _OptionalCreateEventBusRequestRequestTypeDef = TypedDict(
     "_OptionalCreateEventBusRequestRequestTypeDef",
     {
         "EventSourceName": str,
+        "Description": str,
+        "KmsKeyIdentifier": str,
+        "DeadLetterConfig": "DeadLetterConfigTypeDef",
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -668,6 +683,9 @@ CreateEventBusResponseTypeDef = TypedDict(
     "CreateEventBusResponseTypeDef",
     {
         "EventBusArn": str,
+        "Description": str,
+        "KmsKeyIdentifier": str,
+        "DeadLetterConfig": "DeadLetterConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -923,7 +941,12 @@ DescribeEventBusResponseTypeDef = TypedDict(
     {
         "Name": str,
         "Arn": str,
+        "Description": str,
+        "KmsKeyIdentifier": str,
+        "DeadLetterConfig": "DeadLetterConfigTypeDef",
         "Policy": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1125,7 +1148,10 @@ EventBusTypeDef = TypedDict(
     {
         "Name": str,
         "Arn": str,
+        "Description": str,
         "Policy": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
     },
     total=False,
 )
@@ -1999,6 +2025,7 @@ _OptionalTargetTypeDef = TypedDict(
         "SageMakerPipelineParameters": "SageMakerPipelineParametersTypeDef",
         "DeadLetterConfig": "DeadLetterConfigTypeDef",
         "RetryPolicy": "RetryPolicyTypeDef",
+        "AppSyncParameters": "AppSyncParametersTypeDef",
     },
     total=False,
 )
@@ -2214,6 +2241,29 @@ UpdateEndpointResponseTypeDef = TypedDict(
         "EndpointId": str,
         "EndpointUrl": str,
         "State": EndpointStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateEventBusRequestRequestTypeDef = TypedDict(
+    "UpdateEventBusRequestRequestTypeDef",
+    {
+        "Name": str,
+        "KmsKeyIdentifier": str,
+        "Description": str,
+        "DeadLetterConfig": "DeadLetterConfigTypeDef",
+    },
+    total=False,
+)
+
+UpdateEventBusResponseTypeDef = TypedDict(
+    "UpdateEventBusResponseTypeDef",
+    {
+        "Arn": str,
+        "Name": str,
+        "KmsKeyIdentifier": str,
+        "Description": str,
+        "DeadLetterConfig": "DeadLetterConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

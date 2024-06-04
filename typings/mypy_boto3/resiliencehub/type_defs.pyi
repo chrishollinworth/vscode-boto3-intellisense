@@ -11,6 +11,7 @@ Usage::
     data: AddDraftAppVersionResourceMappingsRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -27,8 +28,10 @@ from .literals import (
     ConfigRecommendationOptimizationTypeType,
     CostFrequencyType,
     DataLocationConstraintType,
+    DifferenceTypeType,
     DisruptionTypeType,
     DriftStatusType,
+    DriftTypeType,
     EstimatedCostTierType,
     EventTypeType,
     ExcludeRecommendationReasonType,
@@ -133,6 +136,8 @@ __all__ = (
     "ListAlarmRecommendationsResponseTypeDef",
     "ListAppAssessmentComplianceDriftsRequestRequestTypeDef",
     "ListAppAssessmentComplianceDriftsResponseTypeDef",
+    "ListAppAssessmentResourceDriftsRequestRequestTypeDef",
+    "ListAppAssessmentResourceDriftsResponseTypeDef",
     "ListAppAssessmentsRequestRequestTypeDef",
     "ListAppAssessmentsResponseTypeDef",
     "ListAppComponentCompliancesRequestRequestTypeDef",
@@ -166,6 +171,7 @@ __all__ = (
     "ListUnsupportedAppVersionResourcesRequestRequestTypeDef",
     "ListUnsupportedAppVersionResourcesResponseTypeDef",
     "LogicalResourceIdTypeDef",
+    "PaginatorConfigTypeDef",
     "PermissionModelTypeDef",
     "PhysicalResourceIdTypeDef",
     "PhysicalResourceTypeDef",
@@ -182,8 +188,10 @@ __all__ = (
     "ResiliencyScoreTypeDef",
     "ResolveAppVersionResourcesRequestRequestTypeDef",
     "ResolveAppVersionResourcesResponseTypeDef",
+    "ResourceDriftTypeDef",
     "ResourceErrorTypeDef",
     "ResourceErrorsDetailsTypeDef",
+    "ResourceIdentifierTypeDef",
     "ResourceMappingTypeDef",
     "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
@@ -509,8 +517,8 @@ ComplianceDriftTypeDef = TypedDict(
         "actualValue": Dict[DisruptionTypeType, "DisruptionComplianceTypeDef"],
         "appId": str,
         "appVersion": str,
-        "diffType": Literal["NotEqual"],
-        "driftType": Literal["ApplicationCompliance"],
+        "diffType": DifferenceTypeType,
+        "driftType": DriftTypeType,
         "entityId": str,
         "entityType": str,
         "expectedReferenceId": str,
@@ -1304,6 +1312,36 @@ ListAppAssessmentComplianceDriftsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListAppAssessmentResourceDriftsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAppAssessmentResourceDriftsRequestRequestTypeDef",
+    {
+        "assessmentArn": str,
+    },
+)
+_OptionalListAppAssessmentResourceDriftsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAppAssessmentResourceDriftsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListAppAssessmentResourceDriftsRequestRequestTypeDef(
+    _RequiredListAppAssessmentResourceDriftsRequestRequestTypeDef,
+    _OptionalListAppAssessmentResourceDriftsRequestRequestTypeDef,
+):
+    pass
+
+ListAppAssessmentResourceDriftsResponseTypeDef = TypedDict(
+    "ListAppAssessmentResourceDriftsResponseTypeDef",
+    {
+        "nextToken": str,
+        "resourceDrifts": List["ResourceDriftTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListAppAssessmentsRequestRequestTypeDef = TypedDict(
     "ListAppAssessmentsRequestRequestTypeDef",
     {
@@ -1570,15 +1608,10 @@ ListAppsResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredListRecommendationTemplatesRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecommendationTemplatesRequestRequestTypeDef",
+ListRecommendationTemplatesRequestRequestTypeDef = TypedDict(
+    "ListRecommendationTemplatesRequestRequestTypeDef",
     {
         "assessmentArn": str,
-    },
-)
-_OptionalListRecommendationTemplatesRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecommendationTemplatesRequestRequestTypeDef",
-    {
         "maxResults": int,
         "name": str,
         "nextToken": str,
@@ -1588,12 +1621,6 @@ _OptionalListRecommendationTemplatesRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
-
-class ListRecommendationTemplatesRequestRequestTypeDef(
-    _RequiredListRecommendationTemplatesRequestRequestTypeDef,
-    _OptionalListRecommendationTemplatesRequestRequestTypeDef,
-):
-    pass
 
 ListRecommendationTemplatesResponseTypeDef = TypedDict(
     "ListRecommendationTemplatesResponseTypeDef",
@@ -1770,6 +1797,16 @@ class LogicalResourceIdTypeDef(
     _RequiredLogicalResourceIdTypeDef, _OptionalLogicalResourceIdTypeDef
 ):
     pass
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
 
 _RequiredPermissionModelTypeDef = TypedDict(
     "_RequiredPermissionModelTypeDef",
@@ -2035,6 +2072,18 @@ ResolveAppVersionResourcesResponseTypeDef = TypedDict(
     },
 )
 
+ResourceDriftTypeDef = TypedDict(
+    "ResourceDriftTypeDef",
+    {
+        "appArn": str,
+        "appVersion": str,
+        "diffType": DifferenceTypeType,
+        "referenceId": str,
+        "resourceIdentifier": "ResourceIdentifierTypeDef",
+    },
+    total=False,
+)
+
 ResourceErrorTypeDef = TypedDict(
     "ResourceErrorTypeDef",
     {
@@ -2050,6 +2099,15 @@ ResourceErrorsDetailsTypeDef = TypedDict(
     {
         "hasMoreErrors": bool,
         "resourceErrors": List["ResourceErrorTypeDef"],
+    },
+    total=False,
+)
+
+ResourceIdentifierTypeDef = TypedDict(
+    "ResourceIdentifierTypeDef",
+    {
+        "logicalResourceId": "LogicalResourceIdTypeDef",
+        "resourceType": str,
     },
     total=False,
 )

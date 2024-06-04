@@ -11,11 +11,18 @@ Usage::
     data: CreateFHIRDatastoreRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import AuthorizationStrategyType, CmkTypeType, DatastoreStatusType, JobStatusType
+from .literals import (
+    AuthorizationStrategyType,
+    CmkTypeType,
+    DatastoreStatusType,
+    ErrorCategoryType,
+    JobStatusType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -39,10 +46,12 @@ __all__ = (
     "DescribeFHIRExportJobResponseTypeDef",
     "DescribeFHIRImportJobRequestRequestTypeDef",
     "DescribeFHIRImportJobResponseTypeDef",
+    "ErrorCauseTypeDef",
     "ExportJobPropertiesTypeDef",
     "IdentityProviderConfigurationTypeDef",
     "ImportJobPropertiesTypeDef",
     "InputDataConfigTypeDef",
+    "JobProgressReportTypeDef",
     "KmsEncryptionConfigTypeDef",
     "ListFHIRDatastoresRequestRequestTypeDef",
     "ListFHIRDatastoresResponseTypeDef",
@@ -131,6 +140,7 @@ _OptionalDatastorePropertiesTypeDef = TypedDict(
         "SseConfiguration": "SseConfigurationTypeDef",
         "PreloadDataConfig": "PreloadDataConfigTypeDef",
         "IdentityProviderConfiguration": "IdentityProviderConfigurationTypeDef",
+        "ErrorCause": "ErrorCauseTypeDef",
     },
     total=False,
 )
@@ -205,6 +215,15 @@ DescribeFHIRImportJobResponseTypeDef = TypedDict(
     },
 )
 
+ErrorCauseTypeDef = TypedDict(
+    "ErrorCauseTypeDef",
+    {
+        "ErrorMessage": str,
+        "ErrorCategory": ErrorCategoryType,
+    },
+    total=False,
+)
+
 _RequiredExportJobPropertiesTypeDef = TypedDict(
     "_RequiredExportJobPropertiesTypeDef",
     {
@@ -268,6 +287,7 @@ _OptionalImportJobPropertiesTypeDef = TypedDict(
         "JobName": str,
         "EndTime": datetime,
         "JobOutputDataConfig": "OutputDataConfigTypeDef",
+        "JobProgressReport": "JobProgressReportTypeDef",
         "DataAccessRoleArn": str,
         "Message": str,
     },
@@ -283,6 +303,21 @@ InputDataConfigTypeDef = TypedDict(
     "InputDataConfigTypeDef",
     {
         "S3Uri": str,
+    },
+    total=False,
+)
+
+JobProgressReportTypeDef = TypedDict(
+    "JobProgressReportTypeDef",
+    {
+        "TotalNumberOfScannedFiles": int,
+        "TotalSizeOfScannedFilesInMB": float,
+        "TotalNumberOfImportedFiles": int,
+        "TotalNumberOfResourcesScanned": int,
+        "TotalNumberOfResourcesImported": int,
+        "TotalNumberOfResourcesWithCustomerError": int,
+        "TotalNumberOfFilesReadWithCustomerError": int,
+        "Throughput": float,
     },
     total=False,
 )

@@ -11,6 +11,7 @@ Usage::
     data: AccessEndpointTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -2317,13 +2318,23 @@ UsageReportSubscriptionTypeDef = TypedDict(
     total=False,
 )
 
-UserSettingTypeDef = TypedDict(
-    "UserSettingTypeDef",
+_RequiredUserSettingTypeDef = TypedDict(
+    "_RequiredUserSettingTypeDef",
     {
         "Action": ActionType,
         "Permission": PermissionType,
     },
 )
+_OptionalUserSettingTypeDef = TypedDict(
+    "_OptionalUserSettingTypeDef",
+    {
+        "MaximumLength": int,
+    },
+    total=False,
+)
+
+class UserSettingTypeDef(_RequiredUserSettingTypeDef, _OptionalUserSettingTypeDef):
+    pass
 
 UserStackAssociationErrorTypeDef = TypedDict(
     "UserStackAssociationErrorTypeDef",

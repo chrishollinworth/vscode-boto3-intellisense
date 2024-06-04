@@ -21,6 +21,7 @@ Usage::
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     ```
 """
+
 from .client import KinesisAnalyticsV2Client
 from .paginator import ListApplicationSnapshotsPaginator, ListApplicationsPaginator
 

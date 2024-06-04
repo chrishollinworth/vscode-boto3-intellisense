@@ -11,6 +11,7 @@ Usage::
     data: AddTagsToOnPremisesInstancesInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -37,6 +38,7 @@ from .literals import (
     LifecycleErrorCodeType,
     LifecycleEventStatusType,
     ListStateFilterActionType,
+    MinimumHealthyHostsPerZoneTypeType,
     MinimumHealthyHostsTypeType,
     OutdatedInstancesStrategyType,
     RegistrationStatusType,
@@ -160,6 +162,7 @@ __all__ = (
     "ListTagsForResourceInputRequestTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "LoadBalancerInfoTypeDef",
+    "MinimumHealthyHostsPerZoneTypeDef",
     "MinimumHealthyHostsTypeDef",
     "OnPremisesTagSetTypeDef",
     "PaginatorConfigTypeDef",
@@ -195,6 +198,7 @@ __all__ = (
     "UpdateDeploymentGroupInputRequestTypeDef",
     "UpdateDeploymentGroupOutputTypeDef",
     "WaiterConfigTypeDef",
+    "ZonalConfigTypeDef",
 )
 
 AddTagsToOnPremisesInstancesInputRequestTypeDef = TypedDict(
@@ -259,6 +263,7 @@ AutoScalingGroupTypeDef = TypedDict(
     {
         "name": str,
         "hook": str,
+        "terminationHook": str,
     },
     total=False,
 )
@@ -336,7 +341,6 @@ BatchGetDeploymentTargetsInputRequestTypeDef = TypedDict(
         "deploymentId": str,
         "targetIds": List[str],
     },
-    total=False,
 )
 
 BatchGetDeploymentTargetsOutputTypeDef = TypedDict(
@@ -459,6 +463,7 @@ _OptionalCreateDeploymentConfigInputRequestTypeDef = TypedDict(
         "minimumHealthyHosts": "MinimumHealthyHostsTypeDef",
         "trafficRoutingConfig": "TrafficRoutingConfigTypeDef",
         "computePlatform": ComputePlatformType,
+        "zonalConfig": "ZonalConfigTypeDef",
     },
     total=False,
 )
@@ -503,6 +508,7 @@ _OptionalCreateDeploymentGroupInputRequestTypeDef = TypedDict(
         "ecsServices": List["ECSServiceTypeDef"],
         "onPremisesTagSet": "OnPremisesTagSetTypeDef",
         "tags": List["TagTypeDef"],
+        "terminationHookEnabled": bool,
     },
     total=False,
 )
@@ -620,6 +626,7 @@ DeploymentConfigInfoTypeDef = TypedDict(
         "createTime": datetime,
         "computePlatform": ComputePlatformType,
         "trafficRoutingConfig": "TrafficRoutingConfigTypeDef",
+        "zonalConfig": "ZonalConfigTypeDef",
     },
     total=False,
 )
@@ -649,6 +656,7 @@ DeploymentGroupInfoTypeDef = TypedDict(
         "onPremisesTagSet": "OnPremisesTagSetTypeDef",
         "computePlatform": ComputePlatformType,
         "ecsServices": List["ECSServiceTypeDef"],
+        "terminationHookEnabled": bool,
     },
     total=False,
 )
@@ -937,7 +945,6 @@ GetDeploymentTargetInputRequestTypeDef = TypedDict(
         "deploymentId": str,
         "targetId": str,
     },
-    total=False,
 )
 
 GetDeploymentTargetOutputTypeDef = TypedDict(
@@ -1199,15 +1206,26 @@ ListDeploymentInstancesOutputTypeDef = TypedDict(
     },
 )
 
-ListDeploymentTargetsInputRequestTypeDef = TypedDict(
-    "ListDeploymentTargetsInputRequestTypeDef",
+_RequiredListDeploymentTargetsInputRequestTypeDef = TypedDict(
+    "_RequiredListDeploymentTargetsInputRequestTypeDef",
     {
         "deploymentId": str,
+    },
+)
+_OptionalListDeploymentTargetsInputRequestTypeDef = TypedDict(
+    "_OptionalListDeploymentTargetsInputRequestTypeDef",
+    {
         "nextToken": str,
         "targetFilters": Dict[TargetFilterNameType, List[str]],
     },
     total=False,
 )
+
+class ListDeploymentTargetsInputRequestTypeDef(
+    _RequiredListDeploymentTargetsInputRequestTypeDef,
+    _OptionalListDeploymentTargetsInputRequestTypeDef,
+):
+    pass
 
 ListDeploymentTargetsOutputTypeDef = TypedDict(
     "ListDeploymentTargetsOutputTypeDef",
@@ -1310,6 +1328,15 @@ LoadBalancerInfoTypeDef = TypedDict(
         "elbInfoList": List["ELBInfoTypeDef"],
         "targetGroupInfoList": List["TargetGroupInfoTypeDef"],
         "targetGroupPairInfoList": List["TargetGroupPairInfoTypeDef"],
+    },
+    total=False,
+)
+
+MinimumHealthyHostsPerZoneTypeDef = TypedDict(
+    "MinimumHealthyHostsPerZoneTypeDef",
+    {
+        "type": MinimumHealthyHostsPerZoneTypeType,
+        "value": int,
     },
     total=False,
 )
@@ -1670,6 +1697,7 @@ _OptionalUpdateDeploymentGroupInputRequestTypeDef = TypedDict(
         "ec2TagSet": "EC2TagSetTypeDef",
         "ecsServices": List["ECSServiceTypeDef"],
         "onPremisesTagSet": "OnPremisesTagSetTypeDef",
+        "terminationHookEnabled": bool,
     },
     total=False,
 )
@@ -1693,6 +1721,16 @@ WaiterConfigTypeDef = TypedDict(
     {
         "Delay": int,
         "MaxAttempts": int,
+    },
+    total=False,
+)
+
+ZonalConfigTypeDef = TypedDict(
+    "ZonalConfigTypeDef",
+    {
+        "firstZoneMonitorDurationInSeconds": int,
+        "monitorDurationInSeconds": int,
+        "minimumHealthyHostsPerZone": "MinimumHealthyHostsPerZoneTypeDef",
     },
     total=False,
 )

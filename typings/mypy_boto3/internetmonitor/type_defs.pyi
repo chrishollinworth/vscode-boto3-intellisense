@@ -11,6 +11,7 @@ Usage::
     data: AvailabilityMeasurementTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -18,6 +19,8 @@ from typing import Any, Dict, List, Union
 from .literals import (
     HealthEventImpactTypeType,
     HealthEventStatusType,
+    InternetEventStatusType,
+    InternetEventTypeType,
     LocalHealthEventsConfigStatusType,
     LogDeliveryStatusType,
     MonitorConfigStateType,
@@ -35,12 +38,15 @@ else:
 
 __all__ = (
     "AvailabilityMeasurementTypeDef",
+    "ClientLocationTypeDef",
     "CreateMonitorInputRequestTypeDef",
     "CreateMonitorOutputTypeDef",
     "DeleteMonitorInputRequestTypeDef",
     "FilterParameterTypeDef",
     "GetHealthEventInputRequestTypeDef",
     "GetHealthEventOutputTypeDef",
+    "GetInternetEventInputRequestTypeDef",
+    "GetInternetEventOutputTypeDef",
     "GetMonitorInputRequestTypeDef",
     "GetMonitorOutputTypeDef",
     "GetQueryResultsInputRequestTypeDef",
@@ -50,10 +56,13 @@ __all__ = (
     "HealthEventTypeDef",
     "HealthEventsConfigTypeDef",
     "ImpactedLocationTypeDef",
+    "InternetEventSummaryTypeDef",
     "InternetHealthTypeDef",
     "InternetMeasurementsLogDeliveryTypeDef",
     "ListHealthEventsInputRequestTypeDef",
     "ListHealthEventsOutputTypeDef",
+    "ListInternetEventsInputRequestTypeDef",
+    "ListInternetEventsOutputTypeDef",
     "ListMonitorsInputRequestTypeDef",
     "ListMonitorsOutputTypeDef",
     "ListTagsForResourceInputRequestTypeDef",
@@ -86,6 +95,29 @@ AvailabilityMeasurementTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredClientLocationTypeDef = TypedDict(
+    "_RequiredClientLocationTypeDef",
+    {
+        "ASName": str,
+        "ASNumber": int,
+        "Country": str,
+        "City": str,
+        "Latitude": float,
+        "Longitude": float,
+    },
+)
+_OptionalClientLocationTypeDef = TypedDict(
+    "_OptionalClientLocationTypeDef",
+    {
+        "Subdivision": str,
+        "Metro": str,
+    },
+    total=False,
+)
+
+class ClientLocationTypeDef(_RequiredClientLocationTypeDef, _OptionalClientLocationTypeDef):
+    pass
 
 _RequiredCreateMonitorInputRequestTypeDef = TypedDict(
     "_RequiredCreateMonitorInputRequestTypeDef",
@@ -138,13 +170,25 @@ FilterParameterTypeDef = TypedDict(
     total=False,
 )
 
-GetHealthEventInputRequestTypeDef = TypedDict(
-    "GetHealthEventInputRequestTypeDef",
+_RequiredGetHealthEventInputRequestTypeDef = TypedDict(
+    "_RequiredGetHealthEventInputRequestTypeDef",
     {
         "MonitorName": str,
         "EventId": str,
     },
 )
+_OptionalGetHealthEventInputRequestTypeDef = TypedDict(
+    "_OptionalGetHealthEventInputRequestTypeDef",
+    {
+        "LinkedAccountId": str,
+    },
+    total=False,
+)
+
+class GetHealthEventInputRequestTypeDef(
+    _RequiredGetHealthEventInputRequestTypeDef, _OptionalGetHealthEventInputRequestTypeDef
+):
+    pass
 
 GetHealthEventOutputTypeDef = TypedDict(
     "GetHealthEventOutputTypeDef",
@@ -164,12 +208,45 @@ GetHealthEventOutputTypeDef = TypedDict(
     },
 )
 
-GetMonitorInputRequestTypeDef = TypedDict(
-    "GetMonitorInputRequestTypeDef",
+GetInternetEventInputRequestTypeDef = TypedDict(
+    "GetInternetEventInputRequestTypeDef",
+    {
+        "EventId": str,
+    },
+)
+
+GetInternetEventOutputTypeDef = TypedDict(
+    "GetInternetEventOutputTypeDef",
+    {
+        "EventId": str,
+        "EventArn": str,
+        "StartedAt": datetime,
+        "EndedAt": datetime,
+        "ClientLocation": "ClientLocationTypeDef",
+        "EventType": InternetEventTypeType,
+        "EventStatus": InternetEventStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetMonitorInputRequestTypeDef = TypedDict(
+    "_RequiredGetMonitorInputRequestTypeDef",
     {
         "MonitorName": str,
     },
 )
+_OptionalGetMonitorInputRequestTypeDef = TypedDict(
+    "_OptionalGetMonitorInputRequestTypeDef",
+    {
+        "LinkedAccountId": str,
+    },
+    total=False,
+)
+
+class GetMonitorInputRequestTypeDef(
+    _RequiredGetMonitorInputRequestTypeDef, _OptionalGetMonitorInputRequestTypeDef
+):
+    pass
 
 GetMonitorOutputTypeDef = TypedDict(
     "GetMonitorOutputTypeDef",
@@ -297,11 +374,36 @@ _OptionalImpactedLocationTypeDef = TypedDict(
         "ServiceLocation": str,
         "CausedBy": "NetworkImpairmentTypeDef",
         "InternetHealth": "InternetHealthTypeDef",
+        "Ipv4Prefixes": List[str],
     },
     total=False,
 )
 
 class ImpactedLocationTypeDef(_RequiredImpactedLocationTypeDef, _OptionalImpactedLocationTypeDef):
+    pass
+
+_RequiredInternetEventSummaryTypeDef = TypedDict(
+    "_RequiredInternetEventSummaryTypeDef",
+    {
+        "EventId": str,
+        "EventArn": str,
+        "StartedAt": datetime,
+        "ClientLocation": "ClientLocationTypeDef",
+        "EventType": InternetEventTypeType,
+        "EventStatus": InternetEventStatusType,
+    },
+)
+_OptionalInternetEventSummaryTypeDef = TypedDict(
+    "_OptionalInternetEventSummaryTypeDef",
+    {
+        "EndedAt": datetime,
+    },
+    total=False,
+)
+
+class InternetEventSummaryTypeDef(
+    _RequiredInternetEventSummaryTypeDef, _OptionalInternetEventSummaryTypeDef
+):
     pass
 
 InternetHealthTypeDef = TypedDict(
@@ -335,6 +437,7 @@ _OptionalListHealthEventsInputRequestTypeDef = TypedDict(
         "NextToken": str,
         "MaxResults": int,
         "EventStatus": HealthEventStatusType,
+        "LinkedAccountId": str,
     },
     total=False,
 )
@@ -353,12 +456,35 @@ ListHealthEventsOutputTypeDef = TypedDict(
     },
 )
 
+ListInternetEventsInputRequestTypeDef = TypedDict(
+    "ListInternetEventsInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "EventStatus": str,
+        "EventType": str,
+    },
+    total=False,
+)
+
+ListInternetEventsOutputTypeDef = TypedDict(
+    "ListInternetEventsOutputTypeDef",
+    {
+        "InternetEvents": List["InternetEventSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListMonitorsInputRequestTypeDef = TypedDict(
     "ListMonitorsInputRequestTypeDef",
     {
         "NextToken": str,
         "MaxResults": int,
         "MonitorStatus": str,
+        "IncludeLinkedAccounts": bool,
     },
     total=False,
 )
@@ -507,6 +633,7 @@ _OptionalStartQueryInputRequestTypeDef = TypedDict(
     "_OptionalStartQueryInputRequestTypeDef",
     {
         "FilterParameters": List["FilterParameterTypeDef"],
+        "LinkedAccountId": str,
     },
     total=False,
 )

@@ -11,6 +11,7 @@ Usage::
     data: AssertionAttributesTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -48,10 +49,18 @@ __all__ = (
     "CreateWorkspaceApiKeyResponseTypeDef",
     "CreateWorkspaceRequestRequestTypeDef",
     "CreateWorkspaceResponseTypeDef",
+    "CreateWorkspaceServiceAccountRequestRequestTypeDef",
+    "CreateWorkspaceServiceAccountResponseTypeDef",
+    "CreateWorkspaceServiceAccountTokenRequestRequestTypeDef",
+    "CreateWorkspaceServiceAccountTokenResponseTypeDef",
     "DeleteWorkspaceApiKeyRequestRequestTypeDef",
     "DeleteWorkspaceApiKeyResponseTypeDef",
     "DeleteWorkspaceRequestRequestTypeDef",
     "DeleteWorkspaceResponseTypeDef",
+    "DeleteWorkspaceServiceAccountRequestRequestTypeDef",
+    "DeleteWorkspaceServiceAccountResponseTypeDef",
+    "DeleteWorkspaceServiceAccountTokenRequestRequestTypeDef",
+    "DeleteWorkspaceServiceAccountTokenResponseTypeDef",
     "DescribeWorkspaceAuthenticationRequestRequestTypeDef",
     "DescribeWorkspaceAuthenticationResponseTypeDef",
     "DescribeWorkspaceConfigurationRequestRequestTypeDef",
@@ -67,6 +76,10 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListVersionsRequestRequestTypeDef",
     "ListVersionsResponseTypeDef",
+    "ListWorkspaceServiceAccountTokensRequestRequestTypeDef",
+    "ListWorkspaceServiceAccountTokensResponseTypeDef",
+    "ListWorkspaceServiceAccountsRequestRequestTypeDef",
+    "ListWorkspaceServiceAccountsResponseTypeDef",
     "ListWorkspacesRequestRequestTypeDef",
     "ListWorkspacesResponseTypeDef",
     "NetworkAccessConfigurationTypeDef",
@@ -76,6 +89,9 @@ __all__ = (
     "RoleValuesTypeDef",
     "SamlAuthenticationTypeDef",
     "SamlConfigurationTypeDef",
+    "ServiceAccountSummaryTypeDef",
+    "ServiceAccountTokenSummaryTypeDef",
+    "ServiceAccountTokenSummaryWithKeyTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateErrorTypeDef",
@@ -106,13 +122,25 @@ AssertionAttributesTypeDef = TypedDict(
     total=False,
 )
 
-AssociateLicenseRequestRequestTypeDef = TypedDict(
-    "AssociateLicenseRequestRequestTypeDef",
+_RequiredAssociateLicenseRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateLicenseRequestRequestTypeDef",
     {
         "licenseType": LicenseTypeType,
         "workspaceId": str,
     },
 )
+_OptionalAssociateLicenseRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateLicenseRequestRequestTypeDef",
+    {
+        "grafanaToken": str,
+    },
+    total=False,
+)
+
+class AssociateLicenseRequestRequestTypeDef(
+    _RequiredAssociateLicenseRequestRequestTypeDef, _OptionalAssociateLicenseRequestRequestTypeDef
+):
+    pass
 
 AssociateLicenseResponseTypeDef = TypedDict(
     "AssociateLicenseResponseTypeDef",
@@ -231,6 +259,46 @@ CreateWorkspaceResponseTypeDef = TypedDict(
     },
 )
 
+CreateWorkspaceServiceAccountRequestRequestTypeDef = TypedDict(
+    "CreateWorkspaceServiceAccountRequestRequestTypeDef",
+    {
+        "grafanaRole": RoleType,
+        "name": str,
+        "workspaceId": str,
+    },
+)
+
+CreateWorkspaceServiceAccountResponseTypeDef = TypedDict(
+    "CreateWorkspaceServiceAccountResponseTypeDef",
+    {
+        "grafanaRole": RoleType,
+        "id": str,
+        "name": str,
+        "workspaceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateWorkspaceServiceAccountTokenRequestRequestTypeDef = TypedDict(
+    "CreateWorkspaceServiceAccountTokenRequestRequestTypeDef",
+    {
+        "name": str,
+        "secondsToLive": int,
+        "serviceAccountId": str,
+        "workspaceId": str,
+    },
+)
+
+CreateWorkspaceServiceAccountTokenResponseTypeDef = TypedDict(
+    "CreateWorkspaceServiceAccountTokenResponseTypeDef",
+    {
+        "serviceAccountId": str,
+        "serviceAccountToken": "ServiceAccountTokenSummaryWithKeyTypeDef",
+        "workspaceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteWorkspaceApiKeyRequestRequestTypeDef = TypedDict(
     "DeleteWorkspaceApiKeyRequestRequestTypeDef",
     {
@@ -259,6 +327,42 @@ DeleteWorkspaceResponseTypeDef = TypedDict(
     "DeleteWorkspaceResponseTypeDef",
     {
         "workspace": "WorkspaceDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteWorkspaceServiceAccountRequestRequestTypeDef = TypedDict(
+    "DeleteWorkspaceServiceAccountRequestRequestTypeDef",
+    {
+        "serviceAccountId": str,
+        "workspaceId": str,
+    },
+)
+
+DeleteWorkspaceServiceAccountResponseTypeDef = TypedDict(
+    "DeleteWorkspaceServiceAccountResponseTypeDef",
+    {
+        "serviceAccountId": str,
+        "workspaceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteWorkspaceServiceAccountTokenRequestRequestTypeDef = TypedDict(
+    "DeleteWorkspaceServiceAccountTokenRequestRequestTypeDef",
+    {
+        "serviceAccountId": str,
+        "tokenId": str,
+        "workspaceId": str,
+    },
+)
+
+DeleteWorkspaceServiceAccountTokenResponseTypeDef = TypedDict(
+    "DeleteWorkspaceServiceAccountTokenResponseTypeDef",
+    {
+        "serviceAccountId": str,
+        "tokenId": str,
+        "workspaceId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -400,6 +504,70 @@ ListVersionsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListWorkspaceServiceAccountTokensRequestRequestTypeDef = TypedDict(
+    "_RequiredListWorkspaceServiceAccountTokensRequestRequestTypeDef",
+    {
+        "serviceAccountId": str,
+        "workspaceId": str,
+    },
+)
+_OptionalListWorkspaceServiceAccountTokensRequestRequestTypeDef = TypedDict(
+    "_OptionalListWorkspaceServiceAccountTokensRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListWorkspaceServiceAccountTokensRequestRequestTypeDef(
+    _RequiredListWorkspaceServiceAccountTokensRequestRequestTypeDef,
+    _OptionalListWorkspaceServiceAccountTokensRequestRequestTypeDef,
+):
+    pass
+
+ListWorkspaceServiceAccountTokensResponseTypeDef = TypedDict(
+    "ListWorkspaceServiceAccountTokensResponseTypeDef",
+    {
+        "nextToken": str,
+        "serviceAccountId": str,
+        "serviceAccountTokens": List["ServiceAccountTokenSummaryTypeDef"],
+        "workspaceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListWorkspaceServiceAccountsRequestRequestTypeDef = TypedDict(
+    "_RequiredListWorkspaceServiceAccountsRequestRequestTypeDef",
+    {
+        "workspaceId": str,
+    },
+)
+_OptionalListWorkspaceServiceAccountsRequestRequestTypeDef = TypedDict(
+    "_OptionalListWorkspaceServiceAccountsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListWorkspaceServiceAccountsRequestRequestTypeDef(
+    _RequiredListWorkspaceServiceAccountsRequestRequestTypeDef,
+    _OptionalListWorkspaceServiceAccountsRequestRequestTypeDef,
+):
+    pass
+
+ListWorkspaceServiceAccountsResponseTypeDef = TypedDict(
+    "ListWorkspaceServiceAccountsResponseTypeDef",
+    {
+        "nextToken": str,
+        "serviceAccounts": List["ServiceAccountSummaryTypeDef"],
+        "workspaceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListWorkspacesRequestRequestTypeDef = TypedDict(
     "ListWorkspacesRequestRequestTypeDef",
     {
@@ -504,6 +672,47 @@ class SamlConfigurationTypeDef(
     _RequiredSamlConfigurationTypeDef, _OptionalSamlConfigurationTypeDef
 ):
     pass
+
+ServiceAccountSummaryTypeDef = TypedDict(
+    "ServiceAccountSummaryTypeDef",
+    {
+        "grafanaRole": RoleType,
+        "id": str,
+        "isDisabled": str,
+        "name": str,
+    },
+)
+
+_RequiredServiceAccountTokenSummaryTypeDef = TypedDict(
+    "_RequiredServiceAccountTokenSummaryTypeDef",
+    {
+        "createdAt": datetime,
+        "expiresAt": datetime,
+        "id": str,
+        "name": str,
+    },
+)
+_OptionalServiceAccountTokenSummaryTypeDef = TypedDict(
+    "_OptionalServiceAccountTokenSummaryTypeDef",
+    {
+        "lastUsedAt": datetime,
+    },
+    total=False,
+)
+
+class ServiceAccountTokenSummaryTypeDef(
+    _RequiredServiceAccountTokenSummaryTypeDef, _OptionalServiceAccountTokenSummaryTypeDef
+):
+    pass
+
+ServiceAccountTokenSummaryWithKeyTypeDef = TypedDict(
+    "ServiceAccountTokenSummaryWithKeyTypeDef",
+    {
+        "id": str,
+        "key": str,
+        "name": str,
+    },
+)
 
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
@@ -681,6 +890,7 @@ _OptionalWorkspaceDescriptionTypeDef = TypedDict(
         "description": str,
         "freeTrialConsumed": bool,
         "freeTrialExpiration": datetime,
+        "grafanaToken": str,
         "licenseExpiration": datetime,
         "licenseType": LicenseTypeType,
         "name": str,
@@ -718,6 +928,8 @@ _OptionalWorkspaceSummaryTypeDef = TypedDict(
     "_OptionalWorkspaceSummaryTypeDef",
     {
         "description": str,
+        "grafanaToken": str,
+        "licenseType": LicenseTypeType,
         "name": str,
         "notificationDestinations": List[Literal["SNS"]],
         "tags": Dict[str, str],

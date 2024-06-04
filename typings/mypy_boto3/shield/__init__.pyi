@@ -21,6 +21,7 @@ Usage::
     list_protections_paginator: ListProtectionsPaginator = client.get_paginator("list_protections")
     ```
 """
+
 from .client import ShieldClient
 from .paginator import ListAttacksPaginator, ListProtectionsPaginator
 

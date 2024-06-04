@@ -11,6 +11,7 @@ Usage::
     data: AggregationPeriodType = "FOURTEEN_DAYS"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -40,10 +41,17 @@ __all__ = (
     "ListRecoveryPointsByBackupVaultPaginatorName",
     "ListRecoveryPointsByLegalHoldPaginatorName",
     "ListRecoveryPointsByResourcePaginatorName",
+    "ListRestoreJobsByProtectedResourcePaginatorName",
     "ListRestoreJobsPaginatorName",
+    "ListRestoreTestingPlansPaginatorName",
+    "ListRestoreTestingSelectionsPaginatorName",
     "RecoveryPointStatusType",
+    "RestoreDeletionStatusType",
     "RestoreJobStateType",
     "RestoreJobStatusType",
+    "RestoreTestingRecoveryPointSelectionAlgorithmType",
+    "RestoreTestingRecoveryPointTypeType",
+    "RestoreValidationStatusType",
     "StorageClassType",
     "VaultStateType",
     "VaultTypeType",
@@ -124,12 +132,21 @@ ListProtectedResourcesPaginatorName = Literal["list_protected_resources"]
 ListRecoveryPointsByBackupVaultPaginatorName = Literal["list_recovery_points_by_backup_vault"]
 ListRecoveryPointsByLegalHoldPaginatorName = Literal["list_recovery_points_by_legal_hold"]
 ListRecoveryPointsByResourcePaginatorName = Literal["list_recovery_points_by_resource"]
+ListRestoreJobsByProtectedResourcePaginatorName = Literal["list_restore_jobs_by_protected_resource"]
 ListRestoreJobsPaginatorName = Literal["list_restore_jobs"]
+ListRestoreTestingPlansPaginatorName = Literal["list_restore_testing_plans"]
+ListRestoreTestingSelectionsPaginatorName = Literal["list_restore_testing_selections"]
 RecoveryPointStatusType = Literal["COMPLETED", "DELETING", "EXPIRED", "PARTIAL"]
+RestoreDeletionStatusType = Literal["DELETING", "FAILED", "SUCCESSFUL"]
 RestoreJobStateType = Literal[
     "ABORTED", "AGGREGATE_ALL", "ANY", "COMPLETED", "CREATED", "FAILED", "PENDING", "RUNNING"
 ]
 RestoreJobStatusType = Literal["ABORTED", "COMPLETED", "FAILED", "PENDING", "RUNNING"]
+RestoreTestingRecoveryPointSelectionAlgorithmType = Literal[
+    "LATEST_WITHIN_WINDOW", "RANDOM_WITHIN_WINDOW"
+]
+RestoreTestingRecoveryPointTypeType = Literal["CONTINUOUS", "SNAPSHOT"]
+RestoreValidationStatusType = Literal["FAILED", "SUCCESSFUL", "TIMED_OUT", "VALIDATING"]
 StorageClassType = Literal["COLD", "DELETED", "WARM"]
 VaultStateType = Literal["AVAILABLE", "CREATING", "FAILED"]
 VaultTypeType = Literal["BACKUP_VAULT", "LOGICALLY_AIR_GAPPED_BACKUP_VAULT"]

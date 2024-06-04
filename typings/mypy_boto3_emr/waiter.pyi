@@ -22,6 +22,7 @@ Usage::
     step_complete_waiter: StepCompleteWaiter = client.get_waiter("step_complete")
     ```
 """
+
 from botocore.waiter import Waiter as Boto3Waiter
 
 from .type_defs import WaiterConfigTypeDef
@@ -30,31 +31,31 @@ __all__ = ("ClusterRunningWaiter", "ClusterTerminatedWaiter", "StepCompleteWaite
 
 class ClusterRunningWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/emr.html#EMR.Waiter.ClusterRunning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.ClusterRunning)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#clusterrunningwaiter)
     """
 
     def wait(self, *, ClusterId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/emr.html#EMR.Waiter.ClusterRunning.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.ClusterRunning.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#clusterrunningwaiter)
         """
 
 class ClusterTerminatedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/emr.html#EMR.Waiter.ClusterTerminated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.ClusterTerminated)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#clusterterminatedwaiter)
     """
 
     def wait(self, *, ClusterId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/emr.html#EMR.Waiter.ClusterTerminated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.ClusterTerminated.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#clusterterminatedwaiter)
         """
 
 class StepCompleteWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/emr.html#EMR.Waiter.StepComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.StepComplete)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#stepcompletewaiter)
     """
 
@@ -62,6 +63,6 @@ class StepCompleteWaiter(Boto3Waiter):
         self, *, ClusterId: str, StepId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/emr.html#EMR.Waiter.StepComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.StepComplete.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#stepcompletewaiter)
         """

@@ -11,6 +11,7 @@ Usage::
     data: ListCustomDomainAssociationsPaginatorName = "list_custom_domain_associations"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -23,6 +24,8 @@ __all__ = (
     "ListEndpointAccessPaginatorName",
     "ListNamespacesPaginatorName",
     "ListRecoveryPointsPaginatorName",
+    "ListScheduledActionsPaginatorName",
+    "ListSnapshotCopyConfigurationsPaginatorName",
     "ListSnapshotsPaginatorName",
     "ListTableRestoreStatusPaginatorName",
     "ListUsageLimitsPaginatorName",
@@ -30,6 +33,7 @@ __all__ = (
     "LogExportType",
     "NamespaceStatusType",
     "SnapshotStatusType",
+    "StateType",
     "UsageLimitBreachActionType",
     "UsageLimitPeriodType",
     "UsageLimitUsageTypeType",
@@ -40,6 +44,8 @@ ListCustomDomainAssociationsPaginatorName = Literal["list_custom_domain_associat
 ListEndpointAccessPaginatorName = Literal["list_endpoint_access"]
 ListNamespacesPaginatorName = Literal["list_namespaces"]
 ListRecoveryPointsPaginatorName = Literal["list_recovery_points"]
+ListScheduledActionsPaginatorName = Literal["list_scheduled_actions"]
+ListSnapshotCopyConfigurationsPaginatorName = Literal["list_snapshot_copy_configurations"]
 ListSnapshotsPaginatorName = Literal["list_snapshots"]
 ListTableRestoreStatusPaginatorName = Literal["list_table_restore_status"]
 ListUsageLimitsPaginatorName = Literal["list_usage_limits"]
@@ -47,6 +53,7 @@ ListWorkgroupsPaginatorName = Literal["list_workgroups"]
 LogExportType = Literal["connectionlog", "useractivitylog", "userlog"]
 NamespaceStatusType = Literal["AVAILABLE", "DELETING", "MODIFYING"]
 SnapshotStatusType = Literal["AVAILABLE", "CANCELLED", "COPYING", "CREATING", "DELETED", "FAILED"]
+StateType = Literal["ACTIVE", "DISABLED"]
 UsageLimitBreachActionType = Literal["deactivate", "emit-metric", "log"]
 UsageLimitPeriodType = Literal["daily", "monthly", "weekly"]
 UsageLimitUsageTypeType = Literal["cross-region-datasharing", "serverless-compute"]

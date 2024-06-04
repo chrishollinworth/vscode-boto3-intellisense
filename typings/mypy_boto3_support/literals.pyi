@@ -11,6 +11,7 @@ Usage::
     data: DescribeCasesPaginatorName = "describe_cases"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

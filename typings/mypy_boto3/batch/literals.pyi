@@ -11,6 +11,7 @@ Usage::
     data: ArrayJobDependencyType = "N_TO_N"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -36,6 +37,8 @@ __all__ = (
     "JQStateType",
     "JQStatusType",
     "JobDefinitionTypeType",
+    "JobStateTimeLimitActionsActionType",
+    "JobStateTimeLimitActionsStateType",
     "JobStatusType",
     "ListJobsPaginatorName",
     "ListSchedulingPoliciesPaginatorName",
@@ -67,6 +70,8 @@ EFSTransitEncryptionType = Literal["DISABLED", "ENABLED"]
 JQStateType = Literal["DISABLED", "ENABLED"]
 JQStatusType = Literal["CREATING", "DELETED", "DELETING", "INVALID", "UPDATING", "VALID"]
 JobDefinitionTypeType = Literal["container", "multinode"]
+JobStateTimeLimitActionsActionType = Literal["CANCEL"]
+JobStateTimeLimitActionsStateType = Literal["RUNNABLE"]
 JobStatusType = Literal[
     "FAILED", "PENDING", "RUNNABLE", "RUNNING", "STARTING", "SUBMITTED", "SUCCEEDED"
 ]

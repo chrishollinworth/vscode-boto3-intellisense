@@ -45,6 +45,7 @@ Usage::
     list_what_if_forecasts_paginator: ListWhatIfForecastsPaginator = client.get_paginator("list_what_if_forecasts")
     ```
 """
+
 from .client import ForecastServiceClient
 from .paginator import (
     ListDatasetGroupsPaginator,

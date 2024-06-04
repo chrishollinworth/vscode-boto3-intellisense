@@ -21,6 +21,7 @@ Usage::
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
+
 from .client import ChimeClient
 from .paginator import ListAccountsPaginator, ListUsersPaginator
 

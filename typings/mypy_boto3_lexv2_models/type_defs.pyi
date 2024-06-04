@@ -11,6 +11,7 @@ Usage::
     data: ActiveContextTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -40,14 +41,17 @@ from .literals import (
     AnalyticsUtteranceFilterNameType,
     AnalyticsUtteranceMetricNameType,
     AssociatedTranscriptFilterNameType,
+    BotAliasReplicationStatusType,
     BotAliasStatusType,
     BotFilterNameType,
     BotFilterOperatorType,
     BotLocaleFilterOperatorType,
     BotLocaleStatusType,
     BotRecommendationStatusType,
+    BotReplicaStatusType,
     BotStatusType,
     BotTypeType,
+    BotVersionReplicationStatusType,
     ConversationEndStateType,
     ConversationLogsInputModeFilterType,
     CustomVocabularyStatusType,
@@ -157,9 +161,11 @@ __all__ = (
     "BatchDeleteCustomVocabularyItemResponseTypeDef",
     "BatchUpdateCustomVocabularyItemRequestRequestTypeDef",
     "BatchUpdateCustomVocabularyItemResponseTypeDef",
+    "BedrockKnowledgeStoreConfigurationTypeDef",
     "BedrockModelSpecificationTypeDef",
     "BotAliasHistoryEventTypeDef",
     "BotAliasLocaleSettingsTypeDef",
+    "BotAliasReplicaSummaryTypeDef",
     "BotAliasSummaryTypeDef",
     "BotAliasTestExecutionTargetTypeDef",
     "BotExportSpecificationTypeDef",
@@ -175,9 +181,12 @@ __all__ = (
     "BotRecommendationResultStatisticsTypeDef",
     "BotRecommendationResultsTypeDef",
     "BotRecommendationSummaryTypeDef",
+    "BotReplicaSummaryTypeDef",
     "BotSortByTypeDef",
     "BotSummaryTypeDef",
     "BotVersionLocaleDetailsTypeDef",
+    "BotVersionReplicaSortByTypeDef",
+    "BotVersionReplicaSummaryTypeDef",
     "BotVersionSortByTypeDef",
     "BotVersionSummaryTypeDef",
     "BuildBotLocaleRequestRequestTypeDef",
@@ -207,6 +216,8 @@ __all__ = (
     "CreateBotAliasResponseTypeDef",
     "CreateBotLocaleRequestRequestTypeDef",
     "CreateBotLocaleResponseTypeDef",
+    "CreateBotReplicaRequestRequestTypeDef",
+    "CreateBotReplicaResponseTypeDef",
     "CreateBotRequestRequestTypeDef",
     "CreateBotResponseTypeDef",
     "CreateBotVersionRequestRequestTypeDef",
@@ -233,12 +244,15 @@ __all__ = (
     "CustomVocabularyItemTypeDef",
     "DTMFSpecificationTypeDef",
     "DataPrivacyTypeDef",
+    "DataSourceConfigurationTypeDef",
     "DateRangeFilterTypeDef",
     "DefaultConditionalBranchTypeDef",
     "DeleteBotAliasRequestRequestTypeDef",
     "DeleteBotAliasResponseTypeDef",
     "DeleteBotLocaleRequestRequestTypeDef",
     "DeleteBotLocaleResponseTypeDef",
+    "DeleteBotReplicaRequestRequestTypeDef",
+    "DeleteBotReplicaResponseTypeDef",
     "DeleteBotRequestRequestTypeDef",
     "DeleteBotResponseTypeDef",
     "DeleteBotVersionRequestRequestTypeDef",
@@ -264,6 +278,8 @@ __all__ = (
     "DescribeBotLocaleResponseTypeDef",
     "DescribeBotRecommendationRequestRequestTypeDef",
     "DescribeBotRecommendationResponseTypeDef",
+    "DescribeBotReplicaRequestRequestTypeDef",
+    "DescribeBotReplicaResponseTypeDef",
     "DescribeBotRequestRequestTypeDef",
     "DescribeBotResourceGenerationRequestRequestTypeDef",
     "DescribeBotResourceGenerationResponseTypeDef",
@@ -299,6 +315,7 @@ __all__ = (
     "DialogStateTypeDef",
     "ElicitationCodeHookInvocationSettingTypeDef",
     "EncryptionSettingTypeDef",
+    "ExactResponseFieldsTypeDef",
     "ExecutionErrorDetailsTypeDef",
     "ExportFilterTypeDef",
     "ExportResourceSpecificationTypeDef",
@@ -345,14 +362,20 @@ __all__ = (
     "LexTranscriptFilterTypeDef",
     "ListAggregatedUtterancesRequestRequestTypeDef",
     "ListAggregatedUtterancesResponseTypeDef",
+    "ListBotAliasReplicasRequestRequestTypeDef",
+    "ListBotAliasReplicasResponseTypeDef",
     "ListBotAliasesRequestRequestTypeDef",
     "ListBotAliasesResponseTypeDef",
     "ListBotLocalesRequestRequestTypeDef",
     "ListBotLocalesResponseTypeDef",
     "ListBotRecommendationsRequestRequestTypeDef",
     "ListBotRecommendationsResponseTypeDef",
+    "ListBotReplicasRequestRequestTypeDef",
+    "ListBotReplicasResponseTypeDef",
     "ListBotResourceGenerationsRequestRequestTypeDef",
     "ListBotResourceGenerationsResponseTypeDef",
+    "ListBotVersionReplicasRequestRequestTypeDef",
+    "ListBotVersionReplicasResponseTypeDef",
     "ListBotVersionsRequestRequestTypeDef",
     "ListBotVersionsResponseTypeDef",
     "ListBotsRequestRequestTypeDef",
@@ -404,6 +427,7 @@ __all__ = (
     "MultipleValuesSettingTypeDef",
     "NewCustomVocabularyItemTypeDef",
     "ObfuscationSettingTypeDef",
+    "OpensearchConfigurationTypeDef",
     "OutputContextTypeDef",
     "OverallTestResultItemTypeDef",
     "OverallTestResultsTypeDef",
@@ -415,6 +439,8 @@ __all__ = (
     "PrincipalTypeDef",
     "PromptAttemptSpecificationTypeDef",
     "PromptSpecificationTypeDef",
+    "QnAIntentConfigurationTypeDef",
+    "QnAKendraConfigurationTypeDef",
     "RecommendedIntentSummaryTypeDef",
     "RelativeAggregationDurationTypeDef",
     "ResponseMetadataTypeDef",
@@ -1079,6 +1105,13 @@ BatchUpdateCustomVocabularyItemResponseTypeDef = TypedDict(
     },
 )
 
+BedrockKnowledgeStoreConfigurationTypeDef = TypedDict(
+    "BedrockKnowledgeStoreConfigurationTypeDef",
+    {
+        "bedrockKnowledgeBaseArn": str,
+    },
+)
+
 BedrockModelSpecificationTypeDef = TypedDict(
     "BedrockModelSpecificationTypeDef",
     {
@@ -1114,6 +1147,19 @@ class BotAliasLocaleSettingsTypeDef(
     _RequiredBotAliasLocaleSettingsTypeDef, _OptionalBotAliasLocaleSettingsTypeDef
 ):
     pass
+
+BotAliasReplicaSummaryTypeDef = TypedDict(
+    "BotAliasReplicaSummaryTypeDef",
+    {
+        "botAliasId": str,
+        "botAliasReplicationStatus": BotAliasReplicationStatusType,
+        "botVersion": str,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "failureReasons": List[str],
+    },
+    total=False,
+)
 
 BotAliasSummaryTypeDef = TypedDict(
     "BotAliasSummaryTypeDef",
@@ -1298,6 +1344,17 @@ class BotRecommendationSummaryTypeDef(
 ):
     pass
 
+BotReplicaSummaryTypeDef = TypedDict(
+    "BotReplicaSummaryTypeDef",
+    {
+        "replicaRegion": str,
+        "creationDateTime": datetime,
+        "botReplicaStatus": BotReplicaStatusType,
+        "failureReasons": List[str],
+    },
+    total=False,
+)
+
 BotSortByTypeDef = TypedDict(
     "BotSortByTypeDef",
     {
@@ -1325,6 +1382,25 @@ BotVersionLocaleDetailsTypeDef = TypedDict(
     {
         "sourceBotVersion": str,
     },
+)
+
+BotVersionReplicaSortByTypeDef = TypedDict(
+    "BotVersionReplicaSortByTypeDef",
+    {
+        "attribute": Literal["BotVersion"],
+        "order": SortOrderType,
+    },
+)
+
+BotVersionReplicaSummaryTypeDef = TypedDict(
+    "BotVersionReplicaSummaryTypeDef",
+    {
+        "botVersion": str,
+        "botVersionReplicationStatus": BotVersionReplicationStatusType,
+        "creationDateTime": datetime,
+        "failureReasons": List[str],
+    },
+    total=False,
 )
 
 BotVersionSortByTypeDef = TypedDict(
@@ -1666,6 +1742,26 @@ CreateBotLocaleResponseTypeDef = TypedDict(
     },
 )
 
+CreateBotReplicaRequestRequestTypeDef = TypedDict(
+    "CreateBotReplicaRequestRequestTypeDef",
+    {
+        "botId": str,
+        "replicaRegion": str,
+    },
+)
+
+CreateBotReplicaResponseTypeDef = TypedDict(
+    "CreateBotReplicaResponseTypeDef",
+    {
+        "botId": str,
+        "replicaRegion": str,
+        "sourceRegion": str,
+        "creationDateTime": datetime,
+        "botReplicaStatus": BotReplicaStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateBotRequestRequestTypeDef = TypedDict(
     "_RequiredCreateBotRequestRequestTypeDef",
     {
@@ -1799,6 +1895,7 @@ _OptionalCreateIntentRequestRequestTypeDef = TypedDict(
         "outputContexts": List["OutputContextTypeDef"],
         "kendraConfiguration": "KendraConfigurationTypeDef",
         "initialResponseSetting": "InitialResponseSettingTypeDef",
+        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
     },
     total=False,
 )
@@ -1828,6 +1925,7 @@ CreateIntentResponseTypeDef = TypedDict(
         "localeId": str,
         "creationDateTime": datetime,
         "initialResponseSetting": "InitialResponseSettingTypeDef",
+        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2075,6 +2173,16 @@ DataPrivacyTypeDef = TypedDict(
     },
 )
 
+DataSourceConfigurationTypeDef = TypedDict(
+    "DataSourceConfigurationTypeDef",
+    {
+        "opensearchConfiguration": "OpensearchConfigurationTypeDef",
+        "kendraConfiguration": "QnAKendraConfigurationTypeDef",
+        "bedrockKnowledgeStoreConfiguration": "BedrockKnowledgeStoreConfigurationTypeDef",
+    },
+    total=False,
+)
+
 DateRangeFilterTypeDef = TypedDict(
     "DateRangeFilterTypeDef",
     {
@@ -2138,6 +2246,24 @@ DeleteBotLocaleResponseTypeDef = TypedDict(
         "botVersion": str,
         "localeId": str,
         "botLocaleStatus": BotLocaleStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteBotReplicaRequestRequestTypeDef = TypedDict(
+    "DeleteBotReplicaRequestRequestTypeDef",
+    {
+        "botId": str,
+        "replicaRegion": str,
+    },
+)
+
+DeleteBotReplicaResponseTypeDef = TypedDict(
+    "DeleteBotReplicaResponseTypeDef",
+    {
+        "botId": str,
+        "replicaRegion": str,
+        "botReplicaStatus": BotReplicaStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2470,6 +2596,27 @@ DescribeBotRecommendationResponseTypeDef = TypedDict(
     },
 )
 
+DescribeBotReplicaRequestRequestTypeDef = TypedDict(
+    "DescribeBotReplicaRequestRequestTypeDef",
+    {
+        "botId": str,
+        "replicaRegion": str,
+    },
+)
+
+DescribeBotReplicaResponseTypeDef = TypedDict(
+    "DescribeBotReplicaResponseTypeDef",
+    {
+        "botId": str,
+        "replicaRegion": str,
+        "sourceRegion": str,
+        "creationDateTime": datetime,
+        "botReplicaStatus": BotReplicaStatusType,
+        "failureReasons": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeBotRequestRequestTypeDef = TypedDict(
     "DescribeBotRequestRequestTypeDef",
     {
@@ -2651,6 +2798,7 @@ DescribeIntentResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "initialResponseSetting": "InitialResponseSettingTypeDef",
+        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2934,6 +3082,14 @@ EncryptionSettingTypeDef = TypedDict(
         "associatedTranscriptsPassword": str,
     },
     total=False,
+)
+
+ExactResponseFieldsTypeDef = TypedDict(
+    "ExactResponseFieldsTypeDef",
+    {
+        "questionField": str,
+        "answerField": str,
+    },
 )
 
 ExecutionErrorDetailsTypeDef = TypedDict(
@@ -3503,6 +3659,40 @@ ListAggregatedUtterancesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListBotAliasReplicasRequestRequestTypeDef = TypedDict(
+    "_RequiredListBotAliasReplicasRequestRequestTypeDef",
+    {
+        "botId": str,
+        "replicaRegion": str,
+    },
+)
+_OptionalListBotAliasReplicasRequestRequestTypeDef = TypedDict(
+    "_OptionalListBotAliasReplicasRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListBotAliasReplicasRequestRequestTypeDef(
+    _RequiredListBotAliasReplicasRequestRequestTypeDef,
+    _OptionalListBotAliasReplicasRequestRequestTypeDef,
+):
+    pass
+
+ListBotAliasReplicasResponseTypeDef = TypedDict(
+    "ListBotAliasReplicasResponseTypeDef",
+    {
+        "botId": str,
+        "sourceRegion": str,
+        "replicaRegion": str,
+        "botAliasReplicaSummaries": List["BotAliasReplicaSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListBotAliasesRequestRequestTypeDef = TypedDict(
     "_RequiredListBotAliasesRequestRequestTypeDef",
     {
@@ -3602,6 +3792,23 @@ ListBotRecommendationsResponseTypeDef = TypedDict(
     },
 )
 
+ListBotReplicasRequestRequestTypeDef = TypedDict(
+    "ListBotReplicasRequestRequestTypeDef",
+    {
+        "botId": str,
+    },
+)
+
+ListBotReplicasResponseTypeDef = TypedDict(
+    "ListBotReplicasResponseTypeDef",
+    {
+        "botId": str,
+        "sourceRegion": str,
+        "botReplicaSummaries": List["BotReplicaSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListBotResourceGenerationsRequestRequestTypeDef = TypedDict(
     "_RequiredListBotResourceGenerationsRequestRequestTypeDef",
     {
@@ -3633,6 +3840,41 @@ ListBotResourceGenerationsResponseTypeDef = TypedDict(
         "botVersion": str,
         "localeId": str,
         "generationSummaries": List["GenerationSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListBotVersionReplicasRequestRequestTypeDef = TypedDict(
+    "_RequiredListBotVersionReplicasRequestRequestTypeDef",
+    {
+        "botId": str,
+        "replicaRegion": str,
+    },
+)
+_OptionalListBotVersionReplicasRequestRequestTypeDef = TypedDict(
+    "_OptionalListBotVersionReplicasRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+        "sortBy": "BotVersionReplicaSortByTypeDef",
+    },
+    total=False,
+)
+
+class ListBotVersionReplicasRequestRequestTypeDef(
+    _RequiredListBotVersionReplicasRequestRequestTypeDef,
+    _OptionalListBotVersionReplicasRequestRequestTypeDef,
+):
+    pass
+
+ListBotVersionReplicasResponseTypeDef = TypedDict(
+    "ListBotVersionReplicasResponseTypeDef",
+    {
+        "botId": str,
+        "sourceRegion": str,
+        "replicaRegion": str,
+        "botVersionReplicaSummaries": List["BotVersionReplicaSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -4412,6 +4654,28 @@ ObfuscationSettingTypeDef = TypedDict(
     },
 )
 
+_RequiredOpensearchConfigurationTypeDef = TypedDict(
+    "_RequiredOpensearchConfigurationTypeDef",
+    {
+        "domainEndpoint": str,
+        "indexName": str,
+    },
+)
+_OptionalOpensearchConfigurationTypeDef = TypedDict(
+    "_OptionalOpensearchConfigurationTypeDef",
+    {
+        "exactResponse": bool,
+        "exactResponseFields": "ExactResponseFieldsTypeDef",
+        "includeFields": List[str],
+    },
+    total=False,
+)
+
+class OpensearchConfigurationTypeDef(
+    _RequiredOpensearchConfigurationTypeDef, _OptionalOpensearchConfigurationTypeDef
+):
+    pass
+
 OutputContextTypeDef = TypedDict(
     "OutputContextTypeDef",
     {
@@ -4553,6 +4817,36 @@ _OptionalPromptSpecificationTypeDef = TypedDict(
 
 class PromptSpecificationTypeDef(
     _RequiredPromptSpecificationTypeDef, _OptionalPromptSpecificationTypeDef
+):
+    pass
+
+QnAIntentConfigurationTypeDef = TypedDict(
+    "QnAIntentConfigurationTypeDef",
+    {
+        "dataSourceConfiguration": "DataSourceConfigurationTypeDef",
+        "bedrockModelConfiguration": "BedrockModelSpecificationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredQnAKendraConfigurationTypeDef = TypedDict(
+    "_RequiredQnAKendraConfigurationTypeDef",
+    {
+        "kendraIndex": str,
+    },
+)
+_OptionalQnAKendraConfigurationTypeDef = TypedDict(
+    "_OptionalQnAKendraConfigurationTypeDef",
+    {
+        "queryFilterStringEnabled": bool,
+        "queryFilterString": str,
+        "exactResponse": bool,
+    },
+    total=False,
+)
+
+class QnAKendraConfigurationTypeDef(
+    _RequiredQnAKendraConfigurationTypeDef, _OptionalQnAKendraConfigurationTypeDef
 ):
     pass
 
@@ -5809,6 +6103,7 @@ _OptionalUpdateIntentRequestRequestTypeDef = TypedDict(
         "outputContexts": List["OutputContextTypeDef"],
         "kendraConfiguration": "KendraConfigurationTypeDef",
         "initialResponseSetting": "InitialResponseSettingTypeDef",
+        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
     },
     total=False,
 )
@@ -5840,6 +6135,7 @@ UpdateIntentResponseTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "initialResponseSetting": "InitialResponseSettingTypeDef",
+        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

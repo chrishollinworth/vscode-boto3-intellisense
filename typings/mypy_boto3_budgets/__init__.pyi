@@ -33,6 +33,7 @@ Usage::
     describe_subscribers_for_notification_paginator: DescribeSubscribersForNotificationPaginator = client.get_paginator("describe_subscribers_for_notification")
     ```
 """
+
 from .client import BudgetsClient
 from .paginator import (
     DescribeBudgetActionHistoriesPaginator,

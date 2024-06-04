@@ -12,6 +12,7 @@ Usage::
     client: HealthLakeClient = boto3.client("healthlake")
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Type, Union
@@ -65,7 +66,7 @@ class Exceptions:
 
 class HealthLakeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html)
     """
 
@@ -76,20 +77,23 @@ class HealthLakeClient(BaseClient):
         """
         HealthLakeClient exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#close)
         """
+
     def create_fhir_datastore(
         self,
         *,
@@ -104,25 +108,28 @@ class HealthLakeClient(BaseClient):
         """
         Creates a data store that can ingest and export FHIR formatted data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.create_fhir_datastore)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.create_fhir_datastore)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#create_fhir_datastore)
         """
+
     def delete_fhir_datastore(self, *, DatastoreId: str) -> DeleteFHIRDatastoreResponseTypeDef:
         """
         Deletes a data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.delete_fhir_datastore)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.delete_fhir_datastore)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#delete_fhir_datastore)
         """
+
     def describe_fhir_datastore(self, *, DatastoreId: str) -> DescribeFHIRDatastoreResponseTypeDef:
         """
         Gets the properties associated with the FHIR data store, including the data
         store ID, data store ARN, data store name, data store status, when the data
         store was created, data store type version, and the data store's endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.describe_fhir_datastore)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.describe_fhir_datastore)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#describe_fhir_datastore)
         """
+
     def describe_fhir_export_job(
         self, *, DatastoreId: str, JobId: str
     ) -> DescribeFHIRExportJobResponseTypeDef:
@@ -130,9 +137,10 @@ class HealthLakeClient(BaseClient):
         Displays the properties of a FHIR export job, including the ID, ARN, name, and
         the status of the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.describe_fhir_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.describe_fhir_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#describe_fhir_export_job)
         """
+
     def describe_fhir_import_job(
         self, *, DatastoreId: str, JobId: str
     ) -> DescribeFHIRImportJobResponseTypeDef:
@@ -140,9 +148,10 @@ class HealthLakeClient(BaseClient):
         Displays the properties of a FHIR import job, including the ID, ARN, name, and
         the status of the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.describe_fhir_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.describe_fhir_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#describe_fhir_import_job)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -153,9 +162,10 @@ class HealthLakeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#generate_presigned_url)
         """
+
     def list_fhir_datastores(
         self,
         *,
@@ -167,9 +177,10 @@ class HealthLakeClient(BaseClient):
         Lists all FHIR data stores that are in the user’s account, regardless of data
         store status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.list_fhir_datastores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.list_fhir_datastores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#list_fhir_datastores)
         """
+
     def list_fhir_export_jobs(
         self,
         *,
@@ -184,9 +195,10 @@ class HealthLakeClient(BaseClient):
         """
         Lists all FHIR export jobs associated with an account and their statuses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.list_fhir_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.list_fhir_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#list_fhir_export_jobs)
         """
+
     def list_fhir_import_jobs(
         self,
         *,
@@ -201,16 +213,18 @@ class HealthLakeClient(BaseClient):
         """
         Lists all FHIR import jobs associated with an account and their statuses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.list_fhir_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.list_fhir_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#list_fhir_import_jobs)
         """
+
     def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
         Returns a list of all existing tags associated with a data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#list_tags_for_resource)
         """
+
     def start_fhir_export_job(
         self,
         *,
@@ -223,9 +237,10 @@ class HealthLakeClient(BaseClient):
         """
         Begins a FHIR export job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.start_fhir_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.start_fhir_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#start_fhir_export_job)
         """
+
     def start_fhir_import_job(
         self,
         *,
@@ -239,20 +254,22 @@ class HealthLakeClient(BaseClient):
         """
         Begins a FHIR Import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.start_fhir_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.start_fhir_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#start_fhir_import_job)
         """
+
     def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds a user specified key and value tag to a data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#tag_resource)
         """
+
     def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from a data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/healthlake.html#HealthLake.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/healthlake.html#HealthLake.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/client.html#untag_resource)
         """

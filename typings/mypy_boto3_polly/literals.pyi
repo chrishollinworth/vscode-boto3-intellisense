@@ -11,6 +11,7 @@ Usage::
     data: DescribeVoicesPaginatorName = "describe_voices"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -33,7 +34,7 @@ __all__ = (
 )
 
 DescribeVoicesPaginatorName = Literal["describe_voices"]
-EngineType = Literal["long-form", "neural", "standard"]
+EngineType = Literal["generative", "long-form", "neural", "standard"]
 GenderType = Literal["Female", "Male"]
 LanguageCodeType = Literal[
     "ar-AE",
@@ -94,6 +95,7 @@ VoiceIdType = Literal[
     "Ayanda",
     "Bianca",
     "Brian",
+    "Burcu",
     "Camila",
     "Carla",
     "Carmen",

@@ -16,6 +16,7 @@ Usage::
     session_client: STSClient = session.client("sts")
     ```
 """
+
 from .client import STSClient
 
 Client = STSClient

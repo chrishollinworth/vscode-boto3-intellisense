@@ -11,6 +11,7 @@ Usage::
     data: ActionParametersTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -120,6 +121,8 @@ __all__ = (
     "ListComponentsResponseTypeDef",
     "ListFormsRequestRequestTypeDef",
     "ListFormsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ListThemesRequestRequestTypeDef",
     "ListThemesResponseTypeDef",
     "MutationActionSetStateParameterTypeDef",
@@ -137,10 +140,12 @@ __all__ = (
     "StartCodegenJobDataTypeDef",
     "StartCodegenJobRequestRequestTypeDef",
     "StartCodegenJobResponseTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "ThemeSummaryTypeDef",
     "ThemeTypeDef",
     "ThemeValueTypeDef",
     "ThemeValuesTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateComponentDataTypeDef",
     "UpdateComponentRequestRequestTypeDef",
     "UpdateComponentResponseTypeDef",
@@ -414,8 +419,8 @@ ComponentConditionPropertyTypeDef = TypedDict(
         "field": str,
         "operator": str,
         "operand": str,
-        "then": "ComponentPropertyTypeDef",
-        "else": "ComponentPropertyTypeDef",
+        "then": Dict[str, Any],
+        "else": Dict[str, Any],
         "operandType": str,
     },
     total=False,
@@ -1283,6 +1288,21 @@ ListFormsResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListThemesRequestRequestTypeDef = TypedDict(
     "_RequiredListThemesRequestRequestTypeDef",
     {
@@ -1503,6 +1523,14 @@ StartCodegenJobResponseTypeDef = TypedDict(
     },
 )
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tags": Dict[str, str],
+    },
+)
+
 ThemeSummaryTypeDef = TypedDict(
     "ThemeSummaryTypeDef",
     {
@@ -1553,6 +1581,14 @@ ThemeValuesTypeDef = TypedDict(
         "value": Dict[str, Any],
     },
     total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tagKeys": List[str],
+    },
 )
 
 UpdateComponentDataTypeDef = TypedDict(

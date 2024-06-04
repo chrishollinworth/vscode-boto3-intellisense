@@ -11,6 +11,7 @@ Usage::
     data: AttributeMatchingModelType = "MANY_TO_MANY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -20,11 +21,15 @@ else:
 
 __all__ = (
     "AttributeMatchingModelType",
+    "DeleteUniqueIdErrorTypeType",
+    "DeleteUniqueIdStatusType",
     "IdMappingTypeType",
+    "IdNamespaceTypeType",
     "IncrementalRunTypeType",
     "JobStatusType",
     "ListIdMappingJobsPaginatorName",
     "ListIdMappingWorkflowsPaginatorName",
+    "ListIdNamespacesPaginatorName",
     "ListMatchingJobsPaginatorName",
     "ListMatchingWorkflowsPaginatorName",
     "ListProviderServicesPaginatorName",
@@ -32,14 +37,19 @@ __all__ = (
     "ResolutionTypeType",
     "SchemaAttributeTypeType",
     "ServiceTypeType",
+    "StatementEffectType",
 )
 
 AttributeMatchingModelType = Literal["MANY_TO_MANY", "ONE_TO_ONE"]
+DeleteUniqueIdErrorTypeType = Literal["SERVICE_ERROR", "VALIDATION_ERROR"]
+DeleteUniqueIdStatusType = Literal["ACCEPTED", "COMPLETED"]
 IdMappingTypeType = Literal["PROVIDER"]
+IdNamespaceTypeType = Literal["SOURCE", "TARGET"]
 IncrementalRunTypeType = Literal["IMMEDIATE"]
 JobStatusType = Literal["FAILED", "QUEUED", "RUNNING", "SUCCEEDED"]
 ListIdMappingJobsPaginatorName = Literal["list_id_mapping_jobs"]
 ListIdMappingWorkflowsPaginatorName = Literal["list_id_mapping_workflows"]
+ListIdNamespacesPaginatorName = Literal["list_id_namespaces"]
 ListMatchingJobsPaginatorName = Literal["list_matching_jobs"]
 ListMatchingWorkflowsPaginatorName = Literal["list_matching_workflows"]
 ListProviderServicesPaginatorName = Literal["list_provider_services"]
@@ -68,3 +78,4 @@ SchemaAttributeTypeType = Literal[
     "UNIQUE_ID",
 ]
 ServiceTypeType = Literal["ASSIGNMENT", "ID_MAPPING"]
+StatementEffectType = Literal["Allow", "Deny"]

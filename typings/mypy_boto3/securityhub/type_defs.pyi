@@ -11,6 +11,7 @@ Usage::
     data: AcceptAdministratorInvitationRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -18,10 +19,12 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AdminStatusType,
     AssociationStatusType,
+    AssociationTypeType,
     AutoEnableStandardsType,
     AwsIamAccessKeyStatusType,
     AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType,
     ComplianceStatusType,
+    ConfigurationPolicyAssociationStatusType,
     ControlFindingGeneratorType,
     ControlStatusType,
     FindingHistoryUpdateSourceTypeType,
@@ -30,6 +33,8 @@ from .literals import (
     MalwareTypeType,
     MapFilterComparisonType,
     NetworkDirectionType,
+    OrganizationConfigurationConfigurationTypeType,
+    OrganizationConfigurationStatusType,
     ParameterValueTypeType,
     PartitionType,
     RecordStateType,
@@ -41,6 +46,7 @@ from .literals import (
     StandardsStatusType,
     StatusReasonCodeType,
     StringFilterComparisonType,
+    TargetTypeType,
     ThreatIntelIndicatorCategoryType,
     ThreatIntelIndicatorTypeType,
     UnprocessedErrorCodeType,
@@ -74,6 +80,7 @@ __all__ = (
     "AdjustmentTypeDef",
     "AdminAccountTypeDef",
     "AssociatedStandardTypeDef",
+    "AssociationFiltersTypeDef",
     "AssociationSetDetailsTypeDef",
     "AssociationStateDetailsTypeDef",
     "AutomationRulesActionTypeDef",
@@ -193,6 +200,15 @@ __all__ = (
     "AwsDynamoDbTableRestoreSummaryTypeDef",
     "AwsDynamoDbTableSseDescriptionTypeDef",
     "AwsDynamoDbTableStreamSpecificationTypeDef",
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointDetailsTypeDef",
     "AwsEc2EipDetailsTypeDef",
     "AwsEc2InstanceDetailsTypeDef",
     "AwsEc2InstanceMetadataOptionsTypeDef",
@@ -482,6 +498,8 @@ __all__ = (
     "AwsRoute53HostedZoneObjectDetailsTypeDef",
     "AwsRoute53HostedZoneVpcDetailsTypeDef",
     "AwsRoute53QueryLoggingConfigDetailsTypeDef",
+    "AwsS3AccessPointDetailsTypeDef",
+    "AwsS3AccessPointVpcConfigurationDetailsTypeDef",
     "AwsS3AccountPublicAccessBlockDetailsTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef",
@@ -575,6 +593,8 @@ __all__ = (
     "BatchEnableStandardsResponseTypeDef",
     "BatchGetAutomationRulesRequestRequestTypeDef",
     "BatchGetAutomationRulesResponseTypeDef",
+    "BatchGetConfigurationPolicyAssociationsRequestRequestTypeDef",
+    "BatchGetConfigurationPolicyAssociationsResponseTypeDef",
     "BatchGetSecurityControlsRequestRequestTypeDef",
     "BatchGetSecurityControlsResponseTypeDef",
     "BatchGetStandardsControlAssociationsRequestRequestTypeDef",
@@ -599,12 +619,17 @@ __all__ = (
     "CodeVulnerabilitiesFilePathTypeDef",
     "ComplianceTypeDef",
     "ConfigurationOptionsTypeDef",
+    "ConfigurationPolicyAssociationSummaryTypeDef",
+    "ConfigurationPolicyAssociationTypeDef",
+    "ConfigurationPolicySummaryTypeDef",
     "ContainerDetailsTypeDef",
     "CountryTypeDef",
     "CreateActionTargetRequestRequestTypeDef",
     "CreateActionTargetResponseTypeDef",
     "CreateAutomationRuleRequestRequestTypeDef",
     "CreateAutomationRuleResponseTypeDef",
+    "CreateConfigurationPolicyRequestRequestTypeDef",
+    "CreateConfigurationPolicyResponseTypeDef",
     "CreateFindingAggregatorRequestRequestTypeDef",
     "CreateFindingAggregatorResponseTypeDef",
     "CreateInsightRequestRequestTypeDef",
@@ -621,6 +646,7 @@ __all__ = (
     "DeclineInvitationsResponseTypeDef",
     "DeleteActionTargetRequestRequestTypeDef",
     "DeleteActionTargetResponseTypeDef",
+    "DeleteConfigurationPolicyRequestRequestTypeDef",
     "DeleteFindingAggregatorRequestRequestTypeDef",
     "DeleteInsightRequestRequestTypeDef",
     "DeleteInsightResponseTypeDef",
@@ -664,6 +690,10 @@ __all__ = (
     "GeneratorDetailsTypeDef",
     "GeoLocationTypeDef",
     "GetAdministratorAccountResponseTypeDef",
+    "GetConfigurationPolicyAssociationRequestRequestTypeDef",
+    "GetConfigurationPolicyAssociationResponseTypeDef",
+    "GetConfigurationPolicyRequestRequestTypeDef",
+    "GetConfigurationPolicyResponseTypeDef",
     "GetEnabledStandardsRequestRequestTypeDef",
     "GetEnabledStandardsResponseTypeDef",
     "GetFindingAggregatorRequestRequestTypeDef",
@@ -698,6 +728,10 @@ __all__ = (
     "KeywordFilterTypeDef",
     "ListAutomationRulesRequestRequestTypeDef",
     "ListAutomationRulesResponseTypeDef",
+    "ListConfigurationPoliciesRequestRequestTypeDef",
+    "ListConfigurationPoliciesResponseTypeDef",
+    "ListConfigurationPolicyAssociationsRequestRequestTypeDef",
+    "ListConfigurationPolicyAssociationsResponseTypeDef",
     "ListEnabledProductsForImportRequestRequestTypeDef",
     "ListEnabledProductsForImportResponseTypeDef",
     "ListFindingAggregatorsRequestRequestTypeDef",
@@ -727,12 +761,14 @@ __all__ = (
     "NoteUpdateTypeDef",
     "NumberFilterTypeDef",
     "OccurrencesTypeDef",
+    "OrganizationConfigurationTypeDef",
     "PageTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterConfigurationTypeDef",
     "ParameterDefinitionTypeDef",
     "ParameterValueTypeDef",
     "PatchSummaryTypeDef",
+    "PolicyTypeDef",
     "PortProbeActionTypeDef",
     "PortProbeDetailTypeDef",
     "PortRangeFromToTypeDef",
@@ -769,9 +805,12 @@ __all__ = (
     "RuleGroupVariablesIpSetsDetailsTypeDef",
     "RuleGroupVariablesPortSetsDetailsTypeDef",
     "RuleGroupVariablesTypeDef",
+    "SecurityControlCustomParameterTypeDef",
     "SecurityControlDefinitionTypeDef",
     "SecurityControlParameterTypeDef",
     "SecurityControlTypeDef",
+    "SecurityControlsConfigurationTypeDef",
+    "SecurityHubPolicyTypeDef",
     "SensitiveDataDetectionsTypeDef",
     "SensitiveDataResultTypeDef",
     "SeverityTypeDef",
@@ -788,6 +827,9 @@ __all__ = (
     "StandardsStatusReasonTypeDef",
     "StandardsSubscriptionRequestTypeDef",
     "StandardsSubscriptionTypeDef",
+    "StartConfigurationPolicyAssociationRequestRequestTypeDef",
+    "StartConfigurationPolicyAssociationResponseTypeDef",
+    "StartConfigurationPolicyDisassociationRequestRequestTypeDef",
     "StatelessCustomActionDefinitionTypeDef",
     "StatelessCustomPublishMetricActionDimensionTypeDef",
     "StatelessCustomPublishMetricActionTypeDef",
@@ -796,15 +838,19 @@ __all__ = (
     "StringFilterTypeDef",
     "StringListConfigurationOptionsTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TargetTypeDef",
     "ThreatIntelIndicatorTypeDef",
     "ThreatTypeDef",
     "UnprocessedAutomationRuleTypeDef",
+    "UnprocessedConfigurationPolicyAssociationTypeDef",
     "UnprocessedSecurityControlTypeDef",
     "UnprocessedStandardsControlAssociationTypeDef",
     "UnprocessedStandardsControlAssociationUpdateTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateActionTargetRequestRequestTypeDef",
     "UpdateAutomationRulesRequestItemTypeDef",
+    "UpdateConfigurationPolicyRequestRequestTypeDef",
+    "UpdateConfigurationPolicyResponseTypeDef",
     "UpdateFindingAggregatorRequestRequestTypeDef",
     "UpdateFindingAggregatorResponseTypeDef",
     "UpdateFindingsRequestRequestTypeDef",
@@ -945,6 +991,16 @@ AssociatedStandardTypeDef = TypedDict(
     total=False,
 )
 
+AssociationFiltersTypeDef = TypedDict(
+    "AssociationFiltersTypeDef",
+    {
+        "ConfigurationPolicyId": str,
+        "AssociationType": AssociationTypeType,
+        "AssociationStatus": ConfigurationPolicyAssociationStatusType,
+    },
+    total=False,
+)
+
 AssociationSetDetailsTypeDef = TypedDict(
     "AssociationSetDetailsTypeDef",
     {
@@ -1048,6 +1104,9 @@ AutomationRulesFindingFiltersTypeDef = TypedDict(
         "NoteUpdatedAt": List["DateFilterTypeDef"],
         "NoteUpdatedBy": List["StringFilterTypeDef"],
         "UserDefinedFields": List["MapFilterTypeDef"],
+        "ResourceApplicationArn": List["StringFilterTypeDef"],
+        "ResourceApplicationName": List["StringFilterTypeDef"],
+        "AwsAccountName": List["StringFilterTypeDef"],
     },
     total=False,
 )
@@ -2322,6 +2381,7 @@ AwsDynamoDbTableDetailsTypeDef = TypedDict(
         "TableName": str,
         "TableSizeBytes": int,
         "TableStatus": str,
+        "DeletionProtectionEnabled": bool,
     },
     total=False,
 )
@@ -2440,6 +2500,103 @@ AwsDynamoDbTableStreamSpecificationTypeDef = TypedDict(
     {
         "StreamEnabled": bool,
         "StreamViewType": str,
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef",
+    {
+        "DirectoryId": str,
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef",
+    {
+        "Type": str,
+        "ActiveDirectory": "AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef",
+        "MutualAuthentication": "AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef",
+        "FederatedAuthentication": "AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef",
+    {
+        "SamlProviderArn": str,
+        "SelfServiceSamlProviderArn": str,
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef",
+    {
+        "ClientRootCertificateChain": str,
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef",
+    {
+        "Enabled": bool,
+        "LambdaFunctionArn": str,
+        "Status": "AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef",
+    {
+        "Enabled": bool,
+        "BannerText": str,
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef",
+    {
+        "Enabled": bool,
+        "CloudwatchLogGroup": str,
+        "CloudwatchLogStream": str,
+    },
+    total=False,
+)
+
+AwsEc2ClientVpnEndpointDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointDetailsTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "Description": str,
+        "ClientCidrBlock": str,
+        "DnsServer": List[str],
+        "SplitTunnel": bool,
+        "TransportProtocol": str,
+        "VpnPort": int,
+        "ServerCertificateArn": str,
+        "AuthenticationOptions": List["AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef"],
+        "ConnectionLogOptions": "AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef",
+        "SecurityGroupIdSet": List[str],
+        "VpcId": str,
+        "SelfServicePortalUrl": str,
+        "ClientConnectOptions": "AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef",
+        "SessionTimeoutHours": int,
+        "ClientLoginBannerOptions": "AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef",
     },
     total=False,
 )
@@ -4972,6 +5129,7 @@ AwsMskClusterClusterInfoDetailsTypeDef = TypedDict(
         "NumberOfBrokerNodes": int,
         "ClusterName": str,
         "ClientAuthentication": "AwsMskClusterClusterInfoClientAuthenticationDetailsTypeDef",
+        "EnhancedMonitoring": str,
     },
     total=False,
 )
@@ -5856,6 +6014,29 @@ AwsRoute53QueryLoggingConfigDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsS3AccessPointDetailsTypeDef = TypedDict(
+    "AwsS3AccessPointDetailsTypeDef",
+    {
+        "AccessPointArn": str,
+        "Alias": str,
+        "Bucket": str,
+        "BucketAccountId": str,
+        "Name": str,
+        "NetworkOrigin": str,
+        "PublicAccessBlockConfiguration": "AwsS3AccountPublicAccessBlockDetailsTypeDef",
+        "VpcConfiguration": "AwsS3AccessPointVpcConfigurationDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsS3AccessPointVpcConfigurationDetailsTypeDef = TypedDict(
+    "AwsS3AccessPointVpcConfigurationDetailsTypeDef",
+    {
+        "VpcId": str,
+    },
+    total=False,
+)
+
 AwsS3AccountPublicAccessBlockDetailsTypeDef = TypedDict(
     "AwsS3AccountPublicAccessBlockDetailsTypeDef",
     {
@@ -6000,6 +6181,7 @@ AwsS3BucketDetailsTypeDef = TypedDict(
         "BucketNotificationConfiguration": "AwsS3BucketNotificationConfigurationTypeDef",
         "BucketVersioningConfiguration": "AwsS3BucketBucketVersioningConfigurationTypeDef",
         "ObjectLockConfiguration": "AwsS3BucketObjectLockConfigurationTypeDef",
+        "Name": str,
     },
     total=False,
 )
@@ -6334,6 +6516,9 @@ AwsSecurityFindingFiltersTypeDef = TypedDict(
         "VulnerabilitiesFixAvailable": List["StringFilterTypeDef"],
         "ComplianceSecurityControlParametersName": List["StringFilterTypeDef"],
         "ComplianceSecurityControlParametersValue": List["StringFilterTypeDef"],
+        "AwsAccountName": List["StringFilterTypeDef"],
+        "ResourceApplicationName": List["StringFilterTypeDef"],
+        "ResourceApplicationArn": List["StringFilterTypeDef"],
     },
     total=False,
 )
@@ -6396,6 +6581,8 @@ _OptionalAwsSecurityFindingTypeDef = TypedDict(
         "FindingProviderFields": "FindingProviderFieldsTypeDef",
         "Sample": bool,
         "GeneratorDetails": "GeneratorDetailsTypeDef",
+        "ProcessedAt": str,
+        "AwsAccountName": str,
     },
     total=False,
 )
@@ -6968,6 +7155,24 @@ BatchGetAutomationRulesResponseTypeDef = TypedDict(
     },
 )
 
+BatchGetConfigurationPolicyAssociationsRequestRequestTypeDef = TypedDict(
+    "BatchGetConfigurationPolicyAssociationsRequestRequestTypeDef",
+    {
+        "ConfigurationPolicyAssociationIdentifiers": List["ConfigurationPolicyAssociationTypeDef"],
+    },
+)
+
+BatchGetConfigurationPolicyAssociationsResponseTypeDef = TypedDict(
+    "BatchGetConfigurationPolicyAssociationsResponseTypeDef",
+    {
+        "ConfigurationPolicyAssociations": List["ConfigurationPolicyAssociationSummaryTypeDef"],
+        "UnprocessedConfigurationPolicyAssociations": List[
+            "UnprocessedConfigurationPolicyAssociationTypeDef"
+        ],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 BatchGetSecurityControlsRequestRequestTypeDef = TypedDict(
     "BatchGetSecurityControlsRequestRequestTypeDef",
     {
@@ -7212,6 +7417,41 @@ ConfigurationOptionsTypeDef = TypedDict(
     total=False,
 )
 
+ConfigurationPolicyAssociationSummaryTypeDef = TypedDict(
+    "ConfigurationPolicyAssociationSummaryTypeDef",
+    {
+        "ConfigurationPolicyId": str,
+        "TargetId": str,
+        "TargetType": TargetTypeType,
+        "AssociationType": AssociationTypeType,
+        "UpdatedAt": datetime,
+        "AssociationStatus": ConfigurationPolicyAssociationStatusType,
+        "AssociationStatusMessage": str,
+    },
+    total=False,
+)
+
+ConfigurationPolicyAssociationTypeDef = TypedDict(
+    "ConfigurationPolicyAssociationTypeDef",
+    {
+        "Target": "TargetTypeDef",
+    },
+    total=False,
+)
+
+ConfigurationPolicySummaryTypeDef = TypedDict(
+    "ConfigurationPolicySummaryTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "UpdatedAt": datetime,
+        "ServiceEnabled": bool,
+    },
+    total=False,
+)
+
 ContainerDetailsTypeDef = TypedDict(
     "ContainerDetailsTypeDef",
     {
@@ -7282,6 +7522,42 @@ CreateAutomationRuleResponseTypeDef = TypedDict(
     "CreateAutomationRuleResponseTypeDef",
     {
         "RuleArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateConfigurationPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateConfigurationPolicyRequestRequestTypeDef",
+    {
+        "Name": str,
+        "ConfigurationPolicy": "PolicyTypeDef",
+    },
+)
+_OptionalCreateConfigurationPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateConfigurationPolicyRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateConfigurationPolicyRequestRequestTypeDef(
+    _RequiredCreateConfigurationPolicyRequestRequestTypeDef,
+    _OptionalCreateConfigurationPolicyRequestRequestTypeDef,
+):
+    pass
+
+CreateConfigurationPolicyResponseTypeDef = TypedDict(
+    "CreateConfigurationPolicyResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "UpdatedAt": datetime,
+        "CreatedAt": datetime,
+        "ConfigurationPolicy": "PolicyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7439,6 +7715,13 @@ DeleteActionTargetResponseTypeDef = TypedDict(
     },
 )
 
+DeleteConfigurationPolicyRequestRequestTypeDef = TypedDict(
+    "DeleteConfigurationPolicyRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
 DeleteFindingAggregatorRequestRequestTypeDef = TypedDict(
     "DeleteFindingAggregatorRequestRequestTypeDef",
     {
@@ -7535,6 +7818,7 @@ DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
         "AutoEnable": bool,
         "MemberAccountLimitReached": bool,
         "AutoEnableStandards": AutoEnableStandardsType,
+        "OrganizationConfiguration": "OrganizationConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7835,6 +8119,48 @@ GetAdministratorAccountResponseTypeDef = TypedDict(
     "GetAdministratorAccountResponseTypeDef",
     {
         "Administrator": "InvitationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetConfigurationPolicyAssociationRequestRequestTypeDef = TypedDict(
+    "GetConfigurationPolicyAssociationRequestRequestTypeDef",
+    {
+        "Target": "TargetTypeDef",
+    },
+)
+
+GetConfigurationPolicyAssociationResponseTypeDef = TypedDict(
+    "GetConfigurationPolicyAssociationResponseTypeDef",
+    {
+        "ConfigurationPolicyId": str,
+        "TargetId": str,
+        "TargetType": TargetTypeType,
+        "AssociationType": AssociationTypeType,
+        "UpdatedAt": datetime,
+        "AssociationStatus": ConfigurationPolicyAssociationStatusType,
+        "AssociationStatusMessage": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetConfigurationPolicyRequestRequestTypeDef = TypedDict(
+    "GetConfigurationPolicyRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetConfigurationPolicyResponseTypeDef = TypedDict(
+    "GetConfigurationPolicyResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "UpdatedAt": datetime,
+        "CreatedAt": datetime,
+        "ConfigurationPolicy": "PolicyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -8155,6 +8481,45 @@ ListAutomationRulesResponseTypeDef = TypedDict(
     },
 )
 
+ListConfigurationPoliciesRequestRequestTypeDef = TypedDict(
+    "ListConfigurationPoliciesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListConfigurationPoliciesResponseTypeDef = TypedDict(
+    "ListConfigurationPoliciesResponseTypeDef",
+    {
+        "ConfigurationPolicySummaries": List["ConfigurationPolicySummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListConfigurationPolicyAssociationsRequestRequestTypeDef = TypedDict(
+    "ListConfigurationPolicyAssociationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": "AssociationFiltersTypeDef",
+    },
+    total=False,
+)
+
+ListConfigurationPolicyAssociationsResponseTypeDef = TypedDict(
+    "ListConfigurationPolicyAssociationsResponseTypeDef",
+    {
+        "ConfigurationPolicyAssociationSummaries": List[
+            "ConfigurationPolicyAssociationSummaryTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListEnabledProductsForImportRequestRequestTypeDef = TypedDict(
     "ListEnabledProductsForImportRequestRequestTypeDef",
     {
@@ -8446,9 +8811,9 @@ NumberFilterTypeDef = TypedDict(
     {
         "Gte": float,
         "Lte": float,
-        "Eq": float,
         "Gt": float,
         "Lt": float,
+        "Eq": float,
     },
     total=False,
 )
@@ -8461,6 +8826,16 @@ OccurrencesTypeDef = TypedDict(
         "Pages": List["PageTypeDef"],
         "Records": List["RecordTypeDef"],
         "Cells": List["CellTypeDef"],
+    },
+    total=False,
+)
+
+OrganizationConfigurationTypeDef = TypedDict(
+    "OrganizationConfigurationTypeDef",
+    {
+        "ConfigurationType": OrganizationConfigurationConfigurationTypeType,
+        "Status": OrganizationConfigurationStatusType,
+        "StatusMessage": str,
     },
     total=False,
 )
@@ -8552,6 +8927,14 @@ _OptionalPatchSummaryTypeDef = TypedDict(
 
 class PatchSummaryTypeDef(_RequiredPatchSummaryTypeDef, _OptionalPatchSummaryTypeDef):
     pass
+
+PolicyTypeDef = TypedDict(
+    "PolicyTypeDef",
+    {
+        "SecurityHub": "SecurityHubPolicyTypeDef",
+    },
+    total=False,
+)
 
 PortProbeActionTypeDef = TypedDict(
     "PortProbeActionTypeDef",
@@ -8779,6 +9162,8 @@ ResourceDetailsTypeDef = TypedDict(
         "AwsDmsReplicationInstance": "AwsDmsReplicationInstanceDetailsTypeDef",
         "AwsRoute53HostedZone": "AwsRoute53HostedZoneDetailsTypeDef",
         "AwsMskCluster": "AwsMskClusterDetailsTypeDef",
+        "AwsS3AccessPoint": "AwsS3AccessPointDetailsTypeDef",
+        "AwsEc2ClientVpnEndpoint": "AwsEc2ClientVpnEndpointDetailsTypeDef",
     },
     total=False,
 )
@@ -8799,6 +9184,8 @@ _OptionalResourceTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "DataClassification": "DataClassificationDetailsTypeDef",
         "Details": "ResourceDetailsTypeDef",
+        "ApplicationName": str,
+        "ApplicationArn": str,
     },
     total=False,
 )
@@ -9030,6 +9417,15 @@ RuleGroupVariablesTypeDef = TypedDict(
     total=False,
 )
 
+SecurityControlCustomParameterTypeDef = TypedDict(
+    "SecurityControlCustomParameterTypeDef",
+    {
+        "SecurityControlId": str,
+        "Parameters": Dict[str, "ParameterConfigurationTypeDef"],
+    },
+    total=False,
+)
+
 _RequiredSecurityControlDefinitionTypeDef = TypedDict(
     "_RequiredSecurityControlDefinitionTypeDef",
     {
@@ -9088,6 +9484,26 @@ _OptionalSecurityControlTypeDef = TypedDict(
 
 class SecurityControlTypeDef(_RequiredSecurityControlTypeDef, _OptionalSecurityControlTypeDef):
     pass
+
+SecurityControlsConfigurationTypeDef = TypedDict(
+    "SecurityControlsConfigurationTypeDef",
+    {
+        "EnabledSecurityControlIdentifiers": List[str],
+        "DisabledSecurityControlIdentifiers": List[str],
+        "SecurityControlCustomParameters": List["SecurityControlCustomParameterTypeDef"],
+    },
+    total=False,
+)
+
+SecurityHubPolicyTypeDef = TypedDict(
+    "SecurityHubPolicyTypeDef",
+    {
+        "ServiceEnabled": bool,
+        "EnabledStandardIdentifiers": List[str],
+        "SecurityControlsConfiguration": "SecurityControlsConfigurationTypeDef",
+    },
+    total=False,
+)
 
 SensitiveDataDetectionsTypeDef = TypedDict(
     "SensitiveDataDetectionsTypeDef",
@@ -9328,6 +9744,48 @@ class StandardsSubscriptionTypeDef(
 ):
     pass
 
+StartConfigurationPolicyAssociationRequestRequestTypeDef = TypedDict(
+    "StartConfigurationPolicyAssociationRequestRequestTypeDef",
+    {
+        "ConfigurationPolicyIdentifier": str,
+        "Target": "TargetTypeDef",
+    },
+)
+
+StartConfigurationPolicyAssociationResponseTypeDef = TypedDict(
+    "StartConfigurationPolicyAssociationResponseTypeDef",
+    {
+        "ConfigurationPolicyId": str,
+        "TargetId": str,
+        "TargetType": TargetTypeType,
+        "AssociationType": AssociationTypeType,
+        "UpdatedAt": datetime,
+        "AssociationStatus": ConfigurationPolicyAssociationStatusType,
+        "AssociationStatusMessage": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartConfigurationPolicyDisassociationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartConfigurationPolicyDisassociationRequestRequestTypeDef",
+    {
+        "ConfigurationPolicyIdentifier": str,
+    },
+)
+_OptionalStartConfigurationPolicyDisassociationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartConfigurationPolicyDisassociationRequestRequestTypeDef",
+    {
+        "Target": "TargetTypeDef",
+    },
+    total=False,
+)
+
+class StartConfigurationPolicyDisassociationRequestRequestTypeDef(
+    _RequiredStartConfigurationPolicyDisassociationRequestRequestTypeDef,
+    _OptionalStartConfigurationPolicyDisassociationRequestRequestTypeDef,
+):
+    pass
+
 StatelessCustomActionDefinitionTypeDef = TypedDict(
     "StatelessCustomActionDefinitionTypeDef",
     {
@@ -9407,6 +9865,16 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+TargetTypeDef = TypedDict(
+    "TargetTypeDef",
+    {
+        "AccountId": str,
+        "OrganizationalUnitId": str,
+        "RootId": str,
+    },
+    total=False,
+)
+
 ThreatIntelIndicatorTypeDef = TypedDict(
     "ThreatIntelIndicatorTypeDef",
     {
@@ -9437,6 +9905,16 @@ UnprocessedAutomationRuleTypeDef = TypedDict(
         "RuleArn": str,
         "ErrorCode": int,
         "ErrorMessage": str,
+    },
+    total=False,
+)
+
+UnprocessedConfigurationPolicyAssociationTypeDef = TypedDict(
+    "UnprocessedConfigurationPolicyAssociationTypeDef",
+    {
+        "ConfigurationPolicyAssociationIdentifiers": "ConfigurationPolicyAssociationTypeDef",
+        "ErrorCode": str,
+        "ErrorReason": str,
     },
     total=False,
 )
@@ -9558,6 +10036,43 @@ class UpdateAutomationRulesRequestItemTypeDef(
 ):
     pass
 
+_RequiredUpdateConfigurationPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateConfigurationPolicyRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalUpdateConfigurationPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateConfigurationPolicyRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "UpdatedReason": str,
+        "ConfigurationPolicy": "PolicyTypeDef",
+    },
+    total=False,
+)
+
+class UpdateConfigurationPolicyRequestRequestTypeDef(
+    _RequiredUpdateConfigurationPolicyRequestRequestTypeDef,
+    _OptionalUpdateConfigurationPolicyRequestRequestTypeDef,
+):
+    pass
+
+UpdateConfigurationPolicyResponseTypeDef = TypedDict(
+    "UpdateConfigurationPolicyResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "UpdatedAt": datetime,
+        "CreatedAt": datetime,
+        "ConfigurationPolicy": "PolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateFindingAggregatorRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFindingAggregatorRequestRequestTypeDef",
     {
@@ -9641,6 +10156,7 @@ _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef",
     {
         "AutoEnableStandards": AutoEnableStandardsType,
+        "OrganizationConfiguration": "OrganizationConfigurationTypeDef",
     },
     total=False,
 )
@@ -9764,6 +10280,7 @@ _OptionalVulnerabilityTypeDef = TypedDict(
         "FixAvailable": VulnerabilityFixAvailableType,
         "EpssScore": float,
         "ExploitAvailable": VulnerabilityExploitAvailableType,
+        "LastKnownExploitAt": str,
         "CodeVulnerabilities": List["VulnerabilityCodeVulnerabilitiesTypeDef"],
     },
     total=False,

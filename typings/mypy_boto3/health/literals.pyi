@@ -11,6 +11,7 @@ Usage::
     data: DescribeAffectedAccountsForOrganizationPaginatorName = "describe_affected_accounts_for_organization"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

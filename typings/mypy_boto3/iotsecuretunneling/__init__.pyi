@@ -16,6 +16,7 @@ Usage::
     session_client: IoTSecureTunnelingClient = session.client("iotsecuretunneling")
     ```
 """
+
 from .client import IoTSecureTunnelingClient
 
 Client = IoTSecureTunnelingClient

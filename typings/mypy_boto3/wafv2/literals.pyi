@@ -11,6 +11,7 @@ Usage::
     data: ActionValueType = "ALLOW"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -33,6 +34,8 @@ __all__ = (
     "InspectionLevelType",
     "JsonMatchScopeType",
     "LabelMatchScopeType",
+    "LogScopeType",
+    "LogTypeType",
     "MapMatchScopeType",
     "OversizeHandlingType",
     "PayloadTypeType",
@@ -48,7 +51,13 @@ __all__ = (
 )
 
 ActionValueType = Literal["ALLOW", "BLOCK", "CAPTCHA", "CHALLENGE", "COUNT", "EXCLUDED_AS_COUNT"]
-AssociatedResourceTypeType = Literal["CLOUDFRONT"]
+AssociatedResourceTypeType = Literal[
+    "API_GATEWAY",
+    "APP_RUNNER_SERVICE",
+    "CLOUDFRONT",
+    "COGNITO_USER_POOL",
+    "VERIFIED_ACCESS_INSTANCE",
+]
 BodyParsingFallbackBehaviorType = Literal["EVALUATE_AS_STRING", "MATCH", "NO_MATCH"]
 ComparisonOperatorType = Literal["EQ", "GE", "GT", "LE", "LT", "NE"]
 CountryCodeType = Literal[
@@ -314,6 +323,8 @@ IPAddressVersionType = Literal["IPV4", "IPV6"]
 InspectionLevelType = Literal["COMMON", "TARGETED"]
 JsonMatchScopeType = Literal["ALL", "KEY", "VALUE"]
 LabelMatchScopeType = Literal["LABEL", "NAMESPACE"]
+LogScopeType = Literal["CUSTOMER", "SECURITY_LAKE"]
+LogTypeType = Literal["WAF_LOGS"]
 MapMatchScopeType = Literal["ALL", "KEY", "VALUE"]
 OversizeHandlingType = Literal["CONTINUE", "MATCH", "NO_MATCH"]
 PayloadTypeType = Literal["FORM_ENCODED", "JSON"]

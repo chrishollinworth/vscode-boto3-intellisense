@@ -30,6 +30,7 @@ Usage::
     search_schemas_paginator: SearchSchemasPaginator = client.get_paginator("search_schemas")
     ```
 """
+
 from .client import SchemasClient
 from .paginator import (
     ListDiscoverersPaginator,

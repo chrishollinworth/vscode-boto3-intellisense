@@ -11,6 +11,7 @@ Usage::
     data: AccessDirectionType = "inbound"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -32,6 +33,7 @@ __all__ = (
     "BlueprintTypeType",
     "BucketMetricNameType",
     "CertificateDomainValidationStatusType",
+    "CertificateProviderType",
     "CertificateStatusType",
     "CloudFormationStackRecordSourceTypeType",
     "ComparisonOperatorType",
@@ -114,9 +116,11 @@ __all__ = (
     "RenewalStatusType",
     "ResourceBucketAccessType",
     "ResourceTypeType",
+    "SetupStatusType",
     "StatusType",
     "StatusTypeType",
     "TreatMissingDataType",
+    "ViewerMinimumTlsProtocolVersionEnumType",
 )
 
 AccessDirectionType = Literal["inbound", "outbound"]
@@ -134,6 +138,7 @@ BehaviorEnumType = Literal["cache", "dont-cache"]
 BlueprintTypeType = Literal["app", "os"]
 BucketMetricNameType = Literal["BucketSizeBytes", "NumberOfObjects"]
 CertificateDomainValidationStatusType = Literal["FAILED", "PENDING_VALIDATION", "SUCCESS"]
+CertificateProviderType = Literal["LetsEncrypt"]
 CertificateStatusType = Literal[
     "EXPIRED",
     "FAILED",
@@ -256,7 +261,7 @@ InstanceMetricNameType = Literal[
 ]
 InstancePlatformType = Literal["LINUX_UNIX", "WINDOWS"]
 InstanceSnapshotStateType = Literal["available", "error", "pending"]
-IpAddressTypeType = Literal["dualstack", "ipv4"]
+IpAddressTypeType = Literal["dualstack", "ipv4", "ipv6"]
 LoadBalancerAttributeNameType = Literal[
     "HealthCheckPath",
     "HttpsRedirectionEnabled",
@@ -372,7 +377,7 @@ MetricUnitType = Literal[
     "Terabytes/Second",
 ]
 NameServersUpdateStateCodeType = Literal["FAILED", "PENDING", "STARTED", "SUCCEEDED"]
-NetworkProtocolType = Literal["all", "icmp", "tcp", "udp"]
+NetworkProtocolType = Literal["all", "icmp", "icmpv6", "tcp", "udp"]
 OperationStatusType = Literal["Completed", "Failed", "NotStarted", "Started", "Succeeded"]
 OperationTypeType = Literal[
     "AllocateStaticIp",
@@ -440,6 +445,7 @@ OperationTypeType = Literal[
     "SendContactMethodVerification",
     "SetIpAddressType",
     "SetResourceAccessForBucket",
+    "SetupInstanceHttps",
     "StartGUISession",
     "StartInstance",
     "StartRelationalDatabase",
@@ -516,6 +522,7 @@ ResourceTypeType = Literal[
     "RelationalDatabaseSnapshot",
     "StaticIp",
 ]
+SetupStatusType = Literal["failed", "inProgress", "succeeded"]
 StatusType = Literal[
     "failedInstanceCreation",
     "failedStartingGUISession",
@@ -530,3 +537,6 @@ StatusType = Literal[
 ]
 StatusTypeType = Literal["Active", "Inactive"]
 TreatMissingDataType = Literal["breaching", "ignore", "missing", "notBreaching"]
+ViewerMinimumTlsProtocolVersionEnumType = Literal[
+    "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"
+]

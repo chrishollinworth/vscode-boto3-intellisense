@@ -6,11 +6,12 @@ Type annotations for athena service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_athena.literals import CalculationExecutionStateType
+    from mypy_boto3_athena.literals import AuthenticationTypeType
 
-    data: CalculationExecutionStateType = "CANCELED"
+    data: AuthenticationTypeType = "DIRECTORY_IDENTITY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AuthenticationTypeType",
     "CalculationExecutionStateType",
     "CapacityAllocationStatusType",
     "CapacityReservationStatusType",
@@ -42,6 +44,7 @@ __all__ = (
     "WorkGroupStateType",
 )
 
+AuthenticationTypeType = Literal["DIRECTORY_IDENTITY"]
 CalculationExecutionStateType = Literal[
     "CANCELED", "CANCELING", "COMPLETED", "CREATED", "CREATING", "FAILED", "QUEUED", "RUNNING"
 ]

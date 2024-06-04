@@ -11,6 +11,7 @@ Usage::
     data: DataSetTypeType = "customer_profile_by_geography"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

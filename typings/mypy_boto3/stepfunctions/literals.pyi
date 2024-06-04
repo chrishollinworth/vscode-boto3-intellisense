@@ -11,6 +11,7 @@ Usage::
     data: ExecutionRedriveFilterType = "NOT_REDRIVEN"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -35,6 +36,8 @@ __all__ = (
     "StateMachineTypeType",
     "SyncExecutionStatusType",
     "TestExecutionStatusType",
+    "ValidateStateMachineDefinitionResultCodeType",
+    "ValidateStateMachineDefinitionSeverityType",
 )
 
 ExecutionRedriveFilterType = Literal["NOT_REDRIVEN", "REDRIVEN"]
@@ -117,3 +120,5 @@ StateMachineStatusType = Literal["ACTIVE", "DELETING"]
 StateMachineTypeType = Literal["EXPRESS", "STANDARD"]
 SyncExecutionStatusType = Literal["FAILED", "SUCCEEDED", "TIMED_OUT"]
 TestExecutionStatusType = Literal["CAUGHT_ERROR", "FAILED", "RETRIABLE", "SUCCEEDED"]
+ValidateStateMachineDefinitionResultCodeType = Literal["FAIL", "OK"]
+ValidateStateMachineDefinitionSeverityType = Literal["ERROR"]

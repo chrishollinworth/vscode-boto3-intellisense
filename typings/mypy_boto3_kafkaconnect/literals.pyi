@@ -11,6 +11,7 @@ Usage::
     data: ConnectorStateType = "CREATING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -27,6 +28,7 @@ __all__ = (
     "ListConnectorsPaginatorName",
     "ListCustomPluginsPaginatorName",
     "ListWorkerConfigurationsPaginatorName",
+    "WorkerConfigurationStateType",
 )
 
 ConnectorStateType = Literal["CREATING", "DELETING", "FAILED", "RUNNING", "UPDATING"]
@@ -39,3 +41,4 @@ KafkaClusterEncryptionInTransitTypeType = Literal["PLAINTEXT", "TLS"]
 ListConnectorsPaginatorName = Literal["list_connectors"]
 ListCustomPluginsPaginatorName = Literal["list_custom_plugins"]
 ListWorkerConfigurationsPaginatorName = Literal["list_worker_configurations"]
+WorkerConfigurationStateType = Literal["ACTIVE", "DELETING"]

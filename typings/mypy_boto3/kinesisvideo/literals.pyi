@@ -11,6 +11,7 @@ Usage::
     data: APINameType = "GET_CLIP"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -11,6 +11,7 @@ Usage::
     data: ContentClassifierType = "FreeOfAdultContent"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

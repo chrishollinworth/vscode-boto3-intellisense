@@ -11,6 +11,7 @@ Usage::
     data: ActivateGatewayInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -1653,6 +1654,8 @@ GatewayInfoTypeDef = TypedDict(
         "Ec2InstanceRegion": str,
         "HostEnvironment": HostEnvironmentType,
         "HostEnvironmentId": str,
+        "DeprecationDate": str,
+        "SoftwareVersion": str,
     },
     total=False,
 )

@@ -11,6 +11,7 @@ Usage::
     data: ColumnTypeType = "EDGE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -68,7 +69,7 @@ ParentEntityUpdateTypeType = Literal["DELETE", "UPDATE"]
 PricingModeType = Literal["BASIC", "STANDARD", "TIERED_BUNDLE"]
 PricingTierType = Literal["TIER_1", "TIER_2", "TIER_3", "TIER_4"]
 PropertyGroupUpdateTypeType = Literal["CREATE", "DELETE", "UPDATE"]
-PropertyUpdateTypeType = Literal["CREATE", "DELETE", "UPDATE"]
+PropertyUpdateTypeType = Literal["CREATE", "DELETE", "RESET_VALUE", "UPDATE"]
 SceneErrorCodeType = Literal["MATTERPORT_ERROR"]
 ScopeType = Literal["ENTITY", "WORKSPACE"]
 SourceTypeType = Literal["iotsitewise", "iottwinmaker", "s3"]

@@ -11,6 +11,7 @@ Usage::
     data: AbortIncompleteMultipartUploadTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Callable, Dict, List, Union
@@ -62,6 +63,7 @@ from .literals import (
     ReplicationStatusType,
     ReplicationTimeStatusType,
     ServerSideEncryptionType,
+    SessionModeType,
     SseKmsEncryptedObjectsStatusType,
     StorageClassType,
     TaggingDirectiveType,
@@ -95,6 +97,7 @@ __all__ = (
     "BucketCopyRequestTypeDef",
     "BucketDownloadFileRequestTypeDef",
     "BucketDownloadFileobjRequestTypeDef",
+    "BucketInfoTypeDef",
     "BucketLifecycleConfigurationTypeDef",
     "BucketLoggingStatusTypeDef",
     "BucketObjectRequestTypeDef",
@@ -136,6 +139,8 @@ __all__ = (
     "CreateMultipartUploadRequestObjectSummaryTypeDef",
     "CreateMultipartUploadRequestObjectTypeDef",
     "CreateMultipartUploadRequestRequestTypeDef",
+    "CreateSessionOutputTypeDef",
+    "CreateSessionRequestRequestTypeDef",
     "DefaultRetentionTypeDef",
     "DeleteBucketAnalyticsConfigurationRequestRequestTypeDef",
     "DeleteBucketCorsRequestBucketCorsTypeDef",
@@ -245,6 +250,7 @@ __all__ = (
     "GlacierJobParametersTypeDef",
     "GrantTypeDef",
     "GranteeTypeDef",
+    "HeadBucketOutputTypeDef",
     "HeadBucketRequestRequestTypeDef",
     "HeadObjectOutputTypeDef",
     "HeadObjectRequestObjectVersionTypeDef",
@@ -278,6 +284,8 @@ __all__ = (
     "ListBucketMetricsConfigurationsOutputTypeDef",
     "ListBucketMetricsConfigurationsRequestRequestTypeDef",
     "ListBucketsOutputTypeDef",
+    "ListDirectoryBucketsOutputTypeDef",
+    "ListDirectoryBucketsRequestRequestTypeDef",
     "ListMultipartUploadsOutputTypeDef",
     "ListMultipartUploadsRequestRequestTypeDef",
     "ListObjectVersionsOutputTypeDef",
@@ -288,6 +296,7 @@ __all__ = (
     "ListObjectsV2RequestRequestTypeDef",
     "ListPartsOutputTypeDef",
     "ListPartsRequestRequestTypeDef",
+    "LocationInfoTypeDef",
     "LoggingEnabledTypeDef",
     "MetadataEntryTypeDef",
     "MetricsAndOperatorTypeDef",
@@ -432,6 +441,7 @@ __all__ = (
     "ServiceResourceObjectRequestTypeDef",
     "ServiceResourceObjectSummaryRequestTypeDef",
     "ServiceResourceObjectVersionRequestTypeDef",
+    "SessionCredentialsTypeDef",
     "SourceSelectionCriteriaTypeDef",
     "SseKmsEncryptedObjectsTypeDef",
     "StatsEventTypeDef",
@@ -663,6 +673,15 @@ class BucketDownloadFileobjRequestTypeDef(
     _RequiredBucketDownloadFileobjRequestTypeDef, _OptionalBucketDownloadFileobjRequestTypeDef
 ):
     pass
+
+BucketInfoTypeDef = TypedDict(
+    "BucketInfoTypeDef",
+    {
+        "DataRedundancy": Literal["SingleAvailabilityZone"],
+        "Type": Literal["Directory"],
+    },
+    total=False,
+)
 
 BucketLifecycleConfigurationTypeDef = TypedDict(
     "BucketLifecycleConfigurationTypeDef",
@@ -1298,6 +1317,8 @@ CreateBucketConfigurationTypeDef = TypedDict(
     "CreateBucketConfigurationTypeDef",
     {
         "LocationConstraint": BucketLocationConstraintType,
+        "Location": "LocationInfoTypeDef",
+        "Bucket": "BucketInfoTypeDef",
     },
     total=False,
 )
@@ -1516,6 +1537,33 @@ _OptionalCreateMultipartUploadRequestRequestTypeDef = TypedDict(
 class CreateMultipartUploadRequestRequestTypeDef(
     _RequiredCreateMultipartUploadRequestRequestTypeDef,
     _OptionalCreateMultipartUploadRequestRequestTypeDef,
+):
+    pass
+
+CreateSessionOutputTypeDef = TypedDict(
+    "CreateSessionOutputTypeDef",
+    {
+        "Credentials": "SessionCredentialsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSessionRequestRequestTypeDef",
+    {
+        "Bucket": str,
+    },
+)
+_OptionalCreateSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSessionRequestRequestTypeDef",
+    {
+        "SessionMode": SessionModeType,
+    },
+    total=False,
+)
+
+class CreateSessionRequestRequestTypeDef(
+    _RequiredCreateSessionRequestRequestTypeDef, _OptionalCreateSessionRequestRequestTypeDef
 ):
     pass
 
@@ -3174,6 +3222,17 @@ _OptionalGranteeTypeDef = TypedDict(
 class GranteeTypeDef(_RequiredGranteeTypeDef, _OptionalGranteeTypeDef):
     pass
 
+HeadBucketOutputTypeDef = TypedDict(
+    "HeadBucketOutputTypeDef",
+    {
+        "BucketLocationType": Literal["AvailabilityZone"],
+        "BucketLocationName": str,
+        "BucketRegion": str,
+        "AccessPointAlias": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredHeadBucketRequestRequestTypeDef = TypedDict(
     "_RequiredHeadBucketRequestRequestTypeDef",
     {
@@ -3665,6 +3724,24 @@ ListBucketsOutputTypeDef = TypedDict(
     },
 )
 
+ListDirectoryBucketsOutputTypeDef = TypedDict(
+    "ListDirectoryBucketsOutputTypeDef",
+    {
+        "Buckets": List["BucketTypeDef"],
+        "ContinuationToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDirectoryBucketsRequestRequestTypeDef = TypedDict(
+    "ListDirectoryBucketsRequestRequestTypeDef",
+    {
+        "ContinuationToken": str,
+        "MaxDirectoryBuckets": int,
+    },
+    total=False,
+)
+
 ListMultipartUploadsOutputTypeDef = TypedDict(
     "ListMultipartUploadsOutputTypeDef",
     {
@@ -3901,6 +3978,15 @@ class ListPartsRequestRequestTypeDef(
     _RequiredListPartsRequestRequestTypeDef, _OptionalListPartsRequestRequestTypeDef
 ):
     pass
+
+LocationInfoTypeDef = TypedDict(
+    "LocationInfoTypeDef",
+    {
+        "Type": Literal["AvailabilityZone"],
+        "Name": str,
+    },
+    total=False,
+)
 
 _RequiredLoggingEnabledTypeDef = TypedDict(
     "_RequiredLoggingEnabledTypeDef",
@@ -6045,6 +6131,16 @@ ServiceResourceObjectVersionRequestTypeDef = TypedDict(
         "bucket_name": str,
         "object_key": str,
         "id": str,
+    },
+)
+
+SessionCredentialsTypeDef = TypedDict(
+    "SessionCredentialsTypeDef",
+    {
+        "AccessKeyId": str,
+        "SecretAccessKey": str,
+        "SessionToken": str,
+        "Expiration": datetime,
     },
 )
 

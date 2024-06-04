@@ -16,6 +16,7 @@ Usage::
     session_client: HealthLakeClient = session.client("healthlake")
     ```
 """
+
 from .client import HealthLakeClient
 
 Client = HealthLakeClient

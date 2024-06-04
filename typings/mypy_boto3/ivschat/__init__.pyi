@@ -16,6 +16,7 @@ Usage::
     session_client: ivschatClient = session.client("ivschat")
     ```
 """
+
 from .client import ivschatClient
 
 Client = ivschatClient

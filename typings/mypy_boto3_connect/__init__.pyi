@@ -19,6 +19,7 @@ Usage::
         ListDefaultVocabulariesPaginator,
         ListEvaluationFormVersionsPaginator,
         ListEvaluationFormsPaginator,
+        ListFlowAssociationsPaginator,
         ListHoursOfOperationsPaginator,
         ListInstanceAttributesPaginator,
         ListInstanceStorageConfigsPaginator,
@@ -28,6 +29,7 @@ Usage::
         ListLexBotsPaginator,
         ListPhoneNumbersPaginator,
         ListPhoneNumbersV2Paginator,
+        ListPredefinedAttributesPaginator,
         ListPromptsPaginator,
         ListQueueQuickConnectsPaginator,
         ListQueuesPaginator,
@@ -44,11 +46,16 @@ Usage::
         ListTrafficDistributionGroupsPaginator,
         ListUseCasesPaginator,
         ListUserHierarchyGroupsPaginator,
+        ListUserProficienciesPaginator,
         ListUsersPaginator,
         ListViewVersionsPaginator,
         ListViewsPaginator,
         SearchAvailablePhoneNumbersPaginator,
+        SearchContactFlowModulesPaginator,
+        SearchContactFlowsPaginator,
+        SearchContactsPaginator,
         SearchHoursOfOperationsPaginator,
+        SearchPredefinedAttributesPaginator,
         SearchPromptsPaginator,
         SearchQueuesPaginator,
         SearchQuickConnectsPaginator,
@@ -75,6 +82,7 @@ Usage::
     list_default_vocabularies_paginator: ListDefaultVocabulariesPaginator = client.get_paginator("list_default_vocabularies")
     list_evaluation_form_versions_paginator: ListEvaluationFormVersionsPaginator = client.get_paginator("list_evaluation_form_versions")
     list_evaluation_forms_paginator: ListEvaluationFormsPaginator = client.get_paginator("list_evaluation_forms")
+    list_flow_associations_paginator: ListFlowAssociationsPaginator = client.get_paginator("list_flow_associations")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
     list_instance_attributes_paginator: ListInstanceAttributesPaginator = client.get_paginator("list_instance_attributes")
     list_instance_storage_configs_paginator: ListInstanceStorageConfigsPaginator = client.get_paginator("list_instance_storage_configs")
@@ -84,6 +92,7 @@ Usage::
     list_lex_bots_paginator: ListLexBotsPaginator = client.get_paginator("list_lex_bots")
     list_phone_numbers_paginator: ListPhoneNumbersPaginator = client.get_paginator("list_phone_numbers")
     list_phone_numbers_v2_paginator: ListPhoneNumbersV2Paginator = client.get_paginator("list_phone_numbers_v2")
+    list_predefined_attributes_paginator: ListPredefinedAttributesPaginator = client.get_paginator("list_predefined_attributes")
     list_prompts_paginator: ListPromptsPaginator = client.get_paginator("list_prompts")
     list_queue_quick_connects_paginator: ListQueueQuickConnectsPaginator = client.get_paginator("list_queue_quick_connects")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
@@ -100,11 +109,16 @@ Usage::
     list_traffic_distribution_groups_paginator: ListTrafficDistributionGroupsPaginator = client.get_paginator("list_traffic_distribution_groups")
     list_use_cases_paginator: ListUseCasesPaginator = client.get_paginator("list_use_cases")
     list_user_hierarchy_groups_paginator: ListUserHierarchyGroupsPaginator = client.get_paginator("list_user_hierarchy_groups")
+    list_user_proficiencies_paginator: ListUserProficienciesPaginator = client.get_paginator("list_user_proficiencies")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     list_view_versions_paginator: ListViewVersionsPaginator = client.get_paginator("list_view_versions")
     list_views_paginator: ListViewsPaginator = client.get_paginator("list_views")
     search_available_phone_numbers_paginator: SearchAvailablePhoneNumbersPaginator = client.get_paginator("search_available_phone_numbers")
+    search_contact_flow_modules_paginator: SearchContactFlowModulesPaginator = client.get_paginator("search_contact_flow_modules")
+    search_contact_flows_paginator: SearchContactFlowsPaginator = client.get_paginator("search_contact_flows")
+    search_contacts_paginator: SearchContactsPaginator = client.get_paginator("search_contacts")
     search_hours_of_operations_paginator: SearchHoursOfOperationsPaginator = client.get_paginator("search_hours_of_operations")
+    search_predefined_attributes_paginator: SearchPredefinedAttributesPaginator = client.get_paginator("search_predefined_attributes")
     search_prompts_paginator: SearchPromptsPaginator = client.get_paginator("search_prompts")
     search_queues_paginator: SearchQueuesPaginator = client.get_paginator("search_queues")
     search_quick_connects_paginator: SearchQuickConnectsPaginator = client.get_paginator("search_quick_connects")
@@ -115,6 +129,7 @@ Usage::
     search_vocabularies_paginator: SearchVocabulariesPaginator = client.get_paginator("search_vocabularies")
     ```
 """
+
 from .client import ConnectClient
 from .paginator import (
     GetMetricDataPaginator,
@@ -128,6 +143,7 @@ from .paginator import (
     ListDefaultVocabulariesPaginator,
     ListEvaluationFormsPaginator,
     ListEvaluationFormVersionsPaginator,
+    ListFlowAssociationsPaginator,
     ListHoursOfOperationsPaginator,
     ListInstanceAttributesPaginator,
     ListInstancesPaginator,
@@ -137,6 +153,7 @@ from .paginator import (
     ListLexBotsPaginator,
     ListPhoneNumbersPaginator,
     ListPhoneNumbersV2Paginator,
+    ListPredefinedAttributesPaginator,
     ListPromptsPaginator,
     ListQueueQuickConnectsPaginator,
     ListQueuesPaginator,
@@ -153,11 +170,16 @@ from .paginator import (
     ListTrafficDistributionGroupUsersPaginator,
     ListUseCasesPaginator,
     ListUserHierarchyGroupsPaginator,
+    ListUserProficienciesPaginator,
     ListUsersPaginator,
     ListViewsPaginator,
     ListViewVersionsPaginator,
     SearchAvailablePhoneNumbersPaginator,
+    SearchContactFlowModulesPaginator,
+    SearchContactFlowsPaginator,
+    SearchContactsPaginator,
     SearchHoursOfOperationsPaginator,
+    SearchPredefinedAttributesPaginator,
     SearchPromptsPaginator,
     SearchQueuesPaginator,
     SearchQuickConnectsPaginator,
@@ -184,6 +206,7 @@ __all__ = (
     "ListDefaultVocabulariesPaginator",
     "ListEvaluationFormVersionsPaginator",
     "ListEvaluationFormsPaginator",
+    "ListFlowAssociationsPaginator",
     "ListHoursOfOperationsPaginator",
     "ListInstanceAttributesPaginator",
     "ListInstanceStorageConfigsPaginator",
@@ -193,6 +216,7 @@ __all__ = (
     "ListLexBotsPaginator",
     "ListPhoneNumbersPaginator",
     "ListPhoneNumbersV2Paginator",
+    "ListPredefinedAttributesPaginator",
     "ListPromptsPaginator",
     "ListQueueQuickConnectsPaginator",
     "ListQueuesPaginator",
@@ -209,11 +233,16 @@ __all__ = (
     "ListTrafficDistributionGroupsPaginator",
     "ListUseCasesPaginator",
     "ListUserHierarchyGroupsPaginator",
+    "ListUserProficienciesPaginator",
     "ListUsersPaginator",
     "ListViewVersionsPaginator",
     "ListViewsPaginator",
     "SearchAvailablePhoneNumbersPaginator",
+    "SearchContactFlowModulesPaginator",
+    "SearchContactFlowsPaginator",
+    "SearchContactsPaginator",
     "SearchHoursOfOperationsPaginator",
+    "SearchPredefinedAttributesPaginator",
     "SearchPromptsPaginator",
     "SearchQueuesPaginator",
     "SearchQuickConnectsPaginator",

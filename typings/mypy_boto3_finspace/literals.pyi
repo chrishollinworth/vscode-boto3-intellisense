@@ -11,6 +11,7 @@ Usage::
     data: AutoScalingMetricType = "CPU_UTILIZATION_PERCENTAGE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -30,10 +31,17 @@ __all__ = (
     "KxClusterCodeDeploymentStrategyType",
     "KxClusterStatusType",
     "KxClusterTypeType",
+    "KxDataviewStatusType",
     "KxDeploymentStrategyType",
+    "KxNAS1TypeType",
+    "KxNodeStatusType",
     "KxSavedownStorageTypeType",
+    "KxScalingGroupStatusType",
+    "KxVolumeStatusType",
+    "KxVolumeTypeType",
     "ListKxEnvironmentsPaginatorName",
     "RuleActionType",
+    "VolumeTypeType",
     "dnsStatusType",
     "tgwStatusType",
 )
@@ -69,7 +77,7 @@ ErrorDetailsType = Literal[
 FederationModeType = Literal["FEDERATED", "LOCAL"]
 IPAddressTypeType = Literal["IP_V4"]
 KxAzModeType = Literal["MULTI", "SINGLE"]
-KxClusterCodeDeploymentStrategyType = Literal["FORCE", "ROLLING"]
+KxClusterCodeDeploymentStrategyType = Literal["FORCE", "NO_RESTART", "ROLLING"]
 KxClusterStatusType = Literal[
     "CREATE_FAILED",
     "CREATING",
@@ -80,11 +88,30 @@ KxClusterStatusType = Literal[
     "RUNNING",
     "UPDATING",
 ]
-KxClusterTypeType = Literal["GATEWAY", "HDB", "RDB"]
+KxClusterTypeType = Literal["GATEWAY", "GP", "HDB", "RDB", "TICKERPLANT"]
+KxDataviewStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 KxDeploymentStrategyType = Literal["NO_RESTART", "ROLLING"]
+KxNAS1TypeType = Literal["HDD_12", "SSD_1000", "SSD_250"]
+KxNodeStatusType = Literal["PROVISIONING", "RUNNING"]
 KxSavedownStorageTypeType = Literal["SDS01"]
+KxScalingGroupStatusType = Literal[
+    "ACTIVE", "CREATE_FAILED", "CREATING", "DELETED", "DELETE_FAILED", "DELETING"
+]
+KxVolumeStatusType = Literal[
+    "ACTIVE",
+    "CREATE_FAILED",
+    "CREATING",
+    "DELETED",
+    "DELETE_FAILED",
+    "DELETING",
+    "UPDATED",
+    "UPDATE_FAILED",
+    "UPDATING",
+]
+KxVolumeTypeType = Literal["NAS_1"]
 ListKxEnvironmentsPaginatorName = Literal["list_kx_environments"]
 RuleActionType = Literal["allow", "deny"]
+VolumeTypeType = Literal["NAS_1"]
 dnsStatusType = Literal[
     "FAILED_UPDATE", "NONE", "SUCCESSFULLY_UPDATED", "UPDATE_REQUESTED", "UPDATING"
 ]

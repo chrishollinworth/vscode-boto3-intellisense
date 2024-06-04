@@ -16,6 +16,7 @@ Usage::
     session_client: IoTWirelessClient = session.client("iotwireless")
     ```
 """
+
 from .client import IoTWirelessClient
 
 Client = IoTWirelessClient

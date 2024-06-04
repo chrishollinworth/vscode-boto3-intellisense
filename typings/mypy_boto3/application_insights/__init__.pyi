@@ -16,6 +16,7 @@ Usage::
     session_client: ApplicationInsightsClient = session.client("application-insights")
     ```
 """
+
 from .client import ApplicationInsightsClient
 
 Client = ApplicationInsightsClient

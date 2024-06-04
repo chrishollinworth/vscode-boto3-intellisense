@@ -11,6 +11,7 @@ Usage::
     data: ActionTypeType = "recommend-node-config"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -64,12 +65,15 @@ __all__ = (
     "DescribeUsageLimitsPaginatorName",
     "GetReservedNodeExchangeConfigurationOptionsPaginatorName",
     "GetReservedNodeExchangeOfferingsPaginatorName",
+    "ImpactRankingTypeType",
+    "ListRecommendationsPaginatorName",
     "LogDestinationTypeType",
     "ModeType",
     "NodeConfigurationOptionsFilterNameType",
     "OperatorTypeType",
     "ParameterApplyTypeType",
     "PartnerIntegrationStatusType",
+    "RecommendedActionTypeType",
     "ReservedNodeExchangeActionTypeType",
     "ReservedNodeExchangeStatusTypeType",
     "ReservedNodeOfferingTypeType",
@@ -141,6 +145,8 @@ GetReservedNodeExchangeConfigurationOptionsPaginatorName = Literal[
     "get_reserved_node_exchange_configuration_options"
 ]
 GetReservedNodeExchangeOfferingsPaginatorName = Literal["get_reserved_node_exchange_offerings"]
+ImpactRankingTypeType = Literal["HIGH", "LOW", "MEDIUM"]
+ListRecommendationsPaginatorName = Literal["list_recommendations"]
 LogDestinationTypeType = Literal["cloudwatch", "s3"]
 ModeType = Literal["high-performance", "standard"]
 NodeConfigurationOptionsFilterNameType = Literal[
@@ -149,6 +155,7 @@ NodeConfigurationOptionsFilterNameType = Literal[
 OperatorTypeType = Literal["between", "eq", "ge", "gt", "in", "le", "lt"]
 ParameterApplyTypeType = Literal["dynamic", "static"]
 PartnerIntegrationStatusType = Literal["Active", "ConnectionFailure", "Inactive", "RuntimeFailure"]
+RecommendedActionTypeType = Literal["CLI", "SQL"]
 ReservedNodeExchangeActionTypeType = Literal["resize-cluster", "restore-cluster"]
 ReservedNodeExchangeStatusTypeType = Literal[
     "FAILED", "IN_PROGRESS", "PENDING", "REQUESTED", "RETRYING", "SUCCEEDED"

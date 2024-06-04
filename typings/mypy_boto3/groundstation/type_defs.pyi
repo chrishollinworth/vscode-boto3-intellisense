@@ -11,6 +11,7 @@ Usage::
     data: AgentDetailsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -380,6 +381,8 @@ ContactDataTypeDef = TypedDict(
         "satelliteArn": str,
         "startTime": datetime,
         "tags": Dict[str, str],
+        "visibilityEndTime": datetime,
+        "visibilityStartTime": datetime,
     },
     total=False,
 )
@@ -610,6 +613,8 @@ DescribeContactResponseTypeDef = TypedDict(
         "satelliteArn": str,
         "startTime": datetime,
         "tags": Dict[str, str],
+        "visibilityEndTime": datetime,
+        "visibilityStartTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -19,6 +19,7 @@ Usage::
     list_event_streams_paginator: ListEventStreamsPaginator = client.get_paginator("list_event_streams")
     ```
 """
+
 from .client import CustomerProfilesClient
 from .paginator import ListEventStreamsPaginator
 

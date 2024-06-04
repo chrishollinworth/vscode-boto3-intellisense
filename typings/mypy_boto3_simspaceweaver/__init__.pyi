@@ -16,6 +16,7 @@ Usage::
     session_client: SimSpaceWeaverClient = session.client("simspaceweaver")
     ```
 """
+
 from .client import SimSpaceWeaverClient
 
 Client = SimSpaceWeaverClient

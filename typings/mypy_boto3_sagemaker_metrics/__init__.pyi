@@ -16,6 +16,7 @@ Usage::
     session_client: SageMakerMetricsClient = session.client("sagemaker-metrics")
     ```
 """
+
 from .client import SageMakerMetricsClient
 
 Client = SageMakerMetricsClient

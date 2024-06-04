@@ -25,6 +25,7 @@ Usage::
     list_policy_templates_paginator: ListPolicyTemplatesPaginator = client.get_paginator("list_policy_templates")
     ```
 """
+
 from .client import VerifiedPermissionsClient
 from .paginator import (
     ListIdentitySourcesPaginator,

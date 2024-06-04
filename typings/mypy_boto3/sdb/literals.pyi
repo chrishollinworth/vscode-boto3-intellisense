@@ -11,6 +11,7 @@ Usage::
     data: ListDomainsPaginatorName = "list_domains"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

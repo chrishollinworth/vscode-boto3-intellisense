@@ -11,6 +11,7 @@ Usage::
     data: BackupStatusType = "DELETING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

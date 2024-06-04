@@ -29,6 +29,7 @@ Usage::
     list_servers_paginator: ListServersPaginator = client.get_paginator("list_servers")
     ```
 """
+
 from .client import MigrationHubStrategyRecommendationsClient
 from .paginator import (
     GetServerDetailsPaginator,

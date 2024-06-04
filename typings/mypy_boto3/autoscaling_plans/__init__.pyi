@@ -21,6 +21,7 @@ Usage::
     describe_scaling_plans_paginator: DescribeScalingPlansPaginator = client.get_paginator("describe_scaling_plans")
     ```
 """
+
 from .client import AutoScalingPlansClient
 from .paginator import DescribeScalingPlanResourcesPaginator, DescribeScalingPlansPaginator
 

@@ -11,6 +11,7 @@ Usage::
     data: ChannelDestinationConfigurationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -22,6 +23,10 @@ from .literals import (
     EventNameType,
     ParticipantStateType,
     ParticipantTokenCapabilityType,
+    PipBehaviorType,
+    PipPositionType,
+    VideoAspectRatioType,
+    VideoFillModeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -90,6 +95,7 @@ __all__ = (
     "ParticipantTokenConfigurationTypeDef",
     "ParticipantTokenTypeDef",
     "ParticipantTypeDef",
+    "PipConfigurationTypeDef",
     "RecordingConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "S3DestinationConfigurationTypeDef",
@@ -526,6 +532,10 @@ GridConfigurationTypeDef = TypedDict(
     "GridConfigurationTypeDef",
     {
         "featuredParticipantAttribute": str,
+        "gridGap": int,
+        "omitStoppedVideo": bool,
+        "videoAspectRatio": VideoAspectRatioType,
+        "videoFillMode": VideoFillModeType,
     },
     total=False,
 )
@@ -534,6 +544,7 @@ LayoutConfigurationTypeDef = TypedDict(
     "LayoutConfigurationTypeDef",
     {
         "grid": "GridConfigurationTypeDef",
+        "pip": "PipConfigurationTypeDef",
     },
     total=False,
 )
@@ -773,6 +784,23 @@ ParticipantTypeDef = TypedDict(
         "sdkVersion": str,
         "state": ParticipantStateType,
         "userId": str,
+    },
+    total=False,
+)
+
+PipConfigurationTypeDef = TypedDict(
+    "PipConfigurationTypeDef",
+    {
+        "featuredParticipantAttribute": str,
+        "gridGap": int,
+        "omitStoppedVideo": bool,
+        "pipBehavior": PipBehaviorType,
+        "pipHeight": int,
+        "pipOffset": int,
+        "pipParticipantAttribute": str,
+        "pipPosition": PipPositionType,
+        "pipWidth": int,
+        "videoFillMode": VideoFillModeType,
     },
     total=False,
 )

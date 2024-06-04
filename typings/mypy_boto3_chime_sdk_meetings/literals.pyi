@@ -6,11 +6,12 @@ Type annotations for chime-sdk-meetings service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_chime_sdk_meetings.literals import MediaCapabilitiesType
+    from mypy_boto3_chime_sdk_meetings.literals import ContentResolutionType
 
-    data: MediaCapabilitiesType = "None"
+    data: ContentResolutionType = "FHD"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ContentResolutionType",
     "MediaCapabilitiesType",
     "MeetingFeatureStatusType",
     "TranscribeContentIdentificationTypeType",
@@ -32,8 +34,10 @@ __all__ = (
     "TranscribePartialResultsStabilityType",
     "TranscribeRegionType",
     "TranscribeVocabularyFilterMethodType",
+    "VideoResolutionType",
 )
 
+ContentResolutionType = Literal["FHD", "None", "UHD"]
 MediaCapabilitiesType = Literal["None", "Receive", "Send", "SendReceive"]
 MeetingFeatureStatusType = Literal["AVAILABLE", "UNAVAILABLE"]
 TranscribeContentIdentificationTypeType = Literal["PII"]
@@ -80,3 +84,4 @@ TranscribeRegionType = Literal[
     "us-west-2",
 ]
 TranscribeVocabularyFilterMethodType = Literal["mask", "remove", "tag"]
+VideoResolutionType = Literal["FHD", "HD", "None"]

@@ -16,6 +16,7 @@ Usage::
     session_client: ApiGatewayManagementApiClient = session.client("apigatewaymanagementapi")
     ```
 """
+
 from .client import ApiGatewayManagementApiClient
 
 Client = ApiGatewayManagementApiClient

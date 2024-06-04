@@ -41,6 +41,7 @@ Usage::
     list_vpc_connections_paginator: ListVpcConnectionsPaginator = client.get_paginator("list_vpc_connections")
     ```
 """
+
 from .client import KafkaClient
 from .paginator import (
     ListClientVpcConnectionsPaginator,

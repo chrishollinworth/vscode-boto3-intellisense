@@ -16,6 +16,7 @@ Usage::
     session_client: inspectorscanClient = session.client("inspector-scan")
     ```
 """
+
 from .client import inspectorscanClient
 
 Client = inspectorscanClient

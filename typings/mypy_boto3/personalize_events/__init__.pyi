@@ -16,6 +16,7 @@ Usage::
     session_client: PersonalizeEventsClient = session.client("personalize-events")
     ```
 """
+
 from .client import PersonalizeEventsClient
 
 Client = PersonalizeEventsClient

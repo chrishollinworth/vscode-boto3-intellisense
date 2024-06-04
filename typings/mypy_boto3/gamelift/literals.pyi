@@ -11,6 +11,7 @@ Usage::
     data: AcceptanceTypeType = "ACCEPT"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -27,6 +28,10 @@ __all__ = (
     "ComparisonOperatorTypeType",
     "ComputeStatusType",
     "ComputeTypeType",
+    "ContainerDependencyConditionType",
+    "ContainerGroupDefinitionStatusType",
+    "ContainerOperatingSystemType",
+    "ContainerSchedulingStrategyType",
     "DescribeFleetAttributesPaginatorName",
     "DescribeFleetCapacityPaginatorName",
     "DescribeFleetEventsPaginatorName",
@@ -65,6 +70,7 @@ __all__ = (
     "ListAliasesPaginatorName",
     "ListBuildsPaginatorName",
     "ListComputePaginatorName",
+    "ListContainerGroupDefinitionsPaginatorName",
     "ListFleetsPaginatorName",
     "ListGameServerGroupsPaginatorName",
     "ListGameServersPaginatorName",
@@ -99,7 +105,11 @@ ComparisonOperatorTypeType = Literal[
     "LessThanThreshold",
 ]
 ComputeStatusType = Literal["ACTIVE", "PENDING", "TERMINATING"]
-ComputeTypeType = Literal["ANYWHERE", "EC2"]
+ComputeTypeType = Literal["ANYWHERE", "CONTAINER", "EC2"]
+ContainerDependencyConditionType = Literal["COMPLETE", "HEALTHY", "START", "SUCCESS"]
+ContainerGroupDefinitionStatusType = Literal["COPYING", "FAILED", "READY"]
+ContainerOperatingSystemType = Literal["AMAZON_LINUX_2023"]
+ContainerSchedulingStrategyType = Literal["DAEMON", "REPLICA"]
 DescribeFleetAttributesPaginatorName = Literal["describe_fleet_attributes"]
 DescribeFleetCapacityPaginatorName = Literal["describe_fleet_capacity"]
 DescribeFleetEventsPaginatorName = Literal["describe_fleet_events"]
@@ -451,6 +461,7 @@ IpProtocolType = Literal["TCP", "UDP"]
 ListAliasesPaginatorName = Literal["list_aliases"]
 ListBuildsPaginatorName = Literal["list_builds"]
 ListComputePaginatorName = Literal["list_compute"]
+ListContainerGroupDefinitionsPaginatorName = Literal["list_container_group_definitions"]
 ListFleetsPaginatorName = Literal["list_fleets"]
 ListGameServerGroupsPaginatorName = Literal["list_game_server_groups"]
 ListGameServersPaginatorName = Literal["list_game_servers"]

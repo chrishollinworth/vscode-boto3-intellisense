@@ -11,6 +11,7 @@ Usage::
     data: CreateDeploymentInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -33,27 +34,36 @@ __all__ = (
     "CreateDeploymentOutputTypeDef",
     "DeleteDeploymentInputRequestTypeDef",
     "DeleteDeploymentOutputTypeDef",
+    "DeploymentConditionalFieldTypeDef",
     "DeploymentDataSummaryTypeDef",
     "DeploymentDataTypeDef",
     "DeploymentEventDataSummaryTypeDef",
     "DeploymentFilterTypeDef",
+    "DeploymentSpecificationsFieldTypeDef",
     "GetDeploymentInputRequestTypeDef",
     "GetDeploymentOutputTypeDef",
+    "GetWorkloadDeploymentPatternInputRequestTypeDef",
+    "GetWorkloadDeploymentPatternOutputTypeDef",
     "GetWorkloadInputRequestTypeDef",
     "GetWorkloadOutputTypeDef",
     "ListDeploymentEventsInputRequestTypeDef",
     "ListDeploymentEventsOutputTypeDef",
     "ListDeploymentsInputRequestTypeDef",
     "ListDeploymentsOutputTypeDef",
+    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceOutputTypeDef",
     "ListWorkloadDeploymentPatternsInputRequestTypeDef",
     "ListWorkloadDeploymentPatternsOutputTypeDef",
     "ListWorkloadsInputRequestTypeDef",
     "ListWorkloadsOutputTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
+    "TagResourceInputRequestTypeDef",
+    "UntagResourceInputRequestTypeDef",
     "WorkloadDataSummaryTypeDef",
     "WorkloadDataTypeDef",
     "WorkloadDeploymentPatternDataSummaryTypeDef",
+    "WorkloadDeploymentPatternDataTypeDef",
 )
 
 _RequiredCreateDeploymentInputRequestTypeDef = TypedDict(
@@ -69,6 +79,7 @@ _OptionalCreateDeploymentInputRequestTypeDef = TypedDict(
     "_OptionalCreateDeploymentInputRequestTypeDef",
     {
         "dryRun": bool,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -102,6 +113,16 @@ DeleteDeploymentOutputTypeDef = TypedDict(
     },
 )
 
+DeploymentConditionalFieldTypeDef = TypedDict(
+    "DeploymentConditionalFieldTypeDef",
+    {
+        "comparator": str,
+        "name": str,
+        "value": str,
+    },
+    total=False,
+)
+
 DeploymentDataSummaryTypeDef = TypedDict(
     "DeploymentDataSummaryTypeDef",
     {
@@ -120,12 +141,14 @@ DeploymentDataTypeDef = TypedDict(
     {
         "createdAt": datetime,
         "deletedAt": datetime,
+        "deploymentArn": str,
         "id": str,
         "name": str,
         "patternName": str,
         "resourceGroup": str,
         "specifications": Dict[str, str],
         "status": DeploymentStatusType,
+        "tags": Dict[str, str],
         "workloadName": str,
     },
     total=False,
@@ -152,6 +175,18 @@ DeploymentFilterTypeDef = TypedDict(
     total=False,
 )
 
+DeploymentSpecificationsFieldTypeDef = TypedDict(
+    "DeploymentSpecificationsFieldTypeDef",
+    {
+        "allowedValues": List[str],
+        "conditionals": List["DeploymentConditionalFieldTypeDef"],
+        "description": str,
+        "name": str,
+        "required": str,
+    },
+    total=False,
+)
+
 GetDeploymentInputRequestTypeDef = TypedDict(
     "GetDeploymentInputRequestTypeDef",
     {
@@ -163,6 +198,22 @@ GetDeploymentOutputTypeDef = TypedDict(
     "GetDeploymentOutputTypeDef",
     {
         "deployment": "DeploymentDataTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetWorkloadDeploymentPatternInputRequestTypeDef = TypedDict(
+    "GetWorkloadDeploymentPatternInputRequestTypeDef",
+    {
+        "deploymentPatternName": str,
+        "workloadName": str,
+    },
+)
+
+GetWorkloadDeploymentPatternOutputTypeDef = TypedDict(
+    "GetWorkloadDeploymentPatternOutputTypeDef",
+    {
+        "workloadDeploymentPattern": "WorkloadDeploymentPatternDataTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -227,6 +278,21 @@ ListDeploymentsOutputTypeDef = TypedDict(
     {
         "deployments": List["DeploymentDataSummaryTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceInputRequestTypeDef = TypedDict(
+    "ListTagsForResourceInputRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceOutputTypeDef = TypedDict(
+    "ListTagsForResourceOutputTypeDef",
+    {
+        "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -300,6 +366,22 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+TagResourceInputRequestTypeDef = TypedDict(
+    "TagResourceInputRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tags": Dict[str, str],
+    },
+)
+
+UntagResourceInputRequestTypeDef = TypedDict(
+    "UntagResourceInputRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tagKeys": List[str],
+    },
+)
+
 WorkloadDataSummaryTypeDef = TypedDict(
     "WorkloadDataSummaryTypeDef",
     {
@@ -329,6 +411,21 @@ WorkloadDeploymentPatternDataSummaryTypeDef = TypedDict(
         "deploymentPatternName": str,
         "description": str,
         "displayName": str,
+        "status": WorkloadDeploymentPatternStatusType,
+        "statusMessage": str,
+        "workloadName": str,
+        "workloadVersionName": str,
+    },
+    total=False,
+)
+
+WorkloadDeploymentPatternDataTypeDef = TypedDict(
+    "WorkloadDeploymentPatternDataTypeDef",
+    {
+        "deploymentPatternName": str,
+        "description": str,
+        "displayName": str,
+        "specifications": List["DeploymentSpecificationsFieldTypeDef"],
         "status": WorkloadDeploymentPatternStatusType,
         "statusMessage": str,
         "workloadName": str,

@@ -30,6 +30,7 @@ Usage::
     list_timeline_events_paginator: ListTimelineEventsPaginator = client.get_paginator("list_timeline_events")
     ```
 """
+
 import sys
 from typing import Iterator, List
 
@@ -65,7 +66,7 @@ __all__ = (
 
 class GetResourcePoliciesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#getresourcepoliciespaginator)
     """
 
@@ -73,13 +74,13 @@ class GetResourcePoliciesPaginator(Boto3Paginator):
         self, *, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetResourcePoliciesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#getresourcepoliciespaginator)
         """
 
 class ListIncidentFindingsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentFindings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentFindings)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentfindingspaginator)
     """
 
@@ -87,13 +88,13 @@ class ListIncidentFindingsPaginator(Boto3Paginator):
         self, *, incidentRecordArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIncidentFindingsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentFindings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentFindings.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentfindingspaginator)
         """
 
 class ListIncidentRecordsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentrecordspaginator)
     """
 
@@ -104,13 +105,13 @@ class ListIncidentRecordsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIncidentRecordsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentrecordspaginator)
         """
 
 class ListRelatedItemsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listrelateditemspaginator)
     """
 
@@ -118,13 +119,13 @@ class ListRelatedItemsPaginator(Boto3Paginator):
         self, *, incidentRecordArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRelatedItemsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listrelateditemspaginator)
         """
 
 class ListReplicationSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listreplicationsetspaginator)
     """
 
@@ -132,13 +133,13 @@ class ListReplicationSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListReplicationSetsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listreplicationsetspaginator)
         """
 
 class ListResponsePlansPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listresponseplanspaginator)
     """
 
@@ -146,13 +147,13 @@ class ListResponsePlansPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResponsePlansOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listresponseplanspaginator)
         """
 
 class ListTimelineEventsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listtimelineeventspaginator)
     """
 
@@ -166,6 +167,6 @@ class ListTimelineEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTimelineEventsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listtimelineeventspaginator)
         """

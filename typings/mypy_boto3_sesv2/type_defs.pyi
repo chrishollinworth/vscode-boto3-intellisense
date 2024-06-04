@@ -11,6 +11,7 @@ Usage::
     data: AccountDetailsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -221,6 +222,7 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MailFromAttributesTypeDef",
+    "MessageHeaderTypeDef",
     "MessageInsightsDataSourceTypeDef",
     "MessageInsightsFiltersTypeDef",
     "MessageTagTypeDef",
@@ -408,6 +410,7 @@ _OptionalBulkEmailEntryTypeDef = TypedDict(
     {
         "ReplacementTags": List["MessageTagTypeDef"],
         "ReplacementEmailContent": "ReplacementEmailContentTypeDef",
+        "ReplacementHeaders": List["MessageHeaderTypeDef"],
     },
     total=False,
 )
@@ -1893,6 +1896,14 @@ MailFromAttributesTypeDef = TypedDict(
     },
 )
 
+MessageHeaderTypeDef = TypedDict(
+    "MessageHeaderTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+)
+
 _RequiredMessageInsightsDataSourceTypeDef = TypedDict(
     "_RequiredMessageInsightsDataSourceTypeDef",
     {
@@ -1936,13 +1947,23 @@ MessageTagTypeDef = TypedDict(
     },
 )
 
-MessageTypeDef = TypedDict(
-    "MessageTypeDef",
+_RequiredMessageTypeDef = TypedDict(
+    "_RequiredMessageTypeDef",
     {
         "Subject": "ContentTypeDef",
         "Body": "BodyTypeDef",
     },
 )
+_OptionalMessageTypeDef = TypedDict(
+    "_OptionalMessageTypeDef",
+    {
+        "Headers": List["MessageHeaderTypeDef"],
+    },
+    total=False,
+)
+
+class MessageTypeDef(_RequiredMessageTypeDef, _OptionalMessageTypeDef):
+    pass
 
 MetricDataErrorTypeDef = TypedDict(
     "MetricDataErrorTypeDef",
@@ -2626,6 +2647,7 @@ TemplateTypeDef = TypedDict(
         "TemplateName": str,
         "TemplateArn": str,
         "TemplateData": str,
+        "Headers": List["MessageHeaderTypeDef"],
     },
     total=False,
 )

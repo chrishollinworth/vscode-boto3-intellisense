@@ -16,6 +16,7 @@ Usage::
     session_client: LexRuntimeServiceClient = session.client("lex-runtime")
     ```
 """
+
 from .client import LexRuntimeServiceClient
 
 Client = LexRuntimeServiceClient

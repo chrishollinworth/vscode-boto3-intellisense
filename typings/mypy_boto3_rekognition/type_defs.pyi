@@ -11,6 +11,7 @@ Usage::
     data: AgeRangeTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -93,6 +94,7 @@ __all__ = (
     "ConnectedHomeSettingsForUpdateTypeDef",
     "ConnectedHomeSettingsTypeDef",
     "ContentModerationDetectionTypeDef",
+    "ContentTypeTypeDef",
     "CopyProjectVersionRequestRequestTypeDef",
     "CopyProjectVersionResponseTypeDef",
     "CoversBodyPartTypeDef",
@@ -252,6 +254,7 @@ __all__ = (
     "MediaAnalysisJobDescriptionTypeDef",
     "MediaAnalysisJobFailureDetailsTypeDef",
     "MediaAnalysisManifestSummaryTypeDef",
+    "MediaAnalysisModelVersionsTypeDef",
     "MediaAnalysisOperationsConfigTypeDef",
     "MediaAnalysisOutputConfigTypeDef",
     "MediaAnalysisResultsTypeDef",
@@ -605,6 +608,16 @@ ContentModerationDetectionTypeDef = TypedDict(
         "StartTimestampMillis": int,
         "EndTimestampMillis": int,
         "DurationMillis": int,
+        "ContentTypes": List["ContentTypeTypeDef"],
+    },
+    total=False,
+)
+
+ContentTypeTypeDef = TypedDict(
+    "ContentTypeTypeDef",
+    {
+        "Confidence": float,
+        "Name": str,
     },
     total=False,
 )
@@ -1357,6 +1370,7 @@ DetectModerationLabelsResponseTypeDef = TypedDict(
         "ModerationModelVersion": str,
         "HumanLoopActivationOutput": "HumanLoopActivationOutputTypeDef",
         "ProjectVersion": str,
+        "ContentTypes": List["ContentTypeTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2563,6 +2577,14 @@ MediaAnalysisManifestSummaryTypeDef = TypedDict(
     total=False,
 )
 
+MediaAnalysisModelVersionsTypeDef = TypedDict(
+    "MediaAnalysisModelVersionsTypeDef",
+    {
+        "Moderation": str,
+    },
+    total=False,
+)
+
 MediaAnalysisOperationsConfigTypeDef = TypedDict(
     "MediaAnalysisOperationsConfigTypeDef",
     {
@@ -2594,6 +2616,7 @@ MediaAnalysisResultsTypeDef = TypedDict(
     "MediaAnalysisResultsTypeDef",
     {
         "S3Object": "S3ObjectTypeDef",
+        "ModelVersions": "MediaAnalysisModelVersionsTypeDef",
     },
     total=False,
 )
@@ -2604,6 +2627,7 @@ ModerationLabelTypeDef = TypedDict(
         "Confidence": float,
         "Name": str,
         "ParentName": str,
+        "TaxonomyLevel": int,
     },
     total=False,
 )

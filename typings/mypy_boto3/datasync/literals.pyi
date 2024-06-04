@@ -11,6 +11,7 @@ Usage::
     data: AgentStatusType = "OFFLINE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -45,6 +46,8 @@ __all__ = (
     "ListTasksPaginatorName",
     "LocationFilterNameType",
     "LogLevelType",
+    "ManifestActionType",
+    "ManifestFormatType",
     "MtimeType",
     "NfsVersionType",
     "ObjectStorageServerProtocolType",
@@ -60,6 +63,8 @@ __all__ = (
     "ReportLevelType",
     "ReportOutputTypeType",
     "S3StorageClassType",
+    "ScheduleDisabledByType",
+    "ScheduleStatusType",
     "SmbSecurityDescriptorCopyFlagsType",
     "SmbVersionType",
     "StorageSystemConnectivityStatusType",
@@ -102,6 +107,8 @@ ListTaskExecutionsPaginatorName = Literal["list_task_executions"]
 ListTasksPaginatorName = Literal["list_tasks"]
 LocationFilterNameType = Literal["CreationTime", "LocationType", "LocationUri"]
 LogLevelType = Literal["BASIC", "OFF", "TRANSFER"]
+ManifestActionType = Literal["TRANSFER"]
+ManifestFormatType = Literal["CSV"]
 MtimeType = Literal["NONE", "PRESERVE"]
 NfsVersionType = Literal["AUTOMATIC", "NFS3", "NFS4_0", "NFS4_1"]
 ObjectStorageServerProtocolType = Literal["HTTP", "HTTPS"]
@@ -137,11 +144,20 @@ S3StorageClassType = Literal[
     "STANDARD",
     "STANDARD_IA",
 ]
+ScheduleDisabledByType = Literal["SERVICE", "USER"]
+ScheduleStatusType = Literal["DISABLED", "ENABLED"]
 SmbSecurityDescriptorCopyFlagsType = Literal["NONE", "OWNER_DACL", "OWNER_DACL_SACL"]
 SmbVersionType = Literal["AUTOMATIC", "SMB1", "SMB2", "SMB2_0", "SMB3"]
 StorageSystemConnectivityStatusType = Literal["FAIL", "PASS", "UNKNOWN"]
 TaskExecutionStatusType = Literal[
-    "ERROR", "LAUNCHING", "PREPARING", "QUEUED", "SUCCESS", "TRANSFERRING", "VERIFYING"
+    "CANCELLING",
+    "ERROR",
+    "LAUNCHING",
+    "PREPARING",
+    "QUEUED",
+    "SUCCESS",
+    "TRANSFERRING",
+    "VERIFYING",
 ]
 TaskFilterNameType = Literal["CreationTime", "LocationId"]
 TaskQueueingType = Literal["DISABLED", "ENABLED"]

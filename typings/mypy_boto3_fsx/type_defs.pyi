@@ -11,6 +11,7 @@ Usage::
     data: ActiveDirectoryBackupAttributesTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -1635,6 +1636,7 @@ DescribeSnapshotsRequestRequestTypeDef = TypedDict(
         "Filters": List["SnapshotFilterTypeDef"],
         "MaxResults": int,
         "NextToken": str,
+        "IncludeShared": bool,
     },
     total=False,
 )
@@ -1898,7 +1900,7 @@ FileSystemTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "WindowsConfiguration": "WindowsFileSystemConfigurationTypeDef",
         "LustreConfiguration": "LustreFileSystemConfigurationTypeDef",
-        "AdministrativeActions": List[Dict[str, Any]],
+        "AdministrativeActions": List["AdministrativeActionTypeDef"],
         "OntapConfiguration": "OntapFileSystemConfigurationTypeDef",
         "FileSystemTypeVersion": str,
         "OpenZFSConfiguration": "OpenZFSFileSystemConfigurationTypeDef",
@@ -2168,6 +2170,7 @@ OpenZFSVolumeConfigurationTypeDef = TypedDict(
         "DeleteIntermediateData": bool,
         "SourceSnapshotARN": str,
         "DestinationSnapshot": str,
+        "CopyStrategy": OpenZFSCopyStrategyType,
     },
     total=False,
 )
@@ -2378,7 +2381,7 @@ SnapshotTypeDef = TypedDict(
         "Lifecycle": SnapshotLifecycleType,
         "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
         "Tags": List["TagTypeDef"],
-        "AdministrativeActions": List["AdministrativeActionTypeDef"],
+        "AdministrativeActions": List[Dict[str, Any]],
     },
     total=False,
 )

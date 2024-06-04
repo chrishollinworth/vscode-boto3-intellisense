@@ -31,6 +31,7 @@ Usage::
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
     ```
 """
+
 from .client import DAXClient
 from .paginator import (
     DescribeClustersPaginator,

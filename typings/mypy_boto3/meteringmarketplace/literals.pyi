@@ -11,6 +11,7 @@ Usage::
     data: UsageRecordResultStatusType = "CustomerNotSubscribed"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

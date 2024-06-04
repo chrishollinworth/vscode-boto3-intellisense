@@ -19,6 +19,7 @@ Usage::
     list_spaces_paginator: ListSpacesPaginator = client.get_paginator("list_spaces")
     ```
 """
+
 from .client import rePostPrivateClient
 from .paginator import ListSpacesPaginator
 

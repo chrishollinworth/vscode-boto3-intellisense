@@ -23,6 +23,7 @@ Usage::
     list_speech_synthesis_tasks_paginator: ListSpeechSynthesisTasksPaginator = client.get_paginator("list_speech_synthesis_tasks")
     ```
 """
+
 from .client import PollyClient
 from .paginator import (
     DescribeVoicesPaginator,

@@ -11,6 +11,7 @@ Usage::
     data: AugmentedManifestsDocumentTypeFormatType = "PLAIN_TEXT_DOCUMENT"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

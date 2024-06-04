@@ -11,6 +11,7 @@ Usage::
     data: ActionCategoryType = "BACKUP"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -79,12 +80,13 @@ ActionCategoryType = Literal[
     "OBSERVABILITY",
     "OPERATING_SYSTEM",
     "OTHER",
+    "REFACTORING",
     "SECURITY",
     "VALIDATION",
 ]
 ApplicationHealthStatusType = Literal["ERROR", "HEALTHY", "LAGGING"]
 ApplicationProgressStatusType = Literal["COMPLETED", "IN_PROGRESS", "NOT_STARTED"]
-BootModeType = Literal["LEGACY_BIOS", "UEFI"]
+BootModeType = Literal["LEGACY_BIOS", "UEFI", "USE_SOURCE"]
 ChangeServerLifeCycleStateSourceServerLifecycleStateType = Literal[
     "CUTOVER", "READY_FOR_CUTOVER", "READY_FOR_TEST"
 ]

@@ -11,6 +11,7 @@ Usage::
     data: ADMChannelRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -360,6 +361,7 @@ __all__ = (
     "ListTemplatesResponseTypeDef",
     "MessageBodyTypeDef",
     "MessageConfigurationTypeDef",
+    "MessageHeaderTypeDef",
     "MessageRequestTypeDef",
     "MessageResponseTypeDef",
     "MessageResultTypeDef",
@@ -1126,6 +1128,7 @@ CampaignEmailMessageTypeDef = TypedDict(
     {
         "Body": str,
         "FromAddress": str,
+        "Headers": List["MessageHeaderTypeDef"],
         "HtmlBody": str,
         "Title": str,
     },
@@ -2104,6 +2107,7 @@ _OptionalEmailChannelRequestTypeDef = TypedDict(
         "ConfigurationSet": str,
         "Enabled": bool,
         "RoleArn": str,
+        "OrchestrationSendingRoleArn": str,
     },
     total=False,
 )
@@ -2135,6 +2139,7 @@ _OptionalEmailChannelResponseTypeDef = TypedDict(
         "LastModifiedDate": str,
         "MessagesPerSecond": int,
         "RoleArn": str,
+        "OrchestrationSendingRoleArn": str,
         "Version": int,
     },
     total=False,
@@ -2177,6 +2182,7 @@ EmailTemplateRequestTypeDef = TypedDict(
         "HtmlPart": str,
         "RecommenderId": str,
         "Subject": str,
+        "Headers": List["MessageHeaderTypeDef"],
         "tags": Dict[str, str],
         "TemplateDescription": str,
         "TextPart": str,
@@ -2201,6 +2207,7 @@ _OptionalEmailTemplateResponseTypeDef = TypedDict(
         "HtmlPart": str,
         "RecommenderId": str,
         "Subject": str,
+        "Headers": List["MessageHeaderTypeDef"],
         "tags": Dict[str, str],
         "TemplateDescription": str,
         "TextPart": str,
@@ -4356,6 +4363,15 @@ MessageConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+MessageHeaderTypeDef = TypedDict(
+    "MessageHeaderTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+    total=False,
+)
+
 _RequiredMessageRequestTypeDef = TypedDict(
     "_RequiredMessageRequestTypeDef",
     {
@@ -5237,6 +5253,7 @@ SimpleEmailTypeDef = TypedDict(
         "HtmlPart": "SimpleEmailPartTypeDef",
         "Subject": "SimpleEmailPartTypeDef",
         "TextPart": "SimpleEmailPartTypeDef",
+        "Headers": List["MessageHeaderTypeDef"],
     },
     total=False,
 )

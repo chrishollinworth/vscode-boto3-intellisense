@@ -37,6 +37,7 @@ Usage::
     get_stages_paginator: GetStagesPaginator = client.get_paginator("get_stages")
     ```
 """
+
 from .client import ApiGatewayV2Client
 from .paginator import (
     GetApisPaginator,

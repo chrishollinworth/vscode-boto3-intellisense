@@ -45,6 +45,7 @@ Usage::
         DescribeUsageLimitsPaginator,
         GetReservedNodeExchangeConfigurationOptionsPaginator,
         GetReservedNodeExchangeOfferingsPaginator,
+        ListRecommendationsPaginator,
         RedshiftClient,
         SnapshotAvailableWaiter,
     )
@@ -94,8 +95,10 @@ Usage::
     describe_usage_limits_paginator: DescribeUsageLimitsPaginator = client.get_paginator("describe_usage_limits")
     get_reserved_node_exchange_configuration_options_paginator: GetReservedNodeExchangeConfigurationOptionsPaginator = client.get_paginator("get_reserved_node_exchange_configuration_options")
     get_reserved_node_exchange_offerings_paginator: GetReservedNodeExchangeOfferingsPaginator = client.get_paginator("get_reserved_node_exchange_offerings")
+    list_recommendations_paginator: ListRecommendationsPaginator = client.get_paginator("list_recommendations")
     ```
 """
+
 from .client import RedshiftClient
 from .paginator import (
     DescribeClusterDbRevisionsPaginator,
@@ -133,6 +136,7 @@ from .paginator import (
     DescribeUsageLimitsPaginator,
     GetReservedNodeExchangeConfigurationOptionsPaginator,
     GetReservedNodeExchangeOfferingsPaginator,
+    ListRecommendationsPaginator,
 )
 from .waiter import (
     ClusterAvailableWaiter,
@@ -183,6 +187,7 @@ __all__ = (
     "DescribeUsageLimitsPaginator",
     "GetReservedNodeExchangeConfigurationOptionsPaginator",
     "GetReservedNodeExchangeOfferingsPaginator",
+    "ListRecommendationsPaginator",
     "RedshiftClient",
     "SnapshotAvailableWaiter",
 )

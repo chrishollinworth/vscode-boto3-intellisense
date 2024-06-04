@@ -11,6 +11,7 @@ Usage::
     data: AccessPointDescriptionResponseMetadataTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -18,6 +19,7 @@ from typing import Any, Dict, List
 from .literals import (
     LifeCycleStateType,
     PerformanceModeType,
+    ReplicationOverwriteProtectionType,
     ReplicationStatusType,
     ResourceIdTypeType,
     ResourceType,
@@ -75,6 +77,8 @@ __all__ = (
     "FileSystemDescriptionResponseMetadataTypeDef",
     "FileSystemDescriptionTypeDef",
     "FileSystemPolicyDescriptionTypeDef",
+    "FileSystemProtectionDescriptionResponseMetadataTypeDef",
+    "FileSystemProtectionDescriptionTypeDef",
     "FileSystemSizeTypeDef",
     "LifecycleConfigurationDescriptionTypeDef",
     "LifecyclePolicyTypeDef",
@@ -98,6 +102,7 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateFileSystemProtectionRequestRequestTypeDef",
     "UpdateFileSystemRequestRequestTypeDef",
 )
 
@@ -459,6 +464,7 @@ DestinationToCreateTypeDef = TypedDict(
         "Region": str,
         "AvailabilityZoneName": str,
         "KmsKeyId": str,
+        "FileSystemId": str,
     },
     total=False,
 )
@@ -502,6 +508,7 @@ FileSystemDescriptionResponseMetadataTypeDef = TypedDict(
         "AvailabilityZoneName": str,
         "AvailabilityZoneId": str,
         "Tags": List["TagTypeDef"],
+        "FileSystemProtection": "FileSystemProtectionDescriptionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -531,6 +538,7 @@ _OptionalFileSystemDescriptionTypeDef = TypedDict(
         "ProvisionedThroughputInMibps": float,
         "AvailabilityZoneName": str,
         "AvailabilityZoneId": str,
+        "FileSystemProtection": "FileSystemProtectionDescriptionTypeDef",
     },
     total=False,
 )
@@ -547,6 +555,22 @@ FileSystemPolicyDescriptionTypeDef = TypedDict(
         "Policy": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+FileSystemProtectionDescriptionResponseMetadataTypeDef = TypedDict(
+    "FileSystemProtectionDescriptionResponseMetadataTypeDef",
+    {
+        "ReplicationOverwriteProtection": ReplicationOverwriteProtectionType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+FileSystemProtectionDescriptionTypeDef = TypedDict(
+    "FileSystemProtectionDescriptionTypeDef",
+    {
+        "ReplicationOverwriteProtection": ReplicationOverwriteProtectionType,
+    },
+    total=False,
 )
 
 _RequiredFileSystemSizeTypeDef = TypedDict(
@@ -838,6 +862,26 @@ UntagResourceRequestRequestTypeDef = TypedDict(
         "TagKeys": List[str],
     },
 )
+
+_RequiredUpdateFileSystemProtectionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFileSystemProtectionRequestRequestTypeDef",
+    {
+        "FileSystemId": str,
+    },
+)
+_OptionalUpdateFileSystemProtectionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFileSystemProtectionRequestRequestTypeDef",
+    {
+        "ReplicationOverwriteProtection": ReplicationOverwriteProtectionType,
+    },
+    total=False,
+)
+
+class UpdateFileSystemProtectionRequestRequestTypeDef(
+    _RequiredUpdateFileSystemProtectionRequestRequestTypeDef,
+    _OptionalUpdateFileSystemProtectionRequestRequestTypeDef,
+):
+    pass
 
 _RequiredUpdateFileSystemRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFileSystemRequestRequestTypeDef",

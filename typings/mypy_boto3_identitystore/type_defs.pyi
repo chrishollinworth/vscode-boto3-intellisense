@@ -11,6 +11,7 @@ Usage::
     data: AddressTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

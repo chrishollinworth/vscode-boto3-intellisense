@@ -6,19 +6,22 @@ Type annotations for eks service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_eks.type_defs import AddonHealthTypeDef
+    from mypy_boto3_eks.type_defs import AccessConfigResponseTypeDef
 
-    data: AddonHealthTypeDef = {...}
+    data: AccessConfigResponseTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AccessScopeTypeType,
     AddonIssueCodeType,
     AddonStatusType,
     AMITypesType,
+    AuthenticationModeType,
     CapacityTypesType,
     ClusterIssueCodeType,
     ClusterStatusType,
@@ -26,6 +29,7 @@ from .literals import (
     EksAnywhereSubscriptionStatusType,
     ErrorCodeType,
     FargateProfileStatusType,
+    InsightStatusValueType,
     IpFamilyType,
     LogTypeType,
     NodegroupIssueCodeType,
@@ -48,17 +52,27 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccessConfigResponseTypeDef",
+    "AccessEntryTypeDef",
+    "AccessPolicyTypeDef",
+    "AccessScopeTypeDef",
     "AddonHealthTypeDef",
     "AddonInfoTypeDef",
     "AddonIssueTypeDef",
+    "AddonPodIdentityAssociationsTypeDef",
+    "AddonPodIdentityConfigurationTypeDef",
     "AddonTypeDef",
     "AddonVersionInfoTypeDef",
+    "AssociateAccessPolicyRequestRequestTypeDef",
+    "AssociateAccessPolicyResponseTypeDef",
     "AssociateEncryptionConfigRequestRequestTypeDef",
     "AssociateEncryptionConfigResponseTypeDef",
     "AssociateIdentityProviderConfigRequestRequestTypeDef",
     "AssociateIdentityProviderConfigResponseTypeDef",
+    "AssociatedAccessPolicyTypeDef",
     "AutoScalingGroupTypeDef",
     "CertificateTypeDef",
+    "ClientStatTypeDef",
     "ClusterHealthTypeDef",
     "ClusterIssueTypeDef",
     "ClusterTypeDef",
@@ -67,6 +81,9 @@ __all__ = (
     "ConnectorConfigResponseTypeDef",
     "ControlPlanePlacementRequestTypeDef",
     "ControlPlanePlacementResponseTypeDef",
+    "CreateAccessConfigRequestTypeDef",
+    "CreateAccessEntryRequestRequestTypeDef",
+    "CreateAccessEntryResponseTypeDef",
     "CreateAddonRequestRequestTypeDef",
     "CreateAddonResponseTypeDef",
     "CreateClusterRequestRequestTypeDef",
@@ -79,6 +96,7 @@ __all__ = (
     "CreateNodegroupResponseTypeDef",
     "CreatePodIdentityAssociationRequestRequestTypeDef",
     "CreatePodIdentityAssociationResponseTypeDef",
+    "DeleteAccessEntryRequestRequestTypeDef",
     "DeleteAddonRequestRequestTypeDef",
     "DeleteAddonResponseTypeDef",
     "DeleteClusterRequestRequestTypeDef",
@@ -91,8 +109,11 @@ __all__ = (
     "DeleteNodegroupResponseTypeDef",
     "DeletePodIdentityAssociationRequestRequestTypeDef",
     "DeletePodIdentityAssociationResponseTypeDef",
+    "DeprecationDetailTypeDef",
     "DeregisterClusterRequestRequestTypeDef",
     "DeregisterClusterResponseTypeDef",
+    "DescribeAccessEntryRequestRequestTypeDef",
+    "DescribeAccessEntryResponseTypeDef",
     "DescribeAddonConfigurationRequestRequestTypeDef",
     "DescribeAddonConfigurationResponseTypeDef",
     "DescribeAddonRequestRequestTypeDef",
@@ -107,12 +128,15 @@ __all__ = (
     "DescribeFargateProfileResponseTypeDef",
     "DescribeIdentityProviderConfigRequestRequestTypeDef",
     "DescribeIdentityProviderConfigResponseTypeDef",
+    "DescribeInsightRequestRequestTypeDef",
+    "DescribeInsightResponseTypeDef",
     "DescribeNodegroupRequestRequestTypeDef",
     "DescribeNodegroupResponseTypeDef",
     "DescribePodIdentityAssociationRequestRequestTypeDef",
     "DescribePodIdentityAssociationResponseTypeDef",
     "DescribeUpdateRequestRequestTypeDef",
     "DescribeUpdateResponseTypeDef",
+    "DisassociateAccessPolicyRequestRequestTypeDef",
     "DisassociateIdentityProviderConfigRequestRequestTypeDef",
     "DisassociateIdentityProviderConfigResponseTypeDef",
     "EksAnywhereSubscriptionTermTypeDef",
@@ -124,12 +148,24 @@ __all__ = (
     "IdentityProviderConfigResponseTypeDef",
     "IdentityProviderConfigTypeDef",
     "IdentityTypeDef",
+    "InsightCategorySpecificSummaryTypeDef",
+    "InsightResourceDetailTypeDef",
+    "InsightStatusTypeDef",
+    "InsightSummaryTypeDef",
+    "InsightTypeDef",
+    "InsightsFilterTypeDef",
     "IssueTypeDef",
     "KubernetesNetworkConfigRequestTypeDef",
     "KubernetesNetworkConfigResponseTypeDef",
     "LaunchTemplateSpecificationTypeDef",
+    "ListAccessEntriesRequestRequestTypeDef",
+    "ListAccessEntriesResponseTypeDef",
+    "ListAccessPoliciesRequestRequestTypeDef",
+    "ListAccessPoliciesResponseTypeDef",
     "ListAddonsRequestRequestTypeDef",
     "ListAddonsResponseTypeDef",
+    "ListAssociatedAccessPoliciesRequestRequestTypeDef",
+    "ListAssociatedAccessPoliciesResponseTypeDef",
     "ListClustersRequestRequestTypeDef",
     "ListClustersResponseTypeDef",
     "ListEksAnywhereSubscriptionsRequestRequestTypeDef",
@@ -138,6 +174,8 @@ __all__ = (
     "ListFargateProfilesResponseTypeDef",
     "ListIdentityProviderConfigsRequestRequestTypeDef",
     "ListIdentityProviderConfigsResponseTypeDef",
+    "ListInsightsRequestRequestTypeDef",
+    "ListInsightsResponseTypeDef",
     "ListNodegroupsRequestRequestTypeDef",
     "ListNodegroupsResponseTypeDef",
     "ListPodIdentityAssociationsRequestRequestTypeDef",
@@ -170,6 +208,9 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TaintTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAccessConfigRequestTypeDef",
+    "UpdateAccessEntryRequestRequestTypeDef",
+    "UpdateAccessEntryResponseTypeDef",
     "UpdateAddonRequestRequestTypeDef",
     "UpdateAddonResponseTypeDef",
     "UpdateClusterConfigRequestRequestTypeDef",
@@ -191,6 +232,49 @@ __all__ = (
     "VpcConfigRequestTypeDef",
     "VpcConfigResponseTypeDef",
     "WaiterConfigTypeDef",
+)
+
+AccessConfigResponseTypeDef = TypedDict(
+    "AccessConfigResponseTypeDef",
+    {
+        "bootstrapClusterCreatorAdminPermissions": bool,
+        "authenticationMode": AuthenticationModeType,
+    },
+    total=False,
+)
+
+AccessEntryTypeDef = TypedDict(
+    "AccessEntryTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+        "kubernetesGroups": List[str],
+        "accessEntryArn": str,
+        "createdAt": datetime,
+        "modifiedAt": datetime,
+        "tags": Dict[str, str],
+        "username": str,
+        "type": str,
+    },
+    total=False,
+)
+
+AccessPolicyTypeDef = TypedDict(
+    "AccessPolicyTypeDef",
+    {
+        "name": str,
+        "arn": str,
+    },
+    total=False,
+)
+
+AccessScopeTypeDef = TypedDict(
+    "AccessScopeTypeDef",
+    {
+        "type": AccessScopeTypeType,
+        "namespaces": List[str],
+    },
+    total=False,
 )
 
 AddonHealthTypeDef = TypedDict(
@@ -224,6 +308,23 @@ AddonIssueTypeDef = TypedDict(
     total=False,
 )
 
+AddonPodIdentityAssociationsTypeDef = TypedDict(
+    "AddonPodIdentityAssociationsTypeDef",
+    {
+        "serviceAccount": str,
+        "roleArn": str,
+    },
+)
+
+AddonPodIdentityConfigurationTypeDef = TypedDict(
+    "AddonPodIdentityConfigurationTypeDef",
+    {
+        "serviceAccount": str,
+        "recommendedManagedPolicies": List[str],
+    },
+    total=False,
+)
+
 AddonTypeDef = TypedDict(
     "AddonTypeDef",
     {
@@ -241,6 +342,7 @@ AddonTypeDef = TypedDict(
         "owner": str,
         "marketplaceInformation": "MarketplaceInformationTypeDef",
         "configurationValues": str,
+        "podIdentityAssociations": List[str],
     },
     total=False,
 )
@@ -252,8 +354,29 @@ AddonVersionInfoTypeDef = TypedDict(
         "architecture": List[str],
         "compatibilities": List["CompatibilityTypeDef"],
         "requiresConfiguration": bool,
+        "requiresIamPermissions": bool,
     },
     total=False,
+)
+
+AssociateAccessPolicyRequestRequestTypeDef = TypedDict(
+    "AssociateAccessPolicyRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+        "policyArn": str,
+        "accessScope": "AccessScopeTypeDef",
+    },
+)
+
+AssociateAccessPolicyResponseTypeDef = TypedDict(
+    "AssociateAccessPolicyResponseTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+        "associatedAccessPolicy": "AssociatedAccessPolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredAssociateEncryptionConfigRequestRequestTypeDef = TypedDict(
@@ -316,6 +439,17 @@ AssociateIdentityProviderConfigResponseTypeDef = TypedDict(
     },
 )
 
+AssociatedAccessPolicyTypeDef = TypedDict(
+    "AssociatedAccessPolicyTypeDef",
+    {
+        "policyArn": str,
+        "accessScope": "AccessScopeTypeDef",
+        "associatedAt": datetime,
+        "modifiedAt": datetime,
+    },
+    total=False,
+)
+
 AutoScalingGroupTypeDef = TypedDict(
     "AutoScalingGroupTypeDef",
     {
@@ -328,6 +462,16 @@ CertificateTypeDef = TypedDict(
     "CertificateTypeDef",
     {
         "data": str,
+    },
+    total=False,
+)
+
+ClientStatTypeDef = TypedDict(
+    "ClientStatTypeDef",
+    {
+        "userAgent": str,
+        "numberOfRequestsLast30Days": int,
+        "lastRequestTime": datetime,
     },
     total=False,
 )
@@ -373,6 +517,7 @@ ClusterTypeDef = TypedDict(
         "id": str,
         "health": "ClusterHealthTypeDef",
         "outpostConfig": "OutpostConfigResponseTypeDef",
+        "accessConfig": "AccessConfigResponseTypeDef",
     },
     total=False,
 )
@@ -423,6 +568,47 @@ ControlPlanePlacementResponseTypeDef = TypedDict(
     total=False,
 )
 
+CreateAccessConfigRequestTypeDef = TypedDict(
+    "CreateAccessConfigRequestTypeDef",
+    {
+        "bootstrapClusterCreatorAdminPermissions": bool,
+        "authenticationMode": AuthenticationModeType,
+    },
+    total=False,
+)
+
+_RequiredCreateAccessEntryRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAccessEntryRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+    },
+)
+_OptionalCreateAccessEntryRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAccessEntryRequestRequestTypeDef",
+    {
+        "kubernetesGroups": List[str],
+        "tags": Dict[str, str],
+        "clientRequestToken": str,
+        "username": str,
+        "type": str,
+    },
+    total=False,
+)
+
+class CreateAccessEntryRequestRequestTypeDef(
+    _RequiredCreateAccessEntryRequestRequestTypeDef, _OptionalCreateAccessEntryRequestRequestTypeDef
+):
+    pass
+
+CreateAccessEntryResponseTypeDef = TypedDict(
+    "CreateAccessEntryResponseTypeDef",
+    {
+        "accessEntry": "AccessEntryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateAddonRequestRequestTypeDef = TypedDict(
     "_RequiredCreateAddonRequestRequestTypeDef",
     {
@@ -439,6 +625,7 @@ _OptionalCreateAddonRequestRequestTypeDef = TypedDict(
         "clientRequestToken": str,
         "tags": Dict[str, str],
         "configurationValues": str,
+        "podIdentityAssociations": List["AddonPodIdentityAssociationsTypeDef"],
     },
     total=False,
 )
@@ -474,6 +661,7 @@ _OptionalCreateClusterRequestRequestTypeDef = TypedDict(
         "tags": Dict[str, str],
         "encryptionConfig": List["EncryptionConfigTypeDef"],
         "outpostConfig": "OutpostConfigRequestTypeDef",
+        "accessConfig": "CreateAccessConfigRequestTypeDef",
     },
     total=False,
 )
@@ -632,6 +820,14 @@ CreatePodIdentityAssociationResponseTypeDef = TypedDict(
     },
 )
 
+DeleteAccessEntryRequestRequestTypeDef = TypedDict(
+    "DeleteAccessEntryRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+    },
+)
+
 _RequiredDeleteAddonRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteAddonRequestRequestTypeDef",
     {
@@ -738,6 +934,18 @@ DeletePodIdentityAssociationResponseTypeDef = TypedDict(
     },
 )
 
+DeprecationDetailTypeDef = TypedDict(
+    "DeprecationDetailTypeDef",
+    {
+        "usage": str,
+        "replacedWith": str,
+        "stopServingVersion": str,
+        "startServingReplacementVersion": str,
+        "clientStats": List["ClientStatTypeDef"],
+    },
+    total=False,
+)
+
 DeregisterClusterRequestRequestTypeDef = TypedDict(
     "DeregisterClusterRequestRequestTypeDef",
     {
@@ -749,6 +957,22 @@ DeregisterClusterResponseTypeDef = TypedDict(
     "DeregisterClusterResponseTypeDef",
     {
         "cluster": "ClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAccessEntryRequestRequestTypeDef = TypedDict(
+    "DescribeAccessEntryRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+    },
+)
+
+DescribeAccessEntryResponseTypeDef = TypedDict(
+    "DescribeAccessEntryResponseTypeDef",
+    {
+        "accessEntry": "AccessEntryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -767,6 +991,7 @@ DescribeAddonConfigurationResponseTypeDef = TypedDict(
         "addonName": str,
         "addonVersion": str,
         "configurationSchema": str,
+        "podIdentityConfiguration": List["AddonPodIdentityConfigurationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -872,6 +1097,22 @@ DescribeIdentityProviderConfigResponseTypeDef = TypedDict(
     },
 )
 
+DescribeInsightRequestRequestTypeDef = TypedDict(
+    "DescribeInsightRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "id": str,
+    },
+)
+
+DescribeInsightResponseTypeDef = TypedDict(
+    "DescribeInsightResponseTypeDef",
+    {
+        "insight": "InsightTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeNodegroupRequestRequestTypeDef = TypedDict(
     "DescribeNodegroupRequestRequestTypeDef",
     {
@@ -930,6 +1171,15 @@ DescribeUpdateResponseTypeDef = TypedDict(
     {
         "update": "UpdateTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateAccessPolicyRequestRequestTypeDef = TypedDict(
+    "DisassociateAccessPolicyRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+        "policyArn": str,
     },
 )
 
@@ -1058,6 +1308,77 @@ IdentityTypeDef = TypedDict(
     total=False,
 )
 
+InsightCategorySpecificSummaryTypeDef = TypedDict(
+    "InsightCategorySpecificSummaryTypeDef",
+    {
+        "deprecationDetails": List["DeprecationDetailTypeDef"],
+    },
+    total=False,
+)
+
+InsightResourceDetailTypeDef = TypedDict(
+    "InsightResourceDetailTypeDef",
+    {
+        "insightStatus": "InsightStatusTypeDef",
+        "kubernetesResourceUri": str,
+        "arn": str,
+    },
+    total=False,
+)
+
+InsightStatusTypeDef = TypedDict(
+    "InsightStatusTypeDef",
+    {
+        "status": InsightStatusValueType,
+        "reason": str,
+    },
+    total=False,
+)
+
+InsightSummaryTypeDef = TypedDict(
+    "InsightSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "category": Literal["UPGRADE_READINESS"],
+        "kubernetesVersion": str,
+        "lastRefreshTime": datetime,
+        "lastTransitionTime": datetime,
+        "description": str,
+        "insightStatus": "InsightStatusTypeDef",
+    },
+    total=False,
+)
+
+InsightTypeDef = TypedDict(
+    "InsightTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "category": Literal["UPGRADE_READINESS"],
+        "kubernetesVersion": str,
+        "lastRefreshTime": datetime,
+        "lastTransitionTime": datetime,
+        "description": str,
+        "insightStatus": "InsightStatusTypeDef",
+        "recommendation": str,
+        "additionalInfo": Dict[str, str],
+        "resources": List["InsightResourceDetailTypeDef"],
+        "categorySpecificSummary": "InsightCategorySpecificSummaryTypeDef",
+    },
+    total=False,
+)
+
+InsightsFilterTypeDef = TypedDict(
+    "InsightsFilterTypeDef",
+    {
+        "categories": List[Literal["UPGRADE_READINESS"]],
+        "kubernetesVersions": List[str],
+        "statuses": List[InsightStatusValueType],
+    },
+    total=False,
+)
+
 IssueTypeDef = TypedDict(
     "IssueTypeDef",
     {
@@ -1097,6 +1418,54 @@ LaunchTemplateSpecificationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredListAccessEntriesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAccessEntriesRequestRequestTypeDef",
+    {
+        "clusterName": str,
+    },
+)
+_OptionalListAccessEntriesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAccessEntriesRequestRequestTypeDef",
+    {
+        "associatedPolicyArn": str,
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListAccessEntriesRequestRequestTypeDef(
+    _RequiredListAccessEntriesRequestRequestTypeDef, _OptionalListAccessEntriesRequestRequestTypeDef
+):
+    pass
+
+ListAccessEntriesResponseTypeDef = TypedDict(
+    "ListAccessEntriesResponseTypeDef",
+    {
+        "accessEntries": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListAccessPoliciesRequestRequestTypeDef = TypedDict(
+    "ListAccessPoliciesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListAccessPoliciesResponseTypeDef = TypedDict(
+    "ListAccessPoliciesResponseTypeDef",
+    {
+        "accessPolicies": List["AccessPolicyTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListAddonsRequestRequestTypeDef = TypedDict(
     "_RequiredListAddonsRequestRequestTypeDef",
     {
@@ -1122,6 +1491,39 @@ ListAddonsResponseTypeDef = TypedDict(
     {
         "addons": List[str],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAssociatedAccessPoliciesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAssociatedAccessPoliciesRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+    },
+)
+_OptionalListAssociatedAccessPoliciesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAssociatedAccessPoliciesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListAssociatedAccessPoliciesRequestRequestTypeDef(
+    _RequiredListAssociatedAccessPoliciesRequestRequestTypeDef,
+    _OptionalListAssociatedAccessPoliciesRequestRequestTypeDef,
+):
+    pass
+
+ListAssociatedAccessPoliciesResponseTypeDef = TypedDict(
+    "ListAssociatedAccessPoliciesResponseTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+        "nextToken": str,
+        "associatedAccessPolicies": List["AssociatedAccessPolicyTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1219,6 +1621,36 @@ ListIdentityProviderConfigsResponseTypeDef = TypedDict(
     "ListIdentityProviderConfigsResponseTypeDef",
     {
         "identityProviderConfigs": List["IdentityProviderConfigTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListInsightsRequestRequestTypeDef = TypedDict(
+    "_RequiredListInsightsRequestRequestTypeDef",
+    {
+        "clusterName": str,
+    },
+)
+_OptionalListInsightsRequestRequestTypeDef = TypedDict(
+    "_OptionalListInsightsRequestRequestTypeDef",
+    {
+        "filter": "InsightsFilterTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListInsightsRequestRequestTypeDef(
+    _RequiredListInsightsRequestRequestTypeDef, _OptionalListInsightsRequestRequestTypeDef
+):
+    pass
+
+ListInsightsResponseTypeDef = TypedDict(
+    "ListInsightsResponseTypeDef",
+    {
+        "insights": List["InsightSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1534,6 +1966,7 @@ PodIdentityAssociationSummaryTypeDef = TypedDict(
         "serviceAccount": str,
         "associationArn": str,
         "associationId": str,
+        "ownerArn": str,
     },
     total=False,
 )
@@ -1550,6 +1983,7 @@ PodIdentityAssociationTypeDef = TypedDict(
         "tags": Dict[str, str],
         "createdAt": datetime,
         "modifiedAt": datetime,
+        "ownerArn": str,
     },
     total=False,
 )
@@ -1637,6 +2071,44 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateAccessConfigRequestTypeDef = TypedDict(
+    "UpdateAccessConfigRequestTypeDef",
+    {
+        "authenticationMode": AuthenticationModeType,
+    },
+    total=False,
+)
+
+_RequiredUpdateAccessEntryRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAccessEntryRequestRequestTypeDef",
+    {
+        "clusterName": str,
+        "principalArn": str,
+    },
+)
+_OptionalUpdateAccessEntryRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAccessEntryRequestRequestTypeDef",
+    {
+        "kubernetesGroups": List[str],
+        "clientRequestToken": str,
+        "username": str,
+    },
+    total=False,
+)
+
+class UpdateAccessEntryRequestRequestTypeDef(
+    _RequiredUpdateAccessEntryRequestRequestTypeDef, _OptionalUpdateAccessEntryRequestRequestTypeDef
+):
+    pass
+
+UpdateAccessEntryResponseTypeDef = TypedDict(
+    "UpdateAccessEntryResponseTypeDef",
+    {
+        "accessEntry": "AccessEntryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateAddonRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateAddonRequestRequestTypeDef",
     {
@@ -1652,6 +2124,7 @@ _OptionalUpdateAddonRequestRequestTypeDef = TypedDict(
         "resolveConflicts": ResolveConflictsType,
         "clientRequestToken": str,
         "configurationValues": str,
+        "podIdentityAssociations": List["AddonPodIdentityAssociationsTypeDef"],
     },
     total=False,
 )
@@ -1681,6 +2154,7 @@ _OptionalUpdateClusterConfigRequestRequestTypeDef = TypedDict(
         "resourcesVpcConfig": "VpcConfigRequestTypeDef",
         "logging": "LoggingTypeDef",
         "clientRequestToken": str,
+        "accessConfig": "UpdateAccessConfigRequestTypeDef",
     },
     total=False,
 )

@@ -11,6 +11,7 @@ Usage::
     data: ApplicationCredentialTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -28,6 +29,7 @@ from .literals import (
     DatabaseTypeType,
     FilterOperatorType,
     HostRoleType,
+    OperationEventStatusType,
     OperationModeType,
     OperationStatusType,
     ReplicationModeType,
@@ -75,10 +77,13 @@ __all__ = (
     "ListComponentsOutputTypeDef",
     "ListDatabasesInputRequestTypeDef",
     "ListDatabasesOutputTypeDef",
+    "ListOperationEventsInputRequestTypeDef",
+    "ListOperationEventsOutputTypeDef",
     "ListOperationsInputRequestTypeDef",
     "ListOperationsOutputTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "OperationEventTypeDef",
     "OperationTypeDef",
     "PaginatorConfigTypeDef",
     "PutResourcePermissionInputRequestTypeDef",
@@ -86,9 +91,14 @@ __all__ = (
     "RegisterApplicationInputRequestTypeDef",
     "RegisterApplicationOutputTypeDef",
     "ResilienceTypeDef",
+    "ResourceTypeDef",
     "ResponseMetadataTypeDef",
+    "StartApplicationInputRequestTypeDef",
+    "StartApplicationOutputTypeDef",
     "StartApplicationRefreshInputRequestTypeDef",
     "StartApplicationRefreshOutputTypeDef",
+    "StopApplicationInputRequestTypeDef",
+    "StopApplicationOutputTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateApplicationSettingsInputRequestTypeDef",
@@ -456,6 +466,36 @@ ListDatabasesOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredListOperationEventsInputRequestTypeDef = TypedDict(
+    "_RequiredListOperationEventsInputRequestTypeDef",
+    {
+        "OperationId": str,
+    },
+)
+_OptionalListOperationEventsInputRequestTypeDef = TypedDict(
+    "_OptionalListOperationEventsInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+class ListOperationEventsInputRequestTypeDef(
+    _RequiredListOperationEventsInputRequestTypeDef, _OptionalListOperationEventsInputRequestTypeDef
+):
+    pass
+
+ListOperationEventsOutputTypeDef = TypedDict(
+    "ListOperationEventsOutputTypeDef",
+    {
+        "OperationEvents": List["OperationEventTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListOperationsInputRequestTypeDef = TypedDict(
     "_RequiredListOperationsInputRequestTypeDef",
     {
@@ -499,6 +539,18 @@ ListTagsForResourceResponseTypeDef = TypedDict(
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+OperationEventTypeDef = TypedDict(
+    "OperationEventTypeDef",
+    {
+        "Description": str,
+        "Resource": "ResourceTypeDef",
+        "Status": OperationEventStatusType,
+        "StatusMessage": str,
+        "Timestamp": datetime,
+    },
+    total=False,
 )
 
 OperationTypeDef = TypedDict(
@@ -592,6 +644,15 @@ ResilienceTypeDef = TypedDict(
     total=False,
 )
 
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourceType": str,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -600,6 +661,21 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+StartApplicationInputRequestTypeDef = TypedDict(
+    "StartApplicationInputRequestTypeDef",
+    {
+        "ApplicationId": str,
+    },
+)
+
+StartApplicationOutputTypeDef = TypedDict(
+    "StartApplicationOutputTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -612,6 +688,34 @@ StartApplicationRefreshInputRequestTypeDef = TypedDict(
 
 StartApplicationRefreshOutputTypeDef = TypedDict(
     "StartApplicationRefreshOutputTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStopApplicationInputRequestTypeDef = TypedDict(
+    "_RequiredStopApplicationInputRequestTypeDef",
+    {
+        "ApplicationId": str,
+    },
+)
+_OptionalStopApplicationInputRequestTypeDef = TypedDict(
+    "_OptionalStopApplicationInputRequestTypeDef",
+    {
+        "StopConnectedEntity": Literal["DBMS"],
+        "IncludeEc2InstanceShutdown": bool,
+    },
+    total=False,
+)
+
+class StopApplicationInputRequestTypeDef(
+    _RequiredStopApplicationInputRequestTypeDef, _OptionalStopApplicationInputRequestTypeDef
+):
+    pass
+
+StopApplicationOutputTypeDef = TypedDict(
+    "StopApplicationOutputTypeDef",
     {
         "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",

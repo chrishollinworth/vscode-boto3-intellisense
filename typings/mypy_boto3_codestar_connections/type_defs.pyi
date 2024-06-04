@@ -11,6 +11,7 @@ Usage::
     data: ConnectionTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -19,8 +20,10 @@ from .literals import (
     BlockerStatusType,
     ConnectionStatusType,
     ProviderTypeType,
+    PublishDeploymentStatusType,
     RepositorySyncStatusType,
     ResourceSyncStatusType,
+    TriggerResourceUpdateOnType,
 )
 
 if sys.version_info >= (3, 8):
@@ -203,8 +206,8 @@ CreateRepositoryLinkOutputTypeDef = TypedDict(
     },
 )
 
-CreateSyncConfigurationInputRequestTypeDef = TypedDict(
-    "CreateSyncConfigurationInputRequestTypeDef",
+_RequiredCreateSyncConfigurationInputRequestTypeDef = TypedDict(
+    "_RequiredCreateSyncConfigurationInputRequestTypeDef",
     {
         "Branch": str,
         "ConfigFile": str,
@@ -214,6 +217,20 @@ CreateSyncConfigurationInputRequestTypeDef = TypedDict(
         "SyncType": Literal["CFN_STACK_SYNC"],
     },
 )
+_OptionalCreateSyncConfigurationInputRequestTypeDef = TypedDict(
+    "_OptionalCreateSyncConfigurationInputRequestTypeDef",
+    {
+        "PublishDeploymentStatus": PublishDeploymentStatusType,
+        "TriggerResourceUpdateOn": TriggerResourceUpdateOnType,
+    },
+    total=False,
+)
+
+class CreateSyncConfigurationInputRequestTypeDef(
+    _RequiredCreateSyncConfigurationInputRequestTypeDef,
+    _OptionalCreateSyncConfigurationInputRequestTypeDef,
+):
+    pass
 
 CreateSyncConfigurationOutputTypeDef = TypedDict(
     "CreateSyncConfigurationOutputTypeDef",
@@ -689,6 +706,8 @@ _OptionalSyncConfigurationTypeDef = TypedDict(
     "_OptionalSyncConfigurationTypeDef",
     {
         "ConfigFile": str,
+        "PublishDeploymentStatus": PublishDeploymentStatusType,
+        "TriggerResourceUpdateOn": TriggerResourceUpdateOnType,
     },
     total=False,
 )
@@ -805,6 +824,8 @@ _OptionalUpdateSyncConfigurationInputRequestTypeDef = TypedDict(
         "ConfigFile": str,
         "RepositoryLinkId": str,
         "RoleArn": str,
+        "PublishDeploymentStatus": PublishDeploymentStatusType,
+        "TriggerResourceUpdateOn": TriggerResourceUpdateOnType,
     },
     total=False,
 )

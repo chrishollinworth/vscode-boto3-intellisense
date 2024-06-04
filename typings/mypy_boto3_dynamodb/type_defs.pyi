@@ -11,6 +11,7 @@ Usage::
     data: ArchivalSummaryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from decimal import Decimal
@@ -19,6 +20,7 @@ from typing import Any, Dict, List, Set, Union
 from boto3.dynamodb.conditions import ConditionBase
 
 from .literals import (
+    ApproximateCreationDateTimePrecisionType,
     AttributeActionType,
     BackupStatusType,
     BackupTypeFilterType,
@@ -115,6 +117,8 @@ __all__ = (
     "DeleteReplicaActionTypeDef",
     "DeleteReplicationGroupMemberActionTypeDef",
     "DeleteRequestTypeDef",
+    "DeleteResourcePolicyInputRequestTypeDef",
+    "DeleteResourcePolicyOutputTypeDef",
     "DeleteTableInputRequestTypeDef",
     "DeleteTableOutputTypeDef",
     "DeleteTypeDef",
@@ -142,6 +146,7 @@ __all__ = (
     "DescribeTableReplicaAutoScalingOutputTypeDef",
     "DescribeTimeToLiveInputRequestTypeDef",
     "DescribeTimeToLiveOutputTypeDef",
+    "EnableKinesisStreamingConfigurationTypeDef",
     "EndpointTypeDef",
     "ExecuteStatementInputRequestTypeDef",
     "ExecuteStatementOutputTypeDef",
@@ -156,6 +161,8 @@ __all__ = (
     "GetItemInputRequestTypeDef",
     "GetItemInputTableTypeDef",
     "GetItemOutputTypeDef",
+    "GetResourcePolicyInputRequestTypeDef",
+    "GetResourcePolicyOutputTypeDef",
     "GetTypeDef",
     "GlobalSecondaryIndexAutoScalingUpdateTypeDef",
     "GlobalSecondaryIndexDescriptionTypeDef",
@@ -195,6 +202,8 @@ __all__ = (
     "LocalSecondaryIndexDescriptionTypeDef",
     "LocalSecondaryIndexInfoTypeDef",
     "LocalSecondaryIndexTypeDef",
+    "OnDemandThroughputOverrideTypeDef",
+    "OnDemandThroughputTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterizedStatementTypeDef",
     "PointInTimeRecoveryDescriptionTypeDef",
@@ -207,6 +216,8 @@ __all__ = (
     "PutItemInputTableTypeDef",
     "PutItemOutputTypeDef",
     "PutRequestTypeDef",
+    "PutResourcePolicyInputRequestTypeDef",
+    "PutResourcePolicyOutputTypeDef",
     "PutTypeDef",
     "QueryInputRequestTypeDef",
     "QueryInputTableTypeDef",
@@ -269,6 +280,9 @@ __all__ = (
     "UpdateItemInputRequestTypeDef",
     "UpdateItemInputTableTypeDef",
     "UpdateItemOutputTypeDef",
+    "UpdateKinesisStreamingConfigurationTypeDef",
+    "UpdateKinesisStreamingDestinationInputRequestTypeDef",
+    "UpdateKinesisStreamingDestinationOutputTypeDef",
     "UpdateReplicationGroupMemberActionTypeDef",
     "UpdateTableInputRequestTypeDef",
     "UpdateTableInputTableTypeDef",
@@ -896,6 +910,7 @@ _OptionalCreateGlobalSecondaryIndexActionTypeDef = TypedDict(
     "_OptionalCreateGlobalSecondaryIndexActionTypeDef",
     {
         "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )
@@ -940,6 +955,7 @@ _OptionalCreateReplicationGroupMemberActionTypeDef = TypedDict(
     {
         "KMSMasterKeyId": str,
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
+        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
         "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexTypeDef"],
         "TableClassOverride": TableClassType,
     },
@@ -972,6 +988,8 @@ _OptionalCreateTableInputRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "TableClass": TableClassType,
         "DeletionProtectionEnabled": bool,
+        "ResourcePolicy": str,
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )
@@ -1001,6 +1019,8 @@ _OptionalCreateTableInputServiceResourceTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "TableClass": TableClassType,
         "DeletionProtectionEnabled": bool,
+        "ResourcePolicy": str,
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )
@@ -1240,6 +1260,34 @@ DeleteRequestTypeDef = TypedDict(
                 None,
             ],
         ],
+    },
+)
+
+_RequiredDeleteResourcePolicyInputRequestTypeDef = TypedDict(
+    "_RequiredDeleteResourcePolicyInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalDeleteResourcePolicyInputRequestTypeDef = TypedDict(
+    "_OptionalDeleteResourcePolicyInputRequestTypeDef",
+    {
+        "ExpectedRevisionId": str,
+    },
+    total=False,
+)
+
+class DeleteResourcePolicyInputRequestTypeDef(
+    _RequiredDeleteResourcePolicyInputRequestTypeDef,
+    _OptionalDeleteResourcePolicyInputRequestTypeDef,
+):
+    pass
+
+DeleteResourcePolicyOutputTypeDef = TypedDict(
+    "DeleteResourcePolicyOutputTypeDef",
+    {
+        "RevisionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1517,6 +1565,14 @@ DescribeTimeToLiveOutputTypeDef = TypedDict(
         "TimeToLiveDescription": "TimeToLiveDescriptionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+EnableKinesisStreamingConfigurationTypeDef = TypedDict(
+    "EnableKinesisStreamingConfigurationTypeDef",
+    {
+        "ApproximateCreationDateTimePrecision": ApproximateCreationDateTimePrecisionType,
+    },
+    total=False,
 )
 
 EndpointTypeDef = TypedDict(
@@ -1883,6 +1939,22 @@ GetItemOutputTypeDef = TypedDict(
     },
 )
 
+GetResourcePolicyInputRequestTypeDef = TypedDict(
+    "GetResourcePolicyInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+GetResourcePolicyOutputTypeDef = TypedDict(
+    "GetResourcePolicyOutputTypeDef",
+    {
+        "Policy": str,
+        "RevisionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetTypeDef = TypedDict(
     "_RequiredGetTypeDef",
     {
@@ -1941,6 +2013,7 @@ GlobalSecondaryIndexDescriptionTypeDef = TypedDict(
         "IndexSizeBytes": int,
         "ItemCount": int,
         "IndexArn": str,
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )
@@ -1952,6 +2025,7 @@ GlobalSecondaryIndexInfoTypeDef = TypedDict(
         "KeySchema": List["KeySchemaElementTypeDef"],
         "Projection": "ProjectionTypeDef",
         "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )
@@ -1968,6 +2042,7 @@ _OptionalGlobalSecondaryIndexTypeDef = TypedDict(
     "_OptionalGlobalSecondaryIndexTypeDef",
     {
         "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )
@@ -2228,17 +2303,31 @@ KinesisDataStreamDestinationTypeDef = TypedDict(
         "StreamArn": str,
         "DestinationStatus": DestinationStatusType,
         "DestinationStatusDescription": str,
+        "ApproximateCreationDateTimePrecision": ApproximateCreationDateTimePrecisionType,
     },
     total=False,
 )
 
-KinesisStreamingDestinationInputRequestTypeDef = TypedDict(
-    "KinesisStreamingDestinationInputRequestTypeDef",
+_RequiredKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
+    "_RequiredKinesisStreamingDestinationInputRequestTypeDef",
     {
         "TableName": str,
         "StreamArn": str,
     },
 )
+_OptionalKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
+    "_OptionalKinesisStreamingDestinationInputRequestTypeDef",
+    {
+        "EnableKinesisStreamingConfiguration": "EnableKinesisStreamingConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class KinesisStreamingDestinationInputRequestTypeDef(
+    _RequiredKinesisStreamingDestinationInputRequestTypeDef,
+    _OptionalKinesisStreamingDestinationInputRequestTypeDef,
+):
+    pass
 
 KinesisStreamingDestinationOutputTypeDef = TypedDict(
     "KinesisStreamingDestinationOutputTypeDef",
@@ -2246,6 +2335,7 @@ KinesisStreamingDestinationOutputTypeDef = TypedDict(
         "TableName": str,
         "StreamArn": str,
         "DestinationStatus": DestinationStatusType,
+        "EnableKinesisStreamingConfiguration": "EnableKinesisStreamingConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2424,6 +2514,23 @@ LocalSecondaryIndexTypeDef = TypedDict(
         "KeySchema": List["KeySchemaElementTypeDef"],
         "Projection": "ProjectionTypeDef",
     },
+)
+
+OnDemandThroughputOverrideTypeDef = TypedDict(
+    "OnDemandThroughputOverrideTypeDef",
+    {
+        "MaxReadRequestUnits": int,
+    },
+    total=False,
+)
+
+OnDemandThroughputTypeDef = TypedDict(
+    "OnDemandThroughputTypeDef",
+    {
+        "MaxReadRequestUnits": int,
+        "MaxWriteRequestUnits": int,
+    },
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -2707,6 +2814,35 @@ PutRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredPutResourcePolicyInputRequestTypeDef = TypedDict(
+    "_RequiredPutResourcePolicyInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Policy": str,
+    },
+)
+_OptionalPutResourcePolicyInputRequestTypeDef = TypedDict(
+    "_OptionalPutResourcePolicyInputRequestTypeDef",
+    {
+        "ExpectedRevisionId": str,
+        "ConfirmRemoveSelfResourceAccess": bool,
+    },
+    total=False,
+)
+
+class PutResourcePolicyInputRequestTypeDef(
+    _RequiredPutResourcePolicyInputRequestTypeDef, _OptionalPutResourcePolicyInputRequestTypeDef
+):
+    pass
+
+PutResourcePolicyOutputTypeDef = TypedDict(
+    "PutResourcePolicyOutputTypeDef",
+    {
+        "RevisionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredPutTypeDef = TypedDict(
     "_RequiredPutTypeDef",
     {
@@ -2986,6 +3122,7 @@ ReplicaDescriptionTypeDef = TypedDict(
         "ReplicaStatusPercentProgress": str,
         "KMSMasterKeyId": str,
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
+        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
         "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexDescriptionTypeDef"],
         "ReplicaInaccessibleDateTime": datetime,
         "ReplicaTableClassSummary": "TableClassSummaryTypeDef",
@@ -3018,6 +3155,7 @@ ReplicaGlobalSecondaryIndexDescriptionTypeDef = TypedDict(
     {
         "IndexName": str,
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
+        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
     },
     total=False,
 )
@@ -3077,6 +3215,7 @@ _OptionalReplicaGlobalSecondaryIndexTypeDef = TypedDict(
     "_OptionalReplicaGlobalSecondaryIndexTypeDef",
     {
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
+        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
     },
     total=False,
 )
@@ -3209,6 +3348,7 @@ _OptionalRestoreTableFromBackupInputRequestTypeDef = TypedDict(
         "GlobalSecondaryIndexOverride": List["GlobalSecondaryIndexTypeDef"],
         "LocalSecondaryIndexOverride": List["LocalSecondaryIndexTypeDef"],
         "ProvisionedThroughputOverride": "ProvisionedThroughputTypeDef",
+        "OnDemandThroughputOverride": "OnDemandThroughputTypeDef",
         "SSESpecificationOverride": "SSESpecificationTypeDef",
     },
     total=False,
@@ -3245,6 +3385,7 @@ _OptionalRestoreTableToPointInTimeInputRequestTypeDef = TypedDict(
         "GlobalSecondaryIndexOverride": List["GlobalSecondaryIndexTypeDef"],
         "LocalSecondaryIndexOverride": List["LocalSecondaryIndexTypeDef"],
         "ProvisionedThroughputOverride": "ProvisionedThroughputTypeDef",
+        "OnDemandThroughputOverride": "OnDemandThroughputTypeDef",
         "SSESpecificationOverride": "SSESpecificationTypeDef",
     },
     total=False,
@@ -3500,6 +3641,7 @@ _OptionalSourceTableDetailsTypeDef = TypedDict(
     {
         "TableArn": str,
         "TableSizeBytes": int,
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
         "ItemCount": int,
         "BillingMode": BillingModeType,
     },
@@ -3582,6 +3724,7 @@ _OptionalTableCreationParametersTypeDef = TypedDict(
     {
         "BillingMode": BillingModeType,
         "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
         "SSESpecification": "SSESpecificationTypeDef",
         "GlobalSecondaryIndexes": List["GlobalSecondaryIndexTypeDef"],
     },
@@ -3619,6 +3762,7 @@ TableDescriptionTypeDef = TypedDict(
         "ArchivalSummary": "ArchivalSummaryTypeDef",
         "TableClassSummary": "TableClassSummaryTypeDef",
         "DeletionProtectionEnabled": bool,
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )
@@ -3787,13 +3931,26 @@ UpdateContributorInsightsOutputTypeDef = TypedDict(
     },
 )
 
-UpdateGlobalSecondaryIndexActionTypeDef = TypedDict(
-    "UpdateGlobalSecondaryIndexActionTypeDef",
+_RequiredUpdateGlobalSecondaryIndexActionTypeDef = TypedDict(
+    "_RequiredUpdateGlobalSecondaryIndexActionTypeDef",
     {
         "IndexName": str,
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
     },
 )
+_OptionalUpdateGlobalSecondaryIndexActionTypeDef = TypedDict(
+    "_OptionalUpdateGlobalSecondaryIndexActionTypeDef",
+    {
+        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
+    },
+    total=False,
+)
+
+class UpdateGlobalSecondaryIndexActionTypeDef(
+    _RequiredUpdateGlobalSecondaryIndexActionTypeDef,
+    _OptionalUpdateGlobalSecondaryIndexActionTypeDef,
+):
+    pass
 
 UpdateGlobalTableInputRequestTypeDef = TypedDict(
     "UpdateGlobalTableInputRequestTypeDef",
@@ -4005,6 +4162,46 @@ UpdateItemOutputTypeDef = TypedDict(
     },
 )
 
+UpdateKinesisStreamingConfigurationTypeDef = TypedDict(
+    "UpdateKinesisStreamingConfigurationTypeDef",
+    {
+        "ApproximateCreationDateTimePrecision": ApproximateCreationDateTimePrecisionType,
+    },
+    total=False,
+)
+
+_RequiredUpdateKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateKinesisStreamingDestinationInputRequestTypeDef",
+    {
+        "TableName": str,
+        "StreamArn": str,
+    },
+)
+_OptionalUpdateKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateKinesisStreamingDestinationInputRequestTypeDef",
+    {
+        "UpdateKinesisStreamingConfiguration": "UpdateKinesisStreamingConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateKinesisStreamingDestinationInputRequestTypeDef(
+    _RequiredUpdateKinesisStreamingDestinationInputRequestTypeDef,
+    _OptionalUpdateKinesisStreamingDestinationInputRequestTypeDef,
+):
+    pass
+
+UpdateKinesisStreamingDestinationOutputTypeDef = TypedDict(
+    "UpdateKinesisStreamingDestinationOutputTypeDef",
+    {
+        "TableName": str,
+        "StreamArn": str,
+        "DestinationStatus": DestinationStatusType,
+        "UpdateKinesisStreamingConfiguration": "UpdateKinesisStreamingConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateReplicationGroupMemberActionTypeDef = TypedDict(
     "_RequiredUpdateReplicationGroupMemberActionTypeDef",
     {
@@ -4016,6 +4213,7 @@ _OptionalUpdateReplicationGroupMemberActionTypeDef = TypedDict(
     {
         "KMSMasterKeyId": str,
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
+        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
         "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexTypeDef"],
         "TableClassOverride": TableClassType,
     },
@@ -4046,6 +4244,7 @@ _OptionalUpdateTableInputRequestTypeDef = TypedDict(
         "ReplicaUpdates": List["ReplicationGroupUpdateTypeDef"],
         "TableClass": TableClassType,
         "DeletionProtectionEnabled": bool,
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )
@@ -4067,6 +4266,7 @@ UpdateTableInputTableTypeDef = TypedDict(
         "ReplicaUpdates": List["ReplicationGroupUpdateTypeDef"],
         "TableClass": TableClassType,
         "DeletionProtectionEnabled": bool,
+        "OnDemandThroughput": "OnDemandThroughputTypeDef",
     },
     total=False,
 )

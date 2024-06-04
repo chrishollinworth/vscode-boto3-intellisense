@@ -11,6 +11,7 @@ Usage::
     data: GetRoutingControlStateRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

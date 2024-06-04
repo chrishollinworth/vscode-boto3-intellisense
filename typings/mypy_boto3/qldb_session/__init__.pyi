@@ -16,6 +16,7 @@ Usage::
     session_client: QLDBSessionClient = session.client("qldb-session")
     ```
 """
+
 from .client import QLDBSessionClient
 
 Client = QLDBSessionClient

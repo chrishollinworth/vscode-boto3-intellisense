@@ -11,6 +11,7 @@ Usage::
     data: AddSourceIdentifierToSubscriptionMessageRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -155,6 +156,8 @@ __all__ = (
     "StopDBClusterMessageRequestTypeDef",
     "StopDBClusterResultTypeDef",
     "SubnetTypeDef",
+    "SwitchoverGlobalClusterMessageRequestTypeDef",
+    "SwitchoverGlobalClusterResultTypeDef",
     "TagListMessageTypeDef",
     "TagTypeDef",
     "UpgradeTargetTypeDef",
@@ -789,6 +792,8 @@ DBInstanceTypeDef = TypedDict(
         "DBInstanceArn": str,
         "EnabledCloudwatchLogsExports": List[str],
         "CertificateDetails": "CertificateDetailsTypeDef",
+        "PerformanceInsightsEnabled": bool,
+        "PerformanceInsightsKMSKeyId": str,
     },
     total=False,
 )
@@ -1852,6 +1857,22 @@ SubnetTypeDef = TypedDict(
         "SubnetStatus": str,
     },
     total=False,
+)
+
+SwitchoverGlobalClusterMessageRequestTypeDef = TypedDict(
+    "SwitchoverGlobalClusterMessageRequestTypeDef",
+    {
+        "GlobalClusterIdentifier": str,
+        "TargetDbClusterIdentifier": str,
+    },
+)
+
+SwitchoverGlobalClusterResultTypeDef = TypedDict(
+    "SwitchoverGlobalClusterResultTypeDef",
+    {
+        "GlobalCluster": "GlobalClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 TagListMessageTypeDef = TypedDict(

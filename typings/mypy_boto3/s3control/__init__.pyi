@@ -19,6 +19,7 @@ Usage::
     list_access_points_for_object_lambda_paginator: ListAccessPointsForObjectLambdaPaginator = client.get_paginator("list_access_points_for_object_lambda")
     ```
 """
+
 from .client import S3ControlClient
 from .paginator import ListAccessPointsForObjectLambdaPaginator
 

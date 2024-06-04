@@ -11,11 +11,18 @@ Usage::
     data: ActionParameterTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import ExperimentActionStatusType, ExperimentStatusType
+from .literals import (
+    AccountTargetingType,
+    ActionsModeType,
+    EmptyTargetResolutionModeType,
+    ExperimentActionStatusType,
+    ExperimentStatusType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -28,26 +35,35 @@ __all__ = (
     "ActionTargetTypeDef",
     "ActionTypeDef",
     "CreateExperimentTemplateActionInputTypeDef",
+    "CreateExperimentTemplateExperimentOptionsInputTypeDef",
     "CreateExperimentTemplateLogConfigurationInputTypeDef",
     "CreateExperimentTemplateRequestRequestTypeDef",
     "CreateExperimentTemplateResponseTypeDef",
     "CreateExperimentTemplateStopConditionInputTypeDef",
     "CreateExperimentTemplateTargetInputTypeDef",
+    "CreateTargetAccountConfigurationRequestRequestTypeDef",
+    "CreateTargetAccountConfigurationResponseTypeDef",
     "DeleteExperimentTemplateRequestRequestTypeDef",
     "DeleteExperimentTemplateResponseTypeDef",
+    "DeleteTargetAccountConfigurationRequestRequestTypeDef",
+    "DeleteTargetAccountConfigurationResponseTypeDef",
     "ExperimentActionStateTypeDef",
     "ExperimentActionTypeDef",
     "ExperimentCloudWatchLogsLogConfigurationTypeDef",
     "ExperimentLogConfigurationTypeDef",
+    "ExperimentOptionsTypeDef",
     "ExperimentS3LogConfigurationTypeDef",
     "ExperimentStateTypeDef",
     "ExperimentStopConditionTypeDef",
     "ExperimentSummaryTypeDef",
+    "ExperimentTargetAccountConfigurationSummaryTypeDef",
+    "ExperimentTargetAccountConfigurationTypeDef",
     "ExperimentTargetFilterTypeDef",
     "ExperimentTargetTypeDef",
     "ExperimentTemplateActionTypeDef",
     "ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef",
     "ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef",
+    "ExperimentTemplateExperimentOptionsTypeDef",
     "ExperimentTemplateLogConfigurationTypeDef",
     "ExperimentTemplateS3LogConfigurationInputTypeDef",
     "ExperimentTemplateS3LogConfigurationTypeDef",
@@ -62,36 +78,53 @@ __all__ = (
     "GetActionResponseTypeDef",
     "GetExperimentRequestRequestTypeDef",
     "GetExperimentResponseTypeDef",
+    "GetExperimentTargetAccountConfigurationRequestRequestTypeDef",
+    "GetExperimentTargetAccountConfigurationResponseTypeDef",
     "GetExperimentTemplateRequestRequestTypeDef",
     "GetExperimentTemplateResponseTypeDef",
+    "GetTargetAccountConfigurationRequestRequestTypeDef",
+    "GetTargetAccountConfigurationResponseTypeDef",
     "GetTargetResourceTypeRequestRequestTypeDef",
     "GetTargetResourceTypeResponseTypeDef",
     "ListActionsRequestRequestTypeDef",
     "ListActionsResponseTypeDef",
+    "ListExperimentResolvedTargetsRequestRequestTypeDef",
+    "ListExperimentResolvedTargetsResponseTypeDef",
+    "ListExperimentTargetAccountConfigurationsRequestRequestTypeDef",
+    "ListExperimentTargetAccountConfigurationsResponseTypeDef",
     "ListExperimentTemplatesRequestRequestTypeDef",
     "ListExperimentTemplatesResponseTypeDef",
     "ListExperimentsRequestRequestTypeDef",
     "ListExperimentsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTargetAccountConfigurationsRequestRequestTypeDef",
+    "ListTargetAccountConfigurationsResponseTypeDef",
     "ListTargetResourceTypesRequestRequestTypeDef",
     "ListTargetResourceTypesResponseTypeDef",
+    "ResolvedTargetTypeDef",
     "ResponseMetadataTypeDef",
+    "StartExperimentExperimentOptionsInputTypeDef",
     "StartExperimentRequestRequestTypeDef",
     "StartExperimentResponseTypeDef",
     "StopExperimentRequestRequestTypeDef",
     "StopExperimentResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TargetAccountConfigurationSummaryTypeDef",
+    "TargetAccountConfigurationTypeDef",
     "TargetResourceTypeParameterTypeDef",
     "TargetResourceTypeSummaryTypeDef",
     "TargetResourceTypeTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateExperimentTemplateActionInputItemTypeDef",
+    "UpdateExperimentTemplateExperimentOptionsInputTypeDef",
     "UpdateExperimentTemplateLogConfigurationInputTypeDef",
     "UpdateExperimentTemplateRequestRequestTypeDef",
     "UpdateExperimentTemplateResponseTypeDef",
     "UpdateExperimentTemplateStopConditionInputTypeDef",
     "UpdateExperimentTemplateTargetInputTypeDef",
+    "UpdateTargetAccountConfigurationRequestRequestTypeDef",
+    "UpdateTargetAccountConfigurationResponseTypeDef",
 )
 
 ActionParameterTypeDef = TypedDict(
@@ -107,6 +140,7 @@ ActionSummaryTypeDef = TypedDict(
     "ActionSummaryTypeDef",
     {
         "id": str,
+        "arn": str,
         "description": str,
         "targets": Dict[str, "ActionTargetTypeDef"],
         "tags": Dict[str, str],
@@ -126,6 +160,7 @@ ActionTypeDef = TypedDict(
     "ActionTypeDef",
     {
         "id": str,
+        "arn": str,
         "description": str,
         "parameters": Dict[str, "ActionParameterTypeDef"],
         "targets": Dict[str, "ActionTargetTypeDef"],
@@ -156,6 +191,15 @@ class CreateExperimentTemplateActionInputTypeDef(
     _OptionalCreateExperimentTemplateActionInputTypeDef,
 ):
     pass
+
+CreateExperimentTemplateExperimentOptionsInputTypeDef = TypedDict(
+    "CreateExperimentTemplateExperimentOptionsInputTypeDef",
+    {
+        "accountTargeting": AccountTargetingType,
+        "emptyTargetResolutionMode": EmptyTargetResolutionModeType,
+    },
+    total=False,
+)
 
 _RequiredCreateExperimentTemplateLogConfigurationInputTypeDef = TypedDict(
     "_RequiredCreateExperimentTemplateLogConfigurationInputTypeDef",
@@ -194,6 +238,7 @@ _OptionalCreateExperimentTemplateRequestRequestTypeDef = TypedDict(
         "targets": Dict[str, "CreateExperimentTemplateTargetInputTypeDef"],
         "tags": Dict[str, str],
         "logConfiguration": "CreateExperimentTemplateLogConfigurationInputTypeDef",
+        "experimentOptions": "CreateExperimentTemplateExperimentOptionsInputTypeDef",
     },
     total=False,
 )
@@ -256,6 +301,37 @@ class CreateExperimentTemplateTargetInputTypeDef(
 ):
     pass
 
+_RequiredCreateTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTargetAccountConfigurationRequestRequestTypeDef",
+    {
+        "experimentTemplateId": str,
+        "accountId": str,
+        "roleArn": str,
+    },
+)
+_OptionalCreateTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTargetAccountConfigurationRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "description": str,
+    },
+    total=False,
+)
+
+class CreateTargetAccountConfigurationRequestRequestTypeDef(
+    _RequiredCreateTargetAccountConfigurationRequestRequestTypeDef,
+    _OptionalCreateTargetAccountConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateTargetAccountConfigurationResponseTypeDef = TypedDict(
+    "CreateTargetAccountConfigurationResponseTypeDef",
+    {
+        "targetAccountConfiguration": "TargetAccountConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteExperimentTemplateRequestRequestTypeDef = TypedDict(
     "DeleteExperimentTemplateRequestRequestTypeDef",
     {
@@ -267,6 +343,22 @@ DeleteExperimentTemplateResponseTypeDef = TypedDict(
     "DeleteExperimentTemplateResponseTypeDef",
     {
         "experimentTemplate": "ExperimentTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteTargetAccountConfigurationRequestRequestTypeDef",
+    {
+        "experimentTemplateId": str,
+        "accountId": str,
+    },
+)
+
+DeleteTargetAccountConfigurationResponseTypeDef = TypedDict(
+    "DeleteTargetAccountConfigurationResponseTypeDef",
+    {
+        "targetAccountConfiguration": "TargetAccountConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -313,6 +405,16 @@ ExperimentLogConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+ExperimentOptionsTypeDef = TypedDict(
+    "ExperimentOptionsTypeDef",
+    {
+        "accountTargeting": AccountTargetingType,
+        "emptyTargetResolutionMode": EmptyTargetResolutionModeType,
+        "actionsMode": ActionsModeType,
+    },
+    total=False,
+)
+
 ExperimentS3LogConfigurationTypeDef = TypedDict(
     "ExperimentS3LogConfigurationTypeDef",
     {
@@ -344,10 +446,32 @@ ExperimentSummaryTypeDef = TypedDict(
     "ExperimentSummaryTypeDef",
     {
         "id": str,
+        "arn": str,
         "experimentTemplateId": str,
         "state": "ExperimentStateTypeDef",
         "creationTime": datetime,
         "tags": Dict[str, str],
+        "experimentOptions": "ExperimentOptionsTypeDef",
+    },
+    total=False,
+)
+
+ExperimentTargetAccountConfigurationSummaryTypeDef = TypedDict(
+    "ExperimentTargetAccountConfigurationSummaryTypeDef",
+    {
+        "roleArn": str,
+        "accountId": str,
+        "description": str,
+    },
+    total=False,
+)
+
+ExperimentTargetAccountConfigurationTypeDef = TypedDict(
+    "ExperimentTargetAccountConfigurationTypeDef",
+    {
+        "roleArn": str,
+        "accountId": str,
+        "description": str,
     },
     total=False,
 )
@@ -397,6 +521,15 @@ ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef = TypedDict(
     "ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef",
     {
         "logGroupArn": str,
+    },
+    total=False,
+)
+
+ExperimentTemplateExperimentOptionsTypeDef = TypedDict(
+    "ExperimentTemplateExperimentOptionsTypeDef",
+    {
+        "accountTargeting": AccountTargetingType,
+        "emptyTargetResolutionMode": EmptyTargetResolutionModeType,
     },
     total=False,
 )
@@ -453,6 +586,7 @@ ExperimentTemplateSummaryTypeDef = TypedDict(
     "ExperimentTemplateSummaryTypeDef",
     {
         "id": str,
+        "arn": str,
         "description": str,
         "creationTime": datetime,
         "lastUpdateTime": datetime,
@@ -495,6 +629,7 @@ ExperimentTemplateTypeDef = TypedDict(
     "ExperimentTemplateTypeDef",
     {
         "id": str,
+        "arn": str,
         "description": str,
         "targets": Dict[str, "ExperimentTemplateTargetTypeDef"],
         "actions": Dict[str, "ExperimentTemplateActionTypeDef"],
@@ -504,6 +639,8 @@ ExperimentTemplateTypeDef = TypedDict(
         "roleArn": str,
         "tags": Dict[str, str],
         "logConfiguration": "ExperimentTemplateLogConfigurationTypeDef",
+        "experimentOptions": "ExperimentTemplateExperimentOptionsTypeDef",
+        "targetAccountConfigurationsCount": int,
     },
     total=False,
 )
@@ -512,6 +649,7 @@ ExperimentTypeDef = TypedDict(
     "ExperimentTypeDef",
     {
         "id": str,
+        "arn": str,
         "experimentTemplateId": str,
         "roleArn": str,
         "state": "ExperimentStateTypeDef",
@@ -523,6 +661,8 @@ ExperimentTypeDef = TypedDict(
         "endTime": datetime,
         "tags": Dict[str, str],
         "logConfiguration": "ExperimentLogConfigurationTypeDef",
+        "experimentOptions": "ExperimentOptionsTypeDef",
+        "targetAccountConfigurationsCount": int,
     },
     total=False,
 )
@@ -557,6 +697,22 @@ GetExperimentResponseTypeDef = TypedDict(
     },
 )
 
+GetExperimentTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "GetExperimentTargetAccountConfigurationRequestRequestTypeDef",
+    {
+        "experimentId": str,
+        "accountId": str,
+    },
+)
+
+GetExperimentTargetAccountConfigurationResponseTypeDef = TypedDict(
+    "GetExperimentTargetAccountConfigurationResponseTypeDef",
+    {
+        "targetAccountConfiguration": "ExperimentTargetAccountConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetExperimentTemplateRequestRequestTypeDef = TypedDict(
     "GetExperimentTemplateRequestRequestTypeDef",
     {
@@ -568,6 +724,22 @@ GetExperimentTemplateResponseTypeDef = TypedDict(
     "GetExperimentTemplateResponseTypeDef",
     {
         "experimentTemplate": "ExperimentTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "GetTargetAccountConfigurationRequestRequestTypeDef",
+    {
+        "experimentTemplateId": str,
+        "accountId": str,
+    },
+)
+
+GetTargetAccountConfigurationResponseTypeDef = TypedDict(
+    "GetTargetAccountConfigurationResponseTypeDef",
+    {
+        "targetAccountConfiguration": "TargetAccountConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -605,6 +777,66 @@ ListActionsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListExperimentResolvedTargetsRequestRequestTypeDef = TypedDict(
+    "_RequiredListExperimentResolvedTargetsRequestRequestTypeDef",
+    {
+        "experimentId": str,
+    },
+)
+_OptionalListExperimentResolvedTargetsRequestRequestTypeDef = TypedDict(
+    "_OptionalListExperimentResolvedTargetsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+        "targetName": str,
+    },
+    total=False,
+)
+
+class ListExperimentResolvedTargetsRequestRequestTypeDef(
+    _RequiredListExperimentResolvedTargetsRequestRequestTypeDef,
+    _OptionalListExperimentResolvedTargetsRequestRequestTypeDef,
+):
+    pass
+
+ListExperimentResolvedTargetsResponseTypeDef = TypedDict(
+    "ListExperimentResolvedTargetsResponseTypeDef",
+    {
+        "resolvedTargets": List["ResolvedTargetTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListExperimentTargetAccountConfigurationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListExperimentTargetAccountConfigurationsRequestRequestTypeDef",
+    {
+        "experimentId": str,
+    },
+)
+_OptionalListExperimentTargetAccountConfigurationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListExperimentTargetAccountConfigurationsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListExperimentTargetAccountConfigurationsRequestRequestTypeDef(
+    _RequiredListExperimentTargetAccountConfigurationsRequestRequestTypeDef,
+    _OptionalListExperimentTargetAccountConfigurationsRequestRequestTypeDef,
+):
+    pass
+
+ListExperimentTargetAccountConfigurationsResponseTypeDef = TypedDict(
+    "ListExperimentTargetAccountConfigurationsResponseTypeDef",
+    {
+        "targetAccountConfigurations": List["ExperimentTargetAccountConfigurationSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListExperimentTemplatesRequestRequestTypeDef = TypedDict(
     "ListExperimentTemplatesRequestRequestTypeDef",
     {
@@ -628,6 +860,7 @@ ListExperimentsRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
+        "experimentTemplateId": str,
     },
     total=False,
 )
@@ -656,6 +889,36 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListTargetAccountConfigurationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListTargetAccountConfigurationsRequestRequestTypeDef",
+    {
+        "experimentTemplateId": str,
+    },
+)
+_OptionalListTargetAccountConfigurationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListTargetAccountConfigurationsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListTargetAccountConfigurationsRequestRequestTypeDef(
+    _RequiredListTargetAccountConfigurationsRequestRequestTypeDef,
+    _OptionalListTargetAccountConfigurationsRequestRequestTypeDef,
+):
+    pass
+
+ListTargetAccountConfigurationsResponseTypeDef = TypedDict(
+    "ListTargetAccountConfigurationsResponseTypeDef",
+    {
+        "targetAccountConfigurations": List["TargetAccountConfigurationSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTargetResourceTypesRequestRequestTypeDef = TypedDict(
     "ListTargetResourceTypesRequestRequestTypeDef",
     {
@@ -674,6 +937,16 @@ ListTargetResourceTypesResponseTypeDef = TypedDict(
     },
 )
 
+ResolvedTargetTypeDef = TypedDict(
+    "ResolvedTargetTypeDef",
+    {
+        "resourceType": str,
+        "targetName": str,
+        "targetInformation": Dict[str, str],
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -683,6 +956,14 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+StartExperimentExperimentOptionsInputTypeDef = TypedDict(
+    "StartExperimentExperimentOptionsInputTypeDef",
+    {
+        "actionsMode": ActionsModeType,
+    },
+    total=False,
 )
 
 _RequiredStartExperimentRequestRequestTypeDef = TypedDict(
@@ -695,6 +976,7 @@ _RequiredStartExperimentRequestRequestTypeDef = TypedDict(
 _OptionalStartExperimentRequestRequestTypeDef = TypedDict(
     "_OptionalStartExperimentRequestRequestTypeDef",
     {
+        "experimentOptions": "StartExperimentExperimentOptionsInputTypeDef",
         "tags": Dict[str, str],
     },
     total=False,
@@ -734,6 +1016,26 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "resourceArn": str,
         "tags": Dict[str, str],
     },
+)
+
+TargetAccountConfigurationSummaryTypeDef = TypedDict(
+    "TargetAccountConfigurationSummaryTypeDef",
+    {
+        "roleArn": str,
+        "accountId": str,
+        "description": str,
+    },
+    total=False,
+)
+
+TargetAccountConfigurationTypeDef = TypedDict(
+    "TargetAccountConfigurationTypeDef",
+    {
+        "roleArn": str,
+        "accountId": str,
+        "description": str,
+    },
+    total=False,
 )
 
 TargetResourceTypeParameterTypeDef = TypedDict(
@@ -795,6 +1097,14 @@ UpdateExperimentTemplateActionInputItemTypeDef = TypedDict(
     total=False,
 )
 
+UpdateExperimentTemplateExperimentOptionsInputTypeDef = TypedDict(
+    "UpdateExperimentTemplateExperimentOptionsInputTypeDef",
+    {
+        "emptyTargetResolutionMode": EmptyTargetResolutionModeType,
+    },
+    total=False,
+)
+
 UpdateExperimentTemplateLogConfigurationInputTypeDef = TypedDict(
     "UpdateExperimentTemplateLogConfigurationInputTypeDef",
     {
@@ -820,6 +1130,7 @@ _OptionalUpdateExperimentTemplateRequestRequestTypeDef = TypedDict(
         "actions": Dict[str, "UpdateExperimentTemplateActionInputItemTypeDef"],
         "roleArn": str,
         "logConfiguration": "UpdateExperimentTemplateLogConfigurationInputTypeDef",
+        "experimentOptions": "UpdateExperimentTemplateExperimentOptionsInputTypeDef",
     },
     total=False,
 )
@@ -881,3 +1192,33 @@ class UpdateExperimentTemplateTargetInputTypeDef(
     _OptionalUpdateExperimentTemplateTargetInputTypeDef,
 ):
     pass
+
+_RequiredUpdateTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTargetAccountConfigurationRequestRequestTypeDef",
+    {
+        "experimentTemplateId": str,
+        "accountId": str,
+    },
+)
+_OptionalUpdateTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTargetAccountConfigurationRequestRequestTypeDef",
+    {
+        "roleArn": str,
+        "description": str,
+    },
+    total=False,
+)
+
+class UpdateTargetAccountConfigurationRequestRequestTypeDef(
+    _RequiredUpdateTargetAccountConfigurationRequestRequestTypeDef,
+    _OptionalUpdateTargetAccountConfigurationRequestRequestTypeDef,
+):
+    pass
+
+UpdateTargetAccountConfigurationResponseTypeDef = TypedDict(
+    "UpdateTargetAccountConfigurationResponseTypeDef",
+    {
+        "targetAccountConfiguration": "TargetAccountConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)

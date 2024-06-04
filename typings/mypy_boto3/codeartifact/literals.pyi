@@ -11,6 +11,7 @@ Usage::
     data: AllowPublishType = "ALLOW"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -24,13 +25,21 @@ __all__ = (
     "DomainStatusType",
     "ExternalConnectionStatusType",
     "HashAlgorithmType",
+    "ListAllowedRepositoriesForGroupPaginatorName",
+    "ListAssociatedPackagesPaginatorName",
     "ListDomainsPaginatorName",
+    "ListPackageGroupsPaginatorName",
     "ListPackageVersionAssetsPaginatorName",
     "ListPackageVersionsPaginatorName",
     "ListPackagesPaginatorName",
     "ListRepositoriesInDomainPaginatorName",
     "ListRepositoriesPaginatorName",
+    "ListSubPackageGroupsPaginatorName",
     "PackageFormatType",
+    "PackageGroupAllowedRepositoryUpdateTypeType",
+    "PackageGroupAssociationTypeType",
+    "PackageGroupOriginRestrictionModeType",
+    "PackageGroupOriginRestrictionTypeType",
     "PackageVersionErrorCodeType",
     "PackageVersionOriginTypeType",
     "PackageVersionSortTypeType",
@@ -42,13 +51,23 @@ AllowUpstreamType = Literal["ALLOW", "BLOCK"]
 DomainStatusType = Literal["Active", "Deleted"]
 ExternalConnectionStatusType = Literal["Available"]
 HashAlgorithmType = Literal["MD5", "SHA-1", "SHA-256", "SHA-512"]
+ListAllowedRepositoriesForGroupPaginatorName = Literal["list_allowed_repositories_for_group"]
+ListAssociatedPackagesPaginatorName = Literal["list_associated_packages"]
 ListDomainsPaginatorName = Literal["list_domains"]
+ListPackageGroupsPaginatorName = Literal["list_package_groups"]
 ListPackageVersionAssetsPaginatorName = Literal["list_package_version_assets"]
 ListPackageVersionsPaginatorName = Literal["list_package_versions"]
 ListPackagesPaginatorName = Literal["list_packages"]
 ListRepositoriesInDomainPaginatorName = Literal["list_repositories_in_domain"]
 ListRepositoriesPaginatorName = Literal["list_repositories"]
-PackageFormatType = Literal["generic", "maven", "npm", "nuget", "pypi", "swift"]
+ListSubPackageGroupsPaginatorName = Literal["list_sub_package_groups"]
+PackageFormatType = Literal["generic", "maven", "npm", "nuget", "pypi", "ruby", "swift"]
+PackageGroupAllowedRepositoryUpdateTypeType = Literal["ADDED", "REMOVED"]
+PackageGroupAssociationTypeType = Literal["STRONG", "WEAK"]
+PackageGroupOriginRestrictionModeType = Literal[
+    "ALLOW", "ALLOW_SPECIFIC_REPOSITORIES", "BLOCK", "INHERIT"
+]
+PackageGroupOriginRestrictionTypeType = Literal["EXTERNAL_UPSTREAM", "INTERNAL_UPSTREAM", "PUBLISH"]
 PackageVersionErrorCodeType = Literal[
     "ALREADY_EXISTS",
     "MISMATCHED_REVISION",

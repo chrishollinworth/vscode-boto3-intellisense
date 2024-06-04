@@ -11,6 +11,7 @@ Usage::
     data: AnalysisErrorTypeType = "ACCESS_DENIED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -174,6 +175,7 @@ __all__ = (
     "PrimaryValueDisplayTypeType",
     "PropertyRoleType",
     "PropertyUsageType",
+    "PurchaseModeType",
     "RadarChartAxesRangeScaleType",
     "RadarChartShapeType",
     "ReferenceLineLabelHorizontalPositionType",
@@ -208,6 +210,7 @@ __all__ = (
     "SimpleAttributeAggregationFunctionType",
     "SimpleNumericalAggregationFunctionType",
     "SimpleTotalAggregationFunctionType",
+    "SingleYAxisOptionType",
     "SmallMultiplesAxisPlacementType",
     "SmallMultiplesAxisScaleType",
     "SnapshotFileFormatTypeType",
@@ -231,6 +234,7 @@ __all__ = (
     "ThemeErrorTypeType",
     "ThemeTypeType",
     "TimeGranularityType",
+    "TooltipTargetType",
     "TooltipTitleTypeType",
     "TopBottomComputationTypeType",
     "TopBottomSortOrderType",
@@ -239,6 +243,7 @@ __all__ = (
     "TopicRelativeDateFilterFunctionType",
     "TopicScheduleTypeType",
     "TopicTimeGranularityType",
+    "TopicUserExperienceVersionType",
     "URLTargetConfigurationType",
     "UndefinedSpecifiedValueTypeType",
     "UserRoleType",
@@ -298,6 +303,7 @@ AssetBundleExportJobDataSourcePropertyToOverrideType = Literal[
     "Name",
     "Password",
     "Port",
+    "ProductType",
     "RoleArn",
     "SecretArn",
     "Username",
@@ -734,6 +740,7 @@ PivotTableSubtotalLevelType = Literal["ALL", "CUSTOM", "LAST"]
 PrimaryValueDisplayTypeType = Literal["ACTUAL", "COMPARISON", "HIDDEN"]
 PropertyRoleType = Literal["ID", "PRIMARY"]
 PropertyUsageType = Literal["DIMENSION", "INHERIT", "MEASURE"]
+PurchaseModeType = Literal["AUTO_PURCHASE", "MANUAL"]
 RadarChartAxesRangeScaleType = Literal["AUTO", "INDEPENDENT", "SHARED"]
 RadarChartShapeType = Literal["CIRCLE", "POLYGON"]
 ReferenceLineLabelHorizontalPositionType = Literal["CENTER", "LEFT", "RIGHT"]
@@ -754,7 +761,7 @@ ResourceStatusType = Literal[
     "UPDATE_IN_PROGRESS",
     "UPDATE_SUCCESSFUL",
 ]
-RoleType = Literal["ADMIN", "AUTHOR", "READER"]
+RoleType = Literal["ADMIN", "ADMIN_PRO", "AUTHOR", "AUTHOR_PRO", "READER", "READER_PRO"]
 RowLevelPermissionFormatVersionType = Literal["VERSION_1", "VERSION_2"]
 RowLevelPermissionPolicyType = Literal["DENY_ACCESS", "GRANT_ACCESS"]
 SearchAnalysesPaginatorName = Literal["search_analyses"]
@@ -788,6 +795,7 @@ SimpleNumericalAggregationFunctionType = Literal[
     "VARP",
 ]
 SimpleTotalAggregationFunctionType = Literal["AVERAGE", "DEFAULT", "MAX", "MIN", "NONE", "SUM"]
+SingleYAxisOptionType = Literal["PRIMARY_Y_AXIS"]
 SmallMultiplesAxisPlacementType = Literal["INSIDE", "OUTSIDE"]
 SmallMultiplesAxisScaleType = Literal["INDEPENDENT", "SHARED"]
 SnapshotFileFormatTypeType = Literal["CSV", "EXCEL", "PDF"]
@@ -817,6 +825,7 @@ ThemeTypeType = Literal["ALL", "CUSTOM", "QUICKSIGHT"]
 TimeGranularityType = Literal[
     "DAY", "HOUR", "MILLISECOND", "MINUTE", "MONTH", "QUARTER", "SECOND", "WEEK", "YEAR"
 ]
+TooltipTargetType = Literal["BAR", "BOTH", "LINE"]
 TooltipTitleTypeType = Literal["NONE", "PRIMARY_VALUE"]
 TopBottomComputationTypeType = Literal["BOTTOM", "TOP"]
 TopBottomSortOrderType = Literal["ABSOLUTE_DIFFERENCE", "PERCENT_DIFFERENCE"]
@@ -827,9 +836,19 @@ TopicScheduleTypeType = Literal["DAILY", "HOURLY", "MONTHLY", "WEEKLY"]
 TopicTimeGranularityType = Literal[
     "DAY", "HOUR", "MINUTE", "MONTH", "QUARTER", "SECOND", "WEEK", "YEAR"
 ]
+TopicUserExperienceVersionType = Literal["LEGACY", "NEW_READER_EXPERIENCE"]
 URLTargetConfigurationType = Literal["NEW_TAB", "NEW_WINDOW", "SAME_TAB"]
 UndefinedSpecifiedValueTypeType = Literal["LEAST", "MOST"]
-UserRoleType = Literal["ADMIN", "AUTHOR", "READER", "RESTRICTED_AUTHOR", "RESTRICTED_READER"]
+UserRoleType = Literal[
+    "ADMIN",
+    "ADMIN_PRO",
+    "AUTHOR",
+    "AUTHOR_PRO",
+    "READER",
+    "READER_PRO",
+    "RESTRICTED_AUTHOR",
+    "RESTRICTED_READER",
+]
 VPCConnectionAvailabilityStatusType = Literal["AVAILABLE", "PARTIALLY_AVAILABLE", "UNAVAILABLE"]
 VPCConnectionResourceStatusType = Literal[
     "CREATION_FAILED",

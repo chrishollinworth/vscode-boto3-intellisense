@@ -10,6 +10,7 @@ Usage::
         ListApplicationsPaginator,
         ListComponentsPaginator,
         ListDatabasesPaginator,
+        ListOperationEventsPaginator,
         ListOperationsPaginator,
         SsmSapClient,
     )
@@ -22,14 +23,17 @@ Usage::
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     list_components_paginator: ListComponentsPaginator = client.get_paginator("list_components")
     list_databases_paginator: ListDatabasesPaginator = client.get_paginator("list_databases")
+    list_operation_events_paginator: ListOperationEventsPaginator = client.get_paginator("list_operation_events")
     list_operations_paginator: ListOperationsPaginator = client.get_paginator("list_operations")
     ```
 """
+
 from .client import SsmSapClient
 from .paginator import (
     ListApplicationsPaginator,
     ListComponentsPaginator,
     ListDatabasesPaginator,
+    ListOperationEventsPaginator,
     ListOperationsPaginator,
 )
 
@@ -40,6 +44,7 @@ __all__ = (
     "ListApplicationsPaginator",
     "ListComponentsPaginator",
     "ListDatabasesPaginator",
+    "ListOperationEventsPaginator",
     "ListOperationsPaginator",
     "SsmSapClient",
 )

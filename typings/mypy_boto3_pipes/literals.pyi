@@ -11,6 +11,7 @@ Usage::
     data: AssignPublicIpType = "DISABLED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -22,15 +23,18 @@ __all__ = (
     "AssignPublicIpType",
     "BatchJobDependencyTypeType",
     "BatchResourceRequirementTypeType",
+    "DimensionValueTypeType",
     "DynamoDBStreamStartPositionType",
     "EcsEnvironmentFileTypeType",
     "EcsResourceRequirementTypeType",
+    "EpochTimeUnitType",
     "IncludeExecutionDataOptionType",
     "KinesisStreamStartPositionType",
     "LaunchTypeType",
     "ListPipesPaginatorName",
     "LogLevelType",
     "MSKStartPositionType",
+    "MeasureValueTypeType",
     "OnPartialBatchItemFailureStreamsType",
     "PipeStateType",
     "PipeTargetInvocationTypeType",
@@ -41,20 +45,24 @@ __all__ = (
     "RequestedPipeStateType",
     "S3OutputFormatType",
     "SelfManagedKafkaStartPositionType",
+    "TimeFieldTypeType",
 )
 
 AssignPublicIpType = Literal["DISABLED", "ENABLED"]
 BatchJobDependencyTypeType = Literal["N_TO_N", "SEQUENTIAL"]
 BatchResourceRequirementTypeType = Literal["GPU", "MEMORY", "VCPU"]
+DimensionValueTypeType = Literal["VARCHAR"]
 DynamoDBStreamStartPositionType = Literal["LATEST", "TRIM_HORIZON"]
 EcsEnvironmentFileTypeType = Literal["s3"]
 EcsResourceRequirementTypeType = Literal["GPU", "InferenceAccelerator"]
+EpochTimeUnitType = Literal["MICROSECONDS", "MILLISECONDS", "NANOSECONDS", "SECONDS"]
 IncludeExecutionDataOptionType = Literal["ALL"]
 KinesisStreamStartPositionType = Literal["AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"]
 LaunchTypeType = Literal["EC2", "EXTERNAL", "FARGATE"]
 ListPipesPaginatorName = Literal["list_pipes"]
 LogLevelType = Literal["ERROR", "INFO", "OFF", "TRACE"]
 MSKStartPositionType = Literal["LATEST", "TRIM_HORIZON"]
+MeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "TIMESTAMP", "VARCHAR"]
 OnPartialBatchItemFailureStreamsType = Literal["AUTOMATIC_BISECT"]
 PipeStateType = Literal[
     "CREATE_FAILED",
@@ -81,3 +89,4 @@ RequestedPipeStateDescribeResponseType = Literal["DELETED", "RUNNING", "STOPPED"
 RequestedPipeStateType = Literal["RUNNING", "STOPPED"]
 S3OutputFormatType = Literal["json", "plain", "w3c"]
 SelfManagedKafkaStartPositionType = Literal["LATEST", "TRIM_HORIZON"]
+TimeFieldTypeType = Literal["EPOCH", "TIMESTAMP_FORMAT"]

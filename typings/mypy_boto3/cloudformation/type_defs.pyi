@@ -11,6 +11,7 @@ Usage::
     data: AccountGateResultTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -18,6 +19,7 @@ from typing import Any, Dict, List
 from .literals import (
     AccountFilterTypeType,
     AccountGateStatusType,
+    AttributeChangeTypeType,
     CallAsType,
     CapabilityType,
     CategoryType,
@@ -27,10 +29,16 @@ from .literals import (
     ChangeSetTypeType,
     ChangeSourceType,
     ConcurrencyModeType,
+    DeletionModeType,
     DeprecatedStatusType,
+    DetailedStatusType,
     DifferenceTypeType,
     EvaluationTypeType,
     ExecutionStatusType,
+    GeneratedTemplateDeletionPolicyType,
+    GeneratedTemplateResourceStatusType,
+    GeneratedTemplateStatusType,
+    GeneratedTemplateUpdateReplacePolicyType,
     HandlerErrorCodeType,
     HookFailureModeType,
     HookStatusType,
@@ -40,6 +48,7 @@ from .literals import (
     OperationStatusType,
     OrganizationStatusType,
     PermissionModelsType,
+    PolicyActionType,
     ProvisioningTypeType,
     PublisherStatusType,
     RegionConcurrencyTypeType,
@@ -48,6 +57,7 @@ from .literals import (
     ReplacementType,
     RequiresRecreationType,
     ResourceAttributeType,
+    ResourceScanStatusType,
     ResourceSignalStatusType,
     ResourceStatusType,
     StackDriftDetectionStatusType,
@@ -63,11 +73,13 @@ from .literals import (
     StackSetOperationStatusType,
     StackSetStatusType,
     StackStatusType,
+    TemplateFormatType,
     TemplateStageType,
     ThirdPartyTypeType,
     TypeTestsStatusType,
     VersionBumpType,
     VisibilityType,
+    WarningTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -98,6 +110,8 @@ __all__ = (
     "ContinueUpdateRollbackInputRequestTypeDef",
     "CreateChangeSetInputRequestTypeDef",
     "CreateChangeSetOutputTypeDef",
+    "CreateGeneratedTemplateInputRequestTypeDef",
+    "CreateGeneratedTemplateOutputTypeDef",
     "CreateStackInputRequestTypeDef",
     "CreateStackInputServiceResourceTypeDef",
     "CreateStackInstancesInputRequestTypeDef",
@@ -107,6 +121,7 @@ __all__ = (
     "CreateStackSetOutputTypeDef",
     "DeactivateTypeInputRequestTypeDef",
     "DeleteChangeSetInputRequestTypeDef",
+    "DeleteGeneratedTemplateInputRequestTypeDef",
     "DeleteStackInputRequestTypeDef",
     "DeleteStackInputStackTypeDef",
     "DeleteStackInstancesInputRequestTypeDef",
@@ -120,10 +135,14 @@ __all__ = (
     "DescribeChangeSetHooksOutputTypeDef",
     "DescribeChangeSetInputRequestTypeDef",
     "DescribeChangeSetOutputTypeDef",
+    "DescribeGeneratedTemplateInputRequestTypeDef",
+    "DescribeGeneratedTemplateOutputTypeDef",
     "DescribeOrganizationsAccessInputRequestTypeDef",
     "DescribeOrganizationsAccessOutputTypeDef",
     "DescribePublisherInputRequestTypeDef",
     "DescribePublisherOutputTypeDef",
+    "DescribeResourceScanInputRequestTypeDef",
+    "DescribeResourceScanOutputTypeDef",
     "DescribeStackDriftDetectionStatusInputRequestTypeDef",
     "DescribeStackDriftDetectionStatusOutputTypeDef",
     "DescribeStackEventsInputRequestTypeDef",
@@ -156,6 +175,8 @@ __all__ = (
     "EstimateTemplateCostOutputTypeDef",
     "ExecuteChangeSetInputRequestTypeDef",
     "ExportTypeDef",
+    "GetGeneratedTemplateInputRequestTypeDef",
+    "GetGeneratedTemplateOutputTypeDef",
     "GetStackPolicyInputRequestTypeDef",
     "GetStackPolicyOutputTypeDef",
     "GetTemplateInputRequestTypeDef",
@@ -168,14 +189,24 @@ __all__ = (
     "ListChangeSetsOutputTypeDef",
     "ListExportsInputRequestTypeDef",
     "ListExportsOutputTypeDef",
+    "ListGeneratedTemplatesInputRequestTypeDef",
+    "ListGeneratedTemplatesOutputTypeDef",
     "ListImportsInputRequestTypeDef",
     "ListImportsOutputTypeDef",
+    "ListResourceScanRelatedResourcesInputRequestTypeDef",
+    "ListResourceScanRelatedResourcesOutputTypeDef",
+    "ListResourceScanResourcesInputRequestTypeDef",
+    "ListResourceScanResourcesOutputTypeDef",
+    "ListResourceScansInputRequestTypeDef",
+    "ListResourceScansOutputTypeDef",
     "ListStackInstanceResourceDriftsInputRequestTypeDef",
     "ListStackInstanceResourceDriftsOutputTypeDef",
     "ListStackInstancesInputRequestTypeDef",
     "ListStackInstancesOutputTypeDef",
     "ListStackResourcesInputRequestTypeDef",
     "ListStackResourcesOutputTypeDef",
+    "ListStackSetAutoDeploymentTargetsInputRequestTypeDef",
+    "ListStackSetAutoDeploymentTargetsOutputTypeDef",
     "ListStackSetOperationResultsInputRequestTypeDef",
     "ListStackSetOperationResultsOutputTypeDef",
     "ListStackSetOperationsInputRequestTypeDef",
@@ -211,7 +242,10 @@ __all__ = (
     "RequiredActivatedTypeTypeDef",
     "ResourceChangeDetailTypeDef",
     "ResourceChangeTypeDef",
+    "ResourceDefinitionTypeDef",
+    "ResourceDetailTypeDef",
     "ResourceIdentifierSummaryTypeDef",
+    "ResourceScanSummaryTypeDef",
     "ResourceTargetDefinitionTypeDef",
     "ResourceToImportTypeDef",
     "ResponseMetadataTypeDef",
@@ -219,6 +253,8 @@ __all__ = (
     "RollbackStackInputRequestTypeDef",
     "RollbackStackOutputTypeDef",
     "RollbackTriggerTypeDef",
+    "ScannedResourceIdentifierTypeDef",
+    "ScannedResourceTypeDef",
     "ServiceResourceEventRequestTypeDef",
     "ServiceResourceStackRequestTypeDef",
     "ServiceResourceStackResourceRequestTypeDef",
@@ -243,6 +279,7 @@ __all__ = (
     "StackResourceRequestTypeDef",
     "StackResourceSummaryTypeDef",
     "StackResourceTypeDef",
+    "StackSetAutoDeploymentTargetSummaryTypeDef",
     "StackSetDriftDetectionDetailsTypeDef",
     "StackSetOperationPreferencesTypeDef",
     "StackSetOperationResultSummaryTypeDef",
@@ -253,10 +290,15 @@ __all__ = (
     "StackSetTypeDef",
     "StackSummaryTypeDef",
     "StackTypeDef",
+    "StartResourceScanInputRequestTypeDef",
+    "StartResourceScanOutputTypeDef",
     "StopStackSetOperationInputRequestTypeDef",
     "TagTypeDef",
+    "TemplateConfigurationTypeDef",
     "TemplateParameterTypeDef",
+    "TemplateProgressTypeDef",
     "TemplateSummaryConfigTypeDef",
+    "TemplateSummaryTypeDef",
     "TestTypeInputRequestTypeDef",
     "TestTypeOutputTypeDef",
     "TypeConfigurationDetailsTypeDef",
@@ -264,6 +306,8 @@ __all__ = (
     "TypeFiltersTypeDef",
     "TypeSummaryTypeDef",
     "TypeVersionSummaryTypeDef",
+    "UpdateGeneratedTemplateInputRequestTypeDef",
+    "UpdateGeneratedTemplateOutputTypeDef",
     "UpdateStackInputRequestTypeDef",
     "UpdateStackInputStackTypeDef",
     "UpdateStackInstancesInputRequestTypeDef",
@@ -276,6 +320,8 @@ __all__ = (
     "ValidateTemplateInputRequestTypeDef",
     "ValidateTemplateOutputTypeDef",
     "WaiterConfigTypeDef",
+    "WarningDetailTypeDef",
+    "WarningPropertyTypeDef",
     "WarningsTypeDef",
 )
 
@@ -514,6 +560,36 @@ CreateChangeSetOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateGeneratedTemplateInputRequestTypeDef = TypedDict(
+    "_RequiredCreateGeneratedTemplateInputRequestTypeDef",
+    {
+        "GeneratedTemplateName": str,
+    },
+)
+_OptionalCreateGeneratedTemplateInputRequestTypeDef = TypedDict(
+    "_OptionalCreateGeneratedTemplateInputRequestTypeDef",
+    {
+        "Resources": List["ResourceDefinitionTypeDef"],
+        "StackName": str,
+        "TemplateConfiguration": "TemplateConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class CreateGeneratedTemplateInputRequestTypeDef(
+    _RequiredCreateGeneratedTemplateInputRequestTypeDef,
+    _OptionalCreateGeneratedTemplateInputRequestTypeDef,
+):
+    pass
+
+CreateGeneratedTemplateOutputTypeDef = TypedDict(
+    "CreateGeneratedTemplateOutputTypeDef",
+    {
+        "GeneratedTemplateId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateStackInputRequestTypeDef = TypedDict(
     "_RequiredCreateStackInputRequestTypeDef",
     {
@@ -695,6 +771,13 @@ class DeleteChangeSetInputRequestTypeDef(
 ):
     pass
 
+DeleteGeneratedTemplateInputRequestTypeDef = TypedDict(
+    "DeleteGeneratedTemplateInputRequestTypeDef",
+    {
+        "GeneratedTemplateName": str,
+    },
+)
+
 _RequiredDeleteStackInputRequestTypeDef = TypedDict(
     "_RequiredDeleteStackInputRequestTypeDef",
     {
@@ -707,6 +790,7 @@ _OptionalDeleteStackInputRequestTypeDef = TypedDict(
         "RetainResources": List[str],
         "RoleARN": str,
         "ClientRequestToken": str,
+        "DeletionMode": DeletionModeType,
     },
     total=False,
 )
@@ -722,6 +806,7 @@ DeleteStackInputStackTypeDef = TypedDict(
         "RetainResources": List[str],
         "RoleARN": str,
         "ClientRequestToken": str,
+        "DeletionMode": DeletionModeType,
     },
     total=False,
 )
@@ -865,6 +950,7 @@ _OptionalDescribeChangeSetInputRequestTypeDef = TypedDict(
     {
         "StackName": str,
         "NextToken": str,
+        "IncludePropertyValues": bool,
     },
     total=False,
 )
@@ -902,6 +988,31 @@ DescribeChangeSetOutputTypeDef = TypedDict(
     },
 )
 
+DescribeGeneratedTemplateInputRequestTypeDef = TypedDict(
+    "DescribeGeneratedTemplateInputRequestTypeDef",
+    {
+        "GeneratedTemplateName": str,
+    },
+)
+
+DescribeGeneratedTemplateOutputTypeDef = TypedDict(
+    "DescribeGeneratedTemplateOutputTypeDef",
+    {
+        "GeneratedTemplateId": str,
+        "GeneratedTemplateName": str,
+        "Resources": List["ResourceDetailTypeDef"],
+        "Status": GeneratedTemplateStatusType,
+        "StatusReason": str,
+        "CreationTime": datetime,
+        "LastUpdatedTime": datetime,
+        "Progress": "TemplateProgressTypeDef",
+        "StackId": str,
+        "TemplateConfiguration": "TemplateConfigurationTypeDef",
+        "TotalWarnings": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeOrganizationsAccessInputRequestTypeDef = TypedDict(
     "DescribeOrganizationsAccessInputRequestTypeDef",
     {
@@ -933,6 +1044,29 @@ DescribePublisherOutputTypeDef = TypedDict(
         "PublisherStatus": PublisherStatusType,
         "IdentityProvider": IdentityProviderType,
         "PublisherProfile": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeResourceScanInputRequestTypeDef = TypedDict(
+    "DescribeResourceScanInputRequestTypeDef",
+    {
+        "ResourceScanId": str,
+    },
+)
+
+DescribeResourceScanOutputTypeDef = TypedDict(
+    "DescribeResourceScanOutputTypeDef",
+    {
+        "ResourceScanId": str,
+        "Status": ResourceScanStatusType,
+        "StatusReason": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "PercentageCompleted": float,
+        "ResourceTypes": List[str],
+        "ResourcesScanned": int,
+        "ResourcesRead": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1332,6 +1466,35 @@ ExportTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredGetGeneratedTemplateInputRequestTypeDef = TypedDict(
+    "_RequiredGetGeneratedTemplateInputRequestTypeDef",
+    {
+        "GeneratedTemplateName": str,
+    },
+)
+_OptionalGetGeneratedTemplateInputRequestTypeDef = TypedDict(
+    "_OptionalGetGeneratedTemplateInputRequestTypeDef",
+    {
+        "Format": TemplateFormatType,
+    },
+    total=False,
+)
+
+class GetGeneratedTemplateInputRequestTypeDef(
+    _RequiredGetGeneratedTemplateInputRequestTypeDef,
+    _OptionalGetGeneratedTemplateInputRequestTypeDef,
+):
+    pass
+
+GetGeneratedTemplateOutputTypeDef = TypedDict(
+    "GetGeneratedTemplateOutputTypeDef",
+    {
+        "Status": GeneratedTemplateStatusType,
+        "TemplateBody": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetStackPolicyInputRequestTypeDef = TypedDict(
     "GetStackPolicyInputRequestTypeDef",
     {
@@ -1474,6 +1637,24 @@ ListExportsOutputTypeDef = TypedDict(
     },
 )
 
+ListGeneratedTemplatesInputRequestTypeDef = TypedDict(
+    "ListGeneratedTemplatesInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListGeneratedTemplatesOutputTypeDef = TypedDict(
+    "ListGeneratedTemplatesOutputTypeDef",
+    {
+        "Summaries": List["TemplateSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListImportsInputRequestTypeDef = TypedDict(
     "_RequiredListImportsInputRequestTypeDef",
     {
@@ -1497,6 +1678,89 @@ ListImportsOutputTypeDef = TypedDict(
     "ListImportsOutputTypeDef",
     {
         "Imports": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListResourceScanRelatedResourcesInputRequestTypeDef = TypedDict(
+    "_RequiredListResourceScanRelatedResourcesInputRequestTypeDef",
+    {
+        "ResourceScanId": str,
+        "Resources": List["ScannedResourceIdentifierTypeDef"],
+    },
+)
+_OptionalListResourceScanRelatedResourcesInputRequestTypeDef = TypedDict(
+    "_OptionalListResourceScanRelatedResourcesInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListResourceScanRelatedResourcesInputRequestTypeDef(
+    _RequiredListResourceScanRelatedResourcesInputRequestTypeDef,
+    _OptionalListResourceScanRelatedResourcesInputRequestTypeDef,
+):
+    pass
+
+ListResourceScanRelatedResourcesOutputTypeDef = TypedDict(
+    "ListResourceScanRelatedResourcesOutputTypeDef",
+    {
+        "RelatedResources": List["ScannedResourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListResourceScanResourcesInputRequestTypeDef = TypedDict(
+    "_RequiredListResourceScanResourcesInputRequestTypeDef",
+    {
+        "ResourceScanId": str,
+    },
+)
+_OptionalListResourceScanResourcesInputRequestTypeDef = TypedDict(
+    "_OptionalListResourceScanResourcesInputRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ResourceTypePrefix": str,
+        "TagKey": str,
+        "TagValue": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListResourceScanResourcesInputRequestTypeDef(
+    _RequiredListResourceScanResourcesInputRequestTypeDef,
+    _OptionalListResourceScanResourcesInputRequestTypeDef,
+):
+    pass
+
+ListResourceScanResourcesOutputTypeDef = TypedDict(
+    "ListResourceScanResourcesOutputTypeDef",
+    {
+        "Resources": List["ScannedResourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListResourceScansInputRequestTypeDef = TypedDict(
+    "ListResourceScansInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListResourceScansOutputTypeDef = TypedDict(
+    "ListResourceScansOutputTypeDef",
+    {
+        "ResourceScanSummaries": List["ResourceScanSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1593,6 +1857,37 @@ ListStackResourcesOutputTypeDef = TypedDict(
     "ListStackResourcesOutputTypeDef",
     {
         "StackResourceSummaries": List["StackResourceSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListStackSetAutoDeploymentTargetsInputRequestTypeDef = TypedDict(
+    "_RequiredListStackSetAutoDeploymentTargetsInputRequestTypeDef",
+    {
+        "StackSetName": str,
+    },
+)
+_OptionalListStackSetAutoDeploymentTargetsInputRequestTypeDef = TypedDict(
+    "_OptionalListStackSetAutoDeploymentTargetsInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "CallAs": CallAsType,
+    },
+    total=False,
+)
+
+class ListStackSetAutoDeploymentTargetsInputRequestTypeDef(
+    _RequiredListStackSetAutoDeploymentTargetsInputRequestTypeDef,
+    _OptionalListStackSetAutoDeploymentTargetsInputRequestTypeDef,
+):
+    pass
+
+ListStackSetAutoDeploymentTargetsOutputTypeDef = TypedDict(
+    "ListStackSetAutoDeploymentTargetsOutputTypeDef",
+    {
+        "Summaries": List["StackSetAutoDeploymentTargetSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1990,6 +2285,7 @@ ResourceChangeDetailTypeDef = TypedDict(
 ResourceChangeTypeDef = TypedDict(
     "ResourceChangeTypeDef",
     {
+        "PolicyAction": PolicyActionType,
         "Action": ChangeActionType,
         "LogicalResourceId": str,
         "PhysicalResourceId": str,
@@ -1999,6 +2295,41 @@ ResourceChangeTypeDef = TypedDict(
         "Details": List["ResourceChangeDetailTypeDef"],
         "ChangeSetId": str,
         "ModuleInfo": "ModuleInfoTypeDef",
+        "BeforeContext": str,
+        "AfterContext": str,
+    },
+    total=False,
+)
+
+_RequiredResourceDefinitionTypeDef = TypedDict(
+    "_RequiredResourceDefinitionTypeDef",
+    {
+        "ResourceType": str,
+        "ResourceIdentifier": Dict[str, str],
+    },
+)
+_OptionalResourceDefinitionTypeDef = TypedDict(
+    "_OptionalResourceDefinitionTypeDef",
+    {
+        "LogicalResourceId": str,
+    },
+    total=False,
+)
+
+class ResourceDefinitionTypeDef(
+    _RequiredResourceDefinitionTypeDef, _OptionalResourceDefinitionTypeDef
+):
+    pass
+
+ResourceDetailTypeDef = TypedDict(
+    "ResourceDetailTypeDef",
+    {
+        "ResourceType": str,
+        "LogicalResourceId": str,
+        "ResourceIdentifier": Dict[str, str],
+        "ResourceStatus": GeneratedTemplateResourceStatusType,
+        "ResourceStatusReason": str,
+        "Warnings": List["WarningDetailTypeDef"],
     },
     total=False,
 )
@@ -2013,12 +2344,29 @@ ResourceIdentifierSummaryTypeDef = TypedDict(
     total=False,
 )
 
+ResourceScanSummaryTypeDef = TypedDict(
+    "ResourceScanSummaryTypeDef",
+    {
+        "ResourceScanId": str,
+        "Status": ResourceScanStatusType,
+        "StatusReason": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "PercentageCompleted": float,
+    },
+    total=False,
+)
+
 ResourceTargetDefinitionTypeDef = TypedDict(
     "ResourceTargetDefinitionTypeDef",
     {
         "Attribute": ResourceAttributeType,
         "Name": str,
         "RequiresRecreation": RequiresRecreationType,
+        "Path": str,
+        "BeforeValue": str,
+        "AfterValue": str,
+        "AttributeChangeType": AttributeChangeTypeType,
     },
     total=False,
 )
@@ -2087,6 +2435,24 @@ RollbackTriggerTypeDef = TypedDict(
         "Arn": str,
         "Type": str,
     },
+)
+
+ScannedResourceIdentifierTypeDef = TypedDict(
+    "ScannedResourceIdentifierTypeDef",
+    {
+        "ResourceType": str,
+        "ResourceIdentifier": Dict[str, str],
+    },
+)
+
+ScannedResourceTypeDef = TypedDict(
+    "ScannedResourceTypeDef",
+    {
+        "ResourceType": str,
+        "ResourceIdentifier": Dict[str, str],
+        "ManagedByStack": bool,
+    },
+    total=False,
 )
 
 ServiceResourceEventRequestTypeDef = TypedDict(
@@ -2253,6 +2619,7 @@ _OptionalStackEventTypeDef = TypedDict(
         "HookStatusReason": str,
         "HookInvocationPoint": Literal["PRE_PROVISION"],
         "HookFailureMode": HookFailureModeType,
+        "DetailedStatus": DetailedStatusType,
     },
     total=False,
 )
@@ -2494,6 +2861,15 @@ _OptionalStackResourceTypeDef = TypedDict(
 class StackResourceTypeDef(_RequiredStackResourceTypeDef, _OptionalStackResourceTypeDef):
     pass
 
+StackSetAutoDeploymentTargetSummaryTypeDef = TypedDict(
+    "StackSetAutoDeploymentTargetSummaryTypeDef",
+    {
+        "OrganizationalUnitId": str,
+        "Regions": List[str],
+    },
+    total=False,
+)
+
 StackSetDriftDetectionDetailsTypeDef = TypedDict(
     "StackSetDriftDetectionDetailsTypeDef",
     {
@@ -2677,12 +3053,30 @@ _OptionalStackTypeDef = TypedDict(
         "RootId": str,
         "DriftInformation": "StackDriftInformationTypeDef",
         "RetainExceptOnCreate": bool,
+        "DeletionMode": DeletionModeType,
+        "DetailedStatus": DetailedStatusType,
     },
     total=False,
 )
 
 class StackTypeDef(_RequiredStackTypeDef, _OptionalStackTypeDef):
     pass
+
+StartResourceScanInputRequestTypeDef = TypedDict(
+    "StartResourceScanInputRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+StartResourceScanOutputTypeDef = TypedDict(
+    "StartResourceScanOutputTypeDef",
+    {
+        "ResourceScanId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredStopStackSetOperationInputRequestTypeDef = TypedDict(
     "_RequiredStopStackSetOperationInputRequestTypeDef",
@@ -2713,6 +3107,15 @@ TagTypeDef = TypedDict(
     },
 )
 
+TemplateConfigurationTypeDef = TypedDict(
+    "TemplateConfigurationTypeDef",
+    {
+        "DeletionPolicy": GeneratedTemplateDeletionPolicyType,
+        "UpdateReplacePolicy": GeneratedTemplateUpdateReplacePolicyType,
+    },
+    total=False,
+)
+
 TemplateParameterTypeDef = TypedDict(
     "TemplateParameterTypeDef",
     {
@@ -2724,10 +3127,35 @@ TemplateParameterTypeDef = TypedDict(
     total=False,
 )
 
+TemplateProgressTypeDef = TypedDict(
+    "TemplateProgressTypeDef",
+    {
+        "ResourcesSucceeded": int,
+        "ResourcesFailed": int,
+        "ResourcesProcessing": int,
+        "ResourcesPending": int,
+    },
+    total=False,
+)
+
 TemplateSummaryConfigTypeDef = TypedDict(
     "TemplateSummaryConfigTypeDef",
     {
         "TreatUnrecognizedResourceTypesAsWarnings": bool,
+    },
+    total=False,
+)
+
+TemplateSummaryTypeDef = TypedDict(
+    "TemplateSummaryTypeDef",
+    {
+        "GeneratedTemplateId": str,
+        "GeneratedTemplateName": str,
+        "Status": GeneratedTemplateStatusType,
+        "StatusReason": str,
+        "CreationTime": datetime,
+        "LastUpdatedTime": datetime,
+        "NumberOfResources": int,
     },
     total=False,
 )
@@ -2821,6 +3249,38 @@ TypeVersionSummaryTypeDef = TypedDict(
         "PublicVersionNumber": str,
     },
     total=False,
+)
+
+_RequiredUpdateGeneratedTemplateInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateGeneratedTemplateInputRequestTypeDef",
+    {
+        "GeneratedTemplateName": str,
+    },
+)
+_OptionalUpdateGeneratedTemplateInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateGeneratedTemplateInputRequestTypeDef",
+    {
+        "NewGeneratedTemplateName": str,
+        "AddResources": List["ResourceDefinitionTypeDef"],
+        "RemoveResources": List[str],
+        "RefreshAllResources": bool,
+        "TemplateConfiguration": "TemplateConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateGeneratedTemplateInputRequestTypeDef(
+    _RequiredUpdateGeneratedTemplateInputRequestTypeDef,
+    _OptionalUpdateGeneratedTemplateInputRequestTypeDef,
+):
+    pass
+
+UpdateGeneratedTemplateOutputTypeDef = TypedDict(
+    "UpdateGeneratedTemplateOutputTypeDef",
+    {
+        "GeneratedTemplateId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredUpdateStackInputRequestTypeDef = TypedDict(
@@ -3010,6 +3470,25 @@ WaiterConfigTypeDef = TypedDict(
     {
         "Delay": int,
         "MaxAttempts": int,
+    },
+    total=False,
+)
+
+WarningDetailTypeDef = TypedDict(
+    "WarningDetailTypeDef",
+    {
+        "Type": WarningTypeType,
+        "Properties": List["WarningPropertyTypeDef"],
+    },
+    total=False,
+)
+
+WarningPropertyTypeDef = TypedDict(
+    "WarningPropertyTypeDef",
+    {
+        "PropertyPath": str,
+        "Required": bool,
+        "Description": str,
     },
     total=False,
 )

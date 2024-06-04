@@ -25,6 +25,7 @@ Usage::
     describe_repositories_paginator: DescribeRepositoriesPaginator = client.get_paginator("describe_repositories")
     ```
 """
+
 from .client import ECRPublicClient
 from .paginator import (
     DescribeImagesPaginator,

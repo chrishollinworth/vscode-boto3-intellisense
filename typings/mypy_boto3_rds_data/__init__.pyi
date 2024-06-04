@@ -16,6 +16,7 @@ Usage::
     session_client: RDSDataServiceClient = session.client("rds-data")
     ```
 """
+
 from .client import RDSDataServiceClient
 
 Client = RDSDataServiceClient

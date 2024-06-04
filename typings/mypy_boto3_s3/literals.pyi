@@ -11,6 +11,7 @@ Usage::
     data: AnalyticsS3ExportFileFormatType = "CSV"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -27,10 +28,12 @@ __all__ = (
     "BucketLocationConstraintType",
     "BucketLogsPermissionType",
     "BucketNotExistsWaiterName",
+    "BucketTypeType",
     "BucketVersioningStatusType",
     "ChecksumAlgorithmType",
     "ChecksumModeType",
     "CompressionTypeType",
+    "DataRedundancyType",
     "DeleteMarkerReplicationStatusType",
     "EncodingTypeType",
     "EventType",
@@ -46,11 +49,13 @@ __all__ = (
     "InventoryIncludedObjectVersionsType",
     "InventoryOptionalFieldType",
     "JSONTypeType",
+    "ListDirectoryBucketsPaginatorName",
     "ListMultipartUploadsPaginatorName",
     "ListObjectVersionsPaginatorName",
     "ListObjectsPaginatorName",
     "ListObjectsV2PaginatorName",
     "ListPartsPaginatorName",
+    "LocationTypeType",
     "MFADeleteStatusType",
     "MFADeleteType",
     "MetadataDirectiveType",
@@ -81,6 +86,7 @@ __all__ = (
     "RequestPayerType",
     "RestoreRequestTypeType",
     "ServerSideEncryptionType",
+    "SessionModeType",
     "SseKmsEncryptedObjectsStatusType",
     "StorageClassAnalysisSchemaVersionType",
     "StorageClassType",
@@ -127,10 +133,12 @@ BucketLocationConstraintType = Literal[
 ]
 BucketLogsPermissionType = Literal["FULL_CONTROL", "READ", "WRITE"]
 BucketNotExistsWaiterName = Literal["bucket_not_exists"]
+BucketTypeType = Literal["Directory"]
 BucketVersioningStatusType = Literal["Enabled", "Suspended"]
 ChecksumAlgorithmType = Literal["CRC32", "CRC32C", "SHA1", "SHA256"]
 ChecksumModeType = Literal["ENABLED"]
 CompressionTypeType = Literal["BZIP2", "GZIP", "NONE"]
+DataRedundancyType = Literal["SingleAvailabilityZone"]
 DeleteMarkerReplicationStatusType = Literal["Disabled", "Enabled"]
 EncodingTypeType = Literal["url"]
 EventType = Literal[
@@ -190,11 +198,13 @@ InventoryOptionalFieldType = Literal[
     "StorageClass",
 ]
 JSONTypeType = Literal["DOCUMENT", "LINES"]
+ListDirectoryBucketsPaginatorName = Literal["list_directory_buckets"]
 ListMultipartUploadsPaginatorName = Literal["list_multipart_uploads"]
 ListObjectVersionsPaginatorName = Literal["list_object_versions"]
 ListObjectsPaginatorName = Literal["list_objects"]
 ListObjectsV2PaginatorName = Literal["list_objects_v2"]
 ListPartsPaginatorName = Literal["list_parts"]
+LocationTypeType = Literal["AvailabilityZone"]
 MFADeleteStatusType = Literal["Disabled", "Enabled"]
 MFADeleteType = Literal["Disabled", "Enabled"]
 MetadataDirectiveType = Literal["COPY", "REPLACE"]
@@ -218,6 +228,7 @@ ObjectNotExistsWaiterName = Literal["object_not_exists"]
 ObjectOwnershipType = Literal["BucketOwnerEnforced", "BucketOwnerPreferred", "ObjectWriter"]
 ObjectStorageClassType = Literal[
     "DEEP_ARCHIVE",
+    "EXPRESS_ONEZONE",
     "GLACIER",
     "GLACIER_IR",
     "INTELLIGENT_TIERING",
@@ -244,10 +255,12 @@ RequestChargedType = Literal["requester"]
 RequestPayerType = Literal["requester"]
 RestoreRequestTypeType = Literal["SELECT"]
 ServerSideEncryptionType = Literal["AES256", "aws:kms", "aws:kms:dsse"]
+SessionModeType = Literal["ReadOnly", "ReadWrite"]
 SseKmsEncryptedObjectsStatusType = Literal["Disabled", "Enabled"]
 StorageClassAnalysisSchemaVersionType = Literal["V_1"]
 StorageClassType = Literal[
     "DEEP_ARCHIVE",
+    "EXPRESS_ONEZONE",
     "GLACIER",
     "GLACIER_IR",
     "INTELLIGENT_TIERING",

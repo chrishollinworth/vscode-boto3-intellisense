@@ -11,6 +11,7 @@ Usage::
     data: AttachmentItemTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

@@ -15,6 +15,7 @@ Usage::
         DescribeOptedOutNumbersPaginator,
         DescribePhoneNumbersPaginator,
         DescribePoolsPaginator,
+        DescribeProtectConfigurationsPaginator,
         DescribeRegistrationAttachmentsPaginator,
         DescribeRegistrationFieldDefinitionsPaginator,
         DescribeRegistrationFieldValuesPaginator,
@@ -43,6 +44,7 @@ Usage::
     describe_opted_out_numbers_paginator: DescribeOptedOutNumbersPaginator = client.get_paginator("describe_opted_out_numbers")
     describe_phone_numbers_paginator: DescribePhoneNumbersPaginator = client.get_paginator("describe_phone_numbers")
     describe_pools_paginator: DescribePoolsPaginator = client.get_paginator("describe_pools")
+    describe_protect_configurations_paginator: DescribeProtectConfigurationsPaginator = client.get_paginator("describe_protect_configurations")
     describe_registration_attachments_paginator: DescribeRegistrationAttachmentsPaginator = client.get_paginator("describe_registration_attachments")
     describe_registration_field_definitions_paginator: DescribeRegistrationFieldDefinitionsPaginator = client.get_paginator("describe_registration_field_definitions")
     describe_registration_field_values_paginator: DescribeRegistrationFieldValuesPaginator = client.get_paginator("describe_registration_field_values")
@@ -57,6 +59,7 @@ Usage::
     list_registration_associations_paginator: ListRegistrationAssociationsPaginator = client.get_paginator("list_registration_associations")
     ```
 """
+
 from .client import PinpointSMSVoiceV2Client
 from .paginator import (
     DescribeAccountAttributesPaginator,
@@ -67,6 +70,7 @@ from .paginator import (
     DescribeOptOutListsPaginator,
     DescribePhoneNumbersPaginator,
     DescribePoolsPaginator,
+    DescribeProtectConfigurationsPaginator,
     DescribeRegistrationAttachmentsPaginator,
     DescribeRegistrationFieldDefinitionsPaginator,
     DescribeRegistrationFieldValuesPaginator,
@@ -93,6 +97,7 @@ __all__ = (
     "DescribeOptedOutNumbersPaginator",
     "DescribePhoneNumbersPaginator",
     "DescribePoolsPaginator",
+    "DescribeProtectConfigurationsPaginator",
     "DescribeRegistrationAttachmentsPaginator",
     "DescribeRegistrationFieldDefinitionsPaginator",
     "DescribeRegistrationFieldValuesPaginator",

@@ -11,6 +11,7 @@ Usage::
     data: AdditionalConstraintsElementType = "REQUIRE_DIGIT"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

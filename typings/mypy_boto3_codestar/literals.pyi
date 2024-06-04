@@ -11,6 +11,7 @@ Usage::
     data: ListProjectsPaginatorName = "list_projects"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -11,6 +11,7 @@ Usage::
     data: CachePolicyCookieBehaviorType = "all"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -92,7 +93,7 @@ MethodType = Literal["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
 MinimumProtocolVersionType = Literal[
     "SSLv3", "TLSv1", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021", "TLSv1_2016"
 ]
-OriginAccessControlOriginTypesType = Literal["mediastore", "s3"]
+OriginAccessControlOriginTypesType = Literal["lambda", "mediapackagev2", "mediastore", "s3"]
 OriginAccessControlSigningBehaviorsType = Literal["always", "never", "no-override"]
 OriginAccessControlSigningProtocolsType = Literal["sigv4"]
 OriginProtocolPolicyType = Literal["http-only", "https-only", "match-viewer"]

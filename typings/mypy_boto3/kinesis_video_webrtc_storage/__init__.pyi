@@ -16,6 +16,7 @@ Usage::
     session_client: KinesisVideoWebRTCStorageClient = session.client("kinesis-video-webrtc-storage")
     ```
 """
+
 from .client import KinesisVideoWebRTCStorageClient
 
 Client = KinesisVideoWebRTCStorageClient

@@ -11,6 +11,7 @@ Usage::
     data: AacAudioDescriptionBroadcasterMixType = "BROADCASTER_MIXED_AD"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -295,6 +296,7 @@ __all__ = (
     "M2tsKlvMetadataType",
     "M2tsNielsenId3Type",
     "M2tsPcrControlType",
+    "M2tsPreventBufferUnderflowType",
     "M2tsRateModeType",
     "M2tsScte35SourceType",
     "M2tsSegmentationMarkersType",
@@ -393,6 +395,13 @@ __all__ = (
     "TsPtsOffsetType",
     "TtmlStylePassthroughType",
     "TypeType",
+    "UncompressedFourccType",
+    "UncompressedFramerateControlType",
+    "UncompressedFramerateConversionAlgorithmType",
+    "UncompressedInterlaceModeType",
+    "UncompressedScanTypeConversionModeType",
+    "UncompressedSlowPalType",
+    "UncompressedTelecineType",
     "Vc3ClassType",
     "Vc3FramerateControlType",
     "Vc3FramerateConversionAlgorithmType",
@@ -655,7 +664,7 @@ ColorSpaceType = Literal[
 ColorSpaceUsageType = Literal["FALLBACK", "FORCE"]
 CommitmentType = Literal["ONE_YEAR"]
 ContainerTypeType = Literal[
-    "CMFC", "F4V", "ISMV", "M2TS", "M3U8", "MOV", "MP4", "MPD", "MXF", "RAW", "WEBM"
+    "CMFC", "F4V", "ISMV", "M2TS", "M3U8", "MOV", "MP4", "MPD", "MXF", "RAW", "WEBM", "Y4M"
 ]
 CopyProtectionActionType = Literal["PASSTHROUGH", "STRIP"]
 DashIsoGroupAudioChannelConfigSchemeIdUriType = Literal[
@@ -1104,6 +1113,7 @@ M2tsForceTsVideoEbpOrderType = Literal["DEFAULT", "FORCE"]
 M2tsKlvMetadataType = Literal["NONE", "PASSTHROUGH"]
 M2tsNielsenId3Type = Literal["INSERT", "NONE"]
 M2tsPcrControlType = Literal["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"]
+M2tsPreventBufferUnderflowType = Literal["DISABLED", "ENABLED"]
 M2tsRateModeType = Literal["CBR", "VBR"]
 M2tsScte35SourceType = Literal["NONE", "PASSTHROUGH"]
 M2tsSegmentationMarkersType = Literal[
@@ -1284,6 +1294,15 @@ TimedMetadataType = Literal["NONE", "PASSTHROUGH"]
 TsPtsOffsetType = Literal["AUTO", "SECONDS"]
 TtmlStylePassthroughType = Literal["DISABLED", "ENABLED"]
 TypeType = Literal["CUSTOM", "SYSTEM"]
+UncompressedFourccType = Literal["I420", "I422", "I444"]
+UncompressedFramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
+UncompressedFramerateConversionAlgorithmType = Literal[
+    "DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"
+]
+UncompressedInterlaceModeType = Literal["INTERLACED", "PROGRESSIVE"]
+UncompressedScanTypeConversionModeType = Literal["INTERLACED", "INTERLACED_OPTIMIZE"]
+UncompressedSlowPalType = Literal["DISABLED", "ENABLED"]
+UncompressedTelecineType = Literal["HARD", "NONE"]
 Vc3ClassType = Literal["CLASS_145_8BIT", "CLASS_220_10BIT", "CLASS_220_8BIT"]
 Vc3FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
 Vc3FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
@@ -1301,6 +1320,7 @@ VideoCodecType = Literal[
     "MPEG2",
     "PASSTHROUGH",
     "PRORES",
+    "UNCOMPRESSED",
     "VC3",
     "VP8",
     "VP9",

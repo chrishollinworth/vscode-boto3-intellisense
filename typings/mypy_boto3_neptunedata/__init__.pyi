@@ -16,6 +16,7 @@ Usage::
     session_client: NeptuneDataClient = session.client("neptunedata")
     ```
 """
+
 from .client import NeptuneDataClient
 
 Client = NeptuneDataClient

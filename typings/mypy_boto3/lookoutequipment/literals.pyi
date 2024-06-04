@@ -11,6 +11,7 @@ Usage::
     data: AutoPromotionResultType = "MODEL_NOT_PROMOTED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -29,6 +30,7 @@ __all__ = (
     "LabelRatingType",
     "LatestInferenceResultType",
     "ModelPromoteModeType",
+    "ModelQualityType",
     "ModelStatusType",
     "ModelVersionSourceTypeType",
     "ModelVersionStatusType",
@@ -54,6 +56,9 @@ IngestionJobStatusType = Literal["FAILED", "IMPORT_IN_PROGRESS", "IN_PROGRESS", 
 LabelRatingType = Literal["ANOMALY", "NEUTRAL", "NO_ANOMALY"]
 LatestInferenceResultType = Literal["ANOMALOUS", "NORMAL"]
 ModelPromoteModeType = Literal["MANAGED", "MANUAL"]
+ModelQualityType = Literal[
+    "CANNOT_DETERMINE_QUALITY", "POOR_QUALITY_DETECTED", "QUALITY_THRESHOLD_MET"
+]
 ModelStatusType = Literal["FAILED", "IMPORT_IN_PROGRESS", "IN_PROGRESS", "SUCCESS"]
 ModelVersionSourceTypeType = Literal["IMPORT", "RETRAINING", "TRAINING"]
 ModelVersionStatusType = Literal[

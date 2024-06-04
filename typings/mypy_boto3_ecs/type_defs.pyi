@@ -11,6 +11,7 @@ Usage::
     data: AttachmentStateChangeTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -41,6 +42,7 @@ from .literals import (
     IpcModeType,
     LaunchTypeType,
     LogDriverType,
+    ManagedDrainingType,
     ManagedScalingStatusType,
     ManagedTerminationProtectionType,
     NetworkModeType,
@@ -58,6 +60,7 @@ from .literals import (
     StabilityStatusType,
     TaskDefinitionFamilyStatusType,
     TaskDefinitionStatusType,
+    TaskFilesystemTypeType,
     TaskStopCodeType,
     TransportProtocolType,
     UlimitNameType,
@@ -142,6 +145,7 @@ __all__ = (
     "DiscoverPollEndpointRequestRequestTypeDef",
     "DiscoverPollEndpointResponseTypeDef",
     "DockerVolumeConfigurationTypeDef",
+    "EBSTagSpecificationTypeDef",
     "EFSAuthorizationConfigTypeDef",
     "EFSVolumeConfigurationTypeDef",
     "EnvironmentFileTypeDef",
@@ -226,9 +230,13 @@ __all__ = (
     "ServiceConnectConfigurationTypeDef",
     "ServiceConnectServiceResourceTypeDef",
     "ServiceConnectServiceTypeDef",
+    "ServiceConnectTlsCertificateAuthorityTypeDef",
+    "ServiceConnectTlsConfigurationTypeDef",
     "ServiceEventTypeDef",
+    "ServiceManagedEBSVolumeConfigurationTypeDef",
     "ServiceRegistryTypeDef",
     "ServiceTypeDef",
+    "ServiceVolumeConfigurationTypeDef",
     "SessionTypeDef",
     "SettingTypeDef",
     "StartTaskRequestRequestTypeDef",
@@ -246,9 +254,13 @@ __all__ = (
     "TagTypeDef",
     "TaskDefinitionPlacementConstraintTypeDef",
     "TaskDefinitionTypeDef",
+    "TaskManagedEBSVolumeConfigurationTypeDef",
+    "TaskManagedEBSVolumeTerminationPolicyTypeDef",
     "TaskOverrideTypeDef",
     "TaskSetTypeDef",
     "TaskTypeDef",
+    "TaskVolumeConfigurationTypeDef",
+    "TimeoutConfigurationTypeDef",
     "TmpfsTypeDef",
     "UlimitTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -325,6 +337,7 @@ _OptionalAutoScalingGroupProviderTypeDef = TypedDict(
     {
         "managedScaling": "ManagedScalingTypeDef",
         "managedTerminationProtection": ManagedTerminationProtectionType,
+        "managedDraining": ManagedDrainingType,
     },
     total=False,
 )
@@ -339,6 +352,7 @@ AutoScalingGroupProviderUpdateTypeDef = TypedDict(
     {
         "managedScaling": "ManagedScalingTypeDef",
         "managedTerminationProtection": ManagedTerminationProtectionType,
+        "managedDraining": ManagedDrainingType,
     },
     total=False,
 )
@@ -676,6 +690,7 @@ _OptionalCreateServiceRequestRequestTypeDef = TypedDict(
         "propagateTags": PropagateTagsType,
         "enableExecuteCommand": bool,
         "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
+        "volumeConfigurations": List["ServiceVolumeConfigurationTypeDef"],
     },
     total=False,
 )
@@ -945,6 +960,7 @@ DeploymentTypeDef = TypedDict(
         "rolloutStateReason": str,
         "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
         "serviceConnectResources": List["ServiceConnectServiceResourceTypeDef"],
+        "volumeConfigurations": List["ServiceVolumeConfigurationTypeDef"],
     },
     total=False,
 )
@@ -1227,6 +1243,26 @@ DockerVolumeConfigurationTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredEBSTagSpecificationTypeDef = TypedDict(
+    "_RequiredEBSTagSpecificationTypeDef",
+    {
+        "resourceType": Literal["volume"],
+    },
+)
+_OptionalEBSTagSpecificationTypeDef = TypedDict(
+    "_OptionalEBSTagSpecificationTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+        "propagateTags": PropagateTagsType,
+    },
+    total=False,
+)
+
+class EBSTagSpecificationTypeDef(
+    _RequiredEBSTagSpecificationTypeDef, _OptionalEBSTagSpecificationTypeDef
+):
+    pass
 
 EFSAuthorizationConfigTypeDef = TypedDict(
     "EFSAuthorizationConfigTypeDef",
@@ -2140,6 +2176,7 @@ _OptionalRunTaskRequestRequestTypeDef = TypedDict(
         "startedBy": str,
         "tags": List["TagTypeDef"],
         "clientToken": str,
+        "volumeConfigurations": List["TaskVolumeConfigurationTypeDef"],
     },
     total=False,
 )
@@ -2245,12 +2282,42 @@ _OptionalServiceConnectServiceTypeDef = TypedDict(
         "discoveryName": str,
         "clientAliases": List["ServiceConnectClientAliasTypeDef"],
         "ingressPortOverride": int,
+        "timeout": "TimeoutConfigurationTypeDef",
+        "tls": "ServiceConnectTlsConfigurationTypeDef",
     },
     total=False,
 )
 
 class ServiceConnectServiceTypeDef(
     _RequiredServiceConnectServiceTypeDef, _OptionalServiceConnectServiceTypeDef
+):
+    pass
+
+ServiceConnectTlsCertificateAuthorityTypeDef = TypedDict(
+    "ServiceConnectTlsCertificateAuthorityTypeDef",
+    {
+        "awsPcaAuthorityArn": str,
+    },
+    total=False,
+)
+
+_RequiredServiceConnectTlsConfigurationTypeDef = TypedDict(
+    "_RequiredServiceConnectTlsConfigurationTypeDef",
+    {
+        "issuerCertificateAuthority": "ServiceConnectTlsCertificateAuthorityTypeDef",
+    },
+)
+_OptionalServiceConnectTlsConfigurationTypeDef = TypedDict(
+    "_OptionalServiceConnectTlsConfigurationTypeDef",
+    {
+        "kmsKey": str,
+        "roleArn": str,
+    },
+    total=False,
+)
+
+class ServiceConnectTlsConfigurationTypeDef(
+    _RequiredServiceConnectTlsConfigurationTypeDef, _OptionalServiceConnectTlsConfigurationTypeDef
 ):
     pass
 
@@ -2263,6 +2330,34 @@ ServiceEventTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredServiceManagedEBSVolumeConfigurationTypeDef = TypedDict(
+    "_RequiredServiceManagedEBSVolumeConfigurationTypeDef",
+    {
+        "roleArn": str,
+    },
+)
+_OptionalServiceManagedEBSVolumeConfigurationTypeDef = TypedDict(
+    "_OptionalServiceManagedEBSVolumeConfigurationTypeDef",
+    {
+        "encrypted": bool,
+        "kmsKeyId": str,
+        "volumeType": str,
+        "sizeInGiB": int,
+        "snapshotId": str,
+        "iops": int,
+        "throughput": int,
+        "tagSpecifications": List["EBSTagSpecificationTypeDef"],
+        "filesystemType": TaskFilesystemTypeType,
+    },
+    total=False,
+)
+
+class ServiceManagedEBSVolumeConfigurationTypeDef(
+    _RequiredServiceManagedEBSVolumeConfigurationTypeDef,
+    _OptionalServiceManagedEBSVolumeConfigurationTypeDef,
+):
+    pass
 
 ServiceRegistryTypeDef = TypedDict(
     "ServiceRegistryTypeDef",
@@ -2313,6 +2408,25 @@ ServiceTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredServiceVolumeConfigurationTypeDef = TypedDict(
+    "_RequiredServiceVolumeConfigurationTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalServiceVolumeConfigurationTypeDef = TypedDict(
+    "_OptionalServiceVolumeConfigurationTypeDef",
+    {
+        "managedEBSVolume": "ServiceManagedEBSVolumeConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class ServiceVolumeConfigurationTypeDef(
+    _RequiredServiceVolumeConfigurationTypeDef, _OptionalServiceVolumeConfigurationTypeDef
+):
+    pass
+
 SessionTypeDef = TypedDict(
     "SessionTypeDef",
     {
@@ -2354,6 +2468,7 @@ _OptionalStartTaskRequestRequestTypeDef = TypedDict(
         "referenceId": str,
         "startedBy": str,
         "tags": List["TagTypeDef"],
+        "volumeConfigurations": List["TaskVolumeConfigurationTypeDef"],
     },
     total=False,
 )
@@ -2542,6 +2657,42 @@ TaskDefinitionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredTaskManagedEBSVolumeConfigurationTypeDef = TypedDict(
+    "_RequiredTaskManagedEBSVolumeConfigurationTypeDef",
+    {
+        "roleArn": str,
+    },
+)
+_OptionalTaskManagedEBSVolumeConfigurationTypeDef = TypedDict(
+    "_OptionalTaskManagedEBSVolumeConfigurationTypeDef",
+    {
+        "encrypted": bool,
+        "kmsKeyId": str,
+        "volumeType": str,
+        "sizeInGiB": int,
+        "snapshotId": str,
+        "iops": int,
+        "throughput": int,
+        "tagSpecifications": List["EBSTagSpecificationTypeDef"],
+        "terminationPolicy": "TaskManagedEBSVolumeTerminationPolicyTypeDef",
+        "filesystemType": TaskFilesystemTypeType,
+    },
+    total=False,
+)
+
+class TaskManagedEBSVolumeConfigurationTypeDef(
+    _RequiredTaskManagedEBSVolumeConfigurationTypeDef,
+    _OptionalTaskManagedEBSVolumeConfigurationTypeDef,
+):
+    pass
+
+TaskManagedEBSVolumeTerminationPolicyTypeDef = TypedDict(
+    "TaskManagedEBSVolumeTerminationPolicyTypeDef",
+    {
+        "deleteOnTermination": bool,
+    },
+)
+
 TaskOverrideTypeDef = TypedDict(
     "TaskOverrideTypeDef",
     {
@@ -2626,6 +2777,34 @@ TaskTypeDef = TypedDict(
         "taskDefinitionArn": str,
         "version": int,
         "ephemeralStorage": "EphemeralStorageTypeDef",
+    },
+    total=False,
+)
+
+_RequiredTaskVolumeConfigurationTypeDef = TypedDict(
+    "_RequiredTaskVolumeConfigurationTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalTaskVolumeConfigurationTypeDef = TypedDict(
+    "_OptionalTaskVolumeConfigurationTypeDef",
+    {
+        "managedEBSVolume": "TaskManagedEBSVolumeConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class TaskVolumeConfigurationTypeDef(
+    _RequiredTaskVolumeConfigurationTypeDef, _OptionalTaskVolumeConfigurationTypeDef
+):
+    pass
+
+TimeoutConfigurationTypeDef = TypedDict(
+    "TimeoutConfigurationTypeDef",
+    {
+        "idleTimeoutSeconds": int,
+        "perRequestTimeoutSeconds": int,
     },
     total=False,
 )
@@ -2827,6 +3006,7 @@ _OptionalUpdateServiceRequestRequestTypeDef = TypedDict(
         "propagateTags": PropagateTagsType,
         "serviceRegistries": List["ServiceRegistryTypeDef"],
         "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
+        "volumeConfigurations": List["ServiceVolumeConfigurationTypeDef"],
     },
     total=False,
 )
@@ -2920,6 +3100,7 @@ VolumeTypeDef = TypedDict(
         "dockerVolumeConfiguration": "DockerVolumeConfigurationTypeDef",
         "efsVolumeConfiguration": "EFSVolumeConfigurationTypeDef",
         "fsxWindowsFileServerVolumeConfiguration": "FSxWindowsFileServerVolumeConfigurationTypeDef",
+        "configuredAtLaunch": bool,
     },
     total=False,
 )

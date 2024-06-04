@@ -11,6 +11,7 @@ Usage::
     data: ActiveDirectoryStatusType = "ACCESS_DENIED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -73,5 +74,7 @@ ObjectACLType = Literal[
 ]
 PoolStatusType = Literal["ACTIVE", "DELETED"]
 RetentionLockTypeType = Literal["COMPLIANCE", "GOVERNANCE", "NONE"]
-SMBSecurityStrategyType = Literal["ClientSpecified", "MandatoryEncryption", "MandatorySigning"]
+SMBSecurityStrategyType = Literal[
+    "ClientSpecified", "MandatoryEncryption", "MandatoryEncryptionNoAes128", "MandatorySigning"
+]
 TapeStorageClassType = Literal["DEEP_ARCHIVE", "GLACIER"]

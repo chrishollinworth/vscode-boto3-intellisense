@@ -23,6 +23,7 @@ Usage::
     list_targets_by_rule_paginator: ListTargetsByRulePaginator = client.get_paginator("list_targets_by_rule")
     ```
 """
+
 from .client import EventBridgeClient
 from .paginator import (
     ListRuleNamesByTargetPaginator,

@@ -16,6 +16,7 @@ Usage::
     session_client: TranscribeServiceClient = session.client("transcribe")
     ```
 """
+
 from .client import TranscribeServiceClient
 
 Client = TranscribeServiceClient

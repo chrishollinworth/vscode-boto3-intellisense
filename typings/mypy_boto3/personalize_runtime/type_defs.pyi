@@ -11,6 +11,7 @@ Usage::
     data: GetActionRecommendationsRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -129,6 +130,7 @@ PredictedItemTypeDef = TypedDict(
         "score": float,
         "promotionName": str,
         "metadata": Dict[str, str],
+        "reason": List[str],
     },
     total=False,
 )

@@ -25,6 +25,7 @@ Usage::
     list_price_lists_paginator: ListPriceListsPaginator = client.get_paginator("list_price_lists")
     ```
 """
+
 from .client import PricingClient
 from .paginator import (
     DescribeServicesPaginator,

@@ -11,6 +11,7 @@ Usage::
     data: AsyncJobStatusType = "CANCEL_IN_PROGRESS"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -11,6 +11,7 @@ Usage::
     data: CopyDestinationImageSetPropertiesTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -23,6 +24,8 @@ from .literals import (
     ImageSetWorkflowStatusType,
     JobStatusType,
     OperatorType,
+    SortFieldType,
+    SortOrderType,
 )
 
 if sys.version_info >= (3, 8):
@@ -80,6 +83,7 @@ __all__ = (
     "SearchFilterTypeDef",
     "SearchImageSetsRequestRequestTypeDef",
     "SearchImageSetsResponseTypeDef",
+    "SortTypeDef",
     "StartDICOMImportJobRequestRequestTypeDef",
     "StartDICOMImportJobResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -304,6 +308,10 @@ DICOMTagsTypeDef = TypedDict(
         "DICOMNumberOfStudyRelatedSeries": int,
         "DICOMNumberOfStudyRelatedInstances": int,
         "DICOMAccessionNumber": str,
+        "DICOMSeriesInstanceUID": str,
+        "DICOMSeriesModality": str,
+        "DICOMSeriesBodyPart": str,
+        "DICOMSeriesNumber": int,
         "DICOMStudyDate": str,
         "DICOMStudyTime": str,
     },
@@ -702,7 +710,9 @@ SearchByAttributeValueTypeDef = TypedDict(
         "DICOMAccessionNumber": str,
         "DICOMStudyId": str,
         "DICOMStudyInstanceUID": str,
+        "DICOMSeriesInstanceUID": str,
         "createdAt": Union[datetime, str],
+        "updatedAt": Union[datetime, str],
         "DICOMStudyDateAndTime": "DICOMStudyDateAndTimeTypeDef",
     },
     total=False,
@@ -712,6 +722,7 @@ SearchCriteriaTypeDef = TypedDict(
     "SearchCriteriaTypeDef",
     {
         "filters": List["SearchFilterTypeDef"],
+        "sort": "SortTypeDef",
     },
     total=False,
 )
@@ -749,8 +760,17 @@ SearchImageSetsResponseTypeDef = TypedDict(
     "SearchImageSetsResponseTypeDef",
     {
         "imageSetsMetadataSummaries": List["ImageSetsMetadataSummaryTypeDef"],
+        "sort": "SortTypeDef",
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SortTypeDef = TypedDict(
+    "SortTypeDef",
+    {
+        "sortOrder": SortOrderType,
+        "sortField": SortFieldType,
     },
 )
 
@@ -768,6 +788,7 @@ _OptionalStartDICOMImportJobRequestRequestTypeDef = TypedDict(
     "_OptionalStartDICOMImportJobRequestRequestTypeDef",
     {
         "jobName": str,
+        "inputOwnerAccountId": str,
     },
     total=False,
 )

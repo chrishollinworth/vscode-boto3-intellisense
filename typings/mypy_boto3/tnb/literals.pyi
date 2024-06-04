@@ -11,6 +11,7 @@ Usage::
     data: DescriptorContentTypeType = "text/plain"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

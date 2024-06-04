@@ -11,6 +11,7 @@ Usage::
     data: AcceleratorCountRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Optional, Union
@@ -72,6 +73,8 @@ from .literals import (
     ConversionTaskStateType,
     CpuManufacturerType,
     DatafeedSubscriptionStateType,
+    DefaultInstanceMetadataEndpointStateType,
+    DefaultInstanceMetadataTagsStateType,
     DefaultRouteTableAssociationValueType,
     DefaultRouteTablePropagationValueType,
     DefaultTargetCapacityTypeType,
@@ -91,6 +94,8 @@ from .literals import (
     EbsNvmeSupportType,
     EbsOptimizedSupportType,
     Ec2InstanceConnectEndpointStateType,
+    EkPubKeyFormatType,
+    EkPubKeyTypeType,
     ElasticGpuStatusType,
     EnaSupportType,
     EndDateTypeType,
@@ -190,6 +195,7 @@ from .literals import (
     LogDestinationTypeType,
     MarketTypeType,
     MembershipTypeType,
+    MetadataDefaultHttpTokensStateType,
     ModifyAvailabilityZoneOptInStatusType,
     MonitoringStateType,
     MoveStatusType,
@@ -210,6 +216,7 @@ from .literals import (
     PartitionLoadFrequencyType,
     PaymentOptionType,
     PeriodTypeType,
+    PhcSupportType,
     PlacementGroupStateType,
     PlacementGroupStrategyType,
     PlacementStrategyType,
@@ -1077,6 +1084,8 @@ __all__ = (
     "DescribeLocalGatewaysResultTypeDef",
     "DescribeLockedSnapshotsRequestRequestTypeDef",
     "DescribeLockedSnapshotsResultTypeDef",
+    "DescribeMacHostsRequestRequestTypeDef",
+    "DescribeMacHostsResultTypeDef",
     "DescribeManagedPrefixListsRequestRequestTypeDef",
     "DescribeManagedPrefixListsResultTypeDef",
     "DescribeMovingAddressesRequestRequestTypeDef",
@@ -1274,6 +1283,8 @@ __all__ = (
     "DisableImageBlockPublicAccessResultTypeDef",
     "DisableImageDeprecationRequestRequestTypeDef",
     "DisableImageDeprecationResultTypeDef",
+    "DisableImageDeregistrationProtectionRequestRequestTypeDef",
+    "DisableImageDeregistrationProtectionResultTypeDef",
     "DisableImageRequestRequestTypeDef",
     "DisableImageResultTypeDef",
     "DisableIpamOrganizationAdminAccountRequestRequestTypeDef",
@@ -1368,6 +1379,8 @@ __all__ = (
     "EnableImageBlockPublicAccessResultTypeDef",
     "EnableImageDeprecationRequestRequestTypeDef",
     "EnableImageDeprecationResultTypeDef",
+    "EnableImageDeregistrationProtectionRequestRequestTypeDef",
+    "EnableImageDeregistrationProtectionResultTypeDef",
     "EnableImageRequestRequestTypeDef",
     "EnableImageResultTypeDef",
     "EnableIpamOrganizationAdminAccountRequestRequestTypeDef",
@@ -1466,6 +1479,10 @@ __all__ = (
     "GetHostReservationPurchasePreviewResultTypeDef",
     "GetImageBlockPublicAccessStateRequestRequestTypeDef",
     "GetImageBlockPublicAccessStateResultTypeDef",
+    "GetInstanceMetadataDefaultsRequestRequestTypeDef",
+    "GetInstanceMetadataDefaultsResultTypeDef",
+    "GetInstanceTpmEkPubRequestRequestTypeDef",
+    "GetInstanceTpmEkPubResultTypeDef",
     "GetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef",
     "GetInstanceTypesFromInstanceRequirementsResultTypeDef",
     "GetInstanceUefiDataRequestRequestTypeDef",
@@ -1607,6 +1624,7 @@ __all__ = (
     "InstanceMaintenanceOptionsRequestTypeDef",
     "InstanceMaintenanceOptionsTypeDef",
     "InstanceMarketOptionsRequestTypeDef",
+    "InstanceMetadataDefaultsResponseTypeDef",
     "InstanceMetadataOptionsRequestTypeDef",
     "InstanceMetadataOptionsResponseTypeDef",
     "InstanceMonitoringTypeDef",
@@ -1740,8 +1758,12 @@ __all__ = (
     "LockSnapshotRequestRequestTypeDef",
     "LockSnapshotResultTypeDef",
     "LockedSnapshotsInfoTypeDef",
+    "MacHostTypeDef",
     "MaintenanceDetailsTypeDef",
     "ManagedPrefixListTypeDef",
+    "MediaAcceleratorInfoTypeDef",
+    "MediaDeviceInfoTypeDef",
+    "MediaDeviceMemoryInfoTypeDef",
     "MemoryGiBPerVCpuRequestTypeDef",
     "MemoryGiBPerVCpuTypeDef",
     "MemoryInfoTypeDef",
@@ -1784,6 +1806,8 @@ __all__ = (
     "ModifyInstanceEventWindowResultTypeDef",
     "ModifyInstanceMaintenanceOptionsRequestRequestTypeDef",
     "ModifyInstanceMaintenanceOptionsResultTypeDef",
+    "ModifyInstanceMetadataDefaultsRequestRequestTypeDef",
+    "ModifyInstanceMetadataDefaultsResultTypeDef",
     "ModifyInstanceMetadataOptionsRequestRequestTypeDef",
     "ModifyInstanceMetadataOptionsResultTypeDef",
     "ModifyInstancePlacementRequestRequestTypeDef",
@@ -1913,6 +1937,10 @@ __all__ = (
     "NetworkInterfacePermissionTypeDef",
     "NetworkInterfacePrivateIpAddressTypeDef",
     "NetworkInterfaceTypeDef",
+    "NeuronDeviceCoreInfoTypeDef",
+    "NeuronDeviceInfoTypeDef",
+    "NeuronDeviceMemoryInfoTypeDef",
+    "NeuronInfoTypeDef",
     "NewDhcpConfigurationTypeDef",
     "NitroTpmInfoTypeDef",
     "OidcOptionsTypeDef",
@@ -2780,6 +2808,7 @@ _OptionalAdvertiseByoipCidrRequestRequestTypeDef = TypedDict(
     {
         "Asn": str,
         "DryRun": bool,
+        "NetworkBorderGroup": str,
     },
     total=False,
 )
@@ -4388,6 +4417,7 @@ ByoipCidrTypeDef = TypedDict(
         "AsnAssociations": List["AsnAssociationTypeDef"],
         "StatusMessage": str,
         "State": ByoipCidrStateType,
+        "NetworkBorderGroup": str,
     },
     total=False,
 )
@@ -5306,6 +5336,7 @@ _OptionalCopyImageRequestRequestTypeDef = TypedDict(
         "DestinationOutpostArn": str,
         "DryRun": bool,
         "CopyImageTags": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
 )
@@ -5672,6 +5703,7 @@ _OptionalCreateCustomerGatewayRequestRequestTypeDef = TypedDict(
         "DeviceName": str,
         "IpAddress": str,
         "DryRun": bool,
+        "BgpAsnExtended": int,
     },
     total=False,
 )
@@ -6601,6 +6633,7 @@ _OptionalCreateNetworkAclRequestRequestTypeDef = TypedDict(
     {
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
     },
     total=False,
 )
@@ -6621,6 +6654,7 @@ _OptionalCreateNetworkAclRequestServiceResourceTypeDef = TypedDict(
     {
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
     },
     total=False,
 )
@@ -6636,6 +6670,7 @@ CreateNetworkAclRequestVpcTypeDef = TypedDict(
     {
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
     },
     total=False,
 )
@@ -6644,6 +6679,7 @@ CreateNetworkAclResultTypeDef = TypedDict(
     "CreateNetworkAclResultTypeDef",
     {
         "NetworkAcl": "NetworkAclTypeDef",
+        "ClientToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -7060,6 +7096,7 @@ _OptionalCreateRouteTableRequestRequestTypeDef = TypedDict(
     {
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
     },
     total=False,
 )
@@ -7080,6 +7117,7 @@ _OptionalCreateRouteTableRequestServiceResourceTypeDef = TypedDict(
     {
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
     },
     total=False,
 )
@@ -7095,6 +7133,7 @@ CreateRouteTableRequestVpcTypeDef = TypedDict(
     {
         "DryRun": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
     },
     total=False,
 )
@@ -7103,6 +7142,7 @@ CreateRouteTableResultTypeDef = TypedDict(
     "CreateRouteTableResultTypeDef",
     {
         "RouteTable": "RouteTableTypeDef",
+        "ClientToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -8764,6 +8804,7 @@ CustomerGatewayTypeDef = TypedDict(
         "Type": str,
         "DeviceName": str,
         "Tags": List["TagTypeDef"],
+        "BgpAsnExtended": str,
     },
     total=False,
 )
@@ -12819,6 +12860,26 @@ DescribeLockedSnapshotsResultTypeDef = TypedDict(
     },
 )
 
+DescribeMacHostsRequestRequestTypeDef = TypedDict(
+    "DescribeMacHostsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "HostIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeMacHostsResultTypeDef = TypedDict(
+    "DescribeMacHostsResultTypeDef",
+    {
+        "MacHosts": List["MacHostTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeManagedPrefixListsRequestRequestTypeDef = TypedDict(
     "DescribeManagedPrefixListsRequestRequestTypeDef",
     {
@@ -13031,6 +13092,7 @@ DescribeNetworkInterfaceAttributeResultTypeDef = TypedDict(
         "Groups": List["GroupIdentifierTypeDef"],
         "NetworkInterfaceId": str,
         "SourceDestCheck": "AttributeBooleanValueTypeDef",
+        "AssociatePublicIpAddress": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -15161,6 +15223,34 @@ DisableImageDeprecationResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDisableImageDeregistrationProtectionRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableImageDeregistrationProtectionRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalDisableImageDeregistrationProtectionRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableImageDeregistrationProtectionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableImageDeregistrationProtectionRequestRequestTypeDef(
+    _RequiredDisableImageDeregistrationProtectionRequestRequestTypeDef,
+    _OptionalDisableImageDeregistrationProtectionRequestRequestTypeDef,
+):
+    pass
+
+DisableImageDeregistrationProtectionResultTypeDef = TypedDict(
+    "DisableImageDeregistrationProtectionResultTypeDef",
+    {
+        "Return": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDisableImageRequestRequestTypeDef = TypedDict(
     "_RequiredDisableImageRequestRequestTypeDef",
     {
@@ -15898,6 +15988,8 @@ EbsInstanceBlockDeviceTypeDef = TypedDict(
         "DeleteOnTermination": bool,
         "Status": AttachmentStatusType,
         "VolumeId": str,
+        "AssociatedResource": str,
+        "VolumeOwnerId": str,
     },
     total=False,
 )
@@ -16299,6 +16391,35 @@ EnableImageDeprecationResultTypeDef = TypedDict(
     "EnableImageDeprecationResultTypeDef",
     {
         "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredEnableImageDeregistrationProtectionRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableImageDeregistrationProtectionRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalEnableImageDeregistrationProtectionRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableImageDeregistrationProtectionRequestRequestTypeDef",
+    {
+        "WithCooldown": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableImageDeregistrationProtectionRequestRequestTypeDef(
+    _RequiredEnableImageDeregistrationProtectionRequestRequestTypeDef,
+    _OptionalEnableImageDeregistrationProtectionRequestRequestTypeDef,
+):
+    pass
+
+EnableImageDeregistrationProtectionResultTypeDef = TypedDict(
+    "EnableImageDeregistrationProtectionResultTypeDef",
+    {
+        "Return": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -17594,6 +17715,55 @@ GetImageBlockPublicAccessStateResultTypeDef = TypedDict(
     },
 )
 
+GetInstanceMetadataDefaultsRequestRequestTypeDef = TypedDict(
+    "GetInstanceMetadataDefaultsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+GetInstanceMetadataDefaultsResultTypeDef = TypedDict(
+    "GetInstanceMetadataDefaultsResultTypeDef",
+    {
+        "AccountLevel": "InstanceMetadataDefaultsResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetInstanceTpmEkPubRequestRequestTypeDef = TypedDict(
+    "_RequiredGetInstanceTpmEkPubRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "KeyType": EkPubKeyTypeType,
+        "KeyFormat": EkPubKeyFormatType,
+    },
+)
+_OptionalGetInstanceTpmEkPubRequestRequestTypeDef = TypedDict(
+    "_OptionalGetInstanceTpmEkPubRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetInstanceTpmEkPubRequestRequestTypeDef(
+    _RequiredGetInstanceTpmEkPubRequestRequestTypeDef,
+    _OptionalGetInstanceTpmEkPubRequestRequestTypeDef,
+):
+    pass
+
+GetInstanceTpmEkPubResultTypeDef = TypedDict(
+    "GetInstanceTpmEkPubResultTypeDef",
+    {
+        "InstanceId": str,
+        "KeyType": EkPubKeyTypeType,
+        "KeyFormat": EkPubKeyFormatType,
+        "KeyValue": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef = TypedDict(
     "_RequiredGetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef",
     {
@@ -18853,6 +19023,7 @@ ImageAttributeTypeDef = TypedDict(
         "UefiData": "AttributeValueTypeDef",
         "LastLaunchedTime": "AttributeValueTypeDef",
         "ImdsSupport": "AttributeValueTypeDef",
+        "DeregistrationProtection": "AttributeValueTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -18916,6 +19087,8 @@ ImageTypeDef = TypedDict(
         "DeprecationTime": str,
         "ImdsSupport": Literal["v2.0"],
         "SourceInstanceId": str,
+        "DeregistrationProtection": str,
+        "LastLaunchedTime": str,
     },
     total=False,
 )
@@ -19539,6 +19712,17 @@ InstanceMarketOptionsRequestTypeDef = TypedDict(
     total=False,
 )
 
+InstanceMetadataDefaultsResponseTypeDef = TypedDict(
+    "InstanceMetadataDefaultsResponseTypeDef",
+    {
+        "HttpTokens": HttpTokensStateType,
+        "HttpPutResponseHopLimit": int,
+        "HttpEndpoint": InstanceMetadataEndpointStateType,
+        "InstanceMetadataTags": InstanceMetadataTagsStateType,
+    },
+    total=False,
+)
+
 InstanceMetadataOptionsRequestTypeDef = TypedDict(
     "InstanceMetadataOptionsRequestTypeDef",
     {
@@ -19696,6 +19880,7 @@ _OptionalInstanceRequirementsRequestTypeDef = TypedDict(
         "AcceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBRequestTypeDef",
         "NetworkBandwidthGbps": "NetworkBandwidthGbpsRequestTypeDef",
         "AllowedInstanceTypes": List[str],
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": int,
     },
     total=False,
 )
@@ -19731,6 +19916,7 @@ InstanceRequirementsTypeDef = TypedDict(
         "AcceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBTypeDef",
         "NetworkBandwidthGbps": "NetworkBandwidthGbpsTypeDef",
         "AllowedInstanceTypes": List[str],
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": int,
     },
     total=False,
 )
@@ -19967,6 +20153,9 @@ InstanceTypeInfoTypeDef = TypedDict(
         "NitroEnclavesSupport": NitroEnclavesSupportType,
         "NitroTpmSupport": NitroTpmSupportType,
         "NitroTpmInfo": "NitroTpmInfoTypeDef",
+        "MediaAcceleratorInfo": "MediaAcceleratorInfoTypeDef",
+        "NeuronInfo": "NeuronInfoTypeDef",
+        "PhcSupport": PhcSupportType,
     },
     total=False,
 )
@@ -21272,6 +21461,15 @@ LockedSnapshotsInfoTypeDef = TypedDict(
     total=False,
 )
 
+MacHostTypeDef = TypedDict(
+    "MacHostTypeDef",
+    {
+        "HostId": str,
+        "MacOSLatestSupportedVersions": List[str],
+    },
+    total=False,
+)
+
 MaintenanceDetailsTypeDef = TypedDict(
     "MaintenanceDetailsTypeDef",
     {
@@ -21295,6 +21493,34 @@ ManagedPrefixListTypeDef = TypedDict(
         "Version": int,
         "Tags": List["TagTypeDef"],
         "OwnerId": str,
+    },
+    total=False,
+)
+
+MediaAcceleratorInfoTypeDef = TypedDict(
+    "MediaAcceleratorInfoTypeDef",
+    {
+        "Accelerators": List["MediaDeviceInfoTypeDef"],
+        "TotalMediaMemoryInMiB": int,
+    },
+    total=False,
+)
+
+MediaDeviceInfoTypeDef = TypedDict(
+    "MediaDeviceInfoTypeDef",
+    {
+        "Count": int,
+        "Name": str,
+        "Manufacturer": str,
+        "MemoryInfo": "MediaDeviceMemoryInfoTypeDef",
+    },
+    total=False,
+)
+
+MediaDeviceMemoryInfoTypeDef = TypedDict(
+    "MediaDeviceMemoryInfoTypeDef",
+    {
+        "SizeInMiB": int,
     },
     total=False,
 )
@@ -21959,6 +22185,26 @@ ModifyInstanceMaintenanceOptionsResultTypeDef = TypedDict(
     },
 )
 
+ModifyInstanceMetadataDefaultsRequestRequestTypeDef = TypedDict(
+    "ModifyInstanceMetadataDefaultsRequestRequestTypeDef",
+    {
+        "HttpTokens": MetadataDefaultHttpTokensStateType,
+        "HttpPutResponseHopLimit": int,
+        "HttpEndpoint": DefaultInstanceMetadataEndpointStateType,
+        "InstanceMetadataTags": DefaultInstanceMetadataTagsStateType,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+ModifyInstanceMetadataDefaultsResultTypeDef = TypedDict(
+    "ModifyInstanceMetadataDefaultsResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredModifyInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
     "_RequiredModifyInstanceMetadataOptionsRequestRequestTypeDef",
     {
@@ -22281,6 +22527,7 @@ ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef = TypedDict(
         "EnaSrdSpecification": "EnaSrdSpecificationTypeDef",
         "EnablePrimaryIpv6": bool,
         "ConnectionTrackingSpecification": "ConnectionTrackingSpecificationRequestTypeDef",
+        "AssociatePublicIpAddress": bool,
     },
     total=False,
 )
@@ -22302,6 +22549,7 @@ _OptionalModifyNetworkInterfaceAttributeRequestRequestTypeDef = TypedDict(
         "EnaSrdSpecification": "EnaSrdSpecificationTypeDef",
         "EnablePrimaryIpv6": bool,
         "ConnectionTrackingSpecification": "ConnectionTrackingSpecificationRequestTypeDef",
+        "AssociatePublicIpAddress": bool,
     },
     total=False,
 )
@@ -23939,6 +24187,43 @@ NetworkInterfaceTypeDef = TypedDict(
     total=False,
 )
 
+NeuronDeviceCoreInfoTypeDef = TypedDict(
+    "NeuronDeviceCoreInfoTypeDef",
+    {
+        "Count": int,
+        "Version": int,
+    },
+    total=False,
+)
+
+NeuronDeviceInfoTypeDef = TypedDict(
+    "NeuronDeviceInfoTypeDef",
+    {
+        "Count": int,
+        "Name": str,
+        "CoreInfo": "NeuronDeviceCoreInfoTypeDef",
+        "MemoryInfo": "NeuronDeviceMemoryInfoTypeDef",
+    },
+    total=False,
+)
+
+NeuronDeviceMemoryInfoTypeDef = TypedDict(
+    "NeuronDeviceMemoryInfoTypeDef",
+    {
+        "SizeInMiB": int,
+    },
+    total=False,
+)
+
+NeuronInfoTypeDef = TypedDict(
+    "NeuronInfoTypeDef",
+    {
+        "NeuronDevices": List["NeuronDeviceInfoTypeDef"],
+        "TotalNeuronDeviceMemoryInMiB": int,
+    },
+    total=False,
+)
+
 NewDhcpConfigurationTypeDef = TypedDict(
     "NewDhcpConfigurationTypeDef",
     {
@@ -24452,6 +24737,7 @@ ProcessorInfoTypeDef = TypedDict(
         "SupportedArchitectures": List[ArchitectureTypeType],
         "SustainedClockSpeedInGhz": float,
         "SupportedFeatures": List[Literal["amd-sev-snp"]],
+        "Manufacturer": str,
     },
     total=False,
 )
@@ -24488,6 +24774,7 @@ _OptionalProvisionByoipCidrRequestRequestTypeDef = TypedDict(
         "DryRun": bool,
         "PoolTagSpecifications": List["TagSpecificationTypeDef"],
         "MultiRegion": bool,
+        "NetworkBorderGroup": str,
     },
     total=False,
 )
@@ -24878,6 +25165,7 @@ _OptionalRegisterImageRequestRequestTypeDef = TypedDict(
         "TpmSupport": Literal["v2.0"],
         "UefiData": str,
         "ImdsSupport": Literal["v2.0"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
 )
@@ -24912,6 +25200,7 @@ _OptionalRegisterImageRequestServiceResourceTypeDef = TypedDict(
         "TpmSupport": Literal["v2.0"],
         "UefiData": str,
         "ImdsSupport": Literal["v2.0"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
 )
@@ -29695,6 +29984,8 @@ VolumeAttachmentResponseMetadataTypeDef = TypedDict(
         "State": VolumeAttachmentStateType,
         "VolumeId": str,
         "DeleteOnTermination": bool,
+        "AssociatedResource": str,
+        "InstanceOwningService": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -29708,6 +29999,8 @@ VolumeAttachmentTypeDef = TypedDict(
         "State": VolumeAttachmentStateType,
         "VolumeId": str,
         "DeleteOnTermination": bool,
+        "AssociatedResource": str,
+        "InstanceOwningService": str,
     },
     total=False,
 )

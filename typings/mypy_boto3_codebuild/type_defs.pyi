@@ -11,6 +11,7 @@ Usage::
     data: BatchDeleteBuildsInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -29,6 +30,10 @@ from .literals import (
     ComputeTypeType,
     EnvironmentTypeType,
     EnvironmentVariableTypeType,
+    FleetContextCodeType,
+    FleetOverflowBehaviorType,
+    FleetSortByTypeType,
+    FleetStatusCodeType,
     ImagePullCredentialsTypeType,
     LanguageTypeType,
     LogsConfigStatusTypeType,
@@ -47,6 +52,7 @@ from .literals import (
     ServerTypeType,
     SharedResourceSortByTypeType,
     SortOrderTypeType,
+    SourceAuthTypeType,
     SourceTypeType,
     StatusTypeType,
     WebhookBuildTypeType,
@@ -69,6 +75,8 @@ __all__ = (
     "BatchGetBuildBatchesOutputTypeDef",
     "BatchGetBuildsInputRequestTypeDef",
     "BatchGetBuildsOutputTypeDef",
+    "BatchGetFleetsInputRequestTypeDef",
+    "BatchGetFleetsOutputTypeDef",
     "BatchGetProjectsInputRequestTypeDef",
     "BatchGetProjectsOutputTypeDef",
     "BatchGetReportGroupsInputRequestTypeDef",
@@ -89,6 +97,8 @@ __all__ = (
     "CloudWatchLogsConfigTypeDef",
     "CodeCoverageReportSummaryTypeDef",
     "CodeCoverageTypeDef",
+    "CreateFleetInputRequestTypeDef",
+    "CreateFleetOutputTypeDef",
     "CreateProjectInputRequestTypeDef",
     "CreateProjectOutputTypeDef",
     "CreateReportGroupInputRequestTypeDef",
@@ -98,6 +108,7 @@ __all__ = (
     "DebugSessionTypeDef",
     "DeleteBuildBatchInputRequestTypeDef",
     "DeleteBuildBatchOutputTypeDef",
+    "DeleteFleetInputRequestTypeDef",
     "DeleteProjectInputRequestTypeDef",
     "DeleteReportGroupInputRequestTypeDef",
     "DeleteReportInputRequestTypeDef",
@@ -114,6 +125,8 @@ __all__ = (
     "EnvironmentPlatformTypeDef",
     "EnvironmentVariableTypeDef",
     "ExportedEnvironmentVariableTypeDef",
+    "FleetStatusTypeDef",
+    "FleetTypeDef",
     "GetReportGroupTrendInputRequestTypeDef",
     "GetReportGroupTrendOutputTypeDef",
     "GetResourcePolicyInputRequestTypeDef",
@@ -131,6 +144,8 @@ __all__ = (
     "ListBuildsInputRequestTypeDef",
     "ListBuildsOutputTypeDef",
     "ListCuratedEnvironmentImagesOutputTypeDef",
+    "ListFleetsInputRequestTypeDef",
+    "ListFleetsOutputTypeDef",
     "ListProjectsInputRequestTypeDef",
     "ListProjectsOutputTypeDef",
     "ListReportGroupsInputRequestTypeDef",
@@ -155,6 +170,7 @@ __all__ = (
     "ProjectCacheTypeDef",
     "ProjectEnvironmentTypeDef",
     "ProjectFileSystemLocationTypeDef",
+    "ProjectFleetTypeDef",
     "ProjectSourceTypeDef",
     "ProjectSourceVersionTypeDef",
     "ProjectTypeDef",
@@ -175,6 +191,8 @@ __all__ = (
     "RetryBuildOutputTypeDef",
     "S3LogsConfigTypeDef",
     "S3ReportExportConfigTypeDef",
+    "ScalingConfigurationInputTypeDef",
+    "ScalingConfigurationOutputTypeDef",
     "SourceAuthTypeDef",
     "SourceCredentialsInfoTypeDef",
     "StartBuildBatchInputRequestTypeDef",
@@ -186,9 +204,12 @@ __all__ = (
     "StopBuildInputRequestTypeDef",
     "StopBuildOutputTypeDef",
     "TagTypeDef",
+    "TargetTrackingScalingConfigurationTypeDef",
     "TestCaseFilterTypeDef",
     "TestCaseTypeDef",
     "TestReportSummaryTypeDef",
+    "UpdateFleetInputRequestTypeDef",
+    "UpdateFleetOutputTypeDef",
     "UpdateProjectInputRequestTypeDef",
     "UpdateProjectOutputTypeDef",
     "UpdateProjectVisibilityInputRequestTypeDef",
@@ -246,6 +267,22 @@ BatchGetBuildsOutputTypeDef = TypedDict(
     {
         "builds": List["BuildTypeDef"],
         "buildsNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetFleetsInputRequestTypeDef = TypedDict(
+    "BatchGetFleetsInputRequestTypeDef",
+    {
+        "names": List[str],
+    },
+)
+
+BatchGetFleetsOutputTypeDef = TypedDict(
+    "BatchGetFleetsOutputTypeDef",
+    {
+        "fleets": List["FleetTypeDef"],
+        "fleetsNotFound": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -523,6 +560,40 @@ CodeCoverageTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCreateFleetInputRequestTypeDef = TypedDict(
+    "_RequiredCreateFleetInputRequestTypeDef",
+    {
+        "name": str,
+        "baseCapacity": int,
+        "environmentType": EnvironmentTypeType,
+        "computeType": ComputeTypeType,
+    },
+)
+_OptionalCreateFleetInputRequestTypeDef = TypedDict(
+    "_OptionalCreateFleetInputRequestTypeDef",
+    {
+        "scalingConfiguration": "ScalingConfigurationInputTypeDef",
+        "overflowBehavior": FleetOverflowBehaviorType,
+        "vpcConfig": "VpcConfigTypeDef",
+        "fleetServiceRole": str,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFleetInputRequestTypeDef(
+    _RequiredCreateFleetInputRequestTypeDef, _OptionalCreateFleetInputRequestTypeDef
+):
+    pass
+
+CreateFleetOutputTypeDef = TypedDict(
+    "CreateFleetOutputTypeDef",
+    {
+        "fleet": "FleetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateProjectInputRequestTypeDef = TypedDict(
     "_RequiredCreateProjectInputRequestTypeDef",
     {
@@ -610,6 +681,7 @@ _OptionalCreateWebhookInputRequestTypeDef = TypedDict(
         "branchFilter": str,
         "filterGroups": List[List["WebhookFilterTypeDef"]],
         "buildType": WebhookBuildTypeType,
+        "manualCreation": bool,
     },
     total=False,
 )
@@ -650,6 +722,13 @@ DeleteBuildBatchOutputTypeDef = TypedDict(
         "buildsDeleted": List[str],
         "buildsNotDeleted": List["BuildNotDeletedTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteFleetInputRequestTypeDef = TypedDict(
+    "DeleteFleetInputRequestTypeDef",
+    {
+        "arn": str,
     },
 )
 
@@ -836,6 +915,37 @@ ExportedEnvironmentVariableTypeDef = TypedDict(
     total=False,
 )
 
+FleetStatusTypeDef = TypedDict(
+    "FleetStatusTypeDef",
+    {
+        "statusCode": FleetStatusCodeType,
+        "context": FleetContextCodeType,
+        "message": str,
+    },
+    total=False,
+)
+
+FleetTypeDef = TypedDict(
+    "FleetTypeDef",
+    {
+        "arn": str,
+        "name": str,
+        "id": str,
+        "created": datetime,
+        "lastModified": datetime,
+        "status": "FleetStatusTypeDef",
+        "baseCapacity": int,
+        "environmentType": EnvironmentTypeType,
+        "computeType": ComputeTypeType,
+        "scalingConfiguration": "ScalingConfigurationOutputTypeDef",
+        "overflowBehavior": FleetOverflowBehaviorType,
+        "vpcConfig": "VpcConfigTypeDef",
+        "fleetServiceRole": str,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 _RequiredGetReportGroupTrendInputRequestTypeDef = TypedDict(
     "_RequiredGetReportGroupTrendInputRequestTypeDef",
     {
@@ -1018,6 +1128,26 @@ ListCuratedEnvironmentImagesOutputTypeDef = TypedDict(
     "ListCuratedEnvironmentImagesOutputTypeDef",
     {
         "platforms": List["EnvironmentPlatformTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListFleetsInputRequestTypeDef = TypedDict(
+    "ListFleetsInputRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+        "sortOrder": SortOrderTypeType,
+        "sortBy": FleetSortByTypeType,
+    },
+    total=False,
+)
+
+ListFleetsOutputTypeDef = TypedDict(
+    "ListFleetsOutputTypeDef",
+    {
+        "nextToken": str,
+        "fleets": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1288,6 +1418,7 @@ _RequiredProjectEnvironmentTypeDef = TypedDict(
 _OptionalProjectEnvironmentTypeDef = TypedDict(
     "_OptionalProjectEnvironmentTypeDef",
     {
+        "fleet": "ProjectFleetTypeDef",
         "environmentVariables": List["EnvironmentVariableTypeDef"],
         "privilegedMode": bool,
         "certificate": str,
@@ -1310,6 +1441,14 @@ ProjectFileSystemLocationTypeDef = TypedDict(
         "mountPoint": str,
         "identifier": str,
         "mountOptions": str,
+    },
+    total=False,
+)
+
+ProjectFleetTypeDef = TypedDict(
+    "ProjectFleetTypeDef",
+    {
+        "fleetArn": str,
     },
     total=False,
 )
@@ -1564,10 +1703,31 @@ S3ReportExportConfigTypeDef = TypedDict(
     total=False,
 )
 
+ScalingConfigurationInputTypeDef = TypedDict(
+    "ScalingConfigurationInputTypeDef",
+    {
+        "scalingType": Literal["TARGET_TRACKING_SCALING"],
+        "targetTrackingScalingConfigs": List["TargetTrackingScalingConfigurationTypeDef"],
+        "maxCapacity": int,
+    },
+    total=False,
+)
+
+ScalingConfigurationOutputTypeDef = TypedDict(
+    "ScalingConfigurationOutputTypeDef",
+    {
+        "scalingType": Literal["TARGET_TRACKING_SCALING"],
+        "targetTrackingScalingConfigs": List["TargetTrackingScalingConfigurationTypeDef"],
+        "maxCapacity": int,
+        "desiredCapacity": int,
+    },
+    total=False,
+)
+
 _RequiredSourceAuthTypeDef = TypedDict(
     "_RequiredSourceAuthTypeDef",
     {
-        "type": Literal["OAUTH"],
+        "type": SourceAuthTypeType,
     },
 )
 _OptionalSourceAuthTypeDef = TypedDict(
@@ -1587,6 +1747,7 @@ SourceCredentialsInfoTypeDef = TypedDict(
         "arn": str,
         "serverType": ServerTypeType,
         "authType": AuthTypeType,
+        "resource": str,
     },
     total=False,
 )
@@ -1686,6 +1847,7 @@ _OptionalStartBuildInputRequestTypeDef = TypedDict(
         "registryCredentialOverride": "RegistryCredentialTypeDef",
         "imagePullCredentialsTypeOverride": ImagePullCredentialsTypeType,
         "debugSessionEnabled": bool,
+        "fleetOverride": "ProjectFleetTypeDef",
     },
     total=False,
 )
@@ -1742,6 +1904,15 @@ TagTypeDef = TypedDict(
     total=False,
 )
 
+TargetTrackingScalingConfigurationTypeDef = TypedDict(
+    "TargetTrackingScalingConfigurationTypeDef",
+    {
+        "metricType": Literal["FLEET_UTILIZATION_RATE"],
+        "targetValue": float,
+    },
+    total=False,
+)
+
 TestCaseFilterTypeDef = TypedDict(
     "TestCaseFilterTypeDef",
     {
@@ -1772,6 +1943,40 @@ TestReportSummaryTypeDef = TypedDict(
         "total": int,
         "statusCounts": Dict[str, int],
         "durationInNanoSeconds": int,
+    },
+)
+
+_RequiredUpdateFleetInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateFleetInputRequestTypeDef",
+    {
+        "arn": str,
+    },
+)
+_OptionalUpdateFleetInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateFleetInputRequestTypeDef",
+    {
+        "baseCapacity": int,
+        "environmentType": EnvironmentTypeType,
+        "computeType": ComputeTypeType,
+        "scalingConfiguration": "ScalingConfigurationInputTypeDef",
+        "overflowBehavior": FleetOverflowBehaviorType,
+        "vpcConfig": "VpcConfigTypeDef",
+        "fleetServiceRole": str,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateFleetInputRequestTypeDef(
+    _RequiredUpdateFleetInputRequestTypeDef, _OptionalUpdateFleetInputRequestTypeDef
+):
+    pass
+
+UpdateFleetOutputTypeDef = TypedDict(
+    "UpdateFleetOutputTypeDef",
+    {
+        "fleet": "FleetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1947,6 +2152,7 @@ WebhookTypeDef = TypedDict(
         "branchFilter": str,
         "filterGroups": List[List["WebhookFilterTypeDef"]],
         "buildType": WebhookBuildTypeType,
+        "manualCreation": bool,
         "lastModifiedSecret": datetime,
     },
     total=False,

@@ -16,6 +16,7 @@ Usage::
     session_client: SavingsPlansClient = session.client("savingsplans")
     ```
 """
+
 from .client import SavingsPlansClient
 
 Client = SavingsPlansClient

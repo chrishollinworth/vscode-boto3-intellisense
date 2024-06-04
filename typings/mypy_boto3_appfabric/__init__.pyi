@@ -25,6 +25,7 @@ Usage::
     list_ingestions_paginator: ListIngestionsPaginator = client.get_paginator("list_ingestions")
     ```
 """
+
 from .client import AppFabricClient
 from .paginator import (
     ListAppAuthorizationsPaginator,

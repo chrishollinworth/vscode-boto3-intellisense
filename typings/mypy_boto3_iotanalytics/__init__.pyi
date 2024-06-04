@@ -27,6 +27,7 @@ Usage::
     list_pipelines_paginator: ListPipelinesPaginator = client.get_paginator("list_pipelines")
     ```
 """
+
 from .client import IoTAnalyticsClient
 from .paginator import (
     ListChannelsPaginator,

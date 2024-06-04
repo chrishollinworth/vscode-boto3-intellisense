@@ -11,6 +11,7 @@ Usage::
     data: AccountSettingsTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

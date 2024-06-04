@@ -11,6 +11,7 @@ Usage::
     data: AuthorizationTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

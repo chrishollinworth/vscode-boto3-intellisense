@@ -11,6 +11,7 @@ Usage::
     data: AddTagsToResourceMessageRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -81,10 +82,13 @@ __all__ = (
     "CacheSecurityGroupTypeDef",
     "CacheSubnetGroupMessageTypeDef",
     "CacheSubnetGroupTypeDef",
+    "CacheUsageLimitsTypeDef",
     "CloudWatchLogsDestinationDetailsTypeDef",
     "CompleteMigrationMessageRequestTypeDef",
     "CompleteMigrationResponseTypeDef",
     "ConfigureShardTypeDef",
+    "CopyServerlessCacheSnapshotRequestRequestTypeDef",
+    "CopyServerlessCacheSnapshotResponseTypeDef",
     "CopySnapshotMessageRequestTypeDef",
     "CopySnapshotResultTypeDef",
     "CreateCacheClusterMessageRequestTypeDef",
@@ -99,11 +103,16 @@ __all__ = (
     "CreateGlobalReplicationGroupResultTypeDef",
     "CreateReplicationGroupMessageRequestTypeDef",
     "CreateReplicationGroupResultTypeDef",
+    "CreateServerlessCacheRequestRequestTypeDef",
+    "CreateServerlessCacheResponseTypeDef",
+    "CreateServerlessCacheSnapshotRequestRequestTypeDef",
+    "CreateServerlessCacheSnapshotResponseTypeDef",
     "CreateSnapshotMessageRequestTypeDef",
     "CreateSnapshotResultTypeDef",
     "CreateUserGroupMessageRequestTypeDef",
     "CreateUserMessageRequestTypeDef",
     "CustomerNodeEndpointTypeDef",
+    "DataStorageTypeDef",
     "DecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef",
     "DecreaseNodeGroupsInGlobalReplicationGroupResultTypeDef",
     "DecreaseReplicaCountMessageRequestTypeDef",
@@ -117,6 +126,10 @@ __all__ = (
     "DeleteGlobalReplicationGroupResultTypeDef",
     "DeleteReplicationGroupMessageRequestTypeDef",
     "DeleteReplicationGroupResultTypeDef",
+    "DeleteServerlessCacheRequestRequestTypeDef",
+    "DeleteServerlessCacheResponseTypeDef",
+    "DeleteServerlessCacheSnapshotRequestRequestTypeDef",
+    "DeleteServerlessCacheSnapshotResponseTypeDef",
     "DeleteSnapshotMessageRequestTypeDef",
     "DeleteSnapshotResultTypeDef",
     "DeleteUserGroupMessageRequestTypeDef",
@@ -135,6 +148,10 @@ __all__ = (
     "DescribeReplicationGroupsMessageRequestTypeDef",
     "DescribeReservedCacheNodesMessageRequestTypeDef",
     "DescribeReservedCacheNodesOfferingsMessageRequestTypeDef",
+    "DescribeServerlessCacheSnapshotsRequestRequestTypeDef",
+    "DescribeServerlessCacheSnapshotsResponseTypeDef",
+    "DescribeServerlessCachesRequestRequestTypeDef",
+    "DescribeServerlessCachesResponseTypeDef",
     "DescribeServiceUpdatesMessageRequestTypeDef",
     "DescribeSnapshotsListMessageTypeDef",
     "DescribeSnapshotsMessageRequestTypeDef",
@@ -147,10 +164,13 @@ __all__ = (
     "DisassociateGlobalReplicationGroupMessageRequestTypeDef",
     "DisassociateGlobalReplicationGroupResultTypeDef",
     "EC2SecurityGroupTypeDef",
+    "ECPUPerSecondTypeDef",
     "EndpointTypeDef",
     "EngineDefaultsTypeDef",
     "EventTypeDef",
     "EventsMessageTypeDef",
+    "ExportServerlessCacheSnapshotRequestRequestTypeDef",
+    "ExportServerlessCacheSnapshotResponseTypeDef",
     "FailoverGlobalReplicationGroupMessageRequestTypeDef",
     "FailoverGlobalReplicationGroupResultTypeDef",
     "FilterTypeDef",
@@ -178,6 +198,8 @@ __all__ = (
     "ModifyReplicationGroupResultTypeDef",
     "ModifyReplicationGroupShardConfigurationMessageRequestTypeDef",
     "ModifyReplicationGroupShardConfigurationResultTypeDef",
+    "ModifyServerlessCacheRequestRequestTypeDef",
+    "ModifyServerlessCacheResponseTypeDef",
     "ModifyUserGroupMessageRequestTypeDef",
     "ModifyUserMessageRequestTypeDef",
     "NodeGroupConfigurationTypeDef",
@@ -216,6 +238,9 @@ __all__ = (
     "RevokeCacheSecurityGroupIngressMessageRequestTypeDef",
     "RevokeCacheSecurityGroupIngressResultTypeDef",
     "SecurityGroupMembershipTypeDef",
+    "ServerlessCacheConfigurationTypeDef",
+    "ServerlessCacheSnapshotTypeDef",
+    "ServerlessCacheTypeDef",
     "ServiceUpdateTypeDef",
     "ServiceUpdatesMessageTypeDef",
     "SlotMigrationTypeDef",
@@ -572,6 +597,15 @@ CacheSubnetGroupTypeDef = TypedDict(
     total=False,
 )
 
+CacheUsageLimitsTypeDef = TypedDict(
+    "CacheUsageLimitsTypeDef",
+    {
+        "DataStorage": "DataStorageTypeDef",
+        "ECPUPerSecond": "ECPUPerSecondTypeDef",
+    },
+    total=False,
+)
+
 CloudWatchLogsDestinationDetailsTypeDef = TypedDict(
     "CloudWatchLogsDestinationDetailsTypeDef",
     {
@@ -625,6 +659,36 @@ _OptionalConfigureShardTypeDef = TypedDict(
 
 class ConfigureShardTypeDef(_RequiredConfigureShardTypeDef, _OptionalConfigureShardTypeDef):
     pass
+
+_RequiredCopyServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
+    "_RequiredCopyServerlessCacheSnapshotRequestRequestTypeDef",
+    {
+        "SourceServerlessCacheSnapshotName": str,
+        "TargetServerlessCacheSnapshotName": str,
+    },
+)
+_OptionalCopyServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
+    "_OptionalCopyServerlessCacheSnapshotRequestRequestTypeDef",
+    {
+        "KmsKeyId": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CopyServerlessCacheSnapshotRequestRequestTypeDef(
+    _RequiredCopyServerlessCacheSnapshotRequestRequestTypeDef,
+    _OptionalCopyServerlessCacheSnapshotRequestRequestTypeDef,
+):
+    pass
+
+CopyServerlessCacheSnapshotResponseTypeDef = TypedDict(
+    "CopyServerlessCacheSnapshotResponseTypeDef",
+    {
+        "ServerlessCacheSnapshot": "ServerlessCacheSnapshotTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredCopySnapshotMessageRequestTypeDef = TypedDict(
     "_RequiredCopySnapshotMessageRequestTypeDef",
@@ -876,6 +940,7 @@ _OptionalCreateReplicationGroupMessageRequestTypeDef = TypedDict(
         "IpDiscovery": IpDiscoveryType,
         "TransitEncryptionMode": TransitEncryptionModeType,
         "ClusterMode": ClusterModeType,
+        "ServerlessCacheSnapshotName": str,
     },
     total=False,
 )
@@ -890,6 +955,75 @@ CreateReplicationGroupResultTypeDef = TypedDict(
     "CreateReplicationGroupResultTypeDef",
     {
         "ReplicationGroup": "ReplicationGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateServerlessCacheRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateServerlessCacheRequestRequestTypeDef",
+    {
+        "ServerlessCacheName": str,
+        "Engine": str,
+    },
+)
+_OptionalCreateServerlessCacheRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateServerlessCacheRequestRequestTypeDef",
+    {
+        "Description": str,
+        "MajorEngineVersion": str,
+        "CacheUsageLimits": "CacheUsageLimitsTypeDef",
+        "KmsKeyId": str,
+        "SecurityGroupIds": List[str],
+        "SnapshotArnsToRestore": List[str],
+        "Tags": List["TagTypeDef"],
+        "UserGroupId": str,
+        "SubnetIds": List[str],
+        "SnapshotRetentionLimit": int,
+        "DailySnapshotTime": str,
+    },
+    total=False,
+)
+
+class CreateServerlessCacheRequestRequestTypeDef(
+    _RequiredCreateServerlessCacheRequestRequestTypeDef,
+    _OptionalCreateServerlessCacheRequestRequestTypeDef,
+):
+    pass
+
+CreateServerlessCacheResponseTypeDef = TypedDict(
+    "CreateServerlessCacheResponseTypeDef",
+    {
+        "ServerlessCache": "ServerlessCacheTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateServerlessCacheSnapshotRequestRequestTypeDef",
+    {
+        "ServerlessCacheSnapshotName": str,
+        "ServerlessCacheName": str,
+    },
+)
+_OptionalCreateServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateServerlessCacheSnapshotRequestRequestTypeDef",
+    {
+        "KmsKeyId": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateServerlessCacheSnapshotRequestRequestTypeDef(
+    _RequiredCreateServerlessCacheSnapshotRequestRequestTypeDef,
+    _OptionalCreateServerlessCacheSnapshotRequestRequestTypeDef,
+):
+    pass
+
+CreateServerlessCacheSnapshotResponseTypeDef = TypedDict(
+    "CreateServerlessCacheSnapshotResponseTypeDef",
+    {
+        "ServerlessCacheSnapshot": "ServerlessCacheSnapshotTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -978,6 +1112,24 @@ CustomerNodeEndpointTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDataStorageTypeDef = TypedDict(
+    "_RequiredDataStorageTypeDef",
+    {
+        "Unit": Literal["GB"],
+    },
+)
+_OptionalDataStorageTypeDef = TypedDict(
+    "_OptionalDataStorageTypeDef",
+    {
+        "Maximum": int,
+        "Minimum": int,
+    },
+    total=False,
+)
+
+class DataStorageTypeDef(_RequiredDataStorageTypeDef, _OptionalDataStorageTypeDef):
+    pass
 
 _RequiredDecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
     "_RequiredDecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef",
@@ -1131,6 +1283,49 @@ DeleteReplicationGroupResultTypeDef = TypedDict(
     "DeleteReplicationGroupResultTypeDef",
     {
         "ReplicationGroup": "ReplicationGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteServerlessCacheRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteServerlessCacheRequestRequestTypeDef",
+    {
+        "ServerlessCacheName": str,
+    },
+)
+_OptionalDeleteServerlessCacheRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteServerlessCacheRequestRequestTypeDef",
+    {
+        "FinalSnapshotName": str,
+    },
+    total=False,
+)
+
+class DeleteServerlessCacheRequestRequestTypeDef(
+    _RequiredDeleteServerlessCacheRequestRequestTypeDef,
+    _OptionalDeleteServerlessCacheRequestRequestTypeDef,
+):
+    pass
+
+DeleteServerlessCacheResponseTypeDef = TypedDict(
+    "DeleteServerlessCacheResponseTypeDef",
+    {
+        "ServerlessCache": "ServerlessCacheTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
+    "DeleteServerlessCacheSnapshotRequestRequestTypeDef",
+    {
+        "ServerlessCacheSnapshotName": str,
+    },
+)
+
+DeleteServerlessCacheSnapshotResponseTypeDef = TypedDict(
+    "DeleteServerlessCacheSnapshotResponseTypeDef",
+    {
+        "ServerlessCacheSnapshot": "ServerlessCacheSnapshotTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1343,6 +1538,46 @@ DescribeReservedCacheNodesOfferingsMessageRequestTypeDef = TypedDict(
     total=False,
 )
 
+DescribeServerlessCacheSnapshotsRequestRequestTypeDef = TypedDict(
+    "DescribeServerlessCacheSnapshotsRequestRequestTypeDef",
+    {
+        "ServerlessCacheName": str,
+        "ServerlessCacheSnapshotName": str,
+        "SnapshotType": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeServerlessCacheSnapshotsResponseTypeDef = TypedDict(
+    "DescribeServerlessCacheSnapshotsResponseTypeDef",
+    {
+        "NextToken": str,
+        "ServerlessCacheSnapshots": List["ServerlessCacheSnapshotTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeServerlessCachesRequestRequestTypeDef = TypedDict(
+    "DescribeServerlessCachesRequestRequestTypeDef",
+    {
+        "ServerlessCacheName": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeServerlessCachesResponseTypeDef = TypedDict(
+    "DescribeServerlessCachesResponseTypeDef",
+    {
+        "NextToken": str,
+        "ServerlessCaches": List["ServerlessCacheTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeServiceUpdatesMessageRequestTypeDef = TypedDict(
     "DescribeServiceUpdatesMessageRequestTypeDef",
     {
@@ -1470,6 +1705,15 @@ EC2SecurityGroupTypeDef = TypedDict(
     total=False,
 )
 
+ECPUPerSecondTypeDef = TypedDict(
+    "ECPUPerSecondTypeDef",
+    {
+        "Maximum": int,
+        "Minimum": int,
+    },
+    total=False,
+)
+
 EndpointTypeDef = TypedDict(
     "EndpointTypeDef",
     {
@@ -1506,6 +1750,22 @@ EventsMessageTypeDef = TypedDict(
     {
         "Marker": str,
         "Events": List["EventTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ExportServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
+    "ExportServerlessCacheSnapshotRequestRequestTypeDef",
+    {
+        "ServerlessCacheSnapshotName": str,
+        "S3BucketName": str,
+    },
+)
+
+ExportServerlessCacheSnapshotResponseTypeDef = TypedDict(
+    "ExportServerlessCacheSnapshotResponseTypeDef",
+    {
+        "ServerlessCacheSnapshot": "ServerlessCacheSnapshotTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1894,6 +2154,40 @@ ModifyReplicationGroupShardConfigurationResultTypeDef = TypedDict(
     "ModifyReplicationGroupShardConfigurationResultTypeDef",
     {
         "ReplicationGroup": "ReplicationGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyServerlessCacheRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyServerlessCacheRequestRequestTypeDef",
+    {
+        "ServerlessCacheName": str,
+    },
+)
+_OptionalModifyServerlessCacheRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyServerlessCacheRequestRequestTypeDef",
+    {
+        "Description": str,
+        "CacheUsageLimits": "CacheUsageLimitsTypeDef",
+        "RemoveUserGroup": bool,
+        "UserGroupId": str,
+        "SecurityGroupIds": List[str],
+        "SnapshotRetentionLimit": int,
+        "DailySnapshotTime": str,
+    },
+    total=False,
+)
+
+class ModifyServerlessCacheRequestRequestTypeDef(
+    _RequiredModifyServerlessCacheRequestRequestTypeDef,
+    _OptionalModifyServerlessCacheRequestRequestTypeDef,
+):
+    pass
+
+ModifyServerlessCacheResponseTypeDef = TypedDict(
+    "ModifyServerlessCacheResponseTypeDef",
+    {
+        "ServerlessCache": "ServerlessCacheTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2380,6 +2674,56 @@ SecurityGroupMembershipTypeDef = TypedDict(
     total=False,
 )
 
+ServerlessCacheConfigurationTypeDef = TypedDict(
+    "ServerlessCacheConfigurationTypeDef",
+    {
+        "ServerlessCacheName": str,
+        "Engine": str,
+        "MajorEngineVersion": str,
+    },
+    total=False,
+)
+
+ServerlessCacheSnapshotTypeDef = TypedDict(
+    "ServerlessCacheSnapshotTypeDef",
+    {
+        "ServerlessCacheSnapshotName": str,
+        "ARN": str,
+        "KmsKeyId": str,
+        "SnapshotType": str,
+        "Status": str,
+        "CreateTime": datetime,
+        "ExpiryTime": datetime,
+        "BytesUsedForCache": str,
+        "ServerlessCacheConfiguration": "ServerlessCacheConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ServerlessCacheTypeDef = TypedDict(
+    "ServerlessCacheTypeDef",
+    {
+        "ServerlessCacheName": str,
+        "Description": str,
+        "CreateTime": datetime,
+        "Status": str,
+        "Engine": str,
+        "MajorEngineVersion": str,
+        "FullEngineVersion": str,
+        "CacheUsageLimits": "CacheUsageLimitsTypeDef",
+        "KmsKeyId": str,
+        "SecurityGroupIds": List[str],
+        "Endpoint": "EndpointTypeDef",
+        "ReaderEndpoint": "EndpointTypeDef",
+        "ARN": str,
+        "UserGroupId": str,
+        "SubnetIds": List[str],
+        "SnapshotRetentionLimit": int,
+        "DailySnapshotTime": str,
+    },
+    total=False,
+)
+
 ServiceUpdateTypeDef = TypedDict(
     "ServiceUpdateTypeDef",
     {
@@ -2617,6 +2961,7 @@ UserGroupResponseMetadataTypeDef = TypedDict(
         "MinimumEngineVersion": str,
         "PendingChanges": "UserGroupPendingChangesTypeDef",
         "ReplicationGroups": List[str],
+        "ServerlessCaches": List[str],
         "ARN": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2632,6 +2977,7 @@ UserGroupTypeDef = TypedDict(
         "MinimumEngineVersion": str,
         "PendingChanges": "UserGroupPendingChangesTypeDef",
         "ReplicationGroups": List[str],
+        "ServerlessCaches": List[str],
         "ARN": str,
     },
     total=False,

@@ -11,6 +11,7 @@ Usage::
     data: AclConfigurationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -123,6 +124,7 @@ __all__ = (
     "GetTableMetadataOutputTypeDef",
     "GetWorkGroupInputRequestTypeDef",
     "GetWorkGroupOutputTypeDef",
+    "IdentityCenterConfigurationTypeDef",
     "ImportNotebookInputRequestTypeDef",
     "ImportNotebookOutputTypeDef",
     "ListApplicationDPUSizesInputRequestTypeDef",
@@ -168,6 +170,7 @@ __all__ = (
     "QueryExecutionStatisticsTypeDef",
     "QueryExecutionStatusTypeDef",
     "QueryExecutionTypeDef",
+    "QueryResultsS3AccessGrantsConfigurationTypeDef",
     "QueryRuntimeStatisticsRowsTypeDef",
     "QueryRuntimeStatisticsTimelineTypeDef",
     "QueryRuntimeStatisticsTypeDef",
@@ -909,12 +912,24 @@ GetCapacityReservationOutputTypeDef = TypedDict(
     },
 )
 
-GetDataCatalogInputRequestTypeDef = TypedDict(
-    "GetDataCatalogInputRequestTypeDef",
+_RequiredGetDataCatalogInputRequestTypeDef = TypedDict(
+    "_RequiredGetDataCatalogInputRequestTypeDef",
     {
         "Name": str,
     },
 )
+_OptionalGetDataCatalogInputRequestTypeDef = TypedDict(
+    "_OptionalGetDataCatalogInputRequestTypeDef",
+    {
+        "WorkGroup": str,
+    },
+    total=False,
+)
+
+class GetDataCatalogInputRequestTypeDef(
+    _RequiredGetDataCatalogInputRequestTypeDef, _OptionalGetDataCatalogInputRequestTypeDef
+):
+    pass
 
 GetDataCatalogOutputTypeDef = TypedDict(
     "GetDataCatalogOutputTypeDef",
@@ -924,13 +939,25 @@ GetDataCatalogOutputTypeDef = TypedDict(
     },
 )
 
-GetDatabaseInputRequestTypeDef = TypedDict(
-    "GetDatabaseInputRequestTypeDef",
+_RequiredGetDatabaseInputRequestTypeDef = TypedDict(
+    "_RequiredGetDatabaseInputRequestTypeDef",
     {
         "CatalogName": str,
         "DatabaseName": str,
     },
 )
+_OptionalGetDatabaseInputRequestTypeDef = TypedDict(
+    "_OptionalGetDatabaseInputRequestTypeDef",
+    {
+        "WorkGroup": str,
+    },
+    total=False,
+)
+
+class GetDatabaseInputRequestTypeDef(
+    _RequiredGetDatabaseInputRequestTypeDef, _OptionalGetDatabaseInputRequestTypeDef
+):
+    pass
 
 GetDatabaseOutputTypeDef = TypedDict(
     "GetDatabaseOutputTypeDef",
@@ -1085,14 +1112,26 @@ GetSessionStatusResponseTypeDef = TypedDict(
     },
 )
 
-GetTableMetadataInputRequestTypeDef = TypedDict(
-    "GetTableMetadataInputRequestTypeDef",
+_RequiredGetTableMetadataInputRequestTypeDef = TypedDict(
+    "_RequiredGetTableMetadataInputRequestTypeDef",
     {
         "CatalogName": str,
         "DatabaseName": str,
         "TableName": str,
     },
 )
+_OptionalGetTableMetadataInputRequestTypeDef = TypedDict(
+    "_OptionalGetTableMetadataInputRequestTypeDef",
+    {
+        "WorkGroup": str,
+    },
+    total=False,
+)
+
+class GetTableMetadataInputRequestTypeDef(
+    _RequiredGetTableMetadataInputRequestTypeDef, _OptionalGetTableMetadataInputRequestTypeDef
+):
+    pass
 
 GetTableMetadataOutputTypeDef = TypedDict(
     "GetTableMetadataOutputTypeDef",
@@ -1117,18 +1156,28 @@ GetWorkGroupOutputTypeDef = TypedDict(
     },
 )
 
+IdentityCenterConfigurationTypeDef = TypedDict(
+    "IdentityCenterConfigurationTypeDef",
+    {
+        "EnableIdentityCenter": bool,
+        "IdentityCenterInstanceArn": str,
+    },
+    total=False,
+)
+
 _RequiredImportNotebookInputRequestTypeDef = TypedDict(
     "_RequiredImportNotebookInputRequestTypeDef",
     {
         "WorkGroup": str,
         "Name": str,
-        "Payload": str,
         "Type": Literal["IPYNB"],
     },
 )
 _OptionalImportNotebookInputRequestTypeDef = TypedDict(
     "_OptionalImportNotebookInputRequestTypeDef",
     {
+        "Payload": str,
+        "NotebookS3LocationUri": str,
         "ClientRequestToken": str,
     },
     total=False,
@@ -1219,6 +1268,7 @@ ListDataCatalogsInputRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "WorkGroup": str,
     },
     total=False,
 )
@@ -1243,6 +1293,7 @@ _OptionalListDatabasesInputRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "WorkGroup": str,
     },
     total=False,
 )
@@ -1482,6 +1533,7 @@ _OptionalListTableMetadataInputRequestTypeDef = TypedDict(
         "Expression": str,
         "NextToken": str,
         "MaxResults": int,
+        "WorkGroup": str,
     },
     total=False,
 )
@@ -1681,9 +1733,31 @@ QueryExecutionTypeDef = TypedDict(
         "EngineVersion": "EngineVersionTypeDef",
         "ExecutionParameters": List[str],
         "SubstatementType": str,
+        "QueryResultsS3AccessGrantsConfiguration": "QueryResultsS3AccessGrantsConfigurationTypeDef",
     },
     total=False,
 )
+
+_RequiredQueryResultsS3AccessGrantsConfigurationTypeDef = TypedDict(
+    "_RequiredQueryResultsS3AccessGrantsConfigurationTypeDef",
+    {
+        "EnableS3AccessGrants": bool,
+        "AuthenticationType": Literal["DIRECTORY_IDENTITY"],
+    },
+)
+_OptionalQueryResultsS3AccessGrantsConfigurationTypeDef = TypedDict(
+    "_OptionalQueryResultsS3AccessGrantsConfigurationTypeDef",
+    {
+        "CreateUserLevelPrefix": bool,
+    },
+    total=False,
+)
+
+class QueryResultsS3AccessGrantsConfigurationTypeDef(
+    _RequiredQueryResultsS3AccessGrantsConfigurationTypeDef,
+    _OptionalQueryResultsS3AccessGrantsConfigurationTypeDef,
+):
+    pass
 
 QueryRuntimeStatisticsRowsTypeDef = TypedDict(
     "QueryRuntimeStatisticsRowsTypeDef",
@@ -2245,6 +2319,8 @@ WorkGroupConfigurationTypeDef = TypedDict(
         "ExecutionRole": str,
         "CustomerContentEncryptionConfiguration": "CustomerContentEncryptionConfigurationTypeDef",
         "EnableMinimumEncryptionConfiguration": bool,
+        "IdentityCenterConfiguration": "IdentityCenterConfigurationTypeDef",
+        "QueryResultsS3AccessGrantsConfiguration": "QueryResultsS3AccessGrantsConfigurationTypeDef",
     },
     total=False,
 )
@@ -2264,6 +2340,7 @@ WorkGroupConfigurationUpdatesTypeDef = TypedDict(
         "ExecutionRole": str,
         "CustomerContentEncryptionConfiguration": "CustomerContentEncryptionConfigurationTypeDef",
         "EnableMinimumEncryptionConfiguration": bool,
+        "QueryResultsS3AccessGrantsConfiguration": "QueryResultsS3AccessGrantsConfigurationTypeDef",
     },
     total=False,
 )
@@ -2276,6 +2353,7 @@ WorkGroupSummaryTypeDef = TypedDict(
         "Description": str,
         "CreationTime": datetime,
         "EngineVersion": "EngineVersionTypeDef",
+        "IdentityCenterApplicationArn": str,
     },
     total=False,
 )
@@ -2293,6 +2371,7 @@ _OptionalWorkGroupTypeDef = TypedDict(
         "Configuration": "WorkGroupConfigurationTypeDef",
         "Description": str,
         "CreationTime": datetime,
+        "IdentityCenterApplicationArn": str,
     },
     total=False,
 )

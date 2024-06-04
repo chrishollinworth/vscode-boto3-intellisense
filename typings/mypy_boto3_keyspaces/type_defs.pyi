@@ -6,11 +6,12 @@ Type annotations for keyspaces service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_keyspaces.type_defs import CapacitySpecificationSummaryTypeDef
+    from mypy_boto3_keyspaces.type_defs import AutoScalingPolicyTypeDef
 
-    data: CapacitySpecificationSummaryTypeDef = {...}
+    data: AutoScalingPolicyTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -34,6 +35,9 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AutoScalingPolicyTypeDef",
+    "AutoScalingSettingsTypeDef",
+    "AutoScalingSpecificationTypeDef",
     "CapacitySpecificationSummaryTypeDef",
     "CapacitySpecificationTypeDef",
     "ClientSideTimestampsTypeDef",
@@ -49,6 +53,8 @@ __all__ = (
     "EncryptionSpecificationTypeDef",
     "GetKeyspaceRequestRequestTypeDef",
     "GetKeyspaceResponseTypeDef",
+    "GetTableAutoScalingSettingsRequestRequestTypeDef",
+    "GetTableAutoScalingSettingsResponseTypeDef",
     "GetTableRequestRequestTypeDef",
     "GetTableResponseTypeDef",
     "KeyspaceSummaryTypeDef",
@@ -62,6 +68,9 @@ __all__ = (
     "PartitionKeyTypeDef",
     "PointInTimeRecoverySummaryTypeDef",
     "PointInTimeRecoveryTypeDef",
+    "ReplicaAutoScalingSpecificationTypeDef",
+    "ReplicaSpecificationSummaryTypeDef",
+    "ReplicaSpecificationTypeDef",
     "ReplicationSpecificationTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreTableRequestRequestTypeDef",
@@ -71,10 +80,39 @@ __all__ = (
     "TableSummaryTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TargetTrackingScalingPolicyConfigurationTypeDef",
     "TimeToLiveTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateTableRequestRequestTypeDef",
     "UpdateTableResponseTypeDef",
+)
+
+AutoScalingPolicyTypeDef = TypedDict(
+    "AutoScalingPolicyTypeDef",
+    {
+        "targetTrackingScalingPolicyConfiguration": "TargetTrackingScalingPolicyConfigurationTypeDef",
+    },
+    total=False,
+)
+
+AutoScalingSettingsTypeDef = TypedDict(
+    "AutoScalingSettingsTypeDef",
+    {
+        "autoScalingDisabled": bool,
+        "minimumUnits": int,
+        "maximumUnits": int,
+        "scalingPolicy": "AutoScalingPolicyTypeDef",
+    },
+    total=False,
+)
+
+AutoScalingSpecificationTypeDef = TypedDict(
+    "AutoScalingSpecificationTypeDef",
+    {
+        "writeCapacityAutoScaling": "AutoScalingSettingsTypeDef",
+        "readCapacityAutoScaling": "AutoScalingSettingsTypeDef",
+    },
+    total=False,
 )
 
 _RequiredCapacitySpecificationSummaryTypeDef = TypedDict(
@@ -195,6 +233,8 @@ _OptionalCreateTableRequestRequestTypeDef = TypedDict(
         "defaultTimeToLive": int,
         "tags": List["TagTypeDef"],
         "clientSideTimestamps": "ClientSideTimestampsTypeDef",
+        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
+        "replicaSpecifications": List["ReplicaSpecificationTypeDef"],
     },
     total=False,
 )
@@ -264,6 +304,26 @@ GetKeyspaceResponseTypeDef = TypedDict(
     },
 )
 
+GetTableAutoScalingSettingsRequestRequestTypeDef = TypedDict(
+    "GetTableAutoScalingSettingsRequestRequestTypeDef",
+    {
+        "keyspaceName": str,
+        "tableName": str,
+    },
+)
+
+GetTableAutoScalingSettingsResponseTypeDef = TypedDict(
+    "GetTableAutoScalingSettingsResponseTypeDef",
+    {
+        "keyspaceName": str,
+        "tableName": str,
+        "resourceArn": str,
+        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
+        "replicaSpecifications": List["ReplicaAutoScalingSpecificationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetTableRequestRequestTypeDef = TypedDict(
     "GetTableRequestRequestTypeDef",
     {
@@ -288,6 +348,7 @@ GetTableResponseTypeDef = TypedDict(
         "defaultTimeToLive": int,
         "comment": "CommentTypeDef",
         "clientSideTimestamps": "ClientSideTimestampsTypeDef",
+        "replicaSpecifications": List["ReplicaSpecificationSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -431,6 +492,45 @@ PointInTimeRecoveryTypeDef = TypedDict(
     },
 )
 
+ReplicaAutoScalingSpecificationTypeDef = TypedDict(
+    "ReplicaAutoScalingSpecificationTypeDef",
+    {
+        "region": str,
+        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
+    },
+    total=False,
+)
+
+ReplicaSpecificationSummaryTypeDef = TypedDict(
+    "ReplicaSpecificationSummaryTypeDef",
+    {
+        "region": str,
+        "status": TableStatusType,
+        "capacitySpecification": "CapacitySpecificationSummaryTypeDef",
+    },
+    total=False,
+)
+
+_RequiredReplicaSpecificationTypeDef = TypedDict(
+    "_RequiredReplicaSpecificationTypeDef",
+    {
+        "region": str,
+    },
+)
+_OptionalReplicaSpecificationTypeDef = TypedDict(
+    "_OptionalReplicaSpecificationTypeDef",
+    {
+        "readCapacityUnits": int,
+        "readCapacityAutoScaling": "AutoScalingSettingsTypeDef",
+    },
+    total=False,
+)
+
+class ReplicaSpecificationTypeDef(
+    _RequiredReplicaSpecificationTypeDef, _OptionalReplicaSpecificationTypeDef
+):
+    pass
+
 _RequiredReplicationSpecificationTypeDef = TypedDict(
     "_RequiredReplicationSpecificationTypeDef",
     {
@@ -478,6 +578,8 @@ _OptionalRestoreTableRequestRequestTypeDef = TypedDict(
         "encryptionSpecificationOverride": "EncryptionSpecificationTypeDef",
         "pointInTimeRecoveryOverride": "PointInTimeRecoveryTypeDef",
         "tagsOverride": List["TagTypeDef"],
+        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
+        "replicaSpecifications": List["ReplicaSpecificationTypeDef"],
     },
     total=False,
 )
@@ -546,6 +648,28 @@ TagTypeDef = TypedDict(
     },
 )
 
+_RequiredTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_RequiredTargetTrackingScalingPolicyConfigurationTypeDef",
+    {
+        "targetValue": float,
+    },
+)
+_OptionalTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_OptionalTargetTrackingScalingPolicyConfigurationTypeDef",
+    {
+        "disableScaleIn": bool,
+        "scaleInCooldown": int,
+        "scaleOutCooldown": int,
+    },
+    total=False,
+)
+
+class TargetTrackingScalingPolicyConfigurationTypeDef(
+    _RequiredTargetTrackingScalingPolicyConfigurationTypeDef,
+    _OptionalTargetTrackingScalingPolicyConfigurationTypeDef,
+):
+    pass
+
 TimeToLiveTypeDef = TypedDict(
     "TimeToLiveTypeDef",
     {
@@ -578,6 +702,8 @@ _OptionalUpdateTableRequestRequestTypeDef = TypedDict(
         "ttl": "TimeToLiveTypeDef",
         "defaultTimeToLive": int,
         "clientSideTimestamps": "ClientSideTimestampsTypeDef",
+        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
+        "replicaSpecifications": List["ReplicaSpecificationTypeDef"],
     },
     total=False,
 )

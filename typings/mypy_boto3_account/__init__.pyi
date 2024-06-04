@@ -19,6 +19,7 @@ Usage::
     list_regions_paginator: ListRegionsPaginator = client.get_paginator("list_regions")
     ```
 """
+
 from .client import AccountClient
 from .paginator import ListRegionsPaginator
 

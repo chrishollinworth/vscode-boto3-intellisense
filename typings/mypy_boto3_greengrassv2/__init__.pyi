@@ -31,6 +31,7 @@ Usage::
     list_installed_components_paginator: ListInstalledComponentsPaginator = client.get_paginator("list_installed_components")
     ```
 """
+
 from .client import GreengrassV2Client
 from .paginator import (
     ListClientDevicesAssociatedWithCoreDevicePaginator,

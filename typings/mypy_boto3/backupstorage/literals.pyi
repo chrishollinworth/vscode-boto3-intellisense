@@ -11,6 +11,7 @@ Usage::
     data: DataChecksumAlgorithmType = "SHA256"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

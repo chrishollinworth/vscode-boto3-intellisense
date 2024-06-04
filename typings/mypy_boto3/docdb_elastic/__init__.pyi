@@ -21,6 +21,7 @@ Usage::
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     ```
 """
+
 from .client import DocDBElasticClient
 from .paginator import ListClusterSnapshotsPaginator, ListClustersPaginator
 

@@ -16,6 +16,7 @@ Usage::
     session_client: imagebuilderClient = session.client("imagebuilder")
     ```
 """
+
 from .client import imagebuilderClient
 
 Client = imagebuilderClient

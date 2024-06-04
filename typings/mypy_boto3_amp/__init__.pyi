@@ -32,6 +32,7 @@ Usage::
     list_workspaces_paginator: ListWorkspacesPaginator = client.get_paginator("list_workspaces")
     ```
 """
+
 from .client import PrometheusServiceClient
 from .paginator import (
     ListRuleGroupsNamespacesPaginator,

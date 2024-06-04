@@ -11,6 +11,7 @@ Usage::
     data: ListIdentityProvidersPaginatorName = "list_identity_providers"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

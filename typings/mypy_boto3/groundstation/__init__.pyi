@@ -34,6 +34,7 @@ Usage::
     list_satellites_paginator: ListSatellitesPaginator = client.get_paginator("list_satellites")
     ```
 """
+
 from .client import GroundStationClient
 from .paginator import (
     ListConfigsPaginator,

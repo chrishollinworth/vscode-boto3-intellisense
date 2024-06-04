@@ -11,6 +11,7 @@ Usage::
     data: AccessKeyLastUsedTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -86,9 +87,11 @@ from .literals import (
     RenewalStatusType,
     ResourceBucketAccessType,
     ResourceTypeType,
+    SetupStatusType,
     StatusType,
     StatusTypeType,
     TreatMissingDataType,
+    ViewerMinimumTlsProtocolVersionEnumType,
 )
 
 if sys.version_info >= (3, 8):
@@ -395,6 +398,8 @@ __all__ = (
     "GetRelationalDatabaseSnapshotsResultTypeDef",
     "GetRelationalDatabasesRequestRequestTypeDef",
     "GetRelationalDatabasesResultTypeDef",
+    "GetSetupHistoryRequestRequestTypeDef",
+    "GetSetupHistoryResultTypeDef",
     "GetStaticIpRequestRequestTypeDef",
     "GetStaticIpResultTypeDef",
     "GetStaticIpsRequestRequestTypeDef",
@@ -483,6 +488,12 @@ __all__ = (
     "SetIpAddressTypeResultTypeDef",
     "SetResourceAccessForBucketRequestRequestTypeDef",
     "SetResourceAccessForBucketResultTypeDef",
+    "SetupExecutionDetailsTypeDef",
+    "SetupHistoryResourceTypeDef",
+    "SetupHistoryTypeDef",
+    "SetupInstanceHttpsRequestRequestTypeDef",
+    "SetupInstanceHttpsResultTypeDef",
+    "SetupRequestTypeDef",
     "StartGUISessionRequestRequestTypeDef",
     "StartGUISessionResultTypeDef",
     "StartInstanceRequestRequestTypeDef",
@@ -873,6 +884,7 @@ BundleTypeDef = TypedDict(
         "transferPerMonthInGb": int,
         "supportedPlatforms": List[InstancePlatformType],
         "supportedAppCategories": List[Literal["LfR"]],
+        "publicIpv4AddressCount": int,
     },
     total=False,
 )
@@ -1501,6 +1513,8 @@ _OptionalCreateDistributionRequestRequestTypeDef = TypedDict(
         "cacheBehaviors": List["CacheBehaviorPerPathTypeDef"],
         "ipAddressType": IpAddressTypeType,
         "tags": List["TagTypeDef"],
+        "certificateName": str,
+        "viewerMinimumTlsProtocolVersion": ViewerMinimumTlsProtocolVersionEnumType,
     },
     total=False,
 )
@@ -3704,6 +3718,34 @@ GetRelationalDatabasesResultTypeDef = TypedDict(
     },
 )
 
+_RequiredGetSetupHistoryRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSetupHistoryRequestRequestTypeDef",
+    {
+        "resourceName": str,
+    },
+)
+_OptionalGetSetupHistoryRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSetupHistoryRequestRequestTypeDef",
+    {
+        "pageToken": str,
+    },
+    total=False,
+)
+
+class GetSetupHistoryRequestRequestTypeDef(
+    _RequiredGetSetupHistoryRequestRequestTypeDef, _OptionalGetSetupHistoryRequestRequestTypeDef
+):
+    pass
+
+GetSetupHistoryResultTypeDef = TypedDict(
+    "GetSetupHistoryResultTypeDef",
+    {
+        "setupHistory": List["SetupHistoryTypeDef"],
+        "nextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetStaticIpRequestRequestTypeDef = TypedDict(
     "GetStaticIpRequestRequestTypeDef",
     {
@@ -3781,6 +3823,7 @@ InputOriginTypeDef = TypedDict(
         "name": str,
         "regionName": RegionNameType,
         "protocolPolicy": OriginProtocolPolicyEnumType,
+        "responseTimeout": int,
     },
     total=False,
 )
@@ -3791,6 +3834,7 @@ InstanceAccessDetailsTypeDef = TypedDict(
         "certKey": str,
         "expiresAt": datetime,
         "ipAddress": str,
+        "ipv6Addresses": List[str],
         "password": str,
         "passwordData": "PasswordDataTypeDef",
         "privateKey": str,
@@ -4011,6 +4055,7 @@ LightsailDistributionTypeDef = TypedDict(
         "ableToUpdateBundle": bool,
         "ipAddressType": IpAddressTypeType,
         "tags": List["TagTypeDef"],
+        "viewerMinimumTlsProtocolVersion": str,
     },
     total=False,
 )
@@ -4226,6 +4271,7 @@ OriginTypeDef = TypedDict(
         "resourceType": ResourceTypeType,
         "regionName": RegionNameType,
         "protocolPolicy": OriginProtocolPolicyEnumType,
+        "responseTimeout": int,
     },
     total=False,
 )
@@ -4694,14 +4740,26 @@ SessionTypeDef = TypedDict(
     total=False,
 )
 
-SetIpAddressTypeRequestRequestTypeDef = TypedDict(
-    "SetIpAddressTypeRequestRequestTypeDef",
+_RequiredSetIpAddressTypeRequestRequestTypeDef = TypedDict(
+    "_RequiredSetIpAddressTypeRequestRequestTypeDef",
     {
         "resourceType": ResourceTypeType,
         "resourceName": str,
         "ipAddressType": IpAddressTypeType,
     },
 )
+_OptionalSetIpAddressTypeRequestRequestTypeDef = TypedDict(
+    "_OptionalSetIpAddressTypeRequestRequestTypeDef",
+    {
+        "acceptBundleUpdate": bool,
+    },
+    total=False,
+)
+
+class SetIpAddressTypeRequestRequestTypeDef(
+    _RequiredSetIpAddressTypeRequestRequestTypeDef, _OptionalSetIpAddressTypeRequestRequestTypeDef
+):
+    pass
 
 SetIpAddressTypeResultTypeDef = TypedDict(
     "SetIpAddressTypeResultTypeDef",
@@ -4726,6 +4784,72 @@ SetResourceAccessForBucketResultTypeDef = TypedDict(
         "operations": List["OperationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+SetupExecutionDetailsTypeDef = TypedDict(
+    "SetupExecutionDetailsTypeDef",
+    {
+        "command": str,
+        "dateTime": datetime,
+        "name": str,
+        "status": SetupStatusType,
+        "standardError": str,
+        "standardOutput": str,
+        "version": str,
+    },
+    total=False,
+)
+
+SetupHistoryResourceTypeDef = TypedDict(
+    "SetupHistoryResourceTypeDef",
+    {
+        "name": str,
+        "arn": str,
+        "createdAt": datetime,
+        "location": "ResourceLocationTypeDef",
+        "resourceType": ResourceTypeType,
+    },
+    total=False,
+)
+
+SetupHistoryTypeDef = TypedDict(
+    "SetupHistoryTypeDef",
+    {
+        "operationId": str,
+        "request": "SetupRequestTypeDef",
+        "resource": "SetupHistoryResourceTypeDef",
+        "executionDetails": List["SetupExecutionDetailsTypeDef"],
+        "status": SetupStatusType,
+    },
+    total=False,
+)
+
+SetupInstanceHttpsRequestRequestTypeDef = TypedDict(
+    "SetupInstanceHttpsRequestRequestTypeDef",
+    {
+        "instanceName": str,
+        "emailAddress": str,
+        "domainNames": List[str],
+        "certificateProvider": Literal["LetsEncrypt"],
+    },
+)
+
+SetupInstanceHttpsResultTypeDef = TypedDict(
+    "SetupInstanceHttpsResultTypeDef",
+    {
+        "operations": List["OperationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SetupRequestTypeDef = TypedDict(
+    "SetupRequestTypeDef",
+    {
+        "instanceName": str,
+        "domainNames": List[str],
+        "certificateProvider": Literal["LetsEncrypt"],
+    },
+    total=False,
 )
 
 StartGUISessionRequestRequestTypeDef = TypedDict(
@@ -5076,6 +5200,9 @@ _OptionalUpdateDistributionRequestRequestTypeDef = TypedDict(
         "cacheBehaviorSettings": "CacheSettingsTypeDef",
         "cacheBehaviors": List["CacheBehaviorPerPathTypeDef"],
         "isEnabled": bool,
+        "viewerMinimumTlsProtocolVersion": ViewerMinimumTlsProtocolVersionEnumType,
+        "certificateName": str,
+        "useDefaultCertificate": bool,
     },
     total=False,
 )
@@ -5192,6 +5319,7 @@ _OptionalUpdateRelationalDatabaseRequestRequestTypeDef = TypedDict(
         "publiclyAccessible": bool,
         "applyImmediately": bool,
         "caCertificateIdentifier": str,
+        "relationalDatabaseBlueprintId": str,
     },
     total=False,
 )

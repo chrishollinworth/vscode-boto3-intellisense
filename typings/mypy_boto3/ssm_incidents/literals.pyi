@@ -11,6 +11,7 @@ Usage::
     data: GetResourcePoliciesPaginatorName = "get_resource_policies"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

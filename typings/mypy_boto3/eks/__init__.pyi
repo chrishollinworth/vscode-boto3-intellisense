@@ -15,11 +15,15 @@ Usage::
         EKSClient,
         FargateProfileActiveWaiter,
         FargateProfileDeletedWaiter,
+        ListAccessEntriesPaginator,
+        ListAccessPoliciesPaginator,
         ListAddonsPaginator,
+        ListAssociatedAccessPoliciesPaginator,
         ListClustersPaginator,
         ListEksAnywhereSubscriptionsPaginator,
         ListFargateProfilesPaginator,
         ListIdentityProviderConfigsPaginator,
+        ListInsightsPaginator,
         ListNodegroupsPaginator,
         ListPodIdentityAssociationsPaginator,
         ListUpdatesPaginator,
@@ -42,24 +46,33 @@ Usage::
     nodegroup_deleted_waiter: NodegroupDeletedWaiter = client.get_waiter("nodegroup_deleted")
 
     describe_addon_versions_paginator: DescribeAddonVersionsPaginator = client.get_paginator("describe_addon_versions")
+    list_access_entries_paginator: ListAccessEntriesPaginator = client.get_paginator("list_access_entries")
+    list_access_policies_paginator: ListAccessPoliciesPaginator = client.get_paginator("list_access_policies")
     list_addons_paginator: ListAddonsPaginator = client.get_paginator("list_addons")
+    list_associated_access_policies_paginator: ListAssociatedAccessPoliciesPaginator = client.get_paginator("list_associated_access_policies")
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     list_eks_anywhere_subscriptions_paginator: ListEksAnywhereSubscriptionsPaginator = client.get_paginator("list_eks_anywhere_subscriptions")
     list_fargate_profiles_paginator: ListFargateProfilesPaginator = client.get_paginator("list_fargate_profiles")
     list_identity_provider_configs_paginator: ListIdentityProviderConfigsPaginator = client.get_paginator("list_identity_provider_configs")
+    list_insights_paginator: ListInsightsPaginator = client.get_paginator("list_insights")
     list_nodegroups_paginator: ListNodegroupsPaginator = client.get_paginator("list_nodegroups")
     list_pod_identity_associations_paginator: ListPodIdentityAssociationsPaginator = client.get_paginator("list_pod_identity_associations")
     list_updates_paginator: ListUpdatesPaginator = client.get_paginator("list_updates")
     ```
 """
+
 from .client import EKSClient
 from .paginator import (
     DescribeAddonVersionsPaginator,
+    ListAccessEntriesPaginator,
+    ListAccessPoliciesPaginator,
     ListAddonsPaginator,
+    ListAssociatedAccessPoliciesPaginator,
     ListClustersPaginator,
     ListEksAnywhereSubscriptionsPaginator,
     ListFargateProfilesPaginator,
     ListIdentityProviderConfigsPaginator,
+    ListInsightsPaginator,
     ListNodegroupsPaginator,
     ListPodIdentityAssociationsPaginator,
     ListUpdatesPaginator,
@@ -87,11 +100,15 @@ __all__ = (
     "EKSClient",
     "FargateProfileActiveWaiter",
     "FargateProfileDeletedWaiter",
+    "ListAccessEntriesPaginator",
+    "ListAccessPoliciesPaginator",
     "ListAddonsPaginator",
+    "ListAssociatedAccessPoliciesPaginator",
     "ListClustersPaginator",
     "ListEksAnywhereSubscriptionsPaginator",
     "ListFargateProfilesPaginator",
     "ListIdentityProviderConfigsPaginator",
+    "ListInsightsPaginator",
     "ListNodegroupsPaginator",
     "ListPodIdentityAssociationsPaginator",
     "ListUpdatesPaginator",

@@ -6,16 +6,18 @@ Type annotations for wellarchitected service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_wellarchitected.type_defs import AdditionalResourcesTypeDef
+    from mypy_boto3_wellarchitected.type_defs import AccountJiraConfigurationInputTypeDef
 
-    data: AdditionalResourcesTypeDef = {...}
+    data: AccountJiraConfigurationInputTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AccountJiraIssueManagementStatusType,
     AdditionalResourceTypeType,
     AnswerReasonType,
     CheckFailureReasonType,
@@ -26,6 +28,8 @@ from .literals import (
     DifferenceStatusType,
     DiscoveryIntegrationStatusType,
     ImportLensStatusType,
+    IntegrationStatusType,
+    IssueManagementTypeType,
     LensStatusType,
     LensStatusTypeType,
     LensTypeType,
@@ -47,6 +51,7 @@ from .literals import (
     TrustedAdvisorIntegrationStatusType,
     WorkloadEnvironmentType,
     WorkloadImprovementStatusType,
+    WorkloadIssueManagementStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -59,6 +64,8 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccountJiraConfigurationInputTypeDef",
+    "AccountJiraConfigurationOutputTypeDef",
     "AdditionalResourcesTypeDef",
     "AnswerSummaryTypeDef",
     "AnswerTypeDef",
@@ -108,6 +115,7 @@ __all__ = (
     "GetAnswerOutputTypeDef",
     "GetConsolidatedReportInputRequestTypeDef",
     "GetConsolidatedReportOutputTypeDef",
+    "GetGlobalSettingsOutputTypeDef",
     "GetLensInputRequestTypeDef",
     "GetLensOutputTypeDef",
     "GetLensReviewInputRequestTypeDef",
@@ -132,6 +140,8 @@ __all__ = (
     "ImportLensInputRequestTypeDef",
     "ImportLensOutputTypeDef",
     "ImprovementSummaryTypeDef",
+    "JiraConfigurationTypeDef",
+    "JiraSelectedQuestionConfigurationTypeDef",
     "LensMetricTypeDef",
     "LensReviewReportTypeDef",
     "LensReviewSummaryTypeDef",
@@ -203,6 +213,7 @@ __all__ = (
     "ReviewTemplatePillarReviewSummaryTypeDef",
     "ReviewTemplateSummaryTypeDef",
     "ReviewTemplateTypeDef",
+    "SelectedPillarTypeDef",
     "ShareInvitationSummaryTypeDef",
     "ShareInvitationTypeDef",
     "TagResourceInputRequestTypeDef",
@@ -211,6 +222,7 @@ __all__ = (
     "UpdateAnswerInputRequestTypeDef",
     "UpdateAnswerOutputTypeDef",
     "UpdateGlobalSettingsInputRequestTypeDef",
+    "UpdateIntegrationInputRequestTypeDef",
     "UpdateLensReviewInputRequestTypeDef",
     "UpdateLensReviewOutputTypeDef",
     "UpdateProfileInputRequestTypeDef",
@@ -232,11 +244,37 @@ __all__ = (
     "UpgradeReviewTemplateLensReviewInputRequestTypeDef",
     "VersionDifferencesTypeDef",
     "WorkloadDiscoveryConfigTypeDef",
+    "WorkloadJiraConfigurationInputTypeDef",
+    "WorkloadJiraConfigurationOutputTypeDef",
     "WorkloadProfileTypeDef",
     "WorkloadShareSummaryTypeDef",
     "WorkloadShareTypeDef",
     "WorkloadSummaryTypeDef",
     "WorkloadTypeDef",
+)
+
+AccountJiraConfigurationInputTypeDef = TypedDict(
+    "AccountJiraConfigurationInputTypeDef",
+    {
+        "IssueManagementStatus": AccountJiraIssueManagementStatusType,
+        "IssueManagementType": IssueManagementTypeType,
+        "JiraProjectKey": str,
+        "IntegrationStatus": Literal["NOT_CONFIGURED"],
+    },
+    total=False,
+)
+
+AccountJiraConfigurationOutputTypeDef = TypedDict(
+    "AccountJiraConfigurationOutputTypeDef",
+    {
+        "IntegrationStatus": IntegrationStatusType,
+        "IssueManagementStatus": AccountJiraIssueManagementStatusType,
+        "IssueManagementType": IssueManagementTypeType,
+        "Subdomain": str,
+        "JiraProjectKey": str,
+        "StatusMessage": str,
+    },
+    total=False,
 )
 
 AdditionalResourcesTypeDef = TypedDict(
@@ -261,6 +299,7 @@ AnswerSummaryTypeDef = TypedDict(
         "Risk": RiskType,
         "Reason": AnswerReasonType,
         "QuestionType": QuestionTypeType,
+        "JiraConfiguration": "JiraConfigurationTypeDef",
     },
     total=False,
 )
@@ -282,6 +321,7 @@ AnswerTypeDef = TypedDict(
         "Risk": RiskType,
         "Notes": str,
         "Reason": AnswerReasonType,
+        "JiraConfiguration": "JiraConfigurationTypeDef",
     },
     total=False,
 )
@@ -626,6 +666,7 @@ _OptionalCreateWorkloadInputRequestTypeDef = TypedDict(
         "Applications": List[str],
         "ProfileArns": List[str],
         "ReviewTemplateArns": List[str],
+        "JiraConfiguration": "WorkloadJiraConfigurationInputTypeDef",
     },
     total=False,
 )
@@ -836,6 +877,16 @@ GetConsolidatedReportOutputTypeDef = TypedDict(
         "Metrics": List["ConsolidatedReportMetricTypeDef"],
         "NextToken": str,
         "Base64String": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetGlobalSettingsOutputTypeDef = TypedDict(
+    "GetGlobalSettingsOutputTypeDef",
+    {
+        "OrganizationSharingStatus": OrganizationSharingStatusType,
+        "DiscoveryIntegrationStatus": DiscoveryIntegrationStatusType,
+        "JiraConfiguration": "AccountJiraConfigurationOutputTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1118,6 +1169,24 @@ ImprovementSummaryTypeDef = TypedDict(
         "Risk": RiskType,
         "ImprovementPlanUrl": str,
         "ImprovementPlans": List["ChoiceImprovementPlanTypeDef"],
+        "JiraConfiguration": "JiraConfigurationTypeDef",
+    },
+    total=False,
+)
+
+JiraConfigurationTypeDef = TypedDict(
+    "JiraConfigurationTypeDef",
+    {
+        "JiraIssueUrl": str,
+        "LastSyncedTime": datetime,
+    },
+    total=False,
+)
+
+JiraSelectedQuestionConfigurationTypeDef = TypedDict(
+    "JiraSelectedQuestionConfigurationTypeDef",
+    {
+        "SelectedPillars": List["SelectedPillarTypeDef"],
     },
     total=False,
 )
@@ -1167,6 +1236,7 @@ LensReviewTypeDef = TypedDict(
         "LensName": str,
         "LensStatus": LensStatusType,
         "PillarReviewSummaries": List["PillarReviewSummaryTypeDef"],
+        "JiraConfiguration": "JiraSelectedQuestionConfigurationTypeDef",
         "UpdatedAt": datetime,
         "Notes": str,
         "RiskCounts": Dict[RiskType, int],
@@ -2068,6 +2138,15 @@ ReviewTemplateTypeDef = TypedDict(
     total=False,
 )
 
+SelectedPillarTypeDef = TypedDict(
+    "SelectedPillarTypeDef",
+    {
+        "PillarId": str,
+        "SelectedQuestionIds": List[str],
+    },
+    total=False,
+)
+
 ShareInvitationSummaryTypeDef = TypedDict(
     "ShareInvitationSummaryTypeDef",
     {
@@ -2170,8 +2249,18 @@ UpdateGlobalSettingsInputRequestTypeDef = TypedDict(
     {
         "OrganizationSharingStatus": OrganizationSharingStatusType,
         "DiscoveryIntegrationStatus": DiscoveryIntegrationStatusType,
+        "JiraConfiguration": "AccountJiraConfigurationInputTypeDef",
     },
     total=False,
+)
+
+UpdateIntegrationInputRequestTypeDef = TypedDict(
+    "UpdateIntegrationInputRequestTypeDef",
+    {
+        "WorkloadId": str,
+        "ClientRequestToken": str,
+        "IntegratingService": Literal["JIRA"],
+    },
 )
 
 _RequiredUpdateLensReviewInputRequestTypeDef = TypedDict(
@@ -2186,6 +2275,7 @@ _OptionalUpdateLensReviewInputRequestTypeDef = TypedDict(
     {
         "LensNotes": str,
         "PillarNotes": Dict[str, str],
+        "JiraConfiguration": "JiraSelectedQuestionConfigurationTypeDef",
     },
     total=False,
 )
@@ -2372,6 +2462,7 @@ _OptionalUpdateWorkloadInputRequestTypeDef = TypedDict(
         "ImprovementStatus": WorkloadImprovementStatusType,
         "DiscoveryConfig": "WorkloadDiscoveryConfigTypeDef",
         "Applications": List[str],
+        "JiraConfiguration": "WorkloadJiraConfigurationInputTypeDef",
     },
     total=False,
 )
@@ -2488,6 +2579,27 @@ WorkloadDiscoveryConfigTypeDef = TypedDict(
     total=False,
 )
 
+WorkloadJiraConfigurationInputTypeDef = TypedDict(
+    "WorkloadJiraConfigurationInputTypeDef",
+    {
+        "IssueManagementStatus": WorkloadIssueManagementStatusType,
+        "IssueManagementType": IssueManagementTypeType,
+        "JiraProjectKey": str,
+    },
+    total=False,
+)
+
+WorkloadJiraConfigurationOutputTypeDef = TypedDict(
+    "WorkloadJiraConfigurationOutputTypeDef",
+    {
+        "IssueManagementStatus": WorkloadIssueManagementStatusType,
+        "IssueManagementType": IssueManagementTypeType,
+        "JiraProjectKey": str,
+        "StatusMessage": str,
+    },
+    total=False,
+)
+
 WorkloadProfileTypeDef = TypedDict(
     "WorkloadProfileTypeDef",
     {
@@ -2570,6 +2682,7 @@ WorkloadTypeDef = TypedDict(
         "Applications": List[str],
         "Profiles": List["WorkloadProfileTypeDef"],
         "PrioritizedRiskCounts": Dict[RiskType, int],
+        "JiraConfiguration": "WorkloadJiraConfigurationOutputTypeDef",
     },
     total=False,
 )

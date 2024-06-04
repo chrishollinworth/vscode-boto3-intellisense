@@ -11,6 +11,7 @@ Usage::
     data: AllocationTypeType = "ELASTIC_IP"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -27,6 +28,7 @@ __all__ = (
     "ClusterStatusType",
     "ComponentStatusType",
     "ComponentTypeType",
+    "ConnectedEntityTypeType",
     "CredentialTypeType",
     "DatabaseConnectionMethodType",
     "DatabaseStatusType",
@@ -36,7 +38,9 @@ __all__ = (
     "ListApplicationsPaginatorName",
     "ListComponentsPaginatorName",
     "ListDatabasesPaginatorName",
+    "ListOperationEventsPaginatorName",
     "ListOperationsPaginatorName",
+    "OperationEventStatusType",
     "OperationModeType",
     "OperationStatusType",
     "PermissionActionTypeType",
@@ -57,6 +61,7 @@ ComponentStatusType = Literal[
     "ACTIVATED", "RUNNING", "RUNNING_WITH_ERROR", "STARTING", "STOPPED", "STOPPING", "UNDEFINED"
 ]
 ComponentTypeType = Literal["ABAP", "ASCS", "DIALOG", "ERS", "HANA", "HANA_NODE", "WD", "WEBDISP"]
+ConnectedEntityTypeType = Literal["DBMS"]
 CredentialTypeType = Literal["ADMIN"]
 DatabaseConnectionMethodType = Literal["DIRECT", "OVERLAY"]
 DatabaseStatusType = Literal["ERROR", "RUNNING", "STARTING", "STOPPED", "UNKNOWN", "WARNING"]
@@ -66,7 +71,9 @@ HostRoleType = Literal["LEADER", "STANDBY", "UNKNOWN", "WORKER"]
 ListApplicationsPaginatorName = Literal["list_applications"]
 ListComponentsPaginatorName = Literal["list_components"]
 ListDatabasesPaginatorName = Literal["list_databases"]
+ListOperationEventsPaginatorName = Literal["list_operation_events"]
 ListOperationsPaginatorName = Literal["list_operations"]
+OperationEventStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 OperationModeType = Literal[
     "DELTA_DATASHIPPING", "LOGREPLAY", "LOGREPLAY_READACCESS", "NONE", "PRIMARY"
 ]

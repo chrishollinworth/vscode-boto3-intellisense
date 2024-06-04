@@ -11,6 +11,7 @@ Usage::
     data: AccountAttributeNameType = "ACCOUNT_TIER"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -32,6 +33,7 @@ __all__ = (
     "DescribeOptedOutNumbersPaginatorName",
     "DescribePhoneNumbersPaginatorName",
     "DescribePoolsPaginatorName",
+    "DescribeProtectConfigurationsPaginatorName",
     "DescribeRegistrationAttachmentsPaginatorName",
     "DescribeRegistrationFieldDefinitionsPaginatorName",
     "DescribeRegistrationFieldValuesPaginatorName",
@@ -60,6 +62,8 @@ __all__ = (
     "PoolFilterNameType",
     "PoolOriginationIdentitiesFilterNameType",
     "PoolStatusType",
+    "ProtectConfigurationFilterNameType",
+    "ProtectStatusType",
     "RegistrationAssociationBehaviorType",
     "RegistrationAssociationFilterNameType",
     "RegistrationAttachmentFilterNameType",
@@ -79,7 +83,7 @@ __all__ = (
     "VoiceMessageBodyTextTypeType",
 )
 
-AccountAttributeNameType = Literal["ACCOUNT_TIER"]
+AccountAttributeNameType = Literal["ACCOUNT_TIER", "DEFAULT_PROTECT_CONFIGURATION_ID"]
 AccountLimitNameType = Literal[
     "CONFIGURATION_SETS",
     "OPT_OUT_LISTS",
@@ -93,7 +97,11 @@ AccountLimitNameType = Literal[
 AttachmentStatusType = Literal["DELETED", "UPLOAD_COMPLETE", "UPLOAD_FAILED", "UPLOAD_IN_PROGRESS"]
 AttachmentUploadErrorReasonType = Literal["INTERNAL_ERROR"]
 ConfigurationSetFilterNameType = Literal[
-    "default-message-type", "default-sender-id", "event-destination-name", "matching-event-types"
+    "default-message-type",
+    "default-sender-id",
+    "event-destination-name",
+    "matching-event-types",
+    "protect-configuration-id",
 ]
 DescribeAccountAttributesPaginatorName = Literal["describe_account_attributes"]
 DescribeAccountLimitsPaginatorName = Literal["describe_account_limits"]
@@ -103,6 +111,7 @@ DescribeOptOutListsPaginatorName = Literal["describe_opt_out_lists"]
 DescribeOptedOutNumbersPaginatorName = Literal["describe_opted_out_numbers"]
 DescribePhoneNumbersPaginatorName = Literal["describe_phone_numbers"]
 DescribePoolsPaginatorName = Literal["describe_pools"]
+DescribeProtectConfigurationsPaginatorName = Literal["describe_protect_configurations"]
 DescribeRegistrationAttachmentsPaginatorName = Literal["describe_registration_attachments"]
 DescribeRegistrationFieldDefinitionsPaginatorName = Literal[
     "describe_registration_field_definitions"
@@ -120,6 +129,23 @@ DescribeVerifiedDestinationNumbersPaginatorName = Literal["describe_verified_des
 DestinationCountryParameterKeyType = Literal["IN_ENTITY_ID", "IN_TEMPLATE_ID"]
 EventTypeType = Literal[
     "ALL",
+    "MEDIA_ALL",
+    "MEDIA_BLOCKED",
+    "MEDIA_CARRIER_BLOCKED",
+    "MEDIA_CARRIER_UNREACHABLE",
+    "MEDIA_DELIVERED",
+    "MEDIA_FILE_INACCESSIBLE",
+    "MEDIA_FILE_SIZE_EXCEEDED",
+    "MEDIA_FILE_TYPE_UNSUPPORTED",
+    "MEDIA_INVALID",
+    "MEDIA_INVALID_MESSAGE",
+    "MEDIA_PENDING",
+    "MEDIA_QUEUED",
+    "MEDIA_SPAM",
+    "MEDIA_SUCCESSFUL",
+    "MEDIA_TTL_EXPIRED",
+    "MEDIA_UNKNOWN",
+    "MEDIA_UNREACHABLE",
     "TEXT_ALL",
     "TEXT_BLOCKED",
     "TEXT_CARRIER_BLOCKED",
@@ -167,7 +193,7 @@ LanguageCodeType = Literal[
 ListPoolOriginationIdentitiesPaginatorName = Literal["list_pool_origination_identities"]
 ListRegistrationAssociationsPaginatorName = Literal["list_registration_associations"]
 MessageTypeType = Literal["PROMOTIONAL", "TRANSACTIONAL"]
-NumberCapabilityType = Literal["SMS", "VOICE"]
+NumberCapabilityType = Literal["MMS", "SMS", "VOICE"]
 NumberStatusType = Literal["ACTIVE", "ASSOCIATING", "DELETED", "DISASSOCIATING", "PENDING"]
 NumberTypeType = Literal["LONG_CODE", "SHORT_CODE", "SIMULATOR", "TEN_DLC", "TOLL_FREE"]
 OptedOutFilterNameType = Literal["end-user-opted-out"]
@@ -195,6 +221,8 @@ PoolFilterNameType = Literal[
 ]
 PoolOriginationIdentitiesFilterNameType = Literal["iso-country-code", "number-capability"]
 PoolStatusType = Literal["ACTIVE", "CREATING", "DELETING"]
+ProtectConfigurationFilterNameType = Literal["account-default", "deletion-protection-enabled"]
+ProtectStatusType = Literal["ALLOW", "BLOCK"]
 RegistrationAssociationBehaviorType = Literal[
     "ASSOCIATE_AFTER_COMPLETE", "ASSOCIATE_BEFORE_SUBMIT", "ASSOCIATE_ON_APPROVAL"
 ]
@@ -228,7 +256,9 @@ SenderIdFilterNameType = Literal[
     "deletion-protection-enabled", "iso-country-code", "message-type", "registered", "sender-id"
 ]
 SpendLimitNameType = Literal[
-    "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT", "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT"
+    "MEDIA_MESSAGE_MONTHLY_SPEND_LIMIT",
+    "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT",
+    "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT",
 ]
 VerificationChannelType = Literal["TEXT", "VOICE"]
 VerificationStatusType = Literal["PENDING", "VERIFIED"]

@@ -22,6 +22,7 @@ Usage::
     list_certificates_paginator: ListCertificatesPaginator = client.get_paginator("list_certificates")
     ```
 """
+
 from .client import ACMClient
 from .paginator import ListCertificatesPaginator
 from .waiter import CertificateValidatedWaiter

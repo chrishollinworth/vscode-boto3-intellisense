@@ -11,6 +11,7 @@ Usage::
     data: DataTypeType = "INTEGER"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -83,7 +84,8 @@ StepStatusType = Literal[
     "IN_PROGRESS",
     "PAUSED",
     "READY",
+    "SKIPPED",
     "USER_ATTENTION_REQUIRED",
 ]
 TargetTypeType = Literal["ALL", "NONE", "SINGLE"]
-TemplateStatusType = Literal["CREATED"]
+TemplateStatusType = Literal["CREATED", "CREATING", "CREATION_FAILED", "PENDING_CREATION", "READY"]

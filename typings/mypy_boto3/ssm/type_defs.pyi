@@ -11,6 +11,7 @@ Usage::
     data: AccountSharingInfoTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -50,6 +51,8 @@ from .literals import (
     FaultType,
     InstanceInformationFilterKeyType,
     InstancePatchStateOperatorTypeType,
+    InstancePropertyFilterKeyType,
+    InstancePropertyFilterOperatorType,
     InventoryAttributeDataTypeType,
     InventoryDeletionStatusType,
     InventoryQueryOperatorTypeType,
@@ -217,6 +220,8 @@ __all__ = (
     "DescribeInstancePatchStatesResultTypeDef",
     "DescribeInstancePatchesRequestRequestTypeDef",
     "DescribeInstancePatchesResultTypeDef",
+    "DescribeInstancePropertiesRequestRequestTypeDef",
+    "DescribeInstancePropertiesResultTypeDef",
     "DescribeInventoryDeletionsRequestRequestTypeDef",
     "DescribeInventoryDeletionsResultTypeDef",
     "DescribeMaintenanceWindowExecutionTaskInvocationsRequestRequestTypeDef",
@@ -326,6 +331,9 @@ __all__ = (
     "InstanceInformationTypeDef",
     "InstancePatchStateFilterTypeDef",
     "InstancePatchStateTypeDef",
+    "InstancePropertyFilterTypeDef",
+    "InstancePropertyStringFilterTypeDef",
+    "InstancePropertyTypeDef",
     "InventoryAggregatorTypeDef",
     "InventoryDeletionStatusItemTypeDef",
     "InventoryDeletionSummaryItemTypeDef",
@@ -632,6 +640,7 @@ AssociationDescriptionTypeDef = TypedDict(
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
+        "Duration": int,
         "TargetMaps": List[Dict[str, List[str]]],
         "AlarmConfiguration": "AlarmConfigurationTypeDef",
         "TriggeredAlarms": List["AlarmStateInformationTypeDef"],
@@ -742,6 +751,7 @@ AssociationTypeDef = TypedDict(
         "ScheduleExpression": str,
         "AssociationName": str,
         "ScheduleOffset": int,
+        "Duration": int,
         "TargetMaps": List[Dict[str, List[str]]],
     },
     total=False,
@@ -768,6 +778,7 @@ AssociationVersionInfoTypeDef = TypedDict(
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
+        "Duration": int,
         "TargetMaps": List[Dict[str, List[str]]],
     },
     total=False,
@@ -1176,6 +1187,7 @@ _OptionalCreateAssociationBatchRequestEntryTypeDef = TypedDict(
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
+        "Duration": int,
         "TargetMaps": List[Dict[str, List[str]]],
         "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },
@@ -1229,6 +1241,7 @@ _OptionalCreateAssociationRequestRequestTypeDef = TypedDict(
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
+        "Duration": int,
         "TargetMaps": List[Dict[str, List[str]]],
         "Tags": List["TagTypeDef"],
         "AlarmConfiguration": "AlarmConfigurationTypeDef",
@@ -2131,6 +2144,26 @@ DescribeInstancePatchesResultTypeDef = TypedDict(
     },
 )
 
+DescribeInstancePropertiesRequestRequestTypeDef = TypedDict(
+    "DescribeInstancePropertiesRequestRequestTypeDef",
+    {
+        "InstancePropertyFilterList": List["InstancePropertyFilterTypeDef"],
+        "FiltersWithOperator": List["InstancePropertyStringFilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeInstancePropertiesResultTypeDef = TypedDict(
+    "DescribeInstancePropertiesResultTypeDef",
+    {
+        "InstanceProperties": List["InstancePropertyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeInventoryDeletionsRequestRequestTypeDef = TypedDict(
     "DescribeInventoryDeletionsRequestRequestTypeDef",
     {
@@ -2406,6 +2439,7 @@ DescribeParametersRequestRequestTypeDef = TypedDict(
         "ParameterFilters": List["ParameterStringFilterTypeDef"],
         "MaxResults": int,
         "NextToken": str,
+        "Shared": bool,
     },
     total=False,
 )
@@ -3595,6 +3629,67 @@ class InstancePatchStateTypeDef(
 ):
     pass
 
+InstancePropertyFilterTypeDef = TypedDict(
+    "InstancePropertyFilterTypeDef",
+    {
+        "key": InstancePropertyFilterKeyType,
+        "valueSet": List[str],
+    },
+)
+
+_RequiredInstancePropertyStringFilterTypeDef = TypedDict(
+    "_RequiredInstancePropertyStringFilterTypeDef",
+    {
+        "Key": str,
+        "Values": List[str],
+    },
+)
+_OptionalInstancePropertyStringFilterTypeDef = TypedDict(
+    "_OptionalInstancePropertyStringFilterTypeDef",
+    {
+        "Operator": InstancePropertyFilterOperatorType,
+    },
+    total=False,
+)
+
+class InstancePropertyStringFilterTypeDef(
+    _RequiredInstancePropertyStringFilterTypeDef, _OptionalInstancePropertyStringFilterTypeDef
+):
+    pass
+
+InstancePropertyTypeDef = TypedDict(
+    "InstancePropertyTypeDef",
+    {
+        "Name": str,
+        "InstanceId": str,
+        "InstanceType": str,
+        "InstanceRole": str,
+        "KeyName": str,
+        "InstanceState": str,
+        "Architecture": str,
+        "IPAddress": str,
+        "LaunchTime": datetime,
+        "PingStatus": PingStatusType,
+        "LastPingDateTime": datetime,
+        "AgentVersion": str,
+        "PlatformType": PlatformTypeType,
+        "PlatformName": str,
+        "PlatformVersion": str,
+        "ActivationId": str,
+        "IamRole": str,
+        "RegistrationDate": datetime,
+        "ResourceType": str,
+        "ComputerName": str,
+        "AssociationStatus": str,
+        "LastAssociationExecutionDate": datetime,
+        "LastSuccessfulAssociationExecutionDate": datetime,
+        "AssociationOverview": "InstanceAggregatedAssociationOverviewTypeDef",
+        "SourceId": str,
+        "SourceType": SourceTypeType,
+    },
+    total=False,
+)
+
 InventoryAggregatorTypeDef = TypedDict(
     "InventoryAggregatorTypeDef",
     {
@@ -4660,6 +4755,7 @@ ParameterMetadataTypeDef = TypedDict(
     "ParameterMetadataTypeDef",
     {
         "Name": str,
+        "ARN": str,
         "Type": ParameterTypeType,
         "KeyId": str,
         "LastModifiedDate": datetime,
@@ -5760,6 +5856,7 @@ _OptionalUpdateAssociationRequestRequestTypeDef = TypedDict(
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
         "ScheduleOffset": int,
+        "Duration": int,
         "TargetMaps": List[Dict[str, List[str]]],
         "AlarmConfiguration": "AlarmConfigurationTypeDef",
     },

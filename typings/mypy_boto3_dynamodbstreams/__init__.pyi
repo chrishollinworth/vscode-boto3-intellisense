@@ -16,6 +16,7 @@ Usage::
     session_client: DynamoDBStreamsClient = session.client("dynamodbstreams")
     ```
 """
+
 from .client import DynamoDBStreamsClient
 
 Client = DynamoDBStreamsClient

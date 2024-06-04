@@ -11,6 +11,7 @@ Usage::
     data: AdminStatusType = "DISABLE_IN_PROGRESS"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -21,11 +22,13 @@ else:
 __all__ = (
     "AdminStatusType",
     "AssociationStatusType",
+    "AssociationTypeType",
     "AutoEnableStandardsType",
     "AutomationRulesActionTypeType",
     "AwsIamAccessKeyStatusType",
     "AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType",
     "ComplianceStatusType",
+    "ConfigurationPolicyAssociationStatusType",
     "ControlFindingGeneratorType",
     "ControlStatusType",
     "DateRangeUnitType",
@@ -39,6 +42,8 @@ __all__ = (
     "GetFindingsPaginatorName",
     "GetInsightsPaginatorName",
     "IntegrationTypeType",
+    "ListConfigurationPoliciesPaginatorName",
+    "ListConfigurationPolicyAssociationsPaginatorName",
     "ListEnabledProductsForImportPaginatorName",
     "ListFindingAggregatorsPaginatorName",
     "ListInvitationsPaginatorName",
@@ -50,6 +55,8 @@ __all__ = (
     "MalwareTypeType",
     "MapFilterComparisonType",
     "NetworkDirectionType",
+    "OrganizationConfigurationConfigurationTypeType",
+    "OrganizationConfigurationStatusType",
     "ParameterValueTypeType",
     "PartitionType",
     "RecordStateType",
@@ -62,6 +69,7 @@ __all__ = (
     "StandardsStatusType",
     "StatusReasonCodeType",
     "StringFilterComparisonType",
+    "TargetTypeType",
     "ThreatIntelIndicatorCategoryType",
     "ThreatIntelIndicatorTypeType",
     "UnprocessedErrorCodeType",
@@ -75,11 +83,13 @@ __all__ = (
 
 AdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
 AssociationStatusType = Literal["DISABLED", "ENABLED"]
+AssociationTypeType = Literal["APPLIED", "INHERITED"]
 AutoEnableStandardsType = Literal["DEFAULT", "NONE"]
 AutomationRulesActionTypeType = Literal["FINDING_FIELDS_UPDATE"]
 AwsIamAccessKeyStatusType = Literal["Active", "Inactive"]
 AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType = Literal["Prefix", "Suffix"]
 ComplianceStatusType = Literal["FAILED", "NOT_AVAILABLE", "PASSED", "WARNING"]
+ConfigurationPolicyAssociationStatusType = Literal["FAILED", "PENDING", "SUCCESS"]
 ControlFindingGeneratorType = Literal["SECURITY_CONTROL", "STANDARD_CONTROL"]
 ControlStatusType = Literal["DISABLED", "ENABLED"]
 DateRangeUnitType = Literal["DAYS"]
@@ -97,6 +107,8 @@ IntegrationTypeType = Literal[
     "SEND_FINDINGS_TO_SECURITY_HUB",
     "UPDATE_FINDINGS_IN_SECURITY_HUB",
 ]
+ListConfigurationPoliciesPaginatorName = Literal["list_configuration_policies"]
+ListConfigurationPolicyAssociationsPaginatorName = Literal["list_configuration_policy_associations"]
 ListEnabledProductsForImportPaginatorName = Literal["list_enabled_products_for_import"]
 ListFindingAggregatorsPaginatorName = Literal["list_finding_aggregators"]
 ListInvitationsPaginatorName = Literal["list_invitations"]
@@ -124,6 +136,8 @@ MalwareTypeType = Literal[
 ]
 MapFilterComparisonType = Literal["CONTAINS", "EQUALS", "NOT_CONTAINS", "NOT_EQUALS"]
 NetworkDirectionType = Literal["IN", "OUT"]
+OrganizationConfigurationConfigurationTypeType = Literal["CENTRAL", "LOCAL"]
+OrganizationConfigurationStatusType = Literal["ENABLED", "FAILED", "PENDING"]
 ParameterValueTypeType = Literal["CUSTOM", "DEFAULT"]
 PartitionType = Literal["aws", "aws-cn", "aws-us-gov"]
 RecordStateType = Literal["ACTIVE", "ARCHIVED"]
@@ -138,6 +152,7 @@ StatusReasonCodeType = Literal["INTERNAL_ERROR", "NO_AVAILABLE_CONFIGURATION_REC
 StringFilterComparisonType = Literal[
     "CONTAINS", "EQUALS", "NOT_CONTAINS", "NOT_EQUALS", "PREFIX", "PREFIX_NOT_EQUALS"
 ]
+TargetTypeType = Literal["ACCOUNT", "ORGANIZATIONAL_UNIT", "ROOT"]
 ThreatIntelIndicatorCategoryType = Literal[
     "BACKDOOR", "CARD_STEALER", "COMMAND_AND_CONTROL", "DROP_SITE", "EXPLOIT_SITE", "KEYLOGGER"
 ]

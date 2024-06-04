@@ -11,6 +11,7 @@ Usage::
     data: AccountEnrollmentStatusTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -411,6 +412,7 @@ ListEnrollmentStatusesRequestRequestTypeDef = TypedDict(
 ListEnrollmentStatusesResponseTypeDef = TypedDict(
     "ListEnrollmentStatusesResponseTypeDef",
     {
+        "includeMemberAccounts": bool,
         "items": List["AccountEnrollmentStatusTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",

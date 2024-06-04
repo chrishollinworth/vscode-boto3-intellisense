@@ -11,6 +11,7 @@ Usage::
     data: AssetShallowTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

@@ -12,6 +12,7 @@ Usage::
     client: LaunchWizardClient = boto3.client("launch-wizard")
     ```
 """
+
 import sys
 from typing import Any, Dict, List, Type, overload
 
@@ -28,9 +29,11 @@ from .type_defs import (
     DeleteDeploymentOutputTypeDef,
     DeploymentFilterTypeDef,
     GetDeploymentOutputTypeDef,
+    GetWorkloadDeploymentPatternOutputTypeDef,
     GetWorkloadOutputTypeDef,
     ListDeploymentEventsOutputTypeDef,
     ListDeploymentsOutputTypeDef,
+    ListTagsForResourceOutputTypeDef,
     ListWorkloadDeploymentPatternsOutputTypeDef,
     ListWorkloadsOutputTypeDef,
 )
@@ -58,7 +61,7 @@ class Exceptions:
 
 class LaunchWizardClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html)
     """
 
@@ -69,20 +72,23 @@ class LaunchWizardClient(BaseClient):
         """
         LaunchWizardClient exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#close)
         """
+
     def create_deployment(
         self,
         *,
@@ -90,21 +96,24 @@ class LaunchWizardClient(BaseClient):
         name: str,
         specifications: Dict[str, str],
         workloadName: str,
-        dryRun: bool = None
+        dryRun: bool = None,
+        tags: Dict[str, str] = None
     ) -> CreateDeploymentOutputTypeDef:
         """
         Creates a deployment for the given workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.create_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.create_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#create_deployment)
         """
+
     def delete_deployment(self, *, deploymentId: str) -> DeleteDeploymentOutputTypeDef:
         """
         Deletes a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.delete_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.delete_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#delete_deployment)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -115,32 +124,47 @@ class LaunchWizardClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#generate_presigned_url)
         """
+
     def get_deployment(self, *, deploymentId: str) -> GetDeploymentOutputTypeDef:
         """
         Returns information about the deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.get_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.get_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#get_deployment)
         """
+
     def get_workload(self, *, workloadName: str) -> GetWorkloadOutputTypeDef:
         """
         Returns information about a workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.get_workload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.get_workload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#get_workload)
         """
+
+    def get_workload_deployment_pattern(
+        self, *, deploymentPatternName: str, workloadName: str
+    ) -> GetWorkloadDeploymentPatternOutputTypeDef:
+        """
+        Returns details for a given workload and deployment pattern, including the
+        available specifications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.get_workload_deployment_pattern)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#get_workload_deployment_pattern)
+        """
+
     def list_deployment_events(
         self, *, deploymentId: str, maxResults: int = None, nextToken: str = None
     ) -> ListDeploymentEventsOutputTypeDef:
         """
         Lists the events of a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.list_deployment_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.list_deployment_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#list_deployment_events)
         """
+
     def list_deployments(
         self,
         *,
@@ -151,54 +175,84 @@ class LaunchWizardClient(BaseClient):
         """
         Lists the deployments that have been created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.list_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.list_deployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#list_deployments)
         """
+
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceOutputTypeDef:
+        """
+        Lists the tags associated with a specified resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#list_tags_for_resource)
+        """
+
     def list_workload_deployment_patterns(
         self, *, workloadName: str, maxResults: int = None, nextToken: str = None
     ) -> ListWorkloadDeploymentPatternsOutputTypeDef:
         """
-        Lists the workload deployment patterns.
+        Lists the workload deployment patterns for a given workload name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.list_workload_deployment_patterns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.list_workload_deployment_patterns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#list_workload_deployment_patterns)
         """
+
     def list_workloads(
         self, *, maxResults: int = None, nextToken: str = None
     ) -> ListWorkloadsOutputTypeDef:
         """
-        Lists the workloads.
+        Lists the available workload names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Client.list_workloads)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.list_workloads)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#list_workloads)
         """
+
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        """
+        Adds the specified tags to the given resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#tag_resource)
+        """
+
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        """
+        Removes the specified tags from the given resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/client.html#untag_resource)
+        """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["list_deployment_events"]
     ) -> ListDeploymentEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeploymentEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeploymentEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listdeploymenteventspaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["list_deployments"]
     ) -> ListDeploymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listdeploymentspaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["list_workload_deployment_patterns"]
     ) -> ListWorkloadDeploymentPatternsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloadDeploymentPatterns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloadDeploymentPatterns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listworkloaddeploymentpatternspaginator)
         """
+
     @overload
     def get_paginator(self, operation_name: Literal["list_workloads"]) -> ListWorkloadsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloads)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloads)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listworkloadspaginator)
         """

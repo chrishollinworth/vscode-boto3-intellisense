@@ -11,6 +11,7 @@ Usage::
     data: AmexCardSecurityCodeVersion1TypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict
 
@@ -18,6 +19,8 @@ from .literals import (
     DukptDerivationTypeType,
     DukptEncryptionModeType,
     DukptKeyVariantType,
+    EmvEncryptionModeType,
+    EmvMajorKeyDerivationModeType,
     EncryptionModeType,
     MacAlgorithmType,
     MajorKeyDerivationModeType,
@@ -51,6 +54,7 @@ __all__ = (
     "DukptEncryptionAttributesTypeDef",
     "DynamicCardVerificationCodeTypeDef",
     "DynamicCardVerificationValueTypeDef",
+    "EmvEncryptionAttributesTypeDef",
     "EncryptDataInputRequestTypeDef",
     "EncryptDataOutputTypeDef",
     "EncryptionDecryptionAttributesTypeDef",
@@ -310,6 +314,29 @@ DynamicCardVerificationValueTypeDef = TypedDict(
     },
 )
 
+_RequiredEmvEncryptionAttributesTypeDef = TypedDict(
+    "_RequiredEmvEncryptionAttributesTypeDef",
+    {
+        "MajorKeyDerivationMode": EmvMajorKeyDerivationModeType,
+        "PanSequenceNumber": str,
+        "PrimaryAccountNumber": str,
+        "SessionDerivationData": str,
+    },
+)
+_OptionalEmvEncryptionAttributesTypeDef = TypedDict(
+    "_OptionalEmvEncryptionAttributesTypeDef",
+    {
+        "InitializationVector": str,
+        "Mode": EmvEncryptionModeType,
+    },
+    total=False,
+)
+
+class EmvEncryptionAttributesTypeDef(
+    _RequiredEmvEncryptionAttributesTypeDef, _OptionalEmvEncryptionAttributesTypeDef
+):
+    pass
+
 EncryptDataInputRequestTypeDef = TypedDict(
     "EncryptDataInputRequestTypeDef",
     {
@@ -334,6 +361,7 @@ EncryptionDecryptionAttributesTypeDef = TypedDict(
     {
         "Asymmetric": "AsymmetricEncryptionAttributesTypeDef",
         "Dukpt": "DukptEncryptionAttributesTypeDef",
+        "Emv": "EmvEncryptionAttributesTypeDef",
         "Symmetric": "SymmetricEncryptionAttributesTypeDef",
     },
     total=False,

@@ -6,16 +6,18 @@ Type annotations for connectcases service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_connectcases.type_defs import BasicLayoutTypeDef
+    from mypy_boto3_connectcases.type_defs import AuditEventFieldTypeDef
 
-    data: BasicLayoutTypeDef = {...}
+    data: AuditEventFieldTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AuditEventTypeType,
     DomainStatusType,
     FieldNamespaceType,
     FieldTypeType,
@@ -34,6 +36,10 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AuditEventFieldTypeDef",
+    "AuditEventFieldValueUnionTypeDef",
+    "AuditEventPerformedByTypeDef",
+    "AuditEventTypeDef",
     "BasicLayoutTypeDef",
     "BatchGetFieldRequestRequestTypeDef",
     "BatchGetFieldResponseTypeDef",
@@ -59,6 +65,9 @@ __all__ = (
     "CreateTemplateRequestRequestTypeDef",
     "CreateTemplateResponseTypeDef",
     "DeleteDomainRequestRequestTypeDef",
+    "DeleteFieldRequestRequestTypeDef",
+    "DeleteLayoutRequestRequestTypeDef",
+    "DeleteTemplateRequestRequestTypeDef",
     "DomainSummaryTypeDef",
     "EventBridgeConfigurationTypeDef",
     "EventIncludedDataTypeDef",
@@ -72,6 +81,10 @@ __all__ = (
     "FieldSummaryTypeDef",
     "FieldValueTypeDef",
     "FieldValueUnionTypeDef",
+    "FileContentTypeDef",
+    "FileFilterTypeDef",
+    "GetCaseAuditEventsRequestRequestTypeDef",
+    "GetCaseAuditEventsResponseTypeDef",
     "GetCaseEventConfigurationRequestRequestTypeDef",
     "GetCaseEventConfigurationResponseTypeDef",
     "GetCaseRequestRequestTypeDef",
@@ -126,6 +139,76 @@ __all__ = (
     "UpdateTemplateRequestRequestTypeDef",
     "UserUnionTypeDef",
 )
+
+_RequiredAuditEventFieldTypeDef = TypedDict(
+    "_RequiredAuditEventFieldTypeDef",
+    {
+        "eventFieldId": str,
+        "newValue": "AuditEventFieldValueUnionTypeDef",
+    },
+)
+_OptionalAuditEventFieldTypeDef = TypedDict(
+    "_OptionalAuditEventFieldTypeDef",
+    {
+        "oldValue": "AuditEventFieldValueUnionTypeDef",
+    },
+    total=False,
+)
+
+class AuditEventFieldTypeDef(_RequiredAuditEventFieldTypeDef, _OptionalAuditEventFieldTypeDef):
+    pass
+
+AuditEventFieldValueUnionTypeDef = TypedDict(
+    "AuditEventFieldValueUnionTypeDef",
+    {
+        "booleanValue": bool,
+        "doubleValue": float,
+        "emptyValue": Dict[str, Any],
+        "stringValue": str,
+        "userArnValue": str,
+    },
+    total=False,
+)
+
+_RequiredAuditEventPerformedByTypeDef = TypedDict(
+    "_RequiredAuditEventPerformedByTypeDef",
+    {
+        "iamPrincipalArn": str,
+    },
+)
+_OptionalAuditEventPerformedByTypeDef = TypedDict(
+    "_OptionalAuditEventPerformedByTypeDef",
+    {
+        "user": "UserUnionTypeDef",
+    },
+    total=False,
+)
+
+class AuditEventPerformedByTypeDef(
+    _RequiredAuditEventPerformedByTypeDef, _OptionalAuditEventPerformedByTypeDef
+):
+    pass
+
+_RequiredAuditEventTypeDef = TypedDict(
+    "_RequiredAuditEventTypeDef",
+    {
+        "eventId": str,
+        "fields": List["AuditEventFieldTypeDef"],
+        "performedTime": datetime,
+        "type": AuditEventTypeType,
+    },
+)
+_OptionalAuditEventTypeDef = TypedDict(
+    "_OptionalAuditEventTypeDef",
+    {
+        "performedBy": "AuditEventPerformedByTypeDef",
+        "relatedItemType": RelatedItemTypeType,
+    },
+    total=False,
+)
+
+class AuditEventTypeDef(_RequiredAuditEventTypeDef, _OptionalAuditEventTypeDef):
+    pass
 
 BasicLayoutTypeDef = TypedDict(
     "BasicLayoutTypeDef",
@@ -241,6 +324,7 @@ _OptionalCreateCaseRequestRequestTypeDef = TypedDict(
     "_OptionalCreateCaseRequestRequestTypeDef",
     {
         "clientToken": str,
+        "performedBy": "UserUnionTypeDef",
     },
     total=False,
 )
@@ -394,6 +478,30 @@ DeleteDomainRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteFieldRequestRequestTypeDef = TypedDict(
+    "DeleteFieldRequestRequestTypeDef",
+    {
+        "domainId": str,
+        "fieldId": str,
+    },
+)
+
+DeleteLayoutRequestRequestTypeDef = TypedDict(
+    "DeleteLayoutRequestRequestTypeDef",
+    {
+        "domainId": str,
+        "layoutId": str,
+    },
+)
+
+DeleteTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteTemplateRequestRequestTypeDef",
+    {
+        "domainId": str,
+        "templateId": str,
+    },
+)
+
 DomainSummaryTypeDef = TypedDict(
     "DomainSummaryTypeDef",
     {
@@ -537,8 +645,55 @@ FieldValueUnionTypeDef = TypedDict(
         "doubleValue": float,
         "emptyValue": Dict[str, Any],
         "stringValue": str,
+        "userArnValue": str,
     },
     total=False,
+)
+
+FileContentTypeDef = TypedDict(
+    "FileContentTypeDef",
+    {
+        "fileArn": str,
+    },
+)
+
+FileFilterTypeDef = TypedDict(
+    "FileFilterTypeDef",
+    {
+        "fileArn": str,
+    },
+    total=False,
+)
+
+_RequiredGetCaseAuditEventsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCaseAuditEventsRequestRequestTypeDef",
+    {
+        "caseId": str,
+        "domainId": str,
+    },
+)
+_OptionalGetCaseAuditEventsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCaseAuditEventsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class GetCaseAuditEventsRequestRequestTypeDef(
+    _RequiredGetCaseAuditEventsRequestRequestTypeDef,
+    _OptionalGetCaseAuditEventsRequestRequestTypeDef,
+):
+    pass
+
+GetCaseAuditEventsResponseTypeDef = TypedDict(
+    "GetCaseAuditEventsResponseTypeDef",
+    {
+        "auditEvents": List["AuditEventTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetCaseEventConfigurationRequestRequestTypeDef = TypedDict(
@@ -621,7 +776,10 @@ _RequiredGetFieldResponseTypeDef = TypedDict(
 _OptionalGetFieldResponseTypeDef = TypedDict(
     "_OptionalGetFieldResponseTypeDef",
     {
+        "createdTime": datetime,
+        "deleted": bool,
         "description": str,
+        "lastModifiedTime": datetime,
         "tags": Dict[str, str],
     },
     total=False,
@@ -642,6 +800,9 @@ GetLayoutResponseTypeDef = TypedDict(
     "GetLayoutResponseTypeDef",
     {
         "content": "LayoutContentTypeDef",
+        "createdTime": datetime,
+        "deleted": bool,
+        "lastModifiedTime": datetime,
         "layoutArn": str,
         "layoutId": str,
         "name": str,
@@ -661,7 +822,10 @@ GetTemplateRequestRequestTypeDef = TypedDict(
 GetTemplateResponseTypeDef = TypedDict(
     "GetTemplateResponseTypeDef",
     {
+        "createdTime": datetime,
+        "deleted": bool,
         "description": str,
+        "lastModifiedTime": datetime,
         "layoutConfiguration": "LayoutConfigurationTypeDef",
         "name": str,
         "requiredFields": List["RequiredFieldTypeDef"],
@@ -912,6 +1076,7 @@ RelatedItemContentTypeDef = TypedDict(
     {
         "comment": "CommentContentTypeDef",
         "contact": "ContactContentTypeDef",
+        "file": "FileContentTypeDef",
     },
     total=False,
 )
@@ -928,6 +1093,7 @@ RelatedItemInputContentTypeDef = TypedDict(
     {
         "comment": "CommentContentTypeDef",
         "contact": "ContactTypeDef",
+        "file": "FileContentTypeDef",
     },
     total=False,
 )
@@ -937,6 +1103,7 @@ RelatedItemTypeFilterTypeDef = TypedDict(
     {
         "comment": Dict[str, Any],
         "contact": "ContactFilterTypeDef",
+        "file": "FileFilterTypeDef",
     },
     total=False,
 )
@@ -1110,14 +1277,26 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-UpdateCaseRequestRequestTypeDef = TypedDict(
-    "UpdateCaseRequestRequestTypeDef",
+_RequiredUpdateCaseRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateCaseRequestRequestTypeDef",
     {
         "caseId": str,
         "domainId": str,
         "fields": List["FieldValueTypeDef"],
     },
 )
+_OptionalUpdateCaseRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateCaseRequestRequestTypeDef",
+    {
+        "performedBy": "UserUnionTypeDef",
+    },
+    total=False,
+)
+
+class UpdateCaseRequestRequestTypeDef(
+    _RequiredUpdateCaseRequestRequestTypeDef, _OptionalUpdateCaseRequestRequestTypeDef
+):
+    pass
 
 _RequiredUpdateFieldRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFieldRequestRequestTypeDef",

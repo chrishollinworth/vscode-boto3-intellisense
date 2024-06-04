@@ -11,6 +11,7 @@ Usage::
     data: GetRawMessageContentRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict
 

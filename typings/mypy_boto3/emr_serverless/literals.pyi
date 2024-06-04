@@ -11,6 +11,7 @@ Usage::
     data: ApplicationStateType = "CREATED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -21,8 +22,10 @@ else:
 __all__ = (
     "ApplicationStateType",
     "ArchitectureType",
+    "JobRunModeType",
     "JobRunStateType",
     "ListApplicationsPaginatorName",
+    "ListJobRunAttemptsPaginatorName",
     "ListJobRunsPaginatorName",
 )
 
@@ -30,8 +33,10 @@ ApplicationStateType = Literal[
     "CREATED", "CREATING", "STARTED", "STARTING", "STOPPED", "STOPPING", "TERMINATED"
 ]
 ArchitectureType = Literal["ARM64", "X86_64"]
+JobRunModeType = Literal["BATCH", "STREAMING"]
 JobRunStateType = Literal[
     "CANCELLED", "CANCELLING", "FAILED", "PENDING", "RUNNING", "SCHEDULED", "SUBMITTED", "SUCCESS"
 ]
 ListApplicationsPaginatorName = Literal["list_applications"]
+ListJobRunAttemptsPaginatorName = Literal["list_job_run_attempts"]
 ListJobRunsPaginatorName = Literal["list_job_runs"]

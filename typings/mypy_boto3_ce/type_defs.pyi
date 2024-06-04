@@ -11,6 +11,7 @@ Usage::
     data: AnomalyDateIntervalTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -18,7 +19,9 @@ from .literals import (
     AccountScopeType,
     AnomalyFeedbackTypeType,
     AnomalySubscriptionFrequencyType,
+    ApproximationDimensionType,
     ContextType,
+    CostAllocationTagBackfillStatusType,
     CostAllocationTagStatusType,
     CostAllocationTagTypeType,
     CostCategoryInheritedValueDimensionNameType,
@@ -63,6 +66,7 @@ __all__ = (
     "AnomalyScoreTypeDef",
     "AnomalySubscriptionTypeDef",
     "AnomalyTypeDef",
+    "CostAllocationTagBackfillRequestTypeDef",
     "CostAllocationTagStatusEntryTypeDef",
     "CostAllocationTagTypeDef",
     "CostCategoryInheritedValueDimensionTypeDef",
@@ -111,6 +115,8 @@ __all__ = (
     "GetAnomalyMonitorsResponseTypeDef",
     "GetAnomalySubscriptionsRequestRequestTypeDef",
     "GetAnomalySubscriptionsResponseTypeDef",
+    "GetApproximateUsageRecordsRequestRequestTypeDef",
+    "GetApproximateUsageRecordsResponseTypeDef",
     "GetCostAndUsageRequestRequestTypeDef",
     "GetCostAndUsageResponseTypeDef",
     "GetCostAndUsageWithResourcesRequestRequestTypeDef",
@@ -147,6 +153,8 @@ __all__ = (
     "GroupTypeDef",
     "ImpactTypeDef",
     "InstanceDetailsTypeDef",
+    "ListCostAllocationTagBackfillHistoryRequestRequestTypeDef",
+    "ListCostAllocationTagBackfillHistoryResponseTypeDef",
     "ListCostAllocationTagsRequestRequestTypeDef",
     "ListCostAllocationTagsResponseTypeDef",
     "ListCostCategoryDefinitionsRequestRequestTypeDef",
@@ -197,6 +205,8 @@ __all__ = (
     "SavingsPlansUtilizationTypeDef",
     "ServiceSpecificationTypeDef",
     "SortDefinitionTypeDef",
+    "StartCostAllocationTagBackfillRequestRequestTypeDef",
+    "StartCostAllocationTagBackfillResponseTypeDef",
     "StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef",
     "SubscriberTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -316,6 +326,18 @@ _OptionalAnomalyTypeDef = TypedDict(
 
 class AnomalyTypeDef(_RequiredAnomalyTypeDef, _OptionalAnomalyTypeDef):
     pass
+
+CostAllocationTagBackfillRequestTypeDef = TypedDict(
+    "CostAllocationTagBackfillRequestTypeDef",
+    {
+        "BackfillFrom": str,
+        "RequestedAt": str,
+        "CompletedAt": str,
+        "BackfillStatus": CostAllocationTagBackfillStatusType,
+        "LastUpdatedAt": str,
+    },
+    total=False,
+)
 
 CostAllocationTagStatusEntryTypeDef = TypedDict(
     "CostAllocationTagStatusEntryTypeDef",
@@ -899,6 +921,37 @@ GetAnomalySubscriptionsResponseTypeDef = TypedDict(
     {
         "AnomalySubscriptions": List["AnomalySubscriptionTypeDef"],
         "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetApproximateUsageRecordsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetApproximateUsageRecordsRequestRequestTypeDef",
+    {
+        "Granularity": GranularityType,
+        "ApproximationDimension": ApproximationDimensionType,
+    },
+)
+_OptionalGetApproximateUsageRecordsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetApproximateUsageRecordsRequestRequestTypeDef",
+    {
+        "Services": List[str],
+    },
+    total=False,
+)
+
+class GetApproximateUsageRecordsRequestRequestTypeDef(
+    _RequiredGetApproximateUsageRecordsRequestRequestTypeDef,
+    _OptionalGetApproximateUsageRecordsRequestRequestTypeDef,
+):
+    pass
+
+GetApproximateUsageRecordsResponseTypeDef = TypedDict(
+    "GetApproximateUsageRecordsResponseTypeDef",
+    {
+        "Services": Dict[str, int],
+        "TotalRecords": int,
+        "LookbackPeriod": "DateIntervalTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1490,6 +1543,24 @@ InstanceDetailsTypeDef = TypedDict(
     total=False,
 )
 
+ListCostAllocationTagBackfillHistoryRequestRequestTypeDef = TypedDict(
+    "ListCostAllocationTagBackfillHistoryRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListCostAllocationTagBackfillHistoryResponseTypeDef = TypedDict(
+    "ListCostAllocationTagBackfillHistoryResponseTypeDef",
+    {
+        "BackfillRequests": List["CostAllocationTagBackfillRequestTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCostAllocationTagsRequestRequestTypeDef = TypedDict(
     "ListCostAllocationTagsRequestRequestTypeDef",
     {
@@ -1761,6 +1832,7 @@ ReservationPurchaseRecommendationMetadataTypeDef = TypedDict(
     {
         "RecommendationId": str,
         "GenerationTimestamp": str,
+        "AdditionalMetadata": str,
     },
     total=False,
 )
@@ -2108,6 +2180,21 @@ _OptionalSortDefinitionTypeDef = TypedDict(
 
 class SortDefinitionTypeDef(_RequiredSortDefinitionTypeDef, _OptionalSortDefinitionTypeDef):
     pass
+
+StartCostAllocationTagBackfillRequestRequestTypeDef = TypedDict(
+    "StartCostAllocationTagBackfillRequestRequestTypeDef",
+    {
+        "BackfillFrom": str,
+    },
+)
+
+StartCostAllocationTagBackfillResponseTypeDef = TypedDict(
+    "StartCostAllocationTagBackfillResponseTypeDef",
+    {
+        "BackfillRequest": "CostAllocationTagBackfillRequestTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef = TypedDict(
     "StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef",

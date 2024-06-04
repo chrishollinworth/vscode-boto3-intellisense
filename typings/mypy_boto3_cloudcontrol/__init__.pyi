@@ -24,6 +24,7 @@ Usage::
     list_resources_paginator: ListResourcesPaginator = client.get_paginator("list_resources")
     ```
 """
+
 from .client import CloudControlApiClient
 from .paginator import ListResourceRequestsPaginator, ListResourcesPaginator
 from .waiter import ResourceRequestSuccessWaiter

@@ -11,6 +11,7 @@ Usage::
     data: AutoScalingConfigurationStatusType = "ACTIVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -84,8 +85,10 @@ RuntimeType = Literal[
     "NODEJS_12",
     "NODEJS_14",
     "NODEJS_16",
+    "NODEJS_18",
     "PHP_81",
     "PYTHON_3",
+    "PYTHON_311",
     "RUBY_31",
 ]
 ServiceStatusType = Literal[

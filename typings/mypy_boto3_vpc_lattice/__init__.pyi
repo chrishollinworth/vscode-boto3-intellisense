@@ -35,6 +35,7 @@ Usage::
     list_targets_paginator: ListTargetsPaginator = client.get_paginator("list_targets")
     ```
 """
+
 from .client import VPCLatticeClient
 from .paginator import (
     ListAccessLogSubscriptionsPaginator,

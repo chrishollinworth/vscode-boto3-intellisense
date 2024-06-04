@@ -16,6 +16,7 @@ Usage::
     session_client: WAFRegionalClient = session.client("waf-regional")
     ```
 """
+
 from .client import WAFRegionalClient
 
 Client = WAFRegionalClient

@@ -57,6 +57,7 @@ Usage::
     list_trusted_token_issuers_paginator: ListTrustedTokenIssuersPaginator = client.get_paginator("list_trusted_token_issuers")
     ```
 """
+
 from .client import SSOAdminClient
 from .paginator import (
     ListAccountAssignmentCreationStatusPaginator,

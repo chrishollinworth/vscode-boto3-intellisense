@@ -11,6 +11,7 @@ Usage::
     data: CreateEnvironmentRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -43,7 +44,6 @@ __all__ = (
     "DeregisterDeviceRequestRequestTypeDef",
     "DeviceSummaryTypeDef",
     "DeviceTypeDef",
-    "EmbeddedTagTypeDef",
     "EnvironmentSummaryTypeDef",
     "EnvironmentTypeDef",
     "GetDeviceRequestRequestTypeDef",
@@ -186,7 +186,6 @@ DeviceSummaryTypeDef = TypedDict(
         "createdAt": datetime,
         "updatedAt": datetime,
         "arn": str,
-        "tags": "EmbeddedTagTypeDef",
     },
     total=False,
 )
@@ -214,16 +213,7 @@ DeviceTypeDef = TypedDict(
         "updatedAt": datetime,
         "arn": str,
         "kmsKeyArn": str,
-        "tags": "EmbeddedTagTypeDef",
-    },
-    total=False,
-)
-
-EmbeddedTagTypeDef = TypedDict(
-    "EmbeddedTagTypeDef",
-    {
-        "resourceArn": str,
-        "internalId": str,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -245,7 +235,6 @@ EnvironmentSummaryTypeDef = TypedDict(
         "createdAt": datetime,
         "updatedAt": datetime,
         "arn": str,
-        "tags": "EmbeddedTagTypeDef",
     },
     total=False,
 )
@@ -271,7 +260,7 @@ EnvironmentTypeDef = TypedDict(
         "updatedAt": datetime,
         "arn": str,
         "kmsKeyArn": str,
-        "tags": "EmbeddedTagTypeDef",
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -448,6 +437,7 @@ SoftwareSetTypeDef = TypedDict(
         "validationStatus": SoftwareSetValidationStatusType,
         "software": List["SoftwareTypeDef"],
         "arn": str,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -489,7 +479,6 @@ _OptionalUpdateDeviceRequestRequestTypeDef = TypedDict(
         "name": str,
         "desiredSoftwareSetId": str,
         "softwareSetUpdateSchedule": SoftwareSetUpdateScheduleType,
-        "kmsKeyArn": str,
     },
     total=False,
 )

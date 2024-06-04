@@ -11,6 +11,7 @@ Usage::
     data: ChatTokenCapabilityType = "DELETE_MESSAGE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

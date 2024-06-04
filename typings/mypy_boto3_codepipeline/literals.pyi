@@ -11,6 +11,7 @@ Usage::
     data: ActionCategoryType = "Approval"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -28,8 +29,11 @@ __all__ = (
     "ArtifactStoreTypeType",
     "BlockerTypeType",
     "EncryptionKeyTypeType",
+    "ExecutionModeType",
+    "ExecutionTypeType",
     "ExecutorTypeType",
     "FailureTypeType",
+    "GitPullRequestEventTypeType",
     "JobStatusType",
     "ListActionExecutionsPaginatorName",
     "ListActionTypesPaginatorName",
@@ -40,10 +44,12 @@ __all__ = (
     "PipelineExecutionStatusType",
     "PipelineTriggerProviderTypeType",
     "PipelineTypeType",
+    "ResultType",
     "SourceRevisionTypeType",
     "StageExecutionStatusType",
     "StageRetryModeType",
     "StageTransitionTypeType",
+    "StartTimeRangeType",
     "TriggerTypeType",
     "WebhookAuthenticationTypeType",
 )
@@ -57,6 +63,8 @@ ArtifactLocationTypeType = Literal["S3"]
 ArtifactStoreTypeType = Literal["S3"]
 BlockerTypeType = Literal["Schedule"]
 EncryptionKeyTypeType = Literal["KMS"]
+ExecutionModeType = Literal["PARALLEL", "QUEUED", "SUPERSEDED"]
+ExecutionTypeType = Literal["ROLLBACK", "STANDARD"]
 ExecutorTypeType = Literal["JobWorker", "Lambda"]
 FailureTypeType = Literal[
     "ConfigurationError",
@@ -66,6 +74,7 @@ FailureTypeType = Literal[
     "RevisionUnavailable",
     "SystemUnavailable",
 ]
+GitPullRequestEventTypeType = Literal["CLOSED", "OPEN", "UPDATED"]
 JobStatusType = Literal[
     "Created", "Dispatched", "Failed", "InProgress", "Queued", "Succeeded", "TimedOut"
 ]
@@ -80,15 +89,19 @@ PipelineExecutionStatusType = Literal[
 ]
 PipelineTriggerProviderTypeType = Literal["CodeStarSourceConnection"]
 PipelineTypeType = Literal["V1", "V2"]
+ResultType = Literal["ROLLBACK"]
 SourceRevisionTypeType = Literal["COMMIT_ID", "IMAGE_DIGEST", "S3_OBJECT_VERSION_ID"]
 StageExecutionStatusType = Literal[
     "Cancelled", "Failed", "InProgress", "Stopped", "Stopping", "Succeeded"
 ]
 StageRetryModeType = Literal["ALL_ACTIONS", "FAILED_ACTIONS"]
 StageTransitionTypeType = Literal["Inbound", "Outbound"]
+StartTimeRangeType = Literal["All", "Latest"]
 TriggerTypeType = Literal[
+    "AutomatedRollback",
     "CloudWatchEvent",
     "CreatePipeline",
+    "ManualRollback",
     "PollForSourceChanges",
     "PutActionRevision",
     "StartPipelineExecution",

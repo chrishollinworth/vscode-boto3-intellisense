@@ -11,6 +11,7 @@ Usage::
     data: AddressFamilyType = "ipv4"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

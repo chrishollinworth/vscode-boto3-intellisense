@@ -23,6 +23,7 @@ Usage::
     list_worker_configurations_paginator: ListWorkerConfigurationsPaginator = client.get_paginator("list_worker_configurations")
     ```
 """
+
 from .client import KafkaConnectClient
 from .paginator import (
     ListConnectorsPaginator,

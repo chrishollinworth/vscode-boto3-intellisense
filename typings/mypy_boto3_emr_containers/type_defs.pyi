@@ -6,11 +6,12 @@ Type annotations for emr-containers service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_emr_containers.type_defs import CancelJobRunRequestRequestTypeDef
+    from mypy_boto3_emr_containers.type_defs import AuthorizationConfigurationTypeDef
 
-    data: CancelJobRunRequestRequestTypeDef = {...}
+    data: AuthorizationConfigurationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -34,6 +35,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AuthorizationConfigurationTypeDef",
     "CancelJobRunRequestRequestTypeDef",
     "CancelJobRunResponseTypeDef",
     "CertificateTypeDef",
@@ -47,6 +49,8 @@ __all__ = (
     "CreateJobTemplateResponseTypeDef",
     "CreateManagedEndpointRequestRequestTypeDef",
     "CreateManagedEndpointResponseTypeDef",
+    "CreateSecurityConfigurationRequestRequestTypeDef",
+    "CreateSecurityConfigurationResponseTypeDef",
     "CreateVirtualClusterRequestRequestTypeDef",
     "CreateVirtualClusterResponseTypeDef",
     "CredentialsTypeDef",
@@ -62,22 +66,29 @@ __all__ = (
     "DescribeJobTemplateResponseTypeDef",
     "DescribeManagedEndpointRequestRequestTypeDef",
     "DescribeManagedEndpointResponseTypeDef",
+    "DescribeSecurityConfigurationRequestRequestTypeDef",
+    "DescribeSecurityConfigurationResponseTypeDef",
     "DescribeVirtualClusterRequestRequestTypeDef",
     "DescribeVirtualClusterResponseTypeDef",
     "EksInfoTypeDef",
+    "EncryptionConfigurationTypeDef",
     "EndpointTypeDef",
     "GetManagedEndpointSessionCredentialsRequestRequestTypeDef",
     "GetManagedEndpointSessionCredentialsResponseTypeDef",
+    "InTransitEncryptionConfigurationTypeDef",
     "JobDriverTypeDef",
     "JobRunTypeDef",
     "JobTemplateDataTypeDef",
     "JobTemplateTypeDef",
+    "LakeFormationConfigurationTypeDef",
     "ListJobRunsRequestRequestTypeDef",
     "ListJobRunsResponseTypeDef",
     "ListJobTemplatesRequestRequestTypeDef",
     "ListJobTemplatesResponseTypeDef",
     "ListManagedEndpointsRequestRequestTypeDef",
     "ListManagedEndpointsResponseTypeDef",
+    "ListSecurityConfigurationsRequestRequestTypeDef",
+    "ListSecurityConfigurationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListVirtualClustersRequestRequestTypeDef",
@@ -92,14 +103,27 @@ __all__ = (
     "RetryPolicyConfigurationTypeDef",
     "RetryPolicyExecutionTypeDef",
     "S3MonitoringConfigurationTypeDef",
+    "SecureNamespaceInfoTypeDef",
+    "SecurityConfigurationDataTypeDef",
+    "SecurityConfigurationTypeDef",
     "SparkSqlJobDriverTypeDef",
     "SparkSubmitJobDriverTypeDef",
     "StartJobRunRequestRequestTypeDef",
     "StartJobRunResponseTypeDef",
+    "TLSCertificateConfigurationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TemplateParameterConfigurationTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "VirtualClusterTypeDef",
+)
+
+AuthorizationConfigurationTypeDef = TypedDict(
+    "AuthorizationConfigurationTypeDef",
+    {
+        "lakeFormationConfiguration": "LakeFormationConfigurationTypeDef",
+        "encryptionConfiguration": "EncryptionConfigurationTypeDef",
+    },
+    total=False,
 )
 
 CancelJobRunRequestRequestTypeDef = TypedDict(
@@ -282,6 +306,38 @@ CreateManagedEndpointResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateSecurityConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSecurityConfigurationRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "name": str,
+        "securityConfigurationData": "SecurityConfigurationDataTypeDef",
+    },
+)
+_OptionalCreateSecurityConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSecurityConfigurationRequestRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateSecurityConfigurationRequestRequestTypeDef(
+    _RequiredCreateSecurityConfigurationRequestRequestTypeDef,
+    _OptionalCreateSecurityConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateSecurityConfigurationResponseTypeDef = TypedDict(
+    "CreateSecurityConfigurationResponseTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateVirtualClusterRequestRequestTypeDef = TypedDict(
     "_RequiredCreateVirtualClusterRequestRequestTypeDef",
     {
@@ -294,6 +350,7 @@ _OptionalCreateVirtualClusterRequestRequestTypeDef = TypedDict(
     "_OptionalCreateVirtualClusterRequestRequestTypeDef",
     {
         "tags": Dict[str, str],
+        "securityConfigurationId": str,
     },
     total=False,
 )
@@ -416,6 +473,21 @@ DescribeManagedEndpointResponseTypeDef = TypedDict(
     },
 )
 
+DescribeSecurityConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeSecurityConfigurationRequestRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+DescribeSecurityConfigurationResponseTypeDef = TypedDict(
+    "DescribeSecurityConfigurationResponseTypeDef",
+    {
+        "securityConfiguration": "SecurityConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeVirtualClusterRequestRequestTypeDef = TypedDict(
     "DescribeVirtualClusterRequestRequestTypeDef",
     {
@@ -435,6 +507,14 @@ EksInfoTypeDef = TypedDict(
     "EksInfoTypeDef",
     {
         "namespace": str,
+    },
+    total=False,
+)
+
+EncryptionConfigurationTypeDef = TypedDict(
+    "EncryptionConfigurationTypeDef",
+    {
+        "inTransitEncryptionConfiguration": "InTransitEncryptionConfigurationTypeDef",
     },
     total=False,
 )
@@ -497,6 +577,14 @@ GetManagedEndpointSessionCredentialsResponseTypeDef = TypedDict(
         "expiresAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+InTransitEncryptionConfigurationTypeDef = TypedDict(
+    "InTransitEncryptionConfigurationTypeDef",
+    {
+        "tlsCertificateConfiguration": "TLSCertificateConfigurationTypeDef",
+    },
+    total=False,
 )
 
 JobDriverTypeDef = TypedDict(
@@ -577,6 +665,16 @@ _OptionalJobTemplateTypeDef = TypedDict(
 
 class JobTemplateTypeDef(_RequiredJobTemplateTypeDef, _OptionalJobTemplateTypeDef):
     pass
+
+LakeFormationConfigurationTypeDef = TypedDict(
+    "LakeFormationConfigurationTypeDef",
+    {
+        "authorizedSessionTagValue": str,
+        "secureNamespaceInfo": "SecureNamespaceInfoTypeDef",
+        "queryEngineRoleArn": str,
+    },
+    total=False,
+)
 
 _RequiredListJobRunsRequestRequestTypeDef = TypedDict(
     "_RequiredListJobRunsRequestRequestTypeDef",
@@ -665,6 +763,26 @@ ListManagedEndpointsResponseTypeDef = TypedDict(
     },
 )
 
+ListSecurityConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListSecurityConfigurationsRequestRequestTypeDef",
+    {
+        "createdAfter": Union[datetime, str],
+        "createdBefore": Union[datetime, str],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListSecurityConfigurationsResponseTypeDef = TypedDict(
+    "ListSecurityConfigurationsResponseTypeDef",
+    {
+        "securityConfigurations": List["SecurityConfigurationTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -690,6 +808,7 @@ ListVirtualClustersRequestRequestTypeDef = TypedDict(
         "states": List[VirtualClusterStateType],
         "maxResults": int,
         "nextToken": str,
+        "eksAccessEntryIntegrated": bool,
     },
     total=False,
 )
@@ -792,6 +911,37 @@ S3MonitoringConfigurationTypeDef = TypedDict(
     },
 )
 
+SecureNamespaceInfoTypeDef = TypedDict(
+    "SecureNamespaceInfoTypeDef",
+    {
+        "clusterId": str,
+        "namespace": str,
+    },
+    total=False,
+)
+
+SecurityConfigurationDataTypeDef = TypedDict(
+    "SecurityConfigurationDataTypeDef",
+    {
+        "authorizationConfiguration": "AuthorizationConfigurationTypeDef",
+    },
+    total=False,
+)
+
+SecurityConfigurationTypeDef = TypedDict(
+    "SecurityConfigurationTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "createdAt": datetime,
+        "createdBy": str,
+        "securityConfigurationData": "SecurityConfigurationDataTypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
 SparkSqlJobDriverTypeDef = TypedDict(
     "SparkSqlJobDriverTypeDef",
     {
@@ -860,6 +1010,16 @@ StartJobRunResponseTypeDef = TypedDict(
     },
 )
 
+TLSCertificateConfigurationTypeDef = TypedDict(
+    "TLSCertificateConfigurationTypeDef",
+    {
+        "certificateProviderType": Literal["PEM"],
+        "publicCertificateSecretArn": str,
+        "privateCertificateSecretArn": str,
+    },
+    total=False,
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -895,6 +1055,7 @@ VirtualClusterTypeDef = TypedDict(
         "containerProvider": "ContainerProviderTypeDef",
         "createdAt": datetime,
         "tags": Dict[str, str],
+        "securityConfigurationId": str,
     },
     total=False,
 )

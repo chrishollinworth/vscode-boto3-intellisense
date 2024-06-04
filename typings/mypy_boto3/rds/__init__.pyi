@@ -35,6 +35,7 @@ Usage::
         DescribeDBProxyEndpointsPaginator,
         DescribeDBProxyTargetGroupsPaginator,
         DescribeDBProxyTargetsPaginator,
+        DescribeDBRecommendationsPaginator,
         DescribeDBSecurityGroupsPaginator,
         DescribeDBSnapshotTenantDatabasesPaginator,
         DescribeDBSnapshotsPaginator,
@@ -96,6 +97,7 @@ Usage::
     describe_db_proxy_endpoints_paginator: DescribeDBProxyEndpointsPaginator = client.get_paginator("describe_db_proxy_endpoints")
     describe_db_proxy_target_groups_paginator: DescribeDBProxyTargetGroupsPaginator = client.get_paginator("describe_db_proxy_target_groups")
     describe_db_proxy_targets_paginator: DescribeDBProxyTargetsPaginator = client.get_paginator("describe_db_proxy_targets")
+    describe_db_recommendations_paginator: DescribeDBRecommendationsPaginator = client.get_paginator("describe_db_recommendations")
     describe_db_security_groups_paginator: DescribeDBSecurityGroupsPaginator = client.get_paginator("describe_db_security_groups")
     describe_db_snapshot_tenant_databases_paginator: DescribeDBSnapshotTenantDatabasesPaginator = client.get_paginator("describe_db_snapshot_tenant_databases")
     describe_db_snapshots_paginator: DescribeDBSnapshotsPaginator = client.get_paginator("describe_db_snapshots")
@@ -118,6 +120,7 @@ Usage::
     download_db_log_file_portion_paginator: DownloadDBLogFilePortionPaginator = client.get_paginator("download_db_log_file_portion")
     ```
 """
+
 from .client import RDSClient
 from .paginator import (
     DescribeBlueGreenDeploymentsPaginator,
@@ -139,6 +142,7 @@ from .paginator import (
     DescribeDBProxyEndpointsPaginator,
     DescribeDBProxyTargetGroupsPaginator,
     DescribeDBProxyTargetsPaginator,
+    DescribeDBRecommendationsPaginator,
     DescribeDBSecurityGroupsPaginator,
     DescribeDBSnapshotsPaginator,
     DescribeDBSnapshotTenantDatabasesPaginator,
@@ -206,6 +210,7 @@ __all__ = (
     "DescribeDBProxyEndpointsPaginator",
     "DescribeDBProxyTargetGroupsPaginator",
     "DescribeDBProxyTargetsPaginator",
+    "DescribeDBRecommendationsPaginator",
     "DescribeDBSecurityGroupsPaginator",
     "DescribeDBSnapshotTenantDatabasesPaginator",
     "DescribeDBSnapshotsPaginator",

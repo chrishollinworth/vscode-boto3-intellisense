@@ -6,11 +6,12 @@ Type annotations for emr-containers service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_emr_containers.literals import ContainerProviderTypeType
+    from mypy_boto3_emr_containers.literals import CertificateProviderTypeType
 
-    data: ContainerProviderTypeType = "EKS"
+    data: CertificateProviderTypeType = "PEM"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "CertificateProviderTypeType",
     "ContainerProviderTypeType",
     "EndpointStateType",
     "FailureReasonType",
@@ -26,12 +28,14 @@ __all__ = (
     "ListJobRunsPaginatorName",
     "ListJobTemplatesPaginatorName",
     "ListManagedEndpointsPaginatorName",
+    "ListSecurityConfigurationsPaginatorName",
     "ListVirtualClustersPaginatorName",
     "PersistentAppUIType",
     "TemplateParameterDataTypeType",
     "VirtualClusterStateType",
 )
 
+CertificateProviderTypeType = Literal["PEM"]
 ContainerProviderTypeType = Literal["EKS"]
 EndpointStateType = Literal[
     "ACTIVE", "CREATING", "TERMINATED", "TERMINATED_WITH_ERRORS", "TERMINATING"
@@ -45,6 +49,7 @@ JobRunStateType = Literal[
 ListJobRunsPaginatorName = Literal["list_job_runs"]
 ListJobTemplatesPaginatorName = Literal["list_job_templates"]
 ListManagedEndpointsPaginatorName = Literal["list_managed_endpoints"]
+ListSecurityConfigurationsPaginatorName = Literal["list_security_configurations"]
 ListVirtualClustersPaginatorName = Literal["list_virtual_clusters"]
 PersistentAppUIType = Literal["DISABLED", "ENABLED"]
 TemplateParameterDataTypeType = Literal["NUMBER", "STRING"]

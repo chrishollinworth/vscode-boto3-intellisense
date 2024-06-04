@@ -24,6 +24,7 @@ Usage::
     list_repository_associations_paginator: ListRepositoryAssociationsPaginator = client.get_paginator("list_repository_associations")
     ```
 """
+
 from .client import CodeGuruReviewerClient
 from .paginator import ListRepositoryAssociationsPaginator
 from .waiter import CodeReviewCompletedWaiter, RepositoryAssociationSucceededWaiter

@@ -11,6 +11,7 @@ Usage::
     data: BatchGetTracesPaginatorName = "batch_get_traces"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

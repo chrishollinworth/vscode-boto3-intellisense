@@ -11,6 +11,7 @@ Usage::
     data: ActionType = "ALERT"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -25,6 +26,7 @@ __all__ = (
     "BlockResponseType",
     "FirewallDomainImportOperationType",
     "FirewallDomainListStatusType",
+    "FirewallDomainRedirectionActionType",
     "FirewallDomainUpdateOperationType",
     "FirewallFailOpenStatusType",
     "FirewallRuleGroupAssociationStatusType",
@@ -48,6 +50,7 @@ __all__ = (
     "ListTagsForResourcePaginatorName",
     "MutationProtectionStatusType",
     "OutpostResolverStatusType",
+    "ProtocolType",
     "ResolverAutodefinedReverseStatusType",
     "ResolverDNSSECValidationStatusType",
     "ResolverEndpointDirectionType",
@@ -71,6 +74,9 @@ BlockResponseType = Literal["NODATA", "NXDOMAIN", "OVERRIDE"]
 FirewallDomainImportOperationType = Literal["REPLACE"]
 FirewallDomainListStatusType = Literal[
     "COMPLETE", "COMPLETE_IMPORT_FAILED", "DELETING", "IMPORTING", "UPDATING"
+]
+FirewallDomainRedirectionActionType = Literal[
+    "INSPECT_REDIRECTION_DOMAIN", "TRUST_REDIRECTION_DOMAIN"
 ]
 FirewallDomainUpdateOperationType = Literal["ADD", "REMOVE", "REPLACE"]
 FirewallFailOpenStatusType = Literal["DISABLED", "ENABLED", "USE_LOCAL_RESOURCE_SETTING"]
@@ -118,6 +124,7 @@ OutpostResolverStatusType = Literal[
     "OPERATIONAL",
     "UPDATING",
 ]
+ProtocolType = Literal["Do53", "DoH", "DoH-FIPS"]
 ResolverAutodefinedReverseStatusType = Literal[
     "DISABLED",
     "DISABLING",

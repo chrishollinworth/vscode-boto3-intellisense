@@ -21,6 +21,7 @@ Usage::
     list_adapters_paginator: ListAdaptersPaginator = client.get_paginator("list_adapters")
     ```
 """
+
 from .client import TextractClient
 from .paginator import ListAdaptersPaginator, ListAdapterVersionsPaginator
 

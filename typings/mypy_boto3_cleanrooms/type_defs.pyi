@@ -11,6 +11,7 @@ Usage::
     data: AggregateColumnTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -18,8 +19,10 @@ from typing import Any, Dict, List
 from .literals import (
     AggregateFunctionNameType,
     AnalysisRuleTypeType,
+    AnalysisTemplateValidationStatusType,
     CollaborationQueryLogStatusType,
     ConfiguredTableAnalysisRuleTypeType,
+    DifferentialPrivacyAggregationTypeType,
     FilterableMemberStatusType,
     JoinOperatorType,
     MemberAbilityType,
@@ -27,9 +30,12 @@ from .literals import (
     MembershipStatusType,
     MemberStatusType,
     ParameterTypeType,
+    PrivacyBudgetTemplateAutoRefreshType,
     ProtectedQueryStatusType,
     ResultFormatType,
     ScalarFunctionsType,
+    SchemaStatusReasonCodeType,
+    SchemaStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -55,17 +61,29 @@ __all__ = (
     "AnalysisSourceTypeDef",
     "AnalysisTemplateSummaryTypeDef",
     "AnalysisTemplateTypeDef",
+    "AnalysisTemplateValidationStatusDetailTypeDef",
+    "AnalysisTemplateValidationStatusReasonTypeDef",
     "BatchGetCollaborationAnalysisTemplateErrorTypeDef",
     "BatchGetCollaborationAnalysisTemplateInputRequestTypeDef",
     "BatchGetCollaborationAnalysisTemplateOutputTypeDef",
+    "BatchGetSchemaAnalysisRuleErrorTypeDef",
+    "BatchGetSchemaAnalysisRuleInputRequestTypeDef",
+    "BatchGetSchemaAnalysisRuleOutputTypeDef",
     "BatchGetSchemaErrorTypeDef",
     "BatchGetSchemaInputRequestTypeDef",
     "BatchGetSchemaOutputTypeDef",
     "CollaborationAnalysisTemplateSummaryTypeDef",
     "CollaborationAnalysisTemplateTypeDef",
+    "CollaborationConfiguredAudienceModelAssociationSummaryTypeDef",
+    "CollaborationConfiguredAudienceModelAssociationTypeDef",
+    "CollaborationPrivacyBudgetSummaryTypeDef",
+    "CollaborationPrivacyBudgetTemplateSummaryTypeDef",
+    "CollaborationPrivacyBudgetTemplateTypeDef",
     "CollaborationSummaryTypeDef",
     "CollaborationTypeDef",
     "ColumnTypeDef",
+    "ConfiguredAudienceModelAssociationSummaryTypeDef",
+    "ConfiguredAudienceModelAssociationTypeDef",
     "ConfiguredTableAnalysisRulePolicyTypeDef",
     "ConfiguredTableAnalysisRulePolicyV1TypeDef",
     "ConfiguredTableAnalysisRuleTypeDef",
@@ -77,6 +95,8 @@ __all__ = (
     "CreateAnalysisTemplateOutputTypeDef",
     "CreateCollaborationInputRequestTypeDef",
     "CreateCollaborationOutputTypeDef",
+    "CreateConfiguredAudienceModelAssociationInputRequestTypeDef",
+    "CreateConfiguredAudienceModelAssociationOutputTypeDef",
     "CreateConfiguredTableAnalysisRuleInputRequestTypeDef",
     "CreateConfiguredTableAnalysisRuleOutputTypeDef",
     "CreateConfiguredTableAssociationInputRequestTypeDef",
@@ -85,20 +105,42 @@ __all__ = (
     "CreateConfiguredTableOutputTypeDef",
     "CreateMembershipInputRequestTypeDef",
     "CreateMembershipOutputTypeDef",
+    "CreatePrivacyBudgetTemplateInputRequestTypeDef",
+    "CreatePrivacyBudgetTemplateOutputTypeDef",
     "DataEncryptionMetadataTypeDef",
     "DeleteAnalysisTemplateInputRequestTypeDef",
     "DeleteCollaborationInputRequestTypeDef",
+    "DeleteConfiguredAudienceModelAssociationInputRequestTypeDef",
     "DeleteConfiguredTableAnalysisRuleInputRequestTypeDef",
     "DeleteConfiguredTableAssociationInputRequestTypeDef",
     "DeleteConfiguredTableInputRequestTypeDef",
     "DeleteMemberInputRequestTypeDef",
     "DeleteMembershipInputRequestTypeDef",
+    "DeletePrivacyBudgetTemplateInputRequestTypeDef",
+    "DifferentialPrivacyColumnTypeDef",
+    "DifferentialPrivacyConfigurationTypeDef",
+    "DifferentialPrivacyParametersTypeDef",
+    "DifferentialPrivacyPreviewAggregationTypeDef",
+    "DifferentialPrivacyPreviewParametersInputTypeDef",
+    "DifferentialPrivacyPrivacyBudgetAggregationTypeDef",
+    "DifferentialPrivacyPrivacyBudgetTypeDef",
+    "DifferentialPrivacyPrivacyImpactTypeDef",
+    "DifferentialPrivacySensitivityParametersTypeDef",
+    "DifferentialPrivacyTemplateParametersInputTypeDef",
+    "DifferentialPrivacyTemplateParametersOutputTypeDef",
+    "DifferentialPrivacyTemplateUpdateParametersTypeDef",
     "GetAnalysisTemplateInputRequestTypeDef",
     "GetAnalysisTemplateOutputTypeDef",
     "GetCollaborationAnalysisTemplateInputRequestTypeDef",
     "GetCollaborationAnalysisTemplateOutputTypeDef",
+    "GetCollaborationConfiguredAudienceModelAssociationInputRequestTypeDef",
+    "GetCollaborationConfiguredAudienceModelAssociationOutputTypeDef",
     "GetCollaborationInputRequestTypeDef",
     "GetCollaborationOutputTypeDef",
+    "GetCollaborationPrivacyBudgetTemplateInputRequestTypeDef",
+    "GetCollaborationPrivacyBudgetTemplateOutputTypeDef",
+    "GetConfiguredAudienceModelAssociationInputRequestTypeDef",
+    "GetConfiguredAudienceModelAssociationOutputTypeDef",
     "GetConfiguredTableAnalysisRuleInputRequestTypeDef",
     "GetConfiguredTableAnalysisRuleOutputTypeDef",
     "GetConfiguredTableAssociationInputRequestTypeDef",
@@ -107,6 +149,8 @@ __all__ = (
     "GetConfiguredTableOutputTypeDef",
     "GetMembershipInputRequestTypeDef",
     "GetMembershipOutputTypeDef",
+    "GetPrivacyBudgetTemplateInputRequestTypeDef",
+    "GetPrivacyBudgetTemplateOutputTypeDef",
     "GetProtectedQueryInputRequestTypeDef",
     "GetProtectedQueryOutputTypeDef",
     "GetSchemaAnalysisRuleInputRequestTypeDef",
@@ -118,8 +162,16 @@ __all__ = (
     "ListAnalysisTemplatesOutputTypeDef",
     "ListCollaborationAnalysisTemplatesInputRequestTypeDef",
     "ListCollaborationAnalysisTemplatesOutputTypeDef",
+    "ListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef",
+    "ListCollaborationConfiguredAudienceModelAssociationsOutputTypeDef",
+    "ListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef",
+    "ListCollaborationPrivacyBudgetTemplatesOutputTypeDef",
+    "ListCollaborationPrivacyBudgetsInputRequestTypeDef",
+    "ListCollaborationPrivacyBudgetsOutputTypeDef",
     "ListCollaborationsInputRequestTypeDef",
     "ListCollaborationsOutputTypeDef",
+    "ListConfiguredAudienceModelAssociationsInputRequestTypeDef",
+    "ListConfiguredAudienceModelAssociationsOutputTypeDef",
     "ListConfiguredTableAssociationsInputRequestTypeDef",
     "ListConfiguredTableAssociationsOutputTypeDef",
     "ListConfiguredTablesInputRequestTypeDef",
@@ -128,6 +180,10 @@ __all__ = (
     "ListMembersOutputTypeDef",
     "ListMembershipsInputRequestTypeDef",
     "ListMembershipsOutputTypeDef",
+    "ListPrivacyBudgetTemplatesInputRequestTypeDef",
+    "ListPrivacyBudgetTemplatesOutputTypeDef",
+    "ListPrivacyBudgetsInputRequestTypeDef",
+    "ListPrivacyBudgetsOutputTypeDef",
     "ListProtectedQueriesInputRequestTypeDef",
     "ListProtectedQueriesOutputTypeDef",
     "ListSchemasInputRequestTypeDef",
@@ -144,6 +200,17 @@ __all__ = (
     "MembershipTypeDef",
     "PaginatorConfigTypeDef",
     "PaymentConfigurationTypeDef",
+    "PreviewPrivacyImpactInputRequestTypeDef",
+    "PreviewPrivacyImpactOutputTypeDef",
+    "PreviewPrivacyImpactParametersInputTypeDef",
+    "PrivacyBudgetSummaryTypeDef",
+    "PrivacyBudgetTemplateParametersInputTypeDef",
+    "PrivacyBudgetTemplateParametersOutputTypeDef",
+    "PrivacyBudgetTemplateSummaryTypeDef",
+    "PrivacyBudgetTemplateTypeDef",
+    "PrivacyBudgetTemplateUpdateParametersTypeDef",
+    "PrivacyBudgetTypeDef",
+    "PrivacyImpactTypeDef",
     "ProtectedQueryErrorTypeDef",
     "ProtectedQueryOutputConfigurationTypeDef",
     "ProtectedQueryOutputTypeDef",
@@ -158,6 +225,9 @@ __all__ = (
     "ProtectedQueryTypeDef",
     "QueryComputePaymentConfigTypeDef",
     "ResponseMetadataTypeDef",
+    "SchemaAnalysisRuleRequestTypeDef",
+    "SchemaStatusDetailTypeDef",
+    "SchemaStatusReasonTypeDef",
     "SchemaSummaryTypeDef",
     "SchemaTypeDef",
     "StartProtectedQueryInputRequestTypeDef",
@@ -169,6 +239,8 @@ __all__ = (
     "UpdateAnalysisTemplateOutputTypeDef",
     "UpdateCollaborationInputRequestTypeDef",
     "UpdateCollaborationOutputTypeDef",
+    "UpdateConfiguredAudienceModelAssociationInputRequestTypeDef",
+    "UpdateConfiguredAudienceModelAssociationOutputTypeDef",
     "UpdateConfiguredTableAnalysisRuleInputRequestTypeDef",
     "UpdateConfiguredTableAnalysisRuleOutputTypeDef",
     "UpdateConfiguredTableAssociationInputRequestTypeDef",
@@ -177,6 +249,8 @@ __all__ = (
     "UpdateConfiguredTableOutputTypeDef",
     "UpdateMembershipInputRequestTypeDef",
     "UpdateMembershipOutputTypeDef",
+    "UpdatePrivacyBudgetTemplateInputRequestTypeDef",
+    "UpdatePrivacyBudgetTemplateOutputTypeDef",
     "UpdateProtectedQueryInputRequestTypeDef",
     "UpdateProtectedQueryOutputTypeDef",
 )
@@ -252,6 +326,7 @@ _OptionalAnalysisRuleCustomTypeDef = TypedDict(
     "_OptionalAnalysisRuleCustomTypeDef",
     {
         "allowedAnalysisProviders": List[str],
+        "differentialPrivacy": "DifferentialPrivacyConfigurationTypeDef",
     },
     total=False,
 )
@@ -374,12 +449,41 @@ _OptionalAnalysisTemplateTypeDef = TypedDict(
     {
         "description": str,
         "analysisParameters": List["AnalysisParameterTypeDef"],
+        "validations": List["AnalysisTemplateValidationStatusDetailTypeDef"],
     },
     total=False,
 )
 
 class AnalysisTemplateTypeDef(_RequiredAnalysisTemplateTypeDef, _OptionalAnalysisTemplateTypeDef):
     pass
+
+_RequiredAnalysisTemplateValidationStatusDetailTypeDef = TypedDict(
+    "_RequiredAnalysisTemplateValidationStatusDetailTypeDef",
+    {
+        "type": Literal["DIFFERENTIAL_PRIVACY"],
+        "status": AnalysisTemplateValidationStatusType,
+    },
+)
+_OptionalAnalysisTemplateValidationStatusDetailTypeDef = TypedDict(
+    "_OptionalAnalysisTemplateValidationStatusDetailTypeDef",
+    {
+        "reasons": List["AnalysisTemplateValidationStatusReasonTypeDef"],
+    },
+    total=False,
+)
+
+class AnalysisTemplateValidationStatusDetailTypeDef(
+    _RequiredAnalysisTemplateValidationStatusDetailTypeDef,
+    _OptionalAnalysisTemplateValidationStatusDetailTypeDef,
+):
+    pass
+
+AnalysisTemplateValidationStatusReasonTypeDef = TypedDict(
+    "AnalysisTemplateValidationStatusReasonTypeDef",
+    {
+        "message": str,
+    },
+)
 
 BatchGetCollaborationAnalysisTemplateErrorTypeDef = TypedDict(
     "BatchGetCollaborationAnalysisTemplateErrorTypeDef",
@@ -403,6 +507,33 @@ BatchGetCollaborationAnalysisTemplateOutputTypeDef = TypedDict(
     {
         "collaborationAnalysisTemplates": List["CollaborationAnalysisTemplateTypeDef"],
         "errors": List["BatchGetCollaborationAnalysisTemplateErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetSchemaAnalysisRuleErrorTypeDef = TypedDict(
+    "BatchGetSchemaAnalysisRuleErrorTypeDef",
+    {
+        "name": str,
+        "type": AnalysisRuleTypeType,
+        "code": str,
+        "message": str,
+    },
+)
+
+BatchGetSchemaAnalysisRuleInputRequestTypeDef = TypedDict(
+    "BatchGetSchemaAnalysisRuleInputRequestTypeDef",
+    {
+        "collaborationIdentifier": str,
+        "schemaAnalysisRuleRequests": List["SchemaAnalysisRuleRequestTypeDef"],
+    },
+)
+
+BatchGetSchemaAnalysisRuleOutputTypeDef = TypedDict(
+    "BatchGetSchemaAnalysisRuleOutputTypeDef",
+    {
+        "analysisRules": List["AnalysisRuleTypeDef"],
+        "errors": List["BatchGetSchemaAnalysisRuleErrorTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -481,6 +612,7 @@ _OptionalCollaborationAnalysisTemplateTypeDef = TypedDict(
     {
         "description": str,
         "analysisParameters": List["AnalysisParameterTypeDef"],
+        "validations": List["AnalysisTemplateValidationStatusDetailTypeDef"],
     },
     total=False,
 )
@@ -489,6 +621,107 @@ class CollaborationAnalysisTemplateTypeDef(
     _RequiredCollaborationAnalysisTemplateTypeDef, _OptionalCollaborationAnalysisTemplateTypeDef
 ):
     pass
+
+_RequiredCollaborationConfiguredAudienceModelAssociationSummaryTypeDef = TypedDict(
+    "_RequiredCollaborationConfiguredAudienceModelAssociationSummaryTypeDef",
+    {
+        "arn": str,
+        "createTime": datetime,
+        "id": str,
+        "name": str,
+        "updateTime": datetime,
+        "collaborationArn": str,
+        "collaborationId": str,
+        "creatorAccountId": str,
+    },
+)
+_OptionalCollaborationConfiguredAudienceModelAssociationSummaryTypeDef = TypedDict(
+    "_OptionalCollaborationConfiguredAudienceModelAssociationSummaryTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class CollaborationConfiguredAudienceModelAssociationSummaryTypeDef(
+    _RequiredCollaborationConfiguredAudienceModelAssociationSummaryTypeDef,
+    _OptionalCollaborationConfiguredAudienceModelAssociationSummaryTypeDef,
+):
+    pass
+
+_RequiredCollaborationConfiguredAudienceModelAssociationTypeDef = TypedDict(
+    "_RequiredCollaborationConfiguredAudienceModelAssociationTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "collaborationId": str,
+        "collaborationArn": str,
+        "configuredAudienceModelArn": str,
+        "name": str,
+        "creatorAccountId": str,
+        "createTime": datetime,
+        "updateTime": datetime,
+    },
+)
+_OptionalCollaborationConfiguredAudienceModelAssociationTypeDef = TypedDict(
+    "_OptionalCollaborationConfiguredAudienceModelAssociationTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class CollaborationConfiguredAudienceModelAssociationTypeDef(
+    _RequiredCollaborationConfiguredAudienceModelAssociationTypeDef,
+    _OptionalCollaborationConfiguredAudienceModelAssociationTypeDef,
+):
+    pass
+
+CollaborationPrivacyBudgetSummaryTypeDef = TypedDict(
+    "CollaborationPrivacyBudgetSummaryTypeDef",
+    {
+        "id": str,
+        "privacyBudgetTemplateId": str,
+        "privacyBudgetTemplateArn": str,
+        "collaborationId": str,
+        "collaborationArn": str,
+        "creatorAccountId": str,
+        "type": Literal["DIFFERENTIAL_PRIVACY"],
+        "createTime": datetime,
+        "updateTime": datetime,
+        "budget": "PrivacyBudgetTypeDef",
+    },
+)
+
+CollaborationPrivacyBudgetTemplateSummaryTypeDef = TypedDict(
+    "CollaborationPrivacyBudgetTemplateSummaryTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "collaborationId": str,
+        "collaborationArn": str,
+        "creatorAccountId": str,
+        "privacyBudgetType": Literal["DIFFERENTIAL_PRIVACY"],
+        "createTime": datetime,
+        "updateTime": datetime,
+    },
+)
+
+CollaborationPrivacyBudgetTemplateTypeDef = TypedDict(
+    "CollaborationPrivacyBudgetTemplateTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "collaborationId": str,
+        "collaborationArn": str,
+        "creatorAccountId": str,
+        "createTime": datetime,
+        "updateTime": datetime,
+        "privacyBudgetType": Literal["DIFFERENTIAL_PRIVACY"],
+        "autoRefresh": PrivacyBudgetTemplateAutoRefreshType,
+        "parameters": "PrivacyBudgetTemplateParametersOutputTypeDef",
+    },
+)
 
 _RequiredCollaborationSummaryTypeDef = TypedDict(
     "_RequiredCollaborationSummaryTypeDef",
@@ -552,6 +785,65 @@ ColumnTypeDef = TypedDict(
         "type": str,
     },
 )
+
+_RequiredConfiguredAudienceModelAssociationSummaryTypeDef = TypedDict(
+    "_RequiredConfiguredAudienceModelAssociationSummaryTypeDef",
+    {
+        "membershipId": str,
+        "membershipArn": str,
+        "collaborationArn": str,
+        "collaborationId": str,
+        "createTime": datetime,
+        "updateTime": datetime,
+        "id": str,
+        "arn": str,
+        "name": str,
+        "configuredAudienceModelArn": str,
+    },
+)
+_OptionalConfiguredAudienceModelAssociationSummaryTypeDef = TypedDict(
+    "_OptionalConfiguredAudienceModelAssociationSummaryTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class ConfiguredAudienceModelAssociationSummaryTypeDef(
+    _RequiredConfiguredAudienceModelAssociationSummaryTypeDef,
+    _OptionalConfiguredAudienceModelAssociationSummaryTypeDef,
+):
+    pass
+
+_RequiredConfiguredAudienceModelAssociationTypeDef = TypedDict(
+    "_RequiredConfiguredAudienceModelAssociationTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "configuredAudienceModelArn": str,
+        "membershipId": str,
+        "membershipArn": str,
+        "collaborationId": str,
+        "collaborationArn": str,
+        "name": str,
+        "manageResourcePolicies": bool,
+        "createTime": datetime,
+        "updateTime": datetime,
+    },
+)
+_OptionalConfiguredAudienceModelAssociationTypeDef = TypedDict(
+    "_OptionalConfiguredAudienceModelAssociationTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class ConfiguredAudienceModelAssociationTypeDef(
+    _RequiredConfiguredAudienceModelAssociationTypeDef,
+    _OptionalConfiguredAudienceModelAssociationTypeDef,
+):
+    pass
 
 ConfiguredTableAnalysisRulePolicyTypeDef = TypedDict(
     "ConfiguredTableAnalysisRulePolicyTypeDef",
@@ -730,6 +1022,38 @@ CreateCollaborationOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateConfiguredAudienceModelAssociationInputRequestTypeDef = TypedDict(
+    "_RequiredCreateConfiguredAudienceModelAssociationInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+        "configuredAudienceModelArn": str,
+        "configuredAudienceModelAssociationName": str,
+        "manageResourcePolicies": bool,
+    },
+)
+_OptionalCreateConfiguredAudienceModelAssociationInputRequestTypeDef = TypedDict(
+    "_OptionalCreateConfiguredAudienceModelAssociationInputRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+        "description": str,
+    },
+    total=False,
+)
+
+class CreateConfiguredAudienceModelAssociationInputRequestTypeDef(
+    _RequiredCreateConfiguredAudienceModelAssociationInputRequestTypeDef,
+    _OptionalCreateConfiguredAudienceModelAssociationInputRequestTypeDef,
+):
+    pass
+
+CreateConfiguredAudienceModelAssociationOutputTypeDef = TypedDict(
+    "CreateConfiguredAudienceModelAssociationOutputTypeDef",
+    {
+        "configuredAudienceModelAssociation": "ConfiguredAudienceModelAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateConfiguredTableAnalysisRuleInputRequestTypeDef = TypedDict(
     "CreateConfiguredTableAnalysisRuleInputRequestTypeDef",
     {
@@ -841,6 +1165,37 @@ CreateMembershipOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreatePrivacyBudgetTemplateInputRequestTypeDef = TypedDict(
+    "_RequiredCreatePrivacyBudgetTemplateInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+        "autoRefresh": PrivacyBudgetTemplateAutoRefreshType,
+        "privacyBudgetType": Literal["DIFFERENTIAL_PRIVACY"],
+        "parameters": "PrivacyBudgetTemplateParametersInputTypeDef",
+    },
+)
+_OptionalCreatePrivacyBudgetTemplateInputRequestTypeDef = TypedDict(
+    "_OptionalCreatePrivacyBudgetTemplateInputRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreatePrivacyBudgetTemplateInputRequestTypeDef(
+    _RequiredCreatePrivacyBudgetTemplateInputRequestTypeDef,
+    _OptionalCreatePrivacyBudgetTemplateInputRequestTypeDef,
+):
+    pass
+
+CreatePrivacyBudgetTemplateOutputTypeDef = TypedDict(
+    "CreatePrivacyBudgetTemplateOutputTypeDef",
+    {
+        "privacyBudgetTemplate": "PrivacyBudgetTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DataEncryptionMetadataTypeDef = TypedDict(
     "DataEncryptionMetadataTypeDef",
     {
@@ -863,6 +1218,14 @@ DeleteCollaborationInputRequestTypeDef = TypedDict(
     "DeleteCollaborationInputRequestTypeDef",
     {
         "collaborationIdentifier": str,
+    },
+)
+
+DeleteConfiguredAudienceModelAssociationInputRequestTypeDef = TypedDict(
+    "DeleteConfiguredAudienceModelAssociationInputRequestTypeDef",
+    {
+        "configuredAudienceModelAssociationIdentifier": str,
+        "membershipIdentifier": str,
     },
 )
 
@@ -904,6 +1267,123 @@ DeleteMembershipInputRequestTypeDef = TypedDict(
     },
 )
 
+DeletePrivacyBudgetTemplateInputRequestTypeDef = TypedDict(
+    "DeletePrivacyBudgetTemplateInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+        "privacyBudgetTemplateIdentifier": str,
+    },
+)
+
+DifferentialPrivacyColumnTypeDef = TypedDict(
+    "DifferentialPrivacyColumnTypeDef",
+    {
+        "name": str,
+    },
+)
+
+DifferentialPrivacyConfigurationTypeDef = TypedDict(
+    "DifferentialPrivacyConfigurationTypeDef",
+    {
+        "columns": List["DifferentialPrivacyColumnTypeDef"],
+    },
+)
+
+DifferentialPrivacyParametersTypeDef = TypedDict(
+    "DifferentialPrivacyParametersTypeDef",
+    {
+        "sensitivityParameters": List["DifferentialPrivacySensitivityParametersTypeDef"],
+    },
+)
+
+DifferentialPrivacyPreviewAggregationTypeDef = TypedDict(
+    "DifferentialPrivacyPreviewAggregationTypeDef",
+    {
+        "type": DifferentialPrivacyAggregationTypeType,
+        "maxCount": int,
+    },
+)
+
+DifferentialPrivacyPreviewParametersInputTypeDef = TypedDict(
+    "DifferentialPrivacyPreviewParametersInputTypeDef",
+    {
+        "epsilon": int,
+        "usersNoisePerQuery": int,
+    },
+)
+
+DifferentialPrivacyPrivacyBudgetAggregationTypeDef = TypedDict(
+    "DifferentialPrivacyPrivacyBudgetAggregationTypeDef",
+    {
+        "type": DifferentialPrivacyAggregationTypeType,
+        "maxCount": int,
+        "remainingCount": int,
+    },
+)
+
+DifferentialPrivacyPrivacyBudgetTypeDef = TypedDict(
+    "DifferentialPrivacyPrivacyBudgetTypeDef",
+    {
+        "aggregations": List["DifferentialPrivacyPrivacyBudgetAggregationTypeDef"],
+        "epsilon": int,
+    },
+)
+
+DifferentialPrivacyPrivacyImpactTypeDef = TypedDict(
+    "DifferentialPrivacyPrivacyImpactTypeDef",
+    {
+        "aggregations": List["DifferentialPrivacyPreviewAggregationTypeDef"],
+    },
+)
+
+_RequiredDifferentialPrivacySensitivityParametersTypeDef = TypedDict(
+    "_RequiredDifferentialPrivacySensitivityParametersTypeDef",
+    {
+        "aggregationType": DifferentialPrivacyAggregationTypeType,
+        "aggregationExpression": str,
+        "userContributionLimit": int,
+    },
+)
+_OptionalDifferentialPrivacySensitivityParametersTypeDef = TypedDict(
+    "_OptionalDifferentialPrivacySensitivityParametersTypeDef",
+    {
+        "minColumnValue": float,
+        "maxColumnValue": float,
+    },
+    total=False,
+)
+
+class DifferentialPrivacySensitivityParametersTypeDef(
+    _RequiredDifferentialPrivacySensitivityParametersTypeDef,
+    _OptionalDifferentialPrivacySensitivityParametersTypeDef,
+):
+    pass
+
+DifferentialPrivacyTemplateParametersInputTypeDef = TypedDict(
+    "DifferentialPrivacyTemplateParametersInputTypeDef",
+    {
+        "epsilon": int,
+        "usersNoisePerQuery": int,
+    },
+)
+
+DifferentialPrivacyTemplateParametersOutputTypeDef = TypedDict(
+    "DifferentialPrivacyTemplateParametersOutputTypeDef",
+    {
+        "epsilon": int,
+        "usersNoisePerQuery": int,
+    },
+)
+
+DifferentialPrivacyTemplateUpdateParametersTypeDef = TypedDict(
+    "DifferentialPrivacyTemplateUpdateParametersTypeDef",
+    {
+        "epsilon": int,
+        "usersNoisePerQuery": int,
+    },
+    total=False,
+)
+
 GetAnalysisTemplateInputRequestTypeDef = TypedDict(
     "GetAnalysisTemplateInputRequestTypeDef",
     {
@@ -936,6 +1416,22 @@ GetCollaborationAnalysisTemplateOutputTypeDef = TypedDict(
     },
 )
 
+GetCollaborationConfiguredAudienceModelAssociationInputRequestTypeDef = TypedDict(
+    "GetCollaborationConfiguredAudienceModelAssociationInputRequestTypeDef",
+    {
+        "collaborationIdentifier": str,
+        "configuredAudienceModelAssociationIdentifier": str,
+    },
+)
+
+GetCollaborationConfiguredAudienceModelAssociationOutputTypeDef = TypedDict(
+    "GetCollaborationConfiguredAudienceModelAssociationOutputTypeDef",
+    {
+        "collaborationConfiguredAudienceModelAssociation": "CollaborationConfiguredAudienceModelAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetCollaborationInputRequestTypeDef = TypedDict(
     "GetCollaborationInputRequestTypeDef",
     {
@@ -947,6 +1443,38 @@ GetCollaborationOutputTypeDef = TypedDict(
     "GetCollaborationOutputTypeDef",
     {
         "collaboration": "CollaborationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetCollaborationPrivacyBudgetTemplateInputRequestTypeDef = TypedDict(
+    "GetCollaborationPrivacyBudgetTemplateInputRequestTypeDef",
+    {
+        "collaborationIdentifier": str,
+        "privacyBudgetTemplateIdentifier": str,
+    },
+)
+
+GetCollaborationPrivacyBudgetTemplateOutputTypeDef = TypedDict(
+    "GetCollaborationPrivacyBudgetTemplateOutputTypeDef",
+    {
+        "collaborationPrivacyBudgetTemplate": "CollaborationPrivacyBudgetTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetConfiguredAudienceModelAssociationInputRequestTypeDef = TypedDict(
+    "GetConfiguredAudienceModelAssociationInputRequestTypeDef",
+    {
+        "configuredAudienceModelAssociationIdentifier": str,
+        "membershipIdentifier": str,
+    },
+)
+
+GetConfiguredAudienceModelAssociationOutputTypeDef = TypedDict(
+    "GetConfiguredAudienceModelAssociationOutputTypeDef",
+    {
+        "configuredAudienceModelAssociation": "ConfiguredAudienceModelAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1009,6 +1537,22 @@ GetMembershipOutputTypeDef = TypedDict(
     "GetMembershipOutputTypeDef",
     {
         "membership": "MembershipTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetPrivacyBudgetTemplateInputRequestTypeDef = TypedDict(
+    "GetPrivacyBudgetTemplateInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+        "privacyBudgetTemplateIdentifier": str,
+    },
+)
+
+GetPrivacyBudgetTemplateOutputTypeDef = TypedDict(
+    "GetPrivacyBudgetTemplateOutputTypeDef",
+    {
+        "privacyBudgetTemplate": "PrivacyBudgetTemplateTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1132,6 +1676,101 @@ ListCollaborationAnalysisTemplatesOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef = TypedDict(
+    "_RequiredListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef",
+    {
+        "collaborationIdentifier": str,
+    },
+)
+_OptionalListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef = TypedDict(
+    "_OptionalListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef(
+    _RequiredListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef,
+    _OptionalListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef,
+):
+    pass
+
+ListCollaborationConfiguredAudienceModelAssociationsOutputTypeDef = TypedDict(
+    "ListCollaborationConfiguredAudienceModelAssociationsOutputTypeDef",
+    {
+        "collaborationConfiguredAudienceModelAssociationSummaries": List[
+            "CollaborationConfiguredAudienceModelAssociationSummaryTypeDef"
+        ],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef = TypedDict(
+    "_RequiredListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef",
+    {
+        "collaborationIdentifier": str,
+    },
+)
+_OptionalListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef = TypedDict(
+    "_OptionalListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef(
+    _RequiredListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef,
+    _OptionalListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef,
+):
+    pass
+
+ListCollaborationPrivacyBudgetTemplatesOutputTypeDef = TypedDict(
+    "ListCollaborationPrivacyBudgetTemplatesOutputTypeDef",
+    {
+        "nextToken": str,
+        "collaborationPrivacyBudgetTemplateSummaries": List[
+            "CollaborationPrivacyBudgetTemplateSummaryTypeDef"
+        ],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCollaborationPrivacyBudgetsInputRequestTypeDef = TypedDict(
+    "_RequiredListCollaborationPrivacyBudgetsInputRequestTypeDef",
+    {
+        "collaborationIdentifier": str,
+        "privacyBudgetType": Literal["DIFFERENTIAL_PRIVACY"],
+    },
+)
+_OptionalListCollaborationPrivacyBudgetsInputRequestTypeDef = TypedDict(
+    "_OptionalListCollaborationPrivacyBudgetsInputRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListCollaborationPrivacyBudgetsInputRequestTypeDef(
+    _RequiredListCollaborationPrivacyBudgetsInputRequestTypeDef,
+    _OptionalListCollaborationPrivacyBudgetsInputRequestTypeDef,
+):
+    pass
+
+ListCollaborationPrivacyBudgetsOutputTypeDef = TypedDict(
+    "ListCollaborationPrivacyBudgetsOutputTypeDef",
+    {
+        "collaborationPrivacyBudgetSummaries": List["CollaborationPrivacyBudgetSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCollaborationsInputRequestTypeDef = TypedDict(
     "ListCollaborationsInputRequestTypeDef",
     {
@@ -1147,6 +1786,38 @@ ListCollaborationsOutputTypeDef = TypedDict(
     {
         "nextToken": str,
         "collaborationList": List["CollaborationSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListConfiguredAudienceModelAssociationsInputRequestTypeDef = TypedDict(
+    "_RequiredListConfiguredAudienceModelAssociationsInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+    },
+)
+_OptionalListConfiguredAudienceModelAssociationsInputRequestTypeDef = TypedDict(
+    "_OptionalListConfiguredAudienceModelAssociationsInputRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListConfiguredAudienceModelAssociationsInputRequestTypeDef(
+    _RequiredListConfiguredAudienceModelAssociationsInputRequestTypeDef,
+    _OptionalListConfiguredAudienceModelAssociationsInputRequestTypeDef,
+):
+    pass
+
+ListConfiguredAudienceModelAssociationsOutputTypeDef = TypedDict(
+    "ListConfiguredAudienceModelAssociationsOutputTypeDef",
+    {
+        "configuredAudienceModelAssociationSummaries": List[
+            "ConfiguredAudienceModelAssociationSummaryTypeDef"
+        ],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1243,6 +1914,66 @@ ListMembershipsOutputTypeDef = TypedDict(
     {
         "nextToken": str,
         "membershipSummaries": List["MembershipSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListPrivacyBudgetTemplatesInputRequestTypeDef = TypedDict(
+    "_RequiredListPrivacyBudgetTemplatesInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+    },
+)
+_OptionalListPrivacyBudgetTemplatesInputRequestTypeDef = TypedDict(
+    "_OptionalListPrivacyBudgetTemplatesInputRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListPrivacyBudgetTemplatesInputRequestTypeDef(
+    _RequiredListPrivacyBudgetTemplatesInputRequestTypeDef,
+    _OptionalListPrivacyBudgetTemplatesInputRequestTypeDef,
+):
+    pass
+
+ListPrivacyBudgetTemplatesOutputTypeDef = TypedDict(
+    "ListPrivacyBudgetTemplatesOutputTypeDef",
+    {
+        "nextToken": str,
+        "privacyBudgetTemplateSummaries": List["PrivacyBudgetTemplateSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListPrivacyBudgetsInputRequestTypeDef = TypedDict(
+    "_RequiredListPrivacyBudgetsInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+        "privacyBudgetType": Literal["DIFFERENTIAL_PRIVACY"],
+    },
+)
+_OptionalListPrivacyBudgetsInputRequestTypeDef = TypedDict(
+    "_OptionalListPrivacyBudgetsInputRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListPrivacyBudgetsInputRequestTypeDef(
+    _RequiredListPrivacyBudgetsInputRequestTypeDef, _OptionalListPrivacyBudgetsInputRequestTypeDef
+):
+    pass
+
+ListPrivacyBudgetsOutputTypeDef = TypedDict(
+    "ListPrivacyBudgetsOutputTypeDef",
+    {
+        "privacyBudgetSummaries": List["PrivacyBudgetSummaryTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1474,6 +2205,119 @@ PaymentConfigurationTypeDef = TypedDict(
     },
 )
 
+PreviewPrivacyImpactInputRequestTypeDef = TypedDict(
+    "PreviewPrivacyImpactInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+        "parameters": "PreviewPrivacyImpactParametersInputTypeDef",
+    },
+)
+
+PreviewPrivacyImpactOutputTypeDef = TypedDict(
+    "PreviewPrivacyImpactOutputTypeDef",
+    {
+        "privacyImpact": "PrivacyImpactTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PreviewPrivacyImpactParametersInputTypeDef = TypedDict(
+    "PreviewPrivacyImpactParametersInputTypeDef",
+    {
+        "differentialPrivacy": "DifferentialPrivacyPreviewParametersInputTypeDef",
+    },
+    total=False,
+)
+
+PrivacyBudgetSummaryTypeDef = TypedDict(
+    "PrivacyBudgetSummaryTypeDef",
+    {
+        "id": str,
+        "privacyBudgetTemplateId": str,
+        "privacyBudgetTemplateArn": str,
+        "membershipId": str,
+        "membershipArn": str,
+        "collaborationId": str,
+        "collaborationArn": str,
+        "type": Literal["DIFFERENTIAL_PRIVACY"],
+        "createTime": datetime,
+        "updateTime": datetime,
+        "budget": "PrivacyBudgetTypeDef",
+    },
+)
+
+PrivacyBudgetTemplateParametersInputTypeDef = TypedDict(
+    "PrivacyBudgetTemplateParametersInputTypeDef",
+    {
+        "differentialPrivacy": "DifferentialPrivacyTemplateParametersInputTypeDef",
+    },
+    total=False,
+)
+
+PrivacyBudgetTemplateParametersOutputTypeDef = TypedDict(
+    "PrivacyBudgetTemplateParametersOutputTypeDef",
+    {
+        "differentialPrivacy": "DifferentialPrivacyTemplateParametersOutputTypeDef",
+    },
+    total=False,
+)
+
+PrivacyBudgetTemplateSummaryTypeDef = TypedDict(
+    "PrivacyBudgetTemplateSummaryTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "membershipId": str,
+        "membershipArn": str,
+        "collaborationId": str,
+        "collaborationArn": str,
+        "privacyBudgetType": Literal["DIFFERENTIAL_PRIVACY"],
+        "createTime": datetime,
+        "updateTime": datetime,
+    },
+)
+
+PrivacyBudgetTemplateTypeDef = TypedDict(
+    "PrivacyBudgetTemplateTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "membershipId": str,
+        "membershipArn": str,
+        "collaborationId": str,
+        "collaborationArn": str,
+        "createTime": datetime,
+        "updateTime": datetime,
+        "privacyBudgetType": Literal["DIFFERENTIAL_PRIVACY"],
+        "autoRefresh": PrivacyBudgetTemplateAutoRefreshType,
+        "parameters": "PrivacyBudgetTemplateParametersOutputTypeDef",
+    },
+)
+
+PrivacyBudgetTemplateUpdateParametersTypeDef = TypedDict(
+    "PrivacyBudgetTemplateUpdateParametersTypeDef",
+    {
+        "differentialPrivacy": "DifferentialPrivacyTemplateUpdateParametersTypeDef",
+    },
+    total=False,
+)
+
+PrivacyBudgetTypeDef = TypedDict(
+    "PrivacyBudgetTypeDef",
+    {
+        "differentialPrivacy": "DifferentialPrivacyPrivacyBudgetTypeDef",
+    },
+    total=False,
+)
+
+PrivacyImpactTypeDef = TypedDict(
+    "PrivacyImpactTypeDef",
+    {
+        "differentialPrivacy": "DifferentialPrivacyPrivacyImpactTypeDef",
+    },
+    total=False,
+)
+
 ProtectedQueryErrorTypeDef = TypedDict(
     "ProtectedQueryErrorTypeDef",
     {
@@ -1595,6 +2439,7 @@ _OptionalProtectedQueryTypeDef = TypedDict(
         "statistics": "ProtectedQueryStatisticsTypeDef",
         "result": "ProtectedQueryResultTypeDef",
         "error": "ProtectedQueryErrorTypeDef",
+        "differentialPrivacy": "DifferentialPrivacyParametersTypeDef",
     },
     total=False,
 )
@@ -1617,6 +2462,43 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+SchemaAnalysisRuleRequestTypeDef = TypedDict(
+    "SchemaAnalysisRuleRequestTypeDef",
+    {
+        "name": str,
+        "type": AnalysisRuleTypeType,
+    },
+)
+
+_RequiredSchemaStatusDetailTypeDef = TypedDict(
+    "_RequiredSchemaStatusDetailTypeDef",
+    {
+        "status": SchemaStatusType,
+    },
+)
+_OptionalSchemaStatusDetailTypeDef = TypedDict(
+    "_OptionalSchemaStatusDetailTypeDef",
+    {
+        "reasons": List["SchemaStatusReasonTypeDef"],
+        "analysisRuleType": AnalysisRuleTypeType,
+        "configurations": List[Literal["DIFFERENTIAL_PRIVACY"]],
+    },
+    total=False,
+)
+
+class SchemaStatusDetailTypeDef(
+    _RequiredSchemaStatusDetailTypeDef, _OptionalSchemaStatusDetailTypeDef
+):
+    pass
+
+SchemaStatusReasonTypeDef = TypedDict(
+    "SchemaStatusReasonTypeDef",
+    {
+        "code": SchemaStatusReasonCodeType,
+        "message": str,
     },
 )
 
@@ -1658,6 +2540,7 @@ _RequiredSchemaTypeDef = TypedDict(
         "createTime": datetime,
         "updateTime": datetime,
         "type": Literal["TABLE"],
+        "schemaStatusDetails": List["SchemaStatusDetailTypeDef"],
     },
 )
 _OptionalSchemaTypeDef = TypedDict(
@@ -1781,6 +2664,36 @@ UpdateCollaborationOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateConfiguredAudienceModelAssociationInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateConfiguredAudienceModelAssociationInputRequestTypeDef",
+    {
+        "configuredAudienceModelAssociationIdentifier": str,
+        "membershipIdentifier": str,
+    },
+)
+_OptionalUpdateConfiguredAudienceModelAssociationInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateConfiguredAudienceModelAssociationInputRequestTypeDef",
+    {
+        "description": str,
+        "name": str,
+    },
+    total=False,
+)
+
+class UpdateConfiguredAudienceModelAssociationInputRequestTypeDef(
+    _RequiredUpdateConfiguredAudienceModelAssociationInputRequestTypeDef,
+    _OptionalUpdateConfiguredAudienceModelAssociationInputRequestTypeDef,
+):
+    pass
+
+UpdateConfiguredAudienceModelAssociationOutputTypeDef = TypedDict(
+    "UpdateConfiguredAudienceModelAssociationOutputTypeDef",
+    {
+        "configuredAudienceModelAssociation": "ConfiguredAudienceModelAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateConfiguredTableAnalysisRuleInputRequestTypeDef = TypedDict(
     "UpdateConfiguredTableAnalysisRuleInputRequestTypeDef",
     {
@@ -1881,6 +2794,36 @@ UpdateMembershipOutputTypeDef = TypedDict(
     "UpdateMembershipOutputTypeDef",
     {
         "membership": "MembershipTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdatePrivacyBudgetTemplateInputRequestTypeDef = TypedDict(
+    "_RequiredUpdatePrivacyBudgetTemplateInputRequestTypeDef",
+    {
+        "membershipIdentifier": str,
+        "privacyBudgetTemplateIdentifier": str,
+        "privacyBudgetType": Literal["DIFFERENTIAL_PRIVACY"],
+    },
+)
+_OptionalUpdatePrivacyBudgetTemplateInputRequestTypeDef = TypedDict(
+    "_OptionalUpdatePrivacyBudgetTemplateInputRequestTypeDef",
+    {
+        "parameters": "PrivacyBudgetTemplateUpdateParametersTypeDef",
+    },
+    total=False,
+)
+
+class UpdatePrivacyBudgetTemplateInputRequestTypeDef(
+    _RequiredUpdatePrivacyBudgetTemplateInputRequestTypeDef,
+    _OptionalUpdatePrivacyBudgetTemplateInputRequestTypeDef,
+):
+    pass
+
+UpdatePrivacyBudgetTemplateOutputTypeDef = TypedDict(
+    "UpdatePrivacyBudgetTemplateOutputTypeDef",
+    {
+        "privacyBudgetTemplate": "PrivacyBudgetTemplateTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -11,6 +11,7 @@ Usage::
     data: AccountPolicyTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -24,6 +25,7 @@ from .literals import (
     LogGroupClassType,
     OrderByType,
     OutputFormatType,
+    PolicyTypeType,
     QueryStatusType,
     StandardUnitType,
     StateType,
@@ -138,6 +140,11 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListTagsLogGroupRequestRequestTypeDef",
     "ListTagsLogGroupResponseTypeDef",
+    "LiveTailSessionLogEventTypeDef",
+    "LiveTailSessionMetadataTypeDef",
+    "LiveTailSessionStartTypeDef",
+    "LiveTailSessionUpdateTypeDef",
+    "LogEventTypeDef",
     "LogGroupFieldTypeDef",
     "LogGroupTypeDef",
     "LogStreamTypeDef",
@@ -178,6 +185,11 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "ResultFieldTypeDef",
     "SearchedLogStreamTypeDef",
+    "SessionStreamingExceptionTypeDef",
+    "SessionTimeoutExceptionTypeDef",
+    "StartLiveTailRequestRequestTypeDef",
+    "StartLiveTailResponseStreamTypeDef",
+    "StartLiveTailResponseTypeDef",
     "StartQueryRequestRequestTypeDef",
     "StartQueryResponseTypeDef",
     "StopQueryRequestRequestTypeDef",
@@ -200,8 +212,9 @@ AccountPolicyTypeDef = TypedDict(
         "policyName": str,
         "policyDocument": str,
         "lastUpdatedTime": int,
-        "policyType": Literal["DATA_PROTECTION_POLICY"],
+        "policyType": PolicyTypeType,
         "scope": Literal["ALL"],
+        "selectionCriteria": str,
         "accountId": str,
     },
     total=False,
@@ -237,7 +250,7 @@ _RequiredAnomalyTypeDef = TypedDict(
         "active": bool,
         "state": StateType,
         "histogram": Dict[str, int],
-        "logSamples": List[str],
+        "logSamples": List["LogEventTypeDef"],
         "patternTokens": List["PatternTokenTypeDef"],
         "logGroupArnList": List[str],
     },
@@ -411,7 +424,7 @@ DeleteAccountPolicyRequestRequestTypeDef = TypedDict(
     "DeleteAccountPolicyRequestRequestTypeDef",
     {
         "policyName": str,
-        "policyType": Literal["DATA_PROTECTION_POLICY"],
+        "policyType": PolicyTypeType,
     },
 )
 
@@ -574,7 +587,7 @@ DeliveryTypeDef = TypedDict(
 _RequiredDescribeAccountPoliciesRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeAccountPoliciesRequestRequestTypeDef",
     {
-        "policyType": Literal["DATA_PROTECTION_POLICY"],
+        "policyType": PolicyTypeType,
     },
 )
 _OptionalDescribeAccountPoliciesRequestRequestTypeDef = TypedDict(
@@ -1221,6 +1234,57 @@ ListTagsLogGroupResponseTypeDef = TypedDict(
     },
 )
 
+LiveTailSessionLogEventTypeDef = TypedDict(
+    "LiveTailSessionLogEventTypeDef",
+    {
+        "logStreamName": str,
+        "logGroupIdentifier": str,
+        "message": str,
+        "timestamp": int,
+        "ingestionTime": int,
+    },
+    total=False,
+)
+
+LiveTailSessionMetadataTypeDef = TypedDict(
+    "LiveTailSessionMetadataTypeDef",
+    {
+        "sampled": bool,
+    },
+    total=False,
+)
+
+LiveTailSessionStartTypeDef = TypedDict(
+    "LiveTailSessionStartTypeDef",
+    {
+        "requestId": str,
+        "sessionId": str,
+        "logGroupIdentifiers": List[str],
+        "logStreamNames": List[str],
+        "logStreamNamePrefixes": List[str],
+        "logEventFilterPattern": str,
+    },
+    total=False,
+)
+
+LiveTailSessionUpdateTypeDef = TypedDict(
+    "LiveTailSessionUpdateTypeDef",
+    {
+        "sessionMetadata": "LiveTailSessionMetadataTypeDef",
+        "sessionResults": List["LiveTailSessionLogEventTypeDef"],
+    },
+    total=False,
+)
+
+LogEventTypeDef = TypedDict(
+    "LogEventTypeDef",
+    {
+        "timestamp": int,
+        "message": str,
+    },
+    total=False,
+)
+
 LogGroupFieldTypeDef = TypedDict(
     "LogGroupFieldTypeDef",
     {
@@ -1243,6 +1307,7 @@ LogGroupTypeDef = TypedDict(
         "dataProtectionStatus": DataProtectionStatusType,
         "inheritedProperties": List[Literal["ACCOUNT_DATA_PROTECTION"]],
         "logGroupClass": LogGroupClassType,
+        "logGroupArn": str,
     },
     total=False,
 )
@@ -1351,13 +1416,14 @@ _RequiredPutAccountPolicyRequestRequestTypeDef = TypedDict(
     {
         "policyName": str,
         "policyDocument": str,
-        "policyType": Literal["DATA_PROTECTION_POLICY"],
+        "policyType": PolicyTypeType,
     },
 )
 _OptionalPutAccountPolicyRequestRequestTypeDef = TypedDict(
     "_OptionalPutAccountPolicyRequestRequestTypeDef",
     {
         "scope": Literal["ALL"],
+        "selectionCriteria": str,
     },
     total=False,
 )
@@ -1719,6 +1785,62 @@ SearchedLogStreamTypeDef = TypedDict(
         "searchedCompletely": bool,
     },
     total=False,
+)
+
+SessionStreamingExceptionTypeDef = TypedDict(
+    "SessionStreamingExceptionTypeDef",
+    {
+        "message": str,
+    },
+    total=False,
+)
+
+SessionTimeoutExceptionTypeDef = TypedDict(
+    "SessionTimeoutExceptionTypeDef",
+    {
+        "message": str,
+    },
+    total=False,
+)
+
+_RequiredStartLiveTailRequestRequestTypeDef = TypedDict(
+    "_RequiredStartLiveTailRequestRequestTypeDef",
+    {
+        "logGroupIdentifiers": List[str],
+    },
+)
+_OptionalStartLiveTailRequestRequestTypeDef = TypedDict(
+    "_OptionalStartLiveTailRequestRequestTypeDef",
+    {
+        "logStreamNames": List[str],
+        "logStreamNamePrefixes": List[str],
+        "logEventFilterPattern": str,
+    },
+    total=False,
+)
+
+class StartLiveTailRequestRequestTypeDef(
+    _RequiredStartLiveTailRequestRequestTypeDef, _OptionalStartLiveTailRequestRequestTypeDef
+):
+    pass
+
+StartLiveTailResponseStreamTypeDef = TypedDict(
+    "StartLiveTailResponseStreamTypeDef",
+    {
+        "sessionStart": "LiveTailSessionStartTypeDef",
+        "sessionUpdate": "LiveTailSessionUpdateTypeDef",
+        "SessionTimeoutException": "SessionTimeoutExceptionTypeDef",
+        "SessionStreamingException": "SessionStreamingExceptionTypeDef",
+    },
+    total=False,
+)
+
+StartLiveTailResponseTypeDef = TypedDict(
+    "StartLiveTailResponseTypeDef",
+    {
+        "responseStream": "StartLiveTailResponseStreamTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredStartQueryRequestRequestTypeDef = TypedDict(

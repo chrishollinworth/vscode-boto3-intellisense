@@ -11,6 +11,7 @@ Usage::
     data: CampaignStatusType = "CREATING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -46,6 +47,7 @@ __all__ = (
     "ROS2PrimitiveTypeType",
     "RegistrationStatusType",
     "SignalDecoderTypeType",
+    "SignalNodeTypeType",
     "SpoolingModeType",
     "StorageCompressionFormatType",
     "StructuredMessageListTypeType",
@@ -80,9 +82,7 @@ ListVehiclesInFleetPaginatorName = Literal["list_vehicles_in_fleet"]
 ListVehiclesPaginatorName = Literal["list_vehicles"]
 LogTypeType = Literal["ERROR", "OFF"]
 ManifestStatusType = Literal["ACTIVE", "DRAFT", "INVALID", "VALIDATING"]
-NetworkInterfaceTypeType = Literal[
-    "CAN_INTERFACE", "CUSTOMER_DECODED_INTERFACE", "OBD_INTERFACE", "VEHICLE_MIDDLEWARE"
-]
+NetworkInterfaceTypeType = Literal["CAN_INTERFACE", "OBD_INTERFACE", "VEHICLE_MIDDLEWARE"]
 NodeDataEncodingType = Literal["BINARY", "TYPED"]
 NodeDataTypeType = Literal[
     "BOOLEAN",
@@ -135,8 +135,9 @@ ROS2PrimitiveTypeType = Literal[
 RegistrationStatusType = Literal[
     "REGISTRATION_FAILURE", "REGISTRATION_PENDING", "REGISTRATION_SUCCESS"
 ]
-SignalDecoderTypeType = Literal[
-    "CAN_SIGNAL", "CUSTOMER_DECODED_SIGNAL", "MESSAGE_SIGNAL", "OBD_SIGNAL"
+SignalDecoderTypeType = Literal["CAN_SIGNAL", "MESSAGE_SIGNAL", "OBD_SIGNAL"]
+SignalNodeTypeType = Literal[
+    "ACTUATOR", "ATTRIBUTE", "BRANCH", "CUSTOM_PROPERTY", "CUSTOM_STRUCT", "SENSOR"
 ]
 SpoolingModeType = Literal["OFF", "TO_DISK"]
 StorageCompressionFormatType = Literal["GZIP", "NONE"]

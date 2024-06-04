@@ -12,6 +12,7 @@ Usage::
     client: Cloud9Client = boto3.client("cloud9")
     ```
 """
+
 import sys
 from typing import Any, Dict, List, Type, overload
 
@@ -63,7 +64,7 @@ class Exceptions:
 
 class Cloud9Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html)
     """
 
@@ -74,29 +75,32 @@ class Cloud9Client(BaseClient):
         """
         Cloud9Client exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#close)
         """
+
     def create_environment_ec2(
         self,
         *,
         name: str,
         instanceType: str,
+        imageId: str,
         description: str = None,
         clientRequestToken: str = None,
         subnetId: str = None,
-        imageId: str = None,
         automaticStopTimeMinutes: int = None,
         ownerArn: str = None,
         tags: List["TagTypeDef"] = None,
@@ -108,32 +112,36 @@ class Cloud9Client(BaseClient):
         Cloud (Amazon EC2) instance, and then connects from the instance to the
         environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.create_environment_ec2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.create_environment_ec2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#create_environment_ec2)
         """
+
     def create_environment_membership(
         self, *, environmentId: str, userArn: str, permissions: MemberPermissionsType
     ) -> CreateEnvironmentMembershipResultTypeDef:
         """
         Adds an environment member to an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.create_environment_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.create_environment_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#create_environment_membership)
         """
+
     def delete_environment(self, *, environmentId: str) -> Dict[str, Any]:
         """
         Deletes an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.delete_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#delete_environment)
         """
+
     def delete_environment_membership(self, *, environmentId: str, userArn: str) -> Dict[str, Any]:
         """
         Deletes an environment member from a development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.delete_environment_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.delete_environment_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#delete_environment_membership)
         """
+
     def describe_environment_memberships(
         self,
         *,
@@ -147,27 +155,30 @@ class Cloud9Client(BaseClient):
         Gets information about environment members for an Cloud9 development
         environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.describe_environment_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.describe_environment_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#describe_environment_memberships)
         """
+
     def describe_environment_status(
         self, *, environmentId: str
     ) -> DescribeEnvironmentStatusResultTypeDef:
         """
         Gets status information for an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.describe_environment_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.describe_environment_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#describe_environment_status)
         """
+
     def describe_environments(
         self, *, environmentIds: List[str]
     ) -> DescribeEnvironmentsResultTypeDef:
         """
         Gets information about Cloud9 development environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.describe_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.describe_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#describe_environments)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -178,39 +189,44 @@ class Cloud9Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#generate_presigned_url)
         """
+
     def list_environments(
         self, *, nextToken: str = None, maxResults: int = None
     ) -> ListEnvironmentsResultTypeDef:
         """
         Gets a list of Cloud9 development environment identifiers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.list_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#list_environments)
         """
+
     def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
         Gets a list of the tags associated with an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#list_tags_for_resource)
         """
+
     def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds tags to an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#tag_resource)
         """
+
     def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#untag_resource)
         """
+
     def update_environment(
         self,
         *,
@@ -222,9 +238,10 @@ class Cloud9Client(BaseClient):
         """
         Changes the settings of an existing Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.update_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#update_environment)
         """
+
     def update_environment_membership(
         self, *, environmentId: str, userArn: str, permissions: MemberPermissionsType
     ) -> UpdateEnvironmentMembershipResultTypeDef:
@@ -232,22 +249,24 @@ class Cloud9Client(BaseClient):
         Changes the settings of an existing environment member for an Cloud9 development
         environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Client.update_environment_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.update_environment_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#update_environment_membership)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_environment_memberships"]
     ) -> DescribeEnvironmentMembershipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/paginators.html#describeenvironmentmembershipspaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/paginators.html#listenvironmentspaginator)
         """

@@ -19,6 +19,7 @@ Usage::
     list_terminologies_paginator: ListTerminologiesPaginator = client.get_paginator("list_terminologies")
     ```
 """
+
 from .client import TranslateClient
 from .paginator import ListTerminologiesPaginator
 

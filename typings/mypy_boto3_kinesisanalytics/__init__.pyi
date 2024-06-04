@@ -16,6 +16,7 @@ Usage::
     session_client: KinesisAnalyticsClient = session.client("kinesisanalytics")
     ```
 """
+
 from .client import KinesisAnalyticsClient
 
 Client = KinesisAnalyticsClient

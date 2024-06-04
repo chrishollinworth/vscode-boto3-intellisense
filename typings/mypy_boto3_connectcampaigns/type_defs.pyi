@@ -11,6 +11,7 @@ Usage::
     data: AgentlessDialerConfigTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -95,12 +96,24 @@ AgentlessDialerConfigTypeDef = TypedDict(
     total=False,
 )
 
-AnswerMachineDetectionConfigTypeDef = TypedDict(
-    "AnswerMachineDetectionConfigTypeDef",
+_RequiredAnswerMachineDetectionConfigTypeDef = TypedDict(
+    "_RequiredAnswerMachineDetectionConfigTypeDef",
     {
         "enableAnswerMachineDetection": bool,
     },
 )
+_OptionalAnswerMachineDetectionConfigTypeDef = TypedDict(
+    "_OptionalAnswerMachineDetectionConfigTypeDef",
+    {
+        "awaitAnswerMachinePrompt": bool,
+    },
+    total=False,
+)
+
+class AnswerMachineDetectionConfigTypeDef(
+    _RequiredAnswerMachineDetectionConfigTypeDef, _OptionalAnswerMachineDetectionConfigTypeDef
+):
+    pass
 
 CampaignFiltersTypeDef = TypedDict(
     "CampaignFiltersTypeDef",

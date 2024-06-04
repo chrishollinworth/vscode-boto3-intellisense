@@ -11,6 +11,7 @@ Usage::
     data: ActivityFailedEventDetailsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -27,8 +28,13 @@ from .literals import (
     StateMachineTypeType,
     SyncExecutionStatusType,
     TestExecutionStatusType,
+    ValidateStateMachineDefinitionResultCodeType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -154,6 +160,9 @@ __all__ = (
     "UpdateStateMachineAliasOutputTypeDef",
     "UpdateStateMachineInputRequestTypeDef",
     "UpdateStateMachineOutputTypeDef",
+    "ValidateStateMachineDefinitionDiagnosticTypeDef",
+    "ValidateStateMachineDefinitionInputRequestTypeDef",
+    "ValidateStateMachineDefinitionOutputTypeDef",
 )
 
 ActivityFailedEventDetailsTypeDef = TypedDict(
@@ -1735,6 +1744,57 @@ UpdateStateMachineOutputTypeDef = TypedDict(
         "updateDate": datetime,
         "revisionId": str,
         "stateMachineVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredValidateStateMachineDefinitionDiagnosticTypeDef = TypedDict(
+    "_RequiredValidateStateMachineDefinitionDiagnosticTypeDef",
+    {
+        "severity": Literal["ERROR"],
+        "code": str,
+        "message": str,
+    },
+)
+_OptionalValidateStateMachineDefinitionDiagnosticTypeDef = TypedDict(
+    "_OptionalValidateStateMachineDefinitionDiagnosticTypeDef",
+    {
+        "location": str,
+    },
+    total=False,
+)
+
+class ValidateStateMachineDefinitionDiagnosticTypeDef(
+    _RequiredValidateStateMachineDefinitionDiagnosticTypeDef,
+    _OptionalValidateStateMachineDefinitionDiagnosticTypeDef,
+):
+    pass
+
+_RequiredValidateStateMachineDefinitionInputRequestTypeDef = TypedDict(
+    "_RequiredValidateStateMachineDefinitionInputRequestTypeDef",
+    {
+        "definition": str,
+    },
+)
+_OptionalValidateStateMachineDefinitionInputRequestTypeDef = TypedDict(
+    "_OptionalValidateStateMachineDefinitionInputRequestTypeDef",
+    {
+        "type": StateMachineTypeType,
+    },
+    total=False,
+)
+
+class ValidateStateMachineDefinitionInputRequestTypeDef(
+    _RequiredValidateStateMachineDefinitionInputRequestTypeDef,
+    _OptionalValidateStateMachineDefinitionInputRequestTypeDef,
+):
+    pass
+
+ValidateStateMachineDefinitionOutputTypeDef = TypedDict(
+    "ValidateStateMachineDefinitionOutputTypeDef",
+    {
+        "result": ValidateStateMachineDefinitionResultCodeType,
+        "diagnostics": List["ValidateStateMachineDefinitionDiagnosticTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

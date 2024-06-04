@@ -11,6 +11,7 @@ Usage::
     data: AssociationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -19,6 +20,7 @@ from .literals import (
     LogExportType,
     NamespaceStatusType,
     SnapshotStatusType,
+    StateType,
     UsageLimitBreachActionType,
     UsageLimitPeriodType,
     UsageLimitUsageTypeType,
@@ -41,8 +43,13 @@ __all__ = (
     "CreateEndpointAccessResponseTypeDef",
     "CreateNamespaceRequestRequestTypeDef",
     "CreateNamespaceResponseTypeDef",
+    "CreateScheduledActionRequestRequestTypeDef",
+    "CreateScheduledActionResponseTypeDef",
+    "CreateSnapshotCopyConfigurationRequestRequestTypeDef",
+    "CreateSnapshotCopyConfigurationResponseTypeDef",
     "CreateSnapshotRequestRequestTypeDef",
     "CreateSnapshotResponseTypeDef",
+    "CreateSnapshotScheduleActionParametersTypeDef",
     "CreateUsageLimitRequestRequestTypeDef",
     "CreateUsageLimitResponseTypeDef",
     "CreateWorkgroupRequestRequestTypeDef",
@@ -53,6 +60,10 @@ __all__ = (
     "DeleteNamespaceRequestRequestTypeDef",
     "DeleteNamespaceResponseTypeDef",
     "DeleteResourcePolicyRequestRequestTypeDef",
+    "DeleteScheduledActionRequestRequestTypeDef",
+    "DeleteScheduledActionResponseTypeDef",
+    "DeleteSnapshotCopyConfigurationRequestRequestTypeDef",
+    "DeleteSnapshotCopyConfigurationResponseTypeDef",
     "DeleteSnapshotRequestRequestTypeDef",
     "DeleteSnapshotResponseTypeDef",
     "DeleteUsageLimitRequestRequestTypeDef",
@@ -73,6 +84,8 @@ __all__ = (
     "GetRecoveryPointResponseTypeDef",
     "GetResourcePolicyRequestRequestTypeDef",
     "GetResourcePolicyResponseTypeDef",
+    "GetScheduledActionRequestRequestTypeDef",
+    "GetScheduledActionResponseTypeDef",
     "GetSnapshotRequestRequestTypeDef",
     "GetSnapshotResponseTypeDef",
     "GetTableRestoreStatusRequestRequestTypeDef",
@@ -89,6 +102,10 @@ __all__ = (
     "ListNamespacesResponseTypeDef",
     "ListRecoveryPointsRequestRequestTypeDef",
     "ListRecoveryPointsResponseTypeDef",
+    "ListScheduledActionsRequestRequestTypeDef",
+    "ListScheduledActionsResponseTypeDef",
+    "ListSnapshotCopyConfigurationsRequestRequestTypeDef",
+    "ListSnapshotCopyConfigurationsResponseTypeDef",
     "ListSnapshotsRequestRequestTypeDef",
     "ListSnapshotsResponseTypeDef",
     "ListTableRestoreStatusRequestRequestTypeDef",
@@ -111,12 +128,19 @@ __all__ = (
     "RestoreFromRecoveryPointResponseTypeDef",
     "RestoreFromSnapshotRequestRequestTypeDef",
     "RestoreFromSnapshotResponseTypeDef",
+    "RestoreTableFromRecoveryPointRequestRequestTypeDef",
+    "RestoreTableFromRecoveryPointResponseTypeDef",
     "RestoreTableFromSnapshotRequestRequestTypeDef",
     "RestoreTableFromSnapshotResponseTypeDef",
+    "ScheduleTypeDef",
+    "ScheduledActionAssociationTypeDef",
+    "ScheduledActionResponseTypeDef",
+    "SnapshotCopyConfigurationTypeDef",
     "SnapshotTypeDef",
     "TableRestoreStatusTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TargetActionTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateCustomDomainAssociationRequestRequestTypeDef",
     "UpdateCustomDomainAssociationResponseTypeDef",
@@ -124,6 +148,10 @@ __all__ = (
     "UpdateEndpointAccessResponseTypeDef",
     "UpdateNamespaceRequestRequestTypeDef",
     "UpdateNamespaceResponseTypeDef",
+    "UpdateScheduledActionRequestRequestTypeDef",
+    "UpdateScheduledActionResponseTypeDef",
+    "UpdateSnapshotCopyConfigurationRequestRequestTypeDef",
+    "UpdateSnapshotCopyConfigurationResponseTypeDef",
     "UpdateSnapshotRequestRequestTypeDef",
     "UpdateSnapshotResponseTypeDef",
     "UpdateUsageLimitRequestRequestTypeDef",
@@ -217,6 +245,7 @@ _RequiredCreateEndpointAccessRequestRequestTypeDef = TypedDict(
 _OptionalCreateEndpointAccessRequestRequestTypeDef = TypedDict(
     "_OptionalCreateEndpointAccessRequestRequestTypeDef",
     {
+        "ownerAccount": str,
         "vpcSecurityGroupIds": List[str],
     },
     total=False,
@@ -273,6 +302,71 @@ CreateNamespaceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateScheduledActionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateScheduledActionRequestRequestTypeDef",
+    {
+        "namespaceName": str,
+        "roleArn": str,
+        "schedule": "ScheduleTypeDef",
+        "scheduledActionName": str,
+        "targetAction": "TargetActionTypeDef",
+    },
+)
+_OptionalCreateScheduledActionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateScheduledActionRequestRequestTypeDef",
+    {
+        "enabled": bool,
+        "endTime": Union[datetime, str],
+        "scheduledActionDescription": str,
+        "startTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class CreateScheduledActionRequestRequestTypeDef(
+    _RequiredCreateScheduledActionRequestRequestTypeDef,
+    _OptionalCreateScheduledActionRequestRequestTypeDef,
+):
+    pass
+
+CreateScheduledActionResponseTypeDef = TypedDict(
+    "CreateScheduledActionResponseTypeDef",
+    {
+        "scheduledAction": "ScheduledActionResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSnapshotCopyConfigurationRequestRequestTypeDef",
+    {
+        "destinationRegion": str,
+        "namespaceName": str,
+    },
+)
+_OptionalCreateSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSnapshotCopyConfigurationRequestRequestTypeDef",
+    {
+        "destinationKmsKeyId": str,
+        "snapshotRetentionPeriod": int,
+    },
+    total=False,
+)
+
+class CreateSnapshotCopyConfigurationRequestRequestTypeDef(
+    _RequiredCreateSnapshotCopyConfigurationRequestRequestTypeDef,
+    _OptionalCreateSnapshotCopyConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateSnapshotCopyConfigurationResponseTypeDef = TypedDict(
+    "CreateSnapshotCopyConfigurationResponseTypeDef",
+    {
+        "snapshotCopyConfiguration": "SnapshotCopyConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateSnapshotRequestRequestTypeDef = TypedDict(
     "_RequiredCreateSnapshotRequestRequestTypeDef",
     {
@@ -301,6 +395,28 @@ CreateSnapshotResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredCreateSnapshotScheduleActionParametersTypeDef = TypedDict(
+    "_RequiredCreateSnapshotScheduleActionParametersTypeDef",
+    {
+        "namespaceName": str,
+        "snapshotNamePrefix": str,
+    },
+)
+_OptionalCreateSnapshotScheduleActionParametersTypeDef = TypedDict(
+    "_OptionalCreateSnapshotScheduleActionParametersTypeDef",
+    {
+        "retentionPeriod": int,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateSnapshotScheduleActionParametersTypeDef(
+    _RequiredCreateSnapshotScheduleActionParametersTypeDef,
+    _OptionalCreateSnapshotScheduleActionParametersTypeDef,
+):
+    pass
 
 _RequiredCreateUsageLimitRequestRequestTypeDef = TypedDict(
     "_RequiredCreateUsageLimitRequestRequestTypeDef",
@@ -423,6 +539,36 @@ DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
     "DeleteResourcePolicyRequestRequestTypeDef",
     {
         "resourceArn": str,
+    },
+)
+
+DeleteScheduledActionRequestRequestTypeDef = TypedDict(
+    "DeleteScheduledActionRequestRequestTypeDef",
+    {
+        "scheduledActionName": str,
+    },
+)
+
+DeleteScheduledActionResponseTypeDef = TypedDict(
+    "DeleteScheduledActionResponseTypeDef",
+    {
+        "scheduledAction": "ScheduledActionResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteSnapshotCopyConfigurationRequestRequestTypeDef",
+    {
+        "snapshotCopyConfigurationId": str,
+    },
+)
+
+DeleteSnapshotCopyConfigurationResponseTypeDef = TypedDict(
+    "DeleteSnapshotCopyConfigurationResponseTypeDef",
+    {
+        "snapshotCopyConfiguration": "SnapshotCopyConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -599,6 +745,21 @@ GetResourcePolicyResponseTypeDef = TypedDict(
     },
 )
 
+GetScheduledActionRequestRequestTypeDef = TypedDict(
+    "GetScheduledActionRequestRequestTypeDef",
+    {
+        "scheduledActionName": str,
+    },
+)
+
+GetScheduledActionResponseTypeDef = TypedDict(
+    "GetScheduledActionResponseTypeDef",
+    {
+        "scheduledAction": "ScheduledActionResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetSnapshotRequestRequestTypeDef = TypedDict(
     "GetSnapshotRequestRequestTypeDef",
     {
@@ -687,6 +848,7 @@ ListEndpointAccessRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
+        "ownerAccount": str,
         "vpcId": str,
         "workgroupName": str,
     },
@@ -738,6 +900,44 @@ ListRecoveryPointsResponseTypeDef = TypedDict(
     {
         "nextToken": str,
         "recoveryPoints": List["RecoveryPointTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListScheduledActionsRequestRequestTypeDef = TypedDict(
+    "ListScheduledActionsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "namespaceName": str,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListScheduledActionsResponseTypeDef = TypedDict(
+    "ListScheduledActionsResponseTypeDef",
+    {
+        "nextToken": str,
+        "scheduledActions": List["ScheduledActionAssociationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListSnapshotCopyConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListSnapshotCopyConfigurationsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "namespaceName": str,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListSnapshotCopyConfigurationsResponseTypeDef = TypedDict(
+    "ListSnapshotCopyConfigurationsResponseTypeDef",
+    {
+        "nextToken": str,
+        "snapshotCopyConfigurations": List["SnapshotCopyConfigurationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -825,6 +1025,7 @@ ListWorkgroupsRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
+        "ownerAccount": str,
     },
     total=False,
 )
@@ -981,6 +1182,42 @@ RestoreFromSnapshotResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredRestoreTableFromRecoveryPointRequestRequestTypeDef = TypedDict(
+    "_RequiredRestoreTableFromRecoveryPointRequestRequestTypeDef",
+    {
+        "namespaceName": str,
+        "newTableName": str,
+        "recoveryPointId": str,
+        "sourceDatabaseName": str,
+        "sourceTableName": str,
+        "workgroupName": str,
+    },
+)
+_OptionalRestoreTableFromRecoveryPointRequestRequestTypeDef = TypedDict(
+    "_OptionalRestoreTableFromRecoveryPointRequestRequestTypeDef",
+    {
+        "activateCaseSensitiveIdentifier": bool,
+        "sourceSchemaName": str,
+        "targetDatabaseName": str,
+        "targetSchemaName": str,
+    },
+    total=False,
+)
+
+class RestoreTableFromRecoveryPointRequestRequestTypeDef(
+    _RequiredRestoreTableFromRecoveryPointRequestRequestTypeDef,
+    _OptionalRestoreTableFromRecoveryPointRequestRequestTypeDef,
+):
+    pass
+
+RestoreTableFromRecoveryPointResponseTypeDef = TypedDict(
+    "RestoreTableFromRecoveryPointResponseTypeDef",
+    {
+        "tableRestoreStatus": "TableRestoreStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredRestoreTableFromSnapshotRequestRequestTypeDef = TypedDict(
     "_RequiredRestoreTableFromSnapshotRequestRequestTypeDef",
     {
@@ -1015,6 +1252,55 @@ RestoreTableFromSnapshotResponseTypeDef = TypedDict(
         "tableRestoreStatus": "TableRestoreStatusTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ScheduleTypeDef = TypedDict(
+    "ScheduleTypeDef",
+    {
+        "at": Union[datetime, str],
+        "cron": str,
+    },
+    total=False,
+)
+
+ScheduledActionAssociationTypeDef = TypedDict(
+    "ScheduledActionAssociationTypeDef",
+    {
+        "namespaceName": str,
+        "scheduledActionName": str,
+    },
+    total=False,
+)
+
+ScheduledActionResponseTypeDef = TypedDict(
+    "ScheduledActionResponseTypeDef",
+    {
+        "endTime": datetime,
+        "namespaceName": str,
+        "nextInvocations": List[datetime],
+        "roleArn": str,
+        "schedule": "ScheduleTypeDef",
+        "scheduledActionDescription": str,
+        "scheduledActionName": str,
+        "scheduledActionUuid": str,
+        "startTime": datetime,
+        "state": StateType,
+        "targetAction": "TargetActionTypeDef",
+    },
+    total=False,
+)
+
+SnapshotCopyConfigurationTypeDef = TypedDict(
+    "SnapshotCopyConfigurationTypeDef",
+    {
+        "destinationKmsKeyId": str,
+        "destinationRegion": str,
+        "namespaceName": str,
+        "snapshotCopyConfigurationArn": str,
+        "snapshotCopyConfigurationId": str,
+        "snapshotRetentionPeriod": int,
+    },
+    total=False,
 )
 
 SnapshotTypeDef = TypedDict(
@@ -1053,6 +1339,7 @@ TableRestoreStatusTypeDef = TypedDict(
         "namespaceName": str,
         "newTableName": str,
         "progressInMegaBytes": int,
+        "recoveryPointId": str,
         "requestTime": datetime,
         "snapshotName": str,
         "sourceDatabaseName": str,
@@ -1082,6 +1369,14 @@ TagTypeDef = TypedDict(
         "key": str,
         "value": str,
     },
+)
+
+TargetActionTypeDef = TypedDict(
+    "TargetActionTypeDef",
+    {
+        "createSnapshot": "CreateSnapshotScheduleActionParametersTypeDef",
+    },
+    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(
@@ -1170,6 +1465,68 @@ UpdateNamespaceResponseTypeDef = TypedDict(
     "UpdateNamespaceResponseTypeDef",
     {
         "namespace": "NamespaceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateScheduledActionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateScheduledActionRequestRequestTypeDef",
+    {
+        "scheduledActionName": str,
+    },
+)
+_OptionalUpdateScheduledActionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateScheduledActionRequestRequestTypeDef",
+    {
+        "enabled": bool,
+        "endTime": Union[datetime, str],
+        "roleArn": str,
+        "schedule": "ScheduleTypeDef",
+        "scheduledActionDescription": str,
+        "startTime": Union[datetime, str],
+        "targetAction": "TargetActionTypeDef",
+    },
+    total=False,
+)
+
+class UpdateScheduledActionRequestRequestTypeDef(
+    _RequiredUpdateScheduledActionRequestRequestTypeDef,
+    _OptionalUpdateScheduledActionRequestRequestTypeDef,
+):
+    pass
+
+UpdateScheduledActionResponseTypeDef = TypedDict(
+    "UpdateScheduledActionResponseTypeDef",
+    {
+        "scheduledAction": "ScheduledActionResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateSnapshotCopyConfigurationRequestRequestTypeDef",
+    {
+        "snapshotCopyConfigurationId": str,
+    },
+)
+_OptionalUpdateSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateSnapshotCopyConfigurationRequestRequestTypeDef",
+    {
+        "snapshotRetentionPeriod": int,
+    },
+    total=False,
+)
+
+class UpdateSnapshotCopyConfigurationRequestRequestTypeDef(
+    _RequiredUpdateSnapshotCopyConfigurationRequestRequestTypeDef,
+    _OptionalUpdateSnapshotCopyConfigurationRequestRequestTypeDef,
+):
+    pass
+
+UpdateSnapshotCopyConfigurationResponseTypeDef = TypedDict(
+    "UpdateSnapshotCopyConfigurationResponseTypeDef",
+    {
+        "snapshotCopyConfiguration": "SnapshotCopyConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1302,6 +1659,7 @@ WorkgroupTypeDef = TypedDict(
         "baseCapacity": int,
         "configParameters": List["ConfigParameterTypeDef"],
         "creationDate": datetime,
+        "crossAccountVpcs": List[str],
         "customDomainCertificateArn": str,
         "customDomainCertificateExpiryTime": datetime,
         "customDomainName": str,

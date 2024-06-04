@@ -11,6 +11,7 @@ Usage::
     data: InternalStreamFailureTypeDef = {...}
     ```
 """
+
 import sys
 from typing import IO, Any, Dict, Union
 
@@ -96,6 +97,7 @@ _OptionalInvokeEndpointInputRequestTypeDef = TypedDict(
         "TargetContainerHostname": str,
         "InferenceId": str,
         "EnableExplanations": str,
+        "InferenceComponentName": str,
     },
     total=False,
 )
@@ -132,6 +134,7 @@ _OptionalInvokeEndpointWithResponseStreamInputRequestTypeDef = TypedDict(
         "TargetVariant": str,
         "TargetContainerHostname": str,
         "InferenceId": str,
+        "InferenceComponentName": str,
     },
     total=False,
 )

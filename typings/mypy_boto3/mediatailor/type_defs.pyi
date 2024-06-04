@@ -11,6 +11,7 @@ Usage::
     data: AccessConfigurationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -21,6 +22,7 @@ from .literals import (
     AlertCategoryType,
     ChannelStateType,
     FillPolicyType,
+    InsertionModeType,
     MessageTypeType,
     ModeType,
     OriginManifestTypeType,
@@ -46,6 +48,8 @@ __all__ = (
     "AdBreakTypeDef",
     "AdMarkerPassthroughTypeDef",
     "AlertTypeDef",
+    "AlternateMediaTypeDef",
+    "AudienceMediaTypeDef",
     "AvailMatchingCriteriaTypeDef",
     "AvailSuppressionTypeDef",
     "BumperTypeDef",
@@ -147,6 +151,7 @@ __all__ = (
     "StartChannelRequestRequestTypeDef",
     "StopChannelRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TimeShiftConfigurationTypeDef",
     "TimeSignalMessageTypeDef",
     "TransitionTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -181,18 +186,26 @@ AdBreakOpportunityTypeDef = TypedDict(
     },
 )
 
-AdBreakTypeDef = TypedDict(
-    "AdBreakTypeDef",
+_RequiredAdBreakTypeDef = TypedDict(
+    "_RequiredAdBreakTypeDef",
+    {
+        "OffsetMillis": int,
+    },
+)
+_OptionalAdBreakTypeDef = TypedDict(
+    "_OptionalAdBreakTypeDef",
     {
         "AdBreakMetadata": List["KeyValuePairTypeDef"],
         "MessageType": MessageTypeType,
-        "OffsetMillis": int,
         "Slate": "SlateSourceTypeDef",
         "SpliceInsertMessage": "SpliceInsertMessageTypeDef",
         "TimeSignalMessage": "TimeSignalMessageTypeDef",
     },
     total=False,
 )
+
+class AdBreakTypeDef(_RequiredAdBreakTypeDef, _OptionalAdBreakTypeDef):
+    pass
 
 AdMarkerPassthroughTypeDef = TypedDict(
     "AdMarkerPassthroughTypeDef",
@@ -222,6 +235,29 @@ _OptionalAlertTypeDef = TypedDict(
 
 class AlertTypeDef(_RequiredAlertTypeDef, _OptionalAlertTypeDef):
     pass
+
+AlternateMediaTypeDef = TypedDict(
+    "AlternateMediaTypeDef",
+    {
+        "AdBreaks": List["AdBreakTypeDef"],
+        "ClipRange": "ClipRangeTypeDef",
+        "DurationMillis": int,
+        "LiveSourceName": str,
+        "ScheduledStartTimeMillis": int,
+        "SourceLocationName": str,
+        "VodSourceName": str,
+    },
+    total=False,
+)
+
+AudienceMediaTypeDef = TypedDict(
+    "AudienceMediaTypeDef",
+    {
+        "AlternateMedia": List["AlternateMediaTypeDef"],
+        "Audience": str,
+    },
+    total=False,
+)
 
 AvailMatchingCriteriaTypeDef = TypedDict(
     "AvailMatchingCriteriaTypeDef",
@@ -274,6 +310,7 @@ _RequiredChannelTypeDef = TypedDict(
 _OptionalChannelTypeDef = TypedDict(
     "_OptionalChannelTypeDef",
     {
+        "Audiences": List[str],
         "CreationTime": datetime,
         "FillerSlate": "SlateSourceTypeDef",
         "LastModifiedTime": datetime,
@@ -289,7 +326,9 @@ ClipRangeTypeDef = TypedDict(
     "ClipRangeTypeDef",
     {
         "EndOffsetMillis": int,
+        "StartOffsetMillis": int,
     },
+    total=False,
 )
 
 ConfigureLogsForChannelRequestRequestTypeDef = TypedDict(
@@ -337,9 +376,11 @@ _RequiredCreateChannelRequestRequestTypeDef = TypedDict(
 _OptionalCreateChannelRequestRequestTypeDef = TypedDict(
     "_OptionalCreateChannelRequestRequestTypeDef",
     {
+        "Audiences": List[str],
         "FillerSlate": "SlateSourceTypeDef",
         "Tags": Dict[str, str],
         "Tier": TierType,
+        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
     },
     total=False,
 )
@@ -353,6 +394,7 @@ CreateChannelResponseTypeDef = TypedDict(
     "CreateChannelResponseTypeDef",
     {
         "Arn": str,
+        "Audiences": List[str],
         "ChannelName": str,
         "ChannelState": ChannelStateType,
         "CreationTime": datetime,
@@ -362,6 +404,7 @@ CreateChannelResponseTypeDef = TypedDict(
         "PlaybackMode": str,
         "Tags": Dict[str, str],
         "Tier": str,
+        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -450,6 +493,7 @@ _OptionalCreateProgramRequestRequestTypeDef = TypedDict(
     "_OptionalCreateProgramRequestRequestTypeDef",
     {
         "AdBreaks": List["AdBreakTypeDef"],
+        "AudienceMedia": List["AudienceMediaTypeDef"],
         "LiveSourceName": str,
         "VodSourceName": str,
     },
@@ -466,6 +510,7 @@ CreateProgramResponseTypeDef = TypedDict(
     {
         "AdBreaks": List["AdBreakTypeDef"],
         "Arn": str,
+        "AudienceMedia": List["AudienceMediaTypeDef"],
         "ChannelName": str,
         "ClipRange": "ClipRangeTypeDef",
         "CreationTime": datetime,
@@ -663,6 +708,7 @@ DescribeChannelResponseTypeDef = TypedDict(
     "DescribeChannelResponseTypeDef",
     {
         "Arn": str,
+        "Audiences": List[str],
         "ChannelName": str,
         "ChannelState": ChannelStateType,
         "CreationTime": datetime,
@@ -673,6 +719,7 @@ DescribeChannelResponseTypeDef = TypedDict(
         "PlaybackMode": str,
         "Tags": Dict[str, str],
         "Tier": str,
+        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -712,6 +759,7 @@ DescribeProgramResponseTypeDef = TypedDict(
     {
         "AdBreaks": List["AdBreakTypeDef"],
         "Arn": str,
+        "AudienceMedia": List["AudienceMediaTypeDef"],
         "ChannelName": str,
         "ClipRange": "ClipRangeTypeDef",
         "CreationTime": datetime,
@@ -795,6 +843,7 @@ _RequiredGetChannelScheduleRequestRequestTypeDef = TypedDict(
 _OptionalGetChannelScheduleRequestRequestTypeDef = TypedDict(
     "_OptionalGetChannelScheduleRequestRequestTypeDef",
     {
+        "Audience": str,
         "DurationMinutes": str,
         "MaxResults": int,
         "NextToken": str,
@@ -834,6 +883,7 @@ GetPlaybackConfigurationResponseTypeDef = TypedDict(
         "ConfigurationAliases": Dict[str, Dict[str, str]],
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
+        "InsertionMode": InsertionModeType,
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
         "LogConfiguration": "LogConfigurationTypeDef",
         "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
@@ -1173,6 +1223,7 @@ PlaybackConfigurationTypeDef = TypedDict(
         "ConfigurationAliases": Dict[str, Dict[str, str]],
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
+        "InsertionMode": InsertionModeType,
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
         "LogConfiguration": "LogConfigurationTypeDef",
         "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
@@ -1273,6 +1324,7 @@ _OptionalPutPlaybackConfigurationRequestRequestTypeDef = TypedDict(
         "CdnConfiguration": "CdnConfigurationTypeDef",
         "ConfigurationAliases": Dict[str, Dict[str, str]],
         "DashConfiguration": "DashConfigurationForPutTypeDef",
+        "InsertionMode": InsertionModeType,
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
         "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
         "PersonalizationThresholdSeconds": int,
@@ -1300,6 +1352,7 @@ PutPlaybackConfigurationResponseTypeDef = TypedDict(
         "ConfigurationAliases": Dict[str, Dict[str, str]],
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
+        "InsertionMode": InsertionModeType,
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
         "LogConfiguration": "LogConfigurationTypeDef",
         "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
@@ -1414,6 +1467,7 @@ _OptionalScheduleEntryTypeDef = TypedDict(
     {
         "ApproximateDurationSeconds": int,
         "ApproximateStartTime": datetime,
+        "Audiences": List[str],
         "LiveSourceName": str,
         "ScheduleAdBreaks": List["ScheduleAdBreakTypeDef"],
         "ScheduleEntryType": ScheduleEntryTypeType,
@@ -1525,6 +1579,13 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+TimeShiftConfigurationTypeDef = TypedDict(
+    "TimeShiftConfigurationTypeDef",
+    {
+        "MaxTimeDelaySeconds": int,
+    },
+)
+
 TimeSignalMessageTypeDef = TypedDict(
     "TimeSignalMessageTypeDef",
     {
@@ -1571,7 +1632,9 @@ _RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
 _OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateChannelRequestRequestTypeDef",
     {
+        "Audiences": List[str],
         "FillerSlate": "SlateSourceTypeDef",
+        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
     },
     total=False,
 )
@@ -1585,6 +1648,7 @@ UpdateChannelResponseTypeDef = TypedDict(
     "UpdateChannelResponseTypeDef",
     {
         "Arn": str,
+        "Audiences": List[str],
         "ChannelName": str,
         "ChannelState": ChannelStateType,
         "CreationTime": datetime,
@@ -1594,6 +1658,7 @@ UpdateChannelResponseTypeDef = TypedDict(
         "PlaybackMode": str,
         "Tags": Dict[str, str],
         "Tier": str,
+        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1633,6 +1698,7 @@ _OptionalUpdateProgramRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateProgramRequestRequestTypeDef",
     {
         "AdBreaks": List["AdBreakTypeDef"],
+        "AudienceMedia": List["AudienceMediaTypeDef"],
     },
     total=False,
 )
@@ -1647,6 +1713,7 @@ UpdateProgramResponseTypeDef = TypedDict(
     {
         "AdBreaks": List["AdBreakTypeDef"],
         "Arn": str,
+        "AudienceMedia": List["AudienceMediaTypeDef"],
         "ChannelName": str,
         "ClipRange": "ClipRangeTypeDef",
         "CreationTime": datetime,

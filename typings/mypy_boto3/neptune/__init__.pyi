@@ -54,6 +54,7 @@ Usage::
     describe_pending_maintenance_actions_paginator: DescribePendingMaintenanceActionsPaginator = client.get_paginator("describe_pending_maintenance_actions")
     ```
 """
+
 from .client import NeptuneClient
 from .paginator import (
     DescribeDBClusterEndpointsPaginator,

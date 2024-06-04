@@ -19,6 +19,7 @@ Usage::
     get_free_tier_usage_paginator: GetFreeTierUsagePaginator = client.get_paginator("get_free_tier_usage")
     ```
 """
+
 from .client import FreeTierClient
 from .paginator import GetFreeTierUsagePaginator
 

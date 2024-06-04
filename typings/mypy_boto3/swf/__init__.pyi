@@ -31,6 +31,7 @@ Usage::
     poll_for_decision_task_paginator: PollForDecisionTaskPaginator = client.get_paginator("poll_for_decision_task")
     ```
 """
+
 from .client import SWFClient
 from .paginator import (
     GetWorkflowExecutionHistoryPaginator,

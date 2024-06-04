@@ -19,6 +19,7 @@ Usage::
     list_report_definitions_paginator: ListReportDefinitionsPaginator = client.get_paginator("list_report_definitions")
     ```
 """
+
 from .client import ApplicationCostProfilerClient
 from .paginator import ListReportDefinitionsPaginator
 

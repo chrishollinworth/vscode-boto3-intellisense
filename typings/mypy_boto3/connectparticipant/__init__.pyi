@@ -16,6 +16,7 @@ Usage::
     session_client: ConnectParticipantClient = session.client("connectparticipant")
     ```
 """
+
 from .client import ConnectParticipantClient
 
 Client = ConnectParticipantClient

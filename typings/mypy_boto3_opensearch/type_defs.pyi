@@ -11,6 +11,7 @@ Usage::
     data: AWSDomainInformationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -21,15 +22,19 @@ from .literals import (
     ActionTypeType,
     AutoTuneDesiredStateType,
     AutoTuneStateType,
+    ConfigChangeStatusType,
     ConnectionModeType,
+    DataSourceStatusType,
     DeploymentStatusType,
     DescribePackagesFilterNameType,
     DomainHealthType,
     DomainPackageStatusType,
+    DomainProcessingStatusTypeType,
     DomainStateType,
     DryRunModeType,
     EngineTypeType,
     InboundConnectionStatusCodeType,
+    InitiatedByType,
     IPAddressTypeType,
     LogTypeType,
     MaintenanceStatusType,
@@ -45,6 +50,7 @@ from .literals import (
     PackageStatusType,
     PackageTypeType,
     PrincipalTypeType,
+    PropertyValueTypeType,
     ReservedInstancePaymentOptionType,
     RollbackOnDisableType,
     ScheduleAtType,
@@ -75,6 +81,8 @@ __all__ = (
     "AcceptInboundConnectionRequestRequestTypeDef",
     "AcceptInboundConnectionResponseTypeDef",
     "AccessPoliciesStatusTypeDef",
+    "AddDataSourceRequestRequestTypeDef",
+    "AddDataSourceResponseTypeDef",
     "AddTagsRequestRequestTypeDef",
     "AdditionalLimitTypeDef",
     "AdvancedOptionsStatusTypeDef",
@@ -95,8 +103,11 @@ __all__ = (
     "AutoTuneStatusTypeDef",
     "AutoTuneTypeDef",
     "AvailabilityZoneInfoTypeDef",
+    "CancelDomainConfigChangeRequestRequestTypeDef",
+    "CancelDomainConfigChangeResponseTypeDef",
     "CancelServiceSoftwareUpdateRequestRequestTypeDef",
     "CancelServiceSoftwareUpdateResponseTypeDef",
+    "CancelledChangePropertyTypeDef",
     "ChangeProgressDetailsTypeDef",
     "ChangeProgressStageTypeDef",
     "ChangeProgressStatusDetailsTypeDef",
@@ -116,6 +127,10 @@ __all__ = (
     "CreateVpcEndpointRequestRequestTypeDef",
     "CreateVpcEndpointResponseTypeDef",
     "CrossClusterSearchConnectionPropertiesTypeDef",
+    "DataSourceDetailsTypeDef",
+    "DataSourceTypeTypeDef",
+    "DeleteDataSourceRequestRequestTypeDef",
+    "DeleteDataSourceResponseTypeDef",
     "DeleteDomainRequestRequestTypeDef",
     "DeleteDomainResponseTypeDef",
     "DeleteInboundConnectionRequestRequestTypeDef",
@@ -180,6 +195,8 @@ __all__ = (
     "FilterTypeDef",
     "GetCompatibleVersionsRequestRequestTypeDef",
     "GetCompatibleVersionsResponseTypeDef",
+    "GetDataSourceRequestRequestTypeDef",
+    "GetDataSourceResponseTypeDef",
     "GetDomainMaintenanceStatusRequestRequestTypeDef",
     "GetDomainMaintenanceStatusResponseTypeDef",
     "GetPackageVersionHistoryRequestRequestTypeDef",
@@ -195,6 +212,8 @@ __all__ = (
     "InstanceLimitsTypeDef",
     "InstanceTypeDetailsTypeDef",
     "LimitsTypeDef",
+    "ListDataSourcesRequestRequestTypeDef",
+    "ListDataSourcesResponseTypeDef",
     "ListDomainMaintenancesRequestRequestTypeDef",
     "ListDomainMaintenancesResponseTypeDef",
     "ListDomainNamesRequestRequestTypeDef",
@@ -220,6 +239,7 @@ __all__ = (
     "LogPublishingOptionTypeDef",
     "LogPublishingOptionsStatusTypeDef",
     "MasterUserOptionsTypeDef",
+    "ModifyingPropertiesTypeDef",
     "NodeToNodeEncryptionOptionsStatusTypeDef",
     "NodeToNodeEncryptionOptionsTypeDef",
     "OffPeakWindowOptionsStatusTypeDef",
@@ -242,6 +262,7 @@ __all__ = (
     "ReservedInstanceTypeDef",
     "ResponseMetadataTypeDef",
     "RevokeVpcEndpointAccessRequestRequestTypeDef",
+    "S3GlueDataCatalogTypeDef",
     "SAMLIdpTypeDef",
     "SAMLOptionsInputTypeDef",
     "SAMLOptionsOutputTypeDef",
@@ -259,6 +280,8 @@ __all__ = (
     "StorageTypeLimitTypeDef",
     "StorageTypeTypeDef",
     "TagTypeDef",
+    "UpdateDataSourceRequestRequestTypeDef",
+    "UpdateDataSourceResponseTypeDef",
     "UpdateDomainConfigRequestRequestTypeDef",
     "UpdateDomainConfigResponseTypeDef",
     "UpdatePackageRequestRequestTypeDef",
@@ -323,6 +346,35 @@ AccessPoliciesStatusTypeDef = TypedDict(
     {
         "Options": str,
         "Status": "OptionStatusTypeDef",
+    },
+)
+
+_RequiredAddDataSourceRequestRequestTypeDef = TypedDict(
+    "_RequiredAddDataSourceRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Name": str,
+        "DataSourceType": "DataSourceTypeTypeDef",
+    },
+)
+_OptionalAddDataSourceRequestRequestTypeDef = TypedDict(
+    "_OptionalAddDataSourceRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class AddDataSourceRequestRequestTypeDef(
+    _RequiredAddDataSourceRequestRequestTypeDef, _OptionalAddDataSourceRequestRequestTypeDef
+):
+    pass
+
+AddDataSourceResponseTypeDef = TypedDict(
+    "AddDataSourceResponseTypeDef",
+    {
+        "Message": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -525,6 +577,36 @@ AvailabilityZoneInfoTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCancelDomainConfigChangeRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelDomainConfigChangeRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalCancelDomainConfigChangeRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelDomainConfigChangeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CancelDomainConfigChangeRequestRequestTypeDef(
+    _RequiredCancelDomainConfigChangeRequestRequestTypeDef,
+    _OptionalCancelDomainConfigChangeRequestRequestTypeDef,
+):
+    pass
+
+CancelDomainConfigChangeResponseTypeDef = TypedDict(
+    "CancelDomainConfigChangeResponseTypeDef",
+    {
+        "CancelledChangeIds": List[str],
+        "CancelledChangeProperties": List["CancelledChangePropertyTypeDef"],
+        "DryRun": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CancelServiceSoftwareUpdateRequestRequestTypeDef = TypedDict(
     "CancelServiceSoftwareUpdateRequestRequestTypeDef",
     {
@@ -540,11 +622,25 @@ CancelServiceSoftwareUpdateResponseTypeDef = TypedDict(
     },
 )
 
+CancelledChangePropertyTypeDef = TypedDict(
+    "CancelledChangePropertyTypeDef",
+    {
+        "PropertyName": str,
+        "CancelledValue": str,
+        "ActiveValue": str,
+    },
+    total=False,
+)
+
 ChangeProgressDetailsTypeDef = TypedDict(
     "ChangeProgressDetailsTypeDef",
     {
         "ChangeId": str,
         "Message": str,
+        "ConfigChangeStatus": ConfigChangeStatusType,
+        "InitiatedBy": InitiatedByType,
+        "StartTime": datetime,
+        "LastUpdatedTime": datetime,
     },
     total=False,
 )
@@ -570,6 +666,9 @@ ChangeProgressStatusDetailsTypeDef = TypedDict(
         "CompletedProperties": List[str],
         "TotalNumberOfStages": int,
         "ChangeProgressStages": List["ChangeProgressStageTypeDef"],
+        "LastUpdatedTime": datetime,
+        "ConfigChangeStatus": ConfigChangeStatusType,
+        "InitiatedBy": InitiatedByType,
     },
     total=False,
 )
@@ -789,6 +888,41 @@ CrossClusterSearchConnectionPropertiesTypeDef = TypedDict(
         "SkipUnavailable": SkipUnavailableStatusType,
     },
     total=False,
+)
+
+DataSourceDetailsTypeDef = TypedDict(
+    "DataSourceDetailsTypeDef",
+    {
+        "DataSourceType": "DataSourceTypeTypeDef",
+        "Name": str,
+        "Description": str,
+        "Status": DataSourceStatusType,
+    },
+    total=False,
+)
+
+DataSourceTypeTypeDef = TypedDict(
+    "DataSourceTypeTypeDef",
+    {
+        "S3GlueDataCatalog": "S3GlueDataCatalogTypeDef",
+    },
+    total=False,
+)
+
+DeleteDataSourceRequestRequestTypeDef = TypedDict(
+    "DeleteDataSourceRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Name": str,
+    },
+)
+
+DeleteDataSourceResponseTypeDef = TypedDict(
+    "DeleteDataSourceResponseTypeDef",
+    {
+        "Message": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DeleteDomainRequestRequestTypeDef = TypedDict(
@@ -1228,6 +1362,7 @@ DomainConfigTypeDef = TypedDict(
         "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
         "OffPeakWindowOptions": "OffPeakWindowOptionsStatusTypeDef",
         "SoftwareUpdateOptions": "SoftwareUpdateOptionsStatusTypeDef",
+        "ModifyingProperties": List["ModifyingPropertiesTypeDef"],
     },
     total=False,
 )
@@ -1332,6 +1467,7 @@ _OptionalDomainStatusTypeDef = TypedDict(
         "Endpoint": str,
         "EndpointV2": str,
         "Endpoints": Dict[str, str],
+        "DomainEndpointV2HostedZoneId": str,
         "Processing": bool,
         "UpgradeProcessing": bool,
         "EngineVersion": str,
@@ -1352,6 +1488,8 @@ _OptionalDomainStatusTypeDef = TypedDict(
         "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
         "OffPeakWindowOptions": "OffPeakWindowOptionsTypeDef",
         "SoftwareUpdateOptions": "SoftwareUpdateOptionsTypeDef",
+        "DomainProcessingStatus": DomainProcessingStatusTypeType,
+        "ModifyingProperties": List["ModifyingPropertiesTypeDef"],
     },
     total=False,
 )
@@ -1474,6 +1612,25 @@ GetCompatibleVersionsResponseTypeDef = TypedDict(
     "GetCompatibleVersionsResponseTypeDef",
     {
         "CompatibleVersions": List["CompatibleVersionsMapTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDataSourceRequestRequestTypeDef = TypedDict(
+    "GetDataSourceRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Name": str,
+    },
+)
+
+GetDataSourceResponseTypeDef = TypedDict(
+    "GetDataSourceResponseTypeDef",
+    {
+        "DataSourceType": "DataSourceTypeTypeDef",
+        "Name": str,
+        "Description": str,
+        "Status": DataSourceStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1645,6 +1802,21 @@ LimitsTypeDef = TypedDict(
         "AdditionalLimits": List["AdditionalLimitTypeDef"],
     },
     total=False,
+)
+
+ListDataSourcesRequestRequestTypeDef = TypedDict(
+    "ListDataSourcesRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+ListDataSourcesResponseTypeDef = TypedDict(
+    "ListDataSourcesResponseTypeDef",
+    {
+        "DataSources": List["DataSourceDetailsTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredListDomainMaintenancesRequestRequestTypeDef = TypedDict(
@@ -1954,6 +2126,17 @@ MasterUserOptionsTypeDef = TypedDict(
     total=False,
 )
 
+ModifyingPropertiesTypeDef = TypedDict(
+    "ModifyingPropertiesTypeDef",
+    {
+        "Name": str,
+        "ActiveValue": str,
+        "PendingValue": str,
+        "ValueType": PropertyValueTypeType,
+    },
+    total=False,
+)
+
 NodeToNodeEncryptionOptionsStatusTypeDef = TypedDict(
     "NodeToNodeEncryptionOptionsStatusTypeDef",
     {
@@ -2206,6 +2389,14 @@ RevokeVpcEndpointAccessRequestRequestTypeDef = TypedDict(
     },
 )
 
+S3GlueDataCatalogTypeDef = TypedDict(
+    "S3GlueDataCatalogTypeDef",
+    {
+        "RoleArn": str,
+    },
+    total=False,
+)
+
 SAMLIdpTypeDef = TypedDict(
     "SAMLIdpTypeDef",
     {
@@ -2405,6 +2596,36 @@ TagTypeDef = TypedDict(
     {
         "Key": str,
         "Value": str,
+    },
+)
+
+_RequiredUpdateDataSourceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDataSourceRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Name": str,
+        "DataSourceType": "DataSourceTypeTypeDef",
+    },
+)
+_OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDataSourceRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Status": DataSourceStatusType,
+    },
+    total=False,
+)
+
+class UpdateDataSourceRequestRequestTypeDef(
+    _RequiredUpdateDataSourceRequestRequestTypeDef, _OptionalUpdateDataSourceRequestRequestTypeDef
+):
+    pass
+
+UpdateDataSourceResponseTypeDef = TypedDict(
+    "UpdateDataSourceResponseTypeDef",
+    {
+        "Message": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

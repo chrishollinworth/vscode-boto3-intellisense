@@ -16,6 +16,7 @@ Usage::
     session_client: LookoutEquipmentClient = session.client("lookoutequipment")
     ```
 """
+
 from .client import LookoutEquipmentClient
 
 Client = LookoutEquipmentClient

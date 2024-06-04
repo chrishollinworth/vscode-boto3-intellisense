@@ -39,6 +39,7 @@ Usage::
     describe_warm_pool_paginator: DescribeWarmPoolPaginator = client.get_paginator("describe_warm_pool")
     ```
 """
+
 from .client import AutoScalingClient
 from .paginator import (
     DescribeAutoScalingGroupsPaginator,

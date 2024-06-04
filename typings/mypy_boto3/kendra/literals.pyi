@@ -11,6 +11,7 @@ Usage::
     data: AdditionalResultAttributeValueTypeType = "TEXT_WITH_HIGHLIGHTS_VALUE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

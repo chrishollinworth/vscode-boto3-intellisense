@@ -11,6 +11,7 @@ Usage::
     data: CategoricalValuesTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -26,6 +27,7 @@ from .literals import (
     LabelRatingType,
     LatestInferenceResultType,
     ModelPromoteModeType,
+    ModelQualityType,
     ModelStatusType,
     ModelVersionSourceTypeType,
     ModelVersionStatusType,
@@ -134,6 +136,8 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "MissingCompleteSensorDataTypeDef",
     "MissingSensorDataTypeDef",
+    "ModelDiagnosticsOutputConfigurationTypeDef",
+    "ModelDiagnosticsS3OutputConfigurationTypeDef",
     "ModelSummaryTypeDef",
     "ModelVersionSummaryTypeDef",
     "MonotonicValuesTypeDef",
@@ -260,6 +264,7 @@ CreateInferenceSchedulerResponseTypeDef = TypedDict(
         "InferenceSchedulerArn": str,
         "InferenceSchedulerName": str,
         "Status": InferenceSchedulerStatusType,
+        "ModelQuality": ModelQualityType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -349,6 +354,7 @@ _OptionalCreateModelRequestRequestTypeDef = TypedDict(
         "ServerSideKmsKeyId": str,
         "Tags": List["TagTypeDef"],
         "OffCondition": str,
+        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
     },
     total=False,
 )
@@ -679,6 +685,8 @@ DescribeModelResponseTypeDef = TypedDict(
         "AccumulatedInferenceDataStartTime": datetime,
         "AccumulatedInferenceDataEndTime": datetime,
         "RetrainingSchedulerStatus": RetrainingSchedulerStatusType,
+        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
+        "ModelQuality": ModelQualityType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -726,6 +734,9 @@ DescribeModelVersionResponseTypeDef = TypedDict(
         "RetrainingAvailableDataInDays": int,
         "AutoPromotionResult": AutoPromotionResultType,
         "AutoPromotionResultReason": str,
+        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
+        "ModelDiagnosticsResultsObject": "S3ObjectTypeDef",
+        "ModelQuality": ModelQualityType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1427,6 +1438,46 @@ MissingSensorDataTypeDef = TypedDict(
     },
 )
 
+_RequiredModelDiagnosticsOutputConfigurationTypeDef = TypedDict(
+    "_RequiredModelDiagnosticsOutputConfigurationTypeDef",
+    {
+        "S3OutputConfiguration": "ModelDiagnosticsS3OutputConfigurationTypeDef",
+    },
+)
+_OptionalModelDiagnosticsOutputConfigurationTypeDef = TypedDict(
+    "_OptionalModelDiagnosticsOutputConfigurationTypeDef",
+    {
+        "KmsKeyId": str,
+    },
+    total=False,
+)
+
+class ModelDiagnosticsOutputConfigurationTypeDef(
+    _RequiredModelDiagnosticsOutputConfigurationTypeDef,
+    _OptionalModelDiagnosticsOutputConfigurationTypeDef,
+):
+    pass
+
+_RequiredModelDiagnosticsS3OutputConfigurationTypeDef = TypedDict(
+    "_RequiredModelDiagnosticsS3OutputConfigurationTypeDef",
+    {
+        "Bucket": str,
+    },
+)
+_OptionalModelDiagnosticsS3OutputConfigurationTypeDef = TypedDict(
+    "_OptionalModelDiagnosticsS3OutputConfigurationTypeDef",
+    {
+        "Prefix": str,
+    },
+    total=False,
+)
+
+class ModelDiagnosticsS3OutputConfigurationTypeDef(
+    _RequiredModelDiagnosticsS3OutputConfigurationTypeDef,
+    _OptionalModelDiagnosticsS3OutputConfigurationTypeDef,
+):
+    pass
+
 ModelSummaryTypeDef = TypedDict(
     "ModelSummaryTypeDef",
     {
@@ -1443,6 +1494,8 @@ ModelSummaryTypeDef = TypedDict(
         "LatestScheduledRetrainingStartTime": datetime,
         "NextScheduledRetrainingStartDate": datetime,
         "RetrainingSchedulerStatus": RetrainingSchedulerStatusType,
+        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
+        "ModelQuality": ModelQualityType,
     },
     total=False,
 )
@@ -1457,6 +1510,7 @@ ModelVersionSummaryTypeDef = TypedDict(
         "CreatedAt": datetime,
         "Status": ModelVersionStatusType,
         "SourceType": ModelVersionSourceTypeType,
+        "ModelQuality": ModelQualityType,
     },
     total=False,
 )
@@ -1771,6 +1825,7 @@ _OptionalUpdateModelRequestRequestTypeDef = TypedDict(
     {
         "LabelsInputConfiguration": "LabelsInputConfigurationTypeDef",
         "RoleArn": str,
+        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
     },
     total=False,
 )

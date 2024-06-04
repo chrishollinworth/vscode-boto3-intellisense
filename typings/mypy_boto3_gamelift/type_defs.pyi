@@ -11,6 +11,7 @@ Usage::
     data: AcceptMatchInputRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -26,6 +27,9 @@ from .literals import (
     ComparisonOperatorTypeType,
     ComputeStatusType,
     ComputeTypeType,
+    ContainerDependencyConditionType,
+    ContainerGroupDefinitionStatusType,
+    ContainerSchedulingStrategyType,
     EC2InstanceTypeType,
     EventCodeType,
     FilterInstanceStatusType,
@@ -78,10 +82,28 @@ __all__ = (
     "ClaimGameServerInputRequestTypeDef",
     "ClaimGameServerOutputTypeDef",
     "ComputeTypeDef",
+    "ConnectionPortRangeTypeDef",
+    "ContainerAttributesTypeDef",
+    "ContainerDefinitionInputTypeDef",
+    "ContainerDefinitionTypeDef",
+    "ContainerDependencyTypeDef",
+    "ContainerEnvironmentTypeDef",
+    "ContainerGroupDefinitionPropertyTypeDef",
+    "ContainerGroupDefinitionTypeDef",
+    "ContainerGroupsAttributesTypeDef",
+    "ContainerGroupsConfigurationTypeDef",
+    "ContainerGroupsPerInstanceTypeDef",
+    "ContainerHealthCheckTypeDef",
+    "ContainerMemoryLimitsTypeDef",
+    "ContainerPortConfigurationTypeDef",
+    "ContainerPortMappingTypeDef",
+    "ContainerPortRangeTypeDef",
     "CreateAliasInputRequestTypeDef",
     "CreateAliasOutputTypeDef",
     "CreateBuildInputRequestTypeDef",
     "CreateBuildOutputTypeDef",
+    "CreateContainerGroupDefinitionInputRequestTypeDef",
+    "CreateContainerGroupDefinitionOutputTypeDef",
     "CreateFleetInputRequestTypeDef",
     "CreateFleetLocationsInputRequestTypeDef",
     "CreateFleetLocationsOutputTypeDef",
@@ -109,6 +131,7 @@ __all__ = (
     "CreateVpcPeeringConnectionInputRequestTypeDef",
     "DeleteAliasInputRequestTypeDef",
     "DeleteBuildInputRequestTypeDef",
+    "DeleteContainerGroupDefinitionInputRequestTypeDef",
     "DeleteFleetInputRequestTypeDef",
     "DeleteFleetLocationsInputRequestTypeDef",
     "DeleteFleetLocationsOutputTypeDef",
@@ -130,6 +153,8 @@ __all__ = (
     "DescribeBuildOutputTypeDef",
     "DescribeComputeInputRequestTypeDef",
     "DescribeComputeOutputTypeDef",
+    "DescribeContainerGroupDefinitionInputRequestTypeDef",
+    "DescribeContainerGroupDefinitionOutputTypeDef",
     "DescribeEC2InstanceLimitsInputRequestTypeDef",
     "DescribeEC2InstanceLimitsOutputTypeDef",
     "DescribeFleetAttributesInputRequestTypeDef",
@@ -220,6 +245,8 @@ __all__ = (
     "ListBuildsOutputTypeDef",
     "ListComputeInputRequestTypeDef",
     "ListComputeOutputTypeDef",
+    "ListContainerGroupDefinitionsInputRequestTypeDef",
+    "ListContainerGroupDefinitionsOutputTypeDef",
     "ListFleetsInputRequestTypeDef",
     "ListFleetsOutputTypeDef",
     "ListGameServerGroupsInputRequestTypeDef",
@@ -253,6 +280,7 @@ __all__ = (
     "RegisterComputeOutputTypeDef",
     "RegisterGameServerInputRequestTypeDef",
     "RegisterGameServerOutputTypeDef",
+    "ReplicaContainerGroupCountsTypeDef",
     "RequestUploadCredentialsInputRequestTypeDef",
     "RequestUploadCredentialsOutputTypeDef",
     "ResolveAliasInputRequestTypeDef",
@@ -446,8 +474,224 @@ ComputeTypeDef = TypedDict(
         "OperatingSystem": OperatingSystemType,
         "Type": EC2InstanceTypeType,
         "GameLiftServiceSdkEndpoint": str,
+        "GameLiftAgentEndpoint": str,
+        "InstanceId": str,
+        "ContainerAttributes": "ContainerAttributesTypeDef",
     },
     total=False,
+)
+
+ConnectionPortRangeTypeDef = TypedDict(
+    "ConnectionPortRangeTypeDef",
+    {
+        "FromPort": int,
+        "ToPort": int,
+    },
+)
+
+ContainerAttributesTypeDef = TypedDict(
+    "ContainerAttributesTypeDef",
+    {
+        "ContainerPortMappings": List["ContainerPortMappingTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredContainerDefinitionInputTypeDef = TypedDict(
+    "_RequiredContainerDefinitionInputTypeDef",
+    {
+        "ContainerName": str,
+        "ImageUri": str,
+    },
+)
+_OptionalContainerDefinitionInputTypeDef = TypedDict(
+    "_OptionalContainerDefinitionInputTypeDef",
+    {
+        "MemoryLimits": "ContainerMemoryLimitsTypeDef",
+        "PortConfiguration": "ContainerPortConfigurationTypeDef",
+        "Cpu": int,
+        "HealthCheck": "ContainerHealthCheckTypeDef",
+        "Command": List[str],
+        "Essential": bool,
+        "EntryPoint": List[str],
+        "WorkingDirectory": str,
+        "Environment": List["ContainerEnvironmentTypeDef"],
+        "DependsOn": List["ContainerDependencyTypeDef"],
+    },
+    total=False,
+)
+
+class ContainerDefinitionInputTypeDef(
+    _RequiredContainerDefinitionInputTypeDef, _OptionalContainerDefinitionInputTypeDef
+):
+    pass
+
+_RequiredContainerDefinitionTypeDef = TypedDict(
+    "_RequiredContainerDefinitionTypeDef",
+    {
+        "ContainerName": str,
+        "ImageUri": str,
+    },
+)
+_OptionalContainerDefinitionTypeDef = TypedDict(
+    "_OptionalContainerDefinitionTypeDef",
+    {
+        "ResolvedImageDigest": str,
+        "MemoryLimits": "ContainerMemoryLimitsTypeDef",
+        "PortConfiguration": "ContainerPortConfigurationTypeDef",
+        "Cpu": int,
+        "HealthCheck": "ContainerHealthCheckTypeDef",
+        "Command": List[str],
+        "Essential": bool,
+        "EntryPoint": List[str],
+        "WorkingDirectory": str,
+        "Environment": List["ContainerEnvironmentTypeDef"],
+        "DependsOn": List["ContainerDependencyTypeDef"],
+    },
+    total=False,
+)
+
+class ContainerDefinitionTypeDef(
+    _RequiredContainerDefinitionTypeDef, _OptionalContainerDefinitionTypeDef
+):
+    pass
+
+ContainerDependencyTypeDef = TypedDict(
+    "ContainerDependencyTypeDef",
+    {
+        "ContainerName": str,
+        "Condition": ContainerDependencyConditionType,
+    },
+)
+
+ContainerEnvironmentTypeDef = TypedDict(
+    "ContainerEnvironmentTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+)
+
+ContainerGroupDefinitionPropertyTypeDef = TypedDict(
+    "ContainerGroupDefinitionPropertyTypeDef",
+    {
+        "SchedulingStrategy": ContainerSchedulingStrategyType,
+        "ContainerGroupDefinitionName": str,
+    },
+    total=False,
+)
+
+ContainerGroupDefinitionTypeDef = TypedDict(
+    "ContainerGroupDefinitionTypeDef",
+    {
+        "ContainerGroupDefinitionArn": str,
+        "CreationTime": datetime,
+        "OperatingSystem": Literal["AMAZON_LINUX_2023"],
+        "Name": str,
+        "SchedulingStrategy": ContainerSchedulingStrategyType,
+        "TotalMemoryLimit": int,
+        "TotalCpuLimit": int,
+        "ContainerDefinitions": List["ContainerDefinitionTypeDef"],
+        "Status": ContainerGroupDefinitionStatusType,
+        "StatusReason": str,
+    },
+    total=False,
+)
+
+ContainerGroupsAttributesTypeDef = TypedDict(
+    "ContainerGroupsAttributesTypeDef",
+    {
+        "ContainerGroupDefinitionProperties": List["ContainerGroupDefinitionPropertyTypeDef"],
+        "ConnectionPortRange": "ConnectionPortRangeTypeDef",
+        "ContainerGroupsPerInstance": "ContainerGroupsPerInstanceTypeDef",
+    },
+    total=False,
+)
+
+_RequiredContainerGroupsConfigurationTypeDef = TypedDict(
+    "_RequiredContainerGroupsConfigurationTypeDef",
+    {
+        "ContainerGroupDefinitionNames": List[str],
+        "ConnectionPortRange": "ConnectionPortRangeTypeDef",
+    },
+)
+_OptionalContainerGroupsConfigurationTypeDef = TypedDict(
+    "_OptionalContainerGroupsConfigurationTypeDef",
+    {
+        "DesiredReplicaContainerGroupsPerInstance": int,
+    },
+    total=False,
+)
+
+class ContainerGroupsConfigurationTypeDef(
+    _RequiredContainerGroupsConfigurationTypeDef, _OptionalContainerGroupsConfigurationTypeDef
+):
+    pass
+
+ContainerGroupsPerInstanceTypeDef = TypedDict(
+    "ContainerGroupsPerInstanceTypeDef",
+    {
+        "DesiredReplicaContainerGroupsPerInstance": int,
+        "MaxReplicaContainerGroupsPerInstance": int,
+    },
+    total=False,
+)
+
+_RequiredContainerHealthCheckTypeDef = TypedDict(
+    "_RequiredContainerHealthCheckTypeDef",
+    {
+        "Command": List[str],
+    },
+)
+_OptionalContainerHealthCheckTypeDef = TypedDict(
+    "_OptionalContainerHealthCheckTypeDef",
+    {
+        "Interval": int,
+        "Timeout": int,
+        "Retries": int,
+        "StartPeriod": int,
+    },
+    total=False,
+)
+
+class ContainerHealthCheckTypeDef(
+    _RequiredContainerHealthCheckTypeDef, _OptionalContainerHealthCheckTypeDef
+):
+    pass
+
+ContainerMemoryLimitsTypeDef = TypedDict(
+    "ContainerMemoryLimitsTypeDef",
+    {
+        "SoftLimit": int,
+        "HardLimit": int,
+    },
+    total=False,
+)
+
+ContainerPortConfigurationTypeDef = TypedDict(
+    "ContainerPortConfigurationTypeDef",
+    {
+        "ContainerPortRanges": List["ContainerPortRangeTypeDef"],
+    },
+)
+
+ContainerPortMappingTypeDef = TypedDict(
+    "ContainerPortMappingTypeDef",
+    {
+        "ContainerPort": int,
+        "ConnectionPort": int,
+        "Protocol": IpProtocolType,
+    },
+    total=False,
+)
+
+ContainerPortRangeTypeDef = TypedDict(
+    "ContainerPortRangeTypeDef",
+    {
+        "FromPort": int,
+        "ToPort": int,
+        "Protocol": IpProtocolType,
+    },
 )
 
 _RequiredCreateAliasInputRequestTypeDef = TypedDict(
@@ -502,6 +746,39 @@ CreateBuildOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateContainerGroupDefinitionInputRequestTypeDef = TypedDict(
+    "_RequiredCreateContainerGroupDefinitionInputRequestTypeDef",
+    {
+        "Name": str,
+        "TotalMemoryLimit": int,
+        "TotalCpuLimit": int,
+        "ContainerDefinitions": List["ContainerDefinitionInputTypeDef"],
+        "OperatingSystem": Literal["AMAZON_LINUX_2023"],
+    },
+)
+_OptionalCreateContainerGroupDefinitionInputRequestTypeDef = TypedDict(
+    "_OptionalCreateContainerGroupDefinitionInputRequestTypeDef",
+    {
+        "SchedulingStrategy": ContainerSchedulingStrategyType,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateContainerGroupDefinitionInputRequestTypeDef(
+    _RequiredCreateContainerGroupDefinitionInputRequestTypeDef,
+    _OptionalCreateContainerGroupDefinitionInputRequestTypeDef,
+):
+    pass
+
+CreateContainerGroupDefinitionOutputTypeDef = TypedDict(
+    "CreateContainerGroupDefinitionOutputTypeDef",
+    {
+        "ContainerGroupDefinition": "ContainerGroupDefinitionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateFleetInputRequestTypeDef = TypedDict(
     "_RequiredCreateFleetInputRequestTypeDef",
     {
@@ -533,6 +810,7 @@ _OptionalCreateFleetInputRequestTypeDef = TypedDict(
         "ComputeType": ComputeTypeType,
         "AnywhereConfiguration": "AnywhereConfigurationTypeDef",
         "InstanceRoleCredentialsProvider": Literal["SHARED_CREDENTIAL_FILE"],
+        "ContainerGroupsConfiguration": "ContainerGroupsConfigurationTypeDef",
     },
     total=False,
 )
@@ -889,6 +1167,13 @@ DeleteBuildInputRequestTypeDef = TypedDict(
     },
 )
 
+DeleteContainerGroupDefinitionInputRequestTypeDef = TypedDict(
+    "DeleteContainerGroupDefinitionInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
 DeleteFleetInputRequestTypeDef = TypedDict(
     "DeleteFleetInputRequestTypeDef",
     {
@@ -1059,6 +1344,21 @@ DescribeComputeOutputTypeDef = TypedDict(
     "DescribeComputeOutputTypeDef",
     {
         "Compute": "ComputeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeContainerGroupDefinitionInputRequestTypeDef = TypedDict(
+    "DescribeContainerGroupDefinitionInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DescribeContainerGroupDefinitionOutputTypeDef = TypedDict(
+    "DescribeContainerGroupDefinitionOutputTypeDef",
+    {
+        "ContainerGroupDefinition": "ContainerGroupDefinitionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1643,6 +1943,7 @@ EventTypeDef = TypedDict(
         "Message": str,
         "EventTime": datetime,
         "PreSignedLogUrl": str,
+        "Count": int,
     },
     total=False,
 )
@@ -1684,6 +1985,7 @@ FleetAttributesTypeDef = TypedDict(
         "ComputeType": ComputeTypeType,
         "AnywhereConfiguration": "AnywhereConfigurationTypeDef",
         "InstanceRoleCredentialsProvider": Literal["SHARED_CREDENTIAL_FILE"],
+        "ContainerGroupsAttributes": "ContainerGroupsAttributesTypeDef",
     },
     total=False,
 )
@@ -1696,6 +1998,7 @@ FleetCapacityTypeDef = TypedDict(
         "InstanceType": EC2InstanceTypeType,
         "InstanceCounts": "EC2InstanceCountsTypeDef",
         "Location": str,
+        "ReplicaContainerGroupCounts": "ReplicaContainerGroupCountsTypeDef",
     },
     total=False,
 )
@@ -1902,6 +2205,7 @@ GetComputeAccessOutputTypeDef = TypedDict(
         "ComputeName": str,
         "ComputeArn": str,
         "Credentials": "AwsCredentialsTypeDef",
+        "Target": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2104,11 +2408,31 @@ ListComputeOutputTypeDef = TypedDict(
     },
 )
 
+ListContainerGroupDefinitionsInputRequestTypeDef = TypedDict(
+    "ListContainerGroupDefinitionsInputRequestTypeDef",
+    {
+        "SchedulingStrategy": ContainerSchedulingStrategyType,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListContainerGroupDefinitionsOutputTypeDef = TypedDict(
+    "ListContainerGroupDefinitionsOutputTypeDef",
+    {
+        "ContainerGroupDefinitions": List["ContainerGroupDefinitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListFleetsInputRequestTypeDef = TypedDict(
     "ListFleetsInputRequestTypeDef",
     {
         "BuildId": str,
         "ScriptId": str,
+        "ContainerGroupDefinitionName": str,
         "Limit": int,
         "NextToken": str,
     },
@@ -2502,6 +2826,17 @@ RegisterGameServerOutputTypeDef = TypedDict(
         "GameServer": "GameServerTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ReplicaContainerGroupCountsTypeDef = TypedDict(
+    "ReplicaContainerGroupCountsTypeDef",
+    {
+        "PENDING": int,
+        "ACTIVE": int,
+        "IDLE": int,
+        "TERMINATING": int,
+    },
+    total=False,
 )
 
 RequestUploadCredentialsInputRequestTypeDef = TypedDict(
@@ -3131,6 +3466,7 @@ _OptionalUpdateGameSessionInputRequestTypeDef = TypedDict(
         "Name": str,
         "PlayerSessionCreationPolicy": PlayerSessionCreationPolicyType,
         "ProtectionPolicy": ProtectionPolicyType,
+        "GameProperties": List["GamePropertyTypeDef"],
     },
     total=False,
 )

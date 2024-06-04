@@ -6,11 +6,12 @@ Type annotations for wellarchitected service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_wellarchitected.literals import AdditionalResourceTypeType
+    from mypy_boto3_wellarchitected.literals import AccountJiraIssueManagementStatusType
 
-    data: AdditionalResourceTypeType = "HELPFUL_RESOURCE"
+    data: AccountJiraIssueManagementStatusType = "DISABLED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AccountJiraIssueManagementStatusType",
     "AdditionalResourceTypeType",
     "AnswerReasonType",
     "CheckFailureReasonType",
@@ -30,6 +32,10 @@ __all__ = (
     "DifferenceStatusType",
     "DiscoveryIntegrationStatusType",
     "ImportLensStatusType",
+    "IntegratingServiceType",
+    "IntegrationStatusInputType",
+    "IntegrationStatusType",
+    "IssueManagementTypeType",
     "LensStatusType",
     "LensStatusTypeType",
     "LensTypeType",
@@ -52,8 +58,10 @@ __all__ = (
     "TrustedAdvisorIntegrationStatusType",
     "WorkloadEnvironmentType",
     "WorkloadImprovementStatusType",
+    "WorkloadIssueManagementStatusType",
 )
 
+AccountJiraIssueManagementStatusType = Literal["DISABLED", "ENABLED"]
 AdditionalResourceTypeType = Literal["HELPFUL_RESOURCE", "IMPROVEMENT_PLAN"]
 AnswerReasonType = Literal[
     "ARCHITECTURE_CONSTRAINTS", "BUSINESS_PRIORITIES", "NONE", "OTHER", "OUT_OF_SCOPE"
@@ -71,6 +79,10 @@ DefinitionTypeType = Literal["APP_REGISTRY", "WORKLOAD_METADATA"]
 DifferenceStatusType = Literal["DELETED", "NEW", "UPDATED"]
 DiscoveryIntegrationStatusType = Literal["DISABLED", "ENABLED"]
 ImportLensStatusType = Literal["COMPLETE", "ERROR", "IN_PROGRESS"]
+IntegratingServiceType = Literal["JIRA"]
+IntegrationStatusInputType = Literal["NOT_CONFIGURED"]
+IntegrationStatusType = Literal["CONFIGURED", "NOT_CONFIGURED"]
+IssueManagementTypeType = Literal["AUTO", "MANUAL"]
 LensStatusType = Literal["CURRENT", "DELETED", "DEPRECATED", "NOT_CURRENT", "UNSHARED"]
 LensStatusTypeType = Literal["ALL", "DRAFT", "PUBLISHED"]
 LensTypeType = Literal["AWS_OFFICIAL", "CUSTOM_SELF", "CUSTOM_SHARED"]
@@ -97,3 +109,4 @@ WorkloadEnvironmentType = Literal["PREPRODUCTION", "PRODUCTION"]
 WorkloadImprovementStatusType = Literal[
     "COMPLETE", "IN_PROGRESS", "NOT_APPLICABLE", "NOT_STARTED", "RISK_ACKNOWLEDGED"
 ]
+WorkloadIssueManagementStatusType = Literal["DISABLED", "ENABLED", "INHERIT"]

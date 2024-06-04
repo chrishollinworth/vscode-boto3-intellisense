@@ -11,6 +11,7 @@ Usage::
     data: ApplicationDeploymentLifecycleType = "Deployed"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -60,6 +61,7 @@ BatchJobExecutionStatusType = Literal[
     "Dispatching",
     "Failed",
     "Holding",
+    "Purged",
     "Running",
     "Submitting",
     "Succeeded",

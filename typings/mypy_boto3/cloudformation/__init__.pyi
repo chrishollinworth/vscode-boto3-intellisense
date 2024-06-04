@@ -16,7 +16,11 @@ Usage::
         DescribeStacksPaginator,
         ListChangeSetsPaginator,
         ListExportsPaginator,
+        ListGeneratedTemplatesPaginator,
         ListImportsPaginator,
+        ListResourceScanRelatedResourcesPaginator,
+        ListResourceScanResourcesPaginator,
+        ListResourceScansPaginator,
         ListStackInstancesPaginator,
         ListStackResourcesPaginator,
         ListStackSetOperationResultsPaginator,
@@ -57,7 +61,11 @@ Usage::
     describe_stacks_paginator: DescribeStacksPaginator = client.get_paginator("describe_stacks")
     list_change_sets_paginator: ListChangeSetsPaginator = client.get_paginator("list_change_sets")
     list_exports_paginator: ListExportsPaginator = client.get_paginator("list_exports")
+    list_generated_templates_paginator: ListGeneratedTemplatesPaginator = client.get_paginator("list_generated_templates")
     list_imports_paginator: ListImportsPaginator = client.get_paginator("list_imports")
+    list_resource_scan_related_resources_paginator: ListResourceScanRelatedResourcesPaginator = client.get_paginator("list_resource_scan_related_resources")
+    list_resource_scan_resources_paginator: ListResourceScanResourcesPaginator = client.get_paginator("list_resource_scan_resources")
+    list_resource_scans_paginator: ListResourceScansPaginator = client.get_paginator("list_resource_scans")
     list_stack_instances_paginator: ListStackInstancesPaginator = client.get_paginator("list_stack_instances")
     list_stack_resources_paginator: ListStackResourcesPaginator = client.get_paginator("list_stack_resources")
     list_stack_set_operation_results_paginator: ListStackSetOperationResultsPaginator = client.get_paginator("list_stack_set_operation_results")
@@ -67,6 +75,7 @@ Usage::
     list_types_paginator: ListTypesPaginator = client.get_paginator("list_types")
     ```
 """
+
 from .client import CloudFormationClient
 from .paginator import (
     DescribeAccountLimitsPaginator,
@@ -75,7 +84,11 @@ from .paginator import (
     DescribeStacksPaginator,
     ListChangeSetsPaginator,
     ListExportsPaginator,
+    ListGeneratedTemplatesPaginator,
     ListImportsPaginator,
+    ListResourceScanRelatedResourcesPaginator,
+    ListResourceScanResourcesPaginator,
+    ListResourceScansPaginator,
     ListStackInstancesPaginator,
     ListStackResourcesPaginator,
     ListStackSetOperationResultsPaginator,
@@ -111,7 +124,11 @@ __all__ = (
     "DescribeStacksPaginator",
     "ListChangeSetsPaginator",
     "ListExportsPaginator",
+    "ListGeneratedTemplatesPaginator",
     "ListImportsPaginator",
+    "ListResourceScanRelatedResourcesPaginator",
+    "ListResourceScanResourcesPaginator",
+    "ListResourceScansPaginator",
     "ListStackInstancesPaginator",
     "ListStackResourcesPaginator",
     "ListStackSetOperationResultsPaginator",

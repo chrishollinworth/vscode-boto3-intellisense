@@ -11,6 +11,7 @@ Usage::
     data: AcceleratorManufacturerType = "amazon-web-services"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

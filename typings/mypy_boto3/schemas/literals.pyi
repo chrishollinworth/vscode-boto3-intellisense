@@ -11,6 +11,7 @@ Usage::
     data: CodeBindingExistsWaiterName = "code_binding_exists"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

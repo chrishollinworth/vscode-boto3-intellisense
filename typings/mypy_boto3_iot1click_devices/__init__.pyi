@@ -21,6 +21,7 @@ Usage::
     list_devices_paginator: ListDevicesPaginator = client.get_paginator("list_devices")
     ```
 """
+
 from .client import IoT1ClickDevicesServiceClient
 from .paginator import ListDeviceEventsPaginator, ListDevicesPaginator
 

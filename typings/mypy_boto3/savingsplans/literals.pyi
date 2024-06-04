@@ -11,6 +11,7 @@ Usage::
     data: CurrencyCodeType = "CNY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -60,7 +61,14 @@ SavingsPlanRateServiceCodeType = Literal[
 ]
 SavingsPlanRateUnitType = Literal["Hrs", "Lambda-GB-Second", "Request"]
 SavingsPlanStateType = Literal[
-    "active", "payment-failed", "payment-pending", "queued", "queued-deleted", "retired"
+    "active",
+    "payment-failed",
+    "payment-pending",
+    "pending-return",
+    "queued",
+    "queued-deleted",
+    "retired",
+    "returned",
 ]
 SavingsPlanTypeType = Literal["Compute", "EC2Instance", "SageMaker"]
 SavingsPlansFilterNameType = Literal[

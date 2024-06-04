@@ -39,6 +39,7 @@ Usage::
     list_listeners_paginator: ListListenersPaginator = client.get_paginator("list_listeners")
     ```
 """
+
 from .client import GlobalAcceleratorClient
 from .paginator import (
     ListAcceleratorsPaginator,

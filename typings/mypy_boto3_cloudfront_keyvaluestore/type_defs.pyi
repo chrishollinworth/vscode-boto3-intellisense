@@ -11,6 +11,7 @@ Usage::
     data: DeleteKeyRequestListItemTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -82,6 +83,8 @@ DescribeKeyValueStoreResponseTypeDef = TypedDict(
         "Created": datetime,
         "ETag": str,
         "LastModified": datetime,
+        "Status": str,
+        "FailureReason": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

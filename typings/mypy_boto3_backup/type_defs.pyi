@@ -11,6 +11,7 @@ Usage::
     data: AdvancedBackupSettingTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -24,8 +25,12 @@ from .literals import (
     CopyJobStatusType,
     LegalHoldStatusType,
     RecoveryPointStatusType,
+    RestoreDeletionStatusType,
     RestoreJobStateType,
     RestoreJobStatusType,
+    RestoreTestingRecoveryPointSelectionAlgorithmType,
+    RestoreTestingRecoveryPointTypeType,
+    RestoreValidationStatusType,
     StorageClassType,
     VaultStateType,
     VaultTypeType,
@@ -77,6 +82,10 @@ __all__ = (
     "CreateLogicallyAirGappedBackupVaultOutputTypeDef",
     "CreateReportPlanInputRequestTypeDef",
     "CreateReportPlanOutputTypeDef",
+    "CreateRestoreTestingPlanInputRequestTypeDef",
+    "CreateRestoreTestingPlanOutputTypeDef",
+    "CreateRestoreTestingSelectionInputRequestTypeDef",
+    "CreateRestoreTestingSelectionOutputTypeDef",
     "DateRangeTypeDef",
     "DeleteBackupPlanInputRequestTypeDef",
     "DeleteBackupPlanOutputTypeDef",
@@ -88,6 +97,8 @@ __all__ = (
     "DeleteFrameworkInputRequestTypeDef",
     "DeleteRecoveryPointInputRequestTypeDef",
     "DeleteReportPlanInputRequestTypeDef",
+    "DeleteRestoreTestingPlanInputRequestTypeDef",
+    "DeleteRestoreTestingSelectionInputRequestTypeDef",
     "DescribeBackupJobInputRequestTypeDef",
     "DescribeBackupJobOutputTypeDef",
     "DescribeBackupVaultInputRequestTypeDef",
@@ -130,7 +141,16 @@ __all__ = (
     "GetLegalHoldOutputTypeDef",
     "GetRecoveryPointRestoreMetadataInputRequestTypeDef",
     "GetRecoveryPointRestoreMetadataOutputTypeDef",
+    "GetRestoreJobMetadataInputRequestTypeDef",
+    "GetRestoreJobMetadataOutputTypeDef",
+    "GetRestoreTestingInferredMetadataInputRequestTypeDef",
+    "GetRestoreTestingInferredMetadataOutputTypeDef",
+    "GetRestoreTestingPlanInputRequestTypeDef",
+    "GetRestoreTestingPlanOutputTypeDef",
+    "GetRestoreTestingSelectionInputRequestTypeDef",
+    "GetRestoreTestingSelectionOutputTypeDef",
     "GetSupportedResourceTypesOutputTypeDef",
+    "KeyValueTypeDef",
     "LegalHoldTypeDef",
     "LifecycleTypeDef",
     "ListBackupJobSummariesInputRequestTypeDef",
@@ -171,15 +191,23 @@ __all__ = (
     "ListReportPlansOutputTypeDef",
     "ListRestoreJobSummariesInputRequestTypeDef",
     "ListRestoreJobSummariesOutputTypeDef",
+    "ListRestoreJobsByProtectedResourceInputRequestTypeDef",
+    "ListRestoreJobsByProtectedResourceOutputTypeDef",
     "ListRestoreJobsInputRequestTypeDef",
     "ListRestoreJobsOutputTypeDef",
+    "ListRestoreTestingPlansInputRequestTypeDef",
+    "ListRestoreTestingPlansOutputTypeDef",
+    "ListRestoreTestingSelectionsInputRequestTypeDef",
+    "ListRestoreTestingSelectionsOutputTypeDef",
     "ListTagsInputRequestTypeDef",
     "ListTagsOutputTypeDef",
     "PaginatorConfigTypeDef",
+    "ProtectedResourceConditionsTypeDef",
     "ProtectedResourceTypeDef",
     "PutBackupVaultAccessPolicyInputRequestTypeDef",
     "PutBackupVaultLockConfigurationInputRequestTypeDef",
     "PutBackupVaultNotificationsInputRequestTypeDef",
+    "PutRestoreValidationResultInputRequestTypeDef",
     "RecoveryPointByBackupVaultTypeDef",
     "RecoveryPointByResourceTypeDef",
     "RecoveryPointCreatorTypeDef",
@@ -191,8 +219,18 @@ __all__ = (
     "ReportPlanTypeDef",
     "ReportSettingTypeDef",
     "ResponseMetadataTypeDef",
+    "RestoreJobCreatorTypeDef",
     "RestoreJobSummaryTypeDef",
     "RestoreJobsListMemberTypeDef",
+    "RestoreTestingPlanForCreateTypeDef",
+    "RestoreTestingPlanForGetTypeDef",
+    "RestoreTestingPlanForListTypeDef",
+    "RestoreTestingPlanForUpdateTypeDef",
+    "RestoreTestingRecoveryPointSelectionTypeDef",
+    "RestoreTestingSelectionForCreateTypeDef",
+    "RestoreTestingSelectionForGetTypeDef",
+    "RestoreTestingSelectionForListTypeDef",
+    "RestoreTestingSelectionForUpdateTypeDef",
     "StartBackupJobInputRequestTypeDef",
     "StartBackupJobOutputTypeDef",
     "StartCopyJobInputRequestTypeDef",
@@ -214,6 +252,10 @@ __all__ = (
     "UpdateRegionSettingsInputRequestTypeDef",
     "UpdateReportPlanInputRequestTypeDef",
     "UpdateReportPlanOutputTypeDef",
+    "UpdateRestoreTestingPlanInputRequestTypeDef",
+    "UpdateRestoreTestingPlanOutputTypeDef",
+    "UpdateRestoreTestingSelectionInputRequestTypeDef",
+    "UpdateRestoreTestingSelectionOutputTypeDef",
 )
 
 AdvancedBackupSettingTypeDef = TypedDict(
@@ -266,6 +308,7 @@ BackupJobTypeDef = TypedDict(
         "ParentJobId": str,
         "IsParent": bool,
         "ResourceName": str,
+        "InitiationDate": datetime,
         "MessageCategory": str,
     },
     total=False,
@@ -800,6 +843,69 @@ CreateReportPlanOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateRestoreTestingPlanInputRequestTypeDef = TypedDict(
+    "_RequiredCreateRestoreTestingPlanInputRequestTypeDef",
+    {
+        "RestoreTestingPlan": "RestoreTestingPlanForCreateTypeDef",
+    },
+)
+_OptionalCreateRestoreTestingPlanInputRequestTypeDef = TypedDict(
+    "_OptionalCreateRestoreTestingPlanInputRequestTypeDef",
+    {
+        "CreatorRequestId": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateRestoreTestingPlanInputRequestTypeDef(
+    _RequiredCreateRestoreTestingPlanInputRequestTypeDef,
+    _OptionalCreateRestoreTestingPlanInputRequestTypeDef,
+):
+    pass
+
+CreateRestoreTestingPlanOutputTypeDef = TypedDict(
+    "CreateRestoreTestingPlanOutputTypeDef",
+    {
+        "CreationTime": datetime,
+        "RestoreTestingPlanArn": str,
+        "RestoreTestingPlanName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateRestoreTestingSelectionInputRequestTypeDef = TypedDict(
+    "_RequiredCreateRestoreTestingSelectionInputRequestTypeDef",
+    {
+        "RestoreTestingPlanName": str,
+        "RestoreTestingSelection": "RestoreTestingSelectionForCreateTypeDef",
+    },
+)
+_OptionalCreateRestoreTestingSelectionInputRequestTypeDef = TypedDict(
+    "_OptionalCreateRestoreTestingSelectionInputRequestTypeDef",
+    {
+        "CreatorRequestId": str,
+    },
+    total=False,
+)
+
+class CreateRestoreTestingSelectionInputRequestTypeDef(
+    _RequiredCreateRestoreTestingSelectionInputRequestTypeDef,
+    _OptionalCreateRestoreTestingSelectionInputRequestTypeDef,
+):
+    pass
+
+CreateRestoreTestingSelectionOutputTypeDef = TypedDict(
+    "CreateRestoreTestingSelectionOutputTypeDef",
+    {
+        "CreationTime": datetime,
+        "RestoreTestingPlanArn": str,
+        "RestoreTestingPlanName": str,
+        "RestoreTestingSelectionName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DateRangeTypeDef = TypedDict(
     "DateRangeTypeDef",
     {
@@ -884,6 +990,21 @@ DeleteReportPlanInputRequestTypeDef = TypedDict(
     },
 )
 
+DeleteRestoreTestingPlanInputRequestTypeDef = TypedDict(
+    "DeleteRestoreTestingPlanInputRequestTypeDef",
+    {
+        "RestoreTestingPlanName": str,
+    },
+)
+
+DeleteRestoreTestingSelectionInputRequestTypeDef = TypedDict(
+    "DeleteRestoreTestingSelectionInputRequestTypeDef",
+    {
+        "RestoreTestingPlanName": str,
+        "RestoreTestingSelectionName": str,
+    },
+)
+
 DescribeBackupJobInputRequestTypeDef = TypedDict(
     "DescribeBackupJobInputRequestTypeDef",
     {
@@ -919,6 +1040,7 @@ DescribeBackupJobOutputTypeDef = TypedDict(
         "NumberOfChildJobs": int,
         "ChildJobsInState": Dict[BackupJobStateType, int],
         "ResourceName": str,
+        "InitiationDate": datetime,
         "MessageCategory": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1021,6 +1143,11 @@ DescribeProtectedResourceOutputTypeDef = TypedDict(
         "ResourceType": str,
         "LastBackupTime": datetime,
         "ResourceName": str,
+        "LastBackupVaultArn": str,
+        "LastRecoveryPointArn": str,
+        "LatestRestoreExecutionTimeMinutes": int,
+        "LatestRestoreJobCreationDate": datetime,
+        "LatestRestoreRecoveryPointCreationDate": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1072,6 +1199,7 @@ DescribeRecoveryPointOutputTypeDef = TypedDict(
         "CompositeMemberIdentifier": str,
         "IsParent": bool,
         "ResourceName": str,
+        "VaultType": VaultTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1138,6 +1266,12 @@ DescribeRestoreJobOutputTypeDef = TypedDict(
         "ExpectedCompletionTimeMinutes": int,
         "CreatedResourceArn": str,
         "ResourceType": str,
+        "RecoveryPointCreationDate": datetime,
+        "CreatedBy": "RestoreJobCreatorTypeDef",
+        "ValidationStatus": RestoreValidationStatusType,
+        "ValidationStatusMessage": str,
+        "DeletionStatus": RestoreDeletionStatusType,
+        "DeletionStatusMessage": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1375,6 +1509,83 @@ GetRecoveryPointRestoreMetadataOutputTypeDef = TypedDict(
         "BackupVaultArn": str,
         "RecoveryPointArn": str,
         "RestoreMetadata": Dict[str, str],
+        "ResourceType": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRestoreJobMetadataInputRequestTypeDef = TypedDict(
+    "GetRestoreJobMetadataInputRequestTypeDef",
+    {
+        "RestoreJobId": str,
+    },
+)
+
+GetRestoreJobMetadataOutputTypeDef = TypedDict(
+    "GetRestoreJobMetadataOutputTypeDef",
+    {
+        "RestoreJobId": str,
+        "Metadata": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetRestoreTestingInferredMetadataInputRequestTypeDef = TypedDict(
+    "_RequiredGetRestoreTestingInferredMetadataInputRequestTypeDef",
+    {
+        "BackupVaultName": str,
+        "RecoveryPointArn": str,
+    },
+)
+_OptionalGetRestoreTestingInferredMetadataInputRequestTypeDef = TypedDict(
+    "_OptionalGetRestoreTestingInferredMetadataInputRequestTypeDef",
+    {
+        "BackupVaultAccountId": str,
+    },
+    total=False,
+)
+
+class GetRestoreTestingInferredMetadataInputRequestTypeDef(
+    _RequiredGetRestoreTestingInferredMetadataInputRequestTypeDef,
+    _OptionalGetRestoreTestingInferredMetadataInputRequestTypeDef,
+):
+    pass
+
+GetRestoreTestingInferredMetadataOutputTypeDef = TypedDict(
+    "GetRestoreTestingInferredMetadataOutputTypeDef",
+    {
+        "InferredMetadata": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRestoreTestingPlanInputRequestTypeDef = TypedDict(
+    "GetRestoreTestingPlanInputRequestTypeDef",
+    {
+        "RestoreTestingPlanName": str,
+    },
+)
+
+GetRestoreTestingPlanOutputTypeDef = TypedDict(
+    "GetRestoreTestingPlanOutputTypeDef",
+    {
+        "RestoreTestingPlan": "RestoreTestingPlanForGetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRestoreTestingSelectionInputRequestTypeDef = TypedDict(
+    "GetRestoreTestingSelectionInputRequestTypeDef",
+    {
+        "RestoreTestingPlanName": str,
+        "RestoreTestingSelectionName": str,
+    },
+)
+
+GetRestoreTestingSelectionOutputTypeDef = TypedDict(
+    "GetRestoreTestingSelectionOutputTypeDef",
+    {
+        "RestoreTestingSelection": "RestoreTestingSelectionForGetTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1384,6 +1595,14 @@ GetSupportedResourceTypesOutputTypeDef = TypedDict(
     {
         "ResourceTypes": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+KeyValueTypeDef = TypedDict(
+    "KeyValueTypeDef",
+    {
+        "Key": str,
+        "Value": str,
     },
 )
 
@@ -1406,6 +1625,7 @@ LifecycleTypeDef = TypedDict(
     {
         "MoveToColdStorageAfterDays": int,
         "DeleteAfterDays": int,
+        "OptInToArchiveForSupportedResources": bool,
     },
     total=False,
 )
@@ -1796,6 +2016,7 @@ _OptionalListRecoveryPointsByResourceInputRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "ManagedByAWSBackupOnly": bool,
     },
     total=False,
 )
@@ -1878,17 +2099,52 @@ ListRestoreJobSummariesOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredListRestoreJobsByProtectedResourceInputRequestTypeDef = TypedDict(
+    "_RequiredListRestoreJobsByProtectedResourceInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalListRestoreJobsByProtectedResourceInputRequestTypeDef = TypedDict(
+    "_OptionalListRestoreJobsByProtectedResourceInputRequestTypeDef",
+    {
+        "ByStatus": RestoreJobStatusType,
+        "ByRecoveryPointCreationDateAfter": Union[datetime, str],
+        "ByRecoveryPointCreationDateBefore": Union[datetime, str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListRestoreJobsByProtectedResourceInputRequestTypeDef(
+    _RequiredListRestoreJobsByProtectedResourceInputRequestTypeDef,
+    _OptionalListRestoreJobsByProtectedResourceInputRequestTypeDef,
+):
+    pass
+
+ListRestoreJobsByProtectedResourceOutputTypeDef = TypedDict(
+    "ListRestoreJobsByProtectedResourceOutputTypeDef",
+    {
+        "RestoreJobs": List["RestoreJobsListMemberTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListRestoreJobsInputRequestTypeDef = TypedDict(
     "ListRestoreJobsInputRequestTypeDef",
     {
         "NextToken": str,
         "MaxResults": int,
         "ByAccountId": str,
+        "ByResourceType": str,
         "ByCreatedBefore": Union[datetime, str],
         "ByCreatedAfter": Union[datetime, str],
         "ByStatus": RestoreJobStatusType,
         "ByCompleteBefore": Union[datetime, str],
         "ByCompleteAfter": Union[datetime, str],
+        "ByRestoreTestingPlanArn": str,
     },
     total=False,
 )
@@ -1898,6 +2154,54 @@ ListRestoreJobsOutputTypeDef = TypedDict(
     {
         "RestoreJobs": List["RestoreJobsListMemberTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListRestoreTestingPlansInputRequestTypeDef = TypedDict(
+    "ListRestoreTestingPlansInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListRestoreTestingPlansOutputTypeDef = TypedDict(
+    "ListRestoreTestingPlansOutputTypeDef",
+    {
+        "NextToken": str,
+        "RestoreTestingPlans": List["RestoreTestingPlanForListTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListRestoreTestingSelectionsInputRequestTypeDef = TypedDict(
+    "_RequiredListRestoreTestingSelectionsInputRequestTypeDef",
+    {
+        "RestoreTestingPlanName": str,
+    },
+)
+_OptionalListRestoreTestingSelectionsInputRequestTypeDef = TypedDict(
+    "_OptionalListRestoreTestingSelectionsInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListRestoreTestingSelectionsInputRequestTypeDef(
+    _RequiredListRestoreTestingSelectionsInputRequestTypeDef,
+    _OptionalListRestoreTestingSelectionsInputRequestTypeDef,
+):
+    pass
+
+ListRestoreTestingSelectionsOutputTypeDef = TypedDict(
+    "ListRestoreTestingSelectionsOutputTypeDef",
+    {
+        "NextToken": str,
+        "RestoreTestingSelections": List["RestoreTestingSelectionForListTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1941,6 +2245,15 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+ProtectedResourceConditionsTypeDef = TypedDict(
+    "ProtectedResourceConditionsTypeDef",
+    {
+        "StringEquals": List["KeyValueTypeDef"],
+        "StringNotEquals": List["KeyValueTypeDef"],
+    },
+    total=False,
+)
+
 ProtectedResourceTypeDef = TypedDict(
     "ProtectedResourceTypeDef",
     {
@@ -1948,6 +2261,8 @@ ProtectedResourceTypeDef = TypedDict(
         "ResourceType": str,
         "LastBackupTime": datetime,
         "ResourceName": str,
+        "LastBackupVaultArn": str,
+        "LastRecoveryPointArn": str,
     },
     total=False,
 )
@@ -2003,6 +2318,27 @@ PutBackupVaultNotificationsInputRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredPutRestoreValidationResultInputRequestTypeDef = TypedDict(
+    "_RequiredPutRestoreValidationResultInputRequestTypeDef",
+    {
+        "RestoreJobId": str,
+        "ValidationStatus": RestoreValidationStatusType,
+    },
+)
+_OptionalPutRestoreValidationResultInputRequestTypeDef = TypedDict(
+    "_OptionalPutRestoreValidationResultInputRequestTypeDef",
+    {
+        "ValidationStatusMessage": str,
+    },
+    total=False,
+)
+
+class PutRestoreValidationResultInputRequestTypeDef(
+    _RequiredPutRestoreValidationResultInputRequestTypeDef,
+    _OptionalPutRestoreValidationResultInputRequestTypeDef,
+):
+    pass
+
 RecoveryPointByBackupVaultTypeDef = TypedDict(
     "RecoveryPointByBackupVaultTypeDef",
     {
@@ -2028,6 +2364,7 @@ RecoveryPointByBackupVaultTypeDef = TypedDict(
         "CompositeMemberIdentifier": str,
         "IsParent": bool,
         "ResourceName": str,
+        "VaultType": VaultTypeType,
     },
     total=False,
 )
@@ -2045,6 +2382,7 @@ RecoveryPointByResourceTypeDef = TypedDict(
         "IsParent": bool,
         "ParentRecoveryPointArn": str,
         "ResourceName": str,
+        "VaultType": VaultTypeType,
     },
     total=False,
 )
@@ -2173,6 +2511,14 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RestoreJobCreatorTypeDef = TypedDict(
+    "RestoreJobCreatorTypeDef",
+    {
+        "RestoreTestingPlanArn": str,
+    },
+    total=False,
+)
+
 RestoreJobSummaryTypeDef = TypedDict(
     "RestoreJobSummaryTypeDef",
     {
@@ -2203,6 +2549,196 @@ RestoreJobsListMemberTypeDef = TypedDict(
         "ExpectedCompletionTimeMinutes": int,
         "CreatedResourceArn": str,
         "ResourceType": str,
+        "RecoveryPointCreationDate": datetime,
+        "CreatedBy": "RestoreJobCreatorTypeDef",
+        "ValidationStatus": RestoreValidationStatusType,
+        "ValidationStatusMessage": str,
+        "DeletionStatus": RestoreDeletionStatusType,
+        "DeletionStatusMessage": str,
+    },
+    total=False,
+)
+
+_RequiredRestoreTestingPlanForCreateTypeDef = TypedDict(
+    "_RequiredRestoreTestingPlanForCreateTypeDef",
+    {
+        "RecoveryPointSelection": "RestoreTestingRecoveryPointSelectionTypeDef",
+        "RestoreTestingPlanName": str,
+        "ScheduleExpression": str,
+    },
+)
+_OptionalRestoreTestingPlanForCreateTypeDef = TypedDict(
+    "_OptionalRestoreTestingPlanForCreateTypeDef",
+    {
+        "ScheduleExpressionTimezone": str,
+        "StartWindowHours": int,
+    },
+    total=False,
+)
+
+class RestoreTestingPlanForCreateTypeDef(
+    _RequiredRestoreTestingPlanForCreateTypeDef, _OptionalRestoreTestingPlanForCreateTypeDef
+):
+    pass
+
+_RequiredRestoreTestingPlanForGetTypeDef = TypedDict(
+    "_RequiredRestoreTestingPlanForGetTypeDef",
+    {
+        "CreationTime": datetime,
+        "RecoveryPointSelection": "RestoreTestingRecoveryPointSelectionTypeDef",
+        "RestoreTestingPlanArn": str,
+        "RestoreTestingPlanName": str,
+        "ScheduleExpression": str,
+    },
+)
+_OptionalRestoreTestingPlanForGetTypeDef = TypedDict(
+    "_OptionalRestoreTestingPlanForGetTypeDef",
+    {
+        "CreatorRequestId": str,
+        "LastExecutionTime": datetime,
+        "LastUpdateTime": datetime,
+        "ScheduleExpressionTimezone": str,
+        "StartWindowHours": int,
+    },
+    total=False,
+)
+
+class RestoreTestingPlanForGetTypeDef(
+    _RequiredRestoreTestingPlanForGetTypeDef, _OptionalRestoreTestingPlanForGetTypeDef
+):
+    pass
+
+_RequiredRestoreTestingPlanForListTypeDef = TypedDict(
+    "_RequiredRestoreTestingPlanForListTypeDef",
+    {
+        "CreationTime": datetime,
+        "RestoreTestingPlanArn": str,
+        "RestoreTestingPlanName": str,
+        "ScheduleExpression": str,
+    },
+)
+_OptionalRestoreTestingPlanForListTypeDef = TypedDict(
+    "_OptionalRestoreTestingPlanForListTypeDef",
+    {
+        "LastExecutionTime": datetime,
+        "LastUpdateTime": datetime,
+        "ScheduleExpressionTimezone": str,
+        "StartWindowHours": int,
+    },
+    total=False,
+)
+
+class RestoreTestingPlanForListTypeDef(
+    _RequiredRestoreTestingPlanForListTypeDef, _OptionalRestoreTestingPlanForListTypeDef
+):
+    pass
+
+RestoreTestingPlanForUpdateTypeDef = TypedDict(
+    "RestoreTestingPlanForUpdateTypeDef",
+    {
+        "RecoveryPointSelection": "RestoreTestingRecoveryPointSelectionTypeDef",
+        "ScheduleExpression": str,
+        "ScheduleExpressionTimezone": str,
+        "StartWindowHours": int,
+    },
+    total=False,
+)
+
+RestoreTestingRecoveryPointSelectionTypeDef = TypedDict(
+    "RestoreTestingRecoveryPointSelectionTypeDef",
+    {
+        "Algorithm": RestoreTestingRecoveryPointSelectionAlgorithmType,
+        "ExcludeVaults": List[str],
+        "IncludeVaults": List[str],
+        "RecoveryPointTypes": List[RestoreTestingRecoveryPointTypeType],
+        "SelectionWindowDays": int,
+    },
+    total=False,
+)
+
+_RequiredRestoreTestingSelectionForCreateTypeDef = TypedDict(
+    "_RequiredRestoreTestingSelectionForCreateTypeDef",
+    {
+        "IamRoleArn": str,
+        "ProtectedResourceType": str,
+        "RestoreTestingSelectionName": str,
+    },
+)
+_OptionalRestoreTestingSelectionForCreateTypeDef = TypedDict(
+    "_OptionalRestoreTestingSelectionForCreateTypeDef",
+    {
+        "ProtectedResourceArns": List[str],
+        "ProtectedResourceConditions": "ProtectedResourceConditionsTypeDef",
+        "RestoreMetadataOverrides": Dict[str, str],
+        "ValidationWindowHours": int,
+    },
+    total=False,
+)
+
+class RestoreTestingSelectionForCreateTypeDef(
+    _RequiredRestoreTestingSelectionForCreateTypeDef,
+    _OptionalRestoreTestingSelectionForCreateTypeDef,
+):
+    pass
+
+_RequiredRestoreTestingSelectionForGetTypeDef = TypedDict(
+    "_RequiredRestoreTestingSelectionForGetTypeDef",
+    {
+        "CreationTime": datetime,
+        "IamRoleArn": str,
+        "ProtectedResourceType": str,
+        "RestoreTestingPlanName": str,
+        "RestoreTestingSelectionName": str,
+    },
+)
+_OptionalRestoreTestingSelectionForGetTypeDef = TypedDict(
+    "_OptionalRestoreTestingSelectionForGetTypeDef",
+    {
+        "CreatorRequestId": str,
+        "ProtectedResourceArns": List[str],
+        "ProtectedResourceConditions": "ProtectedResourceConditionsTypeDef",
+        "RestoreMetadataOverrides": Dict[str, str],
+        "ValidationWindowHours": int,
+    },
+    total=False,
+)
+
+class RestoreTestingSelectionForGetTypeDef(
+    _RequiredRestoreTestingSelectionForGetTypeDef, _OptionalRestoreTestingSelectionForGetTypeDef
+):
+    pass
+
+_RequiredRestoreTestingSelectionForListTypeDef = TypedDict(
+    "_RequiredRestoreTestingSelectionForListTypeDef",
+    {
+        "CreationTime": datetime,
+        "IamRoleArn": str,
+        "ProtectedResourceType": str,
+        "RestoreTestingPlanName": str,
+        "RestoreTestingSelectionName": str,
+    },
+)
+_OptionalRestoreTestingSelectionForListTypeDef = TypedDict(
+    "_OptionalRestoreTestingSelectionForListTypeDef",
+    {
+        "ValidationWindowHours": int,
+    },
+    total=False,
+)
+
+class RestoreTestingSelectionForListTypeDef(
+    _RequiredRestoreTestingSelectionForListTypeDef, _OptionalRestoreTestingSelectionForListTypeDef
+):
+    pass
+
+RestoreTestingSelectionForUpdateTypeDef = TypedDict(
+    "RestoreTestingSelectionForUpdateTypeDef",
+    {
+        "IamRoleArn": str,
+        "ProtectedResourceArns": List[str],
+        "ProtectedResourceConditions": "ProtectedResourceConditionsTypeDef",
+        "RestoreMetadataOverrides": Dict[str, str],
+        "ValidationWindowHours": int,
     },
     total=False,
 )
@@ -2486,6 +3022,46 @@ UpdateReportPlanOutputTypeDef = TypedDict(
         "ReportPlanName": str,
         "ReportPlanArn": str,
         "CreationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateRestoreTestingPlanInputRequestTypeDef = TypedDict(
+    "UpdateRestoreTestingPlanInputRequestTypeDef",
+    {
+        "RestoreTestingPlan": "RestoreTestingPlanForUpdateTypeDef",
+        "RestoreTestingPlanName": str,
+    },
+)
+
+UpdateRestoreTestingPlanOutputTypeDef = TypedDict(
+    "UpdateRestoreTestingPlanOutputTypeDef",
+    {
+        "CreationTime": datetime,
+        "RestoreTestingPlanArn": str,
+        "RestoreTestingPlanName": str,
+        "UpdateTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateRestoreTestingSelectionInputRequestTypeDef = TypedDict(
+    "UpdateRestoreTestingSelectionInputRequestTypeDef",
+    {
+        "RestoreTestingPlanName": str,
+        "RestoreTestingSelection": "RestoreTestingSelectionForUpdateTypeDef",
+        "RestoreTestingSelectionName": str,
+    },
+)
+
+UpdateRestoreTestingSelectionOutputTypeDef = TypedDict(
+    "UpdateRestoreTestingSelectionOutputTypeDef",
+    {
+        "CreationTime": datetime,
+        "RestoreTestingPlanArn": str,
+        "RestoreTestingPlanName": str,
+        "RestoreTestingSelectionName": str,
+        "UpdateTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

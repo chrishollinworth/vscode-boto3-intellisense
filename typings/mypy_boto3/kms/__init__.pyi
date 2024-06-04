@@ -12,6 +12,7 @@ Usage::
         ListAliasesPaginator,
         ListGrantsPaginator,
         ListKeyPoliciesPaginator,
+        ListKeyRotationsPaginator,
         ListKeysPaginator,
         ListResourceTagsPaginator,
         ListRetirableGrantsPaginator,
@@ -26,17 +27,20 @@ Usage::
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_grants_paginator: ListGrantsPaginator = client.get_paginator("list_grants")
     list_key_policies_paginator: ListKeyPoliciesPaginator = client.get_paginator("list_key_policies")
+    list_key_rotations_paginator: ListKeyRotationsPaginator = client.get_paginator("list_key_rotations")
     list_keys_paginator: ListKeysPaginator = client.get_paginator("list_keys")
     list_resource_tags_paginator: ListResourceTagsPaginator = client.get_paginator("list_resource_tags")
     list_retirable_grants_paginator: ListRetirableGrantsPaginator = client.get_paginator("list_retirable_grants")
     ```
 """
+
 from .client import KMSClient
 from .paginator import (
     DescribeCustomKeyStoresPaginator,
     ListAliasesPaginator,
     ListGrantsPaginator,
     ListKeyPoliciesPaginator,
+    ListKeyRotationsPaginator,
     ListKeysPaginator,
     ListResourceTagsPaginator,
     ListRetirableGrantsPaginator,
@@ -51,6 +55,7 @@ __all__ = (
     "ListAliasesPaginator",
     "ListGrantsPaginator",
     "ListKeyPoliciesPaginator",
+    "ListKeyRotationsPaginator",
     "ListKeysPaginator",
     "ListResourceTagsPaginator",
     "ListRetirableGrantsPaginator",

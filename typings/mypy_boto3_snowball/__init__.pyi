@@ -29,6 +29,7 @@ Usage::
     list_long_term_pricing_paginator: ListLongTermPricingPaginator = client.get_paginator("list_long_term_pricing")
     ```
 """
+
 from .client import SnowballClient
 from .paginator import (
     DescribeAddressesPaginator,

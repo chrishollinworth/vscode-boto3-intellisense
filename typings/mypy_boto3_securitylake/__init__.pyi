@@ -25,6 +25,7 @@ Usage::
     list_subscribers_paginator: ListSubscribersPaginator = client.get_paginator("list_subscribers")
     ```
 """
+
 from .client import SecurityLakeClient
 from .paginator import (
     GetDataLakeSourcesPaginator,

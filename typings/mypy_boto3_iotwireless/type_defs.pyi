@@ -11,6 +11,7 @@ Usage::
     data: AbpV1_0_xTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -18,10 +19,12 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    AggregationPeriodType,
     BatteryLevelType,
     ConnectionStatusType,
     DeviceProfileTypeType,
     DeviceStateType,
+    DimensionNameType,
     DlClassType,
     DownlinkModeType,
     EventNotificationResourceTypeType,
@@ -34,6 +37,8 @@ from .literals import (
     ImportTaskStatusType,
     LogLevelType,
     MessageTypeType,
+    MetricNameType,
+    MetricQueryStatusType,
     MulticastFrameInfoType,
     OnboardStatusType,
     PositionConfigurationFecType,
@@ -41,6 +46,7 @@ from .literals import (
     PositioningConfigStatusType,
     PositionResourceTypeType,
     SigningAlgType,
+    SummaryMetricConfigurationStatusType,
     SupportedRfRegionType,
     WirelessDeviceEventType,
     WirelessDeviceFrameInfoType,
@@ -123,6 +129,7 @@ __all__ = (
     "DeviceProfileTypeDef",
     "DeviceRegistrationStateEventConfigurationTypeDef",
     "DeviceRegistrationStateResourceTypeEventConfigurationTypeDef",
+    "DimensionTypeDef",
     "DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef",
     "DisassociateMulticastGroupFromFuotaTaskRequestRequestTypeDef",
     "DisassociateWirelessDeviceFromFuotaTaskRequestRequestTypeDef",
@@ -144,6 +151,9 @@ __all__ = (
     "GetFuotaTaskRequestRequestTypeDef",
     "GetFuotaTaskResponseTypeDef",
     "GetLogLevelsByResourceTypesResponseTypeDef",
+    "GetMetricConfigurationResponseTypeDef",
+    "GetMetricsRequestRequestTypeDef",
+    "GetMetricsResponseTypeDef",
     "GetMulticastGroupRequestRequestTypeDef",
     "GetMulticastGroupResponseTypeDef",
     "GetMulticastGroupSessionRequestRequestTypeDef",
@@ -249,6 +259,7 @@ __all__ = (
     "LoRaWANMulticastMetadataTypeDef",
     "LoRaWANMulticastSessionTypeDef",
     "LoRaWANMulticastTypeDef",
+    "LoRaWANPublicGatewayMetadataTypeDef",
     "LoRaWANSendDataToDeviceTypeDef",
     "LoRaWANServiceProfileTypeDef",
     "LoRaWANStartFuotaTaskTypeDef",
@@ -260,6 +271,7 @@ __all__ = (
     "LteObjTypeDef",
     "MessageDeliveryStatusEventConfigurationTypeDef",
     "MessageDeliveryStatusResourceTypeEventConfigurationTypeDef",
+    "MetricQueryValueTypeDef",
     "MulticastGroupByFuotaTaskTypeDef",
     "MulticastGroupTypeDef",
     "MulticastWirelessMetadataTypeDef",
@@ -309,6 +321,9 @@ __all__ = (
     "StartSingleWirelessDeviceImportTaskResponseTypeDef",
     "StartWirelessDeviceImportTaskRequestRequestTypeDef",
     "StartWirelessDeviceImportTaskResponseTypeDef",
+    "SummaryMetricConfigurationTypeDef",
+    "SummaryMetricQueryResultTypeDef",
+    "SummaryMetricQueryTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TdscdmaLocalIdTypeDef",
@@ -325,6 +340,7 @@ __all__ = (
     "UpdateFPortsTypeDef",
     "UpdateFuotaTaskRequestRequestTypeDef",
     "UpdateLogLevelsByResourceTypesRequestRequestTypeDef",
+    "UpdateMetricConfigurationRequestRequestTypeDef",
     "UpdateMulticastGroupRequestRequestTypeDef",
     "UpdateNetworkAnalyzerConfigurationRequestRequestTypeDef",
     "UpdatePartnerAccountRequestRequestTypeDef",
@@ -1053,6 +1069,15 @@ DeviceRegistrationStateResourceTypeEventConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+DimensionTypeDef = TypedDict(
+    "DimensionTypeDef",
+    {
+        "name": DimensionNameType,
+        "value": str,
+    },
+    total=False,
+)
+
 DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef = TypedDict(
     "DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef",
     {
@@ -1253,6 +1278,30 @@ GetLogLevelsByResourceTypesResponseTypeDef = TypedDict(
         "DefaultLogLevel": LogLevelType,
         "WirelessGatewayLogOptions": List["WirelessGatewayLogOptionTypeDef"],
         "WirelessDeviceLogOptions": List["WirelessDeviceLogOptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMetricConfigurationResponseTypeDef = TypedDict(
+    "GetMetricConfigurationResponseTypeDef",
+    {
+        "SummaryMetric": "SummaryMetricConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMetricsRequestRequestTypeDef = TypedDict(
+    "GetMetricsRequestRequestTypeDef",
+    {
+        "SummaryMetricQueries": List["SummaryMetricQueryTypeDef"],
+    },
+    total=False,
+)
+
+GetMetricsResponseTypeDef = TypedDict(
+    "GetMetricsResponseTypeDef",
+    {
+        "SummaryMetricQueryResults": List["SummaryMetricQueryResultTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2176,6 +2225,7 @@ LoRaWANDeviceMetadataTypeDef = TypedDict(
         "Frequency": int,
         "Timestamp": str,
         "Gateways": List["LoRaWANGatewayMetadataTypeDef"],
+        "PublicGateways": List["LoRaWANPublicGatewayMetadataTypeDef"],
     },
     total=False,
 )
@@ -2370,6 +2420,19 @@ LoRaWANMulticastTypeDef = TypedDict(
     total=False,
 )
 
+LoRaWANPublicGatewayMetadataTypeDef = TypedDict(
+    "LoRaWANPublicGatewayMetadataTypeDef",
+    {
+        "ProviderNetId": str,
+        "Id": str,
+        "Rssi": float,
+        "Snr": float,
+        "RfRegion": str,
+        "DlAllowed": bool,
+    },
+    total=False,
+)
+
 LoRaWANSendDataToDeviceTypeDef = TypedDict(
     "LoRaWANSendDataToDeviceTypeDef",
     {
@@ -2497,6 +2560,19 @@ MessageDeliveryStatusResourceTypeEventConfigurationTypeDef = TypedDict(
     "MessageDeliveryStatusResourceTypeEventConfigurationTypeDef",
     {
         "Sidewalk": "SidewalkResourceTypeEventConfigurationTypeDef",
+    },
+    total=False,
+)
+
+MetricQueryValueTypeDef = TypedDict(
+    "MetricQueryValueTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+        "Sum": float,
+        "Avg": float,
+        "Std": float,
+        "P90": float,
     },
     total=False,
 )
@@ -3042,6 +3118,45 @@ StartWirelessDeviceImportTaskResponseTypeDef = TypedDict(
     },
 )
 
+SummaryMetricConfigurationTypeDef = TypedDict(
+    "SummaryMetricConfigurationTypeDef",
+    {
+        "Status": SummaryMetricConfigurationStatusType,
+    },
+    total=False,
+)
+
+SummaryMetricQueryResultTypeDef = TypedDict(
+    "SummaryMetricQueryResultTypeDef",
+    {
+        "QueryId": str,
+        "QueryStatus": MetricQueryStatusType,
+        "Error": str,
+        "MetricName": MetricNameType,
+        "Dimensions": List["DimensionTypeDef"],
+        "AggregationPeriod": AggregationPeriodType,
+        "StartTimestamp": datetime,
+        "EndTimestamp": datetime,
+        "Timestamps": List[datetime],
+        "Values": List["MetricQueryValueTypeDef"],
+        "Unit": str,
+    },
+    total=False,
+)
+
+SummaryMetricQueryTypeDef = TypedDict(
+    "SummaryMetricQueryTypeDef",
+    {
+        "QueryId": str,
+        "MetricName": MetricNameType,
+        "Dimensions": List["DimensionTypeDef"],
+        "AggregationPeriod": AggregationPeriodType,
+        "StartTimestamp": Union[datetime, str],
+        "EndTimestamp": Union[datetime, str],
+    },
+    total=False,
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -3234,6 +3349,14 @@ UpdateLogLevelsByResourceTypesRequestRequestTypeDef = TypedDict(
         "DefaultLogLevel": LogLevelType,
         "WirelessDeviceLogOptions": List["WirelessDeviceLogOptionTypeDef"],
         "WirelessGatewayLogOptions": List["WirelessGatewayLogOptionTypeDef"],
+    },
+    total=False,
+)
+
+UpdateMetricConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateMetricConfigurationRequestRequestTypeDef",
+    {
+        "SummaryMetric": "SummaryMetricConfigurationTypeDef",
     },
     total=False,
 )

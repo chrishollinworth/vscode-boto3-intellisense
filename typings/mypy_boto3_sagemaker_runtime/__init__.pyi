@@ -16,6 +16,7 @@ Usage::
     session_client: SageMakerRuntimeClient = session.client("sagemaker-runtime")
     ```
 """
+
 from .client import SageMakerRuntimeClient
 
 Client = SageMakerRuntimeClient

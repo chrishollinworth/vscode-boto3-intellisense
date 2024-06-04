@@ -11,6 +11,7 @@ Usage::
     data: CategoriesTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

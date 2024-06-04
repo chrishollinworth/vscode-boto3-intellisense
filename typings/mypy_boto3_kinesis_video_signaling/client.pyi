@@ -12,6 +12,7 @@ Usage::
     client: KinesisVideoSignalingChannelsClient = boto3.client("kinesis-video-signaling")
     ```
 """
+
 import sys
 from typing import Any, Dict, Type
 
@@ -44,7 +45,7 @@ class Exceptions:
 
 class KinesisVideoSignalingChannelsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html)
     """
 
@@ -55,20 +56,23 @@ class KinesisVideoSignalingChannelsClient(BaseClient):
         """
         KinesisVideoSignalingChannelsClient exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#close)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -79,9 +83,10 @@ class KinesisVideoSignalingChannelsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#generate_presigned_url)
         """
+
     def get_ice_server_config(
         self,
         *,
@@ -95,9 +100,10 @@ class KinesisVideoSignalingChannelsClient(BaseClient):
         information, including URIs, username, and password which can be used to
         configure the WebRTC connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.get_ice_server_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.get_ice_server_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#get_ice_server_config)
         """
+
     def send_alexa_offer_to_master(
         self, *, ChannelARN: str, SenderClientId: str, MessagePayload: str
     ) -> SendAlexaOfferToMasterResponseTypeDef:
@@ -105,6 +111,6 @@ class KinesisVideoSignalingChannelsClient(BaseClient):
         This API allows you to connect WebRTC-enabled devices with Alexa display
         devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.send_alexa_offer_to_master)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.send_alexa_offer_to_master)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#send_alexa_offer_to_master)
         """

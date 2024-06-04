@@ -31,6 +31,7 @@ Usage::
     list_types_paginator: ListTypesPaginator = client.get_paginator("list_types")
     ```
 """
+
 from .client import AppSyncClient
 from .paginator import (
     ListApiKeysPaginator,

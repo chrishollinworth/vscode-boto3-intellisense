@@ -11,6 +11,7 @@ Usage::
     data: ListRulesPaginatorName = "list_rules"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

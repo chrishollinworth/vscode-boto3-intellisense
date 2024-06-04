@@ -20,6 +20,7 @@ Usage::
     list_adapters_paginator: ListAdaptersPaginator = client.get_paginator("list_adapters")
     ```
 """
+
 from datetime import datetime
 from typing import Iterator, Union
 
@@ -35,7 +36,7 @@ __all__ = ("ListAdapterVersionsPaginator", "ListAdaptersPaginator")
 
 class ListAdapterVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/textract.html#Textract.Paginator.ListAdapterVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Paginator.ListAdapterVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterversionspaginator)
     """
 
@@ -48,13 +49,13 @@ class ListAdapterVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAdapterVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/textract.html#Textract.Paginator.ListAdapterVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Paginator.ListAdapterVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterversionspaginator)
         """
 
 class ListAdaptersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/textract.html#Textract.Paginator.ListAdapters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Paginator.ListAdapters)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterspaginator)
     """
 
@@ -66,6 +67,6 @@ class ListAdaptersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAdaptersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/textract.html#Textract.Paginator.ListAdapters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Paginator.ListAdapters.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterspaginator)
         """

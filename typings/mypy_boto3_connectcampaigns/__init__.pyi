@@ -19,6 +19,7 @@ Usage::
     list_campaigns_paginator: ListCampaignsPaginator = client.get_paginator("list_campaigns")
     ```
 """
+
 from .client import ConnectCampaignServiceClient
 from .paginator import ListCampaignsPaginator
 

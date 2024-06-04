@@ -11,6 +11,7 @@ Usage::
     data: AcceleratorManufacturerType = "amazon-web-services"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -85,6 +86,8 @@ __all__ = (
     "CurrencyCodeValuesType",
     "CustomerGatewayAvailableWaiterName",
     "DatafeedSubscriptionStateType",
+    "DefaultInstanceMetadataEndpointStateType",
+    "DefaultInstanceMetadataTagsStateType",
     "DefaultRouteTableAssociationValueType",
     "DefaultRouteTablePropagationValueType",
     "DefaultTargetCapacityTypeType",
@@ -143,6 +146,7 @@ __all__ = (
     "DescribeLocalGatewayVirtualInterfaceGroupsPaginatorName",
     "DescribeLocalGatewayVirtualInterfacesPaginatorName",
     "DescribeLocalGatewaysPaginatorName",
+    "DescribeMacHostsPaginatorName",
     "DescribeManagedPrefixListsPaginatorName",
     "DescribeMovingAddressesPaginatorName",
     "DescribeNatGatewaysPaginatorName",
@@ -219,6 +223,8 @@ __all__ = (
     "EbsNvmeSupportType",
     "EbsOptimizedSupportType",
     "Ec2InstanceConnectEndpointStateType",
+    "EkPubKeyFormatType",
+    "EkPubKeyTypeType",
     "ElasticGpuStateType",
     "ElasticGpuStatusType",
     "EnaSupportType",
@@ -364,6 +370,7 @@ __all__ = (
     "LogDestinationTypeType",
     "MarketTypeType",
     "MembershipTypeType",
+    "MetadataDefaultHttpTokensStateType",
     "MetricTypeType",
     "ModifyAvailabilityZoneOptInStatusType",
     "MonitoringStateType",
@@ -391,6 +398,7 @@ __all__ = (
     "PaymentOptionType",
     "PeriodTypeType",
     "PermissionGroupType",
+    "PhcSupportType",
     "PlacementGroupStateType",
     "PlacementGroupStrategyType",
     "PlacementStrategyType",
@@ -523,9 +531,20 @@ __all__ = (
     "scopeType",
 )
 
-AcceleratorManufacturerType = Literal["amazon-web-services", "amd", "nvidia", "xilinx"]
+AcceleratorManufacturerType = Literal["amazon-web-services", "amd", "habana", "nvidia", "xilinx"]
 AcceleratorNameType = Literal[
-    "a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "v100", "vu9p"
+    "a100",
+    "a10g",
+    "h100",
+    "inferentia",
+    "k520",
+    "k80",
+    "m60",
+    "radeon-pro-v520",
+    "t4",
+    "t4g",
+    "v100",
+    "vu9p",
 ]
 AcceleratorTypeType = Literal["fpga", "gpu", "inference"]
 AccountAttributeNameType = Literal["default-vpc", "supported-platforms"]
@@ -581,7 +600,9 @@ AutoAcceptSharedAssociationsValueType = Literal["disable", "enable"]
 AutoAcceptSharedAttachmentsValueType = Literal["disable", "enable"]
 AutoPlacementType = Literal["off", "on"]
 AvailabilityZoneOptInStatusType = Literal["not-opted-in", "opt-in-not-required", "opted-in"]
-AvailabilityZoneStateType = Literal["available", "impaired", "information", "unavailable"]
+AvailabilityZoneStateType = Literal[
+    "available", "constrained", "impaired", "information", "unavailable"
+]
 BareMetalType = Literal["excluded", "included", "required"]
 BatchStateType = Literal[
     "active",
@@ -686,6 +707,8 @@ CpuManufacturerType = Literal["amazon-web-services", "amd", "intel"]
 CurrencyCodeValuesType = Literal["USD"]
 CustomerGatewayAvailableWaiterName = Literal["customer_gateway_available"]
 DatafeedSubscriptionStateType = Literal["Active", "Inactive"]
+DefaultInstanceMetadataEndpointStateType = Literal["disabled", "enabled", "no-preference"]
+DefaultInstanceMetadataTagsStateType = Literal["disabled", "enabled", "no-preference"]
 DefaultRouteTableAssociationValueType = Literal["disable", "enable"]
 DefaultRouteTablePropagationValueType = Literal["disable", "enable"]
 DefaultTargetCapacityTypeType = Literal["capacity-block", "on-demand", "spot"]
@@ -766,6 +789,7 @@ DescribeLocalGatewayVirtualInterfacesPaginatorName = Literal[
     "describe_local_gateway_virtual_interfaces"
 ]
 DescribeLocalGatewaysPaginatorName = Literal["describe_local_gateways"]
+DescribeMacHostsPaginatorName = Literal["describe_mac_hosts"]
 DescribeManagedPrefixListsPaginatorName = Literal["describe_managed_prefix_lists"]
 DescribeMovingAddressesPaginatorName = Literal["describe_moving_addresses"]
 DescribeNatGatewaysPaginatorName = Literal["describe_nat_gateways"]
@@ -875,6 +899,8 @@ Ec2InstanceConnectEndpointStateType = Literal[
     "delete-failed",
     "delete-in-progress",
 ]
+EkPubKeyFormatType = Literal["der", "tpmt"]
+EkPubKeyTypeType = Literal["ecc-sec-p384", "rsa-2048"]
 ElasticGpuStateType = Literal["ATTACHED"]
 ElasticGpuStatusType = Literal["IMPAIRED", "OK"]
 EnaSupportType = Literal["required", "supported", "unsupported"]
@@ -977,6 +1003,7 @@ Igmpv2SupportValueType = Literal["disable", "enable"]
 ImageAttributeNameType = Literal[
     "blockDeviceMapping",
     "bootMode",
+    "deregistrationProtection",
     "description",
     "imdsSupport",
     "kernel",
@@ -1193,6 +1220,7 @@ InstanceTypeType = Literal[
     "c7gd.8xlarge",
     "c7gd.large",
     "c7gd.medium",
+    "c7gd.metal",
     "c7gd.xlarge",
     "c7gn.12xlarge",
     "c7gn.16xlarge",
@@ -1202,6 +1230,11 @@ InstanceTypeType = Literal[
     "c7gn.large",
     "c7gn.medium",
     "c7gn.xlarge",
+    "c7i-flex.2xlarge",
+    "c7i-flex.4xlarge",
+    "c7i-flex.8xlarge",
+    "c7i-flex.large",
+    "c7i-flex.xlarge",
     "c7i.12xlarge",
     "c7i.16xlarge",
     "c7i.24xlarge",
@@ -1210,6 +1243,8 @@ InstanceTypeType = Literal[
     "c7i.4xlarge",
     "c7i.8xlarge",
     "c7i.large",
+    "c7i.metal-24xl",
+    "c7i.metal-48xl",
     "c7i.xlarge",
     "cc1.4xlarge",
     "cc2.8xlarge",
@@ -1266,6 +1301,16 @@ InstanceTypeType = Literal[
     "g5g.8xlarge",
     "g5g.metal",
     "g5g.xlarge",
+    "g6.12xlarge",
+    "g6.16xlarge",
+    "g6.24xlarge",
+    "g6.2xlarge",
+    "g6.48xlarge",
+    "g6.4xlarge",
+    "g6.8xlarge",
+    "g6.xlarge",
+    "gr6.4xlarge",
+    "gr6.8xlarge",
     "h1.16xlarge",
     "h1.2xlarge",
     "h1.4xlarge",
@@ -1306,7 +1351,9 @@ InstanceTypeType = Literal[
     "i4g.8xlarge",
     "i4g.large",
     "i4g.xlarge",
+    "i4i.12xlarge",
     "i4i.16xlarge",
+    "i4i.24xlarge",
     "i4i.2xlarge",
     "i4i.32xlarge",
     "i4i.4xlarge",
@@ -1507,6 +1554,7 @@ InstanceTypeType = Literal[
     "m7gd.8xlarge",
     "m7gd.large",
     "m7gd.medium",
+    "m7gd.metal",
     "m7gd.xlarge",
     "m7i-flex.2xlarge",
     "m7i-flex.4xlarge",
@@ -1521,8 +1569,11 @@ InstanceTypeType = Literal[
     "m7i.4xlarge",
     "m7i.8xlarge",
     "m7i.large",
+    "m7i.metal-24xl",
+    "m7i.metal-48xl",
     "m7i.xlarge",
     "mac1.metal",
+    "mac2-m2.metal",
     "mac2-m2pro.metal",
     "mac2.metal",
     "p2.16xlarge",
@@ -1704,6 +1755,7 @@ InstanceTypeType = Literal[
     "r7gd.8xlarge",
     "r7gd.large",
     "r7gd.medium",
+    "r7gd.metal",
     "r7gd.xlarge",
     "r7i.12xlarge",
     "r7i.16xlarge",
@@ -1713,6 +1765,8 @@ InstanceTypeType = Literal[
     "r7i.4xlarge",
     "r7i.8xlarge",
     "r7i.large",
+    "r7i.metal-24xl",
+    "r7i.metal-48xl",
     "r7i.xlarge",
     "r7iz.12xlarge",
     "r7iz.16xlarge",
@@ -1721,6 +1775,8 @@ InstanceTypeType = Literal[
     "r7iz.4xlarge",
     "r7iz.8xlarge",
     "r7iz.large",
+    "r7iz.metal-16xl",
+    "r7iz.metal-32xl",
     "r7iz.xlarge",
     "t1.micro",
     "t2.2xlarge",
@@ -1766,6 +1822,10 @@ InstanceTypeType = Literal[
     "u-6tb1.metal",
     "u-9tb1.112xlarge",
     "u-9tb1.metal",
+    "u7i-12tb.224xlarge",
+    "u7in-16tb.224xlarge",
+    "u7in-24tb.224xlarge",
+    "u7in-32tb.224xlarge",
     "vt1.24xlarge",
     "vt1.3xlarge",
     "vt1.6xlarge",
@@ -1961,6 +2021,7 @@ LockStateType = Literal["compliance", "compliance-cooloff", "expired", "governan
 LogDestinationTypeType = Literal["cloud-watch-logs", "kinesis-data-firehose", "s3"]
 MarketTypeType = Literal["capacity-block", "spot"]
 MembershipTypeType = Literal["igmp", "static"]
+MetadataDefaultHttpTokensStateType = Literal["no-preference", "optional", "required"]
 MetricTypeType = Literal["aggregate-latency"]
 ModifyAvailabilityZoneOptInStatusType = Literal["not-opted-in", "opted-in"]
 MonitoringStateType = Literal["disabled", "disabling", "enabled", "pending"]
@@ -1972,7 +2033,9 @@ NatGatewayAddressStatusType = Literal[
 NatGatewayAvailableWaiterName = Literal["nat_gateway_available"]
 NatGatewayDeletedWaiterName = Literal["nat_gateway_deleted"]
 NatGatewayStateType = Literal["available", "deleted", "deleting", "failed", "pending"]
-NetworkInterfaceAttributeType = Literal["attachment", "description", "groupSet", "sourceDestCheck"]
+NetworkInterfaceAttributeType = Literal[
+    "associatePublicIpAddress", "attachment", "description", "groupSet", "sourceDestCheck"
+]
 NetworkInterfaceAvailableWaiterName = Literal["network_interface_available"]
 NetworkInterfaceCreationTypeType = Literal["branch", "efa", "trunk"]
 NetworkInterfacePermissionStateCodeType = Literal["granted", "pending", "revoked", "revoking"]
@@ -2017,6 +2080,7 @@ PeriodTypeType = Literal[
     "fifteen-minutes", "five-minutes", "one-day", "one-hour", "one-week", "three-hours"
 ]
 PermissionGroupType = Literal["all"]
+PhcSupportType = Literal["supported", "unsupported"]
 PlacementGroupStateType = Literal["available", "deleted", "deleting", "pending"]
 PlacementGroupStrategyType = Literal["cluster", "partition", "spread"]
 PlacementStrategyType = Literal["cluster", "partition", "spread"]
@@ -2211,7 +2275,7 @@ SubnetCidrBlockStateCodeType = Literal[
     "associated", "associating", "disassociated", "disassociating", "failed", "failing"
 ]
 SubnetCidrReservationTypeType = Literal["explicit", "prefix"]
-SubnetStateType = Literal["available", "pending"]
+SubnetStateType = Literal["available", "pending", "unavailable"]
 SummaryStatusType = Literal["impaired", "initializing", "insufficient-data", "not-applicable", "ok"]
 SupportedAdditionalProcessorFeatureType = Literal["amd-sev-snp"]
 SystemStatusOkWaiterName = Literal["system_status_ok"]

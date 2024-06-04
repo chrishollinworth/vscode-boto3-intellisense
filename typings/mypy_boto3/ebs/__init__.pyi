@@ -16,6 +16,7 @@ Usage::
     session_client: EBSClient = session.client("ebs")
     ```
 """
+
 from .client import EBSClient
 
 Client = EBSClient

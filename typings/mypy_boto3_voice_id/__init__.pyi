@@ -29,6 +29,7 @@ Usage::
     list_watchlists_paginator: ListWatchlistsPaginator = client.get_paginator("list_watchlists")
     ```
 """
+
 from .client import VoiceIDClient
 from .paginator import (
     ListDomainsPaginator,

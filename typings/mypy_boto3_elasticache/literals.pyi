@@ -11,6 +11,7 @@ Usage::
     data: AZModeType = "cross-az"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -28,6 +29,7 @@ __all__ = (
     "CacheClusterDeletedWaiterName",
     "ChangeTypeType",
     "ClusterModeType",
+    "DataStorageUnitType",
     "DataTieringStatusType",
     "DescribeCacheClustersPaginatorName",
     "DescribeCacheEngineVersionsPaginatorName",
@@ -41,6 +43,8 @@ __all__ = (
     "DescribeReplicationGroupsPaginatorName",
     "DescribeReservedCacheNodesOfferingsPaginatorName",
     "DescribeReservedCacheNodesPaginatorName",
+    "DescribeServerlessCacheSnapshotsPaginatorName",
+    "DescribeServerlessCachesPaginatorName",
     "DescribeServiceUpdatesPaginatorName",
     "DescribeSnapshotsPaginatorName",
     "DescribeUpdateActionsPaginatorName",
@@ -78,6 +82,7 @@ CacheClusterAvailableWaiterName = Literal["cache_cluster_available"]
 CacheClusterDeletedWaiterName = Literal["cache_cluster_deleted"]
 ChangeTypeType = Literal["immediate", "requires-reboot"]
 ClusterModeType = Literal["compatible", "disabled", "enabled"]
+DataStorageUnitType = Literal["GB"]
 DataTieringStatusType = Literal["disabled", "enabled"]
 DescribeCacheClustersPaginatorName = Literal["describe_cache_clusters"]
 DescribeCacheEngineVersionsPaginatorName = Literal["describe_cache_engine_versions"]
@@ -93,6 +98,8 @@ DescribeReservedCacheNodesOfferingsPaginatorName = Literal[
     "describe_reserved_cache_nodes_offerings"
 ]
 DescribeReservedCacheNodesPaginatorName = Literal["describe_reserved_cache_nodes"]
+DescribeServerlessCacheSnapshotsPaginatorName = Literal["describe_serverless_cache_snapshots"]
+DescribeServerlessCachesPaginatorName = Literal["describe_serverless_caches"]
 DescribeServiceUpdatesPaginatorName = Literal["describe_service_updates"]
 DescribeSnapshotsPaginatorName = Literal["describe_snapshots"]
 DescribeUpdateActionsPaginatorName = Literal["describe_update_actions"]
@@ -126,6 +133,8 @@ SourceTypeType = Literal[
     "cache-security-group",
     "cache-subnet-group",
     "replication-group",
+    "serverless-cache",
+    "serverless-cache-snapshot",
     "user",
     "user-group",
 ]

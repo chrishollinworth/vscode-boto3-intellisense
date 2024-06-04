@@ -53,6 +53,7 @@ Usage::
     get_vpc_links_paginator: GetVpcLinksPaginator = client.get_paginator("get_vpc_links")
     ```
 """
+
 from .client import APIGatewayClient
 from .paginator import (
     GetApiKeysPaginator,

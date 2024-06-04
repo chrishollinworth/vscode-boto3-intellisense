@@ -33,6 +33,7 @@ Usage::
     list_hosted_configuration_versions_paginator: ListHostedConfigurationVersionsPaginator = client.get_paginator("list_hosted_configuration_versions")
     ```
 """
+
 from .client import AppConfigClient
 from .paginator import (
     ListApplicationsPaginator,

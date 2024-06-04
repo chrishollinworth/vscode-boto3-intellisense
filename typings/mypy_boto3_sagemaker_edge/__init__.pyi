@@ -16,6 +16,7 @@ Usage::
     session_client: SagemakerEdgeManagerClient = session.client("sagemaker-edge")
     ```
 """
+
 from .client import SagemakerEdgeManagerClient
 
 Client = SagemakerEdgeManagerClient

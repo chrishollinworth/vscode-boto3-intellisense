@@ -11,6 +11,7 @@ Usage::
     data: CloudComponentStateType = "DEPLOYABLE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -32,6 +33,7 @@ __all__ = (
     "InstalledComponentTopologyFilterType",
     "IoTJobAbortActionType",
     "IoTJobExecutionFailureTypeType",
+    "IotEndpointTypeType",
     "LambdaEventSourceTypeType",
     "LambdaFilesystemPermissionType",
     "LambdaInputPayloadEncodingTypeType",
@@ -44,6 +46,7 @@ __all__ = (
     "ListEffectiveDeploymentsPaginatorName",
     "ListInstalledComponentsPaginatorName",
     "RecipeOutputFormatType",
+    "S3EndpointTypeType",
     "VendorGuidanceType",
 )
 
@@ -64,6 +67,7 @@ InstalledComponentLifecycleStateType = Literal[
 InstalledComponentTopologyFilterType = Literal["ALL", "ROOT"]
 IoTJobAbortActionType = Literal["CANCEL"]
 IoTJobExecutionFailureTypeType = Literal["ALL", "FAILED", "REJECTED", "TIMED_OUT"]
+IotEndpointTypeType = Literal["fips", "standard"]
 LambdaEventSourceTypeType = Literal["IOT_CORE", "PUB_SUB"]
 LambdaFilesystemPermissionType = Literal["ro", "rw"]
 LambdaInputPayloadEncodingTypeType = Literal["binary", "json"]
@@ -78,4 +82,5 @@ ListDeploymentsPaginatorName = Literal["list_deployments"]
 ListEffectiveDeploymentsPaginatorName = Literal["list_effective_deployments"]
 ListInstalledComponentsPaginatorName = Literal["list_installed_components"]
 RecipeOutputFormatType = Literal["JSON", "YAML"]
+S3EndpointTypeType = Literal["GLOBAL", "REGIONAL"]
 VendorGuidanceType = Literal["ACTIVE", "DELETED", "DISCONTINUED"]

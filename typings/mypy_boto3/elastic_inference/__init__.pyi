@@ -19,6 +19,7 @@ Usage::
     describe_accelerators_paginator: DescribeAcceleratorsPaginator = client.get_paginator("describe_accelerators")
     ```
 """
+
 from .client import ElasticInferenceClient
 from .paginator import DescribeAcceleratorsPaginator
 

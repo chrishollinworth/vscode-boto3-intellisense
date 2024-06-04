@@ -11,6 +11,7 @@ Usage::
     data: GroupConfigurationStatusType = "UPDATE_COMPLETE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -42,6 +43,7 @@ QueryErrorCodeType = Literal[
     "CLOUDFORMATION_STACK_INACTIVE",
     "CLOUDFORMATION_STACK_NOT_EXISTING",
     "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
+    "RESOURCE_TYPE_NOT_SUPPORTED",
 ]
 QueryTypeType = Literal["CLOUDFORMATION_STACK_1_0", "TAG_FILTERS_1_0"]
 ResourceFilterNameType = Literal["resource-type"]

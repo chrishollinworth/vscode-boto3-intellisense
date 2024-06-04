@@ -38,6 +38,7 @@ Usage::
     list_rotations_paginator: ListRotationsPaginator = client.get_paginator("list_rotations")
     ```
 """
+
 from datetime import datetime
 from typing import Iterator, List, Union
 
@@ -78,7 +79,7 @@ __all__ = (
 
 class ListContactChannelsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContactChannels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContactChannels)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listcontactchannelspaginator)
     """
 
@@ -86,13 +87,13 @@ class ListContactChannelsPaginator(Boto3Paginator):
         self, *, ContactId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContactChannelsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContactChannels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContactChannels.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listcontactchannelspaginator)
         """
 
 class ListContactsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContacts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContacts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listcontactspaginator)
     """
 
@@ -104,13 +105,13 @@ class ListContactsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContactsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContacts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContacts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listcontactspaginator)
         """
 
 class ListEngagementsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListEngagements)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListEngagements)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listengagementspaginator)
     """
 
@@ -122,13 +123,13 @@ class ListEngagementsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEngagementsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListEngagements.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListEngagements.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listengagementspaginator)
         """
 
 class ListPageReceiptsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageReceipts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageReceipts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagereceiptspaginator)
     """
 
@@ -136,13 +137,13 @@ class ListPageReceiptsPaginator(Boto3Paginator):
         self, *, PageId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPageReceiptsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageReceipts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageReceipts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagereceiptspaginator)
         """
 
 class ListPageResolutionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageResolutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageResolutions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpageresolutionspaginator)
     """
 
@@ -150,13 +151,13 @@ class ListPageResolutionsPaginator(Boto3Paginator):
         self, *, PageId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPageResolutionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageResolutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageResolutions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpageresolutionspaginator)
         """
 
 class ListPagesByContactPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByContact)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByContact)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagesbycontactpaginator)
     """
 
@@ -164,13 +165,13 @@ class ListPagesByContactPaginator(Boto3Paginator):
         self, *, ContactId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPagesByContactResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByContact.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByContact.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagesbycontactpaginator)
         """
 
 class ListPagesByEngagementPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByEngagement)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByEngagement)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagesbyengagementpaginator)
     """
 
@@ -178,13 +179,13 @@ class ListPagesByEngagementPaginator(Boto3Paginator):
         self, *, EngagementId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPagesByEngagementResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByEngagement.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByEngagement.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagesbyengagementpaginator)
         """
 
 class ListPreviewRotationShiftsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPreviewRotationShifts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPreviewRotationShifts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpreviewrotationshiftspaginator)
     """
 
@@ -201,13 +202,13 @@ class ListPreviewRotationShiftsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPreviewRotationShiftsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPreviewRotationShifts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPreviewRotationShifts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpreviewrotationshiftspaginator)
         """
 
 class ListRotationOverridesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationOverrides)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationOverrides)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationoverridespaginator)
     """
 
@@ -220,13 +221,13 @@ class ListRotationOverridesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRotationOverridesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationOverrides.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationOverrides.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationoverridespaginator)
         """
 
 class ListRotationShiftsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationShifts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationShifts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationshiftspaginator)
     """
 
@@ -239,13 +240,13 @@ class ListRotationShiftsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRotationShiftsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationShifts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationShifts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationshiftspaginator)
         """
 
 class ListRotationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationspaginator)
     """
 
@@ -253,6 +254,6 @@ class ListRotationsPaginator(Boto3Paginator):
         self, *, RotationNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRotationsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationspaginator)
         """

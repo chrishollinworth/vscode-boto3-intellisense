@@ -38,6 +38,7 @@ Usage::
     list_worlds_paginator: ListWorldsPaginator = client.get_paginator("list_worlds")
     ```
 """
+
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
@@ -74,7 +75,7 @@ __all__ = (
 
 class ListDeploymentJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listdeploymentjobspaginator)
     """
 
@@ -85,13 +86,13 @@ class ListDeploymentJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeploymentJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listdeploymentjobspaginator)
         """
 
 class ListFleetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listfleetspaginator)
     """
 
@@ -102,13 +103,13 @@ class ListFleetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFleetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listfleetspaginator)
         """
 
 class ListRobotApplicationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listrobotapplicationspaginator)
     """
 
@@ -120,13 +121,13 @@ class ListRobotApplicationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRobotApplicationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listrobotapplicationspaginator)
         """
 
 class ListRobotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listrobotspaginator)
     """
 
@@ -137,13 +138,13 @@ class ListRobotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRobotsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listrobotspaginator)
         """
 
 class ListSimulationApplicationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationapplicationspaginator)
     """
 
@@ -155,13 +156,13 @@ class ListSimulationApplicationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSimulationApplicationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationapplicationspaginator)
         """
 
 class ListSimulationJobBatchesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationjobbatchespaginator)
     """
 
@@ -172,13 +173,13 @@ class ListSimulationJobBatchesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSimulationJobBatchesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationjobbatchespaginator)
         """
 
 class ListSimulationJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationjobspaginator)
     """
 
@@ -189,13 +190,13 @@ class ListSimulationJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSimulationJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationjobspaginator)
         """
 
 class ListWorldExportJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldexportjobspaginator)
     """
 
@@ -206,13 +207,13 @@ class ListWorldExportJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorldExportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldexportjobspaginator)
         """
 
 class ListWorldGenerationJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldgenerationjobspaginator)
     """
 
@@ -223,13 +224,13 @@ class ListWorldGenerationJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorldGenerationJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldgenerationjobspaginator)
         """
 
 class ListWorldTemplatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldtemplatespaginator)
     """
 
@@ -237,13 +238,13 @@ class ListWorldTemplatesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorldTemplatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldtemplatespaginator)
         """
 
 class ListWorldsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldspaginator)
     """
 
@@ -254,6 +255,6 @@ class ListWorldsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorldsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldspaginator)
         """

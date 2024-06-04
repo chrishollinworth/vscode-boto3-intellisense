@@ -11,6 +11,7 @@ Usage::
     data: AssociateResourceErrorReasonType = "ILLEGAL_CUSTOMLINEITEM"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -24,6 +25,7 @@ __all__ = (
     "CurrencyCodeType",
     "CustomLineItemRelationshipType",
     "CustomLineItemTypeType",
+    "GroupByAttributeNameType",
     "LineItemFilterAttributeNameType",
     "LineItemFilterValueType",
     "ListAccountAssociationsPaginatorName",
@@ -52,6 +54,7 @@ BillingGroupStatusType = Literal["ACTIVE", "PRIMARY_ACCOUNT_MISSING"]
 CurrencyCodeType = Literal["CNY", "USD"]
 CustomLineItemRelationshipType = Literal["CHILD", "PARENT"]
 CustomLineItemTypeType = Literal["CREDIT", "FEE"]
+GroupByAttributeNameType = Literal["BILLING_PERIOD", "PRODUCT_NAME"]
 LineItemFilterAttributeNameType = Literal["LINE_ITEM_TYPE"]
 LineItemFilterValueType = Literal["SAVINGS_PLAN_NEGATION"]
 ListAccountAssociationsPaginatorName = Literal["list_account_associations"]

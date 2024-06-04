@@ -16,6 +16,7 @@ Usage::
     session_client: AuditManagerClient = session.client("auditmanager")
     ```
 """
+
 from .client import AuditManagerClient
 
 Client = AuditManagerClient

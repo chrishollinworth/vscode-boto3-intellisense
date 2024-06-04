@@ -11,6 +11,7 @@ Usage::
     data: AacSettingsTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -52,10 +53,21 @@ from .literals import (
     BurnInTeletextGridControlType,
     CdiInputResolutionType,
     ChannelClassType,
+    ChannelPipelineIdToRestartType,
     ChannelStateType,
+    CloudWatchAlarmTemplateComparisonOperatorType,
+    CloudWatchAlarmTemplateStatisticType,
+    CloudWatchAlarmTemplateTargetResourceTypeType,
+    CloudWatchAlarmTemplateTreatMissingDataType,
+    CmafIngestSegmentLengthUnitsType,
+    CmafNielsenId3BehaviorType,
+    ColorSpaceType,
+    DashRoleAudioType,
+    DashRoleCaptionType,
     DeviceSettingsSyncStateType,
     DeviceUpdateStatusType,
     DolbyEProgramSelectionType,
+    DvbDashAccessibilityType,
     DvbSdtOutputSdtType,
     DvbSubDestinationAlignmentType,
     DvbSubDestinationBackgroundColorType,
@@ -85,6 +97,7 @@ from .literals import (
     EbuTtDFillLineGapControlType,
     EmbeddedConvert608To708Type,
     EmbeddedScte20DetectionType,
+    EventBridgeRuleTemplateEventTypeType,
     FeatureActivationsInputPrepareScheduleActionsType,
     FeatureActivationsOutputStaticImageOverlayScheduleActionsType,
     FecOutputIncludeFecType,
@@ -125,12 +138,16 @@ from .literals import (
     H265GopSizeUnitsType,
     H265LevelType,
     H265LookAheadRateControlType,
+    H265MvOverPictureBoundariesType,
+    H265MvTemporalPredictorType,
     H265ProfileType,
     H265RateControlModeType,
     H265ScanTypeType,
     H265SceneChangeDetectType,
     H265TierType,
+    H265TilePaddingType,
     H265TimecodeInsertionBehaviorType,
+    H265TreeblockSizeType,
     HlsAdMarkersType,
     HlsAkamaiHttpTransferModeType,
     HlsCaptionLanguageSettingType,
@@ -165,6 +182,7 @@ from .literals import (
     InputDenoiseFilterType,
     InputDeviceActiveInputType,
     InputDeviceCodecType,
+    InputDeviceConfigurableAudioChannelPairProfileType,
     InputDeviceConfiguredInputType,
     InputDeviceConnectionStateType,
     InputDeviceIpSchemeType,
@@ -173,6 +191,7 @@ from .literals import (
     InputDeviceStateType,
     InputDeviceTransferTypeType,
     InputDeviceTypeType,
+    InputDeviceUhdAudioChannelPairProfileType,
     InputFilterType,
     InputLossActionForHlsOutType,
     InputLossActionForMsSmoothOutType,
@@ -257,9 +276,13 @@ from .literals import (
     Scte35InputModeType,
     Scte35NoRegionalBlackoutFlagType,
     Scte35SegmentationCancelIndicatorType,
+    Scte35SegmentationScopeType,
     Scte35SpliceInsertNoRegionalBlackoutBehaviorType,
     Scte35SpliceInsertWebDeliveryAllowedBehaviorType,
+    Scte35TypeType,
     Scte35WebDeliveryAllowedFlagType,
+    SignalMapMonitorDeploymentStatusType,
+    SignalMapStatusType,
     SmoothGroupAudioOnlyTimecodeControlType,
     SmoothGroupCertificateModeType,
     SmoothGroupEventIdModeType,
@@ -353,8 +376,22 @@ __all__ = (
     "ChannelSummaryTypeDef",
     "ChannelTypeDef",
     "ClaimDeviceRequestRequestTypeDef",
+    "CloudWatchAlarmTemplateGroupSummaryTypeDef",
+    "CloudWatchAlarmTemplateSummaryTypeDef",
+    "CmafIngestGroupSettingsTypeDef",
+    "CmafIngestOutputSettingsTypeDef",
+    "ColorCorrectionSettingsTypeDef",
+    "ColorCorrectionTypeDef",
     "CreateChannelRequestRequestTypeDef",
     "CreateChannelResponseTypeDef",
+    "CreateCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    "CreateCloudWatchAlarmTemplateGroupResponseTypeDef",
+    "CreateCloudWatchAlarmTemplateRequestRequestTypeDef",
+    "CreateCloudWatchAlarmTemplateResponseTypeDef",
+    "CreateEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    "CreateEventBridgeRuleTemplateGroupResponseTypeDef",
+    "CreateEventBridgeRuleTemplateRequestRequestTypeDef",
+    "CreateEventBridgeRuleTemplateResponseTypeDef",
     "CreateInputRequestRequestTypeDef",
     "CreateInputResponseTypeDef",
     "CreateInputSecurityGroupRequestRequestTypeDef",
@@ -365,9 +402,15 @@ __all__ = (
     "CreateMultiplexResponseTypeDef",
     "CreatePartnerInputRequestRequestTypeDef",
     "CreatePartnerInputResponseTypeDef",
+    "CreateSignalMapRequestRequestTypeDef",
+    "CreateSignalMapResponseTypeDef",
     "CreateTagsRequestRequestTypeDef",
     "DeleteChannelRequestRequestTypeDef",
     "DeleteChannelResponseTypeDef",
+    "DeleteCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    "DeleteCloudWatchAlarmTemplateRequestRequestTypeDef",
+    "DeleteEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    "DeleteEventBridgeRuleTemplateRequestRequestTypeDef",
     "DeleteInputRequestRequestTypeDef",
     "DeleteInputSecurityGroupRequestRequestTypeDef",
     "DeleteMultiplexProgramRequestRequestTypeDef",
@@ -377,6 +420,7 @@ __all__ = (
     "DeleteReservationRequestRequestTypeDef",
     "DeleteReservationResponseTypeDef",
     "DeleteScheduleRequestRequestTypeDef",
+    "DeleteSignalMapRequestRequestTypeDef",
     "DeleteTagsRequestRequestTypeDef",
     "DescribeAccountConfigurationResponseTypeDef",
     "DescribeChannelRequestRequestTypeDef",
@@ -413,6 +457,9 @@ __all__ = (
     "EncoderSettingsTypeDef",
     "EpochLockingSettingsTypeDef",
     "EsamTypeDef",
+    "EventBridgeRuleTemplateGroupSummaryTypeDef",
+    "EventBridgeRuleTemplateSummaryTypeDef",
+    "EventBridgeRuleTemplateTargetTypeDef",
     "FailoverConditionSettingsTypeDef",
     "FailoverConditionTypeDef",
     "FeatureActivationsTypeDef",
@@ -425,6 +472,16 @@ __all__ = (
     "FrameCaptureOutputSettingsTypeDef",
     "FrameCaptureS3SettingsTypeDef",
     "FrameCaptureSettingsTypeDef",
+    "GetCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    "GetCloudWatchAlarmTemplateGroupResponseTypeDef",
+    "GetCloudWatchAlarmTemplateRequestRequestTypeDef",
+    "GetCloudWatchAlarmTemplateResponseTypeDef",
+    "GetEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    "GetEventBridgeRuleTemplateGroupResponseTypeDef",
+    "GetEventBridgeRuleTemplateRequestRequestTypeDef",
+    "GetEventBridgeRuleTemplateResponseTypeDef",
+    "GetSignalMapRequestRequestTypeDef",
+    "GetSignalMapResponseTypeDef",
     "GlobalConfigurationTypeDef",
     "H264ColorSpaceSettingsTypeDef",
     "H264FilterSettingsTypeDef",
@@ -451,6 +508,7 @@ __all__ = (
     "InputDestinationRequestTypeDef",
     "InputDestinationTypeDef",
     "InputDestinationVpcTypeDef",
+    "InputDeviceConfigurableAudioChannelPairConfigTypeDef",
     "InputDeviceConfigurableSettingsTypeDef",
     "InputDeviceHdSettingsTypeDef",
     "InputDeviceMediaConnectConfigurableSettingsTypeDef",
@@ -459,6 +517,7 @@ __all__ = (
     "InputDeviceRequestTypeDef",
     "InputDeviceSettingsTypeDef",
     "InputDeviceSummaryTypeDef",
+    "InputDeviceUhdAudioChannelPairConfigTypeDef",
     "InputDeviceUhdSettingsTypeDef",
     "InputLocationTypeDef",
     "InputLossBehaviorTypeDef",
@@ -477,6 +536,14 @@ __all__ = (
     "KeyProviderSettingsTypeDef",
     "ListChannelsRequestRequestTypeDef",
     "ListChannelsResponseTypeDef",
+    "ListCloudWatchAlarmTemplateGroupsRequestRequestTypeDef",
+    "ListCloudWatchAlarmTemplateGroupsResponseTypeDef",
+    "ListCloudWatchAlarmTemplatesRequestRequestTypeDef",
+    "ListCloudWatchAlarmTemplatesResponseTypeDef",
+    "ListEventBridgeRuleTemplateGroupsRequestRequestTypeDef",
+    "ListEventBridgeRuleTemplateGroupsResponseTypeDef",
+    "ListEventBridgeRuleTemplatesRequestRequestTypeDef",
+    "ListEventBridgeRuleTemplatesResponseTypeDef",
     "ListInputDeviceTransfersRequestRequestTypeDef",
     "ListInputDeviceTransfersResponseTypeDef",
     "ListInputDevicesRequestRequestTypeDef",
@@ -493,6 +560,8 @@ __all__ = (
     "ListOfferingsResponseTypeDef",
     "ListReservationsRequestRequestTypeDef",
     "ListReservationsResponseTypeDef",
+    "ListSignalMapsRequestRequestTypeDef",
+    "ListSignalMapsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "M2tsSettingsTypeDef",
@@ -504,6 +573,9 @@ __all__ = (
     "MediaConnectFlowTypeDef",
     "MediaPackageGroupSettingsTypeDef",
     "MediaPackageOutputDestinationSettingsTypeDef",
+    "MediaResourceNeighborTypeDef",
+    "MediaResourceTypeDef",
+    "MonitorDeploymentTypeDef",
     "MotionGraphicsActivateScheduleActionSettingsTypeDef",
     "MotionGraphicsConfigurationTypeDef",
     "MotionGraphicsSettingsTypeDef",
@@ -555,6 +627,8 @@ __all__ = (
     "ReservationResourceSpecificationTypeDef",
     "ReservationTypeDef",
     "ResponseMetadataTypeDef",
+    "RestartChannelPipelinesRequestRequestTypeDef",
+    "RestartChannelPipelinesResponseTypeDef",
     "RtmpGroupSettingsTypeDef",
     "RtmpOutputSettingsTypeDef",
     "ScheduleActionSettingsTypeDef",
@@ -572,14 +646,21 @@ __all__ = (
     "Scte35SpliceInsertTypeDef",
     "Scte35TimeSignalAposTypeDef",
     "Scte35TimeSignalScheduleActionSettingsTypeDef",
+    "SignalMapSummaryTypeDef",
     "StandardHlsSettingsTypeDef",
     "StartChannelRequestRequestTypeDef",
     "StartChannelResponseTypeDef",
+    "StartDeleteMonitorDeploymentRequestRequestTypeDef",
+    "StartDeleteMonitorDeploymentResponseTypeDef",
     "StartInputDeviceMaintenanceWindowRequestRequestTypeDef",
     "StartInputDeviceRequestRequestTypeDef",
+    "StartMonitorDeploymentRequestRequestTypeDef",
+    "StartMonitorDeploymentResponseTypeDef",
     "StartMultiplexRequestRequestTypeDef",
     "StartMultiplexResponseTypeDef",
     "StartTimecodeTypeDef",
+    "StartUpdateSignalMapRequestRequestTypeDef",
+    "StartUpdateSignalMapResponseTypeDef",
     "StaticImageActivateScheduleActionSettingsTypeDef",
     "StaticImageDeactivateScheduleActionSettingsTypeDef",
     "StaticImageOutputActivateScheduleActionSettingsTypeDef",
@@ -591,6 +672,7 @@ __all__ = (
     "StopMultiplexRequestRequestTypeDef",
     "StopMultiplexResponseTypeDef",
     "StopTimecodeTypeDef",
+    "SuccessfulMonitorDeploymentTypeDef",
     "TeletextSourceSettingsTypeDef",
     "TemporalFilterSettingsTypeDef",
     "ThumbnailConfigurationTypeDef",
@@ -610,6 +692,14 @@ __all__ = (
     "UpdateChannelClassResponseTypeDef",
     "UpdateChannelRequestRequestTypeDef",
     "UpdateChannelResponseTypeDef",
+    "UpdateCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    "UpdateCloudWatchAlarmTemplateGroupResponseTypeDef",
+    "UpdateCloudWatchAlarmTemplateRequestRequestTypeDef",
+    "UpdateCloudWatchAlarmTemplateResponseTypeDef",
+    "UpdateEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    "UpdateEventBridgeRuleTemplateGroupResponseTypeDef",
+    "UpdateEventBridgeRuleTemplateRequestRequestTypeDef",
+    "UpdateEventBridgeRuleTemplateResponseTypeDef",
     "UpdateInputDeviceRequestRequestTypeDef",
     "UpdateInputDeviceResponseTypeDef",
     "UpdateInputRequestRequestTypeDef",
@@ -797,6 +887,8 @@ _OptionalAudioDescriptionTypeDef = TypedDict(
         "LanguageCodeControl": AudioDescriptionLanguageCodeControlType,
         "RemixSettings": "RemixSettingsTypeDef",
         "StreamName": str,
+        "AudioDashRoles": List[DashRoleAudioType],
+        "DvbDashAccessibility": DvbDashAccessibilityType,
     },
     total=False,
 )
@@ -981,6 +1073,7 @@ AvailConfigurationTypeDef = TypedDict(
     "AvailConfigurationTypeDef",
     {
         "AvailSettings": "AvailSettingsTypeDef",
+        "Scte35SegmentationScope": Scte35SegmentationScopeType,
     },
     total=False,
 )
@@ -1187,6 +1280,8 @@ _OptionalCaptionDescriptionTypeDef = TypedDict(
         "DestinationSettings": "CaptionDestinationSettingsTypeDef",
         "LanguageCode": str,
         "LanguageDescription": str,
+        "CaptionDashRoles": List[DashRoleCaptionType],
+        "DvbDashAccessibility": DvbDashAccessibilityType,
     },
     total=False,
 )
@@ -1339,6 +1434,113 @@ ClaimDeviceRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCloudWatchAlarmTemplateGroupSummaryTypeDef = TypedDict(
+    "_RequiredCloudWatchAlarmTemplateGroupSummaryTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Id": str,
+        "Name": str,
+        "TemplateCount": int,
+    },
+)
+_OptionalCloudWatchAlarmTemplateGroupSummaryTypeDef = TypedDict(
+    "_OptionalCloudWatchAlarmTemplateGroupSummaryTypeDef",
+    {
+        "Description": str,
+        "ModifiedAt": datetime,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CloudWatchAlarmTemplateGroupSummaryTypeDef(
+    _RequiredCloudWatchAlarmTemplateGroupSummaryTypeDef,
+    _OptionalCloudWatchAlarmTemplateGroupSummaryTypeDef,
+):
+    pass
+
+_RequiredCloudWatchAlarmTemplateSummaryTypeDef = TypedDict(
+    "_RequiredCloudWatchAlarmTemplateSummaryTypeDef",
+    {
+        "Arn": str,
+        "ComparisonOperator": CloudWatchAlarmTemplateComparisonOperatorType,
+        "CreatedAt": datetime,
+        "EvaluationPeriods": int,
+        "GroupId": str,
+        "Id": str,
+        "MetricName": str,
+        "Name": str,
+        "Period": int,
+        "Statistic": CloudWatchAlarmTemplateStatisticType,
+        "TargetResourceType": CloudWatchAlarmTemplateTargetResourceTypeType,
+        "Threshold": float,
+        "TreatMissingData": CloudWatchAlarmTemplateTreatMissingDataType,
+    },
+)
+_OptionalCloudWatchAlarmTemplateSummaryTypeDef = TypedDict(
+    "_OptionalCloudWatchAlarmTemplateSummaryTypeDef",
+    {
+        "DatapointsToAlarm": int,
+        "Description": str,
+        "ModifiedAt": datetime,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CloudWatchAlarmTemplateSummaryTypeDef(
+    _RequiredCloudWatchAlarmTemplateSummaryTypeDef, _OptionalCloudWatchAlarmTemplateSummaryTypeDef
+):
+    pass
+
+_RequiredCmafIngestGroupSettingsTypeDef = TypedDict(
+    "_RequiredCmafIngestGroupSettingsTypeDef",
+    {
+        "Destination": "OutputLocationRefTypeDef",
+    },
+)
+_OptionalCmafIngestGroupSettingsTypeDef = TypedDict(
+    "_OptionalCmafIngestGroupSettingsTypeDef",
+    {
+        "NielsenId3Behavior": CmafNielsenId3BehaviorType,
+        "Scte35Type": Scte35TypeType,
+        "SegmentLength": int,
+        "SegmentLengthUnits": CmafIngestSegmentLengthUnitsType,
+        "SendDelayMs": int,
+    },
+    total=False,
+)
+
+class CmafIngestGroupSettingsTypeDef(
+    _RequiredCmafIngestGroupSettingsTypeDef, _OptionalCmafIngestGroupSettingsTypeDef
+):
+    pass
+
+CmafIngestOutputSettingsTypeDef = TypedDict(
+    "CmafIngestOutputSettingsTypeDef",
+    {
+        "NameModifier": str,
+    },
+    total=False,
+)
+
+ColorCorrectionSettingsTypeDef = TypedDict(
+    "ColorCorrectionSettingsTypeDef",
+    {
+        "GlobalColorCorrections": List["ColorCorrectionTypeDef"],
+    },
+)
+
+ColorCorrectionTypeDef = TypedDict(
+    "ColorCorrectionTypeDef",
+    {
+        "InputColorSpace": ColorSpaceType,
+        "OutputColorSpace": ColorSpaceType,
+        "Uri": str,
+    },
+)
+
 CreateChannelRequestRequestTypeDef = TypedDict(
     "CreateChannelRequestRequestTypeDef",
     {
@@ -1364,6 +1566,172 @@ CreateChannelResponseTypeDef = TypedDict(
     "CreateChannelResponseTypeDef",
     {
         "Channel": "ChannelTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateCloudWatchAlarmTemplateGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateCloudWatchAlarmTemplateGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateCloudWatchAlarmTemplateGroupRequestRequestTypeDef(
+    _RequiredCreateCloudWatchAlarmTemplateGroupRequestRequestTypeDef,
+    _OptionalCreateCloudWatchAlarmTemplateGroupRequestRequestTypeDef,
+):
+    pass
+
+CreateCloudWatchAlarmTemplateGroupResponseTypeDef = TypedDict(
+    "CreateCloudWatchAlarmTemplateGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateCloudWatchAlarmTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCloudWatchAlarmTemplateRequestRequestTypeDef",
+    {
+        "ComparisonOperator": CloudWatchAlarmTemplateComparisonOperatorType,
+        "EvaluationPeriods": int,
+        "GroupIdentifier": str,
+        "MetricName": str,
+        "Name": str,
+        "Period": int,
+        "Statistic": CloudWatchAlarmTemplateStatisticType,
+        "TargetResourceType": CloudWatchAlarmTemplateTargetResourceTypeType,
+        "Threshold": float,
+        "TreatMissingData": CloudWatchAlarmTemplateTreatMissingDataType,
+    },
+)
+_OptionalCreateCloudWatchAlarmTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCloudWatchAlarmTemplateRequestRequestTypeDef",
+    {
+        "DatapointsToAlarm": int,
+        "Description": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateCloudWatchAlarmTemplateRequestRequestTypeDef(
+    _RequiredCreateCloudWatchAlarmTemplateRequestRequestTypeDef,
+    _OptionalCreateCloudWatchAlarmTemplateRequestRequestTypeDef,
+):
+    pass
+
+CreateCloudWatchAlarmTemplateResponseTypeDef = TypedDict(
+    "CreateCloudWatchAlarmTemplateResponseTypeDef",
+    {
+        "Arn": str,
+        "ComparisonOperator": CloudWatchAlarmTemplateComparisonOperatorType,
+        "CreatedAt": datetime,
+        "DatapointsToAlarm": int,
+        "Description": str,
+        "EvaluationPeriods": int,
+        "GroupId": str,
+        "Id": str,
+        "MetricName": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Period": int,
+        "Statistic": CloudWatchAlarmTemplateStatisticType,
+        "Tags": Dict[str, str],
+        "TargetResourceType": CloudWatchAlarmTemplateTargetResourceTypeType,
+        "Threshold": float,
+        "TreatMissingData": CloudWatchAlarmTemplateTreatMissingDataType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateEventBridgeRuleTemplateGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateEventBridgeRuleTemplateGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateEventBridgeRuleTemplateGroupRequestRequestTypeDef(
+    _RequiredCreateEventBridgeRuleTemplateGroupRequestRequestTypeDef,
+    _OptionalCreateEventBridgeRuleTemplateGroupRequestRequestTypeDef,
+):
+    pass
+
+CreateEventBridgeRuleTemplateGroupResponseTypeDef = TypedDict(
+    "CreateEventBridgeRuleTemplateGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateEventBridgeRuleTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEventBridgeRuleTemplateRequestRequestTypeDef",
+    {
+        "EventType": EventBridgeRuleTemplateEventTypeType,
+        "GroupIdentifier": str,
+        "Name": str,
+    },
+)
+_OptionalCreateEventBridgeRuleTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEventBridgeRuleTemplateRequestRequestTypeDef",
+    {
+        "Description": str,
+        "EventTargets": List["EventBridgeRuleTemplateTargetTypeDef"],
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateEventBridgeRuleTemplateRequestRequestTypeDef(
+    _RequiredCreateEventBridgeRuleTemplateRequestRequestTypeDef,
+    _OptionalCreateEventBridgeRuleTemplateRequestRequestTypeDef,
+):
+    pass
+
+CreateEventBridgeRuleTemplateResponseTypeDef = TypedDict(
+    "CreateEventBridgeRuleTemplateResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "EventTargets": List["EventBridgeRuleTemplateTargetTypeDef"],
+        "EventType": EventBridgeRuleTemplateEventTypeType,
+        "GroupId": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1488,6 +1856,54 @@ CreatePartnerInputResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateSignalMapRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSignalMapRequestRequestTypeDef",
+    {
+        "DiscoveryEntryPointArn": str,
+        "Name": str,
+    },
+)
+_OptionalCreateSignalMapRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSignalMapRequestRequestTypeDef",
+    {
+        "CloudWatchAlarmTemplateGroupIdentifiers": List[str],
+        "Description": str,
+        "EventBridgeRuleTemplateGroupIdentifiers": List[str],
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateSignalMapRequestRequestTypeDef(
+    _RequiredCreateSignalMapRequestRequestTypeDef, _OptionalCreateSignalMapRequestRequestTypeDef
+):
+    pass
+
+CreateSignalMapResponseTypeDef = TypedDict(
+    "CreateSignalMapResponseTypeDef",
+    {
+        "Arn": str,
+        "CloudWatchAlarmTemplateGroupIds": List[str],
+        "CreatedAt": datetime,
+        "Description": str,
+        "DiscoveryEntryPointArn": str,
+        "ErrorMessage": str,
+        "EventBridgeRuleTemplateGroupIds": List[str],
+        "FailedMediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "Id": str,
+        "LastDiscoveredAt": datetime,
+        "LastSuccessfulMonitorDeployment": "SuccessfulMonitorDeploymentTypeDef",
+        "MediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "ModifiedAt": datetime,
+        "MonitorChangesPendingDeployment": bool,
+        "MonitorDeployment": "MonitorDeploymentTypeDef",
+        "Name": str,
+        "Status": SignalMapStatusType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateTagsRequestRequestTypeDef = TypedDict(
     "_RequiredCreateTagsRequestRequestTypeDef",
     {
@@ -1536,6 +1952,34 @@ DeleteChannelResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "Vpc": "VpcOutputSettingsDescriptionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteCloudWatchAlarmTemplateGroupRequestRequestTypeDef = TypedDict(
+    "DeleteCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+DeleteCloudWatchAlarmTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteCloudWatchAlarmTemplateRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+DeleteEventBridgeRuleTemplateGroupRequestRequestTypeDef = TypedDict(
+    "DeleteEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+DeleteEventBridgeRuleTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteEventBridgeRuleTemplateRequestRequestTypeDef",
+    {
+        "Identifier": str,
     },
 )
 
@@ -1634,6 +2078,13 @@ DeleteScheduleRequestRequestTypeDef = TypedDict(
     "DeleteScheduleRequestRequestTypeDef",
     {
         "ChannelId": str,
+    },
+)
+
+DeleteSignalMapRequestRequestTypeDef = TypedDict(
+    "DeleteSignalMapRequestRequestTypeDef",
+    {
+        "Identifier": str,
     },
 )
 
@@ -2087,6 +2538,7 @@ _OptionalEncoderSettingsTypeDef = TypedDict(
         "MotionGraphicsConfiguration": "MotionGraphicsConfigurationTypeDef",
         "NielsenConfiguration": "NielsenConfigurationTypeDef",
         "ThumbnailConfiguration": "ThumbnailConfigurationTypeDef",
+        "ColorCorrectionSettings": "ColorCorrectionSettingsTypeDef",
     },
     total=False,
 )
@@ -2123,6 +2575,66 @@ _OptionalEsamTypeDef = TypedDict(
 
 class EsamTypeDef(_RequiredEsamTypeDef, _OptionalEsamTypeDef):
     pass
+
+_RequiredEventBridgeRuleTemplateGroupSummaryTypeDef = TypedDict(
+    "_RequiredEventBridgeRuleTemplateGroupSummaryTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Id": str,
+        "Name": str,
+        "TemplateCount": int,
+    },
+)
+_OptionalEventBridgeRuleTemplateGroupSummaryTypeDef = TypedDict(
+    "_OptionalEventBridgeRuleTemplateGroupSummaryTypeDef",
+    {
+        "Description": str,
+        "ModifiedAt": datetime,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class EventBridgeRuleTemplateGroupSummaryTypeDef(
+    _RequiredEventBridgeRuleTemplateGroupSummaryTypeDef,
+    _OptionalEventBridgeRuleTemplateGroupSummaryTypeDef,
+):
+    pass
+
+_RequiredEventBridgeRuleTemplateSummaryTypeDef = TypedDict(
+    "_RequiredEventBridgeRuleTemplateSummaryTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "EventTargetCount": int,
+        "EventType": EventBridgeRuleTemplateEventTypeType,
+        "GroupId": str,
+        "Id": str,
+        "Name": str,
+    },
+)
+_OptionalEventBridgeRuleTemplateSummaryTypeDef = TypedDict(
+    "_OptionalEventBridgeRuleTemplateSummaryTypeDef",
+    {
+        "Description": str,
+        "ModifiedAt": datetime,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class EventBridgeRuleTemplateSummaryTypeDef(
+    _RequiredEventBridgeRuleTemplateSummaryTypeDef, _OptionalEventBridgeRuleTemplateSummaryTypeDef
+):
+    pass
+
+EventBridgeRuleTemplateTargetTypeDef = TypedDict(
+    "EventBridgeRuleTemplateTargetTypeDef",
+    {
+        "Arn": str,
+    },
+)
 
 FailoverConditionSettingsTypeDef = TypedDict(
     "FailoverConditionSettingsTypeDef",
@@ -2237,6 +2749,135 @@ FrameCaptureSettingsTypeDef = TypedDict(
         "TimecodeBurninSettings": "TimecodeBurninSettingsTypeDef",
     },
     total=False,
+)
+
+GetCloudWatchAlarmTemplateGroupRequestRequestTypeDef = TypedDict(
+    "GetCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetCloudWatchAlarmTemplateGroupResponseTypeDef = TypedDict(
+    "GetCloudWatchAlarmTemplateGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetCloudWatchAlarmTemplateRequestRequestTypeDef = TypedDict(
+    "GetCloudWatchAlarmTemplateRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetCloudWatchAlarmTemplateResponseTypeDef = TypedDict(
+    "GetCloudWatchAlarmTemplateResponseTypeDef",
+    {
+        "Arn": str,
+        "ComparisonOperator": CloudWatchAlarmTemplateComparisonOperatorType,
+        "CreatedAt": datetime,
+        "DatapointsToAlarm": int,
+        "Description": str,
+        "EvaluationPeriods": int,
+        "GroupId": str,
+        "Id": str,
+        "MetricName": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Period": int,
+        "Statistic": CloudWatchAlarmTemplateStatisticType,
+        "Tags": Dict[str, str],
+        "TargetResourceType": CloudWatchAlarmTemplateTargetResourceTypeType,
+        "Threshold": float,
+        "TreatMissingData": CloudWatchAlarmTemplateTreatMissingDataType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEventBridgeRuleTemplateGroupRequestRequestTypeDef = TypedDict(
+    "GetEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetEventBridgeRuleTemplateGroupResponseTypeDef = TypedDict(
+    "GetEventBridgeRuleTemplateGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEventBridgeRuleTemplateRequestRequestTypeDef = TypedDict(
+    "GetEventBridgeRuleTemplateRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetEventBridgeRuleTemplateResponseTypeDef = TypedDict(
+    "GetEventBridgeRuleTemplateResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "EventTargets": List["EventBridgeRuleTemplateTargetTypeDef"],
+        "EventType": EventBridgeRuleTemplateEventTypeType,
+        "GroupId": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetSignalMapRequestRequestTypeDef = TypedDict(
+    "GetSignalMapRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetSignalMapResponseTypeDef = TypedDict(
+    "GetSignalMapResponseTypeDef",
+    {
+        "Arn": str,
+        "CloudWatchAlarmTemplateGroupIds": List[str],
+        "CreatedAt": datetime,
+        "Description": str,
+        "DiscoveryEntryPointArn": str,
+        "ErrorMessage": str,
+        "EventBridgeRuleTemplateGroupIds": List[str],
+        "FailedMediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "Id": str,
+        "LastDiscoveredAt": datetime,
+        "LastSuccessfulMonitorDeployment": "SuccessfulMonitorDeploymentTypeDef",
+        "MediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "ModifiedAt": datetime,
+        "MonitorChangesPendingDeployment": bool,
+        "MonitorDeployment": "MonitorDeploymentTypeDef",
+        "Name": str,
+        "Status": SignalMapStatusType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GlobalConfigurationTypeDef = TypedDict(
@@ -2378,6 +3019,12 @@ _OptionalH265SettingsTypeDef = TypedDict(
         "Tier": H265TierType,
         "TimecodeInsertion": H265TimecodeInsertionBehaviorType,
         "TimecodeBurninSettings": "TimecodeBurninSettingsTypeDef",
+        "MvOverPictureBoundaries": H265MvOverPictureBoundariesType,
+        "MvTemporalPredictor": H265MvTemporalPredictorType,
+        "TileHeight": int,
+        "TilePadding": H265TilePaddingType,
+        "TileWidth": int,
+        "TreeblockSize": H265TreeblockSizeType,
     },
     total=False,
 )
@@ -2648,6 +3295,15 @@ InputDestinationVpcTypeDef = TypedDict(
     total=False,
 )
 
+InputDeviceConfigurableAudioChannelPairConfigTypeDef = TypedDict(
+    "InputDeviceConfigurableAudioChannelPairConfigTypeDef",
+    {
+        "Id": int,
+        "Profile": InputDeviceConfigurableAudioChannelPairProfileType,
+    },
+    total=False,
+)
+
 InputDeviceConfigurableSettingsTypeDef = TypedDict(
     "InputDeviceConfigurableSettingsTypeDef",
     {
@@ -2656,6 +3312,7 @@ InputDeviceConfigurableSettingsTypeDef = TypedDict(
         "LatencyMs": int,
         "Codec": InputDeviceCodecType,
         "MediaconnectSettings": "InputDeviceMediaConnectConfigurableSettingsTypeDef",
+        "AudioChannelPairs": List["InputDeviceConfigurableAudioChannelPairConfigTypeDef"],
     },
     total=False,
 )
@@ -2749,6 +3406,15 @@ InputDeviceSummaryTypeDef = TypedDict(
     total=False,
 )
 
+InputDeviceUhdAudioChannelPairConfigTypeDef = TypedDict(
+    "InputDeviceUhdAudioChannelPairConfigTypeDef",
+    {
+        "Id": int,
+        "Profile": InputDeviceUhdAudioChannelPairProfileType,
+    },
+    total=False,
+)
+
 InputDeviceUhdSettingsTypeDef = TypedDict(
     "InputDeviceUhdSettingsTypeDef",
     {
@@ -2763,6 +3429,7 @@ InputDeviceUhdSettingsTypeDef = TypedDict(
         "LatencyMs": int,
         "Codec": InputDeviceCodecType,
         "MediaconnectSettings": "InputDeviceMediaConnectSettingsTypeDef",
+        "AudioChannelPairs": List["InputDeviceUhdAudioChannelPairConfigTypeDef"],
     },
     total=False,
 )
@@ -2979,6 +3646,86 @@ ListChannelsResponseTypeDef = TypedDict(
     },
 )
 
+ListCloudWatchAlarmTemplateGroupsRequestRequestTypeDef = TypedDict(
+    "ListCloudWatchAlarmTemplateGroupsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "Scope": str,
+        "SignalMapIdentifier": str,
+    },
+    total=False,
+)
+
+ListCloudWatchAlarmTemplateGroupsResponseTypeDef = TypedDict(
+    "ListCloudWatchAlarmTemplateGroupsResponseTypeDef",
+    {
+        "CloudWatchAlarmTemplateGroups": List["CloudWatchAlarmTemplateGroupSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListCloudWatchAlarmTemplatesRequestRequestTypeDef = TypedDict(
+    "ListCloudWatchAlarmTemplatesRequestRequestTypeDef",
+    {
+        "GroupIdentifier": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "Scope": str,
+        "SignalMapIdentifier": str,
+    },
+    total=False,
+)
+
+ListCloudWatchAlarmTemplatesResponseTypeDef = TypedDict(
+    "ListCloudWatchAlarmTemplatesResponseTypeDef",
+    {
+        "CloudWatchAlarmTemplates": List["CloudWatchAlarmTemplateSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListEventBridgeRuleTemplateGroupsRequestRequestTypeDef = TypedDict(
+    "ListEventBridgeRuleTemplateGroupsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "SignalMapIdentifier": str,
+    },
+    total=False,
+)
+
+ListEventBridgeRuleTemplateGroupsResponseTypeDef = TypedDict(
+    "ListEventBridgeRuleTemplateGroupsResponseTypeDef",
+    {
+        "EventBridgeRuleTemplateGroups": List["EventBridgeRuleTemplateGroupSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListEventBridgeRuleTemplatesRequestRequestTypeDef = TypedDict(
+    "ListEventBridgeRuleTemplatesRequestRequestTypeDef",
+    {
+        "GroupIdentifier": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "SignalMapIdentifier": str,
+    },
+    total=False,
+)
+
+ListEventBridgeRuleTemplatesResponseTypeDef = TypedDict(
+    "ListEventBridgeRuleTemplatesResponseTypeDef",
+    {
+        "EventBridgeRuleTemplates": List["EventBridgeRuleTemplateSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListInputDeviceTransfersRequestRequestTypeDef = TypedDict(
     "_RequiredListInputDeviceTransfersRequestRequestTypeDef",
     {
@@ -3165,6 +3912,26 @@ ListReservationsResponseTypeDef = TypedDict(
     },
 )
 
+ListSignalMapsRequestRequestTypeDef = TypedDict(
+    "ListSignalMapsRequestRequestTypeDef",
+    {
+        "CloudWatchAlarmTemplateGroupIdentifier": str,
+        "EventBridgeRuleTemplateGroupIdentifier": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListSignalMapsResponseTypeDef = TypedDict(
+    "ListSignalMapsResponseTypeDef",
+    {
+        "NextToken": str,
+        "SignalMaps": List["SignalMapSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -3321,6 +4088,55 @@ MediaPackageOutputDestinationSettingsTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredMediaResourceNeighborTypeDef = TypedDict(
+    "_RequiredMediaResourceNeighborTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalMediaResourceNeighborTypeDef = TypedDict(
+    "_OptionalMediaResourceNeighborTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
+class MediaResourceNeighborTypeDef(
+    _RequiredMediaResourceNeighborTypeDef, _OptionalMediaResourceNeighborTypeDef
+):
+    pass
+
+MediaResourceTypeDef = TypedDict(
+    "MediaResourceTypeDef",
+    {
+        "Destinations": List["MediaResourceNeighborTypeDef"],
+        "Name": str,
+        "Sources": List["MediaResourceNeighborTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredMonitorDeploymentTypeDef = TypedDict(
+    "_RequiredMonitorDeploymentTypeDef",
+    {
+        "Status": SignalMapMonitorDeploymentStatusType,
+    },
+)
+_OptionalMonitorDeploymentTypeDef = TypedDict(
+    "_OptionalMonitorDeploymentTypeDef",
+    {
+        "DetailsUri": str,
+        "ErrorMessage": str,
+    },
+    total=False,
+)
+
+class MonitorDeploymentTypeDef(
+    _RequiredMonitorDeploymentTypeDef, _OptionalMonitorDeploymentTypeDef
+):
+    pass
 
 MotionGraphicsActivateScheduleActionSettingsTypeDef = TypedDict(
     "MotionGraphicsActivateScheduleActionSettingsTypeDef",
@@ -3753,6 +4569,7 @@ OutputGroupSettingsTypeDef = TypedDict(
         "MultiplexGroupSettings": Dict[str, Any],
         "RtmpGroupSettings": "RtmpGroupSettingsTypeDef",
         "UdpGroupSettings": "UdpGroupSettingsTypeDef",
+        "CmafIngestGroupSettings": "CmafIngestGroupSettingsTypeDef",
     },
     total=False,
 )
@@ -3803,6 +4620,7 @@ OutputSettingsTypeDef = TypedDict(
         "MultiplexOutputSettings": "MultiplexOutputSettingsTypeDef",
         "RtmpOutputSettings": "RtmpOutputSettingsTypeDef",
         "UdpOutputSettings": "UdpOutputSettingsTypeDef",
+        "CmafIngestOutputSettings": "CmafIngestOutputSettingsTypeDef",
     },
     total=False,
 )
@@ -3998,6 +4816,52 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+_RequiredRestartChannelPipelinesRequestRequestTypeDef = TypedDict(
+    "_RequiredRestartChannelPipelinesRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
+_OptionalRestartChannelPipelinesRequestRequestTypeDef = TypedDict(
+    "_OptionalRestartChannelPipelinesRequestRequestTypeDef",
+    {
+        "PipelineIds": List[ChannelPipelineIdToRestartType],
+    },
+    total=False,
+)
+
+class RestartChannelPipelinesRequestRequestTypeDef(
+    _RequiredRestartChannelPipelinesRequestRequestTypeDef,
+    _OptionalRestartChannelPipelinesRequestRequestTypeDef,
+):
+    pass
+
+RestartChannelPipelinesResponseTypeDef = TypedDict(
+    "RestartChannelPipelinesResponseTypeDef",
+    {
+        "Arn": str,
+        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
+        "ChannelClass": ChannelClassType,
+        "Destinations": List["OutputDestinationTypeDef"],
+        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
+        "EncoderSettings": "EncoderSettingsTypeDef",
+        "Id": str,
+        "InputAttachments": List["InputAttachmentTypeDef"],
+        "InputSpecification": "InputSpecificationTypeDef",
+        "LogLevel": LogLevelType,
+        "Maintenance": "MaintenanceStatusTypeDef",
+        "MaintenanceStatus": str,
+        "Name": str,
+        "PipelineDetails": List["PipelineDetailTypeDef"],
+        "PipelinesRunningCount": int,
+        "RoleArn": str,
+        "State": ChannelStateType,
+        "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -4222,6 +5086,30 @@ Scte35TimeSignalScheduleActionSettingsTypeDef = TypedDict(
     },
 )
 
+_RequiredSignalMapSummaryTypeDef = TypedDict(
+    "_RequiredSignalMapSummaryTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Id": str,
+        "MonitorDeploymentStatus": SignalMapMonitorDeploymentStatusType,
+        "Name": str,
+        "Status": SignalMapStatusType,
+    },
+)
+_OptionalSignalMapSummaryTypeDef = TypedDict(
+    "_OptionalSignalMapSummaryTypeDef",
+    {
+        "Description": str,
+        "ModifiedAt": datetime,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class SignalMapSummaryTypeDef(_RequiredSignalMapSummaryTypeDef, _OptionalSignalMapSummaryTypeDef):
+    pass
+
 _RequiredStandardHlsSettingsTypeDef = TypedDict(
     "_RequiredStandardHlsSettingsTypeDef",
     {
@@ -4273,6 +5161,38 @@ StartChannelResponseTypeDef = TypedDict(
     },
 )
 
+StartDeleteMonitorDeploymentRequestRequestTypeDef = TypedDict(
+    "StartDeleteMonitorDeploymentRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+StartDeleteMonitorDeploymentResponseTypeDef = TypedDict(
+    "StartDeleteMonitorDeploymentResponseTypeDef",
+    {
+        "Arn": str,
+        "CloudWatchAlarmTemplateGroupIds": List[str],
+        "CreatedAt": datetime,
+        "Description": str,
+        "DiscoveryEntryPointArn": str,
+        "ErrorMessage": str,
+        "EventBridgeRuleTemplateGroupIds": List[str],
+        "FailedMediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "Id": str,
+        "LastDiscoveredAt": datetime,
+        "LastSuccessfulMonitorDeployment": "SuccessfulMonitorDeploymentTypeDef",
+        "MediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "ModifiedAt": datetime,
+        "MonitorChangesPendingDeployment": bool,
+        "MonitorDeployment": "MonitorDeploymentTypeDef",
+        "Name": str,
+        "Status": SignalMapStatusType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StartInputDeviceMaintenanceWindowRequestRequestTypeDef = TypedDict(
     "StartInputDeviceMaintenanceWindowRequestRequestTypeDef",
     {
@@ -4284,6 +5204,51 @@ StartInputDeviceRequestRequestTypeDef = TypedDict(
     "StartInputDeviceRequestRequestTypeDef",
     {
         "InputDeviceId": str,
+    },
+)
+
+_RequiredStartMonitorDeploymentRequestRequestTypeDef = TypedDict(
+    "_RequiredStartMonitorDeploymentRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalStartMonitorDeploymentRequestRequestTypeDef = TypedDict(
+    "_OptionalStartMonitorDeploymentRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class StartMonitorDeploymentRequestRequestTypeDef(
+    _RequiredStartMonitorDeploymentRequestRequestTypeDef,
+    _OptionalStartMonitorDeploymentRequestRequestTypeDef,
+):
+    pass
+
+StartMonitorDeploymentResponseTypeDef = TypedDict(
+    "StartMonitorDeploymentResponseTypeDef",
+    {
+        "Arn": str,
+        "CloudWatchAlarmTemplateGroupIds": List[str],
+        "CreatedAt": datetime,
+        "Description": str,
+        "DiscoveryEntryPointArn": str,
+        "ErrorMessage": str,
+        "EventBridgeRuleTemplateGroupIds": List[str],
+        "FailedMediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "Id": str,
+        "LastDiscoveredAt": datetime,
+        "LastSuccessfulMonitorDeployment": "SuccessfulMonitorDeploymentTypeDef",
+        "MediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "ModifiedAt": datetime,
+        "MonitorChangesPendingDeployment": bool,
+        "MonitorDeployment": "MonitorDeploymentTypeDef",
+        "Name": str,
+        "Status": SignalMapStatusType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -4317,6 +5282,56 @@ StartTimecodeTypeDef = TypedDict(
         "Timecode": str,
     },
     total=False,
+)
+
+_RequiredStartUpdateSignalMapRequestRequestTypeDef = TypedDict(
+    "_RequiredStartUpdateSignalMapRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalStartUpdateSignalMapRequestRequestTypeDef = TypedDict(
+    "_OptionalStartUpdateSignalMapRequestRequestTypeDef",
+    {
+        "CloudWatchAlarmTemplateGroupIdentifiers": List[str],
+        "Description": str,
+        "DiscoveryEntryPointArn": str,
+        "EventBridgeRuleTemplateGroupIdentifiers": List[str],
+        "ForceRediscovery": bool,
+        "Name": str,
+    },
+    total=False,
+)
+
+class StartUpdateSignalMapRequestRequestTypeDef(
+    _RequiredStartUpdateSignalMapRequestRequestTypeDef,
+    _OptionalStartUpdateSignalMapRequestRequestTypeDef,
+):
+    pass
+
+StartUpdateSignalMapResponseTypeDef = TypedDict(
+    "StartUpdateSignalMapResponseTypeDef",
+    {
+        "Arn": str,
+        "CloudWatchAlarmTemplateGroupIds": List[str],
+        "CreatedAt": datetime,
+        "Description": str,
+        "DiscoveryEntryPointArn": str,
+        "ErrorMessage": str,
+        "EventBridgeRuleTemplateGroupIds": List[str],
+        "FailedMediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "Id": str,
+        "LastDiscoveredAt": datetime,
+        "LastSuccessfulMonitorDeployment": "SuccessfulMonitorDeploymentTypeDef",
+        "MediaResourceMap": Dict[str, "MediaResourceTypeDef"],
+        "ModifiedAt": datetime,
+        "MonitorChangesPendingDeployment": bool,
+        "MonitorDeployment": "MonitorDeploymentTypeDef",
+        "Name": str,
+        "Status": SignalMapStatusType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredStaticImageActivateScheduleActionSettingsTypeDef = TypedDict(
@@ -4495,6 +5510,14 @@ StopTimecodeTypeDef = TypedDict(
         "Timecode": str,
     },
     total=False,
+)
+
+SuccessfulMonitorDeploymentTypeDef = TypedDict(
+    "SuccessfulMonitorDeploymentTypeDef",
+    {
+        "DetailsUri": str,
+        "Status": SignalMapMonitorDeploymentStatusType,
+    },
 )
 
 TeletextSourceSettingsTypeDef = TypedDict(
@@ -4735,6 +5758,170 @@ UpdateChannelResponseTypeDef = TypedDict(
     "UpdateChannelResponseTypeDef",
     {
         "Channel": "ChannelTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateCloudWatchAlarmTemplateGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalUpdateCloudWatchAlarmTemplateGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateCloudWatchAlarmTemplateGroupRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateCloudWatchAlarmTemplateGroupRequestRequestTypeDef(
+    _RequiredUpdateCloudWatchAlarmTemplateGroupRequestRequestTypeDef,
+    _OptionalUpdateCloudWatchAlarmTemplateGroupRequestRequestTypeDef,
+):
+    pass
+
+UpdateCloudWatchAlarmTemplateGroupResponseTypeDef = TypedDict(
+    "UpdateCloudWatchAlarmTemplateGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateCloudWatchAlarmTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateCloudWatchAlarmTemplateRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalUpdateCloudWatchAlarmTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateCloudWatchAlarmTemplateRequestRequestTypeDef",
+    {
+        "ComparisonOperator": CloudWatchAlarmTemplateComparisonOperatorType,
+        "DatapointsToAlarm": int,
+        "Description": str,
+        "EvaluationPeriods": int,
+        "GroupIdentifier": str,
+        "MetricName": str,
+        "Name": str,
+        "Period": int,
+        "Statistic": CloudWatchAlarmTemplateStatisticType,
+        "TargetResourceType": CloudWatchAlarmTemplateTargetResourceTypeType,
+        "Threshold": float,
+        "TreatMissingData": CloudWatchAlarmTemplateTreatMissingDataType,
+    },
+    total=False,
+)
+
+class UpdateCloudWatchAlarmTemplateRequestRequestTypeDef(
+    _RequiredUpdateCloudWatchAlarmTemplateRequestRequestTypeDef,
+    _OptionalUpdateCloudWatchAlarmTemplateRequestRequestTypeDef,
+):
+    pass
+
+UpdateCloudWatchAlarmTemplateResponseTypeDef = TypedDict(
+    "UpdateCloudWatchAlarmTemplateResponseTypeDef",
+    {
+        "Arn": str,
+        "ComparisonOperator": CloudWatchAlarmTemplateComparisonOperatorType,
+        "CreatedAt": datetime,
+        "DatapointsToAlarm": int,
+        "Description": str,
+        "EvaluationPeriods": int,
+        "GroupId": str,
+        "Id": str,
+        "MetricName": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Period": int,
+        "Statistic": CloudWatchAlarmTemplateStatisticType,
+        "Tags": Dict[str, str],
+        "TargetResourceType": CloudWatchAlarmTemplateTargetResourceTypeType,
+        "Threshold": float,
+        "TreatMissingData": CloudWatchAlarmTemplateTreatMissingDataType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateEventBridgeRuleTemplateGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalUpdateEventBridgeRuleTemplateGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEventBridgeRuleTemplateGroupRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateEventBridgeRuleTemplateGroupRequestRequestTypeDef(
+    _RequiredUpdateEventBridgeRuleTemplateGroupRequestRequestTypeDef,
+    _OptionalUpdateEventBridgeRuleTemplateGroupRequestRequestTypeDef,
+):
+    pass
+
+UpdateEventBridgeRuleTemplateGroupResponseTypeDef = TypedDict(
+    "UpdateEventBridgeRuleTemplateGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateEventBridgeRuleTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEventBridgeRuleTemplateRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalUpdateEventBridgeRuleTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEventBridgeRuleTemplateRequestRequestTypeDef",
+    {
+        "Description": str,
+        "EventTargets": List["EventBridgeRuleTemplateTargetTypeDef"],
+        "EventType": EventBridgeRuleTemplateEventTypeType,
+        "GroupIdentifier": str,
+        "Name": str,
+    },
+    total=False,
+)
+
+class UpdateEventBridgeRuleTemplateRequestRequestTypeDef(
+    _RequiredUpdateEventBridgeRuleTemplateRequestRequestTypeDef,
+    _OptionalUpdateEventBridgeRuleTemplateRequestRequestTypeDef,
+):
+    pass
+
+UpdateEventBridgeRuleTemplateResponseTypeDef = TypedDict(
+    "UpdateEventBridgeRuleTemplateResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Description": str,
+        "EventTargets": List["EventBridgeRuleTemplateTargetTypeDef"],
+        "EventType": EventBridgeRuleTemplateEventTypeType,
+        "GroupId": str,
+        "Id": str,
+        "ModifiedAt": datetime,
+        "Name": str,
+        "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

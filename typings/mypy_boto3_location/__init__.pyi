@@ -37,6 +37,7 @@ Usage::
     list_trackers_paginator: ListTrackersPaginator = client.get_paginator("list_trackers")
     ```
 """
+
 from .client import LocationServiceClient
 from .paginator import (
     GetDevicePositionHistoryPaginator,

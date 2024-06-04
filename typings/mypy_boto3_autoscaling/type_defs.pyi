@@ -11,6 +11,7 @@ Usage::
     data: AcceleratorCountRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -1405,6 +1406,7 @@ _OptionalInstanceRequirementsTypeDef = TypedDict(
         "ExcludedInstanceTypes": List[str],
         "InstanceGenerations": List[InstanceGenerationType],
         "SpotMaxPricePercentageOverLowestPrice": int,
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": int,
         "OnDemandMaxPricePercentageOverLowestPrice": int,
         "BareMetal": BareMetalType,
         "BurstablePerformance": BurstablePerformanceType,

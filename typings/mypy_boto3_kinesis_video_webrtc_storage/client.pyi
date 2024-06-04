@@ -12,6 +12,7 @@ Usage::
     client: KinesisVideoWebRTCStorageClient = boto3.client("kinesis-video-webrtc-storage")
     ```
 """
+
 from typing import Any, Dict, Type
 
 from botocore.client import BaseClient, ClientMeta
@@ -34,7 +35,7 @@ class Exceptions:
 
 class KinesisVideoWebRTCStorageClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_webrtc_storage/client.html)
     """
 
@@ -45,20 +46,23 @@ class KinesisVideoWebRTCStorageClient(BaseClient):
         """
         KinesisVideoWebRTCStorageClient exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_webrtc_storage/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_webrtc_storage/client.html#close)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -69,14 +73,15 @@ class KinesisVideoWebRTCStorageClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_webrtc_storage/client.html#generate_presigned_url)
         """
+
     def join_storage_session(self, *, channelArn: str) -> None:
         """
         Join the ongoing one way-video and/or multi-way audio WebRTC session as a video
         producing device for an input channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client.join_storage_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesis-video-webrtc-storage.html#KinesisVideoWebRTCStorage.Client.join_storage_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_webrtc_storage/client.html#join_storage_session)
         """

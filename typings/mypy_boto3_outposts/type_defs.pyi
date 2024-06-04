@@ -11,6 +11,7 @@ Usage::
     data: AddressTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -18,6 +19,7 @@ from typing import Any, Dict, List
 from .literals import (
     AddressTypeType,
     AssetStateType,
+    CapacityTaskStatusType,
     CatalogItemClassType,
     CatalogItemStatusType,
     ComputeAssetStateType,
@@ -53,7 +55,10 @@ __all__ = (
     "AddressTypeDef",
     "AssetInfoTypeDef",
     "AssetLocationTypeDef",
+    "CancelCapacityTaskInputRequestTypeDef",
     "CancelOrderInputRequestTypeDef",
+    "CapacityTaskFailureTypeDef",
+    "CapacityTaskSummaryTypeDef",
     "CatalogItemTypeDef",
     "ComputeAttributesTypeDef",
     "ConnectionDetailsTypeDef",
@@ -66,6 +71,8 @@ __all__ = (
     "DeleteOutpostInputRequestTypeDef",
     "DeleteSiteInputRequestTypeDef",
     "EC2CapacityTypeDef",
+    "GetCapacityTaskInputRequestTypeDef",
+    "GetCapacityTaskOutputTypeDef",
     "GetCatalogItemInputRequestTypeDef",
     "GetCatalogItemOutputTypeDef",
     "GetConnectionRequestRequestTypeDef",
@@ -76,16 +83,21 @@ __all__ = (
     "GetOutpostInstanceTypesInputRequestTypeDef",
     "GetOutpostInstanceTypesOutputTypeDef",
     "GetOutpostOutputTypeDef",
+    "GetOutpostSupportedInstanceTypesInputRequestTypeDef",
+    "GetOutpostSupportedInstanceTypesOutputTypeDef",
     "GetSiteAddressInputRequestTypeDef",
     "GetSiteAddressOutputTypeDef",
     "GetSiteInputRequestTypeDef",
     "GetSiteOutputTypeDef",
+    "InstanceTypeCapacityTypeDef",
     "InstanceTypeItemTypeDef",
     "LineItemAssetInformationTypeDef",
     "LineItemRequestTypeDef",
     "LineItemTypeDef",
     "ListAssetsInputRequestTypeDef",
     "ListAssetsOutputTypeDef",
+    "ListCapacityTasksInputRequestTypeDef",
+    "ListCapacityTasksOutputTypeDef",
     "ListCatalogItemsInputRequestTypeDef",
     "ListCatalogItemsOutputTypeDef",
     "ListOrdersInputRequestTypeDef",
@@ -104,6 +116,8 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "ShipmentInformationTypeDef",
     "SiteTypeDef",
+    "StartCapacityTaskInputRequestTypeDef",
+    "StartCapacityTaskOutputTypeDef",
     "StartConnectionRequestRequestTypeDef",
     "StartConnectionResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -164,11 +178,52 @@ AssetLocationTypeDef = TypedDict(
     total=False,
 )
 
+CancelCapacityTaskInputRequestTypeDef = TypedDict(
+    "CancelCapacityTaskInputRequestTypeDef",
+    {
+        "CapacityTaskId": str,
+        "OutpostIdentifier": str,
+    },
+)
+
 CancelOrderInputRequestTypeDef = TypedDict(
     "CancelOrderInputRequestTypeDef",
     {
         "OrderId": str,
     },
+)
+
+_RequiredCapacityTaskFailureTypeDef = TypedDict(
+    "_RequiredCapacityTaskFailureTypeDef",
+    {
+        "Reason": str,
+    },
+)
+_OptionalCapacityTaskFailureTypeDef = TypedDict(
+    "_OptionalCapacityTaskFailureTypeDef",
+    {
+        "Type": Literal["UNSUPPORTED_CAPACITY_CONFIGURATION"],
+    },
+    total=False,
+)
+
+class CapacityTaskFailureTypeDef(
+    _RequiredCapacityTaskFailureTypeDef, _OptionalCapacityTaskFailureTypeDef
+):
+    pass
+
+CapacityTaskSummaryTypeDef = TypedDict(
+    "CapacityTaskSummaryTypeDef",
+    {
+        "CapacityTaskId": str,
+        "OutpostId": str,
+        "OrderId": str,
+        "CapacityTaskStatus": CapacityTaskStatusType,
+        "CreationDate": datetime,
+        "CompletionDate": datetime,
+        "LastModifiedDate": datetime,
+    },
+    total=False,
 )
 
 CatalogItemTypeDef = TypedDict(
@@ -325,6 +380,31 @@ EC2CapacityTypeDef = TypedDict(
     total=False,
 )
 
+GetCapacityTaskInputRequestTypeDef = TypedDict(
+    "GetCapacityTaskInputRequestTypeDef",
+    {
+        "CapacityTaskId": str,
+        "OutpostIdentifier": str,
+    },
+)
+
+GetCapacityTaskOutputTypeDef = TypedDict(
+    "GetCapacityTaskOutputTypeDef",
+    {
+        "CapacityTaskId": str,
+        "OutpostId": str,
+        "OrderId": str,
+        "RequestedInstancePools": List["InstanceTypeCapacityTypeDef"],
+        "DryRun": bool,
+        "CapacityTaskStatus": CapacityTaskStatusType,
+        "Failed": "CapacityTaskFailureTypeDef",
+        "CreationDate": datetime,
+        "CompletionDate": datetime,
+        "LastModifiedDate": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetCatalogItemInputRequestTypeDef = TypedDict(
     "GetCatalogItemInputRequestTypeDef",
     {
@@ -418,6 +498,37 @@ GetOutpostOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredGetOutpostSupportedInstanceTypesInputRequestTypeDef = TypedDict(
+    "_RequiredGetOutpostSupportedInstanceTypesInputRequestTypeDef",
+    {
+        "OutpostIdentifier": str,
+        "OrderId": str,
+    },
+)
+_OptionalGetOutpostSupportedInstanceTypesInputRequestTypeDef = TypedDict(
+    "_OptionalGetOutpostSupportedInstanceTypesInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetOutpostSupportedInstanceTypesInputRequestTypeDef(
+    _RequiredGetOutpostSupportedInstanceTypesInputRequestTypeDef,
+    _OptionalGetOutpostSupportedInstanceTypesInputRequestTypeDef,
+):
+    pass
+
+GetOutpostSupportedInstanceTypesOutputTypeDef = TypedDict(
+    "GetOutpostSupportedInstanceTypesOutputTypeDef",
+    {
+        "InstanceTypes": List["InstanceTypeItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetSiteAddressInputRequestTypeDef = TypedDict(
     "GetSiteAddressInputRequestTypeDef",
     {
@@ -448,6 +559,14 @@ GetSiteOutputTypeDef = TypedDict(
     {
         "Site": "SiteTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InstanceTypeCapacityTypeDef = TypedDict(
+    "InstanceTypeCapacityTypeDef",
+    {
+        "InstanceType": str,
+        "Count": int,
     },
 )
 
@@ -518,6 +637,26 @@ ListAssetsOutputTypeDef = TypedDict(
     "ListAssetsOutputTypeDef",
     {
         "Assets": List["AssetInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListCapacityTasksInputRequestTypeDef = TypedDict(
+    "ListCapacityTasksInputRequestTypeDef",
+    {
+        "OutpostIdentifierFilter": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "CapacityTaskStatusFilter": List[CapacityTaskStatusType],
+    },
+    total=False,
+)
+
+ListCapacityTasksOutputTypeDef = TypedDict(
+    "ListCapacityTasksOutputTypeDef",
+    {
+        "CapacityTasks": List["CapacityTaskSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -733,15 +872,64 @@ SiteTypeDef = TypedDict(
     total=False,
 )
 
-StartConnectionRequestRequestTypeDef = TypedDict(
-    "StartConnectionRequestRequestTypeDef",
+_RequiredStartCapacityTaskInputRequestTypeDef = TypedDict(
+    "_RequiredStartCapacityTaskInputRequestTypeDef",
     {
-        "DeviceSerialNumber": str,
+        "OutpostIdentifier": str,
+        "OrderId": str,
+        "InstancePools": List["InstanceTypeCapacityTypeDef"],
+    },
+)
+_OptionalStartCapacityTaskInputRequestTypeDef = TypedDict(
+    "_OptionalStartCapacityTaskInputRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class StartCapacityTaskInputRequestTypeDef(
+    _RequiredStartCapacityTaskInputRequestTypeDef, _OptionalStartCapacityTaskInputRequestTypeDef
+):
+    pass
+
+StartCapacityTaskOutputTypeDef = TypedDict(
+    "StartCapacityTaskOutputTypeDef",
+    {
+        "CapacityTaskId": str,
+        "OutpostId": str,
+        "OrderId": str,
+        "RequestedInstancePools": List["InstanceTypeCapacityTypeDef"],
+        "DryRun": bool,
+        "CapacityTaskStatus": CapacityTaskStatusType,
+        "Failed": "CapacityTaskFailureTypeDef",
+        "CreationDate": datetime,
+        "CompletionDate": datetime,
+        "LastModifiedDate": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredStartConnectionRequestRequestTypeDef",
+    {
         "AssetId": str,
         "ClientPublicKey": str,
         "NetworkInterfaceDeviceIndex": int,
     },
 )
+_OptionalStartConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalStartConnectionRequestRequestTypeDef",
+    {
+        "DeviceSerialNumber": str,
+    },
+    total=False,
+)
+
+class StartConnectionRequestRequestTypeDef(
+    _RequiredStartConnectionRequestRequestTypeDef, _OptionalStartConnectionRequestRequestTypeDef
+):
+    pass
 
 StartConnectionResponseTypeDef = TypedDict(
     "StartConnectionResponseTypeDef",

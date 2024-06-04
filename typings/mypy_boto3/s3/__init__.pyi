@@ -9,6 +9,7 @@ Usage::
         BucketExistsWaiter,
         BucketNotExistsWaiter,
         Client,
+        ListDirectoryBucketsPaginator,
         ListMultipartUploadsPaginator,
         ListObjectVersionsPaginator,
         ListObjectsPaginator,
@@ -34,6 +35,7 @@ Usage::
     object_exists_waiter: ObjectExistsWaiter = client.get_waiter("object_exists")
     object_not_exists_waiter: ObjectNotExistsWaiter = client.get_waiter("object_not_exists")
 
+    list_directory_buckets_paginator: ListDirectoryBucketsPaginator = client.get_paginator("list_directory_buckets")
     list_multipart_uploads_paginator: ListMultipartUploadsPaginator = client.get_paginator("list_multipart_uploads")
     list_object_versions_paginator: ListObjectVersionsPaginator = client.get_paginator("list_object_versions")
     list_objects_paginator: ListObjectsPaginator = client.get_paginator("list_objects")
@@ -41,8 +43,10 @@ Usage::
     list_parts_paginator: ListPartsPaginator = client.get_paginator("list_parts")
     ```
 """
+
 from .client import S3Client
 from .paginator import (
+    ListDirectoryBucketsPaginator,
     ListMultipartUploadsPaginator,
     ListObjectsPaginator,
     ListObjectsV2Paginator,
@@ -65,6 +69,7 @@ __all__ = (
     "BucketExistsWaiter",
     "BucketNotExistsWaiter",
     "Client",
+    "ListDirectoryBucketsPaginator",
     "ListMultipartUploadsPaginator",
     "ListObjectVersionsPaginator",
     "ListObjectsPaginator",

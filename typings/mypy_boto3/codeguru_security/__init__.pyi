@@ -23,6 +23,7 @@ Usage::
     list_scans_paginator: ListScansPaginator = client.get_paginator("list_scans")
     ```
 """
+
 from .client import CodeGuruSecurityClient
 from .paginator import GetFindingsPaginator, ListFindingsMetricsPaginator, ListScansPaginator
 

@@ -28,6 +28,7 @@ Usage::
     list_presets_paginator: ListPresetsPaginator = client.get_paginator("list_presets")
     ```
 """
+
 from .client import ElasticTranscoderClient
 from .paginator import (
     ListJobsByPipelinePaginator,

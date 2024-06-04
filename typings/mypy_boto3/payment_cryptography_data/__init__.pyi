@@ -16,6 +16,7 @@ Usage::
     session_client: PaymentCryptographyDataPlaneClient = session.client("payment-cryptography-data")
     ```
 """
+
 from .client import PaymentCryptographyDataPlaneClient
 
 Client = PaymentCryptographyDataPlaneClient

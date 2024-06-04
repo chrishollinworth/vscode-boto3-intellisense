@@ -11,6 +11,7 @@ Usage::
     data: ArrayPropertiesDetailTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
@@ -38,6 +39,10 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
@@ -48,6 +53,8 @@ __all__ = (
     "ArrayPropertiesTypeDef",
     "AttemptContainerDetailTypeDef",
     "AttemptDetailTypeDef",
+    "AttemptEcsTaskDetailsTypeDef",
+    "AttemptTaskContainerDetailsTypeDef",
     "CancelJobRequestRequestTypeDef",
     "ComputeEnvironmentDetailTypeDef",
     "ComputeEnvironmentOrderTypeDef",
@@ -81,6 +88,11 @@ __all__ = (
     "EFSAuthorizationConfigTypeDef",
     "EFSVolumeConfigurationTypeDef",
     "Ec2ConfigurationTypeDef",
+    "EcsPropertiesDetailTypeDef",
+    "EcsPropertiesOverrideTypeDef",
+    "EcsPropertiesTypeDef",
+    "EcsTaskDetailsTypeDef",
+    "EcsTaskPropertiesTypeDef",
     "EksAttemptContainerDetailTypeDef",
     "EksAttemptDetailTypeDef",
     "EksConfigurationTypeDef",
@@ -106,11 +118,17 @@ __all__ = (
     "EvaluateOnExitTypeDef",
     "FairsharePolicyTypeDef",
     "FargatePlatformConfigurationTypeDef",
+    "FrontOfQueueDetailTypeDef",
+    "FrontOfQueueJobSummaryTypeDef",
+    "GetJobQueueSnapshotRequestRequestTypeDef",
+    "GetJobQueueSnapshotResponseTypeDef",
     "HostTypeDef",
+    "ImagePullSecretTypeDef",
     "JobDefinitionTypeDef",
     "JobDependencyTypeDef",
     "JobDetailTypeDef",
     "JobQueueDetailTypeDef",
+    "JobStateTimeLimitActionTypeDef",
     "JobSummaryTypeDef",
     "JobTimeoutTypeDef",
     "KeyValuePairTypeDef",
@@ -136,6 +154,7 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "RegisterJobDefinitionRequestRequestTypeDef",
     "RegisterJobDefinitionResponseTypeDef",
+    "RepositoryCredentialsTypeDef",
     "ResourceRequirementTypeDef",
     "ResponseMetadataTypeDef",
     "RetryStrategyTypeDef",
@@ -147,6 +166,11 @@ __all__ = (
     "SubmitJobRequestRequestTypeDef",
     "SubmitJobResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TaskContainerDependencyTypeDef",
+    "TaskContainerDetailsTypeDef",
+    "TaskContainerOverridesTypeDef",
+    "TaskContainerPropertiesTypeDef",
+    "TaskPropertiesOverrideTypeDef",
     "TerminateJobRequestRequestTypeDef",
     "TmpfsTypeDef",
     "UlimitTypeDef",
@@ -207,6 +231,29 @@ AttemptDetailTypeDef = TypedDict(
         "startedAt": int,
         "stoppedAt": int,
         "statusReason": str,
+        "taskProperties": List["AttemptEcsTaskDetailsTypeDef"],
+    },
+    total=False,
+)
+
+AttemptEcsTaskDetailsTypeDef = TypedDict(
+    "AttemptEcsTaskDetailsTypeDef",
+    {
+        "containerInstanceArn": str,
+        "taskArn": str,
+        "containers": List["AttemptTaskContainerDetailsTypeDef"],
+    },
+    total=False,
+)
+
+AttemptTaskContainerDetailsTypeDef = TypedDict(
+    "AttemptTaskContainerDetailsTypeDef",
+    {
+        "exitCode": int,
+        "name": str,
+        "reason": str,
+        "logStreamName": str,
+        "networkInterfaces": List["NetworkInterfaceTypeDef"],
     },
     total=False,
 )
@@ -346,6 +393,7 @@ ContainerDetailTypeDef = TypedDict(
         "fargatePlatformConfiguration": "FargatePlatformConfigurationTypeDef",
         "ephemeralStorage": "EphemeralStorageTypeDef",
         "runtimePlatform": "RuntimePlatformTypeDef",
+        "repositoryCredentials": "RepositoryCredentialsTypeDef",
     },
     total=False,
 )
@@ -388,6 +436,7 @@ ContainerPropertiesTypeDef = TypedDict(
         "fargatePlatformConfiguration": "FargatePlatformConfigurationTypeDef",
         "ephemeralStorage": "EphemeralStorageTypeDef",
         "runtimePlatform": "RuntimePlatformTypeDef",
+        "repositoryCredentials": "RepositoryCredentialsTypeDef",
     },
     total=False,
 )
@@ -450,6 +499,7 @@ _OptionalCreateJobQueueRequestRequestTypeDef = TypedDict(
         "state": JQStateType,
         "schedulingPolicyArn": str,
         "tags": Dict[str, str],
+        "jobStateTimeLimitActions": List["JobStateTimeLimitActionTypeDef"],
     },
     total=False,
 )
@@ -682,9 +732,79 @@ _OptionalEc2ConfigurationTypeDef = TypedDict(
 class Ec2ConfigurationTypeDef(_RequiredEc2ConfigurationTypeDef, _OptionalEc2ConfigurationTypeDef):
     pass
 
+EcsPropertiesDetailTypeDef = TypedDict(
+    "EcsPropertiesDetailTypeDef",
+    {
+        "taskProperties": List["EcsTaskDetailsTypeDef"],
+    },
+    total=False,
+)
+
+EcsPropertiesOverrideTypeDef = TypedDict(
+    "EcsPropertiesOverrideTypeDef",
+    {
+        "taskProperties": List["TaskPropertiesOverrideTypeDef"],
+    },
+    total=False,
+)
+
+EcsPropertiesTypeDef = TypedDict(
+    "EcsPropertiesTypeDef",
+    {
+        "taskProperties": List["EcsTaskPropertiesTypeDef"],
+    },
+)
+
+EcsTaskDetailsTypeDef = TypedDict(
+    "EcsTaskDetailsTypeDef",
+    {
+        "containers": List["TaskContainerDetailsTypeDef"],
+        "containerInstanceArn": str,
+        "taskArn": str,
+        "ephemeralStorage": "EphemeralStorageTypeDef",
+        "executionRoleArn": str,
+        "platformVersion": str,
+        "ipcMode": str,
+        "taskRoleArn": str,
+        "pidMode": str,
+        "networkConfiguration": "NetworkConfigurationTypeDef",
+        "runtimePlatform": "RuntimePlatformTypeDef",
+        "volumes": List["VolumeTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredEcsTaskPropertiesTypeDef = TypedDict(
+    "_RequiredEcsTaskPropertiesTypeDef",
+    {
+        "containers": List["TaskContainerPropertiesTypeDef"],
+    },
+)
+_OptionalEcsTaskPropertiesTypeDef = TypedDict(
+    "_OptionalEcsTaskPropertiesTypeDef",
+    {
+        "ephemeralStorage": "EphemeralStorageTypeDef",
+        "executionRoleArn": str,
+        "platformVersion": str,
+        "ipcMode": str,
+        "taskRoleArn": str,
+        "pidMode": str,
+        "networkConfiguration": "NetworkConfigurationTypeDef",
+        "runtimePlatform": "RuntimePlatformTypeDef",
+        "volumes": List["VolumeTypeDef"],
+    },
+    total=False,
+)
+
+class EcsTaskPropertiesTypeDef(
+    _RequiredEcsTaskPropertiesTypeDef, _OptionalEcsTaskPropertiesTypeDef
+):
+    pass
+
 EksAttemptContainerDetailTypeDef = TypedDict(
     "EksAttemptContainerDetailTypeDef",
     {
+        "name": str,
         "exitCode": int,
         "reason": str,
     },
@@ -695,6 +815,7 @@ EksAttemptDetailTypeDef = TypedDict(
     "EksAttemptDetailTypeDef",
     {
         "containers": List["EksAttemptContainerDetailTypeDef"],
+        "initContainers": List["EksAttemptContainerDetailTypeDef"],
         "podName": str,
         "nodeName": str,
         "startedAt": int,
@@ -752,6 +873,7 @@ class EksContainerEnvironmentVariableTypeDef(
 EksContainerOverrideTypeDef = TypedDict(
     "EksContainerOverrideTypeDef",
     {
+        "name": str,
         "image": str,
         "command": List[str],
         "args": List[str],
@@ -776,6 +898,7 @@ EksContainerSecurityContextTypeDef = TypedDict(
         "runAsUser": int,
         "runAsGroup": int,
         "privileged": bool,
+        "allowPrivilegeEscalation": bool,
         "readOnlyRootFilesystem": bool,
         "runAsNonRoot": bool,
     },
@@ -847,11 +970,14 @@ EksPodPropertiesDetailTypeDef = TypedDict(
         "serviceAccountName": str,
         "hostNetwork": bool,
         "dnsPolicy": str,
+        "imagePullSecrets": List["ImagePullSecretTypeDef"],
         "containers": List["EksContainerDetailTypeDef"],
+        "initContainers": List["EksContainerDetailTypeDef"],
         "volumes": List["EksVolumeTypeDef"],
         "podName": str,
         "nodeName": str,
         "metadata": "EksMetadataTypeDef",
+        "shareProcessNamespace": bool,
     },
     total=False,
 )
@@ -860,6 +986,7 @@ EksPodPropertiesOverrideTypeDef = TypedDict(
     "EksPodPropertiesOverrideTypeDef",
     {
         "containers": List["EksContainerOverrideTypeDef"],
+        "initContainers": List["EksContainerOverrideTypeDef"],
         "metadata": "EksMetadataTypeDef",
     },
     total=False,
@@ -871,9 +998,12 @@ EksPodPropertiesTypeDef = TypedDict(
         "serviceAccountName": str,
         "hostNetwork": bool,
         "dnsPolicy": str,
+        "imagePullSecrets": List["ImagePullSecretTypeDef"],
         "containers": List["EksContainerTypeDef"],
+        "initContainers": List["EksContainerTypeDef"],
         "volumes": List["EksVolumeTypeDef"],
         "metadata": "EksMetadataTypeDef",
+        "shareProcessNamespace": bool,
     },
     total=False,
 )
@@ -982,12 +1112,52 @@ FargatePlatformConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+FrontOfQueueDetailTypeDef = TypedDict(
+    "FrontOfQueueDetailTypeDef",
+    {
+        "jobs": List["FrontOfQueueJobSummaryTypeDef"],
+        "lastUpdatedAt": int,
+    },
+    total=False,
+)
+
+FrontOfQueueJobSummaryTypeDef = TypedDict(
+    "FrontOfQueueJobSummaryTypeDef",
+    {
+        "jobArn": str,
+        "earliestTimeAtPosition": int,
+    },
+    total=False,
+)
+
+GetJobQueueSnapshotRequestRequestTypeDef = TypedDict(
+    "GetJobQueueSnapshotRequestRequestTypeDef",
+    {
+        "jobQueue": str,
+    },
+)
+
+GetJobQueueSnapshotResponseTypeDef = TypedDict(
+    "GetJobQueueSnapshotResponseTypeDef",
+    {
+        "frontOfQueue": "FrontOfQueueDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 HostTypeDef = TypedDict(
     "HostTypeDef",
     {
         "sourcePath": str,
     },
     total=False,
+)
+
+ImagePullSecretTypeDef = TypedDict(
+    "ImagePullSecretTypeDef",
+    {
+        "name": str,
+    },
 )
 
 _RequiredJobDefinitionTypeDef = TypedDict(
@@ -1012,6 +1182,7 @@ _OptionalJobDefinitionTypeDef = TypedDict(
         "tags": Dict[str, str],
         "propagateTags": bool,
         "platformCapabilities": List[PlatformCapabilityType],
+        "ecsProperties": "EcsPropertiesTypeDef",
         "eksProperties": "EksPropertiesTypeDef",
         "containerOrchestrationType": OrchestrationTypeType,
     },
@@ -1064,6 +1235,7 @@ _OptionalJobDetailTypeDef = TypedDict(
         "platformCapabilities": List[PlatformCapabilityType],
         "eksProperties": "EksPropertiesDetailTypeDef",
         "eksAttempts": List["EksAttemptDetailTypeDef"],
+        "ecsProperties": "EcsPropertiesDetailTypeDef",
         "isCancelled": bool,
         "isTerminated": bool,
     },
@@ -1090,12 +1262,23 @@ _OptionalJobQueueDetailTypeDef = TypedDict(
         "status": JQStatusType,
         "statusReason": str,
         "tags": Dict[str, str],
+        "jobStateTimeLimitActions": List["JobStateTimeLimitActionTypeDef"],
     },
     total=False,
 )
 
 class JobQueueDetailTypeDef(_RequiredJobQueueDetailTypeDef, _OptionalJobQueueDetailTypeDef):
     pass
+
+JobStateTimeLimitActionTypeDef = TypedDict(
+    "JobStateTimeLimitActionTypeDef",
+    {
+        "reason": str,
+        "state": Literal["RUNNABLE"],
+        "maxTimeSeconds": int,
+        "action": Literal["CANCEL"],
+    },
+)
 
 _RequiredJobSummaryTypeDef = TypedDict(
     "_RequiredJobSummaryTypeDef",
@@ -1322,6 +1505,8 @@ _OptionalNodePropertyOverrideTypeDef = TypedDict(
     "_OptionalNodePropertyOverrideTypeDef",
     {
         "containerOverrides": "ContainerOverridesTypeDef",
+        "ecsPropertiesOverride": "EcsPropertiesOverrideTypeDef",
+        "instanceTypes": List[str],
     },
     total=False,
 )
@@ -1341,6 +1526,8 @@ _OptionalNodeRangePropertyTypeDef = TypedDict(
     "_OptionalNodeRangePropertyTypeDef",
     {
         "container": "ContainerPropertiesTypeDef",
+        "instanceTypes": List[str],
+        "ecsProperties": "EcsPropertiesTypeDef",
     },
     total=False,
 )
@@ -1380,6 +1567,7 @@ _OptionalRegisterJobDefinitionRequestRequestTypeDef = TypedDict(
         "tags": Dict[str, str],
         "platformCapabilities": List[PlatformCapabilityType],
         "eksProperties": "EksPropertiesTypeDef",
+        "ecsProperties": "EcsPropertiesTypeDef",
     },
     total=False,
 )
@@ -1397,6 +1585,13 @@ RegisterJobDefinitionResponseTypeDef = TypedDict(
         "jobDefinitionArn": str,
         "revision": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RepositoryCredentialsTypeDef = TypedDict(
+    "RepositoryCredentialsTypeDef",
+    {
+        "credentialsParameter": str,
     },
 )
 
@@ -1513,6 +1708,7 @@ _OptionalSubmitJobRequestRequestTypeDef = TypedDict(
         "timeout": "JobTimeoutTypeDef",
         "tags": Dict[str, str],
         "eksPropertiesOverride": "EksPropertiesOverrideTypeDef",
+        "ecsPropertiesOverride": "EcsPropertiesOverrideTypeDef",
     },
     total=False,
 )
@@ -1538,6 +1734,94 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "resourceArn": str,
         "tags": Dict[str, str],
     },
+)
+
+TaskContainerDependencyTypeDef = TypedDict(
+    "TaskContainerDependencyTypeDef",
+    {
+        "containerName": str,
+        "condition": str,
+    },
+    total=False,
+)
+
+TaskContainerDetailsTypeDef = TypedDict(
+    "TaskContainerDetailsTypeDef",
+    {
+        "command": List[str],
+        "dependsOn": List["TaskContainerDependencyTypeDef"],
+        "environment": List["KeyValuePairTypeDef"],
+        "essential": bool,
+        "image": str,
+        "linuxParameters": "LinuxParametersTypeDef",
+        "logConfiguration": "LogConfigurationTypeDef",
+        "mountPoints": List["MountPointTypeDef"],
+        "name": str,
+        "privileged": bool,
+        "readonlyRootFilesystem": bool,
+        "repositoryCredentials": "RepositoryCredentialsTypeDef",
+        "resourceRequirements": List["ResourceRequirementTypeDef"],
+        "secrets": List["SecretTypeDef"],
+        "ulimits": List["UlimitTypeDef"],
+        "user": str,
+        "exitCode": int,
+        "reason": str,
+        "logStreamName": str,
+        "networkInterfaces": List["NetworkInterfaceTypeDef"],
+    },
+    total=False,
+)
+
+TaskContainerOverridesTypeDef = TypedDict(
+    "TaskContainerOverridesTypeDef",
+    {
+        "command": List[str],
+        "environment": List["KeyValuePairTypeDef"],
+        "name": str,
+        "resourceRequirements": List["ResourceRequirementTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredTaskContainerPropertiesTypeDef = TypedDict(
+    "_RequiredTaskContainerPropertiesTypeDef",
+    {
+        "image": str,
+    },
+)
+_OptionalTaskContainerPropertiesTypeDef = TypedDict(
+    "_OptionalTaskContainerPropertiesTypeDef",
+    {
+        "command": List[str],
+        "dependsOn": List["TaskContainerDependencyTypeDef"],
+        "environment": List["KeyValuePairTypeDef"],
+        "essential": bool,
+        "linuxParameters": "LinuxParametersTypeDef",
+        "logConfiguration": "LogConfigurationTypeDef",
+        "mountPoints": List["MountPointTypeDef"],
+        "name": str,
+        "privileged": bool,
+        "readonlyRootFilesystem": bool,
+        "repositoryCredentials": "RepositoryCredentialsTypeDef",
+        "resourceRequirements": List["ResourceRequirementTypeDef"],
+        "secrets": List["SecretTypeDef"],
+        "ulimits": List["UlimitTypeDef"],
+        "user": str,
+    },
+    total=False,
+)
+
+class TaskContainerPropertiesTypeDef(
+    _RequiredTaskContainerPropertiesTypeDef, _OptionalTaskContainerPropertiesTypeDef
+):
+    pass
+
+TaskPropertiesOverrideTypeDef = TypedDict(
+    "TaskPropertiesOverrideTypeDef",
+    {
+        "containers": List["TaskContainerOverridesTypeDef"],
+    },
+    total=False,
 )
 
 TerminateJobRequestRequestTypeDef = TypedDict(
@@ -1629,6 +1913,7 @@ _OptionalUpdateJobQueueRequestRequestTypeDef = TypedDict(
         "schedulingPolicyArn": str,
         "priority": int,
         "computeEnvironmentOrder": List["ComputeEnvironmentOrderTypeDef"],
+        "jobStateTimeLimitActions": List["JobStateTimeLimitActionTypeDef"],
     },
     total=False,
 )

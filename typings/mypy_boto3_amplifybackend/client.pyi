@@ -12,6 +12,7 @@ Usage::
     client: AmplifyBackendClient = boto3.client("amplifybackend")
     ```
 """
+
 import sys
 from typing import Any, Dict, Type
 
@@ -81,7 +82,7 @@ class Exceptions:
 
 class AmplifyBackendClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html)
     """
 
@@ -92,29 +93,33 @@ class AmplifyBackendClient(BaseClient):
         """
         AmplifyBackendClient exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#can_paginate)
         """
+
     def clone_backend(
         self, *, AppId: str, BackendEnvironmentName: str, TargetEnvironmentName: str
     ) -> CloneBackendResponseTypeDef:
         """
         This operation clones an existing backend.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.clone_backend)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.clone_backend)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#clone_backend)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#close)
         """
+
     def create_backend(
         self,
         *,
@@ -127,9 +132,10 @@ class AmplifyBackendClient(BaseClient):
         """
         This operation creates a backend for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#create_backend)
         """
+
     def create_backend_api(
         self,
         *,
@@ -141,9 +147,10 @@ class AmplifyBackendClient(BaseClient):
         """
         Creates a new backend API resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#create_backend_api)
         """
+
     def create_backend_auth(
         self,
         *,
@@ -155,18 +162,20 @@ class AmplifyBackendClient(BaseClient):
         """
         Creates a new backend authentication resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend_auth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend_auth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#create_backend_auth)
         """
+
     def create_backend_config(
         self, *, AppId: str, BackendManagerAppId: str = None
     ) -> CreateBackendConfigResponseTypeDef:
         """
         Creates a config object for a backend.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#create_backend_config)
         """
+
     def create_backend_storage(
         self,
         *,
@@ -178,26 +187,29 @@ class AmplifyBackendClient(BaseClient):
         """
         Creates a backend storage resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.create_backend_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#create_backend_storage)
         """
+
     def create_token(self, *, AppId: str) -> CreateTokenResponseTypeDef:
         """
         Generates a one-time challenge code to authenticate a user into your Amplify
         Admin UI.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.create_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.create_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#create_token)
         """
+
     def delete_backend(
         self, *, AppId: str, BackendEnvironmentName: str
     ) -> DeleteBackendResponseTypeDef:
         """
         Removes an existing environment from your Amplify project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_backend)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_backend)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#delete_backend)
         """
+
     def delete_backend_api(
         self,
         *,
@@ -209,18 +221,20 @@ class AmplifyBackendClient(BaseClient):
         """
         Deletes an existing backend API resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_backend_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_backend_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#delete_backend_api)
         """
+
     def delete_backend_auth(
         self, *, AppId: str, BackendEnvironmentName: str, ResourceName: str
     ) -> DeleteBackendAuthResponseTypeDef:
         """
         Deletes an existing backend authentication resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_backend_auth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_backend_auth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#delete_backend_auth)
         """
+
     def delete_backend_storage(
         self,
         *,
@@ -232,25 +246,28 @@ class AmplifyBackendClient(BaseClient):
         """
         Removes the specified backend storage resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_backend_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_backend_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#delete_backend_storage)
         """
+
     def delete_token(self, *, AppId: str, SessionId: str) -> DeleteTokenResponseTypeDef:
         """
         Deletes the challenge token based on the given appId and sessionId.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.delete_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#delete_token)
         """
+
     def generate_backend_api_models(
         self, *, AppId: str, BackendEnvironmentName: str, ResourceName: str
     ) -> GenerateBackendAPIModelsResponseTypeDef:
         """
         Generates a model schema for an existing backend API resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.generate_backend_api_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.generate_backend_api_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#generate_backend_api_models)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -261,18 +278,20 @@ class AmplifyBackendClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#generate_presigned_url)
         """
+
     def get_backend(
         self, *, AppId: str, BackendEnvironmentName: str = None
     ) -> GetBackendResponseTypeDef:
         """
         Provides project-level details for your Amplify UI project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#get_backend)
         """
+
     def get_backend_api(
         self,
         *,
@@ -284,52 +303,58 @@ class AmplifyBackendClient(BaseClient):
         """
         Gets the details for a backend API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#get_backend_api)
         """
+
     def get_backend_api_models(
         self, *, AppId: str, BackendEnvironmentName: str, ResourceName: str
     ) -> GetBackendAPIModelsResponseTypeDef:
         """
         Gets a model introspection schema for an existing backend API resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_api_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_api_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#get_backend_api_models)
         """
+
     def get_backend_auth(
         self, *, AppId: str, BackendEnvironmentName: str, ResourceName: str
     ) -> GetBackendAuthResponseTypeDef:
         """
         Gets a backend auth details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_auth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_auth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#get_backend_auth)
         """
+
     def get_backend_job(
         self, *, AppId: str, BackendEnvironmentName: str, JobId: str
     ) -> GetBackendJobResponseTypeDef:
         """
         Returns information about a specific job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#get_backend_job)
         """
+
     def get_backend_storage(
         self, *, AppId: str, BackendEnvironmentName: str, ResourceName: str
     ) -> GetBackendStorageResponseTypeDef:
         """
         Gets details for a backend storage resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.get_backend_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#get_backend_storage)
         """
+
     def get_token(self, *, AppId: str, SessionId: str) -> GetTokenResponseTypeDef:
         """
         Gets the challenge token based on the given appId and sessionId.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.get_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.get_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#get_token)
         """
+
     def import_backend_auth(
         self,
         *,
@@ -343,9 +368,10 @@ class AmplifyBackendClient(BaseClient):
         """
         Imports an existing backend authentication resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.import_backend_auth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.import_backend_auth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#import_backend_auth)
         """
+
     def import_backend_storage(
         self,
         *,
@@ -357,9 +383,10 @@ class AmplifyBackendClient(BaseClient):
         """
         Imports an existing backend storage resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.import_backend_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.import_backend_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#import_backend_storage)
         """
+
     def list_backend_jobs(
         self,
         *,
@@ -374,32 +401,36 @@ class AmplifyBackendClient(BaseClient):
         """
         Lists the jobs for the backend of an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.list_backend_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.list_backend_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#list_backend_jobs)
         """
+
     def list_s3_buckets(self, *, NextToken: str = None) -> ListS3BucketsResponseTypeDef:
         """
         The list of S3 buckets in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.list_s3_buckets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.list_s3_buckets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#list_s3_buckets)
         """
+
     def remove_all_backends(
         self, *, AppId: str, CleanAmplifyApp: bool = None
     ) -> RemoveAllBackendsResponseTypeDef:
         """
         Removes all backend environments from your Amplify project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.remove_all_backends)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.remove_all_backends)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#remove_all_backends)
         """
+
     def remove_backend_config(self, *, AppId: str) -> RemoveBackendConfigResponseTypeDef:
         """
         Removes the AWS resources required to access the Amplify Admin UI.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.remove_backend_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.remove_backend_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#remove_backend_config)
         """
+
     def update_backend_api(
         self,
         *,
@@ -411,9 +442,10 @@ class AmplifyBackendClient(BaseClient):
         """
         Updates an existing backend API resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#update_backend_api)
         """
+
     def update_backend_auth(
         self,
         *,
@@ -425,18 +457,20 @@ class AmplifyBackendClient(BaseClient):
         """
         Updates an existing backend authentication resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_auth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_auth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#update_backend_auth)
         """
+
     def update_backend_config(
         self, *, AppId: str, LoginAuthConfig: "LoginAuthConfigReqObjTypeDef" = None
     ) -> UpdateBackendConfigResponseTypeDef:
         """
         Updates the AWS resources required to access the Amplify Admin UI.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#update_backend_config)
         """
+
     def update_backend_job(
         self,
         *,
@@ -449,9 +483,10 @@ class AmplifyBackendClient(BaseClient):
         """
         Updates a specific job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#update_backend_job)
         """
+
     def update_backend_storage(
         self,
         *,
@@ -463,13 +498,14 @@ class AmplifyBackendClient(BaseClient):
         """
         Updates an existing backend storage resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Client.update_backend_storage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/client.html#update_backend_storage)
         """
+
     def get_paginator(
         self, operation_name: Literal["list_backend_jobs"]
     ) -> ListBackendJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/amplifybackend.html#AmplifyBackend.Paginator.ListBackendJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplifybackend.html#AmplifyBackend.Paginator.ListBackendJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/paginators.html#listbackendjobspaginator)
         """

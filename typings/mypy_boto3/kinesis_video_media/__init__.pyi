@@ -16,6 +16,7 @@ Usage::
     session_client: KinesisVideoMediaClient = session.client("kinesis-video-media")
     ```
 """
+
 from .client import KinesisVideoMediaClient
 
 Client = KinesisVideoMediaClient

@@ -11,6 +11,7 @@ Usage::
     data: AssociateRoleToGroupRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

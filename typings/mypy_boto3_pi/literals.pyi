@@ -11,6 +11,7 @@ Usage::
     data: AcceptLanguageType = "EN_US"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -24,6 +25,7 @@ __all__ = (
     "ContextTypeType",
     "DetailStatusType",
     "FeatureStatusType",
+    "FineGrainedActionType",
     "PeriodAlignmentType",
     "ServiceTypeType",
     "SeverityType",
@@ -41,6 +43,9 @@ FeatureStatusType = Literal[
     "ENABLED_PENDING_REBOOT",
     "UNKNOWN",
     "UNSUPPORTED",
+]
+FineGrainedActionType = Literal[
+    "DescribeDimensionKeys", "GetDimensionKeyDetails", "GetResourceMetrics"
 ]
 PeriodAlignmentType = Literal["END_TIME", "START_TIME"]
 ServiceTypeType = Literal["DOCDB", "RDS"]

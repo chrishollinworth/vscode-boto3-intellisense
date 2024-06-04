@@ -11,6 +11,7 @@ Usage::
     data: AddLFTagsToResourceRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -89,6 +90,7 @@ __all__ = (
     "FilterConditionTypeDef",
     "GetDataCellsFilterRequestRequestTypeDef",
     "GetDataCellsFilterResponseTypeDef",
+    "GetDataLakePrincipalResponseTypeDef",
     "GetDataLakeSettingsRequestRequestTypeDef",
     "GetDataLakeSettingsResponseTypeDef",
     "GetEffectivePermissionsForPathRequestRequestTypeDef",
@@ -140,6 +142,7 @@ __all__ = (
     "PrincipalResourcePermissionsTypeDef",
     "PutDataLakeSettingsRequestRequestTypeDef",
     "QueryPlanningContextTypeDef",
+    "QuerySessionContextTypeDef",
     "RegisterResourceRequestRequestTypeDef",
     "RemoveLFTagsFromResourceRequestRequestTypeDef",
     "RemoveLFTagsFromResourceResponseTypeDef",
@@ -423,6 +426,7 @@ CreateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef = TypedDict(
         "CatalogId": str,
         "InstanceArn": str,
         "ExternalFiltering": "ExternalFilteringConfigurationTypeDef",
+        "ShareRecipients": List["DataLakePrincipalTypeDef"],
     },
     total=False,
 )
@@ -649,6 +653,8 @@ DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef = TypedDict(
         "InstanceArn": str,
         "ApplicationArn": str,
         "ExternalFiltering": "ExternalFilteringConfigurationTypeDef",
+        "ShareRecipients": List["DataLakePrincipalTypeDef"],
+        "ResourceShare": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -750,6 +756,14 @@ GetDataCellsFilterResponseTypeDef = TypedDict(
     "GetDataCellsFilterResponseTypeDef",
     {
         "DataCellsFilter": "DataCellsFilterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDataLakePrincipalResponseTypeDef = TypedDict(
+    "GetDataLakePrincipalResponseTypeDef",
+    {
+        "Identity": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -975,6 +989,8 @@ _OptionalGetTemporaryGlueTableCredentialsRequestRequestTypeDef = TypedDict(
         "DurationSeconds": int,
         "AuditContext": "AuditContextTypeDef",
         "SupportedPermissionTypes": List[PermissionTypeType],
+        "S3Path": str,
+        "QuerySessionContext": "QuerySessionContextTypeDef",
     },
     total=False,
 )
@@ -992,6 +1008,7 @@ GetTemporaryGlueTableCredentialsResponseTypeDef = TypedDict(
         "SecretAccessKey": str,
         "SessionToken": str,
         "Expiration": datetime,
+        "VendedS3Path": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1405,6 +1422,18 @@ class QueryPlanningContextTypeDef(
 ):
     pass
 
+QuerySessionContextTypeDef = TypedDict(
+    "QuerySessionContextTypeDef",
+    {
+        "QueryId": str,
+        "QueryStartTime": Union[datetime, str],
+        "ClusterId": str,
+        "QueryAuthorizationId": str,
+        "AdditionalContext": Dict[str, str],
+    },
+    total=False,
+)
+
 _RequiredRegisterResourceRequestRequestTypeDef = TypedDict(
     "_RequiredRegisterResourceRequestRequestTypeDef",
     {
@@ -1745,6 +1774,7 @@ UpdateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef = TypedDict(
     "UpdateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef",
     {
         "CatalogId": str,
+        "ShareRecipients": List["DataLakePrincipalTypeDef"],
         "ApplicationStatus": ApplicationStatusType,
         "ExternalFiltering": "ExternalFilteringConfigurationTypeDef",
     },

@@ -11,6 +11,7 @@ Usage::
     data: AdditionalAuthenticationProviderTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -23,17 +24,25 @@ from .literals import (
     ApiCachingBehaviorType,
     AssociationStatusType,
     AuthenticationTypeType,
+    CacheHealthMetricsConfigType,
     ConflictDetectionTypeType,
     ConflictHandlerTypeType,
+    DataSourceIntrospectionStatusType,
+    DataSourceLevelMetricsBehaviorType,
+    DataSourceLevelMetricsConfigType,
     DataSourceTypeType,
     DefaultActionType,
     FieldLogLevelType,
+    GraphQLApiIntrospectionConfigType,
     GraphQLApiTypeType,
     GraphQLApiVisibilityType,
     MergeTypeType,
+    OperationLevelMetricsConfigType,
     OutputTypeType,
     OwnershipType,
     ResolverKindType,
+    ResolverLevelMetricsBehaviorType,
+    ResolverLevelMetricsConfigType,
     SchemaStatusType,
     SourceApiAssociationStatusType,
     TypeDefinitionFormatType,
@@ -82,6 +91,11 @@ __all__ = (
     "CreateResolverResponseTypeDef",
     "CreateTypeRequestRequestTypeDef",
     "CreateTypeResponseTypeDef",
+    "DataSourceIntrospectionModelFieldTypeDef",
+    "DataSourceIntrospectionModelFieldTypeTypeDef",
+    "DataSourceIntrospectionModelIndexTypeDef",
+    "DataSourceIntrospectionModelTypeDef",
+    "DataSourceIntrospectionResultTypeDef",
     "DataSourceTypeDef",
     "DeleteApiCacheRequestRequestTypeDef",
     "DeleteApiKeyRequestRequestTypeDef",
@@ -100,6 +114,7 @@ __all__ = (
     "DomainNameConfigTypeDef",
     "DynamodbDataSourceConfigTypeDef",
     "ElasticsearchDataSourceConfigTypeDef",
+    "EnhancedMetricsConfigTypeDef",
     "ErrorDetailTypeDef",
     "EvaluateCodeErrorDetailTypeDef",
     "EvaluateCodeRequestRequestTypeDef",
@@ -113,12 +128,16 @@ __all__ = (
     "GetApiAssociationResponseTypeDef",
     "GetApiCacheRequestRequestTypeDef",
     "GetApiCacheResponseTypeDef",
+    "GetDataSourceIntrospectionRequestRequestTypeDef",
+    "GetDataSourceIntrospectionResponseTypeDef",
     "GetDataSourceRequestRequestTypeDef",
     "GetDataSourceResponseTypeDef",
     "GetDomainNameRequestRequestTypeDef",
     "GetDomainNameResponseTypeDef",
     "GetFunctionRequestRequestTypeDef",
     "GetFunctionResponseTypeDef",
+    "GetGraphqlApiEnvironmentVariablesRequestRequestTypeDef",
+    "GetGraphqlApiEnvironmentVariablesResponseTypeDef",
     "GetGraphqlApiRequestRequestTypeDef",
     "GetGraphqlApiResponseTypeDef",
     "GetIntrospectionSchemaRequestRequestTypeDef",
@@ -163,6 +182,9 @@ __all__ = (
     "OpenSearchServiceDataSourceConfigTypeDef",
     "PaginatorConfigTypeDef",
     "PipelineConfigTypeDef",
+    "PutGraphqlApiEnvironmentVariablesRequestRequestTypeDef",
+    "PutGraphqlApiEnvironmentVariablesResponseTypeDef",
+    "RdsDataApiConfigTypeDef",
     "RdsHttpEndpointConfigTypeDef",
     "RelationalDatabaseDataSourceConfigTypeDef",
     "ResolverTypeDef",
@@ -170,6 +192,8 @@ __all__ = (
     "SourceApiAssociationConfigTypeDef",
     "SourceApiAssociationSummaryTypeDef",
     "SourceApiAssociationTypeDef",
+    "StartDataSourceIntrospectionRequestRequestTypeDef",
+    "StartDataSourceIntrospectionResponseTypeDef",
     "StartSchemaCreationRequestRequestTypeDef",
     "StartSchemaCreationResponseTypeDef",
     "StartSchemaMergeRequestRequestTypeDef",
@@ -230,6 +254,7 @@ ApiCacheTypeDef = TypedDict(
         "atRestEncryptionEnabled": bool,
         "type": ApiCacheTypeType,
         "status": ApiCacheStatusType,
+        "healthMetricsConfig": CacheHealthMetricsConfigType,
     },
     total=False,
 )
@@ -428,6 +453,7 @@ _OptionalCreateApiCacheRequestRequestTypeDef = TypedDict(
     {
         "transitEncryptionEnabled": bool,
         "atRestEncryptionEnabled": bool,
+        "healthMetricsConfig": CacheHealthMetricsConfigType,
     },
     total=False,
 )
@@ -493,6 +519,7 @@ _OptionalCreateDataSourceRequestRequestTypeDef = TypedDict(
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
         "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
+        "metricsConfig": DataSourceLevelMetricsConfigType,
     },
     total=False,
 )
@@ -595,6 +622,10 @@ _OptionalCreateGraphqlApiRequestRequestTypeDef = TypedDict(
         "apiType": GraphQLApiTypeType,
         "mergedApiExecutionRoleArn": str,
         "ownerContact": str,
+        "introspectionConfig": GraphQLApiIntrospectionConfigType,
+        "queryDepthLimit": int,
+        "resolverCountLimit": int,
+        "enhancedMetricsConfig": "EnhancedMetricsConfigTypeDef",
     },
     total=False,
 )
@@ -633,6 +664,7 @@ _OptionalCreateResolverRequestRequestTypeDef = TypedDict(
         "maxBatchSize": int,
         "runtime": "AppSyncRuntimeTypeDef",
         "code": str,
+        "metricsConfig": ResolverLevelMetricsConfigType,
     },
     total=False,
 )
@@ -667,6 +699,57 @@ CreateTypeResponseTypeDef = TypedDict(
     },
 )
 
+DataSourceIntrospectionModelFieldTypeDef = TypedDict(
+    "DataSourceIntrospectionModelFieldTypeDef",
+    {
+        "name": str,
+        "type": "DataSourceIntrospectionModelFieldTypeTypeDef",
+        "length": int,
+    },
+    total=False,
+)
+
+DataSourceIntrospectionModelFieldTypeTypeDef = TypedDict(
+    "DataSourceIntrospectionModelFieldTypeTypeDef",
+    {
+        "kind": str,
+        "name": str,
+        "type": Dict[str, Any],
+        "values": List[str],
+    },
+    total=False,
+)
+
+DataSourceIntrospectionModelIndexTypeDef = TypedDict(
+    "DataSourceIntrospectionModelIndexTypeDef",
+    {
+        "name": str,
+        "fields": List[str],
+    },
+    total=False,
+)
+
+DataSourceIntrospectionModelTypeDef = TypedDict(
+    "DataSourceIntrospectionModelTypeDef",
+    {
+        "name": str,
+        "fields": List["DataSourceIntrospectionModelFieldTypeDef"],
+        "primaryKey": "DataSourceIntrospectionModelIndexTypeDef",
+        "indexes": List["DataSourceIntrospectionModelIndexTypeDef"],
+        "sdl": str,
+    },
+    total=False,
+)
+
+DataSourceIntrospectionResultTypeDef = TypedDict(
+    "DataSourceIntrospectionResultTypeDef",
+    {
+        "models": List["DataSourceIntrospectionModelTypeDef"],
+        "nextToken": str,
+    },
+    total=False,
+)
+
 DataSourceTypeDef = TypedDict(
     "DataSourceTypeDef",
     {
@@ -682,6 +765,7 @@ DataSourceTypeDef = TypedDict(
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
         "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
+        "metricsConfig": DataSourceLevelMetricsConfigType,
     },
     total=False,
 )
@@ -839,6 +923,15 @@ ElasticsearchDataSourceConfigTypeDef = TypedDict(
     },
 )
 
+EnhancedMetricsConfigTypeDef = TypedDict(
+    "EnhancedMetricsConfigTypeDef",
+    {
+        "resolverLevelMetricsBehavior": ResolverLevelMetricsBehaviorType,
+        "dataSourceLevelMetricsBehavior": DataSourceLevelMetricsBehaviorType,
+        "operationLevelMetricsConfig": OperationLevelMetricsConfigType,
+    },
+)
+
 ErrorDetailTypeDef = TypedDict(
     "ErrorDetailTypeDef",
     {
@@ -968,6 +1061,39 @@ GetApiCacheResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetDataSourceIntrospectionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetDataSourceIntrospectionRequestRequestTypeDef",
+    {
+        "introspectionId": str,
+    },
+)
+_OptionalGetDataSourceIntrospectionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetDataSourceIntrospectionRequestRequestTypeDef",
+    {
+        "includeModelsSDL": bool,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class GetDataSourceIntrospectionRequestRequestTypeDef(
+    _RequiredGetDataSourceIntrospectionRequestRequestTypeDef,
+    _OptionalGetDataSourceIntrospectionRequestRequestTypeDef,
+):
+    pass
+
+GetDataSourceIntrospectionResponseTypeDef = TypedDict(
+    "GetDataSourceIntrospectionResponseTypeDef",
+    {
+        "introspectionId": str,
+        "introspectionStatus": DataSourceIntrospectionStatusType,
+        "introspectionStatusDetail": str,
+        "introspectionResult": "DataSourceIntrospectionResultTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetDataSourceRequestRequestTypeDef = TypedDict(
     "GetDataSourceRequestRequestTypeDef",
     {
@@ -1011,6 +1137,21 @@ GetFunctionResponseTypeDef = TypedDict(
     "GetFunctionResponseTypeDef",
     {
         "functionConfiguration": "FunctionConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetGraphqlApiEnvironmentVariablesRequestRequestTypeDef = TypedDict(
+    "GetGraphqlApiEnvironmentVariablesRequestRequestTypeDef",
+    {
+        "apiId": str,
+    },
+)
+
+GetGraphqlApiEnvironmentVariablesResponseTypeDef = TypedDict(
+    "GetGraphqlApiEnvironmentVariablesResponseTypeDef",
+    {
+        "environmentVariables": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1147,6 +1288,10 @@ GraphqlApiTypeDef = TypedDict(
         "mergedApiExecutionRoleArn": str,
         "owner": str,
         "ownerContact": str,
+        "introspectionConfig": GraphQLApiIntrospectionConfigType,
+        "queryDepthLimit": int,
+        "resolverCountLimit": int,
+        "enhancedMetricsConfig": "EnhancedMetricsConfigTypeDef",
     },
     total=False,
 )
@@ -1553,6 +1698,31 @@ PipelineConfigTypeDef = TypedDict(
     total=False,
 )
 
+PutGraphqlApiEnvironmentVariablesRequestRequestTypeDef = TypedDict(
+    "PutGraphqlApiEnvironmentVariablesRequestRequestTypeDef",
+    {
+        "apiId": str,
+        "environmentVariables": Dict[str, str],
+    },
+)
+
+PutGraphqlApiEnvironmentVariablesResponseTypeDef = TypedDict(
+    "PutGraphqlApiEnvironmentVariablesResponseTypeDef",
+    {
+        "environmentVariables": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RdsDataApiConfigTypeDef = TypedDict(
+    "RdsDataApiConfigTypeDef",
+    {
+        "resourceArn": str,
+        "secretArn": str,
+        "databaseName": str,
+    },
+)
+
 RdsHttpEndpointConfigTypeDef = TypedDict(
     "RdsHttpEndpointConfigTypeDef",
     {
@@ -1590,6 +1760,7 @@ ResolverTypeDef = TypedDict(
         "maxBatchSize": int,
         "runtime": "AppSyncRuntimeTypeDef",
         "code": str,
+        "metricsConfig": ResolverLevelMetricsConfigType,
     },
     total=False,
 )
@@ -1643,6 +1814,24 @@ SourceApiAssociationTypeDef = TypedDict(
         "lastSuccessfulMergeDate": datetime,
     },
     total=False,
+)
+
+StartDataSourceIntrospectionRequestRequestTypeDef = TypedDict(
+    "StartDataSourceIntrospectionRequestRequestTypeDef",
+    {
+        "rdsDataApiConfig": "RdsDataApiConfigTypeDef",
+    },
+    total=False,
+)
+
+StartDataSourceIntrospectionResponseTypeDef = TypedDict(
+    "StartDataSourceIntrospectionResponseTypeDef",
+    {
+        "introspectionId": str,
+        "introspectionStatus": DataSourceIntrospectionStatusType,
+        "introspectionStatusDetail": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 StartSchemaCreationRequestRequestTypeDef = TypedDict(
@@ -1715,8 +1904,8 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-UpdateApiCacheRequestRequestTypeDef = TypedDict(
-    "UpdateApiCacheRequestRequestTypeDef",
+_RequiredUpdateApiCacheRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateApiCacheRequestRequestTypeDef",
     {
         "apiId": str,
         "ttl": int,
@@ -1724,6 +1913,18 @@ UpdateApiCacheRequestRequestTypeDef = TypedDict(
         "type": ApiCacheTypeType,
     },
 )
+_OptionalUpdateApiCacheRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateApiCacheRequestRequestTypeDef",
+    {
+        "healthMetricsConfig": CacheHealthMetricsConfigType,
+    },
+    total=False,
+)
+
+class UpdateApiCacheRequestRequestTypeDef(
+    _RequiredUpdateApiCacheRequestRequestTypeDef, _OptionalUpdateApiCacheRequestRequestTypeDef
+):
+    pass
 
 UpdateApiCacheResponseTypeDef = TypedDict(
     "UpdateApiCacheResponseTypeDef",
@@ -1782,6 +1983,7 @@ _OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
         "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
+        "metricsConfig": DataSourceLevelMetricsConfigType,
     },
     total=False,
 )
@@ -1868,13 +2070,13 @@ _RequiredUpdateGraphqlApiRequestRequestTypeDef = TypedDict(
     {
         "apiId": str,
         "name": str,
+        "authenticationType": AuthenticationTypeType,
     },
 )
 _OptionalUpdateGraphqlApiRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateGraphqlApiRequestRequestTypeDef",
     {
         "logConfig": "LogConfigTypeDef",
-        "authenticationType": AuthenticationTypeType,
         "userPoolConfig": "UserPoolConfigTypeDef",
         "openIDConnectConfig": "OpenIDConnectConfigTypeDef",
         "additionalAuthenticationProviders": List["AdditionalAuthenticationProviderTypeDef"],
@@ -1882,6 +2084,10 @@ _OptionalUpdateGraphqlApiRequestRequestTypeDef = TypedDict(
         "lambdaAuthorizerConfig": "LambdaAuthorizerConfigTypeDef",
         "mergedApiExecutionRoleArn": str,
         "ownerContact": str,
+        "introspectionConfig": GraphQLApiIntrospectionConfigType,
+        "queryDepthLimit": int,
+        "resolverCountLimit": int,
+        "enhancedMetricsConfig": "EnhancedMetricsConfigTypeDef",
     },
     total=False,
 )
@@ -1920,6 +2126,7 @@ _OptionalUpdateResolverRequestRequestTypeDef = TypedDict(
         "maxBatchSize": int,
         "runtime": "AppSyncRuntimeTypeDef",
         "code": str,
+        "metricsConfig": ResolverLevelMetricsConfigType,
     },
     total=False,
 )

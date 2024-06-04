@@ -11,6 +11,7 @@ Usage::
     data: AcceleratorsType = "GPU"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -27,6 +28,7 @@ __all__ = (
     "AnnotationStoreVersionDeletedWaiterName",
     "AnnotationTypeType",
     "CreationTypeType",
+    "ETagAlgorithmFamilyType",
     "ETagAlgorithmType",
     "EncryptionTypeType",
     "FileTypeType",
@@ -77,7 +79,9 @@ __all__ = (
     "RunRunningWaiterName",
     "RunStatusType",
     "SchemaValueTypeType",
+    "ShareResourceTypeType",
     "ShareStatusType",
+    "StorageTypeType",
     "StoreFormatType",
     "StoreStatusType",
     "TaskCompletedWaiterName",
@@ -110,7 +114,18 @@ AnnotationTypeType = Literal[
     "GENERIC",
 ]
 CreationTypeType = Literal["IMPORT", "UPLOAD"]
-ETagAlgorithmType = Literal["BAM_MD5up", "CRAM_MD5up", "FASTQ_MD5up"]
+ETagAlgorithmFamilyType = Literal["MD5up", "SHA256up", "SHA512up"]
+ETagAlgorithmType = Literal[
+    "BAM_MD5up",
+    "BAM_SHA256up",
+    "BAM_SHA512up",
+    "CRAM_MD5up",
+    "CRAM_SHA256up",
+    "CRAM_SHA512up",
+    "FASTQ_MD5up",
+    "FASTQ_SHA256up",
+    "FASTQ_SHA512up",
+]
 EncryptionTypeType = Literal["KMS"]
 FileTypeType = Literal["BAM", "CRAM", "FASTQ", "UBAM"]
 FormatToHeaderKeyType = Literal["ALT", "CHR", "END", "POS", "REF", "START"]
@@ -198,7 +213,9 @@ RunStatusType = Literal[
     "CANCELLED", "COMPLETED", "DELETED", "FAILED", "PENDING", "RUNNING", "STARTING", "STOPPING"
 ]
 SchemaValueTypeType = Literal["BOOLEAN", "DOUBLE", "FLOAT", "INT", "LONG", "STRING"]
+ShareResourceTypeType = Literal["ANNOTATION_STORE", "VARIANT_STORE", "WORKFLOW"]
 ShareStatusType = Literal["ACTIVATING", "ACTIVE", "DELETED", "DELETING", "FAILED", "PENDING"]
+StorageTypeType = Literal["DYNAMIC", "STATIC"]
 StoreFormatType = Literal["GFF", "TSV", "VCF"]
 StoreStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 TaskCompletedWaiterName = Literal["task_completed"]

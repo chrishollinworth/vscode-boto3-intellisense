@@ -11,6 +11,7 @@ Usage::
     data: AlgorithmType = "aes128"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

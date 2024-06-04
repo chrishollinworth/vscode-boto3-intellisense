@@ -6,11 +6,12 @@ Type annotations for trustedadvisor service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_trustedadvisor.literals import ListChecksPaginatorName
+    from mypy_boto3_trustedadvisor.literals import ExclusionStatusType
 
-    data: ListChecksPaginatorName = "list_checks"
+    data: ExclusionStatusType = "excluded"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ExclusionStatusType",
     "ListChecksPaginatorName",
     "ListOrganizationRecommendationAccountsPaginatorName",
     "ListOrganizationRecommendationResourcesPaginatorName",
@@ -36,6 +38,7 @@ __all__ = (
     "UpdateRecommendationLifecycleStageType",
 )
 
+ExclusionStatusType = Literal["excluded", "included"]
 ListChecksPaginatorName = Literal["list_checks"]
 ListOrganizationRecommendationAccountsPaginatorName = Literal[
     "list_organization_recommendation_accounts"

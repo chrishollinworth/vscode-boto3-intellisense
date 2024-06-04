@@ -11,6 +11,7 @@ Usage::
     data: AddTagsToResourceRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

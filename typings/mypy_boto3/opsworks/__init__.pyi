@@ -37,6 +37,7 @@ Usage::
     describe_ecs_clusters_paginator: DescribeEcsClustersPaginator = client.get_paginator("describe_ecs_clusters")
     ```
 """
+
 from .client import OpsWorksClient
 from .paginator import DescribeEcsClustersPaginator
 from .service_resource import OpsWorksServiceResource

@@ -11,6 +11,7 @@ Usage::
     data: AccessPolicyTypeType = "data"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -26,6 +27,7 @@ __all__ = (
     "ResourceTypeType",
     "SecurityConfigTypeType",
     "SecurityPolicyTypeType",
+    "StandbyReplicasType",
     "VpcEndpointStatusType",
 )
 
@@ -36,4 +38,5 @@ LifecyclePolicyTypeType = Literal["retention"]
 ResourceTypeType = Literal["index"]
 SecurityConfigTypeType = Literal["saml"]
 SecurityPolicyTypeType = Literal["encryption", "network"]
+StandbyReplicasType = Literal["DISABLED", "ENABLED"]
 VpcEndpointStatusType = Literal["ACTIVE", "DELETING", "FAILED", "PENDING"]

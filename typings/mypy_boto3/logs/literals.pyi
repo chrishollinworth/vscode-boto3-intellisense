@@ -11,6 +11,7 @@ Usage::
     data: AnomalyDetectorStatusType = "ANALYZING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -83,7 +84,7 @@ ListLogAnomalyDetectorsPaginatorName = Literal["list_log_anomaly_detectors"]
 LogGroupClassType = Literal["INFREQUENT_ACCESS", "STANDARD"]
 OrderByType = Literal["LastEventTime", "LogStreamName"]
 OutputFormatType = Literal["json", "parquet", "plain", "raw", "w3c"]
-PolicyTypeType = Literal["DATA_PROTECTION_POLICY"]
+PolicyTypeType = Literal["DATA_PROTECTION_POLICY", "SUBSCRIPTION_FILTER_POLICY"]
 QueryStatusType = Literal[
     "Cancelled", "Complete", "Failed", "Running", "Scheduled", "Timeout", "Unknown"
 ]

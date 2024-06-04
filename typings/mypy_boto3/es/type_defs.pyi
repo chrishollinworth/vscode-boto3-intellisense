@@ -11,6 +11,7 @@ Usage::
     data: AcceptInboundCrossClusterSearchConnectionRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -18,19 +19,23 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AutoTuneDesiredStateType,
     AutoTuneStateType,
+    ConfigChangeStatusType,
     DeploymentStatusType,
     DescribePackagesFilterNameType,
     DomainPackageStatusType,
+    DomainProcessingStatusTypeType,
     EngineTypeType,
     ESPartitionInstanceTypeType,
     ESWarmPartitionInstanceTypeType,
     InboundCrossClusterSearchConnectionStatusCodeType,
+    InitiatedByType,
     LogTypeType,
     OptionStateType,
     OutboundCrossClusterSearchConnectionStatusCodeType,
     OverallChangeStatusType,
     PackageStatusType,
     PrincipalTypeType,
+    PropertyValueTypeType,
     ReservedElasticsearchInstancePaymentOptionType,
     RollbackOnDisableType,
     ScheduledAutoTuneActionTypeType,
@@ -75,8 +80,11 @@ __all__ = (
     "AutoTuneOptionsTypeDef",
     "AutoTuneStatusTypeDef",
     "AutoTuneTypeDef",
+    "CancelDomainConfigChangeRequestRequestTypeDef",
+    "CancelDomainConfigChangeResponseTypeDef",
     "CancelElasticsearchServiceSoftwareUpdateRequestRequestTypeDef",
     "CancelElasticsearchServiceSoftwareUpdateResponseTypeDef",
+    "CancelledChangePropertyTypeDef",
     "ChangeProgressDetailsTypeDef",
     "ChangeProgressStageTypeDef",
     "ChangeProgressStatusDetailsTypeDef",
@@ -181,6 +189,7 @@ __all__ = (
     "LogPublishingOptionTypeDef",
     "LogPublishingOptionsStatusTypeDef",
     "MasterUserOptionsTypeDef",
+    "ModifyingPropertiesTypeDef",
     "NodeToNodeEncryptionOptionsStatusTypeDef",
     "NodeToNodeEncryptionOptionsTypeDef",
     "OptionStatusTypeDef",
@@ -437,6 +446,36 @@ AutoTuneTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCancelDomainConfigChangeRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelDomainConfigChangeRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalCancelDomainConfigChangeRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelDomainConfigChangeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CancelDomainConfigChangeRequestRequestTypeDef(
+    _RequiredCancelDomainConfigChangeRequestRequestTypeDef,
+    _OptionalCancelDomainConfigChangeRequestRequestTypeDef,
+):
+    pass
+
+CancelDomainConfigChangeResponseTypeDef = TypedDict(
+    "CancelDomainConfigChangeResponseTypeDef",
+    {
+        "DryRun": bool,
+        "CancelledChangeIds": List[str],
+        "CancelledChangeProperties": List["CancelledChangePropertyTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CancelElasticsearchServiceSoftwareUpdateRequestRequestTypeDef = TypedDict(
     "CancelElasticsearchServiceSoftwareUpdateRequestRequestTypeDef",
     {
@@ -452,11 +491,25 @@ CancelElasticsearchServiceSoftwareUpdateResponseTypeDef = TypedDict(
     },
 )
 
+CancelledChangePropertyTypeDef = TypedDict(
+    "CancelledChangePropertyTypeDef",
+    {
+        "PropertyName": str,
+        "CancelledValue": str,
+        "ActiveValue": str,
+    },
+    total=False,
+)
+
 ChangeProgressDetailsTypeDef = TypedDict(
     "ChangeProgressDetailsTypeDef",
     {
         "ChangeId": str,
         "Message": str,
+        "ConfigChangeStatus": ConfigChangeStatusType,
+        "StartTime": datetime,
+        "LastUpdatedTime": datetime,
+        "InitiatedBy": InitiatedByType,
     },
     total=False,
 )
@@ -482,6 +535,9 @@ ChangeProgressStatusDetailsTypeDef = TypedDict(
         "CompletedProperties": List[str],
         "TotalNumberOfStages": int,
         "ChangeProgressStages": List["ChangeProgressStageTypeDef"],
+        "ConfigChangeStatus": ConfigChangeStatusType,
+        "LastUpdatedTime": datetime,
+        "InitiatedBy": InitiatedByType,
     },
     total=False,
 )
@@ -1133,6 +1189,7 @@ ElasticsearchDomainConfigTypeDef = TypedDict(
         "AdvancedSecurityOptions": "AdvancedSecurityOptionsStatusTypeDef",
         "AutoTuneOptions": "AutoTuneOptionsStatusTypeDef",
         "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
+        "ModifyingProperties": List["ModifyingPropertiesTypeDef"],
     },
     total=False,
 )
@@ -1170,6 +1227,8 @@ _OptionalElasticsearchDomainStatusTypeDef = TypedDict(
         "AdvancedSecurityOptions": "AdvancedSecurityOptionsTypeDef",
         "AutoTuneOptions": "AutoTuneOptionsOutputTypeDef",
         "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
+        "DomainProcessingStatus": DomainProcessingStatusTypeType,
+        "ModifyingProperties": List["ModifyingPropertiesTypeDef"],
     },
     total=False,
 )
@@ -1601,6 +1660,17 @@ MasterUserOptionsTypeDef = TypedDict(
         "MasterUserARN": str,
         "MasterUserName": str,
         "MasterUserPassword": str,
+    },
+    total=False,
+)
+
+ModifyingPropertiesTypeDef = TypedDict(
+    "ModifyingPropertiesTypeDef",
+    {
+        "Name": str,
+        "ActiveValue": str,
+        "PendingValue": str,
+        "ValueType": PropertyValueTypeType,
     },
     total=False,
 )

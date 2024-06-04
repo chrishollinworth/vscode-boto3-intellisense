@@ -11,6 +11,7 @@ Usage::
     data: ChangeActionType = "DELETE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

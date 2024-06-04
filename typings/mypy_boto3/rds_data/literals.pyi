@@ -11,6 +11,7 @@ Usage::
     data: DecimalReturnTypeType = "DOUBLE_OR_LONG"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -11,6 +11,7 @@ Usage::
     data: ActionInvocationTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -968,6 +969,7 @@ ParameterTypeDef = TypedDict(
     {
         "Description": str,
         "Required": bool,
+        "Dynamic": bool,
     },
     total=False,
 )
@@ -1007,6 +1009,7 @@ _OptionalStartDeploymentRequestRequestTypeDef = TypedDict(
         "Description": str,
         "Tags": Dict[str, str],
         "KmsKeyIdentifier": str,
+        "DynamicExtensionParameters": Dict[str, str],
     },
     total=False,
 )

@@ -16,6 +16,7 @@ Usage::
     session_client: CognitoSyncClient = session.client("cognito-sync")
     ```
 """
+
 from .client import CognitoSyncClient
 
 Client = CognitoSyncClient

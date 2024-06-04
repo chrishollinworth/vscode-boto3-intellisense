@@ -11,6 +11,7 @@ Usage::
     data: AdminStatusType = "DISABLING_IN_PROGRESS"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -118,7 +119,7 @@ DayOfWeekType = Literal[
 ]
 DescribeBucketsPaginatorName = Literal["describe_buckets"]
 EffectivePermissionType = Literal["NOT_PUBLIC", "PUBLIC", "UNKNOWN"]
-EncryptionTypeType = Literal["AES256", "NONE", "UNKNOWN", "aws:kms"]
+EncryptionTypeType = Literal["AES256", "NONE", "UNKNOWN", "aws:kms", "aws:kms:dsse"]
 ErrorCodeType = Literal["ClientError", "InternalError"]
 FindingActionTypeType = Literal["AWS_API_CALL"]
 FindingCategoryType = Literal["CLASSIFICATION", "POLICY"]
@@ -215,7 +216,7 @@ StorageClassType = Literal[
 ]
 TagTargetType = Literal["S3_OBJECT"]
 TimeRangeType = Literal["MONTH_TO_DATE", "PAST_30_DAYS"]
-TypeType = Literal["AES256", "NONE", "aws:kms"]
+TypeType = Literal["AES256", "NONE", "aws:kms", "aws:kms:dsse"]
 UnavailabilityReasonCodeType = Literal[
     "ACCOUNT_NOT_IN_ORGANIZATION",
     "INVALID_CLASSIFICATION_RESULT",

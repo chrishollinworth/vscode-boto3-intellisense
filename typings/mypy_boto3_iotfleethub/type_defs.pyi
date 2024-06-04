@@ -11,6 +11,7 @@ Usage::
     data: ApplicationSummaryTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

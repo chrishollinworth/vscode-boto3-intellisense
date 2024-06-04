@@ -34,6 +34,7 @@ Usage::
     list_streaming_distributions_paginator: ListStreamingDistributionsPaginator = client.get_paginator("list_streaming_distributions")
     ```
 """
+
 from .client import CloudFrontClient
 from .paginator import (
     ListCloudFrontOriginAccessIdentitiesPaginator,

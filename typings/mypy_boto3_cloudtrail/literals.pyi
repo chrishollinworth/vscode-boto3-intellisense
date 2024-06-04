@@ -11,6 +11,7 @@ Usage::
     data: BillingModeType = "EXTENDABLE_RETENTION_PRICING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -28,6 +29,7 @@ __all__ = (
     "ImportFailureStatusType",
     "ImportStatusType",
     "InsightTypeType",
+    "InsightsMetricDataTypeType",
     "ListImportFailuresPaginatorName",
     "ListImportsPaginatorName",
     "ListPublicKeysPaginatorName",
@@ -65,6 +67,7 @@ FederationStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]
 ImportFailureStatusType = Literal["FAILED", "RETRY", "SUCCEEDED"]
 ImportStatusType = Literal["COMPLETED", "FAILED", "INITIALIZING", "IN_PROGRESS", "STOPPED"]
 InsightTypeType = Literal["ApiCallRateInsight", "ApiErrorRateInsight"]
+InsightsMetricDataTypeType = Literal["FillWithZeros", "NonZeroData"]
 ListImportFailuresPaginatorName = Literal["list_import_failures"]
 ListImportsPaginatorName = Literal["list_imports"]
 ListPublicKeysPaginatorName = Literal["list_public_keys"]

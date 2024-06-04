@@ -27,6 +27,7 @@ Usage::
     list_revision_assets_paginator: ListRevisionAssetsPaginator = client.get_paginator("list_revision_assets")
     ```
 """
+
 from .client import DataExchangeClient
 from .paginator import (
     ListDataSetRevisionsPaginator,

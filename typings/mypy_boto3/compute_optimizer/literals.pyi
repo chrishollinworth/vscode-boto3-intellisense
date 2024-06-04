@@ -11,6 +11,7 @@ Usage::
     data: AutoScalingConfigurationType = "TargetTrackingScalingCpu"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -97,8 +98,8 @@ AutoScalingConfigurationType = Literal["TargetTrackingScalingCpu", "TargetTracki
 CpuVendorArchitectureType = Literal["AWS_ARM64", "CURRENT"]
 CurrencyType = Literal["CNY", "USD"]
 CurrentPerformanceRiskType = Literal["High", "Low", "Medium", "VeryLow"]
-CustomizableMetricHeadroomType = Literal["PERCENT_0", "PERCENT_20", "PERCENT_30"]
-CustomizableMetricNameType = Literal["CpuUtilization"]
+CustomizableMetricHeadroomType = Literal["PERCENT_0", "PERCENT_10", "PERCENT_20", "PERCENT_30"]
+CustomizableMetricNameType = Literal["CpuUtilization", "MemoryUtilization"]
 CustomizableMetricThresholdType = Literal["P90", "P95", "P99_5"]
 DescribeRecommendationExportJobsPaginatorName = Literal["describe_recommendation_export_jobs"]
 EBSFilterNameType = Literal["Finding"]

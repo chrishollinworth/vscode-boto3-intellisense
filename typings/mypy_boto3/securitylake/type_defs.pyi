@@ -11,6 +11,7 @@ Usage::
     data: AwsIdentityTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -162,13 +163,13 @@ CreateAwsLogSourceResponseTypeDef = TypedDict(
 _RequiredCreateCustomLogSourceRequestRequestTypeDef = TypedDict(
     "_RequiredCreateCustomLogSourceRequestRequestTypeDef",
     {
+        "configuration": "CustomLogSourceConfigurationTypeDef",
         "sourceName": str,
     },
 )
 _OptionalCreateCustomLogSourceRequestRequestTypeDef = TypedDict(
     "_OptionalCreateCustomLogSourceRequestRequestTypeDef",
     {
-        "configuration": "CustomLogSourceConfigurationTypeDef",
         "eventClasses": List[str],
         "sourceVersion": str,
     },
@@ -215,6 +216,7 @@ CreateDataLakeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
     {
         "autoEnableNewAccount": List["DataLakeAutoEnableNewAccountConfigurationTypeDef"],
     },
+    total=False,
 )
 
 _RequiredCreateDataLakeRequestRequestTypeDef = TypedDict(
@@ -522,6 +524,7 @@ DeleteDataLakeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
     {
         "autoEnableNewAccount": List["DataLakeAutoEnableNewAccountConfigurationTypeDef"],
     },
+    total=False,
 )
 
 DeleteDataLakeRequestRequestTypeDef = TypedDict(
@@ -842,12 +845,24 @@ class UpdateDataLakeExceptionSubscriptionRequestRequestTypeDef(
 ):
     pass
 
-UpdateDataLakeRequestRequestTypeDef = TypedDict(
-    "UpdateDataLakeRequestRequestTypeDef",
+_RequiredUpdateDataLakeRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDataLakeRequestRequestTypeDef",
     {
         "configurations": List["DataLakeConfigurationTypeDef"],
     },
 )
+_OptionalUpdateDataLakeRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDataLakeRequestRequestTypeDef",
+    {
+        "metaStoreManagerRoleArn": str,
+    },
+    total=False,
+)
+
+class UpdateDataLakeRequestRequestTypeDef(
+    _RequiredUpdateDataLakeRequestRequestTypeDef, _OptionalUpdateDataLakeRequestRequestTypeDef
+):
+    pass
 
 UpdateDataLakeResponseTypeDef = TypedDict(
     "UpdateDataLakeResponseTypeDef",

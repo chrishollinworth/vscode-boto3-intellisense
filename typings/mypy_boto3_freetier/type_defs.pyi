@@ -11,6 +11,7 @@ Usage::
     data: DimensionValuesTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

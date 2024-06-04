@@ -11,6 +11,7 @@ Usage::
     data: ItemTypeType = "FOLDER"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

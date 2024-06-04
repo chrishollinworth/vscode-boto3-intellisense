@@ -11,6 +11,7 @@ Usage::
     data: AssociationComplianceSeverityType = "CRITICAL"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -57,6 +58,7 @@ __all__ = (
     "DescribeInstancePatchStatesForPatchGroupPaginatorName",
     "DescribeInstancePatchStatesPaginatorName",
     "DescribeInstancePatchesPaginatorName",
+    "DescribeInstancePropertiesPaginatorName",
     "DescribeInventoryDeletionsPaginatorName",
     "DescribeMaintenanceWindowExecutionTaskInvocationsPaginatorName",
     "DescribeMaintenanceWindowExecutionTasksPaginatorName",
@@ -93,6 +95,8 @@ __all__ = (
     "GetResourcePoliciesPaginatorName",
     "InstanceInformationFilterKeyType",
     "InstancePatchStateOperatorTypeType",
+    "InstancePropertyFilterKeyType",
+    "InstancePropertyFilterOperatorType",
     "InventoryAttributeDataTypeType",
     "InventoryDeletionStatusType",
     "InventoryQueryOperatorTypeType",
@@ -252,6 +256,7 @@ DescribeInstancePatchStatesForPatchGroupPaginatorName = Literal[
 ]
 DescribeInstancePatchStatesPaginatorName = Literal["describe_instance_patch_states"]
 DescribeInstancePatchesPaginatorName = Literal["describe_instance_patches"]
+DescribeInstancePropertiesPaginatorName = Literal["describe_instance_properties"]
 DescribeInventoryDeletionsPaginatorName = Literal["describe_inventory_deletions"]
 DescribeMaintenanceWindowExecutionTaskInvocationsPaginatorName = Literal[
     "describe_maintenance_window_execution_task_invocations"
@@ -319,6 +324,20 @@ InstanceInformationFilterKeyType = Literal[
     "ResourceType",
 ]
 InstancePatchStateOperatorTypeType = Literal["Equal", "GreaterThan", "LessThan", "NotEqual"]
+InstancePropertyFilterKeyType = Literal[
+    "ActivationIds",
+    "AgentVersion",
+    "AssociationStatus",
+    "DocumentName",
+    "IamRole",
+    "InstanceIds",
+    "PingStatus",
+    "PlatformTypes",
+    "ResourceType",
+]
+InstancePropertyFilterOperatorType = Literal[
+    "BeginWith", "Equal", "GreaterThan", "LessThan", "NotEqual"
+]
 InventoryAttributeDataTypeType = Literal["number", "string"]
 InventoryDeletionStatusType = Literal["Complete", "InProgress"]
 InventoryQueryOperatorTypeType = Literal[

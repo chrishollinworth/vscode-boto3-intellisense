@@ -11,6 +11,7 @@ Usage::
     data: StartSelectorTypeType = "CONTINUATION_TOKEN"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

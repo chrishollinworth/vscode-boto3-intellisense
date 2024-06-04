@@ -27,6 +27,7 @@ Usage::
     get_recommendation_summaries_paginator: GetRecommendationSummariesPaginator = client.get_paginator("get_recommendation_summaries")
     ```
 """
+
 from .client import ComputeOptimizerClient
 from .paginator import (
     DescribeRecommendationExportJobsPaginator,

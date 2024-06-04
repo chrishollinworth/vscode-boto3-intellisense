@@ -11,6 +11,7 @@ Usage::
     data: ActionsSuppressedByType = "Alarm"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -66,7 +67,7 @@ GetMetricDataPaginatorName = Literal["get_metric_data"]
 HistoryItemTypeType = Literal["Action", "ConfigurationUpdate", "StateUpdate"]
 ListDashboardsPaginatorName = Literal["list_dashboards"]
 ListMetricsPaginatorName = Literal["list_metrics"]
-MetricStreamOutputFormatType = Literal["json", "opentelemetry0.7"]
+MetricStreamOutputFormatType = Literal["json", "opentelemetry0.7", "opentelemetry1.0"]
 RecentlyActiveType = Literal["PT3H"]
 ScanByType = Literal["TimestampAscending", "TimestampDescending"]
 StandardUnitType = Literal[

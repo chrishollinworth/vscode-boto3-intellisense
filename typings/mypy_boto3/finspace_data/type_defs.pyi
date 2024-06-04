@@ -11,6 +11,7 @@ Usage::
     data: AssociateUserToPermissionGroupRequestRequestTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 

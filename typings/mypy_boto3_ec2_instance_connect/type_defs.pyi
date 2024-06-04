@@ -11,6 +11,7 @@ Usage::
     data: ResponseMetadataTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict
 

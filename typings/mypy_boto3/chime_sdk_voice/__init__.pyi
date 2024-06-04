@@ -21,6 +21,7 @@ Usage::
     list_sip_rules_paginator: ListSipRulesPaginator = client.get_paginator("list_sip_rules")
     ```
 """
+
 from .client import ChimeSDKVoiceClient
 from .paginator import ListSipMediaApplicationsPaginator, ListSipRulesPaginator
 

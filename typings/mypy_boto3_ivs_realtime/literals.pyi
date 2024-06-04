@@ -11,6 +11,7 @@ Usage::
     data: CompositionStateType = "ACTIVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -25,7 +26,11 @@ __all__ = (
     "EventNameType",
     "ParticipantStateType",
     "ParticipantTokenCapabilityType",
+    "PipBehaviorType",
+    "PipPositionType",
     "RecordingConfigurationFormatType",
+    "VideoAspectRatioType",
+    "VideoFillModeType",
 )
 
 CompositionStateType = Literal["ACTIVE", "FAILED", "STARTING", "STOPPED", "STOPPING"]
@@ -46,4 +51,8 @@ EventNameType = Literal[
 ]
 ParticipantStateType = Literal["CONNECTED", "DISCONNECTED"]
 ParticipantTokenCapabilityType = Literal["PUBLISH", "SUBSCRIBE"]
+PipBehaviorType = Literal["DYNAMIC", "STATIC"]
+PipPositionType = Literal["BOTTOM_LEFT", "BOTTOM_RIGHT", "TOP_LEFT", "TOP_RIGHT"]
 RecordingConfigurationFormatType = Literal["HLS"]
+VideoAspectRatioType = Literal["AUTO", "PORTRAIT", "SQUARE", "VIDEO"]
+VideoFillModeType = Literal["CONTAIN", "COVER", "FILL"]

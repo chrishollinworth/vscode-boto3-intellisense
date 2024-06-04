@@ -11,6 +11,7 @@ Usage::
     data: AccountRoleStatusType = "CREATING"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -24,6 +25,8 @@ __all__ = (
     "CustomerPolicyStatusType",
     "DependentServiceNameType",
     "DestinationTypeType",
+    "EntryTypeType",
+    "EntryViolationReasonType",
     "FailedItemReasonType",
     "FirewallDeploymentModelType",
     "ListAdminAccountsForOrganizationPaginatorName",
@@ -35,6 +38,7 @@ __all__ = (
     "ListProtocolsListsPaginatorName",
     "ListThirdPartyFirewallFirewallPoliciesPaginatorName",
     "MarketplaceSubscriptionOnboardingStatusType",
+    "NetworkAclRuleActionType",
     "NetworkFirewallOverrideActionType",
     "OrganizationStatusType",
     "PolicyComplianceStatusTypeType",
@@ -42,6 +46,7 @@ __all__ = (
     "ResourceSetStatusType",
     "RuleOrderType",
     "SecurityServiceTypeType",
+    "StreamExceptionPolicyType",
     "TargetTypeType",
     "ThirdPartyFirewallAssociationStatusType",
     "ThirdPartyFirewallType",
@@ -53,6 +58,10 @@ CustomerPolicyScopeIdTypeType = Literal["ACCOUNT", "ORG_UNIT"]
 CustomerPolicyStatusType = Literal["ACTIVE", "OUT_OF_ADMIN_SCOPE"]
 DependentServiceNameType = Literal["AWSCONFIG", "AWSSHIELD_ADVANCED", "AWSVPC", "AWSWAF"]
 DestinationTypeType = Literal["IPV4", "IPV6", "PREFIX_LIST"]
+EntryTypeType = Literal["CUSTOM_ENTRY", "FMS_MANAGED_FIRST_ENTRY", "FMS_MANAGED_LAST_ENTRY"]
+EntryViolationReasonType = Literal[
+    "ENTRY_CONFLICT", "INCORRECT_ENTRY_ORDER", "MISSING_EXPECTED_ENTRY"
+]
 FailedItemReasonType = Literal[
     "NOT_VALID_ACCOUNT_ID",
     "NOT_VALID_ARN",
@@ -73,6 +82,7 @@ ListThirdPartyFirewallFirewallPoliciesPaginatorName = Literal[
     "list_third_party_firewall_firewall_policies"
 ]
 MarketplaceSubscriptionOnboardingStatusType = Literal["COMPLETE", "NOT_COMPLETE", "NO_SUBSCRIPTION"]
+NetworkAclRuleActionType = Literal["allow", "deny"]
 NetworkFirewallOverrideActionType = Literal["DROP_TO_ALERT"]
 OrganizationStatusType = Literal[
     "OFFBOARDING", "OFFBOARDING_COMPLETE", "ONBOARDING", "ONBOARDING_COMPLETE"
@@ -84,6 +94,7 @@ RuleOrderType = Literal["DEFAULT_ACTION_ORDER", "STRICT_ORDER"]
 SecurityServiceTypeType = Literal[
     "DNS_FIREWALL",
     "IMPORT_NETWORK_FIREWALL",
+    "NETWORK_ACL_COMMON",
     "NETWORK_FIREWALL",
     "SECURITY_GROUPS_COMMON",
     "SECURITY_GROUPS_CONTENT_AUDIT",
@@ -93,6 +104,7 @@ SecurityServiceTypeType = Literal[
     "WAF",
     "WAFV2",
 ]
+StreamExceptionPolicyType = Literal["CONTINUE", "DROP", "FMS_IGNORE", "REJECT"]
 TargetTypeType = Literal[
     "CARRIER_GATEWAY",
     "EGRESS_ONLY_INTERNET_GATEWAY",
@@ -118,6 +130,7 @@ ViolationReasonType = Literal[
     "FMS_CREATED_SECURITY_GROUP_EDITED",
     "INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE",
     "INTERNET_TRAFFIC_NOT_INSPECTED",
+    "INVALID_NETWORK_ACL_ENTRY",
     "INVALID_ROUTE_CONFIGURATION",
     "MISSING_EXPECTED_ROUTE_TABLE",
     "MISSING_FIREWALL",

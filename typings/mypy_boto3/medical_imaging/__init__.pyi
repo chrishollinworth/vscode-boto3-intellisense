@@ -25,6 +25,7 @@ Usage::
     search_image_sets_paginator: SearchImageSetsPaginator = client.get_paginator("search_image_sets")
     ```
 """
+
 from .client import HealthImagingClient
 from .paginator import (
     ListDatastoresPaginator,

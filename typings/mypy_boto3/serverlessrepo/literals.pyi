@@ -11,6 +11,7 @@ Usage::
     data: CapabilityType = "CAPABILITY_AUTO_EXPAND"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

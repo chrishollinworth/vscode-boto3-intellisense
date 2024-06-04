@@ -16,6 +16,7 @@ Usage::
     session_client: EKSAuthClient = session.client("eks-auth")
     ```
 """
+
 from .client import EKSAuthClient
 
 Client = EKSAuthClient

@@ -6,11 +6,12 @@ Type annotations for amplify service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_amplify.literals import DomainStatusType
+    from mypy_boto3_amplify.literals import CertificateTypeType
 
-    data: DomainStatusType = "AVAILABLE"
+    data: CertificateTypeType = "AMPLIFY_MANAGED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -19,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "CertificateTypeType",
     "DomainStatusType",
     "JobStatusType",
     "JobTypeType",
@@ -29,12 +31,16 @@ __all__ = (
     "PlatformType",
     "RepositoryCloneMethodType",
     "StageType",
+    "UpdateStatusType",
 )
 
+CertificateTypeType = Literal["AMPLIFY_MANAGED", "CUSTOM"]
 DomainStatusType = Literal[
     "AVAILABLE",
+    "AWAITING_APP_CNAME",
     "CREATING",
     "FAILED",
+    "IMPORTING_CUSTOM_CERTIFICATE",
     "IN_PROGRESS",
     "PENDING_DEPLOYMENT",
     "PENDING_VERIFICATION",
@@ -52,3 +58,12 @@ ListJobsPaginatorName = Literal["list_jobs"]
 PlatformType = Literal["WEB", "WEB_COMPUTE", "WEB_DYNAMIC"]
 RepositoryCloneMethodType = Literal["SIGV4", "SSH", "TOKEN"]
 StageType = Literal["BETA", "DEVELOPMENT", "EXPERIMENTAL", "PRODUCTION", "PULL_REQUEST"]
+UpdateStatusType = Literal[
+    "AWAITING_APP_CNAME",
+    "IMPORTING_CUSTOM_CERTIFICATE",
+    "PENDING_DEPLOYMENT",
+    "PENDING_VERIFICATION",
+    "REQUESTING_CERTIFICATE",
+    "UPDATE_COMPLETE",
+    "UPDATE_FAILED",
+]

@@ -72,6 +72,7 @@ Usage::
     list_time_series_paginator: ListTimeSeriesPaginator = client.get_paginator("list_time_series")
     ```
 """
+
 from .client import IoTSiteWiseClient
 from .paginator import (
     ExecuteQueryPaginator,

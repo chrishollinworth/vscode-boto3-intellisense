@@ -11,6 +11,7 @@ Usage::
     data: APIKeySummaryTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -19,6 +20,7 @@ from botocore.response import StreamingBody
 
 from .literals import (
     ActionValueType,
+    AssociatedResourceTypeType,
     BodyParsingFallbackBehaviorType,
     ComparisonOperatorType,
     CountryCodeType,
@@ -31,6 +33,7 @@ from .literals import (
     IPAddressVersionType,
     JsonMatchScopeType,
     LabelMatchScopeType,
+    LogScopeType,
     MapMatchScopeType,
     OversizeHandlingType,
     PayloadTypeType,
@@ -95,6 +98,7 @@ __all__ = (
     "CustomResponseBodyTypeDef",
     "CustomResponseTypeDef",
     "DefaultActionTypeDef",
+    "DeleteAPIKeyRequestRequestTypeDef",
     "DeleteFirewallManagerRuleGroupsRequestRequestTypeDef",
     "DeleteFirewallManagerRuleGroupsResponseTypeDef",
     "DeleteIPSetRequestRequestTypeDef",
@@ -382,7 +386,7 @@ AssociationConfigTypeDef = TypedDict(
     "AssociationConfigTypeDef",
     {
         "RequestBody": Dict[
-            Literal["CLOUDFRONT"], "RequestBodyAssociatedResourceTypeConfigTypeDef"
+            AssociatedResourceTypeType, "RequestBodyAssociatedResourceTypeConfigTypeDef"
         ],
     },
     total=False,
@@ -716,6 +720,14 @@ DefaultActionTypeDef = TypedDict(
     total=False,
 )
 
+DeleteAPIKeyRequestRequestTypeDef = TypedDict(
+    "DeleteAPIKeyRequestRequestTypeDef",
+    {
+        "Scope": ScopeType,
+        "APIKey": str,
+    },
+)
+
 DeleteFirewallManagerRuleGroupsRequestRequestTypeDef = TypedDict(
     "DeleteFirewallManagerRuleGroupsRequestRequestTypeDef",
     {
@@ -742,12 +754,26 @@ DeleteIPSetRequestRequestTypeDef = TypedDict(
     },
 )
 
-DeleteLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteLoggingConfigurationRequestRequestTypeDef",
+_RequiredDeleteLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteLoggingConfigurationRequestRequestTypeDef",
     {
         "ResourceArn": str,
     },
 )
+_OptionalDeleteLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteLoggingConfigurationRequestRequestTypeDef",
+    {
+        "LogType": Literal["WAF_LOGS"],
+        "LogScope": LogScopeType,
+    },
+    total=False,
+)
+
+class DeleteLoggingConfigurationRequestRequestTypeDef(
+    _RequiredDeleteLoggingConfigurationRequestRequestTypeDef,
+    _OptionalDeleteLoggingConfigurationRequestRequestTypeDef,
+):
+    pass
 
 DeletePermissionPolicyRequestRequestTypeDef = TypedDict(
     "DeletePermissionPolicyRequestRequestTypeDef",
@@ -990,12 +1016,26 @@ GetIPSetResponseTypeDef = TypedDict(
     },
 )
 
-GetLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "GetLoggingConfigurationRequestRequestTypeDef",
+_RequiredGetLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetLoggingConfigurationRequestRequestTypeDef",
     {
         "ResourceArn": str,
     },
 )
+_OptionalGetLoggingConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetLoggingConfigurationRequestRequestTypeDef",
+    {
+        "LogType": Literal["WAF_LOGS"],
+        "LogScope": LogScopeType,
+    },
+    total=False,
+)
+
+class GetLoggingConfigurationRequestRequestTypeDef(
+    _RequiredGetLoggingConfigurationRequestRequestTypeDef,
+    _OptionalGetLoggingConfigurationRequestRequestTypeDef,
+):
+    pass
 
 GetLoggingConfigurationResponseTypeDef = TypedDict(
     "GetLoggingConfigurationResponseTypeDef",
@@ -1493,6 +1533,7 @@ _OptionalListLoggingConfigurationsRequestRequestTypeDef = TypedDict(
     {
         "NextMarker": str,
         "Limit": int,
+        "LogScope": LogScopeType,
     },
     total=False,
 )
@@ -1731,6 +1772,8 @@ _OptionalLoggingConfigurationTypeDef = TypedDict(
         "RedactedFields": List["FieldToMatchTypeDef"],
         "ManagedByFirewallManager": bool,
         "LoggingFilter": "LoggingFilterTypeDef",
+        "LogType": Literal["WAF_LOGS"],
+        "LogScope": LogScopeType,
     },
     total=False,
 )
@@ -2008,6 +2051,7 @@ _RequiredRateBasedStatementTypeDef = TypedDict(
 _OptionalRateBasedStatementTypeDef = TypedDict(
     "_OptionalRateBasedStatementTypeDef",
     {
+        "EvaluationWindowSec": int,
         "ScopeDownStatement": "StatementTypeDef",
         "ForwardedIPConfig": "ForwardedIPConfigTypeDef",
         "CustomKeys": List["RateBasedStatementCustomKeyTypeDef"],

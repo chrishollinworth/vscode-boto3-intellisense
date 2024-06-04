@@ -16,6 +16,7 @@ Usage::
     session_client: IoTEventsDataClient = session.client("iotevents-data")
     ```
 """
+
 from .client import IoTEventsDataClient
 
 Client = IoTEventsDataClient

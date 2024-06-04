@@ -27,6 +27,7 @@ Usage::
     list_attribute_groups_for_application_paginator: ListAttributeGroupsForApplicationPaginator = client.get_paginator("list_attribute_groups_for_application")
     ```
 """
+
 from .client import AppRegistryClient
 from .paginator import (
     ListApplicationsPaginator,

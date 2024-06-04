@@ -11,6 +11,7 @@ Usage::
     data: AccessTypeType = "LAKEFORMATION"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -33,7 +34,14 @@ __all__ = (
 
 AccessTypeType = Literal["LAKEFORMATION", "S3"]
 AwsLogSourceNameType = Literal[
-    "CLOUD_TRAIL_MGMT", "LAMBDA_EXECUTION", "ROUTE53", "S3_DATA", "SH_FINDINGS", "VPC_FLOW"
+    "CLOUD_TRAIL_MGMT",
+    "EKS_AUDIT",
+    "LAMBDA_EXECUTION",
+    "ROUTE53",
+    "S3_DATA",
+    "SH_FINDINGS",
+    "VPC_FLOW",
+    "WAF",
 ]
 DataLakeStatusType = Literal["COMPLETED", "FAILED", "INITIALIZED", "PENDING"]
 GetDataLakeSourcesPaginatorName = Literal["get_data_lake_sources"]

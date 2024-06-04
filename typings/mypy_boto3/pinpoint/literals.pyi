@@ -11,6 +11,7 @@ Usage::
     data: ActionType = "DEEP_LINK"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

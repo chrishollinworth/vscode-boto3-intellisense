@@ -25,6 +25,7 @@ Usage::
     get_tag_values_paginator: GetTagValuesPaginator = client.get_paginator("get_tag_values")
     ```
 """
+
 from .client import ResourceGroupsTaggingAPIClient
 from .paginator import (
     GetComplianceSummaryPaginator,

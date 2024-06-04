@@ -11,6 +11,7 @@ Usage::
     data: AcceleratorAttributesTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
@@ -515,6 +516,7 @@ CrossAccountResourceTypeDef = TypedDict(
     "CrossAccountResourceTypeDef",
     {
         "EndpointId": str,
+        "Cidr": str,
         "AttachmentArn": str,
     },
     total=False,
@@ -1299,22 +1301,15 @@ RemoveEndpointsRequestRequestTypeDef = TypedDict(
     },
 )
 
-_RequiredResourceTypeDef = TypedDict(
-    "_RequiredResourceTypeDef",
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
     {
         "EndpointId": str,
-    },
-)
-_OptionalResourceTypeDef = TypedDict(
-    "_OptionalResourceTypeDef",
-    {
+        "Cidr": str,
         "Region": str,
     },
     total=False,
 )
-
-class ResourceTypeDef(_RequiredResourceTypeDef, _OptionalResourceTypeDef):
-    pass
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",

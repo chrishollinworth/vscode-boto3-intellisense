@@ -16,6 +16,7 @@ Usage::
     session_client: FirehoseClient = session.client("firehose")
     ```
 """
+
 from .client import FirehoseClient
 
 Client = FirehoseClient

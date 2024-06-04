@@ -11,6 +11,7 @@ Usage::
     data: KeyAlgorithmType = "AES_128"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -22,6 +23,7 @@ __all__ = (
     "KeyAlgorithmType",
     "KeyCheckValueAlgorithmType",
     "KeyClassType",
+    "KeyExportabilityType",
     "KeyMaterialTypeType",
     "KeyOriginType",
     "KeyStateType",
@@ -31,6 +33,7 @@ __all__ = (
     "ListTagsForResourcePaginatorName",
     "Tr34KeyBlockFormatType",
     "WrappedKeyMaterialFormatType",
+    "WrappingKeySpecType",
 )
 
 KeyAlgorithmType = Literal[
@@ -38,7 +41,9 @@ KeyAlgorithmType = Literal[
 ]
 KeyCheckValueAlgorithmType = Literal["ANSI_X9_24", "CMAC"]
 KeyClassType = Literal["ASYMMETRIC_KEY_PAIR", "PRIVATE_KEY", "PUBLIC_KEY", "SYMMETRIC_KEY"]
+KeyExportabilityType = Literal["EXPORTABLE", "NON_EXPORTABLE", "SENSITIVE"]
 KeyMaterialTypeType = Literal[
+    "KEY_CRYPTOGRAM",
     "ROOT_PUBLIC_KEY_CERTIFICATE",
     "TR31_KEY_BLOCK",
     "TR34_KEY_BLOCK",
@@ -61,6 +66,7 @@ KeyUsageType = Literal[
     "TR31_K1_KEY_BLOCK_PROTECTION_KEY",
     "TR31_K2_TR34_ASYMMETRIC_KEY",
     "TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT",
+    "TR31_M1_ISO_9797_1_MAC_KEY",
     "TR31_M3_ISO_9797_3_MAC_KEY",
     "TR31_M6_ISO_9797_5_CMAC_KEY",
     "TR31_M7_HMAC_KEY",
@@ -75,3 +81,4 @@ ListKeysPaginatorName = Literal["list_keys"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 Tr34KeyBlockFormatType = Literal["X9_TR34_2012"]
 WrappedKeyMaterialFormatType = Literal["KEY_CRYPTOGRAM", "TR31_KEY_BLOCK", "TR34_KEY_BLOCK"]
+WrappingKeySpecType = Literal["RSA_OAEP_SHA_256", "RSA_OAEP_SHA_512"]

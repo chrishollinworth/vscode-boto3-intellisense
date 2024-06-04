@@ -11,6 +11,7 @@ Usage::
     data: AuthPolicyStateType = "Active"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -60,7 +61,7 @@ ListServiceNetworksPaginatorName = Literal["list_service_networks"]
 ListServicesPaginatorName = Literal["list_services"]
 ListTargetGroupsPaginatorName = Literal["list_target_groups"]
 ListTargetsPaginatorName = Literal["list_targets"]
-ListenerProtocolType = Literal["HTTP", "HTTPS"]
+ListenerProtocolType = Literal["HTTP", "HTTPS", "TLS_PASSTHROUGH"]
 ServiceNetworkServiceAssociationStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATE_IN_PROGRESS", "DELETE_FAILED", "DELETE_IN_PROGRESS"
 ]
@@ -76,7 +77,7 @@ ServiceNetworkVpcAssociationStatusType = Literal[
 ServiceStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATE_IN_PROGRESS", "DELETE_FAILED", "DELETE_IN_PROGRESS"
 ]
-TargetGroupProtocolType = Literal["HTTP", "HTTPS"]
+TargetGroupProtocolType = Literal["HTTP", "HTTPS", "TCP"]
 TargetGroupProtocolVersionType = Literal["GRPC", "HTTP1", "HTTP2"]
 TargetGroupStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATE_IN_PROGRESS", "DELETE_FAILED", "DELETE_IN_PROGRESS"

@@ -11,6 +11,7 @@ Usage::
     data: AccessMethodTypeType = "CA_REPOSITORY"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

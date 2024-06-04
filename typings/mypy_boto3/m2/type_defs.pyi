@@ -11,6 +11,7 @@ Usage::
     data: AlternateKeyTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
@@ -88,6 +89,8 @@ __all__ = (
     "GetSignedBluinsightsUrlResponseTypeDef",
     "HighAvailabilityConfigTypeDef",
     "JobIdentifierTypeDef",
+    "JobStepRestartMarkerTypeDef",
+    "JobStepTypeDef",
     "ListApplicationVersionsRequestRequestTypeDef",
     "ListApplicationVersionsResponseTypeDef",
     "ListApplicationsRequestRequestTypeDef",
@@ -96,6 +99,8 @@ __all__ = (
     "ListBatchJobDefinitionsResponseTypeDef",
     "ListBatchJobExecutionsRequestRequestTypeDef",
     "ListBatchJobExecutionsResponseTypeDef",
+    "ListBatchJobRestartPointsRequestRequestTypeDef",
+    "ListBatchJobRestartPointsResponseTypeDef",
     "ListDataSetImportHistoryRequestRequestTypeDef",
     "ListDataSetImportHistoryResponseTypeDef",
     "ListDataSetsRequestRequestTypeDef",
@@ -119,6 +124,7 @@ __all__ = (
     "PsDetailAttributesTypeDef",
     "RecordLengthTypeDef",
     "ResponseMetadataTypeDef",
+    "RestartBatchJobIdentifierTypeDef",
     "S3BatchJobIdentifierTypeDef",
     "ScriptBatchJobDefinitionTypeDef",
     "ScriptBatchJobIdentifierTypeDef",
@@ -247,6 +253,7 @@ BatchJobIdentifierTypeDef = TypedDict(
     "BatchJobIdentifierTypeDef",
     {
         "fileBatchJobIdentifier": "FileBatchJobIdentifierTypeDef",
+        "restartBatchJobIdentifier": "RestartBatchJobIdentifierTypeDef",
         "s3BatchJobIdentifier": "S3BatchJobIdentifierTypeDef",
         "scriptBatchJobIdentifier": "ScriptBatchJobIdentifierTypeDef",
     },
@@ -755,6 +762,7 @@ GetBatchJobExecutionResponseTypeDef = TypedDict(
         "executionId": str,
         "jobId": str,
         "jobName": str,
+        "jobStepRestartMarker": "JobStepRestartMarkerTypeDef",
         "jobType": BatchJobTypeType,
         "jobUser": str,
         "returnCode": str,
@@ -889,6 +897,40 @@ JobIdentifierTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredJobStepRestartMarkerTypeDef = TypedDict(
+    "_RequiredJobStepRestartMarkerTypeDef",
+    {
+        "fromStep": str,
+    },
+)
+_OptionalJobStepRestartMarkerTypeDef = TypedDict(
+    "_OptionalJobStepRestartMarkerTypeDef",
+    {
+        "fromProcStep": str,
+        "toProcStep": str,
+        "toStep": str,
+    },
+    total=False,
+)
+
+class JobStepRestartMarkerTypeDef(
+    _RequiredJobStepRestartMarkerTypeDef, _OptionalJobStepRestartMarkerTypeDef
+):
+    pass
+
+JobStepTypeDef = TypedDict(
+    "JobStepTypeDef",
+    {
+        "procStepName": str,
+        "procStepNumber": int,
+        "stepCondCode": str,
+        "stepName": str,
+        "stepNumber": int,
+        "stepRestartable": bool,
+    },
+    total=False,
+)
+
 _RequiredListApplicationVersionsRequestRequestTypeDef = TypedDict(
     "_RequiredListApplicationVersionsRequestRequestTypeDef",
     {
@@ -1001,6 +1043,22 @@ ListBatchJobExecutionsResponseTypeDef = TypedDict(
     {
         "batchJobExecutions": List["BatchJobExecutionSummaryTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListBatchJobRestartPointsRequestRequestTypeDef = TypedDict(
+    "ListBatchJobRestartPointsRequestRequestTypeDef",
+    {
+        "applicationId": str,
+        "executionId": str,
+    },
+)
+
+ListBatchJobRestartPointsResponseTypeDef = TypedDict(
+    "ListBatchJobRestartPointsResponseTypeDef",
+    {
+        "batchJobSteps": List["JobStepTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1270,6 +1328,14 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+RestartBatchJobIdentifierTypeDef = TypedDict(
+    "RestartBatchJobIdentifierTypeDef",
+    {
+        "executionId": str,
+        "jobStepRestartMarker": "JobStepRestartMarkerTypeDef",
     },
 )
 

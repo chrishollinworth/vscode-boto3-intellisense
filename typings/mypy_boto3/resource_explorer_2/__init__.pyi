@@ -27,6 +27,7 @@ Usage::
     search_paginator: SearchPaginator = client.get_paginator("search")
     ```
 """
+
 from .client import ResourceExplorerClient
 from .paginator import (
     ListIndexesForMembersPaginator,

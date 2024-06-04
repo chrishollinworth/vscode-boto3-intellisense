@@ -37,6 +37,7 @@ Usage::
     search_things_paginator: SearchThingsPaginator = client.get_paginator("search_things")
     ```
 """
+
 from .client import IoTThingsGraphClient
 from .paginator import (
     GetFlowTemplateRevisionsPaginator,

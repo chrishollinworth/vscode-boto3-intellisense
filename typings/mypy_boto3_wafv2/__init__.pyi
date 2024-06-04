@@ -16,6 +16,7 @@ Usage::
     session_client: WAFV2Client = session.client("wafv2")
     ```
 """
+
 from .client import WAFV2Client
 
 Client = WAFV2Client

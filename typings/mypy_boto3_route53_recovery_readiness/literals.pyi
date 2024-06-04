@@ -11,6 +11,7 @@ Usage::
     data: GetCellReadinessSummaryPaginatorName = "get_cell_readiness_summary"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

@@ -29,6 +29,7 @@ Usage::
     list_resources_paginator: ListResourcesPaginator = client.get_paginator("list_resources")
     ```
 """
+
 from .client import RAMClient
 from .paginator import (
     GetResourcePoliciesPaginator,

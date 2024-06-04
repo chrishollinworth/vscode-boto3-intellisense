@@ -11,6 +11,7 @@ Usage::
     data: ActionStatusType = "Completed"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -64,6 +65,10 @@ __all__ = (
     "ClarifyFeatureTypeType",
     "ClarifyTextGranularityType",
     "ClarifyTextLanguageType",
+    "ClusterInstanceStatusType",
+    "ClusterInstanceTypeType",
+    "ClusterSortByType",
+    "ClusterStatusType",
     "CodeRepositorySortByType",
     "CodeRepositorySortOrderType",
     "CollectionTypeType",
@@ -86,6 +91,7 @@ __all__ = (
     "EdgePackagingJobStatusType",
     "EdgePresetDeploymentStatusType",
     "EdgePresetDeploymentTypeType",
+    "EnabledOrDisabledType",
     "EndpointConfigSortKeyType",
     "EndpointDeletedWaiterName",
     "EndpointInServiceWaiterName",
@@ -129,6 +135,8 @@ __all__ = (
     "ImageVersionSortByType",
     "ImageVersionSortOrderType",
     "ImageVersionStatusType",
+    "InferenceComponentSortKeyType",
+    "InferenceComponentStatusType",
     "InferenceExecutionModeType",
     "InferenceExperimentStatusType",
     "InferenceExperimentStopDesiredStateType",
@@ -149,6 +157,8 @@ __all__ = (
     "ListAssociationsPaginatorName",
     "ListAutoMLJobsPaginatorName",
     "ListCandidatesForAutoMLJobPaginatorName",
+    "ListClusterNodesPaginatorName",
+    "ListClustersPaginatorName",
     "ListCodeRepositoriesPaginatorName",
     "ListCompilationJobsPaginatorName",
     "ListCompilationJobsSortByType",
@@ -171,6 +181,7 @@ __all__ = (
     "ListHyperParameterTuningJobsPaginatorName",
     "ListImageVersionsPaginatorName",
     "ListImagesPaginatorName",
+    "ListInferenceComponentsPaginatorName",
     "ListInferenceExperimentsPaginatorName",
     "ListInferenceRecommendationsJobStepsPaginatorName",
     "ListInferenceRecommendationsJobsPaginatorName",
@@ -216,6 +227,7 @@ __all__ = (
     "ListWorkforcesSortByOptionsType",
     "ListWorkteamsPaginatorName",
     "ListWorkteamsSortByOptionsType",
+    "ManagedInstanceScalingStatusType",
     "MetricSetSourceType",
     "ModelApprovalStatusType",
     "ModelCacheSettingType",
@@ -295,6 +307,7 @@ __all__ = (
     "ResourceTypeType",
     "RetentionTypeType",
     "RootAccessType",
+    "RoutingStrategyType",
     "RuleEvaluationStatusType",
     "S3DataDistributionType",
     "S3DataTypeType",
@@ -304,6 +317,7 @@ __all__ = (
     "SearchPaginatorName",
     "SearchSortOrderType",
     "SecondaryStatusType",
+    "SharingTypeType",
     "SkipModelValidationType",
     "SortActionsByType",
     "SortArtifactsByType",
@@ -327,11 +341,13 @@ __all__ = (
     "StorageTypeType",
     "StudioLifecycleConfigAppTypeType",
     "StudioLifecycleConfigSortKeyType",
+    "StudioWebPortalType",
     "TableFormatType",
     "TargetDeviceType",
     "TargetPlatformAcceleratorType",
     "TargetPlatformArchType",
     "TargetPlatformOsType",
+    "ThroughputModeType",
     "TrafficRoutingConfigTypeType",
     "TrafficTypeType",
     "TrainingInputModeType",
@@ -356,7 +372,7 @@ __all__ = (
 )
 
 ActionStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping", "Unknown"]
-AdditionalS3DataSourceDataTypeType = Literal["S3Object"]
+AdditionalS3DataSourceDataTypeType = Literal["S3Object", "S3Prefix"]
 AggregationTransformationValueType = Literal["avg", "first", "max", "min", "sum"]
 AlgorithmSortByType = Literal["CreationTime", "Name"]
 AlgorithmStatusType = Literal["Completed", "Deleting", "Failed", "InProgress", "Pending"]
@@ -370,6 +386,33 @@ AppInstanceTypeType = Literal[
     "ml.c5.9xlarge",
     "ml.c5.large",
     "ml.c5.xlarge",
+    "ml.c6i.12xlarge",
+    "ml.c6i.16xlarge",
+    "ml.c6i.24xlarge",
+    "ml.c6i.2xlarge",
+    "ml.c6i.32xlarge",
+    "ml.c6i.4xlarge",
+    "ml.c6i.8xlarge",
+    "ml.c6i.large",
+    "ml.c6i.xlarge",
+    "ml.c6id.12xlarge",
+    "ml.c6id.16xlarge",
+    "ml.c6id.24xlarge",
+    "ml.c6id.2xlarge",
+    "ml.c6id.32xlarge",
+    "ml.c6id.4xlarge",
+    "ml.c6id.8xlarge",
+    "ml.c6id.large",
+    "ml.c6id.xlarge",
+    "ml.c7i.12xlarge",
+    "ml.c7i.16xlarge",
+    "ml.c7i.24xlarge",
+    "ml.c7i.2xlarge",
+    "ml.c7i.48xlarge",
+    "ml.c7i.4xlarge",
+    "ml.c7i.8xlarge",
+    "ml.c7i.large",
+    "ml.c7i.xlarge",
     "ml.g4dn.12xlarge",
     "ml.g4dn.16xlarge",
     "ml.g4dn.2xlarge",
@@ -384,6 +427,14 @@ AppInstanceTypeType = Literal[
     "ml.g5.4xlarge",
     "ml.g5.8xlarge",
     "ml.g5.xlarge",
+    "ml.g6.12xlarge",
+    "ml.g6.16xlarge",
+    "ml.g6.24xlarge",
+    "ml.g6.2xlarge",
+    "ml.g6.48xlarge",
+    "ml.g6.4xlarge",
+    "ml.g6.8xlarge",
+    "ml.g6.xlarge",
     "ml.geospatial.interactive",
     "ml.m5.12xlarge",
     "ml.m5.16xlarge",
@@ -401,12 +452,40 @@ AppInstanceTypeType = Literal[
     "ml.m5d.8xlarge",
     "ml.m5d.large",
     "ml.m5d.xlarge",
+    "ml.m6i.12xlarge",
+    "ml.m6i.16xlarge",
+    "ml.m6i.24xlarge",
+    "ml.m6i.2xlarge",
+    "ml.m6i.32xlarge",
+    "ml.m6i.4xlarge",
+    "ml.m6i.8xlarge",
+    "ml.m6i.large",
+    "ml.m6i.xlarge",
+    "ml.m6id.12xlarge",
+    "ml.m6id.16xlarge",
+    "ml.m6id.24xlarge",
+    "ml.m6id.2xlarge",
+    "ml.m6id.32xlarge",
+    "ml.m6id.4xlarge",
+    "ml.m6id.8xlarge",
+    "ml.m6id.large",
+    "ml.m6id.xlarge",
+    "ml.m7i.12xlarge",
+    "ml.m7i.16xlarge",
+    "ml.m7i.24xlarge",
+    "ml.m7i.2xlarge",
+    "ml.m7i.48xlarge",
+    "ml.m7i.4xlarge",
+    "ml.m7i.8xlarge",
+    "ml.m7i.large",
+    "ml.m7i.xlarge",
     "ml.p3.16xlarge",
     "ml.p3.2xlarge",
     "ml.p3.8xlarge",
     "ml.p3dn.24xlarge",
     "ml.p4d.24xlarge",
     "ml.p4de.24xlarge",
+    "ml.p5.48xlarge",
     "ml.r5.12xlarge",
     "ml.r5.16xlarge",
     "ml.r5.24xlarge",
@@ -415,6 +494,33 @@ AppInstanceTypeType = Literal[
     "ml.r5.8xlarge",
     "ml.r5.large",
     "ml.r5.xlarge",
+    "ml.r6i.12xlarge",
+    "ml.r6i.16xlarge",
+    "ml.r6i.24xlarge",
+    "ml.r6i.2xlarge",
+    "ml.r6i.32xlarge",
+    "ml.r6i.4xlarge",
+    "ml.r6i.8xlarge",
+    "ml.r6i.large",
+    "ml.r6i.xlarge",
+    "ml.r6id.12xlarge",
+    "ml.r6id.16xlarge",
+    "ml.r6id.24xlarge",
+    "ml.r6id.2xlarge",
+    "ml.r6id.32xlarge",
+    "ml.r6id.4xlarge",
+    "ml.r6id.8xlarge",
+    "ml.r6id.large",
+    "ml.r6id.xlarge",
+    "ml.r7i.12xlarge",
+    "ml.r7i.16xlarge",
+    "ml.r7i.24xlarge",
+    "ml.r7i.2xlarge",
+    "ml.r7i.48xlarge",
+    "ml.r7i.4xlarge",
+    "ml.r7i.8xlarge",
+    "ml.r7i.large",
+    "ml.r7i.xlarge",
     "ml.t3.2xlarge",
     "ml.t3.large",
     "ml.t3.medium",
@@ -431,23 +537,39 @@ AppSecurityGroupManagementType = Literal["Customer", "Service"]
 AppSortKeyType = Literal["CreationTime"]
 AppStatusType = Literal["Deleted", "Deleting", "Failed", "InService", "Pending"]
 AppTypeType = Literal[
-    "JupyterServer", "KernelGateway", "RSessionGateway", "RStudioServerPro", "TensorBoard"
+    "Canvas",
+    "CodeEditor",
+    "DetailedProfiler",
+    "JupyterLab",
+    "JupyterServer",
+    "KernelGateway",
+    "RSessionGateway",
+    "RStudioServerPro",
+    "TensorBoard",
 ]
 ArtifactSourceIdTypeType = Literal["Custom", "MD5Hash", "S3ETag", "S3Version"]
 AssemblyTypeType = Literal["Line", "None"]
-AssociationEdgeTypeType = Literal["AssociatedWith", "ContributedTo", "DerivedFrom", "Produced"]
+AssociationEdgeTypeType = Literal[
+    "AssociatedWith", "ContributedTo", "DerivedFrom", "Produced", "SameAs"
+]
 AsyncNotificationTopicTypesType = Literal["ERROR_NOTIFICATION_TOPIC", "SUCCESS_NOTIFICATION_TOPIC"]
 AthenaResultCompressionTypeType = Literal["GZIP", "SNAPPY", "ZLIB"]
 AthenaResultFormatType = Literal["AVRO", "JSON", "ORC", "PARQUET", "TEXTFILE"]
 AuthModeType = Literal["IAM", "SSO"]
 AutoMLAlgorithmType = Literal[
+    "arima",
     "catboost",
+    "cnn-qr",
+    "deepar",
+    "ets",
     "extra-trees",
     "fastai",
     "lightgbm",
     "linear-learner",
     "mlp",
     "nn-torch",
+    "npts",
+    "prophet",
     "randomforest",
     "xgboost",
 ]
@@ -546,7 +668,7 @@ CandidateStepTypeType = Literal[
     "AWS::SageMaker::ProcessingJob", "AWS::SageMaker::TrainingJob", "AWS::SageMaker::TransformJob"
 ]
 CapacitySizeTypeType = Literal["CAPACITY_PERCENT", "INSTANCE_COUNT"]
-CaptureModeType = Literal["Input", "Output"]
+CaptureModeType = Literal["Input", "InputAndOutput", "Output"]
 CaptureStatusType = Literal["Started", "Stopped"]
 ClarifyFeatureTypeType = Literal["categorical", "numerical", "text"]
 ClarifyTextGranularityType = Literal["paragraph", "sentence", "token"]
@@ -612,6 +734,53 @@ ClarifyTextLanguageType = Literal[
     "yo",
     "zh",
 ]
+ClusterInstanceStatusType = Literal[
+    "Failure", "Pending", "Running", "ShuttingDown", "SystemUpdating"
+]
+ClusterInstanceTypeType = Literal[
+    "ml.c5.12xlarge",
+    "ml.c5.18xlarge",
+    "ml.c5.24xlarge",
+    "ml.c5.2xlarge",
+    "ml.c5.4xlarge",
+    "ml.c5.9xlarge",
+    "ml.c5.large",
+    "ml.c5.xlarge",
+    "ml.c5n.18xlarge",
+    "ml.c5n.2xlarge",
+    "ml.c5n.4xlarge",
+    "ml.c5n.9xlarge",
+    "ml.c5n.large",
+    "ml.g5.12xlarge",
+    "ml.g5.16xlarge",
+    "ml.g5.24xlarge",
+    "ml.g5.2xlarge",
+    "ml.g5.48xlarge",
+    "ml.g5.4xlarge",
+    "ml.g5.8xlarge",
+    "ml.g5.xlarge",
+    "ml.m5.12xlarge",
+    "ml.m5.16xlarge",
+    "ml.m5.24xlarge",
+    "ml.m5.2xlarge",
+    "ml.m5.4xlarge",
+    "ml.m5.8xlarge",
+    "ml.m5.large",
+    "ml.m5.xlarge",
+    "ml.p4d.24xlarge",
+    "ml.p4de.24xlarge",
+    "ml.p5.48xlarge",
+    "ml.t3.2xlarge",
+    "ml.t3.large",
+    "ml.t3.medium",
+    "ml.t3.xlarge",
+    "ml.trn1.32xlarge",
+    "ml.trn1n.32xlarge",
+]
+ClusterSortByType = Literal["CREATION_TIME", "NAME"]
+ClusterStatusType = Literal[
+    "Creating", "Deleting", "Failed", "InService", "RollingBack", "SystemUpdating", "Updating"
+]
 CodeRepositorySortByType = Literal["CreationTime", "LastModifiedTime", "Name"]
 CodeRepositorySortOrderType = Literal["Ascending", "Descending"]
 CollectionTypeType = Literal["List", "Set", "Vector"]
@@ -642,6 +811,7 @@ EdgePackagingJobStatusType = Literal[
 ]
 EdgePresetDeploymentStatusType = Literal["COMPLETED", "FAILED"]
 EdgePresetDeploymentTypeType = Literal["GreengrassV2Component"]
+EnabledOrDisabledType = Literal["Disabled", "Enabled"]
 EndpointConfigSortKeyType = Literal["CreationTime", "Name"]
 EndpointDeletedWaiterName = Literal["endpoint_deleted"]
 EndpointInServiceWaiterName = Literal["endpoint_in_service"]
@@ -697,7 +867,7 @@ HyperParameterTuningAllocationStrategyType = Literal["Prioritized"]
 HyperParameterTuningJobObjectiveTypeType = Literal["Maximize", "Minimize"]
 HyperParameterTuningJobSortByOptionsType = Literal["CreationTime", "Name", "Status"]
 HyperParameterTuningJobStatusType = Literal[
-    "Completed", "Failed", "InProgress", "Stopped", "Stopping"
+    "Completed", "DeleteFailed", "Deleting", "Failed", "InProgress", "Stopped", "Stopping"
 ]
 HyperParameterTuningJobStrategyTypeType = Literal["Bayesian", "Grid", "Hyperband", "Random"]
 HyperParameterTuningJobWarmStartTypeType = Literal["IdenticalDataAndAlgorithm", "TransferLearning"]
@@ -716,6 +886,8 @@ ImageVersionSortOrderType = Literal["ASCENDING", "DESCENDING"]
 ImageVersionStatusType = Literal[
     "CREATED", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"
 ]
+InferenceComponentSortKeyType = Literal["CreationTime", "Name", "Status"]
+InferenceComponentStatusType = Literal["Creating", "Deleting", "Failed", "InService", "Updating"]
 InferenceExecutionModeType = Literal["Direct", "Serial"]
 InferenceExperimentStatusType = Literal[
     "Cancelled", "Completed", "Created", "Creating", "Running", "Starting", "Stopping", "Updating"
@@ -738,6 +910,33 @@ InstanceTypeType = Literal[
     "ml.c5d.4xlarge",
     "ml.c5d.9xlarge",
     "ml.c5d.xlarge",
+    "ml.c6i.12xlarge",
+    "ml.c6i.16xlarge",
+    "ml.c6i.24xlarge",
+    "ml.c6i.2xlarge",
+    "ml.c6i.32xlarge",
+    "ml.c6i.4xlarge",
+    "ml.c6i.8xlarge",
+    "ml.c6i.large",
+    "ml.c6i.xlarge",
+    "ml.c6id.12xlarge",
+    "ml.c6id.16xlarge",
+    "ml.c6id.24xlarge",
+    "ml.c6id.2xlarge",
+    "ml.c6id.32xlarge",
+    "ml.c6id.4xlarge",
+    "ml.c6id.8xlarge",
+    "ml.c6id.large",
+    "ml.c6id.xlarge",
+    "ml.c7i.12xlarge",
+    "ml.c7i.16xlarge",
+    "ml.c7i.24xlarge",
+    "ml.c7i.2xlarge",
+    "ml.c7i.48xlarge",
+    "ml.c7i.4xlarge",
+    "ml.c7i.8xlarge",
+    "ml.c7i.large",
+    "ml.c7i.xlarge",
     "ml.g4dn.12xlarge",
     "ml.g4dn.16xlarge",
     "ml.g4dn.2xlarge",
@@ -752,6 +951,14 @@ InstanceTypeType = Literal[
     "ml.g5.4xlarge",
     "ml.g5.8xlarge",
     "ml.g5.xlarge",
+    "ml.g6.12xlarge",
+    "ml.g6.16xlarge",
+    "ml.g6.24xlarge",
+    "ml.g6.2xlarge",
+    "ml.g6.48xlarge",
+    "ml.g6.4xlarge",
+    "ml.g6.8xlarge",
+    "ml.g6.xlarge",
     "ml.inf1.24xlarge",
     "ml.inf1.2xlarge",
     "ml.inf1.6xlarge",
@@ -774,6 +981,33 @@ InstanceTypeType = Literal[
     "ml.m5d.8xlarge",
     "ml.m5d.large",
     "ml.m5d.xlarge",
+    "ml.m6i.12xlarge",
+    "ml.m6i.16xlarge",
+    "ml.m6i.24xlarge",
+    "ml.m6i.2xlarge",
+    "ml.m6i.32xlarge",
+    "ml.m6i.4xlarge",
+    "ml.m6i.8xlarge",
+    "ml.m6i.large",
+    "ml.m6i.xlarge",
+    "ml.m6id.12xlarge",
+    "ml.m6id.16xlarge",
+    "ml.m6id.24xlarge",
+    "ml.m6id.2xlarge",
+    "ml.m6id.32xlarge",
+    "ml.m6id.4xlarge",
+    "ml.m6id.8xlarge",
+    "ml.m6id.large",
+    "ml.m6id.xlarge",
+    "ml.m7i.12xlarge",
+    "ml.m7i.16xlarge",
+    "ml.m7i.24xlarge",
+    "ml.m7i.2xlarge",
+    "ml.m7i.48xlarge",
+    "ml.m7i.4xlarge",
+    "ml.m7i.8xlarge",
+    "ml.m7i.large",
+    "ml.m7i.xlarge",
     "ml.p2.16xlarge",
     "ml.p2.8xlarge",
     "ml.p2.xlarge",
@@ -783,6 +1017,7 @@ InstanceTypeType = Literal[
     "ml.p3dn.24xlarge",
     "ml.p4d.24xlarge",
     "ml.p4de.24xlarge",
+    "ml.p5.48xlarge",
     "ml.r5.12xlarge",
     "ml.r5.16xlarge",
     "ml.r5.24xlarge",
@@ -791,6 +1026,33 @@ InstanceTypeType = Literal[
     "ml.r5.8xlarge",
     "ml.r5.large",
     "ml.r5.xlarge",
+    "ml.r6i.12xlarge",
+    "ml.r6i.16xlarge",
+    "ml.r6i.24xlarge",
+    "ml.r6i.2xlarge",
+    "ml.r6i.32xlarge",
+    "ml.r6i.4xlarge",
+    "ml.r6i.8xlarge",
+    "ml.r6i.large",
+    "ml.r6i.xlarge",
+    "ml.r6id.12xlarge",
+    "ml.r6id.16xlarge",
+    "ml.r6id.24xlarge",
+    "ml.r6id.2xlarge",
+    "ml.r6id.32xlarge",
+    "ml.r6id.4xlarge",
+    "ml.r6id.8xlarge",
+    "ml.r6id.large",
+    "ml.r6id.xlarge",
+    "ml.r7i.12xlarge",
+    "ml.r7i.16xlarge",
+    "ml.r7i.24xlarge",
+    "ml.r7i.2xlarge",
+    "ml.r7i.48xlarge",
+    "ml.r7i.4xlarge",
+    "ml.r7i.8xlarge",
+    "ml.r7i.large",
+    "ml.r7i.xlarge",
     "ml.t2.2xlarge",
     "ml.t2.large",
     "ml.t2.medium",
@@ -816,6 +1078,8 @@ ListArtifactsPaginatorName = Literal["list_artifacts"]
 ListAssociationsPaginatorName = Literal["list_associations"]
 ListAutoMLJobsPaginatorName = Literal["list_auto_ml_jobs"]
 ListCandidatesForAutoMLJobPaginatorName = Literal["list_candidates_for_auto_ml_job"]
+ListClusterNodesPaginatorName = Literal["list_cluster_nodes"]
+ListClustersPaginatorName = Literal["list_clusters"]
 ListCodeRepositoriesPaginatorName = Literal["list_code_repositories"]
 ListCompilationJobsPaginatorName = Literal["list_compilation_jobs"]
 ListCompilationJobsSortByType = Literal["CreationTime", "Name", "Status"]
@@ -842,6 +1106,7 @@ ListHumanTaskUisPaginatorName = Literal["list_human_task_uis"]
 ListHyperParameterTuningJobsPaginatorName = Literal["list_hyper_parameter_tuning_jobs"]
 ListImageVersionsPaginatorName = Literal["list_image_versions"]
 ListImagesPaginatorName = Literal["list_images"]
+ListInferenceComponentsPaginatorName = Literal["list_inference_components"]
 ListInferenceExperimentsPaginatorName = Literal["list_inference_experiments"]
 ListInferenceRecommendationsJobStepsPaginatorName = Literal[
     "list_inference_recommendations_job_steps"
@@ -895,6 +1160,7 @@ ListWorkforcesPaginatorName = Literal["list_workforces"]
 ListWorkforcesSortByOptionsType = Literal["CreateDate", "Name"]
 ListWorkteamsPaginatorName = Literal["list_workteams"]
 ListWorkteamsSortByOptionsType = Literal["CreateDate", "Name"]
+ManagedInstanceScalingStatusType = Literal["DISABLED", "ENABLED"]
 MetricSetSourceType = Literal["Test", "Train", "Validation"]
 ModelApprovalStatusType = Literal["Approved", "PendingManualApproval", "Rejected"]
 ModelCacheSettingType = Literal["Disabled", "Enabled"]
@@ -972,7 +1238,7 @@ OrderKeyType = Literal["Ascending", "Descending"]
 OutputCompressionTypeType = Literal["GZIP", "NONE"]
 ParameterTypeType = Literal["Categorical", "Continuous", "FreeText", "Integer"]
 PipelineExecutionStatusType = Literal["Executing", "Failed", "Stopped", "Stopping", "Succeeded"]
-PipelineStatusType = Literal["Active"]
+PipelineStatusType = Literal["Active", "Deleting"]
 ProblemTypeType = Literal["BinaryClassification", "MulticlassClassification", "Regression"]
 ProcessingInstanceTypeType = Literal[
     "ml.c4.2xlarge",
@@ -1091,6 +1357,16 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.c7g.8xlarge",
     "ml.c7g.large",
     "ml.c7g.xlarge",
+    "ml.c7i.12xlarge",
+    "ml.c7i.16xlarge",
+    "ml.c7i.24xlarge",
+    "ml.c7i.2xlarge",
+    "ml.c7i.48xlarge",
+    "ml.c7i.4xlarge",
+    "ml.c7i.8xlarge",
+    "ml.c7i.large",
+    "ml.c7i.xlarge",
+    "ml.dl1.24xlarge",
     "ml.g4dn.12xlarge",
     "ml.g4dn.16xlarge",
     "ml.g4dn.2xlarge",
@@ -1105,6 +1381,14 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.g5.4xlarge",
     "ml.g5.8xlarge",
     "ml.g5.xlarge",
+    "ml.g6.12xlarge",
+    "ml.g6.16xlarge",
+    "ml.g6.24xlarge",
+    "ml.g6.2xlarge",
+    "ml.g6.48xlarge",
+    "ml.g6.4xlarge",
+    "ml.g6.8xlarge",
+    "ml.g6.xlarge",
     "ml.inf1.24xlarge",
     "ml.inf1.2xlarge",
     "ml.inf1.6xlarge",
@@ -1144,6 +1428,15 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.m6gd.8xlarge",
     "ml.m6gd.large",
     "ml.m6gd.xlarge",
+    "ml.m7i.12xlarge",
+    "ml.m7i.16xlarge",
+    "ml.m7i.24xlarge",
+    "ml.m7i.2xlarge",
+    "ml.m7i.48xlarge",
+    "ml.m7i.4xlarge",
+    "ml.m7i.8xlarge",
+    "ml.m7i.large",
+    "ml.m7i.xlarge",
     "ml.p2.16xlarge",
     "ml.p2.8xlarge",
     "ml.p2.xlarge",
@@ -1179,12 +1472,22 @@ ProductionVariantInstanceTypeType = Literal[
     "ml.r6gd.8xlarge",
     "ml.r6gd.large",
     "ml.r6gd.xlarge",
+    "ml.r7i.12xlarge",
+    "ml.r7i.16xlarge",
+    "ml.r7i.24xlarge",
+    "ml.r7i.2xlarge",
+    "ml.r7i.48xlarge",
+    "ml.r7i.4xlarge",
+    "ml.r7i.8xlarge",
+    "ml.r7i.large",
+    "ml.r7i.xlarge",
     "ml.t2.2xlarge",
     "ml.t2.large",
     "ml.t2.medium",
     "ml.t2.xlarge",
     "ml.trn1.2xlarge",
     "ml.trn1.32xlarge",
+    "ml.trn1n.32xlarge",
 ]
 ProfilingStatusType = Literal["Disabled", "Enabled"]
 ProjectSortByType = Literal["CreationTime", "Name"]
@@ -1204,7 +1507,7 @@ ProjectStatusType = Literal[
 RStudioServerProAccessStatusType = Literal["DISABLED", "ENABLED"]
 RStudioServerProUserGroupType = Literal["R_STUDIO_ADMIN", "R_STUDIO_USER"]
 RecommendationJobStatusType = Literal[
-    "COMPLETED", "FAILED", "IN_PROGRESS", "PENDING", "STOPPED", "STOPPING"
+    "COMPLETED", "DELETED", "DELETING", "FAILED", "IN_PROGRESS", "PENDING", "STOPPED", "STOPPING"
 ]
 RecommendationJobSupportedEndpointTypeType = Literal["RealTime", "Serverless"]
 RecommendationJobTypeType = Literal["Advanced", "Default"]
@@ -1224,6 +1527,8 @@ ResourceTypeType = Literal[
     "FeatureGroup",
     "FeatureMetadata",
     "HyperParameterTuningJob",
+    "Image",
+    "ImageVersion",
     "Model",
     "ModelCard",
     "ModelPackage",
@@ -1235,6 +1540,7 @@ ResourceTypeType = Literal[
 ]
 RetentionTypeType = Literal["Delete", "Retain"]
 RootAccessType = Literal["Disabled", "Enabled"]
+RoutingStrategyType = Literal["LEAST_OUTSTANDING_REQUESTS", "RANDOM"]
 RuleEvaluationStatusType = Literal[
     "Error", "InProgress", "IssuesFound", "NoIssuesFound", "Stopped", "Stopping"
 ]
@@ -1254,6 +1560,7 @@ SecondaryStatusType = Literal[
     "LaunchingMLInstances",
     "MaxRuntimeExceeded",
     "MaxWaitTimeExceeded",
+    "Pending",
     "PreparingTrainingStack",
     "Restarting",
     "Starting",
@@ -1263,6 +1570,7 @@ SecondaryStatusType = Literal[
     "Updating",
     "Uploading",
 ]
+SharingTypeType = Literal["Private", "Shared"]
 SkipModelValidationType = Literal["All", "None"]
 SortActionsByType = Literal["CreationTime", "Name"]
 SortArtifactsByType = Literal["CreationTime"]
@@ -1297,9 +1605,12 @@ StageStatusType = Literal[
 StatisticType = Literal["Average", "Maximum", "Minimum", "SampleCount", "Sum"]
 StepStatusType = Literal["Executing", "Failed", "Starting", "Stopped", "Stopping", "Succeeded"]
 StorageTypeType = Literal["InMemory", "Standard"]
-StudioLifecycleConfigAppTypeType = Literal["JupyterServer", "KernelGateway"]
+StudioLifecycleConfigAppTypeType = Literal[
+    "CodeEditor", "JupyterLab", "JupyterServer", "KernelGateway"
+]
 StudioLifecycleConfigSortKeyType = Literal["CreationTime", "LastModifiedTime", "Name"]
-TableFormatType = Literal["Glue", "Iceberg"]
+StudioWebPortalType = Literal["DISABLED", "ENABLED"]
+TableFormatType = Literal["Default", "Glue", "Iceberg"]
 TargetDeviceType = Literal[
     "aisage",
     "amba_cv2",
@@ -1317,18 +1628,21 @@ TargetDeviceType = Literal[
     "lambda",
     "ml_c4",
     "ml_c5",
+    "ml_c6g",
     "ml_eia2",
     "ml_g4dn",
     "ml_inf1",
     "ml_inf2",
     "ml_m4",
     "ml_m5",
+    "ml_m6g",
     "ml_p2",
     "ml_p3",
     "ml_trn1",
     "qcs603",
     "qcs605",
     "rasp3b",
+    "rasp4b",
     "rk3288",
     "rk3399",
     "sbe_c",
@@ -1339,6 +1653,7 @@ TargetDeviceType = Literal[
 TargetPlatformAcceleratorType = Literal["INTEL_GRAPHICS", "MALI", "NNA", "NVIDIA"]
 TargetPlatformArchType = Literal["ARM64", "ARM_EABI", "ARM_EABIHF", "X86", "X86_64"]
 TargetPlatformOsType = Literal["ANDROID", "LINUX"]
+ThroughputModeType = Literal["OnDemand", "Provisioned"]
 TrafficRoutingConfigTypeType = Literal["ALL_AT_ONCE", "CANARY", "LINEAR"]
 TrafficTypeType = Literal["PHASES", "STAIRS"]
 TrainingInputModeType = Literal["FastFile", "File", "Pipe"]
@@ -1357,6 +1672,14 @@ TrainingInstanceTypeType = Literal[
     "ml.c5n.4xlarge",
     "ml.c5n.9xlarge",
     "ml.c5n.xlarge",
+    "ml.c6i.12xlarge",
+    "ml.c6i.16xlarge",
+    "ml.c6i.24xlarge",
+    "ml.c6i.2xlarge",
+    "ml.c6i.32xlarge",
+    "ml.c6i.4xlarge",
+    "ml.c6i.8xlarge",
+    "ml.c6i.xlarge",
     "ml.g4dn.12xlarge",
     "ml.g4dn.16xlarge",
     "ml.g4dn.2xlarge",
@@ -1382,6 +1705,15 @@ TrainingInstanceTypeType = Literal[
     "ml.m5.4xlarge",
     "ml.m5.large",
     "ml.m5.xlarge",
+    "ml.m6i.12xlarge",
+    "ml.m6i.16xlarge",
+    "ml.m6i.24xlarge",
+    "ml.m6i.2xlarge",
+    "ml.m6i.32xlarge",
+    "ml.m6i.4xlarge",
+    "ml.m6i.8xlarge",
+    "ml.m6i.large",
+    "ml.m6i.xlarge",
     "ml.p2.16xlarge",
     "ml.p2.8xlarge",
     "ml.p2.xlarge",
@@ -1390,6 +1722,7 @@ TrainingInstanceTypeType = Literal[
     "ml.p3.8xlarge",
     "ml.p3dn.24xlarge",
     "ml.p4d.24xlarge",
+    "ml.p4de.24xlarge",
     "ml.p5.48xlarge",
     "ml.trn1.2xlarge",
     "ml.trn1.32xlarge",
@@ -1412,12 +1745,38 @@ TransformInstanceTypeType = Literal[
     "ml.c5.4xlarge",
     "ml.c5.9xlarge",
     "ml.c5.xlarge",
+    "ml.c6i.12xlarge",
+    "ml.c6i.16xlarge",
+    "ml.c6i.24xlarge",
+    "ml.c6i.2xlarge",
+    "ml.c6i.32xlarge",
+    "ml.c6i.4xlarge",
+    "ml.c6i.8xlarge",
+    "ml.c6i.large",
+    "ml.c6i.xlarge",
+    "ml.c7i.12xlarge",
+    "ml.c7i.16xlarge",
+    "ml.c7i.24xlarge",
+    "ml.c7i.2xlarge",
+    "ml.c7i.48xlarge",
+    "ml.c7i.4xlarge",
+    "ml.c7i.8xlarge",
+    "ml.c7i.large",
+    "ml.c7i.xlarge",
     "ml.g4dn.12xlarge",
     "ml.g4dn.16xlarge",
     "ml.g4dn.2xlarge",
     "ml.g4dn.4xlarge",
     "ml.g4dn.8xlarge",
     "ml.g4dn.xlarge",
+    "ml.g5.12xlarge",
+    "ml.g5.16xlarge",
+    "ml.g5.24xlarge",
+    "ml.g5.2xlarge",
+    "ml.g5.48xlarge",
+    "ml.g5.4xlarge",
+    "ml.g5.8xlarge",
+    "ml.g5.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",
@@ -1429,12 +1788,48 @@ TransformInstanceTypeType = Literal[
     "ml.m5.4xlarge",
     "ml.m5.large",
     "ml.m5.xlarge",
+    "ml.m6i.12xlarge",
+    "ml.m6i.16xlarge",
+    "ml.m6i.24xlarge",
+    "ml.m6i.2xlarge",
+    "ml.m6i.32xlarge",
+    "ml.m6i.4xlarge",
+    "ml.m6i.8xlarge",
+    "ml.m6i.large",
+    "ml.m6i.xlarge",
+    "ml.m7i.12xlarge",
+    "ml.m7i.16xlarge",
+    "ml.m7i.24xlarge",
+    "ml.m7i.2xlarge",
+    "ml.m7i.48xlarge",
+    "ml.m7i.4xlarge",
+    "ml.m7i.8xlarge",
+    "ml.m7i.large",
+    "ml.m7i.xlarge",
     "ml.p2.16xlarge",
     "ml.p2.8xlarge",
     "ml.p2.xlarge",
     "ml.p3.16xlarge",
     "ml.p3.2xlarge",
     "ml.p3.8xlarge",
+    "ml.r6i.12xlarge",
+    "ml.r6i.16xlarge",
+    "ml.r6i.24xlarge",
+    "ml.r6i.2xlarge",
+    "ml.r6i.32xlarge",
+    "ml.r6i.4xlarge",
+    "ml.r6i.8xlarge",
+    "ml.r6i.large",
+    "ml.r6i.xlarge",
+    "ml.r7i.12xlarge",
+    "ml.r7i.16xlarge",
+    "ml.r7i.24xlarge",
+    "ml.r7i.2xlarge",
+    "ml.r7i.48xlarge",
+    "ml.r7i.4xlarge",
+    "ml.r7i.8xlarge",
+    "ml.r7i.large",
+    "ml.r7i.xlarge",
 ]
 TransformJobCompletedOrStoppedWaiterName = Literal["transform_job_completed_or_stopped"]
 TransformJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]

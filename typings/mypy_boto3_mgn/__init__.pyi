@@ -49,6 +49,7 @@ Usage::
     list_waves_paginator: ListWavesPaginator = client.get_paginator("list_waves")
     ```
 """
+
 from .client import mgnClient
 from .paginator import (
     DescribeJobLogItemsPaginator,

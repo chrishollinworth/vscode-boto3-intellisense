@@ -16,6 +16,7 @@ Usage::
     session_client: LexRuntimeV2Client = session.client("lexv2-runtime")
     ```
 """
+
 from .client import LexRuntimeV2Client
 
 Client = LexRuntimeV2Client

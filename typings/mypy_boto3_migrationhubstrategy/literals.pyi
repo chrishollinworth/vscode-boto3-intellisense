@@ -11,6 +11,7 @@ Usage::
     data: AnalysisTypeType = "BINARY_ANALYSIS"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

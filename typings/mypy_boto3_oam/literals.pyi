@@ -11,6 +11,7 @@ Usage::
     data: ListAttachedLinksPaginatorName = "list_attached_links"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -31,6 +32,7 @@ ListSinksPaginatorName = Literal["list_sinks"]
 ResourceTypeType = Literal[
     "AWS::ApplicationInsights::Application",
     "AWS::CloudWatch::Metric",
+    "AWS::InternetMonitor::Monitor",
     "AWS::Logs::LogGroup",
     "AWS::XRay::Trace",
 ]

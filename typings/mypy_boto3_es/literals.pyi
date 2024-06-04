@@ -11,6 +11,7 @@ Usage::
     data: AutoTuneDesiredStateType = "DISABLED"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -22,16 +23,19 @@ __all__ = (
     "AutoTuneDesiredStateType",
     "AutoTuneStateType",
     "AutoTuneTypeType",
+    "ConfigChangeStatusType",
     "DeploymentStatusType",
     "DescribePackagesFilterNameType",
     "DescribeReservedElasticsearchInstanceOfferingsPaginatorName",
     "DescribeReservedElasticsearchInstancesPaginatorName",
     "DomainPackageStatusType",
+    "DomainProcessingStatusTypeType",
     "ESPartitionInstanceTypeType",
     "ESWarmPartitionInstanceTypeType",
     "EngineTypeType",
     "GetUpgradeHistoryPaginatorName",
     "InboundCrossClusterSearchConnectionStatusCodeType",
+    "InitiatedByType",
     "ListElasticsearchInstanceTypesPaginatorName",
     "ListElasticsearchVersionsPaginatorName",
     "LogTypeType",
@@ -41,6 +45,7 @@ __all__ = (
     "PackageStatusType",
     "PackageTypeType",
     "PrincipalTypeType",
+    "PropertyValueTypeType",
     "ReservedElasticsearchInstancePaymentOptionType",
     "RollbackOnDisableType",
     "ScheduledAutoTuneActionTypeType",
@@ -67,6 +72,16 @@ AutoTuneStateType = Literal[
     "ERROR",
 ]
 AutoTuneTypeType = Literal["SCHEDULED_ACTION"]
+ConfigChangeStatusType = Literal[
+    "ApplyingChanges",
+    "Cancelled",
+    "Completed",
+    "Initializing",
+    "Pending",
+    "PendingUserInput",
+    "Validating",
+    "ValidationFailed",
+]
 DeploymentStatusType = Literal[
     "COMPLETED", "ELIGIBLE", "IN_PROGRESS", "NOT_ELIGIBLE", "PENDING_UPDATE"
 ]
@@ -79,6 +94,15 @@ DescribeReservedElasticsearchInstancesPaginatorName = Literal[
 ]
 DomainPackageStatusType = Literal[
     "ACTIVE", "ASSOCIATING", "ASSOCIATION_FAILED", "DISSOCIATING", "DISSOCIATION_FAILED"
+]
+DomainProcessingStatusTypeType = Literal[
+    "Active",
+    "Creating",
+    "Deleting",
+    "Isolated",
+    "Modifying",
+    "UpdatingServiceSoftware",
+    "UpgradingEngineVersion",
 ]
 ESPartitionInstanceTypeType = Literal[
     "c4.2xlarge.elasticsearch",
@@ -148,6 +172,7 @@ GetUpgradeHistoryPaginatorName = Literal["get_upgrade_history"]
 InboundCrossClusterSearchConnectionStatusCodeType = Literal[
     "APPROVED", "DELETED", "DELETING", "PENDING_ACCEPTANCE", "REJECTED", "REJECTING"
 ]
+InitiatedByType = Literal["CUSTOMER", "SERVICE"]
 ListElasticsearchInstanceTypesPaginatorName = Literal["list_elasticsearch_instance_types"]
 ListElasticsearchVersionsPaginatorName = Literal["list_elasticsearch_versions"]
 LogTypeType = Literal["AUDIT_LOGS", "ES_APPLICATION_LOGS", "INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS"]
@@ -175,13 +200,16 @@ PackageStatusType = Literal[
 ]
 PackageTypeType = Literal["TXT-DICTIONARY"]
 PrincipalTypeType = Literal["AWS_ACCOUNT", "AWS_SERVICE"]
+PropertyValueTypeType = Literal["PLAIN_TEXT", "STRINGIFIED_JSON"]
 ReservedElasticsearchInstancePaymentOptionType = Literal[
     "ALL_UPFRONT", "NO_UPFRONT", "PARTIAL_UPFRONT"
 ]
 RollbackOnDisableType = Literal["DEFAULT_ROLLBACK", "NO_ROLLBACK"]
 ScheduledAutoTuneActionTypeType = Literal["JVM_HEAP_SIZE_TUNING", "JVM_YOUNG_GEN_TUNING"]
 ScheduledAutoTuneSeverityTypeType = Literal["HIGH", "LOW", "MEDIUM"]
-TLSSecurityPolicyType = Literal["Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-2-2019-07"]
+TLSSecurityPolicyType = Literal[
+    "Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-2-2019-07", "Policy-Min-TLS-1-2-PFS-2023-10"
+]
 TimeUnitType = Literal["HOURS"]
 UpgradeStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED", "SUCCEEDED_WITH_ISSUES"]
 UpgradeStepType = Literal["PRE_UPGRADE_CHECK", "SNAPSHOT", "UPGRADE"]

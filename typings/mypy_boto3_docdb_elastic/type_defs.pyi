@@ -11,10 +11,11 @@ Usage::
     data: ClusterInListTypeDef = {...}
     ```
 """
+
 import sys
 from typing import Any, Dict, List
 
-from .literals import AuthType, StatusType
+from .literals import AuthType, SnapshotTypeType, StatusType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -26,6 +27,8 @@ __all__ = (
     "ClusterSnapshotInListTypeDef",
     "ClusterSnapshotTypeDef",
     "ClusterTypeDef",
+    "CopyClusterSnapshotInputRequestTypeDef",
+    "CopyClusterSnapshotOutputTypeDef",
     "CreateClusterInputRequestTypeDef",
     "CreateClusterOutputTypeDef",
     "CreateClusterSnapshotInputRequestTypeDef",
@@ -48,6 +51,11 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RestoreClusterFromSnapshotInputRequestTypeDef",
     "RestoreClusterFromSnapshotOutputTypeDef",
+    "ShardTypeDef",
+    "StartClusterInputRequestTypeDef",
+    "StartClusterOutputTypeDef",
+    "StopClusterInputRequestTypeDef",
+    "StopClusterOutputTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateClusterInputRequestTypeDef",
@@ -74,8 +82,8 @@ ClusterSnapshotInListTypeDef = TypedDict(
     },
 )
 
-ClusterSnapshotTypeDef = TypedDict(
-    "ClusterSnapshotTypeDef",
+_RequiredClusterSnapshotTypeDef = TypedDict(
+    "_RequiredClusterSnapshotTypeDef",
     {
         "adminUserName": str,
         "clusterArn": str,
@@ -89,9 +97,19 @@ ClusterSnapshotTypeDef = TypedDict(
         "vpcSecurityGroupIds": List[str],
     },
 )
+_OptionalClusterSnapshotTypeDef = TypedDict(
+    "_OptionalClusterSnapshotTypeDef",
+    {
+        "snapshotType": SnapshotTypeType,
+    },
+    total=False,
+)
 
-ClusterTypeDef = TypedDict(
-    "ClusterTypeDef",
+class ClusterSnapshotTypeDef(_RequiredClusterSnapshotTypeDef, _OptionalClusterSnapshotTypeDef):
+    pass
+
+_RequiredClusterTypeDef = TypedDict(
+    "_RequiredClusterTypeDef",
     {
         "adminUserName": str,
         "authType": AuthType,
@@ -106,6 +124,49 @@ ClusterTypeDef = TypedDict(
         "status": StatusType,
         "subnetIds": List[str],
         "vpcSecurityGroupIds": List[str],
+    },
+)
+_OptionalClusterTypeDef = TypedDict(
+    "_OptionalClusterTypeDef",
+    {
+        "backupRetentionPeriod": int,
+        "preferredBackupWindow": str,
+        "shardInstanceCount": int,
+        "shards": List["ShardTypeDef"],
+    },
+    total=False,
+)
+
+class ClusterTypeDef(_RequiredClusterTypeDef, _OptionalClusterTypeDef):
+    pass
+
+_RequiredCopyClusterSnapshotInputRequestTypeDef = TypedDict(
+    "_RequiredCopyClusterSnapshotInputRequestTypeDef",
+    {
+        "snapshotArn": str,
+        "targetSnapshotName": str,
+    },
+)
+_OptionalCopyClusterSnapshotInputRequestTypeDef = TypedDict(
+    "_OptionalCopyClusterSnapshotInputRequestTypeDef",
+    {
+        "copyTags": bool,
+        "kmsKeyId": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CopyClusterSnapshotInputRequestTypeDef(
+    _RequiredCopyClusterSnapshotInputRequestTypeDef, _OptionalCopyClusterSnapshotInputRequestTypeDef
+):
+    pass
+
+CopyClusterSnapshotOutputTypeDef = TypedDict(
+    "CopyClusterSnapshotOutputTypeDef",
+    {
+        "snapshot": "ClusterSnapshotTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -123,9 +184,12 @@ _RequiredCreateClusterInputRequestTypeDef = TypedDict(
 _OptionalCreateClusterInputRequestTypeDef = TypedDict(
     "_OptionalCreateClusterInputRequestTypeDef",
     {
+        "backupRetentionPeriod": int,
         "clientToken": str,
         "kmsKeyId": str,
+        "preferredBackupWindow": str,
         "preferredMaintenanceWindow": str,
+        "shardInstanceCount": int,
         "subnetIds": List[str],
         "tags": Dict[str, str],
         "vpcSecurityGroupIds": List[str],
@@ -241,6 +305,7 @@ ListClusterSnapshotsInputRequestTypeDef = TypedDict(
         "clusterArn": str,
         "maxResults": int,
         "nextToken": str,
+        "snapshotType": str,
     },
     total=False,
 )
@@ -319,6 +384,8 @@ _OptionalRestoreClusterFromSnapshotInputRequestTypeDef = TypedDict(
     "_OptionalRestoreClusterFromSnapshotInputRequestTypeDef",
     {
         "kmsKeyId": str,
+        "shardCapacity": int,
+        "shardInstanceCount": int,
         "subnetIds": List[str],
         "tags": Dict[str, str],
         "vpcSecurityGroupIds": List[str],
@@ -334,6 +401,45 @@ class RestoreClusterFromSnapshotInputRequestTypeDef(
 
 RestoreClusterFromSnapshotOutputTypeDef = TypedDict(
     "RestoreClusterFromSnapshotOutputTypeDef",
+    {
+        "cluster": "ClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ShardTypeDef = TypedDict(
+    "ShardTypeDef",
+    {
+        "createTime": str,
+        "shardId": str,
+        "status": StatusType,
+    },
+)
+
+StartClusterInputRequestTypeDef = TypedDict(
+    "StartClusterInputRequestTypeDef",
+    {
+        "clusterArn": str,
+    },
+)
+
+StartClusterOutputTypeDef = TypedDict(
+    "StartClusterOutputTypeDef",
+    {
+        "cluster": "ClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopClusterInputRequestTypeDef = TypedDict(
+    "StopClusterInputRequestTypeDef",
+    {
+        "clusterArn": str,
+    },
+)
+
+StopClusterOutputTypeDef = TypedDict(
+    "StopClusterOutputTypeDef",
     {
         "cluster": "ClusterTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -367,10 +473,13 @@ _OptionalUpdateClusterInputRequestTypeDef = TypedDict(
     {
         "adminUserPassword": str,
         "authType": AuthType,
+        "backupRetentionPeriod": int,
         "clientToken": str,
+        "preferredBackupWindow": str,
         "preferredMaintenanceWindow": str,
         "shardCapacity": int,
         "shardCount": int,
+        "shardInstanceCount": int,
         "subnetIds": List[str],
         "vpcSecurityGroupIds": List[str],
     },

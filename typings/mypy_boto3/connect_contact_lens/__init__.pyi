@@ -16,6 +16,7 @@ Usage::
     session_client: ConnectContactLensClient = session.client("connect-contact-lens")
     ```
 """
+
 from .client import ConnectContactLensClient
 
 Client = ConnectContactLensClient

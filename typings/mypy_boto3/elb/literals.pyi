@@ -11,6 +11,7 @@ Usage::
     data: AnyInstanceInServiceWaiterName = "any_instance_in_service"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

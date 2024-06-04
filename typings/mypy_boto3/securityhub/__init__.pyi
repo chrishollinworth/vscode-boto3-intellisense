@@ -15,6 +15,8 @@ Usage::
         GetFindingHistoryPaginator,
         GetFindingsPaginator,
         GetInsightsPaginator,
+        ListConfigurationPoliciesPaginator,
+        ListConfigurationPolicyAssociationsPaginator,
         ListEnabledProductsForImportPaginator,
         ListFindingAggregatorsPaginator,
         ListInvitationsPaginator,
@@ -38,6 +40,8 @@ Usage::
     get_finding_history_paginator: GetFindingHistoryPaginator = client.get_paginator("get_finding_history")
     get_findings_paginator: GetFindingsPaginator = client.get_paginator("get_findings")
     get_insights_paginator: GetInsightsPaginator = client.get_paginator("get_insights")
+    list_configuration_policies_paginator: ListConfigurationPoliciesPaginator = client.get_paginator("list_configuration_policies")
+    list_configuration_policy_associations_paginator: ListConfigurationPolicyAssociationsPaginator = client.get_paginator("list_configuration_policy_associations")
     list_enabled_products_for_import_paginator: ListEnabledProductsForImportPaginator = client.get_paginator("list_enabled_products_for_import")
     list_finding_aggregators_paginator: ListFindingAggregatorsPaginator = client.get_paginator("list_finding_aggregators")
     list_invitations_paginator: ListInvitationsPaginator = client.get_paginator("list_invitations")
@@ -47,6 +51,7 @@ Usage::
     list_standards_control_associations_paginator: ListStandardsControlAssociationsPaginator = client.get_paginator("list_standards_control_associations")
     ```
 """
+
 from .client import SecurityHubClient
 from .paginator import (
     DescribeActionTargetsPaginator,
@@ -57,6 +62,8 @@ from .paginator import (
     GetFindingHistoryPaginator,
     GetFindingsPaginator,
     GetInsightsPaginator,
+    ListConfigurationPoliciesPaginator,
+    ListConfigurationPolicyAssociationsPaginator,
     ListEnabledProductsForImportPaginator,
     ListFindingAggregatorsPaginator,
     ListInvitationsPaginator,
@@ -78,6 +85,8 @@ __all__ = (
     "GetFindingHistoryPaginator",
     "GetFindingsPaginator",
     "GetInsightsPaginator",
+    "ListConfigurationPoliciesPaginator",
+    "ListConfigurationPolicyAssociationsPaginator",
     "ListEnabledProductsForImportPaginator",
     "ListFindingAggregatorsPaginator",
     "ListInvitationsPaginator",

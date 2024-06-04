@@ -11,6 +11,7 @@ Usage::
     data: DatastoreStatusType = "ACTIVE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -28,6 +29,8 @@ __all__ = (
     "ListImageSetVersionsPaginatorName",
     "OperatorType",
     "SearchImageSetsPaginatorName",
+    "SortFieldType",
+    "SortOrderType",
 )
 
 DatastoreStatusType = Literal["ACTIVE", "CREATE_FAILED", "CREATING", "DELETED", "DELETING"]
@@ -50,3 +53,5 @@ ListDatastoresPaginatorName = Literal["list_datastores"]
 ListImageSetVersionsPaginatorName = Literal["list_image_set_versions"]
 OperatorType = Literal["BETWEEN", "EQUAL"]
 SearchImageSetsPaginatorName = Literal["search_image_sets"]
+SortFieldType = Literal["DICOMStudyDateAndTime", "createdAt", "updatedAt"]
+SortOrderType = Literal["ASC", "DESC"]

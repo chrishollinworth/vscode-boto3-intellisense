@@ -21,6 +21,7 @@ Usage::
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
     ```
 """
+
 from .client import MobileClient
 from .paginator import ListBundlesPaginator, ListProjectsPaginator
 

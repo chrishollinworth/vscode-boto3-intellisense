@@ -11,6 +11,7 @@ Usage::
     data: AccountAttributeTypeDef = {...}
     ```
 """
+
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
@@ -18,6 +19,7 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    AccountAttributeNameType,
     AccountLimitNameType,
     AttachmentStatusType,
     ConfigurationSetFilterNameType,
@@ -35,6 +37,8 @@ from .literals import (
     PoolFilterNameType,
     PoolOriginationIdentitiesFilterNameType,
     PoolStatusType,
+    ProtectConfigurationFilterNameType,
+    ProtectStatusType,
     RegistrationAssociationBehaviorType,
     RegistrationAssociationFilterNameType,
     RegistrationDisassociationBehaviorType,
@@ -65,6 +69,8 @@ __all__ = (
     "AccountLimitTypeDef",
     "AssociateOriginationIdentityRequestRequestTypeDef",
     "AssociateOriginationIdentityResultTypeDef",
+    "AssociateProtectConfigurationRequestRequestTypeDef",
+    "AssociateProtectConfigurationResultTypeDef",
     "CloudWatchLogsDestinationTypeDef",
     "ConfigurationSetFilterTypeDef",
     "ConfigurationSetInformationTypeDef",
@@ -76,6 +82,8 @@ __all__ = (
     "CreateOptOutListResultTypeDef",
     "CreatePoolRequestRequestTypeDef",
     "CreatePoolResultTypeDef",
+    "CreateProtectConfigurationRequestRequestTypeDef",
+    "CreateProtectConfigurationResultTypeDef",
     "CreateRegistrationAssociationRequestRequestTypeDef",
     "CreateRegistrationAssociationResultTypeDef",
     "CreateRegistrationAttachmentRequestRequestTypeDef",
@@ -86,6 +94,7 @@ __all__ = (
     "CreateRegistrationVersionResultTypeDef",
     "CreateVerifiedDestinationNumberRequestRequestTypeDef",
     "CreateVerifiedDestinationNumberResultTypeDef",
+    "DeleteAccountDefaultProtectConfigurationResultTypeDef",
     "DeleteConfigurationSetRequestRequestTypeDef",
     "DeleteConfigurationSetResultTypeDef",
     "DeleteDefaultMessageTypeRequestRequestTypeDef",
@@ -96,12 +105,15 @@ __all__ = (
     "DeleteEventDestinationResultTypeDef",
     "DeleteKeywordRequestRequestTypeDef",
     "DeleteKeywordResultTypeDef",
+    "DeleteMediaMessageSpendLimitOverrideResultTypeDef",
     "DeleteOptOutListRequestRequestTypeDef",
     "DeleteOptOutListResultTypeDef",
     "DeleteOptedOutNumberRequestRequestTypeDef",
     "DeleteOptedOutNumberResultTypeDef",
     "DeletePoolRequestRequestTypeDef",
     "DeletePoolResultTypeDef",
+    "DeleteProtectConfigurationRequestRequestTypeDef",
+    "DeleteProtectConfigurationResultTypeDef",
     "DeleteRegistrationAttachmentRequestRequestTypeDef",
     "DeleteRegistrationAttachmentResultTypeDef",
     "DeleteRegistrationFieldValueRequestRequestTypeDef",
@@ -128,6 +140,8 @@ __all__ = (
     "DescribePhoneNumbersResultTypeDef",
     "DescribePoolsRequestRequestTypeDef",
     "DescribePoolsResultTypeDef",
+    "DescribeProtectConfigurationsRequestRequestTypeDef",
+    "DescribeProtectConfigurationsResultTypeDef",
     "DescribeRegistrationAttachmentsRequestRequestTypeDef",
     "DescribeRegistrationAttachmentsResultTypeDef",
     "DescribeRegistrationFieldDefinitionsRequestRequestTypeDef",
@@ -150,9 +164,13 @@ __all__ = (
     "DescribeVerifiedDestinationNumbersResultTypeDef",
     "DisassociateOriginationIdentityRequestRequestTypeDef",
     "DisassociateOriginationIdentityResultTypeDef",
+    "DisassociateProtectConfigurationRequestRequestTypeDef",
+    "DisassociateProtectConfigurationResultTypeDef",
     "DiscardRegistrationVersionRequestRequestTypeDef",
     "DiscardRegistrationVersionResultTypeDef",
     "EventDestinationTypeDef",
+    "GetProtectConfigurationCountryRuleSetRequestRequestTypeDef",
+    "GetProtectConfigurationCountryRuleSetResultTypeDef",
     "KeywordFilterTypeDef",
     "KeywordInformationTypeDef",
     "KinesisFirehoseDestinationTypeDef",
@@ -172,6 +190,9 @@ __all__ = (
     "PoolFilterTypeDef",
     "PoolInformationTypeDef",
     "PoolOriginationIdentitiesFilterTypeDef",
+    "ProtectConfigurationCountryRuleSetInformationTypeDef",
+    "ProtectConfigurationFilterTypeDef",
+    "ProtectConfigurationInformationTypeDef",
     "PutKeywordRequestRequestTypeDef",
     "PutKeywordResultTypeDef",
     "PutOptedOutNumberRequestRequestTypeDef",
@@ -209,6 +230,8 @@ __all__ = (
     "SelectValidationTypeDef",
     "SendDestinationNumberVerificationCodeRequestRequestTypeDef",
     "SendDestinationNumberVerificationCodeResultTypeDef",
+    "SendMediaMessageRequestRequestTypeDef",
+    "SendMediaMessageResultTypeDef",
     "SendTextMessageRequestRequestTypeDef",
     "SendTextMessageResultTypeDef",
     "SendVoiceMessageRequestRequestTypeDef",
@@ -216,10 +239,14 @@ __all__ = (
     "SenderIdAndCountryTypeDef",
     "SenderIdFilterTypeDef",
     "SenderIdInformationTypeDef",
+    "SetAccountDefaultProtectConfigurationRequestRequestTypeDef",
+    "SetAccountDefaultProtectConfigurationResultTypeDef",
     "SetDefaultMessageTypeRequestRequestTypeDef",
     "SetDefaultMessageTypeResultTypeDef",
     "SetDefaultSenderIdRequestRequestTypeDef",
     "SetDefaultSenderIdResultTypeDef",
+    "SetMediaMessageSpendLimitOverrideRequestRequestTypeDef",
+    "SetMediaMessageSpendLimitOverrideResultTypeDef",
     "SetTextMessageSpendLimitOverrideRequestRequestTypeDef",
     "SetTextMessageSpendLimitOverrideResultTypeDef",
     "SetVoiceMessageSpendLimitOverrideRequestRequestTypeDef",
@@ -239,6 +266,10 @@ __all__ = (
     "UpdatePhoneNumberResultTypeDef",
     "UpdatePoolRequestRequestTypeDef",
     "UpdatePoolResultTypeDef",
+    "UpdateProtectConfigurationCountryRuleSetRequestRequestTypeDef",
+    "UpdateProtectConfigurationCountryRuleSetResultTypeDef",
+    "UpdateProtectConfigurationRequestRequestTypeDef",
+    "UpdateProtectConfigurationResultTypeDef",
     "UpdateSenderIdRequestRequestTypeDef",
     "UpdateSenderIdResultTypeDef",
     "VerifiedDestinationNumberFilterTypeDef",
@@ -250,7 +281,7 @@ __all__ = (
 AccountAttributeTypeDef = TypedDict(
     "AccountAttributeTypeDef",
     {
-        "Name": Literal["ACCOUNT_TIER"],
+        "Name": AccountAttributeNameType,
         "Value": str,
     },
 )
@@ -298,6 +329,25 @@ AssociateOriginationIdentityResultTypeDef = TypedDict(
     },
 )
 
+AssociateProtectConfigurationRequestRequestTypeDef = TypedDict(
+    "AssociateProtectConfigurationRequestRequestTypeDef",
+    {
+        "ProtectConfigurationId": str,
+        "ConfigurationSetName": str,
+    },
+)
+
+AssociateProtectConfigurationResultTypeDef = TypedDict(
+    "AssociateProtectConfigurationResultTypeDef",
+    {
+        "ConfigurationSetArn": str,
+        "ConfigurationSetName": str,
+        "ProtectConfigurationArn": str,
+        "ProtectConfigurationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CloudWatchLogsDestinationTypeDef = TypedDict(
     "CloudWatchLogsDestinationTypeDef",
     {
@@ -328,6 +378,7 @@ _OptionalConfigurationSetInformationTypeDef = TypedDict(
     {
         "DefaultMessageType": MessageTypeType,
         "DefaultSenderId": str,
+        "ProtectConfigurationId": str,
     },
     total=False,
 )
@@ -478,6 +529,29 @@ CreatePoolResultTypeDef = TypedDict(
     },
 )
 
+CreateProtectConfigurationRequestRequestTypeDef = TypedDict(
+    "CreateProtectConfigurationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DeletionProtectionEnabled": bool,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+CreateProtectConfigurationResultTypeDef = TypedDict(
+    "CreateProtectConfigurationResultTypeDef",
+    {
+        "ProtectConfigurationArn": str,
+        "ProtectConfigurationId": str,
+        "CreatedTimestamp": datetime,
+        "AccountDefault": bool,
+        "DeletionProtectionEnabled": bool,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateRegistrationAssociationRequestRequestTypeDef = TypedDict(
     "CreateRegistrationAssociationRequestRequestTypeDef",
     {
@@ -613,6 +687,15 @@ CreateVerifiedDestinationNumberResultTypeDef = TypedDict(
     },
 )
 
+DeleteAccountDefaultProtectConfigurationResultTypeDef = TypedDict(
+    "DeleteAccountDefaultProtectConfigurationResultTypeDef",
+    {
+        "DefaultProtectConfigurationArn": str,
+        "DefaultProtectConfigurationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteConfigurationSetRequestRequestTypeDef = TypedDict(
     "DeleteConfigurationSetRequestRequestTypeDef",
     {
@@ -705,6 +788,14 @@ DeleteKeywordResultTypeDef = TypedDict(
     },
 )
 
+DeleteMediaMessageSpendLimitOverrideResultTypeDef = TypedDict(
+    "DeleteMediaMessageSpendLimitOverrideResultTypeDef",
+    {
+        "MonthlyLimit": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteOptOutListRequestRequestTypeDef = TypedDict(
     "DeleteOptOutListRequestRequestTypeDef",
     {
@@ -763,6 +854,25 @@ DeletePoolResultTypeDef = TypedDict(
         "OptOutListName": str,
         "SharedRoutesEnabled": bool,
         "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteProtectConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteProtectConfigurationRequestRequestTypeDef",
+    {
+        "ProtectConfigurationId": str,
+    },
+)
+
+DeleteProtectConfigurationResultTypeDef = TypedDict(
+    "DeleteProtectConfigurationResultTypeDef",
+    {
+        "ProtectConfigurationArn": str,
+        "ProtectConfigurationId": str,
+        "CreatedTimestamp": datetime,
+        "AccountDefault": bool,
+        "DeletionProtectionEnabled": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1042,6 +1152,26 @@ DescribePoolsResultTypeDef = TypedDict(
     "DescribePoolsResultTypeDef",
     {
         "Pools": List["PoolInformationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeProtectConfigurationsRequestRequestTypeDef = TypedDict(
+    "DescribeProtectConfigurationsRequestRequestTypeDef",
+    {
+        "ProtectConfigurationIds": List[str],
+        "Filters": List["ProtectConfigurationFilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeProtectConfigurationsResultTypeDef = TypedDict(
+    "DescribeProtectConfigurationsResultTypeDef",
+    {
+        "ProtectConfigurations": List["ProtectConfigurationInformationTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1335,6 +1465,25 @@ DisassociateOriginationIdentityResultTypeDef = TypedDict(
     },
 )
 
+DisassociateProtectConfigurationRequestRequestTypeDef = TypedDict(
+    "DisassociateProtectConfigurationRequestRequestTypeDef",
+    {
+        "ProtectConfigurationId": str,
+        "ConfigurationSetName": str,
+    },
+)
+
+DisassociateProtectConfigurationResultTypeDef = TypedDict(
+    "DisassociateProtectConfigurationResultTypeDef",
+    {
+        "ConfigurationSetArn": str,
+        "ConfigurationSetName": str,
+        "ProtectConfigurationArn": str,
+        "ProtectConfigurationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DiscardRegistrationVersionRequestRequestTypeDef = TypedDict(
     "DiscardRegistrationVersionRequestRequestTypeDef",
     {
@@ -1374,6 +1523,25 @@ _OptionalEventDestinationTypeDef = TypedDict(
 
 class EventDestinationTypeDef(_RequiredEventDestinationTypeDef, _OptionalEventDestinationTypeDef):
     pass
+
+GetProtectConfigurationCountryRuleSetRequestRequestTypeDef = TypedDict(
+    "GetProtectConfigurationCountryRuleSetRequestRequestTypeDef",
+    {
+        "ProtectConfigurationId": str,
+        "NumberCapability": NumberCapabilityType,
+    },
+)
+
+GetProtectConfigurationCountryRuleSetResultTypeDef = TypedDict(
+    "GetProtectConfigurationCountryRuleSetResultTypeDef",
+    {
+        "ProtectConfigurationArn": str,
+        "ProtectConfigurationId": str,
+        "NumberCapability": NumberCapabilityType,
+        "CountryRuleSet": Dict[str, "ProtectConfigurationCountryRuleSetInformationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 KeywordFilterTypeDef = TypedDict(
     "KeywordFilterTypeDef",
@@ -1624,6 +1792,32 @@ PoolOriginationIdentitiesFilterTypeDef = TypedDict(
     {
         "Name": PoolOriginationIdentitiesFilterNameType,
         "Values": List[str],
+    },
+)
+
+ProtectConfigurationCountryRuleSetInformationTypeDef = TypedDict(
+    "ProtectConfigurationCountryRuleSetInformationTypeDef",
+    {
+        "ProtectStatus": ProtectStatusType,
+    },
+)
+
+ProtectConfigurationFilterTypeDef = TypedDict(
+    "ProtectConfigurationFilterTypeDef",
+    {
+        "Name": ProtectConfigurationFilterNameType,
+        "Values": List[str],
+    },
+)
+
+ProtectConfigurationInformationTypeDef = TypedDict(
+    "ProtectConfigurationInformationTypeDef",
+    {
+        "ProtectConfigurationArn": str,
+        "ProtectConfigurationId": str,
+        "CreatedTimestamp": datetime,
+        "AccountDefault": bool,
+        "DeletionProtectionEnabled": bool,
     },
 )
 
@@ -2259,6 +2453,41 @@ SendDestinationNumberVerificationCodeResultTypeDef = TypedDict(
     },
 )
 
+_RequiredSendMediaMessageRequestRequestTypeDef = TypedDict(
+    "_RequiredSendMediaMessageRequestRequestTypeDef",
+    {
+        "DestinationPhoneNumber": str,
+        "OriginationIdentity": str,
+    },
+)
+_OptionalSendMediaMessageRequestRequestTypeDef = TypedDict(
+    "_OptionalSendMediaMessageRequestRequestTypeDef",
+    {
+        "MessageBody": str,
+        "MediaUrls": List[str],
+        "ConfigurationSetName": str,
+        "MaxPrice": str,
+        "TimeToLive": int,
+        "Context": Dict[str, str],
+        "DryRun": bool,
+        "ProtectConfigurationId": str,
+    },
+    total=False,
+)
+
+class SendMediaMessageRequestRequestTypeDef(
+    _RequiredSendMediaMessageRequestRequestTypeDef, _OptionalSendMediaMessageRequestRequestTypeDef
+):
+    pass
+
+SendMediaMessageResultTypeDef = TypedDict(
+    "SendMediaMessageResultTypeDef",
+    {
+        "MessageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredSendTextMessageRequestRequestTypeDef = TypedDict(
     "_RequiredSendTextMessageRequestRequestTypeDef",
     {
@@ -2278,6 +2507,7 @@ _OptionalSendTextMessageRequestRequestTypeDef = TypedDict(
         "Context": Dict[str, str],
         "DestinationCountryParameters": Dict[DestinationCountryParameterKeyType, str],
         "DryRun": bool,
+        "ProtectConfigurationId": str,
     },
     total=False,
 )
@@ -2313,6 +2543,7 @@ _OptionalSendVoiceMessageRequestRequestTypeDef = TypedDict(
         "TimeToLive": int,
         "Context": Dict[str, str],
         "DryRun": bool,
+        "ProtectConfigurationId": str,
     },
     total=False,
 )
@@ -2371,6 +2602,22 @@ class SenderIdInformationTypeDef(
 ):
     pass
 
+SetAccountDefaultProtectConfigurationRequestRequestTypeDef = TypedDict(
+    "SetAccountDefaultProtectConfigurationRequestRequestTypeDef",
+    {
+        "ProtectConfigurationId": str,
+    },
+)
+
+SetAccountDefaultProtectConfigurationResultTypeDef = TypedDict(
+    "SetAccountDefaultProtectConfigurationResultTypeDef",
+    {
+        "DefaultProtectConfigurationArn": str,
+        "DefaultProtectConfigurationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 SetDefaultMessageTypeRequestRequestTypeDef = TypedDict(
     "SetDefaultMessageTypeRequestRequestTypeDef",
     {
@@ -2403,6 +2650,21 @@ SetDefaultSenderIdResultTypeDef = TypedDict(
         "ConfigurationSetArn": str,
         "ConfigurationSetName": str,
         "SenderId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SetMediaMessageSpendLimitOverrideRequestRequestTypeDef = TypedDict(
+    "SetMediaMessageSpendLimitOverrideRequestRequestTypeDef",
+    {
+        "MonthlyLimit": int,
+    },
+)
+
+SetMediaMessageSpendLimitOverrideResultTypeDef = TypedDict(
+    "SetMediaMessageSpendLimitOverrideResultTypeDef",
+    {
+        "MonthlyLimit": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2650,6 +2912,58 @@ UpdatePoolResultTypeDef = TypedDict(
         "SharedRoutesEnabled": bool,
         "DeletionProtectionEnabled": bool,
         "CreatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateProtectConfigurationCountryRuleSetRequestRequestTypeDef = TypedDict(
+    "UpdateProtectConfigurationCountryRuleSetRequestRequestTypeDef",
+    {
+        "ProtectConfigurationId": str,
+        "NumberCapability": NumberCapabilityType,
+        "CountryRuleSetUpdates": Dict[str, "ProtectConfigurationCountryRuleSetInformationTypeDef"],
+    },
+)
+
+UpdateProtectConfigurationCountryRuleSetResultTypeDef = TypedDict(
+    "UpdateProtectConfigurationCountryRuleSetResultTypeDef",
+    {
+        "ProtectConfigurationArn": str,
+        "ProtectConfigurationId": str,
+        "NumberCapability": NumberCapabilityType,
+        "CountryRuleSet": Dict[str, "ProtectConfigurationCountryRuleSetInformationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateProtectConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateProtectConfigurationRequestRequestTypeDef",
+    {
+        "ProtectConfigurationId": str,
+    },
+)
+_OptionalUpdateProtectConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateProtectConfigurationRequestRequestTypeDef",
+    {
+        "DeletionProtectionEnabled": bool,
+    },
+    total=False,
+)
+
+class UpdateProtectConfigurationRequestRequestTypeDef(
+    _RequiredUpdateProtectConfigurationRequestRequestTypeDef,
+    _OptionalUpdateProtectConfigurationRequestRequestTypeDef,
+):
+    pass
+
+UpdateProtectConfigurationResultTypeDef = TypedDict(
+    "UpdateProtectConfigurationResultTypeDef",
+    {
+        "ProtectConfigurationArn": str,
+        "ProtectConfigurationId": str,
+        "CreatedTimestamp": datetime,
+        "AccountDefault": bool,
+        "DeletionProtectionEnabled": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

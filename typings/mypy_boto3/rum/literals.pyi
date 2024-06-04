@@ -11,6 +11,7 @@ Usage::
     data: BatchGetRumMetricDefinitionsPaginatorName = "batch_get_rum_metric_definitions"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):

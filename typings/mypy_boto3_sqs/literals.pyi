@@ -11,6 +11,7 @@ Usage::
     data: ListDeadLetterSourceQueuesPaginatorName = "list_dead_letter_source_queues"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -31,6 +32,7 @@ ListQueuesPaginatorName = Literal["list_queues"]
 MessageSystemAttributeNameForSendsType = Literal["AWSTraceHeader"]
 MessageSystemAttributeNameType = Literal[
     "AWSTraceHeader",
+    "All",
     "ApproximateFirstReceiveTimestamp",
     "ApproximateReceiveCount",
     "DeadLetterQueueSourceArn",

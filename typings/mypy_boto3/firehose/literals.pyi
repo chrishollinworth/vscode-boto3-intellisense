@@ -11,6 +11,7 @@ Usage::
     data: AmazonOpenSearchServerlessS3BackupModeType = "AllDocuments"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -44,6 +45,8 @@ __all__ = (
     "ProcessorTypeType",
     "RedshiftS3BackupModeType",
     "S3BackupModeType",
+    "SnowflakeDataLoadingOptionType",
+    "SnowflakeS3BackupModeType",
     "SplunkS3BackupModeType",
 )
 
@@ -96,6 +99,7 @@ ProcessorParameterNameType = Literal[
     "BufferIntervalInSeconds",
     "BufferSizeInMBs",
     "CompressionFormat",
+    "DataMessageExtraction",
     "Delimiter",
     "JsonParsingEngine",
     "LambdaArn",
@@ -106,6 +110,7 @@ ProcessorParameterNameType = Literal[
 ]
 ProcessorTypeType = Literal[
     "AppendDelimiterToRecord",
+    "CloudWatchLogProcessing",
     "Decompression",
     "Lambda",
     "MetadataExtraction",
@@ -113,4 +118,8 @@ ProcessorTypeType = Literal[
 ]
 RedshiftS3BackupModeType = Literal["Disabled", "Enabled"]
 S3BackupModeType = Literal["Disabled", "Enabled"]
+SnowflakeDataLoadingOptionType = Literal[
+    "JSON_MAPPING", "VARIANT_CONTENT_AND_METADATA_MAPPING", "VARIANT_CONTENT_MAPPING"
+]
+SnowflakeS3BackupModeType = Literal["AllData", "FailedDataOnly"]
 SplunkS3BackupModeType = Literal["AllEvents", "FailedEventsOnly"]

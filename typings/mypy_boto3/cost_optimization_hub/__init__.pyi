@@ -23,6 +23,7 @@ Usage::
     list_recommendations_paginator: ListRecommendationsPaginator = client.get_paginator("list_recommendations")
     ```
 """
+
 from .client import CostOptimizationHubClient
 from .paginator import (
     ListEnrollmentStatusesPaginator,

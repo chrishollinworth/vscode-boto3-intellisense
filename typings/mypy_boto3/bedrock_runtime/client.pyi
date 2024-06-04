@@ -12,12 +12,23 @@ Usage::
     client: BedrockRuntimeClient = boto3.client("bedrock-runtime")
     ```
 """
-from typing import IO, Any, Dict, Type, Union
+
+from typing import IO, Any, Dict, List, Type, Union
 
 from botocore.client import BaseClient, ClientMeta
 from botocore.response import StreamingBody
 
-from .type_defs import InvokeModelResponseTypeDef, InvokeModelWithResponseStreamResponseTypeDef
+from .literals import TraceType
+from .type_defs import (
+    ConverseResponseTypeDef,
+    ConverseStreamResponseTypeDef,
+    InferenceConfigurationTypeDef,
+    InvokeModelResponseTypeDef,
+    InvokeModelWithResponseStreamResponseTypeDef,
+    MessageTypeDef,
+    SystemContentBlockTypeDef,
+    ToolConfigurationTypeDef,
+)
 
 __all__ = ("BedrockRuntimeClient",)
 
@@ -43,7 +54,7 @@ class Exceptions:
 
 class BedrockRuntimeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html)
     """
 
@@ -54,20 +65,60 @@ class BedrockRuntimeClient(BaseClient):
         """
         BedrockRuntimeClient exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#close)
         """
+
+    def converse(
+        self,
+        *,
+        modelId: str,
+        messages: List["MessageTypeDef"],
+        system: List["SystemContentBlockTypeDef"] = None,
+        inferenceConfig: "InferenceConfigurationTypeDef" = None,
+        toolConfig: "ToolConfigurationTypeDef" = None,
+        additionalModelRequestFields: Dict[str, Any] = None,
+        additionalModelResponseFieldPaths: List[str] = None
+    ) -> ConverseResponseTypeDef:
+        """
+        Sends messages to the specified Amazon Bedrock model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.converse)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#converse)
+        """
+
+    def converse_stream(
+        self,
+        *,
+        modelId: str,
+        messages: List["MessageTypeDef"],
+        system: List["SystemContentBlockTypeDef"] = None,
+        inferenceConfig: "InferenceConfigurationTypeDef" = None,
+        toolConfig: "ToolConfigurationTypeDef" = None,
+        additionalModelRequestFields: Dict[str, Any] = None,
+        additionalModelResponseFieldPaths: List[str] = None
+    ) -> ConverseStreamResponseTypeDef:
+        """
+        Sends messages to the specified Amazon Bedrock model and returns the response in
+        a stream.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.converse_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#converse_stream)
+        """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -78,35 +129,44 @@ class BedrockRuntimeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#generate_presigned_url)
         """
+
     def invoke_model(
         self,
         *,
         body: Union[bytes, IO[bytes], StreamingBody],
         modelId: str,
+        contentType: str = None,
         accept: str = None,
-        contentType: str = None
+        trace: TraceType = None,
+        guardrailIdentifier: str = None,
+        guardrailVersion: str = None
     ) -> InvokeModelResponseTypeDef:
         """
-        Invokes the specified Bedrock model to run inference using the input provided in
-        the request body.
+        Invokes the specified Amazon Bedrock model to run inference using the prompt and
+        inference parameters provided in the request body.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#invoke_model)
         """
+
     def invoke_model_with_response_stream(
         self,
         *,
         body: Union[bytes, IO[bytes], StreamingBody],
         modelId: str,
+        contentType: str = None,
         accept: str = None,
-        contentType: str = None
+        trace: TraceType = None,
+        guardrailIdentifier: str = None,
+        guardrailVersion: str = None
     ) -> InvokeModelWithResponseStreamResponseTypeDef:
         """
-        Invoke the specified Bedrock model to run inference using the input provided.
+        Invoke the specified Amazon Bedrock model to run inference using the prompt and
+        inference parameters provided in the request body.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model_with_response_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model_with_response_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#invoke_model_with_response_stream)
         """

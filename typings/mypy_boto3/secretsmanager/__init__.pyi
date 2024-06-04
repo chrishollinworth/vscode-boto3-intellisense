@@ -19,6 +19,7 @@ Usage::
     list_secrets_paginator: ListSecretsPaginator = client.get_paginator("list_secrets")
     ```
 """
+
 from .client import SecretsManagerClient
 from .paginator import ListSecretsPaginator
 

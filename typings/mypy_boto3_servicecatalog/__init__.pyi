@@ -49,6 +49,7 @@ Usage::
     search_products_as_admin_paginator: SearchProductsAsAdminPaginator = client.get_paginator("search_products_as_admin")
     ```
 """
+
 from .client import ServiceCatalogClient
 from .paginator import (
     ListAcceptedPortfolioSharesPaginator,

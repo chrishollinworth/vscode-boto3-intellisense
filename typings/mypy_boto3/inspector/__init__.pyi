@@ -35,6 +35,7 @@ Usage::
     preview_agents_paginator: PreviewAgentsPaginator = client.get_paginator("preview_agents")
     ```
 """
+
 from .client import InspectorClient
 from .paginator import (
     ListAssessmentRunAgentsPaginator,

@@ -16,6 +16,7 @@ Usage::
     session_client: DetectiveClient = session.client("detective")
     ```
 """
+
 from .client import DetectiveClient
 
 Client = DetectiveClient

@@ -12,6 +12,7 @@ Usage::
     client: BudgetsClient = boto3.client("budgets")
     ```
 """
+
 import sys
 from typing import Any, Dict, List, Type, overload
 
@@ -45,8 +46,10 @@ from .type_defs import (
     DescribeNotificationsForBudgetResponseTypeDef,
     DescribeSubscribersForNotificationResponseTypeDef,
     ExecuteBudgetActionResponseTypeDef,
+    ListTagsForResourceResponseTypeDef,
     NotificationTypeDef,
     NotificationWithSubscribersTypeDef,
+    ResourceTagTypeDef,
     SubscriberTypeDef,
     TimePeriodTypeDef,
     UpdateBudgetActionResponseTypeDef,
@@ -77,11 +80,12 @@ class Exceptions:
     InvalidParameterException: Type[BotocoreClientError]
     NotFoundException: Type[BotocoreClientError]
     ResourceLockedException: Type[BotocoreClientError]
+    ServiceQuotaExceededException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
 
 class BudgetsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html)
     """
 
@@ -92,33 +96,38 @@ class BudgetsClient(BaseClient):
         """
         BudgetsClient exceptions.
         """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#can_paginate)
         """
+
     def close(self) -> None:
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#close)
         """
+
     def create_budget(
         self,
         *,
         AccountId: str,
         Budget: "BudgetTypeDef",
-        NotificationsWithSubscribers: List["NotificationWithSubscribersTypeDef"] = None
+        NotificationsWithSubscribers: List["NotificationWithSubscribersTypeDef"] = None,
+        ResourceTags: List["ResourceTagTypeDef"] = None
     ) -> Dict[str, Any]:
         """
         Creates a budget and, if included, notifications and subscribers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.create_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.create_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#create_budget)
         """
+
     def create_budget_action(
         self,
         *,
@@ -130,14 +139,16 @@ class BudgetsClient(BaseClient):
         Definition: "DefinitionTypeDef",
         ExecutionRoleArn: str,
         ApprovalModel: ApprovalModelType,
-        Subscribers: List["SubscriberTypeDef"]
+        Subscribers: List["SubscriberTypeDef"],
+        ResourceTags: List["ResourceTagTypeDef"] = None
     ) -> CreateBudgetActionResponseTypeDef:
         """
         Creates a budget action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.create_budget_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.create_budget_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#create_budget_action)
         """
+
     def create_notification(
         self,
         *,
@@ -149,9 +160,10 @@ class BudgetsClient(BaseClient):
         """
         Creates a notification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.create_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.create_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#create_notification)
         """
+
     def create_subscriber(
         self,
         *,
@@ -163,34 +175,38 @@ class BudgetsClient(BaseClient):
         """
         Creates a subscriber.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.create_subscriber)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.create_subscriber)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#create_subscriber)
         """
+
     def delete_budget(self, *, AccountId: str, BudgetName: str) -> Dict[str, Any]:
         """
         Deletes a budget.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.delete_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.delete_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#delete_budget)
         """
+
     def delete_budget_action(
         self, *, AccountId: str, BudgetName: str, ActionId: str
     ) -> DeleteBudgetActionResponseTypeDef:
         """
         Deletes a budget action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.delete_budget_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.delete_budget_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#delete_budget_action)
         """
+
     def delete_notification(
         self, *, AccountId: str, BudgetName: str, Notification: "NotificationTypeDef"
     ) -> Dict[str, Any]:
         """
         Deletes a notification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.delete_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.delete_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#delete_notification)
         """
+
     def delete_subscriber(
         self,
         *,
@@ -202,25 +218,28 @@ class BudgetsClient(BaseClient):
         """
         Deletes a subscriber.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.delete_subscriber)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.delete_subscriber)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#delete_subscriber)
         """
+
     def describe_budget(self, *, AccountId: str, BudgetName: str) -> DescribeBudgetResponseTypeDef:
         """
         Describes a budget.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_budget)
         """
+
     def describe_budget_action(
         self, *, AccountId: str, BudgetName: str, ActionId: str
     ) -> DescribeBudgetActionResponseTypeDef:
         """
         Describes a budget action detail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_budget_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_budget_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_budget_action)
         """
+
     def describe_budget_action_histories(
         self,
         *,
@@ -234,36 +253,40 @@ class BudgetsClient(BaseClient):
         """
         Describes a budget action history detail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_budget_action_histories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_budget_action_histories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_budget_action_histories)
         """
+
     def describe_budget_actions_for_account(
         self, *, AccountId: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeBudgetActionsForAccountResponseTypeDef:
         """
         Describes all of the budget actions for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_budget_actions_for_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_budget_actions_for_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_budget_actions_for_account)
         """
+
     def describe_budget_actions_for_budget(
         self, *, AccountId: str, BudgetName: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeBudgetActionsForBudgetResponseTypeDef:
         """
         Describes all of the budget actions for a budget.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_budget_actions_for_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_budget_actions_for_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_budget_actions_for_budget)
         """
+
     def describe_budget_notifications_for_account(
         self, *, AccountId: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeBudgetNotificationsForAccountResponseTypeDef:
         """
         Lists the budget names and notifications that are associated with an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_budget_notifications_for_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_budget_notifications_for_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_budget_notifications_for_account)
         """
+
     def describe_budget_performance_history(
         self,
         *,
@@ -276,27 +299,30 @@ class BudgetsClient(BaseClient):
         """
         Describes the history for `DAILY`, `MONTHLY`, and `QUARTERLY` budgets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_budget_performance_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_budget_performance_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_budget_performance_history)
         """
+
     def describe_budgets(
         self, *, AccountId: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeBudgetsResponseTypeDef:
         """
         Lists the budgets that are associated with an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_budgets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_budgets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_budgets)
         """
+
     def describe_notifications_for_budget(
         self, *, AccountId: str, BudgetName: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeNotificationsForBudgetResponseTypeDef:
         """
         Lists the notifications that are associated with a budget.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_notifications_for_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_notifications_for_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_notifications_for_budget)
         """
+
     def describe_subscribers_for_notification(
         self,
         *,
@@ -309,18 +335,20 @@ class BudgetsClient(BaseClient):
         """
         Lists the subscribers that are associated with a notification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.describe_subscribers_for_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.describe_subscribers_for_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#describe_subscribers_for_notification)
         """
+
     def execute_budget_action(
         self, *, AccountId: str, BudgetName: str, ActionId: str, ExecutionType: ExecutionTypeType
     ) -> ExecuteBudgetActionResponseTypeDef:
         """
         Executes a budget action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.execute_budget_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.execute_budget_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#execute_budget_action)
         """
+
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -331,16 +359,44 @@ class BudgetsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#generate_presigned_url)
         """
+
+    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+        """
+        Lists tags associated with a budget or budget action resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#list_tags_for_resource)
+        """
+
+    def tag_resource(
+        self, *, ResourceARN: str, ResourceTags: List["ResourceTagTypeDef"]
+    ) -> Dict[str, Any]:
+        """
+        Creates tags for a budget or budget action resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#tag_resource)
+        """
+
+    def untag_resource(self, *, ResourceARN: str, ResourceTagKeys: List[str]) -> Dict[str, Any]:
+        """
+        Deletes tags associated with a budget or budget action resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#untag_resource)
+        """
+
     def update_budget(self, *, AccountId: str, NewBudget: "BudgetTypeDef") -> Dict[str, Any]:
         """
         Updates a budget.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.update_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.update_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#update_budget)
         """
+
     def update_budget_action(
         self,
         *,
@@ -357,9 +413,10 @@ class BudgetsClient(BaseClient):
         """
         Updates a budget action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.update_budget_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.update_budget_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#update_budget_action)
         """
+
     def update_notification(
         self,
         *,
@@ -371,9 +428,10 @@ class BudgetsClient(BaseClient):
         """
         Updates a notification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.update_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.update_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#update_notification)
         """
+
     def update_subscriber(
         self,
         *,
@@ -386,70 +444,78 @@ class BudgetsClient(BaseClient):
         """
         Updates a subscriber.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Client.update_subscriber)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Client.update_subscriber)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/client.html#update_subscriber)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_budget_action_histories"]
     ) -> DescribeBudgetActionHistoriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionhistoriespaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_budget_actions_for_account"]
     ) -> DescribeBudgetActionsForAccountPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionsforaccountpaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_budget_actions_for_budget"]
     ) -> DescribeBudgetActionsForBudgetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionsforbudgetpaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_budget_notifications_for_account"]
     ) -> DescribeBudgetNotificationsForAccountPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetNotificationsForAccount)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetNotificationsForAccount)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetnotificationsforaccountpaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_budget_performance_history"]
     ) -> DescribeBudgetPerformanceHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetperformancehistorypaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_budgets"]
     ) -> DescribeBudgetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetspaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_notifications_for_budget"]
     ) -> DescribeNotificationsForBudgetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describenotificationsforbudgetpaginator)
         """
+
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_subscribers_for_notification"]
     ) -> DescribeSubscribersForNotificationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.29.7/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describesubscribersfornotificationpaginator)
         """

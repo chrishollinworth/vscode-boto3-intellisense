@@ -11,6 +11,7 @@ Usage::
     data: AccountFilterTypeType = "DIFFERENCE"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
@@ -21,6 +22,7 @@ else:
 __all__ = (
     "AccountFilterTypeType",
     "AccountGateStatusType",
+    "AttributeChangeTypeType",
     "CallAsType",
     "CapabilityType",
     "CategoryType",
@@ -32,14 +34,20 @@ __all__ = (
     "ChangeSourceType",
     "ChangeTypeType",
     "ConcurrencyModeType",
+    "DeletionModeType",
     "DeprecatedStatusType",
     "DescribeAccountLimitsPaginatorName",
     "DescribeChangeSetPaginatorName",
     "DescribeStackEventsPaginatorName",
     "DescribeStacksPaginatorName",
+    "DetailedStatusType",
     "DifferenceTypeType",
     "EvaluationTypeType",
     "ExecutionStatusType",
+    "GeneratedTemplateDeletionPolicyType",
+    "GeneratedTemplateResourceStatusType",
+    "GeneratedTemplateStatusType",
+    "GeneratedTemplateUpdateReplacePolicyType",
     "HandlerErrorCodeType",
     "HookFailureModeType",
     "HookInvocationPointType",
@@ -48,7 +56,11 @@ __all__ = (
     "IdentityProviderType",
     "ListChangeSetsPaginatorName",
     "ListExportsPaginatorName",
+    "ListGeneratedTemplatesPaginatorName",
     "ListImportsPaginatorName",
+    "ListResourceScanRelatedResourcesPaginatorName",
+    "ListResourceScanResourcesPaginatorName",
+    "ListResourceScansPaginatorName",
     "ListStackInstancesPaginatorName",
     "ListStackResourcesPaginatorName",
     "ListStackSetOperationResultsPaginatorName",
@@ -62,6 +74,7 @@ __all__ = (
     "OperationStatusType",
     "OrganizationStatusType",
     "PermissionModelsType",
+    "PolicyActionType",
     "ProvisioningTypeType",
     "PublisherStatusType",
     "RegionConcurrencyTypeType",
@@ -70,6 +83,7 @@ __all__ = (
     "ReplacementType",
     "RequiresRecreationType",
     "ResourceAttributeType",
+    "ResourceScanStatusType",
     "ResourceSignalStatusType",
     "ResourceStatusType",
     "StackCreateCompleteWaiterName",
@@ -91,16 +105,19 @@ __all__ = (
     "StackSetStatusType",
     "StackStatusType",
     "StackUpdateCompleteWaiterName",
+    "TemplateFormatType",
     "TemplateStageType",
     "ThirdPartyTypeType",
     "TypeRegistrationCompleteWaiterName",
     "TypeTestsStatusType",
     "VersionBumpType",
     "VisibilityType",
+    "WarningTypeType",
 )
 
 AccountFilterTypeType = Literal["DIFFERENCE", "INTERSECTION", "NONE", "UNION"]
 AccountGateStatusType = Literal["FAILED", "SKIPPED", "SUCCEEDED"]
+AttributeChangeTypeType = Literal["Add", "Modify", "Remove"]
 CallAsType = Literal["DELEGATED_ADMIN", "SELF"]
 CapabilityType = Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
 CategoryType = Literal["ACTIVATED", "AWS_TYPES", "REGISTERED", "THIRD_PARTY"]
@@ -127,11 +144,13 @@ ChangeSourceType = Literal[
 ]
 ChangeTypeType = Literal["Resource"]
 ConcurrencyModeType = Literal["SOFT_FAILURE_TOLERANCE", "STRICT_FAILURE_TOLERANCE"]
+DeletionModeType = Literal["FORCE_DELETE_STACK", "STANDARD"]
 DeprecatedStatusType = Literal["DEPRECATED", "LIVE"]
 DescribeAccountLimitsPaginatorName = Literal["describe_account_limits"]
 DescribeChangeSetPaginatorName = Literal["describe_change_set"]
 DescribeStackEventsPaginatorName = Literal["describe_stack_events"]
 DescribeStacksPaginatorName = Literal["describe_stacks"]
+DetailedStatusType = Literal["CONFIGURATION_COMPLETE", "VALIDATION_FAILED"]
 DifferenceTypeType = Literal["ADD", "NOT_EQUAL", "REMOVE"]
 EvaluationTypeType = Literal["Dynamic", "Static"]
 ExecutionStatusType = Literal[
@@ -142,6 +161,19 @@ ExecutionStatusType = Literal[
     "OBSOLETE",
     "UNAVAILABLE",
 ]
+GeneratedTemplateDeletionPolicyType = Literal["DELETE", "RETAIN"]
+GeneratedTemplateResourceStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS", "PENDING"]
+GeneratedTemplateStatusType = Literal[
+    "COMPLETE",
+    "CREATE_IN_PROGRESS",
+    "CREATE_PENDING",
+    "DELETE_IN_PROGRESS",
+    "DELETE_PENDING",
+    "FAILED",
+    "UPDATE_IN_PROGRESS",
+    "UPDATE_PENDING",
+]
+GeneratedTemplateUpdateReplacePolicyType = Literal["DELETE", "RETAIN"]
 HandlerErrorCodeType = Literal[
     "AccessDenied",
     "AlreadyExists",
@@ -172,7 +204,11 @@ HookTargetTypeType = Literal["RESOURCE"]
 IdentityProviderType = Literal["AWS_Marketplace", "Bitbucket", "GitHub"]
 ListChangeSetsPaginatorName = Literal["list_change_sets"]
 ListExportsPaginatorName = Literal["list_exports"]
+ListGeneratedTemplatesPaginatorName = Literal["list_generated_templates"]
 ListImportsPaginatorName = Literal["list_imports"]
+ListResourceScanRelatedResourcesPaginatorName = Literal["list_resource_scan_related_resources"]
+ListResourceScanResourcesPaginatorName = Literal["list_resource_scan_resources"]
+ListResourceScansPaginatorName = Literal["list_resource_scans"]
 ListStackInstancesPaginatorName = Literal["list_stack_instances"]
 ListStackResourcesPaginatorName = Literal["list_stack_resources"]
 ListStackSetOperationResultsPaginatorName = Literal["list_stack_set_operation_results"]
@@ -186,6 +222,9 @@ OperationResultFilterNameType = Literal["OPERATION_RESULT_STATUS"]
 OperationStatusType = Literal["FAILED", "IN_PROGRESS", "PENDING", "SUCCESS"]
 OrganizationStatusType = Literal["DISABLED", "DISABLED_PERMANENTLY", "ENABLED"]
 PermissionModelsType = Literal["SELF_MANAGED", "SERVICE_MANAGED"]
+PolicyActionType = Literal[
+    "Delete", "ReplaceAndDelete", "ReplaceAndRetain", "ReplaceAndSnapshot", "Retain", "Snapshot"
+]
 ProvisioningTypeType = Literal["FULLY_MUTABLE", "IMMUTABLE", "NON_PROVISIONABLE"]
 PublisherStatusType = Literal["UNVERIFIED", "VERIFIED"]
 RegionConcurrencyTypeType = Literal["PARALLEL", "SEQUENTIAL"]
@@ -202,6 +241,7 @@ ResourceAttributeType = Literal[
     "UpdatePolicy",
     "UpdateReplacePolicy",
 ]
+ResourceScanStatusType = Literal["COMPLETE", "EXPIRED", "FAILED", "IN_PROGRESS"]
 ResourceSignalStatusType = Literal["FAILURE", "SUCCESS"]
 ResourceStatusType = Literal[
     "CREATE_COMPLETE",
@@ -240,6 +280,7 @@ StackImportCompleteWaiterName = Literal["stack_import_complete"]
 StackInstanceDetailedStatusType = Literal[
     "CANCELLED",
     "FAILED",
+    "FAILED_IMPORT",
     "INOPERABLE",
     "PENDING",
     "RUNNING",
@@ -288,9 +329,13 @@ StackStatusType = Literal[
     "UPDATE_ROLLBACK_IN_PROGRESS",
 ]
 StackUpdateCompleteWaiterName = Literal["stack_update_complete"]
+TemplateFormatType = Literal["JSON", "YAML"]
 TemplateStageType = Literal["Original", "Processed"]
 ThirdPartyTypeType = Literal["HOOK", "MODULE", "RESOURCE"]
 TypeRegistrationCompleteWaiterName = Literal["type_registration_complete"]
 TypeTestsStatusType = Literal["FAILED", "IN_PROGRESS", "NOT_TESTED", "PASSED"]
 VersionBumpType = Literal["MAJOR", "MINOR"]
 VisibilityType = Literal["PRIVATE", "PUBLIC"]
+WarningTypeType = Literal[
+    "MUTUALLY_EXCLUSIVE_PROPERTIES", "MUTUALLY_EXCLUSIVE_TYPES", "UNSUPPORTED_PROPERTIES"
+]

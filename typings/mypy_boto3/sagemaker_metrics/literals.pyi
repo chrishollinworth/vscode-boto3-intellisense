@@ -11,6 +11,7 @@ Usage::
     data: PutMetricsErrorCodeType = "CONFLICT_ERROR"
     ```
 """
+
 import sys
 
 if sys.version_info >= (3, 8):
